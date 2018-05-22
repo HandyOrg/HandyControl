@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+
+        <ResourceDictionary Source="../Basic/Colors.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Brushes.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Converters.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Effects.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Fonts.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Geometries.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Paths.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Sizes.xaml"></ResourceDictionary>
+
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

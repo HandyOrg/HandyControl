@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="TextBlockBaseStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
+        <Setter Property="FontSize" Value="{DynamicResource TextFontSize}"></Setter>
+    </Style>
+
+    <Style x:Key="TextBlockBoldBaseStyle" BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="{x:Type TextBlock}">
+        <Setter Property="FontWeight" Value="Bold"></Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,109 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Geometries.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="PathBaseStyle" TargetType="{x:Type Path}">
+        <Setter Property="Stretch" Value="Uniform"></Setter>
+        <Setter Property="SnapsToDevicePixels" Value="True"></Setter>
+    </Style>
+
+    <!--搜索-->
+    <Style x:Key="SearchPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource SearchGeometry}"></Setter>
+    </Style>
+
+    <!--全屏返回-->
+    <Style x:Key="FullScreenReturnPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource FullScreenReturnGeometry}"></Setter>
+    </Style>
+
+    <!--全屏-->
+    <Style x:Key="FullScreenPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource FullScreenGeometry}"></Setter>
+    </Style>
+
+    <!--windows-->
+    <Style x:Key="WindowsPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource WindowsGeometry}"></Setter>
+    </Style>
+
+    <!--保存-->
+    <Style x:Key="SavePathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource SaveGeometry}"></Setter>
+    </Style>
+
+    <!--下载-->
+    <Style x:Key="DownloadPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource DownloadGeometry}"></Setter>
+    </Style>
+
+    <!--放大-->
+    <Style x:Key="EnlargePathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource EnlargeGeometry}"></Setter>
+    </Style>
+
+    <!--缩小-->
+    <Style x:Key="ReducePathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource ReduceGeometry}"></Setter>
+    </Style>
+
+    <!--向左旋转-->
+    <Style x:Key="RotatePathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource RotateLeftGeometry}"></Setter>
+    </Style>
+
+    <!--日历-->
+    <Style x:Key="CalendarPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource CalendarGeometry}"></Setter>
+    </Style>
+
+    <!--删除-->
+    <Style x:Key="DeletePathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource DeleteGeometry}"></Setter>
+    </Style>
+
+    <!--关闭-->
+    <Style x:Key="ClosePathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource CloseGeometry}"></Setter>
+    </Style>
+
+    <!--下-->
+    <Style x:Key="DownPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource DownGeometry}"></Setter>
+    </Style>
+
+    <!--时钟-->
+    <Style x:Key="ClockPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource ClockGeometry}"></Setter>
+    </Style>
+
+    <!--向左-->
+    <Style x:Key="LeftPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource LeftGeometry}"></Setter>
+    </Style>
+
+    <!--向右-->
+    <Style x:Key="RightPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5"></Setter>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                    <SkewTransform AngleY="0" AngleX="0"/>
+                    <RotateTransform Angle="0"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Data" Value="{StaticResource LeftGeometry}"></Setter>
+    </Style>
+
+    <!--向左-->
+    <Style x:Key="UpDownPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
+        <Setter Property="Data" Value="{StaticResource UpDownGeometry}"></Setter>
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,31 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Window.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Button.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="TextBlock.xaml"></ResourceDictionary>
+        <!--<ResourceDictionary Source="ToggleButton.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="TextBlock.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="CheckBox.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="RadioButton.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="Border.xaml"></ResourceDictionary>
+        <!--<ResourceDictionary Source="BulletCheckBox.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Label.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ProgressBar.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ScrollViewer.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="Slider.xaml"></ResourceDictionary>
+        <!--<ResourceDictionary Source="Clock.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="TreeView.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="DataGrid.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="GroupBox.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Pagination.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="TabControl.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ListBox.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ComboBox.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Loading.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ContextMenu.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="AnimationPath.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ToolTip.xaml"></ResourceDictionary>-->
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

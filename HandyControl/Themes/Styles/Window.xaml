@@ -1,0 +1,9 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="WindowDefaultStyle" BasedOn="{x:Null}" TargetType="{x:Type Window}">
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
+    </Style>
+
+</ResourceDictionary>

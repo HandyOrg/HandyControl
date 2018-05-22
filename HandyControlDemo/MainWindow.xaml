@@ -3,10 +3,853 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:HandyControlDemo"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
+        xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+        xmlns:model="clr-namespace:HandyControlDemo.Data.Model"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+        UseLayoutRounding="True"
+        Style="{StaticResource WindowDefaultStyle}"
+        WindowState="Maximized"
+        Title="MainWindow" 
+        Name="MyWindow"
+        d:DesignHeight="800" 
+        d:DesignWidth="1400">
+    <Grid Margin="32" Grid.IsSharedSizeScope="True">
+        <ScrollViewer>
+            <StackPanel Name="StackPanelMain">
+                <!--按钮-->
+                <Border Visibility="Collapsed" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="按钮"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（Button）"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <WrapPanel ItemWidth="160" ItemHeight="130">
+                                <StackPanel>
+                                    <Button Content="默认" Margin="5"></Button>
+                                    <Button IsEnabled="False" Content="默认" Margin="5"></Button>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Content="主要" Margin="5" Style="{StaticResource ButtonPrimary}"></Button>
+                                    <Button IsEnabled="False" Content="主要" Margin="5" Style="{StaticResource ButtonPrimary}"></Button>
+                                    <TextBlock Style="{StaticResource TextBlockDefault}" Text="ButtonPrimary"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Content="成功" Margin="5" Style="{StaticResource ButtonSuccess}"></Button>
+                                    <Button IsEnabled="False" Content="成功" Margin="5" Style="{StaticResource ButtonSuccess}"></Button>
+                                    <TextBlock Style="{StaticResource TextBlockDefault}" Text="ButtonSuccess"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Content="信息" Margin="5" Style="{StaticResource ButtonInfo}"></Button>
+                                    <Button IsEnabled="False" Content="信息" Margin="5" Style="{StaticResource ButtonInfo}"></Button>
+                                    <TextBlock Style="{StaticResource TextBlockDefault}" Text="ButtonInfo"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Content="警告" Margin="5" Style="{StaticResource ButtonWarning}"></Button>
+                                    <Button IsEnabled="False" Content="警告" Margin="5" Style="{StaticResource ButtonWarning}"></Button>
+                                    <TextBlock Style="{StaticResource TextBlockDefault}" Text="ButtonWarning"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Content="危险" Margin="5" Style="{StaticResource ButtonDanger}"></Button>
+                                    <Button IsEnabled="False" Content="危险" Margin="5" Style="{StaticResource ButtonDanger}"></Button>
+                                    <TextBlock Style="{StaticResource TextBlockDefault}" Text="ButtonDanger"></TextBlock>
+                                </StackPanel>
+                            </WrapPanel>
+                            <WrapPanel ItemWidth="160" ItemHeight="130">
+                                <StackPanel>
+                                    <Button Margin="5" Style="{StaticResource ButtonIconDefault}" controls:IconElement.Angle="45" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"></Button>
+                                    <Button IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconDefault}" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"></Button>
+                                    <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconPrimary（DeleteGeometry）"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Margin="5" Style="{StaticResource ButtonIconPrimary}" controls:IconElement.Geometry="{StaticResource ClockGeometry}"></Button>
+                                    <Button IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconPrimary}" controls:IconElement.Geometry="{StaticResource ClockGeometry}"></Button>
+                                    <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconPrimary（ClockGeometry）"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Margin="5" Style="{StaticResource ButtonIconSuccess}" controls:IconElement.Geometry="{StaticResource CalendarGeometry}"></Button>
+                                    <Button IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconSuccess}" controls:IconElement.Geometry="{StaticResource CalendarGeometry}"></Button>
+                                    <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconPrimary（CalendarGeometry）"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Margin="5" Style="{StaticResource ButtonIconInfo}" controls:IconElement.Geometry="{StaticResource DownGeometry}"></Button>
+                                    <Button IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconInfo}" controls:IconElement.Geometry="{StaticResource DownGeometry}"></Button>
+                                    <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconPrimary（DownGeometry）"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Margin="5" Style="{StaticResource ButtonIconWarning}" controls:IconElement.Geometry="{StaticResource LeftGeometry}"></Button>
+                                    <Button IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconWarning}" controls:IconElement.Geometry="{StaticResource LeftGeometry}"></Button>
+                                    <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconPrimary（LeftGeometry）"></TextBlock>
+                                </StackPanel>
+                                <StackPanel>
+                                    <Button Margin="5" Style="{StaticResource ButtonIconDanger}" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"></Button>
+                                    <Button IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconDanger}" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"></Button>
+                                    <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconPrimary（DeleteGeometry）"></TextBlock>
+                                </StackPanel>
+                            </WrapPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+                <!--切换按钮-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="切换按钮"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（ToggleButton）"></TextBlock>
+                        </StackPanel>
+                        <WrapPanel Grid.Column="1" ItemWidth="160" ItemHeight="130">
+                            <StackPanel>
+                                <ToggleButton IsChecked="True" Content="默认" Margin="5"></ToggleButton>
+                                <ToggleButton IsEnabled="False" Content="默认" Margin="5"></ToggleButton>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton IsChecked="True" Content="主要" Margin="5" Style="{StaticResource ToggleButtonPrimary}"></ToggleButton>
+                                <ToggleButton IsEnabled="False" Content="主要" Margin="5" Style="{StaticResource ToggleButtonPrimary}"></ToggleButton>
+                                <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonPrimary"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton IsChecked="True" Content="成功" Margin="5" Style="{StaticResource ToggleButtonSuccess}"></ToggleButton>
+                                <ToggleButton IsEnabled="False" Content="成功" Margin="5" Style="{StaticResource ToggleButtonSuccess}"></ToggleButton>
+                                <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSuccess"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton Content="信息" Margin="5" Style="{StaticResource ToggleButtonInfo}"></ToggleButton>
+                                <ToggleButton IsEnabled="False" Content="信息" Margin="5" Style="{StaticResource ToggleButtonInfo}"></ToggleButton>
+                                <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonInfo"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton Content="警告" Margin="5" Style="{StaticResource ToggleButtonWarning}"></ToggleButton>
+                                <ToggleButton IsEnabled="False" Content="警告" Margin="5" Style="{StaticResource ToggleButtonWarning}"></ToggleButton>
+                                <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonWarning"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton Content="危险" Margin="5" Style="{StaticResource ToggleButtonDanger}"></ToggleButton>
+                                <ToggleButton IsEnabled="False" Content="危险" Margin="5" Style="{StaticResource ToggleButtonDanger}"></ToggleButton>
+                                <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonDanger"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"></ToggleButton>
+                                <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"></ToggleButton>
+                                <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonIconTransparent"></TextBlock>
+                            </StackPanel>
+                            <StackPanel>
+                                <ToggleButton Height="30" IsChecked="True" Margin="5" Style="{StaticResource ToggleButtonSwitch}"></ToggleButton>
+                                <ToggleButton Height="30" Margin="5" IsEnabled="False" Style="{StaticResource ToggleButtonSwitch}"></ToggleButton>
+                                <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSwitch"></TextBlock>
+                            </StackPanel>
+                        </WrapPanel>
+                    </Grid>
+                </Border>-->
+                <!--开关-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="开关"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（BulletCheckBox）"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="50,0,0,0" Orientation="Horizontal">
+                            <controls:BulletCheckBox IsChecked="True" ></controls:BulletCheckBox>
+                            <controls:BulletCheckBox Margin="5,0" IsEnabled="False"></controls:BulletCheckBox>
+                        </StackPanel>
+                    </Grid>
+                </Border>-->
+                <!--复选框-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="复选框"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（CheckBox）"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="50,0,0,0" Grid.Column="1">
+                            <CheckBox Content="刷卡"></CheckBox>
+                            <CheckBox IsChecked="True" Margin="5,0" Content="人脸"></CheckBox>
+                            <CheckBox IsEnabled="False" Margin="5,0" Content="RFID"></CheckBox>
+                            <CheckBox IsEnabled="False" IsChecked="True" Margin="5,0" Content="指纹"></CheckBox>
+                        </StackPanel>
+                    </Grid>
+                </Border>-->
+                <!--单选框-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="单选框"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（RadioButton）"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="50,0,0,0" Grid.Column="1">
+                            <RadioButton Content="刷卡"/>
+                            <RadioButton IsChecked="True" Margin="5,0" Content="人脸"></RadioButton>
+                            <RadioButton Margin="5,0" Content="RFID"></RadioButton>
+                            <RadioButton IsEnabled="False" Margin="5,0" Content="指纹"></RadioButton>
+                        </StackPanel>
+                    </Grid>
+                </Border>-->
+                <!--滑动条-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="滑动条"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（Slider）"></TextBlock>
+                        </StackPanel>
+                        <WrapPanel Grid.Column="1" Margin="0,0,0,50">
+                            <StackPanel Margin="50,0,0,0" HorizontalAlignment="Left">
+                                <Slider Width="300"></Slider>
+                                <Slider Margin="0,20,0,0" Value="50" Maximum="100" IsEnabled="False" Width="300"></Slider>
+                                <Slider Margin="0,20,0,0" TickFrequency="5" TickPlacement="BottomRight" Minimum="1" Maximum="50" Value="25" IsSelectionRangeEnabled="True" />
+                                <Slider Margin="0,20,0,0" IsEnabled="False" TickFrequency="5" TickPlacement="BottomRight" Minimum="1" Maximum="50" Value="25" IsSelectionRangeEnabled="True" />
+                                <Slider Margin="0,20,0,0" TickFrequency="5" TickPlacement="Both" Minimum="1" Maximum="50" Value="25" IsSelectionRangeEnabled="True" />
+                                <Slider Margin="0,20,0,0" Minimum="0" Maximum="100" Style="{StaticResource HzDiscreteSlider}" Value="50" />
+                                <TextBlock Margin="0,10,0,0" Style="{StaticResource TextBlockDefault}" Text="HzDiscreteSlider"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="30,0,0,0">
+                                <Slider TickFrequency="5" Height="260" TickPlacement="BottomRight" Orientation="Vertical" Minimum="1" Maximum="50" />
+                                <Slider Margin="20,0,0,0" TickFrequency="25" TickPlacement="TopLeft" Orientation="Vertical" Minimum="1" Value="25" Maximum="50" IsEnabled="False" />
+                            </StackPanel>
+                        </WrapPanel>
+                    </Grid>
+                </Border>-->
+                <!--进度条-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="进度条"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（ProgressBar）"></TextBlock>
+                        </StackPanel>
+                        <WrapPanel Margin="50,0,0,0" Grid.Column="1" ItemWidth="600">
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,30">
+                                <StackPanel Width="400">
+                                    <ProgressBar Value="20"></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarSuccess}" Margin="0,10,0,0" Value="40"></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarInfo}" Margin="0,10,0,0" Value="60"></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarWarning}" Margin="0,10,0,0" Value="80"></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarDanger}" Margin="0,10,0,0" Value="100" Maximum="200"></ProgressBar>
+                                </StackPanel>
+                                <StackPanel Margin="10,0,0,0" Width="200" HorizontalAlignment="Left">
+                                    <TextBlock Padding="0,2,0,3" Style="{StaticResource TextBlockDefault}" Text=""></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarSuccess" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarInfo" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarWarning" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarDanger" HorizontalAlignment="Left"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,0,0,30">
+                                <StackPanel Width="400">
+                                    <ProgressBar Style="{StaticResource ProgressBarPrimaryStripe}" Value="120" Maximum="200" ></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarSuccessStripe}" Margin="0,10,0,0" Value="60" Maximum="200" ></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarInfoStripe}" Margin="0,10,0,0" Value="50" Maximum="200" ></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarWarningStripe}" Margin="0,10,0,0" Value="180" Maximum="200" ></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarDangerStripe}" Margin="0,10,0,0" Value="110" Maximum="200" ></ProgressBar>
+                                    <ProgressBar Style="{StaticResource ProgressBarPlayer}" Margin="0,18,0,0" Value="110" Maximum="200" ></ProgressBar>
+                                </StackPanel>
+                                <StackPanel Margin="10,0,0,0" Width="200" HorizontalAlignment="Left">
+                                    <TextBlock Padding="0,2,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarPrimaryStripe" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarSuccessStripe" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarInfoStripe" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarWarningStripe" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarDangerStripe" HorizontalAlignment="Left"></TextBlock>
+                                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarPlayer" HorizontalAlignment="Left"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </WrapPanel>
+                    </Grid>
+                </Border>-->
+                <!--加载条-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="加载条"></TextBlock>
+                        </StackPanel>
+                        <StackPanel VerticalAlignment="Center" Margin="50,0,0,0" Grid.Column="1">
+                            <controls:LoadingLine></controls:LoadingLine>
+                            <controls:LoadingLine Margin="0,30" Style="{StaticResource LoadingLineLarge}"></controls:LoadingLine>
+                            <StackPanel Orientation="Horizontal">
+                                <controls:LoadingCircle></controls:LoadingCircle>
+                                <Border VerticalAlignment="Center" Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
+                                    <controls:LoadingCircle Style="{StaticResource LoadingCircleLight}" Margin="10"></controls:LoadingCircle>
+                                </Border>
+                                <controls:LoadingCircle Margin="30,0,0,0" Style="{StaticResource LoadingCircleLarge}"></controls:LoadingCircle>
+                                <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
+                                    <controls:LoadingCircle Margin="10" Style="{StaticResource LoadingCircleLargeLight}"></controls:LoadingCircle>
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>-->
+                <!--SVG动画-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="SVG动画"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}">（AnimationPath）</TextBlock>
+                        </StackPanel>
+                        <WrapPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
+                            <Border Height="100" Width="100" Background="Transparent" ToolTip="Logo">
+                                <controls:AnimationPath PathLength="350" Data="F1M920,623C923.727,628.962 921,646.695 921,655 921,682.664 921,710.336 921,738 921,768.082 925.328,811.315 918,836 903.862,883.627 872.578,912.609 823,925 813.58,927.354 800.912,926 790,926 767.669,926 745.331,926 723,926 696.003,926.333 668.997,926.667 642,927 601.671,927 561.329,927 521,927 511.584,927 480.763,929.566 475,926 475.667,926 476.333,926 477,926 483.623,917.068 502.194,908.526 512,902 537.933,884.74 564.176,867.097 590,849 666.329,795.509 744.738,743.551 821,690 845.895,672.519 871.434,656.242 896,639 903.897,633.458 913.504,629.899 920,623z M161,333C161,396.327 161,459.673 161,523 157.661,528.384 160,556.215 160,565 160,601.996 160,639.004 160,676 160.333,676 160.667,676 161,676 174.342,663.888 197.037,656.728 213,647 251.63,623.46 292.921,603.803 332,580 455.577,504.729 586.124,439.5 711,366 711,451.658 711,537.342 711,623 655.006,657.996 598.994,693.003 543,728 543,708.002 543,687.998 543,668 539.168,661.838 542,643.538 542,635 542,606.336 542,577.664 542,549 541.333,549 540.667,549 540,549 531.558,559.313 511.639,568.253 500,576 470.305,595.763 439.912,615.758 409,635 399.327,641.021 389.295,646.291 380,652 376.954,653.871 365.55,657.766 364,660 364,721.994 364,784.006 364,846 361.366,850.185 363,861.861 363,868 363,887.522 362.608,909.076 364,927 304.339,927 244.661,927 185,927 155.131,927 118.163,931.003 93,924 72.952,918.421 56.64,908.992 42,898 37.287,894.461 33.589,888.783 30,884 18.537,868.723 8.706,853.747 3,832 0.121,821.029 1,808.166 1,795 1,774.335 1,753.665 1,733 1,634.01 1,534.99 1,436 16.683,427.173 31.044,415.485 46,406 67.518,392.354 88.817,380.09 110,366 121.134,358.595 132.308,351.379 144,344 149.539,340.504 153.923,335.03 161,333z M297,148C297.666,148 298.333,148 299,148 299,157.999 299,168.001 299,178 288.141,183.381 279.071,192.507 269,199 269,193.001 269,186.999 269,181 267.459,178.688 267.881,172.895 268,169 275.398,164.769 292.094,154.399 297,148z M361,136C361.667,136 362.333,136 363,136 363,151.998 363,168.002 363,184 347.002,195.332 330.998,206.668 315,218 315,201.668 315,185.332 315,169 325.719,163.746 334.552,154.646 344,148 349.675,144.008 357.064,141.645 361,136z M378,72C381.577,77.586 379.134,95.09 379,103 368.668,110.333 358.332,117.667 348,125 348,114.668 348,104.332 348,94 355.788,89.259 372.765,78.885 378,72z M109,1C220.322,1 331.678,1 443,1 443,1.333 443,1.667 443,2 295.681,103.323 148.319,204.677 1,306 1,241.34 1,176.66 1,112 2,106.001 3,99.999 4,94 7.621,81.746 11.748,69.075 18,59 30.169,39.39 49.956,20.521 72,11 80.332,8.334 88.667,5.666 97,3 101.135,1.865 105.885,2.958 109,1z M785.335,-0.209C801.393,-0.362 816.839,0.388 829,4 848.591,9.819 864.504,19.116 879,30 885.416,34.817 890.236,42.411 895,49 904.823,62.586 913.037,77.087 918,96 920.879,106.971 920,119.834 920,133 920,153.665 920,174.335 920,195 920,294.323 920,393.677 920,493 902.967,501.124 887.43,514.691 872,525 857.054,534.986 842.227,543.382 827,553 804.534,567.19 782.954,584.202 760,598 760,492.677 760,387.323 760,282 759.667,282 759.333,282 759,282 750.937,289.213 739.498,292.212 730,298 706.024,312.612 680.407,325.08 656,340 592.381,378.892 524.569,413.05 461,452 446.205,461.065 430.832,466.969 416,476 370.102,503.948 321.304,527.723 275,556 257.871,566.46 239.59,575.3 222,586 216.108,589.584 210.273,594.894 203,597 203,500.01 203,402.99 203,306 214.025,300.639 223.306,291.808 233,285 248.573,274.063 264.173,264.541 280,254 287.314,249.129 294.267,241.121 303,238 303,249.665 303,261.334 303,273 303.333,273 303.667,273 304,273 309.016,266.75 317.334,263.673 324,259 330.355,254.545 336.644,248.486 343,244 345.294,242.381 350.57,241.244 352,239 352,227.001 352,214.999 352,203 360.806,198.733 367.79,191.964 376,187 376,260.326 376,333.674 376,407 376.333,407 376.667,407 377,407 380.078,403.361 384.796,402.602 389,400 400.641,392.794 412.901,386.419 425,379 451.17,362.953 477.055,345.752 502,329 509.827,323.743 539.22,309.277 540,300 542.664,295.611 539.712,286.961 541,281 543.448,269.669 541.561,254.333 544,243 544,236.667 544,230.333 544,224 547.791,206.454 544.222,184.549 548,167 548,161.001 548,154.999 548,149 550.285,138.428 550.377,123.216 551,112 551,105.334 551,98.666 551,92 553.491,80.469 550.25,66.732 553,54 556.428,38.131 555.92,18.392 556,1 616.66,1 677.339,1 738,1 752.607,1 769.277,-0.056 785.335,-0.209z"></controls:AnimationPath>
+                            </Border>
+                        </WrapPanel>
+                    </Grid>
+                </Border>-->
+                <!--gif图片-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="gif图片"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}">（GifImage）</TextBlock>
+                        </StackPanel>
+                        <WrapPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
+                            <controls:GifImage Height="100" Width="100" Stretch="Uniform" Source="/Resources/police_car.gif"></controls:GifImage>
+                        </WrapPanel>
+                    </Grid>
+                </Border>-->
+                <!--图片浏览-->
+                <!--<Border Visibility="Visible" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="图片浏览"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}">（ImageBrowser）</TextBlock>
+                        </StackPanel>
+                        <Button Click="ButtonImageBrowser_OnClick" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,5,5,5" Content="点击打开图片浏览器" Style="{StaticResource ButtonPrimary}"></Button>
+                    </Grid>
+                </Border>-->
+                <!--颜色拾取器-->
+                <Border Visibility="Visible" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="颜色拾取器"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}">（ColorPicker）</TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Left" Margin="50,5,5,5">
+                            <Button Click="ButtonColor_OnClick" Name="ButtonColor" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5,5,5" Content="点击弹出颜色拾取器" Style="{StaticResource ButtonPrimary}"></Button>
+                            <Button Click="ButtonColorPreset_OnClick" Name="ButtonColorPreset" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,5,5,5" Content="点击弹出颜色拾取器,同时预设为蓝色" Style="{StaticResource ButtonPrimary}"></Button>
+
+                            <TextBlock Name="BlockColor" Margin="20,0,0,0" Style="{StaticResource TextBlockTitle}"></TextBlock>
+                        </StackPanel>
+                        <Popup StaysOpen="False" AllowsTransparency="True" Name="PopupColor" Grid.Column="1" VerticalOffset="1" Placement="Bottom" PlacementTarget="{Binding ElementName=ButtonColor}">
+                            <controls:ColorPicker x:Name="ColorPicker" Canceled="ColorPicker_OnCanceled" ColorSelected="ColorPicker_OnColorSelected"></controls:ColorPicker>
+                        </Popup>
+                    </Grid>
+                </Border>
+                <!-- 轮播-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="轮播"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}">（Carousel）</TextBlock>
+                        </StackPanel>
+                        <controls:Carousel AutoRun="True" Width="600" Height="330" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,5,5,5" >
+                            <Image Width="600" Stretch="UniformToFill" Source="Resources/1.jpg"></Image>
+                            <Image Width="300" Stretch="UniformToFill" Source="Resources/2.jpg"></Image>
+                            <Grid Width="600">
+                                <Image Stretch="UniformToFill" Source="Resources/3.jpg"></Image>
+                                <TextBlock Text="示例文本" Style="{StaticResource TextBlockDefault}" FontSize="100" FontWeight="Bold" Foreground="White"></TextBlock>
+                            </Grid>
+                            <Image Width="600" Stretch="UniformToFill" Source="Resources/4.jpg"></Image>
+                            <Image Width="600" Stretch="UniformToFill" Source="Resources/5.jpg"></Image>
+                        </controls:Carousel>
+                    </Grid>
+                </Border>-->
+                <!--时间条-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="时间条"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}">（TimeBar）</TextBlock>
+                        </StackPanel>
+                        <controls:TimeBar BorderThickness="0" Background="{StaticResource PrimaryBrush}" Grid.Column="1" Width="600" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,5,5,5" ></controls:TimeBar>
+                    </Grid>
+                </Border>-->
+                <!--输入-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="输入"></TextBlock>
+                        </StackPanel>
+                        <WrapPanel controls:InfoControl.TitleWidth="280" Grid.Column="1" ItemWidth="500" Margin="0,0,0,10">
+                            <controls:InfoComboBox DisplayMemberPath="Id" SelectedValuePath="Id" ItemsSource="{Binding FruitList,ElementName=MyWindow}" Margin="0,0,0,30" HorizontalAlignment="Stretch" Title="下拉框（必填） InfoComboBox" PlaceHolder="请选择一种水果" ErrorStr="请选择一种水果"></controls:InfoComboBox>
+                            <controls:InfoComboBox DisplayMemberPath="Name" SelectedValuePath="Id" IsEditable="True" ItemsSource="{Binding FruitList,ElementName=MyWindow}" Margin="0,0,0,30" HorizontalAlignment="Stretch" IsNeedly="False" Title="下拉框 InfoComboBox" PlaceHolder="请选择一种水果">
+                                --><!--<sys:String>苹果</sys:String>
+                                <sys:String>香蕉</sys:String>
+                                <sys:String>橘子</sys:String>
+                                <sys:String>菠萝</sys:String>
+                                <sys:String>葡萄</sys:String>--><!--
+                            </controls:InfoComboBox>
+                            <controls:InfoTextBox Margin="0,0,0,30" HorizontalAlignment="Stretch" Title="文本框（必填） InfoTextBox" PlaceHolder="请输入一种水果" ErrorStr="请输入一种水果"></controls:InfoTextBox>
+                            <controls:InfoTextBox TitleAlignment="Top" Margin="0,0,0,30" HorizontalAlignment="Stretch" IsNeedly="False" Title="文本框 InfoTextBox" PlaceHolder="请输入一种水果"></controls:InfoTextBox>
+                            <controls:InfoPasswordBox PasswordChar="❤" TitleAlignment="Top" Margin="0,0,0,30" HorizontalAlignment="Stretch" IsNeedly="False" Title="密码框 InfoPasswordBox" PlaceHolder="请输入密码"></controls:InfoPasswordBox>
+                            <controls:InfoDatePicker TitleAlignment="Top" Margin="0,0,0,30" HorizontalAlignment="Stretch" Title="日期选择（必填） InfoDatePicker" PlaceHolder="请选择日期" ErrorStr="请选择日期"></controls:InfoDatePicker>
+                            <controls:InfoDatePicker Margin="0,0,0,30" IsNeedly="False" HorizontalAlignment="Stretch" Title="日期选择 InfoDatePicker" PlaceHolder="请选择日期"></controls:InfoDatePicker>
+                            <controls:InfoTimePicker IsNeedly="False" Margin="0,0,0,30" HorizontalAlignment="Stretch" Title="时间选择 InfoTimePicker" PlaceHolder="请选择一个时间" ErrorStr="请选择一个时间"></controls:InfoTimePicker>
+                            <controls:InfoDateTimePicker IsNeedly="False" Margin="0,0,0,30" HorizontalAlignment="Stretch" Title="日期时间选择 InfoDateTimePicker" PlaceHolder="请选择一个时间" ErrorStr="请选择一个时间"></controls:InfoDateTimePicker>
+                            <controls:InfoNumericUpDown IsNeedly="False" Margin="0,0,0,30" HorizontalAlignment="Stretch" Title="数值选择控件 InfoNumericUpDown"></controls:InfoNumericUpDown>
+                            <ComboBox SelectedIndex="0" Text="原生ComboBox" Margin="280,0,0,30">
+                                <ComboBoxItem Content="原生ComboBox"></ComboBoxItem>
+                                <ComboBoxItem Content="苹果"></ComboBoxItem>
+                                <ComboBoxItem Content="香蕉"></ComboBoxItem>
+                                <ComboBoxItem Content="橘子"></ComboBoxItem>
+                                <ComboBoxItem Content="菠萝"></ComboBoxItem>
+                                <ComboBoxItem Content="葡萄"></ComboBoxItem>
+                            </ComboBox>
+                            <ComboBox IsEditable="True" Text="原生可编辑ComboBox" Margin="280,0,0,30">
+                                <ComboBoxItem Content="原生可编辑ComboBox"></ComboBoxItem>
+                                <ComboBoxItem Content="苹果"></ComboBoxItem>
+                                <ComboBoxItem Content="香蕉"></ComboBoxItem>
+                                <ComboBoxItem Content="橘子"></ComboBoxItem>
+                                <ComboBoxItem Content="菠萝"></ComboBoxItem>
+                                <ComboBoxItem Content="葡萄"></ComboBoxItem>
+                            </ComboBox>
+                        </WrapPanel>
+                    </Grid>
+                </Border>-->
+                <!--树状视图-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="树状视图"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（TreeView）"></TextBlock>
+                        </StackPanel>
+                        <TreeView HorizontalAlignment="Left" Width="300" Height="300" Margin="50,0,0,0" Grid.Column="1" Name="TreeViewMain">
+                            <TreeView.ItemTemplate>
+                                <HierarchicalDataTemplate DataType="{x:Type model:CellGateInfo}" ItemsSource="{Binding InfoList}">
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                </HierarchicalDataTemplate>
+                            </TreeView.ItemTemplate>
+                        </TreeView>
+                    </Grid>
+                </Border>-->
+                <!--列表框-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="列表框"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（ListBox）"></TextBlock>
+                        </StackPanel>
+                        <ListBox HorizontalAlignment="Left" Width="300" Height="300" Margin="50,0,0,0" Grid.Column="1" Name="ListBoxMain">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding Name}"></TextBlock>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Grid>
+                </Border>-->
+                <!--数据表格-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="数据表格"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（DataGrid）"></TextBlock>
+                        </StackPanel>
+                        <DataGrid HorizontalAlignment="Left" Width="300" Height="300" Name="DataGridMain" Grid.Column="1" Margin="50,0,0,0">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Width="1*" Binding="{Binding PersonId}" Header="姓名"/>
+                                <DataGridTextColumn Width="1*" Binding="{Binding DeviceId}" Header="类型"/>
+                                <DataGridTextColumn Width="1*" Binding="{Binding Direction}" Header="方向"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </Border>-->
+                <!--组合框-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="组合框"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（GroupBox）"></TextBlock>
+                        </StackPanel>
+                        <WrapPanel Grid.Column="1" Margin="50,0,0,0">
+                            <GroupBox Style="{StaticResource GroupBoxDefault}" Margin="0,0,10,10" Width="400" Height="300" Header="默认样式">
+                                <TextBlock Style="{StaticResource TextBlockLargeBold}" Text="内容"></TextBlock>
+                            </GroupBox>
+                            <GroupBox Margin="0,0,10,10" Width="400" Height="300" Header="标题不带背景（GroupBoxNoBackground）">
+                                <TextBlock Style="{StaticResource TextBlockLargeBold}" Text="内容"></TextBlock>
+                            </GroupBox>
+                        </WrapPanel>
+                    </Grid>
+                </Border>-->
+                <!--标签控件-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="标签控件"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（TabControl）"></TextBlock>
+                        </StackPanel>
+                        <Border Style="{StaticResource BorderRegionStyle}" Grid.Column="1" Padding="0" Margin="50,0,0,0">
+                            <TabControl>
+                                <TabItem Header="标题1">
+                                    <Border Background="{DynamicResource PrimaryBrush}" Height="200">
+                                        <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容1"></TextBlock>
+                                    </Border>
+                                </TabItem>
+                                <TabItem Header="标题2">
+                                    <Border Background="{DynamicResource SuccessBrush}" Height="200">
+                                        <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容2"></TextBlock>
+                                    </Border>
+                                </TabItem>
+                                <TabItem Header="标题3">
+                                    <Border Background="{DynamicResource InfoBrush}" Height="200">
+                                        <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容3"></TextBlock>
+                                    </Border>
+                                </TabItem>
+                                <TabItem Header="标题4">
+                                    <Border Background="{DynamicResource WarningBrush}" Height="200">
+                                        <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容4"></TextBlock>
+                                    </Border>
+                                </TabItem>
+                                <TabItem Header="标题5">
+                                    <Border Background="{DynamicResource DangerBrush}" Height="200">
+                                        <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容5"></TextBlock>
+                                    </Border>
+                                </TabItem>
+                            </TabControl>
+                        </Border>
+                    </Grid>
+                </Border>-->
+                <!--可拖动的TabControl-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="可拖动的TabControl"></TextBlock>
+                        </StackPanel>
+                        <controls:TabControl SelectedIndex="2" BorderThickness="1" OpenEffect="True" BorderBrush="{DynamicResource BorderBrush}" Grid.Column="1" Margin="50,0,0,0">
+                            <controls:TabItem Header="标题1">
+                                <Border Background="{DynamicResource PrimaryBrush}" Height="200">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容1"></TextBlock>
+                                </Border>
+                            </controls:TabItem>
+                            <controls:TabItem Header="标题2">
+                                <Border Background="{DynamicResource SuccessBrush}" Height="200">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容2"></TextBlock>
+                                </Border>
+                            </controls:TabItem>
+                            <controls:TabItem Header="标题3">
+                                <Border Background="{DynamicResource InfoBrush}" Height="200">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容3"></TextBlock>
+                                </Border>
+                            </controls:TabItem>
+                            <controls:TabItem Header="标题4">
+                                <Border Background="{DynamicResource WarningBrush}" Height="200">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容4"></TextBlock>
+                                </Border>
+                            </controls:TabItem>
+                            <controls:TabItem Header="标题5">
+                                <Border Background="{DynamicResource DangerBrush}" Height="200">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}" Text="内容5"></TextBlock>
+                                </Border>
+                            </controls:TabItem>
+                        </controls:TabControl>
+                    </Grid>
+                </Border>-->
+                <!--步骤条-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="步骤条"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（Steps）"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="50,0,0,0">
+                            <controls:Steps x:Name="StepsExample">
+                                <controls:Steps.Items>
+                                    <sys:String>描述描述描述描述1</sys:String>
+                                    <sys:String>描述描述描述描述2</sys:String>
+                                    <sys:String>描述描述描述描述3</sys:String>
+                                    <sys:String>描述描述描述描述4</sys:String>
+                                </controls:Steps.Items>
+                            </controls:Steps>
+                            <StackPanel Margin="0,30,0,0" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Button Click="ButtonStepPrec_OnClick" Content="上一步" Style="{StaticResource ButtonPrimary}"></Button>
+                                <Button Click="ButtonStepNext_OnClick" Margin="10,0,0,0" Content="下一步" Style="{StaticResource ButtonPrimary}"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>-->
+                <!--页码条-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="页码条"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（Pagination）"></TextBlock>
+                        </StackPanel>
+                        <controls:Pagination Margin="50,0,0,0" MaxPageCount="10" Grid.Column="1"></controls:Pagination>
+                    </Grid>
+                </Border>-->
+                <!--上下文菜单-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="上下文菜单"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}" Text="（ContextMenu）"></TextBlock>
+                        </StackPanel>
+                        <Grid Grid.Column="1" Background="Transparent">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.ContextMenu>
+                                <ContextMenu>
+                                    <MenuItem Header="11111111111">
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                    </MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111"></MenuItem>
+                                    <MenuItem Header="11111111111">
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                        <MenuItem Header="11111111111"></MenuItem>
+                                    </MenuItem>
+                                </ContextMenu>
+                            </Grid.ContextMenu>
+                            <controls:ContextMenuButton Margin="50,0,30,0" HorizontalAlignment="Left" Content="点击弹出树状上下文菜单" Style="{StaticResource ButtonPrimary}">
+                                <controls:ContextMenuButton.Menu>
+                                    <controls:TreeContextMenu Name="ButtonContextMenu">
+                                        <controls:TreeContextMenu.ItemTemplate>
+                                            <HierarchicalDataTemplate DataType="{x:Type model:CellGateInfo}" ItemsSource="{Binding InfoList}">
+                                                <TextBlock Text="{Binding Name}"></TextBlock>
+                                            </HierarchicalDataTemplate>
+                                        </controls:TreeContextMenu.ItemTemplate>
+                                    </controls:TreeContextMenu>
+                                </controls:ContextMenuButton.Menu>
+                            </controls:ContextMenuButton>
+                            <TextBlock Grid.Column="1" Style="{StaticResource TextBlockDefault}" Text="或者在空白区域右键弹出普通上下文菜单"></TextBlock>
+                        </Grid>
+                    </Grid>
+                </Border>-->
+                <!--特殊文本-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="特殊文本"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}">
+                                （FormatedText、
+                                <LineBreak/>
+                                StrokeableLabel）
+                            </TextBlock>
+                        </StackPanel>
+                        <WrapPanel Grid.Column="1" VerticalAlignment="Center" Margin="50,0,0,0">
+                            <controls:FormatedText Text="纵向文本" FontSize="30" Margin="0,0,30,0" TextOrientation="Vertical"></controls:FormatedText>
+                            <controls:FormatedText Text="横向文本" FontSize="30" Margin="0,0,30,0"></controls:FormatedText>
+                            <controls:FormatedText Text="文字间隔示例" FontSize="30" Margin="0,0,30,0" StretchSize="28" FontWeight="Bold"></controls:FormatedText>
+                            <controls:StrokeableLabel Text="带边线文本" FontSize="30" StrokeThickness="2" Stroke="{DynamicResource PrimaryBrush}" FontWeight="Bold"/>
+                        </WrapPanel>
+                    </Grid>
+                </Border>-->
+                <!--字体-->
+                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="字体"></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" Margin="50,0,0,30">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockLargeBold" Style="{DynamicResource TextBlockLargeBold}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockLarge" Style="{DynamicResource TextBlockLarge}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockHeaderBold" Style="{DynamicResource TextBlockTitleBold}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockHeader" Style="{DynamicResource TextBlockTitle}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockSubHeaderBold" Style="{DynamicResource TextBlockSubTitleBold}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockSubHeader" Style="{DynamicResource TextBlockSubTitle}"></TextBlock>
+
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultBold" Style="{DynamicResource TextBlockDefaultBold}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefault" Style="{DynamicResource TextBlockDefault}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultAccent" Style="{DynamicResource TextBlockDefaultAccent}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultSecLight" Style="{DynamicResource TextBlockDefaultSecLight}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultThiLight" Style="{DynamicResource TextBlockDefaultThiLight}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultPrimary" Style="{DynamicResource TextBlockDefaultPrimary}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultDanger" Style="{DynamicResource TextBlockDefaultDanger}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultWarning" Style="{DynamicResource TextBlockDefaultWarning}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultInfo" Style="{DynamicResource TextBlockDefaultInfo}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultSuccess" Style="{DynamicResource TextBlockDefaultSuccess}"></TextBlock>
+                                </StackPanel>
+                                <StackPanel Margin="10,0,0,0">
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="标题标题标题标题标题标题标题标题标题标题" Style="{DynamicResource TextBlockLargeBold}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="标题标题标题标题标题标题标题标题标题标题" Style="{DynamicResource TextBlockLarge}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="标题标题标题标题标题标题标题标题标题标题标题标题" Style="{DynamicResource TextBlockTitleBold}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="标题标题标题标题标题标题标题标题标题标题标题标题" Style="{DynamicResource TextBlockTitle}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="子标题子标题子标题子标题子标题子标题子标题子标题子标题子标题" Style="{DynamicResource TextBlockSubTitleBold}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="子标题子标题子标题子标题子标题子标题子标题子标题子标题子标题" Style="{DynamicResource TextBlockSubTitle}"></TextBlock>
+
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultBold}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefault}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultAccent}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultSecLight}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultThiLight}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultPrimary}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultDanger}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultWarning}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultInfo}"></TextBlock>
+                                    <TextBlock HorizontalAlignment="Left" Margin="5" Text="正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文正文" Style="{DynamicResource TextBlockDefaultSuccess}"></TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Border>-->
+            </StackPanel>
+        </ScrollViewer>
     </Grid>
 </Window>
