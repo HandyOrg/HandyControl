@@ -41,11 +41,6 @@ namespace HandyControl.Controls
         private bool IsNeedUpdateInfo { get; set; } = true;
 
         /// <summary>
-        ///     颜色分值
-        /// </summary>
-        private const double ColorInterval = 1 / 6.0;
-
-        /// <summary>
         ///     颜色选取面板宽度
         /// </summary>
         private const double ColorPanelWidth = 230;
@@ -416,11 +411,11 @@ namespace HandyControl.Controls
                         sub = 255 - common;
                     }
                     var scale = sub / 255.0;
-                    var scaleTotal = ColorInterval * (cIndex - direc) + scale * ColorInterval;
+                    var scaleTotal = cIndex - direc + scale;
                     IsNeedUpdateInfo = false;
                     if (!SliderColor.IsMouseOver && !SliderOpacity.IsMouseOver)
                     {
-                        SliderColor.Value = SliderColor.Maximum * scaleTotal;
+                        SliderColor.Value = scaleTotal;
                     }
                     IsNeedUpdateInfo = true;
                 }
@@ -438,10 +433,8 @@ namespace HandyControl.Controls
         private void SliderColor_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (!_isLoaded || !IsNeedUpdateInfo) return;
-            var newValue = e.NewValue;
-            var div = newValue / ColorInterval;
-            var index = Math.Min(5, (int)Math.Floor(newValue / ColorInterval));
-            var sub = div - index;
+            var index = Math.Min(5, (int)Math.Floor(e.NewValue));
+            var sub = e.NewValue - index;
             var range = _colorRangeList[index];
 
             var color = range.GetColor(sub);

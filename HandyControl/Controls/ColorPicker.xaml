@@ -24,22 +24,6 @@
                     <ImageBrush ImageSource="/HandyControl;component/Resources/colorPickerBack.png"/>
                 </Border.Background>
             </Border>
-            <!--<Border CornerRadius="2,2,0,0">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                        <GradientStop Color="#00FFFFFF" Offset="1"/>
-                        <GradientStop Color="#FFFFFFFF" Offset="0"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>
-            <Border CornerRadius="2,2,0,0">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#00FFFFFF" Offset="0"/>
-                        <GradientStop Color="#FF000000" Offset="1"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-            </Border>-->
         </Grid>
         <Border Name="BorderColor" Grid.Row="0" CornerRadius="2,2,0,0" ClipToBounds="True">
             <Canvas Margin="-6">
@@ -67,7 +51,7 @@
             </Grid.ColumnDefinitions>
             <Border Width="60" Height="32" CornerRadius="2" Background="{StaticResource ColorPickerOpacityBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1"></Border>
             <Border Grid.Row="0" Grid.Column="0" Width="60" Height="32" CornerRadius="2" Background="{Binding SelectedBrush,ElementName=UserControlMain}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1"></Border>
-            <Slider Name="SliderColor" LargeChange="0.01" SmallChange="0.01" Grid.ColumnSpan="2" ValueChanged="SliderColor_OnValueChanged" Value="1" Maximum="1" Background="{StaticResource ColorPickerRainbowBrush}" Margin="10,1,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"></Slider>
+            <Slider Name="SliderColor" LargeChange="0.01" SmallChange="0.01" Grid.ColumnSpan="2" ValueChanged="SliderColor_OnValueChanged" Value="6" Maximum="6" Background="{StaticResource ColorPickerRainbowBrush}" Margin="10,1,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"></Slider>
             <Slider Grid.ColumnSpan="2" IsSnapToTickEnabled="True" Name="SliderOpacity" ValueChanged="SliderOpacity_OnValueChanged" Value="255" Maximum="255" SmallChange="1" Foreground="{Binding SelectedBrushWithoutOpacity,ElementName=UserControlMain}" Background="{StaticResource ColorPickerOpacityBrush}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"></Slider>
             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,14,0,0" VerticalAlignment="Top" Visibility="{Binding ShowList[0],ElementName=UserControlMain,Converter={StaticResource Boolean2VisibilityConverter}}">
                 <controls:InfoTextBox Text="{Binding SelectedBrush,ElementName=UserControlMain,Mode=TwoWay,Converter={StaticResource Color2HexStrConverter},UpdateSourceTrigger=LostFocus}" FontSize="10" ShowSmallCornerRadius="True" MaxLength="10" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoTextBox>
