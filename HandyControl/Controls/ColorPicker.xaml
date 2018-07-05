@@ -18,8 +18,8 @@
         </Grid.RowDefinitions>
         <Border BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Grid.RowSpan="4" Background="White" CornerRadius="{Binding CornerRadius,ElementName=UserControlMain}"></Border>
         <Grid Margin="1" Grid.Row="0" Name="GridColor">
-            <Border Background="{Binding BackColor,ElementName=UserControlMain}" CornerRadius="2,2,0,0"></Border>
-            <Border CornerRadius="2,2,0,0">
+            <Border Background="{Binding BackColor,ElementName=UserControlMain}"></Border>
+            <Border>
                 <Border.Background>
                     <ImageBrush ImageSource="/HandyControl;component/Resources/colorPickerBack.png"/>
                 </Border.Background>

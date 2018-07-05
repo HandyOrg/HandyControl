@@ -18,7 +18,7 @@
         <ScrollViewer>
             <StackPanel Name="StackPanelMain">
                 <!--按钮-->
-                <Border Visibility="Collapsed" Style="{StaticResource BorderRegionStyle}">
+                <!--<Border Visibility="Collapsed" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
@@ -94,7 +94,7 @@
                             </WrapPanel>
                         </StackPanel>
                     </Grid>
-                </Border>
+                </Border>-->
                 <!--切换按钮-->
                 <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
