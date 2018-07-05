@@ -375,7 +375,8 @@ namespace HandyControl.Controls
                     var common = list[commonIndex];
                     list[maxIndex] = 255;
                     list[minIndex] = 0;
-                    list[commonIndex] = (byte)(255 * max * (min - common) / (double)(max * (min - max)));
+                    common = (byte)(255 * (min - common) / (double)(min - max));
+                    list[commonIndex] = common;
                     BackColor = new SolidColorBrush(Color.FromRgb(list[0], list[1], list[2]));
 
                     list[commonIndex] = 0;
