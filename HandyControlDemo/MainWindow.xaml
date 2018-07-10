@@ -3,9 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
-        xmlns:model="clr-namespace:HandyControlDemo.Data.Model"
         mc:Ignorable="d"
         UseLayoutRounding="True"
         Style="{StaticResource WindowDefaultStyle}"
@@ -282,7 +280,7 @@
                     </Grid>
                 </Border>-->
                 <!--加载条-->
-                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                <Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
@@ -293,20 +291,20 @@
                         </StackPanel>
                         <StackPanel VerticalAlignment="Center" Margin="50,0,0,0" Grid.Column="1">
                             <controls:LoadingLine></controls:LoadingLine>
-                            <controls:LoadingLine Margin="0,30" Style="{StaticResource LoadingLineLarge}"></controls:LoadingLine>
+                            <controls:LoadingLine Margin="0,30" Foreground="BlueViolet" Style="{StaticResource LoadingLineLarge}"></controls:LoadingLine>
                             <StackPanel Orientation="Horizontal">
                                 <controls:LoadingCircle></controls:LoadingCircle>
                                 <Border VerticalAlignment="Center" Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
                                     <controls:LoadingCircle Style="{StaticResource LoadingCircleLight}" Margin="10"></controls:LoadingCircle>
                                 </Border>
-                                <controls:LoadingCircle Margin="30,0,0,0" Style="{StaticResource LoadingCircleLarge}"></controls:LoadingCircle>
-                                <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
+                                <controls:LoadingCircle Width="50" Height="50" DotCount="4" DotDiameter="20" DotInterval="90" DotDelayTime="500" DotOffSet="10" Foreground="OrangeRed" Margin="30,0,0,0" Style="{StaticResource LoadingCircleLarge}"></controls:LoadingCircle>
+                                <!--<Border Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
                                     <controls:LoadingCircle Margin="10" Style="{StaticResource LoadingCircleLargeLight}"></controls:LoadingCircle>
-                                </Border>
+                                </Border>-->
                             </StackPanel>
                         </StackPanel>
                     </Grid>
-                </Border>-->
+                </Border>
                 <!--SVG动画-->
                 <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>

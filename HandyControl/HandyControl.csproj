@@ -42,6 +42,9 @@
     <Compile Include="Controls\Info\InfoTextBox.xaml.cs">
       <DependentUpon>InfoTextBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Loading\LoadingBase.cs" />
+    <Compile Include="Controls\Loading\LoadingCircle.cs" />
+    <Compile Include="Controls\Loading\LoadingLine.cs" />
     <Compile Include="Data\ColorRange.cs" />
     <Compile Include="Data\Enum\IpType.cs" />
     <Compile Include="Data\Enum\TextType.cs" />
@@ -159,6 +162,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\LoadingBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\LoadingCircleBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\Styles\Base\LoadingLineBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Themes\Styles\Base\TextBlockBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -168,6 +183,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Loading.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

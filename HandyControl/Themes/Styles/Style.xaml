@@ -22,10 +22,10 @@
         <ResourceDictionary Source="TabControl.xaml"></ResourceDictionary>
         <ResourceDictionary Source="ListBox.xaml"></ResourceDictionary>
         <ResourceDictionary Source="ComboBox.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="Loading.xaml"></ResourceDictionary>
         <ResourceDictionary Source="ContextMenu.xaml"></ResourceDictionary>
         <ResourceDictionary Source="AnimationPath.xaml"></ResourceDictionary>
         <ResourceDictionary Source="ToolTip.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="Loading.xaml"></ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
