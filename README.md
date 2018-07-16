@@ -1,11 +1,11 @@
-# 欢迎使用 HandyControl
+# 娆㈣繋浣跨敤 HandyControl
 
-让我们开门见山，HandyControl包括以下特色控件和功能：
+璁╂垜浠紑闂ㄨ灞憋紝HandyControl宸茬粡寮�婧愮殑鎺т欢鎴浘鏈夛細
 
-### 1、ColorPicker
+### 1銆丆olorPicker
 
-![123](../../../../Users/Jay/Desktop/123.gif)
+![123](https://github.com/NaBian/HandyControl/tree/master/Resources/ColorPicker.gif)
 
-### 2、Loading
+### 2銆丩oading
 
-![123](../../../../Users/Jay/Desktop/123.gif)
+![123](https://github.com/NaBian/HandyControl/tree/master/Resources/Loading.gif)

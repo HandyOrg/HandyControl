@@ -2,10 +2,9 @@
 # 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
 ################################################################################
 
-/.vs/HandyControl/v15
+/.vs
 /HandyControl/bin/Debug
 /HandyControl/obj/Debug
 /HandyControlDemo/bin/Debug
 /HandyControlDemo/obj/Debug
 /HandyControl.sln.DotSettings.user
-.vs/HandyControl/DesignTimeBuild/.dtbcache
