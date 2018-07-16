@@ -4,8 +4,8 @@
 
 ### 1、ColorPicker
 
-![ColorPicker](https://github.com/NaBian/HandyControl/tree/master/Resources/ColorPicker.gif)
+![ColorPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ColorPicker.gif)
 
 ### 2、Loading
 
-![Loading](https://github.com/NaBian/HandyControl/tree/master/Resources/Loading.gif)
+![Loading](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Loading.gif)
