@@ -26,7 +26,7 @@
         <!--<ResourceDictionary Source="AnimationPath.xaml"></ResourceDictionary>-->
         <!--<ResourceDictionary Source="ToolTip.xaml"></ResourceDictionary>-->
         <!--<ResourceDictionary Source="InfoBrief.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="Expander.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="Expander.xaml"></ResourceDictionary>
         <!--<ResourceDictionary Source="TextBox.xaml"></ResourceDictionary>-->
         <!--<ResourceDictionary Source="ContentControl.xaml"></ResourceDictionary>-->
     </ResourceDictionary.MergedDictionaries>

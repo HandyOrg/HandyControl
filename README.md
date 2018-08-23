@@ -17,3 +17,7 @@
 ### 4、页码条Pagination
 
 ![轮播Pagination](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Pagination.gif)
+
+### 5、展开折叠框Expander
+
+![轮播Pagination](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Expander.gif)

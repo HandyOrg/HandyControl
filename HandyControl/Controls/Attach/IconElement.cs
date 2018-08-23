@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
+// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     public class IconElement : DependencyObject
@@ -31,5 +32,4 @@ namespace HandyControl.Controls
             return (double)element.GetValue(AngleProperty);
         }
     }
-
 }

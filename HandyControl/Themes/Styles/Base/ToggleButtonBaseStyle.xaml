@@ -1,0 +1,49 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="ButtonBaseBaseStyle.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="ToggleButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Border x:Name="border" CornerRadius="4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="0" SnapsToDevicePixels="true">
+                            <!--点下时显示-->
+                            <Grid x:Name="CheckedLayer" Visibility="Collapsed">
+                                <Rectangle Height="3" VerticalAlignment="Top" Fill="#1F000000" RadiusX="4" RadiusY="4">
+                                    <Rectangle.Effect>
+                                        <BlurEffect Radius="5"></BlurEffect>
+                                    </Rectangle.Effect>
+                                </Rectangle>
+                                <Border CornerRadius="4" BorderBrush="#1F000000" BorderThickness="1,0">
+                                    <Border.Effect>
+                                        <BlurEffect Radius="3"></BlurEffect>
+                                    </Border.Effect>
+                                </Border>
+                            </Grid>
+                        </Border>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>
+                        <!--禁用时显示-->
+                        <Rectangle x:Name="EnabledLayer" Fill="#4CFFFFFF" RadiusX="4" RadiusY="4" Visibility="Collapsed"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Setter TargetName="CheckedLayer" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="border" Property="BorderBrush" Value="#80cccccc"/>
+                            <Setter TargetName="border" Property="BorderThickness" Value="4"></Setter>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="EnabledLayer" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>
