@@ -376,7 +376,7 @@
                     </Grid>
                 </Border>
                 <!-- 轮播-->
-                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                <Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
@@ -397,7 +397,7 @@
                             <Image Width="600" Stretch="UniformToFill" Source="Resources/5.jpg"></Image>
                         </controls:Carousel>
                     </Grid>
-                </Border>-->
+                </Border>
                 <!--时间条-->
                 <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
