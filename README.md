@@ -13,3 +13,7 @@
 ### 3、轮播Carousel
 
 ![轮播Carousel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Carousel.gif)
+
+### 4、页码条Pagination
+
+![轮播Pagination](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Pagination.gif)

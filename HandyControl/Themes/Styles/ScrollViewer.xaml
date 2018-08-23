@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--默认样式-->
+    <Style BasedOn="{StaticResource ScrollViewerBaseStyle}" TargetType="{x:Type ScrollViewer}"></Style>
+
+</ResourceDictionary>
