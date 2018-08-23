@@ -20,4 +20,8 @@
 
 ### 5、展开折叠框Expander
 
+<<<<<<< HEAD
 ![展开折叠框Expander](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Expander.gif)
+=======
+![轮播Pagination](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Expander.gif)
+>>>>>>> 7ade3a41fb7e04ed1e84113bd3ae69a9414e31c2
