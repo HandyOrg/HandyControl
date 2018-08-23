@@ -12,4 +12,4 @@
 
 ### 2、轮播Carousel
 
-![轮播Carousel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Loading.gif)
+![轮播Carousel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Carousel.gif)
