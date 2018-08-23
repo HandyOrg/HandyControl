@@ -10,6 +10,6 @@
 
 ![加载条Loading](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Loading.gif)
 
-### 2、轮播Carousel
+### 3、轮播Carousel
 
 ![轮播Carousel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Carousel.gif)
