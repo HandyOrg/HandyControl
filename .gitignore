@@ -1,10 +1,10 @@
-﻿################################################################################
-# 此 .gitignore 文件已由 Microsoft(R) Visual Studio 自动创建。
-################################################################################
-
-/.vs
+﻿/.vs
 /HandyControl/bin/Debug
 /HandyControl/obj/Debug
+/HandyControl/bin/Release
+/HandyControl/obj/Release
 /HandyControlDemo/bin/Debug
 /HandyControlDemo/obj/Debug
+/HandyControlDemo/bin/Release
+/HandyControlDemo/obj/Release
 /HandyControl.sln.DotSettings.user
