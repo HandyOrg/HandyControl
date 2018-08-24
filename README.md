@@ -1,4 +1,4 @@
-﻿![logo](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/icon.png)
+![logo](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/icon.png)
 
 ![c#-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/c#-version.png) ![IDE-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/IDE-version.png) [![nuget-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/nuget-version.png)](https://www.nuget.org/packages/HandyControl)
 
