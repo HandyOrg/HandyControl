@@ -53,6 +53,10 @@
     <Compile Include="Controls\Pagination.xaml.cs">
       <DependentUpon>Pagination.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TimeBar\SpeTextBlock.cs" />
+    <Compile Include="Controls\TimeBar\TimeBar.xaml.cs">
+      <DependentUpon>TimeBar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Data\ColorRange.cs" />
     <Compile Include="Data\Enum\IpType.cs" />
     <Compile Include="Data\Enum\TextType.cs" />
@@ -89,6 +93,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Tools\AnimationHelper.cs" />
+    <Compile Include="Tools\ArithmeticHelper.cs" />
     <Compile Include="Tools\Converter\Boolean2BooleanFeConverter.cs" />
     <Compile Include="Tools\Converter\Boolean2VisibilityFeConverter.cs" />
     <Compile Include="Tools\Converter\BooleanArr2VisibilityConverter.cs" />
@@ -103,6 +108,7 @@
     <Compile Include="Tools\Converter\TreeViewItemMarginConverter.cs" />
     <Compile Include="Tools\Extension\ColorExtension.cs" />
     <Compile Include="Tools\Extension\UIElementExtension.cs" />
+    <Compile Include="Tools\MouseDragElementBehaviorEx.cs" />
     <Compile Include="Tools\RegularJudgment.cs" />
     <Compile Include="Tools\RegularPatterns.cs" />
   </ItemGroup>
@@ -127,6 +133,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Pagination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\TimeBar\TimeBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

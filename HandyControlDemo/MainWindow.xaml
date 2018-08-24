@@ -354,7 +354,7 @@
                     </Grid>
                 </Border>-->
                 <!--颜色拾取器-->
-                <Border Visibility="Visible" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                <Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
@@ -399,7 +399,7 @@
                     </Grid>
                 </Border>
                 <!--时间条-->
-                <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                <Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
@@ -411,7 +411,7 @@
                         </StackPanel>
                         <controls:TimeBar BorderThickness="0" Background="{StaticResource PrimaryBrush}" Grid.Column="1" Width="600" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,5,5,5" ></controls:TimeBar>
                     </Grid>
-                </Border>-->
+                </Border>
                 <!--输入-->
                 <!--<Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
@@ -620,7 +620,7 @@
                         </controls:TabControl>
                     </Grid>
                 </Border>-->
-                <Border Visibility="Visible" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                <Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>

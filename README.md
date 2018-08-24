@@ -1,6 +1,6 @@
 ![logo](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/icon.png)
 
-![c#-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/csharp-version.png) ![IDE-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/IDE-version.png) [![nuget-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/nuget-version.png)](https://www.nuget.org/packages/HandyControl)
+![csharp-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/csharp-version.png) ![IDE-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/IDE-version.png) [![nuget-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/nuget-version.png)](https://www.nuget.org/packages/HandyControl)
 
 # 欢迎使用 HandyControl
 
@@ -27,3 +27,7 @@
 ### 5、展开折叠框Expander
 
 ![展开折叠框Expander](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Expander.gif)
+
+### 6、时间条TimeBar
+
+![时间条TimeBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimeBar.gif)
