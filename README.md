@@ -31,3 +31,28 @@
 ### 6、时间条TimeBar
 
 ![时间条TimeBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimeBar.gif)
+
+### 7、图片浏览器ImageBrowser
+
+![图片浏览器ImageBrowser](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBrowser.gif)
+
+# 使用方法
+
+第一步：添加HandyControl的引用；  
+第二步：在App.xaml中按照以下方式添加代码：  
+```XML
+<Application.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/ThemesDefault.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+</Application.Resources>
+```
+第三步：enjoy coding
+
+# 下一版本计划
+
+1、添加信息通知控件；
+2、添加进度条样式；
+3、添加路径动画控件；
