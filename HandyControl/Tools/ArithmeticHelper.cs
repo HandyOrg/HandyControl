@@ -8,6 +8,27 @@ namespace HandyControl.Tools
     public class ArithmeticHelper
     {
         /// <summary>
+        ///     计算控件在窗口中的可见坐标
+        /// </summary>
+        /// <param name="element"></param>
+        /// <param name="showElement"></param>
+        /// <returns></returns>
+        internal static Point CalSafePoint(FrameworkElement element, FrameworkElement showElement)
+        {
+            if (element == null || showElement == null) return default(Point);
+            var point = element.PointToScreen(new Point(0, 0));
+
+            if (point.X < 0) point.X = 0;
+            if (point.Y < 0) point.Y = 0;
+
+            var maxLeft = SystemParameters.PrimaryScreenWidth -
+                          (double.IsNaN(showElement.Width) ? showElement.ActualWidth : showElement.Width);
+            var maxTop = SystemParameters.PrimaryScreenHeight -
+                         (double.IsNaN(showElement.Height) ? showElement.ActualHeight : showElement.Height);
+            return new Point(maxLeft > point.X ? point.X : maxLeft, maxTop > point.Y ? point.Y : maxTop);
+        }
+
+        /// <summary>
         ///     获取布局范围框
         /// </summary>
         /// <param name="element"></param>

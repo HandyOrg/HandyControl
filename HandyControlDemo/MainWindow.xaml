@@ -1,20 +1,46 @@
-﻿<Window x:Class="HandyControlDemo.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
-        mc:Ignorable="d"
-        UseLayoutRounding="True"
-        Style="{StaticResource WindowDefaultStyle}"
-        WindowState="Maximized"
-        Title="MainWindow" 
-        Name="MyWindow"
-        d:DesignHeight="800" 
-        d:DesignWidth="1400">
-    <Grid Margin="32" Grid.IsSharedSizeScope="True">
+﻿<controls:WindowBorderless x:Class="HandyControlDemo.MainWindow"
+                           xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                           xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                           xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                           xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+                           mc:Ignorable="d"
+                           UseLayoutRounding="True"
+                           BorderThickness="1"
+                           BorderBrush="#262e2f"
+                           NoUserAreaBackground="#262e2f"
+                           OtherButtonHoverBrush="#888580"
+                           Style="{StaticResource CustomWindowStyle}"
+                           WindowState="Maximized"
+                           Title="MainWindow" 
+                           Name="MyWindow"
+                           d:DesignHeight="800" 
+                           d:DesignWidth="1400">
+    <controls:WindowBorderless.NoUserContent>
+        <StackPanel Orientation="Horizontal">
+            <Border Margin="10,0,0,0" Width="16" Height="16">
+                <Border.Background>
+                    <ImageBrush ImageSource="Resources/icon-white.png"/>
+                </Border.Background>
+            </Border>
+            <Menu Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent">
+                <MenuItem Foreground="White" Header="File">
+                    <MenuItem Header="New repository" InputGestureText="Ctrl+N"></MenuItem>
+                    <Separator></Separator>
+                    <MenuItem Header="Add local repository"></MenuItem>
+                    <MenuItem Header="Clone repository"></MenuItem>
+                </MenuItem>
+                <MenuItem Foreground="White" Header="Edit"></MenuItem>
+                <MenuItem Foreground="White" Header="View"></MenuItem>
+                <MenuItem Foreground="White" Header="Repository"></MenuItem>
+                <MenuItem Foreground="White" Header="Branch"></MenuItem>
+                <MenuItem Foreground="White" Header="Help"></MenuItem>
+            </Menu>
+        </StackPanel>
+    </controls:WindowBorderless.NoUserContent>
+    <Grid Margin="32,0" Grid.IsSharedSizeScope="True">
         <ScrollViewer>
-            <StackPanel Name="StackPanelMain">
+            <StackPanel Margin="0,10" Name="StackPanelMain">
                 <!--按钮-->
                 <!--<Border Visibility="Collapsed" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
@@ -340,7 +366,7 @@
                     </Grid>
                 </Border>-->
                 <!--图片浏览-->
-                <!--<Border Visibility="Visible" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                <Border Visibility="Visible" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
@@ -352,7 +378,7 @@
                         </StackPanel>
                         <Button Click="ButtonImageBrowser_OnClick" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,5,5,5" Content="点击打开图片浏览器" Style="{StaticResource ButtonPrimary}"></Button>
                     </Grid>
-                </Border>-->
+                </Border>
                 <!--颜色拾取器-->
                 <Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
@@ -876,4 +902,4 @@
             </StackPanel>
         </ScrollViewer>
     </Grid>
-</Window>
+</controls:WindowBorderless>
