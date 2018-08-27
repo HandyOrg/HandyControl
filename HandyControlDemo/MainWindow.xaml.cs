@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.Data.Model;
@@ -299,11 +299,8 @@ namespace HandyControlDemo
         //    StepsExample.Next();
         //}
 
-        //private void ButtonImageBrowser_OnClick(object sender, RoutedEventArgs e)
-        //{
-        //    var window = new ImageBrowser(new Uri("pack://application:,,,/Resources/demo.png"));
-        //    window.Show();
-        //}
+        private void ButtonImageBrowser_OnClick(object sender, RoutedEventArgs e) => 
+            new ImageBrowser(new Uri("pack://application:,,,/Resources/1.jpg")).Show();
 
         private void ColorPicker_OnColorSelected(object sender, FunctionEventArgs<Color> e)
         {

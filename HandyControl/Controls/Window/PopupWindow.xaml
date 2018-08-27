@@ -1,0 +1,59 @@
+﻿<Window x:Class="HandyControl.Controls.PopupWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        WindowStyle="None"
+        Name="MyWindow"
+        MinHeight="190"
+        BorderThickness="20"
+        ShowInTaskbar="False"
+        MinWidth="240"
+        UseLayoutRounding="True"
+        ResizeMode="NoResize"
+        SizeToContent="WidthAndHeight">
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard>
+                <Storyboard>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:.2"></DoubleAnimation>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Window.Triggers>
+    <Window.Effect>
+        <DropShadowEffect Opacity=".6" ShadowDepth="0" BlurRadius="15"/>
+    </Window.Effect>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid Name="TitleGrid" Height="30" Background="{DynamicResource PrimaryBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="36"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Name="TitleBlock" Background="Transparent" MouseLeftButtonDown="TitleBlock_OnMouseLeftButtonDown" Padding="10,6" FontSize="14" Foreground="White" Text="{Binding Title,ElementName=MyWindow}" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+            <Button Grid.Column="1" Click="CloseButton_OnClick" IsCancel="True" Name="CloseButton" Width="20" Height="20" Style="{StaticResource ButtonOpacityStyle}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,8,0" Background="Transparent" Foreground="White">
+                <Path Fill="{Binding ElementName=CloseButton,Path=Foreground}" Width="16" Height="16" Style="{StaticResource ClosePathStyle}"/>
+            </Button>
+        </Grid>
+        <Border BorderBrush="{DynamicResource PrimaryBrush}" Name="MainBorder" Grid.Row="1">
+            <StackPanel>
+                <TextBlock Text="" MinHeight="80" Name="MyTextBlock" TextAlignment="Center" FontSize="16" Padding="10" Foreground="#252525" MaxWidth="300" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Background="White"/>
+                <StackPanel Name="MyStackPanel" Visibility="Visible" Margin="0,0,0,10" Orientation="Horizontal" Background="White" HorizontalAlignment="Center">
+                    <Button Name="ButtonCancle" Visibility="{Binding ShowCancel,ElementName=MyWindow,Converter={StaticResource Boolean2VisibilityConverter}}" Click="ButtonCancle_OnClick" Margin="10,0" Background="Transparent" Height="30" Width="60" Style="{StaticResource ButtonOpacityStyle}">
+                        <Border BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}" Width="60" Height="30" CornerRadius="4" Background="White">
+                            <TextBlock FontSize="16" Text="取消" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        </Border>
+                    </Button>
+                    <Button IsDefault="True" Click="ButtonOk_OnClick" Margin="10,0" Background="Transparent" Height="30" Width="60" Style="{DynamicResource ButtonOpacityStyle}">
+                        <Border Width="60" Height="30" CornerRadius="4" Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock FontSize="16" Text="确定" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                        </Border>
+                    </Button>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
