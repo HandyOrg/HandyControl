@@ -29,6 +29,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controls\Attach\IconSwitchElement.cs" />
@@ -40,6 +41,7 @@
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Attach\IconElement.cs" />
+    <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="Controls\Info\InfoControl.cs" />
     <Compile Include="Controls\Info\InfoNumericUpDown.xaml.cs">
       <DependentUpon>InfoNumericUpDown.xaml</DependentUpon>
