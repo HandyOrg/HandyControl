@@ -51,8 +51,23 @@
 ```
 第三步：enjoy coding
 
+# 其他主要功能
+1、如何让**Scrollviewer**具有惯性？只要：
+```XML
+<controls:ScrollViewer IsEnableInertia="True">
+    <!--你的控件-->
+</controls:ScrollViewer>
+```
+
+2、如何让**Scrollviewer**具有穿透效果？只要：
+```XML
+<controls:ScrollViewer IsPenetrating="True">
+    <!--你的控件-->
+</controls:ScrollViewer>
+```
+
 # 下一版本计划
 
-1、添加信息通知控件；
-2、添加进度条样式；
+1、添加信息通知控件；  
+2、添加进度条样式；  
 3、添加路径动画控件；
