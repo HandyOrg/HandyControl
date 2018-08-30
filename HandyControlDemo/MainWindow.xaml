@@ -39,7 +39,7 @@
         </StackPanel>
     </controls:WindowBorderless.NoUserContent>
     <Grid Margin="32,0" Grid.IsSharedSizeScope="True">
-        <ScrollViewer>
+        <controls:ScrollViewer>
             <StackPanel Margin="0,10" Name="StackPanelMain">
                 <!--按钮-->
                 <!--<Border Visibility="Collapsed" Style="{StaticResource BorderRegionStyle}">
@@ -366,7 +366,7 @@
                     </Grid>
                 </Border>-->
                 <!--图片浏览-->
-                <Border Visibility="Visible" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                <Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
@@ -451,11 +451,13 @@
                         <WrapPanel controls:InfoControl.TitleWidth="280" Grid.Column="1" ItemWidth="500" Margin="0,0,0,10">
                             <controls:InfoComboBox DisplayMemberPath="Id" SelectedValuePath="Id" ItemsSource="{Binding FruitList,ElementName=MyWindow}" Margin="0,0,0,30" HorizontalAlignment="Stretch" Title="下拉框（必填） InfoComboBox" PlaceHolder="请选择一种水果" ErrorStr="请选择一种水果"></controls:InfoComboBox>
                             <controls:InfoComboBox DisplayMemberPath="Name" SelectedValuePath="Id" IsEditable="True" ItemsSource="{Binding FruitList,ElementName=MyWindow}" Margin="0,0,0,30" HorizontalAlignment="Stretch" IsNeedly="False" Title="下拉框 InfoComboBox" PlaceHolder="请选择一种水果">
-                                --><!--<sys:String>苹果</sys:String>
+                                -->
+                <!--<sys:String>苹果</sys:String>
                                 <sys:String>香蕉</sys:String>
                                 <sys:String>橘子</sys:String>
                                 <sys:String>菠萝</sys:String>
-                                <sys:String>葡萄</sys:String>--><!--
+                                <sys:String>葡萄</sys:String>-->
+                <!--
                             </controls:InfoComboBox>
                             <controls:InfoTextBox Margin="0,0,0,30" HorizontalAlignment="Stretch" Title="文本框（必填） InfoTextBox" PlaceHolder="请输入一种水果" ErrorStr="请输入一种水果"></controls:InfoTextBox>
                             <controls:InfoTextBox TitleAlignment="Top" Margin="0,0,0,30" HorizontalAlignment="Stretch" IsNeedly="False" Title="文本框 InfoTextBox" PlaceHolder="请输入一种水果"></controls:InfoTextBox>
@@ -900,6 +902,6 @@
                     </Grid>
                 </Border>-->
             </StackPanel>
-        </ScrollViewer>
+        </controls:ScrollViewer>
     </Grid>
 </controls:WindowBorderless>
