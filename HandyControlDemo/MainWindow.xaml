@@ -424,6 +424,53 @@
                         </controls:Carousel>
                     </Grid>
                 </Border>
+                <!--对比滑块-->
+                <Border Visibility="Visible" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" SharedSizeGroup="Header"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel>
+                            <TextBlock Margin="0,5,0,0" Style="{StaticResource TextBlockTitle}" Text="对比滑块"></TextBlock>
+                            <TextBlock Style="{StaticResource TextBlockTitle}">（CompareSlider）</TextBlock>
+                        </StackPanel>
+                        <WrapPanel Grid.Column="1" HorizontalAlignment="Left" Margin="50,0,0,0">
+                            <controls:CompareSlider Value="5" Width="600" Height="352" Margin="0,0,30,30">
+                                <controls:CompareSlider.TargetContent>
+                                    <Border>
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="Resources/b1.jpg"/>
+                                        </Border.Background>
+                                    </Border>
+                                </controls:CompareSlider.TargetContent>
+                                <controls:CompareSlider.SourceContent>
+                                    <Border>
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="Resources/b2.jpg"/>
+                                        </Border.Background>
+                                    </Border>
+                                </controls:CompareSlider.SourceContent>
+                            </controls:CompareSlider>
+                            <controls:CompareSlider Orientation="Vertical" Value="5" Width="600" Height="352">
+                                <controls:CompareSlider.TargetContent>
+                                    <Border>
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="Resources/b1.jpg"/>
+                                        </Border.Background>
+                                    </Border>
+                                </controls:CompareSlider.TargetContent>
+                                <controls:CompareSlider.SourceContent>
+                                    <Border>
+                                        <Border.Background>
+                                            <ImageBrush ImageSource="Resources/b2.jpg"/>
+                                        </Border.Background>
+                                    </Border>
+                                </controls:CompareSlider.SourceContent>
+                            </controls:CompareSlider>
+                        </WrapPanel>
+                    </Grid>
+                </Border>
                 <!--时间条-->
                 <Border Visibility="Collapsed" Margin="0,10,0,0" Style="{StaticResource BorderRegionStyle}">
                     <Grid>

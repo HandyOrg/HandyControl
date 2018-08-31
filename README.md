@@ -36,6 +36,11 @@
 
 ![图片浏览器ImageBrowser](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBrowser.gif)
 
+### 8、对比滑块CompareSlider
+![对比滑块CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-h.gif)
+
+![对比滑块CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-v.gif)
+
 # 使用方法
 
 第一步：添加HandyControl的引用；  
