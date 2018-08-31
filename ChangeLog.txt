@@ -1,3 +1,11 @@
+2018.08.31 Version 1.1.2
+* new controls
+ - add CompareSlider
+
+2018.08.30 Version 1.1.1
+* new controls
+ - add ScrollViewer
+
 2018.08.27 Version 1.1.0
 
 * new controls
