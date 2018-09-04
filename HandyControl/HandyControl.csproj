@@ -33,6 +33,9 @@
     <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\AnimationPath.cs" />
+    <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
+    <Compile Include="Controls\Attach\BorderElement.cs" />
     <Compile Include="Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="Controls\Carousel.xaml.cs">
@@ -43,6 +46,9 @@
     </Compile>
     <Compile Include="Controls\Attach\IconElement.cs" />
     <Compile Include="Controls\CompareSlider.cs" />
+    <Compile Include="Controls\Growl.xaml.cs">
+      <DependentUpon>Growl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="Controls\Info\InfoControl.cs" />
     <Compile Include="Controls\Info\InfoNumericUpDown.xaml.cs">
@@ -61,6 +67,7 @@
     <Compile Include="Controls\TimeBar\TimeBar.xaml.cs">
       <DependentUpon>TimeBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TransitioningContentControl.cs" />
     <Compile Include="Controls\Window\ImageBrowser.xaml.cs">
       <DependentUpon>ImageBrowser.xaml</DependentUpon>
     </Compile>
@@ -122,6 +129,8 @@
     <Compile Include="Tools\MouseDragElementBehaviorEx.cs" />
     <Compile Include="Tools\RegularJudgment.cs" />
     <Compile Include="Tools\RegularPatterns.cs" />
+    <Compile Include="Tools\ResourceHelper.cs" />
+    <Compile Include="Tools\VisualStates.cs" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\colorPickerBack.png" />
@@ -132,6 +141,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\ColorPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Growl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -227,6 +240,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Themes\Styles\Base\ProgressBarBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\ScrollViewerBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -271,6 +288,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\ScrollViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -284,6 +305,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TreeView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

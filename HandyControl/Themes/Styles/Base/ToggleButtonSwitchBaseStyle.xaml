@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
+    <!--引用自https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit-->
     <Style x:Key="ToggleButtonSwitchBaseStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
@@ -140,45 +141,46 @@
     </Style>
 
     <Style x:Key="ToggleButtonIconBaseStyle" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"></Setter>
         <Setter Property="Width" Value="{DynamicResource DefaultControlHeight}"/>
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}"/>
         <Setter Property="Padding" Value="8"></Setter>
         <Setter Property="controls:IconSwitchElement.Geometry" Value="{x:Null}"></Setter>
         <Setter Property="controls:IconSwitchElement.GeometrySelected" Value="{x:Null}"></Setter>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
-                        <!--点击时显示-->
-                        <Ellipse x:Name="border" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Fill="{TemplateBinding Background}" SnapsToDevicePixels="true"></Ellipse>
-                        <Ellipse x:Name="PressedLayer" Visibility="Collapsed" Stroke="#1F000000" StrokeThickness="2">
-                            <Ellipse.Effect>
-                                <BlurEffect Radius="3"></BlurEffect>
-                            </Ellipse.Effect>
-                        </Ellipse>
-                        <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                            <Path x:Name="PathIcon" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconSwitchElement.Geometry}"></Path>
-                        </ContentControl>
-                        <!--禁用时显示-->
-                        <Ellipse x:Name="EnabledLayer" Fill="#4CFFFFFF" Visibility="Collapsed"/>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"></Border>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                            <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <Path x:Name="PathIcon" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconSwitchElement.Geometry}"></Path>
+                            </ContentControl>
+                        </Border>
+                        <Border Visibility="Collapsed" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{TemplateBinding BorderBrush}"></Border>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(controls:IconSwitchElement.GeometrySelected)}"></Setter>
                         </Trigger>
-                        <Trigger Property="IsPressed" Value="true">
-                            <Setter TargetName="PressedLayer" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="border" Property="Stroke" Value="#80cccccc"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="EnabledLayer" Property="Visibility" Value="Visible"/>
-                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value=".9"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value=".6"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".2"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

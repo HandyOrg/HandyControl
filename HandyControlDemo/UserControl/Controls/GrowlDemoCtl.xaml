@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.GrowlDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             DataContext="{Binding GrowlDemo,Source={StaticResource Locator}}"
+             Background="White">
+    <controls:TransitioningContentControl>
+        <WrapPanel Margin="32">
+            <Button Command="{Binding InfoCmd}" Content="Info" Margin="0,5,5,5" Style="{StaticResource ButtonPrimary}"></Button>
+            <Button Command="{Binding SuccessCmd}" Content="Success" Margin="5" Style="{StaticResource ButtonSuccess}"></Button>
+            <Button Command="{Binding WarningCmd}" Content="Warning" Margin="5" Style="{StaticResource ButtonWarning}"></Button>
+            <Button Command="{Binding ErrorCmd}" Content="Error" Margin="5" Style="{StaticResource ButtonDanger}"></Button>
+            <Button Command="{Binding AskCmd}" Content="Ask" Margin="5" Background="BlueViolet" Foreground="White"></Button>
+            <Button Command="{Binding FatalCmd}" Content="Fatal" Margin="5,0"></Button>
+            <Button Command="{Binding ClearCmd}" Content="Clear" Margin="5,0,0,0"></Button>
+        </WrapPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

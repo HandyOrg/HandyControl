@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ExpanderDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+    <controls:TransitioningContentControl>
+        <StackPanel Margin="32">
+            <Expander Header="标题1" BorderThickness="1,1,1,0" BorderBrush="{StaticResource BorderBrush}" Width="240" HorizontalAlignment="Left">
+                <Border Height="100" Background="{StaticResource BackgroundBrush}"></Border>
+            </Expander>
+            <Expander Header="标题1" BorderThickness="1,1,1,0" BorderBrush="{StaticResource BorderBrush}" Width="240" HorizontalAlignment="Left">
+                <Border Height="100" Background="{StaticResource BackgroundBrush}"></Border>
+            </Expander>
+            <Expander Header="标题1" BorderThickness="1,1,1,0" BorderBrush="{StaticResource BorderBrush}" Width="240" HorizontalAlignment="Left">
+                <Border Height="100" Background="{StaticResource BackgroundBrush}"></Border>
+            </Expander>
+            <Expander Header="标题1" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Width="240" HorizontalAlignment="Left">
+                <Border Height="100" Background="{StaticResource BackgroundBrush}"></Border>
+            </Expander>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

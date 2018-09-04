@@ -37,9 +37,22 @@
 ![图片浏览器ImageBrowser](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBrowser.gif)
 
 ### 8、对比滑块CompareSlider
+
 ![对比滑块CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-h.gif)
 
 ![对比滑块CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-v.gif)
+
+### 9、信息通知Growl
+
+![信息通知Growl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Growl.gif)
+
+### 10、动画路径AnimationPath
+
+![动画路径AnimationPath](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/AnimationPath.gif)
+
+### 11、进度条ProgressBar
+
+![进度条ProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressBar.gif)
 
 # 使用方法
 
@@ -56,23 +69,26 @@
 ```
 第三步：enjoy coding
 
-# 其他主要功能
-1、如何让**Scrollviewer**具有惯性？只要：
+# FAQ
+* 如何让**Scrollviewer**具有惯性？只要：  
 ```XML
 <controls:ScrollViewer IsEnableInertia="True">
     <!--你的控件-->
 </controls:ScrollViewer>
 ```
 
-2、如何让**Scrollviewer**具有穿透效果？只要：
+* 如何让**Scrollviewer**具有穿透效果？只要：  
 ```XML
 <controls:ScrollViewer IsPenetrating="True">
     <!--你的控件-->
 </controls:ScrollViewer>
 ```
 
-# 下一版本计划
+* 为什么我连编译都无法通过：  
+编译之前，请确保IDE为vs2017且c#最低版本为7.0,HandyControl目前仅支持4.5以上的.net环境，低版本支持估计很快就有了。
 
-1、添加信息通知控件；  
-2、添加进度条样式；  
-3、添加路径动画控件；
+# v1.3.0版本计划
+
+1、添加可拖动的tabcontrol；  
+2、添加时间、日历控件；  
+3、添加步骤条控件；

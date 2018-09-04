@@ -34,8 +34,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator, Version=2.0.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.2\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight, Version=5.4.1.0, Culture=neutral, PublicKeyToken=e7570ab207bcb616, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Extras, Version=5.4.1.0, Culture=neutral, PublicKeyToken=669f0b5e8f868abf, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Extras.dll</HintPath>
+    </Reference>
+    <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xaml">
       <RequiredTargetFramework>4.0</RequiredTargetFramework>
     </Reference>
@@ -47,6 +62,61 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\MessageToken.cs" />
+    <Compile Include="UserControl\ControlLocator.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ControlLocator.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
+      <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\CarouselDemoCtl.xaml.cs">
+      <DependentUpon>CarouselDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\ColorPickerDemoCtl.xaml.cs">
+      <DependentUpon>ColorPickerDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
+      <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\GrowlDemoCtl.xaml.cs">
+      <DependentUpon>GrowlDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\ImageBrowserDemoCtl.xaml.cs">
+      <DependentUpon>ImageBrowserDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\LoadingDemoCtl.xaml.cs">
+      <DependentUpon>LoadingDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Styles\ButtonDemoCtl.xaml.cs">
+      <DependentUpon>ButtonDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Styles\ExpanderDemoCtl.xaml.cs">
+      <DependentUpon>ExpanderDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Main\LeftMainContent.xaml.cs">
+      <DependentUpon>LeftMainContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Main\MainContent.xaml.cs">
+      <DependentUpon>MainContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\PaginationDemoCtl.xaml.cs">
+      <DependentUpon>PaginationDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\TimeBarDemoCtl.xaml.cs">
+      <DependentUpon>TimeBarDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Styles\ProgressBarDemoCtl.xaml.cs">
+      <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Styles\ToggleButtonDemoCtl.xaml.cs">
+      <DependentUpon>ToggleButtonDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\GrowlDemoViewModel.cs" />
+    <Compile Include="ViewModel\ImageBrowserDemoViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -55,12 +125,86 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\Model\CellGateInfo.cs" />
-    <Compile Include="Data\Model\CellGateRecord.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\Lang\zh-cn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Basic\Brushes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Basic\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\AnimationPathDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\CarouselDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\ColorPickerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\CompareSliderDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\GrowlDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\ImageBrowserDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\LoadingDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Styles\ButtonDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Styles\ExpanderDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Main\LeftMainContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Main\MainContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\PaginationDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\TimeBarDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Styles\ProgressBarDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Styles\ToggleButtonDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -74,18 +218,33 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\1.jpg" />
-    <Resource Include="Resources\2.jpg" />
-    <Resource Include="Resources\3.jpg" />
-    <Resource Include="Resources\4.jpg" />
-    <Resource Include="Resources\5.jpg" />
+    <Resource Include="Resources\Img\1.jpg" />
+    <Resource Include="Resources\Img\2.jpg" />
+    <Resource Include="Resources\Img\3.jpg" />
+    <Resource Include="Resources\Img\4.jpg" />
+    <Resource Include="Resources\Img\5.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\icon-white.png" />
+    <Resource Include="Resources\Img\icon-white.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\b1.jpg" />
-    <Resource Include="Resources\b2.jpg" />
+    <Resource Include="Resources\Img\b1.jpg" />
+    <Resource Include="Resources\Img\b2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Window\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UserControl\ControlLocator.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ControlLocator.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

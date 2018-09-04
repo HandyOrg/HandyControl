@@ -49,22 +49,32 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否支持惯性
         /// </summary>
-        public static readonly DependencyProperty IsEnableInertiaProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty IsEnableInertiaProperty = DependencyProperty.RegisterAttached(
             "IsEnableInertia", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(default(bool)));
+
+        public static void SetIsEnableInertia(DependencyObject element, bool value)
+        {
+            element.SetValue(IsEnableInertiaProperty, value);
+        }
+
+        public static bool GetIsEnableInertia(DependencyObject element)
+        {
+            return (bool) element.GetValue(IsEnableInertiaProperty);
+        }
 
         /// <summary>
         ///     是否支持惯性
         /// </summary>
         public bool IsEnableInertia
         {
-            get => (bool) GetValue(IsEnableInertiaProperty);
+            get => (bool)GetValue(IsEnableInertiaProperty);
             set => SetValue(IsEnableInertiaProperty, value);
         }
 
         /// <summary>
         ///     控件是否可以穿透点击
         /// </summary>
-        public static readonly DependencyProperty IsPenetratingProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty IsPenetratingProperty = DependencyProperty.RegisterAttached(
             "IsPenetrating", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(default(bool)));
 
         /// <summary>
@@ -72,8 +82,18 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsPenetrating
         {
-            get => (bool) GetValue(IsPenetratingProperty);
+            get => (bool)GetValue(IsPenetratingProperty);
             set => SetValue(IsPenetratingProperty, value);
+        }
+
+        public static void SetIsPenetrating(DependencyObject element, bool value)
+        {
+            element.SetValue(IsPenetratingProperty, value);
+        }
+
+        public static bool GetIsPenetrating(DependencyObject element)
+        {
+            return (bool) element.GetValue(IsPenetratingProperty);
         }
 
         /// <summary>
@@ -95,6 +115,7 @@ namespace HandyControl.Controls
         /// </summary>
         private double CurrentVerticalOffset
         {
+            // ReSharper disable once UnusedMember.Local
             get => (double) GetValue(CurrentVerticalOffsetProperty);
             set => SetValue(CurrentVerticalOffsetProperty, value);
         }

@@ -32,4 +32,5 @@
     <SolidColorBrush x:Key="AccentBrush" Color="{DynamicResource AccentColor}"></SolidColorBrush>
     <SolidColorBrush x:Key="DarkAccentBrush" Color="{DynamicResource DarkAccentColor}"></SolidColorBrush>
 
+    <SolidColorBrush x:Key="DarkMaskBrush" Color="{DynamicResource DarkMaskColor}"></SolidColorBrush>
 </ResourceDictionary>

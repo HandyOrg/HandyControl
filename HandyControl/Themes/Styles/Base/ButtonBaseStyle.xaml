@@ -7,84 +7,68 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="{x:Type Button}">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <Border x:Name="border" CornerRadius="4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="0" SnapsToDevicePixels="true">
-                            <!--点击时显示-->
-                            <Grid x:Name="PressedLayer" Visibility="Collapsed">
-                                <Rectangle Height="3" VerticalAlignment="Top" Fill="#1F000000" RadiusX="4" RadiusY="4">
-                                    <Rectangle.Effect>
-                                        <BlurEffect Radius="5"></BlurEffect>
-                                    </Rectangle.Effect>
-                                </Rectangle>
-                                <Border CornerRadius="4" BorderBrush="#1F000000" BorderThickness="1,0">
-                                    <Border.Effect>
-                                        <BlurEffect Radius="3"></BlurEffect>
-                                    </Border.Effect>
-                                </Border>
-                            </Grid>
-                        </Border>
-                        <Border BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"></Border>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </Border>
-                        <!--禁用时显示-->
-                        <Rectangle x:Name="EnabledLayer" Fill="#4CFFFFFF" RadiusX="4" RadiusY="4" Visibility="Collapsed"/>
                     </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="true">
-                            <Setter TargetName="PressedLayer" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="border" Property="BorderBrush" Value="#80cccccc"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="EnabledLayer" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value=".9"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value=".6"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".2"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="ButtonIconBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="Width" Value="{DynamicResource DefaultControlHeight}"/>
-        <Setter Property="BorderThickness" Value="0"></Setter>
-        <Setter Property="Padding" Value="8"></Setter>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
+        <Setter Property="controls:IconElement.Angle" Value="0"></Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <Grid>
-                        <!--点击时显示-->
-                        <Ellipse x:Name="border" Stroke="{TemplateBinding BorderBrush}" StrokeThickness="{TemplateBinding BorderThickness}" Fill="{TemplateBinding Background}" SnapsToDevicePixels="true"></Ellipse>
-                        <Ellipse x:Name="PressedLayer" Visibility="Collapsed" Stroke="#1F000000" StrokeThickness="2">
-                            <Ellipse.Effect>
-                                <BlurEffect Radius="3"></BlurEffect>
-                            </Ellipse.Effect>
-                        </Ellipse>
-                        <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                            <Path Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}" RenderTransformOrigin="0.5,0.5">
-                                <Path.RenderTransform>
-                                    <TransformGroup>
-                                        <RotateTransform Angle="{Binding Path=(controls:IconElement.Angle),RelativeSource={RelativeSource TemplatedParent}}"/>
-                                    </TransformGroup>
-                                </Path.RenderTransform>
-                            </Path>
-                        </ContentControl>
-                        <!--禁用时显示-->
-                        <Ellipse x:Name="EnabledLayer" Fill="#4CFFFFFF" Visibility="Collapsed"/>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"></Border>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                            <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <Path Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="{Binding Path=(controls:IconElement.Angle),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                            </ContentControl>
+                        </Border>
                     </Grid>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="true">
-                            <Setter TargetName="PressedLayer" Property="Visibility" Value="Visible"/>
-                            <Setter TargetName="border" Property="Stroke" Value="#80cccccc"/>
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="false">
-                            <Setter TargetName="EnabledLayer" Property="Visibility" Value="Visible"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value=".9"></Setter>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value=".6"></Setter>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".2"></Setter>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

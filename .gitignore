@@ -1,4 +1,5 @@
 ﻿/.vs
+/packages
 /HandyControl/bin/Debug
 /HandyControl/obj/Debug
 /HandyControl/bin/Release

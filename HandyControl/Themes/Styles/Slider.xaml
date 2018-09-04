@@ -305,6 +305,9 @@
                 <Setter Property="Stroke" TargetName="PathDown" Value="White"/>
             </Trigger>
             <Trigger Property="IsDragging" Value="true">
+                <Setter Property="Background" TargetName="grip" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Stroke" TargetName="PathUp" Value="White"/>
+                <Setter Property="Stroke" TargetName="PathDown" Value="White"/>
                 <Trigger.EnterActions>
                     <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
                 </Trigger.EnterActions>

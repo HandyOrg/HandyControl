@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ColorPickerDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+    <controls:TransitioningContentControl>
+        <StackPanel Orientation="Horizontal" Margin="32">
+            <controls:ColorPicker Name="ColorPicker"/>
+            <Border Margin="32,0,0,0" Height="100" Width="100" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" CornerRadius="50" Background="{Binding SelectedBrush,ElementName=ColorPicker}"></Border>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>
