@@ -10,11 +10,11 @@
         <ResourceDictionary Source="Border.xaml"></ResourceDictionary>
         <!--<ResourceDictionary Source="BulletCheckBox.xaml"></ResourceDictionary>-->
         <!--<ResourceDictionary Source="Label.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="ProgressBar.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="ProgressBar.xaml"></ResourceDictionary>
         <ResourceDictionary Source="ScrollViewer.xaml"></ResourceDictionary>
         <ResourceDictionary Source="Slider.xaml"></ResourceDictionary>
         <!--<ResourceDictionary Source="Clock.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="TreeView.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="TreeView.xaml"></ResourceDictionary>
         <!--<ResourceDictionary Source="DataGrid.xaml"></ResourceDictionary>-->
         <!--<ResourceDictionary Source="GroupBox.xaml"></ResourceDictionary>-->
         <ResourceDictionary Source="Pagination.xaml"></ResourceDictionary>

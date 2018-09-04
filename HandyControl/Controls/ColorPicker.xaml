@@ -75,24 +75,6 @@
                     <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"></TextBlock>
                 </StackPanel>
             </UniformGrid>
-            <!--<UniformGrid Visibility="{Binding ShowList[2],ElementName=UserControlMain,Converter={StaticResource Boolean2VisibilityConverter}}" Rows="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="-2,14,-2,0" VerticalAlignment="Top">
-                <StackPanel Margin="2,0">
-                    <controls:InfoTextBox TextPadding="0" Text="{Binding ColorInfoList[5],ElementName=UserControlMain}" FontSize="10" ShowSmallCornerRadius="True" MaxLength="3" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoTextBox>
-                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="H" HorizontalAlignment="Center"></TextBlock>
-                </StackPanel>
-                <StackPanel Margin="2,0">
-                    <controls:InfoTextBox TextPadding="0" Text="{Binding ColorInfoList[6],ElementName=UserControlMain}" FontSize="10" ShowSmallCornerRadius="True" MaxLength="3" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoTextBox>
-                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="S" HorizontalAlignment="Center"></TextBlock>
-                </StackPanel>
-                <StackPanel Margin="2,0">
-                    <controls:InfoTextBox TextPadding="0" Text="{Binding ColorInfoList[7],ElementName=UserControlMain}" FontSize="10" ShowSmallCornerRadius="True" MaxLength="3" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoTextBox>
-                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="L" HorizontalAlignment="Center"></TextBlock>
-                </StackPanel>
-                <StackPanel Margin="2,0">
-                    <controls:InfoTextBox TextPadding="0" Text="{Binding ColorInfoList[8],ElementName=UserControlMain}" FontSize="10" ShowSmallCornerRadius="True" MaxLength="3" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoTextBox>
-                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"></TextBlock>
-                </StackPanel>
-            </UniformGrid>-->
             <Button Click="ButtonSwitch_OnClick" Padding="6" FontSize="8" BorderThickness="0" Foreground="#323534" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="2" Grid.Row="1">
                 <Button.Content>
                     <Path Fill="#323534" Style="{StaticResource UpDownPathStyle}"></Path>

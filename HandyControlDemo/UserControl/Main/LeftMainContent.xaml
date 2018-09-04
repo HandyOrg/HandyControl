@@ -1,0 +1,33 @@
+﻿<Border controls:ScrollViewer.IsEnableInertia="True"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:command="http://www.galasoft.ch/mvvmlight"
+        x:Class="HandyControlDemo.UserControl.LeftMainContent"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:data="clr-namespace:HandyControlDemo.Data"
+        xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+    <TreeView controls:ScrollViewer.IsEnableInertia="True" BorderThickness="0">
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="SelectedItemChanged">
+                <command:EventToCommand Command="{Binding SwitchDemoCmd}" PassEventArgsToCommand="True" />
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <TreeViewItem IsExpanded="True" Header="{StaticResource Styles}">
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadButtonDemoCtl}" Header="{StaticResource Button}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadToggleButtonDemoCtl}" Header="{StaticResource ToggleButton}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadExpanderDemoCtl}" Header="{StaticResource Expander}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadProgressBarDemoCtl}" Header="{StaticResource ProgressBar}"/>
+        </TreeViewItem>
+        <TreeViewItem IsExpanded="True" Header="{StaticResource Controls}">
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadGrowlDemoCtl}" Header="{StaticResource Growl}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadLoadingDemoCtl}" Header="{StaticResource Loading}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadImageBrowserDemoCtl}" Header="{StaticResource ImageBrowser}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadColorPickerDemoCtl}" Header="{StaticResource ColorPicker}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadCarouselDemoCtl}" Header="{StaticResource Carousel}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadCompareSliderDemoCtl}" Header="{StaticResource CompareSlider}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadTimeBarDemoCtl}" Header="{StaticResource TimeBar}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadPaginationDemoCtl}" Header="{StaticResource Pagination}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadAnimationPathDemoCtl}" Header="{StaticResource AnimationPath}"/>
+        </TreeViewItem>
+    </TreeView>
+</Border>

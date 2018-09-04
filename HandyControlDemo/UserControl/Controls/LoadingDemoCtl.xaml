@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.LoadingDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+    <controls:TransitioningContentControl>
+        <StackPanel Width="600" Margin="32">
+            <controls:LoadingLine></controls:LoadingLine>
+            <controls:LoadingLine Margin="0,30" Foreground="BlueViolet" Style="{StaticResource LoadingLineLarge}"></controls:LoadingLine>
+            <StackPanel Orientation="Horizontal">
+                <controls:LoadingCircle></controls:LoadingCircle>
+                <Border VerticalAlignment="Center" Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
+                    <controls:LoadingCircle Style="{StaticResource LoadingCircleLight}" Margin="10"></controls:LoadingCircle>
+                </Border>
+            </StackPanel>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

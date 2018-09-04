@@ -32,4 +32,5 @@
     <Color x:Key="AccentColor">#ff5722</Color>
     <Color x:Key="DarkAccentColor">#d43f3a</Color>
 
+    <Color x:Key="DarkMaskColor">#20000000</Color>
 </ResourceDictionary>

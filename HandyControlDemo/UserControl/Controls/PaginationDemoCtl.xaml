@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.PaginationDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+    <controls:TransitioningContentControl>
+        <controls:Pagination Margin="32" Width="600" MaxPageCount="10"></controls:Pagination>
+    </controls:TransitioningContentControl>
+</UserControl>

@@ -10,75 +10,59 @@
     <!--普通-->
     <Style BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkDefaultBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkPrimaryBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkPrimaryBrush}"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="ToggleButtonSuccess" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkSuccessBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkSuccessBrush}"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="ToggleButtonInfo" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkInfoBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkInfoBrush}"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="ToggleButtonWarning" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkWarningBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkWarningBrush}"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
     <Style x:Key="ToggleButtonDanger" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkDangerBrush}"/>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkDangerBrush}"/>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
-    <!--开关-->
-    <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="{x:Type ToggleButton}"></Style>
+    <!--图标-->
+    <Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+    </Style>
 
-    <!--icon-->
-    <Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}"></Style>
+    <Style x:Key="ToggleButtonIconPrimary" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconSuccess" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconInfo" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconWarning" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconDanger" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+    </Style>
 
     <Style x:Key="ToggleButtonIconTransparent" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Foreground" Value="White"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -95,19 +79,12 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Opacity" Value=".9"></Setter>
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Opacity" Value=".6"></Setter>
-            </Trigger>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value=".2"></Setter>
-            </Trigger>
-        </Style.Triggers>
     </Style>
 
+    <!--开关-->
+    <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="{x:Type ToggleButton}"></Style>
+
+    <!--自定义-->
     <Style x:Key="ToggleButtonOpacityStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent"></Setter>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
