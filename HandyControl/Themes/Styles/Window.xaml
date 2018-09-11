@@ -37,7 +37,7 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Grid Visibility="{TemplateBinding IsFullScreen,Converter={StaticResource Boolean2VisibilityFeConverter}}" Background="{TemplateBinding NoUserAreaBackground}" Name="GridMenu" TextElement.Foreground="{TemplateBinding NoUserAreaForeground}">
+                            <Grid Visibility="{TemplateBinding IsFullScreen,Converter={StaticResource Boolean2VisibilityReConverter}}" Background="{TemplateBinding NoUserAreaBackground}" Name="GridMenu" TextElement.Foreground="{TemplateBinding NoUserAreaForeground}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="Auto"/>

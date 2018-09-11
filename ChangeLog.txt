@@ -1,3 +1,13 @@
+2018.09.04 Version 1.2.1
+* new controls
+ - add TabControl
+ - add ContextMenuButton
+ - add ContextMenuToggleButton
+
+* other
+- update HandyControlDemo UI
+- Localization
+
 2018.09.04 Version 1.2.0
 * new controls
  - add Growl

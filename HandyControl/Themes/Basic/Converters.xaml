@@ -2,14 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converter="clr-namespace:HandyControl.Tools.Converter">
 
-    <converter:Boolean2BooleanFeConverter x:Key="Boolean2BooleanFeConverter"/>
-    <converter:Boolean2VisibilityFeConverter x:Key="Boolean2VisibilityFeConverter"/>
+    <converter:Boolean2BooleanReConverter x:Key="Boolean2BooleanReConverter"/>
+    <converter:Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter"/>
     <converter:BooleanArr2VisibilityConverter x:Key="BooleanArr2VisibilityConverter"/>
-    <converter:IsNullConverter x:Key="IsNullConverter"/>
     <converter:Long2FileSizeConverter x:Key="Long2FileSizeConverter"/>
     <converter:Source2ImageConverter x:Key="Source2ImageConverter"/>
     <converter:String2VisibilityConverter x:Key="String2VisibilityConverter"/>
-    <converter:String2VisibilityFeConverter x:Key="String2VisibilityFeConverter"/>
+    <converter:String2VisibilityReConverter x:Key="String2VisibilityReConverter"/>
     <BooleanToVisibilityConverter x:Key="Boolean2VisibilityConverter"/>
     <converter:TreeViewItemMarginConverter x:Key="TreeViewItemMarginConverter"/>
     <converter:Color2HexStrConverter x:Key="Color2HexStrConverter"></converter:Color2HexStrConverter>

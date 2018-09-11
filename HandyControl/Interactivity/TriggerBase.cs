@@ -9,11 +9,11 @@ namespace HandyControl.Interactivity
     [ContentProperty("Actions")]
     public abstract class TriggerBase : Animatable, IAttachedObject
     {
-        public static readonly DependencyProperty ActionsProperty = ActionsPropertyKey.DependencyProperty;
-
         private static readonly DependencyPropertyKey ActionsPropertyKey =
             DependencyProperty.RegisterReadOnly("Actions", typeof(TriggerActionCollection), typeof(TriggerBase),
                 new FrameworkPropertyMetadata());
+
+        public static readonly DependencyProperty ActionsProperty = ActionsPropertyKey.DependencyProperty;
 
         private DependencyObject _associatedObject;
         private readonly Type _associatedObjectTypeConstraint;

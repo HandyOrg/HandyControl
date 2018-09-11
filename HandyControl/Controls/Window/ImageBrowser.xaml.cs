@@ -56,7 +56,7 @@ namespace HandyControl.Controls
         /// </summary>
         private static readonly SaveFileDialog SaveFileDialog = new SaveFileDialog
         {
-            Filter = "PNG图片|*.png"
+            Filter = $"{Properties.Langs.Lang.PngImg}|*.png"
         };
 
         public static readonly DependencyProperty ImgPathProperty = DependencyProperty.Register(
@@ -211,7 +211,7 @@ namespace HandyControl.Controls
             }
             catch
             {
-                PopupWindow.ShowDialog("非法的图片路径！");
+                PopupWindow.ShowDialog(Properties.Langs.Lang.ErrorImgPath);
             }
         }
 
@@ -343,7 +343,7 @@ namespace HandyControl.Controls
 
             if (Math.Abs(height - 0) < 0.001 || Math.Abs(width - 0) < 0.001)
             {
-                PopupWindow.ShowDialog("非法的图片尺寸！");
+                PopupWindow.ShowDialog(Properties.Langs.Lang.ErrorImgSize);
                 return;
             }
             _imgWidHeiScale = width / height;
@@ -395,7 +395,7 @@ namespace HandyControl.Controls
 
         private void ButtonSave_OnClick(object sender, RoutedEventArgs e)
         {
-            SaveFileDialog.FileName = $"{DateTime.Now:yyyy年M月d日h时m分s.fff秒}";
+            SaveFileDialog.FileName = $"{DateTime.Now:yyyy-M-d-h-m-s.fff}";
             if (SaveFileDialog.ShowDialog() == true)
             {
                 var path = SaveFileDialog.FileName;

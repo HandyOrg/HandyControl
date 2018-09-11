@@ -75,7 +75,7 @@
                 <TextBlock Text="{Binding ImgPath,ElementName=UserControlMain}" Foreground="White" Margin="10,0,0,0"></TextBlock>
                 <TextBlock Text="{Binding ImgSize,ElementName=UserControlMain,Converter={StaticResource Long2FileSizeConverter}}" Foreground="White" Margin="30,0,0,0"></TextBlock>
             </StackPanel>
-            <Button WindowChrome.IsHitTestVisibleInChrome="True" Click="ButtonClose_OnClick" Background="{DynamicResource DangerBrush}" Grid.Row="0" Padding="14" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIconTransparent}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40"></Button>
+            <Button WindowChrome.IsHitTestVisibleInChrome="True" Click="ButtonClose_OnClick" Background="Red" Grid.Row="0" Padding="14" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIconTransparent}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40"></Button>
         </Grid>
     </Grid>
 </controls:WindowBorderless>

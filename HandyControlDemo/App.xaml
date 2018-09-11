@@ -10,9 +10,8 @@
 
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="Resources/Lang/zh-cn.xaml"/>
                 <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/ThemesDefault.xaml"/>
-                <ResourceDictionary Source="Resources/Themes/Style.xaml"/>
+                <ResourceDictionary Source="Resources/Themes/Styles/Style.xaml"/>
                 <ResourceDictionary>
                     <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True"/>
                 </ResourceDictionary>

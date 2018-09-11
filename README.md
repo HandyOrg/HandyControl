@@ -54,6 +54,10 @@
 
 ![进度条ProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressBar.gif)
 
+### 12、选项卡控件TabControl
+
+![选项卡控件TabControl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.gif)
+
 # 使用方法
 
 第一步：添加HandyControl的引用；  
@@ -85,10 +89,9 @@
 ```
 
 * 为什么我连编译都无法通过：  
-编译之前，请确保IDE为vs2017且c#最低版本为7.0,HandyControl目前仅支持4.5以上的.net环境，低版本支持估计很快就有了。
+编译之前，请确保IDE为vs2017且c#最低版本为7.0,HandyControl目前仅支持4.5以上的.net环境。
 
 # v1.3.0版本计划
 
-1、添加可拖动的tabcontrol；  
-2、添加时间、日历控件；  
-3、添加步骤条控件；
+1、添加时间、日历控件；  
+2、添加步骤条控件；

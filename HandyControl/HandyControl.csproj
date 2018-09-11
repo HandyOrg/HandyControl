@@ -38,6 +38,8 @@
     <Compile Include="Controls\Attach\BorderElement.cs" />
     <Compile Include="Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
+    <Compile Include="Controls\Button\ContextMenuButton.cs" />
+    <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Carousel.xaml.cs">
       <DependentUpon>Carousel.xaml</DependentUpon>
     </Compile>
@@ -63,6 +65,9 @@
     <Compile Include="Controls\Pagination.xaml.cs">
       <DependentUpon>Pagination.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TabControl\TabControl.cs" />
+    <Compile Include="Controls\TabControl\TabItem.cs" />
+    <Compile Include="Controls\TabControl\TabPanel.cs" />
     <Compile Include="Controls\TimeBar\SpeTextBlock.cs" />
     <Compile Include="Controls\TimeBar\TimeBar.xaml.cs">
       <DependentUpon>TimeBar.xaml</DependentUpon>
@@ -96,12 +101,14 @@
     <Compile Include="Interactivity\FluidMoveScope.cs" />
     <Compile Include="Interactivity\IAttachedObject.cs" />
     <Compile Include="Interactivity\Interaction.cs" />
+    <Compile Include="Interactivity\InvokeCommandAction.cs" />
     <Compile Include="Interactivity\MouseDragElementBehavior.cs" />
     <Compile Include="Interactivity\NameResolvedEventArgs.cs" />
     <Compile Include="Interactivity\NameResolver.cs" />
     <Compile Include="Interactivity\PreviewInvokeEventArgs.cs" />
     <Compile Include="Interactivity\TagType.cs" />
     <Compile Include="Interactivity\TransitionEffect.cs" />
+    <Compile Include="Interactivity\TriggerAction!1.cs" />
     <Compile Include="Interactivity\TriggerAction.cs" />
     <Compile Include="Interactivity\TriggerActionCollection.cs" />
     <Compile Include="Interactivity\TriggerBase.cs" />
@@ -110,19 +117,28 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Properties\Langs\Lang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Langs\Lang.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Tools\AnimationHelper.cs" />
     <Compile Include="Tools\ArithmeticHelper.cs" />
-    <Compile Include="Tools\Converter\Boolean2BooleanFeConverter.cs" />
-    <Compile Include="Tools\Converter\Boolean2VisibilityFeConverter.cs" />
+    <Compile Include="Tools\Converter\Boolean2BooleanReConverter.cs" />
+    <Compile Include="Tools\Converter\Boolean2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\BooleanArr2VisibilityConverter.cs" />
     <Compile Include="Tools\Converter\Color2ChannelAConverter.cs" />
     <Compile Include="Tools\Converter\Color2HexStrConverter.cs" />
-    <Compile Include="Tools\Converter\IsNullConverter.cs" />
     <Compile Include="Tools\Converter\Long2FileSizeConverter.cs" />
     <Compile Include="Tools\Converter\Object2BooleanConverter.cs" />
     <Compile Include="Tools\Converter\Source2ImageConverter.cs" />
     <Compile Include="Tools\Converter\String2VisibilityConverter.cs" />
-    <Compile Include="Tools\Converter\String2VisibilityFeConverter.cs" />
+    <Compile Include="Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\TreeViewItemMarginConverter.cs" />
     <Compile Include="Tools\Extension\ColorExtension.cs" />
     <Compile Include="Tools\Extension\UIElementExtension.cs" />
@@ -268,6 +284,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\ContentControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\ContextMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -304,6 +324,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\TabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\TextBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -332,6 +356,16 @@
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Langs\Lang.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Langs\Lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

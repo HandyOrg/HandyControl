@@ -8,6 +8,7 @@
              mc:Ignorable="d" 
              Name="UserControlMain"
              Width="230"
+             xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
              UseLayoutRounding="True">
     <Grid>
         <Grid.RowDefinitions>
@@ -86,8 +87,8 @@
         </Border>
         <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderBrush}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Click="ButtonCancel_OnClick" Content="取消" Width="60" Margin="0,0,16,0"></Button>
-                <Button Click="ButtonSure_OnClick" Content="确定" Width="60" Style="{StaticResource ButtonPrimary}"></Button>
+                <Button Click="ButtonCancel_OnClick" Content="{x:Static langs:Lang.Cancel}" Width="80" Margin="0,0,16,0"></Button>
+                <Button Click="ButtonSure_OnClick" Content="{x:Static langs:Lang.Confirm}" Width="80" Style="{StaticResource ButtonPrimary}"></Button>
             </StackPanel>
         </Border>
     </Grid>

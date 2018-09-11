@@ -1,0 +1,30 @@
+﻿<StackPanel x:Class="HandyControlDemo.UserControl.NoUserContent"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
+            Orientation="Horizontal">
+    <Button WindowChrome.IsHitTestVisibleInChrome="True" Width="28" Height="28" Style="{StaticResource ButtonOpacityStyle}">
+        <interactivity:Interaction.Triggers>
+            <interactivity:EventTrigger EventName="Click">
+                <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
+            </interactivity:EventTrigger>
+            <interactivity:EventTrigger EventName="MouseDoubleClick">
+                <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
+            </interactivity:EventTrigger>
+        </interactivity:Interaction.Triggers>
+        <Path Height="16" Fill="White" Stretch="Uniform" Data="{StaticResource LogoGeometry}"/>
+    </Button>
+    <Menu Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent">
+        <MenuItem Foreground="White" Header="File">
+            <MenuItem Header="New repository" InputGestureText="Ctrl+N"></MenuItem>
+            <Separator></Separator>
+            <MenuItem Header="Add local repository"></MenuItem>
+            <MenuItem Header="Clone repository"></MenuItem>
+        </MenuItem>
+        <MenuItem Foreground="White" Header="Edit"></MenuItem>
+        <MenuItem Foreground="White" Header="View"></MenuItem>
+        <MenuItem Foreground="White" Header="Repository"></MenuItem>
+        <MenuItem Foreground="White" Header="Branch"></MenuItem>
+        <MenuItem Foreground="White" Header="Help"></MenuItem>
+    </Menu>
+</StackPanel>

@@ -30,5 +30,7 @@
         public static readonly string LoadButtonDemoCtl = nameof(LoadButtonDemoCtl);
 
         public static readonly string LoadToggleButtonDemoCtl = nameof(LoadToggleButtonDemoCtl);
+
+        public static readonly string LoadTabControlDemoCtl = nameof(LoadTabControlDemoCtl);
     }
 }

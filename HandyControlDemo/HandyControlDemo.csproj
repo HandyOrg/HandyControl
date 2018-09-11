@@ -63,6 +63,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\MessageToken.cs" />
+    <Compile Include="Properties\Langs\Lang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Langs\Lang.en.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\ControlLocator.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +99,9 @@
     <Compile Include="UserControl\Controls\LoadingDemoCtl.xaml.cs">
       <DependentUpon>LoadingDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Main\NoUserContent.xaml.cs">
+      <DependentUpon>NoUserContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Styles\ButtonDemoCtl.xaml.cs">
       <DependentUpon>ButtonDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -110,6 +123,9 @@
     <Compile Include="UserControl\Styles\ProgressBarDemoCtl.xaml.cs">
       <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\TabControlDemoCtl.xaml.cs">
+      <DependentUpon>TabControlDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Styles\ToggleButtonDemoCtl.xaml.cs">
       <DependentUpon>ToggleButtonDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -129,10 +145,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Resources\Lang\zh-cn.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Themes\Basic\Brushes.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -141,7 +153,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Themes\Style.xaml">
+    <Page Include="Resources\Themes\Basic\Geometries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Styles\Label.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Styles\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Styles\TreeViewItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -173,6 +197,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Main\NoUserContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Styles\ButtonDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -201,6 +229,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\TabControlDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Styles\ToggleButtonDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -225,14 +257,8 @@
     <Resource Include="Resources\Img\5.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Img\icon-white.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Img\b1.jpg" />
     <Resource Include="Resources\Img\b2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Window\" />
@@ -245,6 +271,19 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Langs\Lang.en.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.en.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Langs\Lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

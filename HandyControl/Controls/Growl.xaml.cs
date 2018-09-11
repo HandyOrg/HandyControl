@@ -108,16 +108,12 @@ namespace HandyControl.Controls
             GrowlPanel = panel;
             var menuItem = new MenuItem
             {
-                Header = "清空消息"
+                Header = Properties.Langs.Lang.Clear
             };
             menuItem.Click += (s, e) =>
             {
                 foreach (var item in GrowlPanel.Children.OfType<Growl>())
                 {
-                    //if (item.CloseAction != null)
-                    //{
-                    //    item.Close();
-                    //}
                     item.Close();
                 }
             };
