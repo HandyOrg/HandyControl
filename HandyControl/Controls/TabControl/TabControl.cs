@@ -133,7 +133,7 @@ namespace HandyControl.Controls
             if (!IsEnableTabFill)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow.Show(Items.Count >= _itemShowCount);
+                _buttonOverflow.Show(Items.Count > 0  && Items.Count >= _itemShowCount);
             }
 
             if (IsInternalAction)
@@ -151,9 +151,10 @@ namespace HandyControl.Controls
             }
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                foreach (UIElement item in e.NewItems)
+                foreach (TabItem item in e.NewItems)
                 {
                     item.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                    item.IsSelected = true;
                 }
             }
             IsInternalAction = false;
@@ -170,7 +171,7 @@ namespace HandyControl.Controls
             if (_buttonOverflow != null)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow.Show(Items.Count >= _itemShowCount);
+                _buttonOverflow.Show(Items.Count > 0 && Items.Count >= _itemShowCount);
 
                 var menu = new ContextMenu
                 {
