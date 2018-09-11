@@ -107,7 +107,7 @@ namespace HandyControl.Controls
             var count = InternalChildren.Count;
             if (count == 0)
             {
-                _oldSize.Width = 0;
+                _oldSize = new Size();
                 return _oldSize;
             }
             constraint.Width += InternalChildren.Count;
@@ -121,7 +121,10 @@ namespace HandyControl.Controls
             }
             else
             {
-                arr = ArithmeticHelper.DivideInt2Arr((int)constraint.Width, count);
+                if (TemplatedParent is TabControl tabControl)
+                {
+                    arr = ArithmeticHelper.DivideInt2Arr((int)tabControl.ActualWidth + InternalChildren.Count, count);
+                }
             }
 
             for (var index = 0; index < count; index++)
@@ -140,7 +143,6 @@ namespace HandyControl.Controls
                         Width = itemWidth,
                         Height = TabItemHeight
                     };
-                    Console.WriteLine(rect);
                     tabItem.Arrange(rect);
                     tabItem.ItemWidth = itemWidth - tabItem.BorderThickness.Left;
                     tabItem.CurrentIndex = index;
