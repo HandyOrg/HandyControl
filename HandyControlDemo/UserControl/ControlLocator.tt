@@ -5,7 +5,8 @@
 var singleList = new List<string>
 {
 	"MainContent",
-	"LeftMainContent"
+	"LeftMainContent",
+	"NoUserContent"
 };
 var controlList = new List<string>
 {
@@ -24,7 +25,8 @@ var styleList = new List<string>
 	"ButtonDemoCtl",
 	"ToggleButtonDemoCtl",
 	"ExpanderDemoCtl",
-	"ProgressBarDemoCtl"
+	"ProgressBarDemoCtl",
+	"TabControlDemoCtl"
 };
 #>
 using System;

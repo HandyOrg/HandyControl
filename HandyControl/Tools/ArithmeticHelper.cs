@@ -5,15 +5,40 @@ using System.Windows.Controls.Primitives;
 
 namespace HandyControl.Tools
 {
-    public class ArithmeticHelper
+    /// <summary>
+    ///     包含内部使用的一些简单算法
+    /// </summary>
+    internal class ArithmeticHelper
     {
+        /// <summary>
+        ///     平分一个整数到一个数组中
+        /// </summary>
+        /// <param name="num"></param>
+        /// <param name="count"></param>
+        /// <returns></returns>
+        public static int[] DivideInt2Arr(int num, int count)
+        {
+            var arr = new int[count];
+            var div = num / count;
+            var rest = num % count;
+            for (int i = 0; i < count; i++)
+            {
+                arr[i] = div;
+            }
+            for (int i = 0; i < rest; i++)
+            {
+                arr[i] += 1;
+            }
+            return arr;
+        }
+
         /// <summary>
         ///     计算控件在窗口中的可见坐标
         /// </summary>
         /// <param name="element"></param>
         /// <param name="showElement"></param>
         /// <returns></returns>
-        internal static Point CalSafePoint(FrameworkElement element, FrameworkElement showElement)
+        public static Point CalSafePoint(FrameworkElement element, FrameworkElement showElement)
         {
             if (element == null || showElement == null) return default(Point);
             var point = element.PointToScreen(new Point(0, 0));
@@ -33,7 +58,7 @@ namespace HandyControl.Tools
         /// </summary>
         /// <param name="element"></param>
         /// <returns></returns>
-        internal static Rect GetLayoutRect(FrameworkElement element)
+        public static Rect GetLayoutRect(FrameworkElement element)
         {
             var num1 = element.ActualWidth;
             var num2 = element.ActualHeight;

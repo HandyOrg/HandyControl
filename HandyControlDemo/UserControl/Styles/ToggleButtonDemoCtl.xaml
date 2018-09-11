@@ -2,37 +2,38 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="White"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
         <controls:ScrollViewer IsEnableInertia="True">
             <WrapPanel Margin="32" ItemWidth="160" ItemHeight="130">
                 <StackPanel>
-                    <ToggleButton IsChecked="True" Content="默认" Margin="5"></ToggleButton>
-                    <ToggleButton IsEnabled="False" Content="默认" Margin="5"></ToggleButton>
+                    <ToggleButton IsChecked="True" Content="{x:Static langs:Lang.Default}" Margin="5"></ToggleButton>
+                    <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Default}" Margin="5"></ToggleButton>
                 </StackPanel>
                 <StackPanel>
-                    <ToggleButton IsChecked="True" Content="主要" Margin="5" Style="{StaticResource ToggleButtonPrimary}"></ToggleButton>
-                    <ToggleButton IsEnabled="False" Content="主要" Margin="5" Style="{StaticResource ToggleButtonPrimary}"></ToggleButton>
+                    <ToggleButton IsChecked="True" Content="{x:Static langs:Lang.Primary}" Margin="5" Style="{StaticResource ToggleButtonPrimary}"></ToggleButton>
+                    <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Primary}" Margin="5" Style="{StaticResource ToggleButtonPrimary}"></ToggleButton>
                     <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonPrimary"></TextBlock>
                 </StackPanel>
                 <StackPanel>
-                    <ToggleButton IsChecked="True" Content="成功" Margin="5" Style="{StaticResource ToggleButtonSuccess}"></ToggleButton>
-                    <ToggleButton IsEnabled="False" Content="成功" Margin="5" Style="{StaticResource ToggleButtonSuccess}"></ToggleButton>
+                    <ToggleButton IsChecked="True" Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ToggleButtonSuccess}"></ToggleButton>
+                    <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ToggleButtonSuccess}"></ToggleButton>
                     <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSuccess"></TextBlock>
                 </StackPanel>
                 <StackPanel>
-                    <ToggleButton Content="信息" Margin="5" Style="{StaticResource ToggleButtonInfo}"></ToggleButton>
-                    <ToggleButton IsEnabled="False" Content="信息" Margin="5" Style="{StaticResource ToggleButtonInfo}"></ToggleButton>
+                    <ToggleButton Content="{x:Static langs:Lang.Info}" Margin="5" Style="{StaticResource ToggleButtonInfo}"></ToggleButton>
+                    <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Info}" Margin="5" Style="{StaticResource ToggleButtonInfo}"></ToggleButton>
                     <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonInfo"></TextBlock>
                 </StackPanel>
                 <StackPanel>
-                    <ToggleButton Content="警告" Margin="5" Style="{StaticResource ToggleButtonWarning}"></ToggleButton>
-                    <ToggleButton IsEnabled="False" Content="警告" Margin="5" Style="{StaticResource ToggleButtonWarning}"></ToggleButton>
+                    <ToggleButton Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ToggleButtonWarning}"></ToggleButton>
+                    <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ToggleButtonWarning}"></ToggleButton>
                     <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonWarning"></TextBlock>
                 </StackPanel>
                 <StackPanel>
-                    <ToggleButton Content="危险" Margin="5" Style="{StaticResource ToggleButtonDanger}"></ToggleButton>
-                    <ToggleButton IsEnabled="False" Content="危险" Margin="5" Style="{StaticResource ToggleButtonDanger}"></ToggleButton>
+                    <ToggleButton Content="{x:Static langs:Lang.Danger}" Margin="5" Style="{StaticResource ToggleButtonDanger}"></ToggleButton>
+                    <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Danger}" Margin="5" Style="{StaticResource ToggleButtonDanger}"></ToggleButton>
                     <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonDanger"></TextBlock>
                 </StackPanel>
                 <StackPanel>

@@ -13,6 +13,7 @@ namespace HandyControlDemo.UserControl
         {
 			SimpleIoc.Default.Register<MainContent>();
 			SimpleIoc.Default.Register<LeftMainContent>();
+			SimpleIoc.Default.Register<NoUserContent>();
 			SimpleIoc.Default.Register<GrowlDemoCtl>();
 			SimpleIoc.Default.Register<LoadingDemoCtl>();
 			SimpleIoc.Default.Register<ImageBrowserDemoCtl>();
@@ -26,6 +27,7 @@ namespace HandyControlDemo.UserControl
 			SimpleIoc.Default.Register<ToggleButtonDemoCtl>();
 			SimpleIoc.Default.Register<ExpanderDemoCtl>();
 			SimpleIoc.Default.Register<ProgressBarDemoCtl>();
+			SimpleIoc.Default.Register<TabControlDemoCtl>();
 		}
 
 		public static ControlLocator Instance => new Lazy<ControlLocator>(() => new ControlLocator()).Value;
@@ -35,6 +37,8 @@ namespace HandyControlDemo.UserControl
 		public MainContent MainContent => ServiceLocator.Current.GetInstance<MainContent>();
 
 		public LeftMainContent LeftMainContent => ServiceLocator.Current.GetInstance<LeftMainContent>();
+
+		public NoUserContent NoUserContent => ServiceLocator.Current.GetInstance<NoUserContent>();
 
 		#endregion
 
@@ -69,6 +73,8 @@ namespace HandyControlDemo.UserControl
 		public ExpanderDemoCtl ExpanderDemoCtl => new ExpanderDemoCtl();
 
 		public ProgressBarDemoCtl ProgressBarDemoCtl => new ProgressBarDemoCtl();
+
+		public TabControlDemoCtl TabControlDemoCtl => new TabControlDemoCtl();
 
 		#endregion
 	}

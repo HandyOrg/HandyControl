@@ -16,29 +16,8 @@
                            Name="MyWindow"
                            DataContext="{Binding Main,Source={StaticResource Locator}}"
                            d:DesignHeight="800" 
-                           d:DesignWidth="1400">
-    <controls:WindowBorderless.NoUserContent>
-        <StackPanel Orientation="Horizontal">
-            <Border Margin="10,0,0,0" Width="16" Height="16">
-                <Border.Background>
-                    <ImageBrush ImageSource="Resources/Img/icon-white.png"/>
-                </Border.Background>
-            </Border>
-            <Menu Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent">
-                <MenuItem Foreground="White" Header="File">
-                    <MenuItem Header="New repository" InputGestureText="Ctrl+N"></MenuItem>
-                    <Separator></Separator>
-                    <MenuItem Header="Add local repository"></MenuItem>
-                    <MenuItem Header="Clone repository"></MenuItem>
-                </MenuItem>
-                <MenuItem Foreground="White" Header="Edit"></MenuItem>
-                <MenuItem Foreground="White" Header="View"></MenuItem>
-                <MenuItem Foreground="White" Header="Repository"></MenuItem>
-                <MenuItem Foreground="White" Header="Branch"></MenuItem>
-                <MenuItem Foreground="White" Header="Help"></MenuItem>
-            </Menu>
-        </StackPanel>
-    </controls:WindowBorderless.NoUserContent>
+                           d:DesignWidth="1400"
+                           NoUserContent="{Binding NoUserContent}">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"/>

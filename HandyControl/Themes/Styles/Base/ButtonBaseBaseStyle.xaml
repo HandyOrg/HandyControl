@@ -10,11 +10,12 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"></Setter>
         <Setter Property="Padding" Value="{DynamicResource DefaultControlPadding}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"></Setter>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="IsTabStop" Value="False"></Setter>
     </Style>
 
 </ResourceDictionary>

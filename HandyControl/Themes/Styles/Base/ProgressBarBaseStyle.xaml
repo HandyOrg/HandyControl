@@ -30,7 +30,7 @@
                                         <Rectangle x:Name="PART_GlowRect" Fill="{StaticResource ProgressBarIndicatorAnimatedFill}" HorizontalAlignment="Left" Margin="-100,0,0,0" Width="100"/>
                                     </Border>
                                 </Decorator>
-                                <TextBlock HorizontalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=ProgressBar},StringFormat={}{0} %}"></TextBlock>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=ProgressBar},StringFormat={}{0} %}"></TextBlock>
                             </Grid>
                         </Grid>
                     </Grid>

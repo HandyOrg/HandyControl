@@ -18,7 +18,7 @@
         <!--<ResourceDictionary Source="DataGrid.xaml"></ResourceDictionary>-->
         <!--<ResourceDictionary Source="GroupBox.xaml"></ResourceDictionary>-->
         <ResourceDictionary Source="Pagination.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="TabControl.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="TabControl.xaml"></ResourceDictionary>
         <ResourceDictionary Source="ListBox.xaml"></ResourceDictionary>
         <!--<ResourceDictionary Source="ComboBox.xaml"></ResourceDictionary>-->
         <ResourceDictionary Source="Loading.xaml"></ResourceDictionary>
@@ -28,7 +28,7 @@
         <!--<ResourceDictionary Source="InfoBrief.xaml"></ResourceDictionary>-->
         <ResourceDictionary Source="Expander.xaml"></ResourceDictionary>
         <!--<ResourceDictionary Source="TextBox.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="ContentControl.xaml"></ResourceDictionary>-->
+        <ResourceDictionary Source="ContentControl.xaml"></ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

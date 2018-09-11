@@ -5,6 +5,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:data="clr-namespace:HandyControlDemo.Data"
         xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+        xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
     <TreeView controls:ScrollViewer.IsEnableInertia="True" BorderThickness="0">
         <i:Interaction.Triggers>
@@ -12,22 +13,23 @@
                 <command:EventToCommand Command="{Binding SwitchDemoCmd}" PassEventArgsToCommand="True" />
             </i:EventTrigger>
         </i:Interaction.Triggers>
-        <TreeViewItem IsExpanded="True" Header="{StaticResource Styles}">
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadButtonDemoCtl}" Header="{StaticResource Button}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadToggleButtonDemoCtl}" Header="{StaticResource ToggleButton}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadExpanderDemoCtl}" Header="{StaticResource Expander}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadProgressBarDemoCtl}" Header="{StaticResource ProgressBar}"/>
+        <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Styles}">
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadButtonDemoCtl}" Header="{x:Static langs:Lang.Button}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadToggleButtonDemoCtl}" Header="{x:Static langs:Lang.ToggleButton}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadExpanderDemoCtl}" Header="{x:Static langs:Lang.Expander}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadProgressBarDemoCtl}" Header="{x:Static langs:Lang.ProgressBar}"/>
         </TreeViewItem>
-        <TreeViewItem IsExpanded="True" Header="{StaticResource Controls}">
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadGrowlDemoCtl}" Header="{StaticResource Growl}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadLoadingDemoCtl}" Header="{StaticResource Loading}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadImageBrowserDemoCtl}" Header="{StaticResource ImageBrowser}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadColorPickerDemoCtl}" Header="{StaticResource ColorPicker}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadCarouselDemoCtl}" Header="{StaticResource Carousel}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadCompareSliderDemoCtl}" Header="{StaticResource CompareSlider}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadTimeBarDemoCtl}" Header="{StaticResource TimeBar}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadPaginationDemoCtl}" Header="{StaticResource Pagination}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadAnimationPathDemoCtl}" Header="{StaticResource AnimationPath}"/>
+        <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Controls}">
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadGrowlDemoCtl}" Header="{x:Static langs:Lang.Growl}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadLoadingDemoCtl}" Header="{x:Static langs:Lang.Loading}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadImageBrowserDemoCtl}" Header="{x:Static langs:Lang.ImageBrowser}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadColorPickerDemoCtl}" Header="{x:Static langs:Lang.ColorPicker}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadCarouselDemoCtl}" Header="{x:Static langs:Lang.Carousel}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadCompareSliderDemoCtl}" Header="{x:Static langs:Lang.CompareSlider}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadTimeBarDemoCtl}" Header="{x:Static langs:Lang.TimeBar}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadPaginationDemoCtl}" Header="{x:Static langs:Lang.Pagination}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadAnimationPathDemoCtl}" Header="{x:Static langs:Lang.AnimationPath}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.LoadTabControlDemoCtl}" Header="{x:Static langs:Lang.TabControl}"/>
         </TreeViewItem>
     </TreeView>
 </Border>

@@ -40,7 +40,7 @@
             <TextBlock FontSize="16" Text="{Binding SelectedTime,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},StringFormat=yyyy-MM-dd HH:mm:ss}" VerticalAlignment="Top" Margin="0,14,0,0" HorizontalAlignment="Center"></TextBlock>
         </Border>
         <TextBlock Visibility="{Binding ShowSpeStr,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},Converter={StaticResource Boolean2VisibilityConverter}}" Text="{Binding SpeStr,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,10,0"></TextBlock>
-        <TextBlock Visibility="Collapsed" Name="TextBlockSelected" HorizontalAlignment="Left" Text="2017-10-16 06:29:28" VerticalAlignment="Top" Margin="0,2,0,0"></TextBlock>
+        <TextBlock Visibility="Collapsed" Name="TextBlockSelected" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0"></TextBlock>
         <Border Width="1" Background="{DynamicResource DangerBrush}"></Border>
         <Canvas Name="CanvasSpe" VerticalAlignment="Bottom" Height="28" ></Canvas>
         <Border PreviewMouseLeftButtonUp="BorderTop_OnPreviewMouseLeftButtonUp" MouseLeftButtonDown="BorderTop_OnMouseLeftButtonDown" Name="BorderTop" Background="Transparent" Cursor="Hand">

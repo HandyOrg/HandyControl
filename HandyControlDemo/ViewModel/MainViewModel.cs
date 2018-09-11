@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
+using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControlDemo.Data;
 using HandyControlDemo.UserControl;
@@ -33,12 +33,18 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private object _subContent;
 
+        /// <summary>
+        ///     非用户区域内容
+        /// </summary>
+        private object _noUserContent;
+
         #endregion
 
         public MainViewModel()
         {
             LeftMainContent = ControlLocator.Instance.LeftMainContent;
             MainContent = ControlLocator.Instance.MainContent;
+            NoUserContent = ControlLocator.Instance.NoUserContent;
 
             Messenger.Default.Register<object>(this, MessageToken.LoadGrowlDemoCtl, obj => SubContent = ControlLocator.Instance.GrowlDemoCtl);
             Messenger.Default.Register<object>(this, MessageToken.LoadLoadingDemoCtl, obj => SubContent = ControlLocator.Instance.LoadingDemoCtl);
@@ -53,9 +59,19 @@ namespace HandyControlDemo.ViewModel
             Messenger.Default.Register<object>(this, MessageToken.LoadAnimationPathDemoCtl, obj => SubContent = ControlLocator.Instance.AnimationPathDemoCtl);
             Messenger.Default.Register<object>(this, MessageToken.LoadButtonDemoCtl, obj => SubContent = ControlLocator.Instance.ButtonDemoCtl);
             Messenger.Default.Register<object>(this, MessageToken.LoadToggleButtonDemoCtl, obj => SubContent = ControlLocator.Instance.ToggleButtonDemoCtl);
+            Messenger.Default.Register<object>(this, MessageToken.LoadTabControlDemoCtl, obj => SubContent = ControlLocator.Instance.TabControlDemoCtl);
         }
 
         #region 属性
+
+        /// <summary>
+        ///     非用户区域内容
+        /// </summary>
+        public object NoUserContent
+        {
+            get => _noUserContent;
+            set => Set(ref _noUserContent, value);
+        }
 
         /// <summary>
         ///     左侧主内容

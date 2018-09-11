@@ -23,7 +23,7 @@ namespace HandyControl.Controls
         ///     刻度字符串
         /// </summary>
         private static readonly DependencyProperty SpeStrProperty = DependencyProperty.Register(
-            "SpeStr", typeof(string), typeof(TimeBar), new PropertyMetadata("间隔1小时"));
+            "SpeStr", typeof(string), typeof(TimeBar), new PropertyMetadata(Properties.Langs.Lang.Interval1h));
 
         /// <summary>
         ///     选中时间
@@ -150,13 +150,13 @@ namespace HandyControl.Controls
 
                 if (value < 0)
                 {
-                    SpeStr = "间隔2小时";
+                    SpeStr = Properties.Langs.Lang.Interval2h;
                     _speIndex = 0;
                     return;
                 }
                 if (value > 6)
                 {
-                    SpeStr = "间隔30秒";
+                    SpeStr = Properties.Langs.Lang.Interval30s;
                     _speIndex = 6;
                     return;
                 }
@@ -164,26 +164,26 @@ namespace HandyControl.Controls
                 switch (value)
                 {
                     case 0:
-                        SpeStr = "间隔2小时";
+                        SpeStr = Properties.Langs.Lang.Interval2h;
                         break;
                     case 1:
-                        SpeStr = "间隔1小时";
+                        SpeStr = Properties.Langs.Lang.Interval1h;
                         break;
                     case 2:
-                        SpeStr = "间隔30分钟";
+                        SpeStr = Properties.Langs.Lang.Interval30m;
                         break;
                     case 3:
-                        SpeStr = "间隔10分钟";
+                        SpeStr = Properties.Langs.Lang.Interval10m;
                         break;
                     case 4:
-                        SpeStr = "间隔5分钟";
+                        SpeStr = Properties.Langs.Lang.Interval5m;
                         break;
                     case 5:
-                        SpeStr = "间隔1分钟";
+                        SpeStr = Properties.Langs.Lang.Interval1m;
                         break;
                     case 6:
                         SetSpeTimeFormat("HH:mm:ss");
-                        SpeStr = "间隔30秒";
+                        SpeStr = Properties.Langs.Lang.Interval30s;
                         break;
                 }
                 _speIndex = value;
