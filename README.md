@@ -1,6 +1,6 @@
 ![logo](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/icon.png)
 
-![csharp-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/csharp-version.png) ![IDE-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/IDE-version.png) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl)  [![build-status](https://ci.appveyor.com/api/projects/status/github/NaBian/handycontrol?svg=true)](https://ci.appveyor.com/project/NaBian/handycontrol)
+![csharp-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/csharp-version.png) ![IDE-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/IDE-version.png) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl)  [![build-status](https://ci.appveyor.com/api/projects/status/github/NaBian/handycontrol?svg=true)](https://ci.appveyor.com/project/NaBian/handycontrol) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 # 欢迎使用 HandyControl
 
