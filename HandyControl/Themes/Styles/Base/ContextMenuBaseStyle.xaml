@@ -2,6 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"                   
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"></ResourceDictionary>
+    </ResourceDictionary.MergedDictionaries>
+
     <!--普通菜单项-->
     <Style x:Key="MenuItemBaseStyle" TargetType="{x:Type MenuItem}">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
@@ -61,11 +65,14 @@
                                     </Border>
                                     <ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                     <Popup Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=templateRoot}" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{DynamicResource {x:Static SystemParameters.MenuPopupAnimationKey}}" Placement="Bottom">
-                                        <Border CornerRadius="0,0,2,2" x:Name="SubMenuBorder" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
-                                            <controls:ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="SubMenuScrollViewer" Margin="0,6">
-                                                <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle"/>
-                                            </controls:ScrollViewer>
-                                        </Border>
+                                        <Grid>
+                                            <Border CornerRadius="0,0,2,2" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
+                                                <controls:ScrollViewer VerticalScrollBarVisibility="Auto" x:Name="SubMenuScrollViewer" Margin="0,6">
+                                                    <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle"/>
+                                                </controls:ScrollViewer>
+                                            </Border>
+                                            <Border Height="1" Background="White" VerticalAlignment="Top" BorderThickness="1,0" BorderBrush="{DynamicResource BorderBrush}" HorizontalAlignment="Left" Width="{Binding ActualWidth,ElementName=templateRoot}"></Border>
+                                        </Grid>
                                     </Popup>
                                 </Grid>
                             </Border>
@@ -81,7 +88,7 @@
                                     <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
                                 </Trigger>
                                 <Trigger Property="IsHighlighted" Value="True">
-                                    <Setter Property="Background" TargetName="templateRoot" Value="White"/>
+                                    <Setter Property="Background" TargetName="templateRoot" Value="WhiteSmoke"/>
                                     <Setter Property="TextElement.Foreground" TargetName="menuHeaderContainer" Value="{DynamicResource PrimaryTextBrush}"/>
                                 </Trigger>
                                 <Trigger Property="IsSubmenuOpen" Value="True">
