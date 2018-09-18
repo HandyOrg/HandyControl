@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ListBoxBaseStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Base/ListBoxBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!--默认样式-->
@@ -29,7 +29,7 @@
     <Style x:Key="ListBoxItemFullStyle" BasedOn="{StaticResource ListBoxItemStyle}" TargetType="{x:Type ListBoxItem}">
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-        <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"></Setter>
+        <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
     </Style>
 
     <ItemsPanelTemplate x:Key="WrapPanelItemsPanelTemplate">

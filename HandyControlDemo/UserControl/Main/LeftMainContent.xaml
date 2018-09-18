@@ -14,22 +14,23 @@
             </i:EventTrigger>
         </i:Interaction.Triggers>
         <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Styles}">
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadButtonDemoCtl}" Header="{x:Static langs:Lang.Button}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadToggleButtonDemoCtl}" Header="{x:Static langs:Lang.ToggleButton}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadExpanderDemoCtl}" Header="{x:Static langs:Lang.Expander}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadProgressBarDemoCtl}" Header="{x:Static langs:Lang.ProgressBar}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.ButtonDemoCtl}" Header="{x:Static langs:Lang.Button}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.ToggleButtonDemoCtl}" Header="{x:Static langs:Lang.ToggleButton}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.ExpanderDemoCtl}" Header="{x:Static langs:Lang.Expander}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Header="{x:Static langs:Lang.ProgressBar}"/>
         </TreeViewItem>
         <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Controls}">
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadGrowlDemoCtl}" Header="{x:Static langs:Lang.Growl}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadLoadingDemoCtl}" Header="{x:Static langs:Lang.Loading}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadImageBrowserDemoCtl}" Header="{x:Static langs:Lang.ImageBrowser}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadColorPickerDemoCtl}" Header="{x:Static langs:Lang.ColorPicker}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadCarouselDemoCtl}" Header="{x:Static langs:Lang.Carousel}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadCompareSliderDemoCtl}" Header="{x:Static langs:Lang.CompareSlider}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadTimeBarDemoCtl}" Header="{x:Static langs:Lang.TimeBar}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadPaginationDemoCtl}" Header="{x:Static langs:Lang.Pagination}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadAnimationPathDemoCtl}" Header="{x:Static langs:Lang.AnimationPath}"/>
-            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.LoadTabControlDemoCtl}" Header="{x:Static langs:Lang.TabControl}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.StepBarDemoCtl}" Header="{x:Static langs:Lang.StepBar}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.GrowlDemoCtl}" Header="{x:Static langs:Lang.Growl}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.LoadingDemoCtl}" Header="{x:Static langs:Lang.Loading}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.ImageBrowserDemoCtl}" Header="{x:Static langs:Lang.ImageBrowser}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.ColorPickerDemoCtl}" Header="{x:Static langs:Lang.ColorPicker}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.CarouselDemoCtl}" Header="{x:Static langs:Lang.Carousel}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.CompareSliderDemoCtl}" Header="{x:Static langs:Lang.CompareSlider}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.TimeBarDemoCtl}" Header="{x:Static langs:Lang.TimeBar}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.PaginationDemoCtl}" Header="{x:Static langs:Lang.Pagination}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.AnimationPathDemoCtl}" Header="{x:Static langs:Lang.AnimationPath}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.TabControlDemoCtl}" Header="{x:Static langs:Lang.TabControl}"/>
         </TreeViewItem>
     </TreeView>
 </Border>

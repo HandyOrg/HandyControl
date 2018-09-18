@@ -1,34 +1,34 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Window.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="Button.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="ToggleButton.xaml"></ResourceDictionary>-->
-        <ResourceDictionary Source="TextBlock.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="CheckBox.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="RadioButton.xaml"></ResourceDictionary>-->
-        <ResourceDictionary Source="Border.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="BulletCheckBox.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="Label.xaml"></ResourceDictionary>-->
-        <ResourceDictionary Source="ProgressBar.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="ScrollViewer.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="Slider.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="Clock.xaml"></ResourceDictionary>-->
-        <ResourceDictionary Source="TreeView.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="DataGrid.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="GroupBox.xaml"></ResourceDictionary>-->
-        <ResourceDictionary Source="Pagination.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="TabControl.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="ListBox.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="ComboBox.xaml"></ResourceDictionary>-->
-        <ResourceDictionary Source="Loading.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="ContextMenu.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="AnimationPath.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="ToolTip.xaml"></ResourceDictionary>-->
-        <!--<ResourceDictionary Source="InfoBrief.xaml"></ResourceDictionary>-->
-        <ResourceDictionary Source="Expander.xaml"></ResourceDictionary>
-        <!--<ResourceDictionary Source="TextBox.xaml"></ResourceDictionary>-->
-        <ResourceDictionary Source="ContentControl.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Window.xaml"/>
+        <ResourceDictionary Source="Button.xaml"/>
+        <!--<ResourceDictionary Source="ToggleButton.xaml"/>-->
+        <ResourceDictionary Source="TextBlock.xaml"/>
+        <!--<ResourceDictionary Source="CheckBox.xaml"/>-->
+        <!--<ResourceDictionary Source="RadioButton.xaml"/>-->
+        <ResourceDictionary Source="Border.xaml"/>
+        <!--<ResourceDictionary Source="BulletCheckBox.xaml"/>-->
+        <!--<ResourceDictionary Source="Label.xaml"/>-->
+        <ResourceDictionary Source="ProgressBar.xaml"/>
+        <ResourceDictionary Source="ScrollViewer.xaml"/>
+        <ResourceDictionary Source="Slider.xaml"/>
+        <!--<ResourceDictionary Source="Clock.xaml"/>-->
+        <ResourceDictionary Source="TreeView.xaml"/>
+        <!--<ResourceDictionary Source="DataGrid.xaml"/>-->
+        <!--<ResourceDictionary Source="GroupBox.xaml"/>-->
+        <ResourceDictionary Source="Pagination.xaml"/>
+        <ResourceDictionary Source="TabControl.xaml"/>
+        <ResourceDictionary Source="ListBox.xaml"/>
+        <!--<ResourceDictionary Source="ComboBox.xaml"/>-->
+        <ResourceDictionary Source="Loading.xaml"/>
+        <ResourceDictionary Source="ContextMenu.xaml"/>
+        <!--<ResourceDictionary Source="AnimationPath.xaml"/>-->
+        <!--<ResourceDictionary Source="ToolTip.xaml"/>-->
+        <!--<ResourceDictionary Source="InfoBrief.xaml"/>-->
+        <ResourceDictionary Source="Expander.xaml"/>
+        <!--<ResourceDictionary Source="TextBox.xaml"/>-->
+        <ResourceDictionary Source="ContentControl.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

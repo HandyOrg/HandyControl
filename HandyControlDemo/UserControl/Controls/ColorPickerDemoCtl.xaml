@@ -4,7 +4,7 @@
              Background="White"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
-        <StackPanel Orientation="Horizontal" Margin="32">
+        <StackPanel Orientation="Horizontal" Margin="32" VerticalAlignment="Center">
             <controls:ColorPicker Name="ColorPicker"/>
             <Border Margin="32,0,0,0" Height="100" Width="100" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" CornerRadius="50" Background="{Binding SelectedBrush,ElementName=ColorPicker}"></Border>
         </StackPanel>

@@ -2,14 +2,14 @@
 
     <ResourceDictionary.MergedDictionaries>
 
-        <ResourceDictionary Source="../Basic/Colors.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Brushes.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Converters.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Effects.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Fonts.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Geometries.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Paths.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Sizes.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Colors.xaml"/>
+        <ResourceDictionary Source="../Basic/Brushes.xaml"/>
+        <ResourceDictionary Source="../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="../Basic/Effects.xaml"/>
+        <ResourceDictionary Source="../Basic/Fonts.xaml"/>
+        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../Basic/Paths.xaml"/>
+        <ResourceDictionary Source="../Basic/Sizes.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
 

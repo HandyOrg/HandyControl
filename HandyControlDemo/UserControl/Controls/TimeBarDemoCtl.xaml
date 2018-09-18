@@ -4,6 +4,6 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              Background="White">
     <controls:TransitioningContentControl>
-        <controls:TimeBar BorderThickness="0" Margin="32" Background="{StaticResource PrimaryBrush}" Width="600"></controls:TimeBar>
+        <controls:TimeBar BorderThickness="0" Margin="32" Background="{StaticResource PrimaryBrush}" Width="600"  VerticalAlignment="Center"/>
     </controls:TransitioningContentControl>
 </UserControl>

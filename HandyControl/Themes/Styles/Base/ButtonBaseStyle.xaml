@@ -3,11 +3,11 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="ButtonBaseBaseStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="ButtonBaseBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"></Setter>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -23,21 +23,21 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Opacity" Value=".9"></Setter>
+                <Setter Property="Opacity" Value=".9"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Opacity" Value=".6"></Setter>
+                <Setter Property="Opacity" Value=".6"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value=".2"></Setter>
+                <Setter Property="Opacity" Value=".2"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style x:Key="ButtonIconBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"></Setter>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
-        <Setter Property="controls:IconElement.Angle" Value="0"></Setter>
+        <Setter Property="controls:IconElement.Angle" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -60,13 +60,13 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Opacity" Value=".9"></Setter>
+                <Setter Property="Opacity" Value=".9"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Opacity" Value=".6"></Setter>
+                <Setter Property="Opacity" Value=".6"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value=".2"></Setter>
+                <Setter Property="Opacity" Value=".2"/>
             </Trigger>
         </Style.Triggers>
     </Style>

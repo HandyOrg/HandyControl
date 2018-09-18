@@ -65,6 +65,12 @@
     <Compile Include="Controls\Pagination.xaml.cs">
       <DependentUpon>Pagination.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\Steps\StepBar.xaml.cs">
+      <DependentUpon>StepBar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Steps\StepItem.xaml.cs">
+      <DependentUpon>StepItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\TabControl\TabControl.cs" />
     <Compile Include="Controls\TabControl\TabItem.cs" />
     <Compile Include="Controls\TabControl\TabPanel.cs" />
@@ -90,6 +96,7 @@
     <Compile Include="Interactivity\Behavior!1.cs" />
     <Compile Include="Interactivity\Behavior.cs" />
     <Compile Include="Interactivity\BehaviorCollection.cs" />
+    <Compile Include="Interactivity\ControlCommands.cs" />
     <Compile Include="Interactivity\DefaultTriggerAttribute.cs" />
     <Compile Include="Interactivity\EventTrigger.cs" />
     <Compile Include="Interactivity\EventTriggerBase!1.cs" />
@@ -173,6 +180,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Pagination.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Steps\StepBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Steps\StepItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

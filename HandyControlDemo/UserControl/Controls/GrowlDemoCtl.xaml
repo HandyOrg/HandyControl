@@ -5,7 +5,7 @@
              DataContext="{Binding GrowlDemo,Source={StaticResource Locator}}"
              Background="White">
     <controls:TransitioningContentControl>
-        <WrapPanel Margin="32">
+        <WrapPanel Margin="32" VerticalAlignment="Center">
             <Button Command="{Binding InfoCmd}" Content="Info" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"></Button>
             <Button Command="{Binding SuccessCmd}" Content="Success" Margin="5" Style="{StaticResource ButtonSuccess}"></Button>
             <Button Command="{Binding WarningCmd}" Content="Warning" Margin="5" Style="{StaticResource ButtonWarning}"></Button>

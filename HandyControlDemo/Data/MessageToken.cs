@@ -1,36 +1,37 @@
 ﻿namespace HandyControlDemo.Data
 {
-    /// <summary>
-    ///     包含整个程序使用的所有标识
-    /// </summary>
-    internal class MessageToken
+	public class MessageToken
     {
-        public static readonly string LoadGrowlDemoCtl = nameof(LoadGrowlDemoCtl);
+        public static readonly string GrowlDemoCtl = nameof(GrowlDemoCtl);
 
-        public static readonly string LoadLoadingDemoCtl = nameof(LoadLoadingDemoCtl);
+        public static readonly string LoadingDemoCtl = nameof(LoadingDemoCtl);
 
-        public static readonly string LoadImageBrowserDemoCtl = nameof(LoadImageBrowserDemoCtl);
+        public static readonly string ImageBrowserDemoCtl = nameof(ImageBrowserDemoCtl);
 
-        public static readonly string LoadColorPickerDemoCtl = nameof(LoadColorPickerDemoCtl);
+        public static readonly string ColorPickerDemoCtl = nameof(ColorPickerDemoCtl);
 
-        public static readonly string LoadCarouselDemoCtl = nameof(LoadCarouselDemoCtl);
+        public static readonly string CarouselDemoCtl = nameof(CarouselDemoCtl);
 
-        public static readonly string LoadCompareSliderDemoCtl = nameof(LoadCompareSliderDemoCtl);
+        public static readonly string CompareSliderDemoCtl = nameof(CompareSliderDemoCtl);
 
-        public static readonly string LoadTimeBarDemoCtl = nameof(LoadTimeBarDemoCtl);
+        public static readonly string TimeBarDemoCtl = nameof(TimeBarDemoCtl);
 
-        public static readonly string LoadExpanderDemoCtl = nameof(LoadExpanderDemoCtl);
+        public static readonly string PaginationDemoCtl = nameof(PaginationDemoCtl);
 
-        public static readonly string LoadPaginationDemoCtl = nameof(LoadPaginationDemoCtl);
+        public static readonly string AnimationPathDemoCtl = nameof(AnimationPathDemoCtl);
 
-        public static readonly string LoadProgressBarDemoCtl = nameof(LoadProgressBarDemoCtl);
+        public static readonly string StepBarDemoCtl = nameof(StepBarDemoCtl);
 
-        public static readonly string LoadAnimationPathDemoCtl = nameof(LoadAnimationPathDemoCtl);
+        public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
-        public static readonly string LoadButtonDemoCtl = nameof(LoadButtonDemoCtl);
+        public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
 
-        public static readonly string LoadToggleButtonDemoCtl = nameof(LoadToggleButtonDemoCtl);
+        public static readonly string ExpanderDemoCtl = nameof(ExpanderDemoCtl);
 
-        public static readonly string LoadTabControlDemoCtl = nameof(LoadTabControlDemoCtl);
-    }
+        public static readonly string ProgressBarDemoCtl = nameof(ProgressBarDemoCtl);
+
+        public static readonly string TabControlDemoCtl = nameof(TabControlDemoCtl);
+
+    	public static readonly string LoadShowContent = nameof(LoadShowContent);
+	}
 }

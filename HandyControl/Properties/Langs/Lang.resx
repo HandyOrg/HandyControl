@@ -145,4 +145,16 @@
   <data name="Clear" xml:space="preserve">
     <value>清空</value>
   </data>
+  <data name="Step" xml:space="preserve">
+    <value>步骤</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="CloseAll" xml:space="preserve">
+    <value>关闭所有</value>
+  </data>
+  <data name="CloseOther" xml:space="preserve">
+    <value>关闭其他</value>
+  </data>
 </root>

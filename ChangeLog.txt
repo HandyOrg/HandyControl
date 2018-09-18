@@ -1,3 +1,10 @@
+2018.09.18 Version 1.2.2
+* new controls
+ - add StepBar
+
+* other
+- update HandyControlDemo UI
+
 2018.09.04 Version 1.2.1
 * new controls
  - add TabControl

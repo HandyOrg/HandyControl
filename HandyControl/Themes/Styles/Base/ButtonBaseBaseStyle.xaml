@@ -2,20 +2,20 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="BaseStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="BaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ButtonBaseBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type ButtonBase}">
         <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Padding" Value="{DynamicResource DefaultControlPadding}"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="IsTabStop" Value="False"></Setter>
+        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Focusable" Value="False"/>
     </Style>

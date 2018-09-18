@@ -58,6 +58,10 @@
 
 ![选项卡控件TabControl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.gif)
 
+### 13、步骤条StepBar
+
+![步骤条StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.gif)
+
 # 使用方法
 
 第一步：添加HandyControl的引用；  
@@ -93,5 +97,4 @@
 
 # v1.3.0版本计划
 
-1、添加时间、日历控件；  
-2、添加步骤条控件；
+1、添加时间、日历控件；

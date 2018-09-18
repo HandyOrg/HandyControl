@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.StepBarDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
+             FocusManager.FocusedElement="{Binding RelativeSource={x:Static RelativeSource.Self}, Mode=OneTime}"
+             Background="White">
+    <controls:TransitioningContentControl>
+        <StackPanel Margin="32" VerticalAlignment="Center" Width="600">
+            <controls:StepBar x:Name="StepBarMain">
+                <controls:StepItem Title="{x:Static langs:Lang.Register}"/>
+                <controls:StepItem Title="{x:Static langs:Lang.BasicInfo}"/>
+                <controls:StepItem Title="{x:Static langs:Lang.UploadFile}"/>
+                <controls:StepItem Title="{x:Static langs:Lang.Complete}"/>
+            </controls:StepBar>
+            <StackPanel Orientation="Horizontal" Margin="0,32,0,0" HorizontalAlignment="Center">
+                <Button Command="interactivity:ControlCommands.Prev" CommandTarget="{Binding ElementName=StepBarMain}" Width="180" Content="{x:Static langs:Lang.Prev}" Style="{StaticResource ButtonPrimary}"></Button>
+                <Button Command="interactivity:ControlCommands.Next" CommandTarget="{Binding ElementName=StepBarMain}" Width="180" Margin="16,0,0,0" Content="{x:Static langs:Lang.Next}" Style="{StaticResource ButtonPrimary}"></Button>
+            </StackPanel>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

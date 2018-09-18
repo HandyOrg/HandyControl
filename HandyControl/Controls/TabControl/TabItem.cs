@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using HandyControl.Interactivity;
 using HandyControl.Tools;
 
 // ReSharper disable once CheckNamespace
@@ -137,19 +139,26 @@ namespace HandyControl.Controls
                 _tabPanel = VisualParent as TabPanel;
                 _isLoaded = true;
             };
-            //CommandBindings.Add(new CommandBinding(CloseOtherCommand, (s, e) =>
-            //{
-            //    var enumerator = ((IEnumerable)TabControlParent.Items).GetEnumerator();
-            //    while (enumerator.MoveNext())
-            //    {
-            //        var item = enumerator.Current;
-            //        if (!Equals(item) && item != null)
-            //        {
-            //            TabControlParent.Items.Remove(item);
-            //            enumerator = ((IEnumerable)TabControlParent.Items).GetEnumerator();
-            //        }
-            //    }
-            //}));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Close, Close));
+            CommandBindings.Add(new CommandBinding(ControlCommands.CloseAll, (s, e) =>
+            {
+                TabControlParent.IsInternalAction = true;
+                TabControlParent.Items.Clear();
+            }));
+            CommandBindings.Add(new CommandBinding(ControlCommands.CloseOther, (s, e) =>
+            {
+                TabControlParent.IsInternalAction = true;
+                var enumerator = ((IEnumerable)TabControlParent.Items).GetEnumerator();
+                while (enumerator.MoveNext())
+                {
+                    var item = enumerator.Current;
+                    if (!Equals(item) && item != null)
+                    {
+                        TabControlParent.Items.Remove(item);
+                        enumerator = ((IEnumerable)TabControlParent.Items).GetEnumerator();
+                    }
+                }
+            }));
         }
 
         private TabControl TabControlParent => new Lazy<TabControl>(() => ItemsControl.ItemsControlFromItemContainer(this) as TabControl).Value;
@@ -167,20 +176,25 @@ namespace HandyControl.Controls
             _buttonClose = Template.FindName(CloseButtonKey, this) as Button;
             if (_buttonClose != null)
             {
-                _buttonClose.Click += (s, e) =>
-                {
-                    if (TabControlParent.IsEnableAnimation)
-                    {
-                        _tabPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
-                    }
-                    else
-                    {
-                        _tabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
-                    }
-                    TabControlParent.IsInternalAction = true;
-                    TabControlParent.Items.Remove(this);
-                };
+                _buttonClose.Click += Close;
             }
+        }
+
+        /// <summary>
+        ///     关闭
+        /// </summary>
+        private void Close(object sender, RoutedEventArgs e)
+        {
+            if (TabControlParent.IsEnableAnimation)
+            {
+                _tabPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
+            }
+            else
+            {
+                _tabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+            }
+            TabControlParent.IsInternalAction = true;
+            TabControlParent.Items.Remove(this);
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)

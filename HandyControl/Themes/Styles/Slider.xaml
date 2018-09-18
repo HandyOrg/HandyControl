@@ -3,8 +3,8 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Geometries.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Brushes.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../Basic/Brushes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ColorPickerRepeatButton" TargetType="{x:Type RepeatButton}">
@@ -87,7 +87,7 @@
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="Foreground" Value="Transparent"></Setter>
+        <Setter Property="Foreground" Value="Transparent"/>
         <Setter Property="Template" Value="{StaticResource ColorPickerSliderHorizontal}"/>
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
@@ -350,7 +350,7 @@
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
         <Setter Property="MinWidth" Value="30"/>
         <Setter Property="MinHeight" Value="30"/>
         <Setter Property="Template" Value="{StaticResource CompareSliderHorizontal}"/>

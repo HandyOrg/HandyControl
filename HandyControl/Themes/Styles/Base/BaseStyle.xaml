@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="BaseStyle" TargetType="{x:Type Control}">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
-        <Setter Property="FontSize" Value="{DynamicResource TextFontSize}"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="FontSize" Value="{DynamicResource TextFontSize}"/>
     </Style>
 
 </ResourceDictionary>
