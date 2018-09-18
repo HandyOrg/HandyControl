@@ -3,26 +3,27 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Button.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="ToggleButton.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Geometries.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Converters.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Button.xaml"/>
+        <ResourceDictionary Source="ToggleButton.xaml"/>
+        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../Basic/Converters.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="WindowDefaultStyle" BasedOn="{x:Null}" TargetType="{x:Type Window}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"></Setter>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
     </Style>
 
     <Style x:Key="CustomWindowStyle" BasedOn="{x:Null}" TargetType="controls:WindowBorderless">
-        <Setter Property="Background" Value="White"></Setter>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
-        <Setter Property="NoUserAreaBackground" Value="{DynamicResource PrimaryBrush}"></Setter>
-        <Setter Property="NoUserAreaForeground" Value="White"></Setter>
-        <Setter Property="CloseButtonHoverBrush" Value="Red"></Setter>
-        <Setter Property="CloseButtonHoverForeground" Value="White"></Setter>
-        <Setter Property="OtherButtonHoverBrush" Value="{DynamicResource DarkPrimaryBrush}"></Setter>
-        <Setter Property="OtherButtonHoverForeground" Value="White"></Setter>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="NoUserAreaBackground" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="NoUserAreaForeground" Value="White"/>
+        <Setter Property="CloseButtonHoverBrush" Value="Red"/>
+        <Setter Property="CloseButtonHoverForeground" Value="White"/>
+        <Setter Property="OtherButtonHoverBrush" Value="{DynamicResource DarkPrimaryBrush}"/>
+        <Setter Property="OtherButtonHoverForeground" Value="White"/>
         <Setter Property="WindowChrome.WindowChrome">
             <Setter.Value>
                 <WindowChrome CornerRadius="0" GlassFrameThickness="1" CaptionHeight="{Binding NoUserAreaHeight,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:WindowBorderless}}"/>
@@ -43,10 +44,10 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" UseLayoutRounding="True" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
-                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="{Binding Source={x:Static SystemCommands.MinimizeWindowCommand}}" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonMin" Height="28" Style="{StaticResource ButtonIconTransparent}" Width="44" controls:IconElement.Geometry="{StaticResource WindowMinGeometry}" Padding="17,0"></Button>
-                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="{Binding Source={x:Static SystemCommands.MaximizeWindowCommand}}" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonMax" Height="28" Style="{StaticResource ButtonIconTransparent}" Width="44" controls:IconElement.Geometry="{StaticResource WindowMaxGeometry}" Padding="17,0"></Button>
-                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="{Binding Source={x:Static SystemCommands.RestoreWindowCommand}}" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonRestore" Height="28" Style="{StaticResource ButtonIconTransparent}" Width="44" controls:IconElement.Geometry="{StaticResource WindowRestoreGeometry}" Padding="17,0"></Button>
-                                    <Button Foreground="{TemplateBinding CloseButtonForeground}" Command="{Binding Source={x:Static SystemCommands.CloseWindowCommand}}" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonClose" Height="28" Style="{StaticResource ButtonIconTransparent}" Width="44" controls:IconElement.Geometry="{StaticResource CloseGeometry}" Padding="9"></Button>
+                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MinimizeWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonMin" Height="28" Style="{StaticResource ButtonIconTransparent}" Width="44" controls:IconElement.Geometry="{StaticResource WindowMinGeometry}" Padding="17,0"></Button>
+                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MaximizeWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonMax" Height="28" Style="{StaticResource ButtonIconTransparent}" Width="44" controls:IconElement.Geometry="{StaticResource WindowMaxGeometry}" Padding="17,0"></Button>
+                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.RestoreWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonRestore" Height="28" Style="{StaticResource ButtonIconTransparent}" Width="44" controls:IconElement.Geometry="{StaticResource WindowRestoreGeometry}" Padding="17,0"></Button>
+                                    <Button Foreground="{TemplateBinding CloseButtonForeground}" Command="SystemCommands.CloseWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonClose" Height="28" Style="{StaticResource ButtonIconTransparent}" Width="44" controls:IconElement.Geometry="{StaticResource CloseGeometry}" Padding="9"></Button>
                                 </StackPanel>
                                 <Grid Grid.Column="0">
                                     <Grid.ColumnDefinitions>
@@ -68,18 +69,18 @@
                             <Setter Property="Opacity" Value=".8" TargetName="ContentPresenterMain"/>
                         </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
-                            <Setter Property="Padding" Value="8"></Setter>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"></Setter>
-                            <Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore"></Setter>
+                            <Setter Property="Padding" Value="8"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
+                            <Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore"/>
                         </Trigger>
                         <Trigger Property="WindowState" Value="Normal">
-                            <Setter Property="Visibility" Value="Visible" TargetName="ButtonMax"></Setter>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"></Setter>
+                            <Setter Property="Visibility" Value="Visible" TargetName="ButtonMax"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"/>
                         </Trigger>
                         <Trigger Property="ResizeMode" Value="NoResize">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMin"></Setter>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"></Setter>
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"></Setter>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMin"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonClose">
                             <Setter Property="Background" TargetName="ButtonClose" Value="{Binding CloseButtonHoverBrush,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
@@ -98,10 +99,10 @@
                             <Setter Property="Foreground" TargetName="ButtonMin" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
                         </Trigger>
                         <Trigger Property="ShowNoUserArea" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="GridMenu"></Setter>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="GridMenu"/>
                         </Trigger>
                         <Trigger Property="ShowTitle" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="Title"></Setter>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="Title"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

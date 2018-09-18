@@ -3,18 +3,18 @@
 
     <Style x:Key="PaginationButtonStyle" TargetType="{x:Type RadioButton}">
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"></Setter>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+        <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="GroupName" Value="1"></Setter>
-        <Setter Property="Margin" Value="5,0"></Setter>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"></Setter>
+        <Setter Property="GroupName" Value="1"/>
+        <Setter Property="Margin" Value="5,0"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="RenderTransformOrigin" Value=".5,.5"/>
-        <Setter Property="Background" Value="White"></Setter>
-        <Setter Property="Tag" Value="0"></Setter>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="Tag" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type RadioButton}">
@@ -38,12 +38,12 @@
                 </Setter>
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"></Setter>
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"></Setter>
-                <Setter Property="Foreground" Value="White"></Setter>
+                <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="Foreground" Value="White"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value=".2"></Setter>
+                <Setter Property="Opacity" Value=".2"/>
             </Trigger>
         </Style.Triggers>
     </Style>

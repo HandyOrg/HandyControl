@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!--Button-->
@@ -73,15 +73,15 @@
     </Style>
 
     <Style x:Key="ButtonOpacityStyle" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{x:Null}"></Setter>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
+        <Setter Property="Background" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="Focusable" Value="False"></Setter>
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="IsTabStop" Value="False"/>
-        <Setter Property="BorderThickness" Value="0"></Setter>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
@@ -90,15 +90,15 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value=".9"></Setter>
-                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+                            <Setter Property="Opacity" Value=".9"/>
+                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Opacity" Value=".6"></Setter>
-                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource TemplatedParent}}"></Setter>
+                            <Setter Property="Opacity" Value=".6"/>
+                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value=".2"></Setter>
+                            <Setter Property="Opacity" Value=".2"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

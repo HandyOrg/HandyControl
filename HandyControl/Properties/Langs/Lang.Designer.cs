@@ -79,6 +79,33 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 关闭 的本地化字符串。
+        /// </summary>
+        public static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 关闭所有 的本地化字符串。
+        /// </summary>
+        public static string CloseAll {
+            get {
+                return ResourceManager.GetString("CloseAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 关闭其他 的本地化字符串。
+        /// </summary>
+        public static string CloseOther {
+            get {
+                return ResourceManager.GetString("CloseOther", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 确定 的本地化字符串。
         /// </summary>
         public static string Confirm {
@@ -174,6 +201,15 @@ namespace HandyControl.Properties.Langs {
         public static string PngImg {
             get {
                 return ResourceManager.GetString("PngImg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 步骤 的本地化字符串。
+        /// </summary>
+        public static string Step {
+            get {
+                return ResourceManager.GetString("Step", resourceCulture);
             }
         }
         

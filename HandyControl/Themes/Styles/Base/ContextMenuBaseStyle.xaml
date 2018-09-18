@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!--普通菜单项-->
@@ -92,7 +92,7 @@
                                     <Setter Property="TextElement.Foreground" TargetName="menuHeaderContainer" Value="{DynamicResource PrimaryTextBrush}"/>
                                 </Trigger>
                                 <Trigger Property="IsSubmenuOpen" Value="True">
-                                    <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource BorderBrush}"></Setter>
+                                    <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource BorderBrush}"/>
                                     <Setter Property="Background" TargetName="templateRoot" Value="White"/>
                                     <Setter Property="TextElement.Foreground" TargetName="menuHeaderContainer" Value="{DynamicResource PrimaryTextBrush}"/>
                                 </Trigger>
@@ -209,7 +209,7 @@
 
     <!--普通菜单-->
     <Style x:Key="ContextMenuBaseStyle" TargetType="{x:Type ContextMenu}">
-        <Setter Property="MaxHeight" Value="199"></Setter>
+        <Setter Property="MaxHeight" Value="199"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ContextMenu}">

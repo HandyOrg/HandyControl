@@ -4,21 +4,21 @@
     <!--用于包裹一个区域-->
     <Style x:Key="BorderRegionStyle" TargetType="{x:Type Border}">
         <Setter Property="Padding" Value="10"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"></Setter>
-        <Setter Property="BorderThickness" Value="1"></Setter>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"></Setter>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
     </Style>
 
     <Style x:Key="BorderHorizontallySplitter" TargetType="{x:Type Border}">
-        <Setter Property="Width" Value="1"></Setter>
-        <Setter Property="HorizontalAlignment" Value="Left"></Setter>
-        <Setter Property="Background" Value="{DynamicResource ThirdlyTextBrush}"></Setter>
+        <Setter Property="Width" Value="1"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Background" Value="{DynamicResource ThirdlyTextBrush}"/>
     </Style>
 
     <Style x:Key="BorderVerticallySplitter" TargetType="{x:Type Border}">
-        <Setter Property="Height" Value="1"></Setter>
-        <Setter Property="VerticalAlignment" Value="Top"></Setter>
-        <Setter Property="Background" Value="{DynamicResource ThirdlyTextBrush}"></Setter>
+        <Setter Property="Height" Value="1"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Background" Value="{DynamicResource ThirdlyTextBrush}"/>
     </Style>
 
 </ResourceDictionary>

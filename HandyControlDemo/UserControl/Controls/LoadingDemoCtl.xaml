@@ -4,12 +4,12 @@
              Background="White"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
-        <StackPanel Width="600" Margin="32">
+        <StackPanel Width="600" Margin="32" VerticalAlignment="Center">
             <controls:LoadingLine></controls:LoadingLine>
             <controls:LoadingLine Margin="0,30" Foreground="BlueViolet" Style="{StaticResource LoadingLineLarge}"></controls:LoadingLine>
-            <StackPanel Orientation="Horizontal">
-                <controls:LoadingCircle></controls:LoadingCircle>
-                <Border VerticalAlignment="Center" Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <controls:LoadingCircle/>
+                <Border VerticalAlignment="Center" Margin="32,0,0,0" Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
                     <controls:LoadingCircle Style="{StaticResource LoadingCircleLight}" Margin="10"></controls:LoadingCircle>
                 </Border>
             </StackPanel>

@@ -3,11 +3,11 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="LoadingBaseStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="LoadingBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
     <Style x:Key="LoadingLineBaseStyle" BasedOn="{StaticResource LoadingBaseStyle}" TargetType="{x:Type controls:LoadingLine}">
-        <Setter Property="DotDiameter" Value="5"></Setter>
+        <Setter Property="DotDiameter" Value="5"/>
     </Style>
 
 </ResourceDictionary>

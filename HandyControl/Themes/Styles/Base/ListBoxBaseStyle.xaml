@@ -6,8 +6,8 @@
     <Style x:Key="ListBoxItemBaseStyle" TargetType="{x:Type ListBoxItem}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Padding" Value="10,0"></Setter>
-        <Setter Property="Height" Value="32"></Setter>
+        <Setter Property="Padding" Value="10,0"/>
+        <Setter Property="Height" Value="32"/>
         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Background" Value="White"/>

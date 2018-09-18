@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!--默认样式-->

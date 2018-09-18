@@ -62,7 +62,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\MessageToken.cs" />
+    <Compile Include="Data\MessageToken.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MessageToken.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Langs\Lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -73,11 +77,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.en.resx</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\ControlLocator.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ControlLocator.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Tools\AssemblyHelper.cs" />
     <Compile Include="UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -98,6 +98,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\LoadingDemoCtl.xaml.cs">
       <DependentUpon>LoadingDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\StepBarDemoCtl.xaml.cs">
+      <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Main\NoUserContent.xaml.cs">
       <DependentUpon>NoUserContent.xaml</DependentUpon>
@@ -197,6 +200,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\StepBarDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Main\NoUserContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -261,12 +268,9 @@
     <Resource Include="Resources\Img\b2.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Window\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="UserControl\ControlLocator.tt">
+    <Content Include="Data\MessageToken.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ControlLocator.cs</LastGenOutput>
+      <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>

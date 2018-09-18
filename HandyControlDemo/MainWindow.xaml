@@ -4,8 +4,8 @@
                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                            xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+                           xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
                            mc:Ignorable="d"
-                           UseLayoutRounding="True"
                            BorderThickness="1"
                            BorderBrush="#262e2f"
                            NoUserAreaBackground="#262e2f"
@@ -16,15 +16,17 @@
                            Name="MyWindow"
                            DataContext="{Binding Main,Source={StaticResource Locator}}"
                            d:DesignHeight="800" 
-                           d:DesignWidth="1400"
-                           NoUserContent="{Binding NoUserContent}">
+                           d:DesignWidth="1400">
+    <controls:WindowBorderless.NoUserContent>
+        <userControl:NoUserContent/>
+    </controls:WindowBorderless.NoUserContent>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"/>
             <ColumnDefinition MinWidth="200"/>
         </Grid.ColumnDefinitions>
-        <ContentPresenter Content="{Binding LeftMainContent}"/>
-        <ContentPresenter Grid.Column="1" Content="{Binding MainContent}"/>
+        <userControl:LeftMainContent/>
+        <userControl:MainContent Grid.Column="1"/>
         <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="4" Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="{StaticResource BorderBrush}"></GridSplitter>
         <controls:ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsEnableInertia="True" IsPenetrating="True">
             <StackPanel IsHitTestVisible="True" VerticalAlignment="Top" Background="Transparent" Name="PanelMessage" Margin="0,10,10,10"></StackPanel>

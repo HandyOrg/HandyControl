@@ -158,7 +158,8 @@ namespace HandyControl.Controls
                 var width = .0;
                 foreach (FrameworkElement item in ListBoxMain.Items)
                 {
-                    width += item.Width + item.Margin.Left + item.Margin.Right;
+                    item.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                    width += item.DesiredSize.Width;
                     _widthList.Add(width);
                 }
 
@@ -197,7 +198,7 @@ namespace HandyControl.Controls
             else
             {
                 var ctl = (FrameworkElement)Items[PageIndex];
-                var ctlWidth = ctl.Width + ctl.Margin.Left + ctl.Margin.Right;
+                var ctlWidth = ctl.DesiredSize.Width;
                 ListBoxMain.BeginAnimation(MarginProperty,
                     AnimationHelper.CreateAnimation(
                         new Thickness(-_widthList[PageIndex] + (ActualWidth - ctlWidth) / 2, 0, 0, 0)));

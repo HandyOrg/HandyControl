@@ -3,13 +3,13 @@
 
     <Style x:Key="TextBlockBaseStyle" TargetType="{x:Type TextBlock}">
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalAlignment" Value="Center"></Setter>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"></Setter>
-        <Setter Property="FontSize" Value="{DynamicResource TextFontSize}"></Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="FontSize" Value="{DynamicResource TextFontSize}"/>
     </Style>
 
     <Style x:Key="TextBlockBoldBaseStyle" BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontWeight" Value="Bold"></Setter>
+        <Setter Property="FontWeight" Value="Bold"/>
     </Style>
 
 </ResourceDictionary>

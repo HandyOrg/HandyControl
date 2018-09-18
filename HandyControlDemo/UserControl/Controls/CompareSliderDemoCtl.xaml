@@ -4,7 +4,7 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              Background="White">
     <controls:TransitioningContentControl>
-        <controls:ScrollViewer>
+        <controls:ScrollViewer VerticalAlignment="Center">
             <WrapPanel ItemHeight="384" ItemWidth="632">
                 <controls:CompareSlider Value="5" Width="600" Height="352">
                     <controls:CompareSlider.TargetContent>

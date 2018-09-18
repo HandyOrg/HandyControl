@@ -6,6 +6,6 @@
              DataContext="{Binding ImageBrowserDemo,Source={StaticResource Locator}}"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
-        <Button Command="{Binding OpenImgCmd}" Content="{x:Static langs:Lang.OpenImageBrowser}" Style="{StaticResource ButtonPrimary}" Margin="32"></Button>
+        <Button Command="{Binding OpenImgCmd}" Content="{x:Static langs:Lang.OpenImageBrowser}" Style="{StaticResource ButtonPrimary}" Margin="32" VerticalAlignment="Center"/>
     </controls:TransitioningContentControl>
 </UserControl>

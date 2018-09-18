@@ -1,13 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Paths.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="../Basic/Converters.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="Button.xaml"></ResourceDictionary>
-        <ResourceDictionary Source="ToggleButton.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="../Basic/Paths.xaml"/>
+        <ResourceDictionary Source="../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="Button.xaml"/>
+        <ResourceDictionary Source="ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="{x:Type controls:TabItem}">
@@ -35,6 +36,13 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
+                        <Grid.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem Command="interactivity:ControlCommands.Close" Header="{x:Static langs:Lang.Close}"/>
+                                <MenuItem Command="interactivity:ControlCommands.CloseAll" Header="{x:Static langs:Lang.CloseAll}"/>
+                                <MenuItem Command="interactivity:ControlCommands.CloseOther" Header="{x:Static langs:Lang.CloseOther}"/>
+                            </ContextMenu>
+                        </Grid.ContextMenu>
                         <Border Grid.ColumnSpan="2" BorderThickness="{TemplateBinding BorderThickness}" x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Margin="0">
                             <Border Margin="0,0,0,-1" x:Name="innerBorder" Background="White" Opacity="0"/>
                         </Border>
@@ -63,7 +71,7 @@
 
     <Style TargetType="{x:Type controls:TabControl}">
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"></Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="BorderThickness" Value="1"/>

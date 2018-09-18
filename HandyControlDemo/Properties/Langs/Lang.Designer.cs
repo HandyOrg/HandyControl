@@ -70,6 +70,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 填写基本信息 的本地化字符串。
+        /// </summary>
+        public static string BasicInfo {
+            get {
+                return ResourceManager.GetString("BasicInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 按钮 的本地化字符串。
         /// </summary>
         public static string Button {
@@ -120,6 +129,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string CompareSlider {
             get {
                 return ResourceManager.GetString("CompareSlider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 完成 的本地化字符串。
+        /// </summary>
+        public static string Complete {
+            get {
+                return ResourceManager.GetString("Complete", resourceCulture);
             }
         }
         
@@ -250,6 +268,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 下一步 的本地化字符串。
+        /// </summary>
+        public static string Next {
+            get {
+                return ResourceManager.GetString("Next", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 点击打开图片浏览器 的本地化字符串。
         /// </summary>
         public static string OpenImageBrowser {
@@ -268,6 +295,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 上一步 的本地化字符串。
+        /// </summary>
+        public static string Prev {
+            get {
+                return ResourceManager.GetString("Prev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 主要 的本地化字符串。
         /// </summary>
         public static string Primary {
@@ -282,6 +318,24 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ProgressBar {
             get {
                 return ResourceManager.GetString("ProgressBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 注册 的本地化字符串。
+        /// </summary>
+        public static string Register {
+            get {
+                return ResourceManager.GetString("Register", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 步骤条 的本地化字符串。
+        /// </summary>
+        public static string StepBar {
+            get {
+                return ResourceManager.GetString("StepBar", resourceCulture);
             }
         }
         
@@ -345,6 +399,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ToggleButton {
             get {
                 return ResourceManager.GetString("ToggleButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上传文件 的本地化字符串。
+        /// </summary>
+        public static string UploadFile {
+            get {
+                return ResourceManager.GetString("UploadFile", resourceCulture);
             }
         }
         

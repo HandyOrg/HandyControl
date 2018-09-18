@@ -4,6 +4,6 @@
              Background="White"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
-        <controls:Pagination Margin="32" Width="600" MaxPageCount="10"></controls:Pagination>
+        <controls:Pagination Margin="32" Width="600" MaxPageCount="10" VerticalAlignment="Center"/>
     </controls:TransitioningContentControl>
 </UserControl>

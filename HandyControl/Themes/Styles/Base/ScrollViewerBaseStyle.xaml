@@ -58,9 +58,9 @@
     <Style x:Key="ScrollBarBaseStyle" TargetType="{x:Type ScrollBar}">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
-        <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"></Setter>
-        <Setter Property="Background" Value="Transparent"></Setter>
-        <Setter Property="Focusable" Value="False"></Setter>
+        <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Width" Value="8"/>
         <Setter Property="MinWidth" Value="8"/>
@@ -158,9 +158,9 @@
     </ControlTemplate>
 
     <Style x:Key="ScrollViewerBaseStyle" TargetType="{x:Type controls:ScrollViewer}">
-        <Setter Property="VerticalScrollBarVisibility" Value="Auto"></Setter>
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Template" Value="{StaticResource ScrollViewerBaseControlTemplate}"></Setter>
+        <Setter Property="Template" Value="{StaticResource ScrollViewerBaseControlTemplate}"/>
     </Style>
 
 </ResourceDictionary>
