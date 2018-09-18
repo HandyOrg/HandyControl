@@ -45,7 +45,14 @@ namespace HandyControl.Controls
         public UIElement Child
         {
             get => MainBorder.Child;
-            set => MainBorder.Child = value;
+            set
+            {
+                MainBorder.Child = value;
+                if (value is FrameworkElement temp)
+                {
+                    TitleBlock.Width = temp.Width - 40;
+                }
+            }
         }
 
         public bool ShowTitle

@@ -120,17 +120,6 @@ namespace HandyControl.Controls
             }
         }
 
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-
-            if (SizeToContent != SizeToContent.WidthAndHeight)
-                return;
-
-            SizeToContent = SizeToContent.Height;
-            Dispatcher.BeginInvoke(new Action(() => { SizeToContent = SizeToContent.WidthAndHeight; }));
-        }
-
         public Brush CloseButtonForeground
         {
             get => (Brush)GetValue(CloseButtonForegroundProperty);
