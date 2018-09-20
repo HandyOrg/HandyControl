@@ -4,13 +4,21 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/ToggleButtonBaseStyle.xaml"/>
-        <ResourceDictionary Source="Base/ToggleButtonSwitchBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!--普通-->
     <Style BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
@@ -37,6 +45,15 @@
     <Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="ToggleButtonIconPrimary" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
@@ -85,7 +102,7 @@
     <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="{x:Type ToggleButton}"></Style>
 
     <!--自定义-->
-    <Style x:Key="ToggleButtonOpacityStyle" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonCustom" TargetType="{x:Type ToggleButton}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -100,7 +117,7 @@
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <Grid>
-                            <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <ContentPresenter Name="UnCheckedElement"  Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             <ContentPresenter Name="CheckedElement" Visibility="Collapsed" Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}"></ContentPresenter>
                         </Grid>
                     </Border>
@@ -114,6 +131,13 @@
                         <Trigger Property="IsChecked" Value="True">
                             <Setter Property="Visibility" Value="Visible" TargetName="CheckedElement"/>
                         </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="controls:StatusSwitchElement.HiddenElement" Value="True"/>
+                                <Condition Property="IsChecked" Value="True"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="UnCheckedElement"/>
+                        </MultiTrigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value=".2"/>
                         </Trigger>

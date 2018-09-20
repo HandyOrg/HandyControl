@@ -45,14 +45,14 @@
             <TextBlock Text="{Binding Message,ElementName=UserControlThis}" Style="{StaticResource TextBlockDefault}" HorizontalAlignment="Left" TextWrapping="Wrap"></TextBlock>
             <TextBlock Text="{Binding Time,ElementName=UserControlThis,StringFormat=yyyy/MM/dd HH:mm:ss}" Style="{StaticResource TextBlockDefault}" Foreground="{StaticResource SecondaryTextBrush}" HorizontalAlignment="Left" Margin="0,4,0,0"></TextBlock>
         </StackPanel>
-        <Button Grid.Row="0" Visibility="Collapsed" Margin="11,0" Name="ButtonClose" Click="ButtonClose_OnClick" Grid.Column="2" Background="Transparent" Style="{StaticResource ButtonOpacityStyle}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="18" Height="18">
+        <Button Grid.Row="0" Visibility="Collapsed" Margin="11,0" Name="ButtonClose" Click="ButtonClose_OnClick" Grid.Column="2" Background="Transparent" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="18" Height="18">
             <Path Data="{StaticResource ErrorGeometry}" Stretch="Uniform" Fill="{StaticResource SecondaryTextBrush}"></Path>
         </Button>
         <StackPanel Name="PanelMore" IsEnabled="False" Visibility="Collapsed" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" Height="28" Grid.Column="0">
-            <Button Click="ButtonCancel_OnClick" Style="{StaticResource ButtonOpacityStyle}" Width="160">
+            <Button Click="ButtonCancel_OnClick" Style="{StaticResource ButtonCustom}" Width="160">
                 <TextBlock Text="取消" HorizontalAlignment="Center" Foreground="{StaticResource DangerBrush}"></TextBlock>
             </Button>
-            <Button Click="ButtonOk_OnClick" Style="{StaticResource ButtonOpacityStyle}" Width="160">
+            <Button Click="ButtonOk_OnClick" Style="{StaticResource ButtonCustom}" Width="160">
                 <TextBlock Text="确定" HorizontalAlignment="Center" Foreground="{StaticResource PrimaryBrush}"></TextBlock>
             </Button>
         </StackPanel>

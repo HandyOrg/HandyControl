@@ -237,4 +237,10 @@
   <data name="Complete" xml:space="preserve">
     <value>Complete</value>
   </data>
+  <data name="Clock" xml:space="preserve">
+    <value>Clock</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
 </root>

@@ -219,7 +219,7 @@ namespace HandyControl.Controls
         {
             var button = new Button
             {
-                Style = TryFindResource("ButtonOpacityStyle") as Style,
+                Style = TryFindResource("ButtonCustom") as Style,
                 Content = new Border
                 {
                     Width = 10,
