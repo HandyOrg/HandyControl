@@ -303,7 +303,7 @@ namespace HandyControl.Controls
             var button = new Button
             {
                 Margin = new Thickness(0, 0, 12, 12),
-                Style = FindResource("ButtonOpacityStyle") as Style,
+                Style = FindResource("ButtonCustom") as Style,
                 Content = new Border
                 {
                     Background = brush,

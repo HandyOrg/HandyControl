@@ -217,4 +217,10 @@
   <data name="Complete" xml:space="preserve">
     <value>完成</value>
   </data>
+  <data name="Clock" xml:space="preserve">
+    <value>时钟</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>日历</value>
+  </data>
 </root>

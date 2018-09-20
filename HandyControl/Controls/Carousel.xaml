@@ -28,12 +28,12 @@
     <Grid ClipToBounds="True">
         <ListBox HorizontalAlignment="Left" Name="ListBoxMain" BorderThickness="0" ItemsSource="{Binding ItemsSource,ElementName=UserControlMain}" Style="{StaticResource StackPanelListBox}"></ListBox>
         <Grid Name="GridTop" Opacity="0">
-            <Button Click="ButtonPrev_OnClick" Name="ButtonPrev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonOpacityStyle}">
+            <Button Click="ButtonPrev_OnClick" Name="ButtonPrev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonCustom}">
                 <Border Width="50" Height="100" Background="#44000000" CornerRadius="2">
                     <Path Margin="16" Fill="White" Style="{StaticResource LeftPathStyle}"></Path>
                 </Border>
             </Button>
-            <Button Click="ButtonNext_OnClick" Name="ButtonNext" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0" Style="{StaticResource ButtonOpacityStyle}">
+            <Button Click="ButtonNext_OnClick" Name="ButtonNext" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0" Style="{StaticResource ButtonCustom}">
                 <Border Width="50" Height="100" Background="#44000000" CornerRadius="2">
                     <Path Margin="16" Fill="White" Style="{StaticResource RightPathStyle}"></Path>
                 </Border>

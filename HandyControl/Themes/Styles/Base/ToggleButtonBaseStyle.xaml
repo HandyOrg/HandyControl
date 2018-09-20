@@ -14,14 +14,215 @@
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
                     <Grid>
                         <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"></Border>
-                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                        <!--<Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </Border>-->
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
+                                <Path x:Name="PathMain" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}" RenderTransformOrigin="0.5,0.5">
+                                    <Path.RenderTransform>
+                                        <TransformGroup>
+                                            <RotateTransform Angle="{Binding Path=(controls:IconElement.Angle),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </TransformGroup>
+                                    </Path.RenderTransform>
+                                </Path>
+                                <ContentPresenter x:Name="ContentPresenterMain" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </StackPanel>
                         </Border>
                         <Border Visibility="Collapsed" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{TemplateBinding BorderBrush}"></Border>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="true">
                             <Setter TargetName="BorderChecked" Property="Visibility" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ContentPresenterMain"/>
+                        </Trigger>
+                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
+                            <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Opacity" Value=".9"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Opacity" Value=".6"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".2"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--引用自https://github.com/MaterialDesignInXAML/MaterialDesignInXamlToolkit-->
+    <Style x:Key="ToggleButtonSwitchBaseStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="0 1 0 0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <ControlTemplate.Resources>
+                        <SineEase x:Key="RippleEasingFunction" EasingMode="EaseInOut"/>
+                        <Storyboard x:Key="ShowRipple">
+                            <DoubleAnimation Storyboard.TargetName="RippleThumb" Storyboard.TargetProperty="Opacity"
+                                             EasingFunction="{StaticResource RippleEasingFunction}"
+                                             To="0.26" Duration="0"/>
+                            <DoubleAnimation Storyboard.TargetName="RippleThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
+                                             EasingFunction="{StaticResource RippleEasingFunction}"
+                                             From="1" To="2.5" Duration="0:0:0.2"/>
+                            <DoubleAnimation Storyboard.TargetName="RippleThumb" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
+                                             EasingFunction="{StaticResource RippleEasingFunction}"
+                                             From="1" To="2.5" Duration="0:0:0.2"/>
+                        </Storyboard>
+                        <Storyboard x:Key="HideRipple">
+                            <DoubleAnimation Storyboard.TargetName="RippleThumb" Storyboard.TargetProperty="Opacity"
+                                             EasingFunction="{StaticResource RippleEasingFunction}"
+                                             To="0" Duration="0:0:0.3"/>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Viewbox Width="34">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualStateGroup.Transitions>
+                                    <VisualTransition From="*" To="Checked">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="ThumbHolder">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="23.5">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <QuadraticEase EasingMode="EaseOut"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                    <VisualTransition From="Checked" To="Unchecked">
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="ThumbHolder">
+                                                <EasingDoubleKeyFrame KeyTime="0" Value="23.5"/>
+                                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                                                    <EasingDoubleKeyFrame.EasingFunction>
+                                                        <QuadraticEase EasingMode="EaseOut"/>
+                                                    </EasingDoubleKeyFrame.EasingFunction>
+                                                </EasingDoubleKeyFrame>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualTransition>
+                                </VisualStateGroup.Transitions>
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="ThumbHolder"
+                                                         Duration="0" To="23.5" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" Storyboard.TargetName="ThumbHolder"
+                                                         Duration="0" To="0" />
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid>
+                            <Rectangle x:Name="Track" Fill="Black" HorizontalAlignment="Left" Height="15" Margin="4.211,5,4.211,0" Stroke="{x:Null}" VerticalAlignment="Top" Width="40" RadiusY="7.5" RadiusX="7.5" Opacity="0.26"/>
+
+                            <Grid x:Name="ThumbHolder"
+                                  HorizontalAlignment="Left" VerticalAlignment="Top">
+                                <Ellipse x:Name="RippleThumb"
+                                         Fill="{DynamicResource PrimaryBrush}"
+                                         Height="25" Width="25"
+                                         IsHitTestVisible="False"
+                                         Opacity="0.26"
+                                         Margin="0"
+                                         HorizontalAlignment="Center" VerticalAlignment="Center"
+                                         RenderTransformOrigin="0.5,0.5">
+                                    <Ellipse.RenderTransform>
+                                        <ScaleTransform ScaleX="1" ScaleY="1"/>
+                                    </Ellipse.RenderTransform>
+                                </Ellipse>
+                                <AdornerDecorator>
+                                    <Ellipse x:Name="Thumb"
+                                             Fill="#FFFAFAFA" Stroke="{x:Null}" 
+                                             HorizontalAlignment="Center" VerticalAlignment="Center"
+                                             Width="25" Height="25"
+                                             Margin="0,0,0,0"
+                                             RenderTransformOrigin="0.5,0.5"
+                                             Effect="{DynamicResource EffectShadow1}">
+                                    </Ellipse>
+                                </AdornerDecorator>
+                                <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}"
+                                                  Margin="{TemplateBinding Padding}"
+                                                  x:Name="ContentPresenter"
+                                                  HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+                                                  FlowDirection="LeftToRight"/>
+                                <Grid.RenderTransform>
+                                    <TranslateTransform X="0" Y="0"/>
+                                </Grid.RenderTransform>
+                            </Grid>
+                        </Grid>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="Thumb" Property="Fill" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Background}" />
+                            <Setter TargetName="Track" Property="Fill" Value="{DynamicResource PrimaryBrush}" />
+                            <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+                        </Trigger>
+                        <Trigger Property="Button.IsDefaulted" Value="true"/>
+                        <Trigger Property="IsMouseOver" Value="true"/>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource ShowRipple}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource HideRipple}"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Opacity" Value=".2" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconBaseStyle" TargetType="{x:Type ToggleButton}">
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+        <Setter Property="Width" Value="{DynamicResource DefaultControlHeight}"/>
+        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}"/>
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="controls:IconSwitchElement.Geometry" Value="{x:Null}"/>
+        <Setter Property="controls:IconSwitchElement.GeometrySelected" Value="{x:Null}"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"></Border>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                            <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                                <Path x:Name="PathIcon" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconSwitchElement.Geometry}"></Path>
+                            </ContentControl>
+                        </Border>
+                        <Border Visibility="Collapsed" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{TemplateBinding BorderBrush}"></Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(controls:IconSwitchElement.GeometrySelected)}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

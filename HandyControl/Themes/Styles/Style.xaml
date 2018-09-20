@@ -3,7 +3,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Window.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
-        <!--<ResourceDictionary Source="ToggleButton.xaml"/>-->
+        <ResourceDictionary Source="ToggleButton.xaml"/>
         <ResourceDictionary Source="TextBlock.xaml"/>
         <!--<ResourceDictionary Source="CheckBox.xaml"/>-->
         <!--<ResourceDictionary Source="RadioButton.xaml"/>-->

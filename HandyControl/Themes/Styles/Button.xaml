@@ -3,20 +3,28 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"></ResourceDictionary>
     </ResourceDictionary.MergedDictionaries>
 
-    <!--Button-->
     <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
     <Style x:Key="ButtonPrimary" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
     <Style x:Key="ButtonSuccess" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DarkSuccessBrush}"/>
     </Style>
     <Style x:Key="ButtonInfo" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
@@ -28,8 +36,7 @@
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
-    <!--ButtonIcon-->
-    <Style x:Key="ButtonIconTransparent" BasedOn="{StaticResource ButtonIconBaseStyle}" TargetType="{x:Type Button}">
+    <Style x:Key="ButtonIcon" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Template">
@@ -50,29 +57,8 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="ButtonIconDefault" BasedOn="{StaticResource ButtonIconBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-    </Style>
-    <Style x:Key="ButtonIconPrimary" BasedOn="{StaticResource ButtonIconBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-    </Style>
-    <Style x:Key="ButtonIconSuccess" BasedOn="{StaticResource ButtonIconBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkSuccessBrush}"/>
-    </Style>
-    <Style x:Key="ButtonIconInfo" BasedOn="{StaticResource ButtonIconBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
-    </Style>
-    <Style x:Key="ButtonIconWarning" BasedOn="{StaticResource ButtonIconBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
-    </Style>
-    <Style x:Key="ButtonIconDanger" BasedOn="{StaticResource ButtonIconBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
-    </Style>
 
-    <Style x:Key="ButtonOpacityStyle" TargetType="{x:Type Button}">
+    <Style x:Key="ButtonCustom" TargetType="{x:Type Button}">
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>

@@ -9,34 +9,6 @@
     <Style x:Key="ButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="{x:Type Button}">
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
-                    <Grid>
-                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"></Border>
-                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        </Border>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-        <Style.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Opacity" Value=".9"/>
-            </Trigger>
-            <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Opacity" Value=".6"/>
-            </Trigger>
-            <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value=".2"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <Style x:Key="ButtonIconBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
         <Setter Property="controls:IconElement.Angle" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -44,17 +16,27 @@
                     <Grid>
                         <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"></Border>
                         <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
-                            <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                                <Path Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}" RenderTransformOrigin="0.5,0.5">
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
+                                <Path x:Name="PathMain" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}" RenderTransformOrigin="0.5,0.5">
                                     <Path.RenderTransform>
                                         <TransformGroup>
                                             <RotateTransform Angle="{Binding Path=(controls:IconElement.Angle),RelativeSource={RelativeSource TemplatedParent}}"/>
                                         </TransformGroup>
                                     </Path.RenderTransform>
                                 </Path>
-                            </ContentControl>
+                                <ContentPresenter x:Name="ContentPresenterMain" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </StackPanel>
                         </Border>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Content" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ContentPresenterMain"/>
+                        </Trigger>
+                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
+                            <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

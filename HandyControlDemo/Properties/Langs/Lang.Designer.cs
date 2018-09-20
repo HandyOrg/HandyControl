@@ -97,6 +97,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 日历 的本地化字符串。
+        /// </summary>
+        public static string Calendar {
+            get {
+                return ResourceManager.GetString("Calendar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 轮播 的本地化字符串。
         /// </summary>
         public static string Carousel {
@@ -111,6 +120,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string CheckBox {
             get {
                 return ResourceManager.GetString("CheckBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 时钟 的本地化字符串。
+        /// </summary>
+        public static string Clock {
+            get {
+                return ResourceManager.GetString("Clock", resourceCulture);
             }
         }
         
