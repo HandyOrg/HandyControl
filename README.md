@@ -8,7 +8,7 @@
 
 让我们开门见山，HandyControl已经开源的控件截图有：
 
-##最新控件
+## 最新控件
 ### 1、日历Calendar
 
 ![日历Calendar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Calendar.jpg)
@@ -17,7 +17,7 @@
 
 ![时钟Clock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Clock.jpg)
 
-##历史发布
+## 历史发布
 ### 1、颜色拾取器ColorPicker
 
 ![颜色拾取器ColorPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ColorPicker.gif)
