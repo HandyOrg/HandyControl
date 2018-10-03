@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
              mc:Ignorable="d" 
              MinHeight="60"
              Name="UserControlThis"
@@ -50,10 +51,10 @@
         </Button>
         <StackPanel Name="PanelMore" IsEnabled="False" Visibility="Collapsed" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" Height="28" Grid.Column="0">
             <Button Click="ButtonCancel_OnClick" Style="{StaticResource ButtonCustom}" Width="160">
-                <TextBlock Text="取消" HorizontalAlignment="Center" Foreground="{StaticResource DangerBrush}"></TextBlock>
+                <TextBlock Text="{x:Static langs:Lang.Cancel}" HorizontalAlignment="Center" Foreground="{StaticResource DangerBrush}"></TextBlock>
             </Button>
             <Button Click="ButtonOk_OnClick" Style="{StaticResource ButtonCustom}" Width="160">
-                <TextBlock Text="确定" HorizontalAlignment="Center" Foreground="{StaticResource PrimaryBrush}"></TextBlock>
+                <TextBlock Text="{x:Static langs:Lang.Confirm}" HorizontalAlignment="Center" Foreground="{StaticResource PrimaryBrush}"></TextBlock>
             </Button>
         </StackPanel>
     </Grid>

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -50,6 +51,11 @@ namespace HandyControl.Controls
                 UniformGridMain.Children.Add(item);
                 index++;
             }
+
+            if (list.FirstOrDefault() is StepItem stepItem)
+            {
+                stepItem.Status = false;
+            }
         }
 
         protected override void OnRender(DrawingContext drawingContext)
@@ -62,8 +68,6 @@ namespace HandyControl.Controls
             ProgressBarBack.Value = 0;
             ProgressBarBack.Maximum = colCount - 1;
         }
-
-
 
         public void Next()
         {

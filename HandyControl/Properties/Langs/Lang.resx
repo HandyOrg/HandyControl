@@ -157,4 +157,10 @@
   <data name="CloseOther" xml:space="preserve">
     <value>关闭其他</value>
   </data>
+  <data name="Am" xml:space="preserve">
+    <value>上午</value>
+  </data>
+  <data name="Pm" xml:space="preserve">
+    <value>下午</value>
+  </data>
 </root>

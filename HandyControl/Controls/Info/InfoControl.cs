@@ -11,7 +11,7 @@ using HandyControl.Tools.Extension;
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
-    public abstract class InfoControl : UserControl
+    internal abstract class InfoControl : UserControl
     {
         private bool _isFocused;
 

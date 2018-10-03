@@ -37,12 +37,16 @@
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Attach\BorderElement.cs" />
     <Compile Include="Controls\Attach\IconSwitchElement.cs" />
+    <Compile Include="Controls\Attach\InfoElement.cs" />
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Carousel.xaml.cs">
       <DependentUpon>Carousel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\CirclePanel.cs" />
+    <Compile Include="Controls\Clock.cs" />
+    <Compile Include="Controls\ClockRadioButton.cs" />
     <Compile Include="Controls\ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
     </Compile>
@@ -78,7 +82,9 @@
     <Compile Include="Controls\TimeBar\TimeBar.xaml.cs">
       <DependentUpon>TimeBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\TimePicker.cs" />
     <Compile Include="Controls\TransitioningContentControl.cs" />
+    <Compile Include="Controls\WatermarkTextBox.cs" />
     <Compile Include="Controls\Window\ImageBrowser.xaml.cs">
       <DependentUpon>ImageBrowser.xaml</DependentUpon>
     </Compile>
@@ -86,6 +92,7 @@
       <DependentUpon>PopupWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\Window\WindowBorderless.cs" />
+    <Compile Include="Data\BooleanBoxes.cs" />
     <Compile Include="Data\ColorRange.cs" />
     <Compile Include="Data\Enum\IpType.cs" />
     <Compile Include="Data\Enum\TextType.cs" />
@@ -98,6 +105,7 @@
     <Compile Include="Interactivity\BehaviorCollection.cs" />
     <Compile Include="Interactivity\ControlCommands.cs" />
     <Compile Include="Interactivity\DefaultTriggerAttribute.cs" />
+    <Compile Include="Interactivity\EventToCommand.cs" />
     <Compile Include="Interactivity\EventTrigger.cs" />
     <Compile Include="Interactivity\EventTriggerBase!1.cs" />
     <Compile Include="Interactivity\EventTriggerBase.cs" />
@@ -107,12 +115,14 @@
     <Compile Include="Interactivity\FluidMoveBehaviorBase.cs" />
     <Compile Include="Interactivity\FluidMoveScope.cs" />
     <Compile Include="Interactivity\IAttachedObject.cs" />
+    <Compile Include="Interactivity\IEventArgsConverter.cs" />
     <Compile Include="Interactivity\Interaction.cs" />
     <Compile Include="Interactivity\InvokeCommandAction.cs" />
     <Compile Include="Interactivity\MouseDragElementBehavior.cs" />
     <Compile Include="Interactivity\NameResolvedEventArgs.cs" />
     <Compile Include="Interactivity\NameResolver.cs" />
     <Compile Include="Interactivity\PreviewInvokeEventArgs.cs" />
+    <Compile Include="Interactivity\RoutedEventTrigger.cs" />
     <Compile Include="Interactivity\TagType.cs" />
     <Compile Include="Interactivity\TransitionEffect.cs" />
     <Compile Include="Interactivity\TriggerAction!1.cs" />
@@ -153,6 +163,7 @@
     <Compile Include="Tools\RegularJudgment.cs" />
     <Compile Include="Tools\RegularPatterns.cs" />
     <Compile Include="Tools\ResourceHelper.cs" />
+    <Compile Include="Tools\ValidateHelper.cs" />
     <Compile Include="Tools\VisualStates.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -295,11 +306,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Calendar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Clock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\ContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DatePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,6 +363,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\TextBlock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TextBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

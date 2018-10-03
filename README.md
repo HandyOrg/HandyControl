@@ -8,6 +8,16 @@
 
 让我们开门见山，HandyControl已经开源的控件截图有：
 
+##最新控件
+### 1、日历Calendar
+
+![日历Calendar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Calendar.jpg)
+
+### 2、时钟Clock
+
+![时钟Clock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Clock.jpg)
+
+##历史发布
 ### 1、颜色拾取器ColorPicker
 
 ![颜色拾取器ColorPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ColorPicker.gif)
@@ -95,6 +105,10 @@
 * 为什么我连编译都无法通过：  
 编译之前，请确保IDE为vs2017且c#最低版本为7.0,HandyControl目前仅支持4.5以上的.net环境。
 
-# v1.3.0版本计划
+# v1.4.0 Plan
 
-1、添加时间、日历控件；
+- add ComboBox Style;
+- add TextBox Style;
+- add PasswordBox Style;
+- add TabControl Style;
+- add Black Theme

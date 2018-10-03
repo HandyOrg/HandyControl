@@ -18,9 +18,13 @@
             <TreeViewItem Tag="{x:Static data:MessageToken.ToggleButtonDemoCtl}" Header="{x:Static langs:Lang.ToggleButton}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.ExpanderDemoCtl}" Header="{x:Static langs:Lang.Expander}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Header="{x:Static langs:Lang.ProgressBar}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.CalendarDemoCtl}" Header="{x:Static langs:Lang.Calendar}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.DatePickerDemoCtl}" Header="{x:Static langs:Lang.DatePicker}"/>
         </TreeViewItem>
         <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Controls}">
-            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.StepBarDemoCtl}" Header="{x:Static langs:Lang.StepBar}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.ClockDemoCtl}" Header="{x:Static langs:Lang.Clock}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.TimePickerDemoCtl}" Header="{x:Static langs:Lang.TimePicker}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.StepBarDemoCtl}" Header="{x:Static langs:Lang.StepBar}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.GrowlDemoCtl}" Header="{x:Static langs:Lang.Growl}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.LoadingDemoCtl}" Header="{x:Static langs:Lang.Loading}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.ImageBrowserDemoCtl}" Header="{x:Static langs:Lang.ImageBrowser}"/>

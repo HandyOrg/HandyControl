@@ -122,7 +122,7 @@
     <value>程序已崩溃~~~</value>
   </data>
   <data name="GrowlAsk" xml:space="preserve">
-    <value>检测到有新版本！</value>
+    <value>检测到有新版本！是否更新？</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>加载条</value>
@@ -222,5 +222,11 @@
   </data>
   <data name="Calendar" xml:space="preserve">
     <value>日历</value>
+  </data>
+  <data name="DatePicker" xml:space="preserve">
+    <value>日期选择器</value>
+  </data>
+  <data name="TimePicker" xml:space="preserve">
+    <value>时间选择器</value>
   </data>
 </root>

@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"></ResourceDictionary>
+        <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">

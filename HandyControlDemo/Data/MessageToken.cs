@@ -22,6 +22,10 @@
 
         public static readonly string StepBarDemoCtl = nameof(StepBarDemoCtl);
 
+        public static readonly string ClockDemoCtl = nameof(ClockDemoCtl);
+
+        public static readonly string TimePickerDemoCtl = nameof(TimePickerDemoCtl);
+
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -31,6 +35,10 @@
         public static readonly string ProgressBarDemoCtl = nameof(ProgressBarDemoCtl);
 
         public static readonly string TabControlDemoCtl = nameof(TabControlDemoCtl);
+
+        public static readonly string CalendarDemoCtl = nameof(CalendarDemoCtl);
+
+        public static readonly string DatePickerDemoCtl = nameof(DatePickerDemoCtl);
 
     	public static readonly string LoadShowContent = nameof(LoadShowContent);
 	}

@@ -61,6 +61,15 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 上午 的本地化字符串。
+        /// </summary>
+        public static string Am {
+            get {
+                return ResourceManager.GetString("Am", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 取消 的本地化字符串。
         /// </summary>
         public static string Cancel {
@@ -192,6 +201,15 @@ namespace HandyControl.Properties.Langs {
         public static string Interval5m {
             get {
                 return ResourceManager.GetString("Interval5m", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 下午 的本地化字符串。
+        /// </summary>
+        public static string Pm {
+            get {
+                return ResourceManager.GetString("Pm", resourceCulture);
             }
         }
         

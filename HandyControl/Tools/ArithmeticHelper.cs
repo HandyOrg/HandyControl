@@ -113,5 +113,13 @@ namespace HandyControl.Tools
             }
             return new Rect(x, y, width, height);
         }
+
+        /// <summary>
+        ///     计算两点的连线和x轴的夹角
+        /// </summary>
+        /// <param name="center"></param>
+        /// <param name="p"></param>
+        /// <returns></returns>
+        public static double CalAngle(Point center, Point p) => Math.Atan2(p.Y - center.Y, p.X - center.X) * 180 / Math.PI;
     }
 }

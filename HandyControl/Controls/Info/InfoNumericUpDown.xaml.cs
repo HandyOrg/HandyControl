@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 using HandyControl.Data;
+using HandyControl.Tools;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
@@ -10,7 +11,7 @@ namespace HandyControl.Controls
     /// <summary>
     ///     InfoNumericUpDown.xaml 的交互逻辑
     /// </summary>
-    public partial class InfoNumericUpDown
+    internal partial class InfoNumericUpDown
     {
         public InfoNumericUpDown()
         {
@@ -44,7 +45,7 @@ namespace HandyControl.Controls
                 var max = (double)value;
                 if (max < info.Minimum) max = info.Minimum;
                 return max;
-            }), ValidateValueCallback);
+            }), ValidateHelper.IsInRangeOfDouble);
 
         /// <summary>
         ///     最大值
@@ -69,7 +70,7 @@ namespace HandyControl.Controls
                 var min = (double)value;
                 if (min > info.Maximum) min = info.Maximum;
                 return min;
-            }), ValidateValueCallback);
+            }), ValidateHelper.IsInRangeOfDouble);
 
         /// <summary>
         ///     最小值
@@ -102,18 +103,7 @@ namespace HandyControl.Controls
                 if (current > info.Maximum) current = info.Maximum;
 
                 return current;
-            }), ValidateValueCallback);
-
-        /// <summary>
-        ///     值验证回调
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        private static bool ValidateValueCallback(object value)
-        {
-            var v = (double)value;
-            return !(double.IsNaN(v) || double.IsInfinity(v));
-        }
+            }), ValidateHelper.IsInRangeOfDouble);
 
         /// <summary>
         ///     当前值
@@ -128,7 +118,7 @@ namespace HandyControl.Controls
         ///     最小改变值
         /// </summary>
         public static readonly DependencyProperty SmallChangeProperty = DependencyProperty.Register(
-            "SmallChange", typeof(double), typeof(InfoNumericUpDown), new PropertyMetadata(1.0), ValidateValueCallback);
+            "SmallChange", typeof(double), typeof(InfoNumericUpDown), new PropertyMetadata(1.0), ValidateHelper.IsInRangeOfDouble);
 
         /// <summary>
         ///     最小改变值
