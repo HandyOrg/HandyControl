@@ -31,5 +31,40 @@ namespace HandyControl.Interactivity
         ///     下一个
         /// </summary>
         public static RoutedCommand Next { get; } = new RoutedCommand("Next", typeof(ControlCommands));
+
+        /// <summary>
+        ///     上午
+        /// </summary>
+        public static RoutedCommand Am { get; } = new RoutedCommand("Am", typeof(ControlCommands));
+
+        /// <summary>
+        ///     下午
+        /// </summary>
+        public static RoutedCommand Pm { get; } = new RoutedCommand("Pm", typeof(ControlCommands));
+
+        /// <summary>
+        ///     确认
+        /// </summary>
+        public static RoutedCommand Sure { get; } = new RoutedCommand("Sure", typeof(ControlCommands));
+
+        /// <summary>
+        ///     小时改变
+        /// </summary>
+        public static RoutedCommand HourChange { get; } = new RoutedCommand("HourChange", typeof(ControlCommands));
+
+        /// <summary>
+        ///     分钟改变
+        /// </summary>
+        public static RoutedCommand MinuteChange { get; } = new RoutedCommand("MinuteChange", typeof(ControlCommands));
+
+        /// <summary>
+        ///     秒改变
+        /// </summary>
+        public static RoutedCommand SecondChange { get; } = new RoutedCommand("SecondChange", typeof(ControlCommands));
+
+        /// <summary>
+        ///     鼠标移动
+        /// </summary>
+        public static RoutedCommand MouseMove { get; } = new RoutedCommand("MouseMove", typeof(ControlCommands));
     }
 }

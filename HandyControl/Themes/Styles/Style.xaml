@@ -13,7 +13,7 @@
         <ResourceDictionary Source="ProgressBar.xaml"/>
         <ResourceDictionary Source="ScrollViewer.xaml"/>
         <ResourceDictionary Source="Slider.xaml"/>
-        <!--<ResourceDictionary Source="Clock.xaml"/>-->
+        <ResourceDictionary Source="Clock.xaml"/>
         <ResourceDictionary Source="TreeView.xaml"/>
         <!--<ResourceDictionary Source="DataGrid.xaml"/>-->
         <!--<ResourceDictionary Source="GroupBox.xaml"/>-->
@@ -27,7 +27,10 @@
         <!--<ResourceDictionary Source="ToolTip.xaml"/>-->
         <!--<ResourceDictionary Source="InfoBrief.xaml"/>-->
         <ResourceDictionary Source="Expander.xaml"/>
-        <!--<ResourceDictionary Source="TextBox.xaml"/>-->
+        <ResourceDictionary Source="TextBox.xaml"/>
+        <ResourceDictionary Source="Calendar.xaml"/>
+        <ResourceDictionary Source="DatePicker.xaml"/>
+        <ResourceDictionary Source="TimePicker.xaml"/>
         <ResourceDictionary Source="ContentControl.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 

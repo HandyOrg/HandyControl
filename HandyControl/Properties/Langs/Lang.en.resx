@@ -177,4 +177,10 @@
   <data name="CloseOther" xml:space="preserve">
     <value>Close other</value>
   </data>
+  <data name="Am" xml:space="preserve">
+    <value>Am</value>
+  </data>
+  <data name="Pm" xml:space="preserve">
+    <value>Pm</value>
+  </data>
 </root>

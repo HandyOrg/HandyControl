@@ -7,7 +7,7 @@ namespace HandyControl.Controls
     /// <summary>
     /// InfoTextBox.xaml 的交互逻辑
     /// </summary>
-    public partial class InfoTextBox
+    internal partial class InfoTextBox
     {
         /// <summary>
         ///     可输入的最大字符数

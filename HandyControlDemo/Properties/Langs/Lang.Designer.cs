@@ -178,6 +178,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 日期选择器 的本地化字符串。
+        /// </summary>
+        public static string DatePicker {
+            get {
+                return ResourceManager.GetString("DatePicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 默认 的本地化字符串。
         /// </summary>
         public static string Default {
@@ -205,7 +214,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 检测到有新版本！ 的本地化字符串。
+        ///   查找类似 检测到有新版本！是否更新？ 的本地化字符串。
         /// </summary>
         public static string GrowlAsk {
             get {
@@ -399,6 +408,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string TimeBar {
             get {
                 return ResourceManager.GetString("TimeBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 时间选择器 的本地化字符串。
+        /// </summary>
+        public static string TimePicker {
+            get {
+                return ResourceManager.GetString("TimePicker", resourceCulture);
             }
         }
         

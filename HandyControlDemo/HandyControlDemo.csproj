@@ -84,6 +84,9 @@
     <Compile Include="UserControl\Controls\CarouselDemoCtl.xaml.cs">
       <DependentUpon>CarouselDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\ClockDemoCtl.xaml.cs">
+      <DependentUpon>ClockDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\ColorPickerDemoCtl.xaml.cs">
       <DependentUpon>ColorPickerDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -102,11 +105,20 @@
     <Compile Include="UserControl\Controls\StepBarDemoCtl.xaml.cs">
       <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\TimePickerDemoCtl.xaml.cs">
+      <DependentUpon>TimePickerDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Main\NoUserContent.xaml.cs">
       <DependentUpon>NoUserContent.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\ButtonDemoCtl.xaml.cs">
       <DependentUpon>ButtonDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Styles\CalendarDemoCtl.xaml.cs">
+      <DependentUpon>CalendarDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Styles\DatePickerDemoCtl.xaml.cs">
+      <DependentUpon>DatePickerDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\ExpanderDemoCtl.xaml.cs">
       <DependentUpon>ExpanderDemoCtl.xaml</DependentUpon>
@@ -180,6 +192,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\ClockDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\ColorPickerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,11 +220,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\TimePickerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Main\NoUserContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Styles\ButtonDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Styles\CalendarDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Styles\DatePickerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

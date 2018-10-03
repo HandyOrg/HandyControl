@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.DatePickerDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             Background="White">
+    <controls:TransitioningContentControl>
+        <DatePicker Margin="32" SelectedDate="{x:Static system:DateTime.Now}"/>
+    </controls:TransitioningContentControl>
+</UserControl>

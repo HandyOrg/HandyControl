@@ -57,11 +57,11 @@ namespace HandyControl.Controls
         {
             if (Status == true)
             {
-                Foreground = TryFindResource("PrimaryBrush") as Brush;
+                Foreground = TryFindResource("PrimaryTextBrush") as Brush;
             }
             else if (Status == false)
             {
-                Foreground = TryFindResource("PrimaryTextBrush") as Brush;
+                Foreground = TryFindResource("PrimaryBrush") as Brush;
             }
             else
             {
