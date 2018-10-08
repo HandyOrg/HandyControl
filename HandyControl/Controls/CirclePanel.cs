@@ -8,7 +8,7 @@ namespace HandyControl.Controls
     public class CirclePanel : Panel
     {
         public static readonly DependencyProperty DiameterProperty = DependencyProperty.Register(
-            "Diameter", typeof(double), typeof(CirclePanel), new PropertyMetadata(170.0));
+            "Diameter", typeof(double), typeof(CirclePanel), new FrameworkPropertyMetadata(170.0, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public double Diameter
         {
@@ -17,7 +17,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty KeepVerticalProperty = DependencyProperty.Register(
-            "KeepVertical", typeof(bool), typeof(CirclePanel), new PropertyMetadata(default(bool)));
+            "KeepVertical", typeof(bool), typeof(CirclePanel), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public bool KeepVertical
         {
@@ -26,7 +26,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty OffsetAngleProperty = DependencyProperty.Register(
-            "OffsetAngle", typeof(double), typeof(CirclePanel), new PropertyMetadata(default(double)));
+            "OffsetAngle", typeof(double), typeof(CirclePanel), new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public double OffsetAngle
         {

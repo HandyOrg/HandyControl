@@ -14,6 +14,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<GrowlDemoViewModel>();
             SimpleIoc.Default.Register<ImageBrowserDemoViewModel>();
+            SimpleIoc.Default.Register<ComboBoxDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -26,6 +27,8 @@ namespace HandyControlDemo.ViewModel
         public GrowlDemoViewModel GrowlDemo => ServiceLocator.Current.GetInstance<GrowlDemoViewModel>();
 
         public ImageBrowserDemoViewModel ImageBrowserDemo => ServiceLocator.Current.GetInstance<ImageBrowserDemoViewModel>();
+
+        public ComboBoxDemoViewModel ComboBoxDemo => ServiceLocator.Current.GetInstance<ComboBoxDemoViewModel>();
 
         #endregion
     }

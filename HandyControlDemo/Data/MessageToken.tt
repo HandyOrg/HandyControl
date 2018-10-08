@@ -15,7 +15,8 @@ var controlList = new List<string>
 	"AnimationPathDemoCtl",
 	"StepBarDemoCtl",
 	"ClockDemoCtl",
-	"TimePickerDemoCtl"
+	"TimePickerDemoCtl",
+	"CirclePanelDemoCtl"
 };
 var styleList = new List<string>
 {
@@ -25,7 +26,11 @@ var styleList = new List<string>
 	"ProgressBarDemoCtl",
 	"TabControlDemoCtl",
 	"CalendarDemoCtl",
-	"DatePickerDemoCtl"
+	"DatePickerDemoCtl",
+	"TextBoxDemoCtl",
+	"TextBlockDemoCtl",
+	"ComboBoxDemoCtl",
+	"PasswordBoxDemoCtl"
 };
 #>
 namespace HandyControlDemo.Data

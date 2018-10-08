@@ -249,4 +249,37 @@
   <data name="TimePicker" xml:space="preserve">
     <value>TimePicker</value>
   </data>
+  <data name="TextBox" xml:space="preserve">
+    <value>TextBox</value>
+  </data>
+  <data name="ContentDemoStr" xml:space="preserve">
+    <value>This is the content</value>
+  </data>
+  <data name="TitleDemoStr1" xml:space="preserve">
+    <value>This is the title</value>
+  </data>
+  <data name="TitleDemoStr2" xml:space="preserve">
+    <value>This item must be filled in</value>
+  </data>
+  <data name="PlsEnterContent" xml:space="preserve">
+    <value>Please enter content</value>
+  </data>
+  <data name="TitleDemoStr3" xml:space="preserve">
+    <value>The title is on the left</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="SubTitle" xml:space="preserve">
+    <value>Subtitle</value>
+  </data>
+  <data name="PasswordBox" xml:space="preserve">
+    <value>PasswordBox</value>
+  </data>
+  <data name="CirclePanel" xml:space="preserve">
+    <value>CirclePanel</value>
+  </data>
+  <data name="ComboBox" xml:space="preserve">
+    <value>ComboBox</value>
+  </data>
 </root>

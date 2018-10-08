@@ -6,7 +6,9 @@
         <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!--默认样式-->
+    <!--default style-->
+    <Style BasedOn="{StaticResource ScrollViewerNativeBaseStyle}" TargetType="ScrollViewer"></Style>
+
     <Style BasedOn="{StaticResource ScrollViewerBaseStyle}" TargetType="{x:Type controls:ScrollViewer}"></Style>
 
 </ResourceDictionary>

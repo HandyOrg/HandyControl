@@ -16,13 +16,18 @@
         <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Styles}">
             <TreeViewItem Tag="{x:Static data:MessageToken.ButtonDemoCtl}" Header="{x:Static langs:Lang.Button}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.ToggleButtonDemoCtl}" Header="{x:Static langs:Lang.ToggleButton}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.TextBlockDemoCtl}" Header="{x:Static langs:Lang.TextBlock}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.TextBoxDemoCtl}" Header="{x:Static langs:Lang.TextBox}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.ComboBoxDemoCtl}" Header="{x:Static langs:Lang.ComboBox}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.PasswordBoxDemoCtl}" Header="{x:Static langs:Lang.PasswordBox}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.ExpanderDemoCtl}" Header="{x:Static langs:Lang.Expander}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Header="{x:Static langs:Lang.ProgressBar}"/>
-            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.CalendarDemoCtl}" Header="{x:Static langs:Lang.Calendar}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.CalendarDemoCtl}" Header="{x:Static langs:Lang.Calendar}"/>
             <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.DatePickerDemoCtl}" Header="{x:Static langs:Lang.DatePicker}"/>
         </TreeViewItem>
         <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Controls}">
-            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.ClockDemoCtl}" Header="{x:Static langs:Lang.Clock}"/>
+            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Header="{x:Static langs:Lang.CirclePanel}"/>
+            <TreeViewItem Tag="{x:Static data:MessageToken.ClockDemoCtl}" Header="{x:Static langs:Lang.Clock}"/>
             <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.TimePickerDemoCtl}" Header="{x:Static langs:Lang.TimePicker}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.StepBarDemoCtl}" Header="{x:Static langs:Lang.StepBar}"/>
             <TreeViewItem Tag="{x:Static data:MessageToken.GrowlDemoCtl}" Header="{x:Static langs:Lang.Growl}"/>
