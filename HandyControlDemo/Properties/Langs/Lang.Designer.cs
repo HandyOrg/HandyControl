@@ -124,6 +124,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 圆形布局 的本地化字符串。
+        /// </summary>
+        public static string CirclePanel {
+            get {
+                return ResourceManager.GetString("CirclePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 时钟 的本地化字符串。
         /// </summary>
         public static string Clock {
@@ -142,6 +151,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 组合框 的本地化字符串。
+        /// </summary>
+        public static string ComboBox {
+            get {
+                return ResourceManager.GetString("ComboBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 对比滑块 的本地化字符串。
         /// </summary>
         public static string CompareSlider {
@@ -156,6 +174,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Complete {
             get {
                 return ResourceManager.GetString("Complete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 这是内容 的本地化字符串。
+        /// </summary>
+        public static string ContentDemoStr {
+            get {
+                return ResourceManager.GetString("ContentDemoStr", resourceCulture);
             }
         }
         
@@ -322,6 +349,24 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 密码框 的本地化字符串。
+        /// </summary>
+        public static string PasswordBox {
+            get {
+                return ResourceManager.GetString("PasswordBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入内容 的本地化字符串。
+        /// </summary>
+        public static string PlsEnterContent {
+            get {
+                return ResourceManager.GetString("PlsEnterContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 上一步 的本地化字符串。
         /// </summary>
         public static string Prev {
@@ -376,6 +421,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 子标题 的本地化字符串。
+        /// </summary>
+        public static string SubTitle {
+            get {
+                return ResourceManager.GetString("SubTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 成功 的本地化字符串。
         /// </summary>
         public static string Success {
@@ -394,11 +448,29 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 正文 的本地化字符串。
+        /// </summary>
+        public static string Text {
+            get {
+                return ResourceManager.GetString("Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 文本块 的本地化字符串。
         /// </summary>
         public static string TextBlock {
             get {
                 return ResourceManager.GetString("TextBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文本框 的本地化字符串。
+        /// </summary>
+        public static string TextBox {
+            get {
+                return ResourceManager.GetString("TextBox", resourceCulture);
             }
         }
         
@@ -426,6 +498,33 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Title {
             get {
                 return ResourceManager.GetString("Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 这是标题 的本地化字符串。
+        /// </summary>
+        public static string TitleDemoStr1 {
+            get {
+                return ResourceManager.GetString("TitleDemoStr1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 此项必填 的本地化字符串。
+        /// </summary>
+        public static string TitleDemoStr2 {
+            get {
+                return ResourceManager.GetString("TitleDemoStr2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 标题在左侧 的本地化字符串。
+        /// </summary>
+        public static string TitleDemoStr3 {
+            get {
+                return ResourceManager.GetString("TitleDemoStr3", resourceCulture);
             }
         }
         

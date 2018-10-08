@@ -11,7 +11,7 @@
     <converter:String2VisibilityReConverter x:Key="String2VisibilityReConverter"/>
     <BooleanToVisibilityConverter x:Key="Boolean2VisibilityConverter"/>
     <converter:TreeViewItemMarginConverter x:Key="TreeViewItemMarginConverter"/>
-    <converter:Color2HexStrConverter x:Key="Color2HexStrConverter"></converter:Color2HexStrConverter>
-    <converter:Object2BooleanConverter x:Key="Object2BooleanConverter"></converter:Object2BooleanConverter>
+    <converter:Color2HexStrConverter x:Key="Color2HexStrConverter"/>
+    <converter:Object2BooleanConverter x:Key="Object2BooleanConverter"/>
 
 </ResourceDictionary>

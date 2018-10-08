@@ -2,80 +2,105 @@
 
 ![csharp-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/csharp-version.png) ![IDE-version](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/IDE-version.png) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl)  [![build-status](https://ci.appveyor.com/api/projects/status/github/NaBian/handycontrol?svg=true)](https://ci.appveyor.com/project/NaBian/handycontrol) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-# 欢迎使用 HandyControl
+# Welcome to HandyControl
 
-> HandyControl包含了我在开发过程中觉得wpf原生库中所欠缺的东西，现在所有的控件均已编码完毕，我会抽空将最为常用的部分一一开源，因个人能力和时间精力的原因，控件库中难免会留有bug，如果你发现了它们请给我提issue，谢谢。
+## Latest examples
 
-让我们开门见山，HandyControl已经开源的控件截图有：
+### 1、TextBlock
 
-## 最新控件
-### 1、日历Calendar
+![TextBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBlock.jpg)
 
-![日历Calendar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Calendar.jpg)
+### 2、TextBox
 
-### 2、时钟Clock
+![TextBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBox.jpg)
 
-![时钟Clock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Clock.jpg)
+### 3、ComboBox
 
-## 历史发布
-### 1、颜色拾取器ColorPicker
+![ComboBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ComboBox.jpg)
 
-![颜色拾取器ColorPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ColorPicker.gif)
+### 4、PasswordBox
 
-### 2、加载条Loading
+![PasswordBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PasswordBox.jpg)
 
-![加载条Loading](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Loading.gif)
+### 5、DataPicker
 
-### 3、轮播Carousel
+![DataPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataPicker.jpg)
 
-![轮播Carousel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Carousel.gif)
+### 6、TimePicker
 
-### 4、页码条Pagination
+![TimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimePicker.jpg)
 
-![轮播Pagination](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Pagination.gif)
+### 7、CirclePanel
 
-### 5、展开折叠框Expander
+![CirclePanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CirclePanel.jpg)
 
-![展开折叠框Expander](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Expander.gif)
+## History publication
+### 1、ColorPicker
 
-### 6、时间条TimeBar
+![ColorPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ColorPicker.gif)
 
-![时间条TimeBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimeBar.gif)
+### 2、Loading
 
-### 7、图片浏览器ImageBrowser
+![Loading](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Loading.gif)
 
-![图片浏览器ImageBrowser](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBrowser.gif)
+### 3、Carousel
 
-### 8、对比滑块CompareSlider
+![Carousel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Carousel.gif)
 
-![对比滑块CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-h.gif)
+### 4、Pagination
 
-![对比滑块CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-v.gif)
+![Pagination](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Pagination.gif)
 
-### 9、信息通知Growl
+### 5、Expander
 
-![信息通知Growl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Growl.gif)
+![Expander](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Expander.gif)
 
-### 10、动画路径AnimationPath
+### 6、TimeBar
 
-![动画路径AnimationPath](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/AnimationPath.gif)
+![TimeBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimeBar.gif)
 
-### 11、进度条ProgressBar
+### 7、ImageBrowser
 
-![进度条ProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressBar.gif)
+![ImageBrowser](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBrowser.gif)
 
-### 12、选项卡控件TabControl
+### 8、CompareSlider
 
-![选项卡控件TabControl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.gif)
+![CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-h.gif)
 
-### 13、步骤条StepBar
+![CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-v.gif)
 
-![步骤条StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.gif)
+### 9、Growl
 
-# 使用方法
+![Growl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Growl.gif)
 
-第一步：添加HandyControl的引用；  
-第二步：在App.xaml中按照以下方式添加代码：  
+### 10、AnimationPath
+
+![AnimationPath](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/AnimationPath.gif)
+
+### 11、ProgressBar
+
+![ProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressBar.gif)
+
+### 12、TabControl
+
+![TabControl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.gif)
+
+### 13、StepBar
+
+![StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.gif)
+
+### 14、Calendar
+
+![Calendar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Calendar.jpg)
+
+### 15、Clock
+
+![Clock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Clock.jpg)
+
+# Usage
+
+Step 1：Add a reference to HandyControl or search for HandyControl on the nuget;  
+Step 2：Add code in App.xaml as follows:
 ```XML
 <Application.Resources>
     <ResourceDictionary>
@@ -85,30 +110,24 @@
     </ResourceDictionary>
 </Application.Resources>
 ```
-第三步：enjoy coding
+Step 3：enjoy coding
 
 # FAQ
-* 如何让**Scrollviewer**具有惯性？只要：  
+* How to make **Scrollviewer** inertial? 
 ```XML
 <controls:ScrollViewer IsEnableInertia="True">
-    <!--你的控件-->
+    
 </controls:ScrollViewer>
 ```
 
-* 如何让**Scrollviewer**具有穿透效果？只要：  
+* How to make **Scrollviewer** Penetrating?
 ```XML
 <controls:ScrollViewer IsPenetrating="True">
-    <!--你的控件-->
+    
 </controls:ScrollViewer>
 ```
-
-* 为什么我连编译都无法通过：  
-编译之前，请确保IDE为vs2017且c#最低版本为7.0,HandyControl目前仅支持4.5以上的.net环境。
 
 # v1.4.0 Plan
 
-- add ComboBox Style;
-- add TextBox Style;
-- add PasswordBox Style;
-- add TabControl Style;
-- add Black Theme
+- add TabControl Style
+- add Dark Theme

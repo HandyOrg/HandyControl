@@ -229,4 +229,37 @@
   <data name="TimePicker" xml:space="preserve">
     <value>时间选择器</value>
   </data>
+  <data name="TextBox" xml:space="preserve">
+    <value>文本框</value>
+  </data>
+  <data name="ContentDemoStr" xml:space="preserve">
+    <value>这是内容</value>
+  </data>
+  <data name="TitleDemoStr1" xml:space="preserve">
+    <value>这是标题</value>
+  </data>
+  <data name="TitleDemoStr2" xml:space="preserve">
+    <value>此项必填</value>
+  </data>
+  <data name="PlsEnterContent" xml:space="preserve">
+    <value>请输入内容</value>
+  </data>
+  <data name="TitleDemoStr3" xml:space="preserve">
+    <value>标题在左侧</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>正文</value>
+  </data>
+  <data name="SubTitle" xml:space="preserve">
+    <value>子标题</value>
+  </data>
+  <data name="PasswordBox" xml:space="preserve">
+    <value>密码框</value>
+  </data>
+  <data name="CirclePanel" xml:space="preserve">
+    <value>圆形布局</value>
+  </data>
+  <data name="ComboBox" xml:space="preserve">
+    <value>组合框</value>
+  </data>
 </root>

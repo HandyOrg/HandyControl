@@ -26,6 +26,8 @@
 
         public static readonly string TimePickerDemoCtl = nameof(TimePickerDemoCtl);
 
+        public static readonly string CirclePanelDemoCtl = nameof(CirclePanelDemoCtl);
+
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -39,6 +41,14 @@
         public static readonly string CalendarDemoCtl = nameof(CalendarDemoCtl);
 
         public static readonly string DatePickerDemoCtl = nameof(DatePickerDemoCtl);
+
+        public static readonly string TextBoxDemoCtl = nameof(TextBoxDemoCtl);
+
+        public static readonly string TextBlockDemoCtl = nameof(TextBlockDemoCtl);
+
+        public static readonly string ComboBoxDemoCtl = nameof(ComboBoxDemoCtl);
+
+        public static readonly string PasswordBoxDemoCtl = nameof(PasswordBoxDemoCtl);
 
     	public static readonly string LoadShowContent = nameof(LoadShowContent);
 	}
