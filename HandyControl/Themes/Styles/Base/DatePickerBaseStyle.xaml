@@ -16,9 +16,9 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DatePickerTextBox">
-                    <Grid x:Name="WatermarkContent" Margin="6,0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                    <Grid x:Name="WatermarkContent">
                         <Border x:Name="ContentElement"/>
-                        <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource FindAncestor,AncestorType=DatePicker}}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Margin="1,0"/>
+                        <ContentControl VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="7,6" Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource FindAncestor,AncestorType=DatePicker}}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}"/>
                         <ScrollViewer x:Name="PART_ContentHost" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
                 </ControlTemplate>
@@ -36,6 +36,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Width" Value="240"/>
         <Setter Property="Height" Value="30"/>
+        <Setter Property="Padding" Value="6"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
@@ -48,7 +49,7 @@
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
                             <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource CalendarGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                            <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{DynamicResource DatePickerTextBoxStyle}"/>
+                            <DatePickerTextBox Padding="5,6" Margin="0,0,0,1" x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{DynamicResource DatePickerTextBoxStyle}"/>
                             <Popup Grid.Column="0" VerticalOffset="1" x:Name="PART_Popup" PopupAnimation="Fade" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}" StaysOpen="False"/>
                         </Grid>
                     </Border>
