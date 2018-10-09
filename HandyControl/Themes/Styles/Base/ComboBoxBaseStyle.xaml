@@ -32,6 +32,32 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ComboBoxWatermarkToggleButton" TargetType="ToggleButton">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="ClickMode" Value="Press"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Grid>
+                        <Border x:Name="templateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                            <Border Margin="0,0,6,0" x:Name="splitBorder" BorderBrush="Transparent" BorderThickness="1" HorizontalAlignment="Right" SnapsToDevicePixels="true" Width="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
+                                <Path x:Name="arrow" Data="{StaticResource DownGeometry}" Stretch="Uniform" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" Margin="0" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
+                            </Border>
+                        </Border>
+                        <TextBlock VerticalAlignment="{Binding VerticalContentAlignment,RelativeSource={RelativeSource FindAncestor,AncestorType=ComboBox}}" Margin="8,7,8,8" Visibility="{Binding Text,RelativeSource={RelativeSource FindAncestor,AncestorType=ComboBox},Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource FindAncestor,AncestorType=ComboBox}}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Data" TargetName="arrow" Value="{StaticResource UpGeometry}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <ControlTemplate x:Key="ComboBoxTemplate" TargetType="ComboBox">
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.ColumnDefinitions>
@@ -51,7 +77,7 @@
                 </Border>
             </Popup>
             <ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <ContentPresenter Grid.Column="0" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            <ContentPresenter Margin="8,8,2,7" Grid.Column="0" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="HasItems" Value="false">
@@ -92,17 +118,16 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="7,4">
-                <TextBlock Margin="2,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
-            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Margin="1,0" Grid.Row="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Padding="{TemplateBinding Padding}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Popup Grid.Row="1" Grid.Column="0" x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                 <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="White">
                     <ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
@@ -115,8 +140,8 @@
                     </ScrollViewer>
                 </Border>
             </Popup>
-            <ToggleButton Height="30" Grid.Row="1" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <ContentPresenter Grid.Row="1" Grid.Column="0" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            <ToggleButton Grid.Row="1" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}"/>
+            <ContentPresenter Margin="8,8,2,7" Grid.Row="1" Grid.Column="0" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="HasItems" Value="false">
@@ -154,17 +179,16 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="ComboBoxLeftTemplate" TargetType="ComboBox">
-        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,4,6,4">
+            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,8" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
-            <TextBlock Margin="1,0" Grid.Column="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Padding="{TemplateBinding Padding}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                 <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="White">
                     <ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
@@ -177,8 +201,8 @@
                     </ScrollViewer>
                 </Border>
             </Popup>
-            <ToggleButton Height="30" Grid.Column="1" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <ContentPresenter Grid.Column="1" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            <ToggleButton Grid.Column="1" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}"/>
+            <ContentPresenter Margin="8,8,2,7" Grid.Column="1" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="HasItems" Value="false">
@@ -220,13 +244,14 @@
         <Setter Property="AllowDrop" Value="true"/>
         <Setter Property="MinWidth" Value="0"/>
         <Setter Property="MinHeight" Value="0"/>
+        <Setter Property="Padding" Value="0,6"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <ScrollViewer Padding="{TemplateBinding Padding}" x:Name="PART_ContentHost" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    <ScrollViewer Padding="{TemplateBinding Padding}" Margin="0,0,0,1" x:Name="PART_ContentHost" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -251,8 +276,8 @@
                 </Border>
             </Popup>
             <ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <Border Grid.Column="0" x:Name="border" Background="{TemplateBinding Background}" Margin="4,1">
-                <TextBox x:Name="PART_EditableTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="3,0" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            <Border Grid.Column="0" x:Name="border" Background="Transparent" Margin="4,1">
+                <TextBox x:Name="PART_EditableTextBox" Background="Transparent" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="3,0" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
         </Grid>
         <ControlTemplate.Triggers>
@@ -301,17 +326,16 @@
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="7,4">
-                <TextBlock Margin="2,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
-            <TextBlock Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Padding="{TemplateBinding Padding}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Popup Grid.Column="0" Grid.Row="1" x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                 <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="White">
                     <ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
@@ -324,9 +348,10 @@
                     </ScrollViewer>
                 </Border>
             </Popup>
-            <ToggleButton Height="30" Grid.Row="1" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+            <ToggleButton Grid.Row="1" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+            <TextBlock Margin="8,7,8,8" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Grid.Column="0" Grid.Row="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Grid.Row="1" Grid.Column="0" x:Name="border" Background="Transparent" Margin="4,1">
-                <TextBox x:Name="PART_EditableTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="3,0" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                <TextBox Padding="2,6,2,7" x:Name="PART_EditableTextBox" Background="Transparent" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
         </Grid>
         <ControlTemplate.Triggers>
@@ -372,17 +397,16 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="ComboBoxEditableLeftTemplate" TargetType="ComboBox">
-        <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="Center" Margin="0,4,6,4">
+            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,8" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
-            <TextBlock Grid.Column="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Padding="{TemplateBinding Padding}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                 <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="White">
                     <ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
@@ -395,9 +419,10 @@
                     </ScrollViewer>
                 </Border>
             </Popup>
-            <ToggleButton Height="30" Grid.Column="1" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+            <ToggleButton Grid.Column="1" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+            <TextBlock Margin="8,7,8,8" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Grid.Column="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Grid.Column="1" x:Name="border" Background="Transparent" Margin="4,1">
-                <TextBox x:Name="PART_EditableTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="3,0" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                <TextBox Padding="2,6,2,7" x:Name="PART_EditableTextBox" Background="Transparent" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
         </Grid>
         <ControlTemplate.Triggers>
@@ -510,6 +535,7 @@
         <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
         <Setter Property="Template" Value="{StaticResource ComboBoxTopTemplate}"/>
         <Setter Property="controls:InfoElement.Symbol" Value="●"/>
+        <Setter Property="controls:InfoElement.ContentHeight" Value="30.0"/>
         <Style.Triggers>
             <MultiTrigger>
                 <MultiTrigger.Conditions>

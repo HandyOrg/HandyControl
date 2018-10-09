@@ -65,5 +65,15 @@ namespace HandyControl.Controls
         public static void SetTitleWidth(DependencyObject element, GridLength value) => element.SetValue(TitleWidthProperty, value);
 
         public static GridLength GetTitleWidth(DependencyObject element) => (GridLength)element.GetValue(TitleWidthProperty);
+
+        /// <summary>
+        ///     内容高度
+        /// </summary>
+        public static readonly DependencyProperty ContentHeightProperty = DependencyProperty.RegisterAttached(
+            "ContentHeight", typeof(double), typeof(InfoElement), new PropertyMetadata(30.0));
+
+        public static void SetContentHeight(DependencyObject element, double value) => element.SetValue(ContentHeightProperty, value);
+
+        public static double GetContentHeight(DependencyObject element) => (double)element.GetValue(ContentHeightProperty);
     }
 }

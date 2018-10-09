@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -250,6 +251,7 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
+            if (DesignerProperties.GetIsInDesignMode(this)) return;
             if (_popUp != null)
             {
                 _popUp.RemoveHandler(PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(PopUp_PreviewMouseLeftButtonDown));
