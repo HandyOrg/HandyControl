@@ -9,6 +9,7 @@ namespace HandyControlDemo
     {
         public MainWindow()
         {
+
             InitializeComponent();
 
             Growl.SetGrowlPanel(PanelMessage);

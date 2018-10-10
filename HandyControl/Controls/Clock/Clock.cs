@@ -9,6 +9,7 @@ using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 
+// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = ElementButtonAm, Type = typeof(RadioButton))]

@@ -1,7 +1,6 @@
-﻿using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
+﻿using System.Windows.Controls;
 
+// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     public class ClockRadioButton : RadioButton
