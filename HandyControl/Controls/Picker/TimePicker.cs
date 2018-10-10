@@ -8,8 +8,12 @@ using System.Windows.Input;
 using System.Windows.Threading;
 using HandyControl.Data;
 
+// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
+    /// <summary>
+    ///     时间选择器
+    /// </summary>
     [TemplatePart(Name = ElementRoot, Type = typeof(Grid))]
     [TemplatePart(Name = ElementTextBox, Type = typeof(WatermarkTextBox))]
     [TemplatePart(Name = ElementButton, Type = typeof(Button))]
@@ -356,7 +360,8 @@ namespace HandyControl.Controls
 
         private void CheckNull()
         {
-            if (_clock == null || _dropDownButton == null || _popUp == null || _textBox == null) throw new Exception();
+            if (_clock == null || _dropDownButton == null || _popUp == null || _textBox == null)
+                throw new Exception();
         }
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)

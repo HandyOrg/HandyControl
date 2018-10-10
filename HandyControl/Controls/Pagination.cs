@@ -1,16 +1,53 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using HandyControl.Data;
+using HandyControl.Interactivity;
 using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
     /// <summary>
-    ///     Pagination.xaml 的交互逻辑
+    ///     页码
     /// </summary>
-    public partial class Pagination
+    [TemplatePart(Name = ElementButtonLeft, Type = typeof(Button))]
+    [TemplatePart(Name = ElementButtonRight, Type = typeof(Button))]
+    [TemplatePart(Name = ElementButtonFirst, Type = typeof(RadioButton))]
+    [TemplatePart(Name = ElementTextBlockLeft, Type = typeof(TextBlock))]
+    [TemplatePart(Name = ElementPanelMain, Type = typeof(Panel))]
+    [TemplatePart(Name = ElementTextBlockRight, Type = typeof(TextBlock))]
+    [TemplatePart(Name = ElementButtonLast, Type = typeof(RadioButton))]
+    public class Pagination : Control
     {
+        #region Constants
+
+        private const string ElementButtonLeft = "PART_ButtonLeft";
+        private const string ElementButtonRight = "PART_ButtonRight";
+        private const string ElementButtonFirst = "PART_ButtonFirst";
+        private const string ElementTextBlockLeft = "PART_TextBlockLeft";
+        private const string ElementPanelMain = "PART_PanelMain";
+        private const string ElementTextBlockRight = "PART_TextBlockRight";
+        private const string ElementButtonLast = "PART_ButtonLast";
+
+        #endregion Constants
+
+        #region Data
+
+        private Button _buttonLeft;
+        private Button _buttonRight;
+        private RadioButton _buttonFirst;
+        private TextBlock _textBlockLeft;
+        private Panel _panelMain;
+        private TextBlock _textBlockRight;
+        private RadioButton _buttonLast;
+
+        private bool _appliedTemplate;
+
+        #endregion Data
+
+        #region Public Events
+
         /// <summary>
         ///     页面更新事件
         /// </summary>
@@ -18,7 +55,27 @@ namespace HandyControl.Controls
             EventManager.RegisterRoutedEvent("PageUpdated", RoutingStrategy.Bubble,
                 typeof(EventHandler<FunctionEventArgs<int>>), typeof(Pagination));
 
-        public Pagination() => InitializeComponent();
+        /// <summary>
+        ///     页面更新事件
+        /// </summary>
+        public event EventHandler<FunctionEventArgs<int>> PageUpdated
+        {
+            add => AddHandler(PageUpdatedEvent, value);
+            remove => RemoveHandler(PageUpdatedEvent, value);
+        }
+
+        #endregion Public Events
+
+        public Pagination()
+        {
+            CommandBindings.Add(new CommandBinding(ControlCommands.Prev, ButtonPrev_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Next, ButtonNext_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Selected, ToggleButton_OnChecked));
+        }
+
+        #region Public Properties
+
+        #region MaxPageCount
 
         /// <summary>
         ///     最大页数
@@ -32,6 +89,7 @@ namespace HandyControl.Controls
                     {
                         pagination.PageIndex = pagination.MaxPageCount;
                     }
+
                     pagination.Show(value > 1);
                     pagination.Update();
                 }
@@ -55,13 +113,17 @@ namespace HandyControl.Controls
             set => SetValue(MaxPageCountProperty, value);
         }
 
+        #endregion MaxPageCount
+
+        #region DataCountPerPage
+
         /// <summary>
         ///     每页的数据量
         /// </summary>
         public static readonly DependencyProperty DataCountPerPageProperty = DependencyProperty.Register(
             "DataCountPerPage", typeof(int), typeof(Pagination), new PropertyMetadata(20, (o, args) =>
             {
-                if (o is Pagination pagination && args.NewValue is int)
+                if (o is Pagination pagination)
                 {
                     pagination.Update();
                 }
@@ -84,6 +146,10 @@ namespace HandyControl.Controls
             get => (int)GetValue(DataCountPerPageProperty);
             set => SetValue(DataCountPerPageProperty, value);
         }
+
+        #endregion
+
+        #region PageIndex
 
         /// <summary>
         ///     当前页
@@ -120,6 +186,10 @@ namespace HandyControl.Controls
             set => SetValue(PageIndexProperty, value);
         }
 
+        #endregion PageIndex
+
+        #region MaxPageInterval
+
         /// <summary>
         ///     表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
         /// </summary>       
@@ -145,13 +215,40 @@ namespace HandyControl.Controls
             set => SetValue(MaxPageIntervalProperty, value);
         }
 
-        /// <summary>
-        ///     页面更新事件
-        /// </summary>
-        public event EventHandler<FunctionEventArgs<int>> PageUpdated
+        #endregion MaxPageInterval
+
+        #endregion
+
+        #region Public Methods
+
+        public override void OnApplyTemplate()
         {
-            add => AddHandler(PageUpdatedEvent, value);
-            remove => RemoveHandler(PageUpdatedEvent, value);
+            _appliedTemplate = false;
+            base.OnApplyTemplate();
+
+            _buttonLeft = GetTemplateChild(ElementButtonLeft) as Button;
+            _buttonRight = GetTemplateChild(ElementButtonRight) as Button;
+            _buttonFirst = GetTemplateChild(ElementButtonFirst) as RadioButton;
+            _textBlockLeft = GetTemplateChild(ElementTextBlockLeft) as TextBlock;
+            _panelMain = GetTemplateChild(ElementPanelMain) as Panel;
+            _textBlockRight = GetTemplateChild(ElementTextBlockRight) as TextBlock;
+            _buttonLast = GetTemplateChild(ElementButtonLast) as RadioButton;
+
+            CheckNull();
+
+            _appliedTemplate = true;
+            Update();
+        }
+
+        #endregion Public Methods
+
+        #region Private Methods
+
+        private void CheckNull()
+        {
+            if (_buttonLeft == null || _buttonRight == null || _buttonFirst == null ||
+                _textBlockLeft == null || _panelMain == null || _textBlockRight == null ||
+                _buttonLast == null) throw new Exception();
         }
 
         /// <summary>
@@ -159,57 +256,58 @@ namespace HandyControl.Controls
         /// </summary>
         private void Update()
         {
-            LeftButton.IsEnabled = PageIndex > 1;
-            RightButton.IsEnabled = PageIndex < MaxPageCount;
+            if (!_appliedTemplate) return;
+            _buttonLeft.IsEnabled = PageIndex > 1;
+            _buttonRight.IsEnabled = PageIndex < MaxPageCount;
             if (MaxPageInterval == 0)
             {
-                FirstButton.Visibility = Visibility.Collapsed;
-                LastButton.Visibility = Visibility.Collapsed;
-                LeftTextBlock.Visibility = Visibility.Collapsed;
-                RightTextBlock.Visibility = Visibility.Collapsed;
-                MainPanel.Children.Clear();
+                _buttonFirst.Visibility = Visibility.Collapsed;
+                _buttonLast.Visibility = Visibility.Collapsed;
+                _textBlockLeft.Visibility = Visibility.Collapsed;
+                _textBlockRight.Visibility = Visibility.Collapsed;
+                _panelMain.Children.Clear();
                 var selectButton = CreateButton(PageIndex);
-                MainPanel.Children.Add(selectButton);
+                _panelMain.Children.Add(selectButton);
                 selectButton.IsChecked = true;
                 return;
             }
-            FirstButton.Visibility = Visibility.Visible;
-            LastButton.Visibility = Visibility.Visible;
-            LeftTextBlock.Visibility = Visibility.Visible;
-            RightTextBlock.Visibility = Visibility.Visible;
+            _buttonFirst.Visibility = Visibility.Visible;
+            _buttonLast.Visibility = Visibility.Visible;
+            _textBlockLeft.Visibility = Visibility.Visible;
+            _textBlockRight.Visibility = Visibility.Visible;
 
             //更新最后一页
             if (MaxPageCount == 1)
             {
-                LastButton.Visibility = Visibility.Collapsed;
+                _buttonLast.Visibility = Visibility.Collapsed;
             }
             else
             {
-                LastButton.Visibility = Visibility.Visible;
-                LastButton.Tag = MaxPageCount.ToString();
+                _buttonLast.Visibility = Visibility.Visible;
+                _buttonLast.Tag = MaxPageCount.ToString();
             }
 
             //更新省略号
             var right = MaxPageCount - PageIndex;
             var left = PageIndex - 1;
-            RightTextBlock.Visibility = right > MaxPageInterval ? Visibility.Visible : Visibility.Collapsed;
-            LeftTextBlock.Visibility = left > MaxPageInterval ? Visibility.Visible : Visibility.Collapsed;
+            _textBlockRight.Visibility = right > MaxPageInterval ? Visibility.Visible : Visibility.Collapsed;
+            _textBlockLeft.Visibility = left > MaxPageInterval ? Visibility.Visible : Visibility.Collapsed;
 
             //更新中间部分
-            MainPanel.Children.Clear();
+            _panelMain.Children.Clear();
             if (PageIndex > 1 && PageIndex < MaxPageCount)
             {
                 var selectButton = CreateButton(PageIndex);
-                MainPanel.Children.Add(selectButton);
+                _panelMain.Children.Add(selectButton);
                 selectButton.IsChecked = true;
             }
             else if (PageIndex == 1)
             {
-                FirstButton.IsChecked = true;
+                _buttonFirst.IsChecked = true;
             }
             else
             {
-                LastButton.IsChecked = true;
+                _buttonLast.IsChecked = true;
             }
 
             var sub = PageIndex;
@@ -217,7 +315,7 @@ namespace HandyControl.Controls
             {
                 if (--sub > 1)
                 {
-                    MainPanel.Children.Insert(0, CreateButton(sub));
+                    _panelMain.Children.Insert(0, CreateButton(sub));
                 }
                 else
                 {
@@ -229,7 +327,7 @@ namespace HandyControl.Controls
             {
                 if (++add < MaxPageCount)
                 {
-                    MainPanel.Children.Add(CreateButton(add));
+                    _panelMain.Children.Add(CreateButton(add));
                 }
                 else
                 {
@@ -238,15 +336,9 @@ namespace HandyControl.Controls
             }
         }
 
-        private void ButtonPrev_OnClick(object sender, RoutedEventArgs e)
-        {
-            PageIndex--;
-        }
+        private void ButtonPrev_OnClick(object sender, RoutedEventArgs e) => PageIndex--;
 
-        private void ButtonNext_OnClick(object sender, RoutedEventArgs e)
-        {
-            PageIndex++;
-        }
+        private void ButtonNext_OnClick(object sender, RoutedEventArgs e) => PageIndex++;
 
         private RadioButton CreateButton(int page)
         {
@@ -262,5 +354,7 @@ namespace HandyControl.Controls
             if (!(e.OriginalSource is RadioButton button)) return;
             PageIndex = int.Parse(button.Tag.ToString());
         }
+
+        #endregion Private Methods       
     }
 }
