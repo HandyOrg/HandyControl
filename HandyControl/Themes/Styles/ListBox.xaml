@@ -6,7 +6,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--默认样式-->
-    <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="{x:Type ListBox}"></Style>
+    <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="{x:Type ListBox}"/>
 
     <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -33,7 +33,7 @@
     </Style>
 
     <ItemsPanelTemplate x:Key="WrapPanelItemsPanelTemplate">
-        <WrapPanel FocusVisualStyle="{x:Null}"></WrapPanel>
+        <WrapPanel FocusVisualStyle="{x:Null}"/>
     </ItemsPanelTemplate>
 
     <Style x:Key="WrapPanelListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="{x:Type ListBox}">
@@ -42,7 +42,7 @@
     </Style>
 
     <ItemsPanelTemplate x:Key="StackPanelItemsPanelTemplate">
-        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal"></StackPanel>
+        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal"/>
     </ItemsPanelTemplate>
 
     <Style x:Key="StackPanelListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="{x:Type ListBox}">

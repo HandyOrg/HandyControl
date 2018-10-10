@@ -30,7 +30,8 @@ var styleList = new List<string>
 	"TextBoxDemoCtl",
 	"TextBlockDemoCtl",
 	"ComboBoxDemoCtl",
-	"PasswordBoxDemoCtl"
+	"PasswordBoxDemoCtl",
+	"NaiveTabControlDemoCtl"
 };
 #>
 namespace HandyControlDemo.Data

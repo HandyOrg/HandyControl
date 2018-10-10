@@ -8,7 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--直线加载条默认样式-->
-    <Style BasedOn="{StaticResource LoadingLineBaseStyle}" TargetType="{x:Type controls:LoadingLine}"></Style>
+    <Style BasedOn="{StaticResource LoadingLineBaseStyle}" TargetType="{x:Type controls:LoadingLine}"/>
 
     <Style x:Key="LoadingLineLight" BasedOn="{StaticResource LoadingLineBaseStyle}" TargetType="{x:Type controls:LoadingLine}">
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
@@ -23,7 +23,7 @@
     </Style>
 
     <!--圆形加载条默认样式-->
-    <Style BasedOn="{StaticResource LoadingCircleBaseStyle}" TargetType="{x:Type controls:LoadingCircle}"></Style>
+    <Style BasedOn="{StaticResource LoadingCircleBaseStyle}" TargetType="{x:Type controls:LoadingCircle}"/>
 
     <Style x:Key="LoadingCircleLight" BasedOn="{StaticResource LoadingCircleBaseStyle}" TargetType="{x:Type controls:LoadingCircle}">
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>

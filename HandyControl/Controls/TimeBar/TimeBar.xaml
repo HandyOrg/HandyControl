@@ -37,12 +37,12 @@
     </UserControl.Triggers>
     <Grid>
         <Border BorderThickness="0,0,0,4" BorderBrush="White" VerticalAlignment="Top" Height="52">
-            <TextBlock FontSize="16" Text="{Binding SelectedTime,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},StringFormat=yyyy-MM-dd HH:mm:ss}" VerticalAlignment="Top" Margin="0,14,0,0" HorizontalAlignment="Center"></TextBlock>
+            <TextBlock FontSize="16" Text="{Binding SelectedTime,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},StringFormat=yyyy-MM-dd HH:mm:ss}" VerticalAlignment="Top" Margin="0,14,0,0" HorizontalAlignment="Center"/>
         </Border>
-        <TextBlock Visibility="{Binding ShowSpeStr,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},Converter={StaticResource Boolean2VisibilityConverter}}" Text="{Binding SpeStr,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,10,0"></TextBlock>
-        <TextBlock Visibility="Collapsed" Name="TextBlockSelected" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0"></TextBlock>
-        <Border Width="1" Background="{DynamicResource DangerBrush}"></Border>
-        <Canvas Name="CanvasSpe" VerticalAlignment="Bottom" Height="28" ></Canvas>
+        <TextBlock Visibility="{Binding ShowSpeStr,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl},Converter={StaticResource Boolean2VisibilityConverter}}" Text="{Binding SpeStr,RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=UserControl}}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,10,0"/>
+        <TextBlock Visibility="Collapsed" Name="TextBlockSelected" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0"/>
+        <Border Width="1" Background="{DynamicResource DangerBrush}"/>
+        <Canvas Name="CanvasSpe" VerticalAlignment="Bottom" Height="28" />
         <Border PreviewMouseLeftButtonUp="BorderTop_OnPreviewMouseLeftButtonUp" MouseLeftButtonDown="BorderTop_OnMouseLeftButtonDown" Name="BorderTop" Background="Transparent" Cursor="Hand">
             <interactivity:Interaction.Behaviors>
                 <tools:MouseDragElementBehaviorEx LockY="True" x:Name="DragElementBehavior" DragBegun="DragElementBehavior_OnDragBegun" DragFinished="MouseDragElementBehavior_OnDragFinished" Dragging="MouseDragElementBehavior_OnDragging"/>

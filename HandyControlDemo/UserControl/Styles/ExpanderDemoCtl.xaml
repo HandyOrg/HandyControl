@@ -7,16 +7,16 @@
     <controls:TransitioningContentControl>
         <StackPanel Margin="32">
             <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{StaticResource BorderBrush}" Width="240" HorizontalAlignment="Left">
-                <Border Height="100" Background="{StaticResource BackgroundBrush}"></Border>
+                <Border Height="100" Background="{StaticResource BackgroundBrush}"/>
             </Expander>
             <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{StaticResource BorderBrush}" Width="240" HorizontalAlignment="Left">
-                <Border Height="100" Background="{StaticResource BackgroundBrush}"></Border>
+                <Border Height="100" Background="{StaticResource BackgroundBrush}"/>
             </Expander>
             <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{StaticResource BorderBrush}" Width="240" HorizontalAlignment="Left">
-                <Border Height="100" Background="{StaticResource BackgroundBrush}"></Border>
+                <Border Height="100" Background="{StaticResource BackgroundBrush}"/>
             </Expander>
             <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Width="240" HorizontalAlignment="Left">
-                <Border Height="100" Background="{StaticResource BackgroundBrush}"></Border>
+                <Border Height="100" Background="{StaticResource BackgroundBrush}"/>
             </Expander>
         </StackPanel>
     </controls:TransitioningContentControl>

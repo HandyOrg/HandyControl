@@ -6,13 +6,13 @@
              Background="White">
     <controls:TransitioningContentControl>
         <WrapPanel Margin="32" VerticalAlignment="Center">
-            <Button Command="{Binding InfoCmd}" Content="Info" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"></Button>
-            <Button Command="{Binding SuccessCmd}" Content="Success" Margin="5" Style="{StaticResource ButtonSuccess}"></Button>
-            <Button Command="{Binding WarningCmd}" Content="Warning" Margin="5" Style="{StaticResource ButtonWarning}"></Button>
-            <Button Command="{Binding ErrorCmd}" Content="Error" Margin="5" Style="{StaticResource ButtonDanger}"></Button>
-            <Button Command="{Binding AskCmd}" Content="Ask" Margin="5" Background="BlueViolet" Foreground="White"></Button>
-            <Button Command="{Binding FatalCmd}" Content="Fatal" Margin="5,0"></Button>
-            <Button Command="{Binding ClearCmd}" Content="Clear" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"></Button>
+            <Button Command="{Binding InfoCmd}" Content="Info" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
+            <Button Command="{Binding SuccessCmd}" Content="Success" Margin="5" Style="{StaticResource ButtonSuccess}"/>
+            <Button Command="{Binding WarningCmd}" Content="Warning" Margin="5" Style="{StaticResource ButtonWarning}"/>
+            <Button Command="{Binding ErrorCmd}" Content="Error" Margin="5" Style="{StaticResource ButtonDanger}"/>
+            <Button Command="{Binding AskCmd}" Content="Ask" Margin="5" Background="BlueViolet" Foreground="White"/>
+            <Button Command="{Binding FatalCmd}" Content="Fatal" Margin="5,0"/>
+            <Button Command="{Binding ClearCmd}" Content="Clear" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
         </WrapPanel>
     </controls:TransitioningContentControl>
 </UserControl>

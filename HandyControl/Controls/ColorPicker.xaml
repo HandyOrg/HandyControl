@@ -17,9 +17,9 @@
             <RowDefinition Height="62"/>
             <RowDefinition Height="62"/>
         </Grid.RowDefinitions>
-        <Border BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Grid.RowSpan="4" Background="White" CornerRadius="{Binding CornerRadius,ElementName=UserControlMain}"></Border>
+        <Border BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Grid.RowSpan="4" Background="White" CornerRadius="{Binding CornerRadius,ElementName=UserControlMain}"/>
         <Grid Margin="1" Grid.Row="0" Name="GridColor">
-            <Border Background="{Binding BackColor,ElementName=UserControlMain}"></Border>
+            <Border Background="{Binding BackColor,ElementName=UserControlMain}"/>
             <Border>
                 <Border.Background>
                     <ImageBrush ImageSource="/HandyControl;component/Resources/colorPickerBack.png"/>
@@ -50,45 +50,45 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="28"/>
             </Grid.ColumnDefinitions>
-            <Border Width="60" Height="32" CornerRadius="2" Background="{StaticResource ColorPickerOpacityBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1"></Border>
-            <Border Grid.Row="0" Grid.Column="0" Width="60" Height="32" CornerRadius="2" Background="{Binding SelectedBrush,ElementName=UserControlMain}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1"></Border>
-            <Slider Name="SliderColor" LargeChange="0.01" SmallChange="0.01" Grid.ColumnSpan="2" ValueChanged="SliderColor_OnValueChanged" Value="6" Maximum="6" Background="{StaticResource ColorPickerRainbowBrush}" Margin="10,1,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"></Slider>
-            <Slider Grid.ColumnSpan="2" IsSnapToTickEnabled="True" Name="SliderOpacity" ValueChanged="SliderOpacity_OnValueChanged" Value="255" Maximum="255" SmallChange="1" Foreground="{Binding SelectedBrushWithoutOpacity,ElementName=UserControlMain}" Background="{StaticResource ColorPickerOpacityBrush}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"></Slider>
+            <Border Width="60" Height="32" CornerRadius="2" Background="{StaticResource ColorPickerOpacityBrush}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1"/>
+            <Border Grid.Row="0" Grid.Column="0" Width="60" Height="32" CornerRadius="2" Background="{Binding SelectedBrush,ElementName=UserControlMain}" BorderBrush="{StaticResource BorderBrush}" BorderThickness="1"/>
+            <Slider Name="SliderColor" LargeChange="0.01" SmallChange="0.01" Grid.ColumnSpan="2" ValueChanged="SliderColor_OnValueChanged" Value="6" Maximum="6" Background="{StaticResource ColorPickerRainbowBrush}" Margin="10,1,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"/>
+            <Slider Grid.ColumnSpan="2" IsSnapToTickEnabled="True" Name="SliderOpacity" ValueChanged="SliderOpacity_OnValueChanged" Value="255" Maximum="255" SmallChange="1" Foreground="{Binding SelectedBrushWithoutOpacity,ElementName=UserControlMain}" Background="{StaticResource ColorPickerOpacityBrush}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"/>
             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,14,0,0" VerticalAlignment="Top" Visibility="{Binding ShowList[0],ElementName=UserControlMain,Converter={StaticResource Boolean2VisibilityConverter}}">
-                <controls:InfoTextBox Text="{Binding SelectedBrush,ElementName=UserControlMain,Mode=TwoWay,Converter={StaticResource Color2HexStrConverter},UpdateSourceTrigger=LostFocus}" FontSize="10" ShowSmallCornerRadius="True" MaxLength="10" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoTextBox>
-                <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="HEX" HorizontalAlignment="Center"></TextBlock>
+                <TextBox Padding="0" HorizontalContentAlignment="Center" Width="176" Text="{Binding SelectedBrush,ElementName=UserControlMain,Mode=TwoWay,Converter={StaticResource Color2HexStrConverter},UpdateSourceTrigger=LostFocus}" FontSize="10" MaxLength="10" Height="24" />
+                <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="HEX" HorizontalAlignment="Center"/>
             </StackPanel>
             <UniformGrid controls:InfoNumericUpDown.ValueChanged="InfoNumericUpDownRgb_OnValueChanged" Visibility="{Binding ShowList[1],ElementName=UserControlMain,Converter={StaticResource Boolean2VisibilityConverter}}" Rows="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="-2,14,-2,0" VerticalAlignment="Top">
                 <StackPanel Margin="2,0">
-                    <controls:InfoNumericUpDown Tag="R" x:Name="ChannelR" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoNumericUpDown>
-                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="R" HorizontalAlignment="Center"></TextBlock>
+                    <controls:InfoNumericUpDown Tag="R" x:Name="ChannelR" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" />
+                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="R" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Margin="2,0">
-                    <controls:InfoNumericUpDown Tag="G" x:Name="ChannelG" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoNumericUpDown>
-                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="G" HorizontalAlignment="Center"></TextBlock>
+                    <controls:InfoNumericUpDown Tag="G" x:Name="ChannelG" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" />
+                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="G" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Margin="2,0">
-                    <controls:InfoNumericUpDown Tag="B" x:Name="ChannelB" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoNumericUpDown>
-                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="B" HorizontalAlignment="Center"></TextBlock>
+                    <controls:InfoNumericUpDown Tag="B" x:Name="ChannelB" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" />
+                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="B" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Margin="2,0">
-                    <controls:InfoNumericUpDown Value="{Binding Value,ElementName=SliderOpacity,Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" ></controls:InfoNumericUpDown>
-                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"></TextBlock>
+                    <controls:InfoNumericUpDown Value="{Binding Value,ElementName=SliderOpacity,Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" />
+                    <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"/>
                 </StackPanel>
             </UniformGrid>
             <Button Click="ButtonSwitch_OnClick" Padding="6" FontSize="8" BorderThickness="0" Foreground="#323534" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="2" Grid.Row="1">
                 <Button.Content>
-                    <Path Fill="#323534" Style="{StaticResource UpDownPathStyle}"></Path>
+                    <Path Fill="#323534" Style="{StaticResource UpDownPathStyle}"/>
                 </Button.Content>
             </Button>
         </Grid>
         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderBrush}">
-            <WrapPanel Name="PanelColor" Margin="12,12,0,12" HorizontalAlignment="Center"></WrapPanel>
+            <WrapPanel Name="PanelColor" Margin="12,12,0,12" HorizontalAlignment="Center"/>
         </Border>
         <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderBrush}">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                <Button Click="ButtonCancel_OnClick" Content="{x:Static langs:Lang.Cancel}" Width="80" Margin="0,0,16,0"></Button>
-                <Button Click="ButtonSure_OnClick" Content="{x:Static langs:Lang.Confirm}" Width="80" Style="{StaticResource ButtonPrimary}"></Button>
+                <Button Click="ButtonCancel_OnClick" Content="{x:Static langs:Lang.Cancel}" Width="80" Margin="0,0,16,0"/>
+                <Button Click="ButtonSure_OnClick" Content="{x:Static langs:Lang.Confirm}" Width="80" Style="{StaticResource ButtonPrimary}"/>
             </StackPanel>
         </Border>
     </Grid>

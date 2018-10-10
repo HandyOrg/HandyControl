@@ -32,12 +32,12 @@
                                             <ColumnDefinition/>
                                             <ColumnDefinition Width="{TemplateBinding MinHeight}"/>
                                         </Grid.ColumnDefinitions>
-                                        <ContentPresenter ContentSource="Header"></ContentPresenter>
-                                        <ToggleButton Foreground="{TemplateBinding Foreground}" Grid.Column="1" Padding="0" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" controls:IconSwitchElement.Geometry="{StaticResource DownGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" Style="{StaticResource ToggleButtonIconTransparent}"></ToggleButton>
+                                        <ContentPresenter ContentSource="Header"/>
+                                        <ToggleButton Foreground="{TemplateBinding Foreground}" Grid.Column="1" Padding="0" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" controls:IconSwitchElement.Geometry="{StaticResource DownGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" Style="{StaticResource ToggleButtonIconTransparent}"/>
                                     </Grid>
                                 </ToggleButton.Content>
                             </ToggleButton>
-                            <ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Row="1" Grid.Column="0"></ContentPresenter>
+                            <ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Row="1" Grid.Column="0"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>

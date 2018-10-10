@@ -44,21 +44,21 @@
         </Border>
         <Border UseLayoutRounding="True" Name="BorderBottom" Opacity="0" CornerRadius="4,4,0,0" Grid.Row="1" HorizontalAlignment="Center" Background="#44000000">
             <StackPanel Margin="30,10" VerticalAlignment="Center" Orientation="Horizontal">
-                <Button Click="ButtonSave_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource SaveGeometry}" Padding="3"></Button>
-                <Button Click="ButtonWindowsOpen_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource WindowsGeometry}" Padding="3"></Button>
+                <Button Click="ButtonSave_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource SaveGeometry}" Padding="3"/>
+                <Button Click="ButtonWindowsOpen_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource WindowsGeometry}" Padding="3"/>
 
-                <Border Margin="10,2" Style="{StaticResource BorderHorizontallySplitter}"></Border>
+                <Border Margin="10,2" Style="{StaticResource BorderHorizontallySplitter}"/>
 
-                <Button Click="ButtonReduce_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource ReduceGeometry}" Padding="3"></Button>
-                <TextBlock Margin="6,0" Text="{Binding ScaleStr,ElementName=UserControlMain}" Style="{StaticResource TextBlockSubTitle}" Foreground="{DynamicResource TextIconBrush}"></TextBlock>
-                <Button Click="ButtonEnlarge_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource EnlargeGeometry}" Padding="3"></Button>
+                <Button Click="ButtonReduce_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource ReduceGeometry}" Padding="3"/>
+                <TextBlock Margin="6,0" Text="{Binding ScaleStr,ElementName=UserControlMain}" Style="{StaticResource TextBlockSubTitle}" Foreground="{DynamicResource TextIconBrush}"/>
+                <Button Click="ButtonEnlarge_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource EnlargeGeometry}" Padding="3"/>
                 <Button Background="Transparent" Click="ButtonActual_OnClick" Margin="6,0" Style="{StaticResource ButtonCustom}" Foreground="White">
                     <Border BorderThickness="1" BorderBrush="White" Padding="2">
-                        <TextBlock Text="1:1"></TextBlock>
+                        <TextBlock Text="1:1"/>
                     </Border>
                 </Button>
-                <Border Margin="10,2" Style="{StaticResource BorderHorizontallySplitter}"></Border>
-                <Button Click="ButtonRotateLeft_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RotateLeftGeometry}" Padding="3"></Button>
+                <Border Margin="10,2" Style="{StaticResource BorderHorizontallySplitter}"/>
+                <Button Click="ButtonRotateLeft_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RotateLeftGeometry}" Padding="3"/>
                 <Button Click="ButtonRotateRight_OnClick" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RotateLeftGeometry}" Padding="3" RenderTransformOrigin="0.5,0.5">
                     <Button.RenderTransform>
                         <TransformGroup>
@@ -66,16 +66,16 @@
                         </TransformGroup>
                     </Button.RenderTransform>
                 </Button>
-                <ToggleButton Foreground="{StaticResource TextIconBrush}" IsChecked="{Binding IsFullScreen,ElementName=UserControlMain}" Click="ButtonScreenChange_OnClick" Margin="6,0" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource FullScreenGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource FullScreenReturnGeometry}" Padding="3"></ToggleButton>
+                <ToggleButton Foreground="{StaticResource TextIconBrush}" IsChecked="{Binding IsFullScreen,ElementName=UserControlMain}" Click="ButtonScreenChange_OnClick" Margin="6,0" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource FullScreenGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource FullScreenReturnGeometry}" Padding="3"/>
 
             </StackPanel>
         </Border>
         <Grid Name="GridTop" Opacity="0" Background="#44000000" MouseLeftButtonDown="CanvasBack_OnMouseLeftButtonDown" VerticalAlignment="Top" Grid.Row="0">
             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-                <TextBlock Text="{Binding ImgPath,ElementName=UserControlMain}" Foreground="White" Margin="10,0,0,0"></TextBlock>
-                <TextBlock Text="{Binding ImgSize,ElementName=UserControlMain,Converter={StaticResource Long2FileSizeConverter}}" Foreground="White" Margin="30,0,0,0"></TextBlock>
+                <TextBlock Text="{Binding ImgPath,ElementName=UserControlMain}" Foreground="White" Margin="10,0,0,0"/>
+                <TextBlock Text="{Binding ImgSize,ElementName=UserControlMain,Converter={StaticResource Long2FileSizeConverter}}" Foreground="White" Margin="30,0,0,0"/>
             </StackPanel>
-            <Button WindowChrome.IsHitTestVisibleInChrome="True" Click="ButtonClose_OnClick" Background="Red" Grid.Row="0" Padding="14" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIcon}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40"></Button>
+            <Button WindowChrome.IsHitTestVisibleInChrome="True" Click="ButtonClose_OnClick" Background="Red" Grid.Row="0" Padding="14" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIcon}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40"/>
         </Grid>
     </Grid>
 </controls:WindowBorderless>

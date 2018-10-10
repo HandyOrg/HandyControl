@@ -71,7 +71,7 @@
                                                     <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle"/>
                                                 </controls:ScrollViewer>
                                             </Border>
-                                            <Border Height="1" Background="White" VerticalAlignment="Top" BorderThickness="1,0" BorderBrush="{DynamicResource BorderBrush}" HorizontalAlignment="Left" Width="{Binding ActualWidth,ElementName=templateRoot}"></Border>
+                                            <Border Height="1" Background="White" VerticalAlignment="Top" BorderThickness="1,0" BorderBrush="{DynamicResource BorderBrush}" HorizontalAlignment="Left" Width="{Binding ActualWidth,ElementName=templateRoot}"/>
                                         </Grid>
                                     </Popup>
                                 </Grid>

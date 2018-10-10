@@ -18,22 +18,22 @@
         <!--向左切换-->
         <Button Name="LeftButton" Click="ButtonPrev_OnClick" Margin="5,0" VerticalAlignment="Center" Background="{x:Null}" Style="{StaticResource ButtonCustom}">
             <Border CornerRadius="2" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Width="30" Height="30" Background="White">
-                <Path Margin="10" Fill="{StaticResource PrimaryTextBrush}" Style="{StaticResource LeftPathStyle}"></Path>
+                <Path Margin="10" Fill="{StaticResource PrimaryTextBrush}" Style="{StaticResource LeftPathStyle}"/>
             </Border>
         </Button>
         <StackPanel HorizontalAlignment="Center" Grid.Column="1" RadioButton.Checked="ToggleButton_OnChecked" Orientation="Horizontal">
-            <RadioButton Name="FirstButton" Tag="1" IsChecked="True" Style="{StaticResource PaginationButtonStyle}"></RadioButton>
-            <TextBlock Name="LeftTextBlock" Margin="10,0" FontSize="16" Text="..." Foreground="{DynamicResource PrimaryTextBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
+            <RadioButton Name="FirstButton" Tag="1" IsChecked="True" Style="{StaticResource PaginationButtonStyle}"/>
+            <TextBlock Name="LeftTextBlock" Margin="10,0" FontSize="16" Text="..." Foreground="{DynamicResource PrimaryTextBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-            <StackPanel Name="MainPanel" Orientation="Horizontal"></StackPanel>
+            <StackPanel Name="MainPanel" Orientation="Horizontal"/>
 
-            <TextBlock Name="RightTextBlock" Margin="10,0" FontSize="16" Text="..." Foreground="{DynamicResource PrimaryTextBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"></TextBlock>
-            <RadioButton Name="LastButton" Tag="10" Style="{StaticResource PaginationButtonStyle}"></RadioButton>
+            <TextBlock Name="RightTextBlock" Margin="10,0" FontSize="16" Text="..." Foreground="{DynamicResource PrimaryTextBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <RadioButton Name="LastButton" Tag="10" Style="{StaticResource PaginationButtonStyle}"/>
         </StackPanel>
         <!--向右切换-->
         <Button Grid.Column="2" Name="RightButton" Click="ButtonNext_OnClick" Margin="5,0" VerticalAlignment="Center" Background="{x:Null}" Style="{StaticResource ButtonCustom}">
             <Border BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" CornerRadius="2" Width="30" Height="30" Background="White">
-                <Path Margin="10" Fill="{StaticResource PrimaryTextBrush}" Style="{StaticResource RightPathStyle}" RenderTransformOrigin="0.5,0.5"></Path>
+                <Path Margin="10" Fill="{StaticResource PrimaryTextBrush}" Style="{StaticResource RightPathStyle}" RenderTransformOrigin="0.5,0.5"/>
             </Border>
         </Button>
     </Grid>
