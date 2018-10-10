@@ -44,10 +44,10 @@
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
                                 <StackPanel WindowChrome.IsHitTestVisibleInChrome="True" UseLayoutRounding="True" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
-                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MinimizeWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonMin" Height="28" Style="{StaticResource ButtonIcon}" Width="44" controls:IconElement.Geometry="{StaticResource WindowMinGeometry}" Padding="17,0"></Button>
-                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MaximizeWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonMax" Height="28" Style="{StaticResource ButtonIcon}" Width="44" controls:IconElement.Geometry="{StaticResource WindowMaxGeometry}" Padding="17,0"></Button>
-                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.RestoreWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonRestore" Height="28" Style="{StaticResource ButtonIcon}" Width="44" controls:IconElement.Geometry="{StaticResource WindowRestoreGeometry}" Padding="17,0"></Button>
-                                    <Button Foreground="{TemplateBinding CloseButtonForeground}" Command="SystemCommands.CloseWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonClose" Height="28" Style="{StaticResource ButtonIcon}" Width="44" controls:IconElement.Geometry="{StaticResource CloseGeometry}" Padding="9"></Button>
+                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MinimizeWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonMin" Height="28" Style="{StaticResource ButtonIcon}" Width="44" controls:IconElement.Geometry="{StaticResource WindowMinGeometry}" Padding="17,0"/>
+                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MaximizeWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonMax" Height="28" Style="{StaticResource ButtonIcon}" Width="44" controls:IconElement.Geometry="{StaticResource WindowMaxGeometry}" Padding="17,0"/>
+                                    <Button Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.RestoreWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonRestore" Height="28" Style="{StaticResource ButtonIcon}" Width="44" controls:IconElement.Geometry="{StaticResource WindowRestoreGeometry}" Padding="17,0"/>
+                                    <Button Foreground="{TemplateBinding CloseButtonForeground}" Command="SystemCommands.CloseWindowCommand" IsTabStop="False" WindowChrome.IsHitTestVisibleInChrome="True" Name="ButtonClose" Height="28" Style="{StaticResource ButtonIcon}" Width="44" controls:IconElement.Geometry="{StaticResource CloseGeometry}" Padding="9"/>
                                 </StackPanel>
                                 <Grid Grid.Column="0">
                                     <Grid.ColumnDefinitions>
@@ -55,12 +55,12 @@
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <ContentPresenter Content="{TemplateBinding Icon}" VerticalAlignment="Center"></ContentPresenter>
-                                    <TextBlock Name="Title" Grid.Column="1" Text="{TemplateBinding Title}" Padding="10,0,0,0" VerticalAlignment="Center"></TextBlock>
+                                    <ContentPresenter Content="{TemplateBinding Icon}" VerticalAlignment="Center"/>
+                                    <TextBlock Name="Title" Grid.Column="1" Text="{TemplateBinding Title}" Padding="10,0,0,0" VerticalAlignment="Center"/>
                                     <ContentPresenter Grid.Column="2" x:Name="ContentPresenterMain" Content="{TemplateBinding NoUserContent}"/>
                                 </Grid>
                             </Grid>
-                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}"></ContentPresenter>
+                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}"/>
                             <ResizeGrip x:Name="ResizeGrip" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" IsTabStop="False" Visibility="Collapsed" WindowChrome.ResizeGripDirection="BottomRight" />
                         </Grid>
                     </Border>

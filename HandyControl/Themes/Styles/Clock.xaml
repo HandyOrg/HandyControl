@@ -40,10 +40,10 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="true">
                             <Trigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"></BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <BeginStoryboard Storyboard="{StaticResource Storyboard2}"></BeginStoryboard>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
                             </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -76,7 +76,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <Border Background="{DynamicResource PrimaryBrush}" Name="PART_BorderTitle">
-                                <TextBlock x:Name="PART_TimeStr" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="White"></TextBlock>
+                                <TextBlock x:Name="PART_TimeStr" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="White"/>
                             </Border>
                             <Border Grid.Row="1" Background="White">
                                 <Grid>
@@ -89,10 +89,10 @@
                                         <Border Background="{DynamicResource DarkDefaultBrush}" Width="178" Height="178" CornerRadius="89"/>
                                         <controls:CirclePanel Diameter="130" x:Name="PART_PanelNum" KeepVertical="True" Margin="24,24,0,0" OffsetAngle="-60"/>
                                         <Border Focusable="False" Name="PART_BorderClock"  Background="{DynamicResource PrimaryBrush}" RenderTransformOrigin="0.5,1" Height="63" Width="2" Canvas.Left="88" Canvas.Top="26"/>
-                                        <Ellipse Fill="White" Width="8" Height="8" StrokeThickness="2" Stroke="{DynamicResource PrimaryBrush}" Canvas.Top="85" Canvas.Left="85"></Ellipse>
+                                        <Ellipse Fill="White" Width="8" Height="8" StrokeThickness="2" Stroke="{DynamicResource PrimaryBrush}" Canvas.Top="85" Canvas.Left="85"/>
                                     </Canvas>
-                                    <controls:ClockRadioButton Background="{DynamicResource PrimaryBrush}" Grid.Column="0" x:Name="PART_ButtonAm" IsChecked="True" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,16" Content="{x:Static langs:Lang.Am}" Style="{StaticResource ClockRadioButtonStyle}"></controls:ClockRadioButton>
-                                    <controls:ClockRadioButton Background="{DynamicResource PrimaryBrush}" Grid.Column="2" x:Name="PART_ButtonPm" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,16,16" Content="{x:Static langs:Lang.Pm}" Style="{DynamicResource ClockRadioButtonStyle}"></controls:ClockRadioButton>
+                                    <controls:ClockRadioButton Background="{DynamicResource PrimaryBrush}" Grid.Column="0" x:Name="PART_ButtonAm" IsChecked="True" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,16" Content="{x:Static langs:Lang.Am}" Style="{StaticResource ClockRadioButtonStyle}"/>
+                                    <controls:ClockRadioButton Background="{DynamicResource PrimaryBrush}" Grid.Column="2" x:Name="PART_ButtonPm" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,16,16" Content="{x:Static langs:Lang.Pm}" Style="{DynamicResource ClockRadioButtonStyle}"/>
                                     <Button Grid.Column="1" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm"  Content="{x:Static langs:Lang.Confirm}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" Margin="0,0,0,19" Height="24" Width="60" VerticalAlignment="Bottom" Background="Transparent" Style="{StaticResource ButtonCustom}"/>
                                 </Grid>
                             </Border>

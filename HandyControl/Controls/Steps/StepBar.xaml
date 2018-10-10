@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d">
     <Grid>
-        <ProgressBar HorizontalAlignment="Center" Name="ProgressBarBack" VerticalAlignment="Top" Margin="0,10,0,0" Style="{StaticResource ProgressBarFlat}" Background="{DynamicResource ThirdlyTextBrush}"></ProgressBar>
-        <UniformGrid Name="UniformGridMain" Rows="1"></UniformGrid>
+        <ProgressBar HorizontalAlignment="Center" Name="ProgressBarBack" VerticalAlignment="Top" Margin="0,10,0,0" Style="{StaticResource ProgressBarFlat}" Background="{DynamicResource ThirdlyTextBrush}"/>
+        <UniformGrid Name="UniformGridMain" Rows="1"/>
     </Grid>
 </UserControl>

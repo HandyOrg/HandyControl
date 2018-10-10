@@ -16,15 +16,15 @@
     </Button>
     <Menu Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent">
         <MenuItem Foreground="White" Header="File">
-            <MenuItem Header="New repository" InputGestureText="Ctrl+N"></MenuItem>
-            <Separator></Separator>
-            <MenuItem Header="Add local repository"></MenuItem>
-            <MenuItem Header="Clone repository"></MenuItem>
+            <MenuItem Header="New repository" InputGestureText="Ctrl+N"/>
+            <Separator/>
+            <MenuItem Header="Add local repository"/>
+            <MenuItem Header="Clone repository"/>
         </MenuItem>
-        <MenuItem Foreground="White" Header="Edit"></MenuItem>
-        <MenuItem Foreground="White" Header="View"></MenuItem>
-        <MenuItem Foreground="White" Header="Repository"></MenuItem>
-        <MenuItem Foreground="White" Header="Branch"></MenuItem>
-        <MenuItem Foreground="White" Header="Help"></MenuItem>
+        <MenuItem Foreground="White" Header="Edit"/>
+        <MenuItem Foreground="White" Header="View"/>
+        <MenuItem Foreground="White" Header="Repository"/>
+        <MenuItem Foreground="White" Header="Branch"/>
+        <MenuItem Foreground="White" Header="Help"/>
     </Menu>
 </StackPanel>

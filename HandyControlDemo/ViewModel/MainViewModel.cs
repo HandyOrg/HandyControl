@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -57,9 +56,9 @@ namespace HandyControlDemo.ViewModel
         /// <summary>
         ///     切换例子命令
         /// </summary>
-        public RelayCommand<RoutedPropertyChangedEventArgs<object>> SwitchDemoCmd =>
-            new Lazy<RelayCommand<RoutedPropertyChangedEventArgs<object>>>(() =>
-                new RelayCommand<RoutedPropertyChangedEventArgs<object>>(SwitchDemo)).Value;
+        public RelayCommand<SelectionChangedEventArgs> SwitchDemoCmd =>
+            new Lazy<RelayCommand<SelectionChangedEventArgs>>(() =>
+                new RelayCommand<SelectionChangedEventArgs>(SwitchDemo)).Value;
 
         #endregion
 
@@ -68,13 +67,14 @@ namespace HandyControlDemo.ViewModel
         /// <summary>
         ///     切换例子
         /// </summary>
-        private void SwitchDemo(RoutedPropertyChangedEventArgs<object> e)
+        private void SwitchDemo(SelectionChangedEventArgs e)
         {
-            if (e.NewValue is TreeViewItem item)
+            if (e.AddedItems.Count == 0) return;
+            if (e.AddedItems[0] is ListBoxItem item)
             {
                 if (item.Tag is string tag)
                 {
-                    ContentTitle = item.Header;
+                    ContentTitle = item.Content;
                     Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{tag}"), MessageToken.LoadShowContent);
                 }
                 else

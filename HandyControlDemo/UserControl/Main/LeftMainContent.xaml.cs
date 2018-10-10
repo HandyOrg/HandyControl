@@ -1,4 +1,6 @@
-﻿// ReSharper disable once CheckNamespace
+﻿using System.Windows.Controls;
+
+// ReSharper disable once CheckNamespace
 namespace HandyControlDemo.UserControl
 {
     /// <summary>
@@ -9,6 +11,20 @@ namespace HandyControlDemo.UserControl
         public LeftMainContent()
         {
             InitializeComponent();
+        }
+
+        private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (e.AddedItems.Count == 0) return;
+            if (e.AddedItems[0] is TabItem tabItem && tabItem.Content is ListBox listBox)
+            {
+                if (listBox.SelectedItem != null)
+                {
+                    var item = listBox.SelectedItem;
+                    listBox.SelectedIndex = -1;
+                    listBox.SelectedItem = item;
+                }
+            }
         }
     }
 }

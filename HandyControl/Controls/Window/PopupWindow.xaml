@@ -16,7 +16,7 @@
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
             <BeginStoryboard>
                 <Storyboard>
-                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:.2"></DoubleAnimation>
+                    <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0" To="1" Duration="0:0:.2"/>
                 </Storyboard>
             </BeginStoryboard>
         </EventTrigger>
@@ -46,12 +46,12 @@
                 <StackPanel Name="MyStackPanel" Margin="0,0,0,32" Orientation="Horizontal" Background="White" HorizontalAlignment="Center">
                     <Button Name="ButtonCancle" Visibility="{Binding ShowCancel,ElementName=MyWindow,Converter={StaticResource Boolean2VisibilityConverter}}" Click="ButtonCancle_OnClick" Margin="0,0,16,0" Background="Transparent" Style="{StaticResource ButtonCustom}">
                         <Border BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}" MinWidth="80" Height="30" CornerRadius="4" Background="White">
-                            <TextBlock FontSize="16" Text="{x:Static langs:Lang.Cancel}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock FontSize="16" Text="{x:Static langs:Lang.Cancel}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </Button>
                     <Button IsDefault="True" Click="ButtonOk_OnClick" Background="Transparent" Style="{DynamicResource ButtonCustom}">
                         <Border MinWidth="80" Height="30" CornerRadius="4" Background="{DynamicResource PrimaryBrush}">
-                            <TextBlock FontSize="16" Text="{x:Static langs:Lang.Confirm}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"></TextBlock>
+                            <TextBlock FontSize="16" Text="{x:Static langs:Lang.Confirm}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
                     </Button>
                 </StackPanel>

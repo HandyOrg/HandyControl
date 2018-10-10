@@ -6,35 +6,10 @@
 
 ## Latest examples
 
-### 1、TextBlock
-
-![TextBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBlock.jpg)
-
-### 2、TextBox
-
-![TextBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBox.jpg)
-
-### 3、ComboBox
-
-![ComboBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ComboBox.jpg)
-
-### 4、PasswordBox
-
-![PasswordBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PasswordBox.jpg)
-
-### 5、DataPicker
-
-![DataPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataPicker.jpg)
-
-### 6、TimePicker
-
-![TimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimePicker.jpg)
-
-### 7、CirclePanel
-
-![CirclePanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CirclePanel.jpg)
+No latest examples
 
 ## History publication
+
 ### 1、ColorPicker
 
 ![ColorPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ColorPicker.gif)
@@ -97,6 +72,34 @@
 
 ![Clock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Clock.jpg)
 
+### 16、TextBlock
+
+![TextBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBlock.jpg)
+
+### 17、TextBox
+
+![TextBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBox.jpg)
+
+### 18、ComboBox
+
+![ComboBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ComboBox.jpg)
+
+### 19、PasswordBox
+
+![PasswordBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PasswordBox.jpg)
+
+### 20、DataPicker
+
+![DataPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataPicker.jpg)
+
+### 21、TimePicker
+
+![TimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimePicker.jpg)
+
+### 22、CirclePanel
+
+![CirclePanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CirclePanel.jpg)
+
 # Usage
 
 Step 1：Add a reference to HandyControl or search for HandyControl on the nuget;  
@@ -128,6 +131,5 @@ Step 3：enjoy coding
 ```
 
 # v1.4.0 Plan
-
-- add TabControl Style
+- Partial control refactoring
 - add Dark Theme

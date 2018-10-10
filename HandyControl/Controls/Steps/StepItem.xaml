@@ -9,9 +9,9 @@
              Margin="10,0">
     <StackPanel>
         <Border Background="White" HorizontalAlignment="Center" CornerRadius="12" BorderThickness="2" BorderBrush="{Binding Foreground,ElementName=UserControlMain}" Height="24" MinWidth="24">
-            <TextBlock Foreground="{Binding Foreground,ElementName=UserControlMain}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Index,ElementName=UserControlMain}"></TextBlock>
+            <TextBlock Foreground="{Binding Foreground,ElementName=UserControlMain}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Index,ElementName=UserControlMain}"/>
         </Border>
-        <TextBlock Margin="0,10,0,0" Foreground="{Binding Foreground,ElementName=UserControlMain}" Style="{StaticResource TextBlockSubTitleBold}" Text="{Binding IndexStr,ElementName=UserControlMain}"></TextBlock>
-        <TextBlock Foreground="{Binding Foreground,ElementName=UserControlMain}" Margin="0,4,0,0" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Title,ElementName=UserControlMain}"></TextBlock>
+        <TextBlock Margin="0,10,0,0" Foreground="{Binding Foreground,ElementName=UserControlMain}" Style="{StaticResource TextBlockSubTitleBold}" Text="{Binding IndexStr,ElementName=UserControlMain}"/>
+        <TextBlock Foreground="{Binding Foreground,ElementName=UserControlMain}" Margin="0,4,0,0" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Title,ElementName=UserControlMain}"/>
     </StackPanel>
 </UserControl>

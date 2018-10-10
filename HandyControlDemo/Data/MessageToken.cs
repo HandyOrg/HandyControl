@@ -50,6 +50,8 @@
 
         public static readonly string PasswordBoxDemoCtl = nameof(PasswordBoxDemoCtl);
 
+        public static readonly string NaiveTabControlDemoCtl = nameof(NaiveTabControlDemoCtl);
+
     	public static readonly string LoadShowContent = nameof(LoadShowContent);
 	}
 }

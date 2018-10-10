@@ -40,21 +40,21 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <Border Grid.ColumnSpan="3" Grid.RowSpan="2" Effect="{StaticResource EffectShadow2}" Background="#E5DEDEDE" CornerRadius="8" Width="320"></Border>
-        <Path Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="0,15,0,0" Width="30" Height="30" Data="{Binding Icon,ElementName=UserControlThis}" Stretch="Uniform" Fill="{Binding IconBrush,ElementName=UserControlThis}"></Path>
+        <Border Grid.ColumnSpan="3" Grid.RowSpan="2" Effect="{StaticResource EffectShadow2}" Background="#E5DEDEDE" CornerRadius="8" Width="320"/>
+        <Path Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="0,15,0,0" Width="30" Height="30" Data="{Binding Icon,ElementName=UserControlThis}" Stretch="Uniform" Fill="{Binding IconBrush,ElementName=UserControlThis}"/>
         <StackPanel Grid.Row="0" Grid.Column="1" Margin="0,12,10,10">
-            <TextBlock Text="{Binding Message,ElementName=UserControlThis}" Style="{StaticResource TextBlockDefault}" HorizontalAlignment="Left" TextWrapping="Wrap"></TextBlock>
-            <TextBlock Text="{Binding Time,ElementName=UserControlThis,StringFormat=yyyy/MM/dd HH:mm:ss}" Style="{StaticResource TextBlockDefault}" Foreground="{StaticResource SecondaryTextBrush}" HorizontalAlignment="Left" Margin="0,4,0,0"></TextBlock>
+            <TextBlock Text="{Binding Message,ElementName=UserControlThis}" Style="{StaticResource TextBlockDefault}" HorizontalAlignment="Left" TextWrapping="Wrap"/>
+            <TextBlock Text="{Binding Time,ElementName=UserControlThis,StringFormat=yyyy/MM/dd HH:mm:ss}" Style="{StaticResource TextBlockDefault}" Foreground="{StaticResource SecondaryTextBrush}" HorizontalAlignment="Left" Margin="0,4,0,0"/>
         </StackPanel>
         <Button Grid.Row="0" Visibility="Collapsed" Margin="11,0" Name="ButtonClose" Click="ButtonClose_OnClick" Grid.Column="2" Background="Transparent" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="18" Height="18">
-            <Path Data="{StaticResource ErrorGeometry}" Stretch="Uniform" Fill="{StaticResource SecondaryTextBrush}"></Path>
+            <Path Data="{StaticResource ErrorGeometry}" Stretch="Uniform" Fill="{StaticResource SecondaryTextBrush}"/>
         </Button>
         <StackPanel Name="PanelMore" IsEnabled="False" Visibility="Collapsed" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" Height="28" Grid.Column="0">
             <Button Click="ButtonCancel_OnClick" Style="{StaticResource ButtonCustom}" Width="160">
-                <TextBlock Text="{x:Static langs:Lang.Cancel}" HorizontalAlignment="Center" Foreground="{StaticResource DangerBrush}"></TextBlock>
+                <TextBlock Text="{x:Static langs:Lang.Cancel}" HorizontalAlignment="Center" Foreground="{StaticResource DangerBrush}"/>
             </Button>
             <Button Click="ButtonOk_OnClick" Style="{StaticResource ButtonCustom}" Width="160">
-                <TextBlock Text="{x:Static langs:Lang.Confirm}" HorizontalAlignment="Center" Foreground="{StaticResource PrimaryBrush}"></TextBlock>
+                <TextBlock Text="{x:Static langs:Lang.Confirm}" HorizontalAlignment="Center" Foreground="{StaticResource PrimaryBrush}"/>
             </Button>
         </StackPanel>
     </Grid>

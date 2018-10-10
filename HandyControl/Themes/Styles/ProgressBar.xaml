@@ -46,7 +46,7 @@
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32"></RectangleGeometry>
+                                <RectangleGeometry Rect="0,0,20,32"/>
                             </GeometryDrawing.Geometry>
                         </GeometryDrawing>
                     </DrawingBrush.Drawing>
@@ -67,13 +67,13 @@
                     <Grid x:Name="TemplateRoot" SnapsToDevicePixels="true">
                         <Border CornerRadius="4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                             <Border.Effect>
-                                <BlurEffect Radius="2"></BlurEffect>
+                                <BlurEffect Radius="2"/>
                             </Border.Effect>
                         </Border>
                         <Rectangle x:Name="PART_Track" Margin="1"/>
                         <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" Margin="1">
                             <Grid x:Name="Foreground">
-                                <Border x:Name="Indicator" CornerRadius="4" Background="{TemplateBinding Foreground}"></Border>
+                                <Border x:Name="Indicator" CornerRadius="4" Background="{TemplateBinding Foreground}"/>
                             </Grid>
                         </Decorator>
                     </Grid>
@@ -108,7 +108,7 @@
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32"></RectangleGeometry>
+                                <RectangleGeometry Rect="0,0,20,32"/>
                             </GeometryDrawing.Geometry>
                         </GeometryDrawing>
                     </DrawingBrush.Drawing>
@@ -138,7 +138,7 @@
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32"></RectangleGeometry>
+                                <RectangleGeometry Rect="0,0,20,32"/>
                             </GeometryDrawing.Geometry>
                         </GeometryDrawing>
                     </DrawingBrush.Drawing>
@@ -168,7 +168,7 @@
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32"></RectangleGeometry>
+                                <RectangleGeometry Rect="0,0,20,32"/>
                             </GeometryDrawing.Geometry>
                         </GeometryDrawing>
                     </DrawingBrush.Drawing>
@@ -198,7 +198,7 @@
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
-                                <RectangleGeometry Rect="0,0,20,32"></RectangleGeometry>
+                                <RectangleGeometry Rect="0,0,20,32"/>
                             </GeometryDrawing.Geometry>
                         </GeometryDrawing>
                     </DrawingBrush.Drawing>

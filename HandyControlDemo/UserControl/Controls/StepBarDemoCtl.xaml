@@ -15,8 +15,8 @@
                 <controls:StepItem Title="{x:Static langs:Lang.Complete}"/>
             </controls:StepBar>
             <StackPanel Orientation="Horizontal" Margin="0,32,0,0" HorizontalAlignment="Center">
-                <Button Command="interactivity:ControlCommands.Prev" CommandTarget="{Binding ElementName=StepBarMain}" Width="180" Content="{x:Static langs:Lang.Prev}" Style="{StaticResource ButtonPrimary}"></Button>
-                <Button Command="interactivity:ControlCommands.Next" CommandTarget="{Binding ElementName=StepBarMain}" Width="180" Margin="16,0,0,0" Content="{x:Static langs:Lang.Next}" Style="{StaticResource ButtonPrimary}"></Button>
+                <Button Command="interactivity:ControlCommands.Prev" CommandTarget="{Binding ElementName=StepBarMain}" Width="180" Content="{x:Static langs:Lang.Prev}" Style="{StaticResource ButtonPrimary}"/>
+                <Button Command="interactivity:ControlCommands.Next" CommandTarget="{Binding ElementName=StepBarMain}" Width="180" Margin="16,0,0,0" Content="{x:Static langs:Lang.Next}" Style="{StaticResource ButtonPrimary}"/>
             </StackPanel>
         </StackPanel>
     </controls:TransitioningContentControl>

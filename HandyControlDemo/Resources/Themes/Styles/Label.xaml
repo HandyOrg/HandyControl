@@ -9,7 +9,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Label}">
                     <Border CornerRadius="4" Background="{TemplateBinding Background}">
-                        <TextBlock Foreground="White" Margin="10,6" Text="{TemplateBinding Content}"></TextBlock>
+                        <TextBlock Foreground="White" Margin="10,6" Text="{TemplateBinding Content}"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
