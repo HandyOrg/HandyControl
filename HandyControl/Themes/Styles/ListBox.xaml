@@ -42,7 +42,7 @@
     </Style>
 
     <ItemsPanelTemplate x:Key="StackPanelItemsPanelTemplate">
-        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal"/>
+        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal" HorizontalAlignment="Left"/>
     </ItemsPanelTemplate>
 
     <Style x:Key="StackPanelListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="{x:Type ListBox}">

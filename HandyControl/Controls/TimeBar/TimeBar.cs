@@ -1,41 +1,90 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
+using HandyControl.Interactivity;
+using HandyControl.Tools;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     /// <summary>
-    ///     TimeBar.xaml 的交互逻辑
+    ///     时间条
     /// </summary>
-    public partial class TimeBar
+    [TemplatePart(Name = ElementBorderTop, Type = typeof(Border))]
+    [TemplatePart(Name = ElementTextBlockMove, Type = typeof(TextBlock))]
+    [TemplatePart(Name = ElementTextBlockSelected, Type = typeof(TextBlock))]
+    [TemplatePart(Name = ElementCanvasSpe, Type = typeof(Canvas))]
+    public class TimeBar : Control
     {
+        #region Constants
+
+        private const string ElementBorderTop = "PART_BorderTop";
+
+        private const string ElementTextBlockMove = "PART_TextBlockMove";
+
+        private const string ElementTextBlockSelected = "PART_TextBlockSelected";
+
+        private const string ElementCanvasSpe = "PART_CanvasSpe";
+
+        #endregion Constants
+
+
+        #region Data
+
+        private Border _borderTop;
+
+        private TextBlock _textBlockMove;
+
+        private TextBlock _textBlockSelected;
+
+        private Canvas _canvasSpe;
+
+        #endregion Data
+
         /// <summary>
         ///     是否显示刻度字符串
         /// </summary>
         public static readonly DependencyProperty ShowSpeStrProperty = DependencyProperty.Register(
             "ShowSpeStr", typeof(bool), typeof(TimeBar), new PropertyMetadata(default(bool)));
 
+        public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
+            "TimeFormat", typeof(string), typeof(TimeBar), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
+
+        public string TimeFormat
+        {
+            get => (string) GetValue(TimeFormatProperty);
+            set => SetValue(TimeFormatProperty, value);
+        }
+
         /// <summary>
         ///     刻度字符串
         /// </summary>
-        private static readonly DependencyProperty SpeStrProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty SpeStrProperty = DependencyProperty.Register(
             "SpeStr", typeof(string), typeof(TimeBar), new PropertyMetadata(Properties.Langs.Lang.Interval1h));
 
         /// <summary>
         ///     选中时间
         /// </summary>
-        private static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
-            "SelectedTime", typeof(DateTime), typeof(TimeBar));
+        internal static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
+            "SelectedTime", typeof(DateTime), typeof(TimeBar), new PropertyMetadata(default(DateTime), OnSelectedTimeChanged));
+
+        private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is TimeBar timeBar && timeBar._textBlockSelected != null)
+            {
+                timeBar._textBlockSelected.Text = ((DateTime) e.NewValue).ToString(timeBar.TimeFormat);
+            }
+        }
 
         /// <summary>
         ///     时间改变事件
         /// </summary>
         public static readonly RoutedEvent TimeChangedEvent =
-            EventManager.RegisterRoutedEvent("ButtonCloseClick", RoutingStrategy.Bubble,
+            EventManager.RegisterRoutedEvent("TimeChanged", RoutingStrategy.Bubble,
                 typeof(EventHandler<FunctionEventArgs<DateTime>>), typeof(TimeBar));
 
         /// <summary>
@@ -104,11 +153,48 @@ namespace HandyControl.Controls
 
         public TimeBar()
         {
-            InitializeComponent();
-
             _starTime = DateTime.Now;
             SelectedTime = new DateTime(_starTime.Year, _starTime.Month, _starTime.Day, 0, 0, 0);
             _starTime = SelectedTime;
+
+            SizeChanged += TimeBar_OnSizeChanged;
+            MouseMove += TimeBar_OnMouseMove;
+        }
+
+        public override void OnApplyTemplate()
+        {
+            if (_borderTop != null)
+            {
+                _borderTop.MouseLeftButtonDown -= BorderTop_OnMouseLeftButtonDown;
+                _borderTop.PreviewMouseLeftButtonUp -= BorderTop_OnPreviewMouseLeftButtonUp;
+            }
+
+            base.OnApplyTemplate();
+
+            _borderTop = GetTemplateChild(ElementBorderTop) as Border;
+            _textBlockMove = GetTemplateChild(ElementTextBlockMove) as TextBlock;
+            _textBlockSelected = GetTemplateChild(ElementTextBlockSelected) as TextBlock;
+            _canvasSpe = GetTemplateChild(ElementCanvasSpe) as Canvas;
+
+            CheckNull();
+            _borderTop.MouseLeftButtonDown += BorderTop_OnMouseLeftButtonDown;
+            _borderTop.PreviewMouseLeftButtonUp += BorderTop_OnPreviewMouseLeftButtonUp;
+            var behavior = new MouseDragElementBehaviorEx
+            {
+                LockY = true,
+            };
+            behavior.DragBegun += DragElementBehavior_OnDragBegun;
+            behavior.Dragging += MouseDragElementBehavior_OnDragging;
+            behavior.DragFinished += MouseDragElementBehavior_OnDragFinished;
+            var collection = Interaction.GetBehaviors(_borderTop);
+            collection.Add(behavior);
+
+            _textBlockSelected.Text = SelectedTime.ToString(TimeFormat);
+        }
+
+        private void CheckNull()
+        {
+            if (_borderTop == null || _textBlockMove == null|| _textBlockSelected == null || _canvasSpe == null) throw new Exception();
         }
 
         /// <summary>
@@ -123,7 +209,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     刻度字符串
         /// </summary>
-        private string SpeStr
+        internal string SpeStr
         {
             get => (string)GetValue(SpeStrProperty);
             set => SetValue(SpeStrProperty, value);
@@ -132,7 +218,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     选中时间
         /// </summary>
-        private DateTime SelectedTime
+        internal DateTime SelectedTime
         {
             get => (DateTime)GetValue(SelectedTimeProperty);
             set => SetValue(SelectedTimeProperty, value);
@@ -286,7 +372,7 @@ namespace HandyControl.Controls
         private void MouseDragElementBehavior_OnDragging(object sender, MouseEventArgs e)
         {
             _isDragging = true;
-            _tempOffsetX = BorderTop.RenderTransform.Value.OffsetX;
+            _tempOffsetX = _borderTop.RenderTransform.Value.OffsetX;
 
             SelectedTime = _mouseDownTime -
                            TimeSpan.FromMilliseconds(_tempOffsetX / _itemWidth * _timeSpeList[_speIndex]);
@@ -297,8 +383,8 @@ namespace HandyControl.Controls
         private void MouseDragElementBehavior_OnDragFinished(object sender, MouseEventArgs e)
         {
             _tempOffsetX = 0;
-            _totalOffsetX = (_totalOffsetX + BorderTop.RenderTransform.Value.OffsetX) % ActualWidth;
-            BorderTop.RenderTransform = new TranslateTransform();
+            _totalOffsetX = (_totalOffsetX + _borderTop.RenderTransform.Value.OffsetX) % ActualWidth;
+            _borderTop.RenderTransform = new TranslateTransform();
             RaiseEvent(new FunctionEventArgs<DateTime>(TimeChangedEvent, this)
             {
                 Info = SelectedTime
@@ -306,15 +392,12 @@ namespace HandyControl.Controls
             _isDragging = false;
         }
 
-        private void DragElementBehavior_OnDragBegun(object sender, MouseEventArgs e)
-        {
-            _mouseDownTime = SelectedTime;
-        }
+        private void DragElementBehavior_OnDragBegun(object sender, MouseEventArgs e) => _mouseDownTime = SelectedTime;
 
         private void TimeBar_OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
             _speBlockList.Clear();
-            CanvasSpe.Children.Clear();
+            _canvasSpe.Children.Clear();
 
             _speCount = (int)(ActualWidth / 800 * 9) | 1;
 
@@ -335,7 +418,7 @@ namespace HandyControl.Controls
                     TimeFormat = "HH:mm"
                 };
                 _speBlockList.Add(block);
-                CanvasSpe.Children.Add(block);
+                _canvasSpe.Children.Add(block);
             }
             if (_speIndex == 6)
                 SetSpeTimeFormat("HH:mm:ss");
@@ -356,16 +439,13 @@ namespace HandyControl.Controls
             var p = Mouse.GetPosition(this);
             var mlliseconds = (p.X - ActualWidth / 2) / _itemWidth * _timeSpeList[_speIndex];
             if (double.IsInfinity(mlliseconds)) return;
-            TextBlockSelected.Text = mlliseconds < 0
-                ? (SelectedTime - TimeSpan.FromMilliseconds(-mlliseconds)).ToString("yyyy-MM-dd HH:mm:ss")
-                : (SelectedTime + TimeSpan.FromMilliseconds(mlliseconds)).ToString("yyyy-MM-dd HH:mm:ss");
-            TextBlockSelected.Margin = new Thickness(p.X - TextBlockSelected.ActualWidth / 2, 2, 0, 0);
+            _textBlockMove.Text = mlliseconds < 0
+                ? (SelectedTime - TimeSpan.FromMilliseconds(-mlliseconds)).ToString(TimeFormat)
+                : (SelectedTime + TimeSpan.FromMilliseconds(mlliseconds)).ToString(TimeFormat);
+            _textBlockMove.Margin = new Thickness(p.X - _textBlockMove.ActualWidth / 2, 2, 0, 0);
         }
 
-        private void BorderTop_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            _borderTopIsMouseLeftButtonDown = true;
-        }
+        private void BorderTop_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e) => _borderTopIsMouseLeftButtonDown = true;
 
         private void BorderTop_OnPreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

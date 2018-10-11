@@ -7,7 +7,7 @@
              FocusManager.FocusedElement="{Binding RelativeSource={x:Static RelativeSource.Self}, Mode=OneTime}"
              Background="White">
     <controls:TransitioningContentControl>
-        <StackPanel Margin="32" VerticalAlignment="Center" Width="600">
+        <StackPanel Margin="32" VerticalAlignment="Center" MaxWidth="800">
             <controls:StepBar x:Name="StepBarMain">
                 <controls:StepItem Title="{x:Static langs:Lang.Register}"/>
                 <controls:StepItem Title="{x:Static langs:Lang.BasicInfo}"/>

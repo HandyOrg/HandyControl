@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -11,17 +14,28 @@ using HandyControl.Tools;
 namespace HandyControl.Controls
 {
     /// <summary>
-    ///     Steps.xaml 的交互逻辑
+    ///     步骤条
     /// </summary>
     [ContentProperty("Items")]
-    public partial class StepBar
+    [TemplatePart(Name = ElementProgressBarBack, Type = typeof(ProgressBar))]
+    [TemplatePart(Name = ElementUniformGridMain, Type = typeof(Panel))]
+    public class StepBar : Control
     {
         private bool _isLoaded;
 
+        private ProgressBar _progressBarBack;
+
+        private Panel _panelMain;
+
+        #region Constants
+
+        private const string ElementProgressBarBack = "PART_ProgressBarBack";
+        private const string ElementUniformGridMain = "PART_UniformGridMain";
+
+        #endregion Constants
+
         public StepBar()
         {
-            InitializeComponent();
-
             Loaded += (s1, e1) =>
             {
                 if (_isLoaded) return;
@@ -34,6 +48,21 @@ namespace HandyControl.Controls
             };
         }
 
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            _progressBarBack = GetTemplateChild(ElementProgressBarBack) as ProgressBar;
+            _panelMain = GetTemplateChild(ElementUniformGridMain) as Panel;
+
+            CheckNull();
+        }
+
+        private void CheckNull()
+        {
+            if (_panelMain == null || _progressBarBack == null) throw new Exception();
+        }
+
         public int StepIndex { get; private set; }
 
         public List<StepItem> Items { get; set; } = new List<StepItem>();
@@ -41,14 +70,14 @@ namespace HandyControl.Controls
         private void UpdateItems(IReadOnlyCollection<StepItem> list)
         {
             if (list == null) return;
-            UniformGridMain.Children.Clear();
+            _panelMain.Children.Clear();
 
             var index = 1;
             foreach (var item in list)
             {
                 item.Index = index;
                 item.IndexStr = $"{Properties.Langs.Lang.Step}{index}";
-                UniformGridMain.Children.Add(item);
+                _panelMain.Children.Add(item);
                 index++;
             }
 
@@ -62,26 +91,26 @@ namespace HandyControl.Controls
         {
             base.OnRender(drawingContext);
 
-            var colCount = UniformGridMain.Children.Count;
+            var colCount = _panelMain.Children.Count;
             if (colCount <= 0) return;
-            ProgressBarBack.Width = (colCount - 1) * (ActualWidth / colCount);
-            ProgressBarBack.Value = 0;
-            ProgressBarBack.Maximum = colCount - 1;
+            _progressBarBack.Width = (colCount - 1) * (ActualWidth / colCount);
+            _progressBarBack.Value = 0;
+            _progressBarBack.Maximum = colCount - 1;
         }
 
         public void Next()
         {
             StepIndex++;
-            if (StepIndex >= UniformGridMain.Children.Count)
+            if (StepIndex >= _panelMain.Children.Count)
             {
-                StepIndex = UniformGridMain.Children.Count - 1;
+                StepIndex = _panelMain.Children.Count - 1;
                 return;
             }
-            if (UniformGridMain.Children[StepIndex - 1] is StepItem stepItemFinished)
+            if (_panelMain.Children[StepIndex - 1] is StepItem stepItemFinished)
                 stepItemFinished.Status = true;
-            if (UniformGridMain.Children[StepIndex] is StepItem stepItemSelected)
+            if (_panelMain.Children[StepIndex] is StepItem stepItemSelected)
                 stepItemSelected.Status = false;
-            ProgressBarBack.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(StepIndex));
+            _progressBarBack.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(StepIndex));
         }
 
         public void Prev()
@@ -92,11 +121,11 @@ namespace HandyControl.Controls
                 StepIndex = 0;
                 return;
             }
-            if (UniformGridMain.Children[StepIndex + 1] is StepItem stepItemFinished)
+            if (_panelMain.Children[StepIndex + 1] is StepItem stepItemFinished)
                 stepItemFinished.Status = null;
-            if (UniformGridMain.Children[StepIndex] is StepItem stepItemSelected)
+            if (_panelMain.Children[StepIndex] is StepItem stepItemSelected)
                 stepItemSelected.Status = false;
-            ProgressBarBack.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(StepIndex));
+            _progressBarBack.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(StepIndex));
         }
     }
 }

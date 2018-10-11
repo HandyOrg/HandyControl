@@ -183,4 +183,7 @@
   <data name="Pm" xml:space="preserve">
     <value>Pm</value>
   </data>
+  <data name="Tip" xml:space="preserve">
+    <value>Prompt</value>
+  </data>
 </root>

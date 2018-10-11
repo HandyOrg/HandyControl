@@ -25,6 +25,12 @@
         <ResourceDictionary Source="DatePicker.xaml"/>
         <ResourceDictionary Source="TimePicker.xaml"/>
         <ResourceDictionary Source="ContentControl.xaml"/>
+        <ResourceDictionary Source="Growl.xaml"/>
+        <ResourceDictionary Source="Steps.xaml"/>
+        <ResourceDictionary Source="Carousel.xaml"/>
+        <ResourceDictionary Source="TimeBar.xaml"/>
+        <ResourceDictionary Source="ColorPicker.xaml"/>
+        <ResourceDictionary Source="TransitioningContentControl.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

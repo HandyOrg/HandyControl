@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
@@ -12,10 +13,66 @@ using HandyControl.Tools.Extension;
 namespace HandyControl.Controls
 {
     /// <summary>
-    ///     Growl.xaml 的交互逻辑
+    ///     消息提醒
     /// </summary>
-    public partial class Growl
+    [TemplatePart(Name = ElementPanelMore, Type = typeof(Panel))]
+    [TemplatePart(Name = ElementGridMain, Type = typeof(Grid))]
+    [TemplatePart(Name = ElementButtonClose, Type = typeof(Button))]
+    public class Growl : Control
     {
+        #region Constants
+
+        private const string ElementPanelMore = "PART_PanelMore";
+        private const string ElementGridMain = "PART_GridMain";
+        private const string ElementButtonClose = "PART_ButtonClose";
+
+        #endregion Constants
+
+        #region Data
+
+        private Panel _panelMore;
+
+        private Grid _gridMain;
+
+        private Button _buttonClose;
+
+        private bool _showCloseButton;
+
+        private bool _staysOpen;
+
+        #endregion Data
+
+        public Growl()
+        {
+            CommandBindings.Add(new CommandBinding(ControlCommands.Close, ButtonClose_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Cancel, ButtonCancel_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Confirm, ButtonOk_OnClick));
+
+            MouseEnter += Growl_MouseEnter;
+            MouseLeave += Growl_MouseLeave;
+        }
+
+        private void Growl_MouseLeave(object sender, MouseEventArgs e) => _buttonClose.Collapse();
+
+        private void Growl_MouseEnter(object sender, MouseEventArgs e) => _buttonClose.Show(_showCloseButton);
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            _panelMore = GetTemplateChild(ElementPanelMore) as Panel;
+            _gridMain = GetTemplateChild(ElementGridMain) as Grid;
+            _buttonClose = GetTemplateChild(ElementButtonClose) as Button;
+
+            CheckNull();
+            Update();
+        }
+
+        private void CheckNull()
+        {
+            if (_panelMore == null || _gridMain == null || _buttonClose == null) throw new Exception();
+        }
+
         /// <summary>
         ///     最大计数
         /// </summary>
@@ -47,8 +104,6 @@ namespace HandyControl.Controls
         ///     关闭计时器
         /// </summary>
         private DispatcherTimer _timerClose;
-
-        public Growl() => InitializeComponent();
 
         private Action<Action, bool> CloseAction { get; set; }
 
@@ -134,6 +189,25 @@ namespace HandyControl.Controls
             collection.Add(behavior);
         }
 
+        private void Update()
+        {
+            if (CloseAction != null)
+            {
+                _staysOpen = true;
+                _showCloseButton = false;
+                _panelMore.IsEnabled = true;
+                _panelMore.Show();
+            }
+
+            var transform = new TranslateTransform
+            {
+                X = MaxWidth
+            };
+            _gridMain.RenderTransform = transform;
+            transform.BeginAnimation(TranslateTransform.XProperty, AnimationHelper.CreateAnimation(0));
+            if (!_staysOpen) StartTimer();
+        }
+
         /// <summary>
         ///     显示信息
         /// </summary>
@@ -145,27 +219,12 @@ namespace HandyControl.Controls
                 Message = message,
                 Time = DateTime.Now,
                 Icon = ResourceHelper.GetResource<Geometry>(iconKey),
-                IconBrush = ResourceHelper.GetResource<Brush>(iconBrushKey)
+                IconBrush = ResourceHelper.GetResource<Brush>(iconBrushKey),
+                _showCloseButton = showCloseButton,
+                CloseAction = closeAction,
+                _staysOpen = staysOpen
             };
-            if (!showCloseButton) ctl.Triggers.Clear();
-
-            if (closeAction != null)
-            {
-                staysOpen = true;
-                ctl.Triggers.Clear();
-                ctl.PanelMore.IsEnabled = true;
-                ctl.PanelMore.Show();
-                ctl.CloseAction = closeAction;
-            }
-
-            var transform = new TranslateTransform
-            {
-                X = ctl.MaxWidth
-            };
-            ctl.GridMain.RenderTransform = transform;
             GrowlPanel.Children.Insert(0, ctl);
-            transform.BeginAnimation(TranslateTransform.XProperty, AnimationHelper.CreateAnimation(0));
-            if (!staysOpen) ctl.StartTimer();
         }
 
         /// <summary>
@@ -213,7 +272,7 @@ namespace HandyControl.Controls
         {
             _timerClose?.Stop();
             var transform = new TranslateTransform();
-            GridMain.RenderTransform = transform;
+            _gridMain.RenderTransform = transform;
             var animation = AnimationHelper.CreateAnimation(MaxWidth);
             animation.Completed += delegate { GrowlPanel.Children.Remove(this); };
             transform.BeginAnimation(TranslateTransform.XProperty, animation);
