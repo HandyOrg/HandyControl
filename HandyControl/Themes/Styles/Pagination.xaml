@@ -56,6 +56,9 @@
     </Style>
 
     <Style TargetType="controls:Pagination">
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Pagination">

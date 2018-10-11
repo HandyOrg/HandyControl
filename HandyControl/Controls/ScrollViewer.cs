@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -11,7 +12,39 @@ namespace HandyControl.Controls
     {
         private double _totalVerticalOffset;
 
+        private double _totalHorizontalOffset;
+
         private bool _isRunning;
+
+        /// <summary>
+        ///     滚动方向
+        /// </summary>
+        public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
+            "Orientation", typeof(Orientation), typeof(ScrollViewer), new PropertyMetadata(Orientation.Vertical));
+
+        /// <summary>
+        ///     滚动方向
+        /// </summary>
+        public Orientation Orientation
+        {
+            get => (Orientation) GetValue(OrientationProperty);
+            set => SetValue(OrientationProperty, value);
+        }
+
+        /// <summary>
+        ///     是否响应鼠标滚轮操作
+        /// </summary>
+        public static readonly DependencyProperty CanMouseWheelProperty = DependencyProperty.Register(
+            "CanMouseWheel", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(true));
+
+        /// <summary>
+        ///     是否响应鼠标滚轮操作
+        /// </summary>
+        public bool CanMouseWheel
+        {
+            get => (bool) GetValue(CanMouseWheelProperty);
+            set => SetValue(CanMouseWheelProperty, value);
+        }
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
@@ -22,25 +55,61 @@ namespace HandyControl.Controls
             }
             e.Handled = true;
 
-            if (!_isRunning)
+            if (!CanMouseWheel) return;
+            if (Orientation == Orientation.Vertical)
             {
-                _totalVerticalOffset = VerticalOffset;
-                CurrentVerticalOffset = VerticalOffset;
+                if (!_isRunning)
+                {
+                    _totalVerticalOffset = VerticalOffset;
+                    CurrentVerticalOffset = VerticalOffset;
+                }
+                _totalVerticalOffset = Math.Min(Math.Max(0, _totalVerticalOffset - e.Delta), ScrollableHeight);
+                ScrollToVerticalOffsetInternal(_totalVerticalOffset);
             }
-            _totalVerticalOffset = Math.Min(Math.Max(0, _totalVerticalOffset - e.Delta), ScrollableHeight);
-            var animation = AnimationHelper.CreateAnimation(_totalVerticalOffset, 500);
+            else
+            {
+                if (!_isRunning)
+                {
+                    _totalHorizontalOffset = HorizontalOffset;
+                    CurrentHorizontalOffset = HorizontalOffset;
+                }
+                _totalHorizontalOffset = Math.Min(Math.Max(0, _totalHorizontalOffset - e.Delta), ScrollableWidth);
+                ScrollToHorizontalOffsetInternal(_totalHorizontalOffset);
+            }
+        }
+
+        internal void ScrollToVerticalOffsetInternal(double offset, double milliseconds = 500)
+        {
+            var animation = AnimationHelper.CreateAnimation(offset, milliseconds);
             animation.EasingFunction = new CubicEase
             {
                 EasingMode = EasingMode.EaseOut
             };
             animation.FillBehavior = FillBehavior.Stop;
-            animation.Completed += (s,e1)=>
+            animation.Completed += (s, e1) =>
             {
-                CurrentVerticalOffset = _totalVerticalOffset;
+                CurrentVerticalOffset = offset;
                 _isRunning = false;
             };
             _isRunning = true;
             BeginAnimation(CurrentVerticalOffsetProperty, animation);
+        }
+
+        internal void ScrollToHorizontalOffsetInternal(double offset, double milliseconds = 500)
+        {
+            var animation = AnimationHelper.CreateAnimation(offset, milliseconds);
+            animation.EasingFunction = new CubicEase
+            {
+                EasingMode = EasingMode.EaseOut
+            };
+            animation.FillBehavior = FillBehavior.Stop;
+            animation.Completed += (s, e1) =>
+            {
+                CurrentHorizontalOffset = offset;
+                _isRunning = false;
+            };
+            _isRunning = true;
+            BeginAnimation(CurrentHorizontalOffsetProperty, animation);
         }
 
         protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters) =>
@@ -100,9 +169,9 @@ namespace HandyControl.Controls
         ///     当前垂直滚动偏移
         /// </summary>
         private static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(
-            "CurrentVerticalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(default(double), CurrentVerticalOffsetChangedCallback));
+            "CurrentVerticalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(default(double), OnCurrentVerticalOffsetChanged));
 
-        private static void CurrentVerticalOffsetChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is ScrollViewer ctl && e.NewValue is double v)
             {
@@ -118,6 +187,30 @@ namespace HandyControl.Controls
             // ReSharper disable once UnusedMember.Local
             get => (double) GetValue(CurrentVerticalOffsetProperty);
             set => SetValue(CurrentVerticalOffsetProperty, value);
+        }
+
+        /// <summary>
+        ///     当前水平滚动偏移
+        /// </summary>
+        public static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(
+            "CurrentHorizontalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(default(double), OnCurrentHorizontalOffsetChanged));
+
+        private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is ScrollViewer ctl && e.NewValue is double v)
+            {
+                ctl.ScrollToHorizontalOffset(v);
+                Console.WriteLine(v);
+            }
+        }
+
+        /// <summary>
+        ///     当前水平滚动偏移
+        /// </summary>
+        public double CurrentHorizontalOffset
+        {
+            get => (double) GetValue(CurrentHorizontalOffsetProperty);
+            set => SetValue(CurrentHorizontalOffsetProperty, value);
         }
     }
 }

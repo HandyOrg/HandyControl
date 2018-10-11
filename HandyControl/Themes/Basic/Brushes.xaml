@@ -47,4 +47,6 @@
     <SolidColorBrush x:Key="DarkAccentBrush" Color="{DynamicResource DarkAccentColor}"/>
 
     <SolidColorBrush x:Key="DarkMaskBrush" Color="{DynamicResource DarkMaskColor}"/>
+    <SolidColorBrush x:Key="DarkOpacityBrush" Color="{DynamicResource DarkOpacityColor}"/>
+
 </ResourceDictionary>

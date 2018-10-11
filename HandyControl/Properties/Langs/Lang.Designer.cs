@@ -232,6 +232,15 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 提示 的本地化字符串。
+        /// </summary>
+        public static string Tip {
+            get {
+                return ResourceManager.GetString("Tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 过大 的本地化字符串。
         /// </summary>
         public static string TooLarge {

@@ -1,25 +1,75 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Threading;
+using HandyControl.Interactivity;
 using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
     /// <summary>
-    ///     Carousel.xaml 的交互逻辑
+    ///     轮播控件
     /// </summary>
     [DefaultProperty("Items")]
     [ContentProperty("Items")]
-    public partial class Carousel
+    [TemplatePart(Name = ElementPanelPage, Type = typeof(Panel))]
+    [TemplatePart(Name = ElementItemsControl, Type = typeof(ItemsPresenter))]
+    public class Carousel : ListBox
     {
+        #region Constants
+
+        private const string ElementPanelPage = "PART_PanelPage";
+        private const string ElementItemsControl = "PART_ItemsControl";
+
+        #endregion Constants
+
+        #region Data
+
+        private Panel _panelPage;
+
+        private bool _appliedTemplate;
+
+        private ItemsPresenter _itemsControl;
+
+        #endregion Data
+
+        public override void OnApplyTemplate()
+        {
+            _appliedTemplate = false;
+
+            _panelPage?.RemoveHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonPages_OnClick));
+
+            base.OnApplyTemplate();
+
+            _itemsControl = GetTemplateChild(ElementItemsControl) as ItemsPresenter;
+            _panelPage = GetTemplateChild(ElementPanelPage) as Panel;
+
+            CheckNull();
+
+            _panelPage.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonPages_OnClick));
+            _appliedTemplate = true;
+            Update();
+        }
+
+        private void Update()
+        {
+            TimerSwitch(AutoRun);
+            UpdatePageButtons();
+        }
+
+        private void CheckNull()
+        {
+            if (_itemsControl == null || _panelPage == null) throw new Exception();
+        }
+
         public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
             "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(default(bool), (o, args) =>
             {
@@ -29,14 +79,6 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty IntervalProperty = DependencyProperty.Register(
             "Interval", typeof(TimeSpan), typeof(Carousel), new PropertyMetadata(TimeSpan.FromSeconds(2)));
-
-        public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
-            "ItemsSource", typeof(IEnumerable), typeof(Carousel), new PropertyMetadata(default(IEnumerable),
-                (o, args) =>
-                {
-                    var ctl = (Carousel)o;
-                    ctl.UpdatePageButtons();
-                }));
 
         public static readonly DependencyProperty ExtendWidthProperty = DependencyProperty.Register(
             "ExtendWidth", typeof(double), typeof(Carousel), new PropertyMetadata(default(double)));
@@ -56,7 +98,7 @@ namespace HandyControl.Controls
             set => SetValue(IsCenterProperty, value);
         }
 
-        private int _pageIndex = -1;
+        private int _pageIndex;
 
         private Button _selectedButton;
 
@@ -66,9 +108,18 @@ namespace HandyControl.Controls
 
         public Carousel()
         {
-            InitializeComponent();
+            CommandBindings.Add(new CommandBinding(ControlCommands.Prev, ButtonPrev_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Next, ButtonNext_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Selected, ButtonPages_OnClick));
 
             Loaded += (s, e) => UpdatePageButtons();
+        }
+
+        protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
+        {
+            base.OnItemsChanged(e);
+
+            UpdatePageButtons();
         }
 
         /// <summary>
@@ -109,19 +160,12 @@ namespace HandyControl.Controls
             }
         }
 
-        public IEnumerable ItemsSource
-        {
-            get => (IEnumerable)GetValue(ItemsSourceProperty);
-            set => SetValue(ItemsSourceProperty, value);
-        }
-
-        public ItemCollection Items => ListBoxMain.Items;
-
         /// <summary>
         ///     计时器开关
         /// </summary>
         private void TimerSwitch(bool run)
         {
+            if (!_appliedTemplate) return;
             if (run)
             {
                 _updateTimer = new DispatcherTimer
@@ -133,9 +177,12 @@ namespace HandyControl.Controls
             }
             else
             {
-                _updateTimer.Tick -= UpdateTimer_Tick;
-                _updateTimer.Stop();
-                _updateTimer = null;
+                if (_updateTimer != null)
+                {
+                    _updateTimer.Tick -= UpdateTimer_Tick;
+                    _updateTimer.Stop();
+                    _updateTimer = null;
+                }
             }
         }
 
@@ -150,34 +197,35 @@ namespace HandyControl.Controls
         /// </summary>
         public void UpdatePageButtons(int? index = null)
         {
+            if (!_appliedTemplate) return;
             if (index == null)
             {
                 var count = Items.Count;
                 _widthList.Clear();
                 _widthList.Add(0);
                 var width = .0;
-                foreach (FrameworkElement item in ListBoxMain.Items)
+                foreach (FrameworkElement item in Items)
                 {
                     item.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                     width += item.DesiredSize.Width;
                     _widthList.Add(width);
                 }
 
-                ListBoxMain.Width = _widthList.Last() + ExtendWidth;
-                PanelPage.Children.Clear();
+                _itemsControl.Width = _widthList.Last() + ExtendWidth;
+                _panelPage.Children.Clear();
                 for (var i = 0; i < count; i++)
-                    PanelPage.Children.Add(CreatePateButton());
+                    _panelPage.Children.Add(CreatePateButton());
                 if (count > 0)
                 {
-                    var button = PanelPage.Children[0];
+                    var button = _panelPage.Children[0];
                     button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent, button));
                 }
             }
             else
             {
-                if (index >= 0 && index < PanelPage.Children.Count)
+                if (index >= 0 && index < _panelPage.Children.Count)
                 {
-                    var button = PanelPage.Children[(int)index];
+                    var button = _panelPage.Children[(int)index];
                     button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent, button));
                     UpdateItemsPosition();
                 }
@@ -189,17 +237,18 @@ namespace HandyControl.Controls
         /// </summary>
         private void UpdateItemsPosition()
         {
-            if (Items.Count == 0 || PageIndex == -1) return;
+            if (!_appliedTemplate) return;
+            if (Items.Count == 0) return;
             if (!IsCenter)
             {
-                ListBoxMain.BeginAnimation(MarginProperty,
+                _itemsControl.BeginAnimation(MarginProperty,
                     AnimationHelper.CreateAnimation(new Thickness(-_widthList[PageIndex], 0, 0, 0)));
             }
             else
             {
                 var ctl = (FrameworkElement)Items[PageIndex];
                 var ctlWidth = ctl.DesiredSize.Width;
-                ListBoxMain.BeginAnimation(MarginProperty,
+                _itemsControl.BeginAnimation(MarginProperty,
                     AnimationHelper.CreateAnimation(
                         new Thickness(-_widthList[PageIndex] + (ActualWidth - ctlWidth) / 2, 0, 0, 0)));
             }
@@ -241,19 +290,13 @@ namespace HandyControl.Controls
             _selectedButton = e.OriginalSource as Button;
             if (_selectedButton != null && _selectedButton.Content is Border border)
                 border.Background = TryFindResource("PrimaryBrush") as Brush;
-            var index = PanelPage.Children.IndexOf(_selectedButton);
+            var index = _panelPage.Children.IndexOf(_selectedButton);
             if (index != -1)
                 PageIndex = index;
         }
 
-        private void ButtonPrev_OnClick(object sender, RoutedEventArgs e)
-        {
-            PageIndex--;
-        }
+        private void ButtonPrev_OnClick(object sender, RoutedEventArgs e) => PageIndex--;
 
-        private void ButtonNext_OnClick(object sender, RoutedEventArgs e)
-        {
-            PageIndex++;
-        }
+        private void ButtonNext_OnClick(object sender, RoutedEventArgs e) => PageIndex++;
     }
 }

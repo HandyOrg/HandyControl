@@ -1,19 +1,16 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Media;
+using HandyControl.Tools;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     /// <summary>
-    /// StepItem.xaml 的交互逻辑
+    ///     步骤条单元项
     /// </summary>
-    public partial class StepItem
+    public class StepItem : Control
     {
-        public StepItem()
-        {
-            InitializeComponent();
-        }
-
         internal static readonly DependencyProperty IndexProperty = DependencyProperty.Register(
             "Index", typeof(int), typeof(StepItem), new PropertyMetadata(-1));
 
@@ -28,7 +25,7 @@ namespace HandyControl.Controls
 
         internal string IndexStr
         {
-            get => (string) GetValue(IndexStrProperty);
+            get => (string)GetValue(IndexStrProperty);
             set => SetValue(IndexStrProperty, value);
         }
 
@@ -57,15 +54,15 @@ namespace HandyControl.Controls
         {
             if (Status == true)
             {
-                Foreground = TryFindResource("PrimaryTextBrush") as Brush;
+                Foreground = ResourceHelper.GetResource<Brush>("PrimaryTextBrush");
             }
             else if (Status == false)
             {
-                Foreground = TryFindResource("PrimaryBrush") as Brush;
+                Foreground = ResourceHelper.GetResource<Brush>("PrimaryBrush");
             }
             else
             {
-                Foreground = TryFindResource("ThirdlyTextBrush") as Brush;
+                Foreground = ResourceHelper.GetResource<Brush>("ThirdlyTextBrush");
             }
         }
     }

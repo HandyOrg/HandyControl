@@ -163,4 +163,7 @@
   <data name="Pm" xml:space="preserve">
     <value>下午</value>
   </data>
+  <data name="Tip" xml:space="preserve">
+    <value>提示</value>
+  </data>
 </root>
