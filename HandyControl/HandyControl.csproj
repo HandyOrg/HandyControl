@@ -47,6 +47,7 @@
     <Compile Include="Controls\Clock\Clock.cs" />
     <Compile Include="Controls\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Growl.cs" />
+    <Compile Include="Controls\NumericUpDown.cs" />
     <Compile Include="Controls\Pagination.cs" />
     <Compile Include="Controls\Picker\ColorPicker.xaml.cs">
       <DependentUpon>ColorPicker.xaml</DependentUpon>
@@ -54,13 +55,6 @@
     <Compile Include="Controls\Attach\IconElement.cs" />
     <Compile Include="Controls\CompareSlider.cs" />
     <Compile Include="Controls\ScrollViewer.cs" />
-    <Compile Include="Controls\Info\InfoControl.cs" />
-    <Compile Include="Controls\Info\InfoNumericUpDown.xaml.cs">
-      <DependentUpon>InfoNumericUpDown.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Controls\Info\InfoTextBox.xaml.cs">
-      <DependentUpon>InfoTextBox.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
@@ -74,9 +68,7 @@
     <Compile Include="Controls\TimeBar\TimeBar.cs" />
     <Compile Include="Controls\TransitioningContentControl.cs" />
     <Compile Include="Controls\WatermarkTextBox.cs" />
-    <Compile Include="Controls\Window\ImageBrowser.xaml.cs">
-      <DependentUpon>ImageBrowser.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="Controls\Window\ImageBrowser.cs" />
     <Compile Include="Controls\Window\PopupWindow.cs" />
     <Compile Include="Controls\Window\WindowBorderless.cs" />
     <Compile Include="Data\BooleanBoxes.cs" />
@@ -154,22 +146,7 @@
     <Compile Include="Tools\VisualStates.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\colorPickerBack.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Page Include="Controls\Picker\ColorPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\Info\InfoNumericUpDown.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\Info\InfoTextBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\Window\ImageBrowser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -210,6 +187,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\DatePickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\NumericUpDownBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -334,6 +315,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Loading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\NumericUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

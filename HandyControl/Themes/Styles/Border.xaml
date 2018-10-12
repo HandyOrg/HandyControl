@@ -9,13 +9,13 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
     </Style>
 
-    <Style x:Key="BorderHorizontallySplitter" TargetType="{x:Type Border}">
+    <Style x:Key="BorderVerticallySplitter" TargetType="{x:Type Border}">
         <Setter Property="Width" Value="1"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Background" Value="{DynamicResource ThirdlyTextBrush}"/>
     </Style>
 
-    <Style x:Key="BorderVerticallySplitter" TargetType="{x:Type Border}">
+    <Style x:Key="BorderHorizontallySplitter" TargetType="{x:Type Border}">
         <Setter Property="Height" Value="1"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Background" Value="{DynamicResource ThirdlyTextBrush}"/>

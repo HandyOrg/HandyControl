@@ -282,4 +282,7 @@
   <data name="ComboBox" xml:space="preserve">
     <value>ComboBox</value>
   </data>
+  <data name="NumericUpDown" xml:space="preserve">
+    <value>NumericUpDown</value>
+  </data>
 </root>

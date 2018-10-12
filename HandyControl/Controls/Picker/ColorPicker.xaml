@@ -22,7 +22,20 @@
             <Border Background="{Binding BackColor,ElementName=UserControlMain}"/>
             <Border>
                 <Border.Background>
-                    <ImageBrush ImageSource="/HandyControl;component/Resources/colorPickerBack.png"/>
+                    <LinearGradientBrush EndPoint="0,0.5" StartPoint="1,0.5">
+                        <GradientStop Color="White" Offset="1"/>
+                        <GradientStop Color="Transparent"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Border>
+                <Border.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="1"/>
+                        <GradientStop Color="#aa000000" Offset=".6"/>
+                        <GradientStop Color="#22000000" Offset=".2"/>
+                        <GradientStop Color="Transparent"/>
+                    </LinearGradientBrush>
                 </Border.Background>
             </Border>
         </Grid>
@@ -58,21 +71,21 @@
                 <TextBox Padding="0" HorizontalContentAlignment="Center" Width="176" Text="{Binding SelectedBrush,ElementName=UserControlMain,Mode=TwoWay,Converter={StaticResource Color2HexStrConverter},UpdateSourceTrigger=LostFocus}" FontSize="10" MaxLength="10" Height="24" />
                 <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="HEX" HorizontalAlignment="Center"/>
             </StackPanel>
-            <UniformGrid controls:InfoNumericUpDown.ValueChanged="InfoNumericUpDownRgb_OnValueChanged" Visibility="{Binding ShowList[1],ElementName=UserControlMain,Converter={StaticResource Boolean2VisibilityConverter}}" Rows="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="-2,14,-2,0" VerticalAlignment="Top">
+            <UniformGrid controls:NumericUpDown.ValueChanged="NumericUpDownRgb_OnValueChanged" Visibility="{Binding ShowList[1],ElementName=UserControlMain,Converter={StaticResource Boolean2VisibilityConverter}}" Rows="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="-2,14,-2,0" VerticalAlignment="Top">
                 <StackPanel Margin="2,0">
-                    <controls:InfoNumericUpDown Tag="R" x:Name="ChannelR" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" />
+                    <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="0" Tag="R" x:Name="ChannelR" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
                     <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="R" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Margin="2,0">
-                    <controls:InfoNumericUpDown Tag="G" x:Name="ChannelG" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" />
+                    <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="0" Tag="G" x:Name="ChannelG" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
                     <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="G" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Margin="2,0">
-                    <controls:InfoNumericUpDown Tag="B" x:Name="ChannelB" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" />
+                    <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="0" Tag="B" x:Name="ChannelB" Value="255" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
                     <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="B" HorizontalAlignment="Center"/>
                 </StackPanel>
                 <StackPanel Margin="2,0">
-                    <controls:InfoNumericUpDown Value="{Binding Value,ElementName=SliderOpacity,Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" TextPadding="0" FontSize="10" ShowSmallCornerRadius="True" ShowClearButton="False" HorizontalTextAlignment="Center" IsNeedly="False" Height="24" />
+                    <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="0" Value="{Binding Value,ElementName=SliderOpacity,Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
                     <TextBlock Foreground="{StaticResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"/>
                 </StackPanel>
             </UniformGrid>

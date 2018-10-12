@@ -28,6 +28,8 @@
 
         public static readonly string CirclePanelDemoCtl = nameof(CirclePanelDemoCtl);
 
+        public static readonly string NumericUpDownDemoCtl = nameof(NumericUpDownDemoCtl);
+
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

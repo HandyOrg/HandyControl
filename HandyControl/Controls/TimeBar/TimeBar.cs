@@ -31,8 +31,7 @@ namespace HandyControl.Controls
         private const string ElementCanvasSpe = "PART_CanvasSpe";
 
         #endregion Constants
-
-
+        
         #region Data
 
         private Border _borderTop;

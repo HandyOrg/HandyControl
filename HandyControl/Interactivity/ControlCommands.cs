@@ -3,10 +3,45 @@
 namespace HandyControl.Interactivity
 {
     /// <summary>
-    ///     控件库使用的所有命令
+    ///     控件库使用的所有命令（为了统一，不使用wpf自带的命令）
     /// </summary>
     public static class ControlCommands
     {
+        /// <summary>
+        ///     右转
+        /// </summary>
+        public static RoutedCommand RotateRight { get; } = new RoutedCommand("RotateRight", typeof(ControlCommands));
+
+        /// <summary>
+        ///     左转
+        /// </summary>
+        public static RoutedCommand RotateLeft { get; } = new RoutedCommand("RotateLeft", typeof(ControlCommands));
+
+        /// <summary>
+        ///     小
+        /// </summary>
+        public static RoutedCommand Reduce { get; } = new RoutedCommand("Reduce", typeof(ControlCommands));
+
+        /// <summary>
+        ///     大
+        /// </summary>
+        public static RoutedCommand Enlarge { get; } = new RoutedCommand("Enlarge", typeof(ControlCommands));
+
+        /// <summary>
+        ///     还原
+        /// </summary>
+        public static RoutedCommand Restore { get; } = new RoutedCommand("Restore", typeof(ControlCommands));
+
+        /// <summary>
+        ///     打开
+        /// </summary>
+        public static RoutedCommand Open { get; } = new RoutedCommand("Open", typeof(ControlCommands));
+
+        /// <summary>
+        ///     保存
+        /// </summary>
+        public static RoutedCommand Save { get; } = new RoutedCommand("Save", typeof(ControlCommands));
+
         /// <summary>
         ///     选中
         /// </summary>

@@ -2,10 +2,13 @@
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using HandyControl.Interactivity;
 using HandyControl.Tools;
 using Microsoft.Win32;
 
@@ -15,40 +18,87 @@ namespace HandyControl.Controls
     /// <summary>
     ///     图片浏览器
     /// </summary>
-    public partial class ImageBrowser
+    [TemplatePart(Name = ElementGridTop, Type = typeof(Grid))]
+    [TemplatePart(Name = ElementGridMain, Type = typeof(Grid))]
+    [TemplatePart(Name = ElementCanvasSmallImg, Type = typeof(Canvas))]
+    [TemplatePart(Name = ElementBorderMove, Type = typeof(Border))]
+    [TemplatePart(Name = ElementBorderBottom, Type = typeof(Border))]
+    [TemplatePart(Name = ElementImageMain, Type = typeof(Image))]
+    public class ImageBrowser : WindowBorderless
     {
+        #region Constants
+
+        private const string ElementGridTop = "PART_GridTop";
+
+        private const string ElementGridMain = "PART_GridMain";
+
+        private const string ElementCanvasSmallImg = "PART_CanvasSmallImg";
+
+        private const string ElementBorderMove = "PART_BorderMove";
+
+        private const string ElementBorderBottom = "PART_BorderBottom";
+
+        private const string ElementImageMain = "PART_ImageMain";
+
         /// <summary>
         ///     缩放比间隔
         /// </summary>
         private const double ScaleInternal = 0.2;
+
+        #endregion Constants
+
+        #region Data
+
+        private Grid _gridTop;
+
+        private Grid _canvasMain;
+
+        private Canvas _canvasSmallImg;
+
+        private Border _borderMove;
+
+        private Border _borderBottom;
+
+        private Image _imageMain;
+
+        #endregion Data
 
         static ImageBrowser()
         {
             IsFullScreenProperty.AddOwner(typeof(ImageBrowser), new PropertyMetadata(default(bool)));
         }
 
-        private static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty ImageContentProperty = DependencyProperty.Register(
+            "ImageContent", typeof(object), typeof(ImageBrowser), new PropertyMetadata(default(object)));
+
+        internal object ImageContent
+        {
+            get => GetValue(ImageContentProperty);
+            set => SetValue(ImageContentProperty, value);
+        }
+
+        internal static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
             "ImageSource", typeof(BitmapFrame), typeof(ImageBrowser), new PropertyMetadata(default(BitmapFrame)));
 
-        private static readonly DependencyProperty ImageMarginProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty ImageMarginProperty = DependencyProperty.Register(
             "ImageMargin", typeof(Thickness), typeof(ImageBrowser), new PropertyMetadata(default(Thickness)));
 
-        private static readonly DependencyProperty ImageWidthProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty ImageWidthProperty = DependencyProperty.Register(
             "ImageWidth", typeof(double), typeof(ImageBrowser), new PropertyMetadata(default(double)));
 
-        private static readonly DependencyProperty ImageHeightProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty ImageHeightProperty = DependencyProperty.Register(
             "ImageHeight", typeof(double), typeof(ImageBrowser), new PropertyMetadata(default(double)));
 
         public static readonly DependencyProperty ImageScaleProperty = DependencyProperty.Register(
             "ImageScale", typeof(double), typeof(ImageBrowser), new PropertyMetadata(1.0, OnImageScaleChanged));
 
-        private static readonly DependencyProperty ScaleStrProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty ScaleStrProperty = DependencyProperty.Register(
             "ScaleStr", typeof(string), typeof(ImageBrowser), new PropertyMetadata("100%"));
 
-        private static readonly DependencyProperty ImageRotateProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty ImageRotateProperty = DependencyProperty.Register(
             "ImageRotate", typeof(double), typeof(ImageBrowser), new PropertyMetadata(default(double)));
 
-        private static readonly DependencyProperty ShowSmallImgProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty ShowSmallImgProperty = DependencyProperty.Register(
             "ShowSmallImg", typeof(bool), typeof(ImageBrowser), new PropertyMetadata(false));
 
         /// <summary>
@@ -182,15 +232,22 @@ namespace HandyControl.Controls
         /// </summary>
         private bool _isOblique;
 
-        public ImageBrowser() => InitializeComponent();
-
-        /// <summary>
-        ///     带一个图片路径的构造函数
-        /// </summary>
-        /// <param name="path"></param>
-        public ImageBrowser(string path) : this(new Uri(path))
+        public ImageBrowser()
         {
+            Loaded += ImageBrowser_OnLoaded;
 
+            CommandBindings.Add(new CommandBinding(ControlCommands.Close, ButtonClose_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Save, ButtonSave_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Open, ButtonWindowsOpen_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Restore, ButtonActual_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Reduce, ButtonReduce_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Enlarge, ButtonEnlarge_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.RotateLeft, ButtonRotateLeft_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.RotateRight, ButtonRotateRight_OnClick));
+
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            WindowStyle = WindowStyle.None;
+            AllowsTransparency = true;
         }
 
         /// <summary>
@@ -215,25 +272,82 @@ namespace HandyControl.Controls
             }
         }
 
-        private BitmapFrame ImageSource
+        /// <summary>
+        ///     带一个图片路径的构造函数
+        /// </summary>
+        /// <param name="path"></param>
+        public ImageBrowser(string path) : this(new Uri(path))
+        {
+
+        }
+
+        public override void OnApplyTemplate()
+        {
+            if (_imageMain != null)
+            {
+                _imageMain.MouseLeftButtonDown -= ImageMain_OnMouseLeftButtonDown;
+            }
+
+            if (_gridTop != null)
+            {
+                _gridTop.MouseLeftButtonDown -= GridTop_OnMouseLeftButtonDown;
+            }
+
+            if (_canvasSmallImg != null)
+            {
+                _canvasSmallImg.MouseLeftButtonDown -= CanvasSmallImg_OnMouseLeftButtonDown;
+                _canvasSmallImg.MouseLeftButtonUp -= CanvasSmallImg_OnMouseLeftButtonUp;
+                _canvasSmallImg.MouseMove -= CanvasSmallImg_OnMouseMove;
+                _canvasSmallImg.MouseLeave -= CanvasSmallImg_OnMouseLeave;
+            }
+
+            base.OnApplyTemplate();
+
+            _gridTop = GetTemplateChild(ElementGridTop) as Grid;
+            _canvasMain = GetTemplateChild(ElementGridMain) as Grid;
+            _canvasSmallImg = GetTemplateChild(ElementCanvasSmallImg) as Canvas;
+            _borderMove = GetTemplateChild(ElementBorderMove) as Border;
+            _imageMain = GetTemplateChild(ElementImageMain) as Image;
+            _borderBottom = GetTemplateChild(ElementBorderBottom) as Border;
+
+            if (_imageMain != null)
+            {
+                _imageMain.MouseLeftButtonDown += ImageMain_OnMouseLeftButtonDown;
+            }
+
+            if (_gridTop != null)
+            {
+                _gridTop.MouseLeftButtonDown += GridTop_OnMouseLeftButtonDown;
+            }
+
+            if (_canvasSmallImg != null)
+            {
+                _canvasSmallImg.MouseLeftButtonDown += CanvasSmallImg_OnMouseLeftButtonDown;
+                _canvasSmallImg.MouseLeftButtonUp += CanvasSmallImg_OnMouseLeftButtonUp;
+                _canvasSmallImg.MouseMove += CanvasSmallImg_OnMouseMove;
+                _canvasSmallImg.MouseLeave += CanvasSmallImg_OnMouseLeave;
+            }
+        }
+
+        internal BitmapFrame ImageSource
         {
             get => (BitmapFrame)GetValue(ImageSourceProperty);
             set => SetValue(ImageSourceProperty, value);
         }
 
-        private Thickness ImageMargin
+        internal Thickness ImageMargin
         {
             get => (Thickness)GetValue(ImageMarginProperty);
             set => SetValue(ImageMarginProperty, value);
         }
 
-        private double ImageWidth
+        internal double ImageWidth
         {
             get => (double)GetValue(ImageWidthProperty);
             set => SetValue(ImageWidthProperty, value);
         }
 
-        private double ImageHeight
+        internal double ImageHeight
         {
             get => (double)GetValue(ImageHeightProperty);
             set => SetValue(ImageHeightProperty, value);
@@ -245,19 +359,19 @@ namespace HandyControl.Controls
             set => SetValue(ImageScaleProperty, value);
         }
 
-        private string ScaleStr
+        internal string ScaleStr
         {
             get => (string)GetValue(ScaleStrProperty);
             set => SetValue(ScaleStrProperty, value);
         }
 
-        private double ImageRotate
+        internal double ImageRotate
         {
             get => (double)GetValue(ImageRotateProperty);
             set => SetValue(ImageRotateProperty, value);
         }
 
-        private bool ShowSmallImg
+        internal bool ShowSmallImg
         {
             get => (bool)GetValue(ShowSmallImgProperty);
             set => SetValue(ShowSmallImgProperty, value);
@@ -282,7 +396,7 @@ namespace HandyControl.Controls
             set
             {
                 if (_showCloseButton == value) return;
-                GridTop.BeginAnimation(OpacityProperty,
+                _gridTop.BeginAnimation(OpacityProperty,
                     value ? AnimationHelper.CreateAnimation(1, 100) : AnimationHelper.CreateAnimation(0, 400));
                 _showCloseButton = value;
             }
@@ -297,7 +411,7 @@ namespace HandyControl.Controls
             set
             {
                 if (_showBorderBottom == value) return;
-                BorderBottom.BeginAnimation(OpacityProperty,
+                _borderBottom?.BeginAnimation(OpacityProperty,
                     value ? AnimationHelper.CreateAnimation(1, 100) : AnimationHelper.CreateAnimation(0, 400));
                 _showBorderBottom = value;
             }
@@ -359,7 +473,7 @@ namespace HandyControl.Controls
             }
             ImageMargin = new Thickness((ActualWidth - ImageWidth) / 2, (ActualHeight - ImageHeight) / 2, 0, 0);
 
-            _imgActualScale = ImageScale;
+            _imgActualScale = 1;
             _imgActualMargin = ImageMargin;
         }
 
@@ -420,19 +534,15 @@ namespace HandyControl.Controls
             }
         }
 
-        private void ButtonScreenChange_OnClick(object sender, RoutedEventArgs e) => WindowState = IsFullScreen ? WindowState.Maximized : WindowState.Normal;
+        //private void ButtonScreenChange_OnClick(object sender, RoutedEventArgs e) => WindowState = IsFullScreen ? WindowState.Maximized : WindowState.Normal;
 
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close();
 
-        private void CanvasBack_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void GridTop_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            try
+            if (e.LeftButton == MouseButtonState.Pressed)
             {
                 DragMove();
-            }
-            catch
-            {
-                // ignored
             }
         }
 
@@ -480,7 +590,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                var right = Math.Abs(BorderMove.Width - CanvasSmallImg.ActualWidth + BorderMove.Margin.Left);
+                var right = Math.Abs(_borderMove.Width - _canvasSmallImg.ActualWidth + _borderMove.Margin.Left);
                 if (right < 0.001)
                 {
                     marginX = ActualWidth - ImageWidth;
@@ -497,7 +607,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                var top = Math.Abs(BorderMove.Height - CanvasSmallImg.ActualHeight + BorderMove.Margin.Top);
+                var top = Math.Abs(_borderMove.Height - _canvasSmallImg.ActualHeight + _borderMove.Margin.Top);
                 if (top < 0.001)
                 {
                     marginY = ActualHeight - ImageHeight;
@@ -513,9 +623,8 @@ namespace HandyControl.Controls
         {
             base.OnMouseDoubleClick(e);
 
-            if (e.GetPosition(GridTop).Y > GridTop.ActualHeight) return;
+            if (e.GetPosition(_gridTop).Y > _gridTop.ActualHeight) return;
             IsFullScreen = !IsFullScreen;
-            ButtonScreenChange_OnClick(null, null);
         }
 
         private void ImageBrowser_OnLoaded(object sender, RoutedEventArgs e)
@@ -532,7 +641,7 @@ namespace HandyControl.Controls
                 DragMove();
                 return;
             }
-            _imgMouseDownPoint = Mouse.GetPosition(CanvasMain);
+            _imgMouseDownPoint = Mouse.GetPosition(_canvasMain);
             _imgMouseDownMargin = ImageMargin;
             _imgIsMouseLeftButtonDown = true;
             e.Handled = true;
@@ -553,7 +662,7 @@ namespace HandyControl.Controls
             {
                 if (!_borderSmallIsLoaded)
                 {
-                    CanvasSmallImg.Background = new VisualBrush(ImageMain);
+                    _canvasSmallImg.Background = new VisualBrush(_imageMain);
                     InitBorderSmall();
                     _borderSmallIsLoaded = true;
                 }
@@ -571,16 +680,16 @@ namespace HandyControl.Controls
         /// </summary>
         private void InitBorderSmall()
         {
-            var scaleWindow = CanvasSmallImg.MaxWidth / CanvasSmallImg.MaxHeight;
+            var scaleWindow = _canvasSmallImg.MaxWidth / _canvasSmallImg.MaxHeight;
             if (_imgWidHeiScale > scaleWindow)
             {
-                CanvasSmallImg.Width = CanvasSmallImg.MaxWidth;
-                CanvasSmallImg.Height = CanvasSmallImg.Width / _imgWidHeiScale;
+                _canvasSmallImg.Width = _canvasSmallImg.MaxWidth;
+                _canvasSmallImg.Height = _canvasSmallImg.Width / _imgWidHeiScale;
             }
             else
             {
-                CanvasSmallImg.Width = CanvasSmallImg.MaxHeight * _imgWidHeiScale;
-                CanvasSmallImg.Height = CanvasSmallImg.MaxHeight;
+                _canvasSmallImg.Width = _canvasSmallImg.MaxHeight * _imgWidHeiScale;
+                _canvasSmallImg.Height = _canvasSmallImg.MaxHeight;
             }
         }
 
@@ -594,21 +703,21 @@ namespace HandyControl.Controls
             var widthMin = Math.Min(ImageWidth, ActualWidth);
             var heightMin = Math.Min(ImageHeight, ActualHeight);
 
-            BorderMove.Width = widthMin / ImageWidth * CanvasSmallImg.Width;
-            BorderMove.Height = heightMin / ImageHeight * CanvasSmallImg.Height;
+            _borderMove.Width = widthMin / ImageWidth * _canvasSmallImg.Width;
+            _borderMove.Height = heightMin / ImageHeight * _canvasSmallImg.Height;
 
-            var marginX = -ImageMargin.Left / ImageWidth * CanvasSmallImg.Width;
-            var marginY = -ImageMargin.Top / ImageHeight * CanvasSmallImg.Height;
+            var marginX = -ImageMargin.Left / ImageWidth * _canvasSmallImg.Width;
+            var marginY = -ImageMargin.Top / ImageHeight * _canvasSmallImg.Height;
 
-            var marginXMax = CanvasSmallImg.Width - BorderMove.Width;
-            var marginYMax = CanvasSmallImg.Height - BorderMove.Height;
+            var marginXMax = _canvasSmallImg.Width - _borderMove.Width;
+            var marginYMax = _canvasSmallImg.Height - _borderMove.Height;
 
             marginX = Math.Max(0, marginX);
             marginX = Math.Min(marginXMax, marginX);
             marginY = Math.Max(0, marginY);
             marginY = Math.Min(marginYMax, marginY);
 
-            BorderMove.Margin = new Thickness(marginX, marginY, 0, 0);
+            _borderMove.Margin = new Thickness(marginX, marginY, 0, 0);
         }
 
         /// <summary>
@@ -627,7 +736,7 @@ namespace HandyControl.Controls
 
             ImageScale = tempScale;
 
-            var posCanvas = Mouse.GetPosition(CanvasMain);
+            var posCanvas = Mouse.GetPosition(_canvasMain);
             var posImg = new Point(posCanvas.X - _imgActualMargin.Left, posCanvas.Y - _imgActualMargin.Top);
 
             var marginX = .5 * _scaleInternalWidth;
@@ -665,15 +774,15 @@ namespace HandyControl.Controls
                 var subX = ImageWidth - ActualWidth;
                 var subY = ImageHeight - ActualHeight;
 
-                var right = Math.Abs(BorderMove.Width - CanvasSmallImg.ActualWidth + BorderMove.Margin.Left);
-                var top = Math.Abs(BorderMove.Height - CanvasSmallImg.ActualHeight + BorderMove.Margin.Top);
+                var right = Math.Abs(_borderMove.Width - _canvasSmallImg.ActualWidth + _borderMove.Margin.Left);
+                var top = Math.Abs(_borderMove.Height - _canvasSmallImg.ActualHeight + _borderMove.Margin.Top);
                 if (Math.Abs(ImageMargin.Left) < 0.001 || right < 0.001)
                 {
-                    marginActualX = _imgActualMargin.Left + BorderMove.Margin.Left / (CanvasSmallImg.ActualWidth - BorderMove.Width) * _scaleInternalWidth;
+                    marginActualX = _imgActualMargin.Left + _borderMove.Margin.Left / (_canvasSmallImg.ActualWidth - _borderMove.Width) * _scaleInternalWidth;
                 }
                 if (Math.Abs(ImageMargin.Top) < 0.001 || top < 0.001)
                 {
-                    marginActualY = _imgActualMargin.Top + BorderMove.Margin.Top / (CanvasSmallImg.ActualHeight - BorderMove.Height) * _scaleInternalHeight;
+                    marginActualY = _imgActualMargin.Top + _borderMove.Margin.Top / (_canvasSmallImg.ActualHeight - _borderMove.Height) * _scaleInternalHeight;
                 }
                 if (subX < 0.001)
                 {
@@ -716,7 +825,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void MoveImg()
         {
-            _imgCurrentPoint = Mouse.GetPosition(CanvasMain);
+            _imgCurrentPoint = Mouse.GetPosition(_canvasMain);
             ShowCloseButton = _imgCurrentPoint.Y < 200;
             ShowBorderBottom = _imgCurrentPoint.Y > ActualHeight - 200;
 
@@ -769,7 +878,7 @@ namespace HandyControl.Controls
         {
             if (_imgSmallIsMouseLeftButtonDown)
             {
-                _imgSmallCurrentPoint = Mouse.GetPosition(CanvasSmallImg);
+                _imgSmallCurrentPoint = Mouse.GetPosition(_canvasSmallImg);
 
                 var subX = _imgSmallCurrentPoint.X - _imgSmallMouseDownPoint.X;
                 var subY = _imgSmallCurrentPoint.Y - _imgSmallMouseDownPoint.Y;
@@ -779,9 +888,9 @@ namespace HandyControl.Controls
                 {
                     marginX = 0;
                 }
-                else if (marginX + BorderMove.Width >= CanvasSmallImg.ActualWidth)
+                else if (marginX + _borderMove.Width >= _canvasSmallImg.ActualWidth)
                 {
-                    marginX = CanvasSmallImg.ActualWidth - BorderMove.Width;
+                    marginX = _canvasSmallImg.ActualWidth - _borderMove.Width;
                 }
 
                 var marginY = _imgSmallMouseDownMargin.Top + subY;
@@ -789,22 +898,22 @@ namespace HandyControl.Controls
                 {
                     marginY = 0;
                 }
-                else if (marginY + BorderMove.Height >= CanvasSmallImg.ActualHeight)
+                else if (marginY + _borderMove.Height >= _canvasSmallImg.ActualHeight)
                 {
-                    marginY = CanvasSmallImg.ActualHeight - BorderMove.Height;
+                    marginY = _canvasSmallImg.ActualHeight - _borderMove.Height;
                 }
-                BorderMove.Margin = new Thickness(marginX, marginY, 0, 0);
+                _borderMove.Margin = new Thickness(marginX, marginY, 0, 0);
 
                 var marginActualX = (ActualWidth - ImageWidth) / 2;
                 var marginActualY = (ActualHeight - ImageHeight) / 2;
 
                 if (_canMoveX)
                 {
-                    marginActualX = -marginX / CanvasSmallImg.ActualWidth * ImageWidth;
+                    marginActualX = -marginX / _canvasSmallImg.ActualWidth * ImageWidth;
                 }
                 if (_canMoveY)
                 {
-                    marginActualY = -marginY / CanvasSmallImg.ActualHeight * ImageHeight;
+                    marginActualY = -marginY / _canvasSmallImg.ActualHeight * ImageHeight;
                 }
 
                 ImageMargin = new Thickness(marginActualX, marginActualY, 0, 0);
@@ -814,8 +923,8 @@ namespace HandyControl.Controls
 
         private void CanvasSmallImg_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            _imgSmallMouseDownPoint = Mouse.GetPosition(CanvasSmallImg);
-            _imgSmallMouseDownMargin = BorderMove.Margin;
+            _imgSmallMouseDownPoint = Mouse.GetPosition(_canvasSmallImg);
+            _imgSmallMouseDownMargin = _borderMove.Margin;
             _imgSmallIsMouseLeftButtonDown = true;
             e.Handled = true;
         }

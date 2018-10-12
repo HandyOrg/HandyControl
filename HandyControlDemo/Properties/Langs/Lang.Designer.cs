@@ -331,6 +331,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 数值选择控件 的本地化字符串。
+        /// </summary>
+        public static string NumericUpDown {
+            get {
+                return ResourceManager.GetString("NumericUpDown", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 点击打开图片浏览器 的本地化字符串。
         /// </summary>
         public static string OpenImageBrowser {

@@ -106,6 +106,9 @@
     <Compile Include="UserControl\Controls\LoadingDemoCtl.xaml.cs">
       <DependentUpon>LoadingDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\NumericUpDownDemoCtl.xaml.cs">
+      <DependentUpon>NumericUpDownDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\StepBarDemoCtl.xaml.cs">
       <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -245,6 +248,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\LoadingDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\NumericUpDownDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -25,11 +25,12 @@
                 <ListBoxItem Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Content="{x:Static langs:Lang.ProgressBar}"/>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CalendarDemoCtl}" Content="{x:Static langs:Lang.Calendar}"/>
                 <ListBoxItem Tag="{x:Static data:MessageToken.DatePickerDemoCtl}" Content="{x:Static langs:Lang.DatePicker}"/>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NaiveTabControlDemoCtl}" Content="{x:Static langs:Lang.TabControl}"/>
+                <ListBoxItem Tag="{x:Static data:MessageToken.NaiveTabControlDemoCtl}" Content="{x:Static langs:Lang.TabControl}"/>
             </ListBox>
         </TabItem>
         <TabItem Header="{x:Static langs:Lang.Controls}">
             <ListBox BorderThickness="0" SelectionMode="Single">
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NumericUpDownDemoCtl}" Content="{x:Static langs:Lang.NumericUpDown}"/>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}"/>
                 <ListBoxItem Tag="{x:Static data:MessageToken.ClockDemoCtl}" Content="{x:Static langs:Lang.Clock}"/>
                 <ListBoxItem Tag="{x:Static data:MessageToken.TimePickerDemoCtl}" Content="{x:Static langs:Lang.TimePicker}"/>
@@ -47,40 +48,4 @@
             </ListBox>
         </TabItem>
     </TabControl>
-    <!--<TreeView controls:ScrollViewer.IsEnableInertia="True" BorderThickness="0">
-        <i:Interaction.Triggers>
-            <i:EventTrigger EventName="SelectedItemChanged">
-                <command:EventToCommand Command="{Binding SwitchDemoCmd}" PassEventArgsToCommand="True" />
-            </i:EventTrigger>
-        </i:Interaction.Triggers>
-        <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Styles}">
-            <TreeViewItem Tag="{x:Static data:MessageToken.ButtonDemoCtl}" Header="{x:Static langs:Lang.Button}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.ToggleButtonDemoCtl}" Header="{x:Static langs:Lang.ToggleButton}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.TextBlockDemoCtl}" Header="{x:Static langs:Lang.TextBlock}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.TextBoxDemoCtl}" Header="{x:Static langs:Lang.TextBox}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.ComboBoxDemoCtl}" Header="{x:Static langs:Lang.ComboBox}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.PasswordBoxDemoCtl}" Header="{x:Static langs:Lang.PasswordBox}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.ExpanderDemoCtl}" Header="{x:Static langs:Lang.Expander}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Header="{x:Static langs:Lang.ProgressBar}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.CalendarDemoCtl}" Header="{x:Static langs:Lang.Calendar}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.DatePickerDemoCtl}" Header="{x:Static langs:Lang.DatePicker}"/>
-            <TreeViewItem Style="{StaticResource TreeViewItemNew}" Tag="{x:Static data:MessageToken.NaiveTabControlDemoCtl}" Header="{x:Static langs:Lang.TabControl}"/>
-        </TreeViewItem>
-        <TreeViewItem IsExpanded="True" Header="{x:Static langs:Lang.Controls}">
-            <TreeViewItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Header="{x:Static langs:Lang.CirclePanel}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.ClockDemoCtl}" Header="{x:Static langs:Lang.Clock}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.TimePickerDemoCtl}" Header="{x:Static langs:Lang.TimePicker}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.StepBarDemoCtl}" Header="{x:Static langs:Lang.StepBar}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.GrowlDemoCtl}" Header="{x:Static langs:Lang.Growl}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.LoadingDemoCtl}" Header="{x:Static langs:Lang.Loading}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.ImageBrowserDemoCtl}" Header="{x:Static langs:Lang.ImageBrowser}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.ColorPickerDemoCtl}" Header="{x:Static langs:Lang.ColorPicker}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.CarouselDemoCtl}" Header="{x:Static langs:Lang.Carousel}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.CompareSliderDemoCtl}" Header="{x:Static langs:Lang.CompareSlider}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.TimeBarDemoCtl}" Header="{x:Static langs:Lang.TimeBar}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.PaginationDemoCtl}" Header="{x:Static langs:Lang.Pagination}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.AnimationPathDemoCtl}" Header="{x:Static langs:Lang.AnimationPath}"/>
-            <TreeViewItem Tag="{x:Static data:MessageToken.TabControlDemoCtl}" Header="{x:Static langs:Lang.TabControl}"/>
-        </TreeViewItem>
-    </TreeView>-->
 </Border>
