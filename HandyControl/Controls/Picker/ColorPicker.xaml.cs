@@ -8,6 +8,7 @@ using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
 
+// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     /// <summary>
@@ -510,10 +511,10 @@ namespace HandyControl.Controls
 
         private void ButtonSwitch_OnClick(object sender, RoutedEventArgs e) => ColorType++;
 
-        private void InfoNumericUpDownRgb_OnValueChanged(object sender, FunctionEventArgs<double> e)
+        private void NumericUpDownRgb_OnValueChanged(object sender, FunctionEventArgs<double> e)
         {
             if (!_isLoaded || !IsNeedUpdateInfo) return;
-            if (e.OriginalSource is InfoNumericUpDown ctl && ctl.Tag is string tag)
+            if (e.OriginalSource is NumericUpDown ctl && ctl.Tag is string tag)
             {
                 var color = SelectedBrush.Color;
                 IsNeedUpdateInfo = false;

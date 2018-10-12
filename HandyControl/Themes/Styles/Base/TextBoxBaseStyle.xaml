@@ -36,7 +36,6 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="AllowDrop" Value="true"/>
-        <Setter Property="Width" Value="240"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>

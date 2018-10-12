@@ -34,7 +34,6 @@
         <Setter Property="SelectedDateFormat" Value="Short"/>
         <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Width" Value="240"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="BorderThickness" Value="1"/>

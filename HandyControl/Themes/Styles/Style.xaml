@@ -20,6 +20,7 @@
         <ResourceDictionary Source="Expander.xaml"/>
         <ResourceDictionary Source="TextBox.xaml"/>
         <ResourceDictionary Source="ComboBox.xaml"/>
+        <ResourceDictionary Source="NumericUpDown.xaml"/>
         <ResourceDictionary Source="PasswordBox.xaml"/>
         <ResourceDictionary Source="Calendar.xaml"/>
         <ResourceDictionary Source="DatePicker.xaml"/>

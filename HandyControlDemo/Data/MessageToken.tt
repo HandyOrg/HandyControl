@@ -16,7 +16,8 @@ var controlList = new List<string>
 	"StepBarDemoCtl",
 	"ClockDemoCtl",
 	"TimePickerDemoCtl",
-	"CirclePanelDemoCtl"
+	"CirclePanelDemoCtl",
+	"NumericUpDownDemoCtl"
 };
 var styleList = new List<string>
 {

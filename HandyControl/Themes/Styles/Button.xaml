@@ -45,11 +45,11 @@
                     <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                             <Path Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}" RenderTransformOrigin="0.5,0.5">
-                                <Path.RenderTransform>
+                                <!--<Path.RenderTransform>
                                     <TransformGroup>
                                         <RotateTransform Angle="{Binding Path=(controls:IconElement.Angle),RelativeSource={RelativeSource TemplatedParent}}"/>
                                     </TransformGroup>
-                                </Path.RenderTransform>
+                                </Path.RenderTransform>-->
                             </Path>
                         </ContentControl>
                     </Border>
