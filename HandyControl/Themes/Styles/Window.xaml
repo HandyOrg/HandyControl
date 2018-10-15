@@ -134,7 +134,7 @@
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="MinHeight" Value="220"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="BorderThickness" Value="20"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="ShowInTaskbar" Value="False"/>
         <Setter Property="MinWidth" Value="300"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
