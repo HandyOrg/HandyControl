@@ -14,7 +14,7 @@
                     <ProgressBar Style="{StaticResource ProgressBarDanger}" Margin="0,0,0,10" Value="100" Maximum="200"/>
                 </StackPanel>
                 <StackPanel Margin="10,0,0,0" Width="200" HorizontalAlignment="Left">
-                    <TextBlock Padding="0,2,0,3" Style="{StaticResource TextBlockDefault}" Text=""/>
+                    <TextBlock Padding="0,2,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressbarPrimary"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarSuccess" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarInfo" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarWarning" HorizontalAlignment="Left"/>
