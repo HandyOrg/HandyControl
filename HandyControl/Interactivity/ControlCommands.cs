@@ -8,6 +8,11 @@ namespace HandyControl.Interactivity
     public static class ControlCommands
     {
         /// <summary>
+        ///     切换
+        /// </summary>
+        public static RoutedCommand Switch { get; } = new RoutedCommand("Switch", typeof(ControlCommands));
+
+        /// <summary>
         ///     右转
         /// </summary>
         public static RoutedCommand RotateRight { get; } = new RoutedCommand("RotateRight", typeof(ControlCommands));

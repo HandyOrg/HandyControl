@@ -6,6 +6,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
+using HandyControl.Interactivity;
 using HandyControl.Tools.Extension;
 
 // ReSharper disable once CheckNamespace
@@ -14,8 +15,43 @@ namespace HandyControl.Controls
     /// <summary>
     ///     颜色拾取器
     /// </summary>
-    public partial class ColorPicker
+    [TemplatePart(Name = ElementBorderColor, Type = typeof(Border))]
+    [TemplatePart(Name = ElementBorderPicker, Type = typeof(Border))]
+    [TemplatePart(Name = ElementBorderDrag, Type = typeof(Border))]
+    [TemplatePart(Name = ElementPanelColor, Type = typeof(Panel))]
+    [TemplatePart(Name = ElementSliderColor, Type = typeof(Panel))]
+    [TemplatePart(Name = ElementSliderOpacity, Type = typeof(Panel))]
+    [TemplatePart(Name = ElementPanelRgb, Type = typeof(Panel))]
+    public class ColorPicker : Control
     {
+        #region Constants
+
+        private const string ElementBorderColor = "PART_BorderColor";
+        private const string ElementBorderPicker = "PART_BorderPicker";
+        private const string ElementBorderDrag = "PART_BorderDrag";
+        private const string ElementPanelColor = "PART_PanelColor";
+        private const string ElementSliderColor = "PART_SliderColor";
+        private const string ElementSliderOpacity = "PART_SliderOpacity";
+        private const string ElementPanelRgb = "PART_PanelRgb";
+
+        #endregion Constants
+
+        #region Data
+
+        private Panel _panelRgb;
+
+        private Border _borderColor;
+
+        private Border _borderPicker;
+
+        private Border _borderDrag;
+
+        private Panel _panelColor;
+
+        private Slider _sliderColor;
+
+        private Slider _sliderOpacity;
+
         /// <summary>
         ///     当前显示的颜色类型
         /// </summary>
@@ -127,29 +163,24 @@ namespace HandyControl.Controls
             Color.FromRgb(255, 255, 0)
         };
 
-        internal static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(
-            "CornerRadius", typeof(CornerRadius), typeof(ColorPicker), new PropertyMetadata(new CornerRadius(2)));
+        #endregion Data
 
-        internal CornerRadius CornerRadius
-        {
-            get => (CornerRadius)GetValue(CornerRadiusProperty);
-            set => SetValue(CornerRadiusProperty, value);
-        }
+        #region Public Events
 
         /// <summary>
         ///     颜色改变事件
         /// </summary>
-        public static readonly RoutedEvent ColorSelectedEvent =
-            EventManager.RegisterRoutedEvent("ValueChanged", RoutingStrategy.Bubble,
+        public static readonly RoutedEvent SelectedColorChangedEvent =
+            EventManager.RegisterRoutedEvent("SelectedColorChanged", RoutingStrategy.Bubble,
                 typeof(EventHandler<FunctionEventArgs<Color>>), typeof(ColorPicker));
 
         /// <summary>
         ///     颜色改变事件
         /// </summary>
-        public event EventHandler<FunctionEventArgs<Color>> ColorSelected
+        public event EventHandler<FunctionEventArgs<Color>> SelectedColorChanged
         {
-            add => AddHandler(ColorSelectedEvent, value);
-            remove => RemoveHandler(ColorSelectedEvent, value);
+            add => AddHandler(SelectedColorChangedEvent, value);
+            remove => RemoveHandler(SelectedColorChangedEvent, value);
         }
 
         /// <summary>
@@ -168,6 +199,46 @@ namespace HandyControl.Controls
             remove => RemoveHandler(CanceledEvent, value);
         }
 
+        #endregion Public Events
+
+        #region Properties
+
+        internal static readonly DependencyProperty ChannelAProperty = DependencyProperty.Register(
+            "ChannelA", typeof(int), typeof(ColorPicker), new PropertyMetadata(255));
+
+        internal int ChannelA
+        {
+            get => (int)GetValue(ChannelAProperty);
+            set => SetValue(ChannelAProperty, value);
+        }
+
+        internal static readonly DependencyProperty ChannelRProperty = DependencyProperty.Register(
+            "ChannelR", typeof(int), typeof(ColorPicker), new PropertyMetadata(255));
+
+        internal int ChannelR
+        {
+            get => (int)GetValue(ChannelRProperty);
+            set => SetValue(ChannelRProperty, value);
+        }
+
+        internal static readonly DependencyProperty ChannelGProperty = DependencyProperty.Register(
+            "ChannelG", typeof(int), typeof(ColorPicker), new PropertyMetadata(255));
+
+        internal int ChannelG
+        {
+            get => (int)GetValue(ChannelGProperty);
+            set => SetValue(ChannelGProperty, value);
+        }
+
+        internal static readonly DependencyProperty ChannelBProperty = DependencyProperty.Register(
+            "ChannelB", typeof(int), typeof(ColorPicker), new PropertyMetadata(255));
+
+        internal int ChannelB
+        {
+            get => (int)GetValue(ChannelBProperty);
+            set => SetValue(ChannelBProperty, value);
+        }
+
         public static readonly DependencyProperty SelectedBrushProperty = DependencyProperty.Register(
             "SelectedBrush", typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White,
                 (o, args) =>
@@ -175,15 +246,13 @@ namespace HandyControl.Controls
                     var ctl = (ColorPicker)o;
                     var v = (SolidColorBrush)args.NewValue;
 
-                    if (ctl.ChannelR == null) return;
-
                     if (ctl.IsNeedUpdateInfo)
                     {
                         ctl.IsNeedUpdateInfo = false;
-                        ctl.ChannelR.Value = v.Color.R;
-                        ctl.ChannelG.Value = v.Color.G;
-                        ctl.ChannelB.Value = v.Color.B;
-                        ctl.SliderOpacity.Value = v.Color.A;
+                        ctl.ChannelR = v.Color.R;
+                        ctl.ChannelG = v.Color.G;
+                        ctl.ChannelB = v.Color.B;
+                        ctl.ChannelA = v.Color.A;
                         ctl.IsNeedUpdateInfo = true;
                     }
                     ctl.UpdateStatus(v.Color);
@@ -199,35 +268,37 @@ namespace HandyControl.Controls
             set => SetValue(SelectedBrushProperty, value);
         }
 
-        private static readonly DependencyProperty SelectedBrushWithoutOpacityProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty SelectedBrushWithoutOpacityProperty = DependencyProperty.Register(
             "SelectedBrushWithoutOpacity", typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White));
 
-        private SolidColorBrush SelectedBrushWithoutOpacity
+        internal SolidColorBrush SelectedBrushWithoutOpacity
         {
             get => (SolidColorBrush)GetValue(SelectedBrushWithoutOpacityProperty);
             set => SetValue(SelectedBrushWithoutOpacityProperty, value);
         }
 
-        private static readonly DependencyProperty BackColorProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty BackColorProperty = DependencyProperty.Register(
             "BackColor", typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.Red));
 
-        private SolidColorBrush BackColor
+        internal SolidColorBrush BackColor
         {
             get => (SolidColorBrush)GetValue(BackColorProperty);
             set => SetValue(BackColorProperty, value);
         }
 
-        private static readonly DependencyProperty ShowListProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty ShowListProperty = DependencyProperty.Register(
             "ShowList", typeof(List<bool>), typeof(ColorPicker), new PropertyMetadata(new List<bool>
             {
                 true, false, false
             }));
 
-        private List<bool> ShowList
+        internal List<bool> ShowList
         {
             get => (List<bool>)GetValue(ShowListProperty);
             set => SetValue(ShowListProperty, value);
         }
+
+        #endregion Properties
 
         /// <summary>
         ///     当前显示的颜色类型
@@ -262,9 +333,9 @@ namespace HandyControl.Controls
 
         public ColorPicker()
         {
-            InitializeComponent();
-
-            UpdateStatus(SelectedBrush.Color);
+            CommandBindings.Add(new CommandBinding(ControlCommands.Confirm, ButtonConfirm_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Switch, ButtonSwitch_OnClick));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Cancel, ButtonCancel_OnClick));
 
             Loaded += (s, e) =>
             {
@@ -276,14 +347,62 @@ namespace HandyControl.Controls
             };
         }
 
+        public override void OnApplyTemplate()
+        {
+            if (_sliderColor != null)
+            {
+                _sliderColor.ValueChanged -= SliderColor_OnValueChanged;
+            }
+
+            if (_sliderOpacity != null)
+            {
+                _sliderOpacity.ValueChanged -= SliderOpacity_OnValueChanged;
+            }
+
+            _panelRgb?.RemoveHandler(NumericUpDown.ValueChangedEvent, new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
+
+            base.OnApplyTemplate();
+
+            _borderColor = GetTemplateChild(ElementBorderColor) as Border;
+            _borderDrag = GetTemplateChild(ElementBorderDrag) as Border;
+            _borderPicker = GetTemplateChild(ElementBorderPicker) as Border;
+            _panelColor = GetTemplateChild(ElementPanelColor) as Panel;
+            _sliderColor = GetTemplateChild(ElementSliderColor) as Slider;
+            _sliderOpacity = GetTemplateChild(ElementSliderOpacity) as Slider;
+            _panelRgb = GetTemplateChild(ElementPanelRgb) as Panel;
+
+            if (_sliderColor != null)
+            {
+                _sliderColor.ValueChanged += SliderColor_OnValueChanged;
+            }
+
+            if (_sliderOpacity != null)
+            {
+                _sliderOpacity.ValueChanged += SliderOpacity_OnValueChanged;
+            }
+
+            if (_borderDrag != null)
+            {
+                var behavior = new MouseDragElementBehavior();
+                behavior.DragFinished += MouseDragElementBehavior_OnDragFinished;
+                behavior.DragBegun += MouseDragElementBehavior_OnDragging;
+                behavior.Dragging += MouseDragElementBehavior_OnDragging;
+                var collection = Interaction.GetBehaviors(_borderDrag);
+                collection.Add(behavior);
+            }
+
+            _panelRgb?.AddHandler(NumericUpDown.ValueChangedEvent, new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
+        }
+
         /// <summary>
         ///     初始化
         /// </summary>
         private void Init()
         {
+            UpdateStatus(SelectedBrush.Color);
             foreach (var item in _colorPresetList)
             {
-                PanelColor.Children.Add(CreateColorButton(item));
+                _panelColor.Children.Add(CreateColorButton(item));
             }
         }
 
@@ -317,7 +436,7 @@ namespace HandyControl.Controls
             button.Click += (s, e) =>
             {
                 SelectedBrush = brush;
-                SliderOpacity.Value = SliderOpacity.Maximum;
+                ChannelA = byte.MaxValue;
             };
 
             return button;
@@ -349,9 +468,9 @@ namespace HandyControl.Controls
                 {
                     BackColor = Brushes.Red;
                     IsNeedUpdateInfo = false;
-                    if (!SliderColor.IsMouseOver && !SliderOpacity.IsMouseOver)
+                    if (!_sliderColor.IsMouseOver && !_sliderOpacity.IsMouseOver)
                     {
-                        SliderColor.Value = 0;
+                        _sliderColor.Value = 0;
                     }
                     IsNeedUpdateInfo = true;
                 }
@@ -365,9 +484,9 @@ namespace HandyControl.Controls
                 {
                     BackColor = Brushes.Red;
                     IsNeedUpdateInfo = false;
-                    if (!SliderColor.IsMouseOver && !SliderOpacity.IsMouseOver)
+                    if (!_sliderColor.IsMouseOver && !_sliderOpacity.IsMouseOver)
                     {
-                        SliderColor.Value = 0;
+                        _sliderColor.Value = 0;
                     }
                     IsNeedUpdateInfo = true;
                 }
@@ -415,20 +534,20 @@ namespace HandyControl.Controls
                     var scale = sub / 255.0;
                     var scaleTotal = cIndex - direc + scale;
                     IsNeedUpdateInfo = false;
-                    if (!SliderColor.IsMouseOver && !SliderOpacity.IsMouseOver)
+                    if (!_sliderColor.IsMouseOver && !_sliderOpacity.IsMouseOver)
                     {
-                        SliderColor.Value = scaleTotal;
+                        _sliderColor.Value = scaleTotal;
                     }
                     IsNeedUpdateInfo = true;
                 }
             }
 
-            var matrix = BorderPicker.RenderTransform.Value;
+            var matrix = _borderPicker.RenderTransform.Value;
             var x = max == 0 ? 0 : (1 - min / (double)max) * ColorPanelWidth;
             var y = (1 - max / 255.0) * ColorPanelHeight;
             if (_isNeedUpdatePicker)
             {
-                BorderPicker.RenderTransform = new MatrixTransform(matrix.M11, matrix.M12, matrix.M21, matrix.M22, x, y);
+                _borderPicker.RenderTransform = new MatrixTransform(matrix.M11, matrix.M12, matrix.M21, matrix.M22, x, y);
             }
         }
 
@@ -441,7 +560,7 @@ namespace HandyControl.Controls
 
             var color = range.GetColor(sub);
             BackColor = new SolidColorBrush(color);
-            var matrix = BorderPicker.RenderTransform.Value;
+            var matrix = _borderPicker.RenderTransform.Value;
             _isNeedUpdatePicker = false;
             UpdateColorWhenDrag(new Point(matrix.OffsetX, matrix.OffsetY));
             _isNeedUpdatePicker = true;
@@ -451,12 +570,12 @@ namespace HandyControl.Controls
         {
             if (!_isLoaded || !IsNeedUpdateInfo) return;
             var color = SelectedBrush.Color;
-            SelectedBrush = new SolidColorBrush(Color.FromArgb((byte)SliderOpacity.Value, color.R, color.G, color.B));
+            SelectedBrush = new SolidColorBrush(Color.FromArgb((byte)_sliderOpacity.Value, color.R, color.G, color.B));
         }
 
         private void MouseDragElementBehavior_OnDragging(object sender, MouseEventArgs e)
         {
-            var p = e.GetPosition(BorderColor);
+            var p = e.GetPosition(_borderColor);
             _isOnDragging = true;
             UpdateColorWhenDrag(p);
             _isOnDragging = false;
@@ -467,7 +586,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void UpdateColorWhenDrag(Point p)
         {
-            var matrix = BorderPicker.RenderTransform.Value;
+            var matrix = _borderPicker.RenderTransform.Value;
 
             if (p.X < 0)
             {
@@ -489,7 +608,7 @@ namespace HandyControl.Controls
 
             if (_isNeedUpdatePicker)
             {
-                BorderPicker.RenderTransform = new MatrixTransform(matrix.M11, matrix.M12, matrix.M21, matrix.M22, p.X, p.Y);
+                _borderPicker.RenderTransform = new MatrixTransform(matrix.M11, matrix.M12, matrix.M21, matrix.M22, p.X, p.Y);
             }
 
             var scaleX = p.X / ColorPanelWidth;
@@ -502,15 +621,16 @@ namespace HandyControl.Controls
             var subG = colorYLeft.G - colorYRight.G;
             var subB = colorYLeft.B - colorYRight.B;
 
-            var color = Color.FromArgb((byte)SliderOpacity.Value, (byte)(colorYLeft.R - subR * scaleX),
+            var color = Color.FromArgb((byte)_sliderOpacity.Value, (byte)(colorYLeft.R - subR * scaleX),
                 (byte)(colorYLeft.G - subG * scaleX), (byte)(colorYLeft.B - subB * scaleX));
             SelectedBrush = new SolidColorBrush(color);
         }
 
-        private void MouseDragElementBehavior_OnDragFinished(object sender, MouseEventArgs e) => BorderDrag.RenderTransform = new MatrixTransform();
+        private void MouseDragElementBehavior_OnDragFinished(object sender, MouseEventArgs e) => _borderDrag.RenderTransform = new MatrixTransform();
 
         private void ButtonSwitch_OnClick(object sender, RoutedEventArgs e) => ColorType++;
 
+        // ReSharper disable once UnusedParameter.Local
         private void NumericUpDownRgb_OnValueChanged(object sender, FunctionEventArgs<double> e)
         {
             if (!_isLoaded || !IsNeedUpdateInfo) return;
@@ -542,8 +662,8 @@ namespace HandyControl.Controls
             }
         }
 
-        private void ButtonSure_OnClick(object sender, RoutedEventArgs e)
-            => RaiseEvent(new FunctionEventArgs<Color>(ColorSelectedEvent, this)
+        private void ButtonConfirm_OnClick(object sender, RoutedEventArgs e)
+            => RaiseEvent(new FunctionEventArgs<Color>(SelectedColorChangedEvent, this)
             {
                 Info = SelectedBrush.Color
             });

@@ -49,11 +49,9 @@
     <Compile Include="Controls\Growl.cs" />
     <Compile Include="Controls\NumericUpDown.cs" />
     <Compile Include="Controls\Pagination.cs" />
-    <Compile Include="Controls\Picker\ColorPicker.xaml.cs">
-      <DependentUpon>ColorPicker.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\Attach\IconElement.cs" />
     <Compile Include="Controls\CompareSlider.cs" />
+    <Compile Include="Controls\Picker\ColorPicker.cs" />
     <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
@@ -146,10 +144,6 @@
     <Compile Include="Tools\VisualStates.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Controls\Picker\ColorPicker.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Themes\Basic\Basic.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

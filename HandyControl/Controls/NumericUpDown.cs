@@ -46,7 +46,8 @@ namespace HandyControl.Controls
         {
             if (_textBox != null)
             {
-                _textBox.PreviewTextInput -= TextBoxValue_TextInput;
+                _textBox.TextChanged -= TextBox_TextChanged;
+                _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
             }
 
             base.OnApplyTemplate();
@@ -55,13 +56,27 @@ namespace HandyControl.Controls
 
             if (_textBox != null)
             {
-                _textBox.PreviewTextInput += TextBoxValue_TextInput;
-                _textBox.Text = Value.ToString($"#0.{new string('0', DecimalPlaces)}");
+                _textBox.TextChanged += TextBox_TextChanged;
+                _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
+                _textBox.Text = CurrentText;
             }
         }
 
-        private void TextBoxValue_TextInput(object sender, TextCompositionEventArgs e)
+        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.Up)
+            {
+                Value += Increment;
+            }
+            else if (e.Key == Key.Down)
+            {
+                Value -= Increment;
+            }
+        }
+
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (string.IsNullOrEmpty(_textBox.Text)) return;
             if (double.TryParse(_textBox.Text, out var value))
             {
                 Value = value;
@@ -69,8 +84,7 @@ namespace HandyControl.Controls
 
             if (_textBox != null)
             {
-                _textBox.Text = Value.ToString($"#0.{new string('0', DecimalPlaces)}");
-                _textBox.Select(_textBox.Text.Length, 0);
+                _textBox.Text = CurrentText;
             }
         }
 
@@ -84,6 +98,10 @@ namespace HandyControl.Controls
                 e.Handled = true;
             }
         }
+
+        private string CurrentText => DecimalPlaces.HasValue
+            ? Value.ToString($"#0.{new string('0', DecimalPlaces.Value)}")
+            : Value.ToString("#0");
 
         protected virtual void OnValueChanged(FunctionEventArgs<double> e) => RaiseEvent(e);
 
@@ -113,11 +131,14 @@ namespace HandyControl.Controls
         {
             var ctl = (NumericUpDown) d;
             var v = (double) e.NewValue;
+
             if (ctl._textBox != null)
             {
-                ctl._textBox.Text = v.ToString($"#0.{new string('0', ctl.DecimalPlaces)}");
-                ctl._textBox.Select(ctl._textBox.Text.Length, 0);
+                ctl._textBox.Text = ctl.DecimalPlaces.HasValue
+                    ? v.ToString($"#0.{new string('0', ctl.DecimalPlaces.Value)}")
+                    : v.ToString("#0");
             }
+
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
             {
                 Info = v
@@ -139,7 +160,14 @@ namespace HandyControl.Controls
             {
                 ctl.Value = maximum;
             }
-            return num > maximum ? maximum : basevalue;
+
+            var result = num > maximum ? maximum : num;
+            if (!ctl.DecimalPlaces.HasValue)
+            {
+                result = Math.Floor(result);
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -234,14 +262,14 @@ namespace HandyControl.Controls
         ///     指示要显示的小数位数
         /// </summary>
         public static readonly DependencyProperty DecimalPlacesProperty = DependencyProperty.Register(
-            "DecimalPlaces", typeof(int), typeof(NumericUpDown), new PropertyMetadata(default(int)));
+            "DecimalPlaces", typeof(int?), typeof(NumericUpDown), new PropertyMetadata(default(int?)));
 
         /// <summary>
         ///     指示要显示的小数位数
         /// </summary>
-        public int DecimalPlaces
+        public int? DecimalPlaces
         {
-            get => (int) GetValue(DecimalPlacesProperty);
+            get => (int?) GetValue(DecimalPlacesProperty);
             set => SetValue(DecimalPlacesProperty, value);
         }
 
