@@ -36,6 +36,8 @@
     <Compile Include="Controls\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Attach\BorderElement.cs" />
+    <Compile Include="Controls\Attach\DataGridAttach.cs" />
+    <Compile Include="Controls\Attach\EdgeElement.cs" />
     <Compile Include="Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="Controls\Attach\InfoElement.cs" />
     <Compile Include="Controls\Attach\PasswordBoxMonitor.cs" />
@@ -180,6 +182,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\CheckBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\DatePickerBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -272,6 +278,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\CheckBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Clock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -289,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ContextMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DataGrid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

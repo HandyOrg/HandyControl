@@ -2,10 +2,18 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              Background="White">
     <controls:TransitioningContentControl>
         <StackPanel Margin="32">
-            <controls:NumericUpDown x:Name="NumericUpDown" Width="240"/>
+            <controls:NumericUpDown x:Name="NumericUpDown"/>
+            <controls:NumericUpDown Margin="0,16,0,0" IsEnabled="False"/>
+
+            <controls:NumericUpDown controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" Style="{StaticResource NumericUpDownExtend}"/>
+            <controls:NumericUpDown controls:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,16,0,0" controls:InfoElement.Necessary="True" Style="{StaticResource NumericUpDownExtend}"/>
+            <controls:NumericUpDown Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.TitleAlignment="Left" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource NumericUpDownExtend}" Margin="0,32,0,0"/>
+            <controls:NumericUpDown Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" controls:InfoElement.TitleAlignment="Left" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource NumericUpDownExtend}" controls:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
         </StackPanel>
     </controls:TransitioningContentControl>
 </UserControl>

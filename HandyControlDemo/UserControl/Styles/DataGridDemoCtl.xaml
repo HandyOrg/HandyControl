@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.DataGridDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="White"
+             MaxWidth="800"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+    <controls:TransitioningContentControl>
+        <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
+            <DataGrid.RowHeaderTemplate>
+                <DataTemplate>
+                    <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGridRow}}"/>
+                </DataTemplate>
+            </DataGrid.RowHeaderTemplate>
+            <DataGrid.Columns>
+                <DataGridTextColumn IsReadOnly="True" Width="1*" Binding="{Binding Index}" Header="{x:Static langs:Lang.Index}"/>
+                <DataGridTextColumn Width="1*" Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
+                <DataGridCheckBoxColumn Width="1*" Binding="{Binding IsSelected}" Header="{x:Static langs:Lang.Selected}"/>
+                <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="1*" SelectedValueBinding="{Binding Type}" Header="{x:Static langs:Lang.Type}"/>
+                <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </controls:TransitioningContentControl>
+</UserControl>

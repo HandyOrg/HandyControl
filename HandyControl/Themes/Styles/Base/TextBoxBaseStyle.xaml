@@ -17,7 +17,7 @@
                     <Grid x:Name="WatermarkContent">
                         <Border x:Name="ContentElement"/>
                         <Border x:Name="watermark_decorator">
-                            <ContentControl TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="7,6" x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
+                            <ContentControl VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="7,6" x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
                         </Border>
                         <ScrollViewer x:Name="PART_ContentHost" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
@@ -36,7 +36,7 @@
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="AllowDrop" Value="true"/>
-        <Setter Property="Padding" Value="6"/>
+        <Setter Property="Padding" Value="5,6"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>

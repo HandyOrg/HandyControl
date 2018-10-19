@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shell;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
@@ -88,6 +90,15 @@ namespace HandyControl.Controls
 
         public WindowBorderless()
         {
+            var chrome = new WindowChrome
+            {
+                CornerRadius = new CornerRadius(),
+                GlassFrameThickness = new Thickness(1)
+            };
+            BindingOperations.SetBinding(chrome, WindowChrome.CaptionHeightProperty,
+                new Binding(NoUserAreaHeightProperty.Name) {Source = this});
+            WindowChrome.SetWindowChrome(this, chrome);
+
             Loaded += delegate
             {
                 _tempThickness = BorderThickness;

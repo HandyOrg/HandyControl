@@ -40,9 +40,9 @@
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
-                        <Button Width="50" Padding="16,8" Margin="5" controls:IconElement.Angle="45" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
-                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" controls:IconElement.Angle="45" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
-                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="Default（DeleteGeometry）Rotate 45°"/>
+                        <Button Width="50" Padding="16,8" Margin="5" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="Default（DeleteGeometry）"/>
                     </StackPanel>
                     <StackPanel>
                         <Button Content="{x:Static langs:Lang.Clock}" Margin="5" Style="{StaticResource ButtonPrimary}" controls:IconElement.Geometry="{StaticResource ClockGeometry}"/>

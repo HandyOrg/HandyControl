@@ -285,4 +285,43 @@
   <data name="NumericUpDown" xml:space="preserve">
     <value>NumericUpDown</value>
   </data>
+  <data name="DataGrid" xml:space="preserve">
+    <value>DataGrid</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="ListBox" xml:space="preserve">
+    <value>ListBox</value>
+  </data>
+  <data name="TreeView" xml:space="preserve">
+    <value>TreeView</value>
+  </data>
+  <data name="Border1" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="ScrollViewer" xml:space="preserve">
+    <value>ScrollViewer</value>
+  </data>
+  <data name="Window" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="RightClickHere" xml:space="preserve">
+    <value>Right click here </value>
+  </data>
 </root>

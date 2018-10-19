@@ -18,18 +18,5 @@ namespace HandyControl.Controls
         {
             return (Geometry)element.GetValue(GeometryProperty);
         }
-
-        public static readonly DependencyProperty AngleProperty = DependencyProperty.RegisterAttached(
-            "Angle", typeof(double), typeof(IconElement), new PropertyMetadata(default(double)));
-
-        public static void SetAngle(DependencyObject element, double value)
-        {
-            element.SetValue(AngleProperty, value);
-        }
-
-        public static double GetAngle(DependencyObject element)
-        {
-            return (double)element.GetValue(AngleProperty);
-        }
     }
 }

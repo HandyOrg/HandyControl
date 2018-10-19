@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
@@ -22,14 +23,55 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private object _subContent;
 
+        /// <summary>
+        ///     数据列表
+        /// </summary>
+        private List<DemoDataModel> _dataList;
+
         #endregion
 
         public MainViewModel()
         {
             Messenger.Default.Register<object>(this, MessageToken.LoadShowContent, obj => SubContent = obj);
+
+            var list = new List<DemoDataModel>();
+            for (var i = 1; i <= 6; i++)
+            {
+                var dataList = new List<DemoDataModel>();
+                for (int j = 0; j < 3; j++)
+                {
+                    dataList.Add(new DemoDataModel
+                    {
+                        Index = j,
+                        IsSelected = j % 2 == 0,
+                        Name = $"SubName{j}",
+                        Type = (DemoType)j
+                    });
+                }
+                var model = new DemoDataModel
+                {
+                    Index = i,
+                    IsSelected = i % 2 == 0,
+                    Name = $"Name{i}",
+                    Type = (DemoType)i,
+                    DataList = dataList
+                };
+                list.Add(model);
+            }
+
+            DataList = list;
         }
 
         #region 属性
+
+        /// <summary>
+        ///     数据列表
+        /// </summary>
+        public List<DemoDataModel> DataList
+        {
+            get => _dataList;
+            set => Set(ref _dataList, value);
+        }
 
         /// <summary>
         ///     子内容
@@ -74,6 +116,7 @@ namespace HandyControlDemo.ViewModel
             {
                 if (item.Tag is string tag)
                 {
+                    if (item.Content.Equals(ContentTitle)) return;
                     ContentTitle = item.Content;
                     Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{tag}"), MessageToken.LoadShowContent);
                 }

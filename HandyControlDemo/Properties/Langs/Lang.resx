@@ -265,4 +265,43 @@
   <data name="NumericUpDown" xml:space="preserve">
     <value>数值选择控件</value>
   </data>
+  <data name="DataGrid" xml:space="preserve">
+    <value>数据表格</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>索引</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>选中</value>
+  </data>
+  <data name="ListBox" xml:space="preserve">
+    <value>列表框</value>
+  </data>
+  <data name="TreeView" xml:space="preserve">
+    <value>树视图</value>
+  </data>
+  <data name="Border1" xml:space="preserve">
+    <value>边框</value>
+  </data>
+  <data name="ScrollViewer" xml:space="preserve">
+    <value>滚动视图</value>
+  </data>
+  <data name="Window" xml:space="preserve">
+    <value>窗口</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>菜单</value>
+  </data>
+  <data name="RightClickHere" xml:space="preserve">
+    <value>在这里右击</value>
+  </data>
 </root>

@@ -28,11 +28,6 @@
         <Setter Property="CloseButtonHoverForeground" Value="White"/>
         <Setter Property="OtherButtonHoverBrush" Value="{DynamicResource DarkPrimaryBrush}"/>
         <Setter Property="OtherButtonHoverForeground" Value="White"/>
-        <Setter Property="WindowChrome.WindowChrome">
-            <Setter.Value>
-                <WindowChrome CornerRadius="0" GlassFrameThickness="1" CaptionHeight="{Binding NoUserAreaHeight,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:WindowBorderless}}"/>
-            </Setter.Value>
-        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:WindowBorderless">

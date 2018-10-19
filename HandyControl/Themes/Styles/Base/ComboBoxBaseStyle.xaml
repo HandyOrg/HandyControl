@@ -276,7 +276,7 @@
                 </Border>
             </Popup>
             <ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <Border Grid.Column="0" x:Name="border" Background="Transparent" Margin="4,1">
+            <Border Grid.Column="0" x:Name="border" Background="Transparent" Margin="3,1">
                 <TextBox x:Name="PART_EditableTextBox" Background="Transparent" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="3,0" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
         </Grid>

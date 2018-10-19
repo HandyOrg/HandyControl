@@ -25,7 +25,7 @@
             </StackPanel>
             <Border x:Name="border" Grid.Row="1" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"/>
             <TextBlock VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="8" Grid.Row="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
-            <ScrollViewer Padding="7,0" Margin="0,1,0,2" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Grid.Row="1" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+            <ScrollViewer Padding="7,0" Margin="1,1,1,2" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Grid.Row="1" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
@@ -52,7 +52,7 @@
             </StackPanel>
             <Border x:Name="border" Grid.Column="1" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"/>
             <TextBlock VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="8,7,8,8" Grid.Column="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
-            <ScrollViewer Grid.Column="1" Padding="7,0" Margin="0,1,0,2" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+            <ScrollViewer Grid.Column="1" Padding="7,0" Margin="1,1,1,2" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">

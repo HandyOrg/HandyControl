@@ -13,6 +13,7 @@
                            Style="{StaticResource CustomWindowStyle}"
                            WindowState="Maximized"
                            Title="MainWindow" 
+                           ResizeMode="CanResizeWithGrip"
                            Name="MyWindow"
                            DataContext="{Binding Main,Source={StaticResource Locator}}"
                            d:DesignHeight="800" 

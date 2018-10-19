@@ -16,13 +16,7 @@
                         <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
                         <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
-                                <Path x:Name="PathMain" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}" RenderTransformOrigin="0.5,0.5">
-                                    <Path.RenderTransform>
-                                        <TransformGroup>
-                                            <RotateTransform Angle="{Binding Path=(controls:IconElement.Angle),RelativeSource={RelativeSource TemplatedParent}}"/>
-                                        </TransformGroup>
-                                    </Path.RenderTransform>
-                                </Path>
+                                <Path x:Name="PathMain" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
                                 <ContentPresenter x:Name="ContentPresenterMain" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             </StackPanel>
                         </Border>

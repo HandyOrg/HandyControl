@@ -30,6 +30,8 @@
 
         public static readonly string NumericUpDownDemoCtl = nameof(NumericUpDownDemoCtl);
 
+        public static readonly string WindowDemoCtl = nameof(WindowDemoCtl);
+
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -53,6 +55,18 @@
         public static readonly string PasswordBoxDemoCtl = nameof(PasswordBoxDemoCtl);
 
         public static readonly string NaiveTabControlDemoCtl = nameof(NaiveTabControlDemoCtl);
+
+        public static readonly string DataGridDemoCtl = nameof(DataGridDemoCtl);
+
+        public static readonly string CheckBoxDemoCtl = nameof(CheckBoxDemoCtl);
+
+        public static readonly string ListBoxDemoCtl = nameof(ListBoxDemoCtl);
+
+        public static readonly string MenuDemoCtl = nameof(MenuDemoCtl);
+
+        public static readonly string TreeViewDemoCtl = nameof(TreeViewDemoCtl);
+
+        public static readonly string BorderDemoCtl = nameof(BorderDemoCtl);
 
     	public static readonly string LoadShowContent = nameof(LoadShowContent);
 	}
