@@ -19,10 +19,10 @@ namespace HandyControlDemo.ViewModel
             new RelayCommand(() => Growl.Error(Properties.Langs.Lang.GrowlError))).Value;
 
         public RelayCommand AskCmd => new Lazy<RelayCommand>(() => 
-            new RelayCommand(() => Growl.Ask(Properties.Langs.Lang.GrowlAsk, (closeAction, b) =>
+            new RelayCommand(() => Growl.Ask(Properties.Langs.Lang.GrowlAsk, isClosed =>
             {
-                Growl.Info(b.ToString());
-                closeAction?.Invoke();
+                Growl.Info(isClosed.ToString());
+                return true;
             }))).Value;
 
         public RelayCommand FatalCmd => new Lazy<RelayCommand>(() => 

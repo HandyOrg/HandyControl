@@ -105,7 +105,7 @@ namespace HandyControl.Controls
         /// </summary>
         private DispatcherTimer _timerClose;
 
-        private Action<Action, bool> CloseAction { get; set; }
+        private Func<bool, bool> ActionBeforeClose { get; set; }
 
         public string Message
         {
@@ -191,7 +191,7 @@ namespace HandyControl.Controls
 
         private void Update()
         {
-            if (CloseAction != null)
+            if (ActionBeforeClose != null)
             {
                 _staysOpen = true;
                 _showCloseButton = false;
@@ -211,7 +211,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     显示信息
         /// </summary>
-        private static void Show(string message, string iconKey, string iconBrushKey, Action<Action, bool> closeAction = null,
+        private static void Show(string message, string iconKey, string iconBrushKey, Func<bool, bool> actionBeforeClose = null,
             bool staysOpen = false, bool showCloseButton = true)
         {
             var ctl = new Growl
@@ -221,7 +221,7 @@ namespace HandyControl.Controls
                 Icon = ResourceHelper.GetResource<Geometry>(iconKey),
                 IconBrush = ResourceHelper.GetResource<Brush>(iconBrushKey),
                 _showCloseButton = showCloseButton,
-                CloseAction = closeAction,
+                ActionBeforeClose = actionBeforeClose,
                 _staysOpen = staysOpen
             };
             GrowlPanel.Children.Insert(0, ctl);
@@ -261,7 +261,7 @@ namespace HandyControl.Controls
             Show(message, "FatalGeometry", "PrimaryTextBrush", null, true, false);
         }
 
-        public static void Ask(string message, Action<Action, bool> closeAction) => Show(message, "AskGeometry", "AccentBrush", closeAction);
+        public static void Ask(string message, Func<bool, bool> actionBeforeClose) => Show(message, "AskGeometry", "AccentBrush", actionBeforeClose);
 
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close();
 
@@ -287,8 +287,20 @@ namespace HandyControl.Controls
             GrowlPanel.Show();
         }
 
-        private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => CloseAction?.Invoke(Close, false);
+        private void ButtonCancel_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ActionBeforeClose?.Invoke(false) == true)
+            {
+                Close();
+            }
+        }
 
-        private void ButtonOk_OnClick(object sender, RoutedEventArgs e) => CloseAction?.Invoke(Close, true);
+        private void ButtonOk_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (ActionBeforeClose?.Invoke(true) == true)
+            {
+                Close();
+            }
+        }
     }
 }

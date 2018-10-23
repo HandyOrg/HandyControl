@@ -7,6 +7,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
@@ -33,6 +34,22 @@ namespace HandyControl.Controls
         private const string ElementUniformGridMain = "PART_UniformGridMain";
 
         #endregion Constants
+
+        /// <summary>
+        ///     步骤改变事件
+        /// </summary>
+        public static readonly RoutedEvent StepChangedEvent =
+            EventManager.RegisterRoutedEvent("StepChanged", RoutingStrategy.Bubble,
+                typeof(EventHandler<FunctionEventArgs<int>>), typeof(StepBar));
+
+        /// <summary>
+        ///     步骤改变事件
+        /// </summary>
+        public event EventHandler<FunctionEventArgs<int>> StepChanged
+        {
+            add => AddHandler(StepChangedEvent, value);
+            remove => RemoveHandler(StepChangedEvent, value);
+        }
 
         public StepBar()
         {
@@ -106,6 +123,10 @@ namespace HandyControl.Controls
                 StepIndex = _panelMain.Children.Count - 1;
                 return;
             }
+            RaiseEvent(new FunctionEventArgs<int>(StepChangedEvent, this)
+            {
+                Info = StepIndex
+            });
             if (_panelMain.Children[StepIndex - 1] is StepItem stepItemFinished)
                 stepItemFinished.Status = true;
             if (_panelMain.Children[StepIndex] is StepItem stepItemSelected)
@@ -121,6 +142,10 @@ namespace HandyControl.Controls
                 StepIndex = 0;
                 return;
             }
+            RaiseEvent(new FunctionEventArgs<int>(StepChangedEvent, this)
+            {
+                Info = StepIndex
+            });
             if (_panelMain.Children[StepIndex + 1] is StepItem stepItemFinished)
                 stepItemFinished.Status = null;
             if (_panelMain.Children[StepIndex] is StepItem stepItemSelected)

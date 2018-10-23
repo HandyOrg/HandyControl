@@ -8,7 +8,10 @@
     <Style x:Key="PathBaseStyle" TargetType="{x:Type Path}">
         <Setter Property="Stretch" Value="Uniform"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="FlowDirection" Value="LeftToRight"/>
     </Style>
+
+    <Style BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}"/>
 
     <!--搜索-->
     <Style x:Key="SearchPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="{x:Type Path}">
