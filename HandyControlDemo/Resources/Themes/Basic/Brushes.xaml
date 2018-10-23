@@ -20,6 +20,16 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
+    <LinearGradientBrush x:Key="MenuButtonBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="White" Offset="0"/>
+        <GradientStop Color="#F2F2F2" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="ToolBarBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop Color="#F5F4F5" Offset="0"/>
+        <GradientStop Color="#D1CFD1" Offset="1"/>
+    </LinearGradientBrush>
+
     <SolidColorBrush x:Key="MainBackgroundBrush" Color="{StaticResource MainBackgroundColor}"/>
 
 </ResourceDictionary>

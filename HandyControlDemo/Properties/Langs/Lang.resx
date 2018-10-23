@@ -304,4 +304,22 @@
   <data name="RightClickHere" xml:space="preserve">
     <value>在这里右击</value>
   </data>
+  <data name="RadioButton" xml:space="preserve">
+    <value>单选按钮</value>
+  </data>
+  <data name="OpenMessageWindow" xml:space="preserve">
+    <value>点击打开消息窗口</value>
+  </data>
+  <data name="OpenCommonWindow" xml:space="preserve">
+    <value>点击打开常规窗口</value>
+  </data>
+  <data name="OpenCustomNonClientAreaWindow" xml:space="preserve">
+    <value>点击打开自定义非客户端区域窗口</value>
+  </data>
+  <data name="OpenMouseFollowWindow" xml:space="preserve">
+    <value>点击打开鼠标跟随窗口</value>
+  </data>
+  <data name="OpenCustomContentWindow" xml:space="preserve">
+    <value>点击打开自定义内容窗口</value>
+  </data>
 </root>

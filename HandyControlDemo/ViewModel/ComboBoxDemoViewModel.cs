@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using GalaSoft.MvvmLight;
-using HandyControlDemo.Tools.Converter;
+using HandyControlDemo.Service;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -21,16 +20,6 @@ namespace HandyControlDemo.ViewModel
             set => Set(ref _dataList, value);
         }
 
-        public ComboBoxDemoViewModel()
-        {
-            var converter = new StringRepeatConverter();
-            var list = new List<string>();
-            for (var i = 1; i <= 9; i++)
-            {
-                list.Add(converter.Convert(Properties.Langs.Lang.Text, null, i, CultureInfo.CurrentCulture)?.ToString());
-            }
-
-            DataList = list;
-        }
+        public ComboBoxDemoViewModel(DataService dataService) => DataList = dataService.GetComboBoxDemoDataList();
     }
 }

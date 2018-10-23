@@ -18,7 +18,8 @@ var controlList = new List<string>
 	"TimePickerDemoCtl",
 	"CirclePanelDemoCtl",
 	"NumericUpDownDemoCtl",
-	"WindowDemoCtl"
+	"WindowDemoCtl",
+	"ScrollViewerDemoCtl"
 };
 var styleList = new List<string>
 {
@@ -39,7 +40,14 @@ var styleList = new List<string>
 	"ListBoxDemoCtl",
 	"MenuDemoCtl",
 	"TreeViewDemoCtl",
-	"BorderDemoCtl"
+	"BorderDemoCtl",
+	"RadioButtonDemoCtl",
+	"NaiveScrollViewerDemoCtl"
+};
+var windowList = new List<string>
+{
+	"CommonWindow",
+	"CustomNonClientAreaWindow"
 };
 #>
 namespace HandyControlDemo.Data
@@ -51,6 +59,10 @@ namespace HandyControlDemo.Data
 
     <#}#>
 <#foreach(var item in styleList){#>
+    public static readonly string <#=item#> = nameof(<#=item#>);
+
+    <#}#>
+<#foreach(var item in windowList){#>
     public static readonly string <#=item#> = nameof(<#=item#>);
 
     <#}#>

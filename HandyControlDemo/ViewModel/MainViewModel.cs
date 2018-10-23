@@ -5,6 +5,7 @@ using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControlDemo.Data;
+using HandyControlDemo.Service;
 using HandyControlDemo.Tools;
 
 namespace HandyControlDemo.ViewModel
@@ -28,38 +29,17 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private List<DemoDataModel> _dataList;
 
+        /// <summary>
+        ///     当前选中的列表项
+        /// </summary>
+        private ListBoxItem _listBoxItemCurrent;
+
         #endregion
 
-        public MainViewModel()
+        public MainViewModel(DataService dataService)
         {
             Messenger.Default.Register<object>(this, MessageToken.LoadShowContent, obj => SubContent = obj);
-
-            var list = new List<DemoDataModel>();
-            for (var i = 1; i <= 6; i++)
-            {
-                var dataList = new List<DemoDataModel>();
-                for (int j = 0; j < 3; j++)
-                {
-                    dataList.Add(new DemoDataModel
-                    {
-                        Index = j,
-                        IsSelected = j % 2 == 0,
-                        Name = $"SubName{j}",
-                        Type = (DemoType)j
-                    });
-                }
-                var model = new DemoDataModel
-                {
-                    Index = i,
-                    IsSelected = i % 2 == 0,
-                    Name = $"Name{i}",
-                    Type = (DemoType)i,
-                    DataList = dataList
-                };
-                list.Add(model);
-            }
-
-            DataList = list;
+            DataList = dataService.GetDemoDataList();
         }
 
         #region 属性
@@ -116,12 +96,14 @@ namespace HandyControlDemo.ViewModel
             {
                 if (item.Tag is string tag)
                 {
-                    if (item.Content.Equals(ContentTitle)) return;
+                    if (Equals(_listBoxItemCurrent, item)) return;
+                    _listBoxItemCurrent = item;
                     ContentTitle = item.Content;
                     Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{tag}"), MessageToken.LoadShowContent);
                 }
                 else
                 {
+                    _listBoxItemCurrent = null;
                     ContentTitle = null;
                     SubContent = null;
                 }

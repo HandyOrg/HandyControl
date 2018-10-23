@@ -49,6 +49,7 @@
     <Compile Include="Controls\Clock\Clock.cs" />
     <Compile Include="Controls\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Growl.cs" />
+    <Compile Include="Controls\ISingleOpen.cs" />
     <Compile Include="Controls\NumericUpDown.cs" />
     <Compile Include="Controls\Pagination.cs" />
     <Compile Include="Controls\Attach\IconElement.cs" />
@@ -58,6 +59,7 @@
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
+    <Compile Include="Tools\SingleOpenHelper.cs" />
     <Compile Include="Controls\Steps\StepBar.cs" />
     <Compile Include="Controls\Steps\StepItem.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs" />
@@ -191,6 +193,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\NumericUpDownBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\RadioButtonBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -339,6 +345,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\RadioButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

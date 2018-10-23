@@ -394,11 +394,56 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 点击打开常规窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenCommonWindow {
+            get {
+                return ResourceManager.GetString("OpenCommonWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开自定义内容窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenCustomContentWindow {
+            get {
+                return ResourceManager.GetString("OpenCustomContentWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开自定义非客户端区域窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenCustomNonClientAreaWindow {
+            get {
+                return ResourceManager.GetString("OpenCustomNonClientAreaWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 点击打开图片浏览器 的本地化字符串。
         /// </summary>
         public static string OpenImageBrowser {
             get {
                 return ResourceManager.GetString("OpenImageBrowser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开消息窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenMessageWindow {
+            get {
+                return ResourceManager.GetString("OpenMessageWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开鼠标跟随窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenMouseFollowWindow {
+            get {
+                return ResourceManager.GetString("OpenMouseFollowWindow", resourceCulture);
             }
         }
         
@@ -453,6 +498,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ProgressBar {
             get {
                 return ResourceManager.GetString("ProgressBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 单选按钮 的本地化字符串。
+        /// </summary>
+        public static string RadioButton {
+            get {
+                return ResourceManager.GetString("RadioButton", resourceCulture);
             }
         }
         

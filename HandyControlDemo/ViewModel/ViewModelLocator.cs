@@ -2,6 +2,7 @@
 using System.Windows;
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
+using HandyControlDemo.Service;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -11,10 +12,13 @@ namespace HandyControlDemo.ViewModel
         {
             ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
 
+            SimpleIoc.Default.Register<DataService>();
+
             SimpleIoc.Default.Register<MainViewModel>();
             SimpleIoc.Default.Register<GrowlDemoViewModel>();
             SimpleIoc.Default.Register<ImageBrowserDemoViewModel>();
             SimpleIoc.Default.Register<ComboBoxDemoViewModel>();
+            SimpleIoc.Default.Register<WindowDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -29,6 +33,8 @@ namespace HandyControlDemo.ViewModel
         public ImageBrowserDemoViewModel ImageBrowserDemo => ServiceLocator.Current.GetInstance<ImageBrowserDemoViewModel>();
 
         public ComboBoxDemoViewModel ComboBoxDemo => ServiceLocator.Current.GetInstance<ComboBoxDemoViewModel>();
+
+        public WindowDemoViewModel WindowDemo => ServiceLocator.Current.GetInstance<WindowDemoViewModel>();
 
         #endregion
     }

@@ -1,11 +1,9 @@
 ﻿/.vs
 /packages
-/HandyControl/bin/Debug
-/HandyControl/obj/Debug
-/HandyControl/bin/Release
-/HandyControl/obj/Release
-/HandyControlDemo/bin/Debug
-/HandyControlDemo/obj/Debug
-/HandyControlDemo/bin/Release
-/HandyControlDemo/obj/Release
+/HandyControl/bin
+/HandyControl/obj
+/HandyControlDemo/bin
+/HandyControlDemo/obj
+/DockContainerResearch/bin
+/DockContainerResearch/obj
 /HandyControl.sln.DotSettings.user

@@ -28,6 +28,10 @@ namespace HandyControl.Controls
 
         private TextBlock _titleBlock;
 
+        private bool _showBackground = true;
+
+        private FrameworkElement _targetElement;
+
         public override void OnApplyTemplate()
         {
             if (_titleBlock != null)
@@ -43,6 +47,11 @@ namespace HandyControl.Controls
             if (_titleBlock != null)
             {
                 _titleBlock.MouseLeftButtonDown += TitleBlock_OnMouseLeftButtonDown;
+            }
+
+            if (PopupElement != null)
+            {
+                _mainBorder.Child = PopupElement;
             }
         }
 
@@ -68,6 +77,16 @@ namespace HandyControl.Controls
                 if (!IsDialog)
                     Owner?.Focus();
             };
+            Loaded += (s, e) =>
+            {
+                if (!_showBackground)
+                {
+                    var point = ArithmeticHelper.CalSafePoint(_targetElement, PopupElement, BorderThickness);
+                    Left = point.X;
+                    Top = point.Y;
+                    Opacity = 1;
+                }
+            };
             try
             {
                 Owner = Application.Current.MainWindow;
@@ -82,17 +101,7 @@ namespace HandyControl.Controls
 
         private void CloseButton_OnClick(object sender, RoutedEventArgs e) => Close();
 
-        public UIElement Child
-        {
-            get => _mainBorder?.Child;
-            set
-            {
-                if (_mainBorder != null)
-                {
-                    _mainBorder.Child = value;
-                }
-            }
-        }
+        public FrameworkElement PopupElement { get; set; }
 
         public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
             "ShowTitle", typeof(bool), typeof(PopupWindow), new PropertyMetadata(true));
@@ -129,19 +138,37 @@ namespace HandyControl.Controls
             }
         }
 
-        public void Show(FrameworkElement element)
+        public void Show(FrameworkElement element, bool showBackground = true)
         {
-            var point = ArithmeticHelper.CalSafePoint(element, Child as FrameworkElement);
-            Left = point.X;
-            Top = point.Y;
+            if (!showBackground)
+            {
+                Opacity = 0;
+                AllowsTransparency = true;
+                WindowStyle = WindowStyle.None;
+                ShowTitle = false;
+                MinWidth = 0;
+                MinHeight = 0;
+            }
+
+            _showBackground = showBackground;
+            _targetElement = element;
             Show();
         }
 
-        public void ShowDialog(FrameworkElement element)
+        public void ShowDialog(FrameworkElement element, bool showBackground = true)
         {
-            var point = ArithmeticHelper.CalSafePoint(element, Child as FrameworkElement);
-            Left = point.X;
-            Top = point.Y;
+            if (!showBackground)
+            {
+                Opacity = 0;
+                AllowsTransparency = true;
+                WindowStyle = WindowStyle.None;
+                ShowTitle = false;
+                MinWidth = 0;
+                MinHeight = 0;
+            }
+
+            _showBackground = showBackground;
+            _targetElement = element;
             ShowDialog();
         }
 
@@ -159,7 +186,7 @@ namespace HandyControl.Controls
                 AllowsTransparency = true,
                 WindowStyle = WindowStyle.None,
                 ContentStr = message,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
             window.Background = window.FindResource("PrimaryBrush") as SolidColorBrush;
             window.Show();
@@ -202,7 +229,7 @@ namespace HandyControl.Controls
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
-            Child = null;
+            PopupElement = null;
         }
     }
 }

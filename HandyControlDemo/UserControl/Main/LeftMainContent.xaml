@@ -25,9 +25,19 @@
                         <Image Source="../../Resources/Img/Toggle_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Tag="{x:Static data:MessageToken.CheckBoxDemoCtl}" Content="{x:Static langs:Lang.CheckBox}">
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RadioButtonDemoCtl}" Content="{x:Static langs:Lang.RadioButton}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/RadioButton_16x.png" Stretch="Uniform"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CheckBoxDemoCtl}" Content="{x:Static langs:Lang.CheckBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/CheckBox_16x.png" Stretch="Uniform"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NaiveScrollViewerDemoCtl}" Content="{x:Static langs:Lang.ScrollViewer}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/ScrollBox_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.TextBlockDemoCtl}" Content="{x:Static langs:Lang.TextBlock}">
@@ -75,27 +85,27 @@
                         <Image Source="../../Resources/Img/TabPage_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.DataGridDemoCtl}" Content="{x:Static langs:Lang.DataGrid}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.DataGridDemoCtl}" Content="{x:Static langs:Lang.DataGrid}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/DataGrid_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.TreeViewDemoCtl}" Content="{x:Static langs:Lang.TreeView}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.TreeViewDemoCtl}" Content="{x:Static langs:Lang.TreeView}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/TreeView_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ListBoxDemoCtl}" Content="{x:Static langs:Lang.ListBox}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.ListBoxDemoCtl}" Content="{x:Static langs:Lang.ListBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/ListBox_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.MenuDemoCtl}" Content="{x:Static langs:Lang.Menu}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.MenuDemoCtl}" Content="{x:Static langs:Lang.Menu}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/ContextMenu_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.BorderDemoCtl}" Content="{x:Static langs:Lang.Border1}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.BorderDemoCtl}" Content="{x:Static langs:Lang.Border1}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/BorderElement_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
@@ -104,7 +114,7 @@
         </TabItem>
         <TabItem Header="{x:Static langs:Lang.Controls}">
             <ListBox BorderThickness="0" SelectionMode="Single">
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NumericUpDownDemoCtl}" Content="{x:Static langs:Lang.NumericUpDown}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.NumericUpDownDemoCtl}" Content="{x:Static langs:Lang.NumericUpDown}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/NumericListBox_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
@@ -179,7 +189,12 @@
                         <Image Source="../../Resources/Img/TabPage_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem IsEnabled="False" Tag="{x:Static data:MessageToken.WindowDemoCtl}" Content="{x:Static langs:Lang.Window}">
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ScrollViewerDemoCtl}" Content="{x:Static langs:Lang.ScrollViewer}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/ScrollBox_16x.png" Stretch="Uniform"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.WindowDemoCtl}" Content="{x:Static langs:Lang.Window}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/WindowsForm_16x.png" Stretch="Uniform"/>
                     </controls:EdgeElement.LeftContent>

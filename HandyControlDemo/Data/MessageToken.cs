@@ -32,6 +32,8 @@
 
         public static readonly string WindowDemoCtl = nameof(WindowDemoCtl);
 
+        public static readonly string ScrollViewerDemoCtl = nameof(ScrollViewerDemoCtl);
+
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -67,6 +69,14 @@
         public static readonly string TreeViewDemoCtl = nameof(TreeViewDemoCtl);
 
         public static readonly string BorderDemoCtl = nameof(BorderDemoCtl);
+
+        public static readonly string RadioButtonDemoCtl = nameof(RadioButtonDemoCtl);
+
+        public static readonly string NaiveScrollViewerDemoCtl = nameof(NaiveScrollViewerDemoCtl);
+
+        public static readonly string CommonWindow = nameof(CommonWindow);
+
+        public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);
 
     	public static readonly string LoadShowContent = nameof(LoadShowContent);
 	}

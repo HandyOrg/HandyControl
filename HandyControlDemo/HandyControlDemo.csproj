@@ -79,6 +79,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.en.resx</DependentUpon>
     </Compile>
+    <Compile Include="Service\DataService.cs" />
     <Compile Include="Tools\AssemblyHelper.cs" />
     <Compile Include="Tools\Converter\StringRepeatConverter.cs" />
     <Compile Include="UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
@@ -110,6 +111,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\NumericUpDownDemoCtl.xaml.cs">
       <DependentUpon>NumericUpDownDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
+      <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\StepBarDemoCtl.xaml.cs">
       <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
@@ -165,6 +169,9 @@
     <Compile Include="UserControl\Styles\MenuDemoCtl.xaml.cs">
       <DependentUpon>MenuDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Styles\NaiveScrollViewerDemoCtl.xaml.cs">
+      <DependentUpon>NaiveScrollViewerDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Styles\NaiveTabControlDemoCtl.xaml.cs">
       <DependentUpon>NaiveTabControlDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -176,6 +183,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\TabControlDemoCtl.xaml.cs">
       <DependentUpon>TabControlDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Styles\RadioButtonDemoCtl.xaml.cs">
+      <DependentUpon>RadioButtonDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\TextBlockDemoCtl.xaml.cs">
       <DependentUpon>TextBlockDemoCtl.xaml</DependentUpon>
@@ -194,6 +204,13 @@
     <Compile Include="ViewModel\ImageBrowserDemoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="ViewModel\WindowDemoViewModel.cs" />
+    <Compile Include="Window\CommonWindow.xaml.cs">
+      <DependentUpon>CommonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\CustomNonClientAreaWindow.xaml.cs">
+      <DependentUpon>CustomNonClientAreaWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -278,6 +295,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\ScrollViewerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\StepBarDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -350,6 +371,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Styles\NaiveScrollViewerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Styles\NaiveTabControlDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -366,6 +391,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Styles\RadioButtonDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Styles\TextBlockDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -379,6 +408,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Styles\TreeViewDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\CommonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\CustomNonClientAreaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -410,6 +447,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\RadioButton_16x.png" />
     <Resource Include="Resources\Img\BorderElement_16x.png" />
     <Resource Include="Resources\Img\ScrollBox_16x.png" />
     <Resource Include="Resources\Img\ContextMenu_16x.png" />

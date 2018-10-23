@@ -22,7 +22,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = ElementSliderColor, Type = typeof(Panel))]
     [TemplatePart(Name = ElementSliderOpacity, Type = typeof(Panel))]
     [TemplatePart(Name = ElementPanelRgb, Type = typeof(Panel))]
-    public class ColorPicker : Control
+    public class ColorPicker : Control, ISingleOpen
     {
         #region Constants
 
@@ -669,5 +669,9 @@ namespace HandyControl.Controls
             });
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(CanceledEvent));
+
+        public void Dispose() => Window.GetWindow(this)?.Close();
+
+        public bool CanDispose { get; } = true;
     }
 }

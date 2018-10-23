@@ -5,7 +5,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="6,0,0,0"/>
@@ -15,12 +15,12 @@
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="StoryboardCheckedTrue">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeDashOffset)" Storyboard.TargetName="path">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                         <Storyboard x:Key="StoryboardCheckedFalse">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeDashOffset)" Storyboard.TargetName="path">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="8"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="8"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>

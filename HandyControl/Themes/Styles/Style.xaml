@@ -21,6 +21,7 @@
         <ResourceDictionary Source="TextBox.xaml"/>
         <ResourceDictionary Source="ComboBox.xaml"/>
         <ResourceDictionary Source="CheckBox.xaml"/>
+        <ResourceDictionary Source="RadioButton.xaml"/>
         <ResourceDictionary Source="NumericUpDown.xaml"/>
         <ResourceDictionary Source="PasswordBox.xaml"/>
         <ResourceDictionary Source="Calendar.xaml"/>

@@ -16,8 +16,8 @@ namespace HandyControl.Controls
     {
         private Thickness _tempThickness;
 
-        public static readonly DependencyProperty NoUserContentProperty = DependencyProperty.Register(
-            "NoUserContent", typeof(object), typeof(WindowBorderless), new PropertyMetadata(default(object)));
+        public static readonly DependencyProperty NonClientAreaContentProperty = DependencyProperty.Register(
+            "NonClientAreaContent", typeof(object), typeof(WindowBorderless), new PropertyMetadata(default(object)));
 
         public static readonly DependencyProperty CloseButtonHoverBrushProperty = DependencyProperty.Register(
             "CloseButtonHoverBrush", typeof(Brush), typeof(WindowBorderless),
@@ -45,20 +45,20 @@ namespace HandyControl.Controls
                 "OtherButtonHoverForeground", typeof(Brush), typeof(WindowBorderless),
                 new PropertyMetadata(default(Brush)));
 
-        public static readonly DependencyProperty NoUserAreaBackgroundProperty = DependencyProperty.Register(
-            "NoUserAreaBackground", typeof(Brush), typeof(WindowBorderless),
+        public static readonly DependencyProperty NonClientAreaBackgroundProperty = DependencyProperty.Register(
+            "NonClientAreaBackground", typeof(Brush), typeof(WindowBorderless),
             new PropertyMetadata(default(Brush)));
 
-        public static readonly DependencyProperty NoUserAreaForegroundProperty = DependencyProperty.Register(
-            "NoUserAreaForeground", typeof(Brush), typeof(WindowBorderless),
+        public static readonly DependencyProperty NonClientAreaForegroundProperty = DependencyProperty.Register(
+            "NonClientAreaForeground", typeof(Brush), typeof(WindowBorderless),
             new PropertyMetadata(default(Brush)));
 
-        public static readonly DependencyProperty NoUserAreaHeightProperty = DependencyProperty.Register(
-            "NoUserAreaHeight", typeof(double), typeof(WindowBorderless),
+        public static readonly DependencyProperty NonClientAreaHeightProperty = DependencyProperty.Register(
+            "NonClientAreaHeight", typeof(double), typeof(WindowBorderless),
             new PropertyMetadata(28.0));
 
-        public static readonly DependencyProperty ShowNoUserAreaProperty = DependencyProperty.Register(
-            "ShowNoUserArea", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(true));
+        public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
+            "ShowNonClientArea", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(true));
 
         public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
             "ShowTitle", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(default(bool)));
@@ -96,7 +96,7 @@ namespace HandyControl.Controls
                 GlassFrameThickness = new Thickness(1)
             };
             BindingOperations.SetBinding(chrome, WindowChrome.CaptionHeightProperty,
-                new Binding(NoUserAreaHeightProperty.Name) {Source = this});
+                new Binding(NonClientAreaHeightProperty.Name) {Source = this});
             WindowChrome.SetWindowChrome(this, chrome);
 
             Loaded += delegate
@@ -169,10 +169,10 @@ namespace HandyControl.Controls
         /// </summary>
         private ResizeMode OriginResizeMode { get; set; }
 
-        public double NoUserAreaHeight
+        public double NonClientAreaHeight
         {
-            get => (double)GetValue(NoUserAreaHeightProperty);
-            set => SetValue(NoUserAreaHeightProperty, value);
+            get => (double)GetValue(NonClientAreaHeightProperty);
+            set => SetValue(NonClientAreaHeightProperty, value);
         }
 
         public bool IsFullScreen
@@ -181,10 +181,10 @@ namespace HandyControl.Controls
             set => SetValue(IsFullScreenProperty, value);
         }
 
-        public object NoUserContent
+        public object NonClientAreaContent
         {
-            get => GetValue(NoUserContentProperty);
-            set => SetValue(NoUserContentProperty, value);
+            get => GetValue(NonClientAreaContentProperty);
+            set => SetValue(NonClientAreaContentProperty, value);
         }
 
         public Brush CloseButtonHoverBrush
@@ -211,22 +211,22 @@ namespace HandyControl.Controls
             set => SetValue(OtherButtonHoverForegroundProperty, value);
         }
 
-        public Brush NoUserAreaBackground
+        public Brush NonClientAreaBackground
         {
-            get => (Brush)GetValue(NoUserAreaBackgroundProperty);
-            set => SetValue(NoUserAreaBackgroundProperty, value);
+            get => (Brush)GetValue(NonClientAreaBackgroundProperty);
+            set => SetValue(NonClientAreaBackgroundProperty, value);
         }
 
-        public Brush NoUserAreaForeground
+        public Brush NonClientAreaForeground
         {
-            get => (Brush)GetValue(NoUserAreaForegroundProperty);
-            set => SetValue(NoUserAreaForegroundProperty, value);
+            get => (Brush)GetValue(NonClientAreaForegroundProperty);
+            set => SetValue(NonClientAreaForegroundProperty, value);
         }
 
-        public bool ShowNoUserArea
+        public bool ShowNonClientArea
         {
-            get => (bool)GetValue(ShowNoUserAreaProperty);
-            set => SetValue(ShowNoUserAreaProperty, value);
+            get => (bool)GetValue(ShowNonClientAreaProperty);
+            set => SetValue(ShowNonClientAreaProperty, value);
         }
 
         public bool ShowTitle

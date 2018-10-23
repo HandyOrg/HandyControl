@@ -8,7 +8,7 @@
                            mc:Ignorable="d"
                            BorderThickness="1"
                            BorderBrush="#262e2f"
-                           NoUserAreaBackground="#262e2f"
+                           NonClientAreaBackground="#262e2f"
                            OtherButtonHoverBrush="#888580"
                            Style="{StaticResource CustomWindowStyle}"
                            WindowState="Maximized"
@@ -18,9 +18,9 @@
                            DataContext="{Binding Main,Source={StaticResource Locator}}"
                            d:DesignHeight="800" 
                            d:DesignWidth="1400">
-    <controls:WindowBorderless.NoUserContent>
+    <controls:WindowBorderless.NonClientAreaContent>
         <userControl:NoUserContent/>
-    </controls:WindowBorderless.NoUserContent>
+    </controls:WindowBorderless.NonClientAreaContent>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"/>
