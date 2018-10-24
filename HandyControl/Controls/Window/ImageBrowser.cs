@@ -534,8 +534,6 @@ namespace HandyControl.Controls
             }
         }
 
-        //private void ButtonScreenChange_OnClick(object sender, RoutedEventArgs e) => WindowState = IsFullScreen ? WindowState.Maximized : WindowState.Normal;
-
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close();
 
         private void GridTop_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

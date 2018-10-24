@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
@@ -261,37 +262,37 @@ namespace HandyControl.Controls
             _buttonRight.IsEnabled = PageIndex < MaxPageCount;
             if (MaxPageInterval == 0)
             {
-                _buttonFirst.Visibility = Visibility.Collapsed;
-                _buttonLast.Visibility = Visibility.Collapsed;
-                _textBlockLeft.Visibility = Visibility.Collapsed;
-                _textBlockRight.Visibility = Visibility.Collapsed;
+                _buttonFirst.Collapse();
+                _buttonLast.Collapse();
+                _textBlockLeft.Collapse();
+                _textBlockRight.Collapse();
                 _panelMain.Children.Clear();
                 var selectButton = CreateButton(PageIndex);
                 _panelMain.Children.Add(selectButton);
                 selectButton.IsChecked = true;
                 return;
             }
-            _buttonFirst.Visibility = Visibility.Visible;
-            _buttonLast.Visibility = Visibility.Visible;
-            _textBlockLeft.Visibility = Visibility.Visible;
-            _textBlockRight.Visibility = Visibility.Visible;
+            _buttonFirst.Show();
+            _buttonLast.Show();
+            _textBlockLeft.Show();
+            _textBlockRight.Show();
 
             //更新最后一页
             if (MaxPageCount == 1)
             {
-                _buttonLast.Visibility = Visibility.Collapsed;
+                _buttonLast.Collapse();
             }
             else
             {
-                _buttonLast.Visibility = Visibility.Visible;
+                _buttonLast.Show();
                 _buttonLast.Tag = MaxPageCount.ToString();
             }
 
             //更新省略号
             var right = MaxPageCount - PageIndex;
             var left = PageIndex - 1;
-            _textBlockRight.Visibility = right > MaxPageInterval ? Visibility.Visible : Visibility.Collapsed;
-            _textBlockLeft.Visibility = left > MaxPageInterval ? Visibility.Visible : Visibility.Collapsed;
+            _textBlockRight.Show(right > MaxPageInterval);
+            _textBlockLeft.Show(left > MaxPageInterval);
 
             //更新中间部分
             _panelMain.Children.Clear();
@@ -344,7 +345,7 @@ namespace HandyControl.Controls
         {
             return new RadioButton
             {
-                Style = FindResource("PaginationButtonStyle") as Style,
+                Style = ResourceHelper.GetResource<Style>(ResourceToken.PaginationButtonStyle),
                 Tag = page.ToString()
             };
         }

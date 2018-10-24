@@ -5,6 +5,8 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shell;
+using HandyControl.Data;
+using HandyControl.Tools;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
@@ -258,14 +260,14 @@ namespace HandyControl.Controls
         {
             var window = new WindowBorderless
             {
-                Style = Application.Current.TryFindResource("CustomWindowStyle") as Style,
+                Style = ResourceHelper.GetResource<Style>(ResourceToken.CustomWindowStyle),
                 Content = content
             };
             window.Loaded += (s, e) =>
             {
                 window.Width = window.BorderThickness.Left + window.BorderThickness.Right + content.Width;
                 if (!(window.Template.FindName("GridMenu", window) is Grid nemuArea))
-                    throw new NullReferenceException("在样式中未找到名称为GridMenu的元素");
+                    throw new NullReferenceException("can not find GridMenu in template");
                 window.Height = window.BorderThickness.Top + window.BorderThickness.Bottom + content.Height +
                                 nemuArea.ActualHeight;
             };

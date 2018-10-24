@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControl", "HandyContro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo", "HandyControlDemo\HandyControlDemo.csproj", "{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockBoxResearch", "DockContainerResearch\DockBoxResearch.csproj", "{8A444D0A-E3DD-446F-95C4-0A132179D20F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockBoxResearch", "DockBoxResearch\DockBoxResearch.csproj", "{8A444D0A-E3DD-446F-95C4-0A132179D20F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

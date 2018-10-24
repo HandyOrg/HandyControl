@@ -10,6 +10,7 @@ using System.Windows.Input;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Threading;
+using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
@@ -268,7 +269,7 @@ namespace HandyControl.Controls
         {
             var button = new Button
             {
-                Style = TryFindResource("ButtonCustom") as Style,
+                Style = ResourceHelper.GetResource<Style>(ResourceToken.ButtonCustom),
                 Content = new Border
                 {
                     Width = 10,
@@ -277,7 +278,7 @@ namespace HandyControl.Controls
                     Background = Brushes.White,
                     Margin = new Thickness(5, 0, 5, 0),
                     BorderThickness = new Thickness(1),
-                    BorderBrush = TryFindResource("PrimaryBrush") as Brush
+                    BorderBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush)
                 }
             };
             return button;
@@ -289,7 +290,7 @@ namespace HandyControl.Controls
                 borderOri.Background = Brushes.White;
             _selectedButton = e.OriginalSource as Button;
             if (_selectedButton != null && _selectedButton.Content is Border border)
-                border.Background = TryFindResource("PrimaryBrush") as Brush;
+                border.Background = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush);
             var index = _panelPage.Children.IndexOf(_selectedButton);
             if (index != -1)
                 PageIndex = index;

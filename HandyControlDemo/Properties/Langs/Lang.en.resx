@@ -342,4 +342,7 @@
   <data name="OpenCustomContentWindow" xml:space="preserve">
     <value>open custom content window</value>
   </data>
+  <data name="Ignore" xml:space="preserve">
+    <value>Ignore</value>
+  </data>
 </root>

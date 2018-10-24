@@ -6,6 +6,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
+using HandyControl.Data;
+using HandyControl.Data.Enum;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
@@ -78,18 +80,6 @@ namespace HandyControl.Controls
         /// </summary>
         private const int MaxTickCount = 6;
 
-        public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
-            "Message", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
-
-        public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
-            "Time", typeof(DateTime), typeof(Growl), new PropertyMetadata(default(DateTime)));
-
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-            "Icon", typeof(Geometry), typeof(Growl), new PropertyMetadata(default(Geometry)));
-
-        public static readonly DependencyProperty IconBrushProperty = DependencyProperty.Register(
-            "IconBrush", typeof(Brush), typeof(Growl), new PropertyMetadata(default(Brush)));
-
         /// <summary>
         ///     消息容器
         /// </summary>
@@ -106,6 +96,54 @@ namespace HandyControl.Controls
         private DispatcherTimer _timerClose;
 
         private Func<bool, bool> ActionBeforeClose { get; set; }
+
+        internal static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
+            "CancelStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+
+        internal static readonly DependencyProperty ConfirmStrProperty = DependencyProperty.Register(
+            "ConfirmStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+
+        public static readonly DependencyProperty ShowDateTimeProperty = DependencyProperty.Register(
+            "ShowDateTime", typeof(bool), typeof(Growl), new PropertyMetadata(true));
+
+        public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
+            "Message", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+
+        public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
+            "Time", typeof(DateTime), typeof(Growl), new PropertyMetadata(default(DateTime)));
+
+        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
+            "Icon", typeof(Geometry), typeof(Growl), new PropertyMetadata(default(Geometry)));
+
+        public static readonly DependencyProperty IconBrushProperty = DependencyProperty.Register(
+            "IconBrush", typeof(Brush), typeof(Growl), new PropertyMetadata(default(Brush)));
+
+        public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
+            "Type", typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
+
+        public InfoType Type
+        {
+            get => (InfoType) GetValue(TypeProperty);
+            set => SetValue(TypeProperty, value);
+        }
+
+        internal string CancelStr
+        {
+            get => (string)GetValue(CancelStrProperty);
+            set => SetValue(CancelStrProperty, value);
+        }
+
+        internal string ConfirmStr
+        {
+            get => (string)GetValue(ConfirmStrProperty);
+            set => SetValue(ConfirmStrProperty, value);
+        }
+
+        public bool ShowDateTime
+        {
+            get => (bool)GetValue(ShowDateTimeProperty);
+            set => SetValue(ShowDateTimeProperty, value);
+        }
 
         public string Message
         {
@@ -211,18 +249,22 @@ namespace HandyControl.Controls
         /// <summary>
         ///     显示信息
         /// </summary>
-        private static void Show(string message, string iconKey, string iconBrushKey, Func<bool, bool> actionBeforeClose = null,
-            bool staysOpen = false, bool showCloseButton = true)
+        /// <param name="growlInfo"></param>
+        private static void Show(GrowlInfo growlInfo)
         {
             var ctl = new Growl
             {
-                Message = message,
+                Message = growlInfo.Message,
                 Time = DateTime.Now,
-                Icon = ResourceHelper.GetResource<Geometry>(iconKey),
-                IconBrush = ResourceHelper.GetResource<Brush>(iconBrushKey),
-                _showCloseButton = showCloseButton,
-                ActionBeforeClose = actionBeforeClose,
-                _staysOpen = staysOpen
+                Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
+                IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                _showCloseButton = growlInfo.ShowCloseButton,
+                ActionBeforeClose = growlInfo.ActionBeforeClose,
+                _staysOpen = growlInfo.StaysOpen,
+                ShowDateTime = growlInfo.ShowDateTime,
+                ConfirmStr = growlInfo.ConfirmStr,
+                CancelStr = growlInfo.CancelStr,
+                Type = growlInfo.Type
             };
             GrowlPanel.Children.Insert(0, ctl);
         }
@@ -230,38 +272,141 @@ namespace HandyControl.Controls
         /// <summary>
         ///     成功
         /// </summary>
-        public static void Success(string message) => Show(message, "SuccessGeometry", "SuccessBrush");
+        /// <param name="message"></param>
+        public static void Success(string message) => Success(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     成功
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void Success(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new NullReferenceException("growlInfo is null");
+            growlInfo.IconKey = ResourceToken.SuccessGeometry;
+            growlInfo.IconBrushKey = ResourceToken.SuccessBrush;
+            growlInfo.Type = InfoType.Success;
+            Show(growlInfo);
+        }
 
         /// <summary>
         ///     消息
         /// </summary>
-        public static void Info(string message) => Show(message, "InfoGeometry", "InfoBrush");
+        /// <param name="message"></param>
+        public static void Info(string message) => Info(new GrowlInfo
+        {
+            Message = message
+        });
 
         /// <summary>
-        ///     错误
+        ///     消息
         /// </summary>
-        public static void Error(string message) => Show(message, "ErrorGeometry", "DangerBrush", null, true);
+        /// <param name="growlInfo"></param>
+        public static void Info(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new NullReferenceException("growlInfo is null");
+            growlInfo.IconKey = ResourceToken.InfoGeometry;
+            growlInfo.IconBrushKey = ResourceToken.InfoBrush;
+            growlInfo.Type = InfoType.Info;
+            Show(growlInfo);
+        }
 
         /// <summary>
         ///     警告
         /// </summary>
-        public static void Warning(string message) => Show(message, "WarningGeometry", "WarningBrush");
+        /// <param name="message"></param>
+        public static void Warning(string message) => Warning(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     警告
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void Warning(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new NullReferenceException("growlInfo is null");
+            growlInfo.IconKey = ResourceToken.WarningGeometry;
+            growlInfo.IconBrushKey = ResourceToken.WarningBrush;
+            growlInfo.Type = InfoType.Warning;
+            Show(growlInfo);
+        }
+
+        /// <summary>
+        ///     错误
+        /// </summary>
+        /// <param name="message"></param>
+        public static void Error(string message) => Error(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     错误
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void Error(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new NullReferenceException("growlInfo is null");
+            growlInfo.IconKey = ResourceToken.ErrorGeometry;
+            growlInfo.IconBrushKey = ResourceToken.DangerBrush;
+            growlInfo.StaysOpen = true;
+            growlInfo.Type = InfoType.Error;
+            Show(growlInfo);
+        }
 
         /// <summary>
         ///     严重
         /// </summary>
         /// <param name="message"></param>
-        /// <param name="showContextMenu"></param>
-        public static void Fatal(string message, bool showContextMenu = true)
+        public static void Fatal(string message) => Fatal(new GrowlInfo
         {
-            if (!showContextMenu)
-            {
-                GrowlPanel.ContextMenu.Collapse();
-            }
-            Show(message, "FatalGeometry", "PrimaryTextBrush", null, true, false);
+            Message = message
+        });
+
+        /// <summary>
+        ///     严重
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void Fatal(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new NullReferenceException("growlInfo is null");
+            growlInfo.IconKey = ResourceToken.FatalGeometry;
+            growlInfo.IconBrushKey = ResourceToken.PrimaryTextBrush;
+            growlInfo.StaysOpen = true;
+            growlInfo.ShowCloseButton = false;
+            growlInfo.Type = InfoType.Fatal;
+            // ReSharper disable once PossibleNullReferenceException
+            GrowlPanel.ContextMenu.Opacity = 0;
+            Show(growlInfo);
         }
 
-        public static void Ask(string message, Func<bool, bool> actionBeforeClose) => Show(message, "AskGeometry", "AccentBrush", actionBeforeClose);
+        /// <summary>
+        ///     询问
+        /// </summary>
+        /// <param name="message"></param>
+        public static void Ask(string message) => Ask(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     询问
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void Ask(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new NullReferenceException("growlInfo is null");
+            growlInfo.IconKey = ResourceToken.AskGeometry;
+            growlInfo.IconBrushKey = ResourceToken.AccentBrush;
+            growlInfo.StaysOpen = true;
+            growlInfo.ShowCloseButton = false;
+            growlInfo.Type = InfoType.Ask;
+            Show(growlInfo);
+        }
 
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close();
 
@@ -284,7 +429,11 @@ namespace HandyControl.Controls
         public static void Clear()
         {
             GrowlPanel.Children.Clear();
-            GrowlPanel.Show();
+            if (GrowlPanel.ContextMenu != null)
+            {
+                GrowlPanel.ContextMenu.IsOpen = false;
+                GrowlPanel.ContextMenu.Opacity = 1;
+            }
         }
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e)

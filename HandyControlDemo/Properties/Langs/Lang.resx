@@ -322,4 +322,7 @@
   <data name="OpenCustomContentWindow" xml:space="preserve">
     <value>点击打开自定义内容窗口</value>
   </data>
+  <data name="Ignore" xml:space="preserve">
+    <value>忽略</value>
+  </data>
 </root>

@@ -313,6 +313,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 忽略 的本地化字符串。
+        /// </summary>
+        public static string Ignore {
+            get {
+                return ResourceManager.GetString("Ignore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 图片浏览器 的本地化字符串。
         /// </summary>
         public static string ImageBrowser {

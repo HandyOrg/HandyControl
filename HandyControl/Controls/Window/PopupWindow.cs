@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
@@ -188,7 +189,7 @@ namespace HandyControl.Controls
                 ContentStr = message,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen
             };
-            window.Background = window.FindResource("PrimaryBrush") as SolidColorBrush;
+            window.Background = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush);
             window.Show();
         }
 

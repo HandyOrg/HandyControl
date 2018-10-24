@@ -1,6 +1,7 @@
 ﻿using System;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
+using HandyControl.Data;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -13,20 +14,37 @@ namespace HandyControlDemo.ViewModel
             new RelayCommand(() => Growl.Success(Properties.Langs.Lang.GrowlSuccess))).Value;
 
         public RelayCommand WarningCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => Growl.Warning(Properties.Langs.Lang.GrowlWarning))).Value;
+            new RelayCommand(() => Growl.Warning(new GrowlInfo
+            {
+                Message = Properties.Langs.Lang.GrowlWarning,
+                CancelStr = Properties.Langs.Lang.Ignore,
+                ActionBeforeClose = isConfirmed =>
+                {
+                    Growl.Info(isConfirmed.ToString());
+                    return true;
+                }
+            }))).Value;
 
         public RelayCommand ErrorCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(() => Growl.Error(Properties.Langs.Lang.GrowlError))).Value;
 
         public RelayCommand AskCmd => new Lazy<RelayCommand>(() => 
-            new RelayCommand(() => Growl.Ask(Properties.Langs.Lang.GrowlAsk, isClosed =>
+            new RelayCommand(() => Growl.Ask(new GrowlInfo
             {
-                Growl.Info(isClosed.ToString());
-                return true;
+                Message = Properties.Langs.Lang.GrowlAsk,
+                ActionBeforeClose = isConfirmed =>
+                {
+                    Growl.Info(isConfirmed.ToString());
+                    return true;
+                }
             }))).Value;
 
         public RelayCommand FatalCmd => new Lazy<RelayCommand>(() => 
-            new RelayCommand(() => Growl.Fatal(Properties.Langs.Lang.GrowlFatal))).Value;
+            new RelayCommand(() => Growl.Fatal(new GrowlInfo
+            {
+                Message = Properties.Langs.Lang.GrowlFatal,
+                ShowDateTime = false
+            }))).Value;
 
         public RelayCommand ClearCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(Growl.Clear)).Value;

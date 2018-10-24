@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Tools;
 
 // ReSharper disable once CheckNamespace
@@ -54,15 +55,15 @@ namespace HandyControl.Controls
         {
             if (Status == true)
             {
-                Foreground = ResourceHelper.GetResource<Brush>("PrimaryTextBrush");
+                Foreground = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
             }
             else if (Status == false)
             {
-                Foreground = ResourceHelper.GetResource<Brush>("PrimaryBrush");
+                Foreground = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush);
             }
             else
             {
-                Foreground = ResourceHelper.GetResource<Brush>("ThirdlyTextBrush");
+                Foreground = ResourceHelper.GetResource<Brush>(ResourceToken.ThirdlyTextBrush);
             }
         }
     }
