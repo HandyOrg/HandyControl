@@ -100,8 +100,8 @@
                         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonCustom"/>
                     </StackPanel>
                     <StackPanel>
-                        <ToggleButton Height="30" IsChecked="True" Margin="5" Style="{StaticResource ToggleButtonSwitch}"/>
-                        <ToggleButton IsEnabled="False" Height="30" IsChecked="True" Margin="5" Style="{StaticResource ToggleButtonSwitch}"/>
+                        <ToggleButton IsChecked="True" Margin="5,9" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}"/>
+                        <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,9" Style="{StaticResource ToggleButtonSwitch}"/>
                         <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSwitch"/>
                     </StackPanel>
                 </WrapPanel>
