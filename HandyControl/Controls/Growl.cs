@@ -388,9 +388,11 @@ namespace HandyControl.Controls
         ///     询问
         /// </summary>
         /// <param name="message"></param>
-        public static void Ask(string message) => Ask(new GrowlInfo
+        /// <param name="actionBeforeClose"></param>
+        public static void Ask(string message, Func<bool, bool> actionBeforeClose) => Ask(new GrowlInfo
         {
-            Message = message
+            Message = message,
+            ActionBeforeClose = actionBeforeClose
         });
 
         /// <summary>

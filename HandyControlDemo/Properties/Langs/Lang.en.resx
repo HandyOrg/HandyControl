@@ -345,4 +345,19 @@
   <data name="Ignore" xml:space="preserve">
     <value>Ignore</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Ask" xml:space="preserve">
+    <value>Ask</value>
+  </data>
+  <data name="Fatal" xml:space="preserve">
+    <value>Fatal</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ChangeLangAsk" xml:space="preserve">
+    <value>Whether to restart to change the language?</value>
+  </data>
 </root>

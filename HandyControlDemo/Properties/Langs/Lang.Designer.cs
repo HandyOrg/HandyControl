@@ -70,6 +70,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 询问 的本地化字符串。
+        /// </summary>
+        public static string Ask {
+            get {
+                return ResourceManager.GetString("Ask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 填写基本信息 的本地化字符串。
         /// </summary>
         public static string BasicInfo {
@@ -124,6 +133,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 是否重启以更改语言？ 的本地化字符串。
+        /// </summary>
+        public static string ChangeLangAsk {
+            get {
+                return ResourceManager.GetString("ChangeLangAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 复选框 的本地化字符串。
         /// </summary>
         public static string CheckBox {
@@ -138,6 +156,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string CirclePanel {
             get {
                 return ResourceManager.GetString("CirclePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 清空 的本地化字符串。
+        /// </summary>
+        public static string Clear {
+            get {
+                return ResourceManager.GetString("Clear", resourceCulture);
             }
         }
         
@@ -241,11 +268,29 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 错误 的本地化字符串。
+        /// </summary>
+        public static string Error {
+            get {
+                return ResourceManager.GetString("Error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 展开框 的本地化字符串。
         /// </summary>
         public static string Expander {
             get {
                 return ResourceManager.GetString("Expander", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 严重 的本地化字符串。
+        /// </summary>
+        public static string Fatal {
+            get {
+                return ResourceManager.GetString("Fatal", resourceCulture);
             }
         }
         

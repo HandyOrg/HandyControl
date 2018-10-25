@@ -325,4 +325,19 @@
   <data name="Ignore" xml:space="preserve">
     <value>忽略</value>
   </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="Ask" xml:space="preserve">
+    <value>询问</value>
+  </data>
+  <data name="Fatal" xml:space="preserve">
+    <value>严重</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="ChangeLangAsk" xml:space="preserve">
+    <value>是否重启以更改语言？</value>
+  </data>
 </root>

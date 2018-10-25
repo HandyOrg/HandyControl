@@ -1,30 +1,51 @@
-﻿<StackPanel x:Class="HandyControlDemo.UserControl.NoUserContent"
-            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-            xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
-            Orientation="Horizontal">
-    <Button WindowChrome.IsHitTestVisibleInChrome="True" Margin="4,0,0,0" Width="28" Height="28" Style="{StaticResource ButtonCustom}">
-        <interactivity:Interaction.Triggers>
-            <interactivity:EventTrigger EventName="Click">
-                <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
-            </interactivity:EventTrigger>
-            <interactivity:EventTrigger EventName="MouseDoubleClick">
-                <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
-            </interactivity:EventTrigger>
-        </interactivity:Interaction.Triggers>
-        <Path Height="16" Fill="White" Stretch="Uniform" Data="{StaticResource LogoGeometry}"/>
+﻿<Grid x:Class="HandyControlDemo.UserControl.NoUserContent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
+      xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition/>
+        <ColumnDefinition Width="Auto"/>
+    </Grid.ColumnDefinitions>
+    <StackPanel VerticalAlignment="Stretch" Orientation="Horizontal">
+        <Button WindowChrome.IsHitTestVisibleInChrome="True" Margin="4,0,0,0" Width="28" Height="28" Style="{StaticResource ButtonCustom}">
+            <interactivity:Interaction.Triggers>
+                <interactivity:EventTrigger EventName="Click">
+                    <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
+                </interactivity:EventTrigger>
+                <interactivity:EventTrigger EventName="MouseDoubleClick">
+                    <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
+                </interactivity:EventTrigger>
+            </interactivity:Interaction.Triggers>
+            <Path Height="16" Fill="White" Stretch="Uniform" Data="{StaticResource LogoGeometry}"/>
+        </Button>
+        <Menu Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent">
+            <MenuItem Foreground="White" Header="File">
+                <MenuItem Header="New repository" InputGestureText="Ctrl+N"/>
+                <Separator/>
+                <MenuItem Header="Add local repository"/>
+                <MenuItem Header="Clone repository"/>
+            </MenuItem>
+            <MenuItem Foreground="White" Header="Edit"/>
+            <MenuItem Foreground="White" Header="View"/>
+            <MenuItem Foreground="White" Header="Repository"/>
+            <MenuItem Foreground="White" Header="Branch"/>
+            <MenuItem Foreground="White" Header="Help"/>
+        </Menu>
+    </StackPanel>
+    <Button Grid.Column="1" Click="ButtonLang_OnClick" Name="ButtonLang" Width="44" Style="{StaticResource ButtonCustom}" Background="Transparent">
+        <Image Name="ImageLang" Width="24" Stretch="Uniform"/>
     </Button>
-    <Menu Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent">
-        <MenuItem Foreground="White" Header="File">
-            <MenuItem Header="New repository" InputGestureText="Ctrl+N"/>
-            <Separator/>
-            <MenuItem Header="Add local repository"/>
-            <MenuItem Header="Clone repository"/>
-        </MenuItem>
-        <MenuItem Foreground="White" Header="Edit"/>
-        <MenuItem Foreground="White" Header="View"/>
-        <MenuItem Foreground="White" Header="Repository"/>
-        <MenuItem Foreground="White" Header="Branch"/>
-        <MenuItem Foreground="White" Header="Help"/>
-    </Menu>
-</StackPanel>
+    <Popup AllowsTransparency="True" Grid.Column="1" PlacementTarget="{Binding ElementName=ButtonLang}" HorizontalOffset="-4" Name="PopupLang" VerticalOffset="6" StaysOpen="False">
+        <Border Background="White" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
+            <StackPanel Button.Click="ButtonLangs_OnClick"  Margin="10">
+                <Button Tag="cn" Style="{StaticResource ButtonCustom}">
+                    <Image Width="32" Stretch="Uniform" Source="/HandyControlDemo;component/Resources/Img/Flag/cn.png"/>
+                </Button>
+                <Button Tag="en" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                    <Image Width="32" Stretch="Uniform" Source="/HandyControlDemo;component/Resources/Img/Flag/en.png"/>
+                </Button>
+            </StackPanel>
+        </Border>
+    </Popup>
+</Grid>

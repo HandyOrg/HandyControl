@@ -1,9 +1,13 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/RadioButtonBaseStyle.xaml"/>
+        <ResourceDictionary Source="ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource RadioButtonBaseStyle}" TargetType="RadioButton"/>
+
+    <Style x:Key="RadioButtonCustom" BasedOn="{StaticResource ToggleButtonCustom}" TargetType="RadioButton"/>
 
 </ResourceDictionary>

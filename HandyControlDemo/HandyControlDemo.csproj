@@ -46,6 +46,9 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -62,7 +65,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\AppConfig.cs" />
     <Compile Include="Data\Enum\DemoType.cs" />
+    <Compile Include="Data\GlobalData.cs" />
     <Compile Include="Data\MessageToken.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -447,40 +452,42 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
-    <Resource Include="Resources\Img\RadioButton_16x.png" />
-    <Resource Include="Resources\Img\BorderElement_16x.png" />
-    <Resource Include="Resources\Img\ScrollBox_16x.png" />
-    <Resource Include="Resources\Img\ContextMenu_16x.png" />
-    <Resource Include="Resources\Img\WindowsForm_16x.png" />
-    <Resource Include="Resources\Img\TreeView_16x.png" />
-    <Resource Include="Resources\Img\ListBox_16x.png" />
-    <Resource Include="Resources\Img\CheckBox_16x.png" />
-    <Resource Include="Resources\Img\Path_16x.png" />
-    <Resource Include="Resources\Img\Paginator_16x.png" />
-    <Resource Include="Resources\Img\Timeline_16x.png" />
-    <Resource Include="Resources\Img\SplitterControl_16x.png" />
-    <Resource Include="Resources\Img\Carousel_16x.png" />
-    <Resource Include="Resources\Img\ColorPalette_16x.png" />
-    <Resource Include="Resources\Img\ImageBrowser_16x.png" />
-    <Resource Include="Resources\Img\Loading_Blue_16x.png" />
-    <Resource Include="Resources\Img\Message_16x.png" />
-    <Resource Include="Resources\Img\Flow_16x.png" />
-    <Resource Include="Resources\Img\TimePicker_16x.png" />
-    <Resource Include="Resources\Img\Time_color_16x.png" />
-    <Resource Include="Resources\Img\ShapeArcRing_16x.png" />
-    <Resource Include="Resources\Img\NumericListBox_16x.png" />
-    <Resource Include="Resources\Img\Toggle_16x.png" />
-    <Resource Include="Resources\Img\DataGrid_16x.png" />
-    <Resource Include="Resources\Img\TabPage_16x.png" />
-    <Resource Include="Resources\Img\DatePicker_16x.png" />
-    <Resource Include="Resources\Img\Calendar_16x.png" />
-    <Resource Include="Resources\Img\ProgressBar_16x.png" />
-    <Resource Include="Resources\Img\Expander_16x.png" />
-    <Resource Include="Resources\Img\PasswordBox_16x.png" />
-    <Resource Include="Resources\Img\TextBox_16x.png" />
-    <Resource Include="Resources\Img\ComboBox_16x.png" />
-    <Resource Include="Resources\Img\TextBlock_16x.png" />
-    <Resource Include="Resources\Img\ButtonClick_16x.png" />
+    <Resource Include="Resources\Img\Flag\cn.png" />
+    <Resource Include="Resources\Img\Flag\en.png" />
+    <Resource Include="Resources\Img\LeftMainContent\RadioButton_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\BorderElement_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ScrollBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ContextMenu_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\WindowsForm_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TreeView_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ListBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\CheckBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Path_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Paginator_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Timeline_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\SplitterControl_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Carousel_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ColorPalette_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ImageBrowser_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Loading_Blue_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Message_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Flow_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TimePicker_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Time_color_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ShapeArcRing_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\NumericListBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Toggle_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DataGrid_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TabPage_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DatePicker_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Calendar_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ProgressBar_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Expander_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\PasswordBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TextBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ComboBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TextBlock_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ButtonClick_16x.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

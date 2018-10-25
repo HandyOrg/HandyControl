@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Threading;
 using System.Windows;
+using HandyControlDemo.Data;
 
 namespace HandyControlDemo
 {
@@ -12,7 +13,15 @@ namespace HandyControlDemo
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en");
+
+            GlobalData.Init();
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(GlobalData.Config.Lang);
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+            GlobalData.Save();
         }
     }
 }
