@@ -33,23 +33,23 @@
     </Style>
 
     <Style x:Key="TextBlockLarge" BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="{DynamicResource LargeFontSize}"/>
+        <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
     </Style>
     <Style x:Key="TextBlockTitle" BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="{DynamicResource HeadFontSize}"/>
+        <Setter Property="FontSize" Value="{StaticResource HeadFontSize}"/>
     </Style>
     <Style x:Key="TextBlockSubTitle" BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="{DynamicResource SubHeadFontSize}"/>
+        <Setter Property="FontSize" Value="{StaticResource SubHeadFontSize}"/>
     </Style>
 
     <Style x:Key="TextBlockLargeBold" BasedOn="{StaticResource TextBlockBoldBaseStyle}" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="{DynamicResource LargeFontSize}"/>
+        <Setter Property="FontSize" Value="{StaticResource LargeFontSize}"/>
     </Style>
     <Style x:Key="TextBlockTitleBold" BasedOn="{StaticResource TextBlockBoldBaseStyle}" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="{DynamicResource HeadFontSize}"/>
+        <Setter Property="FontSize" Value="{StaticResource HeadFontSize}"/>
     </Style>
     <Style x:Key="TextBlockSubTitleBold" BasedOn="{StaticResource TextBlockBoldBaseStyle}" TargetType="{x:Type TextBlock}">
-        <Setter Property="FontSize" Value="{DynamicResource SubHeadFontSize}"/>
+        <Setter Property="FontSize" Value="{StaticResource SubHeadFontSize}"/>
     </Style>
     <Style x:Key="TextBlockDefaultBold" BasedOn="{StaticResource TextBlockBoldBaseStyle}" TargetType="{x:Type TextBlock}"/>
 

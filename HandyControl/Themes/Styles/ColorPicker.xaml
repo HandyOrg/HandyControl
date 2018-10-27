@@ -13,6 +13,7 @@
 
     <Style TargetType="controls:ColorPicker">
         <Setter Property="Width" Value="230"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -24,7 +25,7 @@
                             <RowDefinition Height="62"/>
                             <RowDefinition Height="62"/>
                         </Grid.RowDefinitions>
-                        <Border BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Grid.RowSpan="4" Background="White"/>
+                        <Border BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Grid.RowSpan="4" Background="{TemplateBinding Background}"/>
                         <Grid Margin="1" Grid.Row="0">
                             <Border Background="{TemplateBinding BackColor}"/>
                             <Border>
@@ -76,7 +77,7 @@
                             </StackPanel>
                             <UniformGrid Name="PART_PanelRgb" Visibility="{Binding ShowList[1],RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Rows="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="-2,14,-2,0" VerticalAlignment="Top">
                                 <StackPanel Margin="2,0">
-                                    <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="0" Tag="R" Value="{Binding ChannelR,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
+                                    <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="2,0" Tag="R" Value="{Binding ChannelR,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
                                     <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="R" HorizontalAlignment="Center"/>
                                 </StackPanel>
                                 <StackPanel Margin="2,0">
@@ -92,16 +93,16 @@
                                     <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </UniformGrid>
-                            <Button Command="interactivity:ControlCommands.Switch" Padding="6" FontSize="8" BorderThickness="0" Foreground="#323534" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="2" Grid.Row="1">
+                            <Button Command="interactivity:ControlCommands.Switch" Padding="6" FontSize="8" BorderThickness="0" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="2" Grid.Row="1">
                                 <Button.Content>
                                     <Path Fill="#323534" Style="{StaticResource UpDownPathStyle}"/>
                                 </Button.Content>
                             </Button>
                         </Grid>
-                        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderBrush}">
+                        <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                             <WrapPanel Name="PART_PanelColor" Margin="12,12,0,12" HorizontalAlignment="Center"/>
                         </Border>
-                        <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{StaticResource BorderBrush}">
+                        <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
                                 <Button Command="interactivity:ControlCommands.Cancel" Content="{x:Static langs:Lang.Cancel}" Width="80" Margin="0,0,16,0"/>
                                 <Button Command="interactivity:ControlCommands.Confirm" Content="{x:Static langs:Lang.Confirm}" Width="80" Style="{StaticResource ButtonPrimary}"/>

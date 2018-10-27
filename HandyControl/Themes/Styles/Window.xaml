@@ -19,10 +19,10 @@
     </Style>
 
     <Style x:Key="CustomWindowStyle" BasedOn="{x:Null}" TargetType="controls:WindowBorderless">
-        <Setter Property="Background" Value="White"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="NonClientAreaBackground" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="NonClientAreaBackground" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="NonClientAreaForeground" Value="White"/>
         <Setter Property="CloseButtonHoverBrush" Value="Red"/>
         <Setter Property="CloseButtonHoverForeground" Value="White"/>
@@ -133,7 +133,7 @@
         <Setter Property="ShowInTaskbar" Value="False"/>
         <Setter Property="MinWidth" Value="300"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
-        <Setter Property="Background" Value="White"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="SizeToContent" Value="WidthAndHeight"/>
         <Setter Property="Effect">
             <Setter.Value>
@@ -150,30 +150,22 @@
                                 <RowDefinition/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Grid Name="TitleGrid" Height="30" Background="{DynamicResource PrimaryBrush}">
+                            <Grid Name="TitleGrid" Height="30" Background="{DynamicResource TitleBrush}">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Name="PART_TitleBlock" Background="Transparent" Padding="10,6" FontSize="14" Foreground="White" Text="{TemplateBinding Title}" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                                <TextBlock Name="PART_TitleBlock" Background="Transparent" Padding="10,6" Foreground="White" Text="{TemplateBinding Title}" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
                                 <Button Margin="0,0,1,0" Background="Transparent" Name="CloseButton" Foreground="White" Grid.Column="1" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="Red" Command="interactivity:ControlCommands.Close" IsCancel="True" Height="28" Style="{StaticResource ButtonCustom}" Width="44" controls:IconElement.Geometry="{StaticResource CloseGeometry}" Padding="9">
                                     <Path Fill="{Binding ElementName=CloseButton,Path=Foreground}" Style="{StaticResource ClosePathStyle}"/>
                                 </Button>
                             </Grid>
-                            <Border BorderBrush="{DynamicResource PrimaryBrush}" Name="PART_MainBorder" Grid.Row="1">
+                            <Border BorderBrush="{DynamicResource TitleBrush}" Name="PART_MainBorder" Grid.Row="1">
                                 <StackPanel>
-                                    <TextBlock Text="{TemplateBinding ContentStr}" MinHeight="110" Name="MyTextBlock" TextAlignment="Center" FontSize="16" Padding="32" Foreground="#252525" MaxWidth="300" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Background="White"/>
-                                    <StackPanel Margin="0,0,0,32" Orientation="Horizontal" Background="White" HorizontalAlignment="Center">
-                                        <Button Command="interactivity:ControlCommands.Cancel" Visibility="{TemplateBinding ShowCancel,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0,0,16,0" Background="Transparent" Style="{StaticResource ButtonCustom}">
-                                            <Border BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}" MinWidth="80" Height="30" CornerRadius="4" Background="White">
-                                                <TextBlock Text="{x:Static langs:Lang.Cancel}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </Button>
-                                        <Button IsDefault="True" Command="interactivity:ControlCommands.Confirm" Background="Transparent" Style="{StaticResource ButtonCustom}">
-                                            <Border MinWidth="80" Height="30" CornerRadius="4" Background="{DynamicResource PrimaryBrush}">
-                                                <TextBlock Text="{x:Static langs:Lang.Confirm}" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                                            </Border>
-                                        </Button>
+                                    <TextBlock Text="{TemplateBinding ContentStr}" MinHeight="110" Name="MyTextBlock" TextAlignment="Center" Padding="32" Foreground="{DynamicResource PrimaryTextBrush}" MaxWidth="300" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Background="{TemplateBinding Background}"/>
+                                    <StackPanel Margin="0,0,0,32" Orientation="Horizontal" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Center">
+                                        <Button IsCancel="True" MinWidth="80" Command="interactivity:ControlCommands.Cancel" Content="{x:Static langs:Lang.Cancel}" Visibility="{TemplateBinding ShowCancel,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0,0,16,0"/>
+                                        <Button IsDefault="True" MinWidth="80" Command="interactivity:ControlCommands.Confirm" Content="{x:Static langs:Lang.Confirm}" Style="{StaticResource ButtonPrimary}"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Border>

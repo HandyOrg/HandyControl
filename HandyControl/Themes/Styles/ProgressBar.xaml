@@ -25,7 +25,7 @@
         <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
-    <Style x:Key="ProgressBarPrimaryStripe" BasedOn="{StaticResource ProgressBarBaseStyle}" TargetType="{x:Type ProgressBar}">
+    <Style x:Key="ProgressBarPrimaryStripe" BasedOn="{StaticResource ProgressBarStripeBaseStyle}" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground">
             <Setter.Value>
                 <DrawingBrush Viewport="0,0,20,32" TileMode="Tile" ViewportUnits="Absolute" Stretch="None">
@@ -53,41 +53,9 @@
                 </DrawingBrush>
             </Setter.Value>
         </Setter>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ProgressBar}">
-                    <ControlTemplate.Resources>
-                        <Storyboard x:Key="OnLoaded">
-                            <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="(Border.Background).(Brush.Transform).(TransformGroup.Children)[1].(TranslateTransform.X)" Storyboard.TargetName="Indicator">
-                                <LinearDoubleKeyFrame KeyTime="0" Value="0"/>
-                                <LinearDoubleKeyFrame KeyTime="0:0:.25" Value="21"/>
-                            </DoubleAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </ControlTemplate.Resources>
-                    <Grid x:Name="TemplateRoot" SnapsToDevicePixels="true">
-                        <Border CornerRadius="4" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                            <Border.Effect>
-                                <BlurEffect Radius="2"/>
-                            </Border.Effect>
-                        </Border>
-                        <Rectangle x:Name="PART_Track" Margin="1"/>
-                        <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" Margin="1">
-                            <Grid x:Name="Foreground">
-                                <Border x:Name="Indicator" CornerRadius="4" Background="{TemplateBinding Foreground}"/>
-                            </Grid>
-                        </Decorator>
-                    </Grid>
-                    <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="Indicator">
-                            <BeginStoryboard Storyboard="{StaticResource OnLoaded}"/>
-                        </EventTrigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
-    <Style x:Key="ProgressBarSuccessStripe" BasedOn="{StaticResource ProgressBarPrimaryStripe}" TargetType="{x:Type ProgressBar}">
+    <Style x:Key="ProgressBarSuccessStripe" BasedOn="{StaticResource ProgressBarStripeBaseStyle}" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground">
             <Setter.Value>
                 <DrawingBrush Viewport="0,0,20,32" TileMode="Tile" ViewportUnits="Absolute" Stretch="None">
@@ -117,7 +85,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ProgressBarInfoStripe" BasedOn="{StaticResource ProgressBarPrimaryStripe}" TargetType="{x:Type ProgressBar}">
+    <Style x:Key="ProgressBarInfoStripe" BasedOn="{StaticResource ProgressBarStripeBaseStyle}" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground">
             <Setter.Value>
                 <DrawingBrush Viewport="0,0,20,32" TileMode="Tile" ViewportUnits="Absolute" Stretch="None">
@@ -147,7 +115,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ProgressBarWarningStripe" BasedOn="{StaticResource ProgressBarPrimaryStripe}" TargetType="{x:Type ProgressBar}">
+    <Style x:Key="ProgressBarWarningStripe" BasedOn="{StaticResource ProgressBarStripeBaseStyle}" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground">
             <Setter.Value>
                 <DrawingBrush Viewport="0,0,20,32" TileMode="Tile" ViewportUnits="Absolute" Stretch="None">
@@ -177,7 +145,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ProgressBarDangerStripe" BasedOn="{StaticResource ProgressBarPrimaryStripe}" TargetType="{x:Type ProgressBar}">
+    <Style x:Key="ProgressBarDangerStripe" BasedOn="{StaticResource ProgressBarStripeBaseStyle}" TargetType="{x:Type ProgressBar}">
         <Setter Property="Foreground">
             <Setter.Value>
                 <DrawingBrush Viewport="0,0,20,32" TileMode="Tile" ViewportUnits="Absolute" Stretch="None">
@@ -209,7 +177,7 @@
 
     <Style x:Key="ProgressBarFlat" TargetType="{x:Type ProgressBar}">
         <Setter Property="Height" Value="4"/>
-        <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="Template">
             <Setter.Value>

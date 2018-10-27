@@ -1,4 +1,5 @@
 ﻿using System;
+using HandyControl.Data.Enum;
 
 namespace HandyControlDemo.Data
 {
@@ -7,5 +8,7 @@ namespace HandyControlDemo.Data
         public static string SavePath = $"{AppDomain.CurrentDomain.BaseDirectory}AppConfig.json";
 
         public string Lang { get; set; } = "cn";
+
+        public SkinType Skin { get; set; }
     }
 }

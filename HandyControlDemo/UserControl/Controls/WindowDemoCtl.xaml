@@ -5,7 +5,7 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              DataContext="{Binding WindowDemo,Source={StaticResource Locator}}"
-             Background="White">
+             Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <UniformGrid Margin="32" Columns="3" Rows="2" Height="200">
             <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CommonWindow}" Content="{x:Static langs:Lang.OpenCommonWindow}"/>

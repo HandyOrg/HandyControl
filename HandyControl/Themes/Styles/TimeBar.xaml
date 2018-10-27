@@ -3,7 +3,6 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Paths.xaml"/>
         <ResourceDictionary Source="../Basic/Converters.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
@@ -12,7 +11,7 @@
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="BorderThickness" Value="0,1,0,0"/>
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Background" Value="Black"/>
+        <Setter Property="Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="Height" Value="60"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Template">
@@ -39,7 +38,7 @@
                         </EventTrigger>
                     </ControlTemplate.Triggers>
                     <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <Grid>
+                        <Grid ClipToBounds="True">
                             <Border BorderThickness="0,0,0,4" BorderBrush="White" VerticalAlignment="Top" Height="52">
                                 <TextBlock FontSize="16" Name="PART_TextBlockSelected" VerticalAlignment="Top" Margin="0,14,0,0" HorizontalAlignment="Center"/>
                             </Border>

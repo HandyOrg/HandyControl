@@ -29,7 +29,9 @@ namespace HandyControlDemo.Service
                     IsSelected = i % 2 == 0,
                     Name = $"Name{i}",
                     Type = (DemoType)i,
-                    DataList = dataList
+                    DataList = dataList,
+                    ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i}.png",
+                    Remark = new string(i.ToString()[0], 10)
                 };
                 list.Add(model);
             }

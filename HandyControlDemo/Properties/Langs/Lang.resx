@@ -340,4 +340,19 @@
   <data name="ChangeLangAsk" xml:space="preserve">
     <value>是否重启以更改语言？</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>代码仓库</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>邮箱</value>
+  </data>
+  <data name="Chatroom" xml:space="preserve">
+    <value>讨论室</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>博客</value>
+  </data>
 </root>

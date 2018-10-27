@@ -4,7 +4,7 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}"
-             Background="White">
+             Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <ScrollViewer>
             <StackPanel Margin="32">

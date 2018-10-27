@@ -27,7 +27,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource CalendarGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                    <DatePickerTextBox x:Name="PART_TextBox" Grid.Column="0" Padding="5,6" Margin="0,0,0,1" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{DynamicResource DatePickerTextBoxStyle}"/>
+                    <DatePickerTextBox x:Name="PART_TextBox" Foreground="{TemplateBinding Foreground}" Grid.Column="0" Padding="5,6" Margin="0,0,0,1" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{StaticResource DatePickerTextBoxStyle}"/>
                     <Popup Grid.Column="0" VerticalOffset="1" x:Name="PART_Popup" PopupAnimation="Fade" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}" StaysOpen="False"/>
                 </Grid>
             </Border>
@@ -41,7 +41,7 @@
                     <Condition Property="IsMouseOver" Value="true" SourceName="templateRoot"/>
                     <Condition Property="IsOpen" Value="false" SourceName="PART_Popup"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource SecondaryBorderBrush}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -77,7 +77,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource CalendarGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                    <DatePickerTextBox x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{DynamicResource DatePickerTextBoxStyle}"/>
+                    <DatePickerTextBox x:Name="PART_TextBox" Foreground="{TemplateBinding Foreground}" Padding="5,6" Margin="0,0,0,1" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{StaticResource DatePickerTextBoxStyle}"/>
                     <Popup Grid.Column="0" VerticalOffset="1" x:Name="PART_Popup" PopupAnimation="Fade" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}" StaysOpen="False"/>
                 </Grid>
             </Border>
@@ -91,7 +91,7 @@
                     <Condition Property="IsMouseOver" Value="true" SourceName="templateRoot"/>
                     <Condition Property="IsOpen" Value="false" SourceName="PART_Popup"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource SecondaryBorderBrush}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>

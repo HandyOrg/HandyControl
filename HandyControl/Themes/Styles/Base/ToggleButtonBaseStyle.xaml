@@ -53,7 +53,7 @@
 
     <Style x:Key="ToggleButtonSwitchBaseStyle" TargetType="ToggleButton">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Background" Value="White"/>
+        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -123,7 +123,7 @@
                         </Grid.ColumnDefinitions>
                         <Border Height="22" Width="36" x:Name="backBorder" Background="{DynamicResource BorderBrush}" CornerRadius="11"/>
                         <Border Grid.Column="0" Height="22" Width="36" x:Name="lightBorder" Background="{DynamicResource PrimaryBrush}" CornerRadius="11" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                        <Border Grid.Column="0" Margin="1" Background="White" CornerRadius="11" Name="innerBorder" RenderTransformOrigin=".8,0.5">
+                        <Border Grid.Column="0" Margin="1" Background="{TemplateBinding Background}" CornerRadius="11" Name="innerBorder" RenderTransformOrigin=".8,0.5">
                             <Border.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -164,8 +164,8 @@
 
     <Style x:Key="ToggleButtonIconBaseStyle" TargetType="{x:Type ToggleButton}">
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
-        <Setter Property="Width" Value="{DynamicResource DefaultControlHeight}"/>
-        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}"/>
+        <Setter Property="Width" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="controls:IconSwitchElement.Geometry" Value="{x:Null}"/>
         <Setter Property="controls:IconSwitchElement.GeometrySelected" Value="{x:Null}"/>

@@ -7,11 +7,11 @@
                            xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
                            mc:Ignorable="d"
                            ShowTitle="True"
-                           Background="#f0f0f0"
+                           Background="{DynamicResource MainContentBackgroundBrush}"
                            WindowStartupLocation="CenterScreen"
                            Style="{StaticResource CustomWindowStyle}"
                            Title="{x:Static langs:Lang.Title}" 
                            Height="450" 
                            Width="800">
-    <Border Background="{StaticResource MainContentBackground}"/>
+    <Border Background="{DynamicResource MainContentForegroundDrawingBrush}"/>
 </controls:WindowBorderless>

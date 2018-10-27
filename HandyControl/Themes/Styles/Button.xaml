@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="{x:Type Button}">
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>

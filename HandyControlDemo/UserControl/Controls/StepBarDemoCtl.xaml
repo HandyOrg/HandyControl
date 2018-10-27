@@ -5,7 +5,7 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
              FocusManager.FocusedElement="{Binding RelativeSource={x:Static RelativeSource.Self}, Mode=OneTime}"
-             Background="White">
+             Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center" MaxWidth="800">
             <controls:StepBar x:Name="StepBarMain">

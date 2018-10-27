@@ -3,9 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="../Button.xaml"/>
         <ResourceDictionary Source="../Calendar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
@@ -32,7 +30,7 @@
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="IsTodayHighlighted" Value="True"/>
         <Setter Property="SelectedDateFormat" Value="Short"/>
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="Padding" Value="6"/>
@@ -48,7 +46,7 @@
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
                             <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource CalendarGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                            <DatePickerTextBox Padding="5,6" Margin="0,0,0,1" x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{DynamicResource DatePickerTextBoxStyle}"/>
+                            <DatePickerTextBox Foreground="{TemplateBinding Foreground}" Padding="5,6" Margin="0,0,0,1" x:Name="PART_TextBox" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Style="{StaticResource DatePickerTextBoxStyle}"/>
                             <Popup Grid.Column="0" VerticalOffset="1" x:Name="PART_Popup" PopupAnimation="Fade" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}" StaysOpen="False"/>
                         </Grid>
                     </Border>
@@ -61,7 +59,7 @@
                                 <Condition Property="IsMouseOver" Value="true"/>
                                 <Condition Property="IsOpen" Value="false" SourceName="PART_Popup"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryTextBrush}"/>
+                            <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource SecondaryBorderBrush}"/>
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

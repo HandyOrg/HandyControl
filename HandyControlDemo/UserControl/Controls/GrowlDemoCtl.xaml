@@ -4,7 +4,7 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              DataContext="{Binding GrowlDemo,Source={StaticResource Locator}}"
-             Background="White">
+             Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <WrapPanel Margin="32" VerticalAlignment="Center">
             <Button Command="{Binding InfoCmd}" Content="{x:Static langs:Lang.Info}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>

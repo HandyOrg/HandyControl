@@ -360,4 +360,19 @@
   <data name="ChangeLangAsk" xml:space="preserve">
     <value>Whether to restart to change the language?</value>
   </data>
+  <data name="About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repository</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Chatroom" xml:space="preserve">
+    <value>Chatroom</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
 </root>

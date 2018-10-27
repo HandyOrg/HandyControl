@@ -5,9 +5,7 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
         <ResourceDictionary Source="Base/NumericUpDownBaseStyle.xaml"/>
-        <ResourceDictionary Source="TextBlock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource NumericUpDownBaseStyle}" TargetType="controls:NumericUpDown"/>
@@ -19,7 +17,7 @@
                 <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
             <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="7,4">
-                <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Foreground="{TemplateBinding Foreground}" Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
             <Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
@@ -28,7 +26,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
-                    <controls:WatermarkTextBox x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     <Button Visibility="{TemplateBinding ShowUpDownButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Prev" Padding="5,7,5,1" Margin="0,0,0,16" Focusable="False" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" controls:IconElement.Geometry="{StaticResource UpGeometry}" Style="{StaticResource ButtonIcon}" Width="30" VerticalAlignment="Center" Height="14"/>
                     <Button Visibility="{TemplateBinding ShowUpDownButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Next" Padding="5,1,5,7" Margin="0,16,0,0" Focusable="False" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" controls:IconElement.Geometry="{StaticResource DownGeometry}" Style="{StaticResource ButtonIcon}" Width="30" VerticalAlignment="Center" Height="14"/>
                 </Grid>
@@ -39,7 +37,7 @@
                 <Setter Property="Opacity" TargetName="templateRoot" Value="0.4"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true" SourceName="templateRoot">
-                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
             </Trigger>
             <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
                 <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryBrush}"/>
@@ -54,7 +52,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,8">
-                <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Foreground="{TemplateBinding Foreground}" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
             <Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
@@ -63,7 +61,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
-                    <controls:WatermarkTextBox x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     <Button Visibility="{TemplateBinding ShowUpDownButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Prev" Padding="5,7,5,1" Margin="0,0,0,16" Focusable="False" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" controls:IconElement.Geometry="{StaticResource UpGeometry}" Style="{StaticResource ButtonIcon}" Width="30" VerticalAlignment="Center" Height="14"/>
                     <Button Visibility="{TemplateBinding ShowUpDownButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Next" Padding="5,1,5,7" Margin="0,16,0,0" Focusable="False" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" controls:IconElement.Geometry="{StaticResource DownGeometry}" Style="{StaticResource ButtonIcon}" Width="30" VerticalAlignment="Center" Height="14"/>
                 </Grid>
@@ -74,7 +72,7 @@
                 <Setter Property="Opacity" TargetName="templateRoot" Value="0.4"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true" SourceName="templateRoot">
-                <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
             </Trigger>
             <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
                 <Setter Property="BorderBrush" TargetName="templateRoot" Value="{DynamicResource PrimaryBrush}"/>

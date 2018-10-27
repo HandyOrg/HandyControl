@@ -3,9 +3,8 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
 using HandyControl.Controls;
+using HandyControl.Data.Enum;
 using HandyControlDemo.Data;
 
 // ReSharper disable once CheckNamespace
@@ -16,17 +15,13 @@ namespace HandyControlDemo.UserControl
         public NoUserContent()
         {
             InitializeComponent();
-
-            ImageLang.Source = BitmapFrame.Create(new Uri($"pack://application:,,,/HandyControlDemo;component/Resources/Img/Flag/{GlobalData.Config.Lang}.png"));
         }
-
-        private void ButtonLang_OnClick(object sender, RoutedEventArgs e) => PopupLang.IsOpen = true;
 
         private void ButtonLangs_OnClick(object sender, RoutedEventArgs e)
         {
             if (e.OriginalSource is Button button && button.Tag is string tag)
             {
-                PopupLang.IsOpen = false;
+                PopupConfig.IsOpen = false;
                 if (tag.Equals(GlobalData.Config.Lang)) return;
                 Growl.Ask(Properties.Langs.Lang.ChangeLangAsk, b =>
                 {
@@ -37,6 +32,28 @@ namespace HandyControlDemo.UserControl
                     Environment.Exit(0);
                     return true;
                 });
+            }
+        }
+
+        private void ButtonConfig_OnClick(object sender, RoutedEventArgs e) => PopupConfig.IsOpen = true;
+
+        private void ButtonSkins_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource is Button button && button.Tag is SkinType tag)
+            {
+                PopupConfig.IsOpen = false;
+                if (tag.Equals(GlobalData.Config.Skin)) return;
+                GlobalData.Config.Skin = tag;
+                GlobalData.Save();
+                ((App)Application.Current).UpdateSkin(tag);
+            }
+        }
+
+        private void MenuItemLinks_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource is MenuItem menuItem && menuItem.Tag is string tag)
+            {
+                Process.Start(tag);
             }
         }
     }

@@ -10,11 +10,19 @@
     <SolidColorBrush x:Key="PrimaryTextBrush" Color="{DynamicResource PrimaryTextColor}"/>
     <SolidColorBrush x:Key="SecondaryTextBrush" Color="{DynamicResource SecondaryTextColor}"/>
     <SolidColorBrush x:Key="ThirdlyTextBrush" Color="{DynamicResource ThirdlyTextColor}"/>
+    <SolidColorBrush x:Key="ReverseTextBrush" Color="{DynamicResource ReverseTextColor}"/>
     <SolidColorBrush x:Key="TextIconBrush" Color="{DynamicResource TextIconColor}"/>
 
     <SolidColorBrush x:Key="BorderBrush" Color="{DynamicResource BorderColor}"/>
+    <SolidColorBrush x:Key="SecondaryBorderBrush" Color="{DynamicResource SecondaryBorderColor}"/>
     <SolidColorBrush x:Key="BackgroundBrush" Color="{DynamicResource BackgroundColor}"/>
     <SolidColorBrush x:Key="RegionBrush" Color="{DynamicResource RegionColor}"/>
+    <SolidColorBrush x:Key="SecondaryRegionBrush" Color="{DynamicResource SecondaryRegionColor}"/>
+    <SolidColorBrush x:Key="ThirdlyRegionBrush" Color="{DynamicResource ThirdlyRegionColor}"/>
+    <LinearGradientBrush x:Key="TitleBrush" EndPoint="1,0" StartPoint="0,0">
+        <GradientStop Color="{DynamicResource TitleColor}" Offset="0"/>
+        <GradientStop Color="{DynamicResource SecondaryTitleColor}" Offset="1"/>
+    </LinearGradientBrush>
 
     <SolidColorBrush x:Key="DefaultBrush" Color="{DynamicResource DefaultColor}"/>
     <SolidColorBrush x:Key="DarkDefaultBrush" Color="{DynamicResource DarkDefaultColor}"/>

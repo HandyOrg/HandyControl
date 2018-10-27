@@ -6,7 +6,6 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Converters.xaml"/>
         <ResourceDictionary Source="Base/TimePickerBaseStyle.xaml"/>
-        <ResourceDictionary Source="TextBlock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource TimePickerBaseStyle}" TargetType="controls:TimePicker"/>
@@ -28,7 +27,7 @@
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
                     <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                    <controls:WatermarkTextBox x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     <Popup Grid.Column="0" VerticalOffset="1" x:Name="PART_Popup" PopupAnimation="Fade" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}" StaysOpen="False">
                         <controls:Clock x:Name="PART_Clock" ShowConfirmButton="True"/>
                     </Popup>
@@ -44,7 +43,7 @@
                     <Condition Property="IsMouseOver" Value="true" SourceName="templateRoot"/>
                     <Condition Property="IsOpen" Value="false" SourceName="PART_Popup"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -79,7 +78,7 @@
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
                     <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                    <controls:WatermarkTextBox x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     <Popup Grid.Column="0" VerticalOffset="1" x:Name="PART_Popup" PopupAnimation="Fade" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}" StaysOpen="False">
                         <controls:Clock x:Name="PART_Clock" ShowConfirmButton="True"/>
                     </Popup>
@@ -95,7 +94,7 @@
                     <Condition Property="IsMouseOver" Value="true" SourceName="templateRoot"/>
                     <Condition Property="IsOpen" Value="false" SourceName="PART_Popup"/>
                 </MultiTrigger.Conditions>
-                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>

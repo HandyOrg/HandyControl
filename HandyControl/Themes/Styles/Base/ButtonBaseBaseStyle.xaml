@@ -3,12 +3,13 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="BaseStyle.xaml"/>
+        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ButtonBaseBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type ButtonBase}">
-        <Setter Property="Height" Value="{DynamicResource DefaultControlHeight}"/>
+        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Padding" Value="{DynamicResource DefaultControlPadding}"/>
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>

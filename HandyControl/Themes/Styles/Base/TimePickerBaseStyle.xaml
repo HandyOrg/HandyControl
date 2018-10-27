@@ -10,7 +10,7 @@
     <Style x:Key="TimePickerBaseStyle" TargetType="controls:TimePicker">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Height" Value="30"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -25,7 +25,7 @@
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
                             <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                            <controls:WatermarkTextBox Padding="5,6" Margin="0,0,0,1" x:Name="PART_TextBox" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" Padding="5,6" Margin="0,0,0,1" x:Name="PART_TextBox" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             <Popup Grid.Column="0" VerticalOffset="1" x:Name="PART_Popup" PopupAnimation="Fade" Placement="Bottom" PlacementTarget="{Binding ElementName=PART_TextBox}" StaysOpen="False">
                                 <controls:Clock x:Name="PART_Clock" ShowConfirmButton="True"/>
                             </Popup>
@@ -40,7 +40,7 @@
                                 <Condition Property="IsMouseOver" Value="true"/>
                                 <Condition Property="IsOpen" Value="false" SourceName="PART_Popup"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryTextBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

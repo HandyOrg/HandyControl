@@ -3,8 +3,6 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
         <ResourceDictionary Source="ToggleButton.xaml"/>
@@ -53,7 +51,8 @@
         </Style.Triggers>
     </Style>
     <Style x:Key="DataGridRowStyle" TargetType="{x:Type DataGridRow}">
-        <Setter Property="Background" Value="White"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="Margin" Value="0,0,0,4"/>
         <Setter Property="Padding" Value="0,6"/>
@@ -106,6 +105,7 @@
     </Style>
     <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Padding" Value="12,6,12,12"/>
         <Setter Property="MinHeight" Value="44"/>
         <Setter Property="Template">
@@ -176,7 +176,7 @@
         <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
     </Style>
     <Style TargetType="{x:Type DataGrid}">
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="GridLinesVisibility" Value="None"/>

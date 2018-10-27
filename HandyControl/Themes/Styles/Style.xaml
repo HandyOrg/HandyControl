@@ -29,12 +29,13 @@
         <ResourceDictionary Source="TimePicker.xaml"/>
         <ResourceDictionary Source="ContentControl.xaml"/>
         <ResourceDictionary Source="Growl.xaml"/>
-        <ResourceDictionary Source="Steps.xaml"/>
+        <ResourceDictionary Source="StepBar.xaml"/>
         <ResourceDictionary Source="Carousel.xaml"/>
         <ResourceDictionary Source="TimeBar.xaml"/>
         <ResourceDictionary Source="ColorPicker.xaml"/>
         <ResourceDictionary Source="DataGrid.xaml"/>
         <ResourceDictionary Source="TransitioningContentControl.xaml"/>
+        <ResourceDictionary Source="Image.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -2,7 +2,6 @@
 
     <ResourceDictionary.MergedDictionaries>
 
-        <ResourceDictionary Source="../Basic/Colors.xaml"/>
         <ResourceDictionary Source="../Basic/Brushes.xaml"/>
         <ResourceDictionary Source="../Basic/Converters.xaml"/>
         <ResourceDictionary Source="../Basic/Effects.xaml"/>

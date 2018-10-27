@@ -6,12 +6,12 @@
                            xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
                            xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
                            mc:Ignorable="d"
-                           OtherButtonForeground="{StaticResource PrimaryTextBrush}"
-                           CloseButtonForeground="{StaticResource PrimaryTextBrush}"
-                           OtherButtonHoverBrush="{StaticResource PrimaryTextBrush}"
-                           NonClientAreaBackground="{StaticResource ToolBarBackground}"
+                           OtherButtonForeground="{DynamicResource ReverseTextBrush}"
+                           CloseButtonForeground="{DynamicResource ReverseTextBrush}"
+                           OtherButtonHoverBrush="{DynamicResource ReverseTextBrush}"
+                           NonClientAreaBackground="{DynamicResource ToolBarBackground}"
                            NonClientAreaHeight="69"
-                           Background="#f0f0f0"
+                           Background="{DynamicResource MainContentBackgroundBrush}"
                            WindowStartupLocation="CenterScreen"
                            Style="{StaticResource CustomWindowStyle}"
                            Title="{x:Static langs:Lang.Title}" 
@@ -26,36 +26,36 @@
                 </Border>
             </Button>
             <Button  Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
-                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{StaticResource MenuButtonBorderBrush}">
+                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{DynamicResource MenuButtonBorderBrush}">
                     <Path Margin="6" Fill="#ED41FF" Stretch="Uniform" Data="{StaticResource AskGeometry}"></Path>
                 </Border>
             </Button>
             <Button Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
-                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{StaticResource MenuButtonBorderBrush}">
+                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{DynamicResource MenuButtonBorderBrush}">
                     <Path Margin="6" Fill="#ED41FF" Stretch="Uniform" Data="{StaticResource InfoGeometry}"></Path>
                 </Border>
             </Button>
             <Button Style="{StaticResource ButtonCustom}" Margin="32,0,0,0">
-                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{StaticResource MenuButtonBorderBrush}">
+                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{DynamicResource MenuButtonBorderBrush}">
                     <Path Margin="5" Fill="#8EC915" Stretch="Uniform" Data="{StaticResource ErrorGeometry}"></Path>
                 </Border>
             </Button>
             <Button  Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
-                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{StaticResource MenuButtonBorderBrush}">
+                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{DynamicResource MenuButtonBorderBrush}">
                     <Path Margin="6" Fill="#8EC915" Stretch="Uniform" Data="{StaticResource AskGeometry}"></Path>
                 </Border>
             </Button>
             <Button Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
-                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{StaticResource MenuButtonBorderBrush}">
+                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{DynamicResource MenuButtonBorderBrush}">
                     <Path Margin="6" Fill="#8EC915" Stretch="Uniform" Data="{StaticResource AllGeometry}"></Path>
                 </Border>
             </Button>
             <Button Style="{StaticResource ButtonCustom}" Margin="10,0,0,0">
-                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{StaticResource MenuButtonBorderBrush}">
+                <Border Width="30" Height="30" BorderThickness="1" CornerRadius="6" BorderBrush="#B7B5B7" Background="{DynamicResource MenuButtonBorderBrush}">
                     <Path Margin="6" Fill="#8EC915" Stretch="Uniform" Data="{StaticResource InfoGeometry}"></Path>
                 </Border>
             </Button>
         </StackPanel>
     </controls:WindowBorderless.NonClientAreaContent>
-    <Border Background="{StaticResource MainContentBackground}"/>
+    <Border Background="{DynamicResource MainContentForegroundDrawingBrush}"/>
 </controls:WindowBorderless>

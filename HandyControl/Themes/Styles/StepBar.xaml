@@ -13,7 +13,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="controls:StepItem">
                     <StackPanel>
-                        <Border Background="White" HorizontalAlignment="Center" CornerRadius="12" BorderThickness="2" BorderBrush="{TemplateBinding Foreground}" Height="24" MinWidth="24">
+                        <Border Background="{DynamicResource RegionBrush}" HorizontalAlignment="Center" CornerRadius="12" BorderThickness="2" BorderBrush="{TemplateBinding Foreground}" Height="24" MinWidth="24">
                             <TextBlock Foreground="{TemplateBinding Foreground}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Index,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:StepItem}}"/>
                         </Border>
                         <TextBlock Margin="0,10,0,0" Foreground="{TemplateBinding Foreground}" Style="{StaticResource TextBlockSubTitleBold}" Text="{TemplateBinding IndexStr}"/>

@@ -15,7 +15,7 @@
     <Style TargetType="{x:Type controls:TabItem}">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderThickness" Value="1,0,1,1"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Margin" Value="0"/>
@@ -45,7 +45,7 @@
                             </ContextMenu>
                         </Grid.ContextMenu>
                         <Border Grid.ColumnSpan="2" BorderThickness="{TemplateBinding BorderThickness}" x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Margin="0">
-                            <Border Margin="0,0,0,-1" x:Name="innerBorder" Background="White" Opacity="0"/>
+                            <Border Margin="0,0,0,-1" x:Name="innerBorder" Background="{DynamicResource RegionBrush}" Opacity="0"/>
                         </Border>
                         <ContentPresenter Grid.Column="0" x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Stretch" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center">
                             <ContentPresenter.OpacityMask>
@@ -89,7 +89,7 @@
                                 <RowDefinition x:Name="RowDefinition0" Height="Auto"/>
                                 <RowDefinition x:Name="RowDefinition1" Height="*"/>
                             </Grid.RowDefinitions>
-                            <Border Background="White" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderBrush}">
+                            <Border Background="{DynamicResource RegionBrush}" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderBrush}">
                                 <controls:TabPanel MinHeight="{TemplateBinding TabItemHeight}" TabItemHeight="{TemplateBinding TabItemHeight}" TabItemWidth="{TemplateBinding TabItemWidth}" IsEnableTabFill="{TemplateBinding IsEnableTabFill}" Margin="0,0,-1,-1" x:Name="PART_HeaderPanel" HorizontalAlignment="Left" Background="{DynamicResource SecondaryTextBrush}" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1">
                                     <interactivity:Interaction.Behaviors>
                                         <interactivity:FluidMoveBehavior AppliesTo="Children" Duration="{Binding FluidMoveDuration,ElementName=PART_HeaderPanel}">
@@ -100,10 +100,10 @@
                                     </interactivity:Interaction.Behaviors>
                                 </controls:TabPanel>
                             </Border>
-                            <Border x:Name="contentPanel" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                            <Border x:Name="contentPanel" Background="{DynamicResource SecondaryRegionBrush}" Grid.Column="0" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
                                 <ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             </Border>
-                            <Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Margin="0,-1,0,0" Grid.Row="0" Grid.Column="0" BorderThickness="1,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Background="White" HorizontalAlignment="Right">
+                            <Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Margin="0,-1,0,0" Grid.Row="0" Grid.Column="0" BorderThickness="1,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Right">
                                 <controls:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource DownGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}"/>
                             </Border>
                         </Grid>
@@ -125,7 +125,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type TabControl}">
                     <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <Grid x:Name="templateRoot" Background="White" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
+                        <Grid x:Name="templateRoot" Background="{DynamicResource RegionBrush}" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition x:Name="ColumnDefinition0"/>
                                 <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>

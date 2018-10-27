@@ -4,7 +4,6 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
-        <ResourceDictionary Source="../Basic/Brushes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ColorPickerRepeatButton" TargetType="{x:Type RepeatButton}">
@@ -166,7 +165,7 @@
                     <DrawingBrush RenderOptions.CachingHint="Cache" Viewport="0,0,1,8" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
                         <DrawingBrush.Drawing>
                             <DrawingGroup>
-                                <GeometryDrawing Brush="{StaticResource BorderBrush}">
+                                <GeometryDrawing Brush="{DynamicResource BorderBrush}">
                                     <GeometryDrawing.Geometry>
                                         <GeometryGroup>
                                             <RectangleGeometry Rect="0,0,1,4" />
@@ -178,16 +177,16 @@
                     </DrawingBrush>
                 </Border.Background>
             </Border>
-            <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Background="White">
+            <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
                 <Grid Width="30" Height="30" Margin="-1,-1,0,0">
-                    <Path x:Name="PathLeft" Data="{StaticResource LeftGeometry}" StrokeThickness="1" Stroke="{StaticResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Left" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
+                    <Path x:Name="PathLeft" Data="{StaticResource LeftGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Left" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
                         <Path.RenderTransform>
                             <TransformGroup>
                                 <TranslateTransform/>
                             </TransformGroup>
                         </Path.RenderTransform>
                     </Path>
-                    <Path x:Name="PathRight" Data="{StaticResource RightGeometry}" StrokeThickness="1" Stroke="{StaticResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Right" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
+                    <Path x:Name="PathRight" Data="{StaticResource RightGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Right" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
                         <Path.RenderTransform>
                             <TransformGroup>
                                 <TranslateTransform/>
@@ -199,7 +198,7 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" TargetName="grip" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
                 <Setter Property="Stroke" TargetName="PathLeft" Value="White"/>
                 <Setter Property="Stroke" TargetName="PathRight" Value="White"/>
             </Trigger>
@@ -267,7 +266,7 @@
                     <DrawingBrush RenderOptions.CachingHint="Cache" Viewport="0,0,8,1" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
                         <DrawingBrush.Drawing>
                             <DrawingGroup>
-                                <GeometryDrawing Brush="{StaticResource BorderBrush}">
+                                <GeometryDrawing Brush="{DynamicResource BorderBrush}">
                                     <GeometryDrawing.Geometry>
                                         <GeometryGroup>
                                             <RectangleGeometry Rect="0,0,4,1" />
@@ -279,16 +278,16 @@
                     </DrawingBrush>
                 </Border.Background>
             </Border>
-            <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Background="White">
+            <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
                 <Grid Width="30" Height="30" Margin="-1,-1,0,0">
-                    <Path x:Name="PathUp" Data="{StaticResource UpGeometry}" StrokeThickness="1" Stroke="{StaticResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Top" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
+                    <Path x:Name="PathUp" Data="{StaticResource UpGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Top" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
                         <Path.RenderTransform>
                             <TransformGroup>
                                 <TranslateTransform/>
                             </TransformGroup>
                         </Path.RenderTransform>
                     </Path>
-                    <Path x:Name="PathDown" Data="{StaticResource DownGeometry}" StrokeThickness="1" Stroke="{StaticResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Bottom" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
+                    <Path x:Name="PathDown" Data="{StaticResource DownGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Bottom" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
                         <Path.RenderTransform>
                             <TransformGroup>
                                 <TranslateTransform/>
@@ -300,12 +299,12 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true" SourceName="grip">
-                <Setter Property="Background" TargetName="grip" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
                 <Setter Property="Stroke" TargetName="PathUp" Value="White"/>
                 <Setter Property="Stroke" TargetName="PathDown" Value="White"/>
             </Trigger>
             <Trigger Property="IsDragging" Value="true">
-                <Setter Property="Background" TargetName="grip" Value="{StaticResource PrimaryBrush}"/>
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
                 <Setter Property="Stroke" TargetName="PathUp" Value="White"/>
                 <Setter Property="Stroke" TargetName="PathDown" Value="White"/>
                 <Trigger.EnterActions>
@@ -350,7 +349,7 @@
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{StaticResource BorderBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="MinWidth" Value="30"/>
         <Setter Property="MinHeight" Value="30"/>
         <Setter Property="Template" Value="{StaticResource CompareSliderHorizontal}"/>

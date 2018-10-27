@@ -61,6 +61,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 关于 的本地化字符串。
+        /// </summary>
+        public static string About {
+            get {
+                return ResourceManager.GetString("About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 动画路径 的本地化字符串。
         /// </summary>
         public static string AnimationPath {
@@ -84,6 +93,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string BasicInfo {
             get {
                 return ResourceManager.GetString("BasicInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 博客 的本地化字符串。
+        /// </summary>
+        public static string Blog {
+            get {
+                return ResourceManager.GetString("Blog", resourceCulture);
             }
         }
         
@@ -138,6 +156,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ChangeLangAsk {
             get {
                 return ResourceManager.GetString("ChangeLangAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 讨论室 的本地化字符串。
+        /// </summary>
+        public static string Chatroom {
+            get {
+                return ResourceManager.GetString("Chatroom", resourceCulture);
             }
         }
         
@@ -264,6 +291,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Default {
             get {
                 return ResourceManager.GetString("Default", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 邮箱 的本地化字符串。
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
@@ -579,6 +615,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Remark {
             get {
                 return ResourceManager.GetString("Remark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 代码仓库 的本地化字符串。
+        /// </summary>
+        public static string Repository {
+            get {
+                return ResourceManager.GetString("Repository", resourceCulture);
             }
         }
         

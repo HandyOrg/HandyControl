@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using Newtonsoft.Json;
 
 namespace HandyControlDemo.Data
@@ -9,8 +10,15 @@ namespace HandyControlDemo.Data
         {
             if (File.Exists(AppConfig.SavePath))
             {
-                var json = File.ReadAllText(AppConfig.SavePath);
-                Config = JsonConvert.DeserializeObject<AppConfig>(json);
+                try
+                {
+                    var json = File.ReadAllText(AppConfig.SavePath);
+                    Config = JsonConvert.DeserializeObject<AppConfig>(json);
+                }
+                catch
+                {
+                    Config = new AppConfig();
+                }
             }
             else
             {

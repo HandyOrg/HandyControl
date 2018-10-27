@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
+using HandyControl.Data.Enum;
 
 namespace HandyControl.Tools
 {
@@ -38,5 +41,27 @@ namespace HandyControl.Tools
         /// <param name="key"></param>
         /// <returns></returns>
         public static T GetResource<T>(string key) where T : class => Application.Current.TryFindResource(key) as T;
+
+        /// <summary>
+        ///     获取HandyControl皮肤
+        /// </summary>
+        /// <param name="skin"></param>
+        /// <returns></returns>
+        public static ResourceDictionary GetSkin(SkinType skin) => new ResourceDictionary
+        {
+            Source = new Uri($"pack://application:,,,/HandyControl;component/Themes/Skin{skin.ToString()}.xaml")
+        };
+
+        /// <summary>
+        ///     获取皮肤
+        /// </summary>
+        /// <param name="assembly"></param>
+        /// <param name="themePath"></param>
+        /// <param name="skin"></param>
+        /// <returns></returns>
+        public static ResourceDictionary GetSkin(Assembly assembly, string themePath, SkinType skin) => new ResourceDictionary
+        {
+            Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{skin.ToString()}.xaml")
+        };
     }
 }

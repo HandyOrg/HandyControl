@@ -1,7 +1,7 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.ToggleButtonDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             Background="White"
+             Background="{DynamicResource RegionBrush}"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
@@ -79,22 +79,22 @@
                     <StackPanel>
                         <ToggleButton IsChecked="True" Style="{StaticResource ToggleButtonCustom}" controls:StatusSwitchElement.HiddenElement="True">
                             <controls:StatusSwitchElement.CheckedElement>
-                                <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Margin="5">
-                                    <Ellipse Width="20" Height="20" Fill="{StaticResource PrimaryBrush}" StrokeThickness="1" Stroke="{StaticResource BorderBrush}"/>
+                                <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="5">
+                                    <Ellipse Width="20" Height="20" Fill="{DynamicResource PrimaryBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
                                 </Border>
                             </controls:StatusSwitchElement.CheckedElement>
-                            <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Margin="5">
-                                <Ellipse Width="20" Height="20" Fill="{StaticResource BorderBrush}" StrokeThickness="1" Stroke="{StaticResource BorderBrush}"/>
+                            <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="5">
+                                <Ellipse Width="20" Height="20" Fill="{DynamicResource BorderBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
                             </Border>
                         </ToggleButton>
                         <ToggleButton IsEnabled="False" IsChecked="True" Style="{StaticResource ToggleButtonCustom}" controls:StatusSwitchElement.HiddenElement="True">
                             <controls:StatusSwitchElement.CheckedElement>
-                                <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Margin="5">
-                                    <Ellipse Width="20" Height="20" Fill="{StaticResource PrimaryBrush}" StrokeThickness="1" Stroke="{StaticResource BorderBrush}"/>
+                                <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="5">
+                                    <Ellipse Width="20" Height="20" Fill="{DynamicResource PrimaryBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
                                 </Border>
                             </controls:StatusSwitchElement.CheckedElement>
-                            <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{StaticResource BorderBrush}" Margin="5">
-                                <Ellipse Width="20" Height="20" Fill="{StaticResource BorderBrush}" StrokeThickness="1" Stroke="{StaticResource BorderBrush}"/>
+                            <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="5">
+                                <Ellipse Width="20" Height="20" Fill="{DynamicResource BorderBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
                             </Border>
                         </ToggleButton>
                         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonCustom"/>

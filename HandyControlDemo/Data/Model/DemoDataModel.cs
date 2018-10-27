@@ -15,6 +15,8 @@ namespace HandyControlDemo.Data
 
         public DemoType Type { get; set; }
 
+        public string ImgPath { get; set; }
+
         public List<DemoDataModel> DataList { get; set; }
     }
 }

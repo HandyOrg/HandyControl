@@ -2,13 +2,17 @@
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
-      xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+      DataContext="{Binding NoUserContent,Source={StaticResource Locator}}"
+      xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+      Height="28"
+      xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+      xmlns:enum="clr-namespace:HandyControl.Data.Enum;assembly=HandyControl">
     <Grid.ColumnDefinitions>
         <ColumnDefinition/>
         <ColumnDefinition Width="Auto"/>
     </Grid.ColumnDefinitions>
     <StackPanel VerticalAlignment="Stretch" Orientation="Horizontal">
-        <Button WindowChrome.IsHitTestVisibleInChrome="True" Margin="4,0,0,0" Width="28" Height="28" Style="{StaticResource ButtonCustom}">
+        <Button Margin="4,0,0,0" Width="28" Height="28" Style="{StaticResource ButtonCustom}">
             <interactivity:Interaction.Triggers>
                 <interactivity:EventTrigger EventName="Click">
                     <interactivity:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
@@ -19,32 +23,58 @@
             </interactivity:Interaction.Triggers>
             <Path Height="16" Fill="White" Stretch="Uniform" Data="{StaticResource LogoGeometry}"/>
         </Button>
-        <Menu Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Background="Transparent">
-            <MenuItem Foreground="White" Header="File">
-                <MenuItem Header="New repository" InputGestureText="Ctrl+N"/>
-                <Separator/>
-                <MenuItem Header="Add local repository"/>
-                <MenuItem Header="Clone repository"/>
+        <Menu MenuItem.Click="MenuItemLinks_OnClick"  Margin="10,0,0,0" Background="Transparent">
+            <MenuItem Foreground="White" Header="{x:Static langs:Lang.Repository}">
+                <MenuItem Tag="https://github.com/NaBian/HandyControl" Header="GitHub">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource GithubGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Tag="https://www.nuget.org/packages/HandyControl" Header="NuGet">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource NugetGeometry}" Fill="#224880"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
-            <MenuItem Foreground="White" Header="Edit"/>
-            <MenuItem Foreground="White" Header="View"/>
-            <MenuItem Foreground="White" Header="Repository"/>
-            <MenuItem Foreground="White" Header="Branch"/>
-            <MenuItem Foreground="White" Header="Help"/>
+            <MenuItem Foreground="White" Header="{x:Static langs:Lang.About}">
+                <MenuItem Tag="mailto:836904362@qq.com" Header="{x:Static langs:Lang.Email}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource EmailGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Tag="https://gitter.im/HandyControl/Lobby" Header="{x:Static langs:Lang.Chatroom}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource GitterGeometry}" Fill="#e52e64"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Tag="https://www.cnblogs.com/nabian" Header="{x:Static langs:Lang.Blog}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource CnblogsGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+            </MenuItem>
         </Menu>
     </StackPanel>
-    <Button Grid.Column="1" Click="ButtonLang_OnClick" Name="ButtonLang" Width="44" Style="{StaticResource ButtonCustom}" Background="Transparent">
-        <Image Name="ImageLang" Width="24" Stretch="Uniform"/>
-    </Button>
-    <Popup AllowsTransparency="True" Grid.Column="1" PlacementTarget="{Binding ElementName=ButtonLang}" HorizontalOffset="-4" Name="PopupLang" VerticalOffset="6" StaysOpen="False">
-        <Border Background="White" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
-            <StackPanel Button.Click="ButtonLangs_OnClick"  Margin="10">
-                <Button Tag="cn" Style="{StaticResource ButtonCustom}">
-                    <Image Width="32" Stretch="Uniform" Source="/HandyControlDemo;component/Resources/Img/Flag/cn.png"/>
-                </Button>
-                <Button Tag="en" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
-                    <Image Width="32" Stretch="Uniform" Source="/HandyControlDemo;component/Resources/Img/Flag/en.png"/>
-                </Button>
+    <Button Grid.Column="1" Click="ButtonConfig_OnClick" Name="ButtonConfig" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource ConfigGeometry}"/>
+    <Popup AllowsTransparency="True" Grid.Column="1" PlacementTarget="{Binding ElementName=ButtonConfig}" HorizontalOffset="-25" Name="PopupConfig" VerticalOffset="6" StaysOpen="False">
+        <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,10,0,10">
+                    <Button Tag="cn" Style="{StaticResource ButtonCustom}">
+                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/cn.png"/>
+                    </Button>
+                    <Button Tag="en" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/en.png"/>
+                    </Button>
+                </StackPanel>
+                <StackPanel Button.Click="ButtonSkins_OnClick"  Margin="10,10,10,10">
+                    <Button Tag="{x:Static enum:SkinType.Default}" Style="{StaticResource ButtonCustom}">
+                        <Border Background="White" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
+                    </Button>
+                    <Button Tag="{x:Static enum:SkinType.Dark}" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                        <Border Background="Black" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </Border>
     </Popup>
