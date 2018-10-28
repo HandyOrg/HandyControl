@@ -11,7 +11,7 @@
         <Setter Property="Width" Value="36.06"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Button}">
+                <ControlTemplate TargetType="Button">
                     <Grid>
                         <Path Data="{StaticResource CirclePanelDemoGeometry}" Fill="{DynamicResource PrimaryBrush}" Height="77" Width="36.06"/>
                         <Path Data="{StaticResource CirclePanelRightGeometry}" Stretch="Uniform" Margin="12" Fill="White"/>

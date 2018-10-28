@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <!--默认ListBoxItem样式-->
-    <Style x:Key="ListBoxItemBaseStyle" TargetType="{x:Type ListBoxItem}">
+    <Style x:Key="ListBoxItemBaseStyle" TargetType="ListBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Padding" Value="10,0"/>
@@ -16,7 +16,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                <ControlTemplate TargetType="ListBoxItem">
                     <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
@@ -45,7 +45,7 @@
             <Trigger Property="controls:EdgeElement.ShowEdgeContent" Value="true">
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                        <ControlTemplate TargetType="ListBoxItem">
                             <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                                 <StackPanel Orientation="Horizontal">
                                     <ContentControl Width="16" Height="16" Content="{Binding Path=(controls:EdgeElement.LeftContent),RelativeSource={RelativeSource TemplatedParent}}"/>
@@ -59,7 +59,7 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ListBoxBaseStyle" TargetType="{x:Type ListBox}">
+    <Style x:Key="ListBoxBaseStyle" TargetType="ListBox">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
@@ -73,7 +73,7 @@
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBox}">
+                <ControlTemplate TargetType="ListBox">
                     <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                         <controls:ScrollViewer Focusable="false">
                             <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>

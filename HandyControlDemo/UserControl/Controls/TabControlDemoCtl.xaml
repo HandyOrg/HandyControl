@@ -6,7 +6,7 @@
     <controls:TransitioningContentControl>
         <controls:ScrollViewer HorizontalScrollBarVisibility="Auto">
             <StackPanel>
-                <Label Style="{StaticResource LabelInfo}" Content="Default" Margin="32,32,0,0"/>
+                <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
                 <controls:TabControl Margin="32,16,32,0" Width="800" Height="300">
                     <controls:TabItem Header="TabItem1">
                         <Grid Background="White"/>
@@ -31,10 +31,10 @@
                     </controls:TabItem>
                 </controls:TabControl>
                 <StackPanel Orientation="Horizontal" Margin="32,32,32,16">
-                    <Label Style="{StaticResource LabelInfo}" Margin="0" Content="IsEnableTabFill = True"/>
-                    <Label Style="{StaticResource LabelInfo}" Margin="16,0,0,0" Content="ShowCloseButton = True"/>
-                    <Label Style="{StaticResource LabelInfo}" Margin="16,0,0,0" Content="IsDraggable = True"/>
-                    <Label Style="{StaticResource LabelInfo}" Margin="16,0,0,0" Content="IsEnableAnimation = True"/>
+                    <Label Style="{StaticResource LabelPrimary}" Margin="0" Content="IsEnableTabFill = True"/>
+                    <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="ShowCloseButton = True"/>
+                    <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsDraggable = True"/>
+                    <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsEnableAnimation = True"/>
                 </StackPanel>
                 <controls:TabControl IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
                     <controls:TabItem Header="TabItem1">

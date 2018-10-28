@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--普通-->
-    <Style BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -21,30 +21,30 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonSuccess" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonSuccess" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonInfo" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonInfo" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonWarning" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonWarning" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonDanger" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonDanger" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
     <!--图标-->
-    <Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource ReverseTextBrush}"/>
+    <Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
@@ -56,33 +56,33 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ToggleButtonIconPrimary" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonIconPrimary" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonIconSuccess" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonIconSuccess" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonIconInfo" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonIconInfo" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonIconWarning" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonIconWarning" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonIconDanger" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonIconDanger" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
-    <Style x:Key="ToggleButtonIconTransparent" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonIconTransparent" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                <ControlTemplate TargetType="ToggleButton">
                     <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentControl Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
                             <Path x:Name="PathIcon" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconSwitchElement.Geometry}"/>
@@ -99,10 +99,10 @@
     </Style>
 
     <!--开关-->
-    <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="{x:Type ToggleButton}"/>
+    <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="ToggleButton"/>
 
     <!--自定义-->
-    <Style x:Key="ToggleButtonCustom" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ToggleButtonCustom" TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -116,7 +116,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                <ControlTemplate TargetType="ToggleButton">
                     <Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <Grid>
                             <ContentPresenter Name="UnCheckedElement"  Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>

@@ -11,20 +11,20 @@
         <ResourceDictionary Source="CheckBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="RowHeaderGripperStyle" TargetType="{x:Type Thumb}">
+    <Style x:Key="RowHeaderGripperStyle" TargetType="Thumb">
         <Setter Property="Height" Value="8"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Cursor" Value="SizeNS"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Thumb}">
+                <ControlTemplate TargetType="Thumb">
                     <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style x:Key="DataGridCellStyle" TargetType="{x:Type DataGridCell}">
+    <Style x:Key="DataGridCellStyle" TargetType="DataGridCell">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -33,7 +33,7 @@
         <Setter Property="Padding" Value="10,6"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type DataGridCell}">
+                <ControlTemplate TargetType="DataGridCell">
                     <Border Padding="{TemplateBinding Padding}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </Border>
@@ -50,7 +50,7 @@
             </MultiTrigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="DataGridRowStyle" TargetType="{x:Type DataGridRow}">
+    <Style x:Key="DataGridRowStyle" TargetType="DataGridRow">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
@@ -67,7 +67,7 @@
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type DataGridRow}">
+                <ControlTemplate TargetType="DataGridRow">
                     <SelectiveScrollingGrid>
                         <SelectiveScrollingGrid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -91,26 +91,26 @@
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="ColumnHeaderGripperStyle" TargetType="{x:Type Thumb}">
+    <Style x:Key="ColumnHeaderGripperStyle" TargetType="Thumb">
         <Setter Property="Width" Value="8"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Cursor" Value="SizeWE"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Thumb}">
+                <ControlTemplate TargetType="Thumb">
                     <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
-    <Style x:Key="DataGridColumnHeaderStyle" TargetType="{x:Type DataGridColumnHeader}">
+    <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Padding" Value="12,6,12,12"/>
         <Setter Property="MinHeight" Value="44"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type DataGridColumnHeader}">
+                <ControlTemplate TargetType="DataGridColumnHeader">
                     <Grid>
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Padding="{TemplateBinding Padding}">
                             <StackPanel Orientation="Horizontal">
@@ -145,10 +145,10 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    <Style x:Key="DataGridRowHeaderStyle" TargetType="{x:Type DataGridRowHeader}">
+    <Style x:Key="DataGridRowHeaderStyle" TargetType="DataGridRowHeader">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type DataGridRowHeader}">
+                <ControlTemplate TargetType="DataGridRowHeader">
                     <Grid HorizontalAlignment="Center">
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Padding="{TemplateBinding Padding}" >
                             <StackPanel Orientation="Horizontal">
@@ -175,7 +175,7 @@
     <Style x:Key="DataGridTextColumnStyle" TargetType="TextBlock">
         <Setter Property="TextTrimming" Value="CharacterEllipsis"/>
     </Style>
-    <Style TargetType="{x:Type DataGrid}">
+    <Style TargetType="DataGrid">
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -203,7 +203,7 @@
         <Setter Property="controls:DataGridAttach.EditingCheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type DataGrid}">
+                <ControlTemplate TargetType="DataGrid">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="Storyboard1">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_VerticalScrollBar">
@@ -225,7 +225,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
                         <ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
                             <ScrollViewer.Template>
-                                <ControlTemplate TargetType="{x:Type ScrollViewer}">
+                                <ControlTemplate TargetType="ScrollViewer">
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="Auto"/>

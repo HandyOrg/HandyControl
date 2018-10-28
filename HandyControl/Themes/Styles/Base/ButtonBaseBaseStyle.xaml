@@ -6,7 +6,7 @@
         <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="ButtonBaseBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="{x:Type ButtonBase}">
+    <Style x:Key="ButtonBaseBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="ButtonBase">
         <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>

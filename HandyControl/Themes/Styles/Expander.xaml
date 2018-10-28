@@ -7,7 +7,7 @@
         <ResourceDictionary Source="ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type Expander}">
+    <Style TargetType="Expander">
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -17,7 +17,7 @@
         <Setter Property="MinHeight" Value="32"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Expander}">
+                <ControlTemplate TargetType="Expander">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.RowDefinitions>

@@ -5,7 +5,7 @@
         <ResourceDictionary Source="../../Basic/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="BaseStyle" TargetType="{x:Type Control}">
+    <Style x:Key="BaseStyle" TargetType="Control">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="FontSize" Value="{StaticResource TextFontSize}"/>
     </Style>

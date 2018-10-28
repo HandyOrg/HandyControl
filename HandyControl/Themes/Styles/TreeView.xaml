@@ -9,13 +9,13 @@
     </ResourceDictionary.MergedDictionaries>
 
     <PathGeometry x:Key="TreeArrow" Figures="M508.893248 762.931659a65.039498 65.039498 0 0 1-46.420659-19.485839L97.125746 371.004022c-25.143018-25.634319-24.752868-66.816849 0.881451-91.959868 25.648769-25.164693 66.809624-24.745643 91.959867 0.881451l318.933409 325.125238 318.933408-325.125238a65.025048 65.025048 0 0 1 92.841318 91.078417L555.313907 743.44582a65.025048 65.025048 0 0 1-46.420659 19.485839z"/>
-    <Style x:Key="ExpandCollapseToggleStyle" TargetType="{x:Type ToggleButton}">
+    <Style x:Key="ExpandCollapseToggleStyle" TargetType="ToggleButton">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Width" Value="16"/>
         <Setter Property="Height" Value="16"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ToggleButton}">
+                <ControlTemplate TargetType="ToggleButton">
                     <Border Background="Transparent" Height="16" Padding="4" Width="16">
                         <Path x:Name="ExpandPath" RenderTransformOrigin="0.5,0.5" Stretch="Uniform" Data="{StaticResource TreeArrow}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type TreeViewItem}}}">
                             <Path.RenderTransform>
@@ -37,7 +37,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type TreeViewItem}">
+    <Style TargetType="TreeViewItem">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Padding" Value="10,0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -95,7 +95,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type TreeView}" BasedOn="{StaticResource BaseStyle}">
+    <Style TargetType="TreeView" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -109,7 +109,7 @@
         <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TreeView}">
+                <ControlTemplate TargetType="TreeView">
                     <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
                         <controls:ScrollViewer x:Name="_tv_scrollviewer_" IsEnableInertia="{Binding Path=(controls:ScrollViewer.IsEnableInertia),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                             <ItemsPresenter/>

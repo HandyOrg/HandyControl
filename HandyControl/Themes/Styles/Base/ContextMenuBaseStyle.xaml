@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--普通菜单项-->
-    <Style x:Key="MenuItemBaseStyle" TargetType="{x:Type MenuItem}">
+    <Style x:Key="MenuItemBaseStyle" TargetType="MenuItem">
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -16,7 +16,7 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type MenuItem}">
+                <ControlTemplate TargetType="MenuItem">
                     <Border x:Name="Bd" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Uid="Border_38">
                         <Grid x:Name="Grid" Uid="Grid_49">
                             <Grid.ColumnDefinitions>
@@ -52,7 +52,7 @@
                 <Setter Property="Height" Value="28"/>
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <ControlTemplate TargetType="MenuItem">
                             <Border MinWidth="44" Height="{TemplateBinding Height}" x:Name="templateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                                 <Grid VerticalAlignment="Center">
                                     <Grid.ColumnDefinitions>
@@ -111,7 +111,7 @@
                 <Setter Property="Height" Value="28"/>
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <ControlTemplate TargetType="MenuItem">
                             <Border Padding="{TemplateBinding Padding}" x:Name="templateRoot" Height="{TemplateBinding Height}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
@@ -164,7 +164,7 @@
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type MenuItem}">
+                        <ControlTemplate TargetType="MenuItem">
                             <Border x:Name="Bd" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Uid="Border_42">
                                 <Grid x:Name="Grid" Uid="Grid_50">
                                     <Grid.ColumnDefinitions>
@@ -208,12 +208,12 @@
     </Style>
 
     <!--普通菜单-->
-    <Style x:Key="ContextMenuBaseStyle" TargetType="{x:Type ContextMenu}">
+    <Style x:Key="ContextMenuBaseStyle" TargetType="ContextMenu">
         <Setter Property="MaxHeight" Value="199"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ContextMenu}">
+                <ControlTemplate TargetType="ContextMenu">
                     <Border Background="{TemplateBinding Background}" CornerRadius="2" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
                         <controls:ScrollViewer  Margin="0,6" VerticalScrollBarVisibility="Auto">
                             <ItemsPresenter/>

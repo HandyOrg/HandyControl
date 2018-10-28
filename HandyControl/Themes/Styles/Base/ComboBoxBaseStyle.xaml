@@ -467,7 +467,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style x:Key="ComboBoxItemBaseStyle" TargetType="{x:Type ComboBoxItem}">
+    <Style x:Key="ComboBoxItemBaseStyle" TargetType="ComboBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Padding" Value="9,6"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -477,7 +477,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ComboBoxItem}">
+                <ControlTemplate TargetType="ComboBoxItem">
                     <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
@@ -502,7 +502,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ComboBoxBaseStyle" TargetType="{x:Type ComboBox}">
+    <Style x:Key="ComboBoxBaseStyle" TargetType="ComboBox">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItemBaseStyle}"/>

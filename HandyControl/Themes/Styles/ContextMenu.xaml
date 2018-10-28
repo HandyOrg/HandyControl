@@ -6,9 +6,9 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--默认普通菜单-->
-    <Style BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="{x:Type ContextMenu}"/>
+    <Style BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="ContextMenu"/>
 
     <!--默认普通菜单项-->
-    <Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="{x:Type MenuItem}"/>
+    <Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="MenuItem"/>
 
 </ResourceDictionary>

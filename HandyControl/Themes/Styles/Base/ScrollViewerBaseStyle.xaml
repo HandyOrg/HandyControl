@@ -2,26 +2,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="ScrollBarBaseRepeatButton" TargetType="{x:Type RepeatButton}">
+    <Style x:Key="ScrollBarBaseRepeatButton" TargetType="RepeatButton">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Focusable" Value="false"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                <ControlTemplate TargetType="RepeatButton">
                     <Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style x:Key="ScrollBarBaseThumbVertical" TargetType="{x:Type Thumb}">
+    <Style x:Key="ScrollBarBaseThumbVertical" TargetType="Thumb">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Thumb}">
+                <ControlTemplate TargetType="Thumb">
                     <Rectangle x:Name="rectangle" RadiusX="4" RadiusY="4" Height="{TemplateBinding Height}" SnapsToDevicePixels="True" Width="{TemplateBinding Width}" Fill="{TemplateBinding Background}"/>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
@@ -36,12 +36,12 @@
         </Setter>
     </Style>
     
-    <Style x:Key="ScrollBarBaseThumbHorizontal" TargetType="{x:Type Thumb}">
+    <Style x:Key="ScrollBarBaseThumbHorizontal" TargetType="Thumb">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type Thumb}">
+                <ControlTemplate TargetType="Thumb">
                     <Rectangle x:Name="rectangle" RadiusX="4" RadiusY="4" Height="{TemplateBinding Height}" SnapsToDevicePixels="True" Width="{TemplateBinding Width}" Fill="{TemplateBinding Background}"/>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
@@ -56,7 +56,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ScrollBarBaseStyle" TargetType="{x:Type ScrollBar}">
+    <Style x:Key="ScrollBarBaseStyle" TargetType="ScrollBar">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="false"/>
         <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
@@ -67,7 +67,7 @@
         <Setter Property="MinWidth" Value="8"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                <ControlTemplate TargetType="ScrollBar">
                     <Grid x:Name="Bg" SnapsToDevicePixels="true">
                         <Border Background="{TemplateBinding Background}" />
                         <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}">
@@ -94,7 +94,7 @@
                 <Setter Property="BorderThickness" Value="0,1"/>
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                        <ControlTemplate TargetType="ScrollBar">
                             <Grid x:Name="Bg" SnapsToDevicePixels="true">
                                 <Border Background="{TemplateBinding Background}" />
                                 <Track x:Name="PART_Track" IsEnabled="{TemplateBinding IsMouseOver}">

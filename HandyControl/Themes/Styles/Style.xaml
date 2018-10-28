@@ -36,6 +36,7 @@
         <ResourceDictionary Source="DataGrid.xaml"/>
         <ResourceDictionary Source="TransitioningContentControl.xaml"/>
         <ResourceDictionary Source="Image.xaml"/>
+        <ResourceDictionary Source="Label.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

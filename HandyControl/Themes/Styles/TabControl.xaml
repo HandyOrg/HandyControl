@@ -113,17 +113,17 @@
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource TabControlBaseStyle}" TargetType="{x:Type TabControl}"/>
+    <Style BasedOn="{StaticResource TabControlBaseStyle}" TargetType="TabControl"/>
 
-    <Style x:Key="TabItemInLine" BasedOn="{StaticResource TabItemStyle}" TargetType="{x:Type TabItem}">
+    <Style x:Key="TabItemInLine" BasedOn="{StaticResource TabItemStyle}" TargetType="TabItem">
         <Setter Property="MinWidth" Value="0"/>
     </Style>
 
-    <Style x:Key="TabControlInLine" BasedOn="{StaticResource TabControlBaseStyle}" TargetType="{x:Type TabControl}">
+    <Style x:Key="TabControlInLine" BasedOn="{StaticResource TabControlBaseStyle}" TargetType="TabControl">
         <Setter Property="ItemContainerStyle" Value="{StaticResource TabItemInLine}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type TabControl}">
+                <ControlTemplate TargetType="TabControl">
                     <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <Grid x:Name="templateRoot" Background="{DynamicResource RegionBrush}" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
                             <Grid.ColumnDefinitions>

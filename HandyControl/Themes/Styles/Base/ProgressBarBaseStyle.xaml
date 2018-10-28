@@ -9,7 +9,7 @@
         <GradientStop Color="#00FFFFFF" Offset="1"/>
     </LinearGradientBrush>
 
-    <Style x:Key="ProgressBarBaseStyle" TargetType="{x:Type ProgressBar}">
+    <Style x:Key="ProgressBarBaseStyle" TargetType="ProgressBar">
         <Setter Property="Height" Value="20"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
@@ -17,7 +17,7 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ProgressBar}">
+                <ControlTemplate TargetType="ProgressBar">
                     <Grid>
                         <Border x:Name="TemplateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"/>
                         <Grid Margin="{TemplateBinding BorderThickness}">

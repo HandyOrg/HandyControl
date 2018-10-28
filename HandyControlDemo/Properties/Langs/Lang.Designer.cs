@@ -115,6 +115,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 画刷 的本地化字符串。
+        /// </summary>
+        public static string Brush {
+            get {
+                return ResourceManager.GetString("Brush", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 按钮 的本地化字符串。
         /// </summary>
         public static string Button {

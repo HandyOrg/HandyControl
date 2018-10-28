@@ -6,25 +6,25 @@
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="ColorPickerRepeatButton" TargetType="{x:Type RepeatButton}">
+    <Style x:Key="ColorPickerRepeatButton" TargetType="RepeatButton">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Focusable" Value="false"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                <ControlTemplate TargetType="RepeatButton">
                     <Rectangle Fill="{TemplateBinding Background}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <ControlTemplate x:Key="ColorPickerSliderThumbTemplate" TargetType="{x:Type Thumb}">
+    <ControlTemplate x:Key="ColorPickerSliderThumbTemplate" TargetType="Thumb">
         <Border Width="13" Height="13" Background="White" CornerRadius="6.5"/>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ColorPickerSliderHorizontal" TargetType="{x:Type Slider}">
+    <ControlTemplate x:Key="ColorPickerSliderHorizontal" TargetType="Slider">
         <Grid>
             <Border Margin="7,0" Background="{TemplateBinding Background}" MaxHeight="11" CornerRadius="2"/>
             <Border Margin="7,0" Background="{TemplateBinding Foreground}" MaxHeight="11" CornerRadius="2">
@@ -53,7 +53,7 @@
         </Grid>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ColorPickerSliderVertical" TargetType="{x:Type Slider}">
+    <ControlTemplate x:Key="ColorPickerSliderVertical" TargetType="Slider">
         <Grid >
             <Border Margin="0,7" CornerRadius="2" MaxWidth="11" Background="{TemplateBinding Background}"/>
             <Border Margin="0,7" CornerRadius="2" MaxWidth="11" Background="{TemplateBinding Foreground}">
@@ -82,7 +82,7 @@
         </Grid>
     </ControlTemplate>
 
-    <Style x:Key="ColorPickerSlider" TargetType="{x:Type Slider}">
+    <Style x:Key="ColorPickerSlider" TargetType="Slider">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -126,21 +126,21 @@
     </DrawingBrush>
 
     <!--CompareSlider-->
-    <Style x:Key="CompareSliderRepeatButtonTransparent" TargetType="{x:Type RepeatButton}">
+    <Style x:Key="CompareSliderRepeatButtonTransparent" TargetType="RepeatButton">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Focusable" Value="false"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                <ControlTemplate TargetType="RepeatButton">
                     <ContentPresenter Content="{TemplateBinding Content}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <ControlTemplate x:Key="CompareSliderThumbHorizontal" TargetType="{x:Type Thumb}">
+    <ControlTemplate x:Key="CompareSliderThumbHorizontal" TargetType="Thumb">
         <ControlTemplate.Resources>
             <Storyboard x:Key="Storyboard1">
                 <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathLeft">
@@ -241,7 +241,7 @@
         </Border>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="CompareSliderThumbVertical" TargetType="{x:Type Thumb}">
+    <ControlTemplate x:Key="CompareSliderThumbVertical" TargetType="Thumb">
         <ControlTemplate.Resources>
             <Storyboard x:Key="Storyboard1">
                 <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathUp">

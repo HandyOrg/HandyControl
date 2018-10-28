@@ -74,6 +74,8 @@
 
         public static readonly string NaiveScrollViewerDemoCtl = nameof(NaiveScrollViewerDemoCtl);
 
+        public static readonly string BrushDemoCtl = nameof(BrushDemoCtl);
+
         public static readonly string CommonWindow = nameof(CommonWindow);
 
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);

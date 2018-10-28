@@ -375,4 +375,7 @@
   <data name="Blog" xml:space="preserve">
     <value>Blog</value>
   </data>
+  <data name="Brush" xml:space="preserve">
+    <value>Brush</value>
+  </data>
 </root>

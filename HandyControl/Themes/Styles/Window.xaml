@@ -13,7 +13,7 @@
         <ResourceDictionary Source="../Basic/Paths.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="WindowDefaultStyle" BasedOn="{x:Null}" TargetType="{x:Type Window}">
+    <Style x:Key="WindowDefaultStyle" BasedOn="{x:Null}" TargetType="Window">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
     </Style>

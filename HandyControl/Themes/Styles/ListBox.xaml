@@ -6,9 +6,9 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--默认样式-->
-    <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="{x:Type ListBox}"/>
+    <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
 
-    <Style x:Key="ListBoxItemStyle" TargetType="{x:Type ListBoxItem}">
+    <Style x:Key="ListBoxItemStyle" TargetType="ListBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Padding" Value="0"/>
@@ -19,14 +19,14 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                <ControlTemplate TargetType="ListBoxItem">
                     <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style x:Key="ListBoxItemFullStyle" BasedOn="{StaticResource ListBoxItemStyle}" TargetType="{x:Type ListBoxItem}">
+    <Style x:Key="ListBoxItemFullStyle" BasedOn="{StaticResource ListBoxItemStyle}" TargetType="ListBoxItem">
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
@@ -36,7 +36,7 @@
         <WrapPanel FocusVisualStyle="{x:Null}"/>
     </ItemsPanelTemplate>
 
-    <Style x:Key="WrapPanelListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="{x:Type ListBox}">
+    <Style x:Key="WrapPanelListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
         <Setter Property="ItemsPanel" Value="{StaticResource WrapPanelItemsPanelTemplate}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemStyle}"/>
     </Style>
@@ -45,7 +45,7 @@
         <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal" HorizontalAlignment="Left"/>
     </ItemsPanelTemplate>
 
-    <Style x:Key="StackPanelListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="{x:Type ListBox}">
+    <Style x:Key="StackPanelListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
         <Setter Property="ItemsPanel" Value="{StaticResource StackPanelItemsPanelTemplate}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemFullStyle}"/>
     </Style>
