@@ -66,7 +66,7 @@
                                 <Condition Property="IsMouseOver" Value="true"/>
                                 <Condition Property="HasItems" Value="false"/>
                             </MultiTrigger.Conditions>
-                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource DarkDefaultBrush}"/>
+                            <Setter Property="Background" TargetName="Bd" Value="{DynamicResource SecondaryRegionBrush}"/>
                         </MultiTrigger>
                         <Trigger Property="IsExpanded" Value="false">
                             <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>

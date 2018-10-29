@@ -53,8 +53,9 @@
     <Compile Include="Controls\NumericUpDown.cs" />
     <Compile Include="Controls\Pagination.cs" />
     <Compile Include="Controls\Attach\IconElement.cs" />
-    <Compile Include="Controls\CompareSlider.cs" />
+    <Compile Include="Controls\Slider\CompareSlider.cs" />
     <Compile Include="Controls\Picker\ColorPicker.cs" />
+    <Compile Include="Controls\Slider\PreviewSlider.cs" />
     <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />

@@ -27,7 +27,7 @@
     <Color x:Key="BackgroundColor">#eeeeee</Color>
     <Color x:Key="RegionColor">#ffffff</Color>
     <Color x:Key="SecondaryRegionColor">#eeeeee</Color>
-    <Color x:Key="ThirdlyRegionColor">#9e9e9e</Color>
+    <Color x:Key="ThirdlyRegionColor">White</Color>
     <Color x:Key="TitleColor">#73a5ff</Color>
     <Color x:Key="SecondaryTitleColor">#5477f5</Color>
 
