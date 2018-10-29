@@ -358,4 +358,7 @@
   <data name="Brush" xml:space="preserve">
     <value>画刷</value>
   </data>
+  <data name="PreviewSlider" xml:space="preserve">
+    <value>预览滑块</value>
+  </data>
 </root>

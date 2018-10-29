@@ -583,6 +583,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 预览滑块 的本地化字符串。
+        /// </summary>
+        public static string PreviewSlider {
+            get {
+                return ResourceManager.GetString("PreviewSlider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 主要 的本地化字符串。
         /// </summary>
         public static string Primary {

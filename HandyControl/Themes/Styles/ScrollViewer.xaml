@@ -9,6 +9,6 @@
     <!--default style-->
     <Style BasedOn="{StaticResource ScrollViewerNativeBaseStyle}" TargetType="ScrollViewer"/>
 
-    <Style BasedOn="{StaticResource ScrollViewerBaseStyle}" TargetType="{x:Type controls:ScrollViewer}"/>
+    <Style BasedOn="{StaticResource ScrollViewerBaseStyle}" TargetType="controls:ScrollViewer"/>
 
 </ResourceDictionary>

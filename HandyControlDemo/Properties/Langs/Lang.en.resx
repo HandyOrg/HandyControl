@@ -378,4 +378,7 @@
   <data name="Brush" xml:space="preserve">
     <value>Brush</value>
   </data>
+  <data name="PreviewSlider" xml:space="preserve">
+    <value>PreviewSlider</value>
+  </data>
 </root>

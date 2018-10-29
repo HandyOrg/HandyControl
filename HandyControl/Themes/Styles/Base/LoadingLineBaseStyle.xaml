@@ -6,7 +6,7 @@
         <ResourceDictionary Source="LoadingBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <Style x:Key="LoadingLineBaseStyle" BasedOn="{StaticResource LoadingBaseStyle}" TargetType="{x:Type controls:LoadingLine}">
+    <Style x:Key="LoadingLineBaseStyle" BasedOn="{StaticResource LoadingBaseStyle}" TargetType="controls:LoadingLine">
         <Setter Property="DotDiameter" Value="5"/>
     </Style>
 

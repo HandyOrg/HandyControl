@@ -19,7 +19,8 @@ var controlList = new List<string>
 	"CirclePanelDemoCtl",
 	"NumericUpDownDemoCtl",
 	"WindowDemoCtl",
-	"ScrollViewerDemoCtl"
+	"ScrollViewerDemoCtl",
+	"PreviewSliderDemoCtl"
 };
 var styleList = new List<string>
 {

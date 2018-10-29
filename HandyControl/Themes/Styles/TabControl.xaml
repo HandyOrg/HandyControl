@@ -12,7 +12,7 @@
         <ResourceDictionary Source="Base/TabControlBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="{x:Type controls:TabItem}">
+    <Style TargetType="controls:TabItem">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
@@ -31,7 +31,7 @@
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type controls:TabItem}">
+                <ControlTemplate TargetType="controls:TabItem">
                     <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
@@ -70,7 +70,7 @@
         </Setter>
     </Style>
 
-    <Style TargetType="{x:Type controls:TabControl}">
+    <Style TargetType="controls:TabControl">
         <Setter Property="Padding" Value="0"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -78,7 +78,7 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type controls:TabControl}">
+                <ControlTemplate TargetType="controls:TabControl">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <Grid x:Name="templateRoot" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
                             <Grid.ColumnDefinitions>

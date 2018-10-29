@@ -4,9 +4,10 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../Basic/Effects.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="ColorPickerRepeatButton" TargetType="RepeatButton">
+    <Style x:Key="SliderRepeatButtonBaseStyle" TargetType="RepeatButton">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Focusable" Value="false"/>
@@ -37,10 +38,10 @@
             </Border>
             <Track x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource ColorPickerRepeatButton}"/>
+                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButtonBaseStyle}"/>
                 </Track.DecreaseRepeatButton>
                 <Track.IncreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource ColorPickerRepeatButton}"/>
+                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonBaseStyle}"/>
                 </Track.IncreaseRepeatButton>
                 <Track.Thumb>
                     <Thumb x:Name="Thumb" Focusable="False" Height="13" Width="13" OverridesDefaultStyle="True" Template="{StaticResource ColorPickerSliderThumbTemplate}" VerticalAlignment="Center">
@@ -66,10 +67,10 @@
             </Border>
             <Track x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource ColorPickerRepeatButton}"/>
+                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource SliderRepeatButtonBaseStyle}"/>
                 </Track.DecreaseRepeatButton>
                 <Track.IncreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource ColorPickerRepeatButton}"/>
+                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonBaseStyle}"/>
                 </Track.IncreaseRepeatButton>
                 <Track.Thumb>
                     <Thumb x:Name="Thumb" Focusable="False" Height="13" OverridesDefaultStyle="True" Template="{StaticResource ColorPickerSliderThumbTemplate}" VerticalAlignment="Top" Width="13">
@@ -213,7 +214,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="CompareSliderHorizontal" TargetType="{x:Type controls:CompareSlider}">
+    <ControlTemplate x:Key="CompareSliderHorizontal" TargetType="controls:CompareSlider">
         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
             <Track Margin="-14,0,-15,0" x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
@@ -317,7 +318,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="CompareSliderVertical" TargetType="{x:Type controls:CompareSlider}">
+    <ControlTemplate x:Key="CompareSliderVertical" TargetType="controls:CompareSlider">
         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
             <Track Margin="0,-14,0,-15" x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
@@ -345,7 +346,7 @@
         </Border>
     </ControlTemplate>
 
-    <Style TargetType="{x:Type controls:CompareSlider}">
+    <Style TargetType="controls:CompareSlider">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -360,4 +361,59 @@
         </Style.Triggers>
     </Style>
 
+    <!--PreviewSlider-->
+    <Style x:Key="PreviewSliderRepeatButtonStyle" TargetType="RepeatButton">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Background="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                        <Rectangle Fill="{TemplateBinding Background}" Height="2"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <ControlTemplate x:Key="PreviewSliderThumbHorizontal" TargetType="Thumb">
+        <Border Effect="{StaticResource EffectShadow1}" Width="18" Height="18" Background="White" CornerRadius="9"/>
+    </ControlTemplate>
+    
+    <ControlTemplate x:Key="PreviewSliderHorizontal" TargetType="controls:PreviewSlider">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
+            </Grid.RowDefinitions>
+            <ContentControl x:Name="PART_ContentBorder" HorizontalAlignment="Left" VerticalAlignment="Bottom" Visibility="Hidden" Content="{TemplateBinding PreviewContent}" Margin="0,0,0,6"/>
+            <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Height="2" Grid.Row="1" VerticalAlignment="center"/>
+            <Track x:Name="PART_Track" Grid.Row="1">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource PreviewSliderRepeatButtonStyle}"/>
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource PreviewSliderRepeatButtonStyle}"/>
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb x:Name="Thumb" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{StaticResource PreviewSliderThumbHorizontal}" VerticalAlignment="Center" Width="18"/>
+                </Track.Thumb>
+            </Track>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Visibility" Value="Visible" TargetName="PART_ContentBorder"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+    
+    <Style TargetType="controls:PreviewSlider">
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        <Setter Property="IsMoveToPointEnabled" Value="True"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Template" Value="{StaticResource PreviewSliderHorizontal}"/>
+    </Style>
 </ResourceDictionary>

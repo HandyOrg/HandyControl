@@ -19,7 +19,7 @@ namespace HandyControl.Controls
         private Button _buttonClose;
 
         /// <summary>
-        /// 动画速度
+        ///     动画速度
         /// </summary>
         private const int AnimationSpeed = 150;
 

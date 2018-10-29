@@ -120,6 +120,9 @@
     <Compile Include="UserControl\Controls\NumericUpDownDemoCtl.xaml.cs">
       <DependentUpon>NumericUpDownDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
+      <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
       <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -327,6 +330,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\PreviewSliderDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\ScrollViewerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -483,6 +490,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\HoverMenu_16x.png" />
     <Resource Include="Resources\Img\icon.ico" />
     <Resource Include="Resources\Img\LeftMainContent\Brush_16x.png" />
     <Resource Include="Resources\Img\Avatar\avatar1.png" />

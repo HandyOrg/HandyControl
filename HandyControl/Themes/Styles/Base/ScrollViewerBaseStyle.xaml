@@ -158,7 +158,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ScrollViewerBaseControlTemplate" TargetType="{x:Type controls:ScrollViewer}">
+    <ControlTemplate x:Key="ScrollViewerBaseControlTemplate" TargetType="controls:ScrollViewer">
         <ControlTemplate.Resources>
             <Storyboard x:Key="Storyboard1">
                 <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_VerticalScrollBar">
@@ -206,7 +206,7 @@
         <Setter Property="Template" Value="{StaticResource ScrollViewerNativeBaseControlTemplate}"/>
     </Style>
     
-    <Style x:Key="ScrollViewerBaseStyle" TargetType="{x:Type controls:ScrollViewer}">
+    <Style x:Key="ScrollViewerBaseStyle" TargetType="controls:ScrollViewer">
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template" Value="{StaticResource ScrollViewerBaseControlTemplate}"/>

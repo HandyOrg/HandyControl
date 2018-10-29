@@ -34,6 +34,8 @@
 
         public static readonly string ScrollViewerDemoCtl = nameof(ScrollViewerDemoCtl);
 
+        public static readonly string PreviewSliderDemoCtl = nameof(PreviewSliderDemoCtl);
+
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

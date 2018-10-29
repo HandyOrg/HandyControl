@@ -15,7 +15,7 @@
         </i:Interaction.Triggers>
         <TabItem Header="{x:Static langs:Lang.Styles}">
             <ListBox BorderThickness="0" SelectionMode="Single">
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.BrushDemoCtl}" Content="{x:Static langs:Lang.Brush}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.BrushDemoCtl}" Content="{x:Static langs:Lang.Brush}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/Brush_16x.png"/>
                     </controls:EdgeElement.LeftContent>
@@ -172,6 +172,11 @@
                 <ListBoxItem Tag="{x:Static data:MessageToken.CompareSliderDemoCtl}" Content="{x:Static langs:Lang.CompareSlider}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/SplitterControl_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.PreviewSliderDemoCtl}" Content="{x:Static langs:Lang.PreviewSlider}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/HoverMenu_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.TimeBarDemoCtl}" Content="{x:Static langs:Lang.TimeBar}">
