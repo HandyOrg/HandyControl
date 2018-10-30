@@ -74,6 +74,9 @@
                     <Button Tag="{x:Static enum:SkinType.Dark}" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
                         <Border Background="Black" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                     </Button>
+                    <Button Tag="{x:Static enum:SkinType.Violet}" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                        <Border Background="DarkViolet" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </Border>

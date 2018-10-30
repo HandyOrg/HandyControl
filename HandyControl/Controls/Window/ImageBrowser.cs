@@ -3,7 +3,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -51,7 +50,7 @@ namespace HandyControl.Controls
 
         private Grid _gridTop;
 
-        private Grid _canvasMain;
+        private Grid _gridMain;
 
         private Canvas _canvasSmallImg;
 
@@ -304,7 +303,7 @@ namespace HandyControl.Controls
             base.OnApplyTemplate();
 
             _gridTop = GetTemplateChild(ElementGridTop) as Grid;
-            _canvasMain = GetTemplateChild(ElementGridMain) as Grid;
+            _gridMain = GetTemplateChild(ElementGridMain) as Grid;
             _canvasSmallImg = GetTemplateChild(ElementCanvasSmallImg) as Canvas;
             _borderMove = GetTemplateChild(ElementBorderMove) as Border;
             _imageMain = GetTemplateChild(ElementImageMain) as Image;
@@ -639,10 +638,10 @@ namespace HandyControl.Controls
                 DragMove();
                 return;
             }
-            _imgMouseDownPoint = Mouse.GetPosition(_canvasMain);
+            _imgMouseDownPoint = Mouse.GetPosition(_gridMain);
             _imgMouseDownMargin = ImageMargin;
             _imgIsMouseLeftButtonDown = true;
-            e.Handled = true;
+            //e.Handled = true;
         }
 
         protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e)
@@ -734,7 +733,7 @@ namespace HandyControl.Controls
 
             ImageScale = tempScale;
 
-            var posCanvas = Mouse.GetPosition(_canvasMain);
+            var posCanvas = Mouse.GetPosition(_gridMain);
             var posImg = new Point(posCanvas.X - _imgActualMargin.Left, posCanvas.Y - _imgActualMargin.Top);
 
             var marginX = .5 * _scaleInternalWidth;
@@ -823,7 +822,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void MoveImg()
         {
-            _imgCurrentPoint = Mouse.GetPosition(_canvasMain);
+            _imgCurrentPoint = Mouse.GetPosition(_gridMain);
             ShowCloseButton = _imgCurrentPoint.Y < 200;
             ShowBorderBottom = _imgCurrentPoint.Y > ActualHeight - 200;
 

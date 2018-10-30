@@ -59,9 +59,23 @@ namespace HandyControl.Tools
         /// <param name="themePath"></param>
         /// <param name="skin"></param>
         /// <returns></returns>
-        public static ResourceDictionary GetSkin(Assembly assembly, string themePath, SkinType skin) => new ResourceDictionary
+        public static ResourceDictionary GetSkin(Assembly assembly, string themePath, SkinType skin)
         {
-            Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{skin.ToString()}.xaml")
-        };
+            try
+            {
+                var uri = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{skin.ToString()}.xaml");
+                return new ResourceDictionary
+                {
+                    Source = uri
+                };
+            }
+            catch
+            {
+                return new ResourceDictionary
+                {
+                    Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{SkinType.Default.ToString()}.xaml")
+                };
+            }        
+        }
     }
 }

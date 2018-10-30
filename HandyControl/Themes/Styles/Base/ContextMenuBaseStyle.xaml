@@ -96,10 +96,6 @@
                                     <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource RegionBrush}"/>
                                     <Setter Property="TextElement.Foreground" TargetName="menuHeaderContainer" Value="{DynamicResource PrimaryTextBrush}"/>
                                 </Trigger>
-                                <Trigger Property="IsEnabled" Value="False">
-                                    <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="#FF707070"/>
-                                    <Setter Property="Fill" TargetName="Glyph" Value="#FF707070"/>
-                                </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
                     </Setter.Value>
@@ -134,16 +130,12 @@
                                     <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
                                 </Trigger>
                                 <Trigger Property="IsHighlighted" Value="True">
-                                    <Setter Property="Background" TargetName="templateRoot" Value="White"/>
+                                    <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource SecondaryRegionBrush}"/>
                                     <Setter Property="TextElement.Foreground" TargetName="menuHeaderContainer" Value="{DynamicResource PrimaryTextBrush}"/>
                                 </Trigger>
                                 <Trigger Property="IsSubmenuOpen" Value="True">
                                     <Setter Property="Background" TargetName="templateRoot" Value="White"/>
                                     <Setter Property="TextElement.Foreground" TargetName="menuHeaderContainer" Value="{DynamicResource PrimaryTextBrush}"/>
-                                </Trigger>
-                                <Trigger Property="IsEnabled" Value="False">
-                                    <Setter Property="TextElement.Foreground" TargetName="templateRoot" Value="#FF707070"/>
-                                    <Setter Property="Fill" TargetName="Glyph" Value="#FF707070"/>
                                 </Trigger>
                                 <MultiTrigger>
                                     <MultiTrigger.Conditions>
@@ -202,7 +194,7 @@
                 <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Foreground" Value="#FF707070"/>
+                <Setter Property="Opacity" Value=".4"/>
             </Trigger>
         </Style.Triggers>
     </Style>

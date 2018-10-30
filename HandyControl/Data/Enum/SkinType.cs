@@ -2,7 +2,8 @@
 {
     public enum SkinType
     {
-        Default = 0,
-        Dark
+        Default,
+        Dark,
+        Violet
     }
 }
