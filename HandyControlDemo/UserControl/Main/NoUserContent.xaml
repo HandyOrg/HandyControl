@@ -53,6 +53,11 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
+            <MenuItem Click="MenuItemContributors_OnClick" Foreground="White" Header="{x:Static langs:Lang.Contributors}">
+                <MenuItem.Icon>
+                    <Path Data="{StaticResource ContributorsGeometry}" Fill="#ef6c00"/>
+                </MenuItem.Icon>
+            </MenuItem>
         </Menu>
     </StackPanel>
     <Button Grid.Column="1" Click="ButtonConfig_OnClick" Name="ButtonConfig" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource ConfigGeometry}"/>

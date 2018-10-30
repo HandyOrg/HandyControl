@@ -361,4 +361,7 @@
   <data name="PreviewSlider" xml:space="preserve">
     <value>预览滑块</value>
   </data>
+  <data name="Contributors" xml:space="preserve">
+    <value>贡献者</value>
+  </data>
 </root>

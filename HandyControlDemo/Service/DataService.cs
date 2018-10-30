@@ -1,7 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
+using System.Net;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools.Converter;
+using Newtonsoft.Json;
 
 namespace HandyControlDemo.Service
 {
@@ -48,6 +52,29 @@ namespace HandyControlDemo.Service
                 list.Add(converter.Convert(Properties.Langs.Lang.Text, null, i, CultureInfo.CurrentCulture)?.ToString());
             }
 
+            return list;
+        }
+
+        public List<ContributorModel> GetContributorDataList()
+        {
+            var client = new WebClient();
+            client.Headers.Add("User-Agent", "request");
+            var list = new List<ContributorModel>();
+            try
+            {
+                var json = client.DownloadString(new Uri("https://api.github.com/repos/nabian/handycontrol/contributors"));
+                var objList = JsonConvert.DeserializeObject<List<dynamic>>(json);
+                list.AddRange(objList.Select(item => new ContributorModel
+                {
+                    UserName = item.login,
+                    AvatarUri = item.avatar_url,
+                    Link = item.html_url
+                }));
+            }
+            catch
+            {
+                // ignored
+            }
             return list;
         }
     }

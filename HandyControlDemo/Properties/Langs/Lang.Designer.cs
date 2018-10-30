@@ -259,6 +259,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 贡献者 的本地化字符串。
+        /// </summary>
+        public static string Contributors {
+            get {
+                return ResourceManager.GetString("Contributors", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 控件 的本地化字符串。
         /// </summary>
         public static string Controls {

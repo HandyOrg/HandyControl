@@ -1,5 +1,7 @@
 ﻿using System.Windows;
+using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Tools.Extension;
+using HandyControlDemo.Data;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControlDemo.UserControl
@@ -14,9 +16,11 @@ namespace HandyControlDemo.UserControl
         public MainContent()
         {
             InitializeComponent();
+
+            Messenger.Default.Register<bool>(this, MessageToken.FullSwitch, FullSwitch);
         }
 
-        public void FullSwitch(bool isFull)
+        private void FullSwitch(bool isFull)
         {
             if (_isFull == isFull) return;
             _isFull = isFull;
@@ -34,8 +38,8 @@ namespace HandyControlDemo.UserControl
                 BorderEffect.Show();
                 BorderTitle.Show();
                 GridMain.HorizontalAlignment = HorizontalAlignment.Center;
-                GridMain.VerticalAlignment = VerticalAlignment.Top;
-                GridMain.Margin = new Thickness(16, 0, 16, 16);
+                GridMain.VerticalAlignment = VerticalAlignment.Center;
+                GridMain.Margin = new Thickness(16);
                 PresenterMain.Margin = new Thickness(0, 0, 0, 10);
             }
         }

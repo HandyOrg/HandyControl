@@ -83,5 +83,11 @@
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);
 
     	public static readonly string LoadShowContent = nameof(LoadShowContent);
+
+	public static readonly string FullSwitch = nameof(FullSwitch);
+
+	public static readonly string ContributorsView = nameof(ContributorsView);
+
+	public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
 	}
 }

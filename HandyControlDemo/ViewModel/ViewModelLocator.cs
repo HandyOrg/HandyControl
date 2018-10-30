@@ -19,7 +19,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<ImageBrowserDemoViewModel>();
             SimpleIoc.Default.Register<ComboBoxDemoViewModel>();
             SimpleIoc.Default.Register<WindowDemoViewModel>();
-            SimpleIoc.Default.Register<NoUserContentViewModel>();
+            SimpleIoc.Default.Register<ContributorsViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -37,7 +37,7 @@ namespace HandyControlDemo.ViewModel
 
         public WindowDemoViewModel WindowDemo => ServiceLocator.Current.GetInstance<WindowDemoViewModel>();
 
-        public NoUserContentViewModel NoUserContent => ServiceLocator.Current.GetInstance<NoUserContentViewModel>();
+        public ContributorsViewModel ContributorsView => ServiceLocator.Current.GetInstance<ContributorsViewModel>();
 
         #endregion
     }

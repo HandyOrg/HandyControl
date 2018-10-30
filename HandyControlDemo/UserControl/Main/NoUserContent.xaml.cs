@@ -3,9 +3,11 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
+using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
 using HandyControl.Data.Enum;
 using HandyControlDemo.Data;
+using HandyControlDemo.Tools;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControlDemo.UserControl
@@ -55,6 +57,13 @@ namespace HandyControlDemo.UserControl
             {
                 Process.Start(tag);
             }
+        }
+
+        private void MenuItemContributors_OnClick(object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
+            Messenger.Default.Send(true, MessageToken.FullSwitch);
+            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.ContributorsView}"), MessageToken.LoadShowContent);
         }
     }
 }

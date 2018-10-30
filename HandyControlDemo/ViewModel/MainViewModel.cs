@@ -39,6 +39,12 @@ namespace HandyControlDemo.ViewModel
         public MainViewModel(DataService dataService)
         {
             Messenger.Default.Register<object>(this, MessageToken.LoadShowContent, obj => SubContent = obj);
+            Messenger.Default.Register<object>(this, MessageToken.ClearLeftSelected, obj =>
+            {
+                if (_listBoxItemCurrent == null) return;
+                _listBoxItemCurrent.IsSelected = false;
+                _listBoxItemCurrent = null;
+            });
             DataList = dataService.GetDemoDataList();
         }
 
@@ -99,6 +105,7 @@ namespace HandyControlDemo.ViewModel
                     if (Equals(_listBoxItemCurrent, item)) return;
                     _listBoxItemCurrent = item;
                     ContentTitle = item.Content;
+                    Messenger.Default.Send(false, MessageToken.FullSwitch);
                     Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{tag}"), MessageToken.LoadShowContent);
                 }
                 else

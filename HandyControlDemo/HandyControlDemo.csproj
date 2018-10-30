@@ -49,6 +49,7 @@
     <Reference Include="GalaSoft.MvvmLight.Platform, Version=5.4.1.0, Culture=neutral, PublicKeyToken=5f873c45e98af8a1, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\GalaSoft.MvvmLight.Platform.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -76,6 +77,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageToken.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Model\ContributorModel.cs" />
     <Compile Include="Data\Model\DemoDataModel.cs" />
     <Compile Include="Properties\Langs\Lang.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -90,6 +92,9 @@
     <Compile Include="Service\DataService.cs" />
     <Compile Include="Tools\AssemblyHelper.cs" />
     <Compile Include="Tools\Converter\StringRepeatConverter.cs" />
+    <Compile Include="UserControl\Basic\Avatar.xaml.cs">
+      <DependentUpon>Avatar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -134,6 +139,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\WindowDemoCtl.xaml.cs">
       <DependentUpon>WindowDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Main\ContributorsView.xaml.cs">
+      <DependentUpon>ContributorsView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Main\NoUserContent.xaml.cs">
       <DependentUpon>NoUserContent.xaml</DependentUpon>
@@ -214,10 +222,10 @@
       <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ComboBoxDemoViewModel.cs" />
+    <Compile Include="ViewModel\ContributorsViewModel.cs" />
     <Compile Include="ViewModel\GrowlDemoViewModel.cs" />
     <Compile Include="ViewModel\ImageBrowserDemoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\NoUserContentViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WindowDemoViewModel.cs" />
     <Compile Include="Window\CommonWindow.xaml.cs">
@@ -266,15 +274,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Resources\Themes\Styles\Button.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Themes\Styles\Style.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Resources\Themes\Styles\ListBoxItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -287,6 +287,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Themes\Theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Basic\Avatar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -347,6 +351,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\WindowDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Main\ContributorsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

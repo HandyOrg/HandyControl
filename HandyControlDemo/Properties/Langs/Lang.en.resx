@@ -381,4 +381,7 @@
   <data name="PreviewSlider" xml:space="preserve">
     <value>PreviewSlider</value>
   </data>
+  <data name="Contributors" xml:space="preserve">
+    <value>Contributors</value>
+  </data>
 </root>
