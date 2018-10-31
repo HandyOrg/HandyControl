@@ -209,6 +209,9 @@
     <Compile Include="UserControl\Styles\RadioButtonDemoCtl.xaml.cs">
       <DependentUpon>RadioButtonDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Styles\SliderDemoCtl.xaml.cs">
+      <DependentUpon>SliderDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Styles\TextBlockDemoCtl.xaml.cs">
       <DependentUpon>TextBlockDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -446,6 +449,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Styles\SliderDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Styles\TextBlockDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -498,6 +505,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Slider_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\HoverMenu_16x.png" />
     <Resource Include="Resources\Img\icon.ico" />
     <Resource Include="Resources\Img\LeftMainContent\Brush_16x.png" />

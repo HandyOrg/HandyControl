@@ -45,6 +45,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ScrollBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.SliderDemoCtl}" Content="{x:Static langs:Lang.Slider}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/Slider_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.TextBlockDemoCtl}" Content="{x:Static langs:Lang.TextBlock}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>

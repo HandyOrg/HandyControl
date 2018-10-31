@@ -682,6 +682,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 滑块 的本地化字符串。
+        /// </summary>
+        public static string Slider {
+            get {
+                return ResourceManager.GetString("Slider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 步骤条 的本地化字符串。
         /// </summary>
         public static string StepBar {

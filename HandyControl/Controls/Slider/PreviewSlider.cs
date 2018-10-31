@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
@@ -9,13 +10,18 @@ using HandyControl.Data;
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = PreviewContentKey, Type = typeof(ContentControl))]
+    [TemplatePart(Name = TracKKey, Type = typeof(Track))]
     public class PreviewSlider : Slider
     {
         private const string PreviewContentKey = "PART_ContentBorder";
 
+        private const string TracKKey = "PART_Track";
+
         private ContentControl _previewContent;
 
         private TranslateTransform _transform;
+
+        private Track _track;
 
         /// <summary>
         ///     预览内容
@@ -61,10 +67,10 @@ namespace HandyControl.Controls
         {
             base.OnMouseMove(e);
 
-            var p = e.GetPosition(this);
+            var p = e.GetPosition(_track);
             _transform.X = p.X - _previewContent.ActualWidth/2;
 
-            PreviewPosition = p.X / ActualWidth * Maximum;
+            PreviewPosition = p.X / _track.ActualWidth * Maximum;
             RaiseEvent(new FunctionEventArgs<double>(PreviewPositionChangedEvent, this)
             {
                 Info = PreviewPosition
@@ -75,6 +81,7 @@ namespace HandyControl.Controls
         {
             base.OnApplyTemplate();
             _previewContent = Template.FindName(PreviewContentKey, this) as ContentControl;
+            _track = Template.FindName(TracKKey, this) as Track;
 
             if (_previewContent != null)
             {

@@ -44,7 +44,8 @@ var styleList = new List<string>
 	"BorderDemoCtl",
 	"RadioButtonDemoCtl",
 	"NaiveScrollViewerDemoCtl",
-	"BrushDemoCtl"
+	"BrushDemoCtl",
+	"SliderDemoCtl"
 };
 var windowList = new List<string>
 {
@@ -58,7 +59,7 @@ namespace HandyControlDemo.Data
     {
     <#foreach(var item in controlList){#>
     public static readonly string <#=item#> = nameof(<#=item#>);
-
+	
     <#}#>
 <#foreach(var item in styleList){#>
     public static readonly string <#=item#> = nameof(<#=item#>);
@@ -70,10 +71,10 @@ namespace HandyControlDemo.Data
     <#}#>
 	public static readonly string LoadShowContent = nameof(LoadShowContent);
 
-	public static readonly string FullSwitch = nameof(FullSwitch);
+		public static readonly string FullSwitch = nameof(FullSwitch);
 
-	public static readonly string ContributorsView = nameof(ContributorsView);
+		public static readonly string ContributorsView = nameof(ContributorsView);
 
-	public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
+		public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
 	}
 }

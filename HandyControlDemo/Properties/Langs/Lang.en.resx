@@ -384,4 +384,7 @@
   <data name="Contributors" xml:space="preserve">
     <value>Contributors</value>
   </data>
+  <data name="Slider" xml:space="preserve">
+    <value>Slider</value>
+  </data>
 </root>

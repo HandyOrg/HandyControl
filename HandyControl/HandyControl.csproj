@@ -42,6 +42,7 @@
     <Compile Include="Controls\Attach\InfoElement.cs" />
     <Compile Include="Controls\Attach\PasswordBoxMonitor.cs" />
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
+    <Compile Include="Controls\Attach\TipElement.cs" />
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Carousel.cs" />
@@ -60,8 +61,10 @@
     <Compile Include="Controls\Loading\LoadingBase.cs" />
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
+    <Compile Include="Controls\Slider\SliderCanvas.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
+    <Compile Include="Data\Enum\TipPlacement.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
     <Compile Include="Data\ResourceToken.cs">
       <AutoGen>True</AutoGen>

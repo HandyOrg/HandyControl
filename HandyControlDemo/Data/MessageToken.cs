@@ -3,39 +3,39 @@
 	public class MessageToken
     {
         public static readonly string GrowlDemoCtl = nameof(GrowlDemoCtl);
-
+	
         public static readonly string LoadingDemoCtl = nameof(LoadingDemoCtl);
-
+	
         public static readonly string ImageBrowserDemoCtl = nameof(ImageBrowserDemoCtl);
-
+	
         public static readonly string ColorPickerDemoCtl = nameof(ColorPickerDemoCtl);
-
+	
         public static readonly string CarouselDemoCtl = nameof(CarouselDemoCtl);
-
+	
         public static readonly string CompareSliderDemoCtl = nameof(CompareSliderDemoCtl);
-
+	
         public static readonly string TimeBarDemoCtl = nameof(TimeBarDemoCtl);
-
+	
         public static readonly string PaginationDemoCtl = nameof(PaginationDemoCtl);
-
+	
         public static readonly string AnimationPathDemoCtl = nameof(AnimationPathDemoCtl);
-
+	
         public static readonly string StepBarDemoCtl = nameof(StepBarDemoCtl);
-
+	
         public static readonly string ClockDemoCtl = nameof(ClockDemoCtl);
-
+	
         public static readonly string TimePickerDemoCtl = nameof(TimePickerDemoCtl);
-
+	
         public static readonly string CirclePanelDemoCtl = nameof(CirclePanelDemoCtl);
-
+	
         public static readonly string NumericUpDownDemoCtl = nameof(NumericUpDownDemoCtl);
-
+	
         public static readonly string WindowDemoCtl = nameof(WindowDemoCtl);
-
+	
         public static readonly string ScrollViewerDemoCtl = nameof(ScrollViewerDemoCtl);
-
+	
         public static readonly string PreviewSliderDemoCtl = nameof(PreviewSliderDemoCtl);
-
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -78,16 +78,18 @@
 
         public static readonly string BrushDemoCtl = nameof(BrushDemoCtl);
 
+        public static readonly string SliderDemoCtl = nameof(SliderDemoCtl);
+
         public static readonly string CommonWindow = nameof(CommonWindow);
 
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);
 
     	public static readonly string LoadShowContent = nameof(LoadShowContent);
 
-	public static readonly string FullSwitch = nameof(FullSwitch);
+		public static readonly string FullSwitch = nameof(FullSwitch);
 
-	public static readonly string ContributorsView = nameof(ContributorsView);
+		public static readonly string ContributorsView = nameof(ContributorsView);
 
-	public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
+		public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
 	}
 }

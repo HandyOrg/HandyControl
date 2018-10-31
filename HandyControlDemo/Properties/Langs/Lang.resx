@@ -364,4 +364,7 @@
   <data name="Contributors" xml:space="preserve">
     <value>贡献者</value>
   </data>
+  <data name="Slider" xml:space="preserve">
+    <value>滑块</value>
+  </data>
 </root>
