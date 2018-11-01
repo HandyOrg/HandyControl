@@ -121,6 +121,19 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
             "Type", typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
 
+        public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
+            "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(default(bool), (o, args) =>
+            {
+                if (o is Panel panel)
+                {
+                    SetGrowlPanel(panel);
+                }
+            }));
+
+        public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, value);
+
+        public static bool GetGrowlParent(DependencyObject element) => (bool) element.GetValue(GrowlParentProperty);
+
         public InfoType Type
         {
             get => (InfoType) GetValue(TypeProperty);
@@ -196,7 +209,7 @@ namespace HandyControl.Controls
         ///     消息容器
         /// </summary>
         /// <param name="panel"></param>
-        public static void SetGrowlPanel(Panel panel)
+        private static void SetGrowlPanel(Panel panel)
         {
             GrowlPanel = panel;
             var menuItem = new MenuItem
