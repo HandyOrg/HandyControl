@@ -196,6 +196,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 圆形进度条 的本地化字符串。
+        /// </summary>
+        public static string CircleProgressBar {
+            get {
+                return ResourceManager.GetString("CircleProgressBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 清空 的本地化字符串。
         /// </summary>
         public static string Clear {

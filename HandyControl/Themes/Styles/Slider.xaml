@@ -503,10 +503,10 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="TipSliderThumbHorizontalTop" TargetType="Thumb">
-        <controls:SliderCanvas>
+        <controls:InternalCanvas>
             <Label Name="LabelValue" Opacity="0" Canvas.Bottom="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=Slider}}"/>
             <Border Canvas.Bottom="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
-        </controls:SliderCanvas>
+        </controls:InternalCanvas>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Effect" Value="{StaticResource EffectShadow2}" TargetName="BorderDot"/>
@@ -534,10 +534,10 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="TipSliderThumbHorizontalBottom" TargetType="Thumb">
-        <controls:SliderCanvas>
+        <controls:InternalCanvas>
             <Label Name="LabelValue" Opacity="0" Canvas.Top="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=Slider}}"/>
             <Border Canvas.Bottom="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
-        </controls:SliderCanvas>
+        </controls:InternalCanvas>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Effect" Value="{StaticResource EffectShadow2}" TargetName="BorderDot"/>
@@ -565,10 +565,10 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="TipSliderThumbVerticalLeft" TargetType="Thumb">
-        <controls:SliderCanvas Orientation="Vertical">
+        <controls:InternalCanvas Orientation="Vertical">
             <Label Name="LabelValue" Opacity="0" Canvas.Right="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=Slider}}"/>
             <Border Canvas.Right="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
-        </controls:SliderCanvas>
+        </controls:InternalCanvas>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Effect" Value="{StaticResource EffectShadow2}" TargetName="BorderDot"/>
@@ -596,10 +596,10 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="TipSliderThumbVerticalRight" TargetType="Thumb">
-        <controls:SliderCanvas Orientation="Vertical">
+        <controls:InternalCanvas Orientation="Vertical">
             <Label Name="LabelValue" Opacity="0" Canvas.Left="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=Slider}}"/>
             <Border Canvas.Right="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
-        </controls:SliderCanvas>
+        </controls:InternalCanvas>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Effect" Value="{StaticResource EffectShadow2}" TargetName="BorderDot"/>

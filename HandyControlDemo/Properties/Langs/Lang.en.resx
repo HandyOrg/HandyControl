@@ -387,4 +387,7 @@
   <data name="Slider" xml:space="preserve">
     <value>Slider</value>
   </data>
+  <data name="CircleProgressBar" xml:space="preserve">
+    <value>CircleProgressBar</value>
+  </data>
 </root>

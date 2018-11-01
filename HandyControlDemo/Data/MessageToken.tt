@@ -20,7 +20,8 @@ var controlList = new List<string>
 	"NumericUpDownDemoCtl",
 	"WindowDemoCtl",
 	"ScrollViewerDemoCtl",
-	"PreviewSliderDemoCtl"
+	"PreviewSliderDemoCtl",
+	"CircleProgressBarDemoCtl"
 };
 var styleList = new List<string>
 {

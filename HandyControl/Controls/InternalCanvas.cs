@@ -1,14 +1,12 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
-    internal class SliderCanvas : Canvas
+    internal class InternalCanvas : Canvas
     {
         internal static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-            "Orientation", typeof(Orientation), typeof(SliderCanvas), new PropertyMetadata(default(Orientation)));
+            "Orientation", typeof(Orientation), typeof(InternalCanvas), new PropertyMetadata(default(Orientation)));
 
         internal Orientation Orientation
         {

@@ -104,6 +104,9 @@
     <Compile Include="UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\CircleProgressBarDemoCtl.xaml.cs">
+      <DependentUpon>CircleProgressBarDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\ClockDemoCtl.xaml.cs">
       <DependentUpon>ClockDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -309,6 +312,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\CircleProgressBarDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\ClockDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -505,6 +512,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\ColorWheel_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Slider_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\HoverMenu_16x.png" />
     <Resource Include="Resources\Img\icon.ico" />

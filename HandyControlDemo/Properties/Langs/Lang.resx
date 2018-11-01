@@ -367,4 +367,7 @@
   <data name="Slider" xml:space="preserve">
     <value>滑块</value>
   </data>
+  <data name="CircleProgressBar" xml:space="preserve">
+    <value>圆形进度条</value>
+  </data>
 </root>
