@@ -6,11 +6,15 @@
 
 ## Latest examples
 
-### 1、DataGrid
+### 1、CircleProgressBar
+
+![CircleProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CircleProgressBar.png)
+
+### 2、DataGrid
 
 ![DataGrid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataGrid.png)
 
-### 2、Now you can switch to dark theme
+### 3、Now you can switch to dark theme
 
 ![dark theme](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DarkTheme.png)
 
