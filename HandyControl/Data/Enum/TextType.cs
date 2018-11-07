@@ -1,11 +1,12 @@
-﻿namespace HandyControl.Data.Enum
+﻿// ReSharper disable once CheckNamespace
+namespace HandyControl.Data
 {
     /// <summary>
     ///     文本类型枚举
     /// </summary>
     public enum TextType
     {
-        Common = 0,
+        Common,
         Phone,
         Mail,
         Url,

@@ -5,7 +5,9 @@ namespace HandyControl.Expression.Media
 {
     internal class DrawingPropertyMetadata : FrameworkPropertyMetadata
     {
+#pragma warning disable 414
         private DrawingPropertyMetadataOptions options;
+#pragma warning restore 414
 
         private PropertyChangedCallback propertyChangedCallback;
 
@@ -14,8 +16,7 @@ namespace HandyControl.Expression.Media
         static DrawingPropertyMetadata()
         {
             DrawingPropertyChanged += delegate (object sender, DrawingPropertyChangedEventArgs args) {
-                IShape shape = sender as IShape;
-                if ((shape != null) && args.Metadata.AffectsRender)
+                if ((sender is IShape shape) && args.Metadata.AffectsRender)
                 {
                     InvalidateGeometryReasons reasons = InvalidateGeometryReasons.PropertyChanged;
                     if (args.IsAnimated)
@@ -54,7 +55,7 @@ namespace HandyControl.Expression.Media
                 options = options,
                 propertyChangedCallback = propertyChangedCallback
             };
-            return new PropertyChangedCallback(metadata.InternalCallback);
+            return metadata.InternalCallback;
         }
 
         private void InternalCallback(DependencyObject sender, DependencyPropertyChangedEventArgs e)
@@ -68,10 +69,8 @@ namespace HandyControl.Expression.Media
                 };
                 DrawingPropertyChanged(sender, args);
             }
-            if (this.propertyChangedCallback != null)
-            {
-                this.propertyChangedCallback(sender, e);
-            }
+
+            propertyChangedCallback?.Invoke(sender, e);
         }
     }
 }

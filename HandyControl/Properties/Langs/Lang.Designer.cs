@@ -47,7 +47,7 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
-        ///   使用此强类型资源类，为所有资源查找
+        ///   重写当前线程的 CurrentUICulture 属性
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -142,6 +142,15 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 格式错误 的本地化字符串。
+        /// </summary>
+        public static string FormatError {
+            get {
+                return ResourceManager.GetString("FormatError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 间隔10分钟 的本地化字符串。
         /// </summary>
         public static string Interval10m {
@@ -201,6 +210,24 @@ namespace HandyControl.Properties.Langs {
         public static string Interval5m {
             get {
                 return ResourceManager.GetString("Interval5m", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 不能为空 的本地化字符串。
+        /// </summary>
+        public static string IsNecessary {
+            get {
+                return ResourceManager.GetString("IsNecessary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 不在范围内 的本地化字符串。
+        /// </summary>
+        public static string OutOfRange {
+            get {
+                return ResourceManager.GetString("OutOfRange", resourceCulture);
             }
         }
         

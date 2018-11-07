@@ -1,5 +1,5 @@
 ﻿using System;
-using HandyControl.Data.Enum;
+using HandyControl.Data;
 
 namespace HandyControl.Data
 {

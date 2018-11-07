@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
-using HandyControl.Data.Enum;
+using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools;
 

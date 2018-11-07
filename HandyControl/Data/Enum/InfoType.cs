@@ -1,4 +1,5 @@
-﻿namespace HandyControl.Data.Enum
+﻿// ReSharper disable once CheckNamespace
+namespace HandyControl.Data
 {
     public enum InfoType
     {

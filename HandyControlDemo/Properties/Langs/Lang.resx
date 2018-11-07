@@ -370,4 +370,7 @@
   <data name="CircleProgressBar" xml:space="preserve">
     <value>圆形进度条</value>
   </data>
+  <data name="IsNotPhone" xml:space="preserve">
+    <value>不是手机号码</value>
+  </data>
 </root>

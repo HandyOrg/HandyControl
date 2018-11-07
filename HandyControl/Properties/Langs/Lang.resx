@@ -166,4 +166,13 @@
   <data name="Tip" xml:space="preserve">
     <value>提示</value>
   </data>
+  <data name="IsNecessary" xml:space="preserve">
+    <value>不能为空</value>
+  </data>
+  <data name="OutOfRange" xml:space="preserve">
+    <value>不在范围内</value>
+  </data>
+  <data name="FormatError" xml:space="preserve">
+    <value>格式错误</value>
+  </data>
 </root>

@@ -186,4 +186,13 @@
   <data name="Tip" xml:space="preserve">
     <value>Prompt</value>
   </data>
+  <data name="IsNecessary" xml:space="preserve">
+    <value>cannot be empty</value>
+  </data>
+  <data name="OutOfRange" xml:space="preserve">
+    <value>out of range</value>
+  </data>
+  <data name="FormatError" xml:space="preserve">
+    <value>format error</value>
+  </data>
 </root>

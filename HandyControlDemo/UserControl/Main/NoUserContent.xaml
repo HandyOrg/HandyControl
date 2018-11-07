@@ -5,7 +5,7 @@
       xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
       Height="28"
       xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
-      xmlns:enum="clr-namespace:HandyControl.Data.Enum;assembly=HandyControl">
+      xmlns:enum="clr-namespace:HandyControl.Data;assembly=HandyControl">
     <Grid.ColumnDefinitions>
         <ColumnDefinition/>
         <ColumnDefinition Width="Auto"/>

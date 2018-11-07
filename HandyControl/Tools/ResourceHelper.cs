@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
-using HandyControl.Data.Enum;
+using HandyControl.Data;
 
 namespace HandyControl.Tools
 {

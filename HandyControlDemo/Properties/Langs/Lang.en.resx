@@ -390,4 +390,7 @@
   <data name="CircleProgressBar" xml:space="preserve">
     <value>CircleProgressBar</value>
   </data>
+  <data name="IsNotPhone" xml:space="preserve">
+    <value>It's not a phone number</value>
+  </data>
 </root>

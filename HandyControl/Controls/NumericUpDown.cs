@@ -11,7 +11,7 @@ namespace HandyControl.Controls
     ///     数值选择控件
     /// </summary>
     [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
-    public class NumericUpDown : Control
+    public class NumericUpDown : Control, IDataInput
     {
         #region Constants
 
@@ -27,8 +27,23 @@ namespace HandyControl.Controls
 
         public NumericUpDown()
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) => Value += Increment));
-            CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) => Value -= Increment));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) =>
+            {
+                Value += Increment;
+                _textBox.Text = CurrentText;
+                _textBox.Select(_textBox.Text.Length, 0);
+            }));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) =>
+            {
+                Value -= Increment;
+                _textBox.Text = CurrentText;
+                _textBox.Select(_textBox.Text.Length, 0);
+            }));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
+            {
+                ClearValue(ValueProperty);
+                _textBox.Text = string.Empty;
+            }));
         }
 
         protected override void OnGotFocus(RoutedEventArgs e)
@@ -48,6 +63,7 @@ namespace HandyControl.Controls
             {
                 _textBox.TextChanged -= TextBox_TextChanged;
                 _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
+                _textBox.LostFocus -= TextBox_LostFocus;
             }
 
             base.OnApplyTemplate();
@@ -58,8 +74,15 @@ namespace HandyControl.Controls
             {
                 _textBox.TextChanged += TextBox_TextChanged;
                 _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
+                _textBox.LostFocus += TextBox_LostFocus;
                 _textBox.Text = CurrentText;
             }
+        }
+
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+        {
+            if (IsError) return;
+            _textBox.Text = CurrentText;
         }
 
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
@@ -67,24 +90,21 @@ namespace HandyControl.Controls
             if (e.Key == Key.Up)
             {
                 Value += Increment;
+                _textBox.Text = CurrentText;
             }
             else if (e.Key == Key.Down)
             {
                 Value -= Increment;
+                _textBox.Text = CurrentText;
             }
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            if (string.IsNullOrEmpty(_textBox.Text)) return;
+            if (!VerifyData()) return;
             if (double.TryParse(_textBox.Text, out var value))
             {
                 Value = value;
-            }
-
-            if (_textBox != null)
-            {
-                _textBox.Text = CurrentText;
             }
         }
 
@@ -95,6 +115,8 @@ namespace HandyControl.Controls
             if (_textBox.IsFocused)
             {
                 Value += e.Delta > 0 ? Increment : -Increment;
+                _textBox.Text = CurrentText;
+                _textBox.Select(_textBox.Text.Length, 0);
                 e.Handled = true;
             }
         }
@@ -131,13 +153,6 @@ namespace HandyControl.Controls
         {
             var ctl = (NumericUpDown) d;
             var v = (double) e.NewValue;
-
-            if (ctl._textBox != null)
-            {
-                ctl._textBox.Text = ctl.DecimalPlaces.HasValue
-                    ? v.ToString($"#0.{new string('0', ctl.DecimalPlaces.Value)}")
-                    : v.ToString("#0");
-            }
 
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
             {
@@ -273,13 +288,131 @@ namespace HandyControl.Controls
             set => SetValue(DecimalPlacesProperty, value);
         }
 
+        /// <summary>
+        ///     是否显示上下调值按钮
+        /// </summary>
         internal static readonly DependencyProperty ShowUpDownButtonProperty = DependencyProperty.Register(
             "ShowUpDownButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(true));
 
+        /// <summary>
+        ///     是否显示上下调值按钮
+        /// </summary>
         internal bool ShowUpDownButton
         {
             get => (bool) GetValue(ShowUpDownButtonProperty);
             set => SetValue(ShowUpDownButtonProperty, value);
+        }
+
+        /// <summary>
+        ///     数据是否错误
+        /// </summary>
+        public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
+            "IsError", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(default(bool)));
+
+        /// <summary>
+        ///     数据是否错误
+        /// </summary>
+        public bool IsError
+        {
+            get => (bool) GetValue(IsErrorProperty);
+            set => SetValue(IsErrorProperty, value);
+        }
+
+        /// <summary>
+        ///     错误提示
+        /// </summary>
+        public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
+            "ErrorStr", typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
+
+        /// <summary>
+        ///     错误提示
+        /// </summary>
+        public string ErrorStr
+        {
+            get => (string) GetValue(ErrorStrProperty);
+            set => SetValue(ErrorStrProperty, value);
+        }
+
+        /// <summary>
+        ///     文本类型
+        /// </summary>
+        public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
+            "TextType", typeof(TextType), typeof(NumericUpDown), new PropertyMetadata(default(TextType)));
+
+        /// <summary>
+        ///     文本类型
+        /// </summary>
+        public TextType TextType
+        {
+            get => (TextType) GetValue(TextTypeProperty);
+            set => SetValue(TextTypeProperty, value);
+        }
+
+        /// <summary>
+        ///     是否显示清除按钮
+        /// </summary>
+        public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
+            "ShowClearButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(default(bool)));
+
+        /// <summary>
+        ///     是否显示清除按钮
+        /// </summary>
+        public bool ShowClearButton
+        {
+            get => (bool) GetValue(ShowClearButtonProperty);
+            set => SetValue(ShowClearButtonProperty, value);
+        }
+
+        /// <summary>
+        ///     数据验证委托
+        /// </summary>
+        public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
+
+        /// <summary>
+        ///     验证数据
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VerifyData()
+        {
+            OperationResult<bool> result;
+
+            if (VerifyFunc != null)
+            {
+                result = VerifyFunc.Invoke(_textBox.Text);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(_textBox.Text))
+                {
+                    if (double.TryParse(_textBox.Text, out var value))
+                    {
+                        if (value < Minimum || value > Maximum)
+                        {
+                            result = OperationResult.Failed(Properties.Langs.Lang.OutOfRange);
+                        }
+                        else
+                        {
+                            result = OperationResult.Success();
+                        }
+                    }
+                    else
+                    {
+                        result = OperationResult.Failed(Properties.Langs.Lang.FormatError);
+                    }
+                }
+                else if (InfoElement.GetNecessary(this))
+                {
+                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
+                }
+                else
+                {
+                    result = OperationResult.Success();
+                }
+            }
+
+            IsError = !result.Data;
+            ErrorStr = result.Message;
+            return result.Data;
         }
     }
 }

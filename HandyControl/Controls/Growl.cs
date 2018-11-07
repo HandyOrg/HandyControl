@@ -7,7 +7,6 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using HandyControl.Data;
-using HandyControl.Data.Enum;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;

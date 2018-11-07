@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Threading;
 using System.Windows;
-using HandyControl.Data.Enum;
+using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
 

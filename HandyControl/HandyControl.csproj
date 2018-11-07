@@ -51,6 +51,8 @@
     <Compile Include="Controls\Clock\Clock.cs" />
     <Compile Include="Controls\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Growl.cs" />
+    <Compile Include="Controls\IDataInput.cs" />
+    <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\ISingleOpen.cs" />
     <Compile Include="Controls\NumericUpDown.cs" />
     <Compile Include="Controls\Pagination.cs" />
@@ -64,9 +66,12 @@
     <Compile Include="Controls\Loading\LoadingLine.cs" />
     <Compile Include="Controls\InternalCanvas.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
+    <Compile Include="Data\Enum\ResultType.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
     <Compile Include="Data\Enum\TipPlacement.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
+    <Compile Include="Data\OperationResult!1.cs" />
+    <Compile Include="Data\OperationResult.cs" />
     <Compile Include="Data\ResourceToken.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

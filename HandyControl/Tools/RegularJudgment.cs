@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Text.RegularExpressions;
-using HandyControl.Data.Enum;
+using HandyControl.Data;
 
 namespace HandyControl.Tools
 {

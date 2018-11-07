@@ -1,5 +1,5 @@
 ﻿using System.Windows;
-using HandyControl.Data.Enum;
+using HandyControl.Data;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
