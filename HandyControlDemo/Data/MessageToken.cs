@@ -38,6 +38,8 @@
 	
         public static readonly string CircleProgressBarDemoCtl = nameof(CircleProgressBarDemoCtl);
 	
+        public static readonly string TextBoxDemoCtl = nameof(TextBoxDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -52,7 +54,7 @@
 
         public static readonly string DatePickerDemoCtl = nameof(DatePickerDemoCtl);
 
-        public static readonly string TextBoxDemoCtl = nameof(TextBoxDemoCtl);
+        public static readonly string NaiveTextBoxDemoCtl = nameof(NaiveTextBoxDemoCtl);
 
         public static readonly string TextBlockDemoCtl = nameof(TextBlockDemoCtl);
 

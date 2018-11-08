@@ -393,4 +393,7 @@
   <data name="IsNotPhone" xml:space="preserve">
     <value>It's not a phone number</value>
   </data>
+  <data name="PlsEnterEmail" xml:space="preserve">
+    <value>please enter email</value>
+  </data>
 </root>

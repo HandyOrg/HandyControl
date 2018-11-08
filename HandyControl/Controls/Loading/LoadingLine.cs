@@ -7,9 +7,6 @@ using System.Windows.Shapes;
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
-    /// <summary>
-    ///     LoadingLine.xaml 的交互逻辑
-    /// </summary>
     public class LoadingLine : LoadingBase
     {
         private const double MoveLength = 80;

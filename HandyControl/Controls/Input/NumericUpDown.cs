@@ -5,8 +5,10 @@ using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
+// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
+    /// <inheritdoc cref="IDataInput" />
     /// <summary>
     ///     数值选择控件
     /// </summary>
@@ -24,6 +26,11 @@ namespace HandyControl.Controls
         private TextBox _textBox;
 
         #endregion Data
+
+        static NumericUpDown()
+        {
+            DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericUpDown), new FrameworkPropertyMetadata(typeof(NumericUpDown)));
+        }
 
         public NumericUpDown()
         {
@@ -44,6 +51,8 @@ namespace HandyControl.Controls
                 ClearValue(ValueProperty);
                 _textBox.Text = string.Empty;
             }));
+
+            Loaded += (s, e) => OnApplyTemplate();
         }
 
         protected override void OnGotFocus(RoutedEventArgs e)
@@ -309,9 +318,6 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
             "IsError", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(default(bool)));
 
-        /// <summary>
-        ///     数据是否错误
-        /// </summary>
         public bool IsError
         {
             get => (bool) GetValue(IsErrorProperty);
@@ -324,9 +330,6 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
             "ErrorStr", typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
 
-        /// <summary>
-        ///     错误提示
-        /// </summary>
         public string ErrorStr
         {
             get => (string) GetValue(ErrorStrProperty);
@@ -339,9 +342,6 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
             "TextType", typeof(TextType), typeof(NumericUpDown), new PropertyMetadata(default(TextType)));
 
-        /// <summary>
-        ///     文本类型
-        /// </summary>
         public TextType TextType
         {
             get => (TextType) GetValue(TextTypeProperty);
@@ -354,24 +354,14 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
             "ShowClearButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(default(bool)));
 
-        /// <summary>
-        ///     是否显示清除按钮
-        /// </summary>
         public bool ShowClearButton
         {
             get => (bool) GetValue(ShowClearButtonProperty);
             set => SetValue(ShowClearButtonProperty, value);
         }
 
-        /// <summary>
-        ///     数据验证委托
-        /// </summary>
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
 
-        /// <summary>
-        ///     验证数据
-        /// </summary>
-        /// <returns></returns>
         public virtual bool VerifyData()
         {
             OperationResult<bool> result;

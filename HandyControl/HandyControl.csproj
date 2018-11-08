@@ -51,14 +51,14 @@
     <Compile Include="Controls\Clock\Clock.cs" />
     <Compile Include="Controls\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Growl.cs" />
-    <Compile Include="Controls\IDataInput.cs" />
+    <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\ISingleOpen.cs" />
-    <Compile Include="Controls\NumericUpDown.cs" />
+    <Compile Include="Controls\Input\NumericUpDown.cs" />
     <Compile Include="Controls\Pagination.cs" />
     <Compile Include="Controls\Attach\IconElement.cs" />
     <Compile Include="Controls\Slider\CompareSlider.cs" />
-    <Compile Include="Controls\Picker\ColorPicker.cs" />
+    <Compile Include="Controls\ColorPicker.cs" />
     <Compile Include="Controls\Slider\PreviewSlider.cs" />
     <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />
@@ -116,7 +116,7 @@
     <Compile Include="Controls\TabControl\TabItem.cs" />
     <Compile Include="Controls\TabControl\TabPanel.cs" />
     <Compile Include="Controls\TimeBar\SpeTextBlock.cs" />
-    <Compile Include="Controls\Picker\TimePicker.cs" />
+    <Compile Include="Controls\Input\TimePicker.cs" />
     <Compile Include="Controls\TimeBar\TimeBar.cs" />
     <Compile Include="Controls\TransitioningContentControl.cs" />
     <Compile Include="Controls\WatermarkTextBox.cs" />

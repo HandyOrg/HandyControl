@@ -21,7 +21,8 @@ var controlList = new List<string>
 	"WindowDemoCtl",
 	"ScrollViewerDemoCtl",
 	"PreviewSliderDemoCtl",
-	"CircleProgressBarDemoCtl"
+	"CircleProgressBarDemoCtl",
+	"TextBoxDemoCtl"
 };
 var styleList = new List<string>
 {
@@ -32,7 +33,7 @@ var styleList = new List<string>
 	"TabControlDemoCtl",
 	"CalendarDemoCtl",
 	"DatePickerDemoCtl",
-	"TextBoxDemoCtl",
+	"NaiveTextBoxDemoCtl",
 	"TextBlockDemoCtl",
 	"ComboBoxDemoCtl",
 	"PasswordBoxDemoCtl",

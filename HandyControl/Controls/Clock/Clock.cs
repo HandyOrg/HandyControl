@@ -98,7 +98,7 @@ namespace HandyControl.Controls
         #region Public Properties
 
         public static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
-            "SelectedTime", typeof(DateTime?), typeof(Clock), new PropertyMetadata(default(DateTime), OnSelectedTimeChanged));
+            "SelectedTime", typeof(DateTime?), typeof(Clock), new PropertyMetadata(default(DateTime?), OnSelectedTimeChanged));
 
         private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -239,6 +239,17 @@ namespace HandyControl.Controls
             }
 
             _appliedTemplate = true;
+            if (_isLoaded)
+            {
+                if (SelectedTime.HasValue)
+                {
+                    Update(SelectedTime.Value);
+                }
+                else
+                {
+                    DisplayTime = DateTime.Now;
+                }
+            }
         }
 
         #endregion Public Methods

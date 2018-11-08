@@ -67,12 +67,18 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
+            _panelMain?.Children.Clear();
             base.OnApplyTemplate();
 
             _progressBarBack = GetTemplateChild(ElementProgressBarBack) as ProgressBar;
             _panelMain = GetTemplateChild(ElementUniformGridMain) as Panel;
 
             CheckNull();
+
+            if (_isLoaded)
+            {
+                UpdateItems(Items);
+            }
         }
 
         private void CheckNull()

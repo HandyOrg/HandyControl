@@ -137,6 +137,9 @@
     <Compile Include="UserControl\Controls\StepBarDemoCtl.xaml.cs">
       <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\TextBoxDemoCtl.xaml.cs">
+      <DependentUpon>TextBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\TimePickerDemoCtl.xaml.cs">
       <DependentUpon>TimePickerDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -218,8 +221,8 @@
     <Compile Include="UserControl\Styles\TextBlockDemoCtl.xaml.cs">
       <DependentUpon>TextBlockDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\TextBoxDemoCtl.xaml.cs">
-      <DependentUpon>TextBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NaiveTextBoxDemoCtl.xaml.cs">
+      <DependentUpon>NaiveTextBoxDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\ToggleButtonDemoCtl.xaml.cs">
       <DependentUpon>ToggleButtonDemoCtl.xaml</DependentUpon>
@@ -356,6 +359,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\TextBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\TimePickerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -464,7 +471,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\TextBoxDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NaiveTextBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -601,6 +601,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 请输入邮箱 的本地化字符串。
+        /// </summary>
+        public static string PlsEnterEmail {
+            get {
+                return ResourceManager.GetString("PlsEnterEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 上一步 的本地化字符串。
         /// </summary>
         public static string Prev {

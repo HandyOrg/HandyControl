@@ -1,9 +1,9 @@
 ﻿// ReSharper disable once CheckNamespace
 namespace HandyControlDemo.UserControl
 {
-    public partial class AnimationPathDemoCtl
+    public partial class TextBoxDemoCtl
     {
-        public AnimationPathDemoCtl()
+        public TextBoxDemoCtl()
         {
             InitializeComponent();
         }

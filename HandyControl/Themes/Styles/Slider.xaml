@@ -452,7 +452,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
                     <Border Background="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
-                        <Rectangle Fill="{TemplateBinding Background}" Height="2"/>
+                        <Rectangle StrokeThickness="0" Fill="{TemplateBinding Background}" Height="2"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -468,7 +468,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
                     <Border Background="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
-                        <Rectangle Fill="{TemplateBinding Background}" Width="2"/>
+                        <Rectangle StrokeThickness="0" Fill="{TemplateBinding Background}" Width="2"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -646,7 +646,7 @@
                     <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonHorizontalStyle}"/>
                 </Track.IncreaseRepeatButton>
                 <Track.Thumb>
-                    <Thumb ClipToBounds="False" Width="18" Margin="-9,0,-9,0" Height="18" x:Name="Thumb" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource SliderThumb}" VerticalAlignment="Center"/>
+                    <Thumb ClipToBounds="False" Width="18" Margin="-9,0" Height="18" x:Name="Thumb" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource SliderThumb}" VerticalAlignment="Center"/>
                 </Track.Thumb>
             </Track>
         </Grid>
@@ -701,7 +701,7 @@
                     <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource SliderRepeatButtonVerticalStyle}"/>
                 </Track.IncreaseRepeatButton>
                 <Track.Thumb>
-                    <Thumb Margin="0,-9" x:Name="Thumb" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{StaticResource SliderThumb}" VerticalAlignment="Top" Width="18"/>
+                    <Thumb Margin="0,-9" x:Name="Thumb" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{StaticResource SliderThumb}" HorizontalAlignment="Center" Width="18"/>
                 </Track.Thumb>
             </Track>
         </Grid>
@@ -722,11 +722,9 @@
             </MultiTrigger>
             <Trigger Property="TickPlacement" Value="TopLeft">
                 <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>
-                <Setter Property="Margin" TargetName="TrackBackground" Value="2,5,0,5"/>
             </Trigger>
             <Trigger Property="TickPlacement" Value="BottomRight">
                 <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
-                <Setter Property="Margin" TargetName="TrackBackground" Value="0,5,2,5"/>
             </Trigger>
             <Trigger Property="TickPlacement" Value="Both">
                 <Setter Property="Visibility" TargetName="TopTick" Value="Visible"/>

@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.NaiveTextBoxDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             Background="{DynamicResource RegionBrush}">
+    <controls:TransitioningContentControl>
+        <StackPanel Margin="32">
+            <TextBox Text="{Binding ContentDemoStr,Source={StaticResource LangProvider},Mode=OneWay}"/>
+            <TextBox Text="{Binding ContentDemoStr,Source={StaticResource LangProvider},Mode=OneWay}" Margin="0,16,0,0" IsEnabled="False"/>
+
+            <TextBox controls:InfoElement.Title="{Binding TitleDemoStr1,Source={StaticResource LangProvider}}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{Binding ContentDemoStr,Source={StaticResource LangProvider},Mode=OneWay}"/>
+            <TextBox controls:InfoElement.Placeholder="{Binding PlsEnterContent,Source={StaticResource LangProvider}}" controls:InfoElement.Title="{Binding TitleDemoStr2,Source={StaticResource LangProvider}}" Style="{StaticResource TextBoxExtend}" controls:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+            <TextBox Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.TitleAlignment="Left" controls:InfoElement.Title="{Binding TitleDemoStr3,Source={StaticResource LangProvider}}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{Binding ContentDemoStr,Source={StaticResource LangProvider},Mode=OneWay}"/>
+            <TextBox Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.Placeholder="{Binding PlsEnterContent,Source={StaticResource LangProvider}}" controls:InfoElement.TitleAlignment="Left" controls:InfoElement.Title="{Binding TitleDemoStr3,Source={StaticResource LangProvider}}" controls:InfoElement.Necessary="True" Style="{StaticResource TextBoxExtend}" Margin="0,16,0,0"/>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

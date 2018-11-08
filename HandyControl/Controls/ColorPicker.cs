@@ -9,7 +9,6 @@ using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools.Extension;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     /// <summary>
@@ -359,6 +358,8 @@ namespace HandyControl.Controls
                 _sliderOpacity.ValueChanged -= SliderOpacity_OnValueChanged;
             }
 
+            _panelColor?.Children.Clear();
+
             _panelRgb?.RemoveHandler(NumericUpDown.ValueChangedEvent, new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
 
             base.OnApplyTemplate();
@@ -391,6 +392,10 @@ namespace HandyControl.Controls
                 collection.Add(behavior);
             }
 
+            if (_isLoaded)
+            {
+                Init();
+            }
             _panelRgb?.AddHandler(NumericUpDown.ValueChangedEvent, new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
         }
 

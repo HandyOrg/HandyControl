@@ -373,4 +373,7 @@
   <data name="IsNotPhone" xml:space="preserve">
     <value>不是手机号码</value>
   </data>
+  <data name="PlsEnterEmail" xml:space="preserve">
+    <value>请输入邮箱</value>
+  </data>
 </root>

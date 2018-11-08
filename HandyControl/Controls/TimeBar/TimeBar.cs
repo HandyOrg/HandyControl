@@ -150,12 +150,14 @@ namespace HandyControl.Controls
         /// </summary>
         private double _totalOffsetX;
 
+        private readonly bool _isLoaded;
+
         public TimeBar()
         {
             _starTime = DateTime.Now;
             SelectedTime = new DateTime(_starTime.Year, _starTime.Month, _starTime.Day, 0, 0, 0);
             _starTime = SelectedTime;
-
+            _isLoaded = true;
             SizeChanged += TimeBar_OnSizeChanged;
             MouseMove += TimeBar_OnMouseMove;
         }
@@ -188,6 +190,10 @@ namespace HandyControl.Controls
             var collection = Interaction.GetBehaviors(_borderTop);
             collection.Add(behavior);
 
+            if (_isLoaded)
+            {
+                TimeBar_OnSizeChanged(null, null);
+            }
             _textBlockSelected.Text = SelectedTime.ToString(TimeFormat);
         }
 
