@@ -59,6 +59,7 @@
     <Compile Include="Controls\Attach\IconElement.cs" />
     <Compile Include="Controls\Slider\CompareSlider.cs" />
     <Compile Include="Controls\ColorPicker.cs" />
+    <Compile Include="Controls\Slider\CompareTrack.cs" />
     <Compile Include="Controls\Slider\PreviewSlider.cs" />
     <Compile Include="Controls\ScrollViewer.cs" />
     <Compile Include="Controls\Loading\LoadingBase.cs" />

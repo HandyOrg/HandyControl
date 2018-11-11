@@ -51,6 +51,8 @@ namespace HandyControl.Controls
 
         private Slider _sliderOpacity;
 
+        private bool _appliedTemplate;
+
         /// <summary>
         ///     当前显示的颜色类型
         /// </summary>
@@ -348,6 +350,7 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
+            _appliedTemplate = false;
             if (_sliderColor != null)
             {
                 _sliderColor.ValueChanged -= SliderColor_OnValueChanged;
@@ -392,6 +395,7 @@ namespace HandyControl.Controls
                 collection.Add(behavior);
             }
 
+            _appliedTemplate = true;
             if (_isLoaded)
             {
                 Init();
@@ -405,6 +409,7 @@ namespace HandyControl.Controls
         private void Init()
         {
             UpdateStatus(SelectedBrush.Color);
+            _panelColor.Children.Clear();
             foreach (var item in _colorPresetList)
             {
                 _panelColor.Children.Add(CreateColorButton(item));
@@ -558,7 +563,7 @@ namespace HandyControl.Controls
 
         private void SliderColor_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (!_isLoaded || !IsNeedUpdateInfo) return;
+            if (!_appliedTemplate || !IsNeedUpdateInfo) return;
             var index = Math.Min(5, (int)Math.Floor(e.NewValue));
             var sub = e.NewValue - index;
             var range = _colorRangeList[index];
@@ -573,7 +578,7 @@ namespace HandyControl.Controls
 
         private void SliderOpacity_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            if (!_isLoaded || !IsNeedUpdateInfo) return;
+            if (!_appliedTemplate || !IsNeedUpdateInfo) return;
             var color = SelectedBrush.Color;
             SelectedBrush = new SolidColorBrush(Color.FromArgb((byte)_sliderOpacity.Value, color.R, color.G, color.B));
         }
@@ -638,7 +643,7 @@ namespace HandyControl.Controls
         // ReSharper disable once UnusedParameter.Local
         private void NumericUpDownRgb_OnValueChanged(object sender, FunctionEventArgs<double> e)
         {
-            if (!_isLoaded || !IsNeedUpdateInfo) return;
+            if (!_appliedTemplate || !IsNeedUpdateInfo) return;
             if (e.OriginalSource is NumericUpDown ctl && ctl.Tag is string tag)
             {
                 var color = SelectedBrush.Color;

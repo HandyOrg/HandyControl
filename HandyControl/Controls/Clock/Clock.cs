@@ -241,14 +241,7 @@ namespace HandyControl.Controls
             _appliedTemplate = true;
             if (_isLoaded)
             {
-                if (SelectedTime.HasValue)
-                {
-                    Update(SelectedTime.Value);
-                }
-                else
-                {
-                    DisplayTime = DateTime.Now;
-                }
+                Update(SelectedTime ?? DisplayTime);
             }
         }
 

@@ -55,7 +55,7 @@
                                 </LinearGradientBrush>
                             </ContentPresenter.OpacityMask>
                         </ContentPresenter>
-                        <Button Grid.Column="1" x:Name="PART_CloseButton" Visibility="{Binding ShowCloseButton,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:TabControl},Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
+                        <Button Grid.Column="1" Command="interactivity:ControlCommands.Close" Visibility="{Binding ShowCloseButton,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:TabControl},Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
                             <Path Fill="{DynamicResource PrimaryTextBrush}" Width="8" Height="8" Style="{StaticResource ClosePathStyle}"/>
                         </Button>
                     </Grid>

@@ -11,13 +11,8 @@ using HandyControl.Tools;
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
-    [TemplatePart(Name = CloseButtonKey, Type = typeof(Button))]
     public class TabItem : System.Windows.Controls.TabItem
     {
-        private const string CloseButtonKey = "PART_CloseButton";
-
-        private Button _buttonClose;
-
         /// <summary>
         ///     动画速度
         /// </summary>
@@ -168,16 +163,6 @@ namespace HandyControl.Controls
             base.OnMouseRightButtonDown(e);
             IsSelected = true;
             Focus();
-        }
-
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-            _buttonClose = Template.FindName(CloseButtonKey, this) as Button;
-            if (_buttonClose != null)
-            {
-                _buttonClose.Click += Close;
-            }
         }
 
         /// <summary>

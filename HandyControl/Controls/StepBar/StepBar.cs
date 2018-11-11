@@ -33,19 +33,31 @@ namespace HandyControl.Controls
 
         private void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
         {
-            var count = Items.Count;
-            if (count > 0)
+            if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
             {
-                if (ItemContainerGenerator.ContainerFromIndex(0) is StepBarItem item)
-                {
-                    item.Status = StepStatus.UnderWay;
-                }
+                var count = Items.Count;
+                if (count <= 0) return;
 
                 for (int i = 0; i < count; i++)
                 {
                     if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepBarItem)
                     {
                         stepBarItem.Index = i + 1;
+                    }
+                }
+
+                if (StepIndex < count)
+                {
+                    for (int i = 0; i < StepIndex; i++)
+                    {
+                        if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepBarItem)
+                        {
+                            stepBarItem.Status = StepStatus.Complete;
+                        }
+                    }
+                    if (ItemContainerGenerator.ContainerFromIndex(StepIndex) is StepBarItem item)
+                    {
+                        item.Status = StepStatus.UnderWay;
                     }
                 }
             }
@@ -77,7 +89,7 @@ namespace HandyControl.Controls
 
         public int StepIndex
         {
-            get => (int) GetValue(StepIndexProperty);
+            get => (int)GetValue(StepIndexProperty);
             protected set => SetValue(StepIndexProperty, value);
         }
 
@@ -86,7 +98,7 @@ namespace HandyControl.Controls
 
         public Dock Dock
         {
-            get => (Dock) GetValue(DockProperty);
+            get => (Dock)GetValue(DockProperty);
             set => SetValue(DockProperty, value);
         }
 

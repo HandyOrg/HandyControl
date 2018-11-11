@@ -63,9 +63,7 @@
                         <Border Background="{DynamicResource RegionBrush}" HorizontalAlignment="Center" CornerRadius="12" BorderThickness="2" BorderBrush="{TemplateBinding Foreground}" Height="24" MinWidth="24">
                             <TextBlock Foreground="{TemplateBinding Foreground}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Index,RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Border>
-                        <StackPanel Margin="10,0,0,0">
-                            <ContentPresenter HorizontalAlignment="Left" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:StepBar}}" TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,4,0,0"/>
-                        </StackPanel>
+                        <ContentPresenter HorizontalAlignment="Left" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:StepBar}}" TextElement.Foreground="{TemplateBinding Foreground}" Margin="10,4,0,0"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>

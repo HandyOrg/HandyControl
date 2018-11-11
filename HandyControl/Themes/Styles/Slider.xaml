@@ -218,11 +218,11 @@
 
     <ControlTemplate x:Key="CompareSliderHorizontal" TargetType="controls:CompareSlider">
         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-            <Track Margin="-14,0,-15,0" x:Name="PART_Track">
+            <controls:CompareTrack Margin="-14,0,-15,0" x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
                     <RepeatButton Margin="14,0,-15,0" Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
                         <RepeatButton.Content>
-                            <Border HorizontalAlignment="Right" Width="{TemplateBinding Width}">
+                            <Border HorizontalAlignment="Left" Width="{TemplateBinding Width}">
                                 <ContentPresenter Content="{TemplateBinding TargetContent}"/>
                             </Border>
                         </RepeatButton.Content>
@@ -231,7 +231,7 @@
                 <Track.IncreaseRepeatButton>
                     <RepeatButton Margin="-15,0,15,0" Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
                         <RepeatButton.Content>
-                            <Border HorizontalAlignment="Right" Width="{TemplateBinding Width}">
+                            <Border HorizontalAlignment="Right" Width="{TemplateBinding ActualWidth}">
                                 <ContentPresenter Content="{TemplateBinding SourceContent}"/>
                             </Border>
                         </RepeatButton.Content>
@@ -240,7 +240,7 @@
                 <Track.Thumb>
                     <Thumb x:Name="Thumb" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource CompareSliderThumbHorizontal}" Width="30" Margin="0,0,0,0"/>
                 </Track.Thumb>
-            </Track>
+            </controls:CompareTrack>
         </Border>
     </ControlTemplate>
 
@@ -322,7 +322,7 @@
 
     <ControlTemplate x:Key="CompareSliderVertical" TargetType="controls:CompareSlider">
         <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-            <Track Margin="0,-14,0,-15" x:Name="PART_Track">
+            <controls:CompareTrack Margin="0,-14,0,-15" x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
                     <RepeatButton Margin="0,-15,0,15" Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
                         <RepeatButton.Content>
@@ -335,7 +335,7 @@
                 <Track.IncreaseRepeatButton>
                     <RepeatButton Margin="0,14,0,-15" Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
                         <RepeatButton.Content>
-                            <Border VerticalAlignment="Bottom" Height="{TemplateBinding Height}">
+                            <Border VerticalAlignment="Top" Height="{TemplateBinding Height}">
                                 <ContentPresenter Content="{TemplateBinding SourceContent}"/>
                             </Border>
                         </RepeatButton.Content>
@@ -344,7 +344,7 @@
                 <Track.Thumb>
                     <Thumb x:Name="Thumb" Focusable="False" Height="30" OverridesDefaultStyle="True" Template="{StaticResource CompareSliderThumbVertical}" VerticalAlignment="Top"/>
                 </Track.Thumb>
-            </Track>
+            </controls:CompareTrack>
         </Border>
     </ControlTemplate>
 
