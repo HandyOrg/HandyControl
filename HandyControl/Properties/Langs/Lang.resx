@@ -145,9 +145,6 @@
   <data name="Clear" xml:space="preserve">
     <value>清空</value>
   </data>
-  <data name="Step" xml:space="preserve">
-    <value>步骤</value>
-  </data>
   <data name="Close" xml:space="preserve">
     <value>关闭</value>
   </data>
@@ -174,5 +171,11 @@
   </data>
   <data name="FormatError" xml:space="preserve">
     <value>格式错误</value>
+  </data>
+  <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
+    <value>无法自注册复合命令</value>
+  </data>
+  <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
+    <value>不能注册同一命令两次</value>
   </data>
 </root>

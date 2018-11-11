@@ -3,21 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
+             DataContext="{Binding StepBarDemo,Source={StaticResource Locator}}"
              FocusManager.FocusedElement="{Binding RelativeSource={x:Static RelativeSource.Self}, Mode=OneTime}"
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
-        <StackPanel Margin="32" VerticalAlignment="Center" MaxWidth="800">
-            <controls:StepBar x:Name="StepBarMain">
-                <controls:StepItem Title="{x:Static langs:Lang.Register}"/>
-                <controls:StepItem Title="{x:Static langs:Lang.BasicInfo}"/>
-                <controls:StepItem Title="{x:Static langs:Lang.UploadFile}"/>
-                <controls:StepItem Title="{x:Static langs:Lang.Complete}"/>
+        <Grid Margin="32" Name="PanelMain">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <controls:StepBar Grid.ColumnSpan="2">
+                <controls:StepBarItem Content="{x:Static langs:Lang.Register}"/>
+                <controls:StepBarItem Content="{x:Static langs:Lang.BasicInfo}"/>
+                <controls:StepBarItem Content="{x:Static langs:Lang.UploadFile}"/>
+                <controls:StepBarItem Content="{x:Static langs:Lang.Complete}"/>
             </controls:StepBar>
-            <StackPanel Orientation="Horizontal" Margin="0,32,0,0" HorizontalAlignment="Center">
-                <Button Command="interactivity:ControlCommands.Prev" CommandTarget="{Binding ElementName=StepBarMain}" Width="180" Content="{x:Static langs:Lang.Prev}" Style="{StaticResource ButtonPrimary}"/>
-                <Button Command="interactivity:ControlCommands.Next" CommandTarget="{Binding ElementName=StepBarMain}" Width="180" Margin="16,0,0,0" Content="{x:Static langs:Lang.Next}" Style="{StaticResource ButtonPrimary}"/>
+            <StackPanel Margin="0,32" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
+                <Button Command="{Binding PrevCmd}" CommandParameter="{Binding ElementName=PanelMain}" Width="180" Content="{x:Static langs:Lang.Prev}" Style="{StaticResource ButtonPrimary}"/>
+                <Button Command="{Binding NextCmd}" CommandParameter="{Binding ElementName=PanelMain}" Width="180" Margin="0,16,0,0" Content="{x:Static langs:Lang.Next}" Style="{StaticResource ButtonPrimary}"/>
             </StackPanel>
-        </StackPanel>
+            <controls:StepBar Margin="0,0,0,32" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Dock="Bottom">
+                <controls:StepBarItem Content="{x:Static langs:Lang.Register}"/>
+                <controls:StepBarItem Content="{x:Static langs:Lang.BasicInfo}"/>
+                <controls:StepBarItem Content="{x:Static langs:Lang.UploadFile}"/>
+                <controls:StepBarItem Content="{x:Static langs:Lang.Complete}"/>
+            </controls:StepBar>
+            <controls:StepBar Grid.Column="0" Grid.Row="3" ItemsSource="{Binding DataList}" Dock="Left">
+                <controls:StepBar.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Header}" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"/>
+                            <TextBlock Margin="0,4,0,0" Text="{Binding Content}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </controls:StepBar.ItemTemplate>
+            </controls:StepBar>
+            <controls:StepBar Grid.Column="1" Grid.Row="3" ItemsSource="{Binding DataList}" Dock="Right">
+                <controls:StepBar.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Header}" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"/>
+                            <TextBlock Margin="0,4,0,0" Text="{Binding Content}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </controls:StepBar.ItemTemplate>
+            </controls:StepBar>
+        </Grid>
     </controls:TransitioningContentControl>
 </UserControl>

@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Data\Model\ContributorModel.cs" />
     <Compile Include="Data\Model\DemoDataModel.cs" />
+    <Compile Include="Data\Model\StepBarDemoModel.cs" />
     <Compile Include="Properties\Langs\Lang.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -235,6 +236,7 @@
     <Compile Include="ViewModel\GrowlDemoViewModel.cs" />
     <Compile Include="ViewModel\ImageBrowserDemoViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\StepBarDemoViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="ViewModel\WindowDemoViewModel.cs" />
     <Compile Include="Window\CommonWindow.xaml.cs">

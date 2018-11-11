@@ -396,4 +396,7 @@
   <data name="PlsEnterEmail" xml:space="preserve">
     <value>please enter email</value>
   </data>
+  <data name="Step" xml:space="preserve">
+    <value>Step</value>
+  </data>
 </root>

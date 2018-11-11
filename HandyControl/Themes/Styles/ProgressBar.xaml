@@ -206,11 +206,18 @@
                     <Grid x:Name="TemplateRoot" SnapsToDevicePixels="true">
                         <Rectangle x:Name="PART_Track" Fill="{TemplateBinding Background}" StrokeThickness="0" Stroke="{TemplateBinding BorderBrush}"/>
                         <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left">
-                            <Grid x:Name="Foreground">
-                                <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}"/>
-                            </Grid>
+                            <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}"/>
                         </Decorator>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="LayoutTransform" TargetName="TemplateRoot">
+                                <Setter.Value>
+                                    <RotateTransform Angle="-90"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

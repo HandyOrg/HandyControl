@@ -47,7 +47,7 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
+        ///   使用此强类型资源类，为所有资源查找
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -75,6 +75,24 @@ namespace HandyControl.Properties.Langs {
         public static string Cancel {
             get {
                 return ResourceManager.GetString("Cancel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 无法自注册复合命令 的本地化字符串。
+        /// </summary>
+        public static string CannotRegisterCompositeCommandInItself {
+            get {
+                return ResourceManager.GetString("CannotRegisterCompositeCommandInItself", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 不能注册同一命令两次 的本地化字符串。
+        /// </summary>
+        public static string CannotRegisterSameCommandTwice {
+            get {
+                return ResourceManager.GetString("CannotRegisterSameCommandTwice", resourceCulture);
             }
         }
         
@@ -246,15 +264,6 @@ namespace HandyControl.Properties.Langs {
         public static string PngImg {
             get {
                 return ResourceManager.GetString("PngImg", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 步骤 的本地化字符串。
-        /// </summary>
-        public static string Step {
-            get {
-                return ResourceManager.GetString("Step", resourceCulture);
             }
         }
         

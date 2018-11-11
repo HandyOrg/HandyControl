@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Windows;
@@ -18,7 +19,10 @@ namespace HandyControl.Controls
 
         public TransitioningContentControl()
         {
-            DefaultStyleKey = typeof(TransitioningContentControl);
+            if (!DesignerProperties.GetIsInDesignMode(this))
+            {
+                DefaultStyleKey = typeof(TransitioningContentControl);
+            }
         }
 
         private Storyboard CurrentTransition
@@ -43,6 +47,8 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
+            if (DesignerProperties.GetIsInDesignMode(this)) return;
+
             if (IsTransitioning)
                 AbortTransition();
 

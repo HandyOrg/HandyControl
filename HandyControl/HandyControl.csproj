@@ -65,9 +65,12 @@
     <Compile Include="Controls\Loading\LoadingCircle.cs" />
     <Compile Include="Controls\Loading\LoadingLine.cs" />
     <Compile Include="Controls\InternalCanvas.cs" />
+    <Compile Include="Controls\StepBar\StepBar.cs" />
+    <Compile Include="Controls\StepBar\StepBarItem.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
+    <Compile Include="Data\Enum\StepStatus.cs" />
     <Compile Include="Data\Enum\TipPlacement.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
     <Compile Include="Data\OperationResult!1.cs" />
@@ -110,8 +113,6 @@
     <Compile Include="Expression\Shapes\Arc.cs" />
     <Compile Include="Expression\Shapes\PrimitiveShape.cs" />
     <Compile Include="Tools\SingleOpenHelper.cs" />
-    <Compile Include="Controls\Steps\StepBar.cs" />
-    <Compile Include="Controls\Steps\StepItem.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs" />
     <Compile Include="Controls\TabControl\TabItem.cs" />
     <Compile Include="Controls\TabControl\TabPanel.cs" />
@@ -263,6 +264,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\RadioButtonBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\StepBarBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

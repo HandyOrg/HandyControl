@@ -11,7 +11,7 @@ namespace HandyControlDemo.Service
 {
     public class DataService
     {
-        public List<DemoDataModel> GetDemoDataList()
+        internal List<DemoDataModel> GetDemoDataList()
         {
             var list = new List<DemoDataModel>();
             for (var i = 1; i <= 6; i++)
@@ -43,7 +43,7 @@ namespace HandyControlDemo.Service
             return list;
         }
 
-        public List<string> GetComboBoxDemoDataList()
+        internal List<string> GetComboBoxDemoDataList()
         {
             var converter = new StringRepeatConverter();
             var list = new List<string>();
@@ -55,7 +55,7 @@ namespace HandyControlDemo.Service
             return list;
         }
 
-        public List<ContributorModel> GetContributorDataList()
+        internal List<ContributorModel> GetContributorDataList()
         {
             var client = new WebClient();
             client.Headers.Add("User-Agent", "request");
@@ -76,6 +76,33 @@ namespace HandyControlDemo.Service
                 // ignored
             }
             return list;
+        }
+
+        internal List<StepBarDemoModel> GetStepBarDemoDataList()
+        {
+            return new List<StepBarDemoModel>
+            {
+                new StepBarDemoModel
+                {
+                    Header = $"{Properties.Langs.Lang.Step}1",
+                    Content = Properties.Langs.Lang.Register
+                },
+                new StepBarDemoModel
+                {
+                    Header = $"{Properties.Langs.Lang.Step}2",
+                    Content = Properties.Langs.Lang.BasicInfo
+                },
+                new StepBarDemoModel
+                {
+                    Header = $"{Properties.Langs.Lang.Step}3",
+                    Content = Properties.Langs.Lang.UploadFile
+                },
+                new StepBarDemoModel
+                {
+                    Header = $"{Properties.Langs.Lang.Step}4",
+                    Content = Properties.Langs.Lang.Complete
+                }
+            };
         }
     }
 }

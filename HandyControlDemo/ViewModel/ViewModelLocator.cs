@@ -20,6 +20,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<ComboBoxDemoViewModel>();
             SimpleIoc.Default.Register<WindowDemoViewModel>();
             SimpleIoc.Default.Register<ContributorsViewModel>();
+            SimpleIoc.Default.Register<StepBarDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -38,6 +39,8 @@ namespace HandyControlDemo.ViewModel
         public WindowDemoViewModel WindowDemo => ServiceLocator.Current.GetInstance<WindowDemoViewModel>();
 
         public ContributorsViewModel ContributorsView => ServiceLocator.Current.GetInstance<ContributorsViewModel>();
+
+        public StepBarDemoViewModel StepBarDemo => ServiceLocator.Current.GetInstance<StepBarDemoViewModel>();
 
         #endregion
     }

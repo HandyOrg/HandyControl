@@ -6,15 +6,19 @@
 
 ## Latest examples
 
-### 1、CircleProgressBar
+### 1、Slider
+
+![Slider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Slider.png)
+
+### 2、CircleProgressBar
 
 ![CircleProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CircleProgressBar.png)
 
-### 2、DataGrid
+### 3、DataGrid
 
 ![DataGrid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataGrid.png)
 
-### 3、Now you can switch to dark theme
+### 4、Now you can switch to dark theme
 
 ![dark theme](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DarkTheme.png)
 
@@ -72,7 +76,7 @@
 
 ### 13、StepBar
 
-![StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.gif)
+![StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.png)
 
 ### 14、Calendar
 

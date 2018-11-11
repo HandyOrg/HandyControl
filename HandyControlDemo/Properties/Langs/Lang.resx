@@ -376,4 +376,7 @@
   <data name="PlsEnterEmail" xml:space="preserve">
     <value>请输入邮箱</value>
   </data>
+  <data name="Step" xml:space="preserve">
+    <value>步骤</value>
+  </data>
 </root>
