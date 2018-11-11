@@ -292,6 +292,11 @@ namespace HandyControl.Controls
                 _gridTop.MouseLeftButtonDown -= GridTop_OnMouseLeftButtonDown;
             }
 
+            if (_gridMain != null)
+            {
+                _gridMain.MouseLeftButtonDown -= GridMain_OnMouseLeftButtonDown;
+            }
+
             if (_canvasSmallImg != null)
             {
                 _canvasSmallImg.MouseLeftButtonDown -= CanvasSmallImg_OnMouseLeftButtonDown;
@@ -317,6 +322,11 @@ namespace HandyControl.Controls
             if (_gridTop != null)
             {
                 _gridTop.MouseLeftButtonDown += GridTop_OnMouseLeftButtonDown;
+            }
+
+            if (_gridMain != null)
+            {
+                _gridMain.MouseLeftButtonDown += GridMain_OnMouseLeftButtonDown;
             }
 
             if (_canvasSmallImg != null)
@@ -543,6 +553,14 @@ namespace HandyControl.Controls
             }
         }
 
+        private void GridMain_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.LeftButton == MouseButtonState.Pressed && !(ImageWidth > ActualWidth || ImageHeight > ActualHeight))
+            {
+                DragMove();
+            }
+        }
+
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
@@ -633,7 +651,7 @@ namespace HandyControl.Controls
 
         private void ImageMain_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (!(ImageWidth > ActualWidth || ImageHeight > ActualHeight))
+            if (e.LeftButton == MouseButtonState.Pressed && !(ImageWidth > ActualWidth || ImageHeight > ActualHeight))
             {
                 DragMove();
                 return;
@@ -641,7 +659,6 @@ namespace HandyControl.Controls
             _imgMouseDownPoint = Mouse.GetPosition(_gridMain);
             _imgMouseDownMargin = ImageMargin;
             _imgIsMouseLeftButtonDown = true;
-            //e.Handled = true;
         }
 
         protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e)
