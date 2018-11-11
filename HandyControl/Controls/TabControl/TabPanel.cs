@@ -164,6 +164,10 @@ namespace HandyControl.Controls
                 ForceUpdate = true;
                 Measure(new Size(DesiredSize.Width, ActualHeight));
                 ForceUpdate = false;
+                foreach (var item in ItemDic.Values)
+                {
+                    item.TabPanel = this;
+                }
                 _isLoaded = true;
             };
         }

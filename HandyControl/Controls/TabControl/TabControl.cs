@@ -155,6 +155,7 @@ namespace HandyControl.Controls
                 {
                     item.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                     item.IsSelected = true;
+                    item.TabPanel = _headerPanel;
                 }
             }
             IsInternalAction = false;

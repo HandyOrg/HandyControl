@@ -91,7 +91,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     标签容器
         /// </summary>
-        private TabPanel _tabPanel;
+        internal TabPanel TabPanel { get; set; }
 
         /// <summary>
         ///     当前编号
@@ -108,8 +108,6 @@ namespace HandyControl.Controls
             }
         }
 
-        private bool _isLoaded;
-
         /// <summary>
         ///     更新选项卡横向偏移
         /// </summary>
@@ -117,23 +115,17 @@ namespace HandyControl.Controls
         private void UpdateItemOffsetX(int oldIndex)
         {
             if (!_isDragging) return;
-            var moveItem = _tabPanel.ItemDic[CurrentIndex];
+            var moveItem = TabPanel.ItemDic[CurrentIndex];
             moveItem.CurrentIndex -= CurrentIndex - oldIndex;
             var offsetX = moveItem.TargetOffsetX;
             var resultX = offsetX + (oldIndex - CurrentIndex) * ItemWidth;
-            _tabPanel.ItemDic[CurrentIndex] = this;
-            _tabPanel.ItemDic[moveItem.CurrentIndex] = moveItem;
+            TabPanel.ItemDic[CurrentIndex] = this;
+            TabPanel.ItemDic[moveItem.CurrentIndex] = moveItem;
             moveItem.CreateAnimation(offsetX, resultX);
         }
 
         public TabItem()
         {
-            Loaded += (s, e) =>
-            {
-                if (_isLoaded) return;
-                _tabPanel = VisualParent as TabPanel;
-                _isLoaded = true;
-            };
             CommandBindings.Add(new CommandBinding(ControlCommands.Close, Close));
             CommandBindings.Add(new CommandBinding(ControlCommands.CloseAll, (s, e) =>
             {
@@ -172,11 +164,11 @@ namespace HandyControl.Controls
         {
             if (TabControlParent.IsEnableAnimation)
             {
-                _tabPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
+                TabPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
             }
             else
             {
-                _tabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+                TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
             }
             TabControlParent.IsInternalAction = true;
             TabControlParent.Items.Remove(this);
@@ -187,7 +179,7 @@ namespace HandyControl.Controls
             base.OnMouseLeftButtonDown(e);
             if (TabControlParent.IsDraggable && !ItemIsDragging && !_isDragging)
             {
-                _tabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+                TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
                 _mouseDownOffsetX = RenderTransform.Value.OffsetX;
                 var mx = TranslatePoint(new Point(), TabControlParent).X;
                 _mouseDownIndex = CalLocationIndex(mx);
@@ -259,15 +251,15 @@ namespace HandyControl.Controls
                 RenderTransform = new TranslateTransform(resultX, 0);
                 if (index == -1) return;
                 var parent = TabControlParent;
-                _tabPanel.CanUpdate = false;
+                TabPanel.CanUpdate = false;
                 parent.IsInternalAction = true;
                 parent.Items.Remove(this);
                 parent.IsInternalAction = true;
                 parent.Items.Insert(index, this);
-                _tabPanel.CanUpdate = true;
-                _tabPanel.ForceUpdate = true;
-                _tabPanel.Measure(new Size(_tabPanel.DesiredSize.Width, ActualHeight));
-                _tabPanel.ForceUpdate = false;
+                TabPanel.CanUpdate = true;
+                TabPanel.ForceUpdate = true;
+                TabPanel.Measure(new Size(TabPanel.DesiredSize.Width, ActualHeight));
+                TabPanel.ForceUpdate = false;
                 Focus();
                 IsSelected = true;
             }
