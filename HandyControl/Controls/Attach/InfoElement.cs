@@ -30,7 +30,7 @@ namespace HandyControl.Controls
         ///     是否必填
         /// </summary>
         public static readonly DependencyProperty NecessaryProperty = DependencyProperty.RegisterAttached(
-            "Necessary", typeof(bool), typeof(InfoElement), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.Inherits));
+            "Necessary", typeof(bool), typeof(InfoElement), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetNecessary(DependencyObject element, bool value) => element.SetValue(NecessaryProperty, value);
 

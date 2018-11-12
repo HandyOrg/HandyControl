@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
@@ -17,7 +18,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty KeepVerticalProperty = DependencyProperty.Register(
-            "KeepVertical", typeof(bool), typeof(CirclePanel), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "KeepVertical", typeof(bool), typeof(CirclePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public bool KeepVertical
         {
@@ -26,7 +27,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty OffsetAngleProperty = DependencyProperty.Register(
-            "OffsetAngle", typeof(double), typeof(CirclePanel), new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "OffsetAngle", typeof(double), typeof(CirclePanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public double OffsetAngle
         {

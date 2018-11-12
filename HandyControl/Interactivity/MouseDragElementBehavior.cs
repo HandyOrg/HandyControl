@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using HandyControl.Data;
 
 namespace HandyControl.Interactivity
 {
@@ -8,13 +9,13 @@ namespace HandyControl.Interactivity
     {
         public static readonly DependencyProperty ConstrainToParentBoundsProperty =
             DependencyProperty.Register("ConstrainToParentBounds", typeof(bool), typeof(MouseDragElementBehavior),
-                new PropertyMetadata(false, OnConstrainToParentBoundsChanged));
+                new PropertyMetadata(ValueBoxes.FalseBox, OnConstrainToParentBoundsChanged));
 
         public static readonly DependencyProperty XProperty = DependencyProperty.Register("X", typeof(double),
-            typeof(MouseDragElementBehavior), new PropertyMetadata(1.0 / 0.0, OnXChanged));
+            typeof(MouseDragElementBehavior), new PropertyMetadata(double.PositiveInfinity, OnXChanged));
 
         public static readonly DependencyProperty YProperty = DependencyProperty.Register("Y", typeof(double),
-            typeof(MouseDragElementBehavior), new PropertyMetadata(1.0 / 0.0, OnYChanged));
+            typeof(MouseDragElementBehavior), new PropertyMetadata(double.PositiveInfinity, OnYChanged));
 
         // Fields
         private Transform _cachedRenderTransform;

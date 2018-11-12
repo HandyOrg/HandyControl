@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using HandyControl.Data;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
@@ -20,7 +21,7 @@ namespace HandyControl.Controls
         ///     是否监测
         /// </summary>
         public static readonly DependencyProperty IsMonitoringProperty = DependencyProperty.RegisterAttached(
-            "IsMonitoring", typeof(bool), typeof(PasswordBoxMonitor), new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.Inherits, OnIsMonitoringChanged));
+            "IsMonitoring", typeof(bool), typeof(PasswordBoxMonitor), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits, OnIsMonitoringChanged));
 
         private static void OnIsMonitoringChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

@@ -34,7 +34,7 @@ namespace HandyControl.Controls
 
         static ImageBrowser()
         {
-            IsFullScreenProperty.AddOwner(typeof(ImageBrowser), new PropertyMetadata(BooleanBoxes.FalseBox));
+            IsFullScreenProperty.AddOwner(typeof(ImageBrowser), new PropertyMetadata(ValueBoxes.FalseBox));
         }    
 
         public ImageBrowser()

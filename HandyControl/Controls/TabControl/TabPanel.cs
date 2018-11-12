@@ -42,7 +42,7 @@ namespace HandyControl.Controls
         ///     是否将标签填充
         /// </summary>
         public static readonly DependencyProperty IsEnableTabFillProperty = DependencyProperty.Register(
-            "IsEnableTabFill", typeof(bool), typeof(TabPanel), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "IsEnableTabFill", typeof(bool), typeof(TabPanel), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     是否将标签填充

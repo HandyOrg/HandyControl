@@ -36,7 +36,7 @@ namespace HandyControl.Controls
         ///     是否响应鼠标滚轮操作
         /// </summary>
         public static readonly DependencyProperty CanMouseWheelProperty = DependencyProperty.Register(
-            "CanMouseWheel", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(BooleanBoxes.TrueBox));
+            "CanMouseWheel", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.TrueBox));
 
         /// <summary>
         ///     是否响应鼠标滚轮操作
@@ -120,7 +120,7 @@ namespace HandyControl.Controls
         ///     是否支持惯性
         /// </summary>
         public static readonly DependencyProperty IsEnableInertiaProperty = DependencyProperty.RegisterAttached(
-            "IsEnableInertia", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "IsEnableInertia", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static void SetIsEnableInertia(DependencyObject element, bool value)
         {
@@ -145,7 +145,7 @@ namespace HandyControl.Controls
         ///     控件是否可以穿透点击
         /// </summary>
         public static readonly DependencyProperty IsPenetratingProperty = DependencyProperty.RegisterAttached(
-            "IsPenetrating", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "IsPenetrating", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     控件是否可以穿透点击

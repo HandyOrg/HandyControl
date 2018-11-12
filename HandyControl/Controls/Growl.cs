@@ -103,7 +103,7 @@ namespace HandyControl.Controls
             "ConfirmStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
 
         public static readonly DependencyProperty ShowDateTimeProperty = DependencyProperty.Register(
-            "ShowDateTime", typeof(bool), typeof(Growl), new PropertyMetadata(BooleanBoxes.TrueBox));
+            "ShowDateTime", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
             "Message", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
@@ -121,7 +121,7 @@ namespace HandyControl.Controls
             "Type", typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
 
         public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
-            "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(BooleanBoxes.FalseBox, (o, args) =>
+            "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
             {
                 if (o is Panel panel)
                 {

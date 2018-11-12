@@ -152,7 +152,7 @@ namespace HandyControl.Controls
         }
 
         internal static readonly DependencyProperty ShowConfirmButtonProperty = DependencyProperty.Register(
-            "ShowConfirmButton", typeof(bool), typeof(Clock), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "ShowConfirmButton", typeof(bool), typeof(Clock), new PropertyMetadata(ValueBoxes.FalseBox));
 
         internal bool ShowConfirmButton
         {

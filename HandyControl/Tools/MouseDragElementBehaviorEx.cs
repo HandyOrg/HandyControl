@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Interactivity;
 
 namespace HandyControl.Tools
@@ -18,7 +19,7 @@ namespace HandyControl.Tools
 
         public static readonly DependencyProperty ConstrainToParentBoundsProperty =
             DependencyProperty.Register(nameof(ConstrainToParentBounds), typeof(bool),
-                typeof(MouseDragElementBehaviorEx), new PropertyMetadata(false, OnConstrainToParentBoundsChanged));
+                typeof(MouseDragElementBehaviorEx), new PropertyMetadata(ValueBoxes.FalseBox, OnConstrainToParentBoundsChanged));
 
         private Transform _cachedRenderTransform;
         private Point _relativePosition;

@@ -35,7 +35,7 @@ namespace HandyControl.Controls
         public static object GetBottomContent(DependencyObject element) => element.GetValue(BottomContentProperty);
 
         public static readonly DependencyProperty ShowEdgeContentProperty = DependencyProperty.RegisterAttached(
-            "ShowEdgeContent", typeof(bool), typeof(EdgeElement), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "ShowEdgeContent", typeof(bool), typeof(EdgeElement), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static void SetShowEdgeContent(DependencyObject element, bool value) => element.SetValue(ShowEdgeContentProperty, value);
 

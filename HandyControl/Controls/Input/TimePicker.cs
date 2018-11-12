@@ -471,7 +471,7 @@ namespace HandyControl.Controls
         {
             if (!IsDropDownOpen)
             {
-                SetCurrentValue(IsDropDownOpenProperty, BooleanBoxes.TrueBox);
+                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
             }
 
             _clock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
@@ -483,7 +483,7 @@ namespace HandyControl.Controls
         {
             if (IsDropDownOpen)
             {
-                SetCurrentValue(IsDropDownOpenProperty, BooleanBoxes.FalseBox);
+                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
             }
 
             if (_clock.IsKeyboardFocusWithin)
@@ -500,7 +500,7 @@ namespace HandyControl.Controls
         {
             if (IsDropDownOpen)
             {
-                SetCurrentValue(IsDropDownOpenProperty, BooleanBoxes.FalseBox);
+                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
             }
             else
             {
@@ -511,7 +511,7 @@ namespace HandyControl.Controls
                 else
                 {
                     SetSelectedTime();
-                    SetCurrentValue(IsDropDownOpenProperty, BooleanBoxes.TrueBox);
+                    SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
                 }
             }
         }

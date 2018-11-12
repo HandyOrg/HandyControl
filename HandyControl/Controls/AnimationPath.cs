@@ -4,6 +4,7 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
@@ -46,7 +47,7 @@ namespace HandyControl.Controls
         ///     路径长度
         /// </summary>
         public static readonly DependencyProperty PathLengthProperty = DependencyProperty.Register(
-            "PathLength", typeof(double), typeof(AnimationPath), new FrameworkPropertyMetadata(default(double),
+            "PathLength", typeof(double), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
                 OnPropertiesChanged));
 
         /// <summary>

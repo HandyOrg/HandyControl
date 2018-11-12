@@ -20,7 +20,7 @@ namespace HandyControl.Controls
         ///     是否隐藏元素
         /// </summary>
         public static readonly DependencyProperty HiddenElementProperty = DependencyProperty.RegisterAttached(
-            "HiddenElement", typeof(bool), typeof(StatusSwitchElement), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "HiddenElement", typeof(bool), typeof(StatusSwitchElement), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static void SetHiddenElement(DependencyObject element, bool value) => element.SetValue(HiddenElementProperty, value);
 

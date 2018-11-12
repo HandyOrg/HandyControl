@@ -80,7 +80,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
-            "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(BooleanBoxes.FalseBox, (o, args) =>
+            "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
             {
                 var ctl = (Carousel)o;
                 ctl.TimerSwitch((bool)args.NewValue);
@@ -90,7 +90,7 @@ namespace HandyControl.Controls
             "Interval", typeof(TimeSpan), typeof(Carousel), new PropertyMetadata(TimeSpan.FromSeconds(2)));
 
         public static readonly DependencyProperty ExtendWidthProperty = DependencyProperty.Register(
-            "ExtendWidth", typeof(double), typeof(Carousel), new PropertyMetadata(default(double)));
+            "ExtendWidth", typeof(double), typeof(Carousel), new PropertyMetadata(ValueBoxes.Double0Box));
 
         public double ExtendWidth
         {
@@ -99,7 +99,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsCenterProperty = DependencyProperty.Register(
-            "IsCenter", typeof(bool), typeof(Carousel), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "IsCenter", typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsCenter
         {

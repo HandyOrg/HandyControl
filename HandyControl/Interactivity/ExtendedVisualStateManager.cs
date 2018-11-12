@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Effects;
 using System.Windows.Media.Imaging;
+using HandyControl.Data;
 
 namespace HandyControl.Interactivity
 {
@@ -30,7 +31,7 @@ namespace HandyControl.Interactivity
 
         internal static readonly DependencyProperty DidCacheBackgroundProperty =
             DependencyProperty.RegisterAttached("DidCacheBackground", typeof(bool), typeof(ExtendedVisualStateManager),
-                new PropertyMetadata(false));
+                new PropertyMetadata(ValueBoxes.FalseBox));
 
         private static readonly List<DependencyProperty> LayoutProperties;
 
@@ -59,7 +60,7 @@ namespace HandyControl.Interactivity
 
         public static readonly DependencyProperty UseFluidLayoutProperty =
             DependencyProperty.RegisterAttached("UseFluidLayout", typeof(bool), typeof(ExtendedVisualStateManager),
-                new PropertyMetadata(false));
+                new PropertyMetadata(ValueBoxes.FalseBox));
 
         private bool _changingState;
 

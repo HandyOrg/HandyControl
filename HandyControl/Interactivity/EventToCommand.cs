@@ -25,6 +25,7 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
+using HandyControl.Data;
 
 namespace HandyControl.Interactivity
 {
@@ -49,7 +50,7 @@ namespace HandyControl.Interactivity
                 new PropertyMetadata(null, (s, e) => OnCommandChanged(s as EventToCommand, e)));
 
         public static readonly DependencyProperty MustToggleIsEnabledProperty = DependencyProperty.Register(
-            nameof(MustToggleIsEnabled), typeof(bool), typeof(EventToCommand), new PropertyMetadata(false,
+            nameof(MustToggleIsEnabled), typeof(bool), typeof(EventToCommand), new PropertyMetadata(ValueBoxes.FalseBox,
                 (s, e) =>
                 {
                     var eventToCommand = s as EventToCommand;
@@ -64,7 +65,7 @@ namespace HandyControl.Interactivity
 
         public static readonly DependencyProperty AlwaysInvokeCommandProperty =
             DependencyProperty.Register(nameof(AlwaysInvokeCommand), typeof(bool), typeof(EventToCommand),
-                new PropertyMetadata(false));
+                new PropertyMetadata(ValueBoxes.FalseBox));
 
         private object _commandParameterValue;
 

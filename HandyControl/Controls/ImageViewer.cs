@@ -213,7 +213,7 @@ namespace HandyControl.Controls
         #region Properties
 
         public static readonly DependencyProperty ShowImgMapProperty = DependencyProperty.Register(
-            "ShowImgMap", typeof(bool), typeof(ImageViewer), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "ShowImgMap", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
             "ImageSource", typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame)));
@@ -228,13 +228,13 @@ namespace HandyControl.Controls
         ///     是否显示全屏按钮
         /// </summary>
         internal static readonly DependencyProperty ShowFullScreenButtonProperty = DependencyProperty.Register(
-            "ShowFullScreenButton", typeof(bool), typeof(ImageViewer), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "ShowFullScreenButton", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     关闭按钮是否显示中
         /// </summary>
         internal static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
-            "ShowCloseButton", typeof(bool), typeof(ImageViewer), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "ShowCloseButton", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
         internal static readonly DependencyProperty ImageContentProperty = DependencyProperty.Register(
             "ImageContent", typeof(object), typeof(ImageViewer), new PropertyMetadata(default(object)));
@@ -243,22 +243,22 @@ namespace HandyControl.Controls
             "ImageMargin", typeof(Thickness), typeof(ImageViewer), new PropertyMetadata(default(Thickness)));
 
         internal static readonly DependencyProperty ImageWidthProperty = DependencyProperty.Register(
-            "ImageWidth", typeof(double), typeof(ImageViewer), new PropertyMetadata(default(double)));
+            "ImageWidth", typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
         internal static readonly DependencyProperty ImageHeightProperty = DependencyProperty.Register(
-            "ImageHeight", typeof(double), typeof(ImageViewer), new PropertyMetadata(default(double)));
+            "ImageHeight", typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
         internal static readonly DependencyProperty ImageScaleProperty = DependencyProperty.Register(
-            "ImageScale", typeof(double), typeof(ImageViewer), new PropertyMetadata(1.0, OnImageScaleChanged));
+            "ImageScale", typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double1Box, OnImageScaleChanged));
 
         internal static readonly DependencyProperty ScaleStrProperty = DependencyProperty.Register(
             "ScaleStr", typeof(string), typeof(ImageViewer), new PropertyMetadata("100%"));
 
         internal static readonly DependencyProperty ImageRotateProperty = DependencyProperty.Register(
-            "ImageRotate", typeof(double), typeof(ImageViewer), new PropertyMetadata(default(double)));
+            "ImageRotate", typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
         internal static readonly DependencyProperty ShowSmallImgInternalProperty = DependencyProperty.Register(
-            "ShowSmallImgInternal", typeof(bool), typeof(ImageViewer), new PropertyMetadata(false));
+            "ShowSmallImgInternal", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool ShowImgMap
         {

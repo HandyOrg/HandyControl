@@ -19,7 +19,7 @@ namespace HandyControl.Interactivity
                 new PropertyMetadata(null));
 
         public static readonly DependencyProperty IsActiveProperty = DependencyProperty.Register("IsActive",
-            typeof(bool), typeof(FluidMoveBehaviorBase), new PropertyMetadata(BooleanBoxes.TrueBox));
+            typeof(bool), typeof(FluidMoveBehaviorBase), new PropertyMetadata(ValueBoxes.TrueBox));
 
         private static DateTime LastPurgeTick = DateTime.MinValue;
 

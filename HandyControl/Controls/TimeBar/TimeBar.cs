@@ -48,7 +48,7 @@ namespace HandyControl.Controls
         ///     是否显示刻度字符串
         /// </summary>
         public static readonly DependencyProperty ShowSpeStrProperty = DependencyProperty.Register(
-            "ShowSpeStr", typeof(bool), typeof(TimeBar), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "ShowSpeStr", typeof(bool), typeof(TimeBar), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
             "TimeFormat", typeof(string), typeof(TimeBar), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));

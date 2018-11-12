@@ -126,7 +126,7 @@
     <Compile Include="Controls\Window\ImageBrowser.cs" />
     <Compile Include="Controls\Window\PopupWindow.cs" />
     <Compile Include="Controls\Window\WindowBorderless.cs" />
-    <Compile Include="Data\BooleanBoxes.cs" />
+    <Compile Include="Data\ValueBoxes.cs" />
     <Compile Include="Data\ColorRange.cs" />
     <Compile Include="Data\Enum\IpType.cs" />
     <Compile Include="Data\Enum\TextType.cs" />

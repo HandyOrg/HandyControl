@@ -60,13 +60,13 @@ namespace HandyControl.Controls
             new PropertyMetadata(28.0));
 
         public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
-            "ShowNonClientArea", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(BooleanBoxes.TrueBox));
+            "ShowNonClientArea", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
-            "ShowTitle", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "ShowTitle", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
-            "IsFullScreen", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(BooleanBoxes.FalseBox,
+            "IsFullScreen", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(ValueBoxes.FalseBox,
                 (o, args) =>
                 {
                     var ctl = (WindowBorderless)o;

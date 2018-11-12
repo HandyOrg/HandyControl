@@ -271,7 +271,7 @@ namespace HandyControl.Controls
         ///     指示每单击一下按钮时增加或减少的数量
         /// </summary>
         public static readonly DependencyProperty IncrementProperty = DependencyProperty.Register(
-            "Increment", typeof(double), typeof(NumericUpDown), new PropertyMetadata(1.0));
+            "Increment", typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double1Box));
 
         /// <summary>
         ///     指示每单击一下按钮时增加或减少的数量
@@ -301,7 +301,7 @@ namespace HandyControl.Controls
         ///     是否显示上下调值按钮
         /// </summary>
         internal static readonly DependencyProperty ShowUpDownButtonProperty = DependencyProperty.Register(
-            "ShowUpDownButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(BooleanBoxes.TrueBox));
+            "ShowUpDownButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.TrueBox));
 
         /// <summary>
         ///     是否显示上下调值按钮
@@ -316,7 +316,7 @@ namespace HandyControl.Controls
         ///     数据是否错误
         /// </summary>
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-            "IsError", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "IsError", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsError
         {
@@ -352,7 +352,7 @@ namespace HandyControl.Controls
         ///     是否显示清除按钮
         /// </summary>
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-            "ShowClearButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(BooleanBoxes.FalseBox));
+            "ShowClearButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool ShowClearButton
         {

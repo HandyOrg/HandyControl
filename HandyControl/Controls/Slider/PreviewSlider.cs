@@ -39,7 +39,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty PreviewPositionProperty = DependencyProperty.Register(
-            "PreviewPosition", typeof(double), typeof(PreviewSlider), new PropertyMetadata(default(double)));
+            "PreviewPosition", typeof(double), typeof(PreviewSlider), new PropertyMetadata(ValueBoxes.Double0Box));
 
         public double PreviewPosition
         {
