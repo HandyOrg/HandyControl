@@ -154,7 +154,7 @@
                         <Image Source="../../Resources/Img/LeftMainContent/TimePicker_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.StepBarDemoCtl}" Content="{x:Static langs:Lang.StepBar}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.StepBarDemoCtl}" Content="{x:Static langs:Lang.StepBar}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/Flow_16x.png"/>
                     </controls:EdgeElement.LeftContent>
@@ -169,7 +169,7 @@
                         <Image Source="../../Resources/Img/LeftMainContent/Loading_Blue_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Tag="{x:Static data:MessageToken.ImageBrowserDemoCtl}" Content="{x:Static langs:Lang.ImageBrowser}">
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ImageBrowserDemoCtl}" Content="{x:Static langs:Lang.ImageBrowser}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ImageBrowser_16x.png"/>
                     </controls:EdgeElement.LeftContent>

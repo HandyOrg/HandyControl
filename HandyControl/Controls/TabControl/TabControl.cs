@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using HandyControl.Data;
 using HandyControl.Tools.Extension;
 
 // ReSharper disable once CheckNamespace
@@ -29,7 +30,7 @@ namespace HandyControl.Controls
         ///     是否启用动画
         /// </summary>
         public static readonly DependencyProperty IsEnableAnimationProperty = DependencyProperty.Register(
-            "IsEnableAnimation", typeof(bool), typeof(TabControl), new PropertyMetadata(default(bool)));
+            "IsEnableAnimation", typeof(bool), typeof(TabControl), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         /// <summary>
         ///     是否启用动画
@@ -44,7 +45,7 @@ namespace HandyControl.Controls
         ///     是否可以拖动
         /// </summary>
         public static readonly DependencyProperty IsDraggableProperty = DependencyProperty.Register(
-            "IsDraggable", typeof(bool), typeof(TabControl), new PropertyMetadata(default(bool)));
+            "IsDraggable", typeof(bool), typeof(TabControl), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         /// <summary>
         ///     是否可以拖动
@@ -59,7 +60,7 @@ namespace HandyControl.Controls
         ///     是否显示关闭按钮
         /// </summary>
         public static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
-            "ShowCloseButton", typeof(bool), typeof(TabControl), new PropertyMetadata(default(bool)));
+            "ShowCloseButton", typeof(bool), typeof(TabControl), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         /// <summary>
         ///     是否显示关闭按钮
@@ -74,7 +75,7 @@ namespace HandyControl.Controls
         ///     是否将标签填充
         /// </summary>
         public static readonly DependencyProperty IsEnableTabFillProperty = DependencyProperty.Register(
-            "IsEnableTabFill", typeof(bool), typeof(TabControl), new PropertyMetadata(default(bool)));
+            "IsEnableTabFill", typeof(bool), typeof(TabControl), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         /// <summary>
         ///     是否将标签填充

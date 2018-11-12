@@ -195,63 +195,42 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:ImageBrowser">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_GridTop">
+                                <EasingDoubleKeyFrame KeyTime="0:0:.1" Value="1"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_GridTop">
+                                <EasingDoubleKeyFrame KeyTime="0:0:.4" Value="0"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <Grid x:Name="PART_GridMain" ClipToBounds="True" Grid.RowSpan="2" Background="#dd000000">
-                            <Border HorizontalAlignment="Left" VerticalAlignment="Top" Height="{TemplateBinding ImageHeight}" Width="{TemplateBinding ImageWidth}" Margin="{TemplateBinding ImageMargin}">
-                                <Image Name="PART_ImageMain" RenderTransformOrigin="0.5,0.5" Source="{TemplateBinding ImageSource}">
-                                    <Image.LayoutTransform>
-                                        <RotateTransform Angle="{Binding ImageRotate,RelativeSource={RelativeSource TemplatedParent}}"/>
-                                    </Image.LayoutTransform>
-                                </Image>
-                            </Border>
-                        </Grid>
-                        <Border Visibility="{TemplateBinding ShowSmallImg,Converter={StaticResource Boolean2VisibilityConverter}}" Grid.Row="0" Grid.RowSpan="2" Width="252" Height="162" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="{DynamicResource DarkOpacityBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
-                            <Canvas ClipToBounds="True" Name="PART_CanvasSmallImg" MaxWidth="250" MaxHeight="160">
-                                <Border UseLayoutRounding="True" Name="PART_BorderMove" Background="Transparent" Width="50" Height="70" BorderThickness="1" BorderBrush="Black">
-                                    <Border BorderThickness="1" BorderBrush="White"/>
-                                </Border>
-                            </Canvas>
-                        </Border>
-                        <Border UseLayoutRounding="True" Name="PART_BorderBottom" Opacity="0" CornerRadius="4,4,0,0" Grid.Row="1" HorizontalAlignment="Center" Background="{DynamicResource DarkOpacityBrush}">
-                            <StackPanel Margin="30,10" VerticalAlignment="Center" Orientation="Horizontal">
-                                <Button Command="interactivity:ControlCommands.Save" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource SaveGeometry}" Padding="3"/>
-                                <Button Command="interactivity:ControlCommands.Open" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource WindowsGeometry}" Padding="3"/>
-
-                                <Border Margin="10,2" Style="{StaticResource BorderVerticallySplitter}"/>
-
-                                <Button Command="interactivity:ControlCommands.Reduce" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource ReduceGeometry}" Padding="3"/>
-                                <TextBlock Margin="6,0" Text="{TemplateBinding ScaleStr}" Style="{StaticResource TextBlockSubTitle}" Foreground="{DynamicResource TextIconBrush}"/>
-                                <Button Command="interactivity:ControlCommands.Enlarge" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource EnlargeGeometry}" Padding="3"/>
-                                <Button Command="interactivity:ControlCommands.Restore" Background="Transparent" Margin="6,0" Style="{StaticResource ButtonCustom}" Foreground="White">
-                                    <Border BorderThickness="1" BorderBrush="White" Padding="2">
-                                        <TextBlock Text="1:1"/>
-                                    </Border>
-                                </Button>
-                                <Border Margin="10,2" Style="{StaticResource BorderVerticallySplitter}"/>
-                                <Button Command="interactivity:ControlCommands.RotateLeft" CommandParameter="" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RotateLeftGeometry}" Padding="3"/>
-                                <Button Command="interactivity:ControlCommands.RotateRight" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RotateLeftGeometry}" Padding="3" RenderTransformOrigin="0.5,0.5">
-                                    <Button.RenderTransform>
-                                        <TransformGroup>
-                                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
-                                        </TransformGroup>
-                                    </Button.RenderTransform>
-                                </Button>
-                                <ToggleButton Foreground="{DynamicResource TextIconBrush}" IsChecked="{Binding IsFullScreen,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:ImageBrowser},Mode=TwoWay}" Margin="6,0" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource FullScreenGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource FullScreenReturnGeometry}" Padding="3"/>
-
-                            </StackPanel>
-                        </Border>
+                        <controls:ImageViewer x:Name="PART_ImageViewer" ShowImgMap="True" BorderThickness="0" Background="#dd000000"/>
                         <Grid Name="PART_GridTop" Opacity="0" Background="{DynamicResource DarkOpacityBrush}" VerticalAlignment="Top" Grid.Row="0">
                             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-                                <TextBlock Text="{TemplateBinding ImgPath}" Foreground="White" Margin="10,0,0,0"/>
-                                <TextBlock Text="{TemplateBinding ImgSize,Converter={StaticResource Long2FileSizeConverter}}" Foreground="White" Margin="30,0,0,0"/>
+                                <TextBlock Text="{Binding ImgPath,ElementName=PART_ImageViewer}" Foreground="White" Margin="10,0,0,0"/>
+                                <TextBlock Text="{Binding ImgSize,ElementName=PART_ImageViewer,Converter={StaticResource Long2FileSizeConverter}}" Foreground="White" Margin="30,0,0,0"/>
                             </StackPanel>
                             <Button Command="interactivity:ControlCommands.Close" WindowChrome.IsHitTestVisibleInChrome="True" Background="Red" Grid.Row="0" Padding="14" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIcon}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40"/>
                         </Grid>
                     </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger SourceName="PART_ImageViewer" Property="ShowCloseButton" Value="True">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

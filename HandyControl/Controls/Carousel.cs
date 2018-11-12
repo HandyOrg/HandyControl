@@ -80,7 +80,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
-            "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(default(bool), (o, args) =>
+            "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(BooleanBoxes.FalseBox, (o, args) =>
             {
                 var ctl = (Carousel)o;
                 ctl.TimerSwitch((bool)args.NewValue);
@@ -99,7 +99,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsCenterProperty = DependencyProperty.Register(
-            "IsCenter", typeof(bool), typeof(Carousel), new PropertyMetadata(default(bool)));
+            "IsCenter", typeof(bool), typeof(Carousel), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         public bool IsCenter
         {

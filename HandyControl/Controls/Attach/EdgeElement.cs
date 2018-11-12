@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using HandyControl.Data;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
@@ -34,7 +35,7 @@ namespace HandyControl.Controls
         public static object GetBottomContent(DependencyObject element) => element.GetValue(BottomContentProperty);
 
         public static readonly DependencyProperty ShowEdgeContentProperty = DependencyProperty.RegisterAttached(
-            "ShowEdgeContent", typeof(bool), typeof(EdgeElement), new PropertyMetadata(default(bool)));
+            "ShowEdgeContent", typeof(bool), typeof(EdgeElement), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         public static void SetShowEdgeContent(DependencyObject element, bool value) => element.SetValue(ShowEdgeContentProperty, value);
 

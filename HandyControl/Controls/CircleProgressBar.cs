@@ -14,7 +14,7 @@ namespace HandyControl.Controls
             "ArcThickness", typeof(double), typeof(CircleProgressBar), new PropertyMetadata(default(double)));
 
         public static readonly DependencyProperty ShowTextProperty = DependencyProperty.Register(
-            "ShowText", typeof(bool), typeof(CircleProgressBar), new PropertyMetadata(true));
+            "ShowText", typeof(bool), typeof(CircleProgressBar), new PropertyMetadata(BooleanBoxes.TrueBox));
 
         private Arc _indicator;
 

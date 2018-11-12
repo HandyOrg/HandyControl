@@ -51,6 +51,7 @@
     <Compile Include="Controls\Clock\Clock.cs" />
     <Compile Include="Controls\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Growl.cs" />
+    <Compile Include="Controls\ImageViewer.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\ISingleOpen.cs" />
@@ -397,6 +398,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Image.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ImageViewer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

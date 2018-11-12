@@ -37,6 +37,7 @@
         <ResourceDictionary Source="TransitioningContentControl.xaml"/>
         <ResourceDictionary Source="Image.xaml"/>
         <ResourceDictionary Source="Label.xaml"/>
+        <ResourceDictionary Source="ImageViewer.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

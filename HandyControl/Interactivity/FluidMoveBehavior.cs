@@ -7,6 +7,7 @@ using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using HandyControl.Data;
 
 namespace HandyControl.Interactivity
 {
@@ -28,7 +29,7 @@ namespace HandyControl.Interactivity
 
         public static readonly DependencyProperty FloatAboveProperty =
             DependencyProperty.Register("FloatAbove", typeof(bool), typeof(FluidMoveBehavior),
-                new PropertyMetadata(true));
+                new PropertyMetadata(BooleanBoxes.TrueBox));
 
         private static readonly DependencyProperty HasTransformWrapperProperty =
             DependencyProperty.RegisterAttached("HasTransformWrapper", typeof(bool),

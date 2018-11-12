@@ -105,7 +105,7 @@ namespace HandyControl.Controls
         public FrameworkElement PopupElement { get; set; }
 
         public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
-            "ShowTitle", typeof(bool), typeof(PopupWindow), new PropertyMetadata(true));
+            "ShowTitle", typeof(bool), typeof(PopupWindow), new PropertyMetadata(BooleanBoxes.TrueBox));
 
         public bool ShowTitle
         {
@@ -114,7 +114,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ShowCancelProperty = DependencyProperty.Register(
-            "ShowCancel", typeof(bool), typeof(PopupWindow), new PropertyMetadata(default(bool)));
+            "ShowCancel", typeof(bool), typeof(PopupWindow), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         public bool ShowCancel
         {
@@ -123,7 +123,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ShowBorderProperty = DependencyProperty.Register(
-            "ShowBorder", typeof(bool), typeof(PopupWindow), new PropertyMetadata(default(bool)));
+            "ShowBorder", typeof(bool), typeof(PopupWindow), new PropertyMetadata(BooleanBoxes.FalseBox));
 
         public bool ShowBorder
         {
@@ -187,9 +187,9 @@ namespace HandyControl.Controls
                 AllowsTransparency = true,
                 WindowStyle = WindowStyle.None,
                 ContentStr = message,
-                WindowStartupLocation = WindowStartupLocation.CenterScreen
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                Background = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush)
             };
-            window.Background = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush);
             window.Show();
         }
 

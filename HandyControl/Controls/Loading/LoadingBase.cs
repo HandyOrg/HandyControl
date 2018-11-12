@@ -4,6 +4,7 @@ using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
+using HandyControl.Data;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
@@ -13,7 +14,7 @@ namespace HandyControl.Controls
         protected Storyboard Storyboard;
 
         public static readonly DependencyProperty IsRunningProperty = DependencyProperty.Register(
-            "IsRunning", typeof(bool), typeof(LoadingBase), new PropertyMetadata(true, (o, args) =>
+            "IsRunning", typeof(bool), typeof(LoadingBase), new PropertyMetadata(BooleanBoxes.TrueBox, (o, args) =>
             {
                 var ctl = (LoadingBase) o;
                 var v = (bool) args.NewValue;

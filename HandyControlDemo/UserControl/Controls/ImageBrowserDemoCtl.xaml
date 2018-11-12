@@ -6,6 +6,9 @@
              DataContext="{Binding ImageBrowserDemo,Source={StaticResource Locator}}"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
-        <Button Command="{Binding OpenImgCmd}" Content="{x:Static langs:Lang.OpenImageBrowser}" Style="{StaticResource ButtonPrimary}" Margin="32" VerticalAlignment="Center"/>
+        <StackPanel Margin="32">
+            <controls:ImageViewer Background="{DynamicResource BackgroundBrush}" Width="600" Height="330" ImageSource="/HandyControlDemo;component/Resources/Img/1.jpg"/>
+            <Button Margin="0,32,0,0" Command="{Binding OpenImgCmd}" Content="{x:Static langs:Lang.OpenImageBrowser}" Style="{StaticResource ButtonPrimary}" HorizontalAlignment="Center"/>
+        </StackPanel>
     </controls:TransitioningContentControl>
 </UserControl>
