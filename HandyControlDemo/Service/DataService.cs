@@ -43,6 +43,27 @@ namespace HandyControlDemo.Service
             return list;
         }
 
+        public List<DemoDataModel> GetDemoDataList(int count)
+        {
+            var list = new List<DemoDataModel>();
+            for (var i = 1; i <= count; i++)
+            {
+                var index = i % 6 + 1;
+                var model = new DemoDataModel
+                {
+                    Index = i,
+                    IsSelected = i % 2 == 0,
+                    Name = $"Name{i}",
+                    Type = (DemoType)index,
+                    ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{index}.png",
+                    Remark = new string(i.ToString()[0], 10)
+                };
+                list.Add(model);
+            }
+
+            return list;
+        }
+
         internal List<string> GetComboBoxDemoDataList()
         {
             var converter = new StringRepeatConverter();

@@ -201,7 +201,6 @@ namespace HandyControl.Controls
             if (d is ScrollViewer ctl && e.NewValue is double v)
             {
                 ctl.ScrollToHorizontalOffset(v);
-                Console.WriteLine(v);
             }
         }
 

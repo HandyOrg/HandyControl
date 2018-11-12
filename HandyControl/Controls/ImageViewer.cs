@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -218,6 +219,9 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
             "ImageSource", typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame)));
 
+        public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
+            "IsFullScreen", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
+
         internal static readonly DependencyProperty ImgPathProperty = DependencyProperty.Register(
             "ImgPath", typeof(string), typeof(ImageViewer), new PropertyMetadata(default(string)));
 
@@ -259,6 +263,12 @@ namespace HandyControl.Controls
 
         internal static readonly DependencyProperty ShowSmallImgInternalProperty = DependencyProperty.Register(
             "ShowSmallImgInternal", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool IsFullScreen
+        {
+            get => (bool)GetValue(IsFullScreenProperty);
+            set => SetValue(IsFullScreenProperty, value);
+        }
 
         public bool ShowImgMap
         {
@@ -397,7 +407,13 @@ namespace HandyControl.Controls
             _imageMain = GetTemplateChild(ElementImageMain) as Image;
             _borderBottom = GetTemplateChild(ElementBorderBottom) as Border;
 
-            if (_imageMain != null) _imageMain.MouseLeftButtonDown += ImageMain_OnMouseLeftButtonDown;
+            if (_imageMain != null)
+            {
+                var t = new RotateTransform();
+                BindingOperations.SetBinding(t, RotateTransform.AngleProperty, new Binding(ImageRotateProperty.Name) {Source = this});
+                _imageMain.LayoutTransform = t;
+                _imageMain.MouseLeftButtonDown += ImageMain_OnMouseLeftButtonDown;
+            }
 
             if (_canvasSmallImg != null)
             {
@@ -410,11 +426,11 @@ namespace HandyControl.Controls
 
         private static void OnImageScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is ImageViewer ImageViewer && e.NewValue is double newValue)
+            if (d is ImageViewer imageViewer && e.NewValue is double newValue)
             {
-                ImageViewer.ImageWidth = ImageViewer.ImageOriWidth * newValue;
-                ImageViewer.ImageHeight = ImageViewer.ImageOriHeight * newValue;
-                ImageViewer.ScaleStr = $"{newValue * 100:#0}%";
+                imageViewer.ImageWidth = imageViewer.ImageOriWidth * newValue;
+                imageViewer.ImageHeight = imageViewer.ImageOriHeight * newValue;
+                imageViewer.ScaleStr = $"{newValue * 100:#0}%";
             }
         }
 

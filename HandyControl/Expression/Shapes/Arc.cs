@@ -24,22 +24,19 @@ namespace HandyControl.Expression.Shapes
 
         public double ArcThickness
         {
-            get =>
-                (double) GetValue(ArcThicknessProperty);
+            get => (double) GetValue(ArcThicknessProperty);
             set => SetValue(ArcThicknessProperty, value);
         }
 
         public UnitType ArcThicknessUnit
         {
-            get =>
-                (UnitType) GetValue(ArcThicknessUnitProperty);
+            get => (UnitType) GetValue(ArcThicknessUnitProperty);
             set => SetValue(ArcThicknessUnitProperty, value);
         }
 
         public double EndAngle
         {
-            get =>
-                (double) GetValue(EndAngleProperty);
+            get => (double) GetValue(EndAngleProperty);
             set => SetValue(EndAngleProperty, value);
         }
 
@@ -51,8 +48,7 @@ namespace HandyControl.Expression.Shapes
 
         public double StartAngle
         {
-            get =>
-                (double) GetValue(StartAngleProperty);
+            get => (double) GetValue(StartAngleProperty);
             set => SetValue(StartAngleProperty, value);
         }
 

@@ -29,11 +29,7 @@
                             </Grid.RowDefinitions>
                             <Grid x:Name="PART_GridMain" ClipToBounds="True" Grid.RowSpan="2">
                                 <Border HorizontalAlignment="Left" VerticalAlignment="Top" Height="{TemplateBinding ImageHeight}" Width="{TemplateBinding ImageWidth}" Margin="{TemplateBinding ImageMargin}">
-                                    <Image Name="PART_ImageMain" RenderTransformOrigin="0.5,0.5" Source="{TemplateBinding ImageSource}">
-                                        <Image.LayoutTransform>
-                                            <RotateTransform Angle="{Binding ImageRotate,RelativeSource={RelativeSource TemplatedParent}}"/>
-                                        </Image.LayoutTransform>
-                                    </Image>
+                                    <Image Name="PART_ImageMain" RenderTransformOrigin="0.5,0.5" Source="{TemplateBinding ImageSource}"/>
                                 </Border>
                             </Grid>
                             <Border Grid.Row="0" Grid.RowSpan="2" Width="252" Height="162" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="{DynamicResource DarkOpacityBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
@@ -73,7 +69,7 @@
                                             </TransformGroup>
                                         </Button.RenderTransform>
                                     </Button>
-                                    <ToggleButton Visibility="{TemplateBinding ShowFullScreenButton,Converter={StaticResource Boolean2VisibilityConverter}}" Foreground="{DynamicResource TextIconBrush}" IsChecked="{Binding IsFullScreen,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:ImageBrowser},Mode=TwoWay}" Margin="12,0,6,0" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource FullScreenGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource FullScreenReturnGeometry}" Padding="3"/>
+                                    <ToggleButton Visibility="{TemplateBinding ShowFullScreenButton,Converter={StaticResource Boolean2VisibilityConverter}}" Foreground="{DynamicResource TextIconBrush}" IsChecked="{Binding IsFullScreen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Margin="12,0,6,0" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource FullScreenGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource FullScreenReturnGeometry}" Padding="3"/>
 
                                 </StackPanel>
                             </Border>
