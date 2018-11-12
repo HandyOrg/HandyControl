@@ -586,52 +586,32 @@ namespace HandyControl.Controls
             if (!_isLoaded) return;
 
             if (ImageWidth < 0.001 || ImageHeight < 0.001) return;
-            var scaleX = (ImageMargin.Left + ImageWidth * .5) / sizeInfo.PreviousSize.Width;
-            var scaleY = (ImageMargin.Top + ImageHeight * .5) / sizeInfo.PreviousSize.Height;
-
-            var marginX = scaleX * ActualWidth - ImageWidth * .5;
-            var marginY = scaleY * ActualHeight - ImageHeight * .5;
 
             _canMoveX = true;
             _canMoveY = true;
+
+            var marginX = ImageMargin.Left;
+            var marginY = ImageMargin.Top;
+
             if (ImageWidth <= ActualWidth)
             {
                 _canMoveX = false;
                 marginX = (ActualWidth - ImageWidth) / 2;
             }
-            else if (Math.Abs(ImageMargin.Left) < 0.001)
-            {
-                marginX = 0;
-            }
-            else
-            {
-                var right = Math.Abs(_borderMove.Width - _canvasSmallImg.ActualWidth + _borderMove.Margin.Left);
-                if (right < 0.001)
-                {
-                    marginX = ActualWidth - ImageWidth;
-                }
-            }
+
             if (ImageHeight <= ActualHeight)
             {
                 _canMoveY = false;
                 marginY = (ActualHeight - ImageHeight) / 2;
             }
-            else if (Math.Abs(ImageMargin.Top) < 0.001)
-            {
-                marginY = 0;
-            }
-            else
-            {
-                var top = Math.Abs(_borderMove.Height - _canvasSmallImg.ActualHeight + _borderMove.Margin.Top);
-                if (top < 0.001)
-                {
-                    marginY = ActualHeight - ImageHeight;
-                }
-            }
 
             ImageMargin = new Thickness(marginX, marginY, 0, 0);
+            _imgActualMargin = ImageMargin;
 
             BorderSmallShowSwitch();
+            _imgSmallMouseDownPoint = Mouse.GetPosition(_canvasSmallImg);
+            _imgSmallMouseDownMargin = _borderMove.Margin;
+            MoveSmallImg(_imgSmallMouseDownMargin.Left, _imgSmallMouseDownMargin.Top);
         }
 
         protected override void OnMouseDoubleClick(MouseButtonEventArgs e)
@@ -898,41 +878,46 @@ namespace HandyControl.Controls
                 var subY = _imgSmallCurrentPoint.Y - _imgSmallMouseDownPoint.Y;
 
                 var marginX = _imgSmallMouseDownMargin.Left + subX;
-                if (marginX < 0)
-                {
-                    marginX = 0;
-                }
-                else if (marginX + _borderMove.Width >= _canvasSmallImg.ActualWidth)
-                {
-                    marginX = _canvasSmallImg.ActualWidth - _borderMove.Width;
-                }
-
                 var marginY = _imgSmallMouseDownMargin.Top + subY;
-                if (marginY < 0)
-                {
-                    marginY = 0;
-                }
-                else if (marginY + _borderMove.Height >= _canvasSmallImg.ActualHeight)
-                {
-                    marginY = _canvasSmallImg.ActualHeight - _borderMove.Height;
-                }
-                _borderMove.Margin = new Thickness(marginX, marginY, 0, 0);
 
-                var marginActualX = (ActualWidth - ImageWidth) / 2;
-                var marginActualY = (ActualHeight - ImageHeight) / 2;
-
-                if (_canMoveX)
-                {
-                    marginActualX = -marginX / _canvasSmallImg.ActualWidth * ImageWidth;
-                }
-                if (_canMoveY)
-                {
-                    marginActualY = -marginY / _canvasSmallImg.ActualHeight * ImageHeight;
-                }
-
-                ImageMargin = new Thickness(marginActualX, marginActualY, 0, 0);
-                _imgActualMargin = ImageMargin;
+                MoveSmallImg(marginX, marginY);
             }
+        }
+
+        private void MoveSmallImg(double marginX, double marginY)
+        {
+            if (marginX < 0)
+            {
+                marginX = 0;
+            }
+            else if (marginX + _borderMove.Width >= _canvasSmallImg.ActualWidth)
+            {
+                marginX = _canvasSmallImg.ActualWidth - _borderMove.Width;
+            }
+            if (marginY < 0)
+            {
+                marginY = 0;
+            }
+            else if (marginY + _borderMove.Height >= _canvasSmallImg.ActualHeight)
+            {
+                marginY = _canvasSmallImg.ActualHeight - _borderMove.Height;
+            }
+            _borderMove.Margin = new Thickness(marginX, marginY, 0, 0);
+
+            var marginActualX = (ActualWidth - ImageWidth) / 2;
+            var marginActualY = (ActualHeight - ImageHeight) / 2;
+
+            if (_canMoveX)
+            {
+                marginActualX = -marginX / _canvasSmallImg.ActualWidth * ImageWidth;
+            }
+            if (_canMoveY)
+            {
+                marginActualY = -marginY / _canvasSmallImg.ActualHeight * ImageHeight;
+            }
+
+            ImageMargin = new Thickness(marginActualX, marginActualY, 0, 0);
+            _imgActualMargin = ImageMargin;
         }
 
         private void CanvasSmallImg_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
