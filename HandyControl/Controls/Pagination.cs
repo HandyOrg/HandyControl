@@ -353,6 +353,7 @@ namespace HandyControl.Controls
         private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
         {
             if (!(e.OriginalSource is RadioButton button)) return;
+            if (button.IsChecked == false) return;
             PageIndex = int.Parse(button.Tag.ToString());
         }
 
