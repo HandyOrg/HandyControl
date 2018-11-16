@@ -55,7 +55,7 @@
                         <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Tag="{x:Static data:MessageToken.TextBoxDemoCtl}" Content="{x:Static langs:Lang.TextBox}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.NaiveTextBoxDemoCtl}" Content="{x:Static langs:Lang.TextBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/TextBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>

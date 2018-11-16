@@ -479,6 +479,10 @@ namespace HandyControl.Controls
             {
                 ImageScale = ActualHeight / height;
             }
+            else
+            {
+                ImageScale = 1;
+            }
 
             ImageMargin = new Thickness((ActualWidth - ImageWidth) / 2, (ActualHeight - ImageHeight) / 2, 0, 0);
 
