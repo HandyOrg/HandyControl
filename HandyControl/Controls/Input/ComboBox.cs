@@ -4,25 +4,26 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Interactivity;
-using HandyControl.Tools;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     /// <inheritdoc cref="IDataInput" />
-    public class TextBox : System.Windows.Controls.TextBox, IDataInput
+    public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     {
-        public TextBox()
+        public ComboBox()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
+                ClearValue(SelectedValueProperty);
+                ClearValue(SelectedItemProperty);
+                ClearValue(SelectedIndexProperty);
                 ClearValue(TextProperty);
             }));
         }
 
-        protected override void OnTextChanged(TextChangedEventArgs e)
+        protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
-            base.OnTextChanged(e);
+            base.OnSelectionChanged(e);
             VerifyData();
         }
 
@@ -32,7 +33,7 @@ namespace HandyControl.Controls
         ///     数据是否错误
         /// </summary>
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-            "IsError", typeof(bool), typeof(TextBox), new PropertyMetadata(ValueBoxes.FalseBox));
+            "IsError", typeof(bool), typeof(ComboBox), new PropertyMetadata(default(bool)));
 
         public bool IsError
         {
@@ -44,7 +45,7 @@ namespace HandyControl.Controls
         ///     错误提示
         /// </summary>
         public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-            "ErrorStr", typeof(string), typeof(TextBox), new PropertyMetadata(default(string)));
+            "ErrorStr", typeof(string), typeof(ComboBox), new PropertyMetadata(default(string)));
 
         public string ErrorStr
         {
@@ -52,11 +53,14 @@ namespace HandyControl.Controls
             set => SetValue(ErrorStrProperty, value);
         }
 
+        public static readonly DependencyPropertyKey TextTypePropertyKey =
+            DependencyProperty.RegisterReadOnly("TextType", typeof(TextType), typeof(ComboBox),
+                new PropertyMetadata(default(TextType)));
+
         /// <summary>
         ///     文本类型
         /// </summary>
-        public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-            "TextType", typeof(TextType), typeof(TextBox), new PropertyMetadata(default(TextType)));
+        public static readonly DependencyProperty TextTypeProperty = TextTypePropertyKey.DependencyProperty;
 
         public TextType TextType
         {
@@ -68,7 +72,7 @@ namespace HandyControl.Controls
         ///     是否显示清除按钮
         /// </summary>
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-            "ShowClearButton", typeof(bool), typeof(TextBox), new PropertyMetadata(ValueBoxes.FalseBox));
+            "ShowClearButton", typeof(bool), typeof(ComboBox), new PropertyMetadata(default(bool)));
 
         public bool ShowClearButton
         {
@@ -88,14 +92,7 @@ namespace HandyControl.Controls
             {
                 if (!string.IsNullOrEmpty(Text))
                 {
-                    if (TextType != TextType.Common)
-                    {
-                        result = Text.IsKindOf(TextType) ? OperationResult.Success() : OperationResult.Failed(Properties.Langs.Lang.FormatError);
-                    }
-                    else
-                    {
-                        result = OperationResult.Success();
-                    }
+                    result = OperationResult.Success();
                 }
                 else if (InfoElement.GetNecessary(this))
                 {

@@ -114,6 +114,9 @@
     <Compile Include="UserControl\Controls\ColorPickerDemoCtl.xaml.cs">
       <DependentUpon>ColorPickerDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\ComboBoxDemoCtl.xaml.cs">
+      <DependentUpon>ComboBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
       <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -168,8 +171,8 @@
     <Compile Include="UserControl\Styles\CheckBoxDemoCtl.xaml.cs">
       <DependentUpon>CheckBoxDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\ComboBoxDemoCtl.xaml.cs">
-      <DependentUpon>ComboBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NaiveComboBoxDemoCtl.xaml.cs">
+      <DependentUpon>NaiveComboBoxDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\DataGridDemoCtl.xaml.cs">
       <DependentUpon>DataGridDemoCtl.xaml</DependentUpon>
@@ -330,6 +333,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\ComboBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\CompareSliderDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -402,7 +409,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\ComboBoxDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NaiveComboBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

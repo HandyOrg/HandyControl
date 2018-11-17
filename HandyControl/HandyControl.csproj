@@ -52,6 +52,7 @@
     <Compile Include="Controls\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Growl.cs" />
     <Compile Include="Controls\ImageViewer.cs" />
+    <Compile Include="Controls\Input\ComboBox.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\ISingleOpen.cs" />

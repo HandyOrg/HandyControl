@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/ComboBoxBaseStyle.xaml"/>
@@ -8,5 +9,7 @@
     <Style BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="ComboBox"/>
 
     <Style x:Key="ComboBoxExtend" BasedOn="{StaticResource ComboBoxExtendBaseStyle}" TargetType="ComboBox"/>
+
+    <Style BasedOn="{StaticResource ComboBoxPlusBaseStyle}" TargetType="controls:ComboBox"/>
 
 </ResourceDictionary>

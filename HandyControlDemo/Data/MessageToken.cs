@@ -40,6 +40,8 @@
 	
         public static readonly string TextBoxDemoCtl = nameof(TextBoxDemoCtl);
 	
+        public static readonly string ComboBoxDemoCtl = nameof(ComboBoxDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -58,7 +60,7 @@
 
         public static readonly string TextBlockDemoCtl = nameof(TextBlockDemoCtl);
 
-        public static readonly string ComboBoxDemoCtl = nameof(ComboBoxDemoCtl);
+        public static readonly string NaiveComboBoxDemoCtl = nameof(NaiveComboBoxDemoCtl);
 
         public static readonly string PasswordBoxDemoCtl = nameof(PasswordBoxDemoCtl);
 

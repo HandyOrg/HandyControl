@@ -336,11 +336,14 @@ namespace HandyControl.Controls
             set => SetValue(ErrorStrProperty, value);
         }
 
+        public static readonly DependencyPropertyKey TextTypePropertyKey =
+            DependencyProperty.RegisterReadOnly("TextType", typeof(TextType), typeof(NumericUpDown),
+                new PropertyMetadata(default(TextType)));
+
         /// <summary>
         ///     文本类型
         /// </summary>
-        public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-            "TextType", typeof(TextType), typeof(NumericUpDown), new PropertyMetadata(default(TextType)));
+        public static readonly DependencyProperty TextTypeProperty = TextTypePropertyKey.DependencyProperty;
 
         public TextType TextType
         {
