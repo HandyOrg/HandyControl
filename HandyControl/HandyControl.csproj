@@ -54,6 +54,7 @@
     <Compile Include="Controls\ImageViewer.cs" />
     <Compile Include="Controls\Input\ComboBox.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
+    <Compile Include="Controls\Input\PasswordBox.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
     <Compile Include="Controls\ISingleOpen.cs" />
     <Compile Include="Controls\Input\NumericUpDown.cs" />

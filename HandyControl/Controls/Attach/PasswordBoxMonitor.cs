@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using HandyControl.Data;
 
 // ReSharper disable once CheckNamespace
@@ -25,7 +24,7 @@ namespace HandyControl.Controls
 
         private static void OnIsMonitoringChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is PasswordBox passwordBox)
+            if (d is System.Windows.Controls.PasswordBox passwordBox)
             {
                 if (e.NewValue is bool boolValue)
                 {
@@ -47,7 +46,7 @@ namespace HandyControl.Controls
 
         private static void PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (sender is PasswordBox passwordBox)
+            if (sender is System.Windows.Controls.PasswordBox passwordBox)
             {
                 SetPasswordLength(passwordBox, passwordBox.Password.Length);
             }

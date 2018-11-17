@@ -20,7 +20,7 @@ namespace HandyControl.Controls
         ///     占位符
         /// </summary>
         public static readonly DependencyProperty PlaceholderProperty = DependencyProperty.RegisterAttached(
-            "Placeholder", typeof(string), typeof(InfoElement), new PropertyMetadata(default(string)));
+            "Placeholder", typeof(string), typeof(InfoElement), new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetPlaceholder(DependencyObject element, string value) => element.SetValue(PlaceholderProperty, value);
 
@@ -70,7 +70,7 @@ namespace HandyControl.Controls
         ///     内容高度
         /// </summary>
         public static readonly DependencyProperty ContentHeightProperty = DependencyProperty.RegisterAttached(
-            "ContentHeight", typeof(double), typeof(InfoElement), new PropertyMetadata(30.0));
+            "ContentHeight", typeof(double), typeof(InfoElement), new FrameworkPropertyMetadata(30.0, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetContentHeight(DependencyObject element, double value) => element.SetValue(ContentHeightProperty, value);
 

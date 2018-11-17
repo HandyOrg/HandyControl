@@ -132,6 +132,9 @@
     <Compile Include="UserControl\Controls\NumericUpDownDemoCtl.xaml.cs">
       <DependentUpon>NumericUpDownDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\PasswordBoxDemoCtl.xaml.cs">
+      <DependentUpon>PasswordBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -207,8 +210,8 @@
     <Compile Include="UserControl\Styles\NaiveTabControlDemoCtl.xaml.cs">
       <DependentUpon>NaiveTabControlDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\PasswordBoxDemoCtl.xaml.cs">
-      <DependentUpon>PasswordBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NaivePasswordBoxDemoCtl.xaml.cs">
+      <DependentUpon>NaivePasswordBoxDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\ProgressBarDemoCtl.xaml.cs">
       <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
@@ -357,6 +360,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\PasswordBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\PreviewSliderDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -457,7 +464,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\PasswordBoxDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NaivePasswordBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

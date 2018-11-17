@@ -65,7 +65,7 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ComboBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Tag="{x:Static data:MessageToken.PasswordBoxDemoCtl}" Content="{x:Static langs:Lang.PasswordBox}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.NaivePasswordBoxDemoCtl}" Content="{x:Static langs:Lang.PasswordBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/PasswordBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
@@ -137,6 +137,11 @@
                 <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ComboBoxDemoCtl}" Content="{x:Static langs:Lang.ComboBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ComboBox_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.PasswordBoxDemoCtl}" Content="{x:Static langs:Lang.PasswordBox}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/PasswordBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}">
