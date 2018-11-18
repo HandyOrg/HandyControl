@@ -120,6 +120,9 @@
     <Compile Include="UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
       <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\DatePickerDemoCtl.xaml.cs">
+      <DependentUpon>DatePickerDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\GrowlDemoCtl.xaml.cs">
       <DependentUpon>GrowlDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -180,8 +183,8 @@
     <Compile Include="UserControl\Styles\DataGridDemoCtl.xaml.cs">
       <DependentUpon>DataGridDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\DatePickerDemoCtl.xaml.cs">
-      <DependentUpon>DatePickerDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NaiveDatePickerDemoCtl.xaml.cs">
+      <DependentUpon>NaiveDatePickerDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\ExpanderDemoCtl.xaml.cs">
       <DependentUpon>ExpanderDemoCtl.xaml</DependentUpon>
@@ -344,6 +347,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\DatePickerDemoCtl.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="UserControl\Controls\GrowlDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -424,7 +431,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\DatePickerDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NaiveDatePickerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

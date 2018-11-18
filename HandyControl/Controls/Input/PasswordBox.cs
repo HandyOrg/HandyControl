@@ -11,6 +11,7 @@ using HandyControl.Properties.Langs;
 namespace HandyControl.Controls
 {
     /// <inheritdoc cref="IDataInput" />
+    [TemplatePart(Name = ElementPasswordBox, Type = typeof(System.Windows.Controls.PasswordBox))]
     public class PasswordBox : Control, IDataInput
     {
         private const string ElementPasswordBox = "PART_PasswordBox";

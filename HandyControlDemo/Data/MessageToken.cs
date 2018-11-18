@@ -44,6 +44,8 @@
 	
         public static readonly string PasswordBoxDemoCtl = nameof(PasswordBoxDemoCtl);
 	
+        public static readonly string DatePickerDemoCtl = nameof(DatePickerDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -56,7 +58,7 @@
 
         public static readonly string CalendarDemoCtl = nameof(CalendarDemoCtl);
 
-        public static readonly string DatePickerDemoCtl = nameof(DatePickerDemoCtl);
+        public static readonly string NaiveDatePickerDemoCtl = nameof(NaiveDatePickerDemoCtl);
 
         public static readonly string NaiveTextBoxDemoCtl = nameof(NaiveTextBoxDemoCtl);
 
