@@ -7,8 +7,8 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Threading;
 using HandyControl.Data;
+using HandyControl.Interactivity;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     /// <summary>
@@ -19,7 +19,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = ElementButton, Type = typeof(Button))]
     [TemplatePart(Name = ElementPopup, Type = typeof(Popup))]
     [TemplatePart(Name = ElementClock, Type = typeof(Clock))]
-    public class TimePicker : Control
+    public class TimePicker : Control, IDataInput
     {
         #region Constants
 
@@ -67,6 +67,15 @@ namespace HandyControl.Controls
             EventManager.RegisterClassHandler(typeof(TimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
             KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
             KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(false));
+        }
+
+        public TimePicker()
+        {
+            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
+            {
+                ClearValue(SelectedTimeProperty);
+                ClearValue(TextProperty);
+            }));
         }
 
         #region Public Properties
@@ -249,9 +258,76 @@ namespace HandyControl.Controls
 
         #endregion Text
 
+        public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
+
+        public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
+            "IsError", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool IsError
+        {
+            get => (bool) GetValue(IsErrorProperty);
+            set => SetValue(IsErrorProperty, value);
+        }
+
+        public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
+            "ErrorStr", typeof(string), typeof(TimePicker), new PropertyMetadata(default(string)));
+
+        public string ErrorStr
+        {
+            get => (string) GetValue(ErrorStrProperty);
+            set => SetValue(ErrorStrProperty, value);
+        }
+
+        public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
+            "TextType", typeof(TextType), typeof(TimePicker), new PropertyMetadata(default(TextType)));
+
+        public TextType TextType
+        {
+            get => (TextType) GetValue(TextTypeProperty);
+            set => SetValue(TextTypeProperty, value);
+        }
+
+        public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
+            "ShowClearButton", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool ShowClearButton
+        {
+            get => (bool) GetValue(ShowClearButtonProperty);
+            set => SetValue(ShowClearButtonProperty, value);
+        }
+
         #endregion Public Properties
 
         #region Public Methods
+
+        public virtual bool VerifyData()
+        {
+            OperationResult<bool> result;
+
+            if (VerifyFunc != null)
+            {
+                result = VerifyFunc.Invoke(Text);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(Text))
+                {
+                    result = OperationResult.Success();
+                }
+                else if (InfoElement.GetNecessary(this))
+                {
+                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
+                }
+                else
+                {
+                    result = OperationResult.Success();
+                }
+            }
+
+            IsError = !result.Data;
+            ErrorStr = result.Message;
+            return result.Data;
+        }
 
         public override void OnApplyTemplate()
         {
@@ -402,6 +478,7 @@ namespace HandyControl.Controls
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             SetValueNoCallback(TextProperty, _textBox.Text);
+            VerifyData();
         }
 
         private bool ProcessTimePickerKey(KeyEventArgs e)

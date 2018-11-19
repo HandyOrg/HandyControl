@@ -5,7 +5,6 @@ using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     /// <inheritdoc cref="IDataInput" />
@@ -26,11 +25,6 @@ namespace HandyControl.Controls
         private TextBox _textBox;
 
         #endregion Data
-
-        static NumericUpDown()
-        {
-            DefaultStyleKeyProperty.OverrideMetadata(typeof(NumericUpDown), new FrameworkPropertyMetadata(typeof(NumericUpDown)));
-        }
 
         public NumericUpDown()
         {
