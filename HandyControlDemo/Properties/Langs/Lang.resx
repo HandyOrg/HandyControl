@@ -385,4 +385,7 @@
   <data name="DateTimePicker" xml:space="preserve">
     <value>日期时间选择器</value>
   </data>
+  <data name="GroupBox" xml:space="preserve">
+    <value>分组框</value>
+  </data>
 </root>

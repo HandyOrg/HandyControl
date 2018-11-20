@@ -405,4 +405,7 @@
   <data name="DateTimePicker" xml:space="preserve">
     <value>DateTimePicker</value>
   </data>
+  <data name="GroupBox" xml:space="preserve">
+    <value>GroupBox</value>
+  </data>
 </root>

@@ -376,6 +376,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 分组框 的本地化字符串。
+        /// </summary>
+        public static string GroupBox {
+            get {
+                return ResourceManager.GetString("GroupBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 信息通知 的本地化字符串。
         /// </summary>
         public static string Growl {

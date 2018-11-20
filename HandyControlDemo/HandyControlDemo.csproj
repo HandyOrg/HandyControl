@@ -183,6 +183,9 @@
     <Compile Include="UserControl\Styles\CheckBoxDemoCtl.xaml.cs">
       <DependentUpon>CheckBoxDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
+      <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Styles\NaiveComboBoxDemoCtl.xaml.cs">
       <DependentUpon>NaiveComboBoxDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -437,6 +440,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Styles\GroupBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Styles\NaiveComboBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -557,6 +564,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\GroupBox_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\ColorWheel_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Slider_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\HoverMenu_16x.png" />

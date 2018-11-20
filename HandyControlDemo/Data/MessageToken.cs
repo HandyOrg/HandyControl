@@ -94,6 +94,8 @@
 
         public static readonly string SliderDemoCtl = nameof(SliderDemoCtl);
 
+        public static readonly string GroupBoxDemoCtl = nameof(GroupBoxDemoCtl);
+
         public static readonly string CommonWindow = nameof(CommonWindow);
 
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);

@@ -52,7 +52,8 @@ var styleList = new List<string>
 	"RadioButtonDemoCtl",
 	"NaiveScrollViewerDemoCtl",
 	"BrushDemoCtl",
-	"SliderDemoCtl"
+	"SliderDemoCtl",
+	"GroupBoxDemoCtl"
 };
 var windowList = new List<string>
 {
