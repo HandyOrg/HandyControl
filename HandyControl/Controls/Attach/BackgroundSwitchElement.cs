@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     public class BackgroundSwitchElement : DependencyObject

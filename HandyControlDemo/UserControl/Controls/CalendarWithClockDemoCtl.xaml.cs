@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class TimePickerDemoCtl
+    public partial class CalendarWithClockDemoCtl
     {
-        public TimePickerDemoCtl()
+        public CalendarWithClockDemoCtl()
         {
             InitializeComponent();
         }

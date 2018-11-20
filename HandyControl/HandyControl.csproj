@@ -43,17 +43,20 @@
     <Compile Include="Controls\Attach\PasswordBoxMonitor.cs" />
     <Compile Include="Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="Controls\Attach\TipElement.cs" />
+    <Compile Include="Controls\Attach\TitleElement.cs" />
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Carousel.cs" />
     <Compile Include="Controls\CirclePanel.cs" />
     <Compile Include="Controls\CircleProgressBar.cs" />
-    <Compile Include="Controls\Clock\Clock.cs" />
-    <Compile Include="Controls\Clock\ClockRadioButton.cs" />
+    <Compile Include="Controls\Time\CalendarWithClock.cs" />
+    <Compile Include="Controls\Time\Clock\Clock.cs" />
+    <Compile Include="Controls\Time\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Growl.cs" />
     <Compile Include="Controls\ImageViewer.cs" />
     <Compile Include="Controls\Input\ComboBox.cs" />
     <Compile Include="Controls\Input\DatePicker.cs" />
+    <Compile Include="Controls\Input\DateTimePicker.cs" />
     <Compile Include="Controls\Input\IDataInput.cs" />
     <Compile Include="Controls\Input\PasswordBox.cs" />
     <Compile Include="Controls\Input\TextBox.cs" />
@@ -121,9 +124,9 @@
     <Compile Include="Controls\TabControl\TabControl.cs" />
     <Compile Include="Controls\TabControl\TabItem.cs" />
     <Compile Include="Controls\TabControl\TabPanel.cs" />
-    <Compile Include="Controls\TimeBar\SpeTextBlock.cs" />
+    <Compile Include="Controls\Time\TimeBar\SpeTextBlock.cs" />
     <Compile Include="Controls\Input\TimePicker.cs" />
-    <Compile Include="Controls\TimeBar\TimeBar.cs" />
+    <Compile Include="Controls\Time\TimeBar\TimeBar.cs" />
     <Compile Include="Controls\TransitioningContentControl.cs" />
     <Compile Include="Controls\WatermarkTextBox.cs" />
     <Compile Include="Controls\Window\ImageBrowser.cs" />
@@ -260,6 +263,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\DateTimePickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\LabelBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -356,6 +363,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\CalendarWithClock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Carousel.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -389,6 +400,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\DatePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\DateTimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

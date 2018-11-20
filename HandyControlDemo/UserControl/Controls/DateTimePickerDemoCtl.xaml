@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.DateTimePickerDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             Background="{DynamicResource RegionBrush}">
+    <controls:TransitioningContentControl>
+        <StackPanel Margin="32" Orientation="Horizontal">
+            <StackPanel>
+                <controls:DateTimePicker ShowClearButton="True"/>
+                <controls:DateTimePicker Margin="0,16,0,0" IsEnabled="False"/>
+
+                <controls:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerExtend}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0"/>
+                <controls:DateTimePicker controls:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr2}" Style="{StaticResource DateTimePickerExtend}" controls:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
+                <controls:DateTimePicker ShowClearButton="True" Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.TitleAlignment="Left" Style="{StaticResource DateTimePickerExtend}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Margin="0,32,0,0"/>
+                <controls:DateTimePicker Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.TitleAlignment="Left" controls:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource DateTimePickerExtend}" controls:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+            </StackPanel>
+            <StackPanel Margin="32,0,0,0">
+                <controls:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerPlus}"/>
+                <controls:DateTimePicker Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource DateTimePickerPlus}"/>
+
+                <controls:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerPlus}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0"/>
+                <controls:DateTimePicker controls:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr2}" Style="{StaticResource DateTimePickerPlus}" controls:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
+                <controls:DateTimePicker ShowClearButton="True" Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.TitleAlignment="Left" Style="{StaticResource DateTimePickerPlus}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Margin="0,32,0,0"/>
+                <controls:DateTimePicker Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.TitleAlignment="Left" controls:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource DateTimePickerPlus}" controls:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

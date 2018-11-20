@@ -1,6 +1,5 @@
 ﻿using System.Windows;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     public class BorderElement : DependencyObject

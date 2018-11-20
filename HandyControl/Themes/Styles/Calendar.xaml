@@ -63,6 +63,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Style x:Key="CalendarDayButtonStyle" TargetType="CalendarDayButton">
         <Setter Property="MinWidth" Value="10"/>
         <Setter Property="MinHeight" Value="10"/>
@@ -139,6 +140,7 @@
 
     <Style TargetType="CalendarItem">
         <Setter Property="Margin" Value="0"/>
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CalendarItem">
@@ -170,9 +172,9 @@
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition Height="*"/>
                                     </Grid.RowDefinitions>
-                                    <Border Background="{DynamicResource TitleBrush}" Grid.ColumnSpan="3"/>
+                                    <Border Background="{Binding Path=(controls:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="3"/>
                                     <Button x:Name="PART_PreviousButton" Width="50" HorizontalAlignment="Left" Grid.Column="0" Height="50" Padding="16" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource LeftGeometry}"/>
-                                    <Button x:Name="PART_HeaderButton" Foreground="White" Grid.Column="1" FontWeight="Bold" FontSize="16" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource ButtonCustom}"/>
+                                    <Button x:Name="PART_HeaderButton" Foreground="White" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource ButtonCustom}"/>
                                     <Button x:Name="PART_NextButton" Width="50" HorizontalAlignment="Right" Height="50" Padding="16" Grid.Column="2" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RightGeometry}"/>
                                     <Grid Width="240" Height="240" x:Name="PART_MonthView" Margin="10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Visible">
                                         <Grid.ColumnDefinitions>
@@ -233,6 +235,7 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}"/>
         <Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}"/>
+        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Calendar">

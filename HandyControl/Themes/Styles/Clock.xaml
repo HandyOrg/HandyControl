@@ -61,22 +61,23 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Width" Value="210"/>
-        <Setter Property="Height" Value="290"/>
+        <Setter Property="Height" Value="310"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="ClockRadioButtonStyle" Value="{StaticResource ClockRadioButtonStyle}"/>
+        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Clock">
                     <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <Grid>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="40"/>
+                                <RowDefinition Height="50"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <Border Background="{DynamicResource TitleBrush}" Name="PART_BorderTitle">
-                                <TextBlock x:Name="PART_TimeStr" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="30" Foreground="White"/>
+                            <Border Background="{Binding Path=(controls:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Name="PART_BorderTitle">
+                                <TextBlock x:Name="PART_TimeStr" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="White"/>
                             </Border>
                             <Border Grid.Row="1" Background="{TemplateBinding Background}">
                                 <Grid>

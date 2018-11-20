@@ -46,6 +46,10 @@
 	
         public static readonly string DatePickerDemoCtl = nameof(DatePickerDemoCtl);
 	
+        public static readonly string DateTimePickerDemoCtl = nameof(DateTimePickerDemoCtl);
+	
+        public static readonly string CalendarWithClockDemoCtl = nameof(CalendarWithClockDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

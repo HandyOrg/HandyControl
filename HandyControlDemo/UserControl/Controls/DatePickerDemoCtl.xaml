@@ -4,7 +4,7 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             Background="White">
+             Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <StackPanel Margin="32">
             <controls:DatePicker ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}"/>

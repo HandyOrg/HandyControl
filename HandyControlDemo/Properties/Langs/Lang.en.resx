@@ -399,4 +399,10 @@
   <data name="Step" xml:space="preserve">
     <value>Step</value>
   </data>
+  <data name="CalendarWithClock" xml:space="preserve">
+    <value>CalendarWithClock</value>
+  </data>
+  <data name="DateTimePicker" xml:space="preserve">
+    <value>DateTimePicker</value>
+  </data>
 </root>

@@ -5,12 +5,12 @@
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="TimePickerBaseStyle" TargetType="controls:TimePicker">
+    <Style x:Key="DateTimePickerBaseStyle" TargetType="controls:DateTimePicker">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
@@ -20,7 +20,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:TimePicker">
+                <ControlTemplate TargetType="controls:DateTimePicker">
                     <Border x:Name="templateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                             <Grid.ColumnDefinitions>
@@ -62,7 +62,7 @@
         </Setter>
     </Style>
 
-    <ControlTemplate x:Key="TimePickerExtendTopTemplate" TargetType="controls:TimePicker">
+    <ControlTemplate x:Key="DateTimePickerExtendTopTemplate" TargetType="controls:DateTimePicker">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -111,7 +111,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="TimePickerExtendLeftTemplate" TargetType="controls:TimePicker">
+    <ControlTemplate x:Key="DateTimePickerExtendLeftTemplate" TargetType="controls:DateTimePicker">
         <Grid Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
@@ -160,20 +160,20 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style x:Key="TimePickerExtendBaseStyle" BasedOn="{StaticResource TimePickerBaseStyle}" TargetType="controls:TimePicker">
+    <Style x:Key="DateTimePickerExtendBaseStyle" BasedOn="{StaticResource DateTimePickerBaseStyle}" TargetType="controls:DateTimePicker">
         <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
         <Setter Property="Padding" Value="7,6"/>
         <Setter Property="controls:InfoElement.Symbol" Value="●"/>
-        <Setter Property="Template" Value="{StaticResource TimePickerExtendTopTemplate}"/>
+        <Setter Property="Template" Value="{StaticResource DateTimePickerExtendTopTemplate}"/>
         <Style.Triggers>
             <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
-                <Setter Property="Template" Value="{StaticResource TimePickerExtendLeftTemplate}"/>
+                <Setter Property="Template" Value="{StaticResource DateTimePickerExtendLeftTemplate}"/>
                 <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
             </Trigger>
         </Style.Triggers>
     </Style>
 
-    <ControlTemplate x:Key="TimePickerPlusTopTemplate" TargetType="controls:TimePicker">
+    <ControlTemplate x:Key="DateTimePickerPlusTopTemplate" TargetType="controls:DateTimePicker">
         <ControlTemplate.Resources>
             <Storyboard x:Key="StoryboardShow">
                 <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="8,0,0,-18" Duration="0:0:.2"/>
@@ -249,7 +249,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="TimePickerPlusLeftTemplate" TargetType="controls:TimePicker">
+    <ControlTemplate x:Key="DateTimePickerPlusLeftTemplate" TargetType="controls:DateTimePicker">
         <ControlTemplate.Resources>
             <Storyboard x:Key="StoryboardShow">
                 <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="8,0,0,-18" Duration="0:0:.2"/>
@@ -325,11 +325,11 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style x:Key="TimePickerPlusBaseStyle" BasedOn="{StaticResource TimePickerExtendBaseStyle}" TargetType="controls:TimePicker">
-        <Setter Property="Template" Value="{StaticResource TimePickerPlusTopTemplate}"/>
+    <Style x:Key="DateTimePickerPlusBaseStyle" BasedOn="{StaticResource DateTimePickerExtendBaseStyle}" TargetType="controls:DateTimePicker">
+        <Setter Property="Template" Value="{StaticResource DateTimePickerPlusTopTemplate}"/>
         <Style.Triggers>
             <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
-                <Setter Property="Template" Value="{StaticResource TimePickerPlusLeftTemplate}"/>
+                <Setter Property="Template" Value="{StaticResource DateTimePickerPlusLeftTemplate}"/>
                 <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
             </Trigger>
         </Style.Triggers>

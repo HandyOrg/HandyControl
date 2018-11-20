@@ -379,4 +379,10 @@
   <data name="Step" xml:space="preserve">
     <value>步骤</value>
   </data>
+  <data name="CalendarWithClock" xml:space="preserve">
+    <value>带时钟的日历</value>
+  </data>
+  <data name="DateTimePicker" xml:space="preserve">
+    <value>日期时间选择器</value>
+  </data>
 </root>

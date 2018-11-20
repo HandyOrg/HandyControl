@@ -12,13 +12,13 @@ using HandyControl.Interactivity;
 namespace HandyControl.Controls
 {
     /// <summary>
-    ///     时间选择器
+    ///     时间日期选择器
     /// </summary>
     [TemplatePart(Name = ElementRoot, Type = typeof(Grid))]
     [TemplatePart(Name = ElementTextBox, Type = typeof(WatermarkTextBox))]
     [TemplatePart(Name = ElementButton, Type = typeof(Button))]
     [TemplatePart(Name = ElementPopup, Type = typeof(Popup))]
-    public class TimePicker : Control, IDataInput
+    public class DateTimePicker : Control, IDataInput
     {
         #region Constants
 
@@ -34,7 +34,7 @@ namespace HandyControl.Controls
 
         #region Data
 
-        private Clock _clock;
+        private CalendarWithClock _calendarWithClock;
 
         private string _defaultText;
 
@@ -48,41 +48,41 @@ namespace HandyControl.Controls
 
         private IDictionary<DependencyProperty, bool> _isHandlerSuspended;
 
-        private DateTime? _originalSelectedTime;
+        private DateTime? _originalSelectedDateTime;
 
         #endregion Data
 
         #region Public Events
 
-        public static readonly RoutedEvent SelectedTimeChangedEvent =
-            EventManager.RegisterRoutedEvent("SelectedTimeChanged", RoutingStrategy.Direct,
-                typeof(EventHandler<FunctionEventArgs<DateTime?>>), typeof(TimePicker));
+        public static readonly RoutedEvent SelectedDateTimeChangedEvent =
+            EventManager.RegisterRoutedEvent("SelectedDateTimeChanged", RoutingStrategy.Direct,
+                typeof(EventHandler<FunctionEventArgs<DateTime?>>), typeof(DateTimePicker));
 
-        public event EventHandler<FunctionEventArgs<DateTime?>> SelectedTimeChanged
+        public event EventHandler<FunctionEventArgs<DateTime?>> SelectedDateTimeChanged
         {
-            add => AddHandler(SelectedTimeChangedEvent, value);
-            remove => RemoveHandler(SelectedTimeChangedEvent, value);
+            add => AddHandler(SelectedDateTimeChangedEvent, value);
+            remove => RemoveHandler(SelectedDateTimeChangedEvent, value);
         }
 
-        public event RoutedEventHandler ClockClosed;
+        public event RoutedEventHandler PickerClosed;
 
-        public event RoutedEventHandler ClockOpened;
+        public event RoutedEventHandler PickerOpened;
 
         #endregion Public Events
 
-        static TimePicker()
+        static DateTimePicker()
         {
-            EventManager.RegisterClassHandler(typeof(TimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
-            KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
-            KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(false));
+            EventManager.RegisterClassHandler(typeof(DateTimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
+            KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
+            KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(false));
         }
 
-        public TimePicker()
+        public DateTimePicker()
         {
-            InitClock();
+            InitCalendarWithClock();
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(SelectedTimeProperty);
+                ClearValue(SelectedDateTimeProperty);
                 ClearValue(TextProperty);
                 _textBox.Text = string.Empty;
             }));
@@ -90,75 +90,58 @@ namespace HandyControl.Controls
 
         #region Public Properties
 
-        #region TimeFormat
+        public static readonly DependencyProperty DateTimeFormatProperty = DependencyProperty.Register(
+            "DateTimeFormat", typeof(string), typeof(DateTimePicker), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
 
-        public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
-            "TimeFormat", typeof(string), typeof(TimePicker), new PropertyMetadata("HH:mm:ss"));
-
-        public string TimeFormat
+        public string DateTimeFormat
         {
-            get => (string)GetValue(TimeFormatProperty);
-            set => SetValue(TimeFormatProperty, value);
+            get => (string) GetValue(DateTimeFormatProperty);
+            set => SetValue(DateTimeFormatProperty, value);
         }
 
-        #endregion TimeFormat
-
-        #region ClockStyle
+        public static readonly DependencyProperty ClockStyleProperty = DependencyProperty.Register(
+            "ClockStyle", typeof(Style), typeof(DateTimePicker), new PropertyMetadata(default(Style)));
 
         public Style ClockStyle
         {
-            get => (Style)GetValue(ClockStyleProperty);
+            get => (Style) GetValue(ClockStyleProperty);
             set => SetValue(ClockStyleProperty, value);
         }
 
-        public static readonly DependencyProperty ClockStyleProperty = DependencyProperty.Register("ClockStyle", typeof(Style), typeof(TimePicker));
+        public static readonly DependencyProperty CalendarStyleProperty = DependencyProperty.Register(
+            "CalendarStyle", typeof(Style), typeof(DateTimePicker), new PropertyMetadata(default(Style)));
 
-        #endregion CalendarStyle
-
-        #region DisplayTime
-
-        public DateTime DisplayTime
+        public Style CalendarStyle
         {
-            get => (DateTime)GetValue(DisplayTimeProperty);
-            set => SetValue(DisplayTimeProperty, value);
+            get => (Style) GetValue(CalendarStyleProperty);
+            set => SetValue(CalendarStyleProperty, value);
         }
 
-        public static readonly DependencyProperty DisplayTimeProperty =
-            DependencyProperty.Register(
-                "DisplayTime",
-                typeof(DateTime),
-                typeof(TimePicker),
-                new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayTime));
+        public static readonly DependencyProperty DisplayDateTimeProperty = DependencyProperty.Register(
+            "DisplayDateTime", typeof(DateTime), typeof(DateTimePicker), new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayDateTime));
 
-        private static object CoerceDisplayTime(DependencyObject d, object value)
+        private static object CoerceDisplayDateTime(DependencyObject d, object value)
         {
-            var dp = (TimePicker)d;
-            dp._clock.DisplayTime = (DateTime)value;
-            return dp._clock.DisplayTime;
+            var dp = (DateTimePicker)d;
+            dp._calendarWithClock.DisplayDateTime = (DateTime)value;
+
+            return dp._calendarWithClock.DisplayDateTime;
         }
 
-        #endregion DisplayTime
-
-        #region IsDropDownOpen
-
-        public bool IsDropDownOpen
+        public DateTime DisplayDateTime
         {
-            get => (bool)GetValue(IsDropDownOpenProperty);
-            set => SetValue(IsDropDownOpenProperty, value);
+            get => (DateTime) GetValue(DisplayDateTimeProperty);
+            set => SetValue(DisplayDateTimeProperty, value);
         }
 
-        public static readonly DependencyProperty IsDropDownOpenProperty =
-            DependencyProperty.Register(
-            "IsDropDownOpen",
-            typeof(bool),
-            typeof(TimePicker),
-            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
+        public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
+            "IsDropDownOpen", typeof(bool), typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
-        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) => d is TimePicker dp && !dp.IsEnabled ? false : baseValue;
+        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) => d is DateTimePicker dp && !dp.IsEnabled ? false : baseValue;
 
         private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var dp = d as TimePicker;
+            var dp = d as DateTimePicker;
 
             var newValue = (bool)e.NewValue;
             if (dp?._popUp != null && dp._popUp.IsOpen != newValue)
@@ -166,76 +149,61 @@ namespace HandyControl.Controls
                 dp._popUp.IsOpen = newValue;
                 if (newValue)
                 {
-                    dp._originalSelectedTime = dp.SelectedTime;
+                    dp._originalSelectedDateTime = dp.SelectedDateTime;
 
                     dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action)delegate
                     {
-                        dp._clock.Focus();
+                        dp._calendarWithClock.Focus();
                     });
                 }
+
             }
         }
 
-        #endregion IsDropDownOpen
-
-        #region SelectedTime
-
-        public DateTime? SelectedTime
+        public bool IsDropDownOpen
         {
-            get => (DateTime?)GetValue(SelectedTimeProperty);
-            set => SetValue(SelectedTimeProperty, value);
+            get => (bool) GetValue(IsDropDownOpenProperty);
+            set => SetValue(IsDropDownOpenProperty, value);
         }
 
-        public static readonly DependencyProperty SelectedTimeProperty =
-            DependencyProperty.Register(
-            "SelectedTime",
-            typeof(DateTime?),
-            typeof(TimePicker),
-            new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedTimeChanged, CoerceSelectedTime));
+        public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(
+            "SelectedDateTime", typeof(DateTime?), typeof(DateTimePicker), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDateTimeChanged, CoerceSelectedDateTime));
 
-        private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static object CoerceSelectedDateTime(DependencyObject d, object value)
         {
-            if (!(d is TimePicker dp)) return;
+            var dp = (DateTimePicker)d;
+            dp._calendarWithClock.SelectedDateTime = (DateTime?)value;
+            return dp._calendarWithClock.SelectedDateTime;
+        }
 
-            if (dp.SelectedTime.HasValue)
+        private static void OnSelectedDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (!(d is DateTimePicker dp)) return;
+
+            if (dp.SelectedDateTime.HasValue)
             {
-                var time = dp.SelectedTime.Value;
+                var time = dp.SelectedDateTime.Value;
                 dp.SetTextInternal(dp.DateTimeToString(time));
             }
 
-            dp.RaiseEvent(new FunctionEventArgs<DateTime?>(SelectedTimeChangedEvent, dp)
+            dp.RaiseEvent(new FunctionEventArgs<DateTime?>(SelectedDateTimeChangedEvent, dp)
             {
-                Info = dp.SelectedTime
+                Info = dp.SelectedDateTime
             });
         }
 
-        private static object CoerceSelectedTime(DependencyObject d, object value)
+        public DateTime? SelectedDateTime
         {
-            var dp = (TimePicker)d;
-            dp._clock.SelectedTime = (DateTime?)value;
-            return dp._clock.SelectedTime;
+            get => (DateTime?) GetValue(SelectedDateTimeProperty);
+            set => SetValue(SelectedDateTimeProperty, value);
         }
 
-        #endregion SelectedDate
-
-        #region Text
-
-        public string Text
-        {
-            get => (string)GetValue(TextProperty);
-            set => SetValue(TextProperty, value);
-        }
-
-        public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register(
-            "Text",
-            typeof(string),
-            typeof(TimePicker),
-            new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            "Text", typeof(string), typeof(DateTimePicker), new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
 
         private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is TimePicker dp && !dp.IsHandlerSuspended(TextProperty))
+            if (d is DateTimePicker dp && !dp.IsHandlerSuspended(TextProperty))
             {
                 if (e.NewValue is string newValue)
                 {
@@ -248,13 +216,19 @@ namespace HandyControl.Controls
                         dp._defaultText = newValue;
                     }
 
-                    dp.SetSelectedTime();
+                    dp.SetSelectedDateTime();
                 }
                 else
                 {
-                    dp.SetValueNoCallback(SelectedTimeProperty, null);
+                    dp.SetValueNoCallback(SelectedDateTimeProperty, null);
                 }
             }
+        }
+
+        public string Text
+        {
+            get => (string) GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
         /// <summary>
@@ -266,12 +240,10 @@ namespace HandyControl.Controls
             SetCurrentValue(TextProperty, value);
         }
 
-        #endregion Text
-
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
 
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-            "IsError", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+            "IsError", typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsError
         {
@@ -280,7 +252,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-            "ErrorStr", typeof(string), typeof(TimePicker), new PropertyMetadata(default(string)));
+            "ErrorStr", typeof(string), typeof(DateTimePicker), new PropertyMetadata(default(string)));
 
         public string ErrorStr
         {
@@ -289,7 +261,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-            "TextType", typeof(TextType), typeof(TimePicker), new PropertyMetadata(default(TextType)));
+            "TextType", typeof(TextType), typeof(DateTimePicker), new PropertyMetadata(default(TextType)));
 
         public TextType TextType
         {
@@ -298,7 +270,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-            "ShowClearButton", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+            "ShowClearButton", typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool ShowClearButton
         {
@@ -306,38 +278,9 @@ namespace HandyControl.Controls
             set => SetValue(ShowClearButtonProperty, value);
         }
 
-        #endregion Public Properties
+        #endregion
 
         #region Public Methods
-
-        public virtual bool VerifyData()
-        {
-            OperationResult<bool> result;
-
-            if (VerifyFunc != null)
-            {
-                result = VerifyFunc.Invoke(Text);
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(Text))
-                {
-                    result = OperationResult.Success();
-                }
-                else if (InfoElement.GetNecessary(this))
-                {
-                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-                }
-                else
-                {
-                    result = OperationResult.Success();
-                }
-            }
-
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
-        }
 
         public override void OnApplyTemplate()
         {
@@ -374,7 +317,7 @@ namespace HandyControl.Controls
             _popUp.PreviewMouseLeftButtonDown += PopUp_PreviewMouseLeftButtonDown;
             _popUp.Opened += PopUp_Opened;
             _popUp.Closed += PopUp_Closed;
-            _popUp.Child = _clock;
+            _popUp.Child = _calendarWithClock;
 
             if (IsDropDownOpen)
             {
@@ -383,49 +326,78 @@ namespace HandyControl.Controls
 
             _dropDownButton.Click += DropDownButton_Click;
             _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
-            if (SelectedTime == null)
+            if (SelectedDateTime == null)
             {
-                _textBox.Text = DateTime.Now.ToString(TimeFormat);
+                _textBox.Text = DateTime.Now.ToString(DateTimeFormat);
             }
             _textBox.KeyDown += TextBox_KeyDown;
             _textBox.TextChanged += TextBox_TextChanged;
             _textBox.LostFocus += TextBox_LostFocus;
 
-            if (SelectedTime == null)
+            if (SelectedDateTime == null)
             {
                 if (!string.IsNullOrEmpty(_defaultText))
                 {
                     _textBox.Text = _defaultText;
-                    SetSelectedTime();
+                    SetSelectedDateTime();
                 }
             }
             else
             {
-                _textBox.Text = DateTimeToString((DateTime)SelectedTime);
+                _textBox.Text = DateTimeToString(SelectedDateTime.Value);
             }
 
-            if (_originalSelectedTime == null)
+            if (_originalSelectedDateTime == null)
             {
-                _originalSelectedTime = DateTime.Now;
+                _originalSelectedDateTime = DateTime.Now;
             }
-            SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+            SetCurrentValue(DisplayDateTimeProperty, _originalSelectedDateTime);
         }
 
-        public override string ToString() => SelectedTime?.ToString(TimeFormat) ?? string.Empty;
+        public virtual bool VerifyData()
+        {
+            OperationResult<bool> result;
+
+            if (VerifyFunc != null)
+            {
+                result = VerifyFunc.Invoke(Text);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(Text))
+                {
+                    result = OperationResult.Success();
+                }
+                else if (InfoElement.GetNecessary(this))
+                {
+                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
+                }
+                else
+                {
+                    result = OperationResult.Success();
+                }
+            }
+
+            IsError = !result.Data;
+            ErrorStr = result.Message;
+            return result.Data;
+        }
+
+        public override string ToString() => SelectedDateTime?.ToString(DateTimeFormat) ?? string.Empty;
 
         #endregion
 
         #region Protected Methods
 
-        protected virtual void OnClockClosed(RoutedEventArgs e)
+        protected virtual void OnPickerClosed(RoutedEventArgs e)
         {
-            var handler = ClockClosed;
+            var handler = PickerClosed;
             handler?.Invoke(this, e);
         }
 
-        protected virtual void OnClockOpened(RoutedEventArgs e)
+        protected virtual void OnPickerOpened(RoutedEventArgs e)
         {
-            var handler = ClockOpened;
+            var handler = PickerOpened;
             handler?.Invoke(this, e);
         }
 
@@ -439,19 +411,23 @@ namespace HandyControl.Controls
                 throw new Exception();
         }
 
-        private void InitClock()
+        private void InitCalendarWithClock()
         {
-            _clock = new Clock
+            _calendarWithClock = new CalendarWithClock
             {
                 ShowConfirmButton = true
             };
-            _clock.SelectedTimeChanged += Clock_SelectedTimeChanged;
-            _clock.Confirmed += Clock_Confirmed;
+            _calendarWithClock.SelectedDateTimeChanged += CalendarWithClock_SelectedDateTimeChanged;
+            _calendarWithClock.Confirmed += CalendarWithClock_Confirmed;
         }
+
+        private void CalendarWithClock_Confirmed() => TogglePopUp();
+
+        private void CalendarWithClock_SelectedDateTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedDateTime = e.Info;
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            SetSelectedTime();
+            SetSelectedDateTime();
         }
 
         private void SetIsHandlerSuspended(DependencyProperty property, bool value)
@@ -490,34 +466,34 @@ namespace HandyControl.Controls
             VerifyData();
         }
 
-        private bool ProcessTimePickerKey(KeyEventArgs e)
+        private bool ProcessDateTimePickerKey(KeyEventArgs e)
         {
             switch (e.Key)
             {
                 case Key.System:
-                {
-                    switch (e.SystemKey)
                     {
-                        case Key.Down:
+                        switch (e.SystemKey)
                         {
-                            if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                            {
-                                TogglePopUp();
-                                return true;
-                            }
+                            case Key.Down:
+                                {
+                                    if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+                                    {
+                                        TogglePopUp();
+                                        return true;
+                                    }
 
-                            break;
+                                    break;
+                                }
                         }
+
+                        break;
                     }
 
-                    break;
-                }
-
                 case Key.Enter:
-                {
-                    SetSelectedTime();
-                    return true;
-                }
+                    {
+                        SetSelectedDateTime();
+                        return true;
+                    }
             }
 
             return false;
@@ -525,7 +501,7 @@ namespace HandyControl.Controls
 
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
-            e.Handled = ProcessTimePickerKey(e) || e.Handled;
+            e.Handled = ProcessDateTimePickerKey(e) || e.Handled;
         }
 
         private void DropDownButton_MouseLeave(object sender, MouseEventArgs e)
@@ -549,10 +525,6 @@ namespace HandyControl.Controls
             }
         }
 
-        private void Clock_SelectedTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedTime = e.Info;
-
-        private void Clock_Confirmed() => TogglePopUp();
-
         private void PopUp_Opened(object sender, EventArgs e)
         {
             if (!IsDropDownOpen)
@@ -560,9 +532,9 @@ namespace HandyControl.Controls
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
             }
 
-            _clock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+            _calendarWithClock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
 
-            OnClockOpened(new RoutedEventArgs());
+            OnPickerOpened(new RoutedEventArgs());
         }
 
         private void PopUp_Closed(object sender, EventArgs e)
@@ -572,12 +544,12 @@ namespace HandyControl.Controls
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
             }
 
-            if (_clock.IsKeyboardFocusWithin)
+            if (_calendarWithClock.IsKeyboardFocusWithin)
             {
                 MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
             }
 
-            OnClockClosed(new RoutedEventArgs());
+            OnPickerClosed(new RoutedEventArgs());
         }
 
         private void DropDownButton_Click(object sender, RoutedEventArgs e) => TogglePopUp();
@@ -596,7 +568,7 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    SetSelectedTime();
+                    SetSelectedDateTime();
                     SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
                 }
             }
@@ -629,7 +601,7 @@ namespace HandyControl.Controls
             if (string.IsNullOrEmpty(s))
             {
                 SafeSetText(s);
-                return SelectedTime;
+                return SelectedDateTime;
             }
 
             var d = ParseText(s);
@@ -640,17 +612,17 @@ namespace HandyControl.Controls
                 return d;
             }
 
-            if (SelectedTime != null)
+            if (SelectedDateTime != null)
             {
-                var newtext = DateTimeToString((DateTime) SelectedTime);
+                var newtext = DateTimeToString(SelectedDateTime.Value);
                 SafeSetText(newtext);
-                return SelectedTime;
+                return SelectedDateTime;
             }
-            SafeSetText(DateTimeToString(DisplayTime));
-            return DisplayTime;
+            SafeSetText(DateTimeToString(DisplayDateTime));
+            return DisplayDateTime;
         }
 
-        private void SetSelectedTime()
+        private void SetSelectedDateTime()
         {
             if (_textBox != null)
             {
@@ -658,9 +630,9 @@ namespace HandyControl.Controls
                 {
                     var s = _textBox.Text;
 
-                    if (SelectedTime != null)
+                    if (SelectedDateTime != null)
                     {
-                        var selectedTime = DateTimeToString(SelectedTime.Value);
+                        var selectedTime = DateTimeToString(SelectedDateTime.Value);
 
                         if (string.Compare(selectedTime, s, StringComparison.Ordinal) == 0)
                         {
@@ -669,35 +641,35 @@ namespace HandyControl.Controls
                     }
 
                     var d = SetTextBoxValue(s);
-                    if (!SelectedTime.Equals(d))
+                    if (!SelectedDateTime.Equals(d))
                     {
-                        SetCurrentValue(SelectedTimeProperty, d);
-                        SetCurrentValue(DisplayTimeProperty, d);
+                        SetCurrentValue(SelectedDateTimeProperty, d);
+                        SetCurrentValue(DisplayDateTimeProperty, d);
                     }
                 }
                 else
                 {
-                    if (SelectedTime.HasValue)
+                    if (SelectedDateTime.HasValue)
                     {
-                        SetCurrentValue(SelectedTimeProperty, null);
+                        SetCurrentValue(SelectedDateTimeProperty, null);
                     }
                 }
             }
             else
             {
                 var d = SetTextBoxValue(_defaultText);
-                if (!SelectedTime.Equals(d))
+                if (!SelectedDateTime.Equals(d))
                 {
-                    SetCurrentValue(SelectedTimeProperty, d);
+                    SetCurrentValue(SelectedDateTimeProperty, d);
                 }
             }
         }
 
-        private string DateTimeToString(DateTime d) => d.ToString(TimeFormat);
+        private string DateTimeToString(DateTime d) => d.ToString(DateTimeFormat);
 
         private static void OnGotFocus(object sender, RoutedEventArgs e)
         {
-            var picker = (TimePicker)sender;
+            var picker = (DateTimePicker)sender;
             if (!e.Handled && picker._textBox != null)
             {
                 if (Equals(e.OriginalSource, picker))
@@ -713,6 +685,6 @@ namespace HandyControl.Controls
             }
         }
 
-        #endregion Private Methods
+        #endregion
     }
 }

@@ -9,7 +9,6 @@ using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = ElementButtonAm, Type = typeof(RadioButton))]
@@ -61,8 +60,6 @@ namespace HandyControl.Controls
 
         private int _secValue;
 
-        private bool _isLoaded;
-
         private bool _appliedTemplate;
 
         #endregion Data
@@ -79,21 +76,11 @@ namespace HandyControl.Controls
             remove => RemoveHandler(SelectedTimeChangedEvent, value);
         }
 
-        public event EventHandler<FunctionEventArgs<DateTime?>> DisplayTimeChanged;
+        public event EventHandler<FunctionEventArgs<DateTime>> DisplayTimeChanged;
 
         public event Action Confirmed;
 
         #endregion Public Events
-
-        public Clock()
-        {
-            Loaded += (s, e) =>
-            {
-                if (_isLoaded) return;
-                _isLoaded = true;
-                DisplayTime = DateTime.Now;
-            };
-        }
 
         #region Public Properties
 
@@ -104,6 +91,7 @@ namespace HandyControl.Controls
         {
             var ctl = (Clock)d;
             var v = (DateTime?)e.NewValue;
+            ctl.DisplayTime = v ?? DateTime.Now;
             ctl.OnSelectedTimeChanged(new FunctionEventArgs<DateTime?>(SelectedTimeChangedEvent, ctl)
             {
                 Info = v
@@ -135,14 +123,14 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty DisplayTimeProperty = DependencyProperty.Register(
-            "DisplayTime", typeof(DateTime), typeof(Clock), new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayTimeChanged));
+            "DisplayTime", typeof(DateTime), typeof(Clock), new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayTimeChanged));
 
         private static void OnDisplayTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (Clock) d;
             var v = (DateTime) e.NewValue;
             ctl.Update(v);
-            ctl.OnDisplayTimeChanged(new FunctionEventArgs<DateTime?>(v));
+            ctl.OnDisplayTimeChanged(new FunctionEventArgs<DateTime>(v));
         }
 
         public DateTime DisplayTime
@@ -187,16 +175,31 @@ namespace HandyControl.Controls
         public override void OnApplyTemplate()
         {
             _appliedTemplate = false;
-            _buttonAm?.RemoveHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonAm_OnClick));
-            _buttonPm?.RemoveHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonPm_OnClick));
-            _buttonConfirm?.RemoveHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonConfirm_OnClick));
-            _borderTitle?.RemoveHandler(MouseWheelEvent, new MouseWheelEventHandler(BorderTitle_OnMouseWheel));
+            if (_buttonAm != null)
+            {
+                _buttonAm.Click -= ButtonAm_OnClick;
+            }
+
+            if (_buttonPm != null)
+            {
+                _buttonPm.Click -= ButtonPm_OnClick;
+            }
+
+            if (_buttonConfirm != null)
+            {
+                _buttonConfirm.Click -= ButtonConfirm_OnClick;
+            }
+
+            if (_borderTitle != null)
+            {
+                _borderTitle.MouseWheel -= BorderTitle_OnMouseWheel;
+            }
 
             if (_canvas != null)
             {
-                _canvas.RemoveHandler(MouseWheelEvent, new MouseWheelEventHandler(MyCanvas_OnMouseWheel));
-                _canvas.RemoveHandler(ButtonBase.ClickEvent, new RoutedEventHandler(MyCanvas_OnClick));
-                _canvas.RemoveHandler(MouseMoveEvent, new MouseEventHandler(MyCanvas_OnMouseMove));
+                _canvas.MouseWheel -= Canvas_OnMouseWheel;
+                _canvas.RemoveHandler(ButtonBase.ClickEvent, new RoutedEventHandler(Canvas_OnClick));
+                _canvas.MouseMove -= Canvas_OnMouseMove;
             }
 
             base.OnApplyTemplate();
@@ -212,14 +215,14 @@ namespace HandyControl.Controls
 
             CheckNull();
 
-            _buttonAm.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonAm_OnClick));
-            _buttonPm.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonPm_OnClick));
-            _buttonConfirm.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonConfirm_OnClick));
-            _borderTitle.AddHandler(MouseWheelEvent, new MouseWheelEventHandler(BorderTitle_OnMouseWheel));
+            _buttonAm.Click += ButtonAm_OnClick;
+            _buttonPm.Click += ButtonPm_OnClick;
+            _buttonConfirm.Click += ButtonConfirm_OnClick;
+            _borderTitle.MouseWheel += BorderTitle_OnMouseWheel;
 
-            _canvas.AddHandler(MouseWheelEvent, new MouseWheelEventHandler(MyCanvas_OnMouseWheel));
-            _canvas.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(MyCanvas_OnClick));
-            _canvas.AddHandler(MouseMoveEvent, new MouseEventHandler(MyCanvas_OnMouseMove));
+            _canvas.MouseWheel += Canvas_OnMouseWheel;
+            _canvas.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(Canvas_OnClick));
+            _canvas.MouseMove += Canvas_OnMouseMove;
 
             _rotateTransformClock = new RotateTransform();
             _borderClock.RenderTransform = _rotateTransformClock;
@@ -239,9 +242,14 @@ namespace HandyControl.Controls
             }
 
             _appliedTemplate = true;
-            if (_isLoaded)
+            if (SelectedTime.HasValue)
             {
-                Update(SelectedTime ?? DisplayTime);
+                Update(SelectedTime.Value);
+            }
+            else
+            {
+                DisplayTime = DateTime.Now;
+                Update(DisplayTime);
             }
         }
 
@@ -251,7 +259,7 @@ namespace HandyControl.Controls
 
         protected virtual void OnSelectedTimeChanged(FunctionEventArgs<DateTime?> e) => RaiseEvent(e);
 
-        protected virtual void OnDisplayTimeChanged(FunctionEventArgs<DateTime?> e)
+        protected virtual void OnDisplayTimeChanged(FunctionEventArgs<DateTime> e)
         {
             var handler = DisplayTimeChanged;
             handler?.Invoke(this, e);
@@ -284,7 +292,7 @@ namespace HandyControl.Controls
             e.Handled = true;
         }
 
-        private void MyCanvas_OnMouseWheel(object sender, MouseWheelEventArgs e)
+        private void Canvas_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
             var value = (int)_rotateTransformClock.Angle;
             if (e.Delta < 0)
@@ -305,7 +313,7 @@ namespace HandyControl.Controls
             e.Handled = true;
         }
 
-        private void MyCanvas_OnClick(object sender, RoutedEventArgs e)
+        private void Canvas_OnClick(object sender, RoutedEventArgs e)
         {
             _currentButton = e.OriginalSource as ClockRadioButton;
             if (_currentButton != null)
@@ -314,7 +322,7 @@ namespace HandyControl.Controls
             }
         }
 
-        private void MyCanvas_OnMouseMove(object sender, MouseEventArgs e)
+        private void Canvas_OnMouseMove(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {
@@ -359,7 +367,7 @@ namespace HandyControl.Controls
         ///     更新
         /// </summary>
         /// <param name="time"></param>
-        private void Update(DateTime time)
+        internal void Update(DateTime time)
         {
             if (!_appliedTemplate) return;
             var h = time.Hour;

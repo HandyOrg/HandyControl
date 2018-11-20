@@ -25,7 +25,9 @@ var controlList = new List<string>
 	"TextBoxDemoCtl",
 	"ComboBoxDemoCtl",
 	"PasswordBoxDemoCtl",
-	"DatePickerDemoCtl"
+	"DatePickerDemoCtl",
+	"DateTimePickerDemoCtl",
+	"CalendarWithClockDemoCtl"
 };
 var styleList = new List<string>
 {

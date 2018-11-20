@@ -38,6 +38,8 @@
         <ResourceDictionary Source="Image.xaml"/>
         <ResourceDictionary Source="Label.xaml"/>
         <ResourceDictionary Source="ImageViewer.xaml"/>
+        <ResourceDictionary Source="CalendarWithClock.xaml"/>
+        <ResourceDictionary Source="DateTimePicker.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
