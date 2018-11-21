@@ -43,6 +43,7 @@
         <ResourceDictionary Source="GroupBox.xaml"/>
         <ResourceDictionary Source="ListView.xaml"/>
         <ResourceDictionary Source="RichTextBox.xaml"/>
+        <ResourceDictionary Source="ToolBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

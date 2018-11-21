@@ -110,7 +110,7 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ListBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ListViewDemoCtl}" Content="{x:Static langs:Lang.ListView}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.ListViewDemoCtl}" Content="{x:Static langs:Lang.ListView}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ListView_16x.png"/>
                     </controls:EdgeElement.LeftContent>
@@ -128,6 +128,11 @@
                 <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RichTextBoxDemoCtl}" Content="{x:Static langs:Lang.RichTextBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/RichTextBox_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ToolBarDemoCtl}" Content="{x:Static langs:Lang.ToolBar}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/ToolBar_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.BorderDemoCtl}" Content="{x:Static langs:Lang.Border1}">
