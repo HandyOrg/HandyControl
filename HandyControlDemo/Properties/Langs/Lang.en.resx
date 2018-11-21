@@ -411,6 +411,9 @@
   <data name="ListView" xml:space="preserve">
     <value>ListView</value>
   </data>
+  <data name="RichTextBox" xml:space="preserve">
+    <value>RichTextBox</value>
+  </data>
   <data name="ToolBar" xml:space="preserve">
     <value>ToolBar</value>
   </data>
