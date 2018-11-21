@@ -907,6 +907,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 工具条 的本地化字符串。
+        /// </summary>
+        public static string ToolBar {
+            get {
+                return ResourceManager.GetString("ToolBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 树视图 的本地化字符串。
         /// </summary>
         public static string TreeView {

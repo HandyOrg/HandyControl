@@ -11,4 +11,6 @@
     <!--默认普通菜单项-->
     <Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="MenuItem"/>
 
+    <Style BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu"/>
+
 </ResourceDictionary>

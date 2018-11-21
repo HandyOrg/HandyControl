@@ -100,6 +100,8 @@
 
         public static readonly string RichTextBoxDemoCtl = nameof(RichTextBoxDemoCtl);
 
+        public static readonly string ToolBarDemoCtl = nameof(ToolBarDemoCtl);
+
         public static readonly string CommonWindow = nameof(CommonWindow);
 
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);
