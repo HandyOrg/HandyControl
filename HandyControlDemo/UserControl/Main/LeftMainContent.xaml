@@ -110,12 +110,12 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ListBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Tag="{x:Static data:MessageToken.ListViewDemoCtl}" Content="{x:Static langs:Lang.ListView}">
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ListViewDemoCtl}" Content="{x:Static langs:Lang.ListView}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ListView_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GroupBoxDemoCtl}" Content="{x:Static langs:Lang.GroupBox}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.GroupBoxDemoCtl}" Content="{x:Static langs:Lang.GroupBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/GroupBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
@@ -169,12 +169,12 @@
                         <Image Source="../../Resources/Img/LeftMainContent/TimePicker_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CalendarWithClockDemoCtl}" Content="{x:Static langs:Lang.CalendarWithClock}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.CalendarWithClockDemoCtl}" Content="{x:Static langs:Lang.CalendarWithClock}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/Calendar_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.DateTimePickerDemoCtl}" Content="{x:Static langs:Lang.DateTimePicker}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.DateTimePickerDemoCtl}" Content="{x:Static langs:Lang.DateTimePicker}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/DatePicker_16x.png"/>
                     </controls:EdgeElement.LeftContent>
