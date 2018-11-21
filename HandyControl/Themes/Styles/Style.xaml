@@ -42,6 +42,7 @@
         <ResourceDictionary Source="DateTimePicker.xaml"/>
         <ResourceDictionary Source="GroupBox.xaml"/>
         <ResourceDictionary Source="ListView.xaml"/>
+        <ResourceDictionary Source="RichTextBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

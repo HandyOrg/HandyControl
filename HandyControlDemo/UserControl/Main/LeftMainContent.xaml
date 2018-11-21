@@ -125,6 +125,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ContextMenu_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RichTextBoxDemoCtl}" Content="{x:Static langs:Lang.RichTextBox}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/RichTextBox_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.BorderDemoCtl}" Content="{x:Static langs:Lang.Border1}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/BorderElement_16x.png"/>

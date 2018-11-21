@@ -718,6 +718,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 富文本框 的本地化字符串。
+        /// </summary>
+        public static string RichTextBox {
+            get {
+                return ResourceManager.GetString("RichTextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 在这里右击 的本地化字符串。
         /// </summary>
         public static string RightClickHere {
