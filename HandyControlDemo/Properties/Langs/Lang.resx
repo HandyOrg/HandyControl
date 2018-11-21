@@ -388,4 +388,7 @@
   <data name="GroupBox" xml:space="preserve">
     <value>分组框</value>
   </data>
+  <data name="ListView" xml:space="preserve">
+    <value>列表视图</value>
+  </data>
 </root>

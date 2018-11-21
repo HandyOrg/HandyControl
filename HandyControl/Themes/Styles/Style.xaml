@@ -41,6 +41,7 @@
         <ResourceDictionary Source="CalendarWithClock.xaml"/>
         <ResourceDictionary Source="DateTimePicker.xaml"/>
         <ResourceDictionary Source="GroupBox.xaml"/>
+        <ResourceDictionary Source="ListView.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

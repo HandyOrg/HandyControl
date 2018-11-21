@@ -502,6 +502,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 列表视图 的本地化字符串。
+        /// </summary>
+        public static string ListView {
+            get {
+                return ResourceManager.GetString("ListView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 加载条 的本地化字符串。
         /// </summary>
         public static string Loading {

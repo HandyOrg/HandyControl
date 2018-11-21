@@ -110,6 +110,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ListBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Tag="{x:Static data:MessageToken.ListViewDemoCtl}" Content="{x:Static langs:Lang.ListView}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/ListView_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GroupBoxDemoCtl}" Content="{x:Static langs:Lang.GroupBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/GroupBox_16x.png"/>

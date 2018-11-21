@@ -408,4 +408,7 @@
   <data name="GroupBox" xml:space="preserve">
     <value>GroupBox</value>
   </data>
+  <data name="ListView" xml:space="preserve">
+    <value>ListView</value>
+  </data>
 </root>
