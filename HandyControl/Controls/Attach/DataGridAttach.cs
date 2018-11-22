@@ -1,6 +1,8 @@
-﻿using System.Linq;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
@@ -206,5 +208,67 @@ namespace HandyControl.Controls
                 }
             }
         }
+
+        public static DependencyProperty ShowRowNumberProperty = DependencyProperty.RegisterAttached("ShowRowNumber",
+            typeof(bool), typeof(DataGridAttach),
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits, OnShowRowNumberChanged));
+
+        public static bool GetShowRowNumber(DependencyObject target) => (bool)target.GetValue(ShowRowNumberProperty);
+
+        public static void SetShowRowNumber(DependencyObject target, bool value) => target.SetValue(ShowRowNumberProperty, value);
+
+        private static void OnShowRowNumberChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
+        {
+            if (!(target is DataGrid dataGrid)) return;
+            var show = (bool)e.NewValue;
+
+            if (show)
+            {
+                dataGrid.LoadingRow += DataGrid_LoadingRow;
+                dataGrid.ItemContainerGenerator.ItemsChanged += ItemContainerGenerator_ItemsChanged;
+            }
+            else
+            {
+                dataGrid.LoadingRow -= DataGrid_LoadingRow;
+                dataGrid.ItemContainerGenerator.ItemsChanged -= ItemContainerGenerator_ItemsChanged;
+            }
+
+            UpdateItems(dataGrid.ItemContainerGenerator, show);
+        }
+
+        private static void ItemContainerGenerator_ItemsChanged(object sender, ItemsChangedEventArgs e)
+        {
+            if (!(sender is ItemContainerGenerator generator)) return;
+            UpdateItems(generator);
+        }
+
+        private static void UpdateItems(ItemContainerGenerator generator, bool show = true)
+        {
+            var count = generator.Items.Count;
+            if (show)
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    var row = (DataGridRow)generator.ContainerFromIndex(i);
+                    if (row != null)
+                    {
+                        row.Header = (i + 1).ToString();
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
+                {
+                    var row = (DataGridRow)generator.ContainerFromIndex(i);
+                    if (row != null)
+                    {
+                        row.Header = null;
+                    }
+                }
+            }
+        }
+
+        private static void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
     }
 }

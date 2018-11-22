@@ -4,7 +4,7 @@ using System.Windows.Media;
 
 namespace HandyControl.Tools
 {
-    public class VisualStates
+    internal class VisualHelper
     {
         public static VisualStateGroup TryGetVisualStateGroup(DependencyObject dependencyObject, string groupName)
         {

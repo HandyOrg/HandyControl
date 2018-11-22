@@ -204,7 +204,7 @@
     <Compile Include="Tools\RegularPatterns.cs" />
     <Compile Include="Tools\ResourceHelper.cs" />
     <Compile Include="Tools\ValidateHelper.cs" />
-    <Compile Include="Tools\VisualStates.cs" />
+    <Compile Include="Tools\VisualHelper.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Themes\Basic\Basic.xaml">
