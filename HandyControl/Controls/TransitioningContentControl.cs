@@ -119,7 +119,7 @@ namespace HandyControl.Controls
 
         private Storyboard GetStoryboard(string newTransition)
         {
-            var presentationGroup = VisualStates.TryGetVisualStateGroup(this, PresentationGroup);
+            var presentationGroup = VisualHelper.TryGetVisualStateGroup(this, PresentationGroup);
             Storyboard newStoryboard = null;
             if (presentationGroup != null)
                 newStoryboard = presentationGroup.States
@@ -218,7 +218,7 @@ namespace HandyControl.Controls
             var newStoryboard = source.GetStoryboard(newTransition);
 
             if (newStoryboard == null)
-                if (VisualStates.TryGetVisualStateGroup(source, PresentationGroup) == null)
+                if (VisualHelper.TryGetVisualStateGroup(source, PresentationGroup) == null)
                 {
                     source.CurrentTransition = null;
                 }

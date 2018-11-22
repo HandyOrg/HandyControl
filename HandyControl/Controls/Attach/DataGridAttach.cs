@@ -1,10 +1,8 @@
-using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Media;
+using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
@@ -211,72 +209,66 @@ namespace HandyControl.Controls
             }
         }
 
-        public static DependencyProperty ShowRowNumberProperty = DependencyProperty.RegisterAttached("ShowRowNumber", typeof(bool), typeof(DataGridAttach), new FrameworkPropertyMetadata(false, OnShowRowNumberChanged));
+        public static DependencyProperty ShowRowNumberProperty = DependencyProperty.RegisterAttached("ShowRowNumber",
+            typeof(bool), typeof(DataGridAttach),
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits, OnShowRowNumberChanged));
 
-        public static bool GetShowRowNumber(DependencyObject target)
-        {
-            return (bool)target.GetValue(ShowRowNumberProperty);
-        }
+        public static bool GetShowRowNumber(DependencyObject target) => (bool)target.GetValue(ShowRowNumberProperty);
 
-        public static void SetShowRowNumber(DependencyObject target, bool value)
-        {
-            target.SetValue(ShowRowNumberProperty, value);
-        }
+        public static void SetShowRowNumber(DependencyObject target, bool value) => target.SetValue(ShowRowNumberProperty, value);
 
         private static void OnShowRowNumberChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            DataGrid dataGrid = target as DataGrid;
-            if ((bool)e.NewValue == true)
-            {
-                EventHandler<DataGridRowEventArgs> loadedRowHandler = null;
-                loadedRowHandler = (object sender, DataGridRowEventArgs ea) =>
-                {
-                    if (GetShowRowNumber(dataGrid) == false)
-                    {
-                        dataGrid.LoadingRow -= loadedRowHandler;
-                        return;
-                    }
-                    ea.Row.Header = ea.Row.GetIndex() + 1;
-                };
-                dataGrid.LoadingRow += loadedRowHandler;
+            if (!(target is DataGrid dataGrid)) return;
+            var show = (bool)e.NewValue;
 
-                ItemsChangedEventHandler itemsChangedHandler = null;
-                itemsChangedHandler = (object sender, ItemsChangedEventArgs ea) =>
-                {
-                    if (GetShowRowNumber(dataGrid) == false)
-                    {
-                        dataGrid.ItemContainerGenerator.ItemsChanged -= itemsChangedHandler;
-                        return;
-                    }
-                    GetVisualChildCollection<DataGridRow>(dataGrid).
-                        ForEach(d => d.Header = d.GetIndex());
-                };
-                dataGrid.ItemContainerGenerator.ItemsChanged += itemsChangedHandler;
+            if (show)
+            {
+                dataGrid.LoadingRow += DataGrid_LoadingRow;
+                dataGrid.ItemContainerGenerator.ItemsChanged += ItemContainerGenerator_ItemsChanged;
             }
-        }
-
-        private static List<T> GetVisualChildCollection<T>(object parent) where T : Visual
-        {
-            List<T> visualCollection = new List<T>();
-            GetVisualChildCollection(parent as DependencyObject, visualCollection);
-            return visualCollection;
-        }
-
-        private static void GetVisualChildCollection<T>(DependencyObject parent, List<T> visualCollection) where T : Visual
-        {
-            int count = VisualTreeHelper.GetChildrenCount(parent);
-            for (int i = 0; i < count; i++)
+            else
             {
-                DependencyObject child = VisualTreeHelper.GetChild(parent, i);
-                if (child is T)
+                dataGrid.LoadingRow -= DataGrid_LoadingRow;
+                dataGrid.ItemContainerGenerator.ItemsChanged -= ItemContainerGenerator_ItemsChanged;
+            }
+
+            UpdateItems(dataGrid.ItemContainerGenerator, show);
+        }
+
+        private static void ItemContainerGenerator_ItemsChanged(object sender, ItemsChangedEventArgs e)
+        {
+            if (!(sender is ItemContainerGenerator generator)) return;
+            UpdateItems(generator);
+        }
+
+        private static void UpdateItems(ItemContainerGenerator generator, bool show = true)
+        {
+            var count = generator.Items.Count;
+            if (show)
+            {
+                for (int i = 0; i < count; i++)
                 {
-                    visualCollection.Add(child as T);
+                    var row = (DataGridRow)generator.ContainerFromIndex(i);
+                    if (row != null)
+                    {
+                        row.Header = (i + 1).ToString();
+                    }
                 }
-                if (child != null)
+            }
+            else
+            {
+                for (int i = 0; i < count; i++)
                 {
-                    GetVisualChildCollection(child, visualCollection);
+                    var row = (DataGridRow)generator.ContainerFromIndex(i);
+                    if (row != null)
+                    {
+                        row.Header = null;
+                    }
                 }
             }
         }
+
+        private static void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
     }
 }
