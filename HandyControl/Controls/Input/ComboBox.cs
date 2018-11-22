@@ -33,7 +33,7 @@ namespace HandyControl.Controls
         ///     数据是否错误
         /// </summary>
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-            "IsError", typeof(bool), typeof(ComboBox), new PropertyMetadata(default(bool)));
+            "IsError", typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsError
         {
@@ -72,7 +72,7 @@ namespace HandyControl.Controls
         ///     是否显示清除按钮
         /// </summary>
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-            "ShowClearButton", typeof(bool), typeof(ComboBox), new PropertyMetadata(default(bool)));
+            "ShowClearButton", typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool ShowClearButton
         {

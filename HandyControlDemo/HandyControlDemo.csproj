@@ -150,6 +150,9 @@
     <Compile Include="UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
       <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\SearchBarDemoCtl.xaml.cs">
+      <DependentUpon>SearchBarDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\StepBarDemoCtl.xaml.cs">
       <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -405,6 +408,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\SearchBarDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\StepBarDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -585,6 +592,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Search_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\ToolBar_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\RichTextBox_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\ListView_16x.png" />

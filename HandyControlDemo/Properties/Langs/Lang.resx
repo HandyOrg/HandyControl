@@ -397,4 +397,13 @@
   <data name="ToolBar" xml:space="preserve">
     <value>工具条</value>
   </data>
+  <data name="Common" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="ShowRowNumber" xml:space="preserve">
+    <value>显示行号</value>
+  </data>
+  <data name="SearchBar" xml:space="preserve">
+    <value>搜索栏</value>
+  </data>
 </root>

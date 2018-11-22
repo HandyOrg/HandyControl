@@ -7,7 +7,7 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
         <TabControl Style="{StaticResource TabControlInLine}">
-            <TabItem Header="Common">
+            <TabItem Header="{x:Static langs:Lang.Common}">
                 <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
                     <DataGrid.RowHeaderTemplate>
                         <DataTemplate>
@@ -30,7 +30,7 @@
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <TabItem Header="ShowRowNumber">
+            <TabItem Header="{x:Static langs:Lang.ShowRowNumber}">
                 <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" controls:DataGridAttach.ShowRowNumber="True">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="50" CanUserResize="False">

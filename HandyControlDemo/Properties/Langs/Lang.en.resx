@@ -417,4 +417,13 @@
   <data name="ToolBar" xml:space="preserve">
     <value>ToolBar</value>
   </data>
+  <data name="Common" xml:space="preserve">
+    <value>Common</value>
+  </data>
+  <data name="ShowRowNumber" xml:space="preserve">
+    <value>ShowRowNumber</value>
+  </data>
+  <data name="SearchBar" xml:space="preserve">
+    <value>SearchBar</value>
+  </data>
 </root>

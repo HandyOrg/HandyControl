@@ -8,6 +8,11 @@ namespace HandyControl.Interactivity
     public static class ControlCommands
     {
         /// <summary>
+        ///     搜索
+        /// </summary>
+        public static RoutedCommand Search { get; } = new RoutedCommand(nameof(Search), typeof(ControlCommands));
+
+        /// <summary>
         ///     清除
         /// </summary>
         public static RoutedCommand Clear { get; } = new RoutedCommand(nameof(Clear), typeof(ControlCommands));

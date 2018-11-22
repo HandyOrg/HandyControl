@@ -27,7 +27,7 @@ namespace HandyControl.Controls
         ///     数据是否错误
         /// </summary>
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-            "IsError", typeof(bool), typeof(PasswordBox), new PropertyMetadata(default(bool)));
+            "IsError", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     错误提示
@@ -45,7 +45,7 @@ namespace HandyControl.Controls
         ///     是否显示清除按钮
         /// </summary>
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-            "ShowClearButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(default(bool)));
+            "ShowClearButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
         private string _password;
 

@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class TextBoxDemoCtl
+    public partial class SearchBarDemoCtl
     {
-        public TextBoxDemoCtl()
+        public SearchBarDemoCtl()
         {
             InitializeComponent();
         }

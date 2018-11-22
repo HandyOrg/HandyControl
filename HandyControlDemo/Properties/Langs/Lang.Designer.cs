@@ -250,6 +250,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 一般 的本地化字符串。
+        /// </summary>
+        public static string Common {
+            get {
+                return ResourceManager.GetString("Common", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 对比滑块 的本地化字符串。
         /// </summary>
         public static string CompareSlider {
@@ -745,11 +754,29 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 搜索栏 的本地化字符串。
+        /// </summary>
+        public static string SearchBar {
+            get {
+                return ResourceManager.GetString("SearchBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 选中 的本地化字符串。
         /// </summary>
         public static string Selected {
             get {
                 return ResourceManager.GetString("Selected", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 显示行号 的本地化字符串。
+        /// </summary>
+        public static string ShowRowNumber {
+            get {
+                return ResourceManager.GetString("ShowRowNumber", resourceCulture);
             }
         }
         

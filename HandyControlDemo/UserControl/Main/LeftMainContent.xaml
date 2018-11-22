@@ -125,12 +125,12 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ContextMenu_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RichTextBoxDemoCtl}" Content="{x:Static langs:Lang.RichTextBox}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.RichTextBoxDemoCtl}" Content="{x:Static langs:Lang.RichTextBox}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/RichTextBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ToolBarDemoCtl}" Content="{x:Static langs:Lang.ToolBar}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.ToolBarDemoCtl}" Content="{x:Static langs:Lang.ToolBar}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ToolBar_16x.png"/>
                     </controls:EdgeElement.LeftContent>
@@ -187,6 +187,11 @@
                 <ListBoxItem Tag="{x:Static data:MessageToken.DateTimePickerDemoCtl}" Content="{x:Static langs:Lang.DateTimePicker}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/DatePicker_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.SearchBarDemoCtl}" Content="{x:Static langs:Lang.SearchBar}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/Search_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}">

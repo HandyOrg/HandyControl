@@ -44,6 +44,7 @@
         <ResourceDictionary Source="ListView.xaml"/>
         <ResourceDictionary Source="RichTextBox.xaml"/>
         <ResourceDictionary Source="ToolBar.xaml"/>
+        <ResourceDictionary Source="SearchBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

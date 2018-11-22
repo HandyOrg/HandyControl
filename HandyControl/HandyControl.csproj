@@ -49,6 +49,7 @@
     <Compile Include="Controls\Carousel.cs" />
     <Compile Include="Controls\CirclePanel.cs" />
     <Compile Include="Controls\CircleProgressBar.cs" />
+    <Compile Include="Controls\Input\SearchBar.cs" />
     <Compile Include="Controls\Time\CalendarWithClock.cs" />
     <Compile Include="Controls\Time\Clock\Clock.cs" />
     <Compile Include="Controls\Time\Clock\ClockRadioButton.cs" />
@@ -267,6 +268,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\SearchBarBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\ToolBarBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -476,6 +481,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ScrollViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\SearchBar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
