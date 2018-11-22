@@ -36,5 +36,7 @@
 
         public static readonly string CustomWindowStyle = nameof(CustomWindowStyle);
 
+        public static readonly string AddTagButtonStyle = nameof(AddTagButtonStyle);
+
     }
 }

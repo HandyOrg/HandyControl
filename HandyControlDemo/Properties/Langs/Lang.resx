@@ -406,4 +406,7 @@
   <data name="SearchBar" xml:space="preserve">
     <value>搜索栏</value>
   </data>
+  <data name="Tag" xml:space="preserve">
+    <value>标签</value>
+  </data>
 </root>

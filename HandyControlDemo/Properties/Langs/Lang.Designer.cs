@@ -844,6 +844,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 标签 的本地化字符串。
+        /// </summary>
+        public static string Tag {
+            get {
+                return ResourceManager.GetString("Tag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 正文 的本地化字符串。
         /// </summary>
         public static string Text {

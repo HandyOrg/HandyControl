@@ -52,6 +52,8 @@
 	
         public static readonly string SearchBarDemoCtl = nameof(SearchBarDemoCtl);
 	
+        public static readonly string TagDemoCtl = nameof(TagDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

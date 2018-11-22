@@ -194,6 +194,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/Search_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.TagDemoCtl}" Content="{x:Static langs:Lang.Tag}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/Tag_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ColorWheel_16x.png"/>

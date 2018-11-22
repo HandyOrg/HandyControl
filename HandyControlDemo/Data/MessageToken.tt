@@ -28,7 +28,8 @@ var controlList = new List<string>
 	"DatePickerDemoCtl",
 	"DateTimePickerDemoCtl",
 	"CalendarWithClockDemoCtl",
-	"SearchBarDemoCtl"
+	"SearchBarDemoCtl",
+	"TagDemoCtl"
 };
 var styleList = new List<string>
 {

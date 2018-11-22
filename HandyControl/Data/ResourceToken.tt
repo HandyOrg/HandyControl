@@ -26,7 +26,8 @@ var styleList = new List<string>
 {
 	"ButtonCustom",
 	"PaginationButtonStyle",
-	"CustomWindowStyle"
+	"CustomWindowStyle",
+	"AddTagButtonStyle"
 };
 #>
 namespace HandyControl.Data

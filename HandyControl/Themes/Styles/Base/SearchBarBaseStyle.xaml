@@ -27,7 +27,7 @@
                                 <ColumnDefinition Width="*"/>
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
-                            <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
+                            <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
                             <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" Padding="5,6" Margin="0,0,0,1" x:Name="PART_TextBox" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Grid>
                     </Border>
@@ -63,7 +63,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
-                    <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
+                    <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
                     <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                 </Grid>
             </Border>
@@ -97,7 +97,7 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
-                    <Button Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" x:Name="PART_Button"  Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
+                    <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
                     <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                 </Grid>
             </Border>
@@ -155,7 +155,7 @@
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
                     <Button Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" controls:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}"/>
-                    <Button Style="{StaticResource ButtonIcon}" Padding="2,7,7,7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" x:Name="PART_Button"  Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
+                    <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="2,7,7,7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
                     <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                 </Grid>
             </Border>
@@ -216,7 +216,7 @@
                         <ColumnDefinition Width="25"/>
                     </Grid.ColumnDefinitions>
                     <Button Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" controls:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}"/>
-                    <Button Style="{StaticResource ButtonIcon}" Padding="2,7,7,7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" x:Name="PART_Button"  Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
+                    <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="2,7,7,7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
                     <controls:WatermarkTextBox CaretBrush="{TemplateBinding Foreground}" x:Name="PART_TextBox" Padding="5,6" Margin="0,0,0,1" Watermark="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                 </Grid>
             </Border>

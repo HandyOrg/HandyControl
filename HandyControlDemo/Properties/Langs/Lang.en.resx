@@ -426,4 +426,7 @@
   <data name="SearchBar" xml:space="preserve">
     <value>SearchBar</value>
   </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
 </root>

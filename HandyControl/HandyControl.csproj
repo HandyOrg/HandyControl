@@ -50,6 +50,8 @@
     <Compile Include="Controls\CirclePanel.cs" />
     <Compile Include="Controls\CircleProgressBar.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
+    <Compile Include="Controls\Tag\TagPanel.cs" />
+    <Compile Include="Controls\Tag\Tag.cs" />
     <Compile Include="Controls\Time\CalendarWithClock.cs" />
     <Compile Include="Controls\Time\Clock\Clock.cs" />
     <Compile Include="Controls\Time\Clock\ClockRadioButton.cs" />
@@ -76,6 +78,7 @@
     <Compile Include="Controls\InternalCanvas.cs" />
     <Compile Include="Controls\StepBar\StepBar.cs" />
     <Compile Include="Controls\StepBar\StepBarItem.cs" />
+    <Compile Include="Data\CancelRoutedEventArgs.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
@@ -269,6 +272,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\SearchBarBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\TagBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -503,6 +510,10 @@
     <Page Include="Themes\Styles\TabControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Tag.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Themes\Styles\TextBlock.xaml">
       <SubType>Designer</SubType>

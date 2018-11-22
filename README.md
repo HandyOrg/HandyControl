@@ -6,115 +6,119 @@
 
 ## Latest examples
 
-### 1、ToolBar
+### Tag
+
+![Tag](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Tag.png)
+
+### ToolBar
 
 ![ToolBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ToolBar.png)
 
-### 2、Slider
+### Slider
 
 ![Slider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Slider.png)
 
-### 3、CircleProgressBar
+### CircleProgressBar
 
 ![CircleProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CircleProgressBar.png)
 
-### 4、DataGrid
+### DataGrid
 
 ![DataGrid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataGrid.png)
 
-### 5、Now you can switch to dark theme
+## History publication
+
+### Now you can switch to dark theme
 
 ![dark theme](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DarkTheme.png)
 
-## History publication
-
-### 1、ColorPicker
+### ColorPicker
 
 ![ColorPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ColorPicker.gif)
 
-### 2、Loading
+### Loading
 
 ![Loading](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Loading.gif)
 
-### 3、Carousel
+### Carousel
 
 ![Carousel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Carousel.gif)
 
-### 4、Pagination
+### Pagination
 
 ![Pagination](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Pagination.gif)
 
-### 5、Expander
+### Expander
 
 ![Expander](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Expander.gif)
 
-### 6、TimeBar
+### TimeBar
 
 ![TimeBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimeBar.gif)
 
-### 7、ImageBrowser
+### ImageBrowser
 
 ![ImageBrowser](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBrowser.gif)
 
-### 8、CompareSlider
+### CompareSlider
 
 ![CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-h.gif)
 
 ![CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-v.gif)
 
-### 9、Growl
+### Growl
 
 ![Growl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Growl.gif)
 
-### 10、AnimationPath
+### AnimationPath
 
 ![AnimationPath](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/AnimationPath.gif)
 
-### 11、ProgressBar
+### ProgressBar
 
 ![ProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressBar.gif)
 
-### 12、TabControl
+### TabControl
 
 ![TabControl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.gif)
 
-### 13、StepBar
+### StepBar
 
 ![StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.png)
 
-### 14、Calendar
+### Calendar
 
 ![Calendar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Calendar.jpg)
 
-### 15、Clock
+### Clock
 
 ![Clock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Clock.jpg)
 
-### 16、TextBlock
+### TextBlock
 
 ![TextBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBlock.jpg)
 
-### 17、TextBox
+### TextBox
 
 ![TextBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBox.jpg)
 
-### 18、ComboBox
+### ComboBox
 
 ![ComboBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ComboBox.jpg)
 
-### 19、PasswordBox
+### PasswordBox
 
 ![PasswordBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PasswordBox.jpg)
 
-### 20、DataPicker
+### DataPicker
 
 ![DataPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataPicker.jpg)
 
-### 21、TimePicker
+### TimePicker
 
 ![TimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimePicker.jpg)
 
-### 22、CirclePanel
+### CirclePanel
 
 ![CirclePanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CirclePanel.jpg)
 

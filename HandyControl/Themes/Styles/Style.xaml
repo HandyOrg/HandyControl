@@ -45,6 +45,7 @@
         <ResourceDictionary Source="RichTextBox.xaml"/>
         <ResourceDictionary Source="ToolBar.xaml"/>
         <ResourceDictionary Source="SearchBar.xaml"/>
+        <ResourceDictionary Source="Tag.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
