@@ -7,6 +7,7 @@ namespace HandyControl.Data
     public enum TitleAlignment
     {
         Left,
-        Top
+        Top,
+        Right
     }
 }

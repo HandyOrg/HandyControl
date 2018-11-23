@@ -104,6 +104,11 @@
                         <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,9" Style="{StaticResource ToggleButtonSwitch}"/>
                         <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSwitch"/>
                     </StackPanel>
+                    <StackPanel>
+                        <ToggleButton controls:InfoElement.TitleAlignment="Right" controls:InfoElement.Title="Activated" IsChecked="True" Margin="5,9" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}"/>
+                        <ToggleButton controls:InfoElement.TitleAlignment="Left" controls:InfoElement.Title="DeActivated" Margin="5,9" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}"/>
+
+                    </StackPanel>
                 </WrapPanel>
             </StackPanel>
         </controls:ScrollViewer>

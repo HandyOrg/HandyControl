@@ -121,7 +121,20 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <TextBlock Margin="5,0,0,0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Grid.Column" Value="1" />
+                                    <Setter Property="Margin" Value="5,0,0,0" />
+                                    <Style.Triggers>
+                                        <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+                                            <Setter Property="Grid.Column" Value="0" />
+                                            <Setter Property="Margin" Value="0,0,5,0" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                         <Border Height="22" Width="36" x:Name="backBorder" Background="{DynamicResource BorderBrush}" CornerRadius="11"/>
                         <Border Grid.Column="0" Height="22" Width="36" Opacity="0" x:Name="lightBorder" Background="{DynamicResource PrimaryBrush}" CornerRadius="11" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
                         <Border Grid.Column="0" Margin="1" Background="{TemplateBinding Background}" CornerRadius="11" Name="innerBorder" RenderTransformOrigin=".8,0.5">
@@ -131,7 +144,7 @@
                                 </TransformGroup>
                             </Border.RenderTransform>
                         </Border>
-                        <Canvas Grid.Column="0" Margin="1">
+                        <Canvas Name="canvas" Grid.Column="0" Margin="1">
                             <Border CornerRadius="10" Name="thumb" Effect="{StaticResource EffectShadow2}" Background="White" Width="20" Height="20" RenderTransformOrigin="0.5,0.5">
                                 <Border.RenderTransform>
                                     <TransformGroup>
@@ -156,6 +169,18 @@
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.4"/>
+                        </Trigger>
+                        <Trigger Property="controls:InfoElement.TitleAlignment" Value="Right">
+                            <Setter TargetName="backBorder" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="lightBorder" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="innerBorder" Property="Grid.Column" Value="0" />
+                            <Setter TargetName="canvas" Property="Grid.Column" Value="0" />
+                        </Trigger>
+                        <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+                            <Setter TargetName="backBorder" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="lightBorder" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="innerBorder" Property="Grid.Column" Value="1" />
+                            <Setter TargetName="canvas" Property="Grid.Column" Value="1" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
