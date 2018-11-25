@@ -204,6 +204,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/Animation_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.OutlineTextDemoCtl}" Content="{x:Static langs:Lang.OutlineText}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ColorWheel_16x.png"/>

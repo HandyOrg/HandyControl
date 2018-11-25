@@ -30,7 +30,8 @@ var controlList = new List<string>
 	"CalendarWithClockDemoCtl",
 	"SearchBarDemoCtl",
 	"TagDemoCtl",
-	"GifImageDemoCtl"
+	"GifImageDemoCtl",
+	"OutlineTextDemoCtl"
 };
 var styleList = new List<string>
 {

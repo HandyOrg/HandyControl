@@ -6,6 +6,10 @@
 
 ## Latest examples
 
+### OutlineText
+
+![OutlineText](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/OutlineText.png)
+
 ### Tag
 
 ![Tag](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Tag.png)
@@ -22,11 +26,11 @@
 
 ![CircleProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CircleProgressBar.png)
 
+## History publication
+
 ### DataGrid
 
 ![DataGrid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataGrid.png)
-
-## History publication
 
 ### Now you can switch to dark theme
 

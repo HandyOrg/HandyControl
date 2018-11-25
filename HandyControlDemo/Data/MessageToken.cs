@@ -56,6 +56,8 @@
 	
         public static readonly string GifImageDemoCtl = nameof(GifImageDemoCtl);
 	
+        public static readonly string OutlineTextDemoCtl = nameof(OutlineTextDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

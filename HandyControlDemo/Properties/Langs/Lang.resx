@@ -412,4 +412,7 @@
   <data name="GifImage" xml:space="preserve">
     <value>Gif图片</value>
   </data>
+  <data name="OutlineText" xml:space="preserve">
+    <value>轮廓文本</value>
+  </data>
 </root>

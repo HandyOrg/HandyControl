@@ -432,4 +432,7 @@
   <data name="GifImage" xml:space="preserve">
     <value>GifImage</value>
   </data>
+  <data name="OutlineText" xml:space="preserve">
+    <value>OutlineText</value>
+  </data>
 </root>

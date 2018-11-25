@@ -628,6 +628,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 轮廓文本 的本地化字符串。
+        /// </summary>
+        public static string OutlineText {
+            get {
+                return ResourceManager.GetString("OutlineText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 页码条 的本地化字符串。
         /// </summary>
         public static string Pagination {

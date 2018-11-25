@@ -129,6 +129,9 @@
     <Compile Include="UserControl\Controls\DateTimePickerDemoCtl.xaml.cs">
       <DependentUpon>DateTimePickerDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
+      <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\GifImageDemoCtl.xaml.cs">
       <DependentUpon>GifImageDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -383,6 +386,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControl\Controls\DateTimePickerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\OutlineTextDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
