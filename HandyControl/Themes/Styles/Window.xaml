@@ -81,7 +81,7 @@
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"/>
                         </Trigger>
-                      <Trigger Property="ResizeMode" Value="CanMinimize">
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"/>
                         </Trigger>
