@@ -49,6 +49,7 @@
     <Compile Include="Controls\Carousel.cs" />
     <Compile Include="Controls\CirclePanel.cs" />
     <Compile Include="Controls\CircleProgressBar.cs" />
+    <Compile Include="Controls\GifImage.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
     <Compile Include="Controls\Tag\TagPanel.cs" />
     <Compile Include="Controls\Tag\Tag.cs" />
@@ -78,15 +79,22 @@
     <Compile Include="Controls\InternalCanvas.cs" />
     <Compile Include="Controls\StepBar\StepBar.cs" />
     <Compile Include="Controls\StepBar\StepBarItem.cs" />
-    <Compile Include="Data\CancelRoutedEventArgs.cs" />
+    <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
     <Compile Include="Data\Enum\StepStatus.cs" />
     <Compile Include="Data\Enum\TipPlacement.cs" />
+    <Compile Include="Data\Gif\GifFrameDimension.cs" />
+    <Compile Include="Data\Gif\GifImageInfo.cs" />
+    <Compile Include="Data\Gif\GifPropertyItem.cs" />
+    <Compile Include="Data\Gif\GifPropertyItemInternal.cs" />
+    <Compile Include="Data\Gif\GPStream.cs" />
+    <Compile Include="Tools\ColorHelper.cs" />
+    <Compile Include="Tools\GifImageAnimator.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
-    <Compile Include="Data\OperationResult!1.cs" />
-    <Compile Include="Data\OperationResult.cs" />
+    <Compile Include="Data\Operation\OperationResult!1.cs" />
+    <Compile Include="Data\Operation\OperationResult.cs" />
     <Compile Include="Data\ResourceToken.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -124,6 +132,7 @@
     <Compile Include="Expression\Media\UnitType.cs" />
     <Compile Include="Expression\Shapes\Arc.cs" />
     <Compile Include="Expression\Shapes\PrimitiveShape.cs" />
+    <Compile Include="Tools\ExternDllHelper.cs" />
     <Compile Include="Tools\SingleOpenHelper.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs" />
     <Compile Include="Controls\TabControl\TabItem.cs" />
@@ -141,7 +150,7 @@
     <Compile Include="Data\Enum\IpType.cs" />
     <Compile Include="Data\Enum\TextType.cs" />
     <Compile Include="Data\Enum\TitleAlignment.cs" />
-    <Compile Include="Data\FunctionEventArgs!1.cs" />
+    <Compile Include="Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="Interactivity\AdornerContainer.cs" />
     <Compile Include="Interactivity\AttachableCollection!1.cs" />
     <Compile Include="Interactivity\Behavior!1.cs" />

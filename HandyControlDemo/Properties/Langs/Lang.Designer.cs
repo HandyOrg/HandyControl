@@ -47,7 +47,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
+        ///   使用此强类型资源类，为所有资源查找
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -381,6 +381,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Fatal {
             get {
                 return ResourceManager.GetString("Fatal", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Gif图片 的本地化字符串。
+        /// </summary>
+        public static string GifImage {
+            get {
+                return ResourceManager.GetString("GifImage", resourceCulture);
             }
         }
         

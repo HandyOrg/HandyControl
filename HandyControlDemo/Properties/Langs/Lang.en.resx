@@ -429,4 +429,7 @@
   <data name="Tag" xml:space="preserve">
     <value>Tag</value>
   </data>
+  <data name="GifImage" xml:space="preserve">
+    <value>GifImage</value>
+  </data>
 </root>

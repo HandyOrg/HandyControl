@@ -409,4 +409,7 @@
   <data name="Tag" xml:space="preserve">
     <value>标签</value>
   </data>
+  <data name="GifImage" xml:space="preserve">
+    <value>Gif图片</value>
+  </data>
 </root>

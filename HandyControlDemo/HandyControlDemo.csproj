@@ -129,6 +129,9 @@
     <Compile Include="UserControl\Controls\DateTimePickerDemoCtl.xaml.cs">
       <DependentUpon>DateTimePickerDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\GifImageDemoCtl.xaml.cs">
+      <DependentUpon>GifImageDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\GrowlDemoCtl.xaml.cs">
       <DependentUpon>GrowlDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -383,6 +386,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\GifImageDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\GrowlDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -599,6 +606,8 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\car_chase.gif" />
+    <Resource Include="Resources\Img\LeftMainContent\Animation_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Tag_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Search_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\ToolBar_16x.png" />

@@ -38,7 +38,14 @@ namespace HandyControlDemo.ViewModel
 
         public MainViewModel(DataService dataService)
         {
-            Messenger.Default.Register<object>(this, MessageToken.LoadShowContent, obj => SubContent = obj);
+            Messenger.Default.Register<object>(this, MessageToken.LoadShowContent, obj =>
+            {
+                if (SubContent is IDisposable disposable)
+                {
+                    disposable.Dispose();
+                }
+                SubContent = obj;
+            });
             Messenger.Default.Register<object>(this, MessageToken.ClearLeftSelected, obj =>
             {
                 if (_listBoxItemCurrent == null) return;
