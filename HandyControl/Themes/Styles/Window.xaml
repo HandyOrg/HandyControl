@@ -81,6 +81,10 @@
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"/>
                         </Trigger>
+                        <Trigger Property="ResizeMode" Value="CanMinimize">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"/>
+                        </Trigger>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonClose">
                             <Setter Property="Background" TargetName="ButtonClose" Value="{Binding CloseButtonHoverBrush,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
                             <Setter Property="Foreground" TargetName="ButtonClose" Value="{Binding CloseButtonHoverForeground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
