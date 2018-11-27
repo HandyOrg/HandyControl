@@ -153,19 +153,27 @@ namespace HandyControl.Controls
                 return;
             }
 
+#if net45
+            _formattedText = new FormattedText(
+                Text,
+                CultureInfo.CurrentUICulture,
+                FlowDirection,
+                new Typeface(FontFamily, FontStyle, FontWeight, FontStretch),
+                FontSize, Fill);
+#else
             var source = PresentationSource.FromVisual(this);
             var dpi = 1.0;
             if (source?.CompositionTarget != null)
             {
                 dpi = 96.0 * source.CompositionTarget.TransformToDevice.M11 / 96.0;
             }
-
             _formattedText = new FormattedText(
                 Text,
                 CultureInfo.CurrentUICulture,
                 FlowDirection,
                 new Typeface(FontFamily, FontStyle, FontWeight, FontStretch), 
                 FontSize, Fill, dpi);
+#endif
 
             UpdateFormattedText();
         }
