@@ -141,3 +141,7 @@ Step 2：Add code in App.xaml as follows:
 </Application.Resources>
 ```
 Step 3：enjoy coding
+
+# Discussion
+
+![DataGrid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qq-group.jpg)
