@@ -98,6 +98,7 @@
     <Compile Include="Data\Enum\ResultType.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
     <Compile Include="Data\Enum\StepStatus.cs" />
+    <Compile Include="Data\Enum\TabItemType.cs" />
     <Compile Include="Data\Enum\TipPlacement.cs" />
     <Compile Include="Data\Gif\GifFrameDimension.cs" />
     <Compile Include="Data\Gif\GifImageInfo.cs" />

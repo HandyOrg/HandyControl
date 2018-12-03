@@ -6,92 +6,132 @@
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <ScrollViewer>
-            <StackPanel>
-                <TabControl Margin="32" Width="800" Height="300">
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}1">
-                        <Border Background="{DynamicResource PrimaryBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+            <TabControl>
+                <TabItem Header="InLine">
+                    <StackPanel>
+                        <TabControl Margin="32" Width="800" Height="300">
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}1">
+                                <Border Background="{DynamicResource PrimaryBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="1"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}2">
-                        <Border Background="{DynamicResource SuccessBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}2">
+                                <Border Background="{DynamicResource SuccessBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="2"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}3">
-                        <Border Background="{DynamicResource InfoBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}3">
+                                <Border Background="{DynamicResource InfoBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="3"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}4">
-                        <Border Background="{DynamicResource WarningBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}4">
+                                <Border Background="{DynamicResource WarningBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="4"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}5">
-                        <Border Background="{DynamicResource DangerBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}5">
+                                <Border Background="{DynamicResource DangerBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="5"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                </TabControl>
-                <TabControl Margin="32,0,32,32" Width="800" Height="300" Style="{StaticResource TabControlInLine}">
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}1">
-                        <Border Background="{DynamicResource PrimaryBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                        </TabControl>
+                        <TabControl Margin="32,0,32,32" Width="800" Height="300" Style="{StaticResource TabControlInLine}">
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}1">
+                                <Border Background="{DynamicResource PrimaryBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="1"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}2">
-                        <Border Background="{DynamicResource SuccessBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}2">
+                                <Border Background="{DynamicResource SuccessBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="2"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}3">
-                        <Border Background="{DynamicResource InfoBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}3">
+                                <Border Background="{DynamicResource InfoBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="3"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                    <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}4">
-                        <Border Background="{DynamicResource WarningBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}4">
+                                <Border Background="{DynamicResource WarningBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="4"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                    <TabItem IsSelected="True" Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}5">
-                        <Border Background="{DynamicResource DangerBrush}">
-                            <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                            <TabItem IsSelected="True" Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}5">
+                                <Border Background="{DynamicResource DangerBrush}">
+                                    <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                         <Run Text="{x:Static langs:Lang.Text}"/>
                         <Run Text="5"/>
-                            </TextBlock>
-                        </Border>
-                    </TabItem>
-                </TabControl>
-            </StackPanel>
+                                    </TextBlock>
+                                </Border>
+                            </TabItem>
+                        </TabControl>
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="TopTab">
+                    <controls:TabControl Style="{StaticResource TopTabControl}" Width="800" Height="300">
+                        <controls:TabItem Style="{StaticResource TopTabItem}" TabItemType="Left" Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}1">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                        <Run Text="{x:Static langs:Lang.Text}"/>
+                        <Run Text="1"/>
+                                </TextBlock>
+                            </Border>
+                        </controls:TabItem>
+                        <controls:TabItem Style="{StaticResource TopTabItem}" TabItemType="Middle" Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}2">
+                            <Border Background="{DynamicResource SuccessBrush}">
+                                <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                        <Run Text="{x:Static langs:Lang.Text}"/>
+                        <Run Text="2"/>
+                                </TextBlock>
+                            </Border>
+                        </controls:TabItem>
+                        <controls:TabItem Style="{StaticResource TopTabItem}" TabItemType="Middle" Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}3">
+                            <Border Background="{DynamicResource InfoBrush}">
+                                <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                        <Run Text="{x:Static langs:Lang.Text}"/>
+                        <Run Text="3"/>
+                                </TextBlock>
+                            </Border>
+                        </controls:TabItem>
+                        <controls:TabItem Style="{StaticResource TopTabItem}" TabItemType="Right" Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}4">
+                            <Border Background="{DynamicResource WarningBrush}">
+                                <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
+                        <Run Text="{x:Static langs:Lang.Text}"/>
+                        <Run Text="4"/>
+                                </TextBlock>
+                            </Border>
+                        </controls:TabItem>
+                    </controls:TabControl>
+                </TabItem>
+            </TabControl>
         </ScrollViewer>
     </controls:TransitioningContentControl>
 </UserControl>

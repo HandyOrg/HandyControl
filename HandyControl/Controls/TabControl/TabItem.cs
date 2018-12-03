@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
@@ -13,6 +14,17 @@ namespace HandyControl.Controls
 {
     public class TabItem : System.Windows.Controls.TabItem
     {
+        public TabItemType TabItemType
+        {
+            get { return (TabItemType)GetValue(TabItemTypeProperty); }
+            set
+            {
+                SetValue(TabItemTypeProperty, value);
+            }
+        }
+        public static readonly DependencyProperty TabItemTypeProperty =
+            DependencyProperty.Register("TabItemType", typeof(TabItemType), typeof(TabItem), new PropertyMetadata(TabItemType.Middle));
+
         /// <summary>
         ///     动画速度
         /// </summary>
