@@ -17,18 +17,57 @@
             </GroupBox>
             <GroupBox Background="Transparent" Margin="10" Header="List Style">
                 <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <controls:ImageRadioButton IsChecked="True" SideBrush="{DynamicResource SuccessBrush}"  Content="{x:Static langs:Lang.RadioButton}"/>
-                    <controls:ImageRadioButton Margin="0,16,0,0" SideBrush="{DynamicResource WarningBrush}"  Content="{x:Static langs:Lang.RadioButton}"/>
-                    <controls:ImageRadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
-                    <controls:ImageRadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
-                    <Expander Header="SubMenu with Image" Style="{StaticResource ExpanderListStyle}">
-                        <StackPanel>
-                            <controls:ImageRadioButton Image="{DynamicResource WindowsGeometry}" SideBrush="{DynamicResource SuccessBrush}"  Content="{x:Static langs:Lang.RadioButton}"/>
-                            <controls:ImageRadioButton Image="{DynamicResource CalendarGeometry}" IsChecked="True" Margin="0,16,0,0" SideBrush="{DynamicResource WarningBrush}"  Content="{x:Static langs:Lang.RadioButton}"/>
-                            <controls:ImageRadioButton Image="{DynamicResource ContributorsGeometry}" Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
-                            <controls:ImageRadioButton Image="{DynamicResource EmailGeometry}" Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
-                        </StackPanel>
-                    </Expander>
+                    <StackPanel>
+                        <Expander
+                            Header="Select Item"
+                            IsExpanded="True"
+                            Style="{StaticResource NoExpander}">
+                            <StackPanel>
+                                <controls:ImageRadioButton
+                                    Content="Radio Button1"
+                                    GroupName="Menu"
+                                    SideBrush="{DynamicResource DangerBrush}"
+                                    Image="{DynamicResource WindowsGeometry}"
+                                    IsChecked="True" />
+                                <controls:ImageRadioButton
+                                    Content="Radio Button2"
+                                    GroupName="Menu"
+                                    Image="{DynamicResource ContributorsGeometry}"
+                                    ImageHeight="14"
+                                    ImageWidth="18"/>
+                                <controls:ImageRadioButton
+                                    Content="Radio Button3"
+                                    GroupName="Menu"
+                                    Image="{DynamicResource CalendarGeometry}"
+                                    ImageHeight="12"
+                                    ImageWidth="18"/>
+                                <controls:ImageRadioButton
+                                    Content="Radio Button4"
+                                    GroupName="Menu"
+                                    Image="{DynamicResource AllGeometry}"
+                                    ImageWidth="20"/>
+                            </StackPanel>
+                        </Expander>
+                        <Expander
+                            Margin="0,10,0,0"
+                            Header="Sub Items"
+                            IsExpanded="True"
+                            Style="{StaticResource ExpanderListStyle}">
+                            <StackPanel>
+                                <controls:ImageRadioButton
+                                    Content="Radio Button5"
+                                    GroupName="Menu"
+                                    Image="{DynamicResource CnblogsGeometry}"
+                                    ImageWidth="14"/>
+                                <controls:ImageRadioButton
+                                    Content="Radio Button6"
+                                    GroupName="Menu"
+                                    Image="{DynamicResource DownloadGeometry}"
+                                    ImageHeight="16"
+                                    ImageWidth="16"/>
+                            </StackPanel>
+                        </Expander>
+                    </StackPanel>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
