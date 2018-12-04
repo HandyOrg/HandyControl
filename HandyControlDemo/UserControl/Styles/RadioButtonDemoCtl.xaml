@@ -6,11 +6,31 @@
              Background="{DynamicResource RegionBrush}"
              Width="400">
     <controls:TransitioningContentControl>
-        <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-            <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}" IsChecked="True" IsEnabled="False"/>
-            <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
-            <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}" IsEnabled="False"/>
+        <StackPanel Width="400">
+            <GroupBox Background="Transparent" Margin="10" Header="Base Style">
+                <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}" IsChecked="True" IsEnabled="False"/>
+                    <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}" IsEnabled="False"/>
+                </StackPanel>
+            </GroupBox>
+            <GroupBox Background="Transparent" Margin="10" Header="List Style">
+                <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <controls:ImageRadioButton IsChecked="True" SideBrush="{DynamicResource SuccessBrush}"  Content="{x:Static langs:Lang.RadioButton}"/>
+                    <controls:ImageRadioButton Margin="0,16,0,0" SideBrush="{DynamicResource WarningBrush}"  Content="{x:Static langs:Lang.RadioButton}"/>
+                    <controls:ImageRadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
+                    <controls:ImageRadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
+                    <Expander Header="SubMenu with Image" Style="{StaticResource ExpanderListStyle}">
+                        <StackPanel>
+                            <controls:ImageRadioButton Image="{DynamicResource WindowsGeometry}" SideBrush="{DynamicResource SuccessBrush}"  Content="{x:Static langs:Lang.RadioButton}"/>
+                            <controls:ImageRadioButton Image="{DynamicResource CalendarGeometry}" IsChecked="True" Margin="0,16,0,0" SideBrush="{DynamicResource WarningBrush}"  Content="{x:Static langs:Lang.RadioButton}"/>
+                            <controls:ImageRadioButton Image="{DynamicResource ContributorsGeometry}" Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
+                            <controls:ImageRadioButton Image="{DynamicResource EmailGeometry}" Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
+                        </StackPanel>
+                    </Expander>
+                </StackPanel>
+            </GroupBox>
         </StackPanel>
     </controls:TransitioningContentControl>
 </UserControl>
