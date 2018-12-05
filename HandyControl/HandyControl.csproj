@@ -61,6 +61,7 @@
     <Compile Include="Controls\Other\Carousel.cs" />
     <Compile Include="Controls\Other\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
+    <Compile Include="Controls\Other\RadioGroup.cs" />
     <Compile Include="Controls\Text\OutlineText.cs" />
     <Compile Include="Controls\Other\GifImage.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
@@ -104,7 +105,7 @@
     <Compile Include="Data\Gif\GifPropertyItem.cs" />
     <Compile Include="Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="Data\Gif\GPStream.cs" />
-    <Compile Include="Tools\ColorHelper.cs" />
+    <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\GifImageAnimator.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
     <Compile Include="Data\Operation\OperationResult!1.cs" />
@@ -146,8 +147,8 @@
     <Compile Include="Expression\Media\UnitType.cs" />
     <Compile Include="Expression\Shapes\Arc.cs" />
     <Compile Include="Expression\Shapes\PrimitiveShape.cs" />
-    <Compile Include="Tools\ExternDllHelper.cs" />
-    <Compile Include="Tools\SingleOpenHelper.cs" />
+    <Compile Include="Tools\Helper\ExternDllHelper.cs" />
+    <Compile Include="Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs" />
     <Compile Include="Controls\TabControl\TabItem.cs" />
     <Compile Include="Controls\TabControl\TabPanel.cs" />
@@ -211,8 +212,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.en.resx</DependentUpon>
     </Compile>
-    <Compile Include="Tools\AnimationHelper.cs" />
-    <Compile Include="Tools\ArithmeticHelper.cs" />
+    <Compile Include="Tools\Helper\AnimationHelper.cs" />
+    <Compile Include="Tools\Helper\ArithmeticHelper.cs" />
     <Compile Include="Tools\Converter\Boolean2BooleanReConverter.cs" />
     <Compile Include="Tools\Converter\Boolean2VisibilityReConverter.cs" />
     <Compile Include="Tools\Converter\BooleanArr2VisibilityConverter.cs" />
@@ -227,11 +228,13 @@
     <Compile Include="Tools\Extension\ColorExtension.cs" />
     <Compile Include="Tools\Extension\UIElementExtension.cs" />
     <Compile Include="Tools\MouseDragElementBehaviorEx.cs" />
+    <Compile Include="Tools\StyleSelector\RadioGroupItemStyleSelector.cs" />
     <Compile Include="Tools\RegularJudgment.cs" />
     <Compile Include="Tools\RegularPatterns.cs" />
-    <Compile Include="Tools\ResourceHelper.cs" />
-    <Compile Include="Tools\ValidateHelper.cs" />
-    <Compile Include="Tools\VisualHelper.cs" />
+    <Compile Include="Tools\Helper\ResourceHelper.cs" />
+    <Compile Include="Tools\Helper\ValidateHelper.cs" />
+    <Compile Include="Tools\Helper\VisualHelper.cs" />
+    <Compile Include="Tools\StyleSelector\TabItemCapsuleStyleSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="Themes\Basic\Basic.xaml">
@@ -291,6 +294,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\DateTimePickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\RadioGroupBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -506,6 +513,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\RadioGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\RichTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -619,5 +630,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -38,5 +38,29 @@
 
         public static readonly string AddTagButtonStyle = nameof(AddTagButtonStyle);
 
+        public static readonly string RadioGroupItemDefault = nameof(RadioGroupItemDefault);
+
+        public static readonly string RadioGroupItemSingle = nameof(RadioGroupItemSingle);
+
+        public static readonly string RadioGroupItemHorizontalFirst = nameof(RadioGroupItemHorizontalFirst);
+
+        public static readonly string RadioGroupItemHorizontalLast = nameof(RadioGroupItemHorizontalLast);
+
+        public static readonly string RadioGroupItemVerticalFirst = nameof(RadioGroupItemVerticalFirst);
+
+        public static readonly string RadioGroupItemVerticalLast = nameof(RadioGroupItemVerticalLast);
+
+        public static readonly string TabItemCapsuleDefault = nameof(TabItemCapsuleDefault);
+
+        public static readonly string TabItemCapsuleSingle = nameof(TabItemCapsuleSingle);
+
+        public static readonly string TabItemCapsuleHorizontalFirst = nameof(TabItemCapsuleHorizontalFirst);
+
+        public static readonly string TabItemCapsuleHorizontalLast = nameof(TabItemCapsuleHorizontalLast);
+
+        public static readonly string TabItemCapsuleVerticalFirst = nameof(TabItemCapsuleVerticalFirst);
+
+        public static readonly string TabItemCapsuleVerticalLast = nameof(TabItemCapsuleVerticalLast);
+
     }
 }
