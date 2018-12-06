@@ -35,7 +35,7 @@
                                     Width="{TemplateBinding ImageWidth}"
                                     Height="{TemplateBinding ImageHeight}"
                                     Margin="15,0,0,0"
-                                    Data="{TemplateBinding Image}"
+                                    Data="{TemplateBinding controls:IconElement.Geometry}"
                                     Fill="{TemplateBinding Foreground}"
                                     Stretch="Fill" />
                             </Border>
@@ -59,7 +59,7 @@
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False" />
                         <Trigger Property="IsPressed" Value="True" />
-                        <Trigger Property="Image" Value="{x:Null}">
+                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="img"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
