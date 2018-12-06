@@ -1,10 +1,10 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.RadioButtonDemoCtl"
+<UserControl x:Class="HandyControlDemo.UserControl.RadioButtonDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             Background="{DynamicResource RegionBrush}"
-             Width="400">
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <StackPanel Width="400">
             <GroupBox Background="Transparent" Margin="10" Header="Base Style">
@@ -69,7 +69,7 @@
                         </Expander>
                     </StackPanel>
                 </StackPanel>
-            </GroupBox>
+            </GroupBox>        
         </StackPanel>
     </controls:TransitioningContentControl>
 </UserControl>

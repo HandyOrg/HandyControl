@@ -27,7 +27,19 @@ var styleList = new List<string>
 	"ButtonCustom",
 	"PaginationButtonStyle",
 	"CustomWindowStyle",
-	"AddTagButtonStyle"
+	"AddTagButtonStyle",
+	"RadioGroupItemDefault",
+	"RadioGroupItemSingle",
+	"RadioGroupItemHorizontalFirst",
+	"RadioGroupItemHorizontalLast",
+	"RadioGroupItemVerticalFirst",
+	"RadioGroupItemVerticalLast",
+	"TabItemCapsuleDefault",
+	"TabItemCapsuleSingle",
+	"TabItemCapsuleHorizontalFirst",
+	"TabItemCapsuleHorizontalLast",
+	"TabItemCapsuleVerticalFirst",
+	"TabItemCapsuleVerticalLast"
 };
 #>
 namespace HandyControl.Data

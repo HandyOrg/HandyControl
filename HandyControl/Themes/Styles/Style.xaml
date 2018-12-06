@@ -46,6 +46,7 @@
         <ResourceDictionary Source="ToolBar.xaml"/>
         <ResourceDictionary Source="SearchBar.xaml"/>
         <ResourceDictionary Source="Tag.xaml"/>
+        <ResourceDictionary Source="RadioGroup.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

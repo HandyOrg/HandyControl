@@ -28,6 +28,34 @@
 
 ## History publication
 
+### ButtonStyle
+
+![ButtonStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Button.png)
+
+### ToggleButtonStyle
+
+![ToggleButtonStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ToggleButton.png)
+
+### RadioButtonStyle
+
+![RadioButtonStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/RadioButton.png)
+
+### CheckBoxStyle
+
+![CheckBoxStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CheckBox.png)
+
+### ListBoxStyle
+
+![ListBoxStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ListBox.png)
+
+### TreeViewStyle
+
+![TreeViewStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TreeView.png)
+
+### ListViewStyle
+
+![ListViewStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ListView.png)
+
 ### DataGrid
 
 ![DataGrid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataGrid.png)
@@ -86,9 +114,21 @@
 
 ![TabControl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.gif)
 
+### TabControlStyle
+
+![TabControlStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.png)
+
 ### StepBar
 
 ![StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.png)
+
+### GifImage
+
+![GifImage](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/GifImage.gif)
+
+### ContextMenu
+
+![ContextMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ContextMenu.png)
 
 ### Calendar
 
@@ -98,9 +138,17 @@
 
 ![Clock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Clock.jpg)
 
+### CalendarWithClock
+
+![CalendarWithClock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CalendarWithClock.png)
+
 ### TextBlock
 
 ![TextBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBlock.jpg)
+
+### RichTextBoxStyle
+
+![RichTextBoxStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/RichTextBox.png)
 
 ### TextBox
 
@@ -126,6 +174,10 @@
 
 ![CirclePanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CirclePanel.jpg)
 
+### BorderStyle
+
+![BorderStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Border.png)
+
 # Usage
 
 Step 1：Add a reference to HandyControl or search for HandyControl on the nuget;  
@@ -141,6 +193,10 @@ Step 2：Add code in App.xaml as follows:
 </Application.Resources>
 ```
 Step 3：enjoy coding
+
+# Switching configuration
+
+![Switching configuration](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SwitchConfig.png)
 
 # Discussion
 

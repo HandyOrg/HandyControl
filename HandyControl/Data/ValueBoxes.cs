@@ -17,6 +17,10 @@
 
         internal static object DoubleNeg1Box = -1.0;
 
+        internal static object Int0Box = 0;
+
+        internal static object Int1Box = 1;
+
         internal static object BooleanBox(bool value) => value ? TrueBox : FalseBox;
     }
 }
