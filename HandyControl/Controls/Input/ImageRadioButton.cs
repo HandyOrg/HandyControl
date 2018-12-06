@@ -17,16 +17,6 @@ namespace HandyControl.Controls
         {
             SetSideBrush(this, ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush));
         }
-        public Geometry Image
-        {
-            get { return (Geometry)GetValue(ImageProperty); }
-            set { SetValue(ImageProperty, value); }
-        }
-
-        public static readonly DependencyProperty ImageProperty =
-            DependencyProperty.Register("Image", typeof(Geometry), typeof(ImageRadioButton));
-
-
 
         public double ImageWidth
         {
