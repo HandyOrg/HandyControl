@@ -1,10 +1,9 @@
 ﻿using System.Windows;
 using System.Windows.Media;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
-    public class IconSwitchElement : DependencyObject
+    public class IconSwitchElement
     {
         public static readonly DependencyProperty GeometryProperty = DependencyProperty.RegisterAttached(
             "Geometry", typeof(Geometry), typeof(IconSwitchElement), new PropertyMetadata(default(Geometry)));

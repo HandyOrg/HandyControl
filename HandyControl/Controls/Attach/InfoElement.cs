@@ -1,10 +1,9 @@
 ﻿using System.Windows;
 using HandyControl.Data;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
-    public class InfoElement : DependencyObject
+    public class InfoElement
     {
         /// <summary>
         ///     标题

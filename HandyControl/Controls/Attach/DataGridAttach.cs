@@ -6,7 +6,7 @@ using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
-    public class DataGridAttach : DependencyObject
+    public class DataGridAttach
     {
         public static readonly DependencyProperty TextColumnStyleProperty = DependencyProperty.RegisterAttached(
             "TextColumnStyle", typeof(Style), typeof(DataGridAttach), new PropertyMetadata(default(Style), OnTextColumnStyleChanged));

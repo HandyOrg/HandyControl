@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace HandyControl.Controls
 {
-    public class BackgroundSwitchElement : DependencyObject
+    public class BackgroundSwitchElement
     {
         public static readonly DependencyProperty MouseHoverBackgroundProperty = DependencyProperty.RegisterAttached(
             "MouseHoverBackground", typeof(Brush), typeof(BackgroundSwitchElement), new FrameworkPropertyMetadata(Brushes.Transparent, FrameworkPropertyMetadataOptions.Inherits));

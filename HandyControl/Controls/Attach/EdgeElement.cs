@@ -1,10 +1,9 @@
 ﻿using System.Windows;
 using HandyControl.Data;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
-    public class EdgeElement : DependencyObject
+    public class EdgeElement
     {
         public static readonly DependencyProperty LeftContentProperty = DependencyProperty.RegisterAttached(
             "LeftContent", typeof(object), typeof(EdgeElement), new PropertyMetadata(default(object), OnEdgeContentChanged));
