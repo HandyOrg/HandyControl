@@ -3,73 +3,49 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
-        <StackPanel Width="400">
-            <GroupBox Background="Transparent" Margin="10" Header="Base Style">
-                <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+        <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel>
                     <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
                     <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}" IsChecked="True" IsEnabled="False"/>
                     <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}"/>
                     <RadioButton Margin="0,16,0,0" Content="{x:Static langs:Lang.RadioButton}" IsEnabled="False"/>
                 </StackPanel>
-            </GroupBox>
-            <GroupBox Background="Transparent" Margin="10" Header="List Style">
-                <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center">
-                    <StackPanel>
-                        <Expander
-                            Header="Select Item"
-                            IsExpanded="True"
-                            Style="{StaticResource NoExpander}">
-                            <StackPanel>
-                                <controls:ImageRadioButton
-                                    Content="Radio Button1"
-                                    GroupName="Menu"
-                                    SideBrush="{DynamicResource DangerBrush}"
-                                    controls:IconElement.Geometry="{DynamicResource WindowsGeometry}"
-                                    IsChecked="True" />
-                                <controls:ImageRadioButton
-                                    Content="Radio Button2"
-                                    GroupName="Menu"
-                                    controls:IconElement.Geometry="{DynamicResource ContributorsGeometry}"
-                                    ImageHeight="14"
-                                    ImageWidth="18"/>
-                                <controls:ImageRadioButton
-                                    Content="Radio Button3"
-                                    GroupName="Menu"
-                                    controls:IconElement.Geometry="{DynamicResource CalendarGeometry}"
-                                    ImageHeight="12"
-                                    ImageWidth="18"/>
-                                <controls:ImageRadioButton
-                                    Content="Radio Button4"
-                                    GroupName="Menu"
-                                    controls:IconElement.Geometry="{DynamicResource AllGeometry}"
-                                    ImageWidth="20"/>
-                            </StackPanel>
-                        </Expander>
-                        <Expander
-                            Margin="0,10,0,0"
-                            Header="Sub Items"
-                            IsExpanded="True"
-                            Style="{StaticResource ExpanderListStyle}">
-                            <StackPanel>
-                                <controls:ImageRadioButton
-                                    Content="Radio Button5"
-                                    GroupName="Menu"
-                                    controls:IconElement.Geometry="{DynamicResource CnblogsGeometry}"
-                                    ImageWidth="14"/>
-                                <controls:ImageRadioButton
-                                    Content="Radio Button6"
-                                    GroupName="Menu"
-                                    controls:IconElement.Geometry="{DynamicResource DownloadGeometry}"
-                                    ImageHeight="16"
-                                    ImageWidth="16"/>
-                            </StackPanel>
-                        </Expander>
-                    </StackPanel>
-                </StackPanel>
-            </GroupBox>        
+                <UniformGrid Margin="22,0,0,0" Rows="2" Columns="2">
+                    <RadioButton Margin="10,0,0,0" Background="{DynamicResource SecondaryRegionBrush}" controls:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon}" Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Margin="10,0,0,0" Background="{DynamicResource SecondaryRegionBrush}" Style="{StaticResource RadioButtonIcon}" Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+                    <RadioButton Margin="10,0,0,0" BorderThickness="1" controls:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon}" Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Margin="10,0,0,0" BorderThickness="1" Style="{StaticResource RadioButtonIcon}" Content="{x:Static langs:Lang.RadioButton}"/>
+                </UniformGrid>
+            </StackPanel>
+            <controls:RadioGroup Margin="0,32,0,0">
+                <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+                <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                <RadioButton IsEnabled="False" Content="{x:Static langs:Lang.RadioButton}"/>
+                <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+            </controls:RadioGroup>
+            <controls:RadioGroup Margin="0,16,0,0" Style="{StaticResource RadioGroupSolid}">
+                <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                <RadioButton IsEnabled="False" Content="{x:Static langs:Lang.RadioButton}"/>
+                <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+            </controls:RadioGroup>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <controls:RadioGroup Margin="0,16,8,0" Orientation="Vertical">
+                    <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton IsEnabled="False" Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                </controls:RadioGroup>
+                <controls:RadioGroup Margin="8,16,0,0" Orientation="Vertical" Style="{StaticResource RadioGroupSolid}">
+                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton IsEnabled="False" Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
+                </controls:RadioGroup>
+            </StackPanel>
         </StackPanel>
     </controls:TransitioningContentControl>
 </UserControl>

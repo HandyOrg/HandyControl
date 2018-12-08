@@ -1,10 +1,9 @@
 ﻿using System.Windows;
 using HandyControl.Data;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
-    public class TipElement : DependencyObject
+    public class TipElement
     {
         public static readonly DependencyProperty VisibilityProperty = DependencyProperty.RegisterAttached(
             "Visibility", typeof(Visibility), typeof(TipElement), new PropertyMetadata(Visibility.Collapsed));

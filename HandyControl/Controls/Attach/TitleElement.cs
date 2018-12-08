@@ -3,7 +3,7 @@ using System.Windows.Media;
 
 namespace HandyControl.Controls
 {
-    public class TitleElement : DependencyObject
+    public class TitleElement
     {
         public static readonly DependencyProperty BackgroundProperty = DependencyProperty.RegisterAttached(
             "Background", typeof(Brush), typeof(TitleElement), new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.Inherits));

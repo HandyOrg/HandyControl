@@ -9,68 +9,7 @@
 
     <Style BasedOn="{StaticResource RadioButtonBaseStyle}" TargetType="RadioButton"/>
 
-    <Style x:Key="RadioButtonCustom" BasedOn="{StaticResource ToggleButtonCustom}" TargetType="RadioButton"/>
-
-    <Style TargetType="{x:Type controls:ImageRadioButton}">
-        <Setter Property="Height" Value="32" />
-        <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
-        <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}" />
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="{x:Type controls:ImageRadioButton}">
-                    <Border
-                        x:Name="templateRoot"
-                        Background="Transparent"
-                        BorderThickness="3,0,0,0">
-                        <WrapPanel
-                            VerticalAlignment="Center"
-                            Orientation="Horizontal"
-                            SnapsToDevicePixels="True">
-                            <Border x:Name="img" Width="40">
-                                <Path
-                                    Width="{TemplateBinding ImageWidth}"
-                                    Height="{TemplateBinding ImageHeight}"
-                                    Margin="15,0,0,0"
-                                    Data="{TemplateBinding controls:IconElement.Geometry}"
-                                    Fill="{TemplateBinding Foreground}"
-                                    Stretch="Fill" />
-                            </Border>
-                            <ContentPresenter
-                                x:Name="contentPresenter"
-                                Grid.Column="1"
-                                Margin="5,0,0,0"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                Content="{TemplateBinding Content}"
-                                ContentStringFormat="{TemplateBinding ContentStringFormat}"
-                                ContentTemplate="{TemplateBinding ContentTemplate}"
-                                Focusable="False"
-                                RecognizesAccessKey="True"
-                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                        </WrapPanel>
-                    </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-                        </Trigger>
-                        <Trigger Property="IsEnabled" Value="False" />
-                        <Trigger Property="IsPressed" Value="True" />
-                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="img"/>
-                        </Trigger>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="templateRoot" Property="BorderBrush" Value="{Binding Path=(controls:ImageRadioButton.SideBrush),RelativeSource={RelativeSource TemplatedParent}}" />
-                            <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    <Style x:Key="RadioButtonIcon" BasedOn="{StaticResource RadioButtonIconBaseStyle}" TargetType="RadioButton"/>
 
     <Style x:Key="RadioGroupItemDefault" BasedOn="{StaticResource RadioGroupItemBaseStyle}" TargetType="RadioButton"/>
 

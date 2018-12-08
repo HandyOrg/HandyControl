@@ -2,7 +2,7 @@
 
 namespace HandyControl.Controls
 {
-    public class BorderElement : DependencyObject
+    public class BorderElement
     {
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.RegisterAttached(
             "CornerRadius", typeof(CornerRadius), typeof(BorderElement), new FrameworkPropertyMetadata(default(CornerRadius), FrameworkPropertyMetadataOptions.Inherits));
