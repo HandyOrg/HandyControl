@@ -63,6 +63,15 @@
                         <Trigger Property="IsFocused" Value="true">
                             <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}"/>
                         </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="controls:BorderElement.ShowSideBorder" Value="true" />
+                                <Condition Property="IsFocused" Value="true" />
+                            </MultiTrigger.Conditions>
+                            <MultiTrigger.Setters>
+                                <Setter Property="BorderThickness" Value="3,1,1,1" />
+                            </MultiTrigger.Setters>
+                        </MultiTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
@@ -95,6 +104,15 @@
             <Trigger Property="IsFocused" Value="true">
                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="controls:BorderElement.ShowSideBorder" Value="true" />
+                    <Condition Property="IsFocused" Value="true" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="BorderThickness" Value="3,1,1,1" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
@@ -124,6 +142,15 @@
             <Trigger Property="IsFocused" Value="true">
                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="controls:BorderElement.ShowSideBorder" Value="true" />
+                    <Condition Property="IsFocused" Value="true" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="BorderThickness" Value="3,1,1,1" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
@@ -197,6 +224,15 @@
                     <BeginStoryboard Storyboard="{StaticResource StoryboardHidden}"/>
                 </Trigger.ExitActions>
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="controls:BorderElement.ShowSideBorder" Value="true" />
+                    <Condition Property="IsFocused" Value="true" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="BorderThickness" Value="3,1,1,1" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
@@ -257,6 +293,15 @@
                     <BeginStoryboard Storyboard="{StaticResource StoryboardHidden}"/>
                 </Trigger.ExitActions>
             </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="controls:BorderElement.ShowSideBorder" Value="true" />
+                    <Condition Property="IsFocused" Value="true" />
+                </MultiTrigger.Conditions>
+                <MultiTrigger.Setters>
+                    <Setter Property="BorderThickness" Value="3,1,1,1" />
+                </MultiTrigger.Setters>
+            </MultiTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
