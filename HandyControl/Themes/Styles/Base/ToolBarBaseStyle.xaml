@@ -45,6 +45,20 @@
 
     <Style x:Key="{x:Static ToolBar.MenuStyleKey}" BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu"/>
 
+    <Style x:Key="{x:Static ToolBar.ToggleButtonStyleKey}" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="ToolBarThumbStyle" TargetType="Thumb">
         <Setter Property="Template">
             <Setter.Value>
