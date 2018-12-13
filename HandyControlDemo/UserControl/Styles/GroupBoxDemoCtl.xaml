@@ -6,23 +6,44 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
         <ScrollViewer>
-            <UniformGrid Margin="32">
-                <GroupBox Width="300" Height="300" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16">
+            <Grid Margin="32">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <GroupBox Grid.Row="0" Grid.Column="0" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
                         <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Width="300" Height="300" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left">
+                <GroupBox Grid.Row="0" Grid.Column="1" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16" controls:TitleElement.TitleAlignment="Left">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
                         <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Width="300" Height="300" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}">
+                <GroupBox Grid.Row="1" Grid.Column="0" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
                         <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-            </UniformGrid>
+                <GroupBox Grid.Row="1" Grid.Column="1" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}" controls:TitleElement.TitleAlignment="Left">
+                    <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
+                        <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                    </Border>
+                </GroupBox>
+                <GroupBox Grid.Row="2" Grid.Column="0" Width="300" Header="{x:Static langs:Lang.TitleDemoStr1}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left">
+                    <TextBox/>
+                </GroupBox>
+                <GroupBox Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="300" controls:TitleElement.TitleWidth="100" Header="{x:Static langs:Lang.TitleDemoStr1}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left" controls:TitleElement.TitleAlignment="Left">
+                    <ComboBox DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}" ItemsSource="{Binding DataList}"/>
+                </GroupBox>
+            </Grid>
         </ScrollViewer>
     </controls:TransitioningContentControl>
 </UserControl>

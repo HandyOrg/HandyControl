@@ -3,18 +3,8 @@ using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
-    public class InfoElement
+    public class InfoElement : TitleElement
     {
-        /// <summary>
-        ///     标题
-        /// </summary>
-        public static readonly DependencyProperty TitleProperty = DependencyProperty.RegisterAttached(
-            "Title", typeof(string), typeof(InfoElement), new PropertyMetadata(default(string)));
-
-        public static void SetTitle(DependencyObject element, string value) => element.SetValue(TitleProperty, value);
-
-        public static string GetTitle(DependencyObject element) => (string) element.GetValue(TitleProperty);
-
         /// <summary>
         ///     占位符
         /// </summary>
@@ -44,26 +34,6 @@ namespace HandyControl.Controls
         public static void SetSymbol(DependencyObject element, string value) => element.SetValue(SymbolProperty, value);
 
         public static string GetSymbol(DependencyObject element) => (string)element.GetValue(SymbolProperty);
-
-        /// <summary>
-        ///     标题对齐方式
-        /// </summary>
-        public static readonly DependencyProperty TitleAlignmentProperty = DependencyProperty.RegisterAttached(
-            "TitleAlignment", typeof(TitleAlignment), typeof(InfoElement), new FrameworkPropertyMetadata(TitleAlignment.Top, FrameworkPropertyMetadataOptions.Inherits));
-
-        public static void SetTitleAlignment(DependencyObject element, TitleAlignment value) => element.SetValue(TitleAlignmentProperty, value);
-
-        public static TitleAlignment GetTitleAlignment(DependencyObject element) => (TitleAlignment) element.GetValue(TitleAlignmentProperty);
-
-        /// <summary>
-        ///     标题宽度
-        /// </summary>
-        public static readonly DependencyProperty TitleWidthProperty = DependencyProperty.RegisterAttached(
-            "TitleWidth", typeof(GridLength), typeof(InfoElement), new FrameworkPropertyMetadata(new GridLength(120.0), FrameworkPropertyMetadataOptions.Inherits));
-
-        public static void SetTitleWidth(DependencyObject element, GridLength value) => element.SetValue(TitleWidthProperty, value);
-
-        public static GridLength GetTitleWidth(DependencyObject element) => (GridLength)element.GetValue(TitleWidthProperty);
 
         /// <summary>
         ///     内容高度
