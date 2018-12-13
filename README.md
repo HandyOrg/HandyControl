@@ -118,6 +118,10 @@
 
 ![TabControlStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.png)
 
+### GroupBox
+
+![GroupBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/GroupBox.png)
+
 ### StepBar
 
 ![StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.png)
