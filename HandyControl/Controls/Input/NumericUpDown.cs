@@ -150,7 +150,9 @@ namespace HandyControl.Controls
         ///     当前值
         /// </summary>
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-            "Value", typeof(double), typeof(NumericUpDown), new PropertyMetadata(default(double), OnValueChanged, CoerceValue), IsValidDoubleValue);
+            "Value", typeof(double), typeof(NumericUpDown),
+            new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+                OnValueChanged, CoerceValue), IsValidDoubleValue);
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
