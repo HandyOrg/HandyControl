@@ -6,7 +6,7 @@
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <StackPanel Margin="32" Width="400">
-            <controls:OutlineText Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=20}"/>
+            <controls:OutlineText TextWrapping="Wrap" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=20}"/>
             <controls:OutlineText Margin="0,10,0,0" FontSize="30" Fill="{DynamicResource SuccessBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=8}"/>
             <controls:OutlineText Margin="0,10,0,0" FontSize="30" FontStyle="Italic" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=8}"/>
             <controls:OutlineText Margin="0,10,0,0" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontSize="50" StrokeThickness="2" Fill="{DynamicResource DangerBrush}" Stroke="{DynamicResource PrimaryBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>

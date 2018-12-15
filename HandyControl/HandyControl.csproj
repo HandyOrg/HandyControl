@@ -66,7 +66,6 @@
     <Compile Include="Controls\Text\OutlineText.cs" />
     <Compile Include="Controls\Other\GifImage.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
-    <Compile Include="Controls\Text\StackText.cs" />
     <Compile Include="Controls\Tag\TagPanel.cs" />
     <Compile Include="Controls\Tag\Tag.cs" />
     <Compile Include="Controls\Time\CalendarWithClock.cs" />
