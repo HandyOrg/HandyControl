@@ -59,6 +59,13 @@ namespace HandyControlDemo.UserControl
             }
         }
 
+        private void MenuItemQQGroup_OnClick(object sender, RoutedEventArgs e)
+        {
+            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
+            Messenger.Default.Send(true, MessageToken.FullSwitch);
+            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.QQGroupView}"), MessageToken.LoadShowContent);
+        }
+
         private void MenuItemContributors_OnClick(object sender, RoutedEventArgs e)
         {
             Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);

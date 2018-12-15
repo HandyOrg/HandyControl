@@ -189,6 +189,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/DatePicker_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.FlipNumberDemoCtl}" Content="{x:Static langs:Lang.FlipNumber}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/FlipVertical_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.SearchBarDemoCtl}" Content="{x:Static langs:Lang.SearchBar}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/Search_16x.png"/>

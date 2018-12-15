@@ -142,6 +142,9 @@
     <Compile Include="UserControl\Controls\DateTimePickerDemoCtl.xaml.cs">
       <DependentUpon>DateTimePickerDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\FlipNumberDemoCtl.xaml.cs">
+      <DependentUpon>FlipNumberDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
       <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -192,6 +195,9 @@
     </Compile>
     <Compile Include="UserControl\Main\NoUserContent.xaml.cs">
       <DependentUpon>NoUserContent.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Main\QQGroupView.xaml.cs">
+      <DependentUpon>QQGroupView.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\BorderDemoCtl.xaml.cs">
       <DependentUpon>BorderDemoCtl.xaml</DependentUpon>
@@ -402,6 +408,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\FlipNumberDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\OutlineTextDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -467,6 +477,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Main\NoUserContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Main\QQGroupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -626,6 +640,8 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\qq-group.jpg" />
+    <Resource Include="Resources\Img\LeftMainContent\FlipVertical_16x.png" />
     <Resource Include="Resources\Img\car_chase.gif" />
     <Resource Include="Resources\Img\LeftMainContent\Animation_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Tag_16x.png" />

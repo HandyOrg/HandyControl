@@ -33,6 +33,19 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
+    <DrawingBrush x:Key="QqDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,100,200" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+        <DrawingBrush.Transform>
+            <TransformGroup>
+                <RotateTransform Angle="20"/>
+            </TransformGroup>
+        </DrawingBrush.Transform>
+        <DrawingBrush.Drawing>
+            <DrawingGroup>
+                <GeometryDrawing Brush="{DynamicResource DarkMaskBrush}" Geometry="{StaticResource QqGeometry}"/>
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
     <LinearGradientBrush x:Key="MenuButtonBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
         <GradientStop Color="White" Offset="0"/>
         <GradientStop Color="#F2F2F2" Offset="1"/>

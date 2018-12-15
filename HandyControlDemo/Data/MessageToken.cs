@@ -58,6 +58,10 @@
 	
         public static readonly string OutlineTextDemoCtl = nameof(OutlineTextDemoCtl);
 	
+        public static readonly string FlipNumberDemoCtl = nameof(FlipNumberDemoCtl);
+	
+        public static readonly string QQGroupView = nameof(QQGroupView);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

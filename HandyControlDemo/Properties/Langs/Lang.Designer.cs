@@ -385,6 +385,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 翻页数字 的本地化字符串。
+        /// </summary>
+        public static string FlipNumber {
+            get {
+                return ResourceManager.GetString("FlipNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
         public static string GifImage {
@@ -705,6 +714,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ProgressBar {
             get {
                 return ResourceManager.GetString("ProgressBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 QQ群 的本地化字符串。
+        /// </summary>
+        public static string QQGroup {
+            get {
+                return ResourceManager.GetString("QQGroup", resourceCulture);
             }
         }
         

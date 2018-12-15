@@ -31,7 +31,9 @@ var controlList = new List<string>
 	"SearchBarDemoCtl",
 	"TagDemoCtl",
 	"GifImageDemoCtl",
-	"OutlineTextDemoCtl"
+	"OutlineTextDemoCtl",
+	"FlipNumberDemoCtl",
+	"QQGroupView"
 };
 var styleList = new List<string>
 {

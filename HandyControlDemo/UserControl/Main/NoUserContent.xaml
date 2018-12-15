@@ -31,11 +31,16 @@
                 </MenuItem>
                 <MenuItem Tag="https://www.nuget.org/packages/HandyControl" Header="NuGet">
                     <MenuItem.Icon>
-                        <Path Data="{StaticResource NugetGeometry}" Fill="#224880"/>
+                        <Path Data="{StaticResource NugetGeometry}" Fill="#30a5dd"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Foreground="White" Header="{x:Static langs:Lang.About}">
+                <MenuItem Click="MenuItemQQGroup_OnClick" Header="{x:Static langs:Lang.QQGroup}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource QqGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
                 <MenuItem Tag="mailto:836904362@qq.com" Header="{x:Static langs:Lang.Email}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource EmailGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
