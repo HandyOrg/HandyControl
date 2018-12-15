@@ -105,6 +105,8 @@
     <Compile Include="Data\Gif\GifPropertyItem.cs" />
     <Compile Include="Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="Data\Gif\GPStream.cs" />
+    <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
+    <Compile Include="Tools\Converter\Int2StrConverter.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\GifImageAnimator.cs" />
     <Compile Include="Data\GrowlInfo.cs" />

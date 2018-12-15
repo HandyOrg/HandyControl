@@ -13,5 +13,7 @@
     <converter:TreeViewItemMarginConverter x:Key="TreeViewItemMarginConverter"/>
     <converter:Color2HexStrConverter x:Key="Color2HexStrConverter"/>
     <converter:Object2BooleanConverter x:Key="Object2BooleanConverter"/>
+    <converter:Boolean2StrConverter x:Key="Boolean2StrConverter"/>
+    <converter:Int2StrConverter x:Key="Int2StrConverter"/>
 
 </ResourceDictionary>

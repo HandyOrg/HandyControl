@@ -120,7 +120,7 @@
                     <Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <Grid>
                             <ContentPresenter Name="UnCheckedElement"  Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                            <ContentPresenter Name="CheckedElement" Visibility="Collapsed" Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <ContentPresenter Name="CheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Visibility="Collapsed" Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
