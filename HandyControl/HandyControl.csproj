@@ -94,6 +94,7 @@
     <Compile Include="Controls\Other\InternalCanvas.cs" />
     <Compile Include="Controls\StepBar\StepBar.cs" />
     <Compile Include="Controls\StepBar\StepBarItem.cs" />
+    <Compile Include="Controls\Time\FlipClock\FlipClock.cs" />
     <Compile Include="Controls\Time\FlipClock\FlipNumber.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
@@ -316,7 +317,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Themes\Styles\FlipNumber.xaml">
+    <Page Include="Themes\Styles\FlipClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

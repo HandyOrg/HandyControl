@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
@@ -64,6 +65,7 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty FontSizeProperty = DependencyProperty.Register(
             "FontSize", typeof(double), typeof(FlipNumber), new PropertyMetadata(70.0));
 
+        [TypeConverter(typeof(FontSizeConverter))]
         public double FontSize
         {
             get => (double)GetValue(FontSizeProperty);
@@ -96,7 +98,7 @@ namespace HandyControl.Controls
                 Axis = new Vector3D(1, 0, 0)
             };
 
-            _animation = new DoubleAnimation(0, 180, new Duration(TimeSpan.FromSeconds(1)))
+            _animation = new DoubleAnimation(0, 180, new Duration(TimeSpan.FromSeconds(0.8)))
             {
                 FillBehavior = FillBehavior.Stop
             };
@@ -153,8 +155,12 @@ namespace HandyControl.Controls
             Children.Add(_content);
         }
 
+        private bool CheckNull() => _page1TextDown != null && _page2TextUp != null && _page2TextDown != null && _page3TextUp != null;
+
         private void OnNumberChanged()
         {
+            if (!CheckNull()) return;
+
             InitNewNumber();
 
             if (_isAnimating)

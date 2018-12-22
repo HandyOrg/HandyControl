@@ -385,11 +385,11 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 翻页数字 的本地化字符串。
+        ///   查找类似 翻页时钟 的本地化字符串。
         /// </summary>
-        public static string FlipNumber {
+        public static string FlipClock {
             get {
-                return ResourceManager.GetString("FlipNumber", resourceCulture);
+                return ResourceManager.GetString("FlipClock", resourceCulture);
             }
         }
         

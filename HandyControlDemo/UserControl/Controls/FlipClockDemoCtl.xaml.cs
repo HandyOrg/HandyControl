@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class FlipNumberDemoCtl
+    public partial class FlipClockDemoCtl
     {
-        public FlipNumberDemoCtl()
+        public FlipClockDemoCtl()
         {
             InitializeComponent();
         }

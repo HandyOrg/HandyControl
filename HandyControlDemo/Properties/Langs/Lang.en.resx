@@ -435,10 +435,10 @@
   <data name="OutlineText" xml:space="preserve">
     <value>OutlineText</value>
   </data>
-  <data name="FlipNumber" xml:space="preserve">
-    <value>FlipNumber</value>
-  </data>
   <data name="QQGroup" xml:space="preserve">
     <value>QQ Group</value>
+  </data>
+  <data name="FlipClock" xml:space="preserve">
+    <value>FlipClock</value>
   </data>
 </root>

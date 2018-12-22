@@ -10,6 +10,12 @@
 
 ## Latest examples
 
+### FlipClock
+
+![FlipClock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/FlipClock.gif)
+
+## History publication
+
 ### OutlineText
 
 ![OutlineText](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/OutlineText.png)
@@ -29,8 +35,6 @@
 ### CircleProgressBar
 
 ![CircleProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CircleProgressBar.png)
-
-## History publication
 
 ### ButtonStyle
 

@@ -8,7 +8,7 @@
                            mc:Ignorable="d"
                            OtherButtonForeground="{DynamicResource ReverseTextBrush}"
                            CloseButtonForeground="{DynamicResource ReverseTextBrush}"
-                           OtherButtonHoverBrush="{DynamicResource ReverseTextBrush}"
+                           OtherButtonHoverBackground="{DynamicResource ReverseTextBrush}"
                            NonClientAreaBackground="{DynamicResource ToolBarBackground}"
                            NonClientAreaHeight="69"
                            Background="{DynamicResource MainContentBackgroundBrush}"

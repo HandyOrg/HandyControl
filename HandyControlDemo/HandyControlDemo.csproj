@@ -142,8 +142,8 @@
     <Compile Include="UserControl\Controls\DateTimePickerDemoCtl.xaml.cs">
       <DependentUpon>DateTimePickerDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Controls\FlipNumberDemoCtl.xaml.cs">
-      <DependentUpon>FlipNumberDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Controls\FlipClockDemoCtl.xaml.cs">
+      <DependentUpon>FlipClockDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
       <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
@@ -408,7 +408,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Controls\FlipNumberDemoCtl.xaml">
+    <Page Include="UserControl\Controls\FlipClockDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

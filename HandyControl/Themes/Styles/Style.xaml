@@ -47,7 +47,7 @@
         <ResourceDictionary Source="SearchBar.xaml"/>
         <ResourceDictionary Source="Tag.xaml"/>
         <ResourceDictionary Source="RadioGroup.xaml"/>
-        <ResourceDictionary Source="FlipNumber.xaml"/>
+        <ResourceDictionary Source="FlipClock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

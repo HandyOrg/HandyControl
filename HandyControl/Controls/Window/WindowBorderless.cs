@@ -8,7 +8,6 @@ using System.Windows.Shell;
 using HandyControl.Data;
 using HandyControl.Tools;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     /// <summary>
@@ -21,8 +20,8 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty NonClientAreaContentProperty = DependencyProperty.Register(
             "NonClientAreaContent", typeof(object), typeof(WindowBorderless), new PropertyMetadata(default(object)));
 
-        public static readonly DependencyProperty CloseButtonHoverBrushProperty = DependencyProperty.Register(
-            "CloseButtonHoverBrush", typeof(Brush), typeof(WindowBorderless),
+        public static readonly DependencyProperty CloseButtonHoverBackgroundProperty = DependencyProperty.Register(
+            "CloseButtonHoverBackground", typeof(Brush), typeof(WindowBorderless),
             new PropertyMetadata(default(Brush)));
 
         public static readonly DependencyProperty CloseButtonHoverForegroundProperty =
@@ -30,16 +29,22 @@ namespace HandyControl.Controls
                 "CloseButtonHoverForeground", typeof(Brush), typeof(WindowBorderless),
                 new PropertyMetadata(default(Brush)));
 
+        public static readonly DependencyProperty CloseButtonBackgroundProperty = DependencyProperty.Register(
+            "CloseButtonBackground", typeof(Brush), typeof(WindowBorderless), new PropertyMetadata(Brushes.Transparent));
+
         public static readonly DependencyProperty CloseButtonForegroundProperty = DependencyProperty.Register(
             "CloseButtonForeground", typeof(Brush), typeof(WindowBorderless),
             new PropertyMetadata(Brushes.White));
+
+        public static readonly DependencyProperty OtherButtonBackgroundProperty = DependencyProperty.Register(
+            "OtherButtonBackground", typeof(Brush), typeof(WindowBorderless), new PropertyMetadata(Brushes.Transparent));
 
         public static readonly DependencyProperty OtherButtonForegroundProperty = DependencyProperty.Register(
             "OtherButtonForeground", typeof(Brush), typeof(WindowBorderless),
             new PropertyMetadata(Brushes.White));
 
-        public static readonly DependencyProperty OtherButtonHoverBrushProperty = DependencyProperty.Register(
-            "OtherButtonHoverBrush", typeof(Brush), typeof(WindowBorderless),
+        public static readonly DependencyProperty OtherButtonHoverBackgroundProperty = DependencyProperty.Register(
+            "OtherButtonHoverBackground", typeof(Brush), typeof(WindowBorderless),
             new PropertyMetadata(default(Brush)));
 
         public static readonly DependencyProperty OtherButtonHoverForegroundProperty =
@@ -144,10 +149,22 @@ namespace HandyControl.Controls
             Dispatcher.BeginInvoke(new Action(() => { SizeToContent = SizeToContent.WidthAndHeight; }));
         }
 
+        public Brush CloseButtonBackground
+        {
+            get => (Brush)GetValue(CloseButtonBackgroundProperty);
+            set => SetValue(CloseButtonBackgroundProperty, value);
+        }
+
         public Brush CloseButtonForeground
         {
             get => (Brush)GetValue(CloseButtonForegroundProperty);
             set => SetValue(CloseButtonForegroundProperty, value);
+        }
+
+        public Brush OtherButtonBackground
+        {
+            get => (Brush)GetValue(OtherButtonBackgroundProperty);
+            set => SetValue(OtherButtonBackgroundProperty, value);
         }
 
         public Brush OtherButtonForeground
@@ -189,10 +206,10 @@ namespace HandyControl.Controls
             set => SetValue(NonClientAreaContentProperty, value);
         }
 
-        public Brush CloseButtonHoverBrush
+        public Brush CloseButtonHoverBackground
         {
-            get => (Brush)GetValue(CloseButtonHoverBrushProperty);
-            set => SetValue(CloseButtonHoverBrushProperty, value);
+            get => (Brush)GetValue(CloseButtonHoverBackgroundProperty);
+            set => SetValue(CloseButtonHoverBackgroundProperty, value);
         }
 
         public Brush CloseButtonHoverForeground
@@ -201,10 +218,10 @@ namespace HandyControl.Controls
             set => SetValue(CloseButtonHoverForegroundProperty, value);
         }
 
-        public Brush OtherButtonHoverBrush
+        public Brush OtherButtonHoverBackground
         {
-            get => (Brush)GetValue(OtherButtonHoverBrushProperty);
-            set => SetValue(OtherButtonHoverBrushProperty, value);
+            get => (Brush)GetValue(OtherButtonHoverBackgroundProperty);
+            set => SetValue(OtherButtonHoverBackgroundProperty, value);
         }
 
         public Brush OtherButtonHoverForeground

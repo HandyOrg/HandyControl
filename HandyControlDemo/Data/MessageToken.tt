@@ -32,7 +32,7 @@ var controlList = new List<string>
 	"TagDemoCtl",
 	"GifImageDemoCtl",
 	"OutlineTextDemoCtl",
-	"FlipNumberDemoCtl",
+	"FlipClockDemoCtl",
 	"QQGroupView"
 };
 var styleList = new List<string>

@@ -9,7 +9,7 @@
                            BorderThickness="1"
                            BorderBrush="#262e2f"
                            NonClientAreaBackground="#262e2f"
-                           OtherButtonHoverBrush="#888580"
+                           OtherButtonHoverBackground="#888580"
                            Style="{StaticResource CustomWindowStyle}"
                            WindowState="Maximized"
                            Title="MainWindow" 

@@ -415,10 +415,10 @@
   <data name="OutlineText" xml:space="preserve">
     <value>轮廓文本</value>
   </data>
-  <data name="FlipNumber" xml:space="preserve">
-    <value>翻页数字</value>
-  </data>
   <data name="QQGroup" xml:space="preserve">
     <value>QQ群</value>
+  </data>
+  <data name="FlipClock" xml:space="preserve">
+    <value>翻页时钟</value>
   </data>
 </root>
