@@ -4,9 +4,13 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Shell;
 using HandyControl.Data;
 using HandyControl.Tools;
+#if net40
+using Microsoft.Windows.Shell;
+#else
+using System.Windows.Shell;
+#endif
 
 namespace HandyControl.Controls
 {

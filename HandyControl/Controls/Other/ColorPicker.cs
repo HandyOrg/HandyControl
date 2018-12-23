@@ -422,13 +422,8 @@ namespace HandyControl.Controls
         /// <returns></returns>
         private Button CreateColorButton(string colorStr)
         {
-            var colorObj = ColorConverter.ConvertFromString(colorStr);
-            var color = default(Color);
-            if (colorObj != null)
-            {
-                color = (Color)colorObj;
-            }
-            var brush = new SolidColorBrush(color);
+            var color = ColorConverter.ConvertFromString(colorStr) ?? default(Color);
+            var brush = new SolidColorBrush((Color)color);
 
             var button = new Button
             {

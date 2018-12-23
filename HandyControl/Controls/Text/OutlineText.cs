@@ -153,7 +153,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-#if net45
+#if net45 || net40
             _formattedText = new FormattedText(
                 Text,
                 CultureInfo.CurrentUICulture,

@@ -233,21 +233,20 @@ namespace HandyControl.Controls
                 dataGrid.ItemContainerGenerator.ItemsChanged -= ItemContainerGenerator_ItemsChanged;
             }
 
-            UpdateItems(dataGrid.ItemContainerGenerator, show);
+            UpdateItems(dataGrid.ItemContainerGenerator, dataGrid.Items.Count, show);
         }
 
         private static void ItemContainerGenerator_ItemsChanged(object sender, ItemsChangedEventArgs e)
         {
             if (!(sender is ItemContainerGenerator generator)) return;
-            UpdateItems(generator);
+            UpdateItems(generator, e.ItemCount);
         }
 
-        private static void UpdateItems(ItemContainerGenerator generator, bool show = true)
+        private static void UpdateItems(ItemContainerGenerator generator, int itemsCount, bool show = true)
         {
-            var count = generator.Items.Count;
             if (show)
             {
-                for (int i = 0; i < count; i++)
+                for (int i = 0; i < itemsCount; i++)
                 {
                     var row = (DataGridRow)generator.ContainerFromIndex(i);
                     if (row != null)
@@ -258,7 +257,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                for (int i = 0; i < count; i++)
+                for (int i = 0; i < itemsCount; i++)
                 {
                     var row = (DataGridRow)generator.ContainerFromIndex(i);
                     if (row != null)

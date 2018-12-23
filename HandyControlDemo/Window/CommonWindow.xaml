@@ -12,6 +12,7 @@
                            Style="{StaticResource CustomWindowStyle}"
                            Title="{x:Static langs:Lang.Title}" 
                            Height="450" 
-                           Width="800">
+                           Width="800" 
+                           Icon="/HandyControlDemo;component/Resources/Img/icon.ico">
     <Border Background="{DynamicResource MainContentForegroundDrawingBrush}"/>
 </controls:WindowBorderless>
