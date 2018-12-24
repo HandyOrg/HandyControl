@@ -205,3 +205,6 @@ Step 3：enjoy coding
 # Switching configuration
 
 ![Switching configuration](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SwitchConfig.png)
+
+# .Net 4.0
+If you want to compile for .Net 4.0, install [Clarius.TransformOnBuild](https://www.nuget.org/packages/Clarius.TransformOnBuild/) for HandyControl first.
