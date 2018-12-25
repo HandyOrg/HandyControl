@@ -49,6 +49,7 @@ namespace HandyControlDemo
             {
                 Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
             });
+            Current.MainWindow?.OnApplyTemplate();
         }
     }
 }

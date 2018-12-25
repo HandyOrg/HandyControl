@@ -6,6 +6,10 @@
 
 ## Latest examples
 
+### BlurWindow
+
+![BlurWindow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/BlurWindow.png)
+
 ### FlipClock
 
 ![FlipClock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/FlipClock.gif)

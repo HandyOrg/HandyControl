@@ -675,7 +675,7 @@ namespace HandyControl.Controls
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(CanceledEvent));
 
-        public void Dispose() => Window.GetWindow(this)?.Close();
+        public void Dispose() => System.Windows.Window.GetWindow(this)?.Close();
 
         public bool CanDispose { get; } = true;
     }

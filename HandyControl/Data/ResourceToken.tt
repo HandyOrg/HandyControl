@@ -26,7 +26,7 @@ var styleList = new List<string>
 {
 	"ButtonCustom",
 	"PaginationButtonStyle",
-	"CustomWindowStyle",
+	"WindowWin10",
 	"AddTagButtonStyle",
 	"RadioGroupItemDefault",
 	"RadioGroupItemSingle",

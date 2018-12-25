@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <Color x:Key="PrimaryColor">#ba68c8</Color>
     <Color x:Key="DarkPrimaryColor">#7b1fa2</Color>
@@ -39,5 +40,6 @@
 
     <Color x:Key="DarkMaskColor">#20000000</Color>
     <Color x:Key="DarkOpacityColor">#40000000</Color>
+    <system:UInt32 x:Key="BlurGradientValue">0x99FFFFFF</system:UInt32>
 
 </ResourceDictionary>

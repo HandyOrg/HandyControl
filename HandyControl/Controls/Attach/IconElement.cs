@@ -16,7 +16,7 @@ namespace HandyControl.Controls
             => (Geometry) element.GetValue(GeometryProperty);
 
         public static readonly DependencyProperty WidthProperty = DependencyProperty.RegisterAttached(
-            "Width", typeof(double), typeof(IconElement), new PropertyMetadata(ValueBoxes.Double0Box));
+            "Width", typeof(double), typeof(IconElement), new PropertyMetadata(double.NaN));
 
         public static void SetWidth(DependencyObject element, double value)
             => element.SetValue(WidthProperty, value);
@@ -25,7 +25,7 @@ namespace HandyControl.Controls
             => (double) element.GetValue(WidthProperty);
 
         public static readonly DependencyProperty HeightProperty = DependencyProperty.RegisterAttached(
-            "Height", typeof(double), typeof(IconElement), new PropertyMetadata(ValueBoxes.Double0Box));
+            "Height", typeof(double), typeof(IconElement), new PropertyMetadata(double.NaN));
 
         public static void SetHeight(DependencyObject element, double value)
             => element.SetValue(HeightProperty, value);

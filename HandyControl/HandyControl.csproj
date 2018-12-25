@@ -143,6 +143,7 @@
     <Compile Include="Controls\StepBar\StepBarItem.cs" />
     <Compile Include="Controls\Time\FlipClock\FlipClock.cs" />
     <Compile Include="Controls\Time\FlipClock\FlipNumber.cs" />
+    <Compile Include="Controls\Window\BlurWindow.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />
@@ -154,6 +155,7 @@
     <Compile Include="Data\Gif\GifPropertyItem.cs" />
     <Compile Include="Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="Data\Gif\GPStream.cs" />
+    <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
@@ -198,6 +200,7 @@
     <Compile Include="Expression\Media\UnitType.cs" />
     <Compile Include="Expression\Shapes\Arc.cs" />
     <Compile Include="Expression\Shapes\PrimitiveShape.cs" />
+    <Compile Include="Tools\Helper\CommonHelper.cs" />
     <Compile Include="Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs" />
@@ -210,7 +213,7 @@
     <Compile Include="Controls\Input\WatermarkTextBox.cs" />
     <Compile Include="Controls\Window\ImageBrowser.cs" />
     <Compile Include="Controls\Window\PopupWindow.cs" />
-    <Compile Include="Controls\Window\WindowBorderless.cs" />
+    <Compile Include="Controls\Window\Window.cs" />
     <Compile Include="Data\ValueBoxes.cs" />
     <Compile Include="Data\ColorRange.cs" />
     <Compile Include="Data\Enum\IpType.cs" />
@@ -664,6 +667,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -693,6 +697,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

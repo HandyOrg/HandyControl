@@ -34,7 +34,7 @@
 
         public static readonly string PaginationButtonStyle = nameof(PaginationButtonStyle);
 
-        public static readonly string CustomWindowStyle = nameof(CustomWindowStyle);
+        public static readonly string WindowWin10 = nameof(WindowWin10);
 
         public static readonly string AddTagButtonStyle = nameof(AddTagButtonStyle);
 

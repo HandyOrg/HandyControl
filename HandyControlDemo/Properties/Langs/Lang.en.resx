@@ -441,4 +441,7 @@
   <data name="FlipClock" xml:space="preserve">
     <value>FlipClock</value>
   </data>
+  <data name="OpenBlurWindow" xml:space="preserve">
+    <value>open blur window</value>
+  </data>
 </root>

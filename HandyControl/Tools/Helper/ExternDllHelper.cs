@@ -14,8 +14,45 @@ namespace HandyControl.Tools
     {
         private const string Gdi32 = "gdi32.dll";
 
+        private const string User32 = "user32.dll";
+
         // ReSharper disable once InconsistentNaming
         public const int E_FAIL = unchecked((int) 0x80004005);
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct WINCOMPATTRDATA
+        {
+            public WINDOWCOMPOSITIONATTRIB Attribute;
+            public IntPtr Data;
+            public int DataSize;
+        }
+
+        internal enum WINDOWCOMPOSITIONATTRIB
+        {
+            WCA_ACCENT_POLICY = 19
+        }
+
+        internal enum ACCENTSTATE
+        {
+            ACCENT_DISABLED = 0,
+            ACCENT_ENABLE_GRADIENT = 1,
+            ACCENT_ENABLE_TRANSPARENTGRADIENT = 2,
+            ACCENT_ENABLE_BLURBEHIND = 3,
+            ACCENT_ENABLE_ACRYLICBLURBEHIND = 4,
+            ACCENT_INVALID_STATE = 5
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct ACCENTPOLICY
+        {
+            public ACCENTSTATE AccentState;
+            public int AccentFlags;
+            public uint GradientColor;
+            public int AnimationId;
+        }
+
+        [DllImport(User32)]
+        internal static extern int SetWindowCompositionAttribute(IntPtr hwnd, ref WINCOMPATTRDATA data);
 
         [ReflectionPermission(SecurityAction.Assert, Unrestricted = true), SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode)]
         public static object PtrToStructure(IntPtr lparam, Type cls) => Marshal.PtrToStructure(lparam, cls);

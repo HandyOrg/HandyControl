@@ -9,6 +9,7 @@
     <controls:TransitioningContentControl>
         <UniformGrid Margin="32" Columns="3" Rows="2" Height="200">
             <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CommonWindow}" Content="{x:Static langs:Lang.OpenCommonWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.BlurWindow}" Content="{x:Static langs:Lang.OpenBlurWindow}"/>
             <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CustomNonClientAreaWindow}" Content="{x:Static langs:Lang.OpenCustomNonClientAreaWindow}"/>
             <Button Click="ButtonMessage_OnClick" Content="{x:Static langs:Lang.OpenMessageWindow}"/>
             <Button Click="ButtonCustomContent_OnClick" Content="{x:Static langs:Lang.OpenCustomContentWindow}"/>

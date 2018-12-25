@@ -14,71 +14,68 @@ using System.Windows.Shell;
 
 namespace HandyControl.Controls
 {
-    /// <summary>
-    ///     无边框窗口
-    /// </summary>
-    public class WindowBorderless : Window
+    public class Window : System.Windows.Window
     {
         private Thickness _tempThickness;
 
         public static readonly DependencyProperty NonClientAreaContentProperty = DependencyProperty.Register(
-            "NonClientAreaContent", typeof(object), typeof(WindowBorderless), new PropertyMetadata(default(object)));
+            "NonClientAreaContent", typeof(object), typeof(Window), new PropertyMetadata(default(object)));
 
         public static readonly DependencyProperty CloseButtonHoverBackgroundProperty = DependencyProperty.Register(
-            "CloseButtonHoverBackground", typeof(Brush), typeof(WindowBorderless),
+            "CloseButtonHoverBackground", typeof(Brush), typeof(Window),
             new PropertyMetadata(default(Brush)));
 
         public static readonly DependencyProperty CloseButtonHoverForegroundProperty =
             DependencyProperty.Register(
-                "CloseButtonHoverForeground", typeof(Brush), typeof(WindowBorderless),
+                "CloseButtonHoverForeground", typeof(Brush), typeof(Window),
                 new PropertyMetadata(default(Brush)));
 
         public static readonly DependencyProperty CloseButtonBackgroundProperty = DependencyProperty.Register(
-            "CloseButtonBackground", typeof(Brush), typeof(WindowBorderless), new PropertyMetadata(Brushes.Transparent));
+            "CloseButtonBackground", typeof(Brush), typeof(Window), new PropertyMetadata(Brushes.Transparent));
 
         public static readonly DependencyProperty CloseButtonForegroundProperty = DependencyProperty.Register(
-            "CloseButtonForeground", typeof(Brush), typeof(WindowBorderless),
+            "CloseButtonForeground", typeof(Brush), typeof(Window),
             new PropertyMetadata(Brushes.White));
 
         public static readonly DependencyProperty OtherButtonBackgroundProperty = DependencyProperty.Register(
-            "OtherButtonBackground", typeof(Brush), typeof(WindowBorderless), new PropertyMetadata(Brushes.Transparent));
+            "OtherButtonBackground", typeof(Brush), typeof(Window), new PropertyMetadata(Brushes.Transparent));
 
         public static readonly DependencyProperty OtherButtonForegroundProperty = DependencyProperty.Register(
-            "OtherButtonForeground", typeof(Brush), typeof(WindowBorderless),
+            "OtherButtonForeground", typeof(Brush), typeof(Window),
             new PropertyMetadata(Brushes.White));
 
         public static readonly DependencyProperty OtherButtonHoverBackgroundProperty = DependencyProperty.Register(
-            "OtherButtonHoverBackground", typeof(Brush), typeof(WindowBorderless),
+            "OtherButtonHoverBackground", typeof(Brush), typeof(Window),
             new PropertyMetadata(default(Brush)));
 
         public static readonly DependencyProperty OtherButtonHoverForegroundProperty =
             DependencyProperty.Register(
-                "OtherButtonHoverForeground", typeof(Brush), typeof(WindowBorderless),
+                "OtherButtonHoverForeground", typeof(Brush), typeof(Window),
                 new PropertyMetadata(default(Brush)));
 
         public static readonly DependencyProperty NonClientAreaBackgroundProperty = DependencyProperty.Register(
-            "NonClientAreaBackground", typeof(Brush), typeof(WindowBorderless),
+            "NonClientAreaBackground", typeof(Brush), typeof(Window),
             new PropertyMetadata(default(Brush)));
 
         public static readonly DependencyProperty NonClientAreaForegroundProperty = DependencyProperty.Register(
-            "NonClientAreaForeground", typeof(Brush), typeof(WindowBorderless),
+            "NonClientAreaForeground", typeof(Brush), typeof(Window),
             new PropertyMetadata(default(Brush)));
 
         public static readonly DependencyProperty NonClientAreaHeightProperty = DependencyProperty.Register(
-            "NonClientAreaHeight", typeof(double), typeof(WindowBorderless),
+            "NonClientAreaHeight", typeof(double), typeof(Window),
             new PropertyMetadata(28.0));
 
         public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
-            "ShowNonClientArea", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(ValueBoxes.TrueBox));
+            "ShowNonClientArea", typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
-            "ShowTitle", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(ValueBoxes.FalseBox));
+            "ShowTitle", typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
-            "IsFullScreen", typeof(bool), typeof(WindowBorderless), new PropertyMetadata(ValueBoxes.FalseBox,
+            "IsFullScreen", typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.FalseBox,
                 (o, args) =>
                 {
-                    var ctl = (WindowBorderless)o;
+                    var ctl = (Window)o;
                     var v = (bool)args.NewValue;
                     if (v)
                     {
@@ -99,7 +96,7 @@ namespace HandyControl.Controls
                     }
                 }));
 
-        public WindowBorderless()
+        public Window()
         {
             var chrome = new WindowChrome
             {
@@ -277,11 +274,11 @@ namespace HandyControl.Controls
         ///     获取自定义窗口
         /// </summary>
         /// <returns></returns>
-        public static WindowBorderless GetCustomWindow(FrameworkElement content)
+        public static Window GetCustomWindow(FrameworkElement content)
         {
-            var window = new WindowBorderless
+            var window = new Window
             {
-                Style = ResourceHelper.GetResource<Style>(ResourceToken.CustomWindowStyle),
+                Style = ResourceHelper.GetResource<Style>(ResourceToken.WindowWin10),
                 Content = content
             };
             window.Loaded += (s, e) =>

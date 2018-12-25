@@ -15,7 +15,7 @@ namespace HandyControl.Controls
     /// </summary>
     [TemplatePart(Name = ElementMainBorder, Type = typeof(Border))]
     [TemplatePart(Name = ElementTitleBlock, Type = typeof(TextBlock))]
-    public class PopupWindow : Window
+    public class PopupWindow : System.Windows.Window
     {
         #region Constants
 
@@ -98,7 +98,7 @@ namespace HandyControl.Controls
             }
         }
 
-        public PopupWindow(Window owner) : this() => Owner = owner;
+        public PopupWindow(System.Windows.Window owner) : this() => Owner = owner;
 
         private void CloseButton_OnClick(object sender, RoutedEventArgs e) => Close();
 
@@ -173,7 +173,7 @@ namespace HandyControl.Controls
             ShowDialog();
         }
 
-        public void Show(Window element, Point point)
+        public void Show(System.Windows.Window element, Point point)
         {
             Left = element.Left + point.X;
             Top = element.Top + point.Y;

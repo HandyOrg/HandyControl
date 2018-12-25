@@ -14,7 +14,7 @@ namespace HandyControl.Controls
     /// </summary>
     [TemplatePart(Name = ElementGridTop, Type = typeof(Grid))]
     [TemplatePart(Name = ElementImageViewer, Type = typeof(ImageViewer))]
-    public class ImageBrowser : WindowBorderless
+    public class ImageBrowser : Window
     {
         #region Constants
 

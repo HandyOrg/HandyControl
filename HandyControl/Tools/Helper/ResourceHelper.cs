@@ -40,7 +40,15 @@ namespace HandyControl.Tools
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static T GetResource<T>(string key) where T : class => Application.Current.TryFindResource(key) as T;
+        public static T GetResource<T>(string key)
+        {
+            if (Application.Current.TryFindResource(key) is T resource)
+            {
+                return resource;
+            }
+
+            return default(T);
+        }
 
         /// <summary>
         ///     获取HandyControl皮肤

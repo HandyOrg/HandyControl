@@ -4,17 +4,18 @@
         x:Class="HandyControlDemo.UserControl.LeftMainContent"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:data="clr-namespace:HandyControlDemo.Data"
+        Background="Transparent"
         xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-    <TabControl SelectionChanged="TabControl_OnSelectionChanged" Style="{StaticResource TabControlInLine}">
+    <TabControl SelectionChanged="TabControl_OnSelectionChanged" Style="{StaticResource TabControlInLine}" Background="Transparent" >
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="SelectionChanged">
                 <command:EventToCommand Command="{Binding SwitchDemoCmd}" PassEventArgsToCommand="True" />
             </i:EventTrigger>
         </i:Interaction.Triggers>
-        <TabItem Header="{x:Static langs:Lang.Styles}">
-            <ListBox BorderThickness="0" SelectionMode="Single">
+        <TabItem Background="Transparent" Header="{x:Static langs:Lang.Styles}">
+            <ListBox BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
                 <ListBoxItem Tag="{x:Static data:MessageToken.BrushDemoCtl}" Content="{x:Static langs:Lang.Brush}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/Brush_16x.png"/>
@@ -142,8 +143,8 @@
                 </ListBoxItem>
             </ListBox>
         </TabItem>
-        <TabItem Header="{x:Static langs:Lang.Controls}">
-            <ListBox BorderThickness="0" SelectionMode="Single">
+        <TabItem Background="Transparent" Header="{x:Static langs:Lang.Controls}">
+            <ListBox BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
                 <ListBoxItem Tag="{x:Static data:MessageToken.NumericUpDownDemoCtl}" Content="{x:Static langs:Lang.NumericUpDown}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/NumericListBox_16x.png"/>
