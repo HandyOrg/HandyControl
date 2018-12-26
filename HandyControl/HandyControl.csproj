@@ -110,6 +110,8 @@
     <Compile Include="Controls\Other\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
+    <Compile Include="Controls\Rate\Rate.cs" />
+    <Compile Include="Controls\Rate\RateItem.cs" />
     <Compile Include="Controls\Text\OutlineText.cs" />
     <Compile Include="Controls\Other\GifImage.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
@@ -200,7 +202,6 @@
     <Compile Include="Expression\Media\UnitType.cs" />
     <Compile Include="Expression\Shapes\Arc.cs" />
     <Compile Include="Expression\Shapes\PrimitiveShape.cs" />
-    <Compile Include="Tools\Helper\CommonHelper.cs" />
     <Compile Include="Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs" />
@@ -575,6 +576,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Rate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\RateBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\RichTextBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -667,7 +676,6 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.Management" />
     <Reference Include="System.Xaml" />
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -701,6 +709,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>

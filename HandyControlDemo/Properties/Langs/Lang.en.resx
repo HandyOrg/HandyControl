@@ -444,4 +444,7 @@
   <data name="OpenBlurWindow" xml:space="preserve">
     <value>open blur window</value>
   </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
 </root>

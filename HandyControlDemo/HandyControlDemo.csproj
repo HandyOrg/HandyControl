@@ -59,6 +59,7 @@
     </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="System" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\MvvmLightLibs.5.4.1\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -96,6 +97,7 @@
     </Compile>
     <Compile Include="Service\DataService.cs" />
     <Compile Include="Tools\AssemblyHelper.cs" />
+    <Compile Include="Tools\CommonHelper.cs" />
     <Compile Include="Tools\Converter\StringRepeatConverter.cs" />
     <Compile Include="UserControl\Basic\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
@@ -159,6 +161,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\RateDemoCtl.xaml.cs">
+      <DependentUpon>RateDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
       <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
@@ -438,6 +443,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\RateDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\ScrollViewerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -638,6 +647,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Star.png" />
     <Resource Include="Resources\Img\qq-group.jpg" />
     <Resource Include="Resources\Img\LeftMainContent\FlipVertical_16x.png" />
     <Resource Include="Resources\Img\car_chase.gif" />

@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
@@ -152,7 +153,7 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
             "Value", typeof(double), typeof(NumericUpDown),
             new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
-                OnValueChanged, CoerceValue), IsValidDoubleValue);
+                OnValueChanged, CoerceValue), ArithmeticHelper.IsValidDoubleValue);
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -203,7 +204,7 @@ namespace HandyControl.Controls
         ///     最大值
         /// </summary>
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-            "Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(100.0, OnMaximumChanged, CoerceMaximum), IsValidDoubleValue);
+            "Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(100.0, OnMaximumChanged, CoerceMaximum), ArithmeticHelper.IsValidDoubleValue);
 
         private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -231,7 +232,7 @@ namespace HandyControl.Controls
         ///     最小值
         /// </summary>
         public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(default(double), OnMinimumChanged, CoerceMinimum), IsValidDoubleValue);
+            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(default(double), OnMinimumChanged, CoerceMinimum), ArithmeticHelper.IsValidDoubleValue);
 
         private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -253,14 +254,6 @@ namespace HandyControl.Controls
         {
             get => (double) GetValue(MinimumProperty);
             set => SetValue(MinimumProperty, value);
-        }
-
-        private static bool IsValidDoubleValue(object value)
-        {
-            var d = (double)value;
-            if (!double.IsNaN(d))
-                return !double.IsInfinity(d);
-            return false;
         }
 
         /// <summary>

@@ -30,6 +30,8 @@
 
         public static readonly string ThirdlyTextBrush = nameof(ThirdlyTextBrush);
 
+        public static readonly string BlurGradientValue = nameof(BlurGradientValue);
+
         public static readonly string ButtonCustom = nameof(ButtonCustom);
 
         public static readonly string PaginationButtonStyle = nameof(PaginationButtonStyle);

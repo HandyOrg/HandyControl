@@ -424,4 +424,7 @@
   <data name="OpenBlurWindow" xml:space="preserve">
     <value>点击打开背景模糊窗口</value>
   </data>
+  <data name="Rate" xml:space="preserve">
+    <value>评分</value>
+  </data>
 </root>

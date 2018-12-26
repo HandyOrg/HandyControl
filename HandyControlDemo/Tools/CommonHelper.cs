@@ -2,7 +2,7 @@
 using System.Management;
 using HandyControl.Data;
 
-namespace HandyControl.Tools
+namespace HandyControlDemo.Tools
 {
     public class CommonHelper
     {

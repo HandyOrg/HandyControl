@@ -120,5 +120,13 @@ namespace HandyControl.Tools
         /// <param name="p"></param>
         /// <returns></returns>
         public static double CalAngle(Point center, Point p) => Math.Atan2(p.Y - center.Y, p.X - center.X) * 180 / Math.PI;
+
+        public static bool IsValidDoubleValue(object value)
+        {
+            var d = (double)value;
+            if (!double.IsNaN(d))
+                return !double.IsInfinity(d);
+            return false;
+        }
     }
 }

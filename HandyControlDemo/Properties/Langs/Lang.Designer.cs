@@ -745,6 +745,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 评分 的本地化字符串。
+        /// </summary>
+        public static string Rate {
+            get {
+                return ResourceManager.GetString("Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 注册 的本地化字符串。
         /// </summary>
         public static string Register {

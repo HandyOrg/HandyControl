@@ -6,6 +6,10 @@
 
 ## Latest examples
 
+### Rate
+
+![Rate](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Rate.png)
+
 ### BlurWindow
 
 ![BlurWindow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/BlurWindow.png)
