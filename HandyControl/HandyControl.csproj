@@ -26,12 +26,23 @@
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <netVersion>netgt40</netVersion>
   </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug-Net47|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <netVersion>netgt40</netVersion>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Net45|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;net45</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;netle45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
@@ -42,7 +53,7 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;net40</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;netle45;netle40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
@@ -59,11 +70,22 @@
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <netVersion>netgt40</netVersion>
   </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net47|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <netVersion>netgt40</netVersion>
+  </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net45|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;net45</DefineConstants>
+    <DefineConstants>TRACE;netle45</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
@@ -74,7 +96,7 @@
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;net40</DefineConstants>
+    <DefineConstants>TRACE;netle45;netle40</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
@@ -108,14 +130,14 @@
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Other\Carousel.cs" />
-    <Compile Include="Controls\Other\CirclePanel.cs" />
+    <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
     <Compile Include="Controls\Other\Shield.cs" />
     <Compile Include="Controls\Rate\Rate.cs" />
     <Compile Include="Controls\Rate\RateItem.cs" />
     <Compile Include="Controls\Text\OutlineText.cs" />
-    <Compile Include="Controls\Other\GifImage.cs" />
+    <Compile Include="Controls\Image\GifImage.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
     <Compile Include="Controls\Tag\TagPanel.cs" />
     <Compile Include="Controls\Tag\Tag.cs" />
@@ -123,7 +145,7 @@
     <Compile Include="Controls\Time\Clock\Clock.cs" />
     <Compile Include="Controls\Time\Clock\ClockRadioButton.cs" />
     <Compile Include="Controls\Other\Growl.cs" />
-    <Compile Include="Controls\Other\ImageViewer.cs" />
+    <Compile Include="Controls\Image\ImageViewer.cs" />
     <Compile Include="Controls\Input\ComboBox.cs" />
     <Compile Include="Controls\Input\DatePicker.cs" />
     <Compile Include="Controls\Input\DateTimePicker.cs" />
@@ -720,9 +742,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

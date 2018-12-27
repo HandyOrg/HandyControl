@@ -10,15 +10,6 @@ namespace HandyControl.Controls
 
         protected override bool IsItemItsOwnContainerOverride(object item) => item is RadioButton;
 
-        //public static readonly DependencyProperty GroupNameProperty = DependencyProperty.Register(
-        //    "GroupName", typeof(string), typeof(RadioGroup), new PropertyMetadata(default(string)));
-
-        //public string GroupName
-        //{
-        //    get => (string) GetValue(GroupNameProperty);
-        //    set => SetValue(GroupNameProperty, value);
-        //}
-
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
             "Orientation", typeof(Orientation), typeof(RadioGroup), new PropertyMetadata(default(Orientation)));
 

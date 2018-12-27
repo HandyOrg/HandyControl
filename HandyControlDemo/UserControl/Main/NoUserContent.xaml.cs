@@ -8,6 +8,7 @@ using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools;
+using HandyControlDemo.Window;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControlDemo.UserControl
@@ -71,6 +72,14 @@ namespace HandyControlDemo.UserControl
             Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
             Messenger.Default.Send(true, MessageToken.FullSwitch);
             Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.ContributorsView}"), MessageToken.LoadShowContent);
+        }
+
+        private void MenuAbout_OnClick(object sender, RoutedEventArgs e)
+        {
+            new AboutWindow
+            {
+                Owner = Application.Current.MainWindow
+            }.ShowDialog();
         }
     }
 }

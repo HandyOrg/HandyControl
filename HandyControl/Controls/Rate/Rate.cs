@@ -52,7 +52,7 @@ namespace HandyControl.Controls
 
             Loaded += (s, e) =>
             {
-                if (DesignerHelper.IsInDesignMode()) return;
+                if (DesignerHelper.IsInDesignMode) return;
                 if (_isLoaded) return;
                 _isLoaded = true;
                 if (Value <= 0)

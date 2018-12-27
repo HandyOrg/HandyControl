@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
-#if net40
+#if netle40
 using Microsoft.Windows.Shell;
 #else
 using System.Windows.Shell;
