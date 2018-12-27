@@ -131,5 +131,10 @@ namespace HandyControl.Interactivity
         ///     鼠标移动
         /// </summary>
         public static RoutedCommand MouseMove { get; } = new RoutedCommand(nameof(MouseMove), typeof(ControlCommands));
+
+        /// <summary>
+        ///     打开链接
+        /// </summary>
+        public static RoutedCommand OpenLink { get; } = new RoutedCommand(nameof(OpenLink), typeof(ControlCommands));
     }
 }

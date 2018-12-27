@@ -427,4 +427,7 @@
   <data name="Rate" xml:space="preserve">
     <value>评分</value>
   </data>
+  <data name="Shield" xml:space="preserve">
+    <value>徽章</value>
+  </data>
 </root>

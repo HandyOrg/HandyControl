@@ -200,6 +200,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/Star.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ShieldDemoCtl}" Content="{x:Static langs:Lang.Shield}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/Shield_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.SearchBarDemoCtl}" Content="{x:Static langs:Lang.SearchBar}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/Search_16x.png"/>

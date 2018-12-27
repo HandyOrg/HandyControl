@@ -49,6 +49,7 @@
         <ResourceDictionary Source="RadioGroup.xaml"/>
         <ResourceDictionary Source="FlipClock.xaml"/>
         <ResourceDictionary Source="Rate.xaml"/>
+        <ResourceDictionary Source="Shield.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

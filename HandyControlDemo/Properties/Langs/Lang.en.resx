@@ -447,4 +447,7 @@
   <data name="Rate" xml:space="preserve">
     <value>Rate</value>
   </data>
+  <data name="Shield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
 </root>

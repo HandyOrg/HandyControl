@@ -15,7 +15,6 @@
         <Setter Property="AllowClear" Value="{Binding AllowClear,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
         <Setter Property="Icon" Value="{Binding Icon,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
         <Setter Property="Background" Value="{Binding Background,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
-        <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:RateItem">

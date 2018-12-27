@@ -12,85 +12,64 @@ namespace HandyControl.Controls
     {
         private const string ElementIcon = "PART_Icon";
 
-        private FrameworkElement _icon;
+        public static readonly DependencyProperty AllowClearProperty =
+            Rate.AllowClearProperty.AddOwner(typeof(RateItem));
 
-        private bool _isLoaded;
+        public static readonly DependencyProperty AllowHalfProperty =
+            Rate.AllowHalfProperty.AddOwner(typeof(RateItem), new PropertyMetadata(OnAllowHalfChanged));
 
-        private bool _isSentValue;
-
-        private bool _isMouseLeftButtonDown;
-
-        public RateItem() => Loaded += (s, e) => _isLoaded = true;
-
-        public static readonly DependencyProperty AllowClearProperty = DependencyProperty.Register(
-            "AllowClear", typeof(bool), typeof(RateItem), new PropertyMetadata(ValueBoxes.TrueBox));
-
-        public bool AllowClear
-        {
-            get => (bool)GetValue(AllowClearProperty);
-            set => SetValue(AllowClearProperty, value);
-        }
-
-        public static readonly DependencyProperty AllowHalfProperty = DependencyProperty.Register(
-            "AllowHalf", typeof(bool), typeof(RateItem), new PropertyMetadata(ValueBoxes.FalseBox, OnAllowHalfChanged));
-
-        private static void OnAllowHalfChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (RateItem)d;
-            ctl.HandleMouseMoveEvent((bool)e.NewValue);
-        }
-
-        public bool AllowHalf
-        {
-            get => (bool)GetValue(AllowHalfProperty);
-            set => SetValue(AllowHalfProperty, value);
-        }
-
-        public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-            "Icon", typeof(Geometry), typeof(RateItem), new PropertyMetadata(default(Geometry)));
-
-        public Geometry Icon
-        {
-            get => (Geometry)GetValue(IconProperty);
-            set => SetValue(IconProperty, value);
-        }
+        public static readonly DependencyProperty IconProperty = Rate.IconProperty.AddOwner(typeof(RateItem));
 
         internal static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-            "IsSelected", typeof(bool), typeof(RateItem), new PropertyMetadata(ValueBoxes.FalseBox, OnIsSelectedChanged));
-
-        private static void OnIsSelectedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (RateItem)d;
-            ctl._icon.Show((bool)e.NewValue);
-        }
-
-        internal bool IsSelected
-        {
-            get => (bool)GetValue(IsSelectedProperty);
-            set => SetValue(IsSelectedProperty, value);
-        }
+            "IsSelected", typeof(bool), typeof(RateItem),
+            new PropertyMetadata(ValueBoxes.FalseBox, OnIsSelectedChanged));
 
         public static readonly RoutedEvent SelectedChangedEvent =
             EventManager.RegisterRoutedEvent("SelectedChanged", RoutingStrategy.Bubble,
                 typeof(RoutedEventHandler), typeof(RateItem));
 
-        public event RoutedEventHandler SelectedChanged
-        {
-            add => AddHandler(SelectedChangedEvent, value);
-            remove => RemoveHandler(SelectedChangedEvent, value);
-        }
-
         public static readonly RoutedEvent ValueChangedEvent =
             EventManager.RegisterRoutedEvent("ValueChanged", RoutingStrategy.Bubble,
                 typeof(RoutedEventHandler), typeof(RateItem));
 
-        public event RoutedEventHandler ValueChanged
-        {
-            add => AddHandler(ValueChangedEvent, value);
-            remove => RemoveHandler(ValueChangedEvent, value);
-        }
+        private FrameworkElement _icon;
 
         private bool _isHalf;
+
+        private bool _isLoaded;
+
+        private bool _isMouseLeftButtonDown;
+
+        private bool _isSentValue;
+
+        public RateItem()
+        {
+            Loaded += (s, e) => _isLoaded = true;
+        }
+
+        public bool AllowClear
+        {
+            get => (bool) GetValue(AllowClearProperty);
+            set => SetValue(AllowClearProperty, value);
+        }
+
+        public bool AllowHalf
+        {
+            get => (bool) GetValue(AllowHalfProperty);
+            set => SetValue(AllowHalfProperty, value);
+        }
+
+        public Geometry Icon
+        {
+            get => (Geometry) GetValue(IconProperty);
+            set => SetValue(IconProperty, value);
+        }
+
+        internal bool IsSelected
+        {
+            get => (bool) GetValue(IsSelectedProperty);
+            set => SetValue(IsSelectedProperty, value);
+        }
 
         internal bool IsHalf
         {
@@ -104,6 +83,30 @@ namespace HandyControl.Controls
         }
 
         internal int Index { get; set; }
+
+        private static void OnAllowHalfChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (RateItem) d;
+            ctl.HandleMouseMoveEvent((bool) e.NewValue);
+        }
+
+        private static void OnIsSelectedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (RateItem) d;
+            ctl._icon.Show((bool) e.NewValue);
+        }
+
+        public event RoutedEventHandler SelectedChanged
+        {
+            add => AddHandler(SelectedChangedEvent, value);
+            remove => RemoveHandler(SelectedChangedEvent, value);
+        }
+
+        public event RoutedEventHandler ValueChanged
+        {
+            add => AddHandler(ValueChangedEvent, value);
+            remove => RemoveHandler(ValueChangedEvent, value);
+        }
 
         private void HandleMouseMoveEvent(bool handle)
         {
@@ -144,7 +147,7 @@ namespace HandyControl.Controls
 
             _isSentValue = false;
             IsSelected = true;
-            RaiseEvent(new RoutedEventArgs(SelectedChangedEvent) { Source = this });
+            RaiseEvent(new RoutedEventArgs(SelectedChangedEvent) {Source = this});
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -178,6 +181,7 @@ namespace HandyControl.Controls
                             _isSentValue = true;
                             return;
                         }
+
                         _isSentValue = false;
                         IsSelected = false;
                         IsHalf = false;

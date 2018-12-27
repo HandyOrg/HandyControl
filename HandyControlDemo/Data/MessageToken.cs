@@ -66,6 +66,8 @@
 	
         public static readonly string RateDemoCtl = nameof(RateDemoCtl);
 	
+        public static readonly string ShieldDemoCtl = nameof(ShieldDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

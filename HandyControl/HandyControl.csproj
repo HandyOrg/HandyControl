@@ -92,6 +92,7 @@
     </When>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controls\Attach\LinkElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
@@ -110,6 +111,7 @@
     <Compile Include="Controls\Other\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
+    <Compile Include="Controls\Other\Shield.cs" />
     <Compile Include="Controls\Rate\Rate.cs" />
     <Compile Include="Controls\Rate\RateItem.cs" />
     <Compile Include="Controls\Text\OutlineText.cs" />
@@ -202,6 +204,7 @@
     <Compile Include="Expression\Media\UnitType.cs" />
     <Compile Include="Expression\Shapes\Arc.cs" />
     <Compile Include="Expression\Shapes\PrimitiveShape.cs" />
+    <Compile Include="Tools\Helper\DesignerHelper.cs" />
     <Compile Include="Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="Controls\TabControl\TabControl.cs" />
@@ -360,11 +363,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\ShieldBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\TagBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\ToolBarBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -593,6 +604,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\SearchBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Shield.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

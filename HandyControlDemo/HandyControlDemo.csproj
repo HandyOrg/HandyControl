@@ -171,6 +171,9 @@
     <Compile Include="UserControl\Controls\SearchBarDemoCtl.xaml.cs">
       <DependentUpon>SearchBarDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\ShieldDemoCtl.xaml.cs">
+      <DependentUpon>ShieldDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\StepBarDemoCtl.xaml.cs">
       <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -455,6 +458,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\ShieldDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\StepBarDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -647,6 +654,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Shield_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Star.png" />
     <Resource Include="Resources\Img\qq-group.jpg" />
     <Resource Include="Resources\Img\LeftMainContent\FlipVertical_16x.png" />

@@ -11,17 +11,28 @@ namespace HandyControl.Controls
         private const string IndicatorTemplateName = "PART_Indicator";
 
         public static readonly DependencyProperty ArcThicknessProperty = DependencyProperty.Register(
-            "ArcThickness", typeof(double), typeof(CircleProgressBar), new PropertyMetadata(.0));
+            "ArcThickness", typeof(double), typeof(CircleProgressBar), new PropertyMetadata(ValueBoxes.Double0Box));
 
         public static readonly DependencyProperty ShowTextProperty = DependencyProperty.Register(
             "ShowText", typeof(bool), typeof(CircleProgressBar), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            "Text", typeof(string), typeof(CircleProgressBar), new PropertyMetadata(default(string)));
 
         private Arc _indicator;
 
         static CircleProgressBar()
         {
-            FocusableProperty.OverrideMetadata(typeof(CircleProgressBar), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
-            MaximumProperty.OverrideMetadata(typeof(CircleProgressBar), new FrameworkPropertyMetadata(ValueBoxes.Double100Box));
+            FocusableProperty.OverrideMetadata(typeof(CircleProgressBar),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
+            MaximumProperty.OverrideMetadata(typeof(CircleProgressBar),
+                new FrameworkPropertyMetadata(ValueBoxes.Double100Box));
+        }
+
+        public string Text
+        {
+            get => (string) GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
         public bool ShowText

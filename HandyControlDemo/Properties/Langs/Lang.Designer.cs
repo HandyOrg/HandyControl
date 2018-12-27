@@ -826,6 +826,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 徽章 的本地化字符串。
+        /// </summary>
+        public static string Shield {
+            get {
+                return ResourceManager.GetString("Shield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 显示行号 的本地化字符串。
         /// </summary>
         public static string ShowRowNumber {
