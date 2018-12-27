@@ -6,6 +6,10 @@
 
 ## Latest examples
 
+### WaterfallPanel
+
+![WaterfallPanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaterfallPanel.png)
+
 ### Rate
 
 ![Rate](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Rate.png)

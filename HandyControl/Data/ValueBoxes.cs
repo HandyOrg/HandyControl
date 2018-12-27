@@ -23,6 +23,8 @@
 
         internal static object Int1Box = 1;
 
+        internal static object Int2Box = 2;
+
         internal static object Int5Box = 5;
 
         internal static object BooleanBox(bool value) => value ? TrueBox : FalseBox;

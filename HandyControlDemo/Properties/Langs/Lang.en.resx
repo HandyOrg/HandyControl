@@ -450,4 +450,10 @@
   <data name="Shield" xml:space="preserve">
     <value>Shield</value>
   </data>
+  <data name="WaterfallPanel" xml:space="preserve">
+    <value>WaterfallPanel</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
 </root>

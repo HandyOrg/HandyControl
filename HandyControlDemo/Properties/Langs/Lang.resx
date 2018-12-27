@@ -430,4 +430,10 @@
   <data name="Shield" xml:space="preserve">
     <value>徽章</value>
   </data>
+  <data name="WaterfallPanel" xml:space="preserve">
+    <value>瀑布流</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>组数</value>
+  </data>
 </root>

@@ -36,7 +36,8 @@ var controlList = new List<string>
 	"QQGroupView",
 	"BlurWindow",
 	"RateDemoCtl",
-	"ShieldDemoCtl"
+	"ShieldDemoCtl",
+	"WaterfallPanelDemoCtl"
 };
 var styleList = new List<string>
 {

@@ -230,6 +230,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ColorWheel_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.WaterfallPanelDemoCtl}" Content="{x:Static langs:Lang.WaterfallPanel}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/Panel_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CircleProgressBarDemoCtl}" Content="{x:Static langs:Lang.CircleProgressBar}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ShapeArcRing_16x.png"/>

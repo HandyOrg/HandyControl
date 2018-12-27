@@ -196,6 +196,9 @@
     <Compile Include="UserControl\Controls\TimePickerDemoCtl.xaml.cs">
       <DependentUpon>TimePickerDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
+      <DependentUpon>WaterfallPanelDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\WindowDemoCtl.xaml.cs">
       <DependentUpon>WindowDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -491,6 +494,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\WaterfallPanelDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\WindowDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -671,6 +678,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Panel_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Shield_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Star.png" />
     <Resource Include="Resources\Img\qq-group.jpg" />

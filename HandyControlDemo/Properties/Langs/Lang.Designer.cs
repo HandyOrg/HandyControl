@@ -47,7 +47,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
+        ///   使用此强类型资源类，为所有资源查找
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -408,6 +408,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string GroupBox {
             get {
                 return ResourceManager.GetString("GroupBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 组数 的本地化字符串。
+        /// </summary>
+        public static string Groups {
+            get {
+                return ResourceManager.GetString("Groups", resourceCulture);
             }
         }
         
@@ -1047,6 +1056,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Warning {
             get {
                 return ResourceManager.GetString("Warning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 瀑布流 的本地化字符串。
+        /// </summary>
+        public static string WaterfallPanel {
+            get {
+                return ResourceManager.GetString("WaterfallPanel", resourceCulture);
             }
         }
         

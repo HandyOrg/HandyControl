@@ -134,6 +134,7 @@
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
     <Compile Include="Controls\Other\Shield.cs" />
+    <Compile Include="Controls\Panel\WaterfallPanel.cs" />
     <Compile Include="Controls\Rate\Rate.cs" />
     <Compile Include="Controls\Rate\RateItem.cs" />
     <Compile Include="Controls\Text\OutlineText.cs" />
