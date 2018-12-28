@@ -29,11 +29,10 @@ namespace HandyControl.Controls
 
         private static void CreateTrriger(UIElement element, string link)
         {
-            if (string.IsNullOrEmpty(link))
-            {
-                element.CommandBindings.Remove(GetCommandBinding(element));
-                return;
-            }
+            element.CommandBindings.Remove(GetCommandBinding(element));
+            element.SetCurrentValue(CommandBindingProperty, DependencyProperty.UnsetValue);
+
+            if (string.IsNullOrEmpty(link)) return;
             var commandBinding = new CommandBinding(ControlCommands.OpenLink, (sender, args) => Process.Start(link));
             SetCommandBinding(element, commandBinding);
             element.CommandBindings.Add(commandBinding);

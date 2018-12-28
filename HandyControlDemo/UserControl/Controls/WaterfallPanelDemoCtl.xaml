@@ -14,17 +14,7 @@
             <controls:NumericUpDown x:Name="UpDownGroups" HorizontalAlignment="Center" Value="2" Minimum="1" Maximum="3" Width="200" Style="{StaticResource NumericUpDownExtend}" controls:TitleElement.Title="{x:Static langs:Lang.Groups}" controls:TitleElement.TitleWidth="50" controls:TitleElement.TitleAlignment="Left"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,16,0,0">
                 <controls:ScrollViewer MaxHeight="300" IsEnableInertia="True">
-                    <controls:WaterfallPanel VerticalAlignment="Center" Width="300" Groups="{Binding Value,ElementName=UpDownGroups}">
-                        <interactivity:Interaction.Behaviors>
-                            <interactivity:FluidMoveBehavior AppliesTo="Children" Duration="0:0:.2">
-                                <interactivity:FluidMoveBehavior.EaseX>
-                                    <PowerEase/>
-                                </interactivity:FluidMoveBehavior.EaseX>
-                                <interactivity:FluidMoveBehavior.EaseY>
-                                    <PowerEase/>
-                                </interactivity:FluidMoveBehavior.EaseY>
-                            </interactivity:FluidMoveBehavior>
-                        </interactivity:Interaction.Behaviors>
+                    <controls:WaterfallPanel VerticalAlignment="Center" Width="300" Groups="{Binding Value,ElementName=UpDownGroups}" controls:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}">
                         <Border Height="100" Background="{DynamicResource PrimaryBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
                             <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>

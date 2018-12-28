@@ -115,6 +115,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Controls\Attach\LinkElement.cs" />
+    <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
@@ -319,6 +320,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Themes\Basic\Basic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Basic\Behaviors.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

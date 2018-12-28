@@ -17,6 +17,8 @@
 
         internal static object Double100Box = 100.0;
 
+        internal static object Double200Box = 200.0;
+
         internal static object DoubleNeg1Box = -1.0;
 
         internal static object Int0Box = 0;

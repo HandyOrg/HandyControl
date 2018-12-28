@@ -9,6 +9,7 @@
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../Basic/Paths.xaml"/>
         <ResourceDictionary Source="../Basic/Sizes.xaml"/>
+        <ResourceDictionary Source="../Basic/Behaviors.xaml"/>
 
     </ResourceDictionary.MergedDictionaries>
 
