@@ -37,7 +37,8 @@ var controlList = new List<string>
 	"BlurWindow",
 	"RateDemoCtl",
 	"ShieldDemoCtl",
-	"WaterfallPanelDemoCtl"
+	"WaterfallPanelDemoCtl",
+	"CoverViewDemoCtl"
 };
 var styleList = new List<string>
 {

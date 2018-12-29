@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.CoverViewDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
+             Background="{DynamicResource RegionBrush}">
+    <controls:TransitioningContentControl>
+        <StackPanel Margin="32" VerticalAlignment="Center">
+            <TextBlock Text="Under construction" Style="{StaticResource TextBlockLargeBold}"/>
+            <Button Margin="0,32,0,0" Content="Target" Style="{StaticResource ButtonPrimary}" Width="180" Command="interactivity:ControlCommands.OpenLink" controls:LinkElement.Link="https://dribbble.com/shots/1538492-iTunes-Redesign/attachments/233957"/>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

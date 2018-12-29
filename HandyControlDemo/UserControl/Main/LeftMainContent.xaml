@@ -235,6 +235,11 @@
                         <Image Source="../../Resources/Img/LeftMainContent/Panel_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CoverViewDemoCtl}" Content="{x:Static langs:Lang.CoverView}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/DetailDataView_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CircleProgressBarDemoCtl}" Content="{x:Static langs:Lang.CircleProgressBar}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/ShapeArcRing_16x.png"/>

@@ -47,7 +47,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   使用此强类型资源类，为所有资源查找
+        ///   重写当前线程的 CurrentUICulture 属性
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -300,6 +300,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Controls {
             get {
                 return ResourceManager.GetString("Controls", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 封面视图 的本地化字符串。
+        /// </summary>
+        public static string CoverView {
+            get {
+                return ResourceManager.GetString("CoverView", resourceCulture);
             }
         }
         

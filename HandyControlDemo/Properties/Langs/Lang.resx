@@ -436,4 +436,7 @@
   <data name="Groups" xml:space="preserve">
     <value>组数</value>
   </data>
+  <data name="CoverView" xml:space="preserve">
+    <value>封面视图</value>
+  </data>
 </root>

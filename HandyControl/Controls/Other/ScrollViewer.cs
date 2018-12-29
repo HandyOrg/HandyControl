@@ -49,14 +49,25 @@ namespace HandyControl.Controls
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
+            if (!CanMouseWheel) return;
+
             if (!IsEnableInertia)
             {
-                base.OnMouseWheel(e);
+                if (Orientation == Orientation.Vertical)
+                {
+                    base.OnMouseWheel(e);
+                }
+                else
+                {
+                    _totalHorizontalOffset = HorizontalOffset;
+                    CurrentHorizontalOffset = HorizontalOffset;
+                    _totalHorizontalOffset = Math.Min(Math.Max(0, _totalHorizontalOffset - e.Delta), ScrollableWidth);
+                    CurrentHorizontalOffset = _totalHorizontalOffset;
+                }
                 return;
             }
             e.Handled = true;
 
-            if (!CanMouseWheel) return;
             if (Orientation == Orientation.Vertical)
             {
                 if (!_isRunning)

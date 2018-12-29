@@ -70,6 +70,8 @@
 	
         public static readonly string WaterfallPanelDemoCtl = nameof(WaterfallPanelDemoCtl);
 	
+        public static readonly string CoverViewDemoCtl = nameof(CoverViewDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

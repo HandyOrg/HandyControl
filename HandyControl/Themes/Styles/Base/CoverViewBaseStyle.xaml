@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls">
+
+    <Style x:Key="CoverViewItemBaseStyle" TargetType="controls:CoverViewItem">
+
+    </Style>
+
+    <Style x:Key="CoverViewBaseStyle" TargetType="controls:CoverView">
+        <!--<Setter Property="item"/>-->
+    </Style>
+
+</ResourceDictionary>

@@ -117,6 +117,7 @@
     <Compile Include="Controls\Attach\LinkElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
+    <Compile Include="Controls\CoverView\CoverViewItem.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Attach\BorderElement.cs" />
@@ -131,6 +132,7 @@
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Other\Carousel.cs" />
+    <Compile Include="Controls\CoverView\CoverView.cs" />
     <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
@@ -375,6 +377,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\CoverViewBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\DatePickerBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -404,6 +410,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\CoverView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

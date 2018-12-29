@@ -139,6 +139,9 @@
     <Compile Include="UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
       <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\CoverViewDemoCtl.xaml.cs">
+      <DependentUpon>CoverViewDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\DatePickerDemoCtl.xaml.cs">
       <DependentUpon>DatePickerDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -418,6 +421,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\CoverViewDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\DatePickerDemoCtl.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -678,6 +685,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\DetailDataView_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Panel_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Shield_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Star.png" />

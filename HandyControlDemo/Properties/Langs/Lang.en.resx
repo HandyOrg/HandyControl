@@ -456,4 +456,7 @@
   <data name="Groups" xml:space="preserve">
     <value>Groups</value>
   </data>
+  <data name="CoverView" xml:space="preserve">
+    <value>CoverView</value>
+  </data>
 </root>
