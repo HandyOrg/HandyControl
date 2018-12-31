@@ -1,0 +1,17 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/LoadingIndicatorsBaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="LoadingIndicatorArcsStyle" TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorArcsStyleKey}"/>
+    <Style x:Key="LoadingIndicatorArcsRingStyle" TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorArcsRingStyleKey}"/>
+    <Style x:Key="LoadingIndicatorDoubleBounceStyle" TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorDoubleBounceStyleKey}"/>
+    <Style x:Key="LoadingIndicatorFlipPlaneStyle" TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorFlipPlaneStyleKey}"/>
+    <Style x:Key="LoadingIndicatorPulseStyle" TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorPulseStyleKey}"/>
+    <Style x:Key="LoadingIndicatorRingStyle" TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorRingStyleKey}"/>
+    <Style x:Key="LoadingIndicatorThreeDotsStyle" TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorThreeDotsStyleKey}"/>
+    <Style x:Key="LoadingIndicatorWaveStyle" TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorWaveStyleKey}"/>
+    <Style TargetType="{x:Type controls:LoadingIndicator}" BasedOn="{StaticResource LoadingIndicatorWaveStyleKey}"/>
+</ResourceDictionary>
