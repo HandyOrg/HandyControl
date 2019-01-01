@@ -4,25 +4,33 @@
              Background="{DynamicResource RegionBrush}"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
-        <StackPanel Width="600" Margin="32" VerticalAlignment="Center">
-            <controls:LoadingLine/>
-            <controls:LoadingLine Margin="0,30" Foreground="BlueViolet" Style="{StaticResource LoadingLineLarge}"/>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <controls:LoadingCircle/>
-                <Border VerticalAlignment="Center" Margin="32,0,0,0" Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
-                    <controls:LoadingCircle Style="{StaticResource LoadingCircleLight}" Margin="10"/>
-                </Border>
+        <StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ToggleButton VerticalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}" IsChecked="True" Name="isbusy"/>
+                <Label Content="IsBusy"/>
             </StackPanel>
-            <UniformGrid Columns="8" Margin="10">
-                <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorArcsStyle}"/>
-                <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorArcsRingStyle}"/>
-                <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorDoubleBounceStyle}"/>
-                <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorFlipPlaneStyle}"/>
-                <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorPulseStyle}"/>
-                <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorRingStyle}"/>
-                <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorThreeDotsStyle}"/>
-                <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorWaveStyle}"/>
-            </UniformGrid>
+            <controls:BusyIndicator ProgressBarStyle="{StaticResource ProgressBarPrimaryStripe}" IsBusy="{Binding ElementName=isbusy, Path=IsChecked}">
+                <StackPanel Width="600" Margin="32" VerticalAlignment="Center">
+                    <controls:LoadingLine/>
+                    <controls:LoadingLine Margin="0,30" Foreground="BlueViolet" Style="{StaticResource LoadingLineLarge}"/>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <controls:LoadingCircle/>
+                        <Border VerticalAlignment="Center" Margin="32,0,0,0" Background="{DynamicResource PrimaryBrush}" CornerRadius="10">
+                            <controls:LoadingCircle Style="{StaticResource LoadingCircleLight}" Margin="10"/>
+                        </Border>
+                    </StackPanel>
+                    <UniformGrid Columns="8" Margin="10">
+                        <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorArcsStyle}"/>
+                        <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorArcsRingStyle}"/>
+                        <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorDoubleBounceStyle}"/>
+                        <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorFlipPlaneStyle}"/>
+                        <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorPulseStyle}"/>
+                        <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorRingStyle}"/>
+                        <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorThreeDotsStyle}"/>
+                        <controls:LoadingIndicator SpeedRatio="{Binding SpeedRatio}" Style="{DynamicResource LoadingIndicatorWaveStyle}"/>
+                    </UniformGrid>
+                </StackPanel>
+            </controls:BusyIndicator>
         </StackPanel>
     </controls:TransitioningContentControl>
 </UserControl>

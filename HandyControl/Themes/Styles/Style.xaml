@@ -16,6 +16,7 @@
         <ResourceDictionary Source="ListBox.xaml"/>
         <ResourceDictionary Source="Loading.xaml"/>
         <ResourceDictionary Source="LoadingIndicators.xaml"/>
+        <ResourceDictionary Source="BusyIndicator.xaml"/>
         <ResourceDictionary Source="ContextMenu.xaml"/>
         <ResourceDictionary Source="ToolTip.xaml"/>
         <ResourceDictionary Source="Expander.xaml"/>

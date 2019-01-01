@@ -118,6 +118,7 @@
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
     <Compile Include="Controls\CoverView\CoverViewItem.cs" />
+    <Compile Include="Controls\Loading\BusyIndicator.cs" />
     <Compile Include="Controls\Loading\LoadingIndicator.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
@@ -189,6 +190,7 @@
     <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
+    <Compile Include="Tools\Converter\ProgressBarWidthConverter.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\GifImageAnimator.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
@@ -415,6 +417,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\BusyIndicator.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -768,7 +774,9 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Compile Include="Controls\Loading\VisualStates.BusyIndicator.cs" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
