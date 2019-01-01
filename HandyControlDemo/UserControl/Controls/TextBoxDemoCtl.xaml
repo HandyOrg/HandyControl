@@ -6,7 +6,7 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
     <controls:TransitioningContentControl>
         <StackPanel Margin="32">
-            <controls:TextBox ShowClearButton="True" Text="{x:Static langs:Lang.ContentDemoStr}"/>
+            <controls:TextBox Mask="(000)-000-0000" ShowClearButton="True" Text="{x:Static langs:Lang.ContentDemoStr}"/>
             <controls:TextBox Text="{x:Static langs:Lang.ContentDemoStr}" Margin="0,16,0,0" IsEnabled="False"/>
 
             <controls:TextBox ShowClearButton="True" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" Text="{x:Static langs:Lang.ContentDemoStr}"/>
