@@ -6,6 +6,10 @@
 
 ## Latest examples
 
+### CoverView
+
+![CoverView](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverView.gif)
+
 ### WaterfallPanel
 
 ![WaterfallPanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaterfallPanel.png)
@@ -22,11 +26,11 @@
 
 ![FlipClock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/FlipClock.gif)
 
+## History publication
+
 ### Shield
 
 ![Shield](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Shield.png)
-
-## History publication
 
 ### OutlineText
 

@@ -1,6 +1,5 @@
 ﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
@@ -8,7 +7,7 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    public class Rate : ItemsControl
+    public class Rate : SimpleItemsControl
     {
         public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register(
             "ItemMargin", typeof(Thickness), typeof(Rate), new PropertyMetadata(default(Thickness)));
@@ -179,8 +178,6 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
-            base.OnApplyTemplate();
-
             if (!_isLoaded)
             {
                 Items.Clear();
@@ -193,6 +190,8 @@ namespace HandyControl.Controls
                     });
                 }
             }
+
+            base.OnApplyTemplate();
         }
 
         protected override void OnMouseLeave(MouseEventArgs e)

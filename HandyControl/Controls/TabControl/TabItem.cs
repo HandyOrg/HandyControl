@@ -8,7 +8,6 @@ using System.Windows.Media.Animation;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     public class TabItem : System.Windows.Controls.TabItem

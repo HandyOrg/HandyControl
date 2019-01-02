@@ -685,6 +685,16 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\Album\1.jpg" />
+    <Resource Include="Resources\Img\Album\10.jpg" />
+    <Resource Include="Resources\Img\Album\2.jpg" />
+    <Resource Include="Resources\Img\Album\3.jpg" />
+    <Resource Include="Resources\Img\Album\4.jpg" />
+    <Resource Include="Resources\Img\Album\5.jpg" />
+    <Resource Include="Resources\Img\Album\6.jpg" />
+    <Resource Include="Resources\Img\Album\7.jpg" />
+    <Resource Include="Resources\Img\Album\8.jpg" />
+    <Resource Include="Resources\Img\Album\9.jpg" />
     <Resource Include="Resources\Img\LeftMainContent\DetailDataView_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Panel_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Shield_16x.png" />

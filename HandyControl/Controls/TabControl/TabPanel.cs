@@ -6,7 +6,6 @@ using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     public class TabPanel : Panel
