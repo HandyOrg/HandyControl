@@ -78,6 +78,7 @@ namespace HandyControl.Controls
             {
                 if (_isHalf == value) return;
                 _isHalf = value;
+                if (_icon == null) return;
                 _icon.Width = value ? ActualWidth / 2 : ActualWidth;
             }
         }
@@ -93,7 +94,7 @@ namespace HandyControl.Controls
         private static void OnIsSelectedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (RateItem) d;
-            ctl._icon.Show((bool) e.NewValue);
+            ctl._icon?.Show((bool) e.NewValue);
         }
 
         public event RoutedEventHandler SelectedChanged

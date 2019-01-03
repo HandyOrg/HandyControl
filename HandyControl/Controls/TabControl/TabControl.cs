@@ -6,7 +6,6 @@ using System.Windows.Controls.Primitives;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
 
-// ReSharper disable once CheckNamespace
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = OverflowButtonKey, Type = typeof(ContextMenuToggleButton))]
