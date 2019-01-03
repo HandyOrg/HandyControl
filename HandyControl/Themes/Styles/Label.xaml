@@ -5,7 +5,7 @@
         <ResourceDictionary Source="Base/LabelBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
+    <Style x:Key="Label_Handy" BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
     </Style>

@@ -6,7 +6,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--默认样式-->
-    <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
+    <Style x:Key="ListBox_Handy" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
 
     <Style x:Key="ListBoxItemStyle" TargetType="ListBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>

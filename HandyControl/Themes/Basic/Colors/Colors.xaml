@@ -2,8 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <Color x:Key="PrimaryColor">#73a5ff</Color>
-    <Color x:Key="DarkPrimaryColor">#5477f5</Color>
+    <Color x:Key="PrimaryColor">#f29222</Color>
+    <Color x:Key="DarkPrimaryColor">#ff734a</Color>
 
     <Color x:Key="DangerColor">#ff8792</Color>
     <Color x:Key="DarkDangerColor">#ff4c9f</Color>
