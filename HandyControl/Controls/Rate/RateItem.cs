@@ -20,6 +20,8 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty IconProperty = Rate.IconProperty.AddOwner(typeof(RateItem));
 
+        public static readonly DependencyProperty IsReadOnlyProperty = Rate.IsReadOnlyProperty.AddOwner(typeof(RateItem));
+
         internal static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
             "IsSelected", typeof(bool), typeof(RateItem),
             new PropertyMetadata(ValueBoxes.FalseBox, OnIsSelectedChanged));
@@ -69,6 +71,12 @@ namespace HandyControl.Controls
         {
             get => (bool) GetValue(IsSelectedProperty);
             set => SetValue(IsSelectedProperty, value);
+        }
+
+        public bool IsReadOnly
+        {
+            get => (bool)GetValue(IsReadOnlyProperty);
+            set => SetValue(IsReadOnlyProperty, value);
         }
 
         internal bool IsHalf
@@ -123,6 +131,7 @@ namespace HandyControl.Controls
 
         private void RateItem_MouseMove(object sender, MouseEventArgs e)
         {
+            if (IsReadOnly) return;
             if (!AllowHalf) return;
             var p = e.GetPosition(this);
             IsHalf = p.X < ActualWidth / 2;
@@ -145,7 +154,7 @@ namespace HandyControl.Controls
         protected override void OnMouseEnter(MouseEventArgs e)
         {
             base.OnMouseEnter(e);
-
+            if (IsReadOnly) return;
             _isSentValue = false;
             IsSelected = true;
             RaiseEvent(new RoutedEventArgs(SelectedChangedEvent) {Source = this});
@@ -154,21 +163,21 @@ namespace HandyControl.Controls
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-
+            if (IsReadOnly) return;
             _isMouseLeftButtonDown = true;
         }
 
         protected override void OnMouseLeave(MouseEventArgs e)
         {
             base.OnMouseLeave(e);
-
+            if (IsReadOnly) return;
             _isMouseLeftButtonDown = false;
         }
 
         protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonUp(e);
-
+            if (IsReadOnly) return;
             if (_isMouseLeftButtonDown)
             {
                 if (Index == 1 && AllowClear)

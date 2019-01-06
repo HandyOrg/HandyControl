@@ -139,6 +139,9 @@
     <Compile Include="UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
       <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\CoverFlowDemoCtl.xaml.cs">
+      <DependentUpon>CoverFlowDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\CoverViewDemoCtl.xaml.cs">
       <DependentUpon>CoverViewDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -421,6 +424,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\CoverFlowDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\CoverViewDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -685,6 +692,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\LinearCarousel_16x.png" />
     <Resource Include="Resources\Img\Album\1.jpg" />
     <Resource Include="Resources\Img\Album\10.jpg" />
     <Resource Include="Resources\Img\Album\2.jpg" />

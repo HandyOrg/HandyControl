@@ -4,7 +4,7 @@ using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
-    public class CoverView : SimpleItemsControl
+    public class CoverView : RegularItemsControl
     {
         private readonly CoverViewContent _viewContent;
 
@@ -14,7 +14,7 @@ namespace HandyControl.Controls
         {
             _viewContent = new CoverViewContent {ContentHeight = ItemContentHeight};
 
-            AddHandler(CoverViewItem.SelectedEvent, new RoutedEventHandler(CoverViewItem_OnSelected));
+            AddHandler(SelectableItem.SelectedEvent, new RoutedEventHandler(CoverViewItem_OnSelected));
             _viewContent.SetBinding(WidthProperty, new Binding(ActualWidthProperty.Name) { Source = this });
         }
 
@@ -85,33 +85,6 @@ namespace HandyControl.Controls
         {
             get => (Style) GetValue(CoverViewContentStyleProperty);
             set => SetValue(CoverViewContentStyleProperty, value);
-        }
-
-        public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(
-            "ItemWidth", typeof(double), typeof(CoverView), new PropertyMetadata(ValueBoxes.Double200Box));
-
-        public double ItemWidth
-        {
-            get => (double) GetValue(ItemWidthProperty);
-            set => SetValue(ItemWidthProperty, value);
-        }
-
-        public static readonly DependencyProperty ItemHeightProperty = DependencyProperty.Register(
-            "ItemHeight", typeof(double), typeof(CoverView), new PropertyMetadata(ValueBoxes.Double200Box));
-
-        public double ItemHeight
-        {
-            get => (double) GetValue(ItemHeightProperty);
-            set => SetValue(ItemHeightProperty, value);
-        }
-
-        public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register(
-            "ItemMargin", typeof(Thickness), typeof(CoverView), new PropertyMetadata(default(Thickness)));
-
-        public Thickness ItemMargin
-        {
-            get => (Thickness) GetValue(ItemMarginProperty);
-            set => SetValue(ItemMarginProperty, value);
         }
 
         internal static readonly DependencyProperty GroupsProperty = DependencyProperty.Register(

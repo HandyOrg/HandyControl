@@ -30,7 +30,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                accentPolicy.AccentState = ExternDllHelper.ACCENTSTATE.ACCENT_ENABLE_TRANSPARENTGRADIENT;
+                return;
             }
 
             accentPolicy.AccentFlags = 2;

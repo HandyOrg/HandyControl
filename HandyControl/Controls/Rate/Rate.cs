@@ -7,16 +7,13 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    public class Rate : SimpleItemsControl
+    public class Rate : RegularItemsControl
     {
-        public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register(
-            "ItemMargin", typeof(Thickness), typeof(Rate), new PropertyMetadata(default(Thickness)));
-
-        public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(
-            "ItemWidth", typeof(double), typeof(Rate), new PropertyMetadata(ValueBoxes.Double20Box));
-
-        public static readonly DependencyProperty ItemHeightProperty = DependencyProperty.Register(
-            "ItemHeight", typeof(double), typeof(Rate), new PropertyMetadata(ValueBoxes.Double20Box));
+        static Rate()
+        {
+            ItemWidthProperty.OverrideMetadata(typeof(Rate), new PropertyMetadata(ValueBoxes.Double20Box));
+            ItemHeightProperty.OverrideMetadata(typeof(Rate), new PropertyMetadata(ValueBoxes.Double20Box));
+        }
 
         public static readonly DependencyProperty AllowHalfProperty = DependencyProperty.Register(
             "AllowHalf", typeof(bool), typeof(Rate), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
@@ -41,6 +38,9 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty ShowTextProperty = DependencyProperty.Register(
             "ShowText", typeof(bool), typeof(Rate), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
+            "IsReadOnly", typeof(bool), typeof(Rate), new PropertyMetadata(ValueBoxes.FalseBox));
 
         private bool _isLoaded;
 
@@ -67,24 +67,6 @@ namespace HandyControl.Controls
                     UpdateItems();
                 }
             };
-        }
-
-        public Thickness ItemMargin
-        {
-            get => (Thickness) GetValue(ItemMarginProperty);
-            set => SetValue(ItemMarginProperty, value);
-        }
-
-        public double ItemWidth
-        {
-            get => (double) GetValue(ItemWidthProperty);
-            set => SetValue(ItemWidthProperty, value);
-        }
-
-        public double ItemHeight
-        {
-            get => (double) GetValue(ItemHeightProperty);
-            set => SetValue(ItemHeightProperty, value);
         }
 
         public bool AllowHalf
@@ -133,6 +115,12 @@ namespace HandyControl.Controls
         {
             get => (bool) GetValue(ShowTextProperty);
             set => SetValue(ShowTextProperty, value);
+        }
+
+        public bool IsReadOnly
+        {
+            get => (bool)GetValue(IsReadOnlyProperty);
+            set => SetValue(IsReadOnlyProperty, value);
         }
 
         private void RateItemValueChanged(object sender, RoutedEventArgs e)
@@ -201,9 +189,11 @@ namespace HandyControl.Controls
             UpdateItems();
         }
 
-        private void UpdateItems()
+        protected override void UpdateItems()
         {
+            if (!_isLoaded) return;
             var count = (int) Value;
+
             for (var i = 0; i < count; i++)
             {
                 if (Items[i] is RateItem rateItem)

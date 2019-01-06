@@ -7,7 +7,9 @@ using System.Windows.Markup;
 
 namespace HandyControl.Controls
 {
-    [DefaultEvent("OnItemsChanged")]
+    /// <summary>
+    ///     ItemsControl的轻量级版本
+    /// </summary>
     [DefaultProperty("Items")]
     [ContentProperty("Items")]
     [TemplatePart(Name = ElementPanel, Type = typeof(Panel))]

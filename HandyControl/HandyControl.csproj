@@ -117,7 +117,13 @@
     <Compile Include="Controls\Attach\LinkElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
+    <Compile Include="Controls\Base\HeaderedSelectableItem.cs" />
+    <Compile Include="Controls\Base\ISelectable.cs" />
+    <Compile Include="Controls\Base\RegularItemsControl.cs" />
+    <Compile Include="Controls\Base\SelectableItem.cs" />
     <Compile Include="Controls\Base\SimpleItemsControl.cs" />
+    <Compile Include="Controls\CoverFlow\CoverFlow.cs" />
+    <Compile Include="Controls\CoverFlow\CoverFlowItem.cs" />
     <Compile Include="Controls\CoverView\CoverViewContent.cs" />
     <Compile Include="Controls\CoverView\CoverViewItem.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
@@ -379,6 +385,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\CoverFlowBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\CoverViewBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -412,6 +422,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\CoverFlow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

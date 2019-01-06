@@ -6,6 +6,10 @@
 
 ## Latest examples
 
+### CoverFlow
+
+![CoverFlow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverFlow.gif)
+
 ### CoverView
 
 ![CoverView](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverView.gif)
@@ -22,11 +26,11 @@
 
 ![BlurWindow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/BlurWindow.png)
 
+## History publication
+
 ### FlipClock
 
 ![FlipClock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/FlipClock.gif)
-
-## History publication
 
 ### Shield
 

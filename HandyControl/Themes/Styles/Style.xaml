@@ -51,6 +51,7 @@
         <ResourceDictionary Source="Rate.xaml"/>
         <ResourceDictionary Source="Shield.xaml"/>
         <ResourceDictionary Source="CoverView.xaml"/>
+        <ResourceDictionary Source="CoverFlow.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
