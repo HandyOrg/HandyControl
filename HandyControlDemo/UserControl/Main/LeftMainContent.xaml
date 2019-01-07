@@ -4,7 +4,7 @@
         x:Class="HandyControlDemo.UserControl.LeftMainContent"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:data="clr-namespace:HandyControlDemo.Data"
-        Background="Transparent"
+        Background="{Binding Background,RelativeSource={RelativeSource FindAncestor,AncestorType=Window}}"
         xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">

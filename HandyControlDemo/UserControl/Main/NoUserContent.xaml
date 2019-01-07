@@ -70,7 +70,7 @@
         <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,10,0,10">
-                    <Button Tag="cn" Style="{StaticResource ButtonCustom}">
+                    <Button Tag="zh-cn" Style="{StaticResource ButtonCustom}">
                         <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/cn.png"/>
                     </Button>
                     <Button Tag="en" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
