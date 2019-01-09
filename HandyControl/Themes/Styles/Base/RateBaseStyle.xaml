@@ -14,6 +14,7 @@
         <Setter Property="AllowHalf" Value="{Binding AllowHalf,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
         <Setter Property="AllowClear" Value="{Binding AllowClear,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
         <Setter Property="Icon" Value="{Binding Icon,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
+        <Setter Property="IsReadOnly" Value="{Binding IsReadOnly,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
         <Setter Property="Background" Value="{Binding Background,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -60,10 +61,6 @@
         </Setter>
     </Style>
 
-    <ItemsPanelTemplate x:Key="RateHorizontalItemsPanelTemplate">
-        <UniformGrid Rows="1" Margin="-5,0"/>
-    </ItemsPanelTemplate>
-
     <Style x:Key="RateBaseStyle" TargetType="controls:Rate">
         <Setter Property="ItemMargin" Value="5,0"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
@@ -72,13 +69,12 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource RateRateItemBaseStyle}"/>
-        <Setter Property="ItemsPanel" Value="{StaticResource RateHorizontalItemsPanelTemplate}"/>
         <Setter Property="Text" Value="{Binding Value,RelativeSource={RelativeSource Self},StringFormat={}{0:0.0}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Rate">
-                    <StackPanel Background="Transparent" Orientation="Horizontal" x:Name="PART_Panel">
-                        <ItemsPresenter/>
+                    <StackPanel Background="Transparent" Orientation="Horizontal">
+                        <UniformGrid Rows="1" Margin="-5,0" x:Name="PART_Panel"/>
                         <TextBlock Visibility="{TemplateBinding ShowText,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{TemplateBinding Text}" Margin="10,0,0,0" VerticalAlignment="Center"/>
                     </StackPanel>
                 </ControlTemplate>

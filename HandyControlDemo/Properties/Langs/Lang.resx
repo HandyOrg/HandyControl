@@ -439,4 +439,7 @@
   <data name="CoverView" xml:space="preserve">
     <value>封面视图</value>
   </data>
+  <data name="CoverFlow" xml:space="preserve">
+    <value>封面流</value>
+  </data>
 </root>

@@ -2,9 +2,9 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/CoverViewBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/CoverFlowBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource CoverViewBaseStyle}" TargetType="controls:CoverView"/>
-
+    <Style BasedOn="{StaticResource CoverFlowBaseStyle}" TargetType="controls:CoverFlow"/>
+    
 </ResourceDictionary>

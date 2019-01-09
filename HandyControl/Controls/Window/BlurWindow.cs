@@ -1,5 +1,6 @@
 ﻿using System.Runtime.InteropServices;
 using System.Windows.Interop;
+using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 
@@ -30,7 +31,11 @@ namespace HandyControl.Controls
             }
             else
             {
-                accentPolicy.AccentState = ExternDllHelper.ACCENTSTATE.ACCENT_ENABLE_TRANSPARENTGRADIENT;
+                var colorValue = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
+                var color = ColorHelper.ToColor(colorValue);
+                color = Color.FromRgb(color.R, color.G, color.B);
+                window.Background = new SolidColorBrush(color);
+                return;
             }
 
             accentPolicy.AccentFlags = 2;

@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media.Media3D;
 
 namespace HandyControl.Tools
 {
@@ -121,12 +122,31 @@ namespace HandyControl.Tools
         /// <returns></returns>
         public static double CalAngle(Point center, Point p) => Math.Atan2(p.Y - center.Y, p.X - center.X) * 180 / Math.PI;
 
+        /// <summary>
+        ///     判断是否是有效的双精度浮点数
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsValidDoubleValue(object value)
         {
             var d = (double)value;
             if (!double.IsNaN(d))
                 return !double.IsInfinity(d);
             return false;
+        }
+
+        /// <summary>
+        ///     计算法线
+        /// </summary>
+        /// <param name="p0"></param>
+        /// <param name="p1"></param>
+        /// <param name="p2"></param>
+        /// <returns></returns>
+        public static Vector3D CalNormal(Point3D p0, Point3D p1, Point3D p2)
+        {
+            var v0 = new Vector3D(p1.X - p0.X, p1.Y - p0.Y, p1.Z - p0.Z);
+            var v1 = new Vector3D(p2.X - p1.X, p2.Y - p1.Y, p2.Z - p1.Z);
+            return Vector3D.CrossProduct(v0, v1);
         }
     }
 }

@@ -83,7 +83,7 @@
                     <Grid x:Name="TemplateRoot">
                         <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" EndAngle="360" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" StrokeThickness="0"/>
                         <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" Width="{TemplateBinding ActualWidth}" StrokeThickness="0" Height="{TemplateBinding ActualHeight}" x:Name="PART_Indicator" Fill="{TemplateBinding Foreground}"/>
-                        <TextBlock Visibility="{Binding ShowText,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource PrimaryTextBrush}" Text="{TemplateBinding Text}"/>
+                        <TextBlock Visibility="{Binding ShowText,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Text}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

@@ -4,7 +4,7 @@
         x:Class="HandyControlDemo.UserControl.LeftMainContent"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:data="clr-namespace:HandyControlDemo.Data"
-        Background="Transparent"
+        Background="{Binding Background,RelativeSource={RelativeSource FindAncestor,AncestorType=Window}}"
         xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
@@ -190,7 +190,7 @@
                         <Image Source="../../Resources/Img/LeftMainContent/DatePicker_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.FlipClockDemoCtl}" Content="{x:Static langs:Lang.FlipClock}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.FlipClockDemoCtl}" Content="{x:Static langs:Lang.FlipClock}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/FlipVertical_16x.png"/>
                     </controls:EdgeElement.LeftContent>
@@ -238,6 +238,11 @@
                 <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CoverViewDemoCtl}" Content="{x:Static langs:Lang.CoverView}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/DetailDataView_16x.png"/>
+                    </controls:EdgeElement.LeftContent>
+                </ListBoxItem>
+                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CoverFlowDemoCtl}" Content="{x:Static langs:Lang.CoverFlow}">
+                    <controls:EdgeElement.LeftContent>
+                        <Image Source="../../Resources/Img/LeftMainContent/LinearCarousel_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
                 <ListBoxItem Tag="{x:Static data:MessageToken.CircleProgressBarDemoCtl}" Content="{x:Static langs:Lang.CircleProgressBar}">
@@ -310,7 +315,7 @@
                         <Image Source="../../Resources/Img/LeftMainContent/ScrollBox_16x.png"/>
                     </controls:EdgeElement.LeftContent>
                 </ListBoxItem>
-                <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.WindowDemoCtl}" Content="{x:Static langs:Lang.Window}">
+                <ListBoxItem Tag="{x:Static data:MessageToken.WindowDemoCtl}" Content="{x:Static langs:Lang.Window}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/WindowsForm_16x.png"/>
                     </controls:EdgeElement.LeftContent>

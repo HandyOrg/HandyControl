@@ -1,9 +1,7 @@
-﻿using System.Windows.Controls;
-
-namespace HandyControl.Controls
+﻿namespace HandyControl.Controls
 {
-    public class CoverViewItem : HeaderedContentControl
-    {
-        
+    public class CoverViewItem : HeaderedSelectableItem
+    {       
+        internal int Index { get; set; }
     }
 }
