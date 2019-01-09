@@ -1,0 +1,24 @@
+﻿<controls:BlurWindow x:Class="HandyControlDemo.Window.NoClientDragableWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+         xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+                           mc:Ignorable="d"
+                           Background="{DynamicResource MainContentBackgroundBrush}"
+                           WindowStartupLocation="CenterScreen"
+                     ShowNonClientArea="False"
+                     controls:DragWindows.EnableDrag="{Binding ElementName=dragCheck, Path=IsChecked}"
+                           Style="{StaticResource WindowBlur}"
+                           Title="{x:Static langs:Lang.Title}" 
+                           Height="450" 
+                           Width="800">
+    <StackPanel Margin="0,40" VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal">
+            <Label Content="IsDragable" Margin="5,5"/>
+            <ToggleButton IsChecked="True" Name="dragCheck" VerticalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}"/>
+        </StackPanel>
+        <Button Content="Close Window" Command="SystemCommands.CloseWindowCommand"/>
+    </StackPanel>
+</controls:BlurWindow>

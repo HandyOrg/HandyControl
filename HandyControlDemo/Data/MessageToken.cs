@@ -63,6 +63,8 @@
         public static readonly string QQGroupView = nameof(QQGroupView);
 	
         public static readonly string BlurWindow = nameof(BlurWindow);
+
+        public static readonly string NoClientDragableWindow = nameof(NoClientDragableWindow);
 	
         public static readonly string RateDemoCtl = nameof(RateDemoCtl);
 	
