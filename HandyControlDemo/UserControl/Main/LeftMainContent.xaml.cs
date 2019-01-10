@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.ComponentModel;
+using System.Windows.Controls;
 
 // ReSharper disable once CheckNamespace
 namespace HandyControlDemo.UserControl
@@ -11,6 +12,8 @@ namespace HandyControlDemo.UserControl
         public LeftMainContent()
         {
             InitializeComponent();
+            listStyle.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
+            listControl.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
         }
 
         private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

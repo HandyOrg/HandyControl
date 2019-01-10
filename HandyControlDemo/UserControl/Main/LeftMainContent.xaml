@@ -15,7 +15,7 @@
             </i:EventTrigger>
         </i:Interaction.Triggers>
         <TabItem Background="Transparent" Header="{x:Static langs:Lang.Styles}">
-            <ListBox BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
+            <ListBox Name="listStyle" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
                 <ListBoxItem Tag="{x:Static data:MessageToken.BrushDemoCtl}" Content="{x:Static langs:Lang.Brush}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/Brush_16x.png"/>
@@ -144,7 +144,7 @@
             </ListBox>
         </TabItem>
         <TabItem Background="Transparent" Header="{x:Static langs:Lang.Controls}">
-            <ListBox BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
+            <ListBox Name="listControl" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
                 <ListBoxItem Tag="{x:Static data:MessageToken.NumericUpDownDemoCtl}" Content="{x:Static langs:Lang.NumericUpDown}">
                     <controls:EdgeElement.LeftContent>
                         <Image Source="../../Resources/Img/LeftMainContent/NumericListBox_16x.png"/>
