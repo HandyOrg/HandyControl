@@ -462,4 +462,7 @@
   <data name="CoverFlow" xml:space="preserve">
     <value>CoverFlow</value>
   </data>
+  <data name="NoClientDragableWindow" xml:space="preserve">
+    <value>open noClient dragable window</value>
+  </data>
 </root>

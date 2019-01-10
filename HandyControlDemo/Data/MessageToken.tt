@@ -35,6 +35,7 @@ var controlList = new List<string>
 	"FlipClockDemoCtl",
 	"QQGroupView",
 	"BlurWindow",
+	"NoClientDragableWindow",
 	"RateDemoCtl",
 	"ShieldDemoCtl",
 	"WaterfallPanelDemoCtl",

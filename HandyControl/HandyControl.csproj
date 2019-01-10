@@ -114,6 +114,7 @@
     </When>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controls\Attach\DragWindows.cs" />
     <Compile Include="Controls\Attach\LinkElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
