@@ -462,7 +462,10 @@
   <data name="CoverFlow" xml:space="preserve">
     <value>封面流</value>
   </data>
-  <data name="NoClientDragableWindow" xml:space="preserve">
-    <value>open noClient dragable window</value>
+  <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
+    <value>打开无非客户端区域可拖拽窗口</value>
+  </data>
+  <data name="DragHere" xml:space="preserve">
+    <value>在这里拖拽</value>
   </data>
 </root>

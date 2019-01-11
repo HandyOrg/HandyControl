@@ -64,7 +64,7 @@
 	
         public static readonly string BlurWindow = nameof(BlurWindow);
 	
-        public static readonly string NoClientDragableWindow = nameof(NoClientDragableWindow);
+        public static readonly string NoNonClientAreaDragableWindow = nameof(NoNonClientAreaDragableWindow);
 	
         public static readonly string RateDemoCtl = nameof(RateDemoCtl);
 	

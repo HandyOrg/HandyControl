@@ -14,7 +14,7 @@
             <Button Click="ButtonMessage_OnClick" Content="{x:Static langs:Lang.OpenMessageWindow}"/>
             <Button Click="ButtonCustomContent_OnClick" Content="{x:Static langs:Lang.OpenCustomContentWindow}"/>
             <Button Name="ButtonMouseFollow" Click="ButtonMouseFollow_OnClick" Content="{x:Static langs:Lang.OpenMouseFollowWindow}"/>
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NoClientDragableWindow}" Content="{x:Static langs:Lang.NoClientDragableWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NoNonClientAreaDragableWindow}" Content="{x:Static langs:Lang.OpenNoNonClientAreaDragableWindow}"/>
         </UniformGrid>
     </controls:TransitioningContentControl>
 </UserControl>

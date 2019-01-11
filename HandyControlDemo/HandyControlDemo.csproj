@@ -328,8 +328,8 @@
     <Compile Include="Window\CustomNonClientAreaWindow.xaml.cs">
       <DependentUpon>CustomNonClientAreaWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Window\NoClientDragableWindow.xaml.cs">
-      <DependentUpon>NoClientDragableWindow.xaml</DependentUpon>
+    <Compile Include="Window\NoNonClientAreaDragableWindow.xaml.cs">
+      <DependentUpon>NoNonClientAreaDragableWindow.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -667,7 +667,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Window\NoClientDragableWindow.xaml">
+    <Page Include="Window\NoNonClientAreaDragableWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
