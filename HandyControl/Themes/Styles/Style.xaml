@@ -52,6 +52,9 @@
         <ResourceDictionary Source="Shield.xaml"/>
         <ResourceDictionary Source="CoverView.xaml"/>
         <ResourceDictionary Source="CoverFlow.xaml"/>
+        <ResourceDictionary Source="HamburgerTabControl.xaml"/>
+        <ResourceDictionary Source="HamburgerTabItem.xaml"/>
+        <ResourceDictionary Source="FocusButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

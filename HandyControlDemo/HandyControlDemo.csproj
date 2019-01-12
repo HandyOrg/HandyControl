@@ -154,6 +154,9 @@
     <Compile Include="UserControl\Controls\FlipClockDemoCtl.xaml.cs">
       <DependentUpon>FlipClockDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\HamburgerTabControlDemoCtl.xaml.cs">
+      <DependentUpon>HamburgerTabControlDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
       <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -444,6 +447,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\FlipClockDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\HamburgerTabControlDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

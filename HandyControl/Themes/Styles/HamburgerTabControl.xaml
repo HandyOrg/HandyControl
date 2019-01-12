@@ -1,0 +1,183 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:local="clr-namespace:HandyControl.Themes.Styles">
+    <Style TargetType="{x:Type controls:HamburgerTabControl}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+        <Setter Property="TabStripPlacement" Value="Left"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="SelectedIndex" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:HamburgerTabControl}">
+                    <Grid Background="#00000000" KeyboardNavigation.TabNavigation="Local">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="column1" Width="Auto"/>
+                            <ColumnDefinition x:Name="column2"/>
+                        </Grid.ColumnDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup>
+                                <VisualState x:Name="ExitIconMode">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="tab" Storyboard.TargetProperty="(Width)" To="{Binding ActualWidth,ElementName=tabWidth}" Duration="0:0:0.2"/>
+
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle1" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0.1"/>
+                                        <DoubleAnimation Storyboard.TargetName="rectangle2" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" Duration="0:0:0.1"/>
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle3" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0.1"/>
+                                        <DoubleAnimationUsingKeyFrames  Storyboard.TargetName="angle1" Storyboard.TargetProperty="(Angle)">
+                                            <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
+                                            <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            <SplineDoubleKeyFrame Value="45" KeyTime="0:0:0.3"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames  Storyboard.TargetName="angle2" Storyboard.TargetProperty="(Angle)">
+                                            <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
+                                            <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            <SplineDoubleKeyFrame Value="-45" KeyTime="0:0:0.3"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="EnterIconMode">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="tab" Storyboard.TargetProperty="(Width)" To="44" Duration="0:0:0.2"/>
+
+                                        <DoubleAnimation Storyboard.TargetName="angle1" Storyboard.TargetProperty="(Angle)" To="0" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle2" Storyboard.TargetProperty="(Angle)" To="0" Duration="0:0:0.2"/>
+                                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="rectangle1" Storyboard.TargetProperty="(Margin)">
+                                            <SplineThicknessKeyFrame Value="0" KeyTime="0:0:0"/>
+                                            <SplineThicknessKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            <SplineThicknessKeyFrame Value="0,0,0,11" KeyTime="0:0:0.3"/>
+                                        </ThicknessAnimationUsingKeyFrames>
+                                        <DoubleAnimationUsingKeyFrames Storyboard.TargetName="rectangle2" Storyboard.TargetProperty="(UIElement.Opacity)">
+                                            <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0"/>
+                                            <SplineDoubleKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            <SplineDoubleKeyFrame Value="1" KeyTime="0:0:0.3"/>
+                                        </DoubleAnimationUsingKeyFrames>
+                                        <ThicknessAnimationUsingKeyFrames Storyboard.TargetName="rectangle3" Storyboard.TargetProperty="(Margin)">
+                                            <SplineThicknessKeyFrame Value="0" KeyTime="0:0:0"/>
+                                            <SplineThicknessKeyFrame Value="0" KeyTime="0:0:0.1"/>
+                                            <SplineThicknessKeyFrame Value="0,11,0,0" KeyTime="0:0:0.3"/>
+                                        </ThicknessAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="SelectionStart"/>
+                                <VisualState x:Name="SelectionStartIconMode">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="tab" Storyboard.TargetProperty="(Width)" To="44" Duration="0:0:0"/>
+
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle1" Storyboard.TargetProperty="(Margin)" To="0,0,0,11" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="rectangle2" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle3" Storyboard.TargetProperty="(Margin)" To="0,11,0,0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle1" Storyboard.TargetProperty="(Angle)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle2" Storyboard.TargetProperty="(Angle)" To="0" Duration="0:0:0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="SelectionEnd">
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(Margin)" To="30,0,-30,0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" Duration="0:0:0.0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0.3"/>
+                                        <DoubleAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0.3"/>
+
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle1" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="rectangle2" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" Duration="0:0:0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle3" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle1" Storyboard.TargetProperty="(Angle)" To="45" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle2" Storyboard.TargetProperty="(Angle)" To="-45" Duration="0:0:0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="SelectionEndIconMode">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="tab" Storyboard.TargetProperty="(Width)" To="44" Duration="0:0:0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(Margin)" To="30,0,-30,0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" Duration="0:0:0.0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0.3"/>
+                                        <DoubleAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0.3"/>
+
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle1" Storyboard.TargetProperty="(Margin)" To="0,0,0,11" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="rectangle2" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle3" Storyboard.TargetProperty="(Margin)" To="0,11,0,0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle1" Storyboard.TargetProperty="(Angle)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle2" Storyboard.TargetProperty="(Angle)" To="0" Duration="0:0:0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="SelectionLoaded">
+                                    <Storyboard>
+                                        <ThicknessAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0"/>
+
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle1" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="rectangle2" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" Duration="0:0:0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle3" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle1" Storyboard.TargetProperty="(Angle)" To="45" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle2" Storyboard.TargetProperty="(Angle)" To="-45" Duration="0:0:0"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="SelectionLoadedIconMode">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="tab" Storyboard.TargetProperty="(Width)" To="44" Duration="0:0:0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(Margin)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="content" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0"/>
+
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle1" Storyboard.TargetProperty="(Margin)" To="0,0,0,11" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="rectangle2" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0"/>
+                                        <ThicknessAnimation Storyboard.TargetName="rectangle3" Storyboard.TargetProperty="(Margin)" To="0,11,0,0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle1" Storyboard.TargetProperty="(Angle)" To="0" Duration="0:0:0"/>
+                                        <DoubleAnimation Storyboard.TargetName="angle2" Storyboard.TargetProperty="(Angle)" To="0" Duration="0:0:0"/>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Grid x:Name="tab" MinWidth="44" Width="{Binding ActualWidth,ElementName=tabWidth}" Grid.Column="0" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1" Background="{TemplateBinding BorderBrush}">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Rectangle Fill="#000000" Grid.RowSpan="2" Opacity="0.06"/>
+                            <controls:FocusButton BorderThickness="0" MouseMoveBorderThickness="0" Command="controls:HamburgerTabControl.IconModeClickCommand"/>
+                            <Grid Width="44" Height="40" HorizontalAlignment="Left" IsHitTestVisible="False">
+                                <Grid VerticalAlignment="Center" HorizontalAlignment="Center" Width="23" Height="23" Opacity="0.9">
+                                    <Rectangle x:Name="rectangle1" Width="22" Height="1" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#FFFFFF" Margin="0,0,0,11" RenderTransformOrigin="0.5,0.5">
+                                        <Rectangle.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform x:Name="angle1" Angle="0"/>
+                                            </TransformGroup>
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                    <Rectangle x:Name="rectangle2" Width="22" Height="1" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#FFFFFF"/>
+                                    <Rectangle x:Name="rectangle3" Width="22" Height="1" VerticalAlignment="Center" HorizontalAlignment="Center" Fill="#FFFFFF" Margin="0,11,0,0" RenderTransformOrigin="0.5,0.5">
+                                        <Rectangle.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform x:Name="angle2" Angle="0"/>
+                                            </TransformGroup>
+                                        </Rectangle.RenderTransform>
+                                    </Rectangle>
+                                </Grid>
+                            </Grid>
+                            <ScrollViewer Grid.Row="1" BorderBrush="White" VerticalAlignment="{TemplateBinding TabPanelVerticalAlignment}" Margin="{TemplateBinding Padding}">
+                                <Canvas x:Name="canvas" Height="{Binding ActualHeight,ElementName=tabWidth}">
+                                    <Grid x:Name="tabWidth">
+                                        <TabPanel x:Name="headerPanel" IsItemsHost="true"/>
+                                    </Grid>
+                                </Canvas>
+                            </ScrollViewer>
+                        </Grid>
+                        <Border x:Name="contentPanel" Background="#f3f3f3" Grid.Column="1" KeyboardNavigation.DirectionalNavigation="Contained" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
+                            <ContentPresenter x:Name="content" ContentSource="SelectedContent"/>
+                        </Border>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="TabStripPlacement" Value="Right">
+                            <Setter TargetName="column1" Property="Width" Value="*"/>
+                            <Setter TargetName="column2" Property="Width" Value="Auto"/>
+                            <Setter TargetName="tab" Property="Grid.Column" Value="1"/>
+                            <Setter TargetName="contentPanel" Property="Grid.Column" Value="0"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

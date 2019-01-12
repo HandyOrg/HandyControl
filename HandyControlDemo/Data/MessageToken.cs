@@ -76,6 +76,8 @@
 	
         public static readonly string CoverFlowDemoCtl = nameof(CoverFlowDemoCtl);
 	
+        public static readonly string HamburgerTabControlDemoCtl = nameof(HamburgerTabControlDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

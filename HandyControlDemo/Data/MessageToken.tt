@@ -40,7 +40,8 @@ var controlList = new List<string>
 	"ShieldDemoCtl",
 	"WaterfallPanelDemoCtl",
 	"CoverViewDemoCtl",
-	"CoverFlowDemoCtl"
+	"CoverFlowDemoCtl",
+	"HamburgerTabControlDemoCtl"
 };
 var styleList = new List<string>
 {

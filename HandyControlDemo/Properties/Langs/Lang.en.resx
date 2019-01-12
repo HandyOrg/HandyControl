@@ -468,4 +468,7 @@
   <data name="DragHere" xml:space="preserve">
     <value>Drag here</value>
   </data>
+  <data name="HamburgerTabControl" xml:space="preserve">
+    <value>HamburgerTabControl</value>
+  </data>
 </root>

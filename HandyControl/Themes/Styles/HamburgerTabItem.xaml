@@ -1,0 +1,57 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:local="clr-namespace:HandyControl.Themes.Styles">
+    <Style TargetType="{x:Type controls:HamburgerTabItem}">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+
+        <Setter Property="MinWidth" Value="150"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type controls:HamburgerTabItem}">
+                    <Grid Background="#00000000">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition x:Name="iconWidth" Width="Auto"/>
+                            <ColumnDefinition x:Name="contentWidth"/>
+                        </Grid.ColumnDefinitions>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CommonStates">
+                                <VisualState x:Name="Normal"/>
+                                <VisualState x:Name="MouseOver">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="back" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0.2"/>
+                                        <ColorAnimation Storyboard.TargetName="title" Storyboard.TargetProperty="(TextBlock.Foreground).(SolidColorBrush.Color)" To="#A5000000" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="icon" Storyboard.TargetProperty="(UIElement.Opacity)" To="0" Duration="0:0:0.2"/>
+                                        <DoubleAnimation Storyboard.TargetName="iconMove" Storyboard.TargetProperty="(UIElement.Opacity)" To="1" Duration="0:0:0.2"/>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Pressed"/>
+                                <VisualState x:Name="Disabled"/>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <Rectangle x:Name="back" Grid.ColumnSpan="2" Fill="#f3f3f3" Opacity="0"/>
+                        <Path x:Name="iconMove" Opacity="0" Margin="10,8" Width="24" Height="24" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding IconMove}"/>
+                        <Path x:Name="icon" Margin="10,8" Width="24" Height="24" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding Icon}"/>
+                        <TextBlock x:Name="title" Grid.Column="2" Text="{TemplateBinding Header}" Foreground="#E5FFFFFF" Margin="0,0,15,0" VerticalAlignment="Center" HorizontalAlignment="{TemplateBinding TextHorizontalAlignment}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Selector.IsSelected" Value="True">
+                            <Setter TargetName="back" Property="Opacity" Value="1"/>
+                            <Setter TargetName="title" Property="Foreground" Value="#A5000000"/>
+                            <Setter TargetName="icon" Property="Opacity" Value="0"/>
+                            <Setter TargetName="iconMove" Property="Opacity" Value="1"/>
+                        </Trigger>
+                        <!-- Icon 已经列为必须存在项，所以不隐藏区域 -->
+                        <!--
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="iconWidth" Property="Width" Value="0"/>
+                            <Setter TargetName="title" Property="Margin" Value="15,0"/>
+                        </Trigger>
+                        -->
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

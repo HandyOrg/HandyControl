@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.HamburgerTabControlDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+    <controls:TransitioningContentControl>
+        <controls:HamburgerTabControl IconMode="True">
+            <controls:HamburgerTabItem Header="First Item" Icon="{StaticResource GithubGeometry}" IconMove="{StaticResource GitHubStrGeometry}">
+                <Label Content="HamburgerMenu First Item"/>
+            </controls:HamburgerTabItem>
+            <controls:HamburgerTabItem Header="Second Item" Icon="{StaticResource LogoGeometry}" IconMove="{StaticResource SearchGeometry}">
+                <Label Content="HamburgerMenu Second Item"/>
+            </controls:HamburgerTabItem>
+        </controls:HamburgerTabControl>
+    </controls:TransitioningContentControl>
+</UserControl>

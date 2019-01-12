@@ -127,6 +127,11 @@
     <Compile Include="Controls\CoverFlow\CoverFlowItem.cs" />
     <Compile Include="Controls\CoverView\CoverViewContent.cs" />
     <Compile Include="Controls\CoverView\CoverViewItem.cs" />
+    <Compile Include="Controls\HamburgerMenu\ElementBase.cs" />
+    <Compile Include="Controls\HamburgerMenu\FocusButton.cs" />
+    <Compile Include="Controls\HamburgerMenu\HamburgerTabControl.cs" />
+    <Compile Include="Controls\HamburgerMenu\HamburgerTabItem.cs" />
+    <Compile Include="Controls\HamburgerMenu\Utility.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Attach\BorderElement.cs" />
@@ -196,6 +201,8 @@
     <Compile Include="Data\Gif\GPStream.cs" />
     <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
+    <Compile Include="Tools\Converter\DoubleToCornerRadius.cs" />
+    <Compile Include="Tools\Converter\DoubleToThickness.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\GifImageAnimator.cs" />
@@ -615,6 +622,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Loading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\FocusButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\HamburgerTabControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\HamburgerTabItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
