@@ -1,6 +1,6 @@
 ﻿using HandyControl.Data;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControlDemo.UserControl
 {
     public partial class NumericUpDownDemoCtl

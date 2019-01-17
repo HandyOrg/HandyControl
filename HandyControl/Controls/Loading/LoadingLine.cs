@@ -4,7 +4,7 @@ using System.Windows.Data;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControl.Controls
 {
     public class LoadingLine : LoadingBase

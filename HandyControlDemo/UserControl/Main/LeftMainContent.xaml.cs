@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControlDemo.UserControl
 {
     /// <summary>

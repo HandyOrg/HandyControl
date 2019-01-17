@@ -178,4 +178,10 @@
   <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
     <value>不能注册同一命令两次</value>
   </data>
+  <data name="Yes" xml:space="preserve">
+    <value>是</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>否</value>
+  </data>
 </root>

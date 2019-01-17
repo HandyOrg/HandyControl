@@ -11,7 +11,7 @@
                 <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
                     <DataGrid.RowHeaderTemplate>
                         <DataTemplate>
-                            <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGridRow}}"/>
+                            <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
                         </DataTemplate>
                     </DataGrid.RowHeaderTemplate>
                     <DataGrid.Columns>

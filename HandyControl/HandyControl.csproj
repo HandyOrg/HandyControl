@@ -114,6 +114,7 @@
     </When>
   </Choose>
   <ItemGroup>
+    <Compile Include="Controls\Attach\WindowAttach.cs" />
     <Compile Include="Controls\Attach\LinkElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
@@ -151,8 +152,8 @@
     <Compile Include="Controls\Text\OutlineText.cs" />
     <Compile Include="Controls\Image\GifImage.cs" />
     <Compile Include="Controls\Input\SearchBar.cs" />
-    <Compile Include="Controls\Tag\TagPanel.cs" />
-    <Compile Include="Controls\Tag\Tag.cs" />
+    <Compile Include="Controls\Text\Tag\TagPanel.cs" />
+    <Compile Include="Controls\Text\Tag\Tag.cs" />
     <Compile Include="Controls\Time\CalendarWithClock.cs" />
     <Compile Include="Controls\Time\Clock\Clock.cs" />
     <Compile Include="Controls\Time\Clock\ClockRadioButton.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Controls\Time\FlipClock\FlipClock.cs" />
     <Compile Include="Controls\Time\FlipClock\FlipNumber.cs" />
     <Compile Include="Controls\Window\BlurWindow.cs" />
+    <Compile Include="Controls\Window\MessageBox.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />
@@ -617,6 +619,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\MessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\NumericUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -626,6 +632,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\PasswordBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\PopupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

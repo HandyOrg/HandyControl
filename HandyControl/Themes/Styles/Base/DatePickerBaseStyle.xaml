@@ -18,7 +18,7 @@
                 <ControlTemplate TargetType="DatePickerTextBox">
                     <Grid x:Name="WatermarkContent">
                         <Border x:Name="ContentElement"/>
-                        <ContentControl VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="7,6" Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource FindAncestor,AncestorType=DatePicker}}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}"/>
+                        <ContentControl VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="7,6" Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource AncestorType=DatePicker}}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}"/>
                         <ScrollViewer x:Name="PART_ContentHost" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
                 </ControlTemplate>

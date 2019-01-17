@@ -78,6 +78,16 @@ namespace HandyControl.Interactivity
         public static RoutedCommand Confirm { get; } = new RoutedCommand(nameof(Confirm), typeof(ControlCommands));
 
         /// <summary>
+        ///     是
+        /// </summary>
+        public static RoutedCommand Yes { get; } = new RoutedCommand(nameof(Yes), typeof(ControlCommands));
+
+        /// <summary>
+        ///     否
+        /// </summary>
+        public static RoutedCommand No { get; } = new RoutedCommand(nameof(No), typeof(ControlCommands));
+
+        /// <summary>
         ///     关闭所有
         /// </summary>
         public static RoutedCommand CloseAll { get; } = new RoutedCommand(nameof(CloseAll), typeof(ControlCommands));

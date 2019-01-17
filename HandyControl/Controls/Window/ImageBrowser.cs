@@ -66,7 +66,7 @@ namespace HandyControl.Controls
                 }
                 catch
                 {
-                    PopupWindow.ShowDialog(Properties.Langs.Lang.ErrorImgPath);
+                    MessageBox.Show(Properties.Langs.Lang.ErrorImgPath);
                 }
             };
         }

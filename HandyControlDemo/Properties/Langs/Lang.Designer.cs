@@ -367,6 +367,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 在这里拖拽 的本地化字符串。
+        /// </summary>
+        public static string DragHere {
+            get {
+                return ResourceManager.GetString("DragHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 邮箱 的本地化字符串。
         /// </summary>
         public static string Email {
@@ -583,6 +592,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 消息框 的本地化字符串。
+        /// </summary>
+        public static string MessageBox {
+            get {
+                return ResourceManager.GetString("MessageBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 名称 的本地化字符串。
         /// </summary>
         public static string Name {
@@ -669,6 +687,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string OpenMouseFollowWindow {
             get {
                 return ResourceManager.GetString("OpenMouseFollowWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 打开无非客户端区域可拖拽窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenNoNonClientAreaDragableWindow {
+            get {
+                return ResourceManager.GetString("OpenNoNonClientAreaDragableWindow", resourceCulture);
             }
         }
         

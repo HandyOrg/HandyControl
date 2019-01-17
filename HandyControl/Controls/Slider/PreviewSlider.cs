@@ -6,7 +6,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = PreviewContentKey, Type = typeof(ContentControl))]

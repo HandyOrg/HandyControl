@@ -26,7 +26,7 @@
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
-                    <TextBlock Background="Transparent" Text="{Binding Header,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:TabItem}}"/>
+                    <TextBlock Background="Transparent" Text="{Binding Header,RelativeSource={RelativeSource AncestorType=controls:TabItem}}"/>
                 </DataTemplate>
             </Setter.Value>
         </Setter>
@@ -56,7 +56,7 @@
                                 </LinearGradientBrush>
                             </ContentPresenter.OpacityMask>
                         </ContentPresenter>
-                        <Button Grid.Column="1" Command="interactivity:ControlCommands.Close" Visibility="{Binding ShowCloseButton,RelativeSource={RelativeSource FindAncestor,AncestorType=controls:TabControl},Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
+                        <Button Grid.Column="1" Command="interactivity:ControlCommands.Close" Visibility="{Binding ShowCloseButton,RelativeSource={RelativeSource AncestorType=controls:TabControl},Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
                             <Path Fill="{DynamicResource PrimaryTextBrush}" Width="8" Height="8" Style="{StaticResource ClosePathStyle}"/>
                         </Button>
                     </Grid>

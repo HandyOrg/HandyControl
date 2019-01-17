@@ -197,7 +197,7 @@ namespace HandyControl.Controls
             }
             catch
             {
-                PopupWindow.ShowDialog(Lang.ErrorImgPath);
+                MessageBox.Show(Lang.ErrorImgPath);
             }
         }
 
@@ -464,7 +464,7 @@ namespace HandyControl.Controls
 
             if (Math.Abs(height - 0) < 0.001 || Math.Abs(width - 0) < 0.001)
             {
-                PopupWindow.ShowDialog(Lang.ErrorImgSize);
+                MessageBox.Show(Lang.ErrorImgSize);
                 return;
             }
 
@@ -544,7 +544,7 @@ namespace HandyControl.Controls
             }
             catch (Exception exception)
             {
-                PopupWindow.ShowDialog(exception.Message);
+                MessageBox.Show(exception.Message);
             }
         }
 
