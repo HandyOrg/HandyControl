@@ -464,6 +464,7 @@
   </data>
   <data name="PlsEnterKey" xml:space="preserve">
     <value>Please input a keyword</value>
+  </data>
   <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
     <value>open no Non-client Area dragable window</value>
   </data>
