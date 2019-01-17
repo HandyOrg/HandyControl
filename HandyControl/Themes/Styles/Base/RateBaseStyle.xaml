@@ -8,14 +8,14 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="RateRateItemBaseStyle" TargetType="controls:RateItem">
-        <Setter Property="Margin" Value="{Binding ItemMargin,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
-        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
-        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
-        <Setter Property="AllowHalf" Value="{Binding AllowHalf,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
-        <Setter Property="AllowClear" Value="{Binding AllowClear,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
-        <Setter Property="Icon" Value="{Binding Icon,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
-        <Setter Property="IsReadOnly" Value="{Binding IsReadOnly,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
-        <Setter Property="Background" Value="{Binding Background,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:Rate}}"/>
+        <Setter Property="Margin" Value="{Binding ItemMargin,RelativeSource={RelativeSource  AncestorType=controls:Rate}}"/>
+        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource  AncestorType=controls:Rate}}"/>
+        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource  AncestorType=controls:Rate}}"/>
+        <Setter Property="AllowHalf" Value="{Binding AllowHalf,RelativeSource={RelativeSource  AncestorType=controls:Rate}}"/>
+        <Setter Property="AllowClear" Value="{Binding AllowClear,RelativeSource={RelativeSource  AncestorType=controls:Rate}}"/>
+        <Setter Property="Icon" Value="{Binding Icon,RelativeSource={RelativeSource  AncestorType=controls:Rate}}"/>
+        <Setter Property="IsReadOnly" Value="{Binding IsReadOnly,RelativeSource={RelativeSource  AncestorType=controls:Rate}}"/>
+        <Setter Property="Background" Value="{Binding Background,RelativeSource={RelativeSource  AncestorType=controls:Rate}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:RateItem">

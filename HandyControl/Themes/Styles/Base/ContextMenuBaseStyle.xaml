@@ -203,6 +203,7 @@
     <Style x:Key="ContextMenuBaseStyle" TargetType="ContextMenu">
         <Setter Property="MaxHeight" Value="199"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContextMenu">

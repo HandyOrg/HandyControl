@@ -14,8 +14,8 @@
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image Source="{Binding Source,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}" Height="120" Width="120" Stretch="Uniform" Margin="10"/>
-                <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Margin="0,0,0,10" Grid.Row="1" Style="{StaticResource TextBlockDefault}" Text="{Binding UserName,RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"></TextBlock>
+                <Image Source="{Binding Source,RelativeSource={RelativeSource AncestorType=UserControl}}" Height="120" Width="120" Stretch="Uniform" Margin="10"/>
+                <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Margin="0,0,0,10" Grid.Row="1" Style="{StaticResource TextBlockDefault}" Text="{Binding UserName,RelativeSource={RelativeSource AncestorType=UserControl}}"></TextBlock>
             </Grid>
         </Border>
     </Button>

@@ -3,7 +3,7 @@ using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControlDemo.UserControl
 {
     /// <summary>

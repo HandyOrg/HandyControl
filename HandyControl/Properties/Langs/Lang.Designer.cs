@@ -241,6 +241,15 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 否 的本地化字符串。
+        /// </summary>
+        public static string No {
+            get {
+                return ResourceManager.GetString("No", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 不在范围内 的本地化字符串。
         /// </summary>
         public static string OutOfRange {
@@ -300,6 +309,15 @@ namespace HandyControl.Properties.Langs {
         public static string UnknownSize {
             get {
                 return ResourceManager.GetString("UnknownSize", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 是 的本地化字符串。
+        /// </summary>
+        public static string Yes {
+            get {
+                return ResourceManager.GetString("Yes", resourceCulture);
             }
         }
     }

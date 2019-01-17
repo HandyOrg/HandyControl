@@ -3,9 +3,9 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="CoverViewItemBaseStyle" TargetType="controls:CoverViewItem">
-        <Setter Property="Margin" Value="{Binding ItemMargin,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CoverView}}"/>
-        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CoverView}}"/>
-        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CoverView}}"/>
+        <Setter Property="Margin" Value="{Binding ItemMargin,RelativeSource={RelativeSource  AncestorType=controls:CoverView}}"/>
+        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource  AncestorType=controls:CoverView}}"/>
+        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource  AncestorType=controls:CoverView}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CoverViewItem">

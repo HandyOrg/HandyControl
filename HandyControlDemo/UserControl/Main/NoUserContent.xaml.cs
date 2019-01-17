@@ -10,7 +10,7 @@ using HandyControlDemo.Data;
 using HandyControlDemo.Tools;
 using HandyControlDemo.Window;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControlDemo.UserControl
 {
     public partial class NoUserContent

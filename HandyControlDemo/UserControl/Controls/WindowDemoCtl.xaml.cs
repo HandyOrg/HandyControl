@@ -1,8 +1,9 @@
 ﻿using System.Windows;
 using HandyControl.Controls;
 using HandyControl.Tools;
+using MessageBox = HandyControl.Controls.MessageBox;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControlDemo.UserControl
 {
     public partial class WindowDemoCtl
@@ -14,7 +15,7 @@ namespace HandyControlDemo.UserControl
 
         private void ButtonMessage_OnClick(object sender, RoutedEventArgs e)
         {
-            PopupWindow.ShowDialog(Properties.Langs.Lang.GrowlAsk, showCancel: true);
+            MessageBox.Show(Properties.Langs.Lang.GrowlAsk, Properties.Langs.Lang.Title, MessageBoxButton.YesNo, MessageBoxImage.Question);
         }
 
         private void ButtonMouseFollow_OnClick(object sender, RoutedEventArgs e)

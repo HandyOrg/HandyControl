@@ -3,8 +3,8 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <!--<Style x:Key="CoverFlowItemBaseStyle" TargetType="controls:CoverFlowItem">
-        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CoverFlow}}"/>
-        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:CoverFlow}}"/>
+        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource  AncestorType=controls:CoverFlow}}"/>
+        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource  AncestorType=controls:CoverFlow}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CoverFlowItem">

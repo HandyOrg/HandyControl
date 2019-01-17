@@ -197,4 +197,10 @@
   <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
     <value>Cannot Register Same Command Twice</value>
   </data>
+  <data name="Yes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="No" xml:space="preserve">
+    <value>No</value>
+  </data>
 </root>

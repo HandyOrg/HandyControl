@@ -1,7 +1,7 @@
 ﻿using System;
 using HandyControl.Data;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControl.Controls
 {
     /// <summary>

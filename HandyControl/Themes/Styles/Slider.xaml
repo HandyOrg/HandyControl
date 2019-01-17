@@ -504,7 +504,7 @@
 
     <ControlTemplate x:Key="TipSliderThumbHorizontalTop" TargetType="Thumb">
         <controls:InternalCanvas>
-            <Label Name="LabelValue" Opacity="0" Canvas.Bottom="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=Slider}}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Bottom="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}"/>
             <Border Canvas.Bottom="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -535,7 +535,7 @@
 
     <ControlTemplate x:Key="TipSliderThumbHorizontalBottom" TargetType="Thumb">
         <controls:InternalCanvas>
-            <Label Name="LabelValue" Opacity="0" Canvas.Top="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=Slider}}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Top="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}"/>
             <Border Canvas.Bottom="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -566,7 +566,7 @@
 
     <ControlTemplate x:Key="TipSliderThumbVerticalLeft" TargetType="Thumb">
         <controls:InternalCanvas Orientation="Vertical">
-            <Label Name="LabelValue" Opacity="0" Canvas.Right="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=Slider}}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Right="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}"/>
             <Border Canvas.Right="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -597,7 +597,7 @@
 
     <ControlTemplate x:Key="TipSliderThumbVerticalRight" TargetType="Thumb">
         <controls:InternalCanvas Orientation="Vertical">
-            <Label Name="LabelValue" Opacity="0" Canvas.Left="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource FindAncestor,AncestorType=Slider}}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Left="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}"/>
             <Border Canvas.Right="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>

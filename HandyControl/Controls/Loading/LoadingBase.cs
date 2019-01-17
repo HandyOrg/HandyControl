@@ -6,7 +6,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using HandyControl.Data;
 
-// ReSharper disable once CheckNamespace
+
 namespace HandyControl.Controls
 {
     public abstract class LoadingBase : ContentControl

@@ -592,6 +592,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 消息框 的本地化字符串。
+        /// </summary>
+        public static string MessageBox {
+            get {
+                return ResourceManager.GetString("MessageBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 名称 的本地化字符串。
         /// </summary>
         public static string Name {

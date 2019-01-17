@@ -17,7 +17,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <Border Background="Transparent" Height="16" Padding="4" Width="16">
-                        <Path x:Name="ExpandPath" RenderTransformOrigin="0.5,0.5" Stretch="Uniform" Data="{StaticResource TreeArrow}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType={x:Type TreeViewItem}}}">
+                        <Path x:Name="ExpandPath" RenderTransformOrigin="0.5,0.5" Stretch="Uniform" Data="{StaticResource TreeArrow}" Fill="{Binding Foreground, RelativeSource={RelativeSource AncestorType=TreeViewItem}}">
                             <Path.RenderTransform>
                                 <RotateTransform Angle="-90"/>
                             </Path.RenderTransform>
@@ -53,7 +53,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
-                            <StackPanel Orientation="Horizontal" Margin="{Binding Converter={StaticResource TreeViewItemMarginConverter}, RelativeSource={RelativeSource FindAncestor, AncestorLevel=1, AncestorType={x:Type TreeViewItem}}}">
+                            <StackPanel Orientation="Horizontal" Margin="{Binding Converter={StaticResource TreeViewItemMarginConverter}, RelativeSource={RelativeSource  AncestorLevel=1, AncestorType=TreeViewItem}}">
                                 <ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ExpandCollapseToggleStyle}"/>
                                 <ContentPresenter VerticalAlignment="Center" x:Name="PART_Header" ContentSource="Header" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             </StackPanel>

@@ -187,7 +187,7 @@
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Panel.ZIndex" Value="{x:Static system:Int32.MaxValue}"/>
             </Trigger>
-            <DataTrigger Binding="{Binding Orientation,RelativeSource={RelativeSource FindAncestor, AncestorType=controls:RadioGroup}}" Value="Vertical">
+            <DataTrigger Binding="{Binding Orientation,RelativeSource={RelativeSource  AncestorType=controls:RadioGroup}}" Value="Vertical">
                 <Setter Property="Margin" Value="0,-1,0,0"/>
             </DataTrigger>
         </Style.Triggers>
