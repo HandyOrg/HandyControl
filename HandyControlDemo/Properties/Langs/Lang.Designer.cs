@@ -47,7 +47,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   使用此强类型资源类，为所有资源查找
+        ///   重写当前线程的 CurrentUICulture 属性
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -714,6 +714,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string PlsEnterEmail {
             get {
                 return ResourceManager.GetString("PlsEnterEmail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 请输入关键字 的本地化字符串。
+        /// </summary>
+        public static string PlsEnterKey {
+            get {
+                return ResourceManager.GetString("PlsEnterKey", resourceCulture);
             }
         }
         

@@ -28,7 +28,7 @@ namespace HandyControl.Controls
             {
                 RaiseEvent(new FunctionEventArgs<string>(SearchStartedEvent, this)
                 {
-                    Source = Text
+                    Info = Text
                 });
             }));
         }
@@ -72,7 +72,7 @@ namespace HandyControl.Controls
             {
                 RaiseEvent(new FunctionEventArgs<string>(SearchStartedEvent, this)
                 {
-                    Source = Text
+                    Info = Text
                 });
             }
         }

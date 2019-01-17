@@ -442,4 +442,7 @@
   <data name="CoverFlow" xml:space="preserve">
     <value>封面流</value>
   </data>
+  <data name="PlsEnterKey" xml:space="preserve">
+    <value>请输入关键字</value>
+  </data>
 </root>
