@@ -699,6 +699,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\SortAscending_grey_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\LinearCarousel_16x.png" />
     <Resource Include="Resources\Img\Album\1.jpg" />
     <Resource Include="Resources\Img\Album\10.jpg" />

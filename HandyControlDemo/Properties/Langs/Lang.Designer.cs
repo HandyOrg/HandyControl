@@ -745,6 +745,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 请输入关键字 的本地化字符串。
+        /// </summary>
+        public static string PlsEnterKey {
+            get {
+                return ResourceManager.GetString("PlsEnterKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 上一步 的本地化字符串。
         /// </summary>
         public static string Prev {
