@@ -464,6 +464,7 @@
   </data>
   <data name="PlsEnterKey" xml:space="preserve">
     <value>请输入关键字</value>
+  </data>
   <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
     <value>打开无非客户端区域可拖拽窗口</value>
   </data>
