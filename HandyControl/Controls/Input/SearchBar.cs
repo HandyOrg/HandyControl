@@ -20,17 +20,8 @@ namespace HandyControl.Controls
 
         public SearchBar()
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
-            {
-                _textBox.Text = string.Empty;
-            }));
-            CommandBindings.Add(new CommandBinding(ControlCommands.Search, (s, e) =>
-            {
-                RaiseEvent(new FunctionEventArgs<string>(SearchStartedEvent, this)
-                {
-                    Info = Text
-                });
-            }));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => _textBox.Text = string.Empty));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Search, (s, e) => OnSearchStarted()));
         }
 
         public static readonly RoutedEvent SearchStartedEvent =
@@ -70,21 +61,33 @@ namespace HandyControl.Controls
         {
             if (e.Key == Key.Enter)
             {
-                RaiseEvent(new FunctionEventArgs<string>(SearchStartedEvent, this)
-                {
-                    Info = Text
-                });
+                OnSearchStarted();
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) => VerifyData();
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            if (IsRealTime)
+            {
+                OnSearchStarted();
+            }
+            VerifyData();
+        }
+
+        private void OnSearchStarted()
+        {
+            RaiseEvent(new FunctionEventArgs<string>(SearchStartedEvent, this)
+            {
+                Info = Text
+            });
+        }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
             "Text", typeof(string), typeof(SearchBar), new PropertyMetadata(default(string)));
 
         public string Text
         {
-            get => (string) GetValue(TextProperty);
+            get => (string)GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
 
@@ -120,7 +123,7 @@ namespace HandyControl.Controls
 
         public TextType TextType
         {
-            get => (TextType) GetValue(TextTypeProperty);
+            get => (TextType)GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 
@@ -134,6 +137,21 @@ namespace HandyControl.Controls
         {
             get => (bool)GetValue(ShowClearButtonProperty);
             set => SetValue(ShowClearButtonProperty, value);
+        }
+
+        /// <summary>
+        ///     是否实时搜索
+        /// </summary>
+        public static readonly DependencyProperty IsRealTimeProperty = DependencyProperty.Register(
+            "IsRealTime", typeof(bool), typeof(SearchBar), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        /// <summary>
+        ///     是否实时搜索
+        /// </summary>
+        public bool IsRealTime
+        {
+            get => (bool)GetValue(IsRealTimeProperty);
+            set => SetValue(IsRealTimeProperty, value);
         }
 
         public virtual bool VerifyData()

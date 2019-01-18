@@ -8,20 +8,24 @@ namespace HandyControl.Data
 
         public bool ShowDateTime { get; set; } = true;
 
+        public int WaitTime { get; set; } = 6;
+
         public string CancelStr { get; set; } = Properties.Langs.Lang.Cancel;
 
         public string ConfirmStr { get; set; } = Properties.Langs.Lang.Confirm;
 
         public Func<bool, bool> ActionBeforeClose { get; set; }
 
-        internal InfoType Type { get; set; }
+        public bool StaysOpen { get; set; }
 
-        internal string IconKey { get; set; }
+        public bool IsCustom { get; set; }
 
-        internal string IconBrushKey { get; set; }
+        public InfoType Type { get; set; }
 
-        internal bool StaysOpen { get; set; }
+        public string IconKey { get; set; }
 
-        internal bool ShowCloseButton { get; set; } = true;
+        public string IconBrushKey { get; set; }
+
+        public bool ShowCloseButton { get; set; } = true;
     }
 }

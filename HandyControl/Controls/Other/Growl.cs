@@ -41,6 +41,23 @@ namespace HandyControl.Controls
 
         private bool _staysOpen;
 
+        private int _waitTime = 6;
+
+        /// <summary>
+        ///     消息容器
+        /// </summary>
+        public static Panel GrowlPanel { get; set; }
+
+        /// <summary>
+        ///     计数
+        /// </summary>
+        private int _tickCount;
+
+        /// <summary>
+        ///     关闭计时器
+        /// </summary>
+        private DispatcherTimer _timerClose;
+
         #endregion Data
 
         public Growl()
@@ -73,26 +90,6 @@ namespace HandyControl.Controls
         {
             if (_panelMore == null || _gridMain == null || _buttonClose == null) throw new Exception();
         }
-
-        /// <summary>
-        ///     最大计数
-        /// </summary>
-        private const int MaxTickCount = 6;
-
-        /// <summary>
-        ///     消息容器
-        /// </summary>
-        private static Panel GrowlPanel;
-
-        /// <summary>
-        ///     计数
-        /// </summary>
-        private int _tickCount;
-
-        /// <summary>
-        ///     关闭计时器
-        /// </summary>
-        private DispatcherTimer _timerClose;
 
         private Func<bool, bool> ActionBeforeClose { get; set; }
 
@@ -131,11 +128,11 @@ namespace HandyControl.Controls
 
         public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, value);
 
-        public static bool GetGrowlParent(DependencyObject element) => (bool) element.GetValue(GrowlParentProperty);
+        public static bool GetGrowlParent(DependencyObject element) => (bool)element.GetValue(GrowlParentProperty);
 
         public InfoType Type
         {
-            get => (InfoType) GetValue(TypeProperty);
+            get => (InfoType)GetValue(TypeProperty);
             set => SetValue(TypeProperty, value);
         }
 
@@ -199,7 +196,7 @@ namespace HandyControl.Controls
                 }
 
                 _tickCount++;
-                if (_tickCount >= MaxTickCount) Close();
+                if (_tickCount >= _waitTime) Close();
             };
             _timerClose.Start();
         }
@@ -276,7 +273,8 @@ namespace HandyControl.Controls
                 ShowDateTime = growlInfo.ShowDateTime,
                 ConfirmStr = growlInfo.ConfirmStr,
                 CancelStr = growlInfo.CancelStr,
-                Type = growlInfo.Type
+                Type = growlInfo.Type,
+                _waitTime = Math.Max(growlInfo.WaitTime, 2)
             };
             GrowlPanel.Children.Insert(0, ctl);
         }
@@ -297,9 +295,12 @@ namespace HandyControl.Controls
         public static void Success(GrowlInfo growlInfo)
         {
             if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
-            growlInfo.IconKey = ResourceToken.SuccessGeometry;
-            growlInfo.IconBrushKey = ResourceToken.SuccessBrush;
-            growlInfo.Type = InfoType.Success;
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.SuccessGeometry;
+                growlInfo.IconBrushKey = ResourceToken.SuccessBrush;
+                growlInfo.Type = InfoType.Success;
+            }
             Show(growlInfo);
         }
 
@@ -319,9 +320,12 @@ namespace HandyControl.Controls
         public static void Info(GrowlInfo growlInfo)
         {
             if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
-            growlInfo.IconKey = ResourceToken.InfoGeometry;
-            growlInfo.IconBrushKey = ResourceToken.InfoBrush;
-            growlInfo.Type = InfoType.Info;
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.InfoGeometry;
+                growlInfo.IconBrushKey = ResourceToken.InfoBrush;
+                growlInfo.Type = InfoType.Info;
+            }
             Show(growlInfo);
         }
 
@@ -341,9 +345,12 @@ namespace HandyControl.Controls
         public static void Warning(GrowlInfo growlInfo)
         {
             if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
-            growlInfo.IconKey = ResourceToken.WarningGeometry;
-            growlInfo.IconBrushKey = ResourceToken.WarningBrush;
-            growlInfo.Type = InfoType.Warning;
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.WarningGeometry;
+                growlInfo.IconBrushKey = ResourceToken.WarningBrush;
+                growlInfo.Type = InfoType.Warning;
+            }
             Show(growlInfo);
         }
 
@@ -363,10 +370,13 @@ namespace HandyControl.Controls
         public static void Error(GrowlInfo growlInfo)
         {
             if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
-            growlInfo.IconKey = ResourceToken.ErrorGeometry;
-            growlInfo.IconBrushKey = ResourceToken.DangerBrush;
-            growlInfo.StaysOpen = true;
-            growlInfo.Type = InfoType.Error;
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.ErrorGeometry;
+                growlInfo.IconBrushKey = ResourceToken.DangerBrush;
+                growlInfo.StaysOpen = true;
+                growlInfo.Type = InfoType.Error;
+            }
             Show(growlInfo);
         }
 
@@ -386,13 +396,15 @@ namespace HandyControl.Controls
         public static void Fatal(GrowlInfo growlInfo)
         {
             if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
-            growlInfo.IconKey = ResourceToken.FatalGeometry;
-            growlInfo.IconBrushKey = ResourceToken.PrimaryTextBrush;
-            growlInfo.StaysOpen = true;
-            growlInfo.ShowCloseButton = false;
-            growlInfo.Type = InfoType.Fatal;
-            // ReSharper disable once PossibleNullReferenceException
-            GrowlPanel.ContextMenu.Opacity = 0;
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.FatalGeometry;
+                growlInfo.IconBrushKey = ResourceToken.PrimaryTextBrush;
+                growlInfo.StaysOpen = true;
+                growlInfo.ShowCloseButton = false;
+                growlInfo.Type = InfoType.Fatal;
+                if (GrowlPanel.ContextMenu != null) GrowlPanel.ContextMenu.Opacity = 0;
+            }
             Show(growlInfo);
         }
 
@@ -414,11 +426,14 @@ namespace HandyControl.Controls
         public static void Ask(GrowlInfo growlInfo)
         {
             if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
-            growlInfo.IconKey = ResourceToken.AskGeometry;
-            growlInfo.IconBrushKey = ResourceToken.AccentBrush;
-            growlInfo.StaysOpen = true;
-            growlInfo.ShowCloseButton = false;
-            growlInfo.Type = InfoType.Ask;
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.AskGeometry;
+                growlInfo.IconBrushKey = ResourceToken.AccentBrush;
+                growlInfo.StaysOpen = true;
+                growlInfo.ShowCloseButton = false;
+                growlInfo.Type = InfoType.Ask;
+            }
             Show(growlInfo);
         }
 
