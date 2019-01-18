@@ -11,8 +11,6 @@
         <Setter Property="FlowDirection" Value="LeftToRight"/>
     </Style>
 
-    <Style BasedOn="{StaticResource PathBaseStyle}" TargetType="Path"/>
-
     <!--搜索-->
     <Style x:Key="SearchPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="Path">
         <Setter Property="Data" Value="{StaticResource SearchGeometry}"/>
