@@ -62,7 +62,7 @@ namespace HandyControlDemo.UserControl
 
             foreach (var listBoxItem in listStyle.Items.OfType<ListBoxItem>())
             {
-                listBoxItem.Show(listBoxItem.Content.ToString().Contains(e.Info));
+                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
             }
         }
 
@@ -72,7 +72,7 @@ namespace HandyControlDemo.UserControl
 
             foreach (var listBoxItem in listControl.Items.OfType<ListBoxItem>())
             {
-                listBoxItem.Show(listBoxItem.Content.ToString().Contains(e.Info));
+                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
             }
         }
     }
