@@ -9,6 +9,43 @@
     <ResourceDictionary Source="../Basic/Geometries.xaml"/>
   </ResourceDictionary.MergedDictionaries>
 
+  <LinearGradientBrush x:Key="ResizeGripperForeground" EndPoint="1,0.75" StartPoint="0,0.25">
+    <GradientStop Color="#FFFFFF" Offset="0.3"/>
+    <GradientStop Color="#BBC5D7" Offset="0.75"/>
+    <GradientStop Color="#6D83A9" Offset="1"/>
+  </LinearGradientBrush>
+
+  <Style TargetType="ResizeGrip">
+    <Setter Property="MinWidth" Value="11"/>
+    <Setter Property="MinHeight" Value="11"/>
+    <Setter Property="Width" Value="11"/>
+    <Setter Property="Height" Value="11"/>
+    <Setter Property="Background" Value="Transparent"/>
+    <Setter Property="Template">
+      <Setter.Value>
+        <ControlTemplate TargetType="ResizeGrip">
+          <Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+            <Path Width="11" Height="11" Data="M 9,0 L 11,0 L 11,11 L 0,11 L 0,9 L 3,9 L 3,6 L 6,6 L 6,3 L 9,3 z" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+              <Path.Fill>
+                <DrawingBrush TileMode="Tile" Viewbox="0,0,3,3" Viewport="0,0,3,3" ViewportUnits="Absolute" ViewboxUnits="Absolute">
+                  <DrawingBrush.Drawing>
+                    <DrawingGroup>
+                      <GeometryDrawing Brush="{StaticResource ResizeGripperForeground}">
+                        <GeometryDrawing.Geometry>
+                          <RectangleGeometry Rect="0,0,2,2"/>
+                        </GeometryDrawing.Geometry>
+                      </GeometryDrawing>
+                    </DrawingGroup>
+                  </DrawingBrush.Drawing>
+                </DrawingBrush>
+              </Path.Fill>
+            </Path>
+          </Grid>
+        </ControlTemplate>
+      </Setter.Value>
+    </Setter>
+  </Style>
+
   <Style x:Key="WindowDefault" BasedOn="{x:Null}" TargetType="Window">
     <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
     <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>

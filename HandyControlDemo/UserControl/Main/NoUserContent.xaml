@@ -43,7 +43,7 @@
                 </MenuItem>
                 <MenuItem Tag="mailto:836904362@qq.com" Header="{x:Static langs:Lang.Email}">
                     <MenuItem.Icon>
-                        <Path Data="{StaticResource EmailGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
+                        <Path Data="{StaticResource EmailGeometry}" Fill="{DynamicResource WarningBrush}"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Tag="https://gitter.im/HandyControl/Lobby" Header="{x:Static langs:Lang.Chatroom}">
@@ -56,7 +56,11 @@
                         <Path Data="{StaticResource CnblogsGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Header="{x:Static langs:Lang.About}" Click="MenuAbout_OnClick"/>
+                <MenuItem Header="{x:Static langs:Lang.About}" Click="MenuAbout_OnClick">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource InfoGeometry}" Fill="{DynamicResource SuccessBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Click="MenuItemContributors_OnClick" Foreground="White" Header="{x:Static langs:Lang.Contributors}">
                 <MenuItem.Icon>

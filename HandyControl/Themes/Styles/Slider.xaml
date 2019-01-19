@@ -636,7 +636,9 @@
             <TickBar x:Name="TopTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,0,0,2" Placement="Top" Grid.Row="0" Visibility="Collapsed"/>
             <TickBar x:Name="BottomTick" Fill="{TemplateBinding Foreground}" Height="4" Margin="0,2,0,0" Placement="Bottom" Grid.Row="2" Visibility="Collapsed"/>
             <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Grid.Row="1" Height="2" VerticalAlignment="center" Margin="9,0">
-                <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource AccentBrush}" Height="2" Visibility="Hidden"/>
+                <Canvas x:Name="Canvas_SelectionRange" Visibility="Hidden">
+                    <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource AccentBrush}" Height="2"/>
+                </Canvas>
             </Border>
             <Track Margin="9,0" x:Name="PART_Track" Grid.Row="1">
                 <Track.DecreaseRepeatButton>
@@ -676,7 +678,7 @@
                 <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
             </Trigger>
             <Trigger Property="IsSelectionRangeEnabled" Value="true">
-                <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                <Setter Property="Visibility" TargetName="Canvas_SelectionRange" Value="Visible"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -691,7 +693,9 @@
             <TickBar x:Name="TopTick" Grid.Column="0" Fill="{TemplateBinding Foreground}" Margin="0,0,2,0" Placement="Left" Visibility="Collapsed" Width="4"/>
             <TickBar x:Name="BottomTick" Grid.Column="2" Fill="{TemplateBinding Foreground}" Margin="2,0,0,0" Placement="Right" Visibility="Collapsed" Width="4"/>
             <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Grid.Column="1" HorizontalAlignment="center" Margin="0,9" Width="2">
-                <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource AccentBrush}" Width="2" Visibility="Hidden"/>
+                <Canvas x:Name="Canvas_SelectionRange" Visibility="Hidden">
+                    <Rectangle x:Name="PART_SelectionRange" Fill="{DynamicResource AccentBrush}" Width="2"/>
+                </Canvas>
             </Border>
             <Track Margin="0,9" x:Name="PART_Track" Grid.Column="1">
                 <Track.DecreaseRepeatButton>
@@ -731,7 +735,7 @@
                 <Setter Property="Visibility" TargetName="BottomTick" Value="Visible"/>
             </Trigger>
             <Trigger Property="IsSelectionRangeEnabled" Value="true">
-                <Setter Property="Visibility" TargetName="PART_SelectionRange" Value="Visible"/>
+                <Setter Property="Visibility" TargetName="Canvas_SelectionRange" Value="Visible"/>
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>

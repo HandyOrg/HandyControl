@@ -1,3 +1,0 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
-<#@ output extension=".xaml" #>
-<#@ include file="Window-$(netVersion).tt" #>

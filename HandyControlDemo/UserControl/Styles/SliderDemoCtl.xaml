@@ -8,7 +8,7 @@
             <StackPanel>
                 <Slider Width="400" IsSnapToTickEnabled="True" Value="8"/>
                 <Slider Width="400" IsSnapToTickEnabled="True" Value="3" Margin="0,32,0,0" IsEnabled="False"/>
-                <Slider Width="400" IsSnapToTickEnabled="True" TickFrequency="5" Maximum="100" TickPlacement="TopLeft" Value="10" IsSelectionRangeEnabled="True" SelectionStart="20" SelectionEnd="80" Margin="0,32,0,0"/>
+                <Slider Width="400" IsSnapToTickEnabled="True" TickFrequency="5" Maximum="100" TickPlacement="TopLeft" Value="10" IsSelectionRangeEnabled="True" SelectionStart="10" SelectionEnd="80" Margin="0,32,0,0"/>
                 <Slider Width="400" controls:TipElement.Visibility="Visible" IsSnapToTickEnabled="True" Maximum="100" Value="60" TickFrequency="10" TickPlacement="BottomRight" Margin="0,32,0,0"/>
                 <Slider Width="400" controls:TipElement.Visibility="Visible" controls:TipElement.Placement="BottomRight" IsSnapToTickEnabled="True" Value="5" TickPlacement="Both" Margin="0,32,0,0"/>
             </StackPanel>
