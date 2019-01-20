@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2000
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControl_Net35", "Net35\HandyControl_Net35\HandyControl_Net35.csproj", "{DC966E3D-BCFF-4652-98CF-070E5494749A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo_Net35", "Net35\HandyControlDemo_Net35\HandyControlDemo_Net35.csproj", "{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3B28FE22-B7B9-4058-9EF9-936C53C986CA}
+	EndGlobalSection
+EndGlobal
