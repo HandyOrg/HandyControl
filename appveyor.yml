@@ -2,15 +2,15 @@ version: 1.{build}
 image: Visual Studio 2017
 environment:
   matrix:
-  - solution_name: .\HandyControl\HandyControl.csproj
-  - solution_name: .\Net40\HandyControl_Net40\HandyControl_Net40.csproj
-  - solution_name: .\Net35\HandyControl_Net35\HandyControl_Net35.csproj
+  - project_name: .\HandyControl\HandyControl.csproj
+  - project_name: .\Net40\HandyControl_Net40\HandyControl_Net40.csproj
+  - project_name: .\Net35\HandyControl_Net35\HandyControl_Net35.csproj
 nuget:
   project_feed: true
 build_script:
 - cmd: >-
     appveyor DownloadFile https://dist.nuget.org/win-x86-commandline/v4.7.1/nuget.exe
 
-    nuget restore "HandyControl.sln"
+    nuget restore
 
-    msbuild %solution_name%
+    msbuild %project_name%
