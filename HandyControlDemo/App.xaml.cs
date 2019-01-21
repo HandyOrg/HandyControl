@@ -2,12 +2,9 @@
 using System.Globalization;
 using System.Threading;
 using System.Windows;
-using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
-using HandyControlDemo.Tools;
-
 namespace HandyControlDemo
 {
     /// <summary>
@@ -26,8 +23,6 @@ namespace HandyControlDemo
             {
                 UpdateSkin(GlobalData.Config.Skin);
             }
-
-            BlurWindow.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
         }
 
         protected override void OnExit(ExitEventArgs e)

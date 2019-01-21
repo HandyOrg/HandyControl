@@ -1,8 +1,10 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
+using Microsoft.Win32;
 
 namespace HandyControl.Controls
 {
@@ -18,6 +20,14 @@ namespace HandyControl.Controls
 
         internal static void EnableBlur(Window window)
         {
+            RegistryKey registryKey = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\Microsoft\Windows NT\CurrentVersion");
+
+            var build = Convert.ToInt32(registryKey.GetValue("CurrentBuild"));
+            var major = Convert.ToInt32(registryKey.GetValue("CurrentMajorVersionNumber"));
+            var minor = Convert.ToInt32(registryKey.GetValue("CurrentMinorVersionNumber"));
+
+            SystemVersionInfo = new SystemVersionInfo(major, minor, build);
+
             var accentPolicy = new ExternDllHelper.ACCENTPOLICY();
             var accentPolicySize = Marshal.SizeOf(accentPolicy);
 
