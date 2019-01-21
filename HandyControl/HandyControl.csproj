@@ -743,7 +743,6 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ResourceToken.cs</LastGenOutput>
     </Content>
-    <Content Include="Themes\Styles\Window-netgt40.tt" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -751,7 +750,7 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PreBuildEvent>echo &gt; $(ProjectDir)Themes\Styles\Window.xaml
-$(ProjectDir)TextTransform.exe -out $(ProjectDir)Themes\Styles\Window.xaml $(ProjectDir)Themes\Styles\Window-netgt40.tt</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
 </Project>

@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Basic/Brushes.xaml"/>
+        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="ListBoxItem.xaml"/>
+        <ResourceDictionary Source="Label.xaml"/>
+        <ResourceDictionary Source="Button.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+</ResourceDictionary>

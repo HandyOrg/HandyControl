@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ListBoxDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             Background="{DynamicResource RegionBrush}">
+    <controls:TransitioningContentControl>
+          <ListBox Width="200" Margin="32" ItemsSource="{Binding DataList}">
+              <ListBox.ItemTemplate>
+                  <DataTemplate>
+                      <TextBlock Text="{Binding Name}"/>
+                  </DataTemplate>
+              </ListBox.ItemTemplate>
+          </ListBox>
+    </controls:TransitioningContentControl>
+</UserControl>
