@@ -2,7 +2,9 @@ version: 1.{build}
 image: Visual Studio 2017
 environment:
   matrix:
-  - solution_name: HandyControl_Appveyor.sln
+  - solution_name: HandyControl.sln
+  - solution_name: HandyControl_Net35.sln
+  - solution_name: HandyControl_Net40.sln
 nuget:
   project_feed: true
 build_script:
