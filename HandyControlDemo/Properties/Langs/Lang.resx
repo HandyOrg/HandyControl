@@ -474,4 +474,10 @@
   <data name="MessageBox" xml:space="preserve">
     <value>消息框</value>
   </data>
+  <data name="ProgressButton" xml:space="preserve">
+    <value>进度按钮</value>
+  </data>
+  <data name="UploadStr" xml:space="preserve">
+    <value>上传;上传中</value>
+  </data>
 </root>

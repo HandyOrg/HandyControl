@@ -189,6 +189,9 @@
     <Compile Include="UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\ProgressButtonDemoCtl.xaml.cs">
+      <DependentUpon>ProgressButtonDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\RateDemoCtl.xaml.cs">
       <DependentUpon>RateDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -490,6 +493,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\ProgressButtonDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\RateDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -704,6 +711,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\ProgressButton_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\SortAscending_grey_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\LinearCarousel_16x.png" />
     <Resource Include="Resources\Img\Album\1.jpg" />

@@ -790,6 +790,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 进度按钮 的本地化字符串。
+        /// </summary>
+        public static string ProgressButton {
+            get {
+                return ResourceManager.GetString("ProgressButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 QQ群 的本地化字符串。
         /// </summary>
         public static string QQGroup {
@@ -1101,6 +1110,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string UploadFile {
             get {
                 return ResourceManager.GetString("UploadFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上传;上传中 的本地化字符串。
+        /// </summary>
+        public static string UploadStr {
+            get {
+                return ResourceManager.GetString("UploadStr", resourceCulture);
             }
         }
         

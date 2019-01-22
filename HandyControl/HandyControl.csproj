@@ -90,10 +90,11 @@
     <Compile Include="Controls\Base\RegularItemsControl.cs" />
     <Compile Include="Controls\Base\SelectableItem.cs" />
     <Compile Include="Controls\Base\SimpleItemsControl.cs" />
-    <Compile Include="Controls\CoverFlow\CoverFlow.cs" />
-    <Compile Include="Controls\CoverFlow\CoverFlowItem.cs" />
-    <Compile Include="Controls\CoverView\CoverViewContent.cs" />
-    <Compile Include="Controls\CoverView\CoverViewItem.cs" />
+    <Compile Include="Controls\Button\ProgressButton.cs" />
+    <Compile Include="Controls\Cover\CoverFlow\CoverFlow.cs" />
+    <Compile Include="Controls\Cover\CoverFlow\CoverFlowItem.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverViewContent.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverViewItem.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Attach\BorderElement.cs" />
@@ -108,7 +109,7 @@
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Other\Carousel.cs" />
-    <Compile Include="Controls\CoverView\CoverView.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
@@ -370,6 +371,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\ProgressButtonBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\RadioGroupBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -607,6 +612,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ProgressBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ProgressButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
