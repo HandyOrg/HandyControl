@@ -54,6 +54,7 @@
         <ResourceDictionary Source="Shield.xaml"/>
         <ResourceDictionary Source="CoverView.xaml"/>
         <ResourceDictionary Source="CoverFlow.xaml"/>
+        <ResourceDictionary Source="ProgressButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

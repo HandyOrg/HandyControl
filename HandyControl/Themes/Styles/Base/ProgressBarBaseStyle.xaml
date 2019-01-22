@@ -76,7 +76,7 @@
         <Setter Property="Height" Value="100"/>
         <Setter Property="Width" Value="100"/>
         <Setter Property="ArcThickness" Value="4"/>
-        <Setter Property="Text" Value="{Binding Value,RelativeSource={RelativeSource Self},StringFormat={}{0} %}"></Setter>
+        <Setter Property="Text" Value="{Binding Value,RelativeSource={RelativeSource Self},StringFormat={}{0} %}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CircleProgressBar">

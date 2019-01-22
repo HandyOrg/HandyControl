@@ -182,6 +182,11 @@
                     </controls:StatusSwitchElement.CheckedElement>
                 </ToggleButton>
                 <ListBox Name="listControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ProgressButtonDemoCtl}" Content="{x:Static langs:Lang.ProgressButton}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/ProgressButton_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.NumericUpDownDemoCtl}" Content="{x:Static langs:Lang.NumericUpDown}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/NumericListBox_16x.png"/>
@@ -232,7 +237,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/FlipVertical_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RateDemoCtl}" Content="{x:Static langs:Lang.Rate}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.RateDemoCtl}" Content="{x:Static langs:Lang.Rate}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Star.png"/>
                         </controls:EdgeElement.LeftContent>

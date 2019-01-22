@@ -10,6 +10,10 @@
 
 ## Latest examples
 
+### ProgressButton
+
+![ProgressButton](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressButton.png)
+
 ### CoverFlow
 
 ![CoverFlow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverFlow.gif)
@@ -22,6 +26,8 @@
 
 ![WaterfallPanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaterfallPanel.png)
 
+## History publication
+
 ### Rate
 
 ![Rate](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Rate.png)
@@ -29,8 +35,6 @@
 ### BlurWindow
 
 ![BlurWindow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/BlurWindow.png)
-
-## History publication
 
 ### FlipClock
 
