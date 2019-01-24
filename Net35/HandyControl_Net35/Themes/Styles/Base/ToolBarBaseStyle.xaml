@@ -64,7 +64,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Thumb">
                     <Border Padding="{TemplateBinding Padding}" Background="Transparent">
-                        <Path Stretch="Uniform" Width="4" Fill="{DynamicResource PrimaryBrush}" Data="{StaticResource DragGeometry}" SnapsToDevicePixels="True"/>
+                        <Path Stretch="Uniform" Width="4" Height="16" Fill="{DynamicResource PrimaryBrush}" Data="{StaticResource DragGeometry}" SnapsToDevicePixels="True"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">
@@ -110,7 +110,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <Border x:Name="Bd" SnapsToDevicePixels="true" CornerRadius="4" Background="{TemplateBinding Background}">
-                        <Path x:Name="PathMore" Data="{StaticResource DownGeometry}" Width="8" Margin="4,4,4,8" VerticalAlignment="Bottom" Fill="{DynamicResource PrimaryTextBrush}" Stretch="Uniform" SnapsToDevicePixels="True"/>
+                        <Path x:Name="PathMore" Data="{StaticResource DownGeometry}" Height="5" Width="8" Margin="4,4,4,8" VerticalAlignment="Bottom" Fill="{DynamicResource PrimaryTextBrush}" Stretch="Uniform" SnapsToDevicePixels="True"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="true">

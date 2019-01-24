@@ -47,7 +47,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
+        ///   使用此强类型资源类，为所有资源查找
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -651,6 +651,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string OpenCustomContentWindow {
             get {
                 return ResourceManager.GetString("OpenCustomContentWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开自定义消息窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenCustomMessageWindow {
+            get {
+                return ResourceManager.GetString("OpenCustomMessageWindow", resourceCulture);
             }
         }
         

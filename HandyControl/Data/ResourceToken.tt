@@ -48,15 +48,15 @@ namespace HandyControl.Data
 	internal class ResourceToken
     {
     <#foreach(var item in geometryList){#>
-    public static readonly string <#=item#> = nameof(<#=item#>);
+    public const string <#=item#> = nameof(<#=item#>);
 
     <#}#>
 <#foreach(var item in brushList){#>
-    public static readonly string <#=item#> = nameof(<#=item#>);
+    public const string <#=item#> = nameof(<#=item#>);
 
     <#}#>
 <#foreach(var item in styleList){#>
-    public static readonly string <#=item#> = nameof(<#=item#>);
+    public const string <#=item#> = nameof(<#=item#>);
 
     <#}#>
 }

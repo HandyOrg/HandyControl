@@ -480,4 +480,7 @@
   <data name="UploadStr" xml:space="preserve">
     <value>上传;上传中</value>
   </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>点击打开自定义消息窗口</value>
+  </data>
 </root>

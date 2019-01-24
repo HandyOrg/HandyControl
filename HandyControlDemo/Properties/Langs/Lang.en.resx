@@ -480,4 +480,7 @@
   <data name="UploadStr" xml:space="preserve">
     <value>Upload;Uploading</value>
   </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>open custom message window</value>
+  </data>
 </root>
