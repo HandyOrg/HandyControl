@@ -41,7 +41,8 @@ var controlList = new List<string>
 	"WaterfallPanelDemoCtl",
 	"CoverViewDemoCtl",
 	"CoverFlowDemoCtl",
-	"ProgressButtonDemoCtl"
+	"ProgressButtonDemoCtl",
+	"TransferDemoCtl"
 };
 var styleList = new List<string>
 {

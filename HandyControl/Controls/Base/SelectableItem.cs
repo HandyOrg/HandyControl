@@ -29,7 +29,32 @@ namespace HandyControl.Controls
 
             if (_isMouseLeftButtonDown)
             {
-                RaiseEvent(new RoutedEventArgs(SelectedEvent, this));
+                if (SelfManage)
+                {
+                    if (!IsSelected)
+                    {
+                        IsSelected = true;
+                        RaiseEvent(new RoutedEventArgs(SelectedEvent, this));
+                    }
+                    else if (CanDeselect)
+                    {
+                        IsSelected = false;
+                        RaiseEvent(new RoutedEventArgs(DeselectedEvent, this));
+                    }
+                }
+                else
+                {
+                    if (CanDeselect)
+                    {
+                        RaiseEvent(IsSelected
+                            ? new RoutedEventArgs(DeselectedEvent, this)
+                            : new RoutedEventArgs(SelectedEvent, this));
+                    }
+                    else
+                    {
+                        RaiseEvent(new RoutedEventArgs(SelectedEvent, this));
+                    }
+                }
                 _isMouseLeftButtonDown = false;
             }
         }
@@ -43,6 +68,24 @@ namespace HandyControl.Controls
             set => SetValue(IsSelectedProperty, value);
         }
 
+        public static readonly DependencyProperty SelfManageProperty = DependencyProperty.Register(
+            "SelfManage", typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool SelfManage
+        {
+            get => (bool) GetValue(SelfManageProperty);
+            set => SetValue(SelfManageProperty, value);
+        }
+
+        public static readonly DependencyProperty CanDeselectProperty = DependencyProperty.Register(
+            "CanDeselect", typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool CanDeselect
+        {
+            get => (bool) GetValue(CanDeselectProperty);
+            set => SetValue(CanDeselectProperty, value);
+        }
+
         public static readonly RoutedEvent SelectedEvent =
             EventManager.RegisterRoutedEvent("Selected", RoutingStrategy.Bubble,
                 typeof(RoutedEventHandler), typeof(SelectableItem));
@@ -51,6 +94,16 @@ namespace HandyControl.Controls
         {
             add => AddHandler(SelectedEvent, value);
             remove => RemoveHandler(SelectedEvent, value);
+        }
+
+        public static readonly RoutedEvent DeselectedEvent =
+            EventManager.RegisterRoutedEvent("Deselected", RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler), typeof(SelectableItem));
+
+        public event RoutedEventHandler Deselected
+        {
+            add => AddHandler(DeselectedEvent, value);
+            remove => RemoveHandler(DeselectedEvent, value);
         }
     }
 }

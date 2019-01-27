@@ -36,11 +36,11 @@ namespace HandyControlDemo.UserControl
         {
             if (ButtonStyleAscending.IsChecked == true)
             {
-                listStyle.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
+                ListBoxStyle.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
             }
             else
             {
-                listStyle.Items.SortDescriptions.Clear();
+                ListBoxStyle.Items.SortDescriptions.Clear();
             }
         }
 
@@ -48,11 +48,11 @@ namespace HandyControlDemo.UserControl
         {
             if (ButtonControlAscending.IsChecked == true)
             {
-                listControl.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
+                ListBoxControl.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
             }
             else
             {
-                listControl.Items.SortDescriptions.Clear();
+                ListBoxControl.Items.SortDescriptions.Clear();
             }
         }
 
@@ -60,7 +60,7 @@ namespace HandyControlDemo.UserControl
         {
             if (e.Info == null) return;
 
-            foreach (var listBoxItem in listStyle.Items.OfType<ListBoxItem>())
+            foreach (var listBoxItem in ListBoxStyle.Items.OfType<ListBoxItem>())
             {
                 listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
             }
@@ -70,7 +70,7 @@ namespace HandyControlDemo.UserControl
         {
             if (e.Info == null) return;
 
-            foreach (var listBoxItem in listControl.Items.OfType<ListBoxItem>())
+            foreach (var listBoxItem in ListBoxControl.Items.OfType<ListBoxItem>())
             {
                 listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
             }

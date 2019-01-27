@@ -55,6 +55,7 @@
         <ResourceDictionary Source="CoverView.xaml"/>
         <ResourceDictionary Source="CoverFlow.xaml"/>
         <ResourceDictionary Source="ProgressButton.xaml"/>
+        <ResourceDictionary Source="Transfer.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
