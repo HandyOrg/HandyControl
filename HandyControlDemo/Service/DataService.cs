@@ -14,7 +14,7 @@ namespace HandyControlDemo.Service
         internal List<DemoDataModel> GetDemoDataList()
         {
             var list = new List<DemoDataModel>();
-            for (var i = 1; i <= 6; i++)
+            for (var i = 1; i <= 20; i++)
             {
                 var dataList = new List<DemoDataModel>();
                 for (int j = 0; j < 3; j++)
@@ -34,7 +34,7 @@ namespace HandyControlDemo.Service
                     Name = $"Name{i}",
                     Type = (DemoType)i,
                     DataList = dataList,
-                    ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i}.png",
+                    ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i % 7}.png",
                     Remark = new string(i.ToString()[0], 10)
                 };
                 list.Add(model);

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System.Collections;
+using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows;
@@ -25,11 +26,21 @@ namespace HandyControl.Controls
             "ItemContainerStyle", typeof(Style), typeof(SimpleItemsControl),
             new PropertyMetadata(default(Style), OnItemContainerStyleChanged));
 
+        public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
+            "ItemsSource", typeof(IEnumerable), typeof(SimpleItemsControl),
+            new PropertyMetadata(default(IEnumerable), OnItemsSourceChanged));
+
         public SimpleItemsControl()
         {
             var items = new ObservableCollection<object>();
-            items.CollectionChanged += OnItemsCollectionChanged;
+            items.CollectionChanged += OnItemsChanged;
             Items = items;
+        }
+
+        public IEnumerable ItemsSource
+        {
+            get => (IEnumerable) GetValue(ItemsSourceProperty);
+            set => SetValue(ItemsSourceProperty, value);
         }
 
         [Bindable(true)]
@@ -53,6 +64,15 @@ namespace HandyControl.Controls
 
         internal Panel ItemsHost { get; set; }
 
+        private static void OnItemsSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((SimpleItemsControl) d).OnItemsSourceChanged((IEnumerable) e.OldValue, (IEnumerable) e.NewValue);
+        }
+
+        protected virtual void OnItemsSourceChanged(IEnumerable oldValue, IEnumerable newValue)
+        {
+        }
+
         public override void OnApplyTemplate()
         {
             ItemsHost?.Children.Clear();
@@ -63,7 +83,7 @@ namespace HandyControl.Controls
             Refresh();
         }
 
-        private void OnItemsCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        protected virtual void OnItemsChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             Refresh();
             UpdateItems();
@@ -88,17 +108,15 @@ namespace HandyControl.Controls
             }
         }
 
-        private static void OnItemTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var target = d as SimpleItemsControl;
-            target?.Refresh();
-        }
+        private static void OnItemTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) 
+            => (d as SimpleItemsControl)?.OnItemTemplateChanged(e);
+
+        protected virtual void OnItemTemplateChanged(DependencyPropertyChangedEventArgs e) => Refresh();
 
         private static void OnItemContainerStyleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var target = d as SimpleItemsControl;
-            target?.Refresh();
-        }
+            => (d as SimpleItemsControl)?.OnItemContainerStyleChanged(e);
+
+        protected virtual void OnItemContainerStyleChanged(DependencyPropertyChangedEventArgs e) => Refresh();
 
         protected virtual void Refresh()
         {
@@ -128,7 +146,6 @@ namespace HandyControl.Controls
 
         protected virtual void UpdateItems()
         {
-
         }
     }
 }

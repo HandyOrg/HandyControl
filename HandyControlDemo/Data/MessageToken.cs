@@ -78,6 +78,8 @@
 	
         public static readonly string ProgressButtonDemoCtl = nameof(ProgressButtonDemoCtl);
 	
+        public static readonly string TransferDemoCtl = nameof(TransferDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

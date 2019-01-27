@@ -483,4 +483,7 @@
   <data name="OpenCustomMessageWindow" xml:space="preserve">
     <value>点击打开自定义消息窗口</value>
   </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>穿梭框</value>
+  </data>
 </root>

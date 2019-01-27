@@ -110,6 +110,9 @@
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Other\Carousel.cs" />
     <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
+    <Compile Include="Controls\Transfer\Transfer.cs" />
+    <Compile Include="Controls\Transfer\TransferGroup.cs" />
+    <Compile Include="Controls\Transfer\TransferItem.cs" />
     <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
@@ -167,6 +170,7 @@
     <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
+    <Compile Include="Tools\Extension\EnumerableExtension.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\GifImageAnimator.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
@@ -393,6 +397,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\ToolBarBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\TransferBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -697,6 +705,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\ToolTip.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Transfer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

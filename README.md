@@ -10,6 +10,10 @@
 
 ## Latest examples
 
+### Transfer
+
+![Transfer](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Transfer.png)
+
 ### ProgressButton
 
 ![ProgressButton](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressButton.png)

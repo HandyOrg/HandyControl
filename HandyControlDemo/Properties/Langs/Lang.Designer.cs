@@ -1096,6 +1096,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 穿梭框 的本地化字符串。
+        /// </summary>
+        public static string Transfer {
+            get {
+                return ResourceManager.GetString("Transfer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 树视图 的本地化字符串。
         /// </summary>
         public static string TreeView {

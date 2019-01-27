@@ -216,6 +216,9 @@
     <Compile Include="UserControl\Controls\TimePickerDemoCtl.xaml.cs">
       <DependentUpon>TimePickerDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\TransferDemoCtl.xaml.cs">
+      <DependentUpon>TransferDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
       <DependentUpon>WaterfallPanelDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -529,6 +532,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\TransferDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\WaterfallPanelDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -711,6 +718,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Transfer_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\ProgressButton_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\SortAscending_grey_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\LinearCarousel_16x.png" />
