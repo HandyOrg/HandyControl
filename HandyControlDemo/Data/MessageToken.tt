@@ -42,7 +42,8 @@ var controlList = new List<string>
 	"CoverViewDemoCtl",
 	"CoverFlowDemoCtl",
 	"ProgressButtonDemoCtl",
-	"TransferDemoCtl"
+	"TransferDemoCtl",
+	"ChatBubbleDemoCtl"
 };
 var styleList = new List<string>
 {

@@ -132,6 +132,9 @@
     <Compile Include="UserControl\Controls\CarouselDemoCtl.xaml.cs">
       <DependentUpon>CarouselDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\ChatBubbleDemoCtl.xaml.cs">
+      <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -417,6 +420,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\CarouselDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\ChatBubbleDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -718,6 +725,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Bubble_16xLG.png" />
     <Resource Include="Resources\Img\LeftMainContent\Transfer_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\ProgressButton_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\SortAscending_grey_16x.png" />
