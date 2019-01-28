@@ -489,4 +489,7 @@
   <data name="ChatBubble" xml:space="preserve">
     <value>ChatBubble</value>
   </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>Push to talk</value>
+  </data>
 </root>

@@ -817,6 +817,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 按住说话 的本地化字符串。
+        /// </summary>
+        public static string PushToTalk {
+            get {
+                return ResourceManager.GetString("PushToTalk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 QQ群 的本地化字符串。
         /// </summary>
         public static string QQGroup {

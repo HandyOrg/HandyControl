@@ -13,14 +13,14 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="CanDeselect" Value="True"/>
         <Setter Property="SelfManage" Value="True"/>
-        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Padding" Value="10, 0"/>
         <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Margin" Value="5,0,5,5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:TransferItem">
                     <Border x:Name="BorderRoot" Background="{DynamicResource RegionBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
-                        <ContentPresenter x:Name="ContentPresenter" Margin="{TemplateBinding Padding}" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=controls:TransferGroup}}"/>
+                        <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=controls:TransferGroup}}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">

@@ -489,4 +489,7 @@
   <data name="ChatBubble" xml:space="preserve">
     <value>对话气泡</value>
   </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>按住说话</value>
+  </data>
 </root>

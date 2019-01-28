@@ -2,8 +2,28 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="ChatBubbleBaseStyle" TargetType="controls:ChatBubble">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
+    <Style x:Key="ChatBubbleBaseStyle" TargetType="controls:ChatBubble">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+        <Setter Property="Padding" Value="10,0"/>
+        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:ChatBubble">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
+                        </Border>
+                        <Path Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </Style>
 
 </ResourceDictionary>
