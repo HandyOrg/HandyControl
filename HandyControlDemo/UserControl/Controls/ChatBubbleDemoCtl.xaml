@@ -1,54 +1,20 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.ChatBubbleDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
              Background="{DynamicResource RegionBrush}">
     <ContentControl>
-        <UniformGrid Columns="2" Width="600" Height="486">
-            <Border BorderThickness="0,0,1,0" BorderBrush="{DynamicResource BorderBrush}">
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Border Background="{DynamicResource DarkDefaultBrush}" Grid.Row="1">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <ToggleButton Name="ToggleButtonAudioLeft" controls:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" Margin="6,6,0,6" controls:IconSwitchElement.Geometry="{StaticResource AudioGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource KeyboardGeometry}" Style="{StaticResource ToggleButtonIcon}"/>
-                            <Button Grid.Column="1" Margin="6,6,0,6" controls:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" controls:IconElement.Geometry="{StaticResource ImageGeometry}"/>
-                            <TextBox Grid.Column="2" Margin="6,0,6,0" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudioLeft,Converter={StaticResource Boolean2VisibilityReConverter}}"/>
-                            <Button Grid.Column="2" Margin="6,0,6,0" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudioLeft,Converter={StaticResource Boolean2VisibilityConverter}}" Content="{x:Static langs:Lang.PushToTalk}" Width="{x:Static system:Double.NaN}" HorizontalAlignment="Stretch"/>
-                        </Grid>
-                    </Border>
-                </Grid>
-            </Border>
-            <Grid>
-                <Grid>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition Height="Auto"/>
-                    </Grid.RowDefinitions>
-                    <Border Background="{DynamicResource DarkDefaultBrush}" Grid.Row="1">
-                        <Grid>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition/>
-                            </Grid.ColumnDefinitions>
-                            <ToggleButton Name="ToggleButtonAudioRight" controls:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" Margin="6,6,0,6" controls:IconSwitchElement.Geometry="{StaticResource AudioGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource KeyboardGeometry}" Style="{StaticResource ToggleButtonIcon}"/>
-                            <Button Grid.Column="1" Margin="6,6,0,6" controls:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" controls:IconElement.Geometry="{StaticResource ImageGeometry}"/>
-                            <TextBox Grid.Column="2" Margin="6,0,6,0" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudioRight,Converter={StaticResource Boolean2VisibilityReConverter}}"/>
-                            <Button Grid.Column="2" Margin="6,0,6,0" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudioRight,Converter={StaticResource Boolean2VisibilityConverter}}" Content="{x:Static langs:Lang.PushToTalk}" Width="{x:Static system:Double.NaN}" HorizontalAlignment="Stretch"/>
-                        </Grid>
-                    </Border>
-                </Grid>
-            </Grid>
-        </UniformGrid>
+        <StackPanel Orientation="Horizontal" Margin="32">
+            <userControl:ChatBox>
+                <userControl:ChatBox.Background>
+                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/Chat/chat_back1.jpg" Stretch="Uniform"/>
+                </userControl:ChatBox.Background>
+            </userControl:ChatBox>
+            <userControl:ChatBox Margin="32,0,0,0">
+                <userControl:ChatBox.Background>
+                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/Chat/chat_back2.jpg" Stretch="Uniform"/>
+                </userControl:ChatBox.Background>
+            </userControl:ChatBox>
+        </StackPanel>
     </ContentControl>
 </UserControl>

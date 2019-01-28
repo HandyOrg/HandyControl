@@ -7,23 +7,62 @@
         <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    <ControlTemplate x:Key="ChatBubbleSenderBaseTemplate" TargetType="controls:ChatBubble">
+        <Grid>
+            <Path Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15"/>
+            <Border Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
+                <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}" VerticalAlignment="Center">
+                    <ContentPresenter.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="White" CornerRadius="10" Width="{Binding ActualWidth,ElementName=Presenter}" Height="{Binding ActualHeight,ElementName=Presenter}"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </ContentPresenter.OpacityMask>
+                </ContentPresenter>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ChatBubbleReceiverBaseTemplate" TargetType="controls:ChatBubble">
+        <Grid>
+            <Path Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Left" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <Border Background="{TemplateBinding Background}" CornerRadius="15" Margin="3,0,0,0">
+                <ContentPresenter Name="Presenter" Margin="{TemplateBinding Padding}" VerticalAlignment="Center">
+                    <ContentPresenter.OpacityMask>
+                        <VisualBrush>
+                            <VisualBrush.Visual>
+                                <Border Background="White" CornerRadius="10" Width="{Binding ActualWidth,ElementName=Presenter}" Height="{Binding ActualHeight,ElementName=Presenter}"/>
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </ContentPresenter.OpacityMask>
+                </ContentPresenter>
+            </Border>
+        </Grid>
+    </ControlTemplate>
+
     <Style x:Key="ChatBubbleBaseStyle" TargetType="controls:ChatBubble">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Background" Value="{DynamicResource DarkPrimaryBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
-        <Setter Property="Padding" Value="10,0"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="10"/>
         <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="controls:ChatBubble">
-                    <Grid>
-                        <Border Background="{TemplateBinding Background}" CornerRadius="15">
-                            <ContentPresenter Margin="{TemplateBinding Padding}" VerticalAlignment="Center"/>
-                        </Border>
-                        <Path Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15"/>
-                    </Grid>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Template" Value="{StaticResource ChatBubbleSenderBaseTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="Role" Value="Receiver">
+                <Setter Property="Template" Value="{StaticResource ChatBubbleReceiverBaseTemplate}"/>
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

@@ -79,6 +79,16 @@ var windowList = new List<string>
 	"CommonWindow",
 	"CustomNonClientAreaWindow"
 };
+var messageList = new List<string>
+{
+	"LoadShowContent",
+	"FullSwitch",
+	"ContributorsView",
+	"ClearLeftSelected",
+	"SendChatString",
+	"SendChatImage",
+	"SendChatAudio"
+};
 #>
 namespace HandyControlDemo.Data
 {
@@ -96,12 +106,9 @@ namespace HandyControlDemo.Data
     public static readonly string <#=item#> = nameof(<#=item#>);
 
     <#}#>
-	public static readonly string LoadShowContent = nameof(LoadShowContent);
+<#foreach(var item in messageList){#>
+    public static readonly string <#=item#> = nameof(<#=item#>);
 
-		public static readonly string FullSwitch = nameof(FullSwitch);
-
-		public static readonly string ContributorsView = nameof(ContributorsView);
-
-		public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
-	}
+    <#}#>
+}
 }
