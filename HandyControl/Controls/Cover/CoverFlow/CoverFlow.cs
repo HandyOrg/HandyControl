@@ -38,8 +38,8 @@ namespace HandyControl.Controls
 
         private static object CoercePageIndex(DependencyObject d, object baseValue)
         {
-            var ctl = (CoverFlow) d;
-            var v = (int) baseValue;
+            var ctl = (CoverFlow)d;
+            var v = (int)baseValue;
 
             if (v < 0)
             {
@@ -54,7 +54,7 @@ namespace HandyControl.Controls
 
         private static void OnPageIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (CoverFlow) d;
+            var ctl = (CoverFlow)d;
             ctl.UpdateIndex((int)e.NewValue, (int)e.OldValue);
         }
 
@@ -100,41 +100,16 @@ namespace HandyControl.Controls
         private int _lastShowIndex;
 
         /// <summary>
-        ///     在获取新的模板后是否需要更新项
-        /// </summary>
-        private bool _updateItems;
-
-        private bool _isLoaded;
-
-        /// <summary>
         ///     跳转编号
         /// </summary>
         private int _jumpToIndex = -1;
-
-        public CoverFlow()
-        {
-            Loaded += (s, e) =>
-            {
-                if (_isLoaded) return;
-                _isLoaded = true;
-                if (_updateItems)
-                {
-                    UpdateShowRange();
-                    _updateItems = false;
-                }
-                if (_jumpToIndex > 0)
-                {
-                    PageIndex = _jumpToIndex;
-                }
-            };
-        }
 
         /// <summary>
         ///     页码
         /// </summary>
         public int PageIndex
         {
-            get => (int) GetValue(PageIndexProperty);
+            get => (int)GetValue(PageIndexProperty);
             internal set => SetValue(PageIndexProperty, value);
         }
 
@@ -167,12 +142,13 @@ namespace HandyControl.Controls
             _camera = GetTemplateChild(ElementCamera) as ProjectionCamera;
             _visualParent = GetTemplateChild(ElementVisualParent) as ModelVisual3D;
 
-            if (_isLoaded)
+            UpdateShowRange();
+            if (_jumpToIndex > 0)
             {
-                UpdateShowRange();
-                _camera.Position = new Point3D(CoverFlowItem.Interval * PageIndex, _camera.Position.Y,
-                    _camera.Position.Z);
+                PageIndex = _jumpToIndex;
+                _jumpToIndex = -1;
             }
+            _camera.Position = new Point3D(CoverFlowItem.Interval * PageIndex, _camera.Position.Y, _camera.Position.Z);
         }
 
         /// <summary>
@@ -185,28 +161,19 @@ namespace HandyControl.Controls
             {
                 _uriList.Add(_uriList.Count, uri);
             }
-            _updateItems = true;
         }
 
         /// <summary>
         ///     添加一项资源
         /// </summary>
         /// <param name="uriString"></param>
-        public void Add(string uriString)
-        {
-            _uriList.Add(_uriList.Count, new Uri(uriString));
-            _updateItems = true;
-        }
+        public void Add(string uriString) => _uriList.Add(_uriList.Count, new Uri(uriString));
 
         /// <summary>
         ///     添加一项资源
         /// </summary>
         /// <param name="uri"></param>
-        public void Add(Uri uri)
-        {
-            _uriList.Add(_uriList.Count, uri);
-            _updateItems = true;
-        }
+        public void Add(Uri uri) => _uriList.Add(_uriList.Count, uri);
 
         /// <summary>
         ///     跳转
@@ -249,7 +216,7 @@ namespace HandyControl.Controls
 
         private void Viewport3D_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var result = (RayMeshGeometry3DHitTestResult) VisualTreeHelper.HitTest(_viewport3D, e.GetPosition(_viewport3D));
+            var result = (RayMeshGeometry3DHitTestResult)VisualTreeHelper.HitTest(_viewport3D, e.GetPosition(_viewport3D));
             if (result != null)
             {
                 foreach (var item in _itemShowList.Values)
