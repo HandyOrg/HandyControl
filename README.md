@@ -1,12 +1,32 @@
 ![logo](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/icon.png)
 
 ![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![csharp-version](https://img.shields.io/badge/C%23-7.0-blue.svg) ![IDE-version](https://img.shields.io/badge/IDE-vs2017-blue.svg) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl) [![build-status](https://ci.appveyor.com/api/projects/status/github/handyorg/handycontrol?svg=true)](https://ci.appveyor.com/project/NaBian/handycontrol) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![qq-group](https://img.shields.io/badge/qq-714704041-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1)
+![wiki](https://img.shields.io/badge/wiki-Complete-brightgreen.svg)
 
 # Discussion
 
 ![qq-group](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qq-group.png)
 
 # Welcome to HandyControl
+
+# Usage
+
+Step 1：Add a reference to HandyControl or search for HandyControl on the nuget; 
+
+```Install-Package HandyControl```
+
+Step 2：Add code in App.xaml as follows:
+```XML
+<Application.Resources>
+    <ResourceDictionary>
+        <ResourceDictionary.MergedDictionaries>
+            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
+            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+        </ResourceDictionary.MergedDictionaries>
+    </ResourceDictionary>
+</Application.Resources>
+```
+Step 3：enjoy coding
 
 ## Latest examples
 
@@ -225,22 +245,6 @@
 ### BorderStyle
 
 ![BorderStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Border.png)
-
-# Usage
-
-Step 1：Add a reference to HandyControl or search for HandyControl on the nuget;  
-Step 2：Add code in App.xaml as follows:
-```XML
-<Application.Resources>
-    <ResourceDictionary>
-        <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
-            <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
-        </ResourceDictionary.MergedDictionaries>
-    </ResourceDictionary>
-</Application.Resources>
-```
-Step 3：enjoy coding
 
 # Switching configuration
 
