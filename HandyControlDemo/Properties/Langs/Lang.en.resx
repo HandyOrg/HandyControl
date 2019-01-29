@@ -492,4 +492,7 @@
   <data name="PushToTalk" xml:space="preserve">
     <value>Push to talk</value>
   </data>
+  <data name="Second" xml:space="preserve">
+    <value>Sec</value>
+  </data>
 </root>

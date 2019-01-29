@@ -46,7 +46,7 @@ namespace HandyControlDemo.ViewModel
 
         public PaginationDemoViewModel PaginationDemo => ServiceLocator.Current.GetInstance<PaginationDemoViewModel>();
 
-        public ChatBoxViewModel ChatBox => ServiceLocator.Current.GetInstance<ChatBoxViewModel>();
+        public ChatBoxViewModel ChatBox => new ChatBoxViewModel();
 
         #endregion
     }

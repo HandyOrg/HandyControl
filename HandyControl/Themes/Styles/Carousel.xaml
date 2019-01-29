@@ -9,7 +9,22 @@
         <ResourceDictionary Source="ListBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="controls:Carousel" BasedOn="{StaticResource StackPanelListBox}">
+    <Style x:Key="CarouselListBoxItemStyle" BasedOn="{StaticResource ListBoxItemCustom}" TargetType="ListBoxItem">
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+    </Style>
+
+    <ItemsPanelTemplate x:Key="CarouselListBoxItemPanelTemplate">
+        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal" HorizontalAlignment="Left"/>
+    </ItemsPanelTemplate>
+
+    <Style x:Key="CarouselListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
+        <Setter Property="ItemsPanel" Value="{StaticResource CarouselListBoxItemPanelTemplate}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource CarouselListBoxItemStyle}"/>
+    </Style>
+
+    <Style TargetType="controls:Carousel" BasedOn="{StaticResource CarouselListBox}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Carousel">

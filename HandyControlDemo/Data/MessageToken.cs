@@ -146,11 +146,7 @@
 
         public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
 
-        public static readonly string SendChatString = nameof(SendChatString);
-
-        public static readonly string SendChatImage = nameof(SendChatImage);
-
-        public static readonly string SendChatAudio = nameof(SendChatAudio);
+        public static readonly string SendChatMessage = nameof(SendChatMessage);
 
     }
 }

@@ -85,9 +85,7 @@ var messageList = new List<string>
 	"FullSwitch",
 	"ContributorsView",
 	"ClearLeftSelected",
-	"SendChatString",
-	"SendChatImage",
-	"SendChatAudio"
+	"SendChatMessage"
 };
 #>
 namespace HandyControlDemo.Data

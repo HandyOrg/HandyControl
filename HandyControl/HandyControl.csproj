@@ -157,6 +157,7 @@
     <Compile Include="Controls\Window\BlurWindow.cs" />
     <Compile Include="Controls\Window\MessageBox.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
+    <Compile Include="Data\Enum\ChatMessageType.cs" />
     <Compile Include="Data\Enum\ChatRoleType.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />

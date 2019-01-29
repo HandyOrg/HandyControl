@@ -492,4 +492,7 @@
   <data name="PushToTalk" xml:space="preserve">
     <value>按住说话</value>
   </data>
+  <data name="Second" xml:space="preserve">
+    <value>秒</value>
+  </data>
 </root>

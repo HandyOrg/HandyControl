@@ -34,30 +34,32 @@ namespace HandyControl.Controls
                     if (!IsSelected)
                     {
                         IsSelected = true;
-                        RaiseEvent(new RoutedEventArgs(SelectedEvent, this));
+                        OnSelected(new RoutedEventArgs(SelectedEvent, this));
                     }
                     else if (CanDeselect)
                     {
                         IsSelected = false;
-                        RaiseEvent(new RoutedEventArgs(DeselectedEvent, this));
+                        OnSelected(new RoutedEventArgs(DeselectedEvent, this));
                     }
                 }
                 else
                 {
                     if (CanDeselect)
                     {
-                        RaiseEvent(IsSelected
+                        OnSelected(IsSelected
                             ? new RoutedEventArgs(DeselectedEvent, this)
                             : new RoutedEventArgs(SelectedEvent, this));
                     }
                     else
                     {
-                        RaiseEvent(new RoutedEventArgs(SelectedEvent, this));
+                        OnSelected(new RoutedEventArgs(SelectedEvent, this));
                     }
                 }
                 _isMouseLeftButtonDown = false;
             }
         }
+
+        protected virtual void OnSelected(RoutedEventArgs e) => RaiseEvent(e);
 
         public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
             "IsSelected", typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));

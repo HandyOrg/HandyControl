@@ -118,9 +118,10 @@
       <DependentUpon>Lang.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Service\DataService.cs" />
-    <Compile Include="Tools\AssemblyHelper.cs" />
-    <Compile Include="Tools\CommonHelper.cs" />
+    <Compile Include="Tools\Helper\AssemblyHelper.cs" />
+    <Compile Include="Tools\Helper\CommonHelper.cs" />
     <Compile Include="Tools\Converter\StringRepeatConverter.cs" />
+    <Compile Include="Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="UserControl\Basic\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
     </Compile>
@@ -836,5 +837,6 @@
       <Name>HandyControl</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
