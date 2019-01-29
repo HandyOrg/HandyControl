@@ -289,7 +289,7 @@ namespace HandyControl.Controls
                 throw new InvalidEnumArgumentException(nameof(defaultResult), (int)defaultResult, typeof(MessageBoxResult));
             }
 
-            var ownerWindow = owner ?? Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+            var ownerWindow = owner ?? VisualHelper.GetActiveWindow();
             var ownerIsNull = ownerWindow is null;
 
             return new MessageBox

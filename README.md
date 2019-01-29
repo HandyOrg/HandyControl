@@ -10,6 +10,10 @@
 
 ## Latest examples
 
+### ChatBubble
+
+![ChatBubble](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ChatBubble.png)
+
 ### Transfer
 
 ![Transfer](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Transfer.png)
@@ -26,11 +30,11 @@
 
 ![CoverView](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverView.gif)
 
+## History publication
+
 ### WaterfallPanel
 
 ![WaterfallPanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaterfallPanel.png)
-
-## History publication
 
 ### Rate
 

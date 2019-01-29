@@ -4,9 +4,9 @@ using System.Windows.Media;
 
 namespace HandyControl.Tools
 {
-    internal class VisualHelper
+    public class VisualHelper
     {
-        public static VisualStateGroup TryGetVisualStateGroup(DependencyObject dependencyObject, string groupName)
+        internal static VisualStateGroup TryGetVisualStateGroup(DependencyObject dependencyObject, string groupName)
         {
             var root = GetImplementationRoot(dependencyObject);
             if (root == null)
@@ -20,11 +20,13 @@ namespace HandyControl.Tools
                 .FirstOrDefault(group => string.CompareOrdinal(groupName, group.Name) == 0);
         }
 
-        public static FrameworkElement GetImplementationRoot(DependencyObject dependencyObject)
+        internal static FrameworkElement GetImplementationRoot(DependencyObject dependencyObject)
         {
             return 1 == VisualTreeHelper.GetChildrenCount(dependencyObject)
                 ? VisualTreeHelper.GetChild(dependencyObject, 0) as FrameworkElement
                 : null;
         }
+
+        public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
     }
 }

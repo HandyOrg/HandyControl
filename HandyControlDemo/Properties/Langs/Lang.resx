@@ -486,4 +486,13 @@
   <data name="Transfer" xml:space="preserve">
     <value>穿梭框</value>
   </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>对话气泡</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>按住说话</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>秒</value>
+  </data>
 </root>

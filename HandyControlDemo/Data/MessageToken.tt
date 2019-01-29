@@ -42,7 +42,8 @@ var controlList = new List<string>
 	"CoverViewDemoCtl",
 	"CoverFlowDemoCtl",
 	"ProgressButtonDemoCtl",
-	"TransferDemoCtl"
+	"TransferDemoCtl",
+	"ChatBubbleDemoCtl"
 };
 var styleList = new List<string>
 {
@@ -78,6 +79,14 @@ var windowList = new List<string>
 	"CommonWindow",
 	"CustomNonClientAreaWindow"
 };
+var messageList = new List<string>
+{
+	"LoadShowContent",
+	"FullSwitch",
+	"ContributorsView",
+	"ClearLeftSelected",
+	"SendChatMessage"
+};
 #>
 namespace HandyControlDemo.Data
 {
@@ -95,12 +104,9 @@ namespace HandyControlDemo.Data
     public static readonly string <#=item#> = nameof(<#=item#>);
 
     <#}#>
-	public static readonly string LoadShowContent = nameof(LoadShowContent);
+<#foreach(var item in messageList){#>
+    public static readonly string <#=item#> = nameof(<#=item#>);
 
-		public static readonly string FullSwitch = nameof(FullSwitch);
-
-		public static readonly string ContributorsView = nameof(ContributorsView);
-
-		public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
-	}
+    <#}#>
+}
 }

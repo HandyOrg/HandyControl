@@ -39,6 +39,7 @@ namespace HandyControl.Controls
             if (_textBox != null)
             {
                 _textBox.TextChanged -= TextBox_TextChanged;
+                _textBox.KeyDown -= TextBox_KeyDown;
             }
 
             base.OnApplyTemplate();

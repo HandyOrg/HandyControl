@@ -486,4 +486,13 @@
   <data name="Transfer" xml:space="preserve">
     <value>Transfer</value>
   </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>ChatBubble</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>Push to talk</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>Sec</value>
+  </data>
 </root>

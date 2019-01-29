@@ -47,7 +47,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   使用此强类型资源类，为所有资源查找
+        ///   重写当前线程的 CurrentUICulture 属性
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -174,6 +174,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ChangeLangAsk {
             get {
                 return ResourceManager.GetString("ChangeLangAsk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 对话气泡 的本地化字符串。
+        /// </summary>
+        public static string ChatBubble {
+            get {
+                return ResourceManager.GetString("ChatBubble", resourceCulture);
             }
         }
         
@@ -808,6 +817,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 按住说话 的本地化字符串。
+        /// </summary>
+        public static string PushToTalk {
+            get {
+                return ResourceManager.GetString("PushToTalk", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 QQ群 的本地化字符串。
         /// </summary>
         public static string QQGroup {
@@ -894,6 +912,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string SearchBar {
             get {
                 return ResourceManager.GetString("SearchBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 秒 的本地化字符串。
+        /// </summary>
+        public static string Second {
+            get {
+                return ResourceManager.GetString("Second", resourceCulture);
             }
         }
         
