@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
+using HandyControl.Expression.Drawing;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
@@ -26,9 +27,9 @@ namespace HandyControl.Controls
 
         private double _itemWidth;
 
-        private bool _isOpen;
-
         internal bool CanSwitch { get; set; } = true;
+
+        private bool _isOpen;
 
         internal bool IsOpen
         {
@@ -41,12 +42,22 @@ namespace HandyControl.Controls
             }
         }
 
+        internal static readonly DependencyProperty ManualHeightProperty = DependencyProperty.Register(
+            "ManualHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(default(double)), value => ValidateHelper.IsInRangeOfPosDouble(value, true));
+
+        internal double ManualHeight
+        {
+            get => (double)GetValue(ManualHeightProperty);
+            set => SetValue(ManualHeightProperty, value);
+        }
+
         public static readonly DependencyProperty ContentHeightProperty = DependencyProperty.Register(
-            "ContentHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double300Box));
+            "ContentHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double300Box),
+            value => ValidateHelper.IsInRangeOfPosDouble(value, true));
 
         public double ContentHeight
         {
-            get => (double) GetValue(ContentHeightProperty);
+            get => (double)GetValue(ContentHeightProperty);
             set => SetValue(ContentHeightProperty, value);
         }
 
@@ -76,12 +87,23 @@ namespace HandyControl.Controls
                 return;
             }
             _triangle.BeginAnimation(MarginProperty, AnimationHelper.CreateAnimation(new Thickness((index % groups + .5) * itemWidth - _triangle.Width / 2, 0, 0, 0)));
+            if (IsOpen)
+            {
+                if (ManualHeight > 0 && !MathHelper.AreClose(ManualHeight, ContentHeight))
+                {
+                    _content.BeginAnimation(HeightProperty, AnimationHelper.CreateAnimation(ManualHeight));
+                }
+                else
+                {
+                    _content.BeginAnimation(HeightProperty, AnimationHelper.CreateAnimation(ContentHeight));
+                }
+            }
         }
 
         private void OpenSwitch(bool isOpen)
         {
             if (_content == null) return;
-            var animation = AnimationHelper.CreateAnimation(isOpen ? ContentHeight : 0);
+            var animation = AnimationHelper.CreateAnimation(isOpen ? ManualHeight > 0 ? ManualHeight : ContentHeight : 0);
             _triangle.Show(false);
             this.Show(true);
             animation.Completed += (s, e) =>

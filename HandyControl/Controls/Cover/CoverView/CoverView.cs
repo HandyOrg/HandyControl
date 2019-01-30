@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Data;
 using HandyControl.Data;
+using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
@@ -12,9 +13,10 @@ namespace HandyControl.Controls
 
         public CoverView()
         {
-            _viewContent = new CoverViewContent {ContentHeight = ItemContentHeight};
+            _viewContent = new CoverViewContent();
 
             AddHandler(SelectableItem.SelectedEvent, new RoutedEventHandler(CoverViewItem_OnSelected));
+            _viewContent.SetBinding(CoverViewContent.ContentHeightProperty, new Binding(ItemContentHeightProperty.Name) { Source = this });
             _viewContent.SetBinding(WidthProperty, new Binding(ActualWidthProperty.Name) { Source = this });
         }
 
@@ -35,7 +37,7 @@ namespace HandyControl.Controls
                     return;
                 }
 
-                if(!Equals(_selectedItem, item))
+                if (!Equals(_selectedItem, item))
                 {
                     _selectedItem.IsSelected = false;
                     item.IsSelected = true;
@@ -83,12 +85,14 @@ namespace HandyControl.Controls
 
         public Style CoverViewContentStyle
         {
-            get => (Style) GetValue(CoverViewContentStyleProperty);
+            get => (Style)GetValue(CoverViewContentStyleProperty);
             set => SetValue(CoverViewContentStyleProperty, value);
         }
 
         internal static readonly DependencyProperty GroupsProperty = DependencyProperty.Register(
-            "Groups", typeof(int), typeof(CoverView), new FrameworkPropertyMetadata(ValueBoxes.Int5Box, FrameworkPropertyMetadataOptions.AffectsMeasure, OnGroupsChanged), IsGroupsValid);
+            "Groups", typeof(int), typeof(CoverView),
+            new FrameworkPropertyMetadata(ValueBoxes.Int5Box, FrameworkPropertyMetadataOptions.AffectsMeasure,
+                OnGroupsChanged), IsGroupsValid);
 
         internal static void OnGroupsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -111,12 +115,22 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ItemContentHeightProperty = DependencyProperty.Register(
-            "ItemContentHeight", typeof(double), typeof(CoverView), new PropertyMetadata(ValueBoxes.Double300Box));
+            "ItemContentHeight", typeof(double), typeof(CoverView), new PropertyMetadata(ValueBoxes.Double300Box),
+            value => ValidateHelper.IsInRangeOfPosDouble(value, true));
 
         public double ItemContentHeight
         {
-            get => (double) GetValue(ItemContentHeightProperty);
+            get => (double)GetValue(ItemContentHeightProperty);
             set => SetValue(ItemContentHeightProperty, value);
+        }
+
+        public static readonly DependencyProperty ItemContentHeightFixedProperty = DependencyProperty.Register(
+            "ItemContentHeightFixed", typeof(bool), typeof(CoverView), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool ItemContentHeightFixed
+        {
+            get => (bool)GetValue(ItemContentHeightFixedProperty);
+            set => SetValue(ItemContentHeightFixedProperty, value);
         }
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
@@ -162,6 +176,16 @@ namespace HandyControl.Controls
             if (_selectedItem == null) return;
 
             ItemsHost.Children.Remove(_viewContent);
+
+            if (!ItemContentHeightFixed)
+            {
+                _viewContent.ManualHeight = 0;
+                if (_viewContent.Content is FrameworkElement element)
+                {
+                    element.Arrange(new Rect(new Size(double.MaxValue, double.MaxValue)));
+                    _viewContent.ManualHeight = element.ActualHeight;
+                }
+            }
 
             var total = Items.Count + 1;
             var totalRow = total / Groups + (total % Groups > 0 ? 1 : 0);
