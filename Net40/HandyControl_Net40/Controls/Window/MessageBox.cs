@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -28,7 +27,7 @@ namespace HandyControl.Controls
 
         private MessageBoxResult _messageBoxResult = MessageBoxResult.Cancel;
 
-        private bool _showOK;
+        private bool _showOk;
 
         private bool _showCancel;
 
@@ -50,7 +49,7 @@ namespace HandyControl.Controls
             {
                 _messageBoxResult = MessageBoxResult.OK;
                 Close();
-            }, (s, e) => e.CanExecute = _showOK));
+            }, (s, e) => e.CanExecute = _showOk));
             CommandBindings.Add(new CommandBinding(ControlCommands.Cancel, (s, e) =>
             {
                 _messageBoxResult = MessageBoxResult.Cancel;
@@ -92,12 +91,16 @@ namespace HandyControl.Controls
         /// <param name="caption"></param>
         public static MessageBoxResult Success(string messageBoxText, string caption = null)
         {
-            var messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
-            SetButtonStatus(messageBox, MessageBoxButton.OK);
-            messageBox._showImage = true;
-            messageBox._image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
-            messageBox._imageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.SuccessBrush);
-            messageBox.ShowDialog();
+            MessageBox messageBox = null;
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
+                SetButtonStatus(messageBox, MessageBoxButton.OK);
+                messageBox._showImage = true;
+                messageBox._image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
+                messageBox._imageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.SuccessBrush);
+                messageBox.ShowDialog();
+            }));
 
             return messageBox._messageBoxResult;
         }
@@ -109,10 +112,14 @@ namespace HandyControl.Controls
         /// <param name="caption"></param>
         public static MessageBoxResult Info(string messageBoxText, string caption = null)
         {
-            var messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-            SetButtonStatus(messageBox, MessageBoxButton.OK);
-            SetImage(messageBox, MessageBoxImage.Information);
-            messageBox.ShowDialog();
+            MessageBox messageBox = null;
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
+                SetButtonStatus(messageBox, MessageBoxButton.OK);
+                SetImage(messageBox, MessageBoxImage.Information);
+                messageBox.ShowDialog();
+            }));
 
             return messageBox._messageBoxResult;
         }
@@ -124,10 +131,14 @@ namespace HandyControl.Controls
         /// <param name="caption"></param>
         public static MessageBoxResult Warning(string messageBoxText, string caption = null)
         {
-            var messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
-            SetButtonStatus(messageBox, MessageBoxButton.OK);
-            SetImage(messageBox, MessageBoxImage.Warning);
-            messageBox.ShowDialog();
+            MessageBox messageBox = null;
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
+                SetButtonStatus(messageBox, MessageBoxButton.OK);
+                SetImage(messageBox, MessageBoxImage.Warning);
+                messageBox.ShowDialog();
+            }));
 
             return messageBox._messageBoxResult;
         }
@@ -139,10 +150,14 @@ namespace HandyControl.Controls
         /// <param name="caption"></param>
         public static MessageBoxResult Error(string messageBoxText, string caption = null)
         {
-            var messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
-            SetButtonStatus(messageBox, MessageBoxButton.OK);
-            SetImage(messageBox, MessageBoxImage.Error);
-            messageBox.ShowDialog();
+            MessageBox messageBox = null;
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
+                SetButtonStatus(messageBox, MessageBoxButton.OK);
+                SetImage(messageBox, MessageBoxImage.Error);
+                messageBox.ShowDialog();
+            }));
 
             return messageBox._messageBoxResult;
         }
@@ -154,12 +169,16 @@ namespace HandyControl.Controls
         /// <param name="caption"></param>
         public static MessageBoxResult Fatal(string messageBoxText, string caption = null)
         {
-            var messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
-            SetButtonStatus(messageBox, MessageBoxButton.OK);
-            messageBox._showImage = true;
-            messageBox._image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
-            messageBox._imageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
-            messageBox.ShowDialog();
+            MessageBox messageBox = null;
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
+                SetButtonStatus(messageBox, MessageBoxButton.OK);
+                messageBox._showImage = true;
+                messageBox._image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
+                messageBox._imageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
+                messageBox.ShowDialog();
+            }));
 
             return messageBox._messageBoxResult;
         }
@@ -171,36 +190,79 @@ namespace HandyControl.Controls
         /// <param name="caption"></param>
         public static MessageBoxResult Ask(string messageBoxText, string caption = null)
         {
-            var messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel);
-            SetButtonStatus(messageBox, MessageBoxButton.OKCancel);
-            SetImage(messageBox, MessageBoxImage.Question);
-            messageBox.ShowDialog();
+            MessageBox messageBox = null;
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel);
+                SetButtonStatus(messageBox, MessageBoxButton.OKCancel);
+                SetImage(messageBox, MessageBoxImage.Question);
+                messageBox.ShowDialog();
+            }));
 
             return messageBox._messageBoxResult;
         }
 
-        public static MessageBoxResult CustomShow(string messageBoxText, string caption = null, MessageBoxButton button = MessageBoxButton.OK, string iconKey = "", string iconBrushKey = "", MessageBoxResult defaultResult = MessageBoxResult.None)
+        /// <summary>
+        ///     自定义信息展示
+        /// </summary>
+        /// <param name="info"></param>
+        /// <returns></returns>
+        public static MessageBoxResult Show(MessageBoxInfo info)
         {
-            var messageBox = CreateMessageBox(null, messageBoxText, caption, button, MessageBoxImage.None, defaultResult);
-            messageBox._showImage = true;
-            messageBox._image = ResourceHelper.GetResource<Geometry>(iconKey);
-            messageBox._imageBrush = ResourceHelper.GetResource<Brush>(iconBrushKey);
-            messageBox.ShowDialog();
+            MessageBox messageBox = null;
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                messageBox = CreateMessageBox(null, info.MessageBoxText, info.Caption, info.Button, MessageBoxImage.None, info.DefaultResult);
+                SetButtonStatus(messageBox, info.Button);
+
+                if (!string.IsNullOrEmpty(info.IconKey))
+                {
+                    messageBox._showImage = true;
+                    messageBox._image = ResourceHelper.GetResource<Geometry>(info.IconKey);
+                    messageBox._imageBrush = ResourceHelper.GetResource<Brush>(info.IconBrushKey);
+                }
+
+                messageBox.Style = info.Style;
+                messageBox.ShowDialog();
+            }));
 
             return messageBox._messageBoxResult;
         }
 
-        public static MessageBoxResult Show(string messageBoxText, string caption = null, MessageBoxButton button = MessageBoxButton.OK, MessageBoxImage icon = MessageBoxImage.None, MessageBoxResult defaultResult = MessageBoxResult.None)
-        {
-            return Show(null, messageBoxText, caption, button, icon, defaultResult);
-        }
+        /// <summary>
+        ///     信息展示
+        /// </summary>
+        /// <param name="messageBoxText"></param>
+        /// <param name="caption"></param>
+        /// <param name="button"></param>
+        /// <param name="icon"></param>
+        /// <param name="defaultResult"></param>
+        /// <returns></returns>
+        public static MessageBoxResult Show(string messageBoxText, string caption = null,
+            MessageBoxButton button = MessageBoxButton.OK, MessageBoxImage icon = MessageBoxImage.None,
+            MessageBoxResult defaultResult = MessageBoxResult.None) =>
+            Show(null, messageBoxText, caption, button, icon, defaultResult);
 
+        /// <summary>
+        ///     信息展示
+        /// </summary>
+        /// <param name="owner"></param>
+        /// <param name="messageBoxText"></param>
+        /// <param name="caption"></param>
+        /// <param name="button"></param>
+        /// <param name="icon"></param>
+        /// <param name="defaultResult"></param>
+        /// <returns></returns>
         public static MessageBoxResult Show(System.Windows.Window owner, string messageBoxText, string caption = null, MessageBoxButton button = MessageBoxButton.OK, MessageBoxImage icon = MessageBoxImage.None, MessageBoxResult defaultResult = MessageBoxResult.None)
         {
-            var messageBox = CreateMessageBox(owner, messageBoxText, caption, button, icon, defaultResult);
-            SetButtonStatus(messageBox, button);
-            SetImage(messageBox, icon);
-            messageBox.ShowDialog();
+            MessageBox messageBox = null;
+            Application.Current.Dispatcher.Invoke(new Action(() =>
+            {
+                messageBox = CreateMessageBox(owner, messageBoxText, caption, button, icon, defaultResult);
+                SetButtonStatus(messageBox, button);
+                SetImage(messageBox, icon);
+                messageBox.ShowDialog();
+            }));
 
             return messageBox._messageBoxResult;
         }
@@ -226,7 +288,7 @@ namespace HandyControl.Controls
                 throw new InvalidEnumArgumentException(nameof(defaultResult), (int)defaultResult, typeof(MessageBoxResult));
             }
 
-            var ownerWindow = owner ?? Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+            var ownerWindow = owner ?? VisualHelper.GetActiveWindow();
             var ownerIsNull = ownerWindow is null;
 
             return new MessageBox
@@ -246,10 +308,10 @@ namespace HandyControl.Controls
             switch (messageBoxButton)
             {
                 case MessageBoxButton.OK:
-                    messageBox._showOK = true;
+                    messageBox._showOk = true;
                     break;
                 case MessageBoxButton.OKCancel:
-                    messageBox._showOK = true;
+                    messageBox._showOk = true;
                     messageBox._showCancel = true;
                     break;
                 case MessageBoxButton.YesNo:

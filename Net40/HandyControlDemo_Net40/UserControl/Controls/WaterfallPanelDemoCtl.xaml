@@ -5,7 +5,7 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
              Background="{DynamicResource RegionBrush}">
-    <ContentControl>
+    <controls:TransitioningContentControl>
         <Grid Margin="32">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -53,5 +53,5 @@
                 </controls:ScrollViewer>
             </StackPanel>
         </Grid>
-    </ContentControl>
+    </controls:TransitioningContentControl>
 </UserControl>

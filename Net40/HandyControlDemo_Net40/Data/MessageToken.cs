@@ -76,6 +76,12 @@
 	
         public static readonly string CoverFlowDemoCtl = nameof(CoverFlowDemoCtl);
 	
+        public static readonly string ProgressButtonDemoCtl = nameof(ProgressButtonDemoCtl);
+	
+        public static readonly string TransferDemoCtl = nameof(TransferDemoCtl);
+	
+        public static readonly string ChatBubbleDemoCtl = nameof(ChatBubbleDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
@@ -132,12 +138,15 @@
 
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);
 
-    	public static readonly string LoadShowContent = nameof(LoadShowContent);
+        public static readonly string LoadShowContent = nameof(LoadShowContent);
 
-		public static readonly string FullSwitch = nameof(FullSwitch);
+        public static readonly string FullSwitch = nameof(FullSwitch);
 
-		public static readonly string ContributorsView = nameof(ContributorsView);
+        public static readonly string ContributorsView = nameof(ContributorsView);
 
-		public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
-	}
+        public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
+
+        public static readonly string SendChatMessage = nameof(SendChatMessage);
+
+    }
 }

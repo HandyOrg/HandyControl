@@ -56,14 +56,16 @@
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="NonClientAreaBackground" Value="{DynamicResource TitleBrush}"/>
-        <Setter Property="NonClientAreaForeground" Value="White"/>
-        <Setter Property="CloseButtonHoverBackground" Value="#e71123"/>
-        <Setter Property="CloseButtonHoverForeground" Value="White"/>
+        <Setter Property="NonClientAreaBackground" Value="White"/>
+        <Setter Property="NonClientAreaForeground" Value="{DynamicResource ReverseTextBrush}"/>
         <Setter Property="CloseButtonBackground" Value="Transparent"/>
-        <Setter Property="OtherButtonHoverBackground" Value="{DynamicResource DarkPrimaryBrush}"/>
-        <Setter Property="OtherButtonHoverForeground" Value="White"/>
+        <Setter Property="CloseButtonForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="CloseButtonHoverBackground" Value="#e81123"/>
+        <Setter Property="CloseButtonHoverForeground" Value="White"/>
         <Setter Property="OtherButtonBackground" Value="Transparent"/>
+        <Setter Property="OtherButtonForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="OtherButtonHoverBackground" Value="#e5e5e5"/>
+        <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource ReverseTextBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Window">

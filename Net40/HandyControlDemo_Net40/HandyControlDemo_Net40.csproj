@@ -82,6 +82,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageToken.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\Model\ChatInfoModel.cs" />
     <Compile Include="Data\Model\ContributorModel.cs" />
     <Compile Include="Data\Model\DemoDataModel.cs" />
     <Compile Include="Data\Model\StepBarDemoModel.cs" />
@@ -96,11 +97,15 @@
       <DependentUpon>Lang.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Service\DataService.cs" />
-    <Compile Include="Tools\AssemblyHelper.cs" />
-    <Compile Include="Tools\CommonHelper.cs" />
+    <Compile Include="Tools\Helper\AssemblyHelper.cs" />
+    <Compile Include="Tools\Helper\CommonHelper.cs" />
     <Compile Include="Tools\Converter\StringRepeatConverter.cs" />
+    <Compile Include="Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="UserControl\Basic\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Basic\ChatBox.xaml.cs">
+      <DependentUpon>ChatBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
@@ -110,6 +115,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\CarouselDemoCtl.xaml.cs">
       <DependentUpon>CarouselDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\ChatBubbleDemoCtl.xaml.cs">
+      <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
@@ -168,6 +176,9 @@
     <Compile Include="UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\ProgressButtonDemoCtl.xaml.cs">
+      <DependentUpon>ProgressButtonDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\RateDemoCtl.xaml.cs">
       <DependentUpon>RateDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -191,6 +202,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\TimePickerDemoCtl.xaml.cs">
       <DependentUpon>TimePickerDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\TransferDemoCtl.xaml.cs">
+      <DependentUpon>TransferDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
       <DependentUpon>WaterfallPanelDemoCtl.xaml</DependentUpon>
@@ -297,15 +311,16 @@
     <Compile Include="UserControl\Styles\TreeViewDemoCtl.xaml.cs">
       <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\ComboBoxDemoViewModel.cs" />
-    <Compile Include="ViewModel\ContributorsViewModel.cs" />
-    <Compile Include="ViewModel\GrowlDemoViewModel.cs" />
-    <Compile Include="ViewModel\ImageBrowserDemoViewModel.cs" />
-    <Compile Include="ViewModel\MainViewModel.cs" />
-    <Compile Include="ViewModel\PaginationDemoViewModel.cs" />
-    <Compile Include="ViewModel\StepBarDemoViewModel.cs" />
+    <Compile Include="ViewModel\Basic\ChatBoxViewModel.cs" />
+    <Compile Include="ViewModel\Common\ComboBoxDemoViewModel.cs" />
+    <Compile Include="ViewModel\Main\ContributorsViewModel.cs" />
+    <Compile Include="ViewModel\Controls\GrowlDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\ImageBrowserDemoViewModel.cs" />
+    <Compile Include="ViewModel\Main\MainViewModel.cs" />
+    <Compile Include="ViewModel\Controls\PaginationDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\StepBarDemoViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="ViewModel\WindowDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\WindowDemoViewModel.cs" />
     <Compile Include="Window\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
@@ -381,6 +396,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Basic\ChatBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\AnimationPathDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -390,6 +409,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\CarouselDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\ChatBubbleDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -469,6 +492,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\ProgressButtonDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
     <Page Include="UserControl\Controls\RateDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -498,6 +525,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\TimePickerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\TransferDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -683,6 +714,11 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\Chat\chat_back1.jpg" />
+    <Resource Include="Resources\Img\Chat\chat_back2.jpg" />
+    <Resource Include="Resources\Img\LeftMainContent\Bubble_16xLG.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ProgressButton_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Transfer_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\SortAscending_grey_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\LinearCarousel_16x.png" />
     <Resource Include="Resources\Img\Album\1.jpg" />

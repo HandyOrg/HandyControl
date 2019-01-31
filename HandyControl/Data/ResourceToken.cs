@@ -1,6 +1,6 @@
 ﻿namespace HandyControl.Data
 {
-	public class ResourceToken
+    public class ResourceToken
     {
         public const string SuccessGeometry = nameof(SuccessGeometry);
 

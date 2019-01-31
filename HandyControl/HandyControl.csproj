@@ -170,6 +170,7 @@
     <Compile Include="Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="Data\Gif\GPStream.cs" />
     <Compile Include="Data\MessageBoxInfo.cs" />
+    <Compile Include="Data\ResourceToken.cs" />
     <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
@@ -179,11 +180,6 @@
     <Compile Include="Data\GrowlInfo.cs" />
     <Compile Include="Data\Operation\OperationResult!1.cs" />
     <Compile Include="Data\Operation\OperationResult.cs" />
-    <Compile Include="Data\ResourceToken.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResourceToken.tt</DependentUpon>
-    </Compile>
     <Compile Include="Expression\Drawing\BezierCurveFlattener.cs" />
     <Compile Include="Expression\Drawing\CommonExtensions.cs" />
     <Compile Include="Expression\Drawing\ExceptionStringTable.cs" />
@@ -770,12 +766,6 @@
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Data\ResourceToken.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ResourceToken.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

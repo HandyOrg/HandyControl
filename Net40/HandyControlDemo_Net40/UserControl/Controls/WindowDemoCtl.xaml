@@ -12,6 +12,7 @@
             <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.BlurWindow}" Content="{x:Static langs:Lang.OpenBlurWindow}"/>
             <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CustomNonClientAreaWindow}" Content="{x:Static langs:Lang.OpenCustomNonClientAreaWindow}"/>
             <Button Click="ButtonMessage_OnClick" Content="{x:Static langs:Lang.OpenMessageWindow}"/>
+            <Button Click="ButtonCustomMessage_OnClick" Content="{x:Static langs:Lang.OpenCustomMessageWindow}"/>
             <Button Click="ButtonCustomContent_OnClick" Content="{x:Static langs:Lang.OpenCustomContentWindow}"/>
             <Button Name="ButtonMouseFollow" Click="ButtonMouseFollow_OnClick" Content="{x:Static langs:Lang.OpenMouseFollowWindow}"/>
             <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NoNonClientAreaDragableWindow}" Content="{x:Static langs:Lang.OpenNoNonClientAreaDragableWindow}"/>

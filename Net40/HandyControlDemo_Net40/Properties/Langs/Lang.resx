@@ -474,4 +474,25 @@
   <data name="MessageBox" xml:space="preserve">
     <value>消息框</value>
   </data>
+  <data name="ProgressButton" xml:space="preserve">
+    <value>进度按钮</value>
+  </data>
+  <data name="UploadStr" xml:space="preserve">
+    <value>上传;上传中</value>
+  </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>点击打开自定义消息窗口</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>穿梭框</value>
+  </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>对话气泡</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>按住说话</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>秒</value>
+  </data>
 </root>

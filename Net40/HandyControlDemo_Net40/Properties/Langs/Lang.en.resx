@@ -474,4 +474,25 @@
   <data name="MessageBox" xml:space="preserve">
     <value>MessageBox</value>
   </data>
+  <data name="ProgressButton" xml:space="preserve">
+    <value>ProgressButton</value>
+  </data>
+  <data name="UploadStr" xml:space="preserve">
+    <value>Upload;Uploading</value>
+  </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>open custom message window</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>ChatBubble</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>Push to talk</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>Sec</value>
+  </data>
 </root>

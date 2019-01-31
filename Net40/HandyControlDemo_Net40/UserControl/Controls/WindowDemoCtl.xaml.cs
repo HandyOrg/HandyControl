@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using HandyControl.Controls;
+using HandyControl.Data;
 using HandyControl.Tools;
 using MessageBox = HandyControl.Controls.MessageBox;
 
@@ -16,6 +17,19 @@ namespace HandyControlDemo.UserControl
         private void ButtonMessage_OnClick(object sender, RoutedEventArgs e)
         {
             MessageBox.Show(Properties.Langs.Lang.GrowlAsk, Properties.Langs.Lang.Title, MessageBoxButton.YesNo, MessageBoxImage.Question);
+        }
+
+        private void ButtonCustomMessage_OnClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(new MessageBoxInfo
+            {
+                MessageBoxText = Properties.Langs.Lang.GrowlAsk,
+                Caption = Properties.Langs.Lang.Title,
+                Button = MessageBoxButton.YesNo,
+                IconBrushKey = ResourceToken.AccentBrush,
+                IconKey = ResourceToken.AskGeometry,
+                Style = ResourceHelper.GetResource<Style>("MessageBoxCustom")
+            });
         }
 
         private void ButtonMouseFollow_OnClick(object sender, RoutedEventArgs e)

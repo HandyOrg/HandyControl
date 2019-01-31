@@ -44,10 +44,11 @@
     <Compile Include="Controls\Base\RegularItemsControl.cs" />
     <Compile Include="Controls\Base\SelectableItem.cs" />
     <Compile Include="Controls\Base\SimpleItemsControl.cs" />
-    <Compile Include="Controls\CoverFlow\CoverFlow.cs" />
-    <Compile Include="Controls\CoverFlow\CoverFlowItem.cs" />
-    <Compile Include="Controls\CoverView\CoverViewContent.cs" />
-    <Compile Include="Controls\CoverView\CoverViewItem.cs" />
+    <Compile Include="Controls\Button\ProgressButton.cs" />
+    <Compile Include="Controls\Cover\CoverFlow\CoverFlow.cs" />
+    <Compile Include="Controls\Cover\CoverFlow\CoverFlowItem.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverViewContent.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverViewItem.cs" />
     <Compile Include="Controls\Other\AnimationPath.cs" />
     <Compile Include="Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="Controls\Attach\BorderElement.cs" />
@@ -62,7 +63,8 @@
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="Controls\Other\Carousel.cs" />
-    <Compile Include="Controls\CoverView\CoverView.cs" />
+    <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
+    <Compile Include="Controls\Other\ChatBubble.cs" />
     <Compile Include="Controls\Panel\CirclePanel.cs" />
     <Compile Include="Controls\Other\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
@@ -103,9 +105,14 @@
     <Compile Include="Controls\StepBar\StepBarItem.cs" />
     <Compile Include="Controls\Time\FlipClock\FlipClock.cs" />
     <Compile Include="Controls\Time\FlipClock\FlipNumber.cs" />
+    <Compile Include="Controls\Transfer\Transfer.cs" />
+    <Compile Include="Controls\Transfer\TransferGroup.cs" />
+    <Compile Include="Controls\Transfer\TransferItem.cs" />
     <Compile Include="Controls\Window\BlurWindow.cs" />
     <Compile Include="Controls\Window\MessageBox.cs" />
     <Compile Include="Data\Args\CancelRoutedEventArgs.cs" />
+    <Compile Include="Data\Enum\ChatMessageType.cs" />
+    <Compile Include="Data\Enum\ChatRoleType.cs" />
     <Compile Include="Data\Enum\InfoType.cs" />
     <Compile Include="Data\Enum\ResultType.cs" />
     <Compile Include="Data\Enum\SkinType.cs" />
@@ -116,19 +123,17 @@
     <Compile Include="Data\Gif\GifPropertyItem.cs" />
     <Compile Include="Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="Data\Gif\GPStream.cs" />
+    <Compile Include="Data\MessageBoxInfo.cs" />
+    <Compile Include="Data\ResourceToken.cs" />
     <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
+    <Compile Include="Tools\Extension\EnumerableExtension.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\GifImageAnimator.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
     <Compile Include="Data\Operation\OperationResult!1.cs" />
     <Compile Include="Data\Operation\OperationResult.cs" />
-    <Compile Include="Data\ResourceToken.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ResourceToken.tt</DependentUpon>
-    </Compile>
     <Compile Include="Expression\Drawing\BezierCurveFlattener.cs" />
     <Compile Include="Expression\Drawing\CommonExtensions.cs" />
     <Compile Include="Expression\Drawing\ExceptionStringTable.cs" />
@@ -304,6 +309,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\ChatBubbleBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\CheckBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -321,6 +330,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\Base\DateTimePickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\ProgressButtonBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -344,7 +357,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\TransferBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\ChatBubble.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -564,6 +585,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\ProgressButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\RadioButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -644,6 +669,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Transfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\TransitioningContentControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -694,12 +723,6 @@
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Data\ResourceToken.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>ResourceToken.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

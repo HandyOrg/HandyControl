@@ -33,7 +33,7 @@
                         <Border CornerRadius="4" Height="30" Width="30" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}"/>
                     </controls:StatusSwitchElement.CheckedElement>
                 </ToggleButton>
-                <ListBox Name="listStyle" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
+                <ListBox Name="ListBoxStyle" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
                     <ListBoxItem Tag="{x:Static data:MessageToken.BrushDemoCtl}" Content="{x:Static langs:Lang.Brush}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Brush_16x.png"/>
@@ -181,7 +181,17 @@
                         <Border CornerRadius="4" Height="30" Width="30" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}"/>
                     </controls:StatusSwitchElement.CheckedElement>
                 </ToggleButton>
-                <ListBox Name="listControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
+                <ListBox Name="ListBoxControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ProgressButtonDemoCtl}" Content="{x:Static langs:Lang.ProgressButton}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/ProgressButton_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ChatBubbleDemoCtl}" Content="{x:Static langs:Lang.ChatBubble}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/Bubble_16xLG.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.NumericUpDownDemoCtl}" Content="{x:Static langs:Lang.NumericUpDown}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/NumericListBox_16x.png"/>
@@ -227,17 +237,22 @@
                             <Image Source="../../Resources/Img/LeftMainContent/DatePicker_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.TransferDemoCtl}" Content="{x:Static langs:Lang.Transfer}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/Transfer_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.FlipClockDemoCtl}" Content="{x:Static langs:Lang.FlipClock}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/FlipVertical_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RateDemoCtl}" Content="{x:Static langs:Lang.Rate}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.RateDemoCtl}" Content="{x:Static langs:Lang.Rate}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Star.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ShieldDemoCtl}" Content="{x:Static langs:Lang.Shield}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.ShieldDemoCtl}" Content="{x:Static langs:Lang.Shield}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Shield_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -267,7 +282,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/ColorWheel_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.WaterfallPanelDemoCtl}" Content="{x:Static langs:Lang.WaterfallPanel}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.WaterfallPanelDemoCtl}" Content="{x:Static langs:Lang.WaterfallPanel}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Panel_16x.png"/>
                         </controls:EdgeElement.LeftContent>

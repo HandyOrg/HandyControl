@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Globalization;
+using System.Net;
+using System.Security.Authentication;
 using System.Threading;
 using System.Windows;
 using HandyControl.Controls;
@@ -28,6 +30,8 @@ namespace HandyControlDemo
             }
 
             BlurWindow.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
+
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
         }
 
         protected override void OnExit(ExitEventArgs e)

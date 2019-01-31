@@ -1,68 +1,68 @@
 ﻿namespace HandyControl.Data
 {
-	internal class ResourceToken
+    public class ResourceToken
     {
-        public static readonly string SuccessGeometry = nameof(SuccessGeometry);
+        public const string SuccessGeometry = nameof(SuccessGeometry);
 
-        public static readonly string InfoGeometry = nameof(InfoGeometry);
+        public const string InfoGeometry = nameof(InfoGeometry);
 
-        public static readonly string ErrorGeometry = nameof(ErrorGeometry);
+        public const string ErrorGeometry = nameof(ErrorGeometry);
 
-        public static readonly string WarningGeometry = nameof(WarningGeometry);
+        public const string WarningGeometry = nameof(WarningGeometry);
 
-        public static readonly string AskGeometry = nameof(AskGeometry);
+        public const string AskGeometry = nameof(AskGeometry);
 
-        public static readonly string FatalGeometry = nameof(FatalGeometry);
+        public const string FatalGeometry = nameof(FatalGeometry);
 
-        public static readonly string PrimaryBrush = nameof(PrimaryBrush);
+        public const string PrimaryBrush = nameof(PrimaryBrush);
 
-        public static readonly string SuccessBrush = nameof(SuccessBrush);
+        public const string SuccessBrush = nameof(SuccessBrush);
 
-        public static readonly string InfoBrush = nameof(InfoBrush);
+        public const string InfoBrush = nameof(InfoBrush);
 
-        public static readonly string DangerBrush = nameof(DangerBrush);
+        public const string DangerBrush = nameof(DangerBrush);
 
-        public static readonly string WarningBrush = nameof(WarningBrush);
+        public const string WarningBrush = nameof(WarningBrush);
 
-        public static readonly string AccentBrush = nameof(AccentBrush);
+        public const string AccentBrush = nameof(AccentBrush);
 
-        public static readonly string PrimaryTextBrush = nameof(PrimaryTextBrush);
+        public const string PrimaryTextBrush = nameof(PrimaryTextBrush);
 
-        public static readonly string ThirdlyTextBrush = nameof(ThirdlyTextBrush);
+        public const string ThirdlyTextBrush = nameof(ThirdlyTextBrush);
 
-        public static readonly string BlurGradientValue = nameof(BlurGradientValue);
+        internal const string BlurGradientValue = nameof(BlurGradientValue);
 
-        public static readonly string ButtonCustom = nameof(ButtonCustom);
+        internal const string ButtonCustom = nameof(ButtonCustom);
 
-        public static readonly string PaginationButtonStyle = nameof(PaginationButtonStyle);
+        internal const string PaginationButtonStyle = nameof(PaginationButtonStyle);
 
-        public static readonly string WindowWin10 = nameof(WindowWin10);
+        internal const string WindowWin10 = nameof(WindowWin10);
 
-        public static readonly string AddTagButtonStyle = nameof(AddTagButtonStyle);
+        internal const string AddTagButtonStyle = nameof(AddTagButtonStyle);
 
-        public static readonly string RadioGroupItemDefault = nameof(RadioGroupItemDefault);
+        internal const string RadioGroupItemDefault = nameof(RadioGroupItemDefault);
 
-        public static readonly string RadioGroupItemSingle = nameof(RadioGroupItemSingle);
+        internal const string RadioGroupItemSingle = nameof(RadioGroupItemSingle);
 
-        public static readonly string RadioGroupItemHorizontalFirst = nameof(RadioGroupItemHorizontalFirst);
+        internal const string RadioGroupItemHorizontalFirst = nameof(RadioGroupItemHorizontalFirst);
 
-        public static readonly string RadioGroupItemHorizontalLast = nameof(RadioGroupItemHorizontalLast);
+        internal const string RadioGroupItemHorizontalLast = nameof(RadioGroupItemHorizontalLast);
 
-        public static readonly string RadioGroupItemVerticalFirst = nameof(RadioGroupItemVerticalFirst);
+        internal const string RadioGroupItemVerticalFirst = nameof(RadioGroupItemVerticalFirst);
 
-        public static readonly string RadioGroupItemVerticalLast = nameof(RadioGroupItemVerticalLast);
+        internal const string RadioGroupItemVerticalLast = nameof(RadioGroupItemVerticalLast);
 
-        public static readonly string TabItemCapsuleDefault = nameof(TabItemCapsuleDefault);
+        internal const string TabItemCapsuleDefault = nameof(TabItemCapsuleDefault);
 
-        public static readonly string TabItemCapsuleSingle = nameof(TabItemCapsuleSingle);
+        internal const string TabItemCapsuleSingle = nameof(TabItemCapsuleSingle);
 
-        public static readonly string TabItemCapsuleHorizontalFirst = nameof(TabItemCapsuleHorizontalFirst);
+        internal const string TabItemCapsuleHorizontalFirst = nameof(TabItemCapsuleHorizontalFirst);
 
-        public static readonly string TabItemCapsuleHorizontalLast = nameof(TabItemCapsuleHorizontalLast);
+        internal const string TabItemCapsuleHorizontalLast = nameof(TabItemCapsuleHorizontalLast);
 
-        public static readonly string TabItemCapsuleVerticalFirst = nameof(TabItemCapsuleVerticalFirst);
+        internal const string TabItemCapsuleVerticalFirst = nameof(TabItemCapsuleVerticalFirst);
 
-        public static readonly string TabItemCapsuleVerticalLast = nameof(TabItemCapsuleVerticalLast);
+        internal const string TabItemCapsuleVerticalLast = nameof(TabItemCapsuleVerticalLast);
 
     }
 }
