@@ -72,7 +72,8 @@ var styleList = new List<string>
 	"GroupBoxDemoCtl",
 	"ListViewDemoCtl",
 	"RichTextBoxDemoCtl",
-	"ToolBarDemoCtl"
+	"ToolBarDemoCtl",
+	"LabelDemoCtl"
 };
 var windowList = new List<string>
 {

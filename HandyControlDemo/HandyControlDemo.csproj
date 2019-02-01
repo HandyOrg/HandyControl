@@ -260,6 +260,9 @@
     <Compile Include="UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Styles\LabelDemoCtl.xaml.cs">
+      <DependentUpon>LabelDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Styles\ListViewDemoCtl.xaml.cs">
       <DependentUpon>ListViewDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -594,6 +597,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Styles\GroupBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Styles\LabelDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
