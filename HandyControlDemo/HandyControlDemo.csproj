@@ -194,6 +194,9 @@
     <Compile Include="UserControl\Controls\PasswordBoxDemoCtl.xaml.cs">
       <DependentUpon>PasswordBoxDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\PoptipDemoCtl.xaml.cs">
+      <DependentUpon>PoptipDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -506,6 +509,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\PasswordBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\PoptipDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

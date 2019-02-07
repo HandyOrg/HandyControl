@@ -82,6 +82,8 @@
 	
         public static readonly string ChatBubbleDemoCtl = nameof(ChatBubbleDemoCtl);
 	
+        public static readonly string PoptipDemoCtl = nameof(PoptipDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

@@ -1,0 +1,81 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.PoptipDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+    <controls:TransitioningContentControl>
+        <UniformGrid>
+            <controls:Poptip Background="{DynamicResource PrimaryBrush}" AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton1}"
+                       PlacementEx="TopLeft" PlacementTarget="{Binding ElementName=toggleButton1}">
+                <Border Background="AliceBlue">
+                    <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+                </Border>
+            </controls:Poptip>
+            <controls:Poptip Background="{DynamicResource WarningBrush}" AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton2}"
+                       PlacementEx="TopCenter" PlacementTarget="{Binding ElementName=toggleButton2}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+            <controls:Poptip Background="{DynamicResource DangerBrush}" AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton3}"
+                       PlacementEx="TopRight" PlacementTarget="{Binding ElementName=toggleButton3}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+            <!--#endregion-->
+
+            <controls:Poptip Background="{DynamicResource SuccessBrush}" AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton4}"
+                       PlacementEx="LeftTop" PlacementTarget="{Binding ElementName=toggleButton4}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+            <controls:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton5}"
+                       PlacementEx="LeftCenter" PlacementTarget="{Binding ElementName=toggleButton5}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+            <controls:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton6}"
+                       PlacementEx="LeftBottom" PlacementTarget="{Binding ElementName=toggleButton6}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+
+            <controls:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton7}"
+                       PlacementEx="RightTop" PlacementTarget="{Binding ElementName=toggleButton7}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+            <controls:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton8}"
+                       PlacementEx="RightCenter" PlacementTarget="{Binding ElementName=toggleButton8}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+            <controls:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton9}"
+                       PlacementEx="RightBottom" PlacementTarget="{Binding ElementName=toggleButton9}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+
+            <controls:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton10}"
+                       PlacementEx="BottomLeft" PlacementTarget="{Binding ElementName=toggleButton10}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+            <controls:Poptip AllowsTransparency="True" StaysOpen="False" IsOpen="{Binding IsChecked, ElementName=toggleButton11}"
+                       PlacementEx="BottomCenter" PlacementTarget="{Binding ElementName=toggleButton11}">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="White" />
+            </controls:Poptip>
+            <controls:Poptip IsOpen="{Binding IsChecked, ElementName=toggleButton12}"
+                       PlacementEx="BottomRight" PlacementTarget="{Binding ElementName=toggleButton12}"
+                       Background="White">
+                <TextBlock Text="组件提供了12个不同的方向显示Poptip" Margin="10" Foreground="Black" />
+            </controls:Poptip>
+
+            <ToggleButton x:Name="toggleButton1" Grid.Row="0" Grid.Column="1" Content="上左" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <ToggleButton x:Name="toggleButton2" Grid.Row="0" Grid.Column="2" Content="上中" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <ToggleButton x:Name="toggleButton3" Grid.Row="0" Grid.Column="3" Content="上右" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <ToggleButton x:Name="toggleButton4" Grid.Row="1" Grid.Column="0" Content="左上" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <ToggleButton x:Name="toggleButton5" Grid.Row="2" Grid.Column="0" Content="左中" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <ToggleButton x:Name="toggleButton6" Grid.Row="3" Grid.Column="0" Content="左右" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <ToggleButton x:Name="toggleButton7" Grid.Row="1" Grid.Column="4" Content="右上" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <ToggleButton x:Name="toggleButton8" Grid.Row="2" Grid.Column="4" Content="右中" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <ToggleButton x:Name="toggleButton9" Grid.Row="3" Grid.Column="4" Content="右下" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            <ToggleButton x:Name="toggleButton10" Grid.Row="4" Grid.Column="1" Content="下左" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <ToggleButton x:Name="toggleButton11" Grid.Row="4" Grid.Column="2" Content="下中" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <ToggleButton x:Name="toggleButton12" Grid.Row="4" Grid.Column="3" Content="下右" Margin="5" Width="60" Height="30" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+        </UniformGrid>    </controls:TransitioningContentControl>
+</UserControl>

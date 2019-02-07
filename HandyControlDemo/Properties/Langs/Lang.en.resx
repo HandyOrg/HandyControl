@@ -495,4 +495,7 @@
   <data name="Second" xml:space="preserve">
     <value>Sec</value>
   </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>Poptip</value>
+  </data>
 </root>

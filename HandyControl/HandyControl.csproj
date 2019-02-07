@@ -81,6 +81,7 @@
     <netVersion>netgt40</netVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Controls\Poptip\AngleBorder.cs" />
     <Compile Include="Controls\Attach\WindowAttach.cs" />
     <Compile Include="Controls\Attach\LinkElement.cs" />
     <Compile Include="Controls\Attach\PanelElement.cs" />
@@ -111,6 +112,7 @@
     <Compile Include="Controls\Other\Carousel.cs" />
     <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="Controls\Other\ChatBubble.cs" />
+    <Compile Include="Controls\Poptip\Poptip.cs" />
     <Compile Include="Controls\Transfer\Transfer.cs" />
     <Compile Include="Controls\Transfer\TransferGroup.cs" />
     <Compile Include="Controls\Transfer\TransferItem.cs" />
