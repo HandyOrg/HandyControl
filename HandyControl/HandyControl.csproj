@@ -111,6 +111,10 @@
     <Compile Include="Controls\Other\Carousel.cs" />
     <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="Controls\Other\ChatBubble.cs" />
+    <Compile Include="Controls\Time\ItemsControlExtensions.cs" />
+    <Compile Include="Controls\Time\TimeButton.cs" />
+    <Compile Include="Controls\Time\TimePickerList.cs" />
+    <Compile Include="Controls\Time\TimeSelector.cs" />
     <Compile Include="Controls\Transfer\Transfer.cs" />
     <Compile Include="Controls\Transfer\TransferGroup.cs" />
     <Compile Include="Controls\Transfer\TransferItem.cs" />
@@ -704,6 +708,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\TimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TimePickerList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\TimeSelector.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

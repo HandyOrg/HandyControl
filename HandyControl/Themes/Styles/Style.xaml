@@ -57,6 +57,8 @@
         <ResourceDictionary Source="ProgressButton.xaml"/>
         <ResourceDictionary Source="Transfer.xaml"/>
         <ResourceDictionary Source="ChatBubble.xaml"/>
+        <ResourceDictionary Source="TimeSelector.xaml"/>
+        <ResourceDictionary Source="TimePickerList.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
