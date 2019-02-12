@@ -38,7 +38,7 @@
                                 </TransformGroup>
                             </Border.RenderTransform>
                         </Border>
-                        <Border x:Name="PART_Content" Height="0" Grid.Row="1" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <Border x:Name="PART_Content" MinHeight="30" Height="0" Grid.Row="1" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                             <ContentPresenter Margin="{TemplateBinding Padding}"/>
                         </Border>
                         <Rectangle SnapsToDevicePixels="True" Visibility="{Binding Visibility,ElementName=PART_Triangle}" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Width="28" Margin="{Binding Margin,ElementName=PART_Triangle}" Height="1" Fill="{TemplateBinding Background}">

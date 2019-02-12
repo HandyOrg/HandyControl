@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Media;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight;
@@ -21,7 +20,7 @@ namespace HandyControlDemo.ViewModel
 {
     public class ChatBoxViewModel : ViewModelBase
     {
-        private static readonly string AutioCachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
+        private static readonly string AudioCachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
 
         private readonly string _id = Guid.NewGuid().ToString();
 
@@ -113,11 +112,11 @@ namespace HandyControlDemo.ViewModel
 
         private void StopRecord()
         {
-            if (!Directory.Exists(AutioCachePath))
+            if (!Directory.Exists(AudioCachePath))
             {
                 try
                 {
-                    Directory.CreateDirectory(AutioCachePath);
+                    Directory.CreateDirectory(AudioCachePath);
                 }
                 catch (Exception e)
                 {
@@ -126,7 +125,7 @@ namespace HandyControlDemo.ViewModel
                 }
             }
 
-            var cachePath = $"{AutioCachePath}\\{Guid.NewGuid().ToString()}";
+            var cachePath = $"{AudioCachePath}\\{Guid.NewGuid().ToString()}";
             ExternDllHelper.MciSendString("stop movie", "", 0, 0);
             ExternDllHelper.MciSendString($"save movie {cachePath}", "", 0, 0);
             ExternDllHelper.MciSendString("close movie", "", 0, 0);

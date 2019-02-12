@@ -182,6 +182,7 @@ namespace HandyControl.Controls
                 _viewContent.ManualHeight = 0;
                 if (_viewContent.Content is FrameworkElement element)
                 {
+                    element.VerticalAlignment = VerticalAlignment.Top;
                     element.Arrange(new Rect(new Size(double.MaxValue, double.MaxValue)));
                     _viewContent.ManualHeight = element.ActualHeight;
                 }
