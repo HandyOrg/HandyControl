@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Windows.Controls;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControlDemo.Data;
@@ -10,7 +8,7 @@ using HandyControlDemo.Tools;
 
 namespace HandyControlDemo.ViewModel
 {
-    public class MainViewModel : ViewModelBase
+    public class MainViewModel : DemoViewModelBase<DemoDataModel>
     {
         #region 字段
 
@@ -23,11 +21,6 @@ namespace HandyControlDemo.ViewModel
         ///     子内容
         /// </summary>
         private object _subContent;
-
-        /// <summary>
-        ///     数据列表
-        /// </summary>
-        private List<DemoDataModel> _dataList;
 
         /// <summary>
         ///     当前选中的列表项
@@ -56,15 +49,6 @@ namespace HandyControlDemo.ViewModel
         }
 
         #region 属性
-
-        /// <summary>
-        ///     数据列表
-        /// </summary>
-        public List<DemoDataModel> DataList
-        {
-            get => _dataList;
-            set => Set(ref _dataList, value);
-        }
 
         /// <summary>
         ///     子内容

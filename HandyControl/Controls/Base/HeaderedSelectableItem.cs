@@ -12,5 +12,14 @@ namespace HandyControl.Controls
             get => GetValue(HeaderProperty);
             set => SetValue(HeaderProperty, value);
         }
+
+        public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
+            "HeaderTemplate", typeof(DataTemplate), typeof(HeaderedSelectableItem), new PropertyMetadata(default(DataTemplate)));
+
+        public DataTemplate HeaderTemplate
+        {
+            get => (DataTemplate) GetValue(HeaderTemplateProperty);
+            set => SetValue(HeaderTemplateProperty, value);
+        }
     }
 }

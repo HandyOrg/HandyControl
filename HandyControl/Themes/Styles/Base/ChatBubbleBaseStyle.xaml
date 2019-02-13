@@ -61,7 +61,7 @@
                 <ColumnDefinition Width="12" Name="Definition1"/>
                 <ColumnDefinition Name="Definition2"/>
             </Grid.ColumnDefinitions>
-            <Ellipse Name="Dot" VerticalAlignment="Top" Fill="{DynamicResource DangerBrush}" Width="6" Height="6" Visibility="{TemplateBinding IsRead,Converter={StaticResource Boolean2BooleanReConverter}}" Margin="0,0,6,0"/>
+            <Ellipse Name="Dot" VerticalAlignment="Top" Fill="{DynamicResource DangerBrush}" Width="6" Height="6" Visibility="{TemplateBinding IsRead,Converter={StaticResource Boolean2VisibilityReConverter}}" Margin="0,0,6,0"/>
             <Path Name="Tail" Grid.Column="1" Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
             <Border Name="Body" Grid.Column="1" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
                 <Grid VerticalAlignment="Center" Margin="{TemplateBinding Padding}">

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using HandyControl.Data;
 using HandyControlDemo.Data;
@@ -9,26 +8,12 @@ using HandyControlDemo.Service;
 
 namespace HandyControlDemo.ViewModel
 {
-    public class PaginationDemoViewModel : ViewModelBase
+    public class PaginationDemoViewModel : DemoViewModelBase<DemoDataModel>
     {
         /// <summary>
         ///     所有数据
         /// </summary>
         private readonly List<DemoDataModel> _totalDataList;
-
-        /// <summary>
-        ///     显示的数据
-        /// </summary>
-        private List<DemoDataModel> _dataList;
-
-        /// <summary>
-        ///     显示的数据
-        /// </summary>
-        public List<DemoDataModel> DataList
-        {
-            get => _dataList;
-            set => Set(ref _dataList, value);
-        }
 
         /// <summary>
         ///     页码
