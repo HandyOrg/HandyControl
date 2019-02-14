@@ -161,7 +161,7 @@
                     </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.LabelDemoCtl}" Content="{x:Static langs:Lang.Label}">
                         <controls:EdgeElement.LeftContent>
-                            <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
+                            <Image Source="../../Resources/Img/LeftMainContent/Label_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
                     

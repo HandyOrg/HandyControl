@@ -742,6 +742,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Label_16x.png" />
     <Resource Include="Resources\Img\Chat\chat_back1.jpg" />
     <Resource Include="Resources\Img\Chat\chat_back2.jpg" />
     <Resource Include="Resources\Img\LeftMainContent\Bubble_16xLG.png" />

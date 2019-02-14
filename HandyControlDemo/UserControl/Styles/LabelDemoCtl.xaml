@@ -5,7 +5,7 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
-        <StackPanel>
+        <StackPanel Margin="32">
             <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}"/>
             <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource LabelDanger}"/>
             <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource LabelInfo}"/>
