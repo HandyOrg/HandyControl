@@ -134,6 +134,8 @@
 
         public static readonly string ToolBarDemoCtl = nameof(ToolBarDemoCtl);
 
+        public static readonly string LabelDemoCtl = nameof(LabelDemoCtl);
+
         public static readonly string CommonWindow = nameof(CommonWindow);
 
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);

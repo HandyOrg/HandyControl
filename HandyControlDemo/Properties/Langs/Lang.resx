@@ -495,4 +495,7 @@
   <data name="Second" xml:space="preserve">
     <value>秒</value>
   </data>
+  <data name="Label" xml:space="preserve">
+    <value>标签</value>
+  </data>
 </root>

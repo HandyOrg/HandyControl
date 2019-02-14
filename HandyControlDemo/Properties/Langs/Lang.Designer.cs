@@ -565,6 +565,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 标签 的本地化字符串。
+        /// </summary>
+        public static string Label {
+            get {
+                return ResourceManager.GetString("Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 列表框 的本地化字符串。
         /// </summary>
         public static string ListBox {
