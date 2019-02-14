@@ -350,6 +350,13 @@ namespace HandyControl.Controls
         {
             if (ItemsHost == null) return;
 
+            if (e.Action == NotifyCollectionChangedAction.Reset)
+            {
+                ClearItems();
+                ItemsHost?.Children.Clear();
+                return;
+            }
+
             if (e.OldItems != null)
             {
                 foreach (var item in e.OldItems)

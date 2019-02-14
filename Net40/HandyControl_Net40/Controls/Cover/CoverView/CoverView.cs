@@ -1,4 +1,7 @@
-﻿using System.Windows;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Windows;
 using System.Windows.Data;
 using HandyControl.Data;
 using HandyControl.Tools;
@@ -10,6 +13,10 @@ namespace HandyControl.Controls
         private readonly CoverViewContent _viewContent;
 
         private CoverViewItem _selectedItem;
+
+        private IEnumerable _itemsSourceInternal;
+
+        private readonly Dictionary<object, CoverViewItem> _entryDic = new Dictionary<object, CoverViewItem>();
 
         public CoverView()
         {
@@ -31,6 +38,7 @@ namespace HandyControl.Controls
                     if (_viewContent != null)
                     {
                         _viewContent.Content = item.Content;
+                        _viewContent.ContentTemplate = ItemTemplate;
                         UpdateCoverViewContent(true);
                     }
 
@@ -54,6 +62,7 @@ namespace HandyControl.Controls
                 if (_viewContent != null)
                 {
                     _viewContent.Content = null;
+                    _viewContent.ContentTemplate = null;
                     UpdateCoverViewContent(false);
                 }
                 _selectedItem.IsSelected = false;
@@ -77,6 +86,14 @@ namespace HandyControl.Controls
         }
 
         protected override DependencyObject GetContainerForItemOverride() => new CoverViewItem();
+
+        private void SetBindingForItem(FrameworkElement item)
+        {
+            item.SetBinding(MarginProperty, new Binding(ItemMarginProperty.Name) { Source = this });
+            item.SetBinding(WidthProperty, new Binding(ItemWidthProperty.Name) { Source = this });
+            item.SetBinding(HeightProperty, new Binding(ItemHeightProperty.Name) { Source = this });
+            item.SetBinding(HeaderedSelectableItem.HeaderTemplateProperty, new Binding(ItemHeaderTemplateProperty.Name) { Source = this });
+        }
 
         protected override bool IsItemItsOwnContainerOverride(object item) => item is CoverViewItem;
 
@@ -133,6 +150,15 @@ namespace HandyControl.Controls
             set => SetValue(ItemContentHeightFixedProperty, value);
         }
 
+        public static readonly DependencyProperty ItemHeaderTemplateProperty = DependencyProperty.Register(
+            "ItemHeaderTemplate", typeof(DataTemplate), typeof(CoverView), new PropertyMetadata(default(DataTemplate)));
+
+        public DataTemplate ItemHeaderTemplate
+        {
+            get => (DataTemplate)GetValue(ItemHeaderTemplateProperty);
+            set => SetValue(ItemHeaderTemplateProperty, value);
+        }
+
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
             base.OnRenderSizeChanged(sizeInfo);
@@ -144,28 +170,16 @@ namespace HandyControl.Controls
         {
             if (ItemsHost == null) return;
 
-            ItemsHost.Children.Clear();
-            var index = 0;
+            _entryDic.Clear();
+
             foreach (var item in Items)
             {
-                DependencyObject container;
-                if (IsItemItsOwnContainerOverride(item))
-                {
-                    container = item as DependencyObject;
-                }
-                else
-                {
-                    container = GetContainerForItemOverride();
-                    PrepareContainerForItemOverride(container, item);
-                }
-
-                if (container is CoverViewItem element)
-                {
-                    element.Index = index++;
-                    element.Style = ItemContainerStyle;
-                    ItemsHost.Children.Add(element);
-                }
+                AddItem(item);
             }
+
+            GenerateIndex();
+
+            UpdateCoverViewContent(_viewContent.IsOpen);
         }
 
         /// <summary>
@@ -188,6 +202,18 @@ namespace HandyControl.Controls
                 }
             }
 
+            UpdateCoverViewContentPosition();
+            if (_viewContent.CanSwitch)
+            {
+                _viewContent.IsOpen = isOpen;
+            }
+        }
+
+        /// <summary>
+        ///     更新内容视图位置
+        /// </summary>
+        private void UpdateCoverViewContentPosition()
+        {
             var total = Items.Count + 1;
             var totalRow = total / Groups + (total % Groups > 0 ? 1 : 0);
             if (total <= Groups)
@@ -208,10 +234,170 @@ namespace HandyControl.Controls
             }
 
             _viewContent.UpdatePosition(_selectedItem.Index, Groups, _selectedItem.DesiredSize.Width);
-            if (_viewContent.CanSwitch)
+        }
+
+        protected override void OnItemsSourceChanged(IEnumerable oldValue, IEnumerable newValue)
+        {
+            if (_itemsSourceInternal != null)
             {
-                _viewContent.IsOpen = isOpen;
+                if (_itemsSourceInternal is INotifyCollectionChanged s)
+                {
+                    s.CollectionChanged -= InternalCollectionChanged;
+                }
+
+                ClearItems();
             }
+            _itemsSourceInternal = newValue;
+            if (_itemsSourceInternal != null)
+            {
+                if (_itemsSourceInternal is INotifyCollectionChanged s)
+                {
+                    s.CollectionChanged += InternalCollectionChanged;
+                }
+                foreach (var item in _itemsSourceInternal)
+                {
+                    AddItem(item);
+                }
+            }
+
+            if (ItemsHost != null)
+            {
+                GenerateIndex();
+            }
+        }
+
+        private void ClearItems()
+        {
+            _selectedItem = null;
+            if (_viewContent != null)
+            {
+                ItemsHost?.Children.Remove(_viewContent);
+            }
+
+            _entryDic.Clear();
+        }
+
+        private void RemoveItem(object item)
+        {
+            if (_entryDic.TryGetValue(item, out var entry))
+            {
+                if (ReferenceEquals(entry, _selectedItem))
+                {
+                    _selectedItem = null;
+                    if (_viewContent != null)
+                    {
+                        _viewContent.Content = null;
+                        _viewContent.IsOpen = false;
+                        ItemsHost.Children.Remove(_viewContent);
+                    }
+                }
+
+                ItemsHost.Children.Remove(entry);
+                Items.Remove(item);
+                _entryDic.Remove(item);
+            }
+        }
+
+        private void AddItem(object item) => InsertItem(_entryDic.Count, item);
+
+        private void InsertItem(int index, object item)
+        {
+            if (ItemsHost == null)
+            {
+                Items.Insert(index, item);
+                _entryDic.Add(item, null);
+            }
+            else
+            {
+                DependencyObject container;
+                if (IsItemItsOwnContainerOverride(item))
+                {
+                    container = item as DependencyObject;
+                }
+                else
+                {
+                    container = GetContainerForItemOverride();
+                    PrepareContainerForItemOverride(container, item);
+                }
+
+                if (container is CoverViewItem element)
+                {
+                    SetBindingForItem(element);
+                    element.Style = ItemContainerStyle;
+                    if (element.Header == null)
+                    {
+                        element.Header = item;
+                    }
+                    _entryDic[item] = element;
+                    ItemsHost.Children.Insert(index, element);
+                }
+            }
+        }
+
+        /// <summary>
+        ///     生成序号
+        /// </summary>
+        private void GenerateIndex()
+        {
+            var index = 0;
+            foreach (var item in Items)
+            {
+                _entryDic[item].Index = index++;
+            }
+        }
+
+        private void InternalCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (ItemsHost == null) return;
+
+            if (e.OldItems != null)
+            {
+                foreach (var item in e.OldItems)
+                {
+                    RemoveItem(item);
+                }
+            }
+            if (e.NewItems != null)
+            {
+                if (_viewContent.IsOpen)
+                {
+                    ItemsHost.Children.Remove(_viewContent);
+                }
+
+                var count = 0;
+                foreach (var item in e.NewItems)
+                {
+                    var index = e.NewStartingIndex + count++;
+                    InsertItem(index, item);
+                    if (_itemsSourceInternal != null)
+                    {
+                        Items.Insert(index, item);
+                    }
+                }
+            }
+
+            GenerateIndex();
+            if (_viewContent.IsOpen)
+            {
+                UpdateCoverViewContentPosition();
+            }
+        }
+
+        protected override void OnItemsChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (_itemsSourceInternal != null) return;
+
+            InternalCollectionChanged(sender, e);
+        }
+
+        protected override void OnItemTemplateChanged(DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        protected override void OnItemContainerStyleChanged(DependencyPropertyChangedEventArgs e)
+        {
+
         }
     }
 }

@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Net;
+using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools.Converter;
 using Newtonsoft.Json;
@@ -122,6 +124,63 @@ namespace HandyControlDemo.Service
                 {
                     Header = $"{Properties.Langs.Lang.Step}4",
                     Content = Properties.Langs.Lang.Complete
+                }
+            };
+        }
+
+        internal ObservableCollection<CoverViewDemoModel> GetCoverViewDemoDataList()
+        {
+            return new ObservableCollection<CoverViewDemoModel>
+            {
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/1.jpg",
+                    BackgroundToken = ResourceToken.SuccessBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/2.jpg",
+                    BackgroundToken = ResourceToken.PrimaryBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/3.jpg",
+                    BackgroundToken = ResourceToken.WarningBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/4.jpg",
+                    BackgroundToken = ResourceToken.DangerBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/5.jpg",
+                    BackgroundToken = ResourceToken.SuccessBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/6.jpg",
+                    BackgroundToken = ResourceToken.PrimaryBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/7.jpg",
+                    BackgroundToken = ResourceToken.InfoBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/8.jpg",
+                    BackgroundToken = ResourceToken.WarningBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/9.jpg",
+                    BackgroundToken = ResourceToken.PrimaryBrush
+                },
+                new CoverViewDemoModel
+                {
+                    ImgPath = "/HandyControlDemo;component/Resources/Img/Album/10.jpg",
+                    BackgroundToken = ResourceToken.DangerBrush
                 }
             };
         }

@@ -3,5 +3,6 @@
                     xmlns:converter="clr-namespace:HandyControlDemo.Tools.Converter">
 
     <converter:StringRepeatConverter x:Key="StringRepeatConverter"/>
+    <converter:String2BrushConverter x:Key="String2BrushConverter"/>
 
 </ResourceDictionary>

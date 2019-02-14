@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Data\Model\ChatInfoModel.cs" />
     <Compile Include="Data\Model\ContributorModel.cs" />
+    <Compile Include="Data\Model\CoverViewDemoModel.cs" />
     <Compile Include="Data\Model\DemoDataModel.cs" />
     <Compile Include="Data\Model\StepBarDemoModel.cs" />
     <Compile Include="Properties\Langs\Lang.Designer.cs">
@@ -97,6 +98,7 @@
       <DependentUpon>Lang.en.resx</DependentUpon>
     </Compile>
     <Compile Include="Service\DataService.cs" />
+    <Compile Include="Tools\Converter\String2BrushConverter.cs" />
     <Compile Include="Tools\Helper\AssemblyHelper.cs" />
     <Compile Include="Tools\Helper\CommonHelper.cs" />
     <Compile Include="Tools\Converter\StringRepeatConverter.cs" />
@@ -313,6 +315,8 @@
     </Compile>
     <Compile Include="ViewModel\Basic\ChatBoxViewModel.cs" />
     <Compile Include="ViewModel\Common\ComboBoxDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\CoverViewModel.cs" />
+    <Compile Include="ViewModel\DemoViewModelBase!1.cs" />
     <Compile Include="ViewModel\Main\ContributorsViewModel.cs" />
     <Compile Include="ViewModel\Controls\GrowlDemoViewModel.cs" />
     <Compile Include="ViewModel\Controls\ImageBrowserDemoViewModel.cs" />

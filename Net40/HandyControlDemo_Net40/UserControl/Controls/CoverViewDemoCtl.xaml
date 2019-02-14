@@ -3,89 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             DataContext="{Binding CoverView,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
-        <controls:CoverView Margin="27" Width="880" Height="432" ItemWidth="160" ItemHeight="160">
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/1.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource SuccessBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/2.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource PrimaryBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/3.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource WarningBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/4.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource DangerBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/5.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource SuccessBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/6.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource PrimaryBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/7.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource InfoBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/8.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource WarningBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/9.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource PrimaryBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
-            <controls:CoverViewItem>
-                <controls:CoverViewItem.Header>
-                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg"/>
-                </controls:CoverViewItem.Header>
-                <Border Margin="10" Height="300" Background="{DynamicResource DangerBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                </Border>
-            </controls:CoverViewItem>
+        <controls:CoverView Margin="27" Width="880" Height="432" ItemWidth="160" ItemHeight="160" ItemsSource="{Binding DataList}">
+            <controls:CoverView.ItemHeaderTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding ImgPath}"/>
+                </DataTemplate>
+            </controls:CoverView.ItemHeaderTemplate>
+            <controls:CoverView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="10" Height="300" Background="{Binding BackgroundToken,Converter={StaticResource String2BrushConverter}}">
+                        <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                    </Border>
+                </DataTemplate>
+            </controls:CoverView.ItemTemplate>
         </controls:CoverView>
     </controls:TransitioningContentControl>
 </UserControl>

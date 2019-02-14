@@ -3,14 +3,11 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="CoverViewItemBaseStyle" TargetType="controls:CoverViewItem">
-        <Setter Property="Margin" Value="{Binding ItemMargin,RelativeSource={RelativeSource  AncestorType=controls:CoverView}}"/>
-        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource  AncestorType=controls:CoverView}}"/>
-        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource  AncestorType=controls:CoverView}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CoverViewItem">
                     <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <ContentPresenter ContentSource="Header" Margin="{TemplateBinding Padding}"/>
+                        <ContentPresenter ContentSource="Header" ContentTemplate="{TemplateBinding HeaderTemplate}" Margin="{TemplateBinding Padding}"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

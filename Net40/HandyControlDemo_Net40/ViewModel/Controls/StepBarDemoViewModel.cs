@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Controls;
-using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HandyControlDemo.Data;
@@ -9,26 +7,9 @@ using HandyControlDemo.Service;
 
 namespace HandyControlDemo.ViewModel
 {
-    public class StepBarDemoViewModel : ViewModelBase
+    public class StepBarDemoViewModel : DemoViewModelBase<StepBarDemoModel>
     {
-        /// <summary>
-        ///     数据列表
-        /// </summary>
-        private List<StepBarDemoModel> _dataList;
-
-        /// <summary>
-        ///     数据列表
-        /// </summary>
-        public List<StepBarDemoModel> DataList
-        {
-            get => _dataList;
-            set => Set(nameof(DataList), ref _dataList, value);
-        }
-
-        public StepBarDemoViewModel(DataService dataService)
-        {
-            DataList = dataService.GetStepBarDemoDataList();
-        }
+        public StepBarDemoViewModel(DataService dataService) => DataList = dataService.GetStepBarDemoDataList();
 
         private RelayCommand<Panel> _nextCmd;
 

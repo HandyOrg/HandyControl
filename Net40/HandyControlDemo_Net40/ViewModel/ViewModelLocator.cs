@@ -23,6 +23,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<StepBarDemoViewModel>();
             SimpleIoc.Default.Register<PaginationDemoViewModel>();
             SimpleIoc.Default.Register<ChatBoxViewModel>();
+            SimpleIoc.Default.Register<CoverViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -47,6 +48,8 @@ namespace HandyControlDemo.ViewModel
         public PaginationDemoViewModel PaginationDemo => ServiceLocator.Current.GetInstance<PaginationDemoViewModel>();
 
         public ChatBoxViewModel ChatBox => new ChatBoxViewModel();
+
+        public CoverViewModel CoverView => ServiceLocator.Current.GetInstance<CoverViewModel>();
 
         #endregion
     }
