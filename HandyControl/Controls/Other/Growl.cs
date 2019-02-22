@@ -261,22 +261,25 @@ namespace HandyControl.Controls
         /// <param name="growlInfo"></param>
         private static void Show(GrowlInfo growlInfo)
         {
-            var ctl = new Growl
+            Application.Current.Dispatcher.Invoke(() =>
             {
-                Message = growlInfo.Message,
-                Time = DateTime.Now,
-                Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
-                _showCloseButton = growlInfo.ShowCloseButton,
-                ActionBeforeClose = growlInfo.ActionBeforeClose,
-                _staysOpen = growlInfo.StaysOpen,
-                ShowDateTime = growlInfo.ShowDateTime,
-                ConfirmStr = growlInfo.ConfirmStr,
-                CancelStr = growlInfo.CancelStr,
-                Type = growlInfo.Type,
-                _waitTime = Math.Max(growlInfo.WaitTime, 2)
-            };
-            GrowlPanel.Children.Insert(0, ctl);
+                var ctl = new Growl
+                {
+                    Message = growlInfo.Message,
+                    Time = DateTime.Now,
+                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
+                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                    _showCloseButton = growlInfo.ShowCloseButton,
+                    ActionBeforeClose = growlInfo.ActionBeforeClose,
+                    _staysOpen = growlInfo.StaysOpen,
+                    ShowDateTime = growlInfo.ShowDateTime,
+                    ConfirmStr = growlInfo.ConfirmStr,
+                    CancelStr = growlInfo.CancelStr,
+                    Type = growlInfo.Type,
+                    _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                };
+                GrowlPanel.Children.Insert(0, ctl);
+            });
         }
 
         /// <summary>
