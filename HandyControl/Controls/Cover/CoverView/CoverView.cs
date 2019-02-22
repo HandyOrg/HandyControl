@@ -18,6 +18,8 @@ namespace HandyControl.Controls
 
         private readonly Dictionary<object, CoverViewItem> _entryDic = new Dictionary<object, CoverViewItem>();
 
+        private bool _isRefresh;
+
         public CoverView()
         {
             _viewContent = new CoverViewContent();
@@ -171,11 +173,14 @@ namespace HandyControl.Controls
             if (ItemsHost == null) return;
 
             _entryDic.Clear();
+            _isRefresh = true;
 
             foreach (var item in Items)
             {
                 AddItem(item);
             }
+
+            _isRefresh = false;
 
             GenerateIndex();
 
@@ -214,6 +219,10 @@ namespace HandyControl.Controls
         /// </summary>
         private void UpdateCoverViewContentPosition()
         {
+            if (_viewContent.Parent != null)
+            {
+                ItemsHost.Children.Remove(_viewContent);
+            }
             var total = Items.Count + 1;
             var totalRow = total / Groups + (total % Groups > 0 ? 1 : 0);
             if (total <= Groups)
@@ -245,6 +254,7 @@ namespace HandyControl.Controls
                     s.CollectionChanged -= InternalCollectionChanged;
                 }
 
+                Items.Clear();
                 ClearItems();
             }
             _itemsSourceInternal = newValue;
@@ -269,9 +279,13 @@ namespace HandyControl.Controls
         private void ClearItems()
         {
             _selectedItem = null;
-            if (_viewContent != null)
+            _viewContent.Content = null;
+            _viewContent.ContentTemplate = null;
+
+            if (ItemsHost != null)
             {
-                ItemsHost?.Children.Remove(_viewContent);
+                ItemsHost.Children.Remove(_viewContent);
+                ItemsHost.Children.Clear();
             }
 
             _entryDic.Clear();
@@ -330,6 +344,11 @@ namespace HandyControl.Controls
                     }
                     _entryDic[item] = element;
                     ItemsHost.Children.Insert(index, element);
+
+                    if (IsLoaded && !_isRefresh && _itemsSourceInternal != null)
+                    {
+                        Items.Insert(index, item);
+                    }
                 }
             }
         }
@@ -352,8 +371,9 @@ namespace HandyControl.Controls
 
             if (e.Action == NotifyCollectionChangedAction.Reset)
             {
+                if (_entryDic.Count == 0) return;
                 ClearItems();
-                ItemsHost?.Children.Clear();
+                Items.Clear();
                 return;
             }
 
@@ -376,10 +396,6 @@ namespace HandyControl.Controls
                 {
                     var index = e.NewStartingIndex + count++;
                     InsertItem(index, item);
-                    if (_itemsSourceInternal != null)
-                    {
-                        Items.Insert(index, item);
-                    }
                 }
             }
 

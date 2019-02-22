@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.LabelDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             Background="{DynamicResource RegionBrush}">
+    <controls:TransitioningContentControl>
+        <StackPanel Margin="32">
+            <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}"/>
+            <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource LabelDanger}"/>
+            <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource LabelInfo}"/>
+            <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource LabelPrimary}"/>
+            <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource LabelSuccess}"/>
+            <Label HorizontalAlignment="Left" Margin="5" Content="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource LabelWarning}"/>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

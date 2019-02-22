@@ -241,6 +241,9 @@
     <Compile Include="UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Styles\LabelDemoCtl.xaml.cs">
+      <DependentUpon>LabelDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Styles\ListViewDemoCtl.xaml.cs">
       <DependentUpon>ListViewDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -580,6 +583,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Styles\LabelDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Styles\ListViewDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -718,6 +725,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Label_16x.png" />
     <Resource Include="Resources\Img\Chat\chat_back1.jpg" />
     <Resource Include="Resources\Img\Chat\chat_back2.jpg" />
     <Resource Include="Resources\Img\LeftMainContent\Bubble_16xLG.png" />
