@@ -111,6 +111,7 @@
     <Compile Include="Controls\Other\Carousel.cs" />
     <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="Controls\Other\ChatBubble.cs" />
+    <Compile Include="Controls\Other\GotoTop.cs" />
     <Compile Include="Controls\Transfer\Transfer.cs" />
     <Compile Include="Controls\Transfer\TransferGroup.cs" />
     <Compile Include="Controls\Transfer\TransferItem.cs" />
@@ -379,6 +380,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\GotoTopBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\ProgressButtonBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -424,6 +429,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\FlipClock.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\GotoTop.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

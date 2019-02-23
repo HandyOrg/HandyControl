@@ -188,6 +188,11 @@
                     </controls:StatusSwitchElement.CheckedElement>
                 </ToggleButton>
                 <ListBox Name="ListBoxControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GotoTopDemoCtl}" Content="{x:Static langs:Lang.GotoTop}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/GoToTop_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
                     <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ProgressButtonDemoCtl}" Content="{x:Static langs:Lang.ProgressButton}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/ProgressButton_16x.png"/>
@@ -293,7 +298,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/Panel_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CoverViewDemoCtl}" Content="{x:Static langs:Lang.CoverView}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.CoverViewDemoCtl}" Content="{x:Static langs:Lang.CoverView}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/DetailDataView_16x.png"/>
                         </controls:EdgeElement.LeftContent>

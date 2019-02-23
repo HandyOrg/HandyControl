@@ -439,6 +439,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 回到顶部 的本地化字符串。
+        /// </summary>
+        public static string GotoTop {
+            get {
+                return ResourceManager.GetString("GotoTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 分组框 的本地化字符串。
         /// </summary>
         public static string GroupBox {

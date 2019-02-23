@@ -57,6 +57,7 @@
         <ResourceDictionary Source="ProgressButton.xaml"/>
         <ResourceDictionary Source="Transfer.xaml"/>
         <ResourceDictionary Source="ChatBubble.xaml"/>
+        <ResourceDictionary Source="GotoTop.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
