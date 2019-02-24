@@ -28,7 +28,7 @@ namespace HandyControl.Controls
         /// </summary>
         public Orientation Orientation
         {
-            get => (Orientation) GetValue(OrientationProperty);
+            get => (Orientation)GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
 
@@ -43,7 +43,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool CanMouseWheel
         {
-            get => (bool) GetValue(CanMouseWheelProperty);
+            get => (bool)GetValue(CanMouseWheelProperty);
             set => SetValue(CanMouseWheelProperty, value);
         }
 
@@ -88,6 +88,16 @@ namespace HandyControl.Controls
                 _totalHorizontalOffset = Math.Min(Math.Max(0, _totalHorizontalOffset - e.Delta), ScrollableWidth);
                 ScrollToHorizontalOffsetInternal(_totalHorizontalOffset);
             }
+        }
+
+        internal void ScrollToTopInternal(double milliseconds = 500)
+        {
+            if (!_isRunning)
+            {
+                _totalVerticalOffset = VerticalOffset;
+                CurrentVerticalOffset = VerticalOffset;
+            }
+            ScrollToVerticalOffsetInternal(0, milliseconds);
         }
 
         internal void ScrollToVerticalOffsetInternal(double offset, double milliseconds = 500)
@@ -140,7 +150,7 @@ namespace HandyControl.Controls
 
         public static bool GetIsEnableInertia(DependencyObject element)
         {
-            return (bool) element.GetValue(IsEnableInertiaProperty);
+            return (bool)element.GetValue(IsEnableInertiaProperty);
         }
 
         /// <summary>
@@ -174,7 +184,7 @@ namespace HandyControl.Controls
 
         public static bool GetIsPenetrating(DependencyObject element)
         {
-            return (bool) element.GetValue(IsPenetratingProperty);
+            return (bool)element.GetValue(IsPenetratingProperty);
         }
 
         /// <summary>
@@ -197,7 +207,7 @@ namespace HandyControl.Controls
         private double CurrentVerticalOffset
         {
             // ReSharper disable once UnusedMember.Local
-            get => (double) GetValue(CurrentVerticalOffsetProperty);
+            get => (double)GetValue(CurrentVerticalOffsetProperty);
             set => SetValue(CurrentVerticalOffsetProperty, value);
         }
 
@@ -220,7 +230,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double CurrentHorizontalOffset
         {
-            get => (double) GetValue(CurrentHorizontalOffsetProperty);
+            get => (double)GetValue(CurrentHorizontalOffsetProperty);
             set => SetValue(CurrentHorizontalOffsetProperty, value);
         }
     }

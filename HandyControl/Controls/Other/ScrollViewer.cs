@@ -90,6 +90,16 @@ namespace HandyControl.Controls
             }
         }
 
+        internal void ScrollToTopInternal(double milliseconds = 500)
+        {
+            if (!_isRunning)
+            {
+                _totalVerticalOffset = VerticalOffset;
+                CurrentVerticalOffset = VerticalOffset;
+            }
+            ScrollToVerticalOffsetInternal(0, milliseconds);
+        }
+
         internal void ScrollToVerticalOffsetInternal(double offset, double milliseconds = 500)
         {
             var animation = AnimationHelper.CreateAnimation(offset, milliseconds);

@@ -59,7 +59,7 @@ namespace HandyControl.Controls
 
         public bool Animated
         {
-            get => (bool) GetValue(AnimatedProperty);
+            get => (bool)GetValue(AnimatedProperty);
             set => SetValue(AnimatedProperty, value);
         }
 
@@ -68,7 +68,7 @@ namespace HandyControl.Controls
 
         public double AnimationTime
         {
-            get => (double) GetValue(AnimationTimeProperty);
+            get => (double)GetValue(AnimationTimeProperty);
             set => SetValue(AnimationTimeProperty, value);
         }
 
@@ -77,7 +77,7 @@ namespace HandyControl.Controls
 
         public double HidingHeight
         {
-            get => (double) GetValue(HidingHeightProperty);
+            get => (double)GetValue(HidingHeightProperty);
             set => SetValue(HidingHeightProperty, value);
         }
 
@@ -86,7 +86,7 @@ namespace HandyControl.Controls
 
         public bool AutoHiding
         {
-            get => (bool) GetValue(AutoHidingProperty);
+            get => (bool)GetValue(AutoHidingProperty);
             set => SetValue(AutoHidingProperty, value);
         }
 

@@ -498,4 +498,7 @@
   <data name="Label" xml:space="preserve">
     <value>标签</value>
   </data>
+  <data name="GotoTop" xml:space="preserve">
+    <value>回到顶部</value>
+  </data>
 </root>
