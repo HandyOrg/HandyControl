@@ -13,7 +13,7 @@
 如果您觉得HandyControl还不错，那么就以HandyControl的名义，花一顿饭的钱来为慈善事业做一份贡献吧（捐赠留言写：HandyControl），谢谢大家。  
 
 捐赠链接：
-![中华慈善总会](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
+[中华慈善总会](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
 
 也可以扫下面的二维码：  
 ![中华慈善总会](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/chinacharityfederation.png)  
