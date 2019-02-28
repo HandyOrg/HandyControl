@@ -41,6 +41,7 @@
     <!--含有水印的下拉框切换按钮（用于扩展样式中）-->
     <Style x:Key="ComboBoxWatermarkToggleButton" TargetType="ToggleButton">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
         <Setter Property="IsTabStop" Value="false"/>
         <Setter Property="Focusable" Value="false"/>
         <Setter Property="ClickMode" Value="Press"/>
@@ -54,7 +55,7 @@
                         </Grid.ColumnDefinitions>
                         <Border x:Name="templateRoot" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true"/>
                         <Path Grid.Column="1" x:Name="arrow" Data="{StaticResource DownGeometry}" Stretch="Uniform" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" Margin="7" VerticalAlignment="Center" RenderTransformOrigin="0.5,0.5"/>
-                        <TextBlock Grid.Column="0" VerticalAlignment="{Binding VerticalContentAlignment,RelativeSource={RelativeSource AncestorType=ComboBox}}" Margin="8,7,8,8" Visibility="{Binding Text,RelativeSource={RelativeSource AncestorType=ComboBox},Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource AncestorType=ComboBox}}"/>
+                        <ContentPresenter Grid.Column="0" Visibility="{Binding Text,RelativeSource={RelativeSource AncestorType=ComboBox},Converter={StaticResource String2VisibilityReConverter}}" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
@@ -89,19 +90,21 @@
                 </Border>
             </Popup>
             <ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{Binding Background,RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <ContentPresenter Margin="8,8,2,7" Grid.Column="0" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            <Border Grid.Column="0" Margin="1,0">
+                <ContentPresenter Margin="{TemplateBinding Padding}" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
@@ -133,7 +136,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="7,4">
+            <StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
                 <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
@@ -149,20 +152,22 @@
                     </ScrollViewer>
                 </Border>
             </Popup>
-            <ToggleButton Grid.Row="1" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}"/>
-            <ContentPresenter Margin="8,8,2,7" Grid.Row="1" Grid.Column="0" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            <ToggleButton Grid.Row="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}"/>
+            <Border Grid.Row="1" Grid.Column="0" Margin="1,0">
+                <ContentPresenter Margin="{TemplateBinding Padding}" x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" IsHitTestVisible="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            </Border>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
@@ -215,13 +220,13 @@
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
@@ -249,14 +254,14 @@
         <Setter Property="AllowDrop" Value="true"/>
         <Setter Property="MinWidth" Value="0"/>
         <Setter Property="MinHeight" Value="0"/>
-        <Setter Property="Padding" Value="0,6"/>
+        <Setter Property="Padding" Value="10,6"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
-                    <ScrollViewer Padding="{TemplateBinding Padding}" Margin="0,0,0,1" x:Name="PART_ContentHost" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    <ScrollViewer Padding="{TemplateBinding Padding}" x:Name="PART_ContentHost" Background="Transparent" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -282,32 +287,28 @@
                 </Border>
             </Popup>
             <ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <Border Grid.Column="0" x:Name="border" Background="Transparent" Margin="3,1">
-                <TextBox x:Name="PART_EditableTextBox" Background="{TemplateBinding Background}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Margin="3,0" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            <Border Grid.Column="0" x:Name="border" Margin="-1,0">
+                <TextBox x:Name="PART_EditableTextBox" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
             </Trigger>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsMouseOver" Value="true" SourceName="border"/>
-                    <Condition Property="IsFocused" Value="false" SourceName="PART_EditableTextBox"/>
-                </MultiTrigger.Conditions>
+            <Trigger Property="IsMouseOver" Value="true" SourceName="PART_EditableTextBox">
                 <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
-            </MultiTrigger>
+            </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsMouseOver" Value="true" SourceName="toggleButton"/>
@@ -335,7 +336,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="7,4">
+            <StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
                 <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
@@ -351,34 +352,31 @@
                     </ScrollViewer>
                 </Border>
             </Popup>
-            <ToggleButton Grid.Row="1" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
-            <TextBlock x:Name="Placeholder" Margin="8,7,8,8" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Grid.Column="0" Grid.Row="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>
-            <Border Grid.Row="1" Grid.Column="0" x:Name="border" Background="Transparent" Margin="4,1">
-                <TextBox Padding="2,6,2,7" x:Name="PART_EditableTextBox" Background="{TemplateBinding Background}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+            <ToggleButton Grid.Row="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}"/>
+            <!--<ToggleButton Grid.Row="1" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}"/>
+            <TextBlock x:Name="Placeholder" Margin="8,7,8,8" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Grid.Column="0" Grid.Row="1" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}"/>-->
+            <Border Grid.Row="1" Grid.Column="0" x:Name="border" Margin="-1,0">
+                <TextBox x:Name="PART_EditableTextBox" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxEditableTextBox}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
             </Border>
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
             </Trigger>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsMouseOver" Value="true" SourceName="border"/>
-                    <Condition Property="IsFocused" Value="false" SourceName="PART_EditableTextBox"/>
-                </MultiTrigger.Conditions>
+            <Trigger Property="IsMouseOver" Value="true" SourceName="PART_EditableTextBox">
                 <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
-            </MultiTrigger>
+            </Trigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsMouseOver" Value="true" SourceName="toggleButton"/>
@@ -391,7 +389,6 @@
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Opacity" Value="0.4" TargetName="toggleButton"/>
-                <Setter Property="Opacity" Value="0.4" TargetName="Placeholder"/>
                 <Setter Property="Opacity" Value="0.4" TargetName="border"/>
             </Trigger>
         </ControlTemplate.Triggers>
@@ -431,13 +428,13 @@
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
@@ -470,11 +467,11 @@
     <!--下拉项基样式-->
     <Style x:Key="ComboBoxItemBaseStyle" TargetType="ComboBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="Padding" Value="9,6"/>
+        <Setter Property="Padding" Value="10,6"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="MinHeight" Value="30"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -604,13 +601,13 @@
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
@@ -703,13 +700,13 @@
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
@@ -808,13 +805,13 @@
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
@@ -932,13 +929,13 @@
             <Trigger Property="HasItems" Value="false">
                 <Setter Property="Height" TargetName="dropDownBorder" Value="95"/>
             </Trigger>
-            <!--<MultiTrigger>
+            <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsGrouping" Value="true"/>
                     <Condition Property="VirtualizingPanel.IsVirtualizingWhenGrouping" Value="false"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
-            </MultiTrigger>-->
+            </MultiTrigger>
             <Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
                 <Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}"/>
                 <Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}"/>
