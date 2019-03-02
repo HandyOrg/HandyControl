@@ -501,4 +501,7 @@
   <data name="GotoTop" xml:space="preserve">
     <value>回到顶部</value>
   </data>
+  <data name="NotifyIcon" xml:space="preserve">
+    <value>托盘图标</value>
+  </data>
 </root>

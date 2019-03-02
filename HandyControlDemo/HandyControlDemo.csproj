@@ -178,6 +178,9 @@
     <Compile Include="UserControl\Controls\GotoTopDemoCtl.xaml.cs">
       <DependentUpon>GotoTopDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\NotifyIconDemoCtl.xaml.cs">
+      <DependentUpon>NotifyIconDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
       <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -495,6 +498,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\NotifyIconDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\OutlineTextDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -753,6 +760,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\NotificationHub_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\GoToTop_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Label_16x.png" />
     <Resource Include="Resources\Img\Chat\chat_back1.jpg" />

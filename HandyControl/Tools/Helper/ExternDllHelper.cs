@@ -10,13 +10,40 @@ using System.Threading;
 
 namespace HandyControl.Tools
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal class ExternDllHelper
     {
         private const string Gdi32 = "gdi32.dll";
 
         private const string User32 = "user32.dll";
 
-        // ReSharper disable once InconsistentNaming
+        private const string Shell32 = "shell32.dll";
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        public class NOTIFYICONDATA
+        {
+            public int cbSize = Marshal.SizeOf(typeof(NOTIFYICONDATA));
+            public IntPtr hWnd;
+            public int uID;
+            public int uFlags;
+            public int uCallbackMessage;
+            public IntPtr hIcon;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+            public string szTip;
+            public int dwState = 0;
+            public int dwStateMask = 0;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
+            public string szInfo;
+            public int uTimeoutOrVersion;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
+            public string szInfoTitle;
+            public int dwInfoFlags;
+        }
+
+        [DllImport(Shell32, CharSet = CharSet.Auto)]
+        [ResourceExposure(ResourceScope.None)]
+        public static extern int Shell_NotifyIcon(int message, NOTIFYICONDATA pnid);
+
         public const int E_FAIL = unchecked((int) 0x80004005);
 
         [StructLayout(LayoutKind.Sequential)]
