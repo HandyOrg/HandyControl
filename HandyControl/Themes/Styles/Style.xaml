@@ -58,6 +58,7 @@
         <ResourceDictionary Source="Transfer.xaml"/>
         <ResourceDictionary Source="ChatBubble.xaml"/>
         <ResourceDictionary Source="GotoTop.xaml"/>
+        <ResourceDictionary Source="Gravatar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -501,4 +501,13 @@
   <data name="GotoTop" xml:space="preserve">
     <value>回到顶部</value>
   </data>
+  <data name="Badge" xml:space="preserve">
+    <value>标记</value>
+  </data>
+  <data name="Gravatar" xml:space="preserve">
+    <value>头像</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>敬请期待</value>
+  </data>
 </root>

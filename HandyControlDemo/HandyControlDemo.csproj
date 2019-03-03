@@ -133,6 +133,9 @@
     <Compile Include="UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\BadgeDemoCtl.xaml.cs">
+      <DependentUpon>BadgeDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\CalendarWithClockDemoCtl.xaml.cs">
       <DependentUpon>CalendarWithClockDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -177,6 +180,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\GotoTopDemoCtl.xaml.cs">
       <DependentUpon>GotoTopDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\GravatarDemoCtl.xaml.cs">
+      <DependentUpon>GravatarDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
       <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
@@ -246,6 +252,9 @@
     </Compile>
     <Compile Include="UserControl\Main\QQGroupView.xaml.cs">
       <DependentUpon>QQGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Main\UnderConstruction.xaml.cs">
+      <DependentUpon>UnderConstruction.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\BorderDemoCtl.xaml.cs">
       <DependentUpon>BorderDemoCtl.xaml</DependentUpon>
@@ -435,6 +444,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\BadgeDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\CalendarWithClockDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -492,6 +505,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\GotoTopDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\GravatarDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -584,6 +601,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Main\QQGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Main\UnderConstruction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -753,6 +774,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\under_construction.gif" />
+    <Resource Include="Resources\Img\LeftMainContent\User_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DotLarge_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\GoToTop_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Label_16x.png" />
     <Resource Include="Resources\Img\Chat\chat_back1.jpg" />

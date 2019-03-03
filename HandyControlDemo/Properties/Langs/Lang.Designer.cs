@@ -47,7 +47,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   重写当前线程的 CurrentUICulture 属性
+        ///   使用此强类型资源类，为所有资源查找
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -84,6 +84,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Ask {
             get {
                 return ResourceManager.GetString("Ask", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 标记 的本地化字符串。
+        /// </summary>
+        public static string Badge {
+            get {
+                return ResourceManager.GetString("Badge", resourceCulture);
             }
         }
         
@@ -255,6 +264,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ComboBox {
             get {
                 return ResourceManager.GetString("ComboBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 敬请期待 的本地化字符串。
+        /// </summary>
+        public static string ComingSoon {
+            get {
+                return ResourceManager.GetString("ComingSoon", resourceCulture);
             }
         }
         
@@ -444,6 +462,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string GotoTop {
             get {
                 return ResourceManager.GetString("GotoTop", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 头像 的本地化字符串。
+        /// </summary>
+        public static string Gravatar {
+            get {
+                return ResourceManager.GetString("Gravatar", resourceCulture);
             }
         }
         

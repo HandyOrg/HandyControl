@@ -501,4 +501,13 @@
   <data name="GotoTop" xml:space="preserve">
     <value>GotoTop</value>
   </data>
+  <data name="Badge" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Gravatar" xml:space="preserve">
+    <value>Gravatar</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Coming Soon</value>
+  </data>
 </root>

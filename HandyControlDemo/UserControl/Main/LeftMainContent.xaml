@@ -188,12 +188,22 @@
                     </controls:StatusSwitchElement.CheckedElement>
                 </ToggleButton>
                 <ListBox Name="ListBoxControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GravatarDemoCtl}" Content="{x:Static langs:Lang.Gravatar}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/User_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.BadgeDemoCtl}" Content="{x:Static langs:Lang.Badge}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/DotLarge_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
                     <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GotoTopDemoCtl}" Content="{x:Static langs:Lang.GotoTop}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/GoToTop_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ProgressButtonDemoCtl}" Content="{x:Static langs:Lang.ProgressButton}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.ProgressButtonDemoCtl}" Content="{x:Static langs:Lang.ProgressButton}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/ProgressButton_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -303,7 +313,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/DetailDataView_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CoverFlowDemoCtl}" Content="{x:Static langs:Lang.CoverFlow}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.CoverFlowDemoCtl}" Content="{x:Static langs:Lang.CoverFlow}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/LinearCarousel_16x.png"/>
                         </controls:EdgeElement.LeftContent>

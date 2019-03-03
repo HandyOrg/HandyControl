@@ -39,6 +39,10 @@ Step 3：enjoy coding
 
 ## Latest examples
 
+### Gravatar
+
+![Gravatar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Gravatar.gif)
+
 ### ChatBubble
 
 ![ChatBubble](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ChatBubble.png)
@@ -51,6 +55,8 @@ Step 3：enjoy coding
 
 ![ProgressButton](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressButton.png)
 
+## History publication
+
 ### CoverFlow
 
 ![CoverFlow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverFlow.gif)
@@ -58,8 +64,6 @@ Step 3：enjoy coding
 ### CoverView
 
 ![CoverView](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverView.gif)
-
-## History publication
 
 ### MessageBox
 
