@@ -116,6 +116,7 @@
     <Compile Include="Controls\Other\Dialog.cs" />
     <Compile Include="Controls\Other\GotoTop.cs" />
     <Compile Include="Controls\Other\Gravatar.cs" />
+    <Compile Include="Controls\Panel\SimplePanel.cs" />
     <Compile Include="Controls\Transfer\Transfer.cs" />
     <Compile Include="Controls\Transfer\TransferGroup.cs" />
     <Compile Include="Controls\Transfer\TransferItem.cs" />

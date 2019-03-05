@@ -5,10 +5,10 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              Background="{DynamicResource RegionBrush}">
     <StackPanel Margin="32" Orientation="Horizontal">
-        <controls:Badge Value="99">
+        <controls:Badge Value="99" Height="30">
             <Button Content="{x:Static langs:Lang.Comment}"/>
         </controls:Badge>
-        <controls:Badge Value="99" Margin="16,0,0,0" Style="{StaticResource BadgeChromeDanger}">
+        <controls:Badge Value="99" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeChromeDanger}">
             <Button Content="{x:Static langs:Lang.Reply}"/>
         </controls:Badge>
     </StackPanel>

@@ -6,11 +6,6 @@ namespace HandyControl.Controls
 {
     public class Badge : ContentControl
     {
-        public Badge()
-        {
-            
-        }
-
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
             "Text", typeof(string), typeof(Badge), new PropertyMetadata(default(string)));
 

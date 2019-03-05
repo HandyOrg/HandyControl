@@ -15,12 +15,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Badge">
-                    <Grid>
+                    <controls:SimplePanel>
                         <ContentPresenter/>
-                        <Border HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource BorderCircular}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <Border Margin="0,-10,-20,0" HorizontalAlignment="Right" VerticalAlignment="Top" Style="{StaticResource BorderCircular}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
                             <ContentPresenter ContentSource="Text" Margin="{TemplateBinding Padding}"/>
                         </Border>
-                    </Grid>
+                    </controls:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
