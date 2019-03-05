@@ -510,4 +510,10 @@
   <data name="ComingSoon" xml:space="preserve">
     <value>Coming Soon</value>
   </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
 </root>

@@ -277,6 +277,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 评论 的本地化字符串。
+        /// </summary>
+        public static string Comment {
+            get {
+                return ResourceManager.GetString("Comment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 一般 的本地化字符串。
         /// </summary>
         public static string Common {
@@ -912,6 +921,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Remark {
             get {
                 return ResourceManager.GetString("Remark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 回复 的本地化字符串。
+        /// </summary>
+        public static string Reply {
+            get {
+                return ResourceManager.GetString("Reply", resourceCulture);
             }
         }
         

@@ -109,7 +109,7 @@
     <Compile Include="Controls\Attach\TitleElement.cs" />
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
-    <Compile Include="Controls\Other\Badge.cs" />
+    <Compile Include="Controls\Badge\Badge.cs" />
     <Compile Include="Controls\Other\Carousel.cs" />
     <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="Controls\Other\ChatBubble.cs" />
@@ -360,6 +360,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\SkinViolet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Badge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\BadgeBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
