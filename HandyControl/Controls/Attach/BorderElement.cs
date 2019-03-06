@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using HandyControl.Data;
@@ -25,10 +24,6 @@ namespace HandyControl.Controls
             {
                 if ((bool)e.NewValue)
                 {
-                    border.SetBinding(FrameworkElement.MinWidthProperty,
-                        new Binding(FrameworkElement.ActualWidthProperty.Name) { Source = border });
-                    border.SetBinding(FrameworkElement.MinHeightProperty,
-                        new Binding(FrameworkElement.ActualHeightProperty.Name) { Source = border });
                     var binding = new MultiBinding
                     {
                         Converter = new BorderCircularConverter()

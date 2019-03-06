@@ -39,6 +39,10 @@ Step 3：enjoy coding
 
 ## Latest examples
 
+### Badge
+
+![Badge](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Badge.png)
+
 ### Gravatar
 
 ![Gravatar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Gravatar.gif)

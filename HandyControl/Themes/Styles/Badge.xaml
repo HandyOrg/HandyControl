@@ -10,23 +10,23 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
     </Style>
 
-    <Style x:Key="BadgeChromePrimary" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
+    <Style x:Key="BadgePrimary" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
 
-    <Style x:Key="BadgeChromeSuccess" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
+    <Style x:Key="BadgeSuccess" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
     </Style>
 
-    <Style x:Key="BadgeChromeInfo" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
+    <Style x:Key="BadgeInfo" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
     </Style>
 
-    <Style x:Key="BadgeChromeWarning" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
+    <Style x:Key="BadgeWarning" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
     </Style>
 
-    <Style x:Key="BadgeChromeDanger" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
+    <Style x:Key="BadgeDanger" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="controls:Badge">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
