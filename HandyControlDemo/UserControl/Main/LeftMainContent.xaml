@@ -258,7 +258,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/DatePicker_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.TransferDemoCtl}" Content="{x:Static langs:Lang.Transfer}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.TransferDemoCtl}" Content="{x:Static langs:Lang.Transfer}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Transfer_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -318,7 +318,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/LinearCarousel_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Content="{x:Static langs:Lang.ProgressBar}">
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Content="{x:Static langs:Lang.ProgressBar}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/ProgressBar_16x.png"/>
                         </controls:EdgeElement.LeftContent>
