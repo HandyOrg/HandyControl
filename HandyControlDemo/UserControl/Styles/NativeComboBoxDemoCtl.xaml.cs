@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class NaiveDatePickerDemoCtl
+    public partial class NativeComboBoxDemoCtl
     {
-        public NaiveDatePickerDemoCtl()
+        public NativeComboBoxDemoCtl()
         {
             InitializeComponent();
         }
