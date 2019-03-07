@@ -196,6 +196,26 @@
         <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
+    <Style BasedOn="{StaticResource ProgressBarWaveBaseStyle}" TargetType="controls:WaveProgressBar">
+        <Setter Property="WaveFill" Value="{DynamicResource DarkPrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="ProgressBarSuccessWave" BasedOn="{StaticResource ProgressBarWaveBaseStyle}" TargetType="controls:WaveProgressBar">
+        <Setter Property="WaveFill" Value="{DynamicResource DarkSuccessBrush}"/>
+    </Style>
+
+    <Style x:Key="ProgressBarInfoWave" BasedOn="{StaticResource ProgressBarWaveBaseStyle}" TargetType="controls:WaveProgressBar">
+        <Setter Property="WaveFill" Value="{DynamicResource DarkInfoBrush}"/>
+    </Style>
+
+    <Style x:Key="ProgressBarWarningWave" BasedOn="{StaticResource ProgressBarWaveBaseStyle}" TargetType="controls:WaveProgressBar">
+        <Setter Property="WaveFill" Value="{DynamicResource DarkWarningBrush}"/>
+    </Style>
+
+    <Style x:Key="ProgressBarDangerWave" BasedOn="{StaticResource ProgressBarWaveBaseStyle}" TargetType="controls:WaveProgressBar">
+        <Setter Property="WaveFill" Value="{DynamicResource DarkDangerBrush}"/>
+    </Style>
+
     <Style x:Key="ProgressBarFlat" TargetType="ProgressBar">
         <Setter Property="Height" Value="4"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>

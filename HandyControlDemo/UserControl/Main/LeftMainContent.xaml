@@ -59,7 +59,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/CheckBox_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.NaiveScrollViewerDemoCtl}" Content="{x:Static langs:Lang.ScrollViewer}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.NativeScrollViewerDemoCtl}" Content="{x:Static langs:Lang.ScrollViewer}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/ScrollBox_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -74,17 +74,17 @@
                             <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.NaiveTextBoxDemoCtl}" Content="{x:Static langs:Lang.TextBox}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.NativeTextBoxDemoCtl}" Content="{x:Static langs:Lang.TextBox}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/TextBox_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.NaiveComboBoxDemoCtl}" Content="{x:Static langs:Lang.ComboBox}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.NativeComboBoxDemoCtl}" Content="{x:Static langs:Lang.ComboBox}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/ComboBox_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.NaivePasswordBoxDemoCtl}" Content="{x:Static langs:Lang.PasswordBox}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.NativePasswordBoxDemoCtl}" Content="{x:Static langs:Lang.PasswordBox}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/PasswordBox_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -94,7 +94,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/Expander_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Content="{x:Static langs:Lang.ProgressBar}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.NativeProgressBarDemoCtl}" Content="{x:Static langs:Lang.ProgressBar}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/ProgressBar_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -104,12 +104,12 @@
                             <Image Source="../../Resources/Img/LeftMainContent/Calendar_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.NaiveDatePickerDemoCtl}" Content="{x:Static langs:Lang.DatePicker}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.NativeDatePickerDemoCtl}" Content="{x:Static langs:Lang.DatePicker}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/DatePicker_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.NaiveTabControlDemoCtl}" Content="{x:Static langs:Lang.TabControl}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.NativeTabControlDemoCtl}" Content="{x:Static langs:Lang.TabControl}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/TabPage_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -258,7 +258,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/DatePicker_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.TransferDemoCtl}" Content="{x:Static langs:Lang.Transfer}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.TransferDemoCtl}" Content="{x:Static langs:Lang.Transfer}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Transfer_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -318,9 +318,9 @@
                             <Image Source="../../Resources/Img/LeftMainContent/LinearCarousel_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Tag="{x:Static data:MessageToken.CircleProgressBarDemoCtl}" Content="{x:Static langs:Lang.CircleProgressBar}">
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ProgressBarDemoCtl}" Content="{x:Static langs:Lang.ProgressBar}">
                         <controls:EdgeElement.LeftContent>
-                            <Image Source="../../Resources/Img/LeftMainContent/ShapeArcRing_16x.png"/>
+                            <Image Source="../../Resources/Img/LeftMainContent/ProgressBar_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.StepBarDemoCtl}" Content="{x:Static langs:Lang.StepBar}">

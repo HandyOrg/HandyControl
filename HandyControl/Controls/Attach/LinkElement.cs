@@ -14,7 +14,7 @@ namespace HandyControl.Controls
         {
             if (d is UIElement element)
             {
-                CreateTrriger(element, (string) e.NewValue);
+                CreateTrigger(element, (string) e.NewValue);
             }
         }
 
@@ -27,7 +27,7 @@ namespace HandyControl.Controls
         private static CommandBinding GetCommandBinding(DependencyObject element)
             => (CommandBinding) element.GetValue(CommandBindingProperty);
 
-        private static void CreateTrriger(UIElement element, string link)
+        private static void CreateTrigger(UIElement element, string link)
         {
             element.CommandBindings.Remove(GetCommandBinding(element));
             element.SetCurrentValue(CommandBindingProperty, DependencyProperty.UnsetValue);

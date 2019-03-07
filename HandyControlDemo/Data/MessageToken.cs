@@ -36,7 +36,7 @@
 	
         public static readonly string PreviewSliderDemoCtl = nameof(PreviewSliderDemoCtl);
 	
-        public static readonly string CircleProgressBarDemoCtl = nameof(CircleProgressBarDemoCtl);
+        public static readonly string ProgressBarDemoCtl = nameof(ProgressBarDemoCtl);
 	
         public static readonly string TextBoxDemoCtl = nameof(TextBoxDemoCtl);
 	
@@ -94,23 +94,23 @@
 
         public static readonly string ExpanderDemoCtl = nameof(ExpanderDemoCtl);
 
-        public static readonly string ProgressBarDemoCtl = nameof(ProgressBarDemoCtl);
+        public static readonly string NativeProgressBarDemoCtl = nameof(NativeProgressBarDemoCtl);
 
         public static readonly string TabControlDemoCtl = nameof(TabControlDemoCtl);
 
         public static readonly string CalendarDemoCtl = nameof(CalendarDemoCtl);
 
-        public static readonly string NaiveDatePickerDemoCtl = nameof(NaiveDatePickerDemoCtl);
+        public static readonly string NativeDatePickerDemoCtl = nameof(NativeDatePickerDemoCtl);
 
-        public static readonly string NaiveTextBoxDemoCtl = nameof(NaiveTextBoxDemoCtl);
+        public static readonly string NativeTextBoxDemoCtl = nameof(NativeTextBoxDemoCtl);
 
         public static readonly string TextBlockDemoCtl = nameof(TextBlockDemoCtl);
 
-        public static readonly string NaiveComboBoxDemoCtl = nameof(NaiveComboBoxDemoCtl);
+        public static readonly string NativeComboBoxDemoCtl = nameof(NativeComboBoxDemoCtl);
 
-        public static readonly string NaivePasswordBoxDemoCtl = nameof(NaivePasswordBoxDemoCtl);
+        public static readonly string NativePasswordBoxDemoCtl = nameof(NativePasswordBoxDemoCtl);
 
-        public static readonly string NaiveTabControlDemoCtl = nameof(NaiveTabControlDemoCtl);
+        public static readonly string NativeTabControlDemoCtl = nameof(NativeTabControlDemoCtl);
 
         public static readonly string DataGridDemoCtl = nameof(DataGridDemoCtl);
 
@@ -126,7 +126,7 @@
 
         public static readonly string RadioButtonDemoCtl = nameof(RadioButtonDemoCtl);
 
-        public static readonly string NaiveScrollViewerDemoCtl = nameof(NaiveScrollViewerDemoCtl);
+        public static readonly string NativeScrollViewerDemoCtl = nameof(NativeScrollViewerDemoCtl);
 
         public static readonly string BrushDemoCtl = nameof(BrushDemoCtl);
 

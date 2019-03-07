@@ -148,8 +148,8 @@
     <Compile Include="UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Controls\CircleProgressBarDemoCtl.xaml.cs">
-      <DependentUpon>CircleProgressBarDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Controls\ProgressBarDemoCtl.xaml.cs">
+      <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\ClockDemoCtl.xaml.cs">
       <DependentUpon>ClockDemoCtl.xaml</DependentUpon>
@@ -280,14 +280,14 @@
     <Compile Include="UserControl\Styles\ListViewDemoCtl.xaml.cs">
       <DependentUpon>ListViewDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\NaiveComboBoxDemoCtl.xaml.cs">
-      <DependentUpon>NaiveComboBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NativeComboBoxDemoCtl.xaml.cs">
+      <DependentUpon>NativeComboBoxDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\DataGridDemoCtl.xaml.cs">
       <DependentUpon>DataGridDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\NaiveDatePickerDemoCtl.xaml.cs">
-      <DependentUpon>NaiveDatePickerDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NativeDatePickerDemoCtl.xaml.cs">
+      <DependentUpon>NativeDatePickerDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\ExpanderDemoCtl.xaml.cs">
       <DependentUpon>ExpanderDemoCtl.xaml</DependentUpon>
@@ -310,17 +310,17 @@
     <Compile Include="UserControl\Styles\MenuDemoCtl.xaml.cs">
       <DependentUpon>MenuDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\NaiveScrollViewerDemoCtl.xaml.cs">
-      <DependentUpon>NaiveScrollViewerDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NativeScrollViewerDemoCtl.xaml.cs">
+      <DependentUpon>NativeScrollViewerDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\NaiveTabControlDemoCtl.xaml.cs">
-      <DependentUpon>NaiveTabControlDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NativeTabControlDemoCtl.xaml.cs">
+      <DependentUpon>NativeTabControlDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\NaivePasswordBoxDemoCtl.xaml.cs">
-      <DependentUpon>NaivePasswordBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NativePasswordBoxDemoCtl.xaml.cs">
+      <DependentUpon>NativePasswordBoxDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\ProgressBarDemoCtl.xaml.cs">
-      <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NativeProgressBarDemoCtl.xaml.cs">
+      <DependentUpon>NativeProgressBarDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\TabControlDemoCtl.xaml.cs">
       <DependentUpon>TabControlDemoCtl.xaml</DependentUpon>
@@ -337,8 +337,8 @@
     <Compile Include="UserControl\Styles\TextBlockDemoCtl.xaml.cs">
       <DependentUpon>TextBlockDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControl\Styles\NaiveTextBoxDemoCtl.xaml.cs">
-      <DependentUpon>NaiveTextBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="UserControl\Styles\NativeTextBoxDemoCtl.xaml.cs">
+      <DependentUpon>NativeTextBoxDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Styles\ToggleButtonDemoCtl.xaml.cs">
       <DependentUpon>ToggleButtonDemoCtl.xaml</DependentUpon>
@@ -464,7 +464,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Controls\CircleProgressBarDemoCtl.xaml">
+    <Page Include="UserControl\Controls\ProgressBarDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -640,7 +640,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\NaiveComboBoxDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NativeComboBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -648,7 +648,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\NaiveDatePickerDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NativeDatePickerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -680,19 +680,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\NaiveScrollViewerDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NativeScrollViewerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\NaiveTabControlDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NativeTabControlDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\NaivePasswordBoxDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NativePasswordBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\ProgressBarDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NativeProgressBarDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -716,7 +716,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="UserControl\Styles\NaiveTextBoxDemoCtl.xaml">
+    <Page Include="UserControl\Styles\NativeTextBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -843,7 +843,6 @@
     <Resource Include="Resources\Img\LeftMainContent\Flow_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\TimePicker_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Time_color_16x.png" />
-    <Resource Include="Resources\Img\LeftMainContent\ShapeArcRing_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\NumericListBox_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Toggle_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\DataGrid_16x.png" />

@@ -117,11 +117,12 @@
     <Compile Include="Controls\Other\GotoTop.cs" />
     <Compile Include="Controls\Other\Gravatar.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
+    <Compile Include="Controls\ProgressBar\WaveProgressBar.cs" />
     <Compile Include="Controls\Transfer\Transfer.cs" />
     <Compile Include="Controls\Transfer\TransferGroup.cs" />
     <Compile Include="Controls\Transfer\TransferItem.cs" />
     <Compile Include="Controls\Panel\CirclePanel.cs" />
-    <Compile Include="Controls\Other\CircleProgressBar.cs" />
+    <Compile Include="Controls\ProgressBar\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
     <Compile Include="Controls\Other\Shield.cs" />
     <Compile Include="Controls\Panel\WaterfallPanel.cs" />

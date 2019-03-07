@@ -39,6 +39,10 @@ Step 3：enjoy coding
 
 ## Latest examples
 
+### WaveProgressBar
+
+![WaveProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaveProgressBar.gif)
+
 ### Badge
 
 ![Badge](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Badge.png)
@@ -55,11 +59,11 @@ Step 3：enjoy coding
 
 ![Transfer](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Transfer.png)
 
+## History publication
+
 ### ProgressButton
 
 ![ProgressButton](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressButton.png)
-
-## History publication
 
 ### CoverFlow
 
