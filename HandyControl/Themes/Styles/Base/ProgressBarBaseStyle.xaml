@@ -113,18 +113,12 @@
                                     <Path x:Name="PART_Wave" Stroke="{TemplateBinding WaveStroke}" StrokeThickness="{TemplateBinding WaveThickness}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Height="250" Fill="{TemplateBinding WaveFill}" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Margin="0,0,-400,-20">
                                         <Path.Data>
                                             <PathGeometry>
-                                                <PathGeometry.Figures>
-                                                    <PathFigureCollection>
-                                                        <PathFigure StartPoint="0,1">
-                                                            <PathFigure.Segments>
-                                                                <PolyBezierSegment Points="0.5,1 0.5,0 1,0"/>
-                                                                <PolyBezierSegment Points="1.5,0 1.5,1 2,1"/>
-                                                                <PolyBezierSegment Points="2.5,1 2.5,0 3,0"/>
-                                                                <PolyLineSegment Points="3,0 3,10, 0,10 0,1"/>
-                                                            </PathFigure.Segments>
-                                                        </PathFigure>
-                                                    </PathFigureCollection>
-                                                </PathGeometry.Figures>
+                                                <PathFigure StartPoint="0,1">
+                                                    <PolyBezierSegment Points="0.5,1 0.5,0 1,0"/>
+                                                    <PolyBezierSegment Points="1.5,0 1.5,1 2,1"/>
+                                                    <PolyBezierSegment Points="2.5,1 2.5,0 3,0"/>
+                                                    <PolyLineSegment Points="3,0 3,10, 0,10 0,1"/>
+                                                </PathFigure>
                                             </PathGeometry>
                                         </Path.Data>
                                     </Path>

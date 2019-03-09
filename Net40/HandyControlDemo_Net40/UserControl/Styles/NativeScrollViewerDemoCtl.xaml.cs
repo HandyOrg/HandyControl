@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl
 {
-    public partial class CircleProgressBarDemoCtl
+    public partial class NativeScrollViewerDemoCtl
     {
-        public CircleProgressBarDemoCtl()
+        public NativeScrollViewerDemoCtl()
         {
             InitializeComponent();
         }
