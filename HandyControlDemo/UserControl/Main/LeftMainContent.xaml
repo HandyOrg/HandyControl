@@ -208,7 +208,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/ProgressButton_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ChatBubbleDemoCtl}" Content="{x:Static langs:Lang.ChatBubble}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.ChatBubbleDemoCtl}" Content="{x:Static langs:Lang.ChatBubble}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Bubble_16xLG.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -386,6 +386,11 @@
                     <ListBoxItem Tag="{x:Static data:MessageToken.ScrollViewerDemoCtl}" Content="{x:Static langs:Lang.ScrollViewer}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/ScrollBox_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.DialogDemoCtl}" Content="{x:Static langs:Lang.Dialog}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/Dialog_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.WindowDemoCtl}" Content="{x:Static langs:Lang.Window}">

@@ -46,7 +46,8 @@ var controlList = new List<string>
 	"ChatBubbleDemoCtl",
 	"GotoTopDemoCtl",
 	"BadgeDemoCtl",
-	"GravatarDemoCtl"
+	"GravatarDemoCtl",
+	"DialogDemoCtl"
 };
 var styleList = new List<string>
 {

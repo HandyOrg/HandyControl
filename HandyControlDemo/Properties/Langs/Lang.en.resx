@@ -513,4 +513,7 @@
   <data name="Reply" xml:space="preserve">
     <value>Reply</value>
   </data>
+  <data name="Dialog" xml:space="preserve">
+    <value>Dialog</value>
+  </data>
 </root>

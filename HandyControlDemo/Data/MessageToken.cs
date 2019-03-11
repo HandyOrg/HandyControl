@@ -88,6 +88,8 @@
 	
         public static readonly string GravatarDemoCtl = nameof(GravatarDemoCtl);
 	
+        public static readonly string DialogDemoCtl = nameof(DialogDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);

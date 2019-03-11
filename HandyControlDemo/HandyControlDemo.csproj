@@ -148,6 +148,9 @@
     <Compile Include="UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\DialogDemoCtl.xaml.cs">
+      <DependentUpon>DialogDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\ProgressBarDemoCtl.xaml.cs">
       <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -464,6 +467,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Controls\DialogDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\ProgressBarDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -774,6 +781,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Dialog_16x.png" />
     <Resource Include="Resources\Img\under_construction.gif" />
     <Resource Include="Resources\Img\LeftMainContent\User_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\DotLarge_16x.png" />
