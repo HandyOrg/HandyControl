@@ -130,6 +130,9 @@
     <Compile Include="UserControl\Basic\ChatBox.xaml.cs">
       <DependentUpon>ChatBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Basic\TextDialog.xaml.cs">
+      <DependentUpon>TextDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,9 @@
     </Compile>
     <Compile Include="UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl\Controls\DialogDemoCtl.xaml.cs">
+      <DependentUpon>DialogDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControl\Controls\ProgressBarDemoCtl.xaml.cs">
       <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
@@ -352,6 +358,7 @@
     <Compile Include="ViewModel\Basic\ChatBoxViewModel.cs" />
     <Compile Include="ViewModel\Common\ComboBoxDemoViewModel.cs" />
     <Compile Include="ViewModel\Controls\CoverViewModel.cs" />
+    <Compile Include="ViewModel\Controls\DialogDemoViewModel.cs" />
     <Compile Include="ViewModel\DemoViewModelBase!1.cs" />
     <Compile Include="ViewModel\Main\ContributorsViewModel.cs" />
     <Compile Include="ViewModel\Controls\GrowlDemoViewModel.cs" />
@@ -440,6 +447,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="UserControl\Basic\TextDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UserControl\Controls\AnimationPathDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -461,6 +472,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\CirclePanelDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\DialogDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -774,6 +789,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\LeftMainContent\Dialog_16x.png" />
     <Resource Include="Resources\Img\under_construction.gif" />
     <Resource Include="Resources\Img\LeftMainContent\User_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\DotLarge_16x.png" />

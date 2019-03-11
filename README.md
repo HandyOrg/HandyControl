@@ -39,6 +39,10 @@ Step 3：enjoy coding
 
 ## Latest examples
 
+### Dialog
+
+![Dialog](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Dialog.png)
+
 ### WaveProgressBar
 
 ![WaveProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaveProgressBar.gif)
@@ -55,11 +59,11 @@ Step 3：enjoy coding
 
 ![ChatBubble](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ChatBubble.png)
 
+## History publication
+
 ### Transfer
 
 ![Transfer](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Transfer.png)
-
-## History publication
 
 ### ProgressButton
 

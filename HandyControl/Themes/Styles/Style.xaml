@@ -60,6 +60,7 @@
         <ResourceDictionary Source="GotoTop.xaml"/>
         <ResourceDictionary Source="Gravatar.xaml"/>
         <ResourceDictionary Source="Badge.xaml"/>
+        <ResourceDictionary Source="Dialog.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

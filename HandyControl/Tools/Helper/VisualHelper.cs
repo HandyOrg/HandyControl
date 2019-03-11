@@ -27,18 +27,18 @@ namespace HandyControl.Tools
                 : null;
         }
 
-        internal static T GetGetChild<T>(DependencyObject d) where T : DependencyObject
+        internal static T GetChild<T>(DependencyObject d) where T : DependencyObject
         {
-            if (d is T scrollViewer)
+            if (d is T t)
             {
-                return scrollViewer;
+                return t;
             }
 
             for (int i = 0; i < VisualTreeHelper.GetChildrenCount(d); i++)
             {
                 var child = VisualTreeHelper.GetChild(d, i);
 
-                var result = GetGetChild<T>(child);
+                var result = GetChild<T>(child);
                 if (result != null) return result;
             }
 

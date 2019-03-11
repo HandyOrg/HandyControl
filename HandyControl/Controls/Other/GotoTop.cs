@@ -30,7 +30,7 @@ namespace HandyControl.Controls
             {
                 _scrollViewer.ScrollChanged -= ScrollViewer_ScrollChanged;
             }
-            _scrollViewer = VisualHelper.GetGetChild<System.Windows.Controls.ScrollViewer>(obj);
+            _scrollViewer = VisualHelper.GetChild<System.Windows.Controls.ScrollViewer>(obj);
             if (_scrollViewer != null)
             {
                 _scrollViewer.ScrollChanged += ScrollViewer_ScrollChanged;
