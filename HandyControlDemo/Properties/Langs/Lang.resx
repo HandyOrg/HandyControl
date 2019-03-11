@@ -387,9 +387,6 @@
   <data name="Slider" xml:space="preserve">
     <value>滑块</value>
   </data>
-  <data name="CircleProgressBar" xml:space="preserve">
-    <value>圆形进度条</value>
-  </data>
   <data name="IsNotPhone" xml:space="preserve">
     <value>不是手机号码</value>
   </data>
@@ -500,5 +497,29 @@
   </data>
   <data name="GotoTop" xml:space="preserve">
     <value>回到顶部</value>
+  </data>
+  <data name="Badge" xml:space="preserve">
+    <value>标记</value>
+  </data>
+  <data name="Gravatar" xml:space="preserve">
+    <value>头像</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>敬请期待</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>评论</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>回复</value>
+  </data>
+  <data name="Dialog" xml:space="preserve">
+    <value>对话框</value>
+  </data>
+  <data name="TextDialog" xml:space="preserve">
+    <value>文本对话框</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>请稍后...</value>
   </data>
 </root>

@@ -47,6 +47,7 @@ namespace HandyControl.Controls
             _textBox = GetTemplateChild(ElementTextBox) as WatermarkTextBox;
             if (_textBox != null)
             {
+                _textBox.Text = Text;
                 SetBinding(TextProperty, new Binding(TextProperty.Name)
                 {
                     Source = _textBox,

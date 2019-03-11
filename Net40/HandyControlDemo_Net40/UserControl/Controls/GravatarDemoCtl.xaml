@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.GravatarDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             Background="{DynamicResource RegionBrush}">
+    <controls:TransitioningContentControl>
+        <StackPanel Margin="32" Orientation="Horizontal">
+            <UniformGrid Rows="3" Columns="3" Width="240" Height="240">
+                <controls:Gravatar Id="User1"/>
+                <controls:Gravatar Id="User2"/>
+                <controls:Gravatar Style="{StaticResource GravatarCircleImg}">
+                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/2.jpg"/>
+                </controls:Gravatar>
+                <controls:Gravatar Id="User4"/>
+                <controls:Gravatar Id="User5" Style="{StaticResource GravatarCircle}"/>
+                <controls:Gravatar Id="User6"/>
+                <controls:Gravatar Style="{StaticResource GravatarCircle}" Source="/HandyControlDemo;component/Resources/Img/Album/1.jpg"/>
+                <controls:Gravatar Id="User8"/>
+                <controls:Gravatar Id="User9"/>
+            </UniformGrid>
+            <StackPanel Margin="16,0,0,0" Height="220" VerticalAlignment="Center">
+                <TextBox Text="User1" Name="TextBoxName" Width="180"/>
+                <controls:Gravatar Height="180" Width="180" Id="{Binding Text,ElementName=TextBoxName}" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

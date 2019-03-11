@@ -31,6 +31,8 @@
 
         internal static object Int5Box = 5;
 
+        internal static object Int99Box = 99;
+
         internal static object BooleanBox(bool value) => value ? TrueBox : FalseBox;
     }
 }

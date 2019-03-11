@@ -5,6 +5,8 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Shapes;
 using HandyControl.Data;
+using HandyControl.Expression.Drawing;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -16,6 +18,11 @@ namespace HandyControl.Controls
         ///     故事版
         /// </summary>
         private Storyboard _storyboard;
+
+        /// <summary>
+        ///     路径长度
+        /// </summary>
+        private double _pathLength;
 
         /// <summary>
         ///     路径
@@ -47,8 +54,7 @@ namespace HandyControl.Controls
         ///     路径长度
         /// </summary>
         public static readonly DependencyProperty PathLengthProperty = DependencyProperty.Register(
-            "PathLength", typeof(double), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
-                OnPropertiesChanged));
+            "PathLength", typeof(double), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnPropertiesChanged));
 
         /// <summary>
         ///     路径长度
@@ -146,34 +152,47 @@ namespace HandyControl.Controls
             remove => RemoveHandler(CompletedEvent, value);
         }
 
+        /// <summary>
+        ///     更新路径
+        /// </summary>
         private void UpdatePath()
         {
             if (!Duration.HasTimeSpan || !IsPlaying) return;
-            StrokeDashOffset = PathLength;
+
+            _pathLength = PathLength > 0 ? PathLength : Data.GetTotalLength(new Size(ActualWidth, ActualHeight), StrokeThickness);
+
+            if (MathHelper.IsVerySmall(_pathLength)) return;
+
+            StrokeDashOffset = _pathLength;
             StrokeDashArray = new DoubleCollection(new List<double>
             {
-                PathLength,
-                PathLength
+                _pathLength,
+                _pathLength
             });
 
             //定义动画
+            if (_storyboard != null)
+            {
+                _storyboard.Stop();
+                _storyboard.Completed -= Storyboard_Completed;
+            }
             _storyboard = new Storyboard
             {
                 RepeatBehavior = RepeatBehavior
             };
-            _storyboard.Completed += (s, e) => RaiseEvent(new RoutedEventArgs(CompletedEvent));
+            _storyboard.Completed += Storyboard_Completed;
 
             var frames = new DoubleAnimationUsingKeyFrames();
             //开始位置
             var frame0 = new LinearDoubleKeyFrame
             {
-                Value = PathLength,
+                Value = _pathLength,
                 KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero)
             };
             //结束位置
             var frame1 = new LinearDoubleKeyFrame
             {
-                Value = -PathLength,
+                Value = -_pathLength,
                 KeyTime = KeyTime.FromTimeSpan(Duration.TimeSpan)
             };
             frames.KeyFrames.Add(frame0);
@@ -185,5 +204,7 @@ namespace HandyControl.Controls
 
             _storyboard.Begin();
         }
+
+        private void Storyboard_Completed(object sender, EventArgs e) => RaiseEvent(new RoutedEventArgs(CompletedEvent));
     }
 }

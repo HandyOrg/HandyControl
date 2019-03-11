@@ -9,6 +9,15 @@
 
 ![qq-group](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qq-group.png)
 
+## 捐赠
+如果您觉得HandyControl还不错，那么就以HandyControl的名义，花一顿饭的钱来为慈善事业做一份贡献吧（捐赠留言写：HandyControl），谢谢大家。  
+
+捐赠链接：
+[中华慈善总会](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
+
+也可以扫下面的二维码：  
+![中华慈善总会](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/chinacharityfederation.png)  
+
 ## Usage
 
 Step 1：Add a reference to HandyControl or search for HandyControl on the nuget; 
@@ -30,9 +39,27 @@ Step 3：enjoy coding
 
 ## Latest examples
 
+### Dialog
+
+![Dialog](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Dialog.png)
+
+### WaveProgressBar
+
+![WaveProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaveProgressBar.gif)
+
+### Badge
+
+![Badge](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Badge.png)
+
+### Gravatar
+
+![Gravatar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Gravatar.gif)
+
 ### ChatBubble
 
 ![ChatBubble](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ChatBubble.png)
+
+## History publication
 
 ### Transfer
 
@@ -49,8 +76,6 @@ Step 3：enjoy coding
 ### CoverView
 
 ![CoverView](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverView.gif)
-
-## History publication
 
 ### MessageBox
 
