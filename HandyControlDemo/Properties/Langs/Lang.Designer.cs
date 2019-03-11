@@ -799,6 +799,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 请稍后... 的本地化字符串。
+        /// </summary>
+        public static string PleaseWait {
+            get {
+                return ResourceManager.GetString("PleaseWait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 请输入内容 的本地化字符串。
         /// </summary>
         public static string PlsEnterContent {
@@ -1110,6 +1119,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string TextBox {
             get {
                 return ResourceManager.GetString("TextBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文本对话框 的本地化字符串。
+        /// </summary>
+        public static string TextDialog {
+            get {
+                return ResourceManager.GetString("TextDialog", resourceCulture);
             }
         }
         

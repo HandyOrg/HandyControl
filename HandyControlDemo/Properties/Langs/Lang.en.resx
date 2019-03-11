@@ -516,4 +516,10 @@
   <data name="Dialog" xml:space="preserve">
     <value>Dialog</value>
   </data>
+  <data name="TextDialog" xml:space="preserve">
+    <value>TextDialog</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please wait...</value>
+  </data>
 </root>

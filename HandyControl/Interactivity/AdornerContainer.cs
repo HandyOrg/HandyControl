@@ -14,8 +14,7 @@ namespace HandyControl.Interactivity
 
         public UIElement Child
         {
-            get =>
-                _child;
+            get => _child;
             set
             {
                 AddVisualChild(value);
