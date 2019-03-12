@@ -69,7 +69,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Window">
-                    <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                    <Border SnapsToDevicePixels="True" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <Grid Margin="{TemplateBinding Padding}">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -97,7 +97,9 @@
                                     <ContentPresenter shell:WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="2" x:Name="ContentPresenterMain" Content="{TemplateBinding NonClientAreaContent}"/>
                                 </Grid>
                             </Grid>
-                            <ContentPresenter Grid.Row="1" Content="{TemplateBinding Content}"/>
+                            <AdornerDecorator Grid.Row="1">
+                                <ContentPresenter/>
+                            </AdornerDecorator>
                             <ResizeGrip Width="10" Height="10" x:Name="ResizeGrip" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" IsTabStop="False" Visibility="Collapsed"/>
                         </Grid>
                     </Border>

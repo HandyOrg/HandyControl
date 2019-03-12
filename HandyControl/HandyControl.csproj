@@ -86,6 +86,7 @@
     <Compile Include="Controls\Attach\PanelElement.cs" />
     <Compile Include="Controls\Attach\VisualElement.cs" />
     <Compile Include="Controls\Base\HeaderedSelectableItem.cs" />
+    <Compile Include="Controls\Base\IGravatarGenerator.cs" />
     <Compile Include="Controls\Base\ISelectable.cs" />
     <Compile Include="Controls\Base\RegularItemsControl.cs" />
     <Compile Include="Controls\Base\SelectableItem.cs" />
@@ -108,16 +109,21 @@
     <Compile Include="Controls\Attach\TitleElement.cs" />
     <Compile Include="Controls\Button\ContextMenuButton.cs" />
     <Compile Include="Controls\Button\ContextMenuToggleButton.cs" />
+    <Compile Include="Controls\Other\Badge.cs" />
     <Compile Include="Controls\Other\Carousel.cs" />
     <Compile Include="Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="Controls\Other\ChatBubble.cs" />
+    <Compile Include="Controls\Other\Dialog.cs" />
     <Compile Include="Controls\Other\GotoTop.cs" />
     <Compile Include="Controls\Other\NotifyIcon.cs" />
+    <Compile Include="Controls\Other\Gravatar.cs" />
+    <Compile Include="Controls\Panel\SimplePanel.cs" />
+    <Compile Include="Controls\ProgressBar\WaveProgressBar.cs" />
     <Compile Include="Controls\Transfer\Transfer.cs" />
     <Compile Include="Controls\Transfer\TransferGroup.cs" />
     <Compile Include="Controls\Transfer\TransferItem.cs" />
     <Compile Include="Controls\Panel\CirclePanel.cs" />
-    <Compile Include="Controls\Other\CircleProgressBar.cs" />
+    <Compile Include="Controls\ProgressBar\CircleProgressBar.cs" />
     <Compile Include="Controls\Other\RadioGroup.cs" />
     <Compile Include="Controls\Other\Shield.cs" />
     <Compile Include="Controls\Panel\WaterfallPanel.cs" />
@@ -175,8 +181,12 @@
     <Compile Include="Data\ResourceToken.cs" />
     <Compile Include="Data\SystemVersionInfo.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
+    <Compile Include="Tools\Converter\BorderClipConverter.cs" />
+    <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
     <Compile Include="Tools\Extension\EnumerableExtension.cs" />
+    <Compile Include="Tools\Extension\GeometryExtension.cs" />
+    <Compile Include="Tools\GithubGravatarGenerator.cs" />
     <Compile Include="Tools\Helper\ColorHelper.cs" />
     <Compile Include="Tools\GifImageAnimator.cs" />
     <Compile Include="Data\GrowlInfo.cs" />
@@ -357,6 +367,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Badge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\BadgeBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\ChatBubbleBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -381,7 +399,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Base\DialogBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\Base\GotoTopBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Base\GravatarBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -429,11 +455,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Themes\Styles\Dialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Themes\Styles\FlipClock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Themes\Styles\GotoTop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Styles\Gravatar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

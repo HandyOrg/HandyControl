@@ -31,7 +31,7 @@
 
             <ObjectDataProvider x:Key="DemoTypes" MethodName="GetValues" ObjectType="sys:Enum">
                 <ObjectDataProvider.MethodParameters>
-                    <x:Type Type="data:DemoType"></x:Type>
+                    <x:Type Type="data:DemoType"/>
                 </ObjectDataProvider.MethodParameters>
             </ObjectDataProvider>
 

@@ -12,6 +12,6 @@ namespace HandyControl.Controls
             => element.SetValue(HighlightBrushProperty, value);
 
         public static Brush GetHighlightBrush(DependencyObject element)
-            => (Brush) element.GetValue(HighlightBrushProperty);
+            => (Brush) element.GetValue(HighlightBrushProperty);        
     }
 }

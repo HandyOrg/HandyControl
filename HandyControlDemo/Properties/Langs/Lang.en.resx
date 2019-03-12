@@ -387,9 +387,6 @@
   <data name="Slider" xml:space="preserve">
     <value>Slider</value>
   </data>
-  <data name="CircleProgressBar" xml:space="preserve">
-    <value>CircleProgressBar</value>
-  </data>
   <data name="IsNotPhone" xml:space="preserve">
     <value>It's not a phone number</value>
   </data>
@@ -503,5 +500,29 @@
   </data>
   <data name="NotifyIcon" xml:space="preserve">
     <value>NotifyIcon</value>
+  <data>
+  <data name="Badge" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Gravatar" xml:space="preserve">
+    <value>Gravatar</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Coming Soon</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Reply</value>
+  </data>
+  <data name="Dialog" xml:space="preserve">
+    <value>Dialog</value>
+  </data>
+  <data name="TextDialog" xml:space="preserve">
+    <value>TextDialog</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Please wait...</value>
   </data>
 </root>

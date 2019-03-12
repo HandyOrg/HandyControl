@@ -5,6 +5,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="../Border.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <LinearGradientBrush x:Key="ProgressBarIndicatorAnimatedFill" StartPoint="0,0" EndPoint="1,0">
@@ -70,13 +71,12 @@
     </Style>
 
     <Style x:Key="ProgressBarCircleBaseStyle" TargetType="controls:CircleProgressBar">
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Height" Value="100"/>
         <Setter Property="Width" Value="100"/>
         <Setter Property="ArcThickness" Value="4"/>
-        <Setter Property="Text" Value="{Binding Value,RelativeSource={RelativeSource Self},StringFormat={}{0} %}"/>
+        <Setter Property="Text" Value="{Binding Value,RelativeSource={RelativeSource Self},StringFormat={}{0:F0} %}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CircleProgressBar">
@@ -85,6 +85,53 @@
                         <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" Width="{TemplateBinding ActualWidth}" StrokeThickness="0" Height="{TemplateBinding ActualHeight}" x:Name="PART_Indicator" Fill="{TemplateBinding Foreground}"/>
                         <TextBlock Visibility="{Binding ShowText,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Text}"/>
                     </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ProgressBarWaveBaseStyle" TargetType="controls:WaveProgressBar">
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Text" Value="{Binding Value,RelativeSource={RelativeSource Self},StringFormat={}{0:F0} %}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:WaveProgressBar">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="StoryboardOnLoaded" RepeatBehavior="Forever">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PART_Wave">
+                                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="-400"/>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <StackPanel>
+                        <Border Style="{StaticResource BorderCircular}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                            <Viewbox>
+                                <Border x:Name="PART_Clip" Style="{StaticResource BorderClip}" CornerRadius="100" Width="200" Height="200">
+                                    <Path x:Name="PART_Wave" Stroke="{TemplateBinding WaveStroke}" StrokeThickness="{TemplateBinding WaveThickness}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Height="250" Fill="{TemplateBinding WaveFill}" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Margin="0,0,-400,-20">
+                                        <Path.Data>
+                                            <PathGeometry>
+                                                <PathFigure StartPoint="0,1">
+                                                    <PolyBezierSegment Points="0.5,1 0.5,0 1,0"/>
+                                                    <PolyBezierSegment Points="1.5,0 1.5,1 2,1"/>
+                                                    <PolyBezierSegment Points="2.5,1 2.5,0 3,0"/>
+                                                    <PolyLineSegment Points="3,0 3,10, 0,10 0,1"/>
+                                                </PathFigure>
+                                            </PathGeometry>
+                                        </Path.Data>
+                                    </Path>
+                                </Border>
+                            </Viewbox>
+                        </Border>
+                        <TextBlock Margin="0,10,0,0" Visibility="{Binding ShowText,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Text}"/>
+                    </StackPanel>
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                            <BeginStoryboard Storyboard="{StaticResource StoryboardOnLoaded}"/>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

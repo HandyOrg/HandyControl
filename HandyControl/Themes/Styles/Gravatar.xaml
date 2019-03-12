@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls">
+    
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/GravatarBaseStyle.xaml"/>
+        <ResourceDictionary Source="Border.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style BasedOn="{StaticResource GravatarBaseStyle}" TargetType="controls:Gravatar"/>
+
+    <Style x:Key="GravatarCircle" BasedOn="{StaticResource GravatarBaseStyle}" TargetType="controls:Gravatar">
+        <Setter Property="Padding" Value="16"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:Gravatar">
+                    <Border Style="{StaticResource BorderClip}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Margin="{TemplateBinding Padding}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="GravatarCircleImg" BasedOn="{StaticResource GravatarCircle}" TargetType="controls:Gravatar">
+        <Setter Property="Padding" Value="0"/>
+    </Style>
+
+</ResourceDictionary>

@@ -36,7 +36,7 @@ namespace HandyControlDemo.Service
                     Name = $"Name{i}",
                     Type = (DemoType)i,
                     DataList = dataList,
-                    ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i % 7}.png",
+                    ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i % 6 + 1}.png",
                     Remark = new string(i.ToString()[0], 10)
                 };
                 list.Add(model);
