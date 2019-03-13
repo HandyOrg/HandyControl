@@ -189,6 +189,7 @@
     </Compile>
     <Compile Include="UserControl\Controls\NotifyIconDemoCtl.xaml.cs">
       <DependentUpon>NotifyIconDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\GravatarDemoCtl.xaml.cs">
       <DependentUpon>GravatarDemoCtl.xaml</DependentUpon>
     </Compile>
