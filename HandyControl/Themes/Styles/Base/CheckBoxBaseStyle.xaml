@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="CheckBoxBaseStyle" TargetType="CheckBox">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
@@ -32,10 +33,10 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Border Height="18" Width="18" x:Name="checkBoxBorder" Background="{TemplateBinding Background}" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                        <Grid Grid.Column="0" Height="18" Width="18" x:Name="markGrid">
+                        <controls:SimplePanel Grid.Column="0" Height="18" Width="18" x:Name="markGrid">
                             <Path UseLayoutRounding="True" x:Name="path" StrokeDashOffset="8" StrokeDashArray="8,8" Width="12" Height="12" Data="M 0,2 3,5 8,0" StrokeThickness="2" Stretch="Uniform" Stroke="White"/>
                             <Rectangle x:Name="indeterminateMark" RadiusX="2" RadiusY="2" Fill="{DynamicResource PrimaryBrush}" Margin="2" Opacity="0"/>
-                        </Grid>
+                        </controls:SimplePanel>
                         <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
                     <ControlTemplate.Triggers>

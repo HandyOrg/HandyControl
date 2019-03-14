@@ -44,9 +44,9 @@
                             </BeginStoryboard>
                         </EventTrigger>
                     </ControlTemplate.Triggers>
-                    <Grid ClipToBounds="True">
+                    <controls:SimplePanel ClipToBounds="True">
                         <ItemsPresenter x:Name="PART_ItemsControl" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Left"/>
-                        <Grid Name="GridTop" Opacity="0">
+                        <controls:SimplePanel Name="GridTop" Opacity="0">
                             <Button Command="interactivity:ControlCommands.Prev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonCustom}">
                                 <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
                                     <Path Margin="16" Fill="White" Style="{StaticResource LeftPathStyle}"/>
@@ -57,9 +57,9 @@
                                     <Path Margin="16" Fill="White" Style="{StaticResource RightPathStyle}"/>
                                 </Border>
                             </Button>
-                        </Grid>
+                        </controls:SimplePanel>
                         <StackPanel Name="PART_PanelPage" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                    </Grid>
+                    </controls:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

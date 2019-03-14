@@ -68,7 +68,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ScrollBar">
-                    <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                    <controls:SimplePanel x:Name="Bg" SnapsToDevicePixels="true">
                         <Border Background="{TemplateBinding Background}" />
                         <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}">
                             <Track.DecreaseRepeatButton>
@@ -81,7 +81,7 @@
                                 <Thumb Background="{TemplateBinding Foreground}" Style="{StaticResource ScrollBarBaseThumbVertical}"/>
                             </Track.Thumb>
                         </Track>
-                    </Grid>
+                    </controls:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -95,7 +95,7 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="ScrollBar">
-                            <Grid x:Name="Bg" SnapsToDevicePixels="true">
+                            <controls:SimplePanel x:Name="Bg" SnapsToDevicePixels="true">
                                 <Border Background="{TemplateBinding Background}" />
                                 <Track x:Name="PART_Track" IsEnabled="{TemplateBinding IsMouseOver}">
                                     <Track.DecreaseRepeatButton>
@@ -108,7 +108,7 @@
                                         <Thumb Background="{TemplateBinding Foreground}" Style="{StaticResource ScrollBarBaseThumbHorizontal}"/>
                                     </Track.Thumb>
                                 </Track>
-                            </Grid>
+                            </controls:SimplePanel>
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>

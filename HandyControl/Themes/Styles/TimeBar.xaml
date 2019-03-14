@@ -38,7 +38,7 @@
                         </EventTrigger>
                     </ControlTemplate.Triggers>
                     <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <Grid ClipToBounds="True">
+                        <controls:SimplePanel ClipToBounds="True">
                             <Border BorderThickness="0,0,0,4" BorderBrush="White" VerticalAlignment="Top" Height="52">
                                 <TextBlock FontSize="16" Name="PART_TextBlockSelected" VerticalAlignment="Top" Margin="0,14,0,0" HorizontalAlignment="Center"/>
                             </Border>
@@ -47,7 +47,7 @@
                             <Border Width="1" Background="{DynamicResource DangerBrush}"/>
                             <Canvas Name="PART_CanvasSpe" VerticalAlignment="Bottom" Height="28"/>
                             <Border Name="PART_BorderTop" Background="Transparent" Cursor="Hand"/>
-                        </Grid>
+                        </controls:SimplePanel>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

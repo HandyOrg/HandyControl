@@ -24,7 +24,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ResizeGrip">
-                    <Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                    <controls:SimplePanel Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                         <Path Width="11" Height="11" Data="M 9,0 L 11,0 L 11,11 L 0,11 L 0,9 L 3,9 L 3,6 L 6,6 L 6,3 L 9,3 z" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                             <Path.Fill>
                                 <DrawingBrush TileMode="Tile" Viewbox="0,0,3,3" Viewport="0,0,3,3" ViewportUnits="Absolute" ViewboxUnits="Absolute">
@@ -40,7 +40,7 @@
                                 </DrawingBrush>
                             </Path.Fill>
                         </Path>
-                    </Grid>
+                    </controls:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -175,12 +175,12 @@
                 <ControlTemplate TargetType="controls:ImageBrowser">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="Storyboard1">
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_GridTop">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_PanelTop">
                                 <EasingDoubleKeyFrame KeyTime="0:0:.1" Value="1"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                         <Storyboard x:Key="Storyboard2">
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_GridTop">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_PanelTop">
                                 <EasingDoubleKeyFrame KeyTime="0:0:.4" Value="0"/>
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
@@ -191,13 +191,13 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <controls:ImageViewer x:Name="PART_ImageViewer" ShowImgMap="True" BorderThickness="0" Background="#dd000000"/>
-                        <Grid Name="PART_GridTop" Opacity="0" Background="{DynamicResource DarkOpacityBrush}" VerticalAlignment="Top" Grid.Row="0">
+                        <controls:SimplePanel x:Name="PART_PanelTop" Opacity="0" Background="{DynamicResource DarkOpacityBrush}" VerticalAlignment="Top" Grid.Row="0">
                             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
                                 <TextBlock Text="{Binding ImgPath,ElementName=PART_ImageViewer}" Foreground="White" Margin="10,0,0,0"/>
                                 <TextBlock Text="{Binding ImgSize,ElementName=PART_ImageViewer,Converter={StaticResource Long2FileSizeConverter}}" Foreground="White" Margin="30,0,0,0"/>
                             </StackPanel>
-                            <Button Command="interactivity:ControlCommands.Close" WindowChrome.IsHitTestVisibleInChrome="True" Background="Red" Grid.Row="0" Padding="14" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIcon}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40"/>
-                        </Grid>
+                            <Button Command="interactivity:ControlCommands.Close" WindowChrome.IsHitTestVisibleInChrome="True" Background="Red" Padding="14" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIcon}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40"/>
+                        </controls:SimplePanel>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger SourceName="PART_ImageViewer" Property="ShowCloseButton" Value="True">

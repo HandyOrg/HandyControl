@@ -10,22 +10,17 @@
                  ShowTitle="True"
                  BorderThickness="1"
                  BorderBrush="#262e2f"
-                 NonClientAreaBackground="White"
-                 NonClientAreaForeground="{StaticResource PrimaryTextBrush}"
-                 CloseButtonForeground="{StaticResource PrimaryTextBrush}"
-                 OtherButtonForeground="{StaticResource PrimaryTextBrush}"
-                 OtherButtonHoverBackground="#e5e5e5"
                  Style="{StaticResource WindowWin10}"
                  ResizeMode="NoResize"
                  ShowInTaskbar="False"
                  WindowStartupLocation="CenterOwner"
                  Width="340"
                  Height="220">
-    <Grid>
+    <controls:SimplePanel>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,30,0,0">
             <TextBlock Text="HandyControl" FontSize="30" Foreground="{StaticResource PrimaryBrush}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Version}" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="{StaticResource PrimaryBrush}"/>
         </StackPanel>
         <TextBlock Text="{Binding CopyRight}" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,14" Foreground="{StaticResource ThirdlyTextBrush}"/>
-    </Grid>
+    </controls:SimplePanel>
 </controls:Window>

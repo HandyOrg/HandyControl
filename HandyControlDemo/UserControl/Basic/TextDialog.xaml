@@ -8,8 +8,8 @@
         Width="400"
         Height="247"
         Background="{DynamicResource RegionBrush}">
-    <Grid>
+    <controls:SimplePanel>
         <TextBlock Style="{StaticResource TextBlockLargeBold}" Text="{x:Static langs:Lang.PleaseWait}"/>
         <Button Width="22" Height="22" Command="interactivity:ControlCommands.Close" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryBrush}" controls:IconElement.Geometry="{StaticResource ErrorGeometry}" Padding="0" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,4,4,0"/>    
-    </Grid>
+    </controls:SimplePanel>
 </Border>

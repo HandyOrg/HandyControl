@@ -9,12 +9,12 @@
     </ResourceDictionary.MergedDictionaries>
 
     <ControlTemplate x:Key="ChatBubbleStringBaseTemplate" TargetType="controls:ChatBubble">
-        <Grid>
+        <controls:SimplePanel>
             <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
             <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
                 <TextBlock TextWrapping="Wrap" Text="{TemplateBinding Content}" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
             </Border>
-        </Grid>
+        </controls:SimplePanel>
         <ControlTemplate.Triggers>
             <Trigger Property="Role" Value="Receiver">
                 <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
@@ -31,15 +31,15 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="ChatBubbleImageBaseTemplate" TargetType="controls:ChatBubble">
-        <Grid>
+        <controls:SimplePanel>
             <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
             <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
-                <Grid>
+                <controls:SimplePanel>
                     <Image Margin="{TemplateBinding Padding}" VerticalAlignment="Center" Source="{TemplateBinding Content}"/>
                     <Border BorderThickness="{TemplateBinding Padding}" BorderBrush="{TemplateBinding Background}" Background="{x:Null}" CornerRadius="15"/>
-                </Grid>
+                </controls:SimplePanel>
             </Border>
-        </Grid>
+        </controls:SimplePanel>
         <ControlTemplate.Triggers>
             <Trigger Property="Role" Value="Receiver">
                 <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
@@ -112,12 +112,12 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="ChatBubbleCustomBaseTemplate" TargetType="controls:ChatBubble">
-        <Grid>
+        <controls:SimplePanel>
             <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
             <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
                 <ContentPresenter VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
             </Border>
-        </Grid>
+        </controls:SimplePanel>
         <ControlTemplate.Triggers>
             <Trigger Property="Role" Value="Receiver">
                 <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>

@@ -28,7 +28,7 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="ColorPickerSliderHorizontal" TargetType="Slider">
-        <Grid>
+        <controls:SimplePanel>
             <Border Margin="7,0" Background="{TemplateBinding Background}" MaxHeight="11" CornerRadius="2"/>
             <Border Margin="7,0" Background="{TemplateBinding Foreground}" MaxHeight="11" CornerRadius="2">
                 <Border.OpacityMask>
@@ -53,11 +53,11 @@
                     </Thumb>
                 </Track.Thumb>
             </Track>
-        </Grid>
+        </controls:SimplePanel>
     </ControlTemplate>
 
     <ControlTemplate x:Key="ColorPickerSliderVertical" TargetType="Slider">
-        <Grid >
+        <controls:SimplePanel>
             <Border Margin="0,7" CornerRadius="2" MaxWidth="11" Background="{TemplateBinding Background}"/>
             <Border Margin="0,7" CornerRadius="2" MaxWidth="11" Background="{TemplateBinding Foreground}">
                 <Border.OpacityMask>
@@ -82,7 +82,7 @@
                     </Thumb>
                 </Track.Thumb>
             </Track>
-        </Grid>
+        </controls:SimplePanel>
     </ControlTemplate>
 
     <Style x:Key="ColorPickerSlider" TargetType="Slider">
@@ -162,7 +162,7 @@
                 </DoubleAnimationUsingKeyFrames>
             </Storyboard>
         </ControlTemplate.Resources>
-        <Grid>
+        <controls:SimplePanel>
             <Border Width="1" HorizontalAlignment="Center">
                 <Border.Background>
                     <DrawingBrush RenderOptions.CachingHint="Cache" Viewport="0,0,1,8" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
@@ -181,7 +181,7 @@
                 </Border.Background>
             </Border>
             <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
-                <Grid Width="30" Height="30" Margin="-1,-1,0,0">
+                <controls:SimplePanel Width="30" Height="30" Margin="-1,-1,0,0">
                     <Path x:Name="PathLeft" Data="{StaticResource LeftGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Left" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
                         <Path.RenderTransform>
                             <TransformGroup>
@@ -196,9 +196,9 @@
                             </TransformGroup>
                         </Path.RenderTransform>
                     </Path>
-                </Grid>
+                </controls:SimplePanel>
             </Border>
-        </Grid>
+        </controls:SimplePanel>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
                 <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
@@ -263,7 +263,7 @@
                 </DoubleAnimationUsingKeyFrames>
             </Storyboard>
         </ControlTemplate.Resources>
-        <Grid>
+        <controls:SimplePanel>
             <Border Height="1" VerticalAlignment="Center">
                 <Border.Background>
                     <DrawingBrush RenderOptions.CachingHint="Cache" Viewport="0,0,8,1" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
@@ -282,7 +282,7 @@
                 </Border.Background>
             </Border>
             <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
-                <Grid Width="30" Height="30" Margin="-1,-1,0,0">
+                <controls:SimplePanel Width="30" Height="30" Margin="-1,-1,0,0">
                     <Path x:Name="PathUp" Data="{StaticResource UpGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Top" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
                         <Path.RenderTransform>
                             <TransformGroup>
@@ -297,9 +297,9 @@
                             </TransformGroup>
                         </Path.RenderTransform>
                     </Path>
-                </Grid>
+                </controls:SimplePanel>
             </Border>
-        </Grid>
+        </controls:SimplePanel>
         <ControlTemplate.Triggers>
             <Trigger Property="IsMouseOver" Value="true" SourceName="grip">
                 <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
