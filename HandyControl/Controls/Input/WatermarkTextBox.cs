@@ -5,7 +5,7 @@ using System.Windows.Data;
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = ElementContentName, Type = typeof(ContentControl))]
-    public class WatermarkTextBox : TextBox
+    internal class WatermarkTextBox : TextBox
     {
         #region Constants
 
