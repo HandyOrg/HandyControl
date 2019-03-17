@@ -19,7 +19,7 @@
                                 <ColumnDefinition Width="30"/>
                             </Grid.ColumnDefinitions>
                             <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                            <ScrollViewer Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" Margin="0,0,0,1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                            <ScrollViewer Margin="-2,0" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -44,7 +44,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
-            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="7,4">
+            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
                 <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
@@ -55,8 +55,8 @@
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
                     <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                    <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="7,6" x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
-                    <ScrollViewer Grid.Row="0" Grid.Column="0" Padding="5,6" Margin="0,0,0,1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="{TemplateBinding Padding}" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
+                    <ScrollViewer Margin="-2,0" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                 </Grid>
             </Border>
         </Grid>
@@ -79,7 +79,7 @@
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,8">
+            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,8,6,8">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
@@ -90,8 +90,8 @@
                         <ColumnDefinition Width="30"/>
                     </Grid.ColumnDefinitions>
                     <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                    <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="7,6" x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
-                    <ScrollViewer Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" Margin="0,0,0,1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="{TemplateBinding Padding}" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
+                    <ScrollViewer Margin="-2,0" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                 </Grid>
             </Border>
         </Grid>
@@ -110,7 +110,6 @@
 
     <Style x:Key="SearchBarExtendBaseStyle" BasedOn="{StaticResource SearchBarBaseStyle}" TargetType="controls:SearchBar">
         <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
-        <Setter Property="Padding" Value="7,6"/>
         <Setter Property="controls:InfoElement.Symbol" Value="●"/>
         <Setter Property="Template" Value="{StaticResource SearchBarExtendTopTemplate}"/>
         <Style.Triggers>
@@ -124,10 +123,10 @@
     <ControlTemplate x:Key="SearchBarPlusTopTemplate" TargetType="controls:SearchBar">
         <ControlTemplate.Resources>
             <Storyboard x:Key="StoryboardShow">
-                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="8,0,0,-18" Duration="0:0:.2"/>
+                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,-18" Duration="0:0:.2"/>
             </Storyboard>
             <Storyboard x:Key="StoryboardHidden">
-                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="8,0,0,4" Duration="0:0:0"/>
+                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
             </Storyboard>
         </ControlTemplate.Resources>
         <Grid>
@@ -135,11 +134,11 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
-            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="7,4">
+            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
                 <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
-            <TextBlock Grid.Row="1" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="8,0,0,4" Foreground="{DynamicResource DangerBrush}"/>
+            <TextBlock Grid.Row="1" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}"/>
             <Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                 <Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
@@ -149,8 +148,8 @@
                     </Grid.ColumnDefinitions>
                     <Button Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" controls:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}"/>
                     <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="2,7,7,7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                    <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="7,6" x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
-                    <ScrollViewer Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" Margin="0,0,0,1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="{TemplateBinding Padding}" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
+                    <ScrollViewer Margin="-2,0" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                 </Grid>
             </Border>
         </Grid>
@@ -186,10 +185,10 @@
     <ControlTemplate x:Key="SearchBarPlusLeftTemplate" TargetType="controls:SearchBar">
         <ControlTemplate.Resources>
             <Storyboard x:Key="StoryboardShow">
-                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="8,0,0,-18" Duration="0:0:.2"/>
+                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,-18" Duration="0:0:.2"/>
             </Storyboard>
             <Storyboard x:Key="StoryboardHidden">
-                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="8,0,0,4" Duration="0:0:0"/>
+                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
             </Storyboard>
         </ControlTemplate.Resources>
         <Grid Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
@@ -197,11 +196,11 @@
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,8">
+            <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,8,6,8">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
-            <TextBlock Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="8,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1"/>
+            <TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1"/>
             <Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                 <Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
                     <Grid.ColumnDefinitions>
@@ -211,8 +210,8 @@
                     </Grid.ColumnDefinitions>
                     <Button Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" controls:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}"/>
                     <Button Command="interactivity:ControlCommands.Search" Style="{StaticResource ButtonIcon}" Padding="2,7,7,7" controls:IconElement.Geometry="{StaticResource SearchGeometry}" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0"/>
-                    <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="7,6" x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
-                    <ScrollViewer Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" Margin="0,0,0,1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+                    <ContentControl Content="{Binding Path=(controls:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="{TemplateBinding Padding}" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}" Padding="0"/>
+                    <ScrollViewer Margin="-2,0" Grid.Row="0" Grid.Column="0" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                 </Grid>
             </Border>
         </Grid>

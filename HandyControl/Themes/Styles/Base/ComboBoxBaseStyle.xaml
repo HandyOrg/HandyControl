@@ -511,7 +511,7 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
@@ -531,7 +531,7 @@
         <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
         <Setter Property="Template" Value="{StaticResource ComboBoxTopTemplate}"/>
         <Setter Property="controls:InfoElement.Symbol" Value="●"/>
-        <Setter Property="controls:InfoElement.ContentHeight" Value="30.0"/>
+        <Setter Property="controls:InfoElement.ContentHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Style.Triggers>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
