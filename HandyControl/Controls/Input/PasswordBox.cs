@@ -165,9 +165,6 @@ namespace HandyControl.Controls
 
 
 
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
-        {
-            VerifyData();
-        }
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e) => VerifyData();
     }
 }
