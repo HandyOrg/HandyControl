@@ -23,7 +23,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="controls:WatermarkTextBox">
                     <controls:SimplePanel x:Name="WatermarkContent">
-                        <ContentControl VerticalAlignment="{TemplateBinding VerticalContentAlignment}" TextElement.Foreground="{DynamicResource ThirdlyTextBrush}" Margin="{TemplateBinding Padding}" x:Name="PART_Watermark" Focusable="False" IsHitTestVisible="False" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}"/>
+                        <TextBlock Text="{TemplateBinding Watermark}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Foreground="{DynamicResource ThirdlyTextBrush}" Margin="{TemplateBinding Padding}" x:Name="PART_Watermark" Visibility="{TemplateBinding Text,Converter={StaticResource String2VisibilityReConverter}}"/>
                         <ScrollViewer Padding="{TemplateBinding Padding}" Margin="-2,0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
                     </controls:SimplePanel>
                 </ControlTemplate>
