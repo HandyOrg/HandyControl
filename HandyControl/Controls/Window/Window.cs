@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
-using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 #if netle40
 using Microsoft.Windows.Shell;
@@ -81,13 +79,13 @@ namespace HandyControl.Controls
 
         private bool _isFullScreen;
 
+        private Thickness _actualBorderThickness;
+
         private UIElement _nonClientArea;
 
         private bool _showNonClientArea = true;
 
         private double _tempNonClientAreaHeight;
-
-        private Thickness _tempThickness;
 
         private WindowState _tempWindowState;
 
@@ -106,31 +104,7 @@ namespace HandyControl.Controls
                 new Binding(NonClientAreaHeightProperty.Name) {Source = this});
             WindowChrome.SetWindowChrome(this, chrome);
 
-            Loaded += delegate
-            {
-                _tempThickness = BorderThickness;
-                if (WindowState == WindowState.Maximized)
-                {
-                    BorderThickness = new Thickness();
-                }
-
-                CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,
-                    (s, e) => WindowState = WindowState.Minimized));
-                CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand,
-                    (s, e) => WindowState = WindowState.Maximized));
-                CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand,
-                    (s, e) => WindowState = WindowState.Normal));
-                CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
-                CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, ShowSystemMenu));
-
-                _tempNonClientAreaHeight = NonClientAreaHeight;
-                _tempWindowState = WindowState;
-                _tempWindowStyle = WindowStyle;
-                _tempResizeMode = ResizeMode;
-
-                SwitchIsFullScreen(_isFullScreen);
-                SwitchShowNonClientArea(_showNonClientArea);
-            };
+            Loaded += (s, e) => OnLoaded(e);            
         }
 
         public Brush CloseButtonBackground
@@ -317,15 +291,34 @@ namespace HandyControl.Controls
             }
             else if (WindowState == WindowState.Normal)
             {
-                BorderThickness = _tempThickness;
+                BorderThickness = _actualBorderThickness;
             }
         }
 
-        public override void OnApplyTemplate()
+        protected void OnLoaded(RoutedEventArgs args)
         {
-            base.OnApplyTemplate();
+            _actualBorderThickness = BorderThickness;
+            if (WindowState == WindowState.Maximized)
+            {
+                BorderThickness = new Thickness();
+            }
 
-            _nonClientArea = GetTemplateChild(ElementNonClientArea) as UIElement;
+            CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,
+                (s, e) => WindowState = WindowState.Minimized));
+            CommandBindings.Add(new CommandBinding(SystemCommands.MaximizeWindowCommand,
+                (s, e) => WindowState = WindowState.Maximized));
+            CommandBindings.Add(new CommandBinding(SystemCommands.RestoreWindowCommand,
+                (s, e) => WindowState = WindowState.Normal));
+            CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
+            CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, ShowSystemMenu));
+
+            _tempNonClientAreaHeight = NonClientAreaHeight;
+            _tempWindowState = WindowState;
+            _tempWindowStyle = WindowStyle;
+            _tempResizeMode = ResizeMode;
+
+            SwitchIsFullScreen(_isFullScreen);
+            SwitchShowNonClientArea(_showNonClientArea);
 
             if (SizeToContent != SizeToContent.WidthAndHeight)
                 return;
@@ -334,11 +327,18 @@ namespace HandyControl.Controls
             Dispatcher.BeginInvoke(new Action(() => { SizeToContent = SizeToContent.WidthAndHeight; }));
         }
 
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            _nonClientArea = GetTemplateChild(ElementNonClientArea) as UIElement;
+        }
+
         private void ShowSystemMenu(object sender, ExecutedRoutedEventArgs e)
         {
             var point = WindowState == WindowState.Maximized
-                ? new Point(0, 28)
-                : new Point(Left, Top + 28);
+                ? new Point(0, NonClientAreaHeight)
+                : new Point(Left, Top + NonClientAreaHeight);
             SystemCommands.ShowSystemMenu(this, point);
         }
 
@@ -347,29 +347,6 @@ namespace HandyControl.Controls
             base.OnContentRendered(e);
             if (SizeToContent == SizeToContent.WidthAndHeight)
                 InvalidateMeasure();
-        }
-
-        /// <summary>
-        ///     获取自定义窗口
-        /// </summary>
-        /// <returns></returns>
-        public static Window GetCustomWindow(FrameworkElement content)
-        {
-            var window = new Window
-            {
-                Style = ResourceHelper.GetResource<Style>(ResourceToken.WindowWin10),
-                Content = content
-            };
-            window.Loaded += (s, e) =>
-            {
-                window.Width = window.BorderThickness.Left + window.BorderThickness.Right + content.Width;
-                if (!(window.Template.FindName("GridMenu", window) is Grid nemuArea))
-                    throw new NullReferenceException("can not find GridMenu in template");
-                window.Height = window.BorderThickness.Top + window.BorderThickness.Bottom + content.Height +
-                                nemuArea.ActualHeight;
-            };
-
-            return window;
         }
     }
 }

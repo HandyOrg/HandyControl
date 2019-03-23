@@ -46,25 +46,26 @@
         </Setter>
     </Style>
 
-    <Style x:Key="WindowDefault" BasedOn="{x:Null}" TargetType="Window">
+    <Style x:Key="WindowDefault" TargetType="Window">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
     </Style>
 
-    <Style x:Key="WindowWin10" BasedOn="{x:Null}" TargetType="controls:Window">
+    <Style x:Key="WindowWin10" TargetType="controls:Window">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ReverseTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="NonClientAreaBackground" Value="White"/>
-        <Setter Property="NonClientAreaForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="NonClientAreaForeground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="CloseButtonBackground" Value="Transparent"/>
-        <Setter Property="CloseButtonForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="CloseButtonForeground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="CloseButtonHoverBackground" Value="#e81123"/>
         <Setter Property="CloseButtonHoverForeground" Value="White"/>
         <Setter Property="OtherButtonBackground" Value="Transparent"/>
-        <Setter Property="OtherButtonForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="OtherButtonForeground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="OtherButtonHoverBackground" Value="#e5e5e5"/>
-        <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Window">
