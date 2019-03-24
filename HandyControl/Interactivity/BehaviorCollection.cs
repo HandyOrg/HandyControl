@@ -22,14 +22,14 @@ namespace HandyControl.Interactivity
 
         internal override void ItemAdded(Behavior item)
         {
-            if (AssociatedObject == null)
+            if (item == null || AssociatedObject == null)
                 return;
             item.Attach(AssociatedObject);
         }
 
         internal override void ItemRemoved(Behavior item)
         {
-            if (((IAttachedObject) item).AssociatedObject == null)
+            if (((IAttachedObject) item)?.AssociatedObject == null)
                 return;
             item.Detach();
         }

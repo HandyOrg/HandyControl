@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
 using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
@@ -44,11 +43,6 @@ namespace HandyControl.Controls
         private int _waitTime = 6;
 
         /// <summary>
-        ///     消息容器
-        /// </summary>
-        public static Panel GrowlPanel { get; set; }
-
-        /// <summary>
         ///     计数
         /// </summary>
         private int _tickCount;
@@ -65,14 +59,21 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Close, ButtonClose_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Cancel, ButtonCancel_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Confirm, ButtonOk_OnClick));
-
-            MouseEnter += Growl_MouseEnter;
-            MouseLeave += Growl_MouseLeave;
         }
 
-        private void Growl_MouseLeave(object sender, MouseEventArgs e) => _buttonClose.Collapse();
+        protected override void OnMouseEnter(MouseEventArgs e)
+        {
+            base.OnMouseEnter(e);
 
-        private void Growl_MouseEnter(object sender, MouseEventArgs e) => _buttonClose.Show(_showCloseButton);
+            _buttonClose.Show(_showCloseButton);
+        }
+
+        protected override void OnMouseLeave(MouseEventArgs e)
+        {
+            base.OnMouseLeave(e);
+
+            _buttonClose.Collapse();
+        }
 
         public override void OnApplyTemplate()
         {
@@ -92,6 +93,11 @@ namespace HandyControl.Controls
         }
 
         private Func<bool, bool> ActionBeforeClose { get; set; }
+
+        /// <summary>
+        ///     消息容器
+        /// </summary>
+        public static Panel GrowlPanel { get; set; }
 
         internal static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
             "CancelStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
@@ -120,7 +126,7 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
             "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
             {
-                if (o is Panel panel)
+                if ((bool)args.NewValue && o is Panel panel)
                 {
                     SetGrowlPanel(panel);
                 }
@@ -226,14 +232,8 @@ namespace HandyControl.Controls
                     menuItem
                 }
             };
-            var behavior = new FluidMoveBehavior
-            {
-                AppliesTo = FluidMoveScope.Children,
-                Duration = new Duration(TimeSpan.FromMilliseconds(400)),
-                EaseY = new PowerEase()
-            };
-            var collection = Interaction.GetBehaviors(GrowlPanel);
-            collection.Add(behavior);
+
+            PanelElement.SetFluidMoveBehavior(GrowlPanel, ResourceHelper.GetResource<FluidMoveBehavior>(ResourceToken.BehaviorXY400));
         }
 
         private void Update()
@@ -451,7 +451,13 @@ namespace HandyControl.Controls
             var transform = new TranslateTransform();
             _gridMain.RenderTransform = transform;
             var animation = AnimationHelper.CreateAnimation(MaxWidth);
-            animation.Completed += delegate { GrowlPanel.Children.Remove(this); };
+            animation.Completed += (s, e) =>
+            {
+                if (Parent is Panel panel)
+                {
+                    panel.Children.Remove(this);
+                }
+            };
             transform.BeginAnimation(TranslateTransform.XProperty, animation);
         }
 

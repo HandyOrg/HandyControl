@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             DataContext="{Binding SearchBarDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
         <StackPanel Margin="32" Orientation="Horizontal">
             <StackPanel>
-                <controls:SearchBar/>
+                <controls:SearchBar Command="{Binding SearchCmd}" CommandParameter="{Binding Text,RelativeSource={RelativeSource Self}}"/>
                 <controls:SearchBar Margin="0,32,0,0" IsEnabled="False"/>
 
                 <controls:SearchBar controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" Style="{StaticResource SearchBarExtend}"/>

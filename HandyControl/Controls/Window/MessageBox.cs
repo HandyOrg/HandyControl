@@ -1,14 +1,12 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Text;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Shapes;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
-using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -17,14 +15,6 @@ namespace HandyControl.Controls
     /// </summary>
     public sealed class MessageBox : Window
     {
-        #region Constants
-
-        private const string ElementImage = "PART_Image";
-
-        private const string ElementMessage = "PART_Message";
-
-        #endregion Constants
-
         private MessageBoxResult _messageBoxResult = MessageBoxResult.Cancel;
 
         private bool _showOk;
@@ -35,13 +25,41 @@ namespace HandyControl.Controls
 
         private bool _showNo;
 
-        private string _message;
+        public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
+            "Message", typeof(string), typeof(MessageBox), new PropertyMetadata(default(string)));
 
-        private Geometry _image;
+        public string Message
+        {
+            get => (string) GetValue(MessageProperty);
+            set => SetValue(MessageProperty, value);
+        }
 
-        private Brush _imageBrush;
+        public static readonly DependencyProperty ImageProperty = DependencyProperty.Register(
+            "Image", typeof(Geometry), typeof(MessageBox), new PropertyMetadata(default(Geometry)));
 
-        private bool _showImage;
+        public Geometry Image
+        {
+            get => (Geometry) GetValue(ImageProperty);
+            set => SetValue(ImageProperty, value);
+        }
+
+        public static readonly DependencyProperty ImageBrushProperty = DependencyProperty.Register(
+            "ImageBrush", typeof(Brush), typeof(MessageBox), new PropertyMetadata(default(Brush)));
+
+        public Brush ImageBrush
+        {
+            get => (Brush) GetValue(ImageBrushProperty);
+            set => SetValue(ImageBrushProperty, value);
+        }
+
+        public static readonly DependencyProperty ShowImageProperty = DependencyProperty.Register(
+            "ShowImage", typeof(bool), typeof(MessageBox), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool ShowImage
+        {
+            get => (bool) GetValue(ShowImageProperty);
+            set => SetValue(ShowImageProperty, value);
+        }
 
         private MessageBox()
         {
@@ -67,20 +85,48 @@ namespace HandyControl.Controls
             }, (s, e) => e.CanExecute = _showNo));
         }
 
-        protected override void OnSourceInitialized(EventArgs e)
+        protected override void OnPreviewKeyDown(KeyEventArgs e)
         {
-            base.OnSourceInitialized(e);
+            base.OnPreviewKeyDown(e);
 
-            if (LogicalTreeHelper.FindLogicalNode(this, ElementMessage) is TextBlock message) message.Text = _message;
-
-            if (_showImage)
+            if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.C)
             {
-                if (LogicalTreeHelper.FindLogicalNode(this, ElementImage) is Path image)
+                var builder = new StringBuilder();
+                var line = new string('-', 27);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                builder.Append(Title);
+                builder.Append(Environment.NewLine);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                builder.Append(Message);
+                builder.Append(Environment.NewLine);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                if (_showOk)
                 {
-                    image.Data = _image;
-                    image.Fill = _imageBrush;
-                    image.Show();
+                    builder.Append(Properties.Langs.Lang.Confirm);
+                    builder.Append("   ");
                 }
+                if (_showYes)
+                {
+                    builder.Append(Properties.Langs.Lang.Yes);
+                    builder.Append("   ");
+                }
+                if (_showNo)
+                {
+                    builder.Append(Properties.Langs.Lang.No);
+                    builder.Append("   ");
+                }
+                if (_showCancel)
+                {
+                    builder.Append(Properties.Langs.Lang.Cancel);
+                    builder.Append("   ");
+                }
+                builder.Append(Environment.NewLine);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                Clipboard.SetText(builder.ToString());
             }
         }
 
@@ -96,9 +142,9 @@ namespace HandyControl.Controls
             {
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
-                messageBox._showImage = true;
-                messageBox._image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
-                messageBox._imageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.SuccessBrush);
+                messageBox.ShowImage = true;
+                messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
+                messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.SuccessBrush);
                 messageBox.ShowDialog();
             });
 
@@ -174,9 +220,9 @@ namespace HandyControl.Controls
             {
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
-                messageBox._showImage = true;
-                messageBox._image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
-                messageBox._imageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
+                messageBox.ShowImage = true;
+                messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
+                messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
                 messageBox.ShowDialog();
             });
 
@@ -217,9 +263,9 @@ namespace HandyControl.Controls
 
                 if (!string.IsNullOrEmpty(info.IconKey))
                 {
-                    messageBox._showImage = true;
-                    messageBox._image = ResourceHelper.GetResource<Geometry>(info.IconKey);
-                    messageBox._imageBrush = ResourceHelper.GetResource<Brush>(info.IconBrushKey);
+                    messageBox.ShowImage = true;
+                    messageBox.Image = ResourceHelper.GetResource<Geometry>(info.IconKey);
+                    messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(info.IconBrushKey);
                 }
 
                 messageBox.Style = info.Style;
@@ -293,9 +339,9 @@ namespace HandyControl.Controls
 
             return new MessageBox
             {
-                _message = messageBoxText,
+                Message = messageBoxText,
                 Owner = ownerWindow,
-                WindowStartupLocation = ownerIsNull ? WindowStartupLocation.CenterScreen : WindowStartupLocation.CenterOwner,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
                 ShowTitle = true,
                 Title = caption ?? string.Empty,
                 Topmost = ownerIsNull,
@@ -352,9 +398,9 @@ namespace HandyControl.Controls
             }
 
             if (string.IsNullOrEmpty(iconKey)) return;
-            messageBox._showImage = true;
-            messageBox._image = ResourceHelper.GetResource<Geometry>(iconKey);
-            messageBox._imageBrush = ResourceHelper.GetResource<Brush>(iconBrushKey);
+            messageBox.ShowImage = true;
+            messageBox.Image = ResourceHelper.GetResource<Geometry>(iconKey);
+            messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(iconBrushKey);
         }
 
         private static bool IsValidMessageBoxButton(MessageBoxButton value)

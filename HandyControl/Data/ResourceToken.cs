@@ -64,5 +64,6 @@
 
         internal const string TabItemCapsuleVerticalLast = nameof(TabItemCapsuleVerticalLast);
 
+        internal const string BehaviorXY400 = nameof(BehaviorXY400);
     }
 }
