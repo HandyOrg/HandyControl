@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -81,6 +83,51 @@ namespace HandyControl.Controls
                 _messageBoxResult = MessageBoxResult.No;
                 Close();
             }, (s, e) => e.CanExecute = _showNo));
+        }
+
+        protected override void OnPreviewKeyDown(KeyEventArgs e)
+        {
+            base.OnPreviewKeyDown(e);
+
+            if (e.KeyboardDevice.Modifiers == ModifierKeys.Control && e.Key == Key.C)
+            {
+                var builder = new StringBuilder();
+                var line = new string('-', 27);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                builder.Append(Title);
+                builder.Append(Environment.NewLine);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                builder.Append(Message);
+                builder.Append(Environment.NewLine);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                if (_showOk)
+                {
+                    builder.Append(Properties.Langs.Lang.Confirm);
+                    builder.Append("   ");
+                }
+                if (_showYes)
+                {
+                    builder.Append(Properties.Langs.Lang.Yes);
+                    builder.Append("   ");
+                }
+                if (_showNo)
+                {
+                    builder.Append(Properties.Langs.Lang.No);
+                    builder.Append("   ");
+                }
+                if (_showCancel)
+                {
+                    builder.Append(Properties.Langs.Lang.Cancel);
+                    builder.Append("   ");
+                }
+                builder.Append(Environment.NewLine);
+                builder.Append(line);
+                builder.Append(Environment.NewLine);
+                Clipboard.SetText(builder.ToString());
+            }
         }
 
         /// <summary>
