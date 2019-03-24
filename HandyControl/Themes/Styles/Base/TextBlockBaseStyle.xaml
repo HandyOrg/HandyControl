@@ -9,7 +9,6 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="FontSize" Value="{StaticResource TextFontSize}"/>
     </Style>
 
     <Style x:Key="TextBlockBoldBaseStyle" BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="TextBlock">
