@@ -525,4 +525,10 @@
   <data name="PleaseWait" xml:space="preserve">
     <value>请稍后...</value>
   </data>
+  <data name="GrowlDemo" xml:space="preserve">
+    <value>消息通知示例</value>
+  </data>
+  <data name="NewWindow" xml:space="preserve">
+    <value>新建窗口</value>
+  </data>
 </root>

@@ -13,7 +13,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Grid>
+                    <controls:SimplePanel>
                         <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
                         <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
@@ -22,7 +22,7 @@
                             </StackPanel>
                         </Border>
                         <Border Visibility="Collapsed" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{TemplateBinding BorderBrush}"/>
-                    </Grid>
+                    </controls:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="true">
                             <Setter TargetName="BorderChecked" Property="Visibility" Value="Visible"/>
@@ -176,7 +176,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
-                    <Grid>
+                    <controls:SimplePanel>
                         <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
                         <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                             <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
@@ -184,7 +184,7 @@
                             </ContentControl>
                         </Border>
                         <Border Visibility="Collapsed" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{TemplateBinding BorderBrush}"/>
-                    </Grid>
+                    </controls:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(controls:IconSwitchElement.GeometrySelected)}"/>

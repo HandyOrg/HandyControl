@@ -255,6 +255,14 @@ Step 3：enjoy coding
 
 ![ComboBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ComboBox.jpg)
 
+### NumericUpDown
+
+![NumericUpDown](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/NumericUpDown.png)
+
+### SearchBar
+
+![SearchBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SearchBar.png)
+
 ### PasswordBox
 
 ![PasswordBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PasswordBox.jpg)
@@ -266,6 +274,10 @@ Step 3：enjoy coding
 ### TimePicker
 
 ![TimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimePicker.jpg)
+
+### DateTimePicker
+
+![DateTimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DateTimePicker.png)
 
 ### CirclePanel
 

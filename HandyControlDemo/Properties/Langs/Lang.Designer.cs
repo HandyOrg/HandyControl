@@ -520,6 +520,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 消息通知示例 的本地化字符串。
+        /// </summary>
+        public static string GrowlDemo {
+            get {
+                return ResourceManager.GetString("GrowlDemo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 连接失败，请检查网络！ 的本地化字符串。
         /// </summary>
         public static string GrowlError {
@@ -669,6 +678,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 新建窗口 的本地化字符串。
+        /// </summary>
+        public static string NewWindow {
+            get {
+                return ResourceManager.GetString("NewWindow", resourceCulture);
             }
         }
         

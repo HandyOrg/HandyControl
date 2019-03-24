@@ -27,11 +27,11 @@
                                 <RowDefinition/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Grid x:Name="PART_GridMain" ClipToBounds="True" Grid.RowSpan="2">
+                            <controls:SimplePanel x:Name="PART_PanelMain" ClipToBounds="True" Grid.RowSpan="2">
                                 <Border HorizontalAlignment="Left" VerticalAlignment="Top" Height="{TemplateBinding ImageHeight}" Width="{TemplateBinding ImageWidth}" Margin="{TemplateBinding ImageMargin}">
-                                    <Image Name="PART_ImageMain" RenderTransformOrigin="0.5,0.5" Source="{TemplateBinding ImageSource}"/>
+                                    <Image Name="PART_ImageMain" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderTransformOrigin="0.5,0.5" Source="{TemplateBinding ImageSource}"/>
                                 </Border>
-                            </Grid>
+                            </controls:SimplePanel>
                             <Border Grid.Row="0" Grid.RowSpan="2" Width="252" Height="162" HorizontalAlignment="Right" VerticalAlignment="Bottom" Background="{DynamicResource DarkOpacityBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1">
                                 <Border.Visibility>
                                     <MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">

@@ -112,7 +112,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridColumnHeader">
-                    <Grid>
+                    <controls:SimplePanel>
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Padding="{TemplateBinding Padding}">
                             <StackPanel Orientation="Horizontal">
                                 <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
@@ -121,7 +121,7 @@
                         </Border>
                         <Thumb x:Name="PART_LeftHeaderGripper" HorizontalAlignment="Left" Style="{StaticResource ColumnHeaderGripperStyle}"/>
                         <Thumb x:Name="PART_RightHeaderGripper" HorizontalAlignment="Right" Style="{StaticResource ColumnHeaderGripperStyle}"/>
-                    </Grid>
+                    </controls:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="SortDirection" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ToggleButtonSortDirection"/>
@@ -150,7 +150,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGridRowHeader">
-                    <Grid HorizontalAlignment="Center">
+                    <controls:SimplePanel HorizontalAlignment="Center">
                         <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="Transparent" Padding="{TemplateBinding Padding}" >
                             <StackPanel Orientation="Horizontal">
                                 <ContentPresenter RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
@@ -158,7 +158,7 @@
                         </Border>
                         <Thumb x:Name="PART_TopHeaderGripper" Style="{StaticResource RowHeaderGripperStyle}" VerticalAlignment="Top"/>
                         <Thumb x:Name="PART_BottomHeaderGripper" Style="{StaticResource RowHeaderGripperStyle}" VerticalAlignment="Bottom"/>
-                    </Grid>
+                    </controls:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

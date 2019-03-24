@@ -362,6 +362,7 @@
     <Compile Include="ViewModel\Common\ComboBoxDemoViewModel.cs" />
     <Compile Include="ViewModel\Controls\CoverViewModel.cs" />
     <Compile Include="ViewModel\Controls\DialogDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\SearchBarDemoViewModel.cs" />
     <Compile Include="ViewModel\DemoViewModelBase!1.cs" />
     <Compile Include="ViewModel\Main\ContributorsViewModel.cs" />
     <Compile Include="ViewModel\Controls\GrowlDemoViewModel.cs" />
@@ -382,6 +383,9 @@
     </Compile>
     <Compile Include="Window\CustomNonClientAreaWindow.xaml.cs">
       <DependentUpon>CustomNonClientAreaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Window\GrowlDemoWindow.xaml.cs">
+      <DependentUpon>GrowlDemoWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Window\NoNonClientAreaDragableWindow.xaml.cs">
       <DependentUpon>NoNonClientAreaDragableWindow.xaml</DependentUpon>
@@ -767,6 +771,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Window\CustomNonClientAreaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Window\GrowlDemoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

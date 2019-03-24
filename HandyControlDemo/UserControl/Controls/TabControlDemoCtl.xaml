@@ -9,25 +9,25 @@
                 <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
                 <controls:TabControl Margin="32,16,32,0" Width="800" Height="300">
                     <controls:TabItem Header="TabItem1">
-                        <Grid Background="White"/>
+                        <controls:SimplePanel Background="White"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem2">
-                        <Grid Background="{DynamicResource DarkDangerBrush}"/>
+                        <controls:SimplePanel Background="{DynamicResource DarkDangerBrush}"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem3" IsSelected="True">
-                        <Grid Background="{DynamicResource PrimaryBrush}"/>
+                        <controls:SimplePanel Background="{DynamicResource PrimaryBrush}"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem4">
-                        <Grid Background="{DynamicResource DarkInfoBrush}"/>
+                        <controls:SimplePanel Background="{DynamicResource DarkInfoBrush}"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem5">
-                        <Grid Background="{DynamicResource DarkSuccessBrush}"/>
+                        <controls:SimplePanel Background="{DynamicResource DarkSuccessBrush}"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem6">
-                        <Grid Background="{DynamicResource DarkWarningBrush}"/>
+                        <controls:SimplePanel Background="{DynamicResource DarkWarningBrush}"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem7">
-                        <Grid Background="{DynamicResource DarkAccentBrush}"/>
+                        <controls:SimplePanel Background="{DynamicResource DarkAccentBrush}"/>
                     </controls:TabItem>
                 </controls:TabControl>
                 <StackPanel Orientation="Horizontal" Margin="32,32,32,16">
@@ -38,25 +38,25 @@
                 </StackPanel>
                 <controls:TabControl IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
                     <controls:TabItem Header="TabItem1">
-                        <Grid Background="White"/>
+                        <controls:SimplePanel Background="White"/>
                     </controls:TabItem>
                     <controls:TabItem IsSelected="True" Header="TabItem2">
-                        <Grid Background="#FFE8563F"/>
+                        <controls:SimplePanel Background="#FFE8563F"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem3">
-                        <Grid Background="#FF3F4EE8"/>
+                        <controls:SimplePanel Background="#FF3F4EE8"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem4">
-                        <Grid Background="#FFE83F6D"/>
+                        <controls:SimplePanel Background="#FFE83F6D"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem5">
-                        <Grid Background="#FFB23FE8"/>
+                        <controls:SimplePanel Background="#FFB23FE8"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem6">
-                        <Grid Background="#FF3FE8E8"/>
+                        <controls:SimplePanel Background="#FF3FE8E8"/>
                     </controls:TabItem>
                     <controls:TabItem Header="TabItem7">
-                        <Grid Background="#FFE8E03F"/>
+                        <controls:SimplePanel Background="#FFE8E03F"/>
                     </controls:TabItem>
                 </controls:TabControl>
             </StackPanel>

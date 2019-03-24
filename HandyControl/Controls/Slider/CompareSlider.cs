@@ -22,38 +22,6 @@ namespace HandyControl.Controls
         {
             get => GetValue(SourceContentProperty);
             set => SetValue(SourceContentProperty, value);
-        }
-
-        //private bool _isLoaded;
-
-        //private double _tempValue;
-
-        //public CompareSlider()
-        //{
-        //    //Loaded += delegate
-        //    //{
-        //    //    if (_isLoaded) return;
-        //    //    _isLoaded = true;
-        //    //    Value = _tempValue;
-        //    //};
-        //}
-
-        ////protected override void OnRender(DrawingContext drawingContext)
-        ////{
-        ////    base.OnRender(drawingContext);
-
-        ////    Value = _tempValue;
-        ////}
-
-        ////public override void OnApplyTemplate()
-        ////{
-        ////    base.OnApplyTemplate();
-        ////    _tempValue = Value;
-        ////    Value = Orientation == Orientation.Horizontal ? Maximum : 0;
-        ////    if (_isLoaded)
-        ////    {
-        ////        Value = _tempValue;
-        ////    }
-        ////}
+        }        
     }
 }

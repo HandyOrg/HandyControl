@@ -76,7 +76,7 @@
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        <Grid>
+                        <controls:SimplePanel>
                             <ContentPresenter x:Name="PreviousContentPresentationSite" Content="{x:Null}" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <ContentPresenter.RenderTransform>
                                     <TransformGroup>
@@ -97,7 +97,7 @@
                                     </TransformGroup>
                                 </ContentPresenter.RenderTransform>
                             </ContentPresenter>
-                        </Grid>
+                        </controls:SimplePanel>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

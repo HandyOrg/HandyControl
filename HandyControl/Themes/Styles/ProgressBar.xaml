@@ -223,12 +223,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
-                    <Grid x:Name="TemplateRoot" SnapsToDevicePixels="true">
+                    <controls:SimplePanel x:Name="TemplateRoot" SnapsToDevicePixels="true">
                         <Rectangle x:Name="PART_Track" Fill="{TemplateBinding Background}" StrokeThickness="0" Stroke="{TemplateBinding BorderBrush}"/>
                         <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left">
                             <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}"/>
                         </Decorator>
-                    </Grid>
+                    </controls:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Orientation" Value="Vertical">
                             <Setter Property="LayoutTransform" TargetName="TemplateRoot">

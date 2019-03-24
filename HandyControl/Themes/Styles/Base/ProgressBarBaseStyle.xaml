@@ -24,18 +24,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
-                    <Grid x:Name="TemplateRoot">
+                    <controls:SimplePanel x:Name="TemplateRoot">
                         <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"/>
                         <Rectangle x:Name="PART_Track"/>
-                        <Grid HorizontalAlignment="Left">
+                        <controls:SimplePanel HorizontalAlignment="Left">
                             <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left">
                                 <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="Animation" ClipToBounds="true" Background="{TemplateBinding Foreground}">
                                     <Rectangle x:Name="PART_GlowRect" Fill="{StaticResource ProgressBarIndicatorAnimatedFill}" HorizontalAlignment="Left" Margin="-100,0,0,0" Width="100"/>
                                 </Border>
                             </Decorator>
                             <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Value,RelativeSource={RelativeSource TemplatedParent},StringFormat={}{0} %}"/>
-                        </Grid>
-                    </Grid>
+                        </controls:SimplePanel>
+                    </controls:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -53,13 +53,13 @@
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Grid x:Name="TemplateRoot" SnapsToDevicePixels="true">
+                    <controls:SimplePanel x:Name="TemplateRoot" SnapsToDevicePixels="true">
                         <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}"/>
                         <Rectangle x:Name="PART_Track"/>
                         <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left" Margin="1">
                             <Border x:Name="Indicator" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Foreground}"/>
                         </Decorator>
-                    </Grid>
+                    </controls:SimplePanel>
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="Indicator">
                             <BeginStoryboard Storyboard="{StaticResource OnLoaded}"/>
@@ -80,11 +80,11 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CircleProgressBar">
-                    <Grid x:Name="TemplateRoot">
+                    <controls:SimplePanel x:Name="TemplateRoot">
                         <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" EndAngle="360" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" StrokeThickness="0"/>
                         <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" Width="{TemplateBinding ActualWidth}" StrokeThickness="0" Height="{TemplateBinding ActualHeight}" x:Name="PART_Indicator" Fill="{TemplateBinding Foreground}"/>
                         <TextBlock Visibility="{Binding ShowText,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Text}"/>
-                    </Grid>
+                    </controls:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

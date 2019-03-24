@@ -1,11 +1,11 @@
 ﻿using System;
 using HandyControl.Controls;
 
-namespace HandyControlDemo
+namespace HandyControlDemo.Window
 {
-    public partial class MainWindow
+    public partial class GrowlDemoWindow
     {
-        public MainWindow()
+        public GrowlDemoWindow()
         {
             InitializeComponent();
         }

@@ -86,14 +86,14 @@
     </ControlTemplate>
 
     <ControlTemplate x:Key="StepBarHorizontalBottomControlTemplate" TargetType="controls:StepBar">
-        <Grid>
+        <controls:SimplePanel>
             <ProgressBar HorizontalAlignment="Center" Name="PART_ProgressBarBack" VerticalAlignment="Bottom" Margin="0,0,0,10" Style="{StaticResource ProgressBarFlat}" Background="{DynamicResource ThirdlyTextBrush}"/>
             <ItemsPresenter VerticalAlignment="Bottom"/>
-        </Grid>
+        </controls:SimplePanel>
     </ControlTemplate>
 
     <ControlTemplate x:Key="StepBarVerticalLeftControlTemplate" TargetType="controls:StepBar">
-        <Grid>
+        <controls:SimplePanel>
             <ProgressBar Orientation="Vertical" Width="4" HorizontalAlignment="Left" Name="PART_ProgressBarBack" VerticalAlignment="Center" Margin="10,0,0,0" Style="{StaticResource ProgressBarFlat}" Background="{DynamicResource ThirdlyTextBrush}" RenderTransformOrigin="0.5,0.5">
                 <ProgressBar.RenderTransform>
                     <TransformGroup>
@@ -102,7 +102,7 @@
                 </ProgressBar.RenderTransform>
             </ProgressBar>
             <ItemsPresenter/>
-        </Grid>
+        </controls:SimplePanel>
     </ControlTemplate>
 
     <Style x:Key="StepBarBaseStyle" TargetType="controls:StepBar">

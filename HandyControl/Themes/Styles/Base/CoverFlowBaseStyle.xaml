@@ -2,22 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
-    <!--<Style x:Key="CoverFlowItemBaseStyle" TargetType="controls:CoverFlowItem">
-        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource  AncestorType=controls:CoverFlow}}"/>
-        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource  AncestorType=controls:CoverFlow}}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="controls:CoverFlowItem">
-                    <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <ContentPresenter Margin="{TemplateBinding Padding}"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>-->
-
     <Style x:Key="CoverFlowBaseStyle" TargetType="controls:CoverFlow">
-        <!--<Setter Property="ItemContainerStyle" Value="{StaticResource CoverFlowItemBaseStyle}"/>-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CoverFlow">

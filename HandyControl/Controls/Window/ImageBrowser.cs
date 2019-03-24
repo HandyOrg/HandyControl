@@ -12,13 +12,13 @@ namespace HandyControl.Controls
     /// <summary>
     ///     图片浏览器
     /// </summary>
-    [TemplatePart(Name = ElementGridTop, Type = typeof(Grid))]
+    [TemplatePart(Name = ElementPanelTop, Type = typeof(Panel))]
     [TemplatePart(Name = ElementImageViewer, Type = typeof(ImageViewer))]
     public class ImageBrowser : Window
     {
         #region Constants
 
-        private const string ElementGridTop = "PART_GridTop";
+        private const string ElementPanelTop = "PART_PanelTop";
 
         private const string ElementImageViewer = "PART_ImageViewer";
 
@@ -26,7 +26,7 @@ namespace HandyControl.Controls
 
         #region Data
 
-        private Grid _gridTop;
+        private Panel _panelTop;
 
         private ImageViewer _imageViewer;
 
@@ -82,9 +82,9 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
-            if (_gridTop != null)
+            if (_panelTop != null)
             {
-                _gridTop.MouseLeftButtonDown -= GridTop_OnMouseLeftButtonDown;
+                _panelTop.MouseLeftButtonDown -= PanelTopOnMouseLeftButtonDown;
             }
 
             if (_imageViewer != null)
@@ -94,12 +94,12 @@ namespace HandyControl.Controls
 
             base.OnApplyTemplate();
 
-            _gridTop = GetTemplateChild(ElementGridTop) as Grid;
+            _panelTop = GetTemplateChild(ElementPanelTop) as Panel;
             _imageViewer = GetTemplateChild(ElementImageViewer) as ImageViewer;
 
-            if (_gridTop != null)
+            if (_panelTop != null)
             {
-                _gridTop.MouseLeftButtonDown += GridTop_OnMouseLeftButtonDown;
+                _panelTop.MouseLeftButtonDown += PanelTopOnMouseLeftButtonDown;
             }
 
             if (_imageViewer != null)
@@ -110,7 +110,7 @@ namespace HandyControl.Controls
 
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close();
 
-        private void GridTop_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void PanelTopOnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed)
             {

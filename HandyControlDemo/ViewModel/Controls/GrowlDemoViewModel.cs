@@ -2,6 +2,7 @@
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HandyControl.Data;
+using HandyControlDemo.Window;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -44,5 +45,8 @@ namespace HandyControlDemo.ViewModel
 
         public RelayCommand ClearCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(Growl.Clear)).Value;
+
+        public RelayCommand NewWindowCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(() => new GrowlDemoWindow().Show())).Value;
     }
 }

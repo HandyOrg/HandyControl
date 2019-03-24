@@ -26,7 +26,7 @@
                             <RowDefinition Height="62"/>
                         </Grid.RowDefinitions>
                         <Border BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Grid.RowSpan="4" Background="{TemplateBinding Background}"/>
-                        <Grid Margin="1" Grid.Row="0">
+                        <controls:SimplePanel Margin="1" Grid.Row="0">
                             <Border Background="{TemplateBinding BackColor}"/>
                             <Border>
                                 <Border.Background>
@@ -46,7 +46,7 @@
                                     </LinearGradientBrush>
                                 </Border.Background>
                             </Border>
-                        </Grid>
+                        </controls:SimplePanel>
                         <Border Name="PART_BorderColor" Grid.Row="0" CornerRadius="2,2,0,0" ClipToBounds="True">
                             <Canvas Margin="-6">
                                 <Border Name="PART_BorderPicker" Background="Transparent" Height="12" CornerRadius="6" Width="12" BorderThickness="1" BorderBrush="White">

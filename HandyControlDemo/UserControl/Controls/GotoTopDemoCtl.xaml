@@ -4,7 +4,7 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
-        <Grid Width="500" Height="400">
+        <controls:SimplePanel Width="500" Height="400">
             <controls:ScrollViewer Name="ScrollViewerDemo" IsEnableInertia="True" Margin="0,10,0,0">
                 <Border Height="2000" Margin="8,0">
                     <Border.Background>
@@ -16,6 +16,6 @@
                 </Border>
             </controls:ScrollViewer>
             <controls:GotoTop Animated="True" AutoHiding="True" AnimationTime="500" Target="{Binding ElementName=ScrollViewerDemo}" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,20,20"/>
-        </Grid>
+        </controls:SimplePanel>
     </controls:TransitioningContentControl>
 </UserControl>
