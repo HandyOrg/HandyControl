@@ -522,4 +522,10 @@
   <data name="PleaseWait" xml:space="preserve">
     <value>Please wait...</value>
   </data>
+  <data name="GrowlDemo" xml:space="preserve">
+    <value>Growl demo</value>
+  </data>
+  <data name="NewWindow" xml:space="preserve">
+    <value>New window</value>
+  </data>
 </root>

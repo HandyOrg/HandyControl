@@ -15,12 +15,12 @@ namespace HandyControl.Controls
             {                
                 var collection = Interaction.GetBehaviors(panel);
                 var oldBehavior = GetTempFluidMoveBehavior(panel);
-                collection.Remove(oldBehavior);
+                collection.ItemRemoved(oldBehavior);
                 panel.SetCurrentValue(TempFluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
 
                 if (e.NewValue is FluidMoveBehavior behavior)
                 {
-                    collection.Add(behavior);
+                    collection.ItemAdded(behavior);
                     SetTempFluidMoveBehavior(panel, behavior);
                 }
             }
