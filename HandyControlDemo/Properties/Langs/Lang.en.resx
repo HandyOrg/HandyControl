@@ -500,7 +500,7 @@
   </data>
   <data name="NotifyIcon" xml:space="preserve">
     <value>NotifyIcon</value>
-  <data>
+  </data>
   <data name="Badge" xml:space="preserve">
     <value>Badge</value>
   </data>

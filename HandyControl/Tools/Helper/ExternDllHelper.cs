@@ -17,49 +17,7 @@ namespace HandyControl.Tools
 
         private const string User32 = "user32.dll";
 
-        private const string Shell32 = "shell32.dll";
-
-        public delegate IntPtr WndProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-        public class NOTIFYICONDATA
-        {
-            public int cbSize = Marshal.SizeOf(typeof(NOTIFYICONDATA));
-            public IntPtr hWnd;
-            public int uID;
-            public int uFlags;
-            public int uCallbackMessage;
-            public IntPtr hIcon;
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-            public string szTip;
-            public int dwState = 0;
-            public int dwStateMask = 0;
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
-            public string szInfo;
-            public int uTimeoutOrVersion;
-            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
-            public string szInfoTitle;
-            public int dwInfoFlags;
-        }
-
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-        public class WNDCLASS_D
-        {
-            public int style;
-            public WndProc lpfnWndProc;
-            public int cbClsExtra = 0;
-            public int cbWndExtra = 0;
-            public IntPtr hInstance = IntPtr.Zero;
-            public IntPtr hIcon = IntPtr.Zero;
-            public IntPtr hCursor = IntPtr.Zero;
-            public IntPtr hbrBackground = IntPtr.Zero;
-            public string lpszMenuName = null;
-            public string lpszClassName = null;
-        }
-
-        [DllImport(Shell32, CharSet = CharSet.Auto)]
-        [ResourceExposure(ResourceScope.None)]
-        public static extern int Shell_NotifyIcon(int message, NOTIFYICONDATA pnid);
+        public delegate IntPtr WndProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);   
 
         public const int E_FAIL = unchecked((int) 0x80004005);
 
@@ -114,7 +72,6 @@ namespace HandyControl.Tools
                    [In]
                      int len);
 
-
             int Write(
                    [In]
                      IntPtr buf,
@@ -127,7 +84,6 @@ namespace HandyControl.Tools
                      long dlibMove,
                     [In]
                      int dwOrigin);
-
 
             void SetSize(
                    [In, MarshalAs(UnmanagedType.I8)]
@@ -142,14 +98,11 @@ namespace HandyControl.Tools
                     [Out, MarshalAs(UnmanagedType.LPArray)]
                      long[] pcbRead);
 
-
             void Commit(
                    [In]
                      int grfCommitFlags);
 
-
             void Revert();
-
 
             void LockRegion(
                    [In, MarshalAs(UnmanagedType.I8)]
@@ -159,7 +112,6 @@ namespace HandyControl.Tools
                    [In]
                      int dwLockType);
 
-
             void UnlockRegion(
                    [In, MarshalAs(UnmanagedType.I8)]
                      long libOffset,
@@ -167,7 +119,6 @@ namespace HandyControl.Tools
                      long cb,
                    [In]
                      int dwLockType);
-
 
             void Stat(
                    [In]
