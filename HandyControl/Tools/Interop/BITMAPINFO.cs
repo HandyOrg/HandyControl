@@ -1,9 +1,11 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 using System.Security;
 
 namespace HandyControl.Tools.Interop
 {
     [StructLayout(LayoutKind.Sequential, Pack = 2)]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal struct BITMAPINFO
     {
         public int bmiHeader_biSize;

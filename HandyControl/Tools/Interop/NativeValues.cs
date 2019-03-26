@@ -1,4 +1,8 @@
-﻿namespace HandyControl.Tools.Interop
+﻿// ReSharper disable InconsistentNaming
+
+using System.Runtime.InteropServices;
+
+namespace HandyControl.Tools.Interop
 {
     internal enum SM
     {
@@ -94,5 +98,22 @@
         internal const int INFOTIPSIZE = 1024;
         internal const int TRUE = 1;
         internal const int FALSE = 0;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    public class POINT
+    {
+        public int x;
+        public int y;
+
+        public POINT()
+        {
+        }
+
+        public POINT(int x, int y)
+        {
+            this.x = x;
+            this.y = y;
+        }
     }
 }

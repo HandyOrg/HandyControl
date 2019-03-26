@@ -10,7 +10,7 @@ namespace HandyControl.Tools.Interop
     internal class WNDCLASS
     {
         public int style;
-        public ExternDllHelper.WndProc lpfnWndProc;
+        public WndProc lpfnWndProc;
         public int cbClsExtra = 0;
         public int cbWndExtra = 0;
         public IntPtr hInstance = IntPtr.Zero;

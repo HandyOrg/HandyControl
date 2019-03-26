@@ -11,16 +11,18 @@ namespace HandyControl.Tools
 {
     internal static class IconHelper
     {
-        private static Size _smallIconSize;
-        private static Size _iconSize;
-        private static int _systemBitDepth;
+        private static Size SmallIconSize;
+
+        private static Size IconSize;
+
+        private static int SystemBitDepth;
 
         [SecurityCritical, SecuritySafeCritical]
         public static void GetIconHandlesFromImageSource(ImageSource image, out IconHandle largeIconHandle, out IconHandle smallIconHandle)
         {
             EnsureSystemMetrics();
-            largeIconHandle = CreateIconHandleFromImageSource(image, _iconSize);
-            smallIconHandle = CreateIconHandleFromImageSource(image, _smallIconSize);
+            largeIconHandle = CreateIconHandleFromImageSource(image, IconSize);
+            smallIconHandle = CreateIconHandleFromImageSource(image, SmallIconSize);
         }
 
         [SecurityCritical]
@@ -226,7 +228,7 @@ namespace HandyControl.Tools
 
         private static int MatchImage(BitmapFrame frame, Size size, int bpp)
         {
-            var score = 2 * MyAbs(bpp, _systemBitDepth, false) +
+            var score = 2 * MyAbs(bpp, SystemBitDepth, false) +
                         MyAbs(frame.PixelWidth, (int)size.Width, true) +
                         MyAbs(frame.PixelHeight, (int)size.Height, true);
 
@@ -248,7 +250,7 @@ namespace HandyControl.Tools
         [SecurityCritical, SecuritySafeCritical]
         private static void EnsureSystemMetrics()
         {
-            if (_systemBitDepth == 0)
+            if (SystemBitDepth == 0)
             {
                 var hdcDesktop = new HandleRef(null, UnsafeNativeMethods.GetDC(new HandleRef()));
                 try
@@ -266,9 +268,9 @@ namespace HandyControl.Tools
                     var cxIcon = UnsafeNativeMethods.GetSystemMetrics(SM.CXICON);
                     var cyIcon = UnsafeNativeMethods.GetSystemMetrics(SM.CYICON);
 
-                    _smallIconSize = new Size(cxSmallIcon, cySmallIcon);
-                    _iconSize = new Size(cxIcon, cyIcon);
-                    _systemBitDepth = sysBitDepth;
+                    SmallIconSize = new Size(cxSmallIcon, cySmallIcon);
+                    IconSize = new Size(cxIcon, cyIcon);
+                    SystemBitDepth = sysBitDepth;
                 }
                 finally
                 {

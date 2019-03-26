@@ -17,8 +17,6 @@ namespace HandyControl.Tools
 
         private const string User32 = "user32.dll";
 
-        public delegate IntPtr WndProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);   
-
         public const int E_FAIL = unchecked((int) 0x80004005);
 
         [StructLayout(LayoutKind.Sequential)]

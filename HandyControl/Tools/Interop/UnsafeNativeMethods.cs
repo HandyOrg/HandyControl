@@ -169,5 +169,13 @@ namespace HandyControl.Tools.Interop
         [DllImport(ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
         [ResourceExposure(ResourceScope.None)]
         public static extern short RegisterClass(WNDCLASS wc);
+
+        [DllImport(ExternDll.User32, CharSet = CharSet.Auto)]
+        [ResourceExposure(ResourceScope.None)]
+        public static extern IntPtr DefWindowProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+
+        [DllImport(ExternDll.User32, ExactSpelling = true, CharSet = CharSet.Auto)]
+        [ResourceExposure(ResourceScope.None)]
+        public static extern bool GetCursorPos([In, Out] POINT pt);
     }
 }

@@ -117,7 +117,6 @@
     <Compile Include="Controls\Other\GotoTop.cs" />
     <Compile Include="Controls\NotifyIcon\NotifyIcon.cs" />
     <Compile Include="Controls\Other\Gravatar.cs" />
-    <Compile Include="Controls\NotifyIcon\NotifyIconNativeWindow.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
     <Compile Include="Controls\ProgressBar\WaveProgressBar.cs" />
     <Compile Include="Controls\Transfer\Transfer.cs" />
@@ -231,7 +230,6 @@
     <Compile Include="Tools\Helper\DesignerHelper.cs" />
     <Compile Include="Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="Tools\Helper\IconHelper.cs" />
-    <Compile Include="Tools\Interop\IntSecurity.cs" />
     <Compile Include="Tools\Interop\NOTIFYICONDATA.cs" />
     <Compile Include="Tools\Helper\SecurityHelper.cs" />
     <Compile Include="Tools\Helper\SingleOpenHelper.cs" />
@@ -324,7 +322,6 @@
     <Compile Include="Tools\Interop\NativeValues.cs" />
     <Compile Include="Tools\Interop\SafeFileMappingHandle.cs" />
     <Compile Include="Tools\Interop\UnsafeNativeMethods.cs" />
-    <Compile Include="Tools\Interop\WindowClass.cs" />
     <Compile Include="Tools\Interop\WNDCLASS.cs" />
     <Compile Include="Tools\Interop\WpfSafeHandle.cs" />
     <Compile Include="Tools\MouseDragElementBehaviorEx.cs" />

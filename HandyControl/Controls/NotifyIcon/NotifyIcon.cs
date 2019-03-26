@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Media;
-using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Interop;
 
@@ -11,8 +14,6 @@ namespace HandyControl.Controls
         private bool _added;
 
         private readonly object _syncObj = new object();
-
-        private WindowClass _windowClass;
 
         private readonly int _id;
 
@@ -30,10 +31,24 @@ namespace HandyControl.Controls
 
         private const int WmTrayMouseMessage = NativeMethods.WM_USER + 1024;
 
+        private string _windowClassName;
+
+        private static readonly int WmTaskbarcreated = NativeMethods.RegisterWindowMessage("TaskbarCreated");
+
+        private IntPtr _messageWindowHandle;
+
+        private readonly WndProc _callback;
+
+        private ToolTip _toolTip;
+
         public NotifyIcon()
         {
             _id = ++NextId;
-            _windowClass = new WindowClass();
+            _callback = Callback;
+            CreateToolTip();
+            RegisterClass();
+            OnIconChanged();
+            UpdateIcon(true);
         }
 
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
@@ -43,7 +58,7 @@ namespace HandyControl.Controls
         {
             var ctl = (NotifyIcon) d;
             ctl._icon = (ImageSource) e.NewValue;
-            ctl.UpdateIcon();
+            ctl.OnIconChanged();
         }
 
         public ImageSource Icon
@@ -52,7 +67,7 @@ namespace HandyControl.Controls
             set => SetValue(IconProperty, value);
         }
 
-        private void UpdateIcon()
+        private void OnIconChanged()
         {
             IconHandle largeIconHandle;
             IconHandle smallIconHandle;
@@ -90,63 +105,85 @@ namespace HandyControl.Controls
             _currentSmallIconHandle = smallIconHandle;
         }
 
-        public static readonly DependencyProperty BalloonTipIconProperty = DependencyProperty.Register(
-            "BalloonTipIcon", typeof(ToolTipIcon), typeof(NotifyIcon), new PropertyMetadata(default(ToolTipIcon)));
-
-        public ToolTipIcon BalloonTipIcon
+        private void UpdateIcon(bool showIconInTray)
         {
-            get => (ToolTipIcon) GetValue(BalloonTipIconProperty);
-            set => SetValue(BalloonTipIconProperty, value);
-        }
-
-        public static readonly DependencyProperty BalloonTipTitleProperty = DependencyProperty.Register(
-            "BalloonTipTitle", typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string)));
-
-        public string BalloonTipTitle
-        {
-            get => (string) GetValue(BalloonTipTitleProperty);
-            set => SetValue(BalloonTipTitleProperty, value);
-        }
-
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            "Text", typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string)));
-
-        public string Text
-        {
-            get => (string) GetValue(TextProperty);
-            set => SetValue(TextProperty, value);
-        }
-
-        public void ShowBalloonTip(int timeout, string tipTitle, string tipText, ToolTipIcon tipIcon)
-        {
-            if (timeout < 0) return;
-            if (string.IsNullOrEmpty(tipTitle)) return;
-
-            if (_added)
+            lock (_syncObj)
             {
                 if (DesignerHelper.IsInDesignMode) return;
 
-                IntSecurity.UnrestrictedWindows.Demand();
-
                 var data = new NOTIFYICONDATA
                 {
-                    hWnd = _windowClass.MessageWindowHandle,
+                    uCallbackMessage = WmTrayMouseMessage,
+                    uFlags = NativeMethods.NIF_MESSAGE | NativeMethods.NIF_ICON | NativeMethods.NIF_TIP,
+                    hWnd = _messageWindowHandle,
                     uID = _id,
-                    uFlags = NativeMethods.NIF_INFO,
-                    uTimeoutOrVersion = timeout,
-                    szInfoTitle = tipTitle,
-                    szInfo = tipText
+                    dwInfoFlags = NativeMethods.NIIF_INFO,
+                    hIcon = _currentSmallIconHandle.CriticalGetHandle()
                 };
 
-                switch (tipIcon)
+                if (showIconInTray)
                 {
-                    case ToolTipIcon.Info: data.dwInfoFlags = NativeMethods.NIIF_INFO; break;
-                    case ToolTipIcon.Warning: data.dwInfoFlags = NativeMethods.NIIF_WARNING; break;
-                    case ToolTipIcon.Error: data.dwInfoFlags = NativeMethods.NIIF_ERROR; break;
-                    case ToolTipIcon.None: data.dwInfoFlags = NativeMethods.NIIF_NONE; break;
+                    if (!_added)
+                    {
+                        UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_ADD, data);
+                        _added = true;
+                    }
+                    else
+                    {
+                        UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_MODIFY, data);
+                    }
                 }
-                UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_MODIFY, data);
+                else if (_added)
+                {
+                    UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_DELETE, data);
+                    _added = false;
+                }
             }
+        }
+
+        private void RegisterClass()
+        {
+            _windowClassName = $"HandyControl.Controls.NotifyIcon{Guid.NewGuid()}";
+            var wndclass = new WNDCLASS
+            {
+                style = 0,
+                lpfnWndProc = _callback,
+                cbClsExtra = 0,
+                cbWndExtra = 0,
+                hInstance = IntPtr.Zero,
+                hIcon = IntPtr.Zero,
+                hCursor = IntPtr.Zero,
+                hbrBackground = IntPtr.Zero,
+                lpszMenuName = string.Empty,
+                lpszClassName = _windowClassName
+            };
+
+            UnsafeNativeMethods.RegisterClass(wndclass);
+            _messageWindowHandle = UnsafeNativeMethods.CreateWindowEx(0, _windowClassName, "", 0, 0, 0, 1, 1, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
+        }
+
+        private IntPtr Callback(IntPtr hWnd, int msg, IntPtr wparam, IntPtr lparam)
+        {
+            if (msg == WmTaskbarcreated)
+            {
+                UpdateIcon(true);
+            }
+
+            return UnsafeNativeMethods.DefWindowProc(hWnd, msg, wparam, lparam);
+        }
+
+        private void CreateToolTip()
+        {
+            _toolTip = new ToolTip
+            {
+                Placement = PlacementMode.Mouse,
+                HasDropShadow = false,
+                BorderThickness = new Thickness(0),
+                Background = Brushes.Transparent
+            };
+
+            _toolTip.SetBinding(ContentControl.ContentProperty, new Binding(ToolTipProperty.Name) {Source = this});
+            _toolTip.SetBinding(DataContextProperty, new Binding(DataContextProperty.Name) { Source = this });
         }
     }
 }
