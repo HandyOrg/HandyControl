@@ -4,6 +4,6 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              Background="{DynamicResource RegionBrush}">
     <Grid>
-        <controls:NotifyIcon Text="123" BalloonTipText="123" BalloonTipTitle="123"/>     
+        <controls:NotifyIcon ToolTip="123"/>     
     </Grid>
 </UserControl>

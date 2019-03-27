@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Tools;
 using HandyControl.Tools.Interop;
@@ -41,6 +42,10 @@ namespace HandyControl.Controls
 
         private ToolTip _toolTip;
 
+        private Popup _contextMenu;
+
+        private bool _doubleClick;
+
         public NotifyIcon()
         {
             _id = ++NextId;
@@ -56,14 +61,14 @@ namespace HandyControl.Controls
 
         private static void OnIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NotifyIcon) d;
-            ctl._icon = (ImageSource) e.NewValue;
+            var ctl = (NotifyIcon)d;
+            ctl._icon = (ImageSource)e.NewValue;
             ctl.OnIconChanged();
         }
 
         public ImageSource Icon
         {
-            get => (ImageSource) GetValue(IconProperty);
+            get => (ImageSource)GetValue(IconProperty);
             set => SetValue(IconProperty, value);
         }
 
@@ -164,26 +169,195 @@ namespace HandyControl.Controls
 
         private IntPtr Callback(IntPtr hWnd, int msg, IntPtr wparam, IntPtr lparam)
         {
-            if (msg == WmTaskbarcreated)
+            if (IsLoaded)
             {
-                UpdateIcon(true);
+                if (msg == WmTaskbarcreated)
+                {
+                    UpdateIcon(true);
+                }
+                else
+                {
+                    //switch (lparam.ToInt32())
+                    //{
+                    //    case NativeMethods.WM_LBUTTONDBLCLK:
+                    //        WmMouseDown(MouseButton.Left, 2);
+                    //        break;
+                    //    case NativeMethods.WM_LBUTTONDOWN:
+                    //        WmMouseDown(MouseButton.Left, 1);
+                    //        break;
+                    //    case NativeMethods.WM_LBUTTONUP:
+                    //        WmMouseUp(MouseButton.Left);
+                    //        break;
+                    //    case NativeMethods.WM_MBUTTONDBLCLK:
+                    //        WmMouseDown(MouseButton.Middle, 2);
+                    //        break;
+                    //    case NativeMethods.WM_MBUTTONDOWN:
+                    //        WmMouseDown(MouseButton.Middle, 1);
+                    //        break;
+                    //    case NativeMethods.WM_MBUTTONUP:
+                    //        WmMouseUp(MouseButton.Middle);
+                    //        break;
+                    //    case NativeMethods.WM_MOUSEMOVE:
+                    //        WmMouseMove();
+                    //        break;
+                    //    case NativeMethods.WM_RBUTTONDBLCLK:
+                    //        WmMouseDown(MouseButton.Right, 2);
+                    //        break;
+                    //    case NativeMethods.WM_RBUTTONDOWN:
+                    //        WmMouseDown(MouseButton.Right, 1);
+                    //        break;
+                    //    case NativeMethods.WM_RBUTTONUP:
+                    //        ShowContextMenu();
+                    //        WmMouseUp(MouseButton.Right);
+                    //        break;
+                    //}
+                }
+
+                var point = new POINT();
+                UnsafeNativeMethods.GetCursorPos(point);
+                ShowToolTip(point);
             }
 
             return UnsafeNativeMethods.DefWindowProc(hWnd, msg, wparam, lparam);
+        }
+
+        private void WmMouseDown(MouseButton button, int clicks)
+        {
+            if (clicks == 2)
+            {
+                OnMouseDoubleClick(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
+                {
+                    Source = this,
+                    RoutedEvent = MouseDoubleClickEvent
+                });
+                _doubleClick = true;
+            }
+            OnMouseDown(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
+            {
+                Source = this,
+                RoutedEvent = MouseDownEvent
+            });
+        }
+
+        private void WmMouseUp(MouseButton button)
+        {
+            OnMouseUp(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
+            {
+                Source = this,
+                RoutedEvent = MouseUpEvent
+            });
+
+            if (!_doubleClick)
+            {
+                OnClick(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
+                {
+                    Source = this,
+                    RoutedEvent = ClickEvent
+                });
+            }
+            _doubleClick = false;
+        }
+
+        private void WmMouseMove()
+        {
+            OnMouseMove(new MouseEventArgs(Mouse.PrimaryDevice, Environment.TickCount)
+            {
+                RoutedEvent = MouseMoveEvent,
+                Source = this,
+            });
+        }
+
+        private void ShowContextMenu()
+        {
+            if (ContextMenu != null) ContextMenu.IsOpen = true;
+        }
+
+        private void ShowToolTip(POINT point)
+        {
+            if (_toolTip != null)
+            {
+                _toolTip.HorizontalOffset = point.x;
+                _toolTip.VerticalOffset = point.x;
+                _toolTip.IsOpen = true;
+            }
         }
 
         private void CreateToolTip()
         {
             _toolTip = new ToolTip
             {
-                Placement = PlacementMode.Mouse,
+                Placement = PlacementMode.AbsolutePoint,
                 HasDropShadow = false,
                 BorderThickness = new Thickness(0),
                 Background = Brushes.Transparent
             };
 
-            _toolTip.SetBinding(ContentControl.ContentProperty, new Binding(ToolTipProperty.Name) {Source = this});
+            _toolTip.SetBinding(ContentControl.ContentProperty, new Binding(ToolTipProperty.Name) { Source = this });
             _toolTip.SetBinding(DataContextProperty, new Binding(DataContextProperty.Name) { Source = this });
+        }
+
+        public static readonly RoutedEvent ClickEvent =
+            EventManager.RegisterRoutedEvent("Click", RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler), typeof(NotifyIcon));
+
+        public event RoutedEventHandler Click
+        {
+            add => AddHandler(ClickEvent, value);
+            remove => RemoveHandler(ClickEvent, value);
+        }
+
+        public static readonly RoutedEvent MouseDoubleClickEvent =
+            EventManager.RegisterRoutedEvent("MouseDoubleClick", RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler), typeof(NotifyIcon));
+
+        public event RoutedEventHandler MouseDoubleClick
+        {
+            add => AddHandler(MouseDoubleClickEvent, value);
+            remove => RemoveHandler(MouseDoubleClickEvent, value);
+        }
+
+        public static readonly RoutedEvent BalloonTipShownEvent =
+            EventManager.RegisterRoutedEvent("BalloonTipShown", RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler), typeof(NotifyIcon));
+
+        public event RoutedEventHandler BalloonTipShown
+        {
+            add => AddHandler(BalloonTipShownEvent, value);
+            remove => RemoveHandler(BalloonTipShownEvent, value);
+        }
+
+        public static readonly RoutedEvent BalloonTipClosedEvent =
+            EventManager.RegisterRoutedEvent("BalloonTipClosed", RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler), typeof(NotifyIcon));
+
+        public event RoutedEventHandler BalloonTipClosed
+        {
+            add => AddHandler(BalloonTipClosedEvent, value);
+            remove => RemoveHandler(BalloonTipClosedEvent, value);
+        }
+
+        protected virtual void OnClick(MouseButtonEventArgs e) => RaiseEvent(e);
+
+        protected virtual void OnDoubleClick(MouseButtonEventArgs e) => RaiseEvent(e);
+
+        protected virtual void OnMouseDoubleClick(MouseButtonEventArgs e) => RaiseEvent(e);
+
+        protected override void OnMouseDown(MouseButtonEventArgs e)
+        {
+            base.OnMouseDown(e);
+            RaiseEvent(e);
+        }
+
+        protected override void OnMouseUp(MouseButtonEventArgs e)
+        {
+            base.OnMouseUp(e);
+            RaiseEvent(e);
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            RaiseEvent(e);
         }
     }
 }
