@@ -4,13 +4,14 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Interop;
 using System.Windows.Media;
 using HandyControl.Tools;
 using HandyControl.Tools.Interop;
 
 namespace HandyControl.Controls
 {
-    public class NotifyIcon : FrameworkElement
+    public class NotifyIcon : FrameworkElement, IDisposable
     {
         private bool _added;
 
@@ -50,10 +51,30 @@ namespace HandyControl.Controls
         {
             _id = ++NextId;
             _callback = Callback;
-            CreateToolTip();
-            RegisterClass();
-            OnIconChanged();
-            UpdateIcon(true);
+
+            Loaded += (s, e) =>
+            {
+                CreateToolTip();
+                RegisterClass();
+                OnIconChanged();
+                UpdateIcon(true);
+            };
+
+            if (Application.Current != null) Application.Current.Exit += (s, e) => Dispose();
+        }
+
+        ~NotifyIcon()
+        {
+            Dispose(false);
+        }
+
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+            "Text", typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string)));
+
+        public string Text
+        {
+            get => (string) GetValue(TextProperty);
+            set => SetValue(TextProperty, value);
         }
 
         public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
@@ -121,9 +142,11 @@ namespace HandyControl.Controls
                     uCallbackMessage = WmTrayMouseMessage,
                     uFlags = NativeMethods.NIF_MESSAGE | NativeMethods.NIF_ICON | NativeMethods.NIF_TIP,
                     hWnd = _messageWindowHandle,
+                    uTimeoutOrVersion = 10,
                     uID = _id,
-                    dwInfoFlags = NativeMethods.NIIF_INFO,
-                    hIcon = _currentSmallIconHandle.CriticalGetHandle()
+                    dwInfoFlags = NativeMethods.NIF_TIP,
+                    hIcon = _currentSmallIconHandle.DangerousGetHandle(),
+                    szTip = Text
                 };
 
                 if (showIconInTray)
@@ -177,81 +200,92 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    //switch (lparam.ToInt32())
-                    //{
-                    //    case NativeMethods.WM_LBUTTONDBLCLK:
-                    //        WmMouseDown(MouseButton.Left, 2);
-                    //        break;
-                    //    case NativeMethods.WM_LBUTTONDOWN:
-                    //        WmMouseDown(MouseButton.Left, 1);
-                    //        break;
-                    //    case NativeMethods.WM_LBUTTONUP:
-                    //        WmMouseUp(MouseButton.Left);
-                    //        break;
-                    //    case NativeMethods.WM_MBUTTONDBLCLK:
-                    //        WmMouseDown(MouseButton.Middle, 2);
-                    //        break;
-                    //    case NativeMethods.WM_MBUTTONDOWN:
-                    //        WmMouseDown(MouseButton.Middle, 1);
-                    //        break;
-                    //    case NativeMethods.WM_MBUTTONUP:
-                    //        WmMouseUp(MouseButton.Middle);
-                    //        break;
-                    //    case NativeMethods.WM_MOUSEMOVE:
-                    //        WmMouseMove();
-                    //        break;
-                    //    case NativeMethods.WM_RBUTTONDBLCLK:
-                    //        WmMouseDown(MouseButton.Right, 2);
-                    //        break;
-                    //    case NativeMethods.WM_RBUTTONDOWN:
-                    //        WmMouseDown(MouseButton.Right, 1);
-                    //        break;
-                    //    case NativeMethods.WM_RBUTTONUP:
-                    //        ShowContextMenu();
-                    //        WmMouseUp(MouseButton.Right);
-                    //        break;
-                    //}
+                    Console.WriteLine(lparam);
+                    switch (lparam.ToInt32())
+                    {
+                        case NativeMethods.WM_LBUTTONDBLCLK:
+                            WmMouseDown(MouseButton.Left, 2);
+                            break;
+                        case NativeMethods.WM_LBUTTONDOWN:
+                            WmMouseDown(MouseButton.Left, 1);
+                            break;
+                        case NativeMethods.WM_LBUTTONUP:
+                            WmMouseUp(MouseButton.Left);
+                            break;
+                        case NativeMethods.WM_MBUTTONDBLCLK:
+                            WmMouseDown(MouseButton.Middle, 2);
+                            break;
+                        case NativeMethods.WM_MBUTTONDOWN:
+                            WmMouseDown(MouseButton.Middle, 1);
+                            break;
+                        case NativeMethods.WM_MBUTTONUP:
+                            WmMouseUp(MouseButton.Middle);
+                            break;
+                        case NativeMethods.WM_MOUSEMOVE:
+                            WmMouseMove();
+                            break;
+                        case NativeMethods.WM_RBUTTONDBLCLK:
+                            WmMouseDown(MouseButton.Right, 2);
+                            break;
+                        case NativeMethods.WM_RBUTTONDOWN:
+                            WmMouseDown(MouseButton.Right, 1);
+                            break;
+                        case NativeMethods.WM_RBUTTONUP:
+                            ShowContextMenu();
+                            WmMouseUp(MouseButton.Right);
+                            break;
+                        case 0x406:
+                            OnBalloonTipShown();
+                            break;
+                        case 0x407:
+                            OnBalloonTipClosed();
+                            break;
+                        case NativeMethods.NIN_BALLOONTIMEOUT:
+                            OnBalloonTipClosed();
+                            break;
+                    }
                 }
-
-                var point = new POINT();
-                UnsafeNativeMethods.GetCursorPos(point);
-                ShowToolTip(point);
             }
 
             return UnsafeNativeMethods.DefWindowProc(hWnd, msg, wparam, lparam);
         }
 
+        private void OnBalloonTipShown()
+        {
+            var point = new POINT();
+            UnsafeNativeMethods.GetCursorPos(point);
+            ShowToolTip(point);
+        }
+
+        private void OnBalloonTipClosed() => _toolTip.IsOpen = false;
+
         private void WmMouseDown(MouseButton button, int clicks)
         {
             if (clicks == 2)
             {
-                OnMouseDoubleClick(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
+                RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
                 {
-                    Source = this,
                     RoutedEvent = MouseDoubleClickEvent
                 });
                 _doubleClick = true;
             }
-            OnMouseDown(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
+            RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
             {
-                Source = this,
                 RoutedEvent = MouseDownEvent
             });
         }
 
         private void WmMouseUp(MouseButton button)
         {
-            OnMouseUp(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
+            RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
             {
-                Source = this,
                 RoutedEvent = MouseUpEvent
             });
 
             if (!_doubleClick)
             {
-                OnClick(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
+                RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
                 {
-                    Source = this,
                     RoutedEvent = ClickEvent
                 });
             }
@@ -260,16 +294,32 @@ namespace HandyControl.Controls
 
         private void WmMouseMove()
         {
-            OnMouseMove(new MouseEventArgs(Mouse.PrimaryDevice, Environment.TickCount)
+            RaiseEvent(new MouseEventArgs(Mouse.PrimaryDevice, Environment.TickCount)
             {
-                RoutedEvent = MouseMoveEvent,
-                Source = this,
+                RoutedEvent = MouseMoveEvent
             });
         }
 
         private void ShowContextMenu()
         {
-            if (ContextMenu != null) ContextMenu.IsOpen = true;
+            if (ContextMenu != null)
+            {
+                var point = new POINT();
+                UnsafeNativeMethods.GetCursorPos(point);
+
+                ContextMenu.Placement = PlacementMode.AbsolutePoint;
+                ContextMenu.HorizontalOffset = point.x;
+                ContextMenu.VerticalOffset = point.y;
+                ContextMenu.IsOpen = true;
+
+                var handle = IntPtr.Zero;
+                var hwndSource = (HwndSource)PresentationSource.FromVisual(ContextMenu);
+                if (hwndSource != null)
+                {
+                    handle = hwndSource.Handle;
+                }
+                UnsafeNativeMethods.SetForegroundWindow(handle);
+            }
         }
 
         private void ShowToolTip(POINT point)
@@ -287,9 +337,7 @@ namespace HandyControl.Controls
             _toolTip = new ToolTip
             {
                 Placement = PlacementMode.AbsolutePoint,
-                HasDropShadow = false,
-                BorderThickness = new Thickness(0),
-                Background = Brushes.Transparent
+                Style = null
             };
 
             _toolTip.SetBinding(ContentControl.ContentProperty, new Binding(ToolTipProperty.Name) { Source = this });
@@ -316,48 +364,42 @@ namespace HandyControl.Controls
             remove => RemoveHandler(MouseDoubleClickEvent, value);
         }
 
-        public static readonly RoutedEvent BalloonTipShownEvent =
-            EventManager.RegisterRoutedEvent("BalloonTipShown", RoutingStrategy.Bubble,
-                typeof(RoutedEventHandler), typeof(NotifyIcon));
+        //public static readonly RoutedEvent BalloonTipShownEvent =
+        //    EventManager.RegisterRoutedEvent("BalloonTipShown", RoutingStrategy.Bubble,
+        //        typeof(RoutedEventHandler), typeof(NotifyIcon));
 
-        public event RoutedEventHandler BalloonTipShown
+        //public event RoutedEventHandler BalloonTipShown
+        //{
+        //    add => AddHandler(BalloonTipShownEvent, value);
+        //    remove => RemoveHandler(BalloonTipShownEvent, value);
+        //}
+
+        //public static readonly RoutedEvent BalloonTipClosedEvent =
+        //    EventManager.RegisterRoutedEvent("BalloonTipClosed", RoutingStrategy.Bubble,
+        //        typeof(RoutedEventHandler), typeof(NotifyIcon));
+
+        //public event RoutedEventHandler BalloonTipClosed
+        //{
+        //    add => AddHandler(BalloonTipClosedEvent, value);
+        //    remove => RemoveHandler(BalloonTipClosedEvent, value);
+        //}       
+
+        private void Dispose(bool disposing)
         {
-            add => AddHandler(BalloonTipShownEvent, value);
-            remove => RemoveHandler(BalloonTipShownEvent, value);
+            if (disposing)
+            {
+                UpdateIcon(false);
+                _defaultLargeIconHandle?.Dispose();
+                _defaultSmallIconHandle?.Dispose();
+                _currentLargeIconHandle?.Dispose();
+                _currentSmallIconHandle?.Dispose();
+            }
         }
 
-        public static readonly RoutedEvent BalloonTipClosedEvent =
-            EventManager.RegisterRoutedEvent("BalloonTipClosed", RoutingStrategy.Bubble,
-                typeof(RoutedEventHandler), typeof(NotifyIcon));
-
-        public event RoutedEventHandler BalloonTipClosed
+        public void Dispose()
         {
-            add => AddHandler(BalloonTipClosedEvent, value);
-            remove => RemoveHandler(BalloonTipClosedEvent, value);
-        }
-
-        protected virtual void OnClick(MouseButtonEventArgs e) => RaiseEvent(e);
-
-        protected virtual void OnDoubleClick(MouseButtonEventArgs e) => RaiseEvent(e);
-
-        protected virtual void OnMouseDoubleClick(MouseButtonEventArgs e) => RaiseEvent(e);
-
-        protected override void OnMouseDown(MouseButtonEventArgs e)
-        {
-            base.OnMouseDown(e);
-            RaiseEvent(e);
-        }
-
-        protected override void OnMouseUp(MouseButtonEventArgs e)
-        {
-            base.OnMouseUp(e);
-            RaiseEvent(e);
-        }
-
-        protected override void OnMouseMove(MouseEventArgs e)
-        {
-            base.OnMouseMove(e);
-            RaiseEvent(e);
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

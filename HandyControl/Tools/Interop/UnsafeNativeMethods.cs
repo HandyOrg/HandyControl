@@ -146,7 +146,6 @@ namespace HandyControl.Tools.Interop
         internal static extern int ExtractIconEx(string szExeFileName, int nIconIndex, out IconHandle phiconLarge, out IconHandle phiconSmall, int nIcons);
 
         [DllImport(ExternDll.Shell32, CharSet = CharSet.Auto)]
-        [ResourceExposure(ResourceScope.None)]
         public static extern int Shell_NotifyIcon(int message, NOTIFYICONDATA pnid);
 
         [SecurityCritical]
@@ -167,15 +166,15 @@ namespace HandyControl.Tools.Interop
             IntPtr lpParam);
 
         [DllImport(ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
-        [ResourceExposure(ResourceScope.None)]
         public static extern short RegisterClass(WNDCLASS wc);
 
         [DllImport(ExternDll.User32, CharSet = CharSet.Auto)]
-        [ResourceExposure(ResourceScope.None)]
         public static extern IntPtr DefWindowProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
         [DllImport(ExternDll.User32, ExactSpelling = true, CharSet = CharSet.Auto)]
-        [ResourceExposure(ResourceScope.None)]
         public static extern bool GetCursorPos([In, Out] POINT pt);
+
+        [DllImport(ExternDll.User32, ExactSpelling = true, CharSet = CharSet.Auto)]
+        public static extern bool SetForegroundWindow(IntPtr hWnd);
     }
 }

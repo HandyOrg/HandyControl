@@ -4,6 +4,14 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              Background="{DynamicResource RegionBrush}">
     <Grid>
-        <controls:NotifyIcon ToolTip="123"/>     
+        <controls:NotifyIcon Text="123">
+            <controls:NotifyIcon.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="123"/>
+                    <MenuItem Header="123"/>
+                    <MenuItem Header="123"/>
+                </ContextMenu>
+            </controls:NotifyIcon.ContextMenu>
+        </controls:NotifyIcon>
     </Grid>
 </UserControl>
