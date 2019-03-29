@@ -146,5 +146,15 @@ namespace HandyControl.Interactivity
         ///     打开链接
         /// </summary>
         public static RoutedCommand OpenLink { get; } = new RoutedCommand(nameof(OpenLink), typeof(ControlCommands));
+
+        /// <summary>
+        ///     关闭程序
+        /// </summary>
+        public static ShutdownAppCommand ShutdownApp { get; } = new ShutdownAppCommand();
+
+        /// <summary>
+        ///     前置主窗口
+        /// </summary>
+        public static PushMainWindow2TopCommand PushMainWindow2Top { get; } = new PushMainWindow2TopCommand();
     }
 }

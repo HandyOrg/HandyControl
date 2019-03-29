@@ -2,10 +2,10 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Interop;
 
@@ -35,17 +35,39 @@ namespace HandyControl.Controls
 
         private string _windowClassName;
 
-        private static readonly int WmTaskbarcreated = NativeMethods.RegisterWindowMessage("TaskbarCreated");
+        private int _wmTaskbarCreated;
 
         private IntPtr _messageWindowHandle;
 
         private readonly WndProc _callback;
 
-        private ToolTip _toolTip;
-
-        private Popup _contextMenu;
+        private Popup _contextContent;
 
         private bool _doubleClick;
+
+        static NotifyIcon()
+        {
+            VisibilityProperty.OverrideMetadata(typeof(NotifyIcon), new PropertyMetadata(Visibility.Visible, OnVisibilityChanged));
+        }
+
+        private static void OnVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (NotifyIcon) d;
+            var v = (Visibility)e.NewValue;
+
+            if (v == Visibility.Visible)
+            {
+                if (ctl._currentSmallIconHandle == null)
+                {
+                    ctl.OnIconChanged();
+                }
+                ctl.UpdateIcon(true);
+            }
+            else if(ctl._currentSmallIconHandle !=null)
+            {
+                ctl.UpdateIcon(false);
+            }
+        }
 
         public NotifyIcon()
         {
@@ -54,10 +76,12 @@ namespace HandyControl.Controls
 
             Loaded += (s, e) =>
             {
-                CreateToolTip();
                 RegisterClass();
-                OnIconChanged();
-                UpdateIcon(true);
+                if (Visibility == Visibility.Visible)
+                {
+                    OnIconChanged();
+                    UpdateIcon(true);
+                }
             };
 
             if (Application.Current != null) Application.Current.Exit += (s, e) => Dispose();
@@ -85,6 +109,24 @@ namespace HandyControl.Controls
             var ctl = (NotifyIcon)d;
             ctl._icon = (ImageSource)e.NewValue;
             ctl.OnIconChanged();
+        }
+
+        public static readonly DependencyProperty ContextContentProperty = DependencyProperty.Register(
+            "ContextContent", typeof(object), typeof(NotifyIcon), new PropertyMetadata(default(object)));
+
+        public object ContextContent
+        {
+            get => GetValue(ContextContentProperty);
+            set => SetValue(ContextContentProperty, value);
+        }
+
+        public static readonly DependencyProperty IsBlinkProperty = DependencyProperty.Register(
+            "IsBlink", typeof(bool), typeof(NotifyIcon), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool IsBlink
+        {
+            get => (bool) GetValue(IsBlinkProperty);
+            set => SetValue(IsBlinkProperty, value);
         }
 
         public ImageSource Icon
@@ -145,7 +187,7 @@ namespace HandyControl.Controls
                     uTimeoutOrVersion = 10,
                     uID = _id,
                     dwInfoFlags = NativeMethods.NIF_TIP,
-                    hIcon = _currentSmallIconHandle.DangerousGetHandle(),
+                    hIcon = _currentSmallIconHandle.CriticalGetHandle(),
                     szTip = Text
                 };
 
@@ -182,11 +224,12 @@ namespace HandyControl.Controls
                 hIcon = IntPtr.Zero,
                 hCursor = IntPtr.Zero,
                 hbrBackground = IntPtr.Zero,
-                lpszMenuName = string.Empty,
+                lpszMenuName = "",
                 lpszClassName = _windowClassName
             };
 
             UnsafeNativeMethods.RegisterClass(wndclass);
+            _wmTaskbarCreated = NativeMethods.RegisterWindowMessage("TaskbarCreated");
             _messageWindowHandle = UnsafeNativeMethods.CreateWindowEx(0, _windowClassName, "", 0, 0, 0, 1, 1, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
         }
 
@@ -194,13 +237,12 @@ namespace HandyControl.Controls
         {
             if (IsLoaded)
             {
-                if (msg == WmTaskbarcreated)
+                if (msg == _wmTaskbarCreated)
                 {
                     UpdateIcon(true);
                 }
                 else
                 {
-                    Console.WriteLine(lparam);
                     switch (lparam.ToInt32())
                     {
                         case NativeMethods.WM_LBUTTONDBLCLK:
@@ -234,30 +276,12 @@ namespace HandyControl.Controls
                             ShowContextMenu();
                             WmMouseUp(MouseButton.Right);
                             break;
-                        case 0x406:
-                            OnBalloonTipShown();
-                            break;
-                        case 0x407:
-                            OnBalloonTipClosed();
-                            break;
-                        case NativeMethods.NIN_BALLOONTIMEOUT:
-                            OnBalloonTipClosed();
-                            break;
                     }
                 }
             }
 
             return UnsafeNativeMethods.DefWindowProc(hWnd, msg, wparam, lparam);
         }
-
-        private void OnBalloonTipShown()
-        {
-            var point = new POINT();
-            UnsafeNativeMethods.GetCursorPos(point);
-            ShowToolTip(point);
-        }
-
-        private void OnBalloonTipClosed() => _toolTip.IsOpen = false;
 
         private void WmMouseDown(MouseButton button, int clicks)
         {
@@ -302,11 +326,38 @@ namespace HandyControl.Controls
 
         private void ShowContextMenu()
         {
-            if (ContextMenu != null)
-            {
-                var point = new POINT();
-                UnsafeNativeMethods.GetCursorPos(point);
+            var point = new POINT();
+            UnsafeNativeMethods.GetCursorPos(point);
 
+            if (ContextContent != null)
+            {
+                if (_contextContent == null)
+                {
+                    _contextContent = new Popup
+                    {
+                        Placement = PlacementMode.AbsolutePoint,
+                        AllowsTransparency = true,
+                        StaysOpen = false
+                    };
+                }
+
+                _contextContent.HorizontalOffset = point.x;
+                _contextContent.VerticalOffset = point.y;
+                _contextContent.Child = new ContentControl
+                {
+                    Content = ContextContent
+                };
+                _contextContent.IsOpen = true;
+                var handle = IntPtr.Zero;
+                var hwndSource = (HwndSource)PresentationSource.FromVisual(_contextContent.Child);
+                if (hwndSource != null)
+                {
+                    handle = hwndSource.Handle;
+                }
+                UnsafeNativeMethods.SetForegroundWindow(handle);
+            }
+            else if (ContextMenu != null)
+            {
                 ContextMenu.Placement = PlacementMode.AbsolutePoint;
                 ContextMenu.HorizontalOffset = point.x;
                 ContextMenu.VerticalOffset = point.y;
@@ -320,28 +371,6 @@ namespace HandyControl.Controls
                 }
                 UnsafeNativeMethods.SetForegroundWindow(handle);
             }
-        }
-
-        private void ShowToolTip(POINT point)
-        {
-            if (_toolTip != null)
-            {
-                _toolTip.HorizontalOffset = point.x;
-                _toolTip.VerticalOffset = point.x;
-                _toolTip.IsOpen = true;
-            }
-        }
-
-        private void CreateToolTip()
-        {
-            _toolTip = new ToolTip
-            {
-                Placement = PlacementMode.AbsolutePoint,
-                Style = null
-            };
-
-            _toolTip.SetBinding(ContentControl.ContentProperty, new Binding(ToolTipProperty.Name) { Source = this });
-            _toolTip.SetBinding(DataContextProperty, new Binding(DataContextProperty.Name) { Source = this });
         }
 
         public static readonly RoutedEvent ClickEvent =
@@ -362,27 +391,7 @@ namespace HandyControl.Controls
         {
             add => AddHandler(MouseDoubleClickEvent, value);
             remove => RemoveHandler(MouseDoubleClickEvent, value);
-        }
-
-        //public static readonly RoutedEvent BalloonTipShownEvent =
-        //    EventManager.RegisterRoutedEvent("BalloonTipShown", RoutingStrategy.Bubble,
-        //        typeof(RoutedEventHandler), typeof(NotifyIcon));
-
-        //public event RoutedEventHandler BalloonTipShown
-        //{
-        //    add => AddHandler(BalloonTipShownEvent, value);
-        //    remove => RemoveHandler(BalloonTipShownEvent, value);
-        //}
-
-        //public static readonly RoutedEvent BalloonTipClosedEvent =
-        //    EventManager.RegisterRoutedEvent("BalloonTipClosed", RoutingStrategy.Bubble,
-        //        typeof(RoutedEventHandler), typeof(NotifyIcon));
-
-        //public event RoutedEventHandler BalloonTipClosed
-        //{
-        //    add => AddHandler(BalloonTipClosedEvent, value);
-        //    remove => RemoveHandler(BalloonTipClosedEvent, value);
-        //}       
+        }       
 
         private void Dispose(bool disposing)
         {

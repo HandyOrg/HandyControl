@@ -11,13 +11,13 @@ namespace HandyControl.Tools.Interop
     {
         public int style;
         public WndProc lpfnWndProc;
-        public int cbClsExtra = 0;
-        public int cbWndExtra = 0;
-        public IntPtr hInstance = IntPtr.Zero;
-        public IntPtr hIcon = IntPtr.Zero;
-        public IntPtr hCursor = IntPtr.Zero;
-        public IntPtr hbrBackground = IntPtr.Zero;
-        public string lpszMenuName = null;
-        public string lpszClassName = null;
+        public int cbClsExtra;
+        public int cbWndExtra;
+        public IntPtr hInstance;
+        public IntPtr hIcon;
+        public IntPtr hCursor;
+        public IntPtr hbrBackground;
+        public string lpszMenuName;
+        public string lpszClassName;
     }
 }

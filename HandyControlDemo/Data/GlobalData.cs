@@ -32,5 +32,7 @@ namespace HandyControlDemo.Data
         }
 
         public static AppConfig Config { get; set; }
+
+        public static bool NotifyIconIsShow { get; set; }
     }
 }

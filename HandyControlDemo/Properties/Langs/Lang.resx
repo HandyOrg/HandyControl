@@ -531,4 +531,25 @@
   <data name="NewWindow" xml:space="preserve">
     <value>新建窗口</value>
   </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>可见性</value>
+  </data>
+  <data name="Blink" xml:space="preserve">
+    <value>闪烁</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="OpenPanel" xml:space="preserve">
+    <value>打开面板</value>
+  </data>
+  <data name="AppClosingTip" xml:space="preserve">
+    <value>托盘图标已打开，将隐藏窗口而不是关闭程序</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="Try2CloseApp" xml:space="preserve">
+    <value>试试关闭程序吧？</value>
+  </data>
 </root>

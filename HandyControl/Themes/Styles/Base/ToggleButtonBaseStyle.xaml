@@ -123,22 +123,22 @@
                         </Grid.ColumnDefinitions>
                         <Border Height="22" Width="36" x:Name="backBorder" Background="{DynamicResource BorderBrush}" CornerRadius="11"/>
                         <Border Grid.Column="0" Height="22" Width="36" Opacity="0" x:Name="lightBorder" Background="{DynamicResource PrimaryBrush}" CornerRadius="11" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                        <Border Grid.Column="0" Margin="1" Background="{TemplateBinding Background}" CornerRadius="11" Name="innerBorder" RenderTransformOrigin=".8,0.5">
+                        <Border Grid.Column="0" Height="20" Margin="1" Background="{TemplateBinding Background}" CornerRadius="11" Name="innerBorder" RenderTransformOrigin=".8,0.5">
                             <Border.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
                                 </TransformGroup>
                             </Border.RenderTransform>
                         </Border>
-                        <Canvas Grid.Column="0" Margin="1">
-                            <Border CornerRadius="10" Name="thumb" Effect="{StaticResource EffectShadow2}" Background="White" Width="20" Height="20" RenderTransformOrigin="0.5,0.5">
+                        <controls:SimplePanel Grid.Column="0" Margin="1">
+                            <Border HorizontalAlignment="Left" CornerRadius="10" Name="thumb" Effect="{StaticResource EffectShadow2}" Background="White" Width="20" Height="20" RenderTransformOrigin="0.5,0.5">
                                 <Border.RenderTransform>
                                     <TransformGroup>
                                         <TranslateTransform/>
                                     </TransformGroup>
                                 </Border.RenderTransform>
                             </Border>
-                        </Canvas>
+                        </controls:SimplePanel>
                         <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Grid>
                     <ControlTemplate.Triggers>

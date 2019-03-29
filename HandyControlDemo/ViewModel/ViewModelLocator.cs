@@ -26,6 +26,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<CoverViewModel>();
             SimpleIoc.Default.Register<DialogDemoViewModel>();
             SimpleIoc.Default.Register<SearchBarDemoViewModel>();
+            SimpleIoc.Default.Register<NotifyIconDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -56,6 +57,8 @@ namespace HandyControlDemo.ViewModel
         public DialogDemoViewModel DialogDemo => ServiceLocator.Current.GetInstance<DialogDemoViewModel>();
 
         public SearchBarDemoViewModel SearchBarDemo => ServiceLocator.Current.GetInstance<SearchBarDemoViewModel>();
+
+        public NotifyIconDemoViewModel NotifyIconDemo => ServiceLocator.Current.GetInstance<NotifyIconDemoViewModel>();
 
         #endregion
     }

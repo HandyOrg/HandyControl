@@ -115,7 +115,7 @@
     <Compile Include="Controls\Other\ChatBubble.cs" />
     <Compile Include="Controls\Other\Dialog.cs" />
     <Compile Include="Controls\Other\GotoTop.cs" />
-    <Compile Include="Controls\NotifyIcon\NotifyIcon.cs" />
+    <Compile Include="Controls\Other\NotifyIcon.cs" />
     <Compile Include="Controls\Other\Gravatar.cs" />
     <Compile Include="Controls\Panel\SimplePanel.cs" />
     <Compile Include="Controls\ProgressBar\WaveProgressBar.cs" />
@@ -182,6 +182,8 @@
     <Compile Include="Data\MessageBoxInfo.cs" />
     <Compile Include="Data\ResourceToken.cs" />
     <Compile Include="Data\SystemVersionInfo.cs" />
+    <Compile Include="Interactivity\PushMainWindow2TopCommand.cs" />
+    <Compile Include="Interactivity\ShutdownAppCommand.cs" />
     <Compile Include="Tools\Converter\Boolean2StrConverter.cs" />
     <Compile Include="Tools\Converter\BorderClipConverter.cs" />
     <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
