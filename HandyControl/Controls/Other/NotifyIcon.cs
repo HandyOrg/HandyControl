@@ -5,6 +5,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
+using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Interop;
@@ -44,6 +45,10 @@ namespace HandyControl.Controls
         private Popup _contextContent;
 
         private bool _doubleClick;
+
+        private DispatcherTimer _dispatcherTimer;
+
+        private bool _isTransparent;
 
         static NotifyIcon()
         {
@@ -111,6 +116,12 @@ namespace HandyControl.Controls
             ctl.OnIconChanged();
         }
 
+        public ImageSource Icon
+        {
+            get => (ImageSource)GetValue(IconProperty);
+            set => SetValue(IconProperty, value);
+        }
+
         public static readonly DependencyProperty ContextContentProperty = DependencyProperty.Register(
             "ContextContent", typeof(object), typeof(NotifyIcon), new PropertyMetadata(default(object)));
 
@@ -120,19 +131,61 @@ namespace HandyControl.Controls
             set => SetValue(ContextContentProperty, value);
         }
 
+        public static readonly DependencyProperty BlinkIntervalProperty = DependencyProperty.Register(
+            "BlinkInterval", typeof(TimeSpan), typeof(NotifyIcon), new PropertyMetadata(TimeSpan.FromMilliseconds(500), OnBlinkIntervalChanged));
+
+        private static void OnBlinkIntervalChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (NotifyIcon)d;
+            if (ctl._dispatcherTimer != null)
+            {
+                ctl._dispatcherTimer.Interval = (TimeSpan) e.NewValue;
+            }
+        }
+
+        public TimeSpan BlinkInterval
+        {
+            get => (TimeSpan) GetValue(BlinkIntervalProperty);
+            set => SetValue(BlinkIntervalProperty, value);
+        }
+
         public static readonly DependencyProperty IsBlinkProperty = DependencyProperty.Register(
-            "IsBlink", typeof(bool), typeof(NotifyIcon), new PropertyMetadata(ValueBoxes.FalseBox));
+            "IsBlink", typeof(bool), typeof(NotifyIcon), new PropertyMetadata(ValueBoxes.FalseBox, OnIsBlinkChanged));
+
+        private static void OnIsBlinkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (NotifyIcon)d;
+            if (ctl.Visibility != Visibility.Visible) return;
+            if ((bool) e.NewValue)
+            {
+                if (ctl._dispatcherTimer == null)
+                {
+                    ctl._dispatcherTimer = new DispatcherTimer
+                    {
+                        Interval = ctl.BlinkInterval
+                    };
+                    ctl._dispatcherTimer.Tick += ctl.DispatcherTimer_Tick;
+                }
+                ctl._dispatcherTimer.Start();
+            }
+            else
+            {
+                ctl._dispatcherTimer?.Stop();
+                ctl._dispatcherTimer = null;
+                ctl.UpdateIcon(true);
+            }
+        }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            if (Visibility != Visibility.Visible || _currentSmallIconHandle == null) return;
+            UpdateIcon(true, !_isTransparent);
+        }
 
         public bool IsBlink
         {
             get => (bool) GetValue(IsBlinkProperty);
             set => SetValue(IsBlinkProperty, value);
-        }
-
-        public ImageSource Icon
-        {
-            get => (ImageSource)GetValue(IconProperty);
-            set => SetValue(IconProperty, value);
         }
 
         private void OnIconChanged()
@@ -173,12 +226,13 @@ namespace HandyControl.Controls
             _currentSmallIconHandle = smallIconHandle;
         }
 
-        private void UpdateIcon(bool showIconInTray)
+        private void UpdateIcon(bool showIconInTray, bool isTransparent = false)
         {
             lock (_syncObj)
             {
-                if (DesignerHelper.IsInDesignMode) return;
+                if (_currentSmallIconHandle == null || DesignerHelper.IsInDesignMode) return;
 
+                _isTransparent = isTransparent;
                 var data = new NOTIFYICONDATA
                 {
                     uCallbackMessage = WmTrayMouseMessage,
@@ -187,7 +241,7 @@ namespace HandyControl.Controls
                     uTimeoutOrVersion = 10,
                     uID = _id,
                     dwInfoFlags = NativeMethods.NIF_TIP,
-                    hIcon = _currentSmallIconHandle.CriticalGetHandle(),
+                    hIcon = isTransparent ? IntPtr.Zero : _currentSmallIconHandle.CriticalGetHandle(),
                     szTip = Text
                 };
 
@@ -397,6 +451,10 @@ namespace HandyControl.Controls
         {
             if (disposing)
             {
+                if (_dispatcherTimer != null && IsBlink)
+                {
+                    _dispatcherTimer.Stop();
+                }
                 UpdateIcon(false);
                 _defaultLargeIconHandle?.Dispose();
                 _defaultSmallIconHandle?.Dispose();

@@ -805,6 +805,7 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\icon-white.ico" />
     <Resource Include="Resources\Img\LeftMainContent\NotificationHub_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Dialog_16x.png" />
     <Resource Include="Resources\Img\under_construction.gif" />
