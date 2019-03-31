@@ -56,9 +56,17 @@ Step 3：enjoy coding
 
 ## History publication
 
+### GoToTop
+
+![GoToTop](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/GoToTop.gif)
+
 ### ChatBubble
 
 ![ChatBubble](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ChatBubble.png)
+
+### Label
+
+![Label](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Label.png)
 
 ### Transfer
 
@@ -184,6 +192,10 @@ Step 3：enjoy coding
 
 ![ImageBrowser](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBrowser.gif)
 
+### PreviewSlider
+
+![PreviewSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PreviewSlider.png)
+
 ### CompareSlider
 
 ![CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-h.gif)
@@ -278,6 +290,10 @@ Step 3：enjoy coding
 
 ![DateTimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DateTimePicker.png)
 
+### ScrollViewer
+
+![ScrollViewer](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ScrollViewer.png)
+
 ### CirclePanel
 
 ![CirclePanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CirclePanel.jpg)
@@ -286,12 +302,16 @@ Step 3：enjoy coding
 
 ![BorderStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Border.png)
 
+### Brush
+
+![Brush](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Brush.png)
+
 ## Switching configuration
 
 ![Switching configuration](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SwitchConfig.png)
 
 # 捐赠（面向中国）
-如果您觉得HandyControl还不错，并且刚好有些闲钱，那么你可以选择以下两种方式来捐赠：
+如果您觉得HandyControl还不错，并且刚好有些闲钱，那么可以选择以下两种方式来捐赠：
 
 * [以HandyControl的名义为慈善事业做贡献](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
 
