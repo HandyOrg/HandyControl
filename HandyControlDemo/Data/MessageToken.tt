@@ -45,7 +45,7 @@ var controlList = new List<string>
 	"TransferDemoCtl",
 	"ChatBubbleDemoCtl",
 	"GotoTopDemoCtl",
-	"NotifyIconDemoCtl"
+	"NotifyIconDemoCtl",
 	"BadgeDemoCtl",
 	"GravatarDemoCtl",
 	"DialogDemoCtl"
@@ -91,7 +91,8 @@ var messageList = new List<string>
 	"FullSwitch",
 	"ContributorsView",
 	"ClearLeftSelected",
-	"SendChatMessage"
+	"SendChatMessage",
+	"GrowlDemoPanel"
 };
 #>
 namespace HandyControlDemo.Data

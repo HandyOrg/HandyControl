@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Reflection.Emit;
 using System.Windows;
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
+using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 
 namespace HandyControlDemo.ViewModel
@@ -15,7 +17,8 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<DataService>();
 
             SimpleIoc.Default.Register<MainViewModel>();
-            SimpleIoc.Default.Register<GrowlDemoViewModel>();
+            SimpleIoc.Default.Register(() => new GrowlDemoViewModel(), "GrowlDemo");
+            SimpleIoc.Default.Register(() => new GrowlDemoViewModel(MessageToken.GrowlDemoPanel), "GrowlDemoWithToken");
             SimpleIoc.Default.Register<ImageBrowserDemoViewModel>();
             SimpleIoc.Default.Register<ComboBoxDemoViewModel>();
             SimpleIoc.Default.Register<WindowDemoViewModel>();
@@ -36,7 +39,9 @@ namespace HandyControlDemo.ViewModel
 
         public MainViewModel Main => ServiceLocator.Current.GetInstance<MainViewModel>();
 
-        public GrowlDemoViewModel GrowlDemo => ServiceLocator.Current.GetInstance<GrowlDemoViewModel>();
+        public GrowlDemoViewModel GrowlDemo => ServiceLocator.Current.GetInstance<GrowlDemoViewModel>("GrowlDemo");
+
+        public GrowlDemoViewModel GrowlDemoWithToken => ServiceLocator.Current.GetInstance<GrowlDemoViewModel>("GrowlDemoWithToken");
 
         public ImageBrowserDemoViewModel ImageBrowserDemo => ServiceLocator.Current.GetInstance<ImageBrowserDemoViewModel>();
 

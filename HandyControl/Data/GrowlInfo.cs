@@ -27,5 +27,7 @@ namespace HandyControl.Data
         public string IconBrushKey { get; set; }
 
         public bool ShowCloseButton { get; set; } = true;
+
+        public string Token { get; set; }
     }
 }

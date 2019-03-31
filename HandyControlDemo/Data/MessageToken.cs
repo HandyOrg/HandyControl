@@ -85,7 +85,7 @@
         public static readonly string GotoTopDemoCtl = nameof(GotoTopDemoCtl);
 	
         public static readonly string NotifyIconDemoCtl = nameof(NotifyIconDemoCtl);
-
+	
         public static readonly string BadgeDemoCtl = nameof(BadgeDemoCtl);
 	
         public static readonly string GravatarDemoCtl = nameof(GravatarDemoCtl);
@@ -159,6 +159,8 @@
         public static readonly string ClearLeftSelected = nameof(ClearLeftSelected);
 
         public static readonly string SendChatMessage = nameof(SendChatMessage);
+
+        public static readonly string GrowlDemoPanel = nameof(GrowlDemoPanel);
 
     }
 }

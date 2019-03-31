@@ -1,5 +1,4 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using HandyControl.Controls;
 using HandyControlDemo.Data;
 
@@ -10,20 +9,6 @@ namespace HandyControlDemo
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        protected override void OnActivated(EventArgs e)
-        {
-            base.OnActivated(e);
-
-            Growl.SetGrowlParent(GrowlPanel, true);
-        }
-
-        protected override void OnDeactivated(EventArgs e)
-        {
-            base.OnDeactivated(e);
-
-            Growl.SetGrowlParent(GrowlPanel, false);
         }
 
         protected override void OnClosing(CancelEventArgs e)

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -52,6 +53,8 @@ namespace HandyControl.Controls
         /// </summary>
         private DispatcherTimer _timerClose;
 
+        private static readonly Dictionary<string, Panel> PanelDic = new Dictionary<string, Panel>();
+
         #endregion Data
 
         public Growl()
@@ -59,6 +62,40 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Close, ButtonClose_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Cancel, ButtonCancel_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Confirm, ButtonOk_OnClick));
+        }
+
+        public static void Register(string token, Panel panel)
+        {
+            if (string.IsNullOrEmpty(token) || panel == null) return;
+            PanelDic[token] = panel;
+            InitGrowlPanel(panel);
+        }
+
+        public static void Unregister(string token, Panel panel)
+        {
+            if (string.IsNullOrEmpty(token) || panel == null) return;
+
+            if (PanelDic.ContainsKey(token))
+            {
+                if (ReferenceEquals(PanelDic[token], panel))
+                {
+                    PanelDic.Remove(token);
+                    panel.ContextMenu = null;
+                    panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
+                }
+            }
+        }
+
+        public static void Unregister(Panel panel)
+        {
+            if (panel == null) return;
+            var first = PanelDic.FirstOrDefault(item => ReferenceEquals(panel, item.Value));
+            if (!string.IsNullOrEmpty(first.Key))
+            {
+                PanelDic.Remove(first.Key);
+                panel.ContextMenu = null;
+                panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
+            }
         }
 
         protected override void OnMouseEnter(MouseEventArgs e)
@@ -131,6 +168,30 @@ namespace HandyControl.Controls
                     SetGrowlPanel(panel);
                 }
             }));
+
+        public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
+            "Token", typeof(string), typeof(Growl), new PropertyMetadata(default(string), OnTokenChanged));
+
+        private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Panel panel)
+            {
+                if (e.NewValue == null)
+                {
+                    Unregister(panel);
+                }
+                else
+                {
+                    Register(e.NewValue.ToString(), panel);
+                }
+            }
+        }
+
+        public static void SetToken(DependencyObject element, string value)
+            => element.SetValue(TokenProperty, value);
+
+        public static string GetToken(DependencyObject element)
+            => (string) element.GetValue(TokenProperty);
 
         public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, value);
 
@@ -214,18 +275,23 @@ namespace HandyControl.Controls
         private static void SetGrowlPanel(Panel panel)
         {
             GrowlPanel = panel;
+            InitGrowlPanel(panel);
+        }
+
+        private static void InitGrowlPanel(Panel panel)
+        {
             var menuItem = new MenuItem
             {
                 Header = Properties.Langs.Lang.Clear
             };
             menuItem.Click += (s, e) =>
             {
-                foreach (var item in GrowlPanel.Children.OfType<Growl>())
+                foreach (var item in panel.Children.OfType<Growl>())
                 {
                     item.Close();
                 }
             };
-            GrowlPanel.ContextMenu = new ContextMenu
+            panel.ContextMenu = new ContextMenu
             {
                 Items =
                 {
@@ -233,7 +299,7 @@ namespace HandyControl.Controls
                 }
             };
 
-            PanelElement.SetFluidMoveBehavior(GrowlPanel, ResourceHelper.GetResource<FluidMoveBehavior>(ResourceToken.BehaviorXY400));
+            PanelElement.SetFluidMoveBehavior(panel, ResourceHelper.GetResource<FluidMoveBehavior>(ResourceToken.BehaviorXY400));
         }
 
         private void Update()
@@ -278,7 +344,17 @@ namespace HandyControl.Controls
                     Type = growlInfo.Type,
                     _waitTime = Math.Max(growlInfo.WaitTime, 2)
                 };
-                GrowlPanel.Children.Insert(0, ctl);
+                if (!string.IsNullOrEmpty(growlInfo.Token))
+                {
+                    if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
+                    {
+                        panel?.Children.Insert(0, ctl);
+                    }
+                }
+                else
+                {
+                    GrowlPanel.Children.Insert(0, ctl);
+                }
             });
         }
 
@@ -286,9 +362,11 @@ namespace HandyControl.Controls
         ///     成功
         /// </summary>
         /// <param name="message"></param>
-        public static void Success(string message) => Success(new GrowlInfo
+        /// <param name="token"></param>
+        public static void Success(string message, string token = "") => Success(new GrowlInfo
         {
-            Message = message
+            Message = message,
+            Token = token
         });
 
         /// <summary>
@@ -311,9 +389,11 @@ namespace HandyControl.Controls
         ///     消息
         /// </summary>
         /// <param name="message"></param>
-        public static void Info(string message) => Info(new GrowlInfo
+        /// <param name="token"></param>
+        public static void Info(string message, string token = "") => Info(new GrowlInfo
         {
-            Message = message
+            Message = message,
+            Token = token
         });
 
         /// <summary>
@@ -336,9 +416,11 @@ namespace HandyControl.Controls
         ///     警告
         /// </summary>
         /// <param name="message"></param>
-        public static void Warning(string message) => Warning(new GrowlInfo
+        /// <param name="token"></param>
+        public static void Warning(string message, string token = "") => Warning(new GrowlInfo
         {
-            Message = message
+            Message = message,
+            Token = token
         });
 
         /// <summary>
@@ -361,9 +443,11 @@ namespace HandyControl.Controls
         ///     错误
         /// </summary>
         /// <param name="message"></param>
-        public static void Error(string message) => Error(new GrowlInfo
+        /// <param name="token"></param>
+        public static void Error(string message, string token = "") => Error(new GrowlInfo
         {
-            Message = message
+            Message = message,
+            Token = token
         });
 
         /// <summary>
@@ -387,9 +471,11 @@ namespace HandyControl.Controls
         ///     严重
         /// </summary>
         /// <param name="message"></param>
-        public static void Fatal(string message) => Fatal(new GrowlInfo
+        /// <param name="token"></param>
+        public static void Fatal(string message, string token = "") => Fatal(new GrowlInfo
         {
-            Message = message
+            Message = message,
+            Token = token
         });
 
         /// <summary>
@@ -416,10 +502,12 @@ namespace HandyControl.Controls
         /// </summary>
         /// <param name="message"></param>
         /// <param name="actionBeforeClose"></param>
-        public static void Ask(string message, Func<bool, bool> actionBeforeClose) => Ask(new GrowlInfo
+        /// <param name="token"></param>
+        public static void Ask(string message, Func<bool, bool> actionBeforeClose, string token = "") => Ask(new GrowlInfo
         {
             Message = message,
-            ActionBeforeClose = actionBeforeClose
+            ActionBeforeClose = actionBeforeClose,
+            Token = token
         });
 
         /// <summary>
