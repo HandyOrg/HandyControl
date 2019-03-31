@@ -45,6 +45,7 @@ var controlList = new List<string>
 	"TransferDemoCtl",
 	"ChatBubbleDemoCtl",
 	"GotoTopDemoCtl",
+	"NotifyIconDemoCtl"
 	"BadgeDemoCtl",
 	"GravatarDemoCtl",
 	"DialogDemoCtl"

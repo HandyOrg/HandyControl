@@ -10,13 +10,13 @@ using System.Threading;
 
 namespace HandyControl.Tools
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal class ExternDllHelper
     {
         private const string Gdi32 = "gdi32.dll";
 
         private const string User32 = "user32.dll";
 
-        // ReSharper disable once InconsistentNaming
         public const int E_FAIL = unchecked((int) 0x80004005);
 
         [StructLayout(LayoutKind.Sequential)]
@@ -70,7 +70,6 @@ namespace HandyControl.Tools
                    [In]
                      int len);
 
-
             int Write(
                    [In]
                      IntPtr buf,
@@ -83,7 +82,6 @@ namespace HandyControl.Tools
                      long dlibMove,
                     [In]
                      int dwOrigin);
-
 
             void SetSize(
                    [In, MarshalAs(UnmanagedType.I8)]
@@ -98,14 +96,11 @@ namespace HandyControl.Tools
                     [Out, MarshalAs(UnmanagedType.LPArray)]
                      long[] pcbRead);
 
-
             void Commit(
                    [In]
                      int grfCommitFlags);
 
-
             void Revert();
-
 
             void LockRegion(
                    [In, MarshalAs(UnmanagedType.I8)]
@@ -115,7 +110,6 @@ namespace HandyControl.Tools
                    [In]
                      int dwLockType);
 
-
             void UnlockRegion(
                    [In, MarshalAs(UnmanagedType.I8)]
                      long libOffset,
@@ -123,7 +117,6 @@ namespace HandyControl.Tools
                      long cb,
                    [In]
                      int dwLockType);
-
 
             void Stat(
                    [In]

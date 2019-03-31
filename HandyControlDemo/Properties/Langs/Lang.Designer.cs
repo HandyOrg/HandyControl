@@ -79,6 +79,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 托盘图标已打开，将隐藏窗口而不是关闭程序 的本地化字符串。
+        /// </summary>
+        public static string AppClosingTip {
+            get {
+                return ResourceManager.GetString("AppClosingTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 询问 的本地化字符串。
         /// </summary>
         public static string Ask {
@@ -102,6 +111,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string BasicInfo {
             get {
                 return ResourceManager.GetString("BasicInfo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 闪烁 的本地化字符串。
+        /// </summary>
+        public static string Blink {
+            get {
+                return ResourceManager.GetString("Blink", resourceCulture);
             }
         }
         
@@ -430,6 +448,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 退出 的本地化字符串。
+        /// </summary>
+        public static string Exit {
+            get {
+                return ResourceManager.GetString("Exit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 展开框 的本地化字符串。
         /// </summary>
         public static string Expander {
@@ -700,6 +727,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 托盘图标 的本地化字符串。
+        /// </summary>
+        public static string NotifyIcon {
+            get {
+                return ResourceManager.GetString("NotifyIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 数值选择控件 的本地化字符串。
         /// </summary>
         public static string NumericUpDown {
@@ -786,6 +822,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string OpenNoNonClientAreaDragableWindow {
             get {
                 return ResourceManager.GetString("OpenNoNonClientAreaDragableWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 打开面板 的本地化字符串。
+        /// </summary>
+        public static string OpenPanel {
+            get {
+                return ResourceManager.GetString("OpenPanel", resourceCulture);
             }
         }
         
@@ -1168,6 +1213,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 提示 的本地化字符串。
+        /// </summary>
+        public static string Tip {
+            get {
+                return ResourceManager.GetString("Tip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 标题 的本地化字符串。
         /// </summary>
         public static string Title {
@@ -1240,6 +1294,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 试试关闭程序吧？ 的本地化字符串。
+        /// </summary>
+        public static string Try2CloseApp {
+            get {
+                return ResourceManager.GetString("Try2CloseApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 类型 的本地化字符串。
         /// </summary>
         public static string Type {
@@ -1263,6 +1326,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string UploadStr {
             get {
                 return ResourceManager.GetString("UploadStr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 可见性 的本地化字符串。
+        /// </summary>
+        public static string Visibility {
+            get {
+                return ResourceManager.GetString("Visibility", resourceCulture);
             }
         }
         

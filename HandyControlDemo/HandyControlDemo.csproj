@@ -187,6 +187,9 @@
     <Compile Include="UserControl\Controls\GotoTopDemoCtl.xaml.cs">
       <DependentUpon>GotoTopDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Controls\NotifyIconDemoCtl.xaml.cs">
+      <DependentUpon>NotifyIconDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Controls\GravatarDemoCtl.xaml.cs">
       <DependentUpon>GravatarDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -359,6 +362,7 @@
     <Compile Include="ViewModel\Common\ComboBoxDemoViewModel.cs" />
     <Compile Include="ViewModel\Controls\CoverViewModel.cs" />
     <Compile Include="ViewModel\Controls\DialogDemoViewModel.cs" />
+    <Compile Include="ViewModel\Controls\NotifyIconDemoViewModel.cs" />
     <Compile Include="ViewModel\Controls\SearchBarDemoViewModel.cs" />
     <Compile Include="ViewModel\DemoViewModelBase!1.cs" />
     <Compile Include="ViewModel\Main\ContributorsViewModel.cs" />
@@ -524,6 +528,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Controls\GotoTopDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Controls\NotifyIconDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -797,6 +805,8 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="Resources\Img\icon-white.ico" />
+    <Resource Include="Resources\Img\LeftMainContent\NotificationHub_16x.png" />
     <Resource Include="Resources\Img\LeftMainContent\Dialog_16x.png" />
     <Resource Include="Resources\Img\under_construction.gif" />
     <Resource Include="Resources\Img\LeftMainContent\User_16x.png" />

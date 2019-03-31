@@ -498,6 +498,9 @@
   <data name="GotoTop" xml:space="preserve">
     <value>GotoTop</value>
   </data>
+  <data name="NotifyIcon" xml:space="preserve">
+    <value>NotifyIcon</value>
+  </data>
   <data name="Badge" xml:space="preserve">
     <value>Badge</value>
   </data>
@@ -527,5 +530,26 @@
   </data>
   <data name="NewWindow" xml:space="preserve">
     <value>New window</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="Blink" xml:space="preserve">
+    <value>Blink</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="OpenPanel" xml:space="preserve">
+    <value>Open Panel</value>
+  </data>
+  <data name="AppClosingTip" xml:space="preserve">
+    <value>The tray icon is open and will hide the window instead of closing the program</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>Prompt</value>
+  </data>
+  <data name="Try2CloseApp" xml:space="preserve">
+    <value>Try to close app?</value>
   </data>
 </root>

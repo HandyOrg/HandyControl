@@ -213,6 +213,11 @@
                             <Image Source="../../Resources/Img/LeftMainContent/Bubble_16xLG.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NotifyIconDemoCtl}" Content="{x:Static langs:Lang.NotifyIcon}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/NotificationHub_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.NumericUpDownDemoCtl}" Content="{x:Static langs:Lang.NumericUpDown}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/NumericListBox_16x.png"/>

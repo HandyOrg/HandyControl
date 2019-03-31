@@ -1,4 +1,4 @@
-﻿/*refrence from https://github.com/lbugnion/mvvmlight*/
+﻿// reference from https://github.com/lbugnion/mvvmlight
 
 //The MIT License(MIT)
 

@@ -84,6 +84,8 @@
 	
         public static readonly string GotoTopDemoCtl = nameof(GotoTopDemoCtl);
 	
+        public static readonly string NotifyIconDemoCtl = nameof(NotifyIconDemoCtl);
+
         public static readonly string BadgeDemoCtl = nameof(BadgeDemoCtl);
 	
         public static readonly string GravatarDemoCtl = nameof(GravatarDemoCtl);
