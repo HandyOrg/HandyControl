@@ -24,13 +24,11 @@ namespace HandyControl.Controls
 
         private ImageSource _icon;
 
-        private IconHandle _defaultLargeIconHandle;
+        private IntPtr _iconCurrentHandle;
 
-        private IconHandle _defaultSmallIconHandle;
+        private IntPtr _iconDefaultHandle;
 
-        private IconHandle _currentLargeIconHandle;
-
-        private IconHandle _currentSmallIconHandle;
+        private IconHandle _iconHandle;
 
         private const int WmTrayMouseMessage = NativeMethods.WM_USER + 1024;
 
@@ -64,13 +62,13 @@ namespace HandyControl.Controls
 
             if (v == Visibility.Visible)
             {
-                if (ctl._currentSmallIconHandle == null)
+                if (ctl._iconCurrentHandle == IntPtr.Zero)
                 {
                     ctl.OnIconChanged();
                 }
                 ctl.UpdateIcon(true);
             }
-            else if(ctl._currentSmallIconHandle !=null)
+            else if(ctl._iconCurrentHandle != IntPtr.Zero)
             {
                 ctl.UpdateIcon(false);
             }
@@ -180,7 +178,7 @@ namespace HandyControl.Controls
 
         private void DispatcherTimer_Tick(object sender, EventArgs e)
         {
-            if (Visibility != Visibility.Visible || _currentSmallIconHandle == null) return;
+            if (Visibility != Visibility.Visible || _iconCurrentHandle == IntPtr.Zero) return;
             UpdateIcon(true, !_isTransparent);
         }
 
@@ -192,47 +190,27 @@ namespace HandyControl.Controls
 
         private void OnIconChanged()
         {
-            IconHandle largeIconHandle;
-            IconHandle smallIconHandle;
-
             if (_icon != null)
             {
-                IconHelper.GetIconHandlesFromImageSource(_icon, out largeIconHandle, out smallIconHandle);
+                IconHelper.GetIconHandlesFromImageSource(_icon, out _, out _iconHandle);
+                _iconCurrentHandle = _iconHandle.CriticalGetHandle();
             }
             else
             {
-                if (_defaultLargeIconHandle == null && _defaultSmallIconHandle == null)
+                if (_iconDefaultHandle == IntPtr.Zero)
                 {
-                    IconHelper.GetDefaultIconHandles(out largeIconHandle, out smallIconHandle);
-                    _defaultLargeIconHandle = largeIconHandle;
-                    _defaultSmallIconHandle = smallIconHandle;
+                    IconHelper.GetDefaultIconHandles(out _, out _iconHandle);
+                    _iconDefaultHandle = _iconHandle.CriticalGetHandle();
                 }
-                else
-                {
-                    largeIconHandle = _defaultLargeIconHandle;
-                    smallIconHandle = _defaultSmallIconHandle;
-                }
+                _iconCurrentHandle = _iconDefaultHandle;
             }
-
-            if (_currentLargeIconHandle != null && _currentLargeIconHandle != _defaultLargeIconHandle)
-            {
-                _currentLargeIconHandle.Dispose();
-            }
-
-            if (_currentSmallIconHandle != null && _currentSmallIconHandle != _defaultSmallIconHandle)
-            {
-                _currentSmallIconHandle.Dispose();
-            }
-
-            _currentLargeIconHandle = largeIconHandle;
-            _currentSmallIconHandle = smallIconHandle;
         }
 
         private void UpdateIcon(bool showIconInTray, bool isTransparent = false)
         {
             lock (_syncObj)
             {
-                if (_currentSmallIconHandle == null || DesignerHelper.IsInDesignMode) return;
+                if (DesignerHelper.IsInDesignMode) return;
 
                 _isTransparent = isTransparent;
                 var data = new NOTIFYICONDATA
@@ -242,9 +220,11 @@ namespace HandyControl.Controls
                     hWnd = _messageWindowHandle,
                     uID = _id,
                     dwInfoFlags = NativeMethods.NIF_TIP,
-                    hIcon = isTransparent ? IntPtr.Zero : _currentSmallIconHandle.CriticalGetHandle(),
+                    hIcon = isTransparent ? IntPtr.Zero : _iconCurrentHandle,
                     szTip = Text
                 };
+
+                Console.WriteLine(_iconCurrentHandle);
 
                 if (showIconInTray)
                 {
@@ -421,10 +401,6 @@ namespace HandyControl.Controls
                     _dispatcherTimer.Stop();
                 }
                 UpdateIcon(false);
-                _defaultLargeIconHandle?.Dispose();
-                _defaultSmallIconHandle?.Dispose();
-                _currentLargeIconHandle?.Dispose();
-                _currentSmallIconHandle?.Dispose();
             }
 
             _isDisposed = true;
