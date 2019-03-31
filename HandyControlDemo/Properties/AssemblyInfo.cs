@@ -7,7 +7,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("HandyControlDemo")]
-[assembly: AssemblyCopyright("Copyright © NaBian 2018-2019")]
+[assembly: AssemblyCopyright("Copyright © HandyOrg 2018-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
