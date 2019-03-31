@@ -165,7 +165,9 @@ namespace HandyControl.Tools.Interop
             IntPtr hInstance,
             IntPtr lpParam);
 
-        [DllImport(ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        [SecurityCritical]
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport(ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true, BestFitMapping = false)]
         public static extern short RegisterClass(WNDCLASS wc);
 
         [DllImport(ExternDll.User32, CharSet = CharSet.Auto)]

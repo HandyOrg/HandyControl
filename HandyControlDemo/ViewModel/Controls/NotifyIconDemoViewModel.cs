@@ -1,4 +1,7 @@
-﻿using GalaSoft.MvvmLight;
+﻿using System;
+using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.CommandWpf;
+using HandyControl.Controls;
 using HandyControlDemo.Data;
 
 namespace HandyControlDemo.ViewModel
@@ -44,5 +47,8 @@ namespace HandyControlDemo.ViewModel
             get => _contextContentIsBlink;
             set => Set(ref _contextContentIsBlink, value);
         }
+
+        public RelayCommand<object> MouseCmd => new Lazy<RelayCommand<object>>(() =>
+            new RelayCommand<object>(str=> Growl.Info(str.ToString()))).Value;
     }
 }

@@ -15,14 +15,14 @@ namespace HandyControl.Tools.Interop
         public int uCallbackMessage;
         public IntPtr hIcon;
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
-        public string szTip;
-        public int dwState = 0;
-        public int dwStateMask = 0;
+        public string szTip = string.Empty;
+        public int dwState = 0x01;
+        public int dwStateMask = 0x01;
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 256)]
-        public string szInfo;
+        public string szInfo = string.Empty;
         public int uTimeoutOrVersion;
         [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 64)]
-        public string szInfoTitle;
+        public string szInfoTitle = string.Empty;
         public int dwInfoFlags;
     }
 }

@@ -12,7 +12,7 @@ namespace HandyControl.Interactivity
 
         public void Execute(object parameter)
         {
-            if (Application.Current.MainWindow != null)
+            if (Application.Current.MainWindow != null && Application.Current.MainWindow.Visibility != Visibility.Visible)
             {
                 Application.Current.MainWindow.Show();
                 var hwndSource = (HwndSource)PresentationSource.FromDependencyObject(Application.Current.MainWindow);

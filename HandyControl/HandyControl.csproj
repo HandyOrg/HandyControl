@@ -172,13 +172,11 @@
     <Compile Include="Data\Enum\SkinType.cs" />
     <Compile Include="Data\Enum\StepStatus.cs" />
     <Compile Include="Data\Enum\TipPlacement.cs" />
-    <Compile Include="Data\Enum\ToolTipIcon.cs" />
     <Compile Include="Data\Gif\GifFrameDimension.cs" />
     <Compile Include="Data\Gif\GifImageInfo.cs" />
     <Compile Include="Data\Gif\GifPropertyItem.cs" />
     <Compile Include="Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="Data\Gif\GPStream.cs" />
-    <Compile Include="Data\Icon.cs" />
     <Compile Include="Data\MessageBoxInfo.cs" />
     <Compile Include="Data\ResourceToken.cs" />
     <Compile Include="Data\SystemVersionInfo.cs" />

@@ -9,14 +9,9 @@
 
 ![qq-group](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qq-group.png)
 
-## 捐赠
-如果您觉得HandyControl还不错，那么就以HandyControl的名义，花一顿饭的钱来为慈善事业做一份贡献吧（捐赠留言写：HandyControl），谢谢大家。  
+## Special thanks to
 
-捐赠链接：
-[中华慈善总会](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
-
-也可以扫下面的二维码：  
-![中华慈善总会](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/chinacharityfederation.png)  
+[![JetBrains](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/resharper_logo.svg)](https://www.jetbrains.com/?from=HandyControl)
 
 ## Usage
 
@@ -39,6 +34,10 @@ Step 3：enjoy coding
 
 ## Latest examples
 
+### NotifyIcon
+
+![NotifyIcon](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/NotifyIcon.png)
+
 ### Dialog
 
 ![Dialog](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Dialog.png)
@@ -55,11 +54,11 @@ Step 3：enjoy coding
 
 ![Gravatar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Gravatar.gif)
 
+## History publication
+
 ### ChatBubble
 
 ![ChatBubble](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ChatBubble.png)
-
-## History publication
 
 ### Transfer
 
@@ -287,6 +286,14 @@ Step 3：enjoy coding
 
 ![BorderStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Border.png)
 
-# Switching configuration
+## Switching configuration
 
 ![Switching configuration](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SwitchConfig.png)
+
+# 捐赠（面向中国）
+如果您觉得HandyControl还不错，并且刚好有些闲钱，那么你可以选择以下两种方式来捐赠：
+
+* [以HandyControl的名义为慈善事业做贡献](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
+
+* 为我们购买防脱洗发水  
+![qrcode](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qrcode.png)

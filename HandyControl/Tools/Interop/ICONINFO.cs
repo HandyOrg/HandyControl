@@ -1,8 +1,10 @@
-﻿using System.Runtime.InteropServices;
+﻿using System.Diagnostics.CodeAnalysis;
+using System.Runtime.InteropServices;
 
 namespace HandyControl.Tools.Interop
 {
     [StructLayout(LayoutKind.Sequential)]
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     internal class ICONINFO
     {
         public bool fIcon = false;

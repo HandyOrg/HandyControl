@@ -50,6 +50,8 @@ namespace HandyControl.Controls
 
         private bool _isTransparent;
 
+        private bool _isDisposed;
+
         static NotifyIcon()
         {
             VisibilityProperty.OverrideMetadata(typeof(NotifyIcon), new PropertyMetadata(Visibility.Visible, OnVisibilityChanged));
@@ -238,7 +240,6 @@ namespace HandyControl.Controls
                     uCallbackMessage = WmTrayMouseMessage,
                     uFlags = NativeMethods.NIF_MESSAGE | NativeMethods.NIF_ICON | NativeMethods.NIF_TIP,
                     hWnd = _messageWindowHandle,
-                    uTimeoutOrVersion = 10,
                     uID = _id,
                     dwInfoFlags = NativeMethods.NIF_TIP,
                     hIcon = isTransparent ? IntPtr.Zero : _currentSmallIconHandle.CriticalGetHandle(),
@@ -284,7 +285,8 @@ namespace HandyControl.Controls
 
             UnsafeNativeMethods.RegisterClass(wndclass);
             _wmTaskbarCreated = NativeMethods.RegisterWindowMessage("TaskbarCreated");
-            _messageWindowHandle = UnsafeNativeMethods.CreateWindowEx(0, _windowClassName, "", 0, 0, 0, 1, 1, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
+            _messageWindowHandle = UnsafeNativeMethods.CreateWindowEx(0, _windowClassName, "", 0, 0, 0, 1, 1,
+                IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
         }
 
         private IntPtr Callback(IntPtr hWnd, int msg, IntPtr wparam, IntPtr lparam)
@@ -302,29 +304,8 @@ namespace HandyControl.Controls
                         case NativeMethods.WM_LBUTTONDBLCLK:
                             WmMouseDown(MouseButton.Left, 2);
                             break;
-                        case NativeMethods.WM_LBUTTONDOWN:
-                            WmMouseDown(MouseButton.Left, 1);
-                            break;
                         case NativeMethods.WM_LBUTTONUP:
                             WmMouseUp(MouseButton.Left);
-                            break;
-                        case NativeMethods.WM_MBUTTONDBLCLK:
-                            WmMouseDown(MouseButton.Middle, 2);
-                            break;
-                        case NativeMethods.WM_MBUTTONDOWN:
-                            WmMouseDown(MouseButton.Middle, 1);
-                            break;
-                        case NativeMethods.WM_MBUTTONUP:
-                            WmMouseUp(MouseButton.Middle);
-                            break;
-                        case NativeMethods.WM_MOUSEMOVE:
-                            WmMouseMove();
-                            break;
-                        case NativeMethods.WM_RBUTTONDBLCLK:
-                            WmMouseDown(MouseButton.Right, 2);
-                            break;
-                        case NativeMethods.WM_RBUTTONDOWN:
-                            WmMouseDown(MouseButton.Right, 1);
                             break;
                         case NativeMethods.WM_RBUTTONUP:
                             ShowContextMenu();
@@ -347,20 +328,11 @@ namespace HandyControl.Controls
                 });
                 _doubleClick = true;
             }
-            RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
-            {
-                RoutedEvent = MouseDownEvent
-            });
         }
 
         private void WmMouseUp(MouseButton button)
         {
-            RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
-            {
-                RoutedEvent = MouseUpEvent
-            });
-
-            if (!_doubleClick)
+            if (!_doubleClick && button == MouseButton.Left)
             {
                 RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, button)
                 {
@@ -368,14 +340,6 @@ namespace HandyControl.Controls
                 });
             }
             _doubleClick = false;
-        }
-
-        private void WmMouseMove()
-        {
-            RaiseEvent(new MouseEventArgs(Mouse.PrimaryDevice, Environment.TickCount)
-            {
-                RoutedEvent = MouseMoveEvent
-            });
         }
 
         private void ShowContextMenu()
@@ -449,6 +413,7 @@ namespace HandyControl.Controls
 
         private void Dispose(bool disposing)
         {
+            if (_isDisposed) return;
             if (disposing)
             {
                 if (_dispatcherTimer != null && IsBlink)
@@ -461,12 +426,26 @@ namespace HandyControl.Controls
                 _currentLargeIconHandle?.Dispose();
                 _currentSmallIconHandle?.Dispose();
             }
+
+            _isDisposed = true;
         }
 
         public void Dispose()
         {
             Dispose(true);
             GC.SuppressFinalize(this);
+        }
+
+        public void CloseContextControl()
+        {
+            if (_contextContent != null)
+            {
+                _contextContent.IsOpen = false;
+            }
+            else if (ContextMenu != null)
+            {
+                ContextMenu.IsOpen = false;
+            }
         }
     }
 }
