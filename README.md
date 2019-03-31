@@ -11,7 +11,7 @@
 
 ## Special thanks to
 
-[![JetBrains](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/resharper_logo.svg)](https://www.jetbrains.com/?from=HandyControl)
+[![JetBrains](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
 
 ## Usage
 
