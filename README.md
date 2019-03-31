@@ -56,6 +56,26 @@ Step 3：enjoy coding
 
 ## History publication
 
+### GoToTop
+
+![GoToTop](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/GoToTop.gif)
+
+### PreviewSlider
+
+![PreviewSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PreviewSlider.png)
+
+### ScrollViewer
+
+![ScrollViewer](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ScrollViewer.png)
+
+### Brush
+
+![Brush](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Brush.png)
+
+### Label
+
+![Label](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Label.png)
+
 ### ChatBubble
 
 ![ChatBubble](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ChatBubble.png)
