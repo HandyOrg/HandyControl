@@ -194,7 +194,7 @@ Step 3：enjoy coding
 
 ### PreviewSlider
 
-![PreviewSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PreviewSlider.png)
+![PreviewSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PreviewSlider.gif)
 
 ### CompareSlider
 
