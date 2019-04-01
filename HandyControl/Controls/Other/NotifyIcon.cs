@@ -224,8 +224,6 @@ namespace HandyControl.Controls
                     szTip = Text
                 };
 
-                Console.WriteLine(_iconCurrentHandle);
-
                 if (showIconInTray)
                 {
                     if (!_added)
