@@ -3,6 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              Background="{DynamicResource RegionBrush}"
-             DataContext="{Binding DialogDemo,Source={StaticResource Locator}}">
-    <Button Margin="32" Content="{x:Static langs:Lang.TextDialog}" Command="{Binding ShowTextCmd}"/>
+             DataContext="{Binding DialogDemo,Source={StaticResource Locator}}"
+             Width="300">
+    <StackPanel>
+        <Button Margin="32"
+                Content="{x:Static langs:Lang.TextDialog}"
+                Command="{Binding ShowTextCmd}" />
+        <TextBox x:Name="TextBox"
+                 Style="{StaticResource TextBoxBaseStyle}"
+                 Text="{Binding DialogResult}" 
+                 Margin="20 0"/>
+        <Button Margin="32"
+                Content="{x:Static langs:Lang.InteractiveDialog}"
+                Command="{Binding ShowInteractiveDialogCmd}" 
+                CommandParameter="{Binding Path=Text, ElementName=TextBox}"/>
+    </StackPanel>
 </UserControl>

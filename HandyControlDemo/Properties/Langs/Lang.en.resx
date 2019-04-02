@@ -552,4 +552,13 @@
   <data name="Try2CloseApp" xml:space="preserve">
     <value>Try to close app?</value>
   </data>
+  <data name="InteractiveDialog" xml:space="preserve">
+    <value>Interactive Dialog</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="PleaseInput" xml:space="preserve">
+    <value>Please input...</value>
+  </data>
 </root>

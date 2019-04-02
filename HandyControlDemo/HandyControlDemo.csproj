@@ -130,6 +130,9 @@
     <Compile Include="UserControl\Basic\ChatBox.xaml.cs">
       <DependentUpon>ChatBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UserControl\Basic\InteractiveDialog.xaml.cs">
+      <DependentUpon>InteractiveDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Basic\TextDialog.xaml.cs">
       <DependentUpon>TextDialog.xaml</DependentUpon>
     </Compile>
@@ -359,6 +362,7 @@
       <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\Basic\ChatBoxViewModel.cs" />
+    <Compile Include="ViewModel\Basic\InteractiveDialogViewModel.cs" />
     <Compile Include="ViewModel\Common\ComboBoxDemoViewModel.cs" />
     <Compile Include="ViewModel\Controls\CoverViewModel.cs" />
     <Compile Include="ViewModel\Controls\DialogDemoViewModel.cs" />
@@ -452,6 +456,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControl\Basic\ChatBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControl\Basic\InteractiveDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
