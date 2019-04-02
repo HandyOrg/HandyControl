@@ -9,6 +9,22 @@
 
 ![qq-group](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qq-group.png)
 
+# 面向中国
+
+## 中文文档（刚开始写）
+先给几个写好的：  
+[Growl](https://handyorg.github.io/handycontrol/control/growl/)  
+[GrowlInfo](https://handyorg.github.io/handycontrol/data/GrowlInfo/)  
+[InfoType](https://handyorg.github.io/handycontrol/data/InfoType/)
+
+## 捐赠
+如果您觉得HandyControl还不错，并且刚好有些闲钱，那么可以选择以下两种方式来捐赠：
+
+* [以HandyControl的名义为慈善事业做贡献](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
+
+* 为我们购买防脱洗发水  
+![qrcode](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qrcode.png)
+
 ## Special thanks to
 
 [![JetBrains](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
@@ -309,11 +325,3 @@ Step 3：enjoy coding
 ## Switching configuration
 
 ![Switching configuration](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SwitchConfig.png)
-
-# 捐赠（面向中国）
-如果您觉得HandyControl还不错，并且刚好有些闲钱，那么可以选择以下两种方式来捐赠：
-
-* [以HandyControl的名义为慈善事业做贡献](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
-
-* 为我们购买防脱洗发水  
-![qrcode](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qrcode.png)
