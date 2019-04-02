@@ -1,7 +1,4 @@
-﻿using System;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using HandyControl.Interactivity;
@@ -9,68 +6,19 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    public interface IDialogResult
-    {
-        object Result { get; set; }
-    }
-
     public class Dialog : ContentControl
     {
         private Adorner _container;
+
+        // It can not be replaced with the FrameworkElement.IsLoaded property, which will be false when the dialog just created.
+        public bool IsClosed { get; private set; }
 
         public Dialog()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => Close()));
         }
 
-        public static Task<TResult> ShowAsync<TView, TResult>() where TView : class, new() =>
-            ShowAsync<TResult>(new TView());
-
-        public static Task<TResult> ShowAsync<TResult>(object content)
-        {
-            var tcs = new TaskCompletionSource<TResult>();
-
-            var dialog = Show(content);
-            dialog.Unloaded += OnUnloaded;
-
-            return tcs.Task;
-
-            void OnUnloaded(object sender, RoutedEventArgs args)
-            {
-                try
-                {
-                    dialog.Unloaded -= OnUnloaded;
-                    tcs.SetResult(GetResult(dialog));
-                }
-                catch (Exception e)
-                {
-                    tcs.SetException(e);
-                }
-            }
-
-            TResult GetResult(Dialog embeddedDialog)
-            {
-                if (!(embeddedDialog.Content is FrameworkElement frameworkElement))
-                    throw new InvalidOperationException("The dialog is not a derived class of the FrameworkElement. ");
-
-                if (!(frameworkElement.DataContext is IDialogResult dialogResult))
-                    throw new InvalidOperationException("The view model of the dialog is not implement the IDialogResult interface. ");
-
-                switch (dialogResult.Result)
-                {
-                    case TResult result:
-                        return result;
-                    case null when !typeof(TResult).IsValueType:
-                        return default(TResult); // The default value of the value type may cause confusion, so should not help the user decide.
-                    default:
-                        throw new InvalidCastException("Could not cast " +
-                                                       $"the {(dialogResult.Result != null ? $"{dialogResult.Result.GetType()} type" : "null value")} " +
-                                                       $"to the {typeof(TResult)} type. ");
-                }
-            }
-        }
-
-        public static Dialog Show<T>() where T : class, new() => Show(new T());
+        public static Dialog Show<T>() where T : new() => Show(new T());
 
         public static Dialog Show(object content)
         {
@@ -97,6 +45,7 @@ namespace HandyControl.Controls
                             Child = dialog
                         };
                         dialog._container = container;
+                        dialog.IsClosed = false;
                         layer.Add(container);
                     }
                 }
@@ -119,6 +68,7 @@ namespace HandyControl.Controls
                     }
                     var layer = decorator.AdornerLayer;
                     layer?.Remove(_container);
+                    IsClosed = true;
                 }
             }
         }
