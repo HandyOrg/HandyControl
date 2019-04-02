@@ -56,12 +56,17 @@ namespace HandyControl.Controls
                 if (!(frameworkElement.DataContext is IDialogResult dialogResult))
                     throw new InvalidOperationException("The view model of the dialog is not implement the IDialogResult interface. ");
 
-                if (!(dialogResult.Result is TResult result))
-                    throw new InvalidCastException("Could not cast " +
-                                                   $"the {(dialogResult.Result != null ? $"{dialogResult.Result.GetType()} type" : "null value")} " +
-                                                   $"to the {typeof(TResult)} type. ");
-
-                return result;
+                switch (dialogResult.Result)
+                {
+                    case TResult result:
+                        return result;
+                    case null when !typeof(TResult).IsValueType:
+                        return default(TResult); // The default value of the value type may cause confusion, so should not help the user decide.
+                    default:
+                        throw new InvalidCastException("Could not cast " +
+                                                       $"the {(dialogResult.Result != null ? $"{dialogResult.Result.GetType()} type" : "null value")} " +
+                                                       $"to the {typeof(TResult)} type. ");
+                }
             }
         }
 
