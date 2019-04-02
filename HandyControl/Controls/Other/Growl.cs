@@ -552,13 +552,33 @@ namespace HandyControl.Controls
         /// <summary>
         ///     清除
         /// </summary>
-        public static void Clear()
+        /// <param name="token"></param>
+        public static void Clear(string token = "")
         {
-            GrowlPanel.Children.Clear();
-            if (GrowlPanel.ContextMenu != null)
+            if (!string.IsNullOrEmpty(token))
             {
-                GrowlPanel.ContextMenu.IsOpen = false;
-                GrowlPanel.ContextMenu.Opacity = 1;
+                if (PanelDic.TryGetValue(token, out var panel))
+                {
+                    Clear(panel);
+                }
+            }
+            else
+            {
+                Clear(GrowlPanel);
+            }
+        }
+
+        /// <summary>
+        ///     清除
+        /// </summary>
+        /// <param name="panel"></param>
+        private static void Clear(Panel panel)
+        {
+            panel.Children.Clear();
+            if (panel.ContextMenu != null)
+            {
+                panel.ContextMenu.IsOpen = false;
+                panel.ContextMenu.Opacity = 1;
             }
         }
 
