@@ -58,7 +58,7 @@ namespace HandyControlDemo.ViewModel
             }))).Value;
 
         public RelayCommand ClearCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(Growl.Clear)).Value;
+            new RelayCommand(() => Growl.Clear())).Value;
 
         public RelayCommand NewWindowCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(() => new GrowlDemoWindow().Show())).Value;
