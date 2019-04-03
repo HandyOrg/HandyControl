@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using HandyControl.Interactivity;
@@ -10,10 +11,21 @@ namespace HandyControl.Controls
     {
         private Adorner _container;
 
+        public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
+            "IsClosed", typeof(bool), typeof(Dialog), new PropertyMetadata(default(bool)));
+
+        public bool IsClosed
+        {
+            get => (bool) GetValue(IsClosedProperty);
+            internal set => SetValue(IsClosedProperty, value);
+        }
+
         public Dialog()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => Close()));
         }
+
+        public static Dialog Show<T>() where T : new() => Show(new T());
 
         public static Dialog Show(object content)
         {
@@ -40,6 +52,7 @@ namespace HandyControl.Controls
                             Child = dialog
                         };
                         dialog._container = container;
+                        dialog.IsClosed = false;
                         layer.Add(container);
                     }
                 }
@@ -62,8 +75,9 @@ namespace HandyControl.Controls
                     }
                     var layer = decorator.AdornerLayer;
                     layer?.Remove(_container);
+                    IsClosed = true;
                 }
             }
-        } 
+        }
     }
 }

@@ -186,6 +186,7 @@
     <Compile Include="Tools\Converter\BorderClipConverter.cs" />
     <Compile Include="Tools\Converter\BorderCircularConverter.cs" />
     <Compile Include="Tools\Converter\Int2StrConverter.cs" />
+    <Compile Include="Tools\Extension\DialogExtension.cs" />
     <Compile Include="Tools\Extension\EnumerableExtension.cs" />
     <Compile Include="Tools\Extension\GeometryExtension.cs" />
     <Compile Include="Tools\GithubGravatarGenerator.cs" />

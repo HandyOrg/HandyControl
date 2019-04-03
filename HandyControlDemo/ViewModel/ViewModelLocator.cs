@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Reflection.Emit;
 using System.Windows;
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
+using HandyControlDemo.ViewModel.Basic;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -30,6 +30,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<DialogDemoViewModel>();
             SimpleIoc.Default.Register<SearchBarDemoViewModel>();
             SimpleIoc.Default.Register<NotifyIconDemoViewModel>();
+            SimpleIoc.Default.Register<InteractiveDialogViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -65,6 +66,7 @@ namespace HandyControlDemo.ViewModel
 
         public NotifyIconDemoViewModel NotifyIconDemo => ServiceLocator.Current.GetInstance<NotifyIconDemoViewModel>();
 
+        public InteractiveDialogViewModel InteractiveDialog => ServiceLocator.Current.GetInstance<InteractiveDialogViewModel>();
         #endregion
     }
 }

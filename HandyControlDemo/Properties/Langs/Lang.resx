@@ -552,4 +552,13 @@
   <data name="Try2CloseApp" xml:space="preserve">
     <value>试试关闭程序吧？</value>
   </data>
+  <data name="InteractiveDialog" xml:space="preserve">
+    <value>可交互对话框</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="PleaseInput" xml:space="preserve">
+    <value>请输入...</value>
+  </data>
 </root>
