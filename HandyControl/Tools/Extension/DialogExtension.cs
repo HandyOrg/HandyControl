@@ -5,29 +5,29 @@ using HandyControl.Controls;
 
 namespace HandyControl.Tools.Extension
 {
-    public interface IDialogResultable
+    public interface IDialogResultable<T>
     {
-        object Result { get; set; }
+        T Result { get; set; }
 
-        Action ClosureToken { get; set; }
+        Action CloseAction { get; set; }
     }
 
     public static class DialogExtension
     {
-        public static Task<TResult> GetResultAsync<TResult>(this Dialog @this)
+        public static Task<TResult> GetResultAsync<TResult>(this Dialog dialog)
         {
             var tcs = new TaskCompletionSource<TResult>();
 
             try
             {
-                if (@this.IsClosed)
+                if (dialog.IsClosed)
                 {
                     SetResult();
                 }
                 else
                 {
-                    @this.Unloaded += OnUnloaded;
-                    @this.GetViewModel<IDialogResultable>().ClosureToken = @this.Close;
+                    dialog.Unloaded += OnUnloaded;
+                    dialog.GetViewModel<IDialogResultable<TResult>>().CloseAction = dialog.Close;
                 }
             }
             catch (Exception e)
@@ -40,7 +40,7 @@ namespace HandyControl.Tools.Extension
             // ReSharper disable once ImplicitlyCapturedClosure
             void OnUnloaded(object sender, RoutedEventArgs args)
             {
-                @this.Unloaded -= OnUnloaded;
+                dialog.Unloaded -= OnUnloaded;
                 SetResult();
             }
 
@@ -48,7 +48,7 @@ namespace HandyControl.Tools.Extension
             {
                 try
                 {
-                    tcs.TrySetResult(ExtractResult<TResult>(@this));
+                    tcs.TrySetResult(dialog.GetViewModel<IDialogResultable<TResult>>().Result);
                 }
                 catch (Exception e)
                 {
@@ -57,39 +57,22 @@ namespace HandyControl.Tools.Extension
             }
         }
 
-        public static Dialog Initialize<TViewModel>(this Dialog @this, Action<TViewModel> configure)
+        public static Dialog Initialize<TViewModel>(this Dialog dialog, Action<TViewModel> configure)
         {
-            configure?.Invoke(@this.GetViewModel<TViewModel>());
+            configure?.Invoke(dialog.GetViewModel<TViewModel>());
 
-            return @this;
+            return dialog;
         }
 
-        public static TViewModel GetViewModel<TViewModel>(this Dialog @this)
+        public static TViewModel GetViewModel<TViewModel>(this Dialog dialog)
         {
-            if (!(@this.Content is FrameworkElement frameworkElement))
+            if (!(dialog.Content is FrameworkElement frameworkElement))
                 throw new InvalidOperationException("The dialog is not a derived class of the FrameworkElement. ");
 
             if (!(frameworkElement.DataContext is TViewModel viewModel))
                 throw new InvalidOperationException($"The view model of the dialog is not the {typeof(TViewModel)} type or its derived class. ");
 
             return viewModel;
-        }
-
-        private static TResult ExtractResult<TResult>(Dialog dialog)
-        {
-            var viewModelResult = dialog.GetViewModel<IDialogResultable>().Result;
-
-            switch (viewModelResult)
-            {
-                case TResult result:
-                    return result;
-                case null when !typeof(TResult).IsValueType:
-                    return default(TResult); // The default value of the value type may cause confusion, so should not help the user decide.
-                default:
-                    throw new InvalidCastException("Could not cast " +
-                                                   $"the {(viewModelResult != null ? $"{viewModelResult.GetType()} type" : "null value")} " +
-                                                   $"to the {typeof(TResult)} type. ");
-            }
         }
     }
 }

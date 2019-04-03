@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using HandyControl.Interactivity;
@@ -10,8 +11,14 @@ namespace HandyControl.Controls
     {
         private Adorner _container;
 
-        // It can not be replaced with the FrameworkElement.IsLoaded property, which will be false when the dialog just created.
-        public bool IsClosed { get; private set; }
+        public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
+            "IsClosed", typeof(bool), typeof(Dialog), new PropertyMetadata(default(bool)));
+
+        public bool IsClosed
+        {
+            get => (bool) GetValue(IsClosedProperty);
+            internal set => SetValue(IsClosedProperty, value);
+        }
 
         public Dialog()
         {

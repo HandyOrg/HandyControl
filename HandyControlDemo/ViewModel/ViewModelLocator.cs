@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Reflection.Emit;
 using System.Windows;
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;

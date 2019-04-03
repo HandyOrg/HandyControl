@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Windows.Input;
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.CommandWpf;
 using HandyControl.Controls;
 using HandyControl.Tools.Extension;
-using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.UserControl;
 using HandyControlDemo.UserControl.Basic;
 using HandyControlDemo.ViewModel.Basic;
@@ -15,32 +14,28 @@ namespace HandyControlDemo.ViewModel
     {
         private string _dialogResult;
 
-        public RelayCommand ShowTextCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(ShowText)).Value;
-
         public string DialogResult
         {
             get => _dialogResult;
             set => Set(ref _dialogResult, value);
         }
 
-        public ICommand ShowInteractiveDialogCmd { get; }
-
-        public DialogDemoViewModel()
-        {
-            DialogResult = Lang.PleaseInput;
-
-            ShowInteractiveDialogCmd = new RelayCommand<string>(async message =>
-            {
-                DialogResult = await Dialog.Show<InteractiveDialog>()
-                    .Initialize<InteractiveDialogViewModel>(vm => vm.Message = message)
-                    .GetResultAsync<string>();
-            });
-        }
+        public RelayCommand ShowTextCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(ShowText)).Value;
 
         private void ShowText()
         {
             Dialog.Show(new TextDialog());
+        }
+
+        public RelayCommand ShowInteractiveDialogCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(async () => await ShowInteractiveDialog())).Value;
+
+        private async Task ShowInteractiveDialog()
+        {
+            DialogResult = await Dialog.Show<InteractiveDialog>()
+                .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
+                .GetResultAsync<string>();
         }
     }
 }
