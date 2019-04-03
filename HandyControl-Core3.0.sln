@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControl-Core3.0", "HandyControl\HandyControl-Core3.0.csproj", "{0233495D-82C7-486B-9B86-68BD75A24B7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo-Core3.0", "HandyControlDemo\HandyControlDemo-Core3.0.csproj", "{1D3A48E3-B998-4320-BB45-B94D4067E557}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0233495D-82C7-486B-9B86-68BD75A24B7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0233495D-82C7-486B-9B86-68BD75A24B7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0233495D-82C7-486B-9B86-68BD75A24B7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0233495D-82C7-486B-9B86-68BD75A24B7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D3A48E3-B998-4320-BB45-B94D4067E557}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D3A48E3-B998-4320-BB45-B94D4067E557}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D3A48E3-B998-4320-BB45-B94D4067E557}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D3A48E3-B998-4320-BB45-B94D4067E557}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {6C8B9B9F-B396-4C31-BA28-11BCB1ED94C5}
+	EndGlobalSection
+EndGlobal

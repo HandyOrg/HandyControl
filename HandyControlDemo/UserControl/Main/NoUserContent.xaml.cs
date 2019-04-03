@@ -30,7 +30,7 @@ namespace HandyControlDemo.UserControl
                     if (!b) return true;
                     GlobalData.Config.Lang = tag;
                     GlobalData.Save();
-                    Process.Start(Assembly.GetExecutingAssembly().Location);
+                    Process.Start(Process.GetCurrentProcess().MainModule.FileName);
                     Application.Current.Shutdown();
                     return true;
                 });

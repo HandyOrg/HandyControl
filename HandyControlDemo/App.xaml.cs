@@ -27,7 +27,9 @@ namespace HandyControlDemo
                 UpdateSkin(GlobalData.Config.Skin);
             }
 
+#if !Core
             BlurWindow.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
+#endif
         }
 
         protected override void OnExit(ExitEventArgs e)

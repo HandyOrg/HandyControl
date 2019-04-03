@@ -277,7 +277,7 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    switch (lparam.ToInt32())
+                    switch (lparam.ToInt64())
                     {
                         case NativeMethods.WM_LBUTTONDBLCLK:
                             WmMouseDown(MouseButton.Left, 2);
