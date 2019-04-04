@@ -364,7 +364,7 @@
     <Compile Include="ViewModel\Basic\ChatBoxViewModel.cs" />
     <Compile Include="ViewModel\Basic\InteractiveDialogViewModel.cs" />
     <Compile Include="ViewModel\Common\ComboBoxDemoViewModel.cs" />
-    <Compile Include="ViewModel\Controls\BadgeDemoCtlViewModel.cs" />
+    <Compile Include="ViewModel\Controls\BadgeDemoViewModel.cs" />
     <Compile Include="ViewModel\Controls\CoverViewModel.cs" />
     <Compile Include="ViewModel\Controls\DialogDemoViewModel.cs" />
     <Compile Include="ViewModel\Controls\NotifyIconDemoViewModel.cs" />

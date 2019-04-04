@@ -13,28 +13,15 @@
                 <Border.RenderTransform>
                     <ScaleTransform />
                 </Border.RenderTransform>
-
                 <ContentPresenter ContentSource="Text" Margin="{TemplateBinding Padding}" />
             </Border>
         </controls:SimplePanel>
         <ControlTemplate.Triggers>
-            <EventTrigger RoutedEvent="controls:Badge.BadgeChanged">
+            <EventTrigger RoutedEvent="controls:Badge.ValueChanged">
                 <BeginStoryboard>
                     <Storyboard AutoReverse="True">
-                        <DoubleAnimation Storyboard.TargetName="Border"
-                                         Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)"
-                                         BeginTime="0"
-                                         Duration="0:0:.1"
-                                         From="1"
-                                         To="1.2"
-                                         EasingFunction="{StaticResource SineEaseOut}" />
-                        <DoubleAnimation Storyboard.TargetName="Border"
-                                         Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)"
-                                         BeginTime="0"
-                                         Duration="0:0:.1"
-                                         From="1"
-                                         To="1.2"
-                                         EasingFunction="{StaticResource SineEaseOut}" />
+                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" BeginTime="0" Duration="0:0:.1" From="1" To="1.2" EasingFunction="{StaticResource SineEaseOut}" />
+                        <DoubleAnimation Storyboard.TargetName="Border" Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" BeginTime="0" Duration="0:0:.1" From="1" To="1.2" EasingFunction="{StaticResource SineEaseOut}" />
                     </Storyboard>
                 </BeginStoryboard>
             </EventTrigger>

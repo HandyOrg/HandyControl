@@ -2,6 +2,7 @@
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
@@ -12,7 +13,7 @@ namespace HandyControl.Controls
         private Adorner _container;
 
         public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
-            "IsClosed", typeof(bool), typeof(Dialog), new PropertyMetadata(default(bool)));
+            "IsClosed", typeof(bool), typeof(Dialog), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsClosed
         {

@@ -1,37 +1,31 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
-    public enum BadgeStatus { Normal, Dot, Processing }
-
     /// <summary>
     ///     标记
     /// </summary>
     public class Badge : ContentControl
     {
-        public static readonly RoutedEvent BadgeChangedEvent = EventManager.RegisterRoutedEvent(
-            "BadgeChanged", RoutingStrategy.Direct, typeof(RoutedEventHandler), typeof(Badge));
+        public static readonly RoutedEvent ValueChangedEvent =
+            EventManager.RegisterRoutedEvent("ValueChanged", RoutingStrategy.Bubble,
+                typeof(EventHandler<FunctionEventArgs<int>>), typeof(Badge));
 
-        public event RoutedEventHandler BadgeChanged
+        public event EventHandler<FunctionEventArgs<int>> ValueChanged
         {
-            add => AddHandler(BadgeChangedEvent, value);
-            remove => RemoveHandler(BadgeChangedEvent, value);
+            add => AddHandler(ValueChangedEvent, value);
+            remove => RemoveHandler(ValueChangedEvent, value);
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            "Text", typeof(string), typeof(Badge), new PropertyMetadata(default(string), (o, args) =>
-            {
-                var ctl = (Badge)o;
-
-                if (ctl.IsInitialized)
-                    ctl.RaiseEvent(new RoutedEventArgs(BadgeChangedEvent, ctl));
-            }));
+            "Text", typeof(string), typeof(Badge), new PropertyMetadata(default(string)));
 
         public string Text
         {
-            get => (string)GetValue(TextProperty);
+            get => (string) GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
 
@@ -43,6 +37,13 @@ namespace HandyControl.Controls
             var ctl = (Badge)d;
             var v = (int)e.NewValue;
             ctl.Text = v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+";
+            if (ctl.IsInitialized)
+            {
+                ctl.RaiseEvent(new FunctionEventArgs<int>(ValueChangedEvent, ctl)
+                {
+                    Info = v
+                });
+            }
         }
 
         public int Value
