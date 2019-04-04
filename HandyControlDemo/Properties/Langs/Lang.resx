@@ -561,4 +561,7 @@
   <data name="PleaseInput" xml:space="preserve">
     <value>请输入...</value>
   </data>
+  <data name="Count" xml:space="preserve">
+    <value>点击计数</value>
+  </data>
 </root>

@@ -14,7 +14,7 @@
                 <Button Content="{x:Static langs:Lang.Comment}"/>
             </controls:Badge>
             <controls:Badge Value="{Binding Count}" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgePrimary}">
-                <Button Content="计数" Command="{Binding CountCommand}"/>
+                <Button Content="{x:Static langs:Lang.Count}" Command="{Binding CountCommand}"/>
             </controls:Badge>
             <controls:Badge Value="100" BadgeMargin="0,-14,-20,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
                 <Button Content="{x:Static langs:Lang.Comment}"/>

@@ -561,4 +561,7 @@
   <data name="PleaseInput" xml:space="preserve">
     <value>Please input...</value>
   </data>
+  <data name="Count" xml:space="preserve">
+    <value>Count</value>
+  </data>
 </root>
