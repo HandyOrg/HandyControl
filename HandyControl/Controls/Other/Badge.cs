@@ -11,8 +11,23 @@ namespace HandyControl.Controls
     /// </summary>
     public class Badge : ContentControl
     {
+        public static readonly RoutedEvent BadgeChangedEvent = EventManager.RegisterRoutedEvent(
+            "BadgeChanged", RoutingStrategy.Direct, typeof(RoutedEventHandler), typeof(Badge));
+
+        public event RoutedEventHandler BadgeChanged
+        {
+            add => AddHandler(BadgeChangedEvent, value);
+            remove => RemoveHandler(BadgeChangedEvent, value);
+        }
+
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            "Text", typeof(string), typeof(Badge), new PropertyMetadata(default(string)));
+            "Text", typeof(string), typeof(Badge), new PropertyMetadata(default(string), (o, args) =>
+            {
+                var ctl = (Badge)o;
+
+                if (ctl.IsInitialized)
+                    ctl.RaiseEvent(new RoutedEventArgs(BadgeChangedEvent, ctl));
+            }));
 
         public string Text
         {

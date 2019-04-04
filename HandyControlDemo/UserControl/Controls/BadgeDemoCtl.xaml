@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             Background="{DynamicResource RegionBrush}">
+             Background="{DynamicResource RegionBrush}"
+             DataContext="{Binding Path=BadgeDemoCtl, Source={StaticResource Locator}}">
     <controls:TransitioningContentControl>
         <StackPanel Margin="32" Orientation="Horizontal">
             <controls:Badge Text="New" BadgeMargin="0,-14,-20,0" Height="30">
@@ -12,8 +13,8 @@
             <controls:Badge Text="New" BadgeMargin="0,-14,-20,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
                 <Button Content="{x:Static langs:Lang.Comment}"/>
             </controls:Badge>
-            <controls:Badge Value="1" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgePrimary}">
-                <Button Content="{x:Static langs:Lang.Comment}"/>
+            <controls:Badge Value="{Binding Count}" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgePrimary}">
+                <Button Content="计数" Command="{Binding CountCommand}"/>
             </controls:Badge>
             <controls:Badge Value="100" BadgeMargin="0,-14,-20,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
                 <Button Content="{x:Static langs:Lang.Comment}"/>
