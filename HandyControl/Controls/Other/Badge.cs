@@ -4,6 +4,8 @@ using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
+    public enum BadgeStatus { Normal, Dot, Processing }
+
     /// <summary>
     ///     标记
     /// </summary>
@@ -14,7 +16,7 @@ namespace HandyControl.Controls
 
         public string Text
         {
-            get => (string) GetValue(TextProperty);
+            get => (string)GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
 
@@ -23,24 +25,24 @@ namespace HandyControl.Controls
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (Badge) d;
-            var v = (int) e.NewValue;
+            var ctl = (Badge)d;
+            var v = (int)e.NewValue;
             ctl.Text = v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+";
         }
 
         public int Value
         {
-            get => (int) GetValue(ValueProperty);
+            get => (int)GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
 
-        public static readonly DependencyProperty IsDotProperty = DependencyProperty.Register(
-            "IsDot", typeof(bool), typeof(Badge), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty StatusProperty = DependencyProperty.Register(
+            "Status", typeof(BadgeStatus), typeof(Badge), new PropertyMetadata(default(BadgeStatus)));
 
-        public bool IsDot
+        public BadgeStatus Status
         {
-            get => (bool) GetValue(IsDotProperty);
-            set => SetValue(IsDotProperty, value);
+            get => (BadgeStatus)GetValue(StatusProperty);
+            set => SetValue(StatusProperty, value);
         }
 
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
@@ -48,7 +50,7 @@ namespace HandyControl.Controls
 
         public int Maximum
         {
-            get => (int) GetValue(MaximumProperty);
+            get => (int)GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
 
@@ -57,7 +59,7 @@ namespace HandyControl.Controls
 
         public Thickness BadgeMargin
         {
-            get => (Thickness) GetValue(BadgeMarginProperty);
+            get => (Thickness)GetValue(BadgeMarginProperty);
             set => SetValue(BadgeMarginProperty, value);
         }
     }
