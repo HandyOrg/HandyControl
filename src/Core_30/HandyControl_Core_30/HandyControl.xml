@@ -1,0 +1,2648 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>HandyControl</name>
+    </assembly>
+    <members>
+        <member name="T:HandyControl.Controls.Growl">
+            <summary>
+                消息提醒
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.Growl._tickCount">
+            <summary>
+                计数
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.Growl._timerClose">
+            <summary>
+                关闭计时器
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.Growl.GrowlPanel">
+            <summary>
+                消息容器
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.StartTimer">
+            <summary>
+                开始计时器
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.SetGrowlPanel(System.Windows.Controls.Panel)">
+            <summary>
+                消息容器
+            </summary>
+            <param name="panel"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Show(HandyControl.Data.GrowlInfo)">
+            <summary>
+                显示信息
+            </summary>
+            <param name="growlInfo"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Success(System.String,System.String)">
+            <summary>
+                成功
+            </summary>
+            <param name="message"></param>
+            <param name="token"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Success(HandyControl.Data.GrowlInfo)">
+            <summary>
+                成功
+            </summary>
+            <param name="growlInfo"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Info(System.String,System.String)">
+            <summary>
+                消息
+            </summary>
+            <param name="message"></param>
+            <param name="token"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Info(HandyControl.Data.GrowlInfo)">
+            <summary>
+                消息
+            </summary>
+            <param name="growlInfo"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Warning(System.String,System.String)">
+            <summary>
+                警告
+            </summary>
+            <param name="message"></param>
+            <param name="token"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Warning(HandyControl.Data.GrowlInfo)">
+            <summary>
+                警告
+            </summary>
+            <param name="growlInfo"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Error(System.String,System.String)">
+            <summary>
+                错误
+            </summary>
+            <param name="message"></param>
+            <param name="token"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Error(HandyControl.Data.GrowlInfo)">
+            <summary>
+                错误
+            </summary>
+            <param name="growlInfo"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Fatal(System.String,System.String)">
+            <summary>
+                严重
+            </summary>
+            <param name="message"></param>
+            <param name="token"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Fatal(HandyControl.Data.GrowlInfo)">
+            <summary>
+                严重
+            </summary>
+            <param name="growlInfo"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Ask(System.String,System.Func{System.Boolean,System.Boolean},System.String)">
+            <summary>
+                询问
+            </summary>
+            <param name="message"></param>
+            <param name="actionBeforeClose"></param>
+            <param name="token"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Ask(HandyControl.Data.GrowlInfo)">
+            <summary>
+                询问
+            </summary>
+            <param name="growlInfo"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Close">
+            <summary>
+                关闭
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Clear(System.String)">
+            <summary>
+                清除
+            </summary>
+            <param name="token"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Growl.Clear(System.Windows.Controls.Panel)">
+            <summary>
+                清除
+            </summary>
+            <param name="panel"></param>
+        </member>
+        <member name="T:HandyControl.Controls.MessageBox">
+            <summary>
+                消息框
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Success(System.String,System.String)">
+            <summary>
+                成功
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Info(System.String,System.String)">
+            <summary>
+                消息
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Warning(System.String,System.String)">
+            <summary>
+                警告
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Error(System.String,System.String)">
+            <summary>
+                错误
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Fatal(System.String,System.String)">
+            <summary>
+                严重
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Ask(System.String,System.String)">
+            <summary>
+                询问
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Show(HandyControl.Data.MessageBoxInfo)">
+            <summary>
+                自定义信息展示
+            </summary>
+            <param name="info"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Show(System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult)">
+            <summary>
+                信息展示
+            </summary>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+            <param name="button"></param>
+            <param name="icon"></param>
+            <param name="defaultResult"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Controls.MessageBox.Show(System.Windows.Window,System.String,System.String,System.Windows.MessageBoxButton,System.Windows.MessageBoxImage,System.Windows.MessageBoxResult)">
+            <summary>
+                信息展示
+            </summary>
+            <param name="owner"></param>
+            <param name="messageBoxText"></param>
+            <param name="caption"></param>
+            <param name="button"></param>
+            <param name="icon"></param>
+            <param name="defaultResult"></param>
+            <returns></returns>
+        </member>
+        <member name="F:HandyControl.Controls.InfoElement.PlaceholderProperty">
+            <summary>
+                占位符
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.InfoElement.NecessaryProperty">
+            <summary>
+                是否必填
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.InfoElement.SymbolProperty">
+            <summary>
+                标记
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.InfoElement.ContentHeightProperty">
+            <summary>
+                内容高度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBoxMonitor.PasswordLengthProperty">
+            <summary>
+                密码长度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBoxMonitor.IsMonitoringProperty">
+            <summary>
+                是否监测
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.StatusSwitchElement.CheckedElementProperty">
+            <summary>
+                选中时展示的元素
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.StatusSwitchElement.HiddenElementProperty">
+            <summary>
+                是否隐藏元素
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TitleElement.TitleAlignmentProperty">
+            <summary>
+                标题对齐方式
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TitleElement.TitleWidthProperty">
+            <summary>
+                标题宽度
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.RegularItemsControl">
+            <summary>
+                规则ItemsControl
+            </summary>
+            <remarks>
+                该类的每一项都具有相同的大小和外边距
+            </remarks>
+        </member>
+        <member name="T:HandyControl.Controls.SimpleItemsControl">
+            <summary>
+                ItemsControl的轻量级版本
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.ContextMenuButton">
+            <summary>
+                带上下文菜单的按钮
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.ContextMenuToggleButton">
+            <summary>
+                带上下文菜单的切换按钮
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.CoverFlow">
+            <summary>
+                封面流
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow.MaxShowCountHalf">
+            <summary>
+                最大显示数量的一半
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow.PageIndexProperty">
+            <summary>
+                页码
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow.LoopProperty">
+            <summary>
+                是否循环
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow._uriList">
+            <summary>
+                存储所有的资源标识符
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow._itemShowList">
+            <summary>
+                当前在显示范围内的项
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow._camera">
+            <summary>
+                相机
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow._viewport3D">
+            <summary>
+                3d画布
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow._visualParent">
+            <summary>
+                项容器
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow._firstShowIndex">
+            <summary>
+                显示范围内第一个项的编号
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow._lastShowIndex">
+            <summary>
+                显示范围内最后一个项的编号
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.CoverFlow._jumpToIndex">
+            <summary>
+                跳转编号
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.CoverFlow.PageIndex">
+            <summary>
+                页码
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.CoverFlow.Loop">
+            <summary>
+                是否循环
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlow.AddRange(System.Collections.Generic.List{System.Uri})">
+            <summary>
+                批量添加资源
+            </summary>
+            <param name="uriList"></param>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlow.Add(System.String)">
+            <summary>
+                添加一项资源
+            </summary>
+            <param name="uriString"></param>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlow.Add(System.Uri)">
+            <summary>
+                添加一项资源
+            </summary>
+            <param name="uri"></param>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlow.JumpTo(System.Int32)">
+            <summary>
+                跳转
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlow.Remove(System.Int32)">
+            <summary>
+                删除指定位置的项
+            </summary>
+            <param name="pos"></param>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlow.Move(System.Int32,System.Boolean)">
+            <summary>
+                移动项到指定的位置
+            </summary>
+            <param name="index"></param>
+            <param name="animated"></param>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlow.UpdateIndex(System.Int32,System.Int32)">
+            <summary>
+                更新项的位置
+            </summary>
+            <param name="newIndex"></param>
+            <param name="oldIndex"></param>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlow.UpdateShowRange">
+            <summary>
+                更新显示范围
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlowItem.CreateMeshGeometry(System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D)">
+            <summary>
+                创建网格形状
+            </summary>
+            <param name="p0"></param>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <param name="p3"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlowItem.CreateItemGeometry">
+            <summary>
+                创建内容形状
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlowItem.Move(System.Int32,System.Boolean)">
+            <summary>
+                移动
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.CoverFlowItem.HitTest(System.Windows.Media.Media3D.MeshGeometry3D)">
+            <summary>
+                命中测试
+            </summary>
+            <param name="mesh"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Controls.CoverView.UpdateCoverViewContent(System.Boolean)">
+            <summary>
+                更新内容视图
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.CoverView.UpdateCoverViewContentPosition">
+            <summary>
+                更新内容视图位置
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.CoverView.GenerateIndex">
+            <summary>
+                生成序号
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer.ScaleInternal">
+            <summary>
+                缩放比间隔
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer.SaveFileDialog">
+            <summary>
+                图片保存对话框
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._borderSmallIsLoaded">
+            <summary>
+                右下角小图片是否加载过
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._canMoveX">
+            <summary>
+                图片是否可以在x轴方向移动
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._canMoveY">
+            <summary>
+                图片是否可以在y轴方向移动
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgActualMargin">
+            <summary>
+                图片实际位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgActualRotate">
+            <summary>
+                图片实际旋转角度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgActualScale">
+            <summary>
+                图片实际旋缩放比
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgCurrentPoint">
+            <summary>
+                在图片上鼠标移动时的即时位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgIsMouseLeftButtonDown">
+            <summary>
+                鼠标是否在图片上按下左键
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgMouseDownMargin">
+            <summary>
+                在图片上按下时图片的位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgMouseDownPoint">
+            <summary>
+                在图片上按下时鼠标的位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgSmallCurrentPoint">
+            <summary>
+                在小图片上鼠标移动时的即时位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgSmallIsMouseLeftButtonDown">
+            <summary>
+                鼠标是否在小图片上按下左键
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgSmallMouseDownMargin">
+            <summary>
+                在小图片上按下时图片的位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgSmallMouseDownPoint">
+            <summary>
+                在小图片上按下时鼠标的位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._imgWidHeiScale">
+            <summary>
+                图片长宽比
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._isLoaded">
+            <summary>
+                是否已经初始化
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._isOblique">
+            <summary>
+                图片是否倾斜
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._scaleInternalHeight">
+            <summary>
+                缩放高度间隔
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._scaleInternalWidth">
+            <summary>
+                缩放宽度间隔
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer._showBorderBottom">
+            <summary>
+                底部BorderBottom（包含一些图片操作）是否显示中
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.#ctor(System.Uri)">
+            <summary>
+                带一个图片Uri的构造函数
+            </summary>
+            <param name="uri"></param>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.#ctor(System.String)">
+            <summary>
+                带一个图片路径的构造函数
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer.ShowFullScreenButtonProperty">
+            <summary>
+                是否显示全屏按钮
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ImageViewer.ShowCloseButtonProperty">
+            <summary>
+                关闭按钮是否显示中
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ImageViewer.ShowFullScreenButton">
+            <summary>
+                是否显示全屏按钮
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ImageViewer.ImageOriWidth">
+            <summary>
+                图片原始宽度
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ImageViewer.ImageOriHeight">
+            <summary>
+                图片原始高度
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ImageViewer.ShowCloseButton">
+            <summary>
+                关闭按钮是否显示中
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ImageViewer.ShowBorderBottom">
+            <summary>
+                底部BorderBottom（包含一些图片操作）是否显示中
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.Init">
+            <summary>
+                初始化
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.BorderSmallShowSwitch">
+            <summary>
+                右下角小图片显示切换
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.InitBorderSmall">
+            <summary>
+                初始化右下角小图片
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.UpdateBorderSmall">
+            <summary>
+                更新右下角小图片
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.ScaleImg(System.Boolean)">
+            <summary>
+                缩放图片
+            </summary>
+            <param name="isEnlarge"></param>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.RotateImg(System.Double)">
+            <summary>
+                旋转图片
+            </summary>
+            <param name="rotate"></param>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.MoveImg">
+            <summary>
+                移动图片
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ImageViewer.MoveSmallImg">
+            <summary>
+                移动小图片
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.ComboBox">
+            <inheritdoc cref="T:HandyControl.Controls.IDataInput" />
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.IsErrorProperty">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.ErrorStrProperty">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.TextTypeProperty">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ComboBox.ShowClearButtonProperty">
+            <summary>
+                是否显示清除按钮
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.DatePicker">
+            <inheritdoc cref="T:HandyControl.Controls.IDataInput" />
+        </member>
+        <member name="T:HandyControl.Controls.DateTimePicker">
+            <summary>
+                时间日期选择器
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.DateTimePicker.SetTextInternal(System.String)">
+            <summary>
+            Sets the local Text property without breaking bindings
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="T:HandyControl.Controls.IDataInput">
+            <summary>
+                表示可以成为一个数据输入控件
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.IDataInput.VerifyData">
+            <summary>
+                验证数据
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.VerifyFunc">
+            <summary>
+                数据验证委托
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.IsError">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.ErrorStr">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.TextType">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.IDataInput.ShowClearButton">
+            <summary>
+                是否显示清除按钮
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.NumericUpDown">
+            <inheritdoc cref="T:HandyControl.Controls.IDataInput" />
+            <summary>
+                数值选择控件
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.ValueChangedEvent">
+            <summary>
+                值改变事件
+            </summary>
+        </member>
+        <member name="E:HandyControl.Controls.NumericUpDown.ValueChanged">
+            <summary>
+                值改变事件
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.ValueProperty">
+            <summary>
+                当前值
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.NumericUpDown.Value">
+            <summary>
+                当前值
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.MaximumProperty">
+            <summary>
+                最大值
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.NumericUpDown.Maximum">
+            <summary>
+                最大值
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.MinimumProperty">
+            <summary>
+                最小值
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.NumericUpDown.Minimum">
+            <summary>
+                最小值
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.IncrementProperty">
+            <summary>
+                指示每单击一下按钮时增加或减少的数量
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.NumericUpDown.Increment">
+            <summary>
+                指示每单击一下按钮时增加或减少的数量
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.DecimalPlacesProperty">
+            <summary>
+                指示要显示的小数位数
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.NumericUpDown.DecimalPlaces">
+            <summary>
+                指示要显示的小数位数
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.ShowUpDownButtonProperty">
+            <summary>
+                是否显示上下调值按钮
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.NumericUpDown.ShowUpDownButton">
+            <summary>
+                是否显示上下调值按钮
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.IsErrorProperty">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.ErrorStrProperty">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.TextTypeProperty">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.NumericUpDown.ShowClearButtonProperty">
+            <summary>
+                是否显示清除按钮
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.PasswordBox">
+            <inheritdoc cref="T:HandyControl.Controls.IDataInput" />
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.PasswordCharProperty">
+            <summary>
+                掩码字符
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.IsErrorProperty">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.ErrorStrProperty">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.TextTypeProperty">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PasswordBox.ShowClearButtonProperty">
+            <summary>
+                是否显示清除按钮
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.SearchBar.IsRealTimeProperty">
+            <summary>
+                是否实时搜索
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.SearchBar.IsRealTime">
+            <summary>
+                是否实时搜索
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.TextBox">
+            <inheritdoc cref="T:HandyControl.Controls.IDataInput" />
+        </member>
+        <member name="F:HandyControl.Controls.TextBox.IsErrorProperty">
+            <summary>
+                数据是否错误
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TextBox.ErrorStrProperty">
+            <summary>
+                错误提示
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TextBox.TextTypeProperty">
+            <summary>
+                文本类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TextBox.ShowClearButtonProperty">
+            <summary>
+                是否显示清除按钮
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.TimePicker">
+            <summary>
+                时间选择器
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.TimePicker.SetTextInternal(System.String)">
+            <summary>
+            Sets the local Text property without breaking bindings
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="F:HandyControl.Controls.AnimationPath._storyboard">
+            <summary>
+                故事版
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.AnimationPath._pathLength">
+            <summary>
+                路径长度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.AnimationPath.DataProperty">
+            <summary>
+                路径
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.AnimationPath.Data">
+            <summary>
+                路径
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.AnimationPath.PathLengthProperty">
+            <summary>
+                路径长度
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.AnimationPath.PathLength">
+            <summary>
+                路径长度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.AnimationPath.DurationProperty">
+            <summary>
+                动画间隔时间
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.AnimationPath.Duration">
+            <summary>
+                动画间隔时间
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.AnimationPath.IsPlaying">
+            <summary>
+                是否正在播放动画
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.AnimationPath.RepeatBehavior">
+            <summary>
+                动画重复行为
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.AnimationPath.CompletedEvent">
+            <summary>
+                动画完成事件
+            </summary>
+        </member>
+        <member name="E:HandyControl.Controls.AnimationPath.Completed">
+            <summary>
+                动画完成事件
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.AnimationPath.UpdatePath">
+            <summary>
+                更新路径
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.Badge">
+            <summary>
+                标记
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.Carousel">
+            <summary>
+                轮播控件
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.Carousel.AutoRun">
+            <summary>
+                是否自动跳转
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.Carousel.Interval">
+            <summary>
+                跳转时间间隔
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.Carousel.PageIndex">
+            <summary>
+                页码
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.Carousel.TimerSwitch(System.Boolean)">
+            <summary>
+                计时器开关
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.Carousel.UpdatePageButtons(System.Int32)">
+            <summary>
+                更新页按钮
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.Carousel.UpdateItemsPosition">
+            <summary>
+                更新项的位置
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.Carousel.CreatePateButton">
+            <summary>
+                创建页按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HandyControl.Controls.ColorPicker">
+            <summary>
+                颜色拾取器
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker._colorType">
+            <summary>
+                当前显示的颜色类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker._isLoaded">
+            <summary>
+                是否已经加载控件
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker._isNeedUpdatePicker">
+            <summary>
+                是否需要更新小球位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker._isOnDragging">
+            <summary>
+                是否在拖动小球
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ColorPicker.IsNeedUpdateInfo">
+            <summary>
+                是否需要更新信息
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker.ColorPanelWidth">
+            <summary>
+                颜色选取面板宽度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker.ColorPanelHeight">
+            <summary>
+                颜色选取面板高度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker._colorPresetList">
+            <summary>
+                预设的颜色（一共18个，两行）
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker._colorRangeList">
+            <summary>
+                颜色范围集合
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker._colorSeparateList">
+            <summary>
+                颜色分隔集合
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker.SelectedColorChangedEvent">
+            <summary>
+                颜色改变事件
+            </summary>
+        </member>
+        <member name="E:HandyControl.Controls.ColorPicker.SelectedColorChanged">
+            <summary>
+                颜色改变事件
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ColorPicker.CanceledEvent">
+            <summary>
+                取消事件
+            </summary>
+        </member>
+        <member name="E:HandyControl.Controls.ColorPicker.Canceled">
+            <summary>
+                取消事件
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ColorPicker.SelectedBrush">
+            <summary>
+                当前选中的颜色
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ColorPicker.ColorType">
+            <summary>
+                当前显示的颜色类型
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ColorPicker.Init">
+            <summary>
+                初始化
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ColorPicker.CreateColorButton(System.String)">
+            <summary>
+                创建颜色按钮
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Controls.ColorPicker.UpdateStatus(System.Windows.Media.Color)">
+            <summary>
+                内部更新
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ColorPicker.UpdateColorWhenDrag(System.Windows.Point)">
+            <summary>
+                拖动时更新颜色
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.Pagination">
+            <summary>
+                页码
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.Pagination.PageUpdatedEvent">
+            <summary>
+                页面更新事件
+            </summary>
+        </member>
+        <member name="E:HandyControl.Controls.Pagination.PageUpdated">
+            <summary>
+                页面更新事件
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.Pagination.MaxPageCountProperty">
+            <summary>
+                最大页数
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.Pagination.MaxPageCount">
+            <summary>
+                最大页数
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.Pagination.DataCountPerPageProperty">
+            <summary>
+                每页的数据量
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.Pagination.DataCountPerPage">
+            <summary>
+                每页的数据量
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.Pagination.PageIndexProperty">
+            <summary>
+                当前页
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.Pagination.PageIndex">
+            <summary>
+                当前页
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.Pagination.MaxPageIntervalProperty">
+            <summary>
+                表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
+            </summary>       
+        </member>
+        <member name="P:HandyControl.Controls.Pagination.MaxPageInterval">
+            <summary>
+                表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
+            </summary>   
+        </member>
+        <member name="M:HandyControl.Controls.Pagination.Update">
+            <summary>
+                更新
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ScrollViewer.OrientationProperty">
+            <summary>
+                滚动方向
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ScrollViewer.Orientation">
+            <summary>
+                滚动方向
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ScrollViewer.CanMouseWheelProperty">
+            <summary>
+                是否响应鼠标滚轮操作
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ScrollViewer.CanMouseWheel">
+            <summary>
+                是否响应鼠标滚轮操作
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ScrollViewer.IsEnableInertiaProperty">
+            <summary>
+                是否支持惯性
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ScrollViewer.IsEnableInertia">
+            <summary>
+                是否支持惯性
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ScrollViewer.IsPenetratingProperty">
+            <summary>
+                控件是否可以穿透点击
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ScrollViewer.IsPenetrating">
+            <summary>
+                控件是否可以穿透点击
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ScrollViewer.CurrentVerticalOffsetProperty">
+            <summary>
+                当前垂直滚动偏移
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ScrollViewer.CurrentVerticalOffset">
+            <summary>
+                当前垂直滚动偏移
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.ScrollViewer.CurrentHorizontalOffsetProperty">
+            <summary>
+                当前水平滚动偏移
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.ScrollViewer.CurrentHorizontalOffset">
+            <summary>
+                当前水平滚动偏移
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.SimplePanel">
+            <summary>
+                用以代替Grid
+            </summary>
+            <remarks>
+                当不需要Grid的行、列分隔等功能时建议用此轻量级类代替
+            </remarks>
+        </member>
+        <member name="T:HandyControl.Controls.WaveProgressBar">
+            <summary>
+                波浪进度条
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PreviewSlider.PreviewContentProperty">
+            <summary>
+                预览内容
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.PreviewSlider.PreviewContent">
+            <summary>
+                预览内容
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.PreviewSlider.PreviewPositionChangedEvent">
+            <summary>
+                值改变事件
+            </summary>
+        </member>
+        <member name="E:HandyControl.Controls.PreviewSlider.PreviewPositionChanged">
+            <summary>
+                值改变事件
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.StepBar.StepChangedEvent">
+            <summary>
+                步骤改变事件
+            </summary>
+        </member>
+        <member name="E:HandyControl.Controls.StepBar.StepChanged">
+            <summary>
+                步骤改变事件
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.StepBarItem">
+            <summary>
+                步骤条单元项
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.StepBarItem.IndexProperty">
+            <summary>
+                步骤编号
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.StepBarItem.Index">
+            <summary>
+                步骤编号
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.StepBarItem.StatusProperty">
+            <summary>
+                步骤状态
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.StepBarItem.Status">
+            <summary>
+                步骤状态
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabControl.IsInternalAction">
+            <summary>
+                是否为内部操作
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabControl.IsEnableAnimationProperty">
+            <summary>
+                是否启用动画
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabControl.IsEnableAnimation">
+            <summary>
+                是否启用动画
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabControl.IsDraggableProperty">
+            <summary>
+                是否可以拖动
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabControl.IsDraggable">
+            <summary>
+                是否可以拖动
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabControl.ShowCloseButtonProperty">
+            <summary>
+                是否显示关闭按钮
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabControl.ShowCloseButton">
+            <summary>
+                是否显示关闭按钮
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabControl.IsEnableTabFillProperty">
+            <summary>
+                是否将标签填充
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabControl.IsEnableTabFill">
+            <summary>
+                是否将标签填充
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabControl.TabItemWidthProperty">
+            <summary>
+                标签宽度
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabControl.TabItemWidth">
+            <summary>
+                标签宽度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabControl.TabItemHeightProperty">
+            <summary>
+                标签高度
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabControl.TabItemHeight">
+            <summary>
+                标签高度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabControl._itemShowCount">
+            <summary>
+                可见的标签数量
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem.AnimationSpeed">
+            <summary>
+                动画速度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem.ItemIsDragging">
+            <summary>
+                选项卡是否处于拖动状态
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._isWaiting">
+            <summary>
+                选项卡是否等待被拖动
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._dragPoint">
+            <summary>
+                拖动中的选项卡坐标
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._mouseDownIndex">
+            <summary>
+                鼠标按下时选项卡位置
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._mouseDownOffsetX">
+            <summary>
+                鼠标按下时选项卡横向偏移
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._mouseDownPoint">
+            <summary>
+                鼠标按下时的坐标
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._maxMoveRight">
+            <summary>
+                右侧可移动的最大值
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._maxMoveLeft">
+            <summary>
+                左侧可移动的最大值
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabItem.ItemWidth">
+            <summary>
+                选项卡宽度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem.WaitLength">
+            <summary>
+                选项卡拖动等待距离（在鼠标移动了超过20个像素无关单位后，选项卡才开始被拖动）
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._isDragging">
+            <summary>
+                选项卡是否处于拖动状态
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._isDragged">
+            <summary>
+                选项卡是否已经被拖动
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabItem.TargetOffsetX">
+            <summary>
+                目标横向位移
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabItem._currentIndex">
+            <summary>
+                当前编号
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabItem.TabPanel">
+            <summary>
+                标签容器
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabItem.CurrentIndex">
+            <summary>
+                当前编号
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.TabItem.UpdateItemOffsetX(System.Int32)">
+            <summary>
+                更新选项卡横向偏移
+            </summary>
+            <param name="oldIndex"></param>
+        </member>
+        <member name="M:HandyControl.Controls.TabItem.Close(System.Object,System.Windows.RoutedEventArgs)">
+            <summary>
+                关闭
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.TabItem.CreateAnimation(System.Double,System.Double,System.Int32)">
+            <summary>
+                创建动画
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.TabItem.CalLocationIndex(System.Double)">
+            <summary>
+                计算选项卡当前合适的位置编号
+            </summary>
+            <param name="left"></param>
+            <returns></returns>
+        </member>
+        <member name="F:HandyControl.Controls.TabPanel.CanUpdate">
+            <summary>
+                是否可以更新
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabPanel.ItemDic">
+            <summary>
+                选项卡字典
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabPanel.FluidMoveDurationProperty">
+            <summary>
+                流式行为持续时间
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabPanel.FluidMoveDuration">
+            <summary>
+                流式行为持续时间
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabPanel.IsEnableTabFillProperty">
+            <summary>
+                是否将标签填充
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabPanel.IsEnableTabFill">
+            <summary>
+                是否将标签填充
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabPanel.TabItemWidthProperty">
+            <summary>
+                标签宽度
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabPanel.TabItemWidth">
+            <summary>
+                标签宽度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabPanel.TabItemHeightProperty">
+            <summary>
+                标签高度
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TabPanel.TabItemHeight">
+            <summary>
+                标签高度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabPanel.ForceUpdate">
+            <summary>
+                是否可以强制更新
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TabPanel._isLoaded">
+            <summary>
+                是否已经加载
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.Clock.Update(System.DateTime)">
+            <summary>
+                更新
+            </summary>
+            <param name="time"></param>
+        </member>
+        <member name="M:HandyControl.Controls.Clock.GetDisplayTime">
+            <summary>
+                获取显示时间
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HandyControl.Controls.SpeTextBlock">
+            <summary>
+                作为刻度使用的文字块
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.SpeTextBlock._time">
+            <summary>
+                时间
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.SpeTextBlock.Time">
+            <summary>
+                时间
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.SpeTextBlock.TimeFormat">
+            <summary>
+                时间格式
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.SpeTextBlock.MoveX(System.Double)">
+            <summary>
+                横向移动
+            </summary>
+            <param name="offsetX"></param>
+        </member>
+        <member name="T:HandyControl.Controls.TimeBar">
+            <summary>
+                时间条
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar.ShowSpeStrProperty">
+            <summary>
+                是否显示刻度字符串
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar.SpeStrProperty">
+            <summary>
+                刻度字符串
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar.SelectedTimeProperty">
+            <summary>
+                选中时间
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar.TimeChangedEvent">
+            <summary>
+                时间改变事件
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._speBlockList">
+            <summary>
+                刻度集合
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._starTime">
+            <summary>
+                初始化时时间
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._timeSpeList">
+            <summary>
+                时间段集合
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._borderTopIsMouseLeftButtonDown">
+            <summary>
+                顶部border是否被按下
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._isDragging">
+            <summary>
+                控件是否处于拖动中
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._itemWidth">
+            <summary>
+                刻度单项宽度
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._mouseDownTime">
+            <summary>
+                鼠标按下拖动时选中的时间
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._speCount">
+            <summary>
+                显示的刻度数目
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._speIndex">
+            <summary>
+                刻度区间编号
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._tempOffsetX">
+            <summary>
+                刻度单次偏移
+            </summary>
+        </member>
+        <member name="F:HandyControl.Controls.TimeBar._totalOffsetX">
+            <summary>
+                刻度总偏移
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TimeBar.ShowSpeStr">
+            <summary>
+                是否显示刻度字符串
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TimeBar.SpeStr">
+            <summary>
+                刻度字符串
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TimeBar.SelectedTime">
+            <summary>
+                选中时间
+            </summary>
+        </member>
+        <member name="P:HandyControl.Controls.TimeBar.SpeIndex">
+            <summary>
+                刻度区间编号
+            </summary>
+        </member>
+        <member name="E:HandyControl.Controls.TimeBar.TimeChanged">
+            <summary>
+                时间改变事件
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.TimeBar.SetSpeTimeFormat(System.String)">
+            <summary>
+                设置刻度时间格式
+            </summary>
+            <param name="format"></param>
+        </member>
+        <member name="M:HandyControl.Controls.TimeBar.SetShowTime(System.DateTime)">
+            <summary>
+                设置显示的时间
+            </summary>
+            <param name="time"></param>
+        </member>
+        <member name="M:HandyControl.Controls.TimeBar.Update">
+            <summary>
+                更新
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.TimeBar.TimeConvert(System.DateTime)">
+            <summary>
+                时间转换
+            </summary>
+            <param name="time"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Controls.TimeBar.OnMouseWheel(System.Windows.Input.MouseWheelEventArgs)">
+            <summary>
+                鼠标滚轮滚动时改变刻度区间
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="T:HandyControl.Controls.Transfer">
+            <summary>
+                穿梭框
+            </summary>
+        </member>
+        <member name="T:HandyControl.Controls.ImageBrowser">
+            <summary>
+                图片浏览器
+            </summary>
+        </member>
+        <member name="M:HandyControl.Controls.ImageBrowser.#ctor(System.Uri)">
+            <summary>
+                带一个图片Uri的构造函数
+            </summary>
+            <param name="uri"></param>
+        </member>
+        <member name="M:HandyControl.Controls.ImageBrowser.#ctor(System.String)">
+            <summary>
+                带一个图片路径的构造函数
+            </summary>
+            <param name="path"></param>
+        </member>
+        <member name="T:HandyControl.Controls.PopupWindow">
+            <summary>
+                弹出窗口
+            </summary>
+        </member>
+        <member name="T:HandyControl.Data.ColorRange">
+            <summary>
+                颜色范围
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.ColorRange._color1">
+            <summary>
+                颜色1
+            </summary>
+        </member>
+        <member name="P:HandyControl.Data.ColorRange.Color1">
+            <summary>
+                颜色1
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.ColorRange._color2">
+            <summary>
+                颜色2
+            </summary>
+        </member>
+        <member name="P:HandyControl.Data.ColorRange.Color2">
+            <summary>
+                颜色2
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.ColorRange._subColorArr">
+            <summary>
+                颜色差值
+            </summary>
+        </member>
+        <member name="M:HandyControl.Data.ColorRange.Update">
+            <summary>
+                更新
+            </summary>
+        </member>
+        <member name="M:HandyControl.Data.ColorRange.GetColor(System.Double)">
+            <summary>
+                获取指定比例处的颜色
+            </summary>
+            <param name="range">范围（0-1）</param>
+            <returns></returns>
+        </member>
+        <member name="T:HandyControl.Data.IpType">
+            <summary>
+            IP类型枚举
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.IpType.A">
+            <summary>
+            A类IP地址
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.IpType.B">
+            <summary>
+            B类IP地址
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.IpType.C">
+            <summary>
+            C类IP地址
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.IpType.D">
+            <summary>
+            D类IP地址
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.IpType.E">
+            <summary>
+            E类IP地址
+            </summary>
+        </member>
+        <member name="T:HandyControl.Data.ResultType">
+            <summary>
+                表示一个操作的返回结果类型
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.ResultType.Success">
+            <summary>
+                成功
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.ResultType.Failed">
+            <summary>
+                失败
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.ResultType.None">
+            <summary>
+                无数据
+            </summary>
+        </member>
+        <member name="T:HandyControl.Data.StepStatus">
+            <summary>
+                步骤状态
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.StepStatus.Complete">
+            <summary>
+                完成
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.StepStatus.UnderWay">
+            <summary>
+                进行中
+            </summary>
+        </member>
+        <member name="F:HandyControl.Data.StepStatus.Waiting">
+            <summary>
+                等待中
+            </summary>
+        </member>
+        <member name="T:HandyControl.Data.TextType">
+            <summary>
+                文本类型枚举
+            </summary>
+        </member>
+        <member name="T:HandyControl.Data.TitleAlignment">
+            <summary>
+                标题对齐方式
+            </summary>
+        </member>
+        <member name="T:HandyControl.Data.OperationResult`1">
+            <summary>
+                表示一个操作的返回结果信息
+            </summary>
+        </member>
+        <member name="P:HandyControl.Data.OperationResult`1.ResultType">
+            <summary>
+                操作结果
+            </summary>
+        </member>
+        <member name="P:HandyControl.Data.OperationResult`1.Data">
+            <summary>
+                返回数据
+            </summary>
+        </member>
+        <member name="P:HandyControl.Data.OperationResult`1.Message">
+            <summary>
+                操作消息（包含错误原因等数据）
+            </summary>
+        </member>
+        <member name="T:HandyControl.Data.ValueBoxes">
+            <summary>
+                装箱后的值类型（用于提高效率）
+            </summary>
+        </member>
+        <member name="T:HandyControl.Interactivity.ControlCommands">
+            <summary>
+                控件库使用的所有命令（为了统一，不使用wpf自带的命令）
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Search">
+            <summary>
+                搜索
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Clear">
+            <summary>
+                清除
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Switch">
+            <summary>
+                切换
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.RotateRight">
+            <summary>
+                右转
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.RotateLeft">
+            <summary>
+                左转
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Reduce">
+            <summary>
+                小
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Enlarge">
+            <summary>
+                大
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Restore">
+            <summary>
+                还原
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Open">
+            <summary>
+                打开
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Save">
+            <summary>
+                保存
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Selected">
+            <summary>
+                选中
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Close">
+            <summary>
+                关闭
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Cancel">
+            <summary>
+                取消
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Confirm">
+            <summary>
+                确定
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Yes">
+            <summary>
+                是
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.No">
+            <summary>
+                否
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.CloseAll">
+            <summary>
+                关闭所有
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.CloseOther">
+            <summary>
+                关闭其他
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Prev">
+            <summary>
+                上一个
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Next">
+            <summary>
+                下一个
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Am">
+            <summary>
+                上午
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Pm">
+            <summary>
+                下午
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.Sure">
+            <summary>
+                确认
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.HourChange">
+            <summary>
+                小时改变
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.MinuteChange">
+            <summary>
+                分钟改变
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.SecondChange">
+            <summary>
+                秒改变
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.MouseMove">
+            <summary>
+                鼠标移动
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.OpenLink">
+            <summary>
+                打开链接
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.ShutdownApp">
+            <summary>
+                关闭程序
+            </summary>
+        </member>
+        <member name="P:HandyControl.Interactivity.ControlCommands.PushMainWindow2Top">
+            <summary>
+                前置主窗口
+            </summary>
+        </member>
+        <member name="T:HandyControl.Properties.Langs.Lang">
+            <summary>
+              一个强类型的资源类，用于查找本地化的字符串等。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.ResourceManager">
+            <summary>
+              返回此类使用的缓存的 ResourceManager 实例。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Culture">
+            <summary>
+              重写当前线程的 CurrentUICulture 属性
+              重写当前线程的 CurrentUICulture 属性。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Am">
+            <summary>
+              查找类似 上午 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Cancel">
+            <summary>
+              查找类似 取消 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.CannotRegisterCompositeCommandInItself">
+            <summary>
+              查找类似 无法自注册复合命令 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.CannotRegisterSameCommandTwice">
+            <summary>
+              查找类似 不能注册同一命令两次 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Clear">
+            <summary>
+              查找类似 清空 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Close">
+            <summary>
+              查找类似 关闭 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.CloseAll">
+            <summary>
+              查找类似 关闭所有 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.CloseOther">
+            <summary>
+              查找类似 关闭其他 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Confirm">
+            <summary>
+              查找类似 确定 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.ErrorImgPath">
+            <summary>
+              查找类似 错误的图片路径！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.ErrorImgSize">
+            <summary>
+              查找类似 非法的图片尺寸！ 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.FormatError">
+            <summary>
+              查找类似 格式错误 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Interval10m">
+            <summary>
+              查找类似 间隔10分钟 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Interval1h">
+            <summary>
+              查找类似 间隔1小时 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Interval1m">
+            <summary>
+              查找类似 间隔1分钟 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Interval2h">
+            <summary>
+              查找类似 间隔2小时 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Interval30m">
+            <summary>
+              查找类似 间隔30分钟 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Interval30s">
+            <summary>
+              查找类似 间隔30秒 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Interval5m">
+            <summary>
+              查找类似 间隔5分钟 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.IsNecessary">
+            <summary>
+              查找类似 不能为空 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.No">
+            <summary>
+              查找类似 否 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.OutOfRange">
+            <summary>
+              查找类似 不在范围内 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Pm">
+            <summary>
+              查找类似 下午 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.PngImg">
+            <summary>
+              查找类似 PNG图片 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Tip">
+            <summary>
+              查找类似 提示 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.TooLarge">
+            <summary>
+              查找类似 过大 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Unknown">
+            <summary>
+              查找类似 未知 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.UnknownSize">
+            <summary>
+              查找类似 未知大小 的本地化字符串。
+            </summary>
+        </member>
+        <member name="P:HandyControl.Properties.Langs.Lang.Yes">
+            <summary>
+              查找类似 是 的本地化字符串。
+            </summary>
+        </member>
+        <member name="T:HandyControl.Tools.Extension.ColorExtension">
+            <summary>
+                颜色扩展类
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.Extension.ColorExtension.ToInt32(System.Windows.Media.Color)">
+            <summary>
+                将颜色转换为10进制表示（rgb顺序颠倒）
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.Extension.ColorExtension.ToInt32Reverse(System.Windows.Media.Color)">
+            <summary>
+                将颜色转换为10进制表示（rgb顺序颠倒）
+            </summary>
+            <param name="color"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.Extension.GeometryExtension.GetTotalLength(System.Windows.Media.Geometry)">
+            <summary>
+                获取路径总长度
+            </summary>
+            <param name="geometry"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.Extension.GeometryExtension.GetTotalLength(System.Windows.Media.Geometry,System.Windows.Size,System.Double)">
+            <summary>
+                获取路径总长度
+            </summary>
+            <param name="geometry"></param>
+            <param name="size"></param>
+            <param name="strokeThickness"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.Extension.UIElementExtension.Show(System.Windows.UIElement)">
+            <summary>
+                显示元素
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:HandyControl.Tools.Extension.UIElementExtension.Show(System.Windows.UIElement,System.Boolean)">
+            <summary>
+                显示元素
+            </summary>
+            <param name="element"></param>
+            <param name="show"></param>
+        </member>
+        <member name="M:HandyControl.Tools.Extension.UIElementExtension.Hide(System.Windows.UIElement)">
+            <summary>
+                不现实元素，但保留空间
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="M:HandyControl.Tools.Extension.UIElementExtension.Collapse(System.Windows.UIElement)">
+            <summary>
+                不显示元素，且不保留空间
+            </summary>
+            <param name="element"></param>
+        </member>
+        <member name="T:HandyControl.Tools.AnimationHelper">
+            <summary>
+                包含一些常用的动画辅助方法
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.AnimationHelper.CreateAnimation(System.Windows.Thickness,System.Double)">
+            <summary>
+                创建一个Thickness动画
+            </summary>
+            <param name="thickness"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.AnimationHelper.CreateAnimation(System.Double,System.Double)">
+            <summary>
+                创建一个Double动画
+            </summary>
+            <param name="toValue"></param>
+            <param name="milliseconds"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HandyControl.Tools.ArithmeticHelper">
+            <summary>
+                包含内部使用的一些简单算法
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.ArithmeticHelper.DivideInt2Arr(System.Int32,System.Int32)">
+            <summary>
+                平分一个整数到一个数组中
+            </summary>
+            <param name="num"></param>
+            <param name="count"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ArithmeticHelper.CalSafePoint(System.Windows.FrameworkElement,System.Windows.FrameworkElement,System.Windows.Thickness)">
+            <summary>
+                计算控件在窗口中的可见坐标
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.ArithmeticHelper.GetLayoutRect(System.Windows.FrameworkElement)">
+            <summary>
+                获取布局范围框
+            </summary>
+            <param name="element"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ArithmeticHelper.CalAngle(System.Windows.Point,System.Windows.Point)">
+            <summary>
+                计算两点的连线和x轴的夹角
+            </summary>
+            <param name="center"></param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ArithmeticHelper.IsValidDoubleValue(System.Object)">
+            <summary>
+                判断是否是有效的双精度浮点数
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ArithmeticHelper.CalNormal(System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D,System.Windows.Media.Media3D.Point3D)">
+            <summary>
+                计算法线
+            </summary>
+            <param name="p0"></param>
+            <param name="p1"></param>
+            <param name="p2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HandyControl.Tools.ResourceHelper">
+            <summary>
+                资源帮助类
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.ResourceHelper.GetString(System.String)">
+            <summary>
+                获取字符串
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ResourceHelper.GetString(System.String,System.String[])">
+            <summary>
+                获取字符串
+            </summary>
+            <param name="separator"></param>
+            <param name="keyArr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ResourceHelper.GetStringList(System.String[])">
+            <summary>
+                获取字符串
+            </summary>
+            <param name="keyArr"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ResourceHelper.GetResource``1(System.String)">
+            <summary>
+                获取资源
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ResourceHelper.GetSkin(HandyControl.Data.SkinType)">
+            <summary>
+                获取HandyControl皮肤
+            </summary>
+            <param name="skin"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ResourceHelper.GetSkin(System.Reflection.Assembly,System.String,HandyControl.Data.SkinType)">
+            <summary>
+                获取皮肤
+            </summary>
+            <param name="assembly"></param>
+            <param name="themePath"></param>
+            <param name="skin"></param>
+            <returns></returns>
+        </member>
+        <member name="T:HandyControl.Tools.SingleOpenHelper">
+            <summary>
+                该类可以为可视化元素提供单开的功能
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.SingleOpenHelper.CreateControl``1">
+            <summary>
+                根据指定的类型创建实例
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:HandyControl.Tools.ValidateHelper">
+            <summary>
+                验证帮助类
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.ValidateHelper.IsInRangeOfDouble(System.Object)">
+            <summary>
+                是否在浮点数范围内
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ValidateHelper.IsInRangeOfPosDouble(System.Object,System.Boolean)">
+            <summary>
+                是否在正浮点数范围内
+            </summary>
+            <param name="value"></param>
+            <param name="includeZero"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.ValidateHelper.IsInRangeOfNegDouble(System.Object,System.Boolean)">
+            <summary>
+                是否在正浮点数范围内
+            </summary>
+            <param name="value"></param>
+            <param name="includeZero"></param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.VisualHelper.GetActiveWindow">
+            <summary>
+                获取当前应用中处于激活的一个窗口
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:HandyControl.Tools.MouseDragElementBehaviorEx">
+            <summary>
+                鼠标拖动行为，该类是反编译微软的System.Windows.Interactivity程序集得到的，并对其做了些扩展
+            </summary>
+        </member>
+        <member name="P:HandyControl.Tools.MouseDragElementBehaviorEx.LockY">
+            <summary>
+                是否固定住Y轴
+            </summary>
+        </member>
+        <member name="P:HandyControl.Tools.MouseDragElementBehaviorEx.LockX">
+            <summary>
+                是否固定住X轴
+            </summary>
+        </member>
+        <member name="T:HandyControl.Tools.RegularJudgment">
+            <summary>
+                包含一些正则验证操作
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.RegularJudgment.IsKindOf(System.String,System.String)">
+            <summary>
+                判断字符串格式是否符合某种要求
+            </summary>
+            <param name="str">需要判断的字符串</param>
+            <param name="pattern">正则表达式</param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.RegularJudgment.IsKindOf(System.String,HandyControl.Data.TextType)">
+            <summary>
+                判断字符串是否满足指定的格式
+            </summary>
+            <param name="text">需要判断的字符串</param>
+            <param name="textType">指定格式的文本</param>
+            <returns></returns>
+        </member>
+        <member name="M:HandyControl.Tools.RegularJudgment.IsEmail(System.String)">
+            <summary>
+                判断字符串格式是否为电子邮件
+            </summary>
+            <param name="email">需要判断的Email字符串</param>
+            <returns>方法返回布尔值</returns>
+        </member>
+        <member name="M:HandyControl.Tools.RegularJudgment.IsIp(System.String,HandyControl.Data.IpType)">
+            <summary>
+                判断字符串格式是否为指定类型的IP地址
+            </summary>
+            <param name="ip">需要判断的IP字符串</param>
+            <param name="ipType">指定的IP类型</param>
+            <returns>方法返回布尔值</returns>
+        </member>
+        <member name="M:HandyControl.Tools.RegularJudgment.IsIp(System.String)">
+            <summary>
+                判断字符串格式是否为IP地址
+            </summary>
+            <param name="ip">需要判断的IP字符串</param>
+            <returns>方法返回布尔值</returns>
+        </member>
+        <member name="M:HandyControl.Tools.RegularJudgment.IsChinese(System.String)">
+            <summary>
+                判断字符串格式是否为单个汉字
+            </summary>
+            <param name="str">需要判断的单个汉字字符串</param>
+            <returns>方法返回布尔值</returns>
+        </member>
+        <member name="M:HandyControl.Tools.RegularJudgment.IsUrl(System.String)">
+            <summary>
+                判断字符串格式是否为url
+            </summary>
+            <param name="str">需要判断的url字符串</param>
+            <returns>方法返回布尔值</returns>
+        </member>
+        <member name="T:HandyControl.Tools.RegularPatterns">
+            <summary>
+                包含一些正则验证所需要的字符串
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.MailPattern">
+            <summary>
+                邮件正则匹配表达式
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.PhonePattern">
+            <summary>
+                手机号正则匹配表达式
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.IpPattern">
+            <summary>
+                IP正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.IpAPattern">
+            <summary>
+                A类IP正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.IpBPattern">
+            <summary>
+                B类IP正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.IpCPattern">
+            <summary>
+                C类IP正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.IpDPattern">
+            <summary>
+                D类IP正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.IpEPattern">
+            <summary>
+                E类IP正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.ChinesePattern">
+            <summary>
+                汉字正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.UrlPattern">
+            <summary>
+                Url正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.NumberPattern">
+            <summary>
+                数字正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.DigitsPattern">
+            <summary>
+                计算性质数字正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.PIntPattern">
+            <summary>
+                正整数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.NIntPattern">
+            <summary>
+                负整数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.IntPattern">
+            <summary>
+                整数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.NnIntPattern">
+            <summary>
+                非负整数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.NpIntPattern">
+            <summary>
+                非正整数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.PDoublePattern">
+            <summary>
+                正浮点数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.NDoublePattern">
+            <summary>
+                负浮点数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.DoublePattern">
+            <summary>
+                浮点数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.NnDoublePattern">
+            <summary>
+                非负浮点数正则匹配
+            </summary>
+        </member>
+        <member name="F:HandyControl.Tools.RegularPatterns.NpDoublePattern">
+            <summary>
+                非正浮点数正则匹配
+            </summary>
+        </member>
+        <member name="M:HandyControl.Tools.RegularPatterns.GetValue(System.String)">
+            <summary>
+                根据属性名称使用反射来获取值
+            </summary>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
+            </summary>
+        </member>
+    </members>
+</doc>
