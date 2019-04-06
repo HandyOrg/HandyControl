@@ -12,10 +12,8 @@
 ## 面向中国
 
 ### 中文文档（刚开始写）
-先给几个写好的：  
-[Growl](https://handyorg.github.io/handycontrol/control/growl/)  
-[GrowlInfo](https://handyorg.github.io/handycontrol/data/GrowlInfo/)  
-[InfoType](https://handyorg.github.io/handycontrol/data/InfoType/)
+
+[https://handyorg.github.io/handycontrol/](https://handyorg.github.io/handycontrol/)
 
 ### 捐赠
 如果您觉得HandyControl还不错，并且刚好有些闲钱，那么可以选择以下两种方式来捐赠：

@@ -208,7 +208,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Int2StrConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Long2FileSizeConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Object2BooleanConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Source2ImageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\TreeViewItemMarginConverter.cs" />

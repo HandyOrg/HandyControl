@@ -6,7 +6,6 @@
     <converter:Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter"/>
     <converter:BooleanArr2VisibilityConverter x:Key="BooleanArr2VisibilityConverter"/>
     <converter:Long2FileSizeConverter x:Key="Long2FileSizeConverter"/>
-    <converter:Source2ImageConverter x:Key="Source2ImageConverter"/>
     <converter:String2VisibilityConverter x:Key="String2VisibilityConverter"/>
     <converter:String2VisibilityReConverter x:Key="String2VisibilityReConverter"/>
     <BooleanToVisibilityConverter x:Key="Boolean2VisibilityConverter"/>
