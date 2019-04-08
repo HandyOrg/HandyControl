@@ -331,7 +331,9 @@ namespace HandyControl.Controls
                     {
                         Placement = PlacementMode.Mouse,
                         AllowsTransparency = true,
-                        StaysOpen = false
+                        StaysOpen = false,
+                        UseLayoutRounding = true,
+                        SnapsToDevicePixels = true
                     };
                 }
 
