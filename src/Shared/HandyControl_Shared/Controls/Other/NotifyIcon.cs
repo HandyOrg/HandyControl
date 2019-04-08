@@ -322,8 +322,6 @@ namespace HandyControl.Controls
 
         private void ShowContextMenu()
         {
-            var point = new POINT();
-            UnsafeNativeMethods.GetCursorPos(point);
 
             if (ContextContent != null)
             {
@@ -331,14 +329,12 @@ namespace HandyControl.Controls
                 {
                     _contextContent = new Popup
                     {
-                        Placement = PlacementMode.AbsolutePoint,
+                        Placement = PlacementMode.Mouse,
                         AllowsTransparency = true,
                         StaysOpen = false
                     };
                 }
 
-                _contextContent.HorizontalOffset = point.x;
-                _contextContent.VerticalOffset = point.y;
                 _contextContent.Child = new ContentControl
                 {
                     Content = ContextContent
@@ -354,9 +350,7 @@ namespace HandyControl.Controls
             }
             else if (ContextMenu != null)
             {
-                ContextMenu.Placement = PlacementMode.AbsolutePoint;
-                ContextMenu.HorizontalOffset = point.x;
-                ContextMenu.VerticalOffset = point.y;
+                ContextMenu.Placement = PlacementMode.Mouse;
                 ContextMenu.IsOpen = true;
 
                 var handle = IntPtr.Zero;
