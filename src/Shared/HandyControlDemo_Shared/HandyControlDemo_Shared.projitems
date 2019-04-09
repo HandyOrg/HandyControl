@@ -273,8 +273,23 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemoCtl.xaml.cs">
       <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\ChatBoxViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\InteractiveDialogViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Common\ComboBoxDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\BadgeDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\CoverViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\DialogDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\GrowlDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\ImageBrowserDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\NotifyIconDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\PaginationDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SearchBarDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\StepBarDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\WindowDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\DemoViewModelBase!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Main\ContributorsViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Main\MainViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\ViewModelLocator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Window\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>

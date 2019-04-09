@@ -71,10 +71,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls\Other\Growl.cs" />
-    <Compile Include="Controls\Window\MessageBox.cs" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="Microsoft.Windows.Shell">
       <Version>3.0.1</Version>
     </PackageReference>

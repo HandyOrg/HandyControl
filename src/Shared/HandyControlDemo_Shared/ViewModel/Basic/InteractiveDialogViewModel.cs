@@ -1,6 +1,10 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.CommandWpf;
+#if netle40
+using GalaSoft.MvvmLight.Command;
+#else
+using GalaSoft.MvvmLight.CommandWpf;       
+#endif
 using HandyControl.Tools.Extension;
 
 namespace HandyControlDemo.ViewModel.Basic
@@ -14,7 +18,11 @@ namespace HandyControlDemo.ViewModel.Basic
         public string Result
         {
             get => _result;
-            set => Set(ref _result, value);
+#if netle40
+            set => Set(nameof(Result), ref _result, value);
+#else
+            set => Set(ref _result, value);  
+#endif
         }
 
         private string _message;
@@ -22,7 +30,11 @@ namespace HandyControlDemo.ViewModel.Basic
         public string Message
         {
             get => _message;
+#if netle40
+            set => Set(nameof(Message), ref _message, value);
+#else
             set => Set(ref _message, value);
+#endif
         }
 
         public RelayCommand CloseCmd => new Lazy<RelayCommand>(() => new RelayCommand(() => CloseAction?.Invoke())).Value;

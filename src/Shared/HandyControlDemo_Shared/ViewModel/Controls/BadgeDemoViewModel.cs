@@ -1,6 +1,10 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
+#if netle40
+using GalaSoft.MvvmLight.Command;
+#else
 using GalaSoft.MvvmLight.CommandWpf;
+#endif
 
 namespace HandyControlDemo.ViewModel.Controls
 {
@@ -11,7 +15,11 @@ namespace HandyControlDemo.ViewModel.Controls
         public int Count
         {
             get => _count;
+#if netle40
+            set => Set(nameof(Count), ref _count, value);
+#else
             set => Set(ref _count, value);
+#endif
         }
 
         public RelayCommand CountCmd => new Lazy<RelayCommand>(() =>

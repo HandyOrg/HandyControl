@@ -1,6 +1,10 @@
 ﻿using System;
 using System.Windows.Controls;
+#if netle40
+using GalaSoft.MvvmLight.Command;
+#else
 using GalaSoft.MvvmLight.CommandWpf;
+#endif
 using GalaSoft.MvvmLight.Messaging;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
@@ -10,7 +14,7 @@ namespace HandyControlDemo.ViewModel
 {
     public class MainViewModel : DemoViewModelBase<DemoDataModel>
     {
-        #region 字段
+#region 字段
 
         /// <summary>
         ///     内容标题
@@ -27,7 +31,7 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private ListBoxItem _listBoxItemCurrent;
 
-        #endregion
+#endregion
 
         public MainViewModel(DataService dataService)
         {
@@ -48,7 +52,7 @@ namespace HandyControlDemo.ViewModel
             DataList = dataService.GetDemoDataList();
         }
 
-        #region 属性
+#region 属性
 
         /// <summary>
         ///     子内容
@@ -56,7 +60,11 @@ namespace HandyControlDemo.ViewModel
         public object SubContent
         {
             get => _subContent;
+#if netle40
+            set => Set(nameof(SubContent), ref _subContent, value);
+#else
             set => Set(ref _subContent, value);
+#endif
         }
 
         /// <summary>
@@ -65,7 +73,11 @@ namespace HandyControlDemo.ViewModel
         public object ContentTitle
         {
             get => _contentTitle;
+#if netle40
+            set => Set(nameof(ContentTitle), ref _contentTitle, value);
+#else
             set => Set(ref _contentTitle, value);
+#endif
         }
 
         #endregion
@@ -79,9 +91,9 @@ namespace HandyControlDemo.ViewModel
             new Lazy<RelayCommand<SelectionChangedEventArgs>>(() =>
                 new RelayCommand<SelectionChangedEventArgs>(SwitchDemo)).Value;
 
-        #endregion
+#endregion
 
-        #region 方法
+#region 方法
 
         /// <summary>
         ///     切换例子
@@ -108,6 +120,6 @@ namespace HandyControlDemo.ViewModel
             }
         }
 
-        #endregion
+#endregion
     }
 }

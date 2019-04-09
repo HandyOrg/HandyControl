@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Linq;
 using System.Windows.Controls;
+#if netle40
+using GalaSoft.MvvmLight.Command;
+#else
 using GalaSoft.MvvmLight.CommandWpf;
+# endif
 using HandyControl.Controls;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;

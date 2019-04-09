@@ -63,6 +63,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Dialog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\GotoTop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Gravatar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Growl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\NotifyIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Pagination.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\RadioGroup.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Transfer\TransferItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\BlurWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\ImageBrowser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\MessageBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\PopupWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\Window.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\CancelRoutedEventArgs.cs" />

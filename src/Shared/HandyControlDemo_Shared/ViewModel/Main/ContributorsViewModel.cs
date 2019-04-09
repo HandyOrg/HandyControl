@@ -8,10 +8,17 @@ namespace HandyControlDemo.ViewModel
     {
         public ContributorsViewModel(DataService dataService)
         {
+#if netle40
+            Task.Factory.StartNew(() =>
+            {
+                DataList = dataService.GetContributorDataList();
+            });
+#else
             Task.Run(() =>
             {
                 DataList = dataService.GetContributorDataList();
             });
+#endif
         }
     }
 }

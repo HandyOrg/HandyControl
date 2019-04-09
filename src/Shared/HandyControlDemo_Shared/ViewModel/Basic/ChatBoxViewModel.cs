@@ -7,7 +7,11 @@ using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using GalaSoft.MvvmLight;
+#if netle40
+using GalaSoft.MvvmLight.Command;
+#else
 using GalaSoft.MvvmLight.CommandWpf;
+#endif
 using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
 using HandyControl.Data;
@@ -43,7 +47,11 @@ namespace HandyControlDemo.ViewModel
         public string ChatString
         {
             get => _chatString;
+#if netle40
+            set => Set(nameof(ChatString), ref _chatString, value);
+#else
             set => Set(ref _chatString, value);
+#endif
         }
 
         public ObservableCollection<ChatInfoModel> ChatInfos { get; set; } = new ObservableCollection<ChatInfoModel>();

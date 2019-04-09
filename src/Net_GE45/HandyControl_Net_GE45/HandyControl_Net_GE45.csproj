@@ -116,10 +116,6 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Controls\Other\Growl.cs" />
-    <Compile Include="Controls\Window\MessageBox.cs" />
-  </ItemGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

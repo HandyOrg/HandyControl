@@ -1,7 +1,11 @@
 ﻿using System;
-using System.Threading.Tasks;
 using GalaSoft.MvvmLight;
+#if netle40
+using GalaSoft.MvvmLight.Command;
+#else
+using System.Threading.Tasks;
 using GalaSoft.MvvmLight.CommandWpf;
+#endif
 using HandyControl.Controls;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.UserControl;
@@ -17,7 +21,11 @@ namespace HandyControlDemo.ViewModel
         public string DialogResult
         {
             get => _dialogResult;
+#if netle40
+            set => Set(nameof(DialogResult), ref _dialogResult, value);
+#else
             set => Set(ref _dialogResult, value);
+#endif
         }
 
         public RelayCommand ShowTextCmd => new Lazy<RelayCommand>(() =>
@@ -28,6 +36,17 @@ namespace HandyControlDemo.ViewModel
             Dialog.Show(new TextDialog());
         }
 
+#if netle40
+        public RelayCommand ShowInteractiveDialogCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(ShowInteractiveDialog)).Value;
+
+        private void ShowInteractiveDialog()
+        {
+            Dialog.Show<InteractiveDialog>()
+                .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
+                .GetResultAsync<string>().ContinueWith(str => DialogResult = str.Result);
+        }
+#else
         public RelayCommand ShowInteractiveDialogCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(async () => await ShowInteractiveDialog())).Value;
 
@@ -37,5 +56,6 @@ namespace HandyControlDemo.ViewModel
                 .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
                 .GetResultAsync<string>();
         }
+#endif
     }
 }

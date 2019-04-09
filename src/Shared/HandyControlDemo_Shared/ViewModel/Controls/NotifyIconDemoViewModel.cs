@@ -1,6 +1,10 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
+#if netle40
+using GalaSoft.MvvmLight.Command;
+#else
 using GalaSoft.MvvmLight.CommandWpf;
+# endif
 using HandyControl.Controls;
 using HandyControlDemo.Data;
 
@@ -15,7 +19,11 @@ namespace HandyControlDemo.ViewModel
             get => _contextMenuIsShow;
             set
             {
+#if netle40
+                Set(nameof(ContextMenuIsShow), ref _contextMenuIsShow, value);
+#else
                 Set(ref _contextMenuIsShow, value);
+#endif
                 GlobalData.NotifyIconIsShow = ContextMenuIsShow || ContextContentIsShow;
             }
         }
@@ -25,7 +33,11 @@ namespace HandyControlDemo.ViewModel
         public bool ContextMenuIsBlink
         {
             get => _contextMenuIsBlink;
+#if netle40
+            set => Set(nameof(ContextMenuIsBlink), ref _contextMenuIsBlink, value);
+#else
             set => Set(ref _contextMenuIsBlink, value);
+#endif
         }
 
         private bool _contextContentIsShow;
@@ -35,7 +47,11 @@ namespace HandyControlDemo.ViewModel
             get => _contextContentIsShow;
             set
             {
+#if netle40
+                Set(nameof(ContextContentIsShow), ref _contextContentIsShow, value);
+#else
                 Set(ref _contextContentIsShow, value);
+#endif
                 GlobalData.NotifyIconIsShow = ContextMenuIsShow || ContextContentIsShow;
             }
         }
@@ -45,7 +61,11 @@ namespace HandyControlDemo.ViewModel
         public bool ContextContentIsBlink
         {
             get => _contextContentIsBlink;
+#if netle40
+            set => Set(nameof(ContextContentIsBlink), ref _contextContentIsBlink, value);
+#else
             set => Set(ref _contextContentIsBlink, value);
+#endif
         }
 
         public RelayCommand<object> MouseCmd => new Lazy<RelayCommand<object>>(() =>

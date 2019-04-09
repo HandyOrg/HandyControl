@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+#if netle40
+using GalaSoft.MvvmLight.Command;
+#else
 using GalaSoft.MvvmLight.CommandWpf;
+# endif
 using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
@@ -26,7 +30,11 @@ namespace HandyControlDemo.ViewModel
         public int PageIndex
         {
             get => _pageIndex;
+#if netle40
+            set => Set(nameof(PageIndex), ref _pageIndex, value);
+#else
             set => Set(ref _pageIndex, value);
+#endif
         }
 
         public PaginationDemoViewModel(DataService dataService)
