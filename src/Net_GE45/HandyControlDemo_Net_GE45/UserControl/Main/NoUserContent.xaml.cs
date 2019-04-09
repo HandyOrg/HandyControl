@@ -1,5 +1,4 @@
 ﻿using System.Diagnostics;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Messaging;
