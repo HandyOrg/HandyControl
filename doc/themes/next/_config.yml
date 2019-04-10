@@ -161,6 +161,7 @@ menu:
   HandyControl:
     default: /handycontrol/ ||
     鸣谢: /tnx/ ||
+    总览: /overview/ ||
     基础xaml定义: 
       default: /basic_xaml/ ||
       行为: /behaviors/ ||
@@ -225,10 +226,12 @@ menu:
       default: /extend_controls/ ||
       AnimationPath 动画路径: /animationPath/ ||
       Badge 标记: /badge/ ||
+      BlurWindow 背景模糊窗口: /blurWindow/ ||
       CalendarWithClock 带有时钟的日历: /calendarWithClock/ ||
       Carousel 轮播: /carousel/ ||
       ChatBubble 对话气泡: /chatBubble/ ||
       CirclePanel 圆形布局: /circlePanel/ ||
+      CircleProgressBar 圆形进度条: /circleProgressBar/ ||
       Clock 时钟: /clock/ ||
       ColorPicker 颜色拾取器: /colorPicker/ ||
       ComboBox 组合框: /comboBox/ ||
@@ -271,6 +274,7 @@ menu:
       Transfer 穿梭框: /transfer/ ||
       TransitioningContentControl 内容过度控件: /transitioningContentControl/ ||
       WaterfallPanel 瀑布流: /waterfallPanel/ ||
+      WaveProgressBar 波形进度条: /waveProgressBar/ ||
       Window 窗口: /window/ ||
     数据:
       default: /data/ ||
