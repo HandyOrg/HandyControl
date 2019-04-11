@@ -61,3 +61,12 @@ title: 转换器
 # TreeViewItemMarginConverter（内部使用）
 
 该转换器用于为TreeViewItem提供适当的左边距。
+
+{% note info %}
+用例：
+
+{% code %}
+Visibility="{Binding ShowButton,Converter={StaticResource Boolean2VisibilityConverter}}"
+{% endcode %}
+
+{% endnote %}

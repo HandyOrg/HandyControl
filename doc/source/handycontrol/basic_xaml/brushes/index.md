@@ -34,3 +34,7 @@ title: 画刷
 | DarkAccentBrush | 提醒（深色） |
 | DarkMaskBrush | 作为遮罩使用 |
 | DarkOpacityBrush | 半透明背景 |
+
+{% note info %}
+用例：`Foreground="{DynamicResource PrimaryBrush}"`
+{% endnote %}

@@ -106,7 +106,7 @@
         <Setter Property="Data" Value="{StaticResource LeftGeometry}"/>
     </Style>
 
-    <!--向左-->
+    <!--上和下的组合-->
     <Style x:Key="UpDownPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="Path">
         <Setter Property="Data" Value="{StaticResource UpDownGeometry}"/>
     </Style>

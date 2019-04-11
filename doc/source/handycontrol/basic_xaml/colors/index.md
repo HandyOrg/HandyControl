@@ -44,3 +44,7 @@ title: 颜色
 | DarkMaskColor | 作为遮罩使用 |
 | DarkOpacityColor | 半透明背景 |
 | BlurGradientValue | 仅用于模糊窗口的背景 |
+
+{% note info %}
+用例：`Color="{DynamicResource PrimaryColor}"`
+{% endnote %}
