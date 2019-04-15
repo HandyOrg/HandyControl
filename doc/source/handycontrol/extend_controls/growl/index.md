@@ -4,11 +4,11 @@ title: Growl 信息通知
 
 当需要在窗口的右侧区域，以从上到下排列通知信息时可以使用本控件。
 
-## 控件效果
+# 控件效果
 
 ![Growl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Growl.gif)
 
-## 准备工作
+# 准备工作
 
 在指定的窗口右侧区域添加`StackPanel`容器
 ``` xml
@@ -18,7 +18,7 @@ title: Growl 信息通知
 ```
 为了方便滚动，一般会在外层包一个`ScrollViewer`，同时为了美观，我们设置`ScrollViewer`的`VerticalScrollBarVisibility="Hidden"`，最好给`StackPanel`添加一个合适的`Margin`，也是为了美观。
 
-## 基础用法
+# 基础用法
 
 第一步：将`StackPanel`设置为`Growl`的容器
 
@@ -37,7 +37,7 @@ title: Growl 信息通知
 例如：`Growl.Success("文件保存成功！");`
 {% endnote %}
 
-## 只在激活中的窗口显示信息通知
+# 只在激活中的窗口显示信息通知
 
 为需要显示信息通知的窗口重写`OnActivated`和`OnDeactivated`方法，在`OnActivated`中调用`Growl.SetGrowlParent(GrowlPanel, true);`，在`OnDeactivated`中调用`Growl.SetGrowlParent(GrowlPanel, false);`
 
@@ -53,7 +53,7 @@ title: Growl 信息通知
 这种情况下就不需要在xaml中设置`controls:Growl.GrowlParent="True"`了。
 {% endnote %}
 
-## 在任意的`StackPanel`容器中显示信息通知
+# 在任意的`StackPanel`容器中显示信息通知
 
 第一步：为`StackPanel`容器赋予消息标记：SuccessMsg
 ``` xml
@@ -75,20 +75,20 @@ title: Growl 信息通知
 现在"文件保存成功！"这则消息只会发送到拥有"SuccessMsg"消息标记的`StackPanel`容器中。
 {% endnote %}
 
-## 属性
+# 属性
 
 |名称|说明|
 |-|-|
 | GrowlPanel | 当前使用的消息容器 |
 
-## 附加属性
+# 附加属性
 
 |名称|说明|
 |-|-|
 | Token | 用于设置消息标记 |
 | GrowlParent | 用于设置消息容器 |
 
-## 方法
+# 方法
 
 |名称|说明|
 |-|-|
@@ -116,7 +116,7 @@ title: Growl 信息通知
 | Clear( ) | 清空当前使用的消息容器中的消息 |
 | Clear(string) | 清空含有指定消息标记的消息容器中的消息 |
 
-## FAQ
+# FAQ
 
 {% note info no-icon %}
 Ask比较特殊，咋用？
