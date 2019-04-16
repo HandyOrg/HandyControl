@@ -9,6 +9,6 @@ title: 字体大小
 | SubHeadFontSize | 16 | 子功能标题 |
 | TextFontSize | 12 | 文本 |
 
-{% note info %}
+{% note info no-icon %}
 用例：`FontSize="{StaticResource LargeFontSize}"`
 {% endnote %}

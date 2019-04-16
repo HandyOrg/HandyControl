@@ -13,3 +13,7 @@ title: 鸣谢
 # 感谢以下组织机构提供开源许可
 
 <p><a style="border:0" href="https://www.jetbrains.com/?from=HandyControl" target="_blank" rel="noopener"><img width="70" height="70" src="https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/resharper_logo.png" alt="JetBrains"></a></p>
+
+# 感谢以下捐赠者
+
+<p><a style="border:0" href="https://github.com/bigorange1900" target="_blank" rel="noopener"><img width="120" height="120" src="https://avatars1.githubusercontent.com/u/49062011?s=400&v=4" alt="bigorange1900"></a></p>

@@ -42,6 +42,6 @@ HandyControl中自带了一些几何形状定义，但要应用于生产中显�
 | AllGeometry | 所有 |
 | DragGeometry | 拖拽（用于工具条） |
 
-{% note info %}
+{% note info no-icon %}
 用例：`Data="{StaticResource DragGeometry}"`
 {% endnote %}

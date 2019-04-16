@@ -35,6 +35,6 @@ title: 画刷
 | DarkMaskBrush | 作为遮罩使用 |
 | DarkOpacityBrush | 半透明背景 |
 
-{% note info %}
+{% note info no-icon %}
 用例：`Foreground="{DynamicResource PrimaryBrush}"`
 {% endnote %}

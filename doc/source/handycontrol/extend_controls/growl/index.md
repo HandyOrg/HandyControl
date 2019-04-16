@@ -33,8 +33,8 @@ title: Growl 信息通知
 
 第二步：调用`Growl`的相关接口来显示指定的消息
 
-{% note info %}
-例如：`Growl.Success("文件保存成功！");`
+{% note info no-icon %}
+用例：`Growl.Success("文件保存成功！");`
 {% endnote %}
 
 # 只在激活中的窗口显示信息通知
@@ -67,8 +67,8 @@ title: Growl 信息通知
 
 第二步：使用消息标记：SuccessMsg，并调用`Growl`的相关接口来显示指定的消息
 
-{% note info %}
-例如：`Growl.Success("文件保存成功！", "SuccessMsg");`
+{% note info no-icon %}
+用例：`Growl.Success("文件保存成功！", "SuccessMsg");`
 {% endnote %}
 
 {% note warning %}

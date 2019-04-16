@@ -49,14 +49,72 @@ title: Border 边框
 
 此样式使用1单位宽度的Border来分割横向排列的控件。
 
+{% note info no-icon %}
+用例：
+
+{% code %}
+<StackPanel Height="20" Orientation="Horizontal">
+    <Ellipse Margin="5,0" Fill="OrangeRed" Width="20" Height="20"/>
+    <Border Style="{StaticResource BorderVerticallySplitter}"/>
+    <Ellipse Margin="5,0" Fill="OrangeRed" Width="20" Height="20"/>
+    <Border Style="{StaticResource BorderVerticallySplitter}"/>
+    <Ellipse Margin="5,0" Fill="OrangeRed" Width="20" Height="20"/>
+    <Border Style="{StaticResource BorderVerticallySplitter}"/>
+    <Ellipse Margin="5,0" Fill="OrangeRed" Width="20" Height="20"/>
+    <Border Style="{StaticResource BorderVerticallySplitter}"/>
+    <Ellipse Margin="5,0" Fill="OrangeRed" Width="20" Height="20"/>
+</StackPanel>
+{% endcode %}
+![BorderVerticallySplitter](../images/BorderVerticallySplitter_1.png)
+{% endnote %}
+
 # BorderHorizontallySplitter
 
 此样式使用1单位高度的Border来分割纵向排列的控件。
+
+{% note info no-icon %}
+用例：
+
+{% code %}
+<StackPanel Width="20">
+    <Ellipse Margin="0,5" Fill="OrangeRed" Width="20" Height="20"/>
+    <Border Style="{StaticResource BorderHorizontallySplitter}"/>
+    <Ellipse Margin="0,5" Fill="OrangeRed" Width="20" Height="20"/>
+    <Border Style="{StaticResource BorderHorizontallySplitter}"/>
+    <Ellipse Margin="0,5" Fill="OrangeRed" Width="20" Height="20"/>
+    <Border Style="{StaticResource BorderHorizontallySplitter}"/>
+    <Ellipse Margin="0,5" Fill="OrangeRed" Width="20" Height="20"/>
+    <Border Style="{StaticResource BorderHorizontallySplitter}"/>
+    <Ellipse Margin="0,5" Fill="OrangeRed" Width="20" Height="20"/>
+</StackPanel>
+{% endcode %}
+![BorderHorizontallySplitter](../images/BorderHorizontallySplitter_1.png)
+{% endnote %}
 
 # BorderCircular
 
 此样式借助`BorderElement.Circular`附加属性可实现圆形Border。
 
+{% note info no-icon %}
+用例：
+
+{% code %}
+<Border Style="{StaticResource BorderCircular}" Background="OrangeRed" Width="100" Height="100"/>
+{% endcode %}
+![BorderCircular](../images/BorderCircular_1.png)
+{% endnote %}
+
 # BorderClip
 
 此样式在`BorderCircular`基础上添加了裁剪功能，常用于显示圆形Image。
+
+{% note info no-icon %}
+用例：
+
+{% code %}
+<Border Style="{StaticResource BorderClip}" Width="100" Height="100">
+    <Image Source="/HandyControlDemo;component/Resources/Img/Album/2.jpg"/>
+</Border>
+{% endcode %}
+![BorderClip](../images/BorderClip_1.png)
+{% endnote %}

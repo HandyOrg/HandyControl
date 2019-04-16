@@ -1,5 +1,16 @@
 ---
-title: 建设中
+title: Calendar 日历
 ---
 
-建设中
+# CalendarBaseStyle
+
+日历默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
+
+{% note info no-icon %}
+用例：
+
+{% code %}
+<Calendar/>
+{% endcode %}
+![Calendar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Calendar.jpg)
+{% endnote %}

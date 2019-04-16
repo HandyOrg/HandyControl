@@ -9,6 +9,6 @@ title: 尺寸
 | DefaultInputPadding | System.Windows.Thickness | 8,6 |默认输入控件内边距 |
 | DefaultCornerRadius | System.Windows.CornerRadius | 4 | 默认圆角 |
 
-{% note info %}
+{% note info no-icon %}
 用例：`CornerRadius="{StaticResource DefaultCornerRadius}"`
 {% endnote %}

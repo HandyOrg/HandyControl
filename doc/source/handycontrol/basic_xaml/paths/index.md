@@ -25,6 +25,6 @@ title: Path路径
 | RightPathStyle | 向右 |
 | UpDownPathStyle | 上和下的组合 |
 
-{% note info %}
+{% note info no-icon %}
 用例：`Style="{StaticResource SearchPathStyle}"`
 {% endnote %}

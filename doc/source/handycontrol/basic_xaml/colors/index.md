@@ -45,6 +45,6 @@ title: 颜色
 | DarkOpacityColor | 半透明背景 |
 | BlurGradientValue | 仅用于模糊窗口的背景 |
 
-{% note info %}
+{% note info no-icon %}
 用例：`Color="{DynamicResource PrimaryColor}"`
 {% endnote %}

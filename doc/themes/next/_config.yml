@@ -162,6 +162,7 @@ menu:
     default: /handycontrol/ ||
     鸣谢: /tnx/ ||
     总览: /overview/ ||
+    规范: /specifications/ ||
     基础xaml定义: 
       default: /basic_xaml/ ||
       行为: /behaviors/ ||

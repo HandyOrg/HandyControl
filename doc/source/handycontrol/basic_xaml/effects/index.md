@@ -13,6 +13,6 @@ title: 效果
 | EffectShadow4 | 25 |
 | EffectShadow5 | 35 |
 
-{% note info %}
+{% note info no-icon %}
 用例：`Effect="{StaticResource EffectShadow5}"`
 {% endnote %}
