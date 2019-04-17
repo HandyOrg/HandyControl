@@ -15,5 +15,6 @@
     <converter:Object2BooleanConverter x:Key="Object2BooleanConverter"/>
     <converter:Boolean2StrConverter x:Key="Boolean2StrConverter"/>
     <converter:Int2StrConverter x:Key="Int2StrConverter"/>
+    <converter:Null2VisibilityConverter x:Key="Null2VisibilityConverter"/>
 
 </ResourceDictionary>
