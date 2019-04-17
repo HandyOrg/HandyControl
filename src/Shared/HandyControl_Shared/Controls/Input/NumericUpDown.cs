@@ -232,7 +232,7 @@ namespace HandyControl.Controls
         ///     最小值
         /// </summary>
         public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(default(double), OnMinimumChanged, CoerceMinimum), ArithmeticHelper.IsValidDoubleValue);
+            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double0Box, OnMinimumChanged, CoerceMinimum), ArithmeticHelper.IsValidDoubleValue);
 
         private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
