@@ -16,6 +16,6 @@
     <converter:Int2StrConverter x:Key="Int2StrConverter"/>
     <converter:BorderClipConverter x:Key="BorderClipConverter"/>
     <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>
-    <converter:Null2VisibilityConverter x:Key="Null2VisibilityConverter"/>
+    <converter:Object2VisibilityConverter x:Key="Object2VisibilityConverter"/>
 
 </ResourceDictionary>

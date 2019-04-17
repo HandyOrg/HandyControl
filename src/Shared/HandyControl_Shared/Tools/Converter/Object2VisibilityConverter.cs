@@ -5,7 +5,7 @@ using System.Windows.Data;
 
 namespace HandyControl.Tools.Converter
 {
-    public class Null2VisibilityConverter : IValueConverter
+    public class Object2VisibilityConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
