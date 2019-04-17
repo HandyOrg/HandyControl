@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/ListBoxBaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <!--默认样式-->
+    <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
+
+    <Style x:Key="ListBoxItemCustom" TargetType="ListBoxItem">
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
+        <Setter Property="VerticalContentAlignment" Value="Top"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="ListBoxCustom" TargetType="ListBox">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemCustom}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+    </Style>
+
+    <ItemsPanelTemplate x:Key="WrapPanelHorizontalItemsPanelTemplate">
+        <WrapPanel FocusVisualStyle="{x:Null}"/>
+    </ItemsPanelTemplate>
+
+    <Style x:Key="WrapPanelHorizontalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
+        <Setter Property="ItemsPanel" Value="{StaticResource WrapPanelHorizontalItemsPanelTemplate}"/>
+    </Style>
+
+    <ItemsPanelTemplate x:Key="WrapPanelVerticalItemsPanelTemplate">
+        <WrapPanel FocusVisualStyle="{x:Null}" Orientation="Vertical"/>
+    </ItemsPanelTemplate>
+
+    <Style x:Key="WrapPanelVerticalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
+        <Setter Property="ItemsPanel" Value="{StaticResource WrapPanelVerticalItemsPanelTemplate}"/>
+    </Style>
+
+    <ItemsPanelTemplate x:Key="StackPanelHorizontalItemsPanelTemplate">
+        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal"/>
+    </ItemsPanelTemplate>
+
+    <Style x:Key="StackPanelHorizontalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
+        <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}"/>
+    </Style>
+
+    <ItemsPanelTemplate x:Key="StackPanelVerticalItemsPanelTemplate">
+        <StackPanel FocusVisualStyle="{x:Null}" HorizontalAlignment="Stretch"/>
+    </ItemsPanelTemplate>
+
+    <Style x:Key="StackPanelVerticalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
+        <Setter Property="ItemsPanel" Value="{StaticResource StackPanelVerticalItemsPanelTemplate}"/>
+    </Style>
+
+</ResourceDictionary>

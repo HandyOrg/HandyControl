@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.DialogDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             Background="{DynamicResource RegionBrush}"
+             MinWidth="300"
+             DataContext="{Binding DialogDemo,Source={StaticResource Locator}}">
+    <controls:TransitioningContentControl>
+        <StackPanel Margin="32" VerticalAlignment="Center">
+            <Button Content="{x:Static langs:Lang.TextDialog}" Command="{Binding ShowTextCmd}" />
+            <TextBox Margin="0,32,0,0" Text="{Binding DialogResult,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxExtend}" controls:InfoElement.Placeholder="{x:Static langs:Lang.PleaseInput}"/>
+            <Button Margin="0,10,0,0" Content="{x:Static langs:Lang.InteractiveDialog}" Command="{Binding ShowInteractiveDialogCmd}"/>
+        </StackPanel>
+    </controls:TransitioningContentControl>
+</UserControl>

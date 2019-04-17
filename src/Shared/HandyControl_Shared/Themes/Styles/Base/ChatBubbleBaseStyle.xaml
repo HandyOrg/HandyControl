@@ -1,0 +1,165 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <ControlTemplate x:Key="ChatBubbleStringBaseTemplate" TargetType="controls:ChatBubble">
+        <controls:SimplePanel>
+            <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
+            <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
+                <TextBlock TextWrapping="Wrap" Text="{TemplateBinding Content}" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+            </Border>
+        </controls:SimplePanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Role" Value="Receiver">
+                <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
+                <Setter TargetName="Tail" Property="RenderTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="Body" Property="Margin" Value="3,0,0,0"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ChatBubbleImageBaseTemplate" TargetType="controls:ChatBubble">
+        <controls:SimplePanel>
+            <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
+            <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
+                <controls:SimplePanel>
+                    <Image Margin="{TemplateBinding Padding}" VerticalAlignment="Center" Source="{TemplateBinding Content}"/>
+                    <Border BorderThickness="{TemplateBinding Padding}" BorderBrush="{TemplateBinding Background}" Background="{x:Null}" CornerRadius="15"/>
+                </controls:SimplePanel>
+            </Border>
+        </controls:SimplePanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Role" Value="Receiver">
+                <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
+                <Setter TargetName="Tail" Property="RenderTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="Body" Property="Margin" Value="3,0,0,0"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ChatBubbleAudioBaseTemplate" TargetType="controls:ChatBubble">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="12" Name="Definition1"/>
+                <ColumnDefinition Name="Definition2"/>
+            </Grid.ColumnDefinitions>
+            <Ellipse Name="Dot" VerticalAlignment="Top" Fill="{DynamicResource DangerBrush}" Width="6" Height="6" Visibility="{TemplateBinding IsRead,Converter={StaticResource Boolean2VisibilityReConverter}}" Margin="0,0,6,0"/>
+            <Path Name="Tail" Grid.Column="1" Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
+            <Border Name="Body" Grid.Column="1" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
+                <Grid VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <ContentPresenter Name="Presenter" VerticalAlignment="Center"/>
+                    <Path Name="Audio" Grid.Column="1" Data="{StaticResource AudioGeometry}" Fill="{TemplateBinding Foreground}" Width="16" Height="16" Margin="6,0,0,0" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </Grid>
+            </Border>
+        </Grid>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Role" Value="Receiver">
+                <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
+                <Setter TargetName="Tail" Property="RenderTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="Tail" Property="Grid.Column" Value="0"/>
+                <Setter TargetName="Dot" Property="Grid.Column" Value="1"/>
+                <Setter TargetName="Dot" Property="Margin" Value="6,0,0,0"/>
+                <Setter TargetName="Body" Property="Margin" Value="3,0,0,0"/>
+                <Setter TargetName="Body" Property="Grid.Column" Value="0"/>
+                <Setter TargetName="Definition1" Property="Width" Value="Auto"/>
+                <Setter TargetName="Definition2" Property="Width" Value="12"/>
+                <Setter TargetName="Audio" Property="Grid.Column" Value="0"/>
+                <Setter TargetName="Audio" Property="Margin" Value="0,0,6,0"/>
+                <Setter TargetName="Audio" Property="RenderTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="1"/>
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="Presenter" Property="Grid.Column" Value="1"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="ChatBubbleCustomBaseTemplate" TargetType="controls:ChatBubble">
+        <controls:SimplePanel>
+            <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
+            <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
+                <ContentPresenter VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
+            </Border>
+        </controls:SimplePanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="Role" Value="Receiver">
+                <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
+                <Setter TargetName="Tail" Property="RenderTransform">
+                    <Setter.Value>
+                        <TransformGroup>
+                            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+                        </TransformGroup>
+                    </Setter.Value>
+                </Setter>
+                <Setter TargetName="Body" Property="Margin" Value="3,0,0,0"/>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <Style x:Key="ChatBubbleBaseStyle" TargetType="controls:ChatBubble">
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Background" Value="{DynamicResource DarkPrimaryBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="Template" Value="{StaticResource ChatBubbleStringBaseTemplate}"/>
+        <Setter Property="IsRead" Value="{Binding IsSelected,RelativeSource={RelativeSource Self}}"/>
+        <Setter Property="MaxWidth" Value="280"/>
+        <Style.Triggers>
+            <Trigger Property="Role" Value="Receiver">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+                <Setter Property="HorizontalAlignment" Value="Left"/>
+            </Trigger>
+            <Trigger Property="Type" Value="Image">
+                <Setter Property="Template" Value="{StaticResource ChatBubbleImageBaseTemplate}"/>
+                <Setter Property="MaxHeight" Value="280"/>
+            </Trigger>
+            <Trigger Property="Type" Value="Audio">
+                <Setter Property="Template" Value="{StaticResource ChatBubbleAudioBaseTemplate}"/>
+            </Trigger>
+            <Trigger Property="Type" Value="Custom">
+                <Setter Property="Template" Value="{StaticResource ChatBubbleCustomBaseTemplate}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>
