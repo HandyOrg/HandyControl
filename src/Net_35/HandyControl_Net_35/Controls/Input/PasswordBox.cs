@@ -47,6 +47,9 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
             "ShowClearButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
+        public static readonly DependencyProperty ShowPasswordProperty = DependencyProperty.Register(
+            "ShowPassword", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
+
         private string _password;
 
         private char _passwordChar;
@@ -109,6 +112,12 @@ namespace HandyControl.Controls
             set => SetValue(ShowClearButtonProperty, value);
         }
 
+        public bool ShowPassword
+        {
+            get => (bool)GetValue(ShowPasswordProperty);
+            set => SetValue(ShowPasswordProperty, value);
+        }
+
         public virtual bool VerifyData()
         {
             OperationResult<bool> result;
@@ -156,14 +165,12 @@ namespace HandyControl.Controls
                 }
             }
         }
-
+       
         public void Paste() => ActualPasswordBox.Paste();
 
         public void SelectAll() => ActualPasswordBox.SelectAll();
 
         public void Clear() => ActualPasswordBox.SelectAll();
-
-
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {

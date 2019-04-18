@@ -191,7 +191,7 @@ namespace HandyControl.Controls
         ///     当前垂直滚动偏移
         /// </summary>
         private static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(
-            "CurrentVerticalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(default(double), OnCurrentVerticalOffsetChanged));
+            "CurrentVerticalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentVerticalOffsetChanged));
 
         private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -215,7 +215,7 @@ namespace HandyControl.Controls
         ///     当前水平滚动偏移
         /// </summary>
         public static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(
-            "CurrentHorizontalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(default(double), OnCurrentHorizontalOffsetChanged));
+            "CurrentHorizontalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentHorizontalOffsetChanged));
 
         private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
