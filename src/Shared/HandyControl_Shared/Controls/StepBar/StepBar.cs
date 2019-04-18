@@ -85,7 +85,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty StepIndexProperty = DependencyProperty.Register(
-            "StepIndex", typeof(int), typeof(StepBar), new PropertyMetadata(default(int)));
+            "StepIndex", typeof(int), typeof(StepBar), new PropertyMetadata(ValueBoxes.Int0Box));
 
         public int StepIndex
         {

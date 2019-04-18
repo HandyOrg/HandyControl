@@ -43,7 +43,7 @@ namespace HandyControl.Controls
         }
 
         internal static readonly DependencyProperty ManualHeightProperty = DependencyProperty.Register(
-            "ManualHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(default(double)), value => ValidateHelper.IsInRangeOfPosDouble(value, true));
+            "ManualHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double0Box), value => ValidateHelper.IsInRangeOfPosDouble(value, true));
 
         internal double ManualHeight
         {

@@ -9,7 +9,7 @@ namespace HandyControl.Controls
         ///     密码长度
         /// </summary>
         public static readonly DependencyProperty PasswordLengthProperty = DependencyProperty.RegisterAttached(
-            "PasswordLength", typeof(int), typeof(PasswordBoxMonitor), new PropertyMetadata(default(int)));
+            "PasswordLength", typeof(int), typeof(PasswordBoxMonitor), new PropertyMetadata(ValueBoxes.Int0Box));
 
         public static void SetPasswordLength(DependencyObject element, int value) => element.SetValue(PasswordLengthProperty, value);
 
