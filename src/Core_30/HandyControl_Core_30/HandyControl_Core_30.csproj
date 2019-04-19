@@ -17,4 +17,7 @@
     <DocumentationFile>C:\Code\GitHub\HandyControl\src\Core_30\HandyControl_Core_30\HandyControl.xml</DocumentationFile>
   </PropertyGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
+  <ItemGroup>
+    <None Remove="Themes\Styles\Base\TreeViewBaseStyle.xaml" />
+  </ItemGroup>
 </Project>

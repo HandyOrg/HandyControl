@@ -18,9 +18,14 @@ namespace HandyControl.Tools
 
                 var index = tabControl.Items.IndexOf(tabItem);
                 return index == 0
-                    ? ResourceHelper.GetResource<Style>(ResourceToken.TabItemCapsuleHorizontalFirst)
+                    ? ResourceHelper.GetResource<Style>(
+                        tabControl.TabStripPlacement == Dock.Top || tabControl.TabStripPlacement == Dock.Bottom
+                            ? ResourceToken.TabItemCapsuleHorizontalFirst
+                            : ResourceToken.TabItemCapsuleVerticalFirst)
                     : ResourceHelper.GetResource<Style>(index == count - 1
-                        ? ResourceToken.TabItemCapsuleHorizontalLast
+                        ? tabControl.TabStripPlacement == Dock.Top || tabControl.TabStripPlacement == Dock.Bottom
+                            ? ResourceToken.TabItemCapsuleHorizontalLast
+                            : ResourceToken.TabItemCapsuleVerticalLast
                         : ResourceToken.TabItemCapsuleDefault);
             }
 
