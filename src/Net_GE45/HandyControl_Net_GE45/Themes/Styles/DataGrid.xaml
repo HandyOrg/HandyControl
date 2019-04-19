@@ -46,7 +46,7 @@
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="true"/>
-                    <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGrid}}" Value="Cell"/>
+                    <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource AncestorType=DataGrid}}" Value="Cell"/>
                 </MultiDataTrigger.Conditions>
                 <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
                 <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
@@ -55,7 +55,7 @@
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="true"/>
                     <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="False"/>
-                    <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGrid}}" Value="CellOrRowHeader"/>
+                    <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource AncestorType=DataGrid}}" Value="CellOrRowHeader"/>
                 </MultiDataTrigger.Conditions>
                 <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
                 <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
@@ -64,14 +64,14 @@
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="true"/>
                     <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}" Value="True"/>
-                    <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGrid}}" Value="CellOrRowHeader"/>
+                    <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource AncestorType=DataGrid}}" Value="CellOrRowHeader"/>
                 </MultiDataTrigger.Conditions>
                 <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
             </MultiDataTrigger>
             <MultiDataTrigger>
                 <MultiDataTrigger.Conditions>
                     <Condition Binding="{Binding IsSelected,RelativeSource={RelativeSource Self}}" Value="true"/>
-                    <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource FindAncestor,AncestorType=DataGrid}}" Value="FullRow"/>
+                    <Condition Binding="{Binding SelectionUnit,RelativeSource={RelativeSource AncestorType=DataGrid}}" Value="FullRow"/>
                 </MultiDataTrigger.Conditions>
                 <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
             </MultiDataTrigger>

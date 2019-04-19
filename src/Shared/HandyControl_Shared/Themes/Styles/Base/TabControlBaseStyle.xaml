@@ -157,6 +157,12 @@
                             <Setter Property="Background" Value="{Binding Path=(controls:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
                             <Setter Property="TextElement.Foreground" Value="{Binding Path=(controls:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter"/>
                         </Trigger>
+                        <DataTrigger Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Left">
+                            <Setter Property="Margin" Value="0,-1,0,0"/>
+                        </DataTrigger>
+                        <DataTrigger Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Right">
+                            <Setter Property="Margin" Value="0,-1,0,0"/>
+                        </DataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
