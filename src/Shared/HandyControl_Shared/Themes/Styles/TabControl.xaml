@@ -170,7 +170,7 @@
                             <Setter TargetName="ColumnDefinition1" Property="Width" Value="Auto" />
                             <Setter TargetName="contentPanel" Property="Grid.Column" Value="0" />
                             <Setter TargetName="contentPanel" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="contentPanel" Property="BorderThickness" Value="0,0,0,1"/>
+                            <Setter TargetName="contentPanel" Property="BorderThickness" Value="0,0,1,0"/>
                             <Setter TargetName="headerPanel" Property="Grid.Column" Value="1" />
                             <Setter TargetName="headerPanel" Property="Grid.Row" Value="0" />
                             <Setter TargetName="headerPanel" Property="Rows" Value="0"/>

@@ -7,7 +7,7 @@
     <controls:TransitioningContentControl>
         <ScrollViewer>
             <UniformGrid Rows="2" Columns="2" Margin="16">
-                <TabControl Margin="16" Width="400" Height="200">
+                <TabControl TabStripPlacement="Right" Margin="16" Width="400" Height="200">
                     <TabItem Header="{x:Static langs:Lang.Title}" HeaderStringFormat="{}{0}1">
                         <Border Background="{DynamicResource PrimaryBrush}">
                             <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">

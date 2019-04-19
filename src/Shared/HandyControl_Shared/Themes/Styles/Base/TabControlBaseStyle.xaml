@@ -14,7 +14,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Padding" Value="10,6"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="MinHeight" Value="30"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Template">
@@ -22,16 +22,12 @@
                 <ControlTemplate TargetType="TabItem">
                     <controls:SimplePanel x:Name="templateRoot" SnapsToDevicePixels="true">
                         <Border x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0" Background="{TemplateBinding Background}" Margin="0"/>
-                        <ContentPresenter x:Name="contentPresenter" TextElement.Foreground="{DynamicResource PrimaryTextBrush}" ContentSource="Header" Focusable="False" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <ContentPresenter x:Name="contentPresenter" TextElement.Foreground="{DynamicResource PrimaryTextBrush}" ContentSource="Header" Focusable="False" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
                     </controls:SimplePanel>
                     <ControlTemplate.Triggers>
-                        <MultiDataTrigger>
-                            <MultiDataTrigger.Conditions>
-                                <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="false"/>
-                                <Condition Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Top"/>
-                            </MultiDataTrigger.Conditions>
+                        <Trigger Property="IsSelected" Value="False">
                             <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,0,0,0"/>
-                        </MultiDataTrigger>
+                        </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
@@ -127,7 +123,7 @@
                             <Setter TargetName="headerPanel" Property="Grid.Row" Value="0" />
                             <Setter TargetName="contentPanel" Property="Grid.Column" Value="0" />
                             <Setter TargetName="contentPanel" Property="Grid.Row" Value="0" />
-                            <Setter TargetName="contentPanel" Property="BorderThickness" Value="0,0,0,1"/>
+                            <Setter TargetName="contentPanel" Property="BorderThickness" Value="0,0,1,0"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
