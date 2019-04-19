@@ -44,7 +44,7 @@
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Panel.ZIndex" Value="1"/>
                             <Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>
-                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,0,3,0"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="3,0,0,0"/>
                         </MultiDataTrigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
@@ -62,7 +62,7 @@
                             </MultiDataTrigger.Conditions>
                             <Setter Property="Panel.ZIndex" Value="1"/>
                             <Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>
-                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="3,0,0,0"/>
+                            <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,0,3,0"/>
                         </MultiDataTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
