@@ -93,11 +93,18 @@
                                     <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </UniformGrid>
-                            <Button Command="interactivity:ControlCommands.Switch" Padding="6" FontSize="8" BorderThickness="0" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="2" Grid.Row="1">
-                                <Button.Content>
-                                    <Path Fill="#323534" Style="{StaticResource UpDownPathStyle}"/>
-                                </Button.Content>
-                            </Button>
+                            <UniformGrid Rows="2" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="1">
+                                <Button Command="interactivity:ControlCommands.Switch" Padding="6" FontSize="8" BorderThickness="0"  Height="24" Width="20">
+                                    <Button.Content>
+                                        <Path Fill="#323534" Style="{StaticResource UpDownPathStyle}"/>
+                                    </Button.Content>
+                                </Button>
+                                <Button Command="interactivity:ControlCommands.Dropper" Padding="6" FontSize="8" BorderThickness="0"  Height="24" Width="20">
+                                    <Button.Content>
+                                        <Path Fill="#323534" Style="{StaticResource DropperPathStyle}"/>
+                                    </Button.Content>
+                                </Button>
+                            </UniformGrid>
                         </Grid>
                         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                             <WrapPanel Name="PART_PanelColor" Margin="12,12,0,12" HorizontalAlignment="Center"/>

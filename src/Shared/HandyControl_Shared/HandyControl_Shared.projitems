@@ -64,6 +64,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\GotoTop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Gravatar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Growl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\MouseHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\NotifyIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Pagination.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\RadioGroup.cs" />

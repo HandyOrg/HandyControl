@@ -22,6 +22,8 @@ namespace HandyControl.Interactivity
         /// </summary>
         public static RoutedCommand Switch { get; } = new RoutedCommand(nameof(Switch), typeof(ControlCommands));
 
+        public static RoutedCommand Dropper { get; } = new RoutedCommand(nameof(Dropper), typeof(ControlCommands));
+
         /// <summary>
         ///     右转
         /// </summary>

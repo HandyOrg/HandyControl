@@ -111,4 +111,7 @@
         <Setter Property="Data" Value="{StaticResource UpDownGeometry}"/>
     </Style>
 
+    <Style x:Key="DropperPathStyle" BasedOn="{StaticResource PathBaseStyle}" TargetType="Path">
+        <Setter Property="Data" Value="{StaticResource DropperGeometry}"/>
+    </Style>
 </ResourceDictionary>
