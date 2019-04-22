@@ -1033,6 +1033,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 重复按钮 的本地化字符串。
+        /// </summary>
+        public static string RepeatButton {
+            get {
+                return ResourceManager.GetString("RepeatButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 回复 的本地化字符串。
         /// </summary>
         public static string Reply {

@@ -30,9 +30,7 @@
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Properties\AssemblyInfo.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Properties\Langs\Lang.Designer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Properties\Langs\Lang.en.Designer.cs" />
+    <!-- <Compile Include="$(MSBuildThisFileDirectory)Properties\Langs\Lang.Designer.cs" /> -->
     <Compile Include="$(MSBuildThisFileDirectory)Service\DataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\String2BrushConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\StringRepeatConverter.cs" />
@@ -699,9 +697,5 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Properties\Langs\Lang.en.resx" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Properties\Langs\Lang.resx" />
   </ItemGroup>
 </Project>
