@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -14,6 +16,8 @@ namespace HandyControl.Controls
 {
     public class NotifyIcon : FrameworkElement, IDisposable
     {
+        private bool _isMouseOver;
+
         private bool _added;
 
         private readonly object _syncObj = new object();
@@ -44,7 +48,9 @@ namespace HandyControl.Controls
 
         private bool _doubleClick;
 
-        private DispatcherTimer _dispatcherTimer;
+        private DispatcherTimer _dispatcherTimerBlink;
+
+        private DispatcherTimer _dispatcherTimerPos;
 
         private bool _isTransparent;
 
@@ -87,6 +93,12 @@ namespace HandyControl.Controls
                     OnIconChanged();
                     UpdateIcon(true);
                 }
+
+                _dispatcherTimerPos = new DispatcherTimer
+                {
+                    Interval = TimeSpan.FromMilliseconds(200)
+                };
+                _dispatcherTimerPos.Tick += DispatcherTimerPos_Tick;
             };
 
             if (Application.Current != null) Application.Current.Exit += (s, e) => Dispose();
@@ -137,9 +149,9 @@ namespace HandyControl.Controls
         private static void OnBlinkIntervalChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (NotifyIcon)d;
-            if (ctl._dispatcherTimer != null)
+            if (ctl._dispatcherTimerBlink != null)
             {
-                ctl._dispatcherTimer.Interval = (TimeSpan) e.NewValue;
+                ctl._dispatcherTimerBlink.Interval = (TimeSpan) e.NewValue;
             }
         }
 
@@ -158,28 +170,173 @@ namespace HandyControl.Controls
             if (ctl.Visibility != Visibility.Visible) return;
             if ((bool) e.NewValue)
             {
-                if (ctl._dispatcherTimer == null)
+                if (ctl._dispatcherTimerBlink == null)
                 {
-                    ctl._dispatcherTimer = new DispatcherTimer
+                    ctl._dispatcherTimerBlink = new DispatcherTimer
                     {
                         Interval = ctl.BlinkInterval
                     };
-                    ctl._dispatcherTimer.Tick += ctl.DispatcherTimer_Tick;
+                    ctl._dispatcherTimerBlink.Tick += ctl.DispatcherTimerBlinkTick;
                 }
-                ctl._dispatcherTimer.Start();
+                ctl._dispatcherTimerBlink.Start();
             }
             else
             {
-                ctl._dispatcherTimer?.Stop();
-                ctl._dispatcherTimer = null;
+                ctl._dispatcherTimerBlink?.Stop();
+                ctl._dispatcherTimerBlink = null;
                 ctl.UpdateIcon(true);
             }
         }
 
-        private void DispatcherTimer_Tick(object sender, EventArgs e)
+        private void DispatcherTimerBlinkTick(object sender, EventArgs e)
         {
             if (Visibility != Visibility.Visible || _iconCurrentHandle == IntPtr.Zero) return;
             UpdateIcon(true, !_isTransparent);
+        }
+
+        private bool CheckMouseIsEnter()
+        {
+            var isTrue = FindNotifyIcon(out var rectNotify);
+            if (!isTrue) return false;
+            NativeMethods.GetCursorPos(out var point);
+            if (point.X >= rectNotify.Left && point.X <= rectNotify.Right &&
+                point.Y >= rectNotify.Top && point.Y <= rectNotify.Bottom)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private void DispatcherTimerPos_Tick(object sender, EventArgs e)
+        {
+            if (CheckMouseIsEnter())
+            {
+                if (!_isMouseOver)
+                {
+                    _isMouseOver = true;
+                    RaiseEvent(new MouseEventArgs(Mouse.PrimaryDevice, Environment.TickCount)
+                    {
+                        RoutedEvent = MouseEnterEvent
+                    });
+                    _dispatcherTimerPos.Interval = TimeSpan.FromMilliseconds(500);
+                }
+            }
+            else
+            {
+                _dispatcherTimerPos.Stop();
+                _isMouseOver = false;
+                RaiseEvent(new MouseEventArgs(Mouse.PrimaryDevice, Environment.TickCount)
+                {
+                    RoutedEvent = MouseLeaveEvent
+                });
+            }
+        }
+
+        //referenced from http://www.cnblogs.com/sczmzx/p/5158127.html
+        private IntPtr FindTrayToolbarWindow()
+        {
+            var hWnd = NativeMethods.FindWindow("Shell_TrayWnd", null);
+            if (hWnd != IntPtr.Zero)
+            {
+                hWnd = NativeMethods.FindWindowEx(hWnd, IntPtr.Zero, "TrayNotifyWnd", null);
+                if (hWnd != IntPtr.Zero)
+                {
+
+                    hWnd = NativeMethods.FindWindowEx(hWnd, IntPtr.Zero, "SysPager", null);
+                    if (hWnd != IntPtr.Zero)
+                    {
+                        hWnd = NativeMethods.FindWindowEx(hWnd, IntPtr.Zero, "ToolbarWindow32", null);
+
+                    }
+                }
+            }
+            return hWnd;
+        }
+
+        //referenced from http://www.cnblogs.com/sczmzx/p/5158127.html
+        private IntPtr FindTrayToolbarOverFlowWindow()
+        {
+            var hWnd = NativeMethods.FindWindow("NotifyIconOverflowWindow", null);
+            if (hWnd != IntPtr.Zero)
+            {
+                hWnd = NativeMethods.FindWindowEx(hWnd, IntPtr.Zero, "ToolbarWindow32", null);
+            }
+            return hWnd;
+        }
+
+        private bool FindNotifyIcon(out NativeMethods.RECT rect)
+        {
+            var rectNotify = new NativeMethods.RECT();
+            var hTrayWnd = FindTrayToolbarWindow();
+            var isTrue = FindNotifyIcon(hTrayWnd, ref rectNotify);
+            if (!isTrue)
+            {
+                hTrayWnd = FindTrayToolbarOverFlowWindow();
+                isTrue = FindNotifyIcon(hTrayWnd, ref rectNotify);
+            }
+            rect = rectNotify;
+            return isTrue;
+        }
+
+        //referenced from http://www.cnblogs.com/sczmzx/p/5158127.html
+        private bool FindNotifyIcon(IntPtr hTrayWnd, ref NativeMethods.RECT rectNotify)
+        {
+            NativeMethods.GetWindowRect(hTrayWnd, out var rectTray);
+            var count = (int)NativeMethods.SendMessage(hTrayWnd, NativeMethods.TB_BUTTONCOUNT, 0, IntPtr.Zero);
+
+            var isFind = false;
+            if (count > 0)
+            {
+                NativeMethods.GetWindowThreadProcessId(hTrayWnd, out var trayPid);
+                var hProcess = NativeMethods.OpenProcess(NativeMethods.ProcessAccess.VMOperation | NativeMethods.ProcessAccess.VMRead | NativeMethods.ProcessAccess.VMWrite, false, trayPid);
+                var address = NativeMethods.VirtualAllocEx(hProcess, IntPtr.Zero, 1024, NativeMethods.AllocationType.Commit, NativeMethods.MemoryProtection.ReadWrite);
+
+                var btnData = new NativeMethods.TBBUTTON();
+                var trayData = new NativeMethods.TRAYDATA();
+                var handel = Process.GetCurrentProcess().Id;
+
+                for (uint i = 0; i < count; i++)
+                {
+                    NativeMethods.SendMessage(hTrayWnd, NativeMethods.TB_GETBUTTON, i, address);
+                    var isTrue = NativeMethods.ReadProcessMemory(hProcess, address, out btnData, Marshal.SizeOf(btnData), out _);
+                    if (!isTrue) continue;
+                    if (btnData.dwData == IntPtr.Zero)
+                    {
+                        btnData.dwData = btnData.iString;
+                    }
+                    NativeMethods.ReadProcessMemory(hProcess, btnData.dwData, out trayData, Marshal.SizeOf(trayData), out _);
+                    NativeMethods.GetWindowThreadProcessId(trayData.hwnd, out var dwProcessId);
+                    if (dwProcessId == (uint)handel)
+                    {
+                        var rect = new NativeMethods.RECT();
+                        var lngRect = NativeMethods.VirtualAllocEx(hProcess, IntPtr.Zero, Marshal.SizeOf(typeof(Rect)), NativeMethods.AllocationType.Commit, NativeMethods.MemoryProtection.ReadWrite);
+                        NativeMethods.SendMessage(hTrayWnd, NativeMethods.TB_GETITEMRECT, i, lngRect);
+                        NativeMethods.ReadProcessMemory(hProcess, lngRect, out rect, Marshal.SizeOf(rect), out _);
+
+                        NativeMethods.VirtualFreeEx(hProcess, lngRect, Marshal.SizeOf(rect), NativeMethods.FreeType.Decommit);
+                        NativeMethods.VirtualFreeEx(hProcess, lngRect, 0, NativeMethods.FreeType.Release);
+
+                        var left = rectTray.Left + rect.Left;
+                        var top = rectTray.Top + rect.Top;
+                        var botton = rectTray.Top + rect.Bottom;
+                        var right = rectTray.Left + rect.Right;
+                        rectNotify = new NativeMethods.RECT
+                        {
+                            Left = left,
+                            Right = right,
+                            Top = top,
+                            Bottom = botton
+                        };
+                        isFind = true;
+                        break;
+                    }
+                }
+                NativeMethods.VirtualFreeEx(hProcess, address, 0x4096, NativeMethods.FreeType.Decommit);
+                NativeMethods.VirtualFreeEx(hProcess, address, 0, NativeMethods.FreeType.Release);
+                NativeMethods.CloseHandle(hProcess);
+            }
+            return isFind;            
         }
 
         public bool IsBlink
@@ -289,6 +446,13 @@ namespace HandyControl.Controls
                             ShowContextMenu();
                             WmMouseUp(MouseButton.Right);
                             break;
+                        case NativeMethods.WM_MOUSEMOVE:
+                            if (!_dispatcherTimerPos.IsEnabled)
+                            {
+                                _dispatcherTimerPos.Interval = TimeSpan.FromMilliseconds(200);
+                                _dispatcherTimerPos.Start();
+                            }
+                            break;
                     }
                 }
             }
@@ -390,9 +554,9 @@ namespace HandyControl.Controls
             if (_isDisposed) return;
             if (disposing)
             {
-                if (_dispatcherTimer != null && IsBlink)
+                if (_dispatcherTimerBlink != null && IsBlink)
                 {
-                    _dispatcherTimer.Stop();
+                    _dispatcherTimerBlink.Stop();
                 }
                 UpdateIcon(false);
             }

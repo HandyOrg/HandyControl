@@ -106,7 +106,6 @@
         <Setter Property="controls:ScrollViewer.IsEnableInertia" Value="False"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="VirtualizingPanel.IsVirtualizing" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TreeView">
@@ -119,24 +118,10 @@
                         <Trigger Property="IsEnabled" Value="false">
                             <Setter Property="Background" TargetName="Bd" Value="{StaticResource {x:Static SystemColors.ControlBrushKey}}"/>
                         </Trigger>
-                        <!--<Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
-                            <Setter Property="CanContentScroll" TargetName="_tv_scrollviewer_" Value="true"/>
-                        </Trigger>-->
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-        <!--<Style.Triggers>
-            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
-                <Setter Property="ItemsPanel">
-                    <Setter.Value>
-                        <ItemsPanelTemplate>
-                            <VirtualizingStackPanel/>
-                        </ItemsPanelTemplate>
-                    </Setter.Value>
-                </Setter>
-            </Trigger>
-        </Style.Triggers>-->
     </Style>
 
 </ResourceDictionary>

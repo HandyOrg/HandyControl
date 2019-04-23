@@ -90,6 +90,12 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.Designer.cs">
+      <Link>Properties\Langs\Lang.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
     <Compile Include="UserControl\Main\NoUserContent.xaml.cs">
       <DependentUpon>NoUserContent.xaml</DependentUpon>
     </Compile>
@@ -372,12 +378,21 @@
       <Link>Resources\Img\under_construction.gif</Link>
     </Resource>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Page Include="UserControl\Main\NoUserContent.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.en.resx">
+      <Link>Properties\Langs\Lang.en.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.resx">
+      <Link>Properties\Langs\Lang.resx</Link>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
