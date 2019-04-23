@@ -12,6 +12,10 @@ namespace HandyControlDemo.ViewModel
 {
     public class NotifyIconDemoViewModel : ViewModelBase
     {
+        private bool _isCleanup;
+
+        private bool _reversed;
+
         private bool _contextMenuIsShow;
 
         public bool ContextMenuIsShow
@@ -25,6 +29,12 @@ namespace HandyControlDemo.ViewModel
                 Set(ref _contextMenuIsShow, value);
 #endif
                 GlobalData.NotifyIconIsShow = ContextMenuIsShow || ContextContentIsShow;
+                if (!_isCleanup && !_reversed)
+                {
+                    _reversed = true;
+                    ContextContentIsShow = !value;
+                    _reversed = false;
+                }
             }
         }
 
@@ -53,6 +63,12 @@ namespace HandyControlDemo.ViewModel
                 Set(ref _contextContentIsShow, value);
 #endif
                 GlobalData.NotifyIconIsShow = ContextMenuIsShow || ContextContentIsShow;
+                if (!_isCleanup && !_reversed)
+                {
+                    _reversed = true;
+                    ContextMenuIsShow = !value;
+                    _reversed = false;
+                }
             }
         }
 
@@ -70,5 +86,18 @@ namespace HandyControlDemo.ViewModel
 
         public RelayCommand<object> MouseCmd => new Lazy<RelayCommand<object>>(() =>
             new RelayCommand<object>(str=> Growl.Info(str.ToString()))).Value;
+
+        public override void Cleanup()
+        {
+            base.Cleanup();
+
+            _isCleanup = true;
+            ContextMenuIsShow = false;
+            ContextMenuIsBlink = false;
+            ContextContentIsShow = false;
+            ContextContentIsBlink = false;
+            GlobalData.NotifyIconIsShow = false;
+            _isCleanup = false;
+        }
     }
 }

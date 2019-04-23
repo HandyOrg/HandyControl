@@ -82,7 +82,7 @@ namespace HandyControlDemo.ViewModel
 
         #endregion
 
-        #region 命令
+#region 命令
 
         /// <summary>
         ///     切换例子命令
@@ -109,7 +109,8 @@ namespace HandyControlDemo.ViewModel
                     _listBoxItemCurrent = item;
                     ContentTitle = item.Content;
                     Messenger.Default.Send(false, MessageToken.FullSwitch);
-                    Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{tag}"), MessageToken.LoadShowContent);
+                    var obj = AssemblyHelper.ResolveByKey(tag);
+                    Messenger.Default.Send(obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{tag}"), MessageToken.LoadShowContent);
                 }
                 else
                 {

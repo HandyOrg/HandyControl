@@ -64,7 +64,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty NonClientAreaHeightProperty = DependencyProperty.Register(
             "NonClientAreaHeight", typeof(double), typeof(Window),
-            new PropertyMetadata(28.0));
+            new PropertyMetadata(26.0));
 
         public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
             "ShowNonClientArea", typeof(bool), typeof(Window),
@@ -288,19 +288,25 @@ namespace HandyControl.Controls
             if (WindowState == WindowState.Maximized)
             {
                 BorderThickness = new Thickness();
+                _tempNonClientAreaHeight = NonClientAreaHeight;
+                NonClientAreaHeight += 8;
             }
             else if (WindowState == WindowState.Normal)
             {
                 BorderThickness = _actualBorderThickness;
+                NonClientAreaHeight = _tempNonClientAreaHeight;
             }
         }
 
         protected void OnLoaded(RoutedEventArgs args)
         {
             _actualBorderThickness = BorderThickness;
+            _tempNonClientAreaHeight = NonClientAreaHeight;
+
             if (WindowState == WindowState.Maximized)
             {
                 BorderThickness = new Thickness();
+                _tempNonClientAreaHeight += 8;
             }
 
             CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,
@@ -312,13 +318,17 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(SystemCommands.CloseWindowCommand, (s, e) => Close()));
             CommandBindings.Add(new CommandBinding(SystemCommands.ShowSystemMenuCommand, ShowSystemMenu));
 
-            _tempNonClientAreaHeight = NonClientAreaHeight;
             _tempWindowState = WindowState;
             _tempWindowStyle = WindowStyle;
             _tempResizeMode = ResizeMode;
 
             SwitchIsFullScreen(_isFullScreen);
             SwitchShowNonClientArea(_showNonClientArea);
+
+            if (WindowState == WindowState.Maximized)
+            {
+                _tempNonClientAreaHeight -= 8;
+            }
 
             if (SizeToContent != SizeToContent.WidthAndHeight)
                 return;

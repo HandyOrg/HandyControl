@@ -564,4 +564,7 @@
   <data name="Click2Count" xml:space="preserve">
     <value>点击计数</value>
   </data>
+  <data name="RepeatButton" xml:space="preserve">
+    <value>重复按钮</value>
+  </data>
 </root>
