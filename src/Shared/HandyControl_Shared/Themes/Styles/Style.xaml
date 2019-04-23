@@ -5,6 +5,7 @@
         <ResourceDictionary Source="PopupWindow.xaml"/>
         <ResourceDictionary Source="MessageBox.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
+        <ResourceDictionary Source="RepeatButton.xaml"/>
         <ResourceDictionary Source="ToggleButton.xaml"/>
         <ResourceDictionary Source="TextBlock.xaml"/>
         <ResourceDictionary Source="Border.xaml"/>

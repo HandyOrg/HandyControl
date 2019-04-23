@@ -53,6 +53,7 @@ var controlList = new List<string>
 var styleList = new List<string>
 {
 	"ButtonDemoCtl",
+	"RepeatButtonDemoCtl",
 	"ToggleButtonDemoCtl",
 	"ExpanderDemoCtl",
 	"NativeProgressBarDemoCtl",
