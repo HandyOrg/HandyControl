@@ -160,11 +160,11 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 透明按钮 的本地化字符串。
+        ///   查找类似 自定义按钮 的本地化字符串。
         /// </summary>
-        public static string ButtonOpacity {
+        public static string ButtonCustom {
             get {
-                return ResourceManager.GetString("ButtonOpacity", resourceCulture);
+                return ResourceManager.GetString("ButtonCustom", resourceCulture);
             }
         }
         
