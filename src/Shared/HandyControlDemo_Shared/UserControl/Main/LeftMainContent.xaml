@@ -44,6 +44,11 @@
                             <Image Source="../../Resources/Img/LeftMainContent/ButtonClick_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
+                    <ListBoxItem Tag="{x:Static data:MessageToken.RepeatButtonDemoCtl}" Content="{x:Static langs:Lang.RepeatButton}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/RepeatButton_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.ToggleButtonDemoCtl}" Content="{x:Static langs:Lang.ToggleButton}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/Toggle_16x.png"/>
