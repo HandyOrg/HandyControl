@@ -16,11 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\AppConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\DemoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\GlobalData.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\MessageToken.cs">
-      <DependentUpon>MessageToken.tt</DependentUpon>
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\ChatInfoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\ContributorModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CoverViewDemoModel.cs" />
@@ -253,6 +248,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RadioButtonDemoCtl.xaml.cs">
       <DependentUpon>RadioButtonDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RepeatButtonDemoCtl.xaml.cs">
+      <DependentUpon>RepeatButtonDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RichTextBoxDemoCtl.xaml.cs">
       <DependentUpon>RichTextBoxDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -306,9 +304,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Window\NoNonClientAreaDragableWindow.xaml.cs">
       <DependentUpon>NoNonClientAreaDragableWindow.xaml</DependentUpon>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="$(MSBuildThisFileDirectory)Data\MessageToken.tt" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)MainWindow.xaml">
@@ -640,6 +635,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RadioButtonDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RepeatButtonDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
