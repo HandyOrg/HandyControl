@@ -298,6 +298,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Window\CustomNonClientAreaWindow.xaml.cs">
       <DependentUpon>CustomNonClientAreaWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Window\DialogDemoWindow.xaml.cs">
+      <DependentUpon>DialogDemoWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Window\GrowlDemoWindow.xaml.cs">
       <DependentUpon>GrowlDemoWindow.xaml</DependentUpon>
     </Compile>
@@ -679,6 +682,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Window\CustomNonClientAreaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Window\DialogDemoWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

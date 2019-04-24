@@ -567,4 +567,13 @@
   <data name="RepeatButton" xml:space="preserve">
     <value>重复按钮</value>
   </data>
+  <data name="DialogDemo" xml:space="preserve">
+    <value>对话框示例</value>
+  </data>
+  <data name="ShowInCurrentWindow" xml:space="preserve">
+    <value>在当前窗口显示</value>
+  </data>
+  <data name="ShowInMainWindow" xml:space="preserve">
+    <value>在主窗口显示</value>
+  </data>
 </root>

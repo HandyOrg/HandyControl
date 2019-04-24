@@ -164,5 +164,9 @@
 
         public static readonly string GrowlDemoPanel = nameof(GrowlDemoPanel);
 
+        public static readonly string DialogDemoWindow = nameof(DialogDemoWindow);
+
+        public static readonly string MainWindow = nameof(MainWindow);
+
     }
 }

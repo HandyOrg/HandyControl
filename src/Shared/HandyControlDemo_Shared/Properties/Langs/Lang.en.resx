@@ -567,4 +567,13 @@
   <data name="RepeatButton" xml:space="preserve">
     <value>RepeatButton</value>
   </data>
+  <data name="DialogDemo" xml:space="preserve">
+    <value>Dialog demo</value>
+  </data>
+  <data name="ShowInCurrentWindow" xml:space="preserve">
+    <value>Show in the current window</value>
+  </data>
+  <data name="ShowInMainWindow" xml:space="preserve">
+    <value>Show in the main window</value>
+  </data>
 </root>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 #if netle40
 using GalaSoft.MvvmLight.Command;
 #else
@@ -65,6 +66,9 @@ namespace HandyControlDemo.ViewModel
             new RelayCommand(() => Growl.Clear())).Value;
 
         public RelayCommand NewWindowCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => new GrowlDemoWindow().Show())).Value;
+            new RelayCommand(() => new GrowlDemoWindow
+            {
+                Owner = Application.Current.MainWindow
+            }.Show())).Value;
     }
 }
