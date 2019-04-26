@@ -430,6 +430,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 对话框示例 的本地化字符串。
+        /// </summary>
+        public static string DialogDemo {
+            get {
+                return ResourceManager.GetString("DialogDemo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 在这里拖拽 的本地化字符串。
         /// </summary>
         public static string DragHere {
@@ -1119,6 +1128,24 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Shield {
             get {
                 return ResourceManager.GetString("Shield", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 在当前窗口显示 的本地化字符串。
+        /// </summary>
+        public static string ShowInCurrentWindow {
+            get {
+                return ResourceManager.GetString("ShowInCurrentWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 在主窗口显示 的本地化字符串。
+        /// </summary>
+        public static string ShowInMainWindow {
+            get {
+                return ResourceManager.GetString("ShowInMainWindow", resourceCulture);
             }
         }
         

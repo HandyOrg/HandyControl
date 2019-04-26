@@ -98,6 +98,19 @@ namespace HandyControl.Controls
             }
         }
 
+        public static void Unregister(string token)
+        {
+            if (string.IsNullOrEmpty(token)) return;
+
+            if (PanelDic.ContainsKey(token))
+            {
+                var panel = PanelDic[token];
+                PanelDic.Remove(token);
+                panel.ContextMenu = null;
+                panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
+            }
+        }
+
         protected override void OnMouseEnter(MouseEventArgs e)
         {
             base.OnMouseEnter(e);

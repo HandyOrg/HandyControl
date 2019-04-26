@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 using GalaSoft.MvvmLight;
 #if netle40
 using GalaSoft.MvvmLight.Command;
@@ -11,6 +12,7 @@ using HandyControl.Tools.Extension;
 using HandyControlDemo.UserControl;
 using HandyControlDemo.UserControl.Basic;
 using HandyControlDemo.ViewModel.Basic;
+using HandyControlDemo.Window;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -57,5 +59,14 @@ namespace HandyControlDemo.ViewModel
                 .GetResultAsync<string>();
         }
 #endif
+
+        public RelayCommand NewWindowCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(() => new DialogDemoWindow
+            {
+                Owner = Application.Current.MainWindow
+            }.Show())).Value;
+
+        public RelayCommand<string> ShowWithTokenCmd => new Lazy<RelayCommand<string>>(() =>
+            new RelayCommand<string>(token => Dialog.Show(new TextDialog(), token))).Value;
     }
 }

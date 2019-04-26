@@ -93,7 +93,9 @@ var messageList = new List<string>
 	"ContributorsView",
 	"ClearLeftSelected",
 	"SendChatMessage",
-	"GrowlDemoPanel"
+	"GrowlDemoPanel",
+	"DialogDemoWindow",
+	"MainWindow"
 };
 #>
 namespace HandyControlDemo.Data
