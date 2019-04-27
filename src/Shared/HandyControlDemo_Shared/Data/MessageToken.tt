@@ -48,7 +48,8 @@ var controlList = new List<string>
 	"NotifyIconDemoCtl",
 	"BadgeDemoCtl",
 	"GravatarDemoCtl",
-	"DialogDemoCtl"
+	"DialogDemoCtl",
+	"SideMenuDemoCtl"
 };
 var styleList = new List<string>
 {
