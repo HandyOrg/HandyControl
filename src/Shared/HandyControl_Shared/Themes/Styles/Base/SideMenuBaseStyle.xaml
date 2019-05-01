@@ -3,25 +3,83 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="SideMenuItemBaseStyle" TargetType="controls:SideMenuItem">
+        <Setter Property="Role" Value="Item"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="MinHeight" Value="44"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="MinHeight" Value="40"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:SideMenuItem">
-                    <Border BorderThickness="4,0,0,0" Name="BorderRoot" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <DockPanel Margin="{TemplateBinding Padding}">
-                            <ContentPresenter Width="36" ContentSource="Icon" Name="PresenterIcon"/>
-                            <ContentPresenter ContentSource="Header" Margin="6,0,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
-                        </DockPanel>
+                    <Border Name="BorderRoot" Background="{TemplateBinding Background}">
+                        <controls:SimplePanel>
+                            <Rectangle Width="4" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Left"/>
+                            <ContentControl Margin="4,0,0,0">
+                                <DockPanel Margin="{TemplateBinding Padding}">
+                                    <ContentControl Width="40" Name="PresenterIcon">
+                                        <ContentPresenter ContentSource="Icon" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </ContentControl>
+                                    <ContentPresenter Name="PresenterHeader"  ContentSource="Header" Margin="6,0,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                                </DockPanel>
+                            </ContentControl>
+                        </controls:SimplePanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="Icon" Value="{x:Null}">
+                            <Setter TargetName="PresenterIcon" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=controls:SideMenuItem}}" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource DarkOpacityBrush}"/>
+                        </DataTrigger>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                            <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                            <Setter Property="TextElement.FontWeight" Value="Bold" TargetName="PresenterHeader"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="SideMenuItemHeaderBaseStyle" TargetType="controls:SideMenuItem">
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource SideMenuItemBaseStyle}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:SideMenuItem">
+                    <Border Name="BorderRoot" Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition MinHeight="48"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Border Name="BorderBack" Background="{TemplateBinding Background}"/>
+                            <ContentControl Grid.Row="0" Margin="4,0,0,0">
+                                <DockPanel Margin="{TemplateBinding Padding}" Name="PanelHeader" Background="Transparent">
+                                    <ContentControl Width="40" Name="PresenterIcon">
+                                        <ContentPresenter ContentSource="Icon" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                    </ContentControl>
+                                    <ContentPresenter Name="PresenterHeader" ContentSource="Header" Margin="6,0,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                                </DockPanel>
+                            </ContentControl>
+                            <StackPanel Grid.Row="1" x:Name="PART_Panel"/>
+                        </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Icon" Value="{x:Null}">
                             <Setter TargetName="PresenterIcon" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
-                            <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+                            <Setter TargetName="BorderBack" Property="BorderThickness" Value="4,0,0,0"/>
+                            <Setter TargetName="BorderBack" Property="BorderBrush" Value="{DynamicResource DarkOpacityBrush}"/>
+                            <Setter Property="TextElement.FontWeight" Value="Bold" TargetName="PresenterHeader"/>
+                        </Trigger>
+                        <Trigger SourceName="PanelHeader" Property="IsMouseOver" Value="true">
+                            <Setter TargetName="BorderBack" Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -30,13 +88,16 @@
     </Style>
 
     <Style x:Key="SideMenuBaseStyle" TargetType="controls:SideMenu">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource SideMenuItemBaseStyle}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource SideMenuItemHeaderBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:SideMenu">
-                    <Border Name="BorderRoot">
-                        <StackPanel x:Name="PART_Panel"/>
+                    <Border Name="BorderRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <ScrollViewer>
+                            <StackPanel x:Name="PART_Panel"/>
+                        </ScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

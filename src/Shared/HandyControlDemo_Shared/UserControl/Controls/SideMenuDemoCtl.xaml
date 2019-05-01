@@ -6,31 +6,141 @@
              Background="{DynamicResource RegionBrush}">
 
     <Grid>
-        <controls:SideMenu Width="200" Margin="32">
+        <controls:SideMenu BorderThickness="1" Width="200" Margin="32">
             <controls:SideMenuItem Header="Overview">
                 <controls:SideMenuItem.Icon>
                     <Image Source="/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Overview.png" Width="24" Height="24"/>
                 </controls:SideMenuItem.Icon>
+                <controls:SideMenuItem Header="Summary">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf2cb;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Dashboards">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf246;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Wiki">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xe82d;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
             </controls:SideMenuItem>
             <controls:SideMenuItem Header="Boards">
                 <controls:SideMenuItem.Icon>
                     <Image Source="/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Boards.png" Width="24" Height="24"/>
                 </controls:SideMenuItem.Icon>
+                <controls:SideMenuItem Header="Work Items">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf314;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Boards">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf444;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Backlogs">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf6bf;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Sprints">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf3b0;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Queries">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf2b8;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
             </controls:SideMenuItem>
             <controls:SideMenuItem Header="Repos">
                 <controls:SideMenuItem.Icon>
                     <Image Source="/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Repos.png" Width="24" Height="24"/>
                 </controls:SideMenuItem.Icon>
+                <controls:SideMenuItem Header="Files">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf30e;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Commits">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf293;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Pushes">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf298;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Branches">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xebc2;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Tags">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xe8ec;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Pull requests">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf296;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
             </controls:SideMenuItem>
             <controls:SideMenuItem Header="Pipelines">
                 <controls:SideMenuItem.Icon>
                     <Image Source="/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Pipelines.png" Width="24" Height="24"/>
                 </controls:SideMenuItem.Icon>
+                <controls:SideMenuItem Header="Builds">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf28f;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Releases">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf3b3;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Library">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xe8f1;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Task groups">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf2ae;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Deployment groups">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf29d;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
             </controls:SideMenuItem>
             <controls:SideMenuItem Header="Test Plans">
                 <controls:SideMenuItem.Icon>
                     <Image Source="/HandyControlDemo;component/Resources/Img/DevOps/DevOps-TestPlans.png" Width="24" Height="24"/>
                 </controls:SideMenuItem.Icon>
+                <controls:SideMenuItem Header="Test Plans">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf3ab;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Runs">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xf3ac;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
+                <controls:SideMenuItem Header="Load test">
+                    <controls:SideMenuItem.Icon>
+                        <TextBlock Text="&#xe8a9;" Style="{StaticResource TextBlockFabricIcons}"/>
+                    </controls:SideMenuItem.Icon>
+                </controls:SideMenuItem>
             </controls:SideMenuItem>
         </controls:SideMenu>
     </Grid>
