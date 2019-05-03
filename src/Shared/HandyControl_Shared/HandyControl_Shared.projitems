@@ -112,6 +112,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\BadgeStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatMessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatRoleType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ExpandMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\InfoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\IpType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ResultType.cs" />

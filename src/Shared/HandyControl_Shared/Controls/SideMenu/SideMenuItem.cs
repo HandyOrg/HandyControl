@@ -72,20 +72,16 @@ namespace HandyControl.Controls
 
             if (_isMouseLeftButtonDown)
             {
-                if (!IsSelected)
-                {
-                    IsSelected = true;
-                    OnSelected(new RoutedEventArgs(SelectedEvent, this));
-                }
+                IsSelected = true;
+                OnSelected(new RoutedEventArgs(SelectedEvent, this));
                 _isMouseLeftButtonDown = false;
             }
         }
 
-        internal void SelectDefaultItem(SideMenuItem menuItem)
+        internal void SelectDefaultItem()
         {
             if (Role == SideMenuItemRole.Header && ItemsHost.Children.Count > 0)
             {
-                if (ItemsHost.Children.Contains(menuItem)) return;
                 var item = ItemsHost.Children.OfType<SideMenuItem>().FirstOrDefault();
                 if (item != null && !item.IsSelected)
                 {

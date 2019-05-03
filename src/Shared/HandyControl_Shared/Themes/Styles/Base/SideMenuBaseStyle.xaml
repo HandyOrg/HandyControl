@@ -28,7 +28,7 @@
                             <Setter TargetName="PresenterIcon" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                         <DataTrigger Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=controls:SideMenuItem}}" Value="True">
-                            <Setter Property="BorderBrush" Value="{DynamicResource DarkOpacityBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
                         </DataTrigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
@@ -75,7 +75,7 @@
                         </Trigger>
                         <Trigger Property="IsSelected" Value="True">
                             <Setter TargetName="BorderBack" Property="BorderThickness" Value="4,0,0,0"/>
-                            <Setter TargetName="BorderBack" Property="BorderBrush" Value="{DynamicResource DarkOpacityBrush}"/>
+                            <Setter TargetName="BorderBack" Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
                             <Setter Property="TextElement.FontWeight" Value="Bold" TargetName="PresenterHeader"/>
                         </Trigger>
                         <Trigger SourceName="PanelHeader" Property="IsMouseOver" Value="true">

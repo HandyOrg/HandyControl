@@ -9,6 +9,8 @@ namespace HandyControl.Controls
 
         private SideMenuItem _selectedHeader;
 
+        private bool _isItemSelected;
+
         public SideMenu()
         {
             AddHandler(SideMenuItem.SelectedEvent, new RoutedEventHandler(SideMenuItemSelected));
@@ -27,17 +29,30 @@ namespace HandyControl.Controls
 
                     _selectedItem = item;
                     _selectedItem.IsSelected = true;
+                    _isItemSelected = true;
                 }
                 else
                 {
-                    if (_selectedHeader != null)
+                    if (!Equals(item, _selectedHeader))
                     {
-                        _selectedHeader.IsSelected = false;
+                        if (_selectedHeader != null)
+                        {
+                            _selectedHeader.IsSelected = false;
+                        }
+
+                        _selectedHeader = item;
+                        _selectedHeader.IsSelected = true;
                     }
 
-                    _selectedHeader = item;
-                    _selectedHeader.IsSelected = true;
-                    _selectedHeader.SelectDefaultItem(_selectedItem);
+                    if (_isItemSelected)
+                    {
+                        _isItemSelected = false;
+                    }
+                    else
+                    {
+                        _selectedHeader.SelectDefaultItem();
+                        _isItemSelected = false;
+                    }
                 }
             }
         }
