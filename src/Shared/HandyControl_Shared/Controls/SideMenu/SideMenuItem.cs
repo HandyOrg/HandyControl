@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Windows;
+using System.Windows.Data;
 using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
@@ -17,6 +18,54 @@ namespace HandyControl.Controls
         {
             get => GetValue(IconProperty);
             set => SetValue(IconProperty, value);
+        }
+
+        public SideMenuItem()
+        {
+            SetBinding(ExpandModeProperty, new Binding(SideMenu.ExpandModeProperty.Name)
+            {
+                RelativeSource = new RelativeSource(RelativeSourceMode.FindAncestor, typeof(SideMenu), 1)
+            });
+        }
+
+        internal static readonly DependencyProperty ExpandModeProperty =
+            SideMenu.ExpandModeProperty.AddOwner(typeof(SideMenuItem), new PropertyMetadata(default(ExpandMode)));
+
+        internal ExpandMode ExpandMode
+        {
+            get => (ExpandMode) GetValue(ExpandModeProperty);
+            set => SetValue(ExpandModeProperty, value);
+        }
+
+        protected override void Refresh()
+        {
+            if (ItemsHost == null) return;
+
+            ItemsHost.Children.Clear();
+            foreach (var item in Items)
+            {
+                DependencyObject container;
+                if (IsItemItsOwnContainerOverride(item))
+                {
+                    container = item as DependencyObject;
+                }
+                else
+                {
+                    container = GetContainerForItemOverride();
+                    PrepareContainerForItemOverride(container, item);
+                }
+
+                if (container is FrameworkElement element)
+                {
+                    element.Style = ItemContainerStyle;
+                    ItemsHost.Children.Add(element);
+                }
+            }
+
+            if (IsLoaded)
+            {
+                SwitchPanelArea(ExpandMode == ExpandMode.ShowAll || IsSelected);
+            }
         }
 
         protected virtual void OnSelected(RoutedEventArgs e) => RaiseEvent(e);
@@ -91,11 +140,12 @@ namespace HandyControl.Controls
             }
         }
 
-        internal void SwitchPanelArea(bool close)
+        internal void SwitchPanelArea(bool isShow)
         {
+            if (ItemsHost == null) return;
             if (Role == SideMenuItemRole.Header)
             {
-                ItemsHost.Show(close);
+                ItemsHost.Show(isShow);
             }
         }
     }

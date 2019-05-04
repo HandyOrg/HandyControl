@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
+#if !netle40
 using System.Runtime.CompilerServices;
+#endif
 using System.Windows;
 using System.Windows.Markup;
 using HandyControl.Controls;
@@ -28,7 +30,7 @@ namespace HandyControl.Tools
                 if (!_lang.IetfLanguageTag.Equals(value.IetfLanguageTag))
                 {
                     _lang = value;
-                    OnPropertyChanged();
+                    OnPropertyChanged(nameof(Lang));
                 }
             }
         }
@@ -52,9 +54,16 @@ namespace HandyControl.Tools
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+#if netle40
+        protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+#else
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }  
+#endif
     }
 }

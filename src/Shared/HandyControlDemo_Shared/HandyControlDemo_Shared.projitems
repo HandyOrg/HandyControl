@@ -283,6 +283,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\NotifyIconDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\PaginationDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SearchBarDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SideMenuDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\StepBarDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\WindowDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\DemoViewModelBase!1.cs" />

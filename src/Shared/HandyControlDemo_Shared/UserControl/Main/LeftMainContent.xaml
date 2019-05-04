@@ -203,7 +203,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/DotLarge_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GotoTopDemoCtl}" Content="{x:Static langs:Lang.GotoTop}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.GotoTopDemoCtl}" Content="{x:Static langs:Lang.GotoTop}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/GoToTop_16x.png"/>
                         </controls:EdgeElement.LeftContent>
