@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Input;
 using HandyControl.Data;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -87,6 +88,14 @@ namespace HandyControl.Controls
                 {
                     item.OnSelected(new RoutedEventArgs(SelectedEvent, item));
                 }
+            }
+        }
+
+        internal void SwitchPanelArea(bool close)
+        {
+            if (Role == SideMenuItemRole.Header)
+            {
+                ItemsHost.Show(close);
             }
         }
     }

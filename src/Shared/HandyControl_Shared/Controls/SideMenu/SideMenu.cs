@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using HandyControl.Data;
+using HandyControl.Data.Enum;
 
 namespace HandyControl.Controls
 {
@@ -38,10 +39,12 @@ namespace HandyControl.Controls
                         if (_selectedHeader != null)
                         {
                             _selectedHeader.IsSelected = false;
+                            SwitchPanelArea(_selectedHeader);
                         }
 
                         _selectedHeader = item;
                         _selectedHeader.IsSelected = true;
+                        SwitchPanelArea(_selectedHeader);
                     }
 
                     if (_isItemSelected)
@@ -57,8 +60,30 @@ namespace HandyControl.Controls
             }
         }
 
+        private void SwitchPanelArea(SideMenuItem oldItem)
+        {
+            switch (ExpandMode)
+            {
+                case ExpandMode.ShowAll:
+                    return;
+                case ExpandMode.ShowOne:
+                case ExpandMode.Accordion:
+                    oldItem.SwitchPanelArea(oldItem.IsSelected);
+                    break;
+            }
+        }
+
         protected override DependencyObject GetContainerForItemOverride() => new SideMenuItem();
 
         protected override bool IsItemItsOwnContainerOverride(object item) => item is SideMenuItem;
+
+        public static readonly DependencyProperty ExpandModeProperty = DependencyProperty.Register(
+            "ExpandMode", typeof(ExpandMode), typeof(SideMenu), new PropertyMetadata(default(ExpandMode)));
+
+        public ExpandMode ExpandMode
+        {
+            get => (ExpandMode) GetValue(ExpandModeProperty);
+            set => SetValue(ExpandModeProperty, value);
+        }
     }
 }

@@ -6,7 +6,7 @@
              Background="{DynamicResource RegionBrush}">
 
     <Grid>
-        <controls:SideMenu BorderThickness="1" Width="200" Margin="32">
+        <controls:SideMenu ExpandMode="ShowOne" BorderThickness="1" Width="200" Margin="32">
             <controls:SideMenuItem Header="Overview">
                 <controls:SideMenuItem.Icon>
                     <Image Source="/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Overview.png" Width="24" Height="24"/>
