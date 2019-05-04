@@ -62,6 +62,7 @@
         <ResourceDictionary Source="Gravatar.xaml"/>
         <ResourceDictionary Source="Badge.xaml"/>
         <ResourceDictionary Source="Dialog.xaml"/>
+        <ResourceDictionary Source="SideMenu.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

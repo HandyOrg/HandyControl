@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class CalendarDemoCtl
+    public partial class SideMenuDemoCtl
     {
-        public CalendarDemoCtl()
+        public SideMenuDemoCtl()
         {
             InitializeComponent();
         }

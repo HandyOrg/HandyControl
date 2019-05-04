@@ -193,7 +193,7 @@
                     </controls:StatusSwitchElement.CheckedElement>
                 </ToggleButton>
                 <ListBox Name="ListBoxControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GravatarDemoCtl}" Content="{x:Static langs:Lang.Gravatar}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.GravatarDemoCtl}" Content="{x:Static langs:Lang.Gravatar}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/User_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -203,7 +203,7 @@
                             <Image Source="../../Resources/Img/LeftMainContent/DotLarge_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
-                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GotoTopDemoCtl}" Content="{x:Static langs:Lang.GotoTop}">
+                    <ListBoxItem Tag="{x:Static data:MessageToken.GotoTopDemoCtl}" Content="{x:Static langs:Lang.GotoTop}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/GoToTop_16x.png"/>
                         </controls:EdgeElement.LeftContent>
@@ -391,6 +391,11 @@
                     <ListBoxItem Tag="{x:Static data:MessageToken.TabControlDemoCtl}" Content="{x:Static langs:Lang.TabControl}">
                         <controls:EdgeElement.LeftContent>
                             <Image Source="../../Resources/Img/LeftMainContent/TabPage_16x.png"/>
+                        </controls:EdgeElement.LeftContent>
+                    </ListBoxItem>
+                    <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.SideMenuDemoCtl}" Content="{x:Static langs:Lang.SideMenu}">
+                        <controls:EdgeElement.LeftContent>
+                            <Image Source="../../Resources/Img/LeftMainContent/MainMenuControl_16x.png"/>
                         </controls:EdgeElement.LeftContent>
                     </ListBoxItem>
                     <ListBoxItem Tag="{x:Static data:MessageToken.ScrollViewerDemoCtl}" Content="{x:Static langs:Lang.ScrollViewer}">

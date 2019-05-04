@@ -48,6 +48,10 @@ Step 3：enjoy coding
 
 ## Latest examples
 
+### SideMenu
+
+![SideMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SideMenu.png)
+
 ### NotifyIcon
 
 ![NotifyIcon](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/NotifyIcon.png)
@@ -64,11 +68,11 @@ Step 3：enjoy coding
 
 ![Badge](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Badge.png)
 
+## History publication
+
 ### Gravatar
 
 ![Gravatar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Gravatar.gif)
-
-## History publication
 
 ### GoToTop
 

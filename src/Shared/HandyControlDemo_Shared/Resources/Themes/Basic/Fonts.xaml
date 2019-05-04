@@ -1,0 +1,6 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="FabricIcons">pack://application:,,,/HandyControlDemo;component/Resources/fabric-icons.ttf#Fabric MDL2 Assets</FontFamily>
+
+</ResourceDictionary>

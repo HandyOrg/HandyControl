@@ -20,7 +20,7 @@ namespace HandyControlDemo
             base.OnStartup(e);
 
             GlobalData.Init();
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(GlobalData.Config.Lang);
+            ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
 
             if (GlobalData.Config.Skin != SkinType.Default)
             {
@@ -28,7 +28,7 @@ namespace HandyControlDemo
             }
 
 #if !Core
-            BlurWindow.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
+            ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
 #endif
         }
 

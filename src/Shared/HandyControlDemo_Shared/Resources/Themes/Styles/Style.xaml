@@ -5,6 +5,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="../Basic/Fonts.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="CirclePanelButton" BasedOn="{StaticResource ButtonCustom}" TargetType="Button">
@@ -97,6 +98,11 @@
         <Setter Property="OtherButtonHoverForeground" Value="White"/>
         <Setter Property="NonClientAreaForeground" Value="White"/>
         <Setter Property="CloseButtonForeground" Value="White"/>
+    </Style>
+
+    <Style x:Key="TextBlockFabricIcons" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource FabricIcons}"/>
+        <Setter Property="FontSize" Value="14"/>
     </Style>
 
 </ResourceDictionary>
