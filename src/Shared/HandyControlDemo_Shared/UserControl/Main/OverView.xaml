@@ -361,7 +361,7 @@
                     <controls:Tag ShowCloseButton="False" Content="TextText"/>
                 </controls:TagPanel>
             </Border>
-            <Border Visibility="Collapsed" Width="14" Height="14" Background="Black" Canvas.Left="290" Canvas.Top="1040"/>
+            <!--<Border Visibility="Collapsed" Width="14" Height="14" Background="Black" Canvas.Left="290" Canvas.Top="1040"/>-->
         </Canvas>
     </ScrollViewer>
 </UserControl>
