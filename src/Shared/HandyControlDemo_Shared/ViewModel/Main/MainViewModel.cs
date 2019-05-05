@@ -91,6 +91,12 @@ namespace HandyControlDemo.ViewModel
             new Lazy<RelayCommand<SelectionChangedEventArgs>>(() =>
                 new RelayCommand<SelectionChangedEventArgs>(SwitchDemo)).Value;
 
+        /// <summary>
+        ///     打开概览命令
+        /// </summary>
+        public RelayCommand OpenOverviewCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(OpenOverview)).Value;
+
 #endregion
 
 #region 方法
@@ -121,6 +127,16 @@ namespace HandyControlDemo.ViewModel
             }
         }
 
-#endregion
+        /// <summary>
+        ///     打开概览
+        /// </summary>
+        private void OpenOverview()
+        {
+            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
+            Messenger.Default.Send(true, MessageToken.FullSwitch);
+            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.OverView}"), MessageToken.LoadShowContent);
+        }
+
+        #endregion
     }
 }

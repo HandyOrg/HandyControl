@@ -579,4 +579,7 @@
   <data name="SideMenu" xml:space="preserve">
     <value>SideMenu</value>
   </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
 </root>

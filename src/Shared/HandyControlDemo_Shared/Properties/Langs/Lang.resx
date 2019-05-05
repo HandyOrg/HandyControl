@@ -579,4 +579,7 @@
   <data name="SideMenu" xml:space="preserve">
     <value>侧边菜单</value>
   </data>
+  <data name="Overview" xml:space="preserve">
+    <value>概览</value>
+  </data>
 </root>
