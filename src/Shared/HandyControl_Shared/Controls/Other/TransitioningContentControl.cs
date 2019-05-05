@@ -48,10 +48,10 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
-            if (DesignerProperties.GetIsInDesignMode(this)) return;
+            //if (DesignerProperties.GetIsInDesignMode(this)) return;
 
-            if (IsTransitioning)
-                AbortTransition();
+            //if (IsTransitioning)
+            //    AbortTransition();
 
             base.OnApplyTemplate();
 
@@ -63,17 +63,17 @@ namespace HandyControl.Controls
             if (CurrentContentPresentationSite != null)
                 CurrentContentPresentationSite.Content = Content;
 
-            var transition = GetStoryboard(Transition);
-            CurrentTransition = transition;
-            if (transition == null)
-            {
-                Transition = DefaultTransitionState;
+            //var transition = GetStoryboard(Transition);
+            //CurrentTransition = transition;
+            //if (transition == null)
+            //{
+            //    Transition = DefaultTransitionState;
 
-                throw new ArgumentException("TransitioningContentControl_TransitionNotFound");
-            }
+            //    throw new ArgumentException("TransitioningContentControl_TransitionNotFound");
+            //}
 
-            VisualStateManager.GoToState(this, NormalState, false);
-            VisualStateManager.GoToState(this, Transition, true);
+            //VisualStateManager.GoToState(this, NormalState, false);
+            //VisualStateManager.GoToState(this, Transition, true);
         }
 
         protected override void OnContentChanged(object oldContent, object newContent)

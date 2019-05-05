@@ -170,5 +170,7 @@
 
         public static readonly string MainWindow = nameof(MainWindow);
 
+        public static readonly string OverView = nameof(OverView);
+
     }
 }

@@ -7,7 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
     
     <!--用于包裹一个区域-->
-    <Style x:Key="BorderRegionStyle" TargetType="Border">
+    <Style x:Key="BorderRegion" TargetType="Border">
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
