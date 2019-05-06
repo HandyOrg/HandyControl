@@ -7,11 +7,9 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
-             xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
-             d:DesignHeight="3000" 
-             d:DesignWidth="2400">
-    <ScrollViewer>
-        <Canvas Name="CanvasMain" Margin="32" Height="3000" Effect="{StaticResource EffectShadow5}">
+             xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl">
+    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Name="CanvasMain" Margin="32" Width="1665" Height="1300" Effect="{StaticResource EffectShadow5}">
             <Border Visibility="Visible" BorderThickness="1" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4">
                 <StackPanel>
                     <Button Width="80" Content="Button" Margin="0,0,0,10"/>
@@ -349,7 +347,7 @@
             <Border Visibility="Collapsed" BorderThickness="1" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="611" Canvas.Top="976">
                 <userControl:CoverFlowDemoCtl Width="563" Margin="-32" Background="Transparent"/>
             </Border>
-            <Border Visibility="Visible" BorderThickness="1" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1391" Canvas.Top="648" Width="274">
+            <Border Visibility="Collapsed" BorderThickness="1" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1391" Canvas.Top="648" Width="274">
                 <userControl:ColorPickerDemoCtl Margin="-32" Background="Transparent"/>
             </Border>
             <Border Visibility="Collapsed" BorderThickness="1" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1113" Canvas.Top="608" Width="264" Height="126">
@@ -361,7 +359,6 @@
                     <controls:Tag ShowCloseButton="False" Content="TextText"/>
                 </controls:TagPanel>
             </Border>
-            <!--<Border Visibility="Collapsed" Width="14" Height="14" Background="Black" Canvas.Left="290" Canvas.Top="1040"/>-->
         </Canvas>
     </ScrollViewer>
 </UserControl>
