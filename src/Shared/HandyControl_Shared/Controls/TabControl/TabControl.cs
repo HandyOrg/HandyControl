@@ -10,15 +10,30 @@ namespace HandyControl.Controls
 {
     [TemplatePart(Name = OverflowButtonKey, Type = typeof(ContextMenuToggleButton))]
     [TemplatePart(Name = HeaderPanelKey, Type = typeof(TabPanel))]
+    [TemplatePart(Name = OverflowScrollviewer, Type = typeof(ScrollViewer))]
+    [TemplatePart(Name = OverflowButtonLeft, Type = typeof(Button))]
+    [TemplatePart(Name = OverflowButtonRight, Type = typeof(Button))]
     public class TabControl : System.Windows.Controls.TabControl
     {
         private const string OverflowButtonKey = "PART_OverflowButton";
 
         private const string HeaderPanelKey = "PART_HeaderPanel";
 
+        private const string OverflowScrollviewer = "PART_OverflowScrollviewer";
+
+        private const string OverflowButtonLeft = "PART_OverflowButtonLeft";
+
+        private const string OverflowButtonRight = "PART_OverflowButtonRight";
+
         private ContextMenuToggleButton _buttonOverflow;
 
         private TabPanel _headerPanel;
+
+        private ScrollViewer _scrollviewerOverflow;
+
+        private Button _buttonOverflowLeft;
+
+        private Button _buttonOverflowRight;
 
         /// <summary>
         ///     是否为内部操作
@@ -115,6 +130,16 @@ namespace HandyControl.Controls
             set => SetValue(TabItemHeightProperty, value);
         }
 
+        //TODO: Implement this 
+        public bool IsScrollable
+        {
+            get { return (bool)GetValue(IsScrollableProperty); }
+            set { SetValue(IsScrollableProperty, value); }
+        }
+
+        public static readonly DependencyProperty IsScrollableProperty =
+            DependencyProperty.Register("IsScrollable", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+
         /// <summary>
         ///     可见的标签数量
         /// </summary>
@@ -133,7 +158,7 @@ namespace HandyControl.Controls
             if (!IsEnableTabFill)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow.Show(Items.Count > 0  && Items.Count >= _itemShowCount);
+                _buttonOverflow.Show(Items.Count > 0 && Items.Count >= _itemShowCount);
             }
 
             if (IsInternalAction)
@@ -169,6 +194,33 @@ namespace HandyControl.Controls
             if (IsEnableTabFill) return;
 
             _buttonOverflow = Template.FindName(OverflowButtonKey, this) as ContextMenuToggleButton;
+            _scrollviewerOverflow = Template.FindName(OverflowScrollviewer, this) as ScrollViewer;
+            _buttonOverflowLeft = Template.FindName(OverflowButtonLeft, this) as Button;
+            _buttonOverflowRight = Template.FindName(OverflowButtonRight, this) as Button;
+
+            _buttonOverflowLeft.Click += (s, e) =>
+            {
+                var currentOffset = _scrollviewerOverflow.CurrentHorizontalOffset;
+                var modulo = (currentOffset % TabItemWidth);
+                var offset = currentOffset - (modulo == 0 ? TabItemWidth : modulo);
+
+                if (offset >= 0)
+                {
+                    _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(offset);
+                }                  
+            };
+
+            _buttonOverflowRight.Click += (s, e) =>
+            {
+                var currentOffset = _scrollviewerOverflow.CurrentHorizontalOffset;
+                var offset = currentOffset + (TabItemWidth - (currentOffset % TabItemWidth));           
+
+                if(offset <= _scrollviewerOverflow.ScrollableWidth)
+                {
+                    _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(offset);
+                }                  
+            };
+
             if (_buttonOverflow != null)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);

@@ -17,6 +17,8 @@ namespace HandyControl.Controls
 
         private bool _isRunning;
 
+        private Storyboard _scrollingAnimation = new Storyboard();
+
         /// <summary>
         ///     滚动方向
         /// </summary>
@@ -28,7 +30,7 @@ namespace HandyControl.Controls
         /// </summary>
         public Orientation Orientation
         {
-            get => (Orientation) GetValue(OrientationProperty);
+            get => (Orientation)GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
 
@@ -43,7 +45,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool CanMouseWheel
         {
-            get => (bool) GetValue(CanMouseWheelProperty);
+            get => (bool)GetValue(CanMouseWheelProperty);
             set => SetValue(CanMouseWheelProperty, value);
         }
 
@@ -101,7 +103,7 @@ namespace HandyControl.Controls
         }
 
         internal void ScrollToVerticalOffsetInternal(double offset, double milliseconds = 500)
-        {
+        {          
             var animation = AnimationHelper.CreateAnimation(offset, milliseconds);
             animation.EasingFunction = new CubicEase
             {
@@ -114,7 +116,11 @@ namespace HandyControl.Controls
                 _isRunning = false;
             };
             _isRunning = true;
-            BeginAnimation(CurrentVerticalOffsetProperty, animation);
+
+            _scrollingAnimation.Children.Add(animation);
+            BeginStoryboard(_scrollingAnimation);
+
+            //BeginAnimation(CurrentVerticalOffsetProperty, animation);
         }
 
         internal void ScrollToHorizontalOffsetInternal(double offset, double milliseconds = 500)
@@ -131,7 +137,8 @@ namespace HandyControl.Controls
                 _isRunning = false;
             };
             _isRunning = true;
-            BeginAnimation(CurrentHorizontalOffsetProperty, animation);
+
+            BeginAnimation(CurrentHorizontalOffsetProperty, animation, HandoffBehavior.Compose);
         }
 
         protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters) =>
@@ -150,7 +157,7 @@ namespace HandyControl.Controls
 
         public static bool GetIsEnableInertia(DependencyObject element)
         {
-            return (bool) element.GetValue(IsEnableInertiaProperty);
+            return (bool)element.GetValue(IsEnableInertiaProperty);
         }
 
         /// <summary>
@@ -184,7 +191,7 @@ namespace HandyControl.Controls
 
         public static bool GetIsPenetrating(DependencyObject element)
         {
-            return (bool) element.GetValue(IsPenetratingProperty);
+            return (bool)element.GetValue(IsPenetratingProperty);
         }
 
         /// <summary>
@@ -207,7 +214,7 @@ namespace HandyControl.Controls
         private double CurrentVerticalOffset
         {
             // ReSharper disable once UnusedMember.Local
-            get => (double) GetValue(CurrentVerticalOffsetProperty);
+            get => (double)GetValue(CurrentVerticalOffsetProperty);
             set => SetValue(CurrentVerticalOffsetProperty, value);
         }
 
@@ -230,7 +237,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double CurrentHorizontalOffset
         {
-            get => (double) GetValue(CurrentHorizontalOffsetProperty);
+            get => (double)GetValue(CurrentHorizontalOffsetProperty);
             set => SetValue(CurrentHorizontalOffsetProperty, value);
         }
     }
