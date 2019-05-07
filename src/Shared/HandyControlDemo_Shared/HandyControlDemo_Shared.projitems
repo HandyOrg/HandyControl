@@ -38,6 +38,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\ChatBox.xaml.cs">
       <DependentUpon>ChatBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\IFull.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\InteractiveDialog.xaml.cs">
       <DependentUpon>InteractiveDialog.xaml</DependentUpon>
     </Compile>
@@ -73,6 +74,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
       <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GridDemoCtl.xaml.cs">
+      <DependentUpon>GridDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverFlowDemoCtl.xaml.cs">
       <DependentUpon>CoverFlowDemoCtl.xaml</DependentUpon>
@@ -417,6 +421,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CompareSliderDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GridDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
