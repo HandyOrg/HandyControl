@@ -5,7 +5,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemo</AssemblyName>
     <RootNamespace>HandyControlDemo</RootNamespace>
-    <Version>1.5.4</Version>
+    <Version>1.5.5</Version>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

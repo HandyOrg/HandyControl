@@ -35,6 +35,9 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.Designer.cs">
       <Link>Properties\Langs\Lang.Designer.cs</Link>
       <AutoGen>True</AutoGen>

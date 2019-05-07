@@ -72,6 +72,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Shield.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\TransitioningContentControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\CirclePanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\Col.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\Row.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\SimplePanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\WaterfallPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ProgressBar\CircleProgressBar.cs" />
