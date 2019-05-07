@@ -529,6 +529,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 栅格 的本地化字符串。
+        /// </summary>
+        public static string Grid {
+            get {
+                return ResourceManager.GetString("Grid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 分组框 的本地化字符串。
         /// </summary>
         public static string GroupBox {

@@ -94,6 +94,8 @@
 	
         public static readonly string SideMenuDemoCtl = nameof(SideMenuDemoCtl);
 	
+        public static readonly string GridDemoCtl = nameof(GridDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string RepeatButtonDemoCtl = nameof(RepeatButtonDemoCtl);

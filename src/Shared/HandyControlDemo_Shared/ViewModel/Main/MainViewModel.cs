@@ -9,6 +9,7 @@ using GalaSoft.MvvmLight.Messaging;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 using HandyControlDemo.Tools;
+using HandyControlDemo.UserControl;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -114,9 +115,10 @@ namespace HandyControlDemo.ViewModel
                     if (Equals(_listBoxItemCurrent, item)) return;
                     _listBoxItemCurrent = item;
                     ContentTitle = item.Content;
-                    Messenger.Default.Send(false, MessageToken.FullSwitch);
                     var obj = AssemblyHelper.ResolveByKey(tag);
-                    Messenger.Default.Send(obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{tag}"), MessageToken.LoadShowContent);
+                    var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{tag}");
+                    Messenger.Default.Send(ctl is IFull, MessageToken.FullSwitch);
+                    Messenger.Default.Send(ctl, MessageToken.LoadShowContent);
                 }
                 else
                 {
