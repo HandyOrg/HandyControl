@@ -309,7 +309,7 @@
   <data name="TreeView" xml:space="preserve">
     <value>树视图</value>
   </data>
-  <data name="Border1" xml:space="preserve">
+  <data name="Border" xml:space="preserve">
     <value>边框</value>
   </data>
   <data name="ScrollViewer" xml:space="preserve">
@@ -584,5 +584,20 @@
   </data>
   <data name="Grid" xml:space="preserve">
     <value>栅格</value>
+  </data>
+  <data name="BasicLayout" xml:space="preserve">
+    <value>基础布局</value>
+  </data>
+  <data name="ColumnSpacing" xml:space="preserve">
+    <value>分栏间隔</value>
+  </data>
+  <data name="HybridLayout" xml:space="preserve">
+    <value>混合布局</value>
+  </data>
+  <data name="ColumnOffset" xml:space="preserve">
+    <value>分栏偏移</value>
+  </data>
+  <data name="ResponsiveLayout" xml:space="preserve">
+    <value>响应式布局</value>
   </data>
 </root>

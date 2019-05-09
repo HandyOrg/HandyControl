@@ -161,7 +161,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/ToolBar_16x.png"/>
                             </controls:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Tag="{x:Static data:MessageToken.BorderDemoCtl}" Content="{x:Static langs:Lang.Border1}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.BorderDemoCtl}" Content="{x:Static langs:Lang.Border}">
                             <controls:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/BorderElement_16x.png"/>
                             </controls:EdgeElement.LeftContent>
