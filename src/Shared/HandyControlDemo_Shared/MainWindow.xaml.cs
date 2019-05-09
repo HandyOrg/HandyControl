@@ -1,6 +1,9 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
 using HandyControlDemo.Data;
+using HandyControlDemo.Tools;
 
 namespace HandyControlDemo
 {
@@ -9,6 +12,15 @@ namespace HandyControlDemo
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        protected override void OnInitialized(EventArgs e)
+        {
+            base.OnInitialized(e);
+
+            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
+            Messenger.Default.Send(true, MessageToken.FullSwitch);
+            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.OverView}"), MessageToken.LoadShowContent);
         }
 
         protected override void OnClosing(CancelEventArgs e)

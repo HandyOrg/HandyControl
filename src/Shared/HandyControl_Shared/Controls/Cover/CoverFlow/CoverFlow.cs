@@ -194,6 +194,8 @@ namespace HandyControl.Controls
                 var index = PageIndex - 1;
                 PageIndex = index < 0 ? (Loop ? _uriList.Count - 1 : 0) : index;
             }
+
+            e.Handled = true;
         }
 
         /// <summary>

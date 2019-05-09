@@ -65,7 +65,7 @@
 
     <Style x:Key="TransferGroupBaseStyle" TargetType="controls:TransferGroup">
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Template">
             <Setter.Value>

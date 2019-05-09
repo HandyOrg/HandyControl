@@ -69,6 +69,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageToken.tt</DependentUpon>
     </Compile>
+    <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="UserControl\Main\NoUserContent.xaml.cs">
       <DependentUpon>NoUserContent.xaml</DependentUpon>
     </Compile>
@@ -381,13 +384,35 @@
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\fabric-icons.ttf">
+      <Link>Resources\fabric-icons.ttf</Link>
+    </Resource>
+  </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\Shared\HandyControlDemo_Shared\Data\MessageToken.tt">
       <Link>Data\MessageToken.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\MainMenuControl_16x.png">
+      <Link>Resources\Img\LeftMainContent\MainMenuControl_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\DevOps\DevOps-Boards.png">
+      <Link>Resources\Img\DevOps\DevOps-Boards.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\DevOps\DevOps-Overview.png">
+      <Link>Resources\Img\DevOps\DevOps-Overview.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\DevOps\DevOps-Pipelines.png">
+      <Link>Resources\Img\DevOps\DevOps-Pipelines.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\DevOps\DevOps-Repos.png">
+      <Link>Resources\Img\DevOps\DevOps-Repos.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\DevOps\DevOps-TestPlans.png">
+      <Link>Resources\Img\DevOps\DevOps-TestPlans.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\RepeatButton_16x.png">
       <Link>Resources\Img\LeftMainContent\RepeatButton_16x.png</Link>
     </Resource>

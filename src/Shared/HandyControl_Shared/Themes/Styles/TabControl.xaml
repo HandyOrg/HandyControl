@@ -206,9 +206,10 @@
         <Setter Property="controls:BorderElement.CornerRadius" Value="0,0,4,4"/>
     </Style>
 
-    <Style x:Key="TabControlCapsule" TargetType="TabControl">
+    <Style x:Key="TabControlCapsule"  TargetType="TabControl">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="controls:TitleElement.BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="controls:TitleElement.Foreground" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="ItemContainerStyleSelector">
             <Setter.Value>
@@ -218,7 +219,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TabControl">
-                    <Grid x:Name="templateRoot" Background="{DynamicResource RegionBrush}" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
+                    <Grid x:Name="templateRoot" Background="{TemplateBinding Background}" ClipToBounds="true" SnapsToDevicePixels="true" KeyboardNavigation.TabNavigation="Local">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition x:Name="ColumnDefinition0"/>
                             <ColumnDefinition x:Name="ColumnDefinition1" Width="0"/>

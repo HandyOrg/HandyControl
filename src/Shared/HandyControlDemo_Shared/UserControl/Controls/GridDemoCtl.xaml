@@ -1,0 +1,61 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.GridDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:extension="clr-namespace:HandyControl.Tools.Extension;assembly=HandyControl"
+             Background="{DynamicResource RegionBrush}">
+    <ScrollViewer>
+        <StackPanel Margin="32">
+            <controls:Row>
+                <controls:Col>
+                    <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+                <controls:Col>
+                    <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4" Margin="10"/>
+                </controls:Col>
+            </controls:Row>
+        </StackPanel>
+    </ScrollViewer>
+</UserControl>

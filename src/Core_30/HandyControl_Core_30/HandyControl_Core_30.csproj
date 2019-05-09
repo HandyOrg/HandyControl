@@ -4,8 +4,8 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControl</AssemblyName>
     <RootNamespace>HandyControl</RootNamespace>
-    <Version>1.5.4</Version>
-    <AssemblyVersion>1.5.4.0</AssemblyVersion>
+    <Version>1.5.5</Version>
+    <AssemblyVersion>1.5.5.0</AssemblyVersion>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
   </PropertyGroup>

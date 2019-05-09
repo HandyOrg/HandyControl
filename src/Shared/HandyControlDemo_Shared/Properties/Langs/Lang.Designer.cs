@@ -47,7 +47,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   使用此强类型资源类，为所有资源查找
+        ///   重写当前线程的 CurrentUICulture 属性
         ///   重写当前线程的 CurrentUICulture 属性。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
@@ -529,6 +529,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 栅格 的本地化字符串。
+        /// </summary>
+        public static string Grid {
+            get {
+                return ResourceManager.GetString("Grid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 分组框 的本地化字符串。
         /// </summary>
         public static string GroupBox {
@@ -880,6 +889,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 概览 的本地化字符串。
+        /// </summary>
+        public static string Overview {
+            get {
+                return ResourceManager.GetString("Overview", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 页码条 的本地化字符串。
         /// </summary>
         public static string Pagination {
@@ -1155,6 +1173,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ShowRowNumber {
             get {
                 return ResourceManager.GetString("ShowRowNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 侧边菜单 的本地化字符串。
+        /// </summary>
+        public static string SideMenu {
+            get {
+                return ResourceManager.GetString("SideMenu", resourceCulture);
             }
         }
         
