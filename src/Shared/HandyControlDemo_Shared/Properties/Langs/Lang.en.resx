@@ -576,4 +576,13 @@
   <data name="ShowInMainWindow" xml:space="preserve">
     <value>Show in the main window</value>
   </data>
+  <data name="SideMenu" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>Overview</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>Grid</value>
+  </data>
 </root>

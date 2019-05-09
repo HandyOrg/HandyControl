@@ -576,4 +576,13 @@
   <data name="ShowInMainWindow" xml:space="preserve">
     <value>在主窗口显示</value>
   </data>
+  <data name="SideMenu" xml:space="preserve">
+    <value>侧边菜单</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>概览</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>栅格</value>
+  </data>
 </root>

@@ -13,7 +13,7 @@
     <Style x:Key="RadioGroupBaseStyle" TargetType="controls:RadioGroup">
         <Setter Property="ItemsPanel" Value="{StaticResource RadioGroupHorizontalItemsPanelTemplate}"/>
         <Setter Property="controls:TitleElement.BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="controls:TitleElement.Foreground" Value="{DynamicResource PrimaryBrush}"/>
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">

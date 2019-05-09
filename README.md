@@ -46,7 +46,17 @@ Step 2：Add code in App.xaml as follows:
 ```
 Step 3：enjoy coding
 
+## Overview
+
+![Overview](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Overview.png)
+
+![Overview-dark](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Overview-dark.png)
+
 ## Latest examples
+
+### SideMenu
+
+![SideMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SideMenu.png)
 
 ### NotifyIcon
 
@@ -64,11 +74,11 @@ Step 3：enjoy coding
 
 ![Badge](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Badge.png)
 
+## History publication
+
 ### Gravatar
 
 ![Gravatar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Gravatar.gif)
-
-## History publication
 
 ### GoToTop
 

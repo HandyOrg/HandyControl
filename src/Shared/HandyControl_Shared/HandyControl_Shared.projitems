@@ -25,6 +25,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\VisualElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\WindowAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\HeaderedSelectableItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\HeaderedSimpleItemsControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\IGravatarGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\ISelectable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\ISingleOpen.cs" />
@@ -39,6 +40,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverViewContent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverViewItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Grid\Col.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Grid\Row.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\GifImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageViewer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\ComboBox.cs" />
@@ -77,6 +80,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ProgressBar\WaveProgressBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Rate\Rate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Rate\RateItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\SideMenu\SideMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\SideMenu\SideMenuItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\CompareSlider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\CompareTrack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\PreviewSlider.cs" />
@@ -109,9 +114,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\BadgeStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatMessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatRoleType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ColLayoutStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ExpandMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\InfoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\IpType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ResultType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\SideMenuItemRole.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\SkinType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StepStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TextType.cs" />
@@ -123,6 +131,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GPStream.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\GrowlInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\HandyControlConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\MessageBoxInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Operation\OperationResult!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Operation\OperationResult.cs" />
@@ -211,6 +220,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\String2VisibilityConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\String2VisibilityReConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\TreeViewItemMarginConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ColLayout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ColorExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\DialogExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\EnumerableExtension.cs" />
@@ -221,6 +231,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\AnimationHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ArithmeticHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ColorHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ConfigHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\CreateParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DesignerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ExternDllHelper.cs" />
@@ -439,6 +450,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\SideMenuBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\StepBarBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -636,6 +651,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Shield.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\SideMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

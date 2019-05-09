@@ -152,7 +152,7 @@ namespace HandyControl.Controls
         /// </summary>
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
             "Value", typeof(double), typeof(NumericUpDown),
-            new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+            new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
                 OnValueChanged, CoerceValue), ArithmeticHelper.IsValidDoubleValue);
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -204,7 +204,7 @@ namespace HandyControl.Controls
         ///     最大值
         /// </summary>
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-            "Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(100.0, OnMaximumChanged, CoerceMaximum), ArithmeticHelper.IsValidDoubleValue);
+            "Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ArithmeticHelper.IsValidDoubleValue);
 
         private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

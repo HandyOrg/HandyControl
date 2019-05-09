@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:tools="clr-namespace:HandyControl.Tools">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
@@ -232,6 +233,7 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Language" Value="{Binding Lang,Source={x:Static tools:ConfigHelper.Instance}}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CalendarDayButtonStyle" Value="{StaticResource CalendarDayButtonStyle}"/>
         <Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}"/>

@@ -9,6 +9,7 @@ using GalaSoft.MvvmLight.Messaging;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 using HandyControlDemo.Tools;
+using HandyControlDemo.UserControl;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -91,6 +92,12 @@ namespace HandyControlDemo.ViewModel
             new Lazy<RelayCommand<SelectionChangedEventArgs>>(() =>
                 new RelayCommand<SelectionChangedEventArgs>(SwitchDemo)).Value;
 
+        /// <summary>
+        ///     打开概览命令
+        /// </summary>
+        public RelayCommand OpenOverviewCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(OpenOverview)).Value;
+
 #endregion
 
 #region 方法
@@ -108,9 +115,10 @@ namespace HandyControlDemo.ViewModel
                     if (Equals(_listBoxItemCurrent, item)) return;
                     _listBoxItemCurrent = item;
                     ContentTitle = item.Content;
-                    Messenger.Default.Send(false, MessageToken.FullSwitch);
                     var obj = AssemblyHelper.ResolveByKey(tag);
-                    Messenger.Default.Send(obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{tag}"), MessageToken.LoadShowContent);
+                    var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{tag}");
+                    Messenger.Default.Send(ctl is IFull, MessageToken.FullSwitch);
+                    Messenger.Default.Send(ctl, MessageToken.LoadShowContent);
                 }
                 else
                 {
@@ -121,6 +129,16 @@ namespace HandyControlDemo.ViewModel
             }
         }
 
-#endregion
+        /// <summary>
+        ///     打开概览
+        /// </summary>
+        private void OpenOverview()
+        {
+            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
+            Messenger.Default.Send(true, MessageToken.FullSwitch);
+            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.OverView}"), MessageToken.LoadShowContent);
+        }
+
+        #endregion
     }
 }

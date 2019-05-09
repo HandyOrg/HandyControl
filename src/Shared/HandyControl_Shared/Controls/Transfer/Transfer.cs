@@ -30,6 +30,10 @@ namespace HandyControl.Controls
 
         private IEnumerable _itemsSourceInternal;
 
+        private IEnumerable _initEnumerable;
+
+        private NotifyCollectionChangedEventArgs _initArgs;
+
         public static readonly RoutedEvent SelectionChangedEvent =
             EventManager.RegisterRoutedEvent("SelectionChanged", RoutingStrategy.Bubble,
                 typeof(SelectionChangedEventHandler), typeof(Transfer));
@@ -71,7 +75,22 @@ namespace HandyControl.Controls
             _itemsOrigin = GetTemplateChild(ElementItemsOrigin) as SimpleItemsControl;
             _itemsSelected = GetTemplateChild(ElementItemsSelected) as SimpleItemsControl;
 
-            Refresh();
+            if (_itemsOrigin != null && _itemsSelected != null)
+            {
+                if (_initEnumerable != null)
+                {
+                    OnItemsSourceChanged(null, _itemsSourceInternal);
+                    _itemsSourceInternal = null;
+                }
+
+                if (_initArgs != null)
+                {
+                    InternalCollectionChanged(null, _initArgs);
+                    _initArgs = null;
+                }
+
+                Refresh();
+            }
         }
 
         private void AddItem(object item)
@@ -114,6 +133,12 @@ namespace HandyControl.Controls
 
         protected override void OnItemsSourceChanged(IEnumerable oldValue, IEnumerable newValue)
         {
+            if (_itemsOrigin == null || _itemsSelected == null)
+            {
+                _initEnumerable = newValue;
+                return;
+            }
+
             if (_itemsSourceInternal != null)
             {
                 if (_itemsSourceInternal is INotifyCollectionChanged s)
@@ -139,6 +164,12 @@ namespace HandyControl.Controls
 
         private void InternalCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
+            if (_itemsOrigin == null || _itemsSelected == null)
+            {
+                _initArgs = e;
+                return;
+            }
+
             if (e.OldItems != null)
             {
                 foreach (var item in e.OldItems)
