@@ -3,6 +3,7 @@ using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
 
@@ -236,33 +237,15 @@ namespace HandyControl.Controls
             }
         }
 
-        private void Menu_Closed(object sender, RoutedEventArgs e)
-        {
-            _buttonOverflow.IsChecked = false;
-        }
+        private void Menu_Closed(object sender, RoutedEventArgs e) => _buttonOverflow.IsChecked = false;
 
-        private void ButtonScrollRight_Click(object sender, RoutedEventArgs e)
-        {
-            var currentOffset = _scrollviewerOverflow.CurrentHorizontalOffset;
-            var offset = currentOffset + (TabItemWidth - currentOffset % TabItemWidth);
+        private void ButtonScrollRight_Click(object sender, RoutedEventArgs e) =>
+            _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(Math.Min(
+                _scrollviewerOverflow.CurrentHorizontalOffset + TabItemWidth, _scrollviewerOverflow.ScrollableWidth));
 
-            if (offset <= _scrollviewerOverflow.ScrollableWidth)
-            {
-                _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(offset);
-            }
-        }
-
-        private void ButtonScrollLeft_Click(object sender, RoutedEventArgs e)
-        {
-            var currentOffset = _scrollviewerOverflow.CurrentHorizontalOffset;
-            var modulo = currentOffset % TabItemWidth;
-            var offset = currentOffset - (modulo < 1e-6 ? TabItemWidth : modulo);
-
-            if (offset >= 0)
-            {
-                _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(offset);
-            }
-        }
+        private void ButtonScrollLeft_Click(object sender, RoutedEventArgs e) =>
+            _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(Math.Max(
+                _scrollviewerOverflow.CurrentHorizontalOffset - TabItemWidth, 0));
 
         private void ButtonOverflow_Click(object sender, RoutedEventArgs e)
         {
@@ -304,5 +287,12 @@ namespace HandyControl.Controls
                 }
             }
         }
+
+        internal double GetHorizontalOffset() => _scrollviewerOverflow?.CurrentHorizontalOffset ?? 0;
+
+        internal void UpdateScroll() => _scrollviewerOverflow?.RaiseEvent(new MouseWheelEventArgs(Mouse.PrimaryDevice, Environment.TickCount, 0)
+        {
+            RoutedEvent = MouseWheelEvent
+        });
     }
 }
