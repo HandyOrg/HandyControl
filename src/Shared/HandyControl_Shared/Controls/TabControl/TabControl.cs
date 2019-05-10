@@ -11,8 +11,8 @@ namespace HandyControl.Controls
     [TemplatePart(Name = OverflowButtonKey, Type = typeof(ContextMenuToggleButton))]
     [TemplatePart(Name = HeaderPanelKey, Type = typeof(TabPanel))]
     [TemplatePart(Name = OverflowScrollviewer, Type = typeof(ScrollViewer))]
-    [TemplatePart(Name = OverflowButtonLeft, Type = typeof(Button))]
-    [TemplatePart(Name = OverflowButtonRight, Type = typeof(Button))]
+    [TemplatePart(Name = ScrollButtonLeft, Type = typeof(Button))]
+    [TemplatePart(Name = ScrollButtonRight, Type = typeof(Button))]
     public class TabControl : System.Windows.Controls.TabControl
     {
         private const string OverflowButtonKey = "PART_OverflowButton";
@@ -21,9 +21,9 @@ namespace HandyControl.Controls
 
         private const string OverflowScrollviewer = "PART_OverflowScrollviewer";
 
-        private const string OverflowButtonLeft = "PART_OverflowButtonLeft";
+        private const string ScrollButtonLeft = "PART_ScrollButtonLeft";
 
-        private const string OverflowButtonRight = "PART_OverflowButtonRight";
+        private const string ScrollButtonRight = "PART_ScrollButtonRight";
 
         private ContextMenuToggleButton _buttonOverflow;
 
@@ -31,9 +31,9 @@ namespace HandyControl.Controls
 
         private ScrollViewer _scrollviewerOverflow;
 
-        private Button _buttonOverflowLeft;
+        private Button _buttonScrollLeft;
 
-        private Button _buttonOverflowRight;
+        private Button _buttonScrollRight;
 
         /// <summary>
         ///     是否为内部操作
@@ -130,15 +130,20 @@ namespace HandyControl.Controls
             set => SetValue(TabItemHeightProperty, value);
         }
 
-        //TODO: Implement this 
+        /// <summary>
+        ///     是否可以滚动
+        /// </summary>
+        public static readonly DependencyProperty IsScrollableProperty = DependencyProperty.Register(
+            "IsScrollable", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        /// <summary>
+        ///     是否可以滚动
+        /// </summary>
         public bool IsScrollable
         {
-            get { return (bool)GetValue(IsScrollableProperty); }
-            set { SetValue(IsScrollableProperty, value); }
+            get => (bool) GetValue(IsScrollableProperty);
+            set => SetValue(IsScrollableProperty, value);
         }
-
-        public static readonly DependencyProperty IsScrollableProperty =
-            DependencyProperty.Register("IsScrollable", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     可见的标签数量
@@ -188,6 +193,20 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
+            if (_buttonOverflow != null)
+            {
+                if (_buttonOverflow.Menu != null)
+                {
+                    _buttonOverflow.Menu.Closed -= Menu_Closed;
+                    _buttonOverflow.Menu = null;
+                }
+
+                _buttonOverflow.Click -= ButtonOverflow_Click;
+            }
+
+            if (_buttonScrollLeft != null) _buttonScrollLeft.Click -= ButtonScrollLeft_Click;
+            if (_buttonScrollRight != null) _buttonScrollRight.Click -= ButtonScrollRight_Click;
+
             base.OnApplyTemplate();
             _headerPanel = Template.FindName(HeaderPanelKey, this) as TabPanel;
 
@@ -195,31 +214,11 @@ namespace HandyControl.Controls
 
             _buttonOverflow = Template.FindName(OverflowButtonKey, this) as ContextMenuToggleButton;
             _scrollviewerOverflow = Template.FindName(OverflowScrollviewer, this) as ScrollViewer;
-            _buttonOverflowLeft = Template.FindName(OverflowButtonLeft, this) as Button;
-            _buttonOverflowRight = Template.FindName(OverflowButtonRight, this) as Button;
+            _buttonScrollLeft = Template.FindName(ScrollButtonLeft, this) as Button;
+            _buttonScrollRight = Template.FindName(ScrollButtonRight, this) as Button;
 
-            _buttonOverflowLeft.Click += (s, e) =>
-            {
-                var currentOffset = _scrollviewerOverflow.CurrentHorizontalOffset;
-                var modulo = (currentOffset % TabItemWidth);
-                var offset = currentOffset - (modulo == 0 ? TabItemWidth : modulo);
-
-                if (offset >= 0)
-                {
-                    _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(offset);
-                }                  
-            };
-
-            _buttonOverflowRight.Click += (s, e) =>
-            {
-                var currentOffset = _scrollviewerOverflow.CurrentHorizontalOffset;
-                var offset = currentOffset + (TabItemWidth - (currentOffset % TabItemWidth));           
-
-                if(offset <= _scrollviewerOverflow.ScrollableWidth)
-                {
-                    _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(offset);
-                }                  
-            };
+            if (_buttonScrollLeft != null) _buttonScrollLeft.Click += ButtonScrollLeft_Click;
+            if (_buttonScrollRight != null) _buttonScrollRight.Click += ButtonScrollRight_Click;
 
             if (_buttonOverflow != null)
             {
@@ -231,48 +230,78 @@ namespace HandyControl.Controls
                     Placement = PlacementMode.Bottom,
                     PlacementTarget = _buttonOverflow
                 };
-                menu.Closed += (s, e) => _buttonOverflow.IsChecked = false;
+                menu.Closed += Menu_Closed;
                 _buttonOverflow.Menu = menu;
-                _buttonOverflow.Click += (s, e) =>
+                _buttonOverflow.Click += ButtonOverflow_Click;
+            }
+        }
+
+        private void Menu_Closed(object sender, RoutedEventArgs e)
+        {
+            _buttonOverflow.IsChecked = false;
+        }
+
+        private void ButtonScrollRight_Click(object sender, RoutedEventArgs e)
+        {
+            var currentOffset = _scrollviewerOverflow.CurrentHorizontalOffset;
+            var offset = currentOffset + (TabItemWidth - currentOffset % TabItemWidth);
+
+            if (offset <= _scrollviewerOverflow.ScrollableWidth)
+            {
+                _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(offset);
+            }
+        }
+
+        private void ButtonScrollLeft_Click(object sender, RoutedEventArgs e)
+        {
+            var currentOffset = _scrollviewerOverflow.CurrentHorizontalOffset;
+            var modulo = currentOffset % TabItemWidth;
+            var offset = currentOffset - (modulo < 1e-6 ? TabItemWidth : modulo);
+
+            if (offset >= 0)
+            {
+                _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(offset);
+            }
+        }
+
+        private void ButtonOverflow_Click(object sender, RoutedEventArgs e)
+        {
+            if (_buttonOverflow.IsChecked == true)
+            {
+                _buttonOverflow.Menu.Items.Clear();
+                foreach (TabItem item in Items)
                 {
-                    if (_buttonOverflow.IsChecked == true)
+                    var menuItem = new MenuItem
                     {
-                        _buttonOverflow.Menu.Items.Clear();
-                        foreach (TabItem item in Items)
+                        Header = item.Header,
+                        Width = TabItemWidth,
+                        IsChecked = item.IsSelected,
+                        IsCheckable = true
+                    };
+                    menuItem.Click += delegate
+                    {
+                        _buttonOverflow.IsChecked = false;
+                        var index = Items.IndexOf(item);
+                        if (index >= _itemShowCount)
                         {
-                            var menuItem = new MenuItem
+                            Items.Remove(item);
+                            Items.Insert(0, item);
+                            if (IsEnableAnimation)
                             {
-                                Header = item.Header,
-                                Width = TabItemWidth,
-                                IsChecked = item.IsSelected,
-                                IsCheckable = true
-                            };
-                            menuItem.Click += delegate
+                                _headerPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
+                            }
+                            else
                             {
-                                _buttonOverflow.IsChecked = false;
-                                var index = Items.IndexOf(item);
-                                if (index >= _itemShowCount)
-                                {
-                                    Items.Remove(item);
-                                    Items.Insert(0, item);
-                                    if (IsEnableAnimation)
-                                    {
-                                        _headerPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
-                                    }
-                                    else
-                                    {
-                                        _headerPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
-                                    }
-                                    _headerPanel.ForceUpdate = true;
-                                    _headerPanel.Measure(new Size(_headerPanel.DesiredSize.Width, ActualHeight));
-                                    _headerPanel.ForceUpdate = false;
-                                }
-                                item.IsSelected = true;
-                            };
-                            _buttonOverflow.Menu.Items.Add(menuItem);
+                                _headerPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+                            }
+                            _headerPanel.ForceUpdate = true;
+                            _headerPanel.Measure(new Size(_headerPanel.DesiredSize.Width, ActualHeight));
+                            _headerPanel.ForceUpdate = false;
                         }
-                    }
-                };
+                        item.IsSelected = true;
+                    };
+                    _buttonOverflow.Menu.Items.Add(menuItem);
+                }
             }
         }
     }

@@ -7,7 +7,7 @@
         <controls:ScrollViewer HorizontalScrollBarVisibility="Auto">
             <StackPanel>
                 <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
-                <controls:TabControl Margin="32,16,32,0" Width="800" Height="300">
+                <controls:TabControl Margin="32,16,32,0" Width="800" Height="300" IsScrollable="True">
                     <controls:TabItem Header="TabItem1">
                         <controls:SimplePanel Background="White"/>
                     </controls:TabItem>
@@ -36,7 +36,7 @@
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsDraggable = True"/>
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsEnableAnimation = True"/>
                 </StackPanel>
-                <controls:TabControl IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
+                <controls:TabControl IsScrollable="True" IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" Margin="32,0,32,32" Width="800" Height="300">
                     <controls:TabItem Header="TabItem1">
                         <controls:SimplePanel Background="White"/>
                     </controls:TabItem>
