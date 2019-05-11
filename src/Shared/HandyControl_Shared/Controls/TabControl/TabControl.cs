@@ -209,14 +209,14 @@ namespace HandyControl.Controls
             if (_buttonScrollRight != null) _buttonScrollRight.Click -= ButtonScrollRight_Click;
 
             base.OnApplyTemplate();
-            _headerPanel = Template.FindName(HeaderPanelKey, this) as TabPanel;
+            _headerPanel = GetTemplateChild(HeaderPanelKey) as TabPanel;
 
             if (IsEnableTabFill) return;
 
-            _buttonOverflow = Template.FindName(OverflowButtonKey, this) as ContextMenuToggleButton;
-            _scrollviewerOverflow = Template.FindName(OverflowScrollviewer, this) as ScrollViewer;
-            _buttonScrollLeft = Template.FindName(ScrollButtonLeft, this) as Button;
-            _buttonScrollRight = Template.FindName(ScrollButtonRight, this) as Button;
+            _buttonOverflow = GetTemplateChild(OverflowButtonKey) as ContextMenuToggleButton;
+            _scrollviewerOverflow = GetTemplateChild(OverflowScrollviewer) as ScrollViewer;
+            _buttonScrollLeft = GetTemplateChild(ScrollButtonLeft) as Button;
+            _buttonScrollRight = GetTemplateChild(ScrollButtonRight) as Button;
 
             if (_buttonScrollLeft != null) _buttonScrollLeft.Click += ButtonScrollLeft_Click;
             if (_buttonScrollRight != null) _buttonScrollRight.Click += ButtonScrollRight_Click;

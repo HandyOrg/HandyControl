@@ -72,7 +72,7 @@ namespace HandyControlDemo.Service
             var list = new List<string>();
             for (var i = 1; i <= 9; i++)
             {
-                list.Add(converter.Convert(Properties.Langs.Lang.Text, null, i, CultureInfo.CurrentCulture)?.ToString());
+                list.Add($"{converter.Convert(Properties.Langs.Lang.Text, null, i, CultureInfo.CurrentCulture)}{i}");
             }
 
             return list;
