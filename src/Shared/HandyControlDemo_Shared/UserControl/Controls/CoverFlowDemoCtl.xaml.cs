@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace HandyControlDemo.UserControl
 {
@@ -9,7 +8,7 @@ namespace HandyControlDemo.UserControl
         {
             InitializeComponent();
 
-            CoverFlowMain.AddRange(new List<Uri>
+            CoverFlowMain.AddRange(new []
             {
                 new Uri(@"pack://application:,,,/Resources/Img/Album/1.jpg"),
                 new Uri(@"pack://application:,,,/Resources/Img/Album/2.jpg"),
