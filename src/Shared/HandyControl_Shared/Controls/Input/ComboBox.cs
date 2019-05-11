@@ -5,7 +5,9 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
+#if netle40
 using System.Windows.Threading;
+#endif
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
