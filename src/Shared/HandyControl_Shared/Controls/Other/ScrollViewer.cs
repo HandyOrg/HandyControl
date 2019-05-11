@@ -114,7 +114,8 @@ namespace HandyControl.Controls
                 _isRunning = false;
             };
             _isRunning = true;
-            BeginAnimation(CurrentVerticalOffsetProperty, animation);
+
+            BeginAnimation(CurrentVerticalOffsetProperty, animation, HandoffBehavior.Compose);
         }
 
         internal void ScrollToHorizontalOffsetInternal(double offset, double milliseconds = 500)
@@ -131,7 +132,8 @@ namespace HandyControl.Controls
                 _isRunning = false;
             };
             _isRunning = true;
-            BeginAnimation(CurrentHorizontalOffsetProperty, animation);
+
+            BeginAnimation(CurrentHorizontalOffsetProperty, animation, HandoffBehavior.Compose);
         }
 
         protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters) =>
@@ -150,7 +152,7 @@ namespace HandyControl.Controls
 
         public static bool GetIsEnableInertia(DependencyObject element)
         {
-            return (bool) element.GetValue(IsEnableInertiaProperty);
+            return (bool)element.GetValue(IsEnableInertiaProperty);
         }
 
         /// <summary>
@@ -158,7 +160,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsEnableInertia
         {
-            get => (bool)GetValue(IsEnableInertiaProperty);
+            get => (bool) GetValue(IsEnableInertiaProperty);
             set => SetValue(IsEnableInertiaProperty, value);
         }
 
@@ -173,7 +175,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsPenetrating
         {
-            get => (bool)GetValue(IsPenetratingProperty);
+            get => (bool) GetValue(IsPenetratingProperty);
             set => SetValue(IsPenetratingProperty, value);
         }
 

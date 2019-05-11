@@ -88,6 +88,11 @@ namespace HandyControl.Controls
         private int _currentIndex;
 
         /// <summary>
+        ///     标签容器横向滚动距离
+        /// </summary>
+        private double _scrollHorizontalOffset;
+
+        /// <summary>
         ///     标签容器
         /// </summary>
         internal TabPanel TabPanel { get; set; }
@@ -178,17 +183,21 @@ namespace HandyControl.Controls
             base.OnMouseLeftButtonDown(e);
             if (TabControlParent.IsDraggable && !ItemIsDragging && !_isDragging)
             {
+                TabControlParent.UpdateScroll();
                 TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
                 _mouseDownOffsetX = RenderTransform.Value.OffsetX;
-                var mx = TranslatePoint(new Point(), TabControlParent).X;
+                _scrollHorizontalOffset = TabControlParent.GetHorizontalOffset();
+                var mx = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
                 _mouseDownIndex = CalLocationIndex(mx);
-                _maxMoveLeft = -_mouseDownIndex * ItemWidth;
+                var subIndex = _mouseDownIndex - CalLocationIndex(_scrollHorizontalOffset);
+                _maxMoveLeft = -subIndex * ItemWidth;
                 _maxMoveRight = TabControlParent.ActualWidth - ActualWidth + _maxMoveLeft;
 
                 _isDragging = true;
                 ItemIsDragging = true;
                 _isWaiting = true;
                 _dragPoint = e.GetPosition(TabControlParent);
+                _dragPoint = new Point(_dragPoint.X + +_scrollHorizontalOffset, _dragPoint.Y);
                 _mouseDownPoint = _dragPoint;
                 CaptureMouse();
             }
@@ -199,9 +208,10 @@ namespace HandyControl.Controls
             base.OnMouseMove(e);
             if (ItemIsDragging && _isDragging)
             {
-                var subX = TranslatePoint(new Point(), TabControlParent).X;
+                var subX = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
                 CurrentIndex = CalLocationIndex(subX);
                 var p = e.GetPosition(TabControlParent);
+                p = new Point(p.X + _scrollHorizontalOffset, p.Y);
                 var subLeft = p.X - _dragPoint.X;
                 var totalLeft = p.X - _mouseDownPoint.X;
 
@@ -229,7 +239,7 @@ namespace HandyControl.Controls
             ReleaseMouseCapture();
             if (_isDragged)
             {
-                var subX = TranslatePoint(new Point(), TabControlParent).X;
+                var subX = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
                 var index = CalLocationIndex(subX);
                 var left = index * ItemWidth;
                 var offsetX = RenderTransform.Value.OffsetX;
@@ -273,7 +283,7 @@ namespace HandyControl.Controls
             animation.Completed += (s1, e1) => AnimationCompleted();
             var f = new TranslateTransform(offsetX, 0);
             RenderTransform = f;
-            f.BeginAnimation(TranslateTransform.XProperty, animation);
+            f.BeginAnimation(TranslateTransform.XProperty, animation, HandoffBehavior.Compose);
         }
 
         /// <summary>

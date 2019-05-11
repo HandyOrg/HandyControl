@@ -7,7 +7,7 @@
         <controls:ScrollViewer HorizontalScrollBarVisibility="Auto">
             <StackPanel>
                 <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
-                <controls:TabControl Margin="32,16,32,0" Width="800" Height="300">
+                <controls:TabControl Margin="32,16,32,0" Width="800" Height="300" IsScrollable="True">
                     <controls:TabItem Header="TabItem1">
                         <controls:SimplePanel Background="White"/>
                     </controls:TabItem>
