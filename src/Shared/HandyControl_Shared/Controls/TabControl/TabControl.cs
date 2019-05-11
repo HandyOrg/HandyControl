@@ -164,11 +164,11 @@ namespace HandyControl.Controls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            _headerPanel = Template.FindName(HeaderPanelKey, this) as TabPanel;
+            _headerPanel = GetTemplateChild(HeaderPanelKey) as TabPanel;
 
             if (IsEnableTabFill) return;
 
-            _buttonOverflow = Template.FindName(OverflowButtonKey, this) as ContextMenuToggleButton;
+            _buttonOverflow = GetTemplateChild(OverflowButtonKey) as ContextMenuToggleButton;
             if (_buttonOverflow != null)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);
