@@ -7,6 +7,8 @@
     <controls:TransitioningContentControl>
         <StackPanel Margin="32" Orientation="Horizontal">
             <StackPanel>
+                <controls:TimeSelector Margin="10" Height="200" Width="160"/>
+                <controls:TimePickerList Width="200" Height="30" />
                 <controls:TimePicker ShowClearButton="True"/>
                 <controls:TimePicker Margin="0,16,0,0" IsEnabled="False"/>
 
