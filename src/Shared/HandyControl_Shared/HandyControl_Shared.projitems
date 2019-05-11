@@ -76,6 +76,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\CirclePanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\SimplePanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\WaterfallPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PopTip\AngleBorder.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PopTip\Poptip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ProgressBar\CircleProgressBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ProgressBar\WaveProgressBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Rate\Rate.cs" />

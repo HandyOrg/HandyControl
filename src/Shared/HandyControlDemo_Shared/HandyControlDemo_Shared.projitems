@@ -129,6 +129,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PasswordBoxDemoCtl.xaml.cs">
       <DependentUpon>PasswordBoxDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemoCtl.xaml.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -496,6 +497,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PreviewSliderDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -730,5 +735,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="C:\Users\Mahdi\Documents\GitHub\HandyControl\src\Shared\HandyControlDemo_Shared\UserControl\Controls\PoptipDemoCtl.xaml.cs">
+      <DependentUpon>PoptipDemoCtl.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 </Project>

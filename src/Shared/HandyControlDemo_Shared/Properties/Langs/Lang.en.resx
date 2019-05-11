@@ -600,4 +600,7 @@
   <data name="Border" xml:space="preserve">
     <value>Border</value>
   </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>Poptip</value>
+  </data>
 </root>

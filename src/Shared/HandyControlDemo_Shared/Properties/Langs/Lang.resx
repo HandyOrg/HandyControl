@@ -600,4 +600,7 @@
   <data name="ResponsiveLayout" xml:space="preserve">
     <value>响应式布局</value>
   </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>Poptip</value>
+  </data>
 </root>
