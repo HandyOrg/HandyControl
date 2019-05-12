@@ -192,7 +192,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前垂直滚动偏移
         /// </summary>
-        private static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(
             "CurrentVerticalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentVerticalOffsetChanged));
 
         private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -206,7 +206,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前垂直滚动偏移
         /// </summary>
-        private double CurrentVerticalOffset
+        internal double CurrentVerticalOffset
         {
             // ReSharper disable once UnusedMember.Local
             get => (double) GetValue(CurrentVerticalOffsetProperty);
@@ -216,7 +216,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前水平滚动偏移
         /// </summary>
-        public static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(
             "CurrentHorizontalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentHorizontalOffsetChanged));
 
         private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -230,7 +230,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前水平滚动偏移
         /// </summary>
-        public double CurrentHorizontalOffset
+        internal double CurrentHorizontalOffset
         {
             get => (double) GetValue(CurrentHorizontalOffsetProperty);
             set => SetValue(CurrentHorizontalOffsetProperty, value);

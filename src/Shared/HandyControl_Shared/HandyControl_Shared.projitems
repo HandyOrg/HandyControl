@@ -95,7 +95,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\Tag\TagPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\CalendarWithClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\Clock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ListClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ClockRadioButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ClockBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\FlipClock\FlipClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\FlipClock\FlipNumber.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\TimeBar\SpeTextBlock.cs" />

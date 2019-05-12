@@ -17,7 +17,11 @@
                 <controls:TimePicker Width="380" controls:InfoElement.TitleWidth="140" controls:InfoElement.TitleAlignment="Left" controls:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource TimePickerExtend}" controls:InfoElement.Necessary="True" Margin="0,16,0,0"/>
             </StackPanel>
             <StackPanel Margin="32,0,0,0">
-                <controls:TimePicker ShowClearButton="True" Style="{StaticResource TimePickerPlus}"/>
+                <controls:TimePicker ShowClearButton="True" Style="{StaticResource TimePickerPlus}">
+                    <controls:TimePicker.Clock>
+                        <controls:ListClock/>
+                    </controls:TimePicker.Clock>
+                </controls:TimePicker>
                 <controls:TimePicker Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource TimePickerPlus}"/>
 
                 <controls:TimePicker ShowClearButton="True" Style="{StaticResource TimePickerPlus}" controls:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0"/>
