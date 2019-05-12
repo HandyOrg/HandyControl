@@ -63,8 +63,6 @@
         <ResourceDictionary Source="Badge.xaml"/>
         <ResourceDictionary Source="Dialog.xaml"/>
         <ResourceDictionary Source="SideMenu.xaml"/>
-        <ResourceDictionary Source="TimeSelector.xaml"/>
-        <ResourceDictionary Source="TimePickerList.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

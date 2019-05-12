@@ -95,15 +95,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\Tag\TagPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\CalendarWithClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\Clock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ListClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ClockRadioButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ClockBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\FlipClock\FlipClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\FlipClock\FlipNumber.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\ItemsControlExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\TimeBar\SpeTextBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\TimeBar\TimeBar.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\TimeButton.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\TimePickerList.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\TimeSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Transfer\Transfer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Transfer\TransferGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Transfer\TransferItem.cs" />
@@ -701,14 +699,6 @@
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\TimePicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\TimePickerList.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\TimeSelector.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\ToggleButton.xaml">
       <SubType>Designer</SubType>
