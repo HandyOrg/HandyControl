@@ -33,6 +33,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<NotifyIconDemoViewModel>();
             SimpleIoc.Default.Register<InteractiveDialogViewModel>();
             SimpleIoc.Default.Register<BadgeDemoViewModel>();
+            SimpleIoc.Default.Register<SideMenuDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -71,6 +72,9 @@ namespace HandyControlDemo.ViewModel
         public InteractiveDialogViewModel InteractiveDialog => ServiceLocator.Current.GetInstance<InteractiveDialogViewModel>();
 
         public BadgeDemoViewModel BadgeDemo => ServiceLocator.Current.GetInstance<BadgeDemoViewModel>();
+
+        public SideMenuDemoViewModel SideMenuDemo => ServiceLocator.Current.GetInstance<SideMenuDemoViewModel>();
+
         #endregion
     }
 }

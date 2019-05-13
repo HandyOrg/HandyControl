@@ -16,6 +16,13 @@ namespace HandyControlDemo.UserControl
         public LeftMainContent()
         {
             InitializeComponent();
+
+            /*You have to ask me why I made Border special.
+             What drives me crazy is that if you don't do this, 
+             the content of ListBoxItemBorder will always be 1 ! 
+             How amazing!
+             I wish someone could tell me why. */
+            ListBoxItemBorder.Content = Properties.Langs.Lang.Border;
         }
 
         private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)

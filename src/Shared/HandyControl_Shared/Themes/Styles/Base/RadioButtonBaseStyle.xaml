@@ -150,7 +150,7 @@
 
     <Style x:Key="RadioGroupItemBaseStyle" TargetType="RadioButton">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>

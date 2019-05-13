@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
+using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
@@ -33,7 +34,14 @@ namespace HandyControl.Controls
         public SimpleItemsControl()
         {
             var items = new ObservableCollection<object>();
-            items.CollectionChanged += OnItemsChanged;
+            items.CollectionChanged += (s, e) =>
+            {
+                if (e.NewItems != null && e.NewItems.Count > 0)
+                {
+                    SetValue(HasItemsPropertyKey, true);
+                }
+                OnItemsChanged(s, e);
+            };
             Items = items;
         }
 
@@ -117,6 +125,14 @@ namespace HandyControl.Controls
             => (d as SimpleItemsControl)?.OnItemContainerStyleChanged(e);
 
         protected virtual void OnItemContainerStyleChanged(DependencyPropertyChangedEventArgs e) => Refresh();
+
+        internal static readonly DependencyPropertyKey HasItemsPropertyKey =
+            DependencyProperty.RegisterReadOnly(nameof(HasItems), typeof(bool), typeof(SimpleItemsControl),
+                new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public static readonly DependencyProperty HasItemsProperty = HasItemsPropertyKey.DependencyProperty;
+
+        public bool HasItems => (bool) GetValue(HasItemsProperty);
 
         protected virtual void Refresh()
         {

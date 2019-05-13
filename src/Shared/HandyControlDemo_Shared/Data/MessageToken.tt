@@ -48,11 +48,14 @@ var controlList = new List<string>
 	"NotifyIconDemoCtl",
 	"BadgeDemoCtl",
 	"GravatarDemoCtl",
-	"DialogDemoCtl"
+	"DialogDemoCtl",
+	"SideMenuDemoCtl",
+	"GridDemoCtl"
 };
 var styleList = new List<string>
 {
 	"ButtonDemoCtl",
+	"RepeatButtonDemoCtl",
 	"ToggleButtonDemoCtl",
 	"ExpanderDemoCtl",
 	"NativeProgressBarDemoCtl",
@@ -92,7 +95,10 @@ var messageList = new List<string>
 	"ContributorsView",
 	"ClearLeftSelected",
 	"SendChatMessage",
-	"GrowlDemoPanel"
+	"GrowlDemoPanel",
+	"DialogDemoWindow",
+	"MainWindow",
+	"OverView"
 };
 #>
 namespace HandyControlDemo.Data

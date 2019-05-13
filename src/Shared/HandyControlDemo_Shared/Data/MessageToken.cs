@@ -92,7 +92,13 @@
 	
         public static readonly string DialogDemoCtl = nameof(DialogDemoCtl);
 	
+        public static readonly string SideMenuDemoCtl = nameof(SideMenuDemoCtl);
+	
+        public static readonly string GridDemoCtl = nameof(GridDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
+
+        public static readonly string RepeatButtonDemoCtl = nameof(RepeatButtonDemoCtl);
 
         public static readonly string ToggleButtonDemoCtl = nameof(ToggleButtonDemoCtl);
 
@@ -161,6 +167,12 @@
         public static readonly string SendChatMessage = nameof(SendChatMessage);
 
         public static readonly string GrowlDemoPanel = nameof(GrowlDemoPanel);
+
+        public static readonly string DialogDemoWindow = nameof(DialogDemoWindow);
+
+        public static readonly string MainWindow = nameof(MainWindow);
+
+        public static readonly string OverView = nameof(OverView);
 
     }
 }

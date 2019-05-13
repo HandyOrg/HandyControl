@@ -72,8 +72,8 @@
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
-                        <Button Margin="5" Height="28" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonOpacity}" Style="{StaticResource ButtonCustom}" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
-                        <Button Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonOpacity}" Style="{StaticResource ButtonCustom}" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
+                        <Button Margin="5" Height="28" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonCustom}" Style="{StaticResource ButtonCustom}" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
+                        <Button Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonCustom}" Style="{StaticResource ButtonCustom}" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
                         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonCustom"/>
                     </StackPanel>
                     <StackPanel>

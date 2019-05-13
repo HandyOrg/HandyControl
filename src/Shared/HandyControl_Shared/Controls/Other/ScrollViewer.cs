@@ -114,7 +114,8 @@ namespace HandyControl.Controls
                 _isRunning = false;
             };
             _isRunning = true;
-            BeginAnimation(CurrentVerticalOffsetProperty, animation);
+
+            BeginAnimation(CurrentVerticalOffsetProperty, animation, HandoffBehavior.Compose);
         }
 
         internal void ScrollToHorizontalOffsetInternal(double offset, double milliseconds = 500)
@@ -131,7 +132,8 @@ namespace HandyControl.Controls
                 _isRunning = false;
             };
             _isRunning = true;
-            BeginAnimation(CurrentHorizontalOffsetProperty, animation);
+
+            BeginAnimation(CurrentHorizontalOffsetProperty, animation, HandoffBehavior.Compose);
         }
 
         protected override HitTestResult HitTestCore(PointHitTestParameters hitTestParameters) =>
@@ -150,7 +152,7 @@ namespace HandyControl.Controls
 
         public static bool GetIsEnableInertia(DependencyObject element)
         {
-            return (bool) element.GetValue(IsEnableInertiaProperty);
+            return (bool)element.GetValue(IsEnableInertiaProperty);
         }
 
         /// <summary>
@@ -158,7 +160,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsEnableInertia
         {
-            get => (bool)GetValue(IsEnableInertiaProperty);
+            get => (bool) GetValue(IsEnableInertiaProperty);
             set => SetValue(IsEnableInertiaProperty, value);
         }
 
@@ -173,7 +175,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsPenetrating
         {
-            get => (bool)GetValue(IsPenetratingProperty);
+            get => (bool) GetValue(IsPenetratingProperty);
             set => SetValue(IsPenetratingProperty, value);
         }
 
@@ -190,7 +192,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前垂直滚动偏移
         /// </summary>
-        private static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(
             "CurrentVerticalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentVerticalOffsetChanged));
 
         private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -204,7 +206,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前垂直滚动偏移
         /// </summary>
-        private double CurrentVerticalOffset
+        internal double CurrentVerticalOffset
         {
             // ReSharper disable once UnusedMember.Local
             get => (double) GetValue(CurrentVerticalOffsetProperty);
@@ -214,7 +216,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前水平滚动偏移
         /// </summary>
-        public static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(
+        internal static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(
             "CurrentHorizontalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentHorizontalOffsetChanged));
 
         private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -228,7 +230,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前水平滚动偏移
         /// </summary>
-        public double CurrentHorizontalOffset
+        internal double CurrentHorizontalOffset
         {
             get => (double) GetValue(CurrentHorizontalOffsetProperty);
             set => SetValue(CurrentHorizontalOffsetProperty, value);

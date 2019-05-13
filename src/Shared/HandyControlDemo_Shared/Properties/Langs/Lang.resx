@@ -210,8 +210,8 @@
   <data name="Danger" xml:space="preserve">
     <value>危险</value>
   </data>
-  <data name="ButtonOpacity" xml:space="preserve">
-    <value>透明按钮</value>
+  <data name="ButtonCustom" xml:space="preserve">
+    <value>自定义按钮</value>
   </data>
   <data name="Title" xml:space="preserve">
     <value>标题</value>
@@ -309,7 +309,7 @@
   <data name="TreeView" xml:space="preserve">
     <value>树视图</value>
   </data>
-  <data name="Border1" xml:space="preserve">
+  <data name="Border" xml:space="preserve">
     <value>边框</value>
   </data>
   <data name="ScrollViewer" xml:space="preserve">
@@ -563,5 +563,41 @@
   </data>
   <data name="Click2Count" xml:space="preserve">
     <value>点击计数</value>
+  </data>
+  <data name="RepeatButton" xml:space="preserve">
+    <value>重复按钮</value>
+  </data>
+  <data name="DialogDemo" xml:space="preserve">
+    <value>对话框示例</value>
+  </data>
+  <data name="ShowInCurrentWindow" xml:space="preserve">
+    <value>在当前窗口显示</value>
+  </data>
+  <data name="ShowInMainWindow" xml:space="preserve">
+    <value>在主窗口显示</value>
+  </data>
+  <data name="SideMenu" xml:space="preserve">
+    <value>侧边菜单</value>
+  </data>
+  <data name="Overview" xml:space="preserve">
+    <value>概览</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>栅格</value>
+  </data>
+  <data name="BasicLayout" xml:space="preserve">
+    <value>基础布局</value>
+  </data>
+  <data name="ColumnSpacing" xml:space="preserve">
+    <value>分栏间隔</value>
+  </data>
+  <data name="HybridLayout" xml:space="preserve">
+    <value>混合布局</value>
+  </data>
+  <data name="ColumnOffset" xml:space="preserve">
+    <value>分栏偏移</value>
+  </data>
+  <data name="ResponsiveLayout" xml:space="preserve">
+    <value>响应式布局</value>
   </data>
 </root>

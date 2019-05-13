@@ -46,7 +46,21 @@ Step 2：Add code in App.xaml as follows:
 ```
 Step 3：enjoy coding
 
+## Overview
+
+![Overview](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Overview.png)
+
+![Overview-dark](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Overview-dark.png)
+
 ## Latest examples
+
+### Grid
+
+![Grid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Grid.gif)
+
+### SideMenu
+
+![SideMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SideMenu.png)
 
 ### NotifyIcon
 
@@ -60,6 +74,8 @@ Step 3：enjoy coding
 
 ![WaveProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaveProgressBar.gif)
 
+## History publication
+
 ### Badge
 
 ![Badge](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Badge.png)
@@ -67,8 +83,6 @@ Step 3：enjoy coding
 ### Gravatar
 
 ![Gravatar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Gravatar.gif)
-
-## History publication
 
 ### GoToTop
 

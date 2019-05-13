@@ -10,6 +10,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="DatePickerTextBoxStyle" TargetType="DatePickerTextBox">
+        <Setter Property="Foreground" Value="{Binding Foreground,RelativeSource={RelativeSource AncestorType=DatePicker}}"/>
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
