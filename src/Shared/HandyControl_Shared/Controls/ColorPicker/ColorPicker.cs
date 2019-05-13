@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
@@ -22,6 +23,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = ElementSliderColor, Type = typeof(Panel))]
     [TemplatePart(Name = ElementSliderOpacity, Type = typeof(Panel))]
     [TemplatePart(Name = ElementPanelRgb, Type = typeof(Panel))]
+    [TemplatePart(Name = ElementButtonDropper, Type = typeof(ToggleButton))]
     public class ColorPicker : Control, ISingleOpen
     {
         #region Constants
@@ -33,10 +35,15 @@ namespace HandyControl.Controls
         private const string ElementSliderColor = "PART_SliderColor";
         private const string ElementSliderOpacity = "PART_SliderOpacity";
         private const string ElementPanelRgb = "PART_PanelRgb";
+        private const string ElementButtonDropper = "PART_ButtonDropper";
 
         #endregion Constants
 
         #region Data
+
+        private Cursor _dropperCursor;
+
+        private ToggleButton _toggleButtonDropper;
 
         private Panel _panelRgb;
 
@@ -338,7 +345,6 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Confirm, ButtonConfirm_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Switch, ButtonSwitch_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Cancel, ButtonCancel_OnClick));
-            CommandBindings.Add(new CommandBinding(ControlCommands.Dropper, ButtonDropper_OnClick));
 
             Loaded += (s, e) =>
             {
@@ -363,6 +369,11 @@ namespace HandyControl.Controls
                 _sliderOpacity.ValueChanged -= SliderOpacity_OnValueChanged;
             }
 
+            if (_toggleButtonDropper != null)
+            {
+                _toggleButtonDropper.Click -= ToggleButtonDropper_Click;
+            }
+
             _panelColor?.Children.Clear();
 
             _panelRgb?.RemoveHandler(NumericUpDown.ValueChangedEvent, new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
@@ -376,6 +387,7 @@ namespace HandyControl.Controls
             _sliderColor = GetTemplateChild(ElementSliderColor) as Slider;
             _sliderOpacity = GetTemplateChild(ElementSliderOpacity) as Slider;
             _panelRgb = GetTemplateChild(ElementPanelRgb) as Panel;
+            _toggleButtonDropper = GetTemplateChild(ElementButtonDropper) as ToggleButton;
 
             if (_sliderColor != null)
             {
@@ -395,6 +407,11 @@ namespace HandyControl.Controls
                 behavior.Dragging += MouseDragElementBehavior_OnDragging;
                 var collection = Interaction.GetBehaviors(_borderDrag);
                 collection.Add(behavior);
+            }
+
+            if (_toggleButtonDropper != null)
+            {
+                _toggleButtonDropper.Click += ToggleButtonDropper_Click;
             }
 
             _appliedTemplate = true;
@@ -430,7 +447,7 @@ namespace HandyControl.Controls
             var button = new Button
             {
                 Margin = new Thickness(0, 0, 12, 12),
-                Style = FindResource("ButtonCustom") as Style,
+                Style = ResourceHelper.GetResource<Style>(ResourceToken.ButtonCustom),
                 Content = new Border
                 {
                     Background = brush,
@@ -677,41 +694,31 @@ namespace HandyControl.Controls
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(CanceledEvent));
 
+        private void ToggleButtonDropper_Click(object sender, RoutedEventArgs e)
+        {
+            if (_toggleButtonDropper.IsChecked == true)
+            {
+                if (_dropperCursor == null)
+                {
+                    var info = Application.GetResourceStream(new Uri("pack://application:,,,/HandyControl;Component/Resources/dropper.cur"));
+                    if (info != null)
+                    {
+                        _dropperCursor = new Cursor(info.Stream);
+                    }
+                }
+
+                if (_dropperCursor == null) return;
+
+                Mouse.OverrideCursor = _dropperCursor;
+            }
+            else
+            {
+                Mouse.OverrideCursor = Cursors.Arrow;
+            }
+        }
+
         public void Dispose() => System.Windows.Window.GetWindow(this)?.Close();
 
         public bool CanDispose { get; } = true;
-
-        private void ButtonDropper_OnClick(object sender, RoutedEventArgs e)
-        {
-            MouseHook.Start();
-            MouseHook.MouseAction += MouseHook_MouseAction;
-        }
-
-        private void MouseHook_MouseAction(object sender, MouseHook.RawMouseEventArgs e)
-        {
-            SelectedBrush = new SolidColorBrush(GetColorAt(e.Point.x, e.Point.y));
-            if (e.Message == MouseHook.MouseMessages.WM_LBUTTONDOWN)
-            {
-                MouseHook.Stop();
-                MouseHook.MouseAction -= MouseHook_MouseAction;
-            }
-        }
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr GetDesktopWindow();
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern IntPtr GetWindowDC(IntPtr window);
-        [DllImport("gdi32.dll", SetLastError = true)]
-        public static extern uint GetPixel(IntPtr dc, int x, int y);
-        [DllImport("user32.dll", SetLastError = true)]
-        public static extern int ReleaseDC(IntPtr window, IntPtr dc);
-
-        public static Color GetColorAt(int x, int y)
-        {
-            IntPtr desk = GetDesktopWindow();
-            IntPtr dc = GetWindowDC(desk);
-            int a = (int)GetPixel(dc, x, y);
-            ReleaseDC(desk, dc);
-            return Color.FromArgb(255, (byte)((a >> 0) & 0xff), (byte)((a >> 8) & 0xff), (byte)((a >> 16) & 0xff));
-        }
     }
 }

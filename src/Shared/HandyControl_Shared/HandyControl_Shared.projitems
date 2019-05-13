@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\ContextMenuButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\ContextMenuToggleButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\ProgressButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ColorPicker\ColorDropper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverFlow\CoverFlow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverFlow\CoverFlowItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverView.cs" />
@@ -62,12 +63,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Badge.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Carousel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ChatBubble.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ColorPicker.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ColorPicker\ColorPicker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Dialog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\GotoTop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Gravatar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Growl.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\MouseHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\NotifyIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Pagination.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\RadioGroup.cs" />
