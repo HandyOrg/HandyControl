@@ -41,7 +41,7 @@ namespace HandyControl.Controls
 
         #region Data
 
-        private Cursor _dropperCursor;
+        private ColorDropper _colorDropper;
 
         private ToggleButton _toggleButtonDropper;
 
@@ -696,25 +696,12 @@ namespace HandyControl.Controls
 
         private void ToggleButtonDropper_Click(object sender, RoutedEventArgs e)
         {
-            if (_toggleButtonDropper.IsChecked == true)
+            if (_colorDropper == null)
             {
-                if (_dropperCursor == null)
-                {
-                    var info = Application.GetResourceStream(new Uri("pack://application:,,,/HandyControl;Component/Resources/dropper.cur"));
-                    if (info != null)
-                    {
-                        _dropperCursor = new Cursor(info.Stream);
-                    }
-                }
-
-                if (_dropperCursor == null) return;
-
-                Mouse.OverrideCursor = _dropperCursor;
+                _colorDropper = new ColorDropper(this);
             }
-            else
-            {
-                Mouse.OverrideCursor = Cursors.Arrow;
-            }
+            // ReSharper disable once PossibleInvalidOperationException
+            _colorDropper.Update(_toggleButtonDropper.IsChecked.Value);
         }
 
         public void Dispose() => System.Windows.Window.GetWindow(this)?.Close();

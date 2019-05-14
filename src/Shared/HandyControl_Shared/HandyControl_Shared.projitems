@@ -113,6 +113,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\Window.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\CancelRoutedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\FunctionEventArgs!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Args\MouseHookEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ColorRange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\BadgeStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatMessageType.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\GrowlInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\HandyControlConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\MessageBoxInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\MouseHookMessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Operation\OperationResult!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Operation\OperationResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ResourceToken.cs" />
@@ -244,6 +246,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ValidateHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\VisualHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\MouseHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\BitmapHandle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\BITMAPINFO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\CommonHandles.cs" />

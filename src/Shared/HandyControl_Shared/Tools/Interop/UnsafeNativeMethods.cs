@@ -174,5 +174,45 @@ namespace HandyControl.Tools.Interop
 
         [DllImport(ExternDll.User32, ExactSpelling = true, CharSet = CharSet.Auto)]
         public static extern bool SetForegroundWindow(IntPtr hWnd);
+
+        [DllImport(ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern IntPtr CallNextHookEx(IntPtr hhk, int nCode, IntPtr wParam, IntPtr lParam);
+
+        [DllImport(ExternDll.Kernel32, CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern IntPtr GetModuleHandle(string lpModuleName);
+
+        [DllImport(ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern bool UnhookWindowsHookEx(IntPtr hhk);
+
+        public enum HookType
+        {
+            WH_MOUSE_LL = 14,
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct MOUSEHOOKSTRUCT
+        {
+            public NativeMethods.POINT pt;
+            public IntPtr hwnd;
+            public uint wHitTestCode;
+            public IntPtr dwExtraInfo;
+        }
+
+        public delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
+
+        [DllImport(ExternDll.User32, CharSet = CharSet.Auto, SetLastError = true)]
+        public static extern IntPtr SetWindowsHookEx(int idHook, HookProc lpfn, IntPtr hMod, uint dwThreadId);
+
+        [DllImport(ExternDll.User32, SetLastError = true)]
+        public static extern IntPtr GetDesktopWindow();
+
+        [DllImport(ExternDll.User32, SetLastError = true)]
+        public static extern IntPtr GetWindowDC(IntPtr window);
+
+        [DllImport(ExternDll.Gdi32, SetLastError = true)]
+        public static extern uint GetPixel(IntPtr dc, int x, int y);
+
+        [DllImport(ExternDll.User32, SetLastError = true)]
+        public static extern int ReleaseDC(IntPtr window, IntPtr dc);
     }
 }
