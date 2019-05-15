@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
@@ -21,6 +23,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = ElementSliderColor, Type = typeof(Panel))]
     [TemplatePart(Name = ElementSliderOpacity, Type = typeof(Panel))]
     [TemplatePart(Name = ElementPanelRgb, Type = typeof(Panel))]
+    [TemplatePart(Name = ElementButtonDropper, Type = typeof(ToggleButton))]
     public class ColorPicker : Control, ISingleOpen
     {
         #region Constants
@@ -32,10 +35,15 @@ namespace HandyControl.Controls
         private const string ElementSliderColor = "PART_SliderColor";
         private const string ElementSliderOpacity = "PART_SliderOpacity";
         private const string ElementPanelRgb = "PART_PanelRgb";
+        private const string ElementButtonDropper = "PART_ButtonDropper";
 
         #endregion Constants
 
         #region Data
+
+        private ColorDropper _colorDropper;
+
+        private ToggleButton _toggleButtonDropper;
 
         private Panel _panelRgb;
 
@@ -52,6 +60,8 @@ namespace HandyControl.Controls
         private Slider _sliderOpacity;
 
         private bool _appliedTemplate;
+
+        private bool _disposed;
 
         /// <summary>
         ///     当前显示的颜色类型
@@ -332,6 +342,11 @@ namespace HandyControl.Controls
             }
         }
 
+        ~ColorPicker()
+        {
+            Dispose(false);
+        }
+
         public ColorPicker()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Confirm, ButtonConfirm_OnClick));
@@ -361,6 +376,11 @@ namespace HandyControl.Controls
                 _sliderOpacity.ValueChanged -= SliderOpacity_OnValueChanged;
             }
 
+            if (_toggleButtonDropper != null)
+            {
+                _toggleButtonDropper.Click -= ToggleButtonDropper_Click;
+            }
+
             _panelColor?.Children.Clear();
 
             _panelRgb?.RemoveHandler(NumericUpDown.ValueChangedEvent, new EventHandler<FunctionEventArgs<double>>(NumericUpDownRgb_OnValueChanged));
@@ -374,6 +394,7 @@ namespace HandyControl.Controls
             _sliderColor = GetTemplateChild(ElementSliderColor) as Slider;
             _sliderOpacity = GetTemplateChild(ElementSliderOpacity) as Slider;
             _panelRgb = GetTemplateChild(ElementPanelRgb) as Panel;
+            _toggleButtonDropper = GetTemplateChild(ElementButtonDropper) as ToggleButton;
 
             if (_sliderColor != null)
             {
@@ -393,6 +414,11 @@ namespace HandyControl.Controls
                 behavior.Dragging += MouseDragElementBehavior_OnDragging;
                 var collection = Interaction.GetBehaviors(_borderDrag);
                 collection.Add(behavior);
+            }
+
+            if (_toggleButtonDropper != null)
+            {
+                _toggleButtonDropper.Click += ToggleButtonDropper_Click;
             }
 
             _appliedTemplate = true;
@@ -428,7 +454,7 @@ namespace HandyControl.Controls
             var button = new Button
             {
                 Margin = new Thickness(0, 0, 12, 12),
-                Style = FindResource("ButtonCustom") as Style,
+                Style = ResourceHelper.GetResource<Style>(ResourceToken.ButtonCustom),
                 Content = new Border
                 {
                     Background = brush,
@@ -675,8 +701,35 @@ namespace HandyControl.Controls
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(CanceledEvent));
 
-        public void Dispose() => System.Windows.Window.GetWindow(this)?.Close();
+        private void ToggleButtonDropper_Click(object sender, RoutedEventArgs e)
+        {
+            if (_colorDropper == null)
+            {
+                _colorDropper = new ColorDropper(this);
+            }
+            // ReSharper disable once PossibleInvalidOperationException
+            _colorDropper.Update(_toggleButtonDropper.IsChecked.Value);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                _colorDropper?.Update(false);
+                System.Windows.Window.GetWindow(this)?.Close();
+            }));
+            _disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
         public bool CanDispose { get; } = true;
+        
     }
 }
