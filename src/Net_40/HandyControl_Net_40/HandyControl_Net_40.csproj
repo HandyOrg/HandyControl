@@ -100,6 +100,11 @@
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\dropper.cur">
+      <Link>Resources\dropper.cur</Link>
+    </Resource>
+  </ItemGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -61,6 +61,8 @@ namespace HandyControl.Controls
 
         private bool _appliedTemplate;
 
+        private bool _disposed;
+
         /// <summary>
         ///     当前显示的颜色类型
         /// </summary>
@@ -338,6 +340,11 @@ namespace HandyControl.Controls
                 list[_colorType] = true;
                 ShowList = list;
             }
+        }
+
+        ~ColorPicker()
+        {
+            Dispose(false);
         }
 
         public ColorPicker()
@@ -704,8 +711,25 @@ namespace HandyControl.Controls
             _colorDropper.Update(_toggleButtonDropper.IsChecked.Value);
         }
 
-        public void Dispose() => System.Windows.Window.GetWindow(this)?.Close();
+        protected virtual void Dispose(bool disposing)
+        {
+            if (_disposed) return;
+
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                _colorDropper?.Update(false);
+                System.Windows.Window.GetWindow(this)?.Close();
+            }));
+            _disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
 
         public bool CanDispose { get; } = true;
+        
     }
 }
