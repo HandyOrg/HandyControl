@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
@@ -30,7 +31,7 @@ namespace HandyControl.Controls
 
         private TabPanel _headerPanel;
 
-        private ScrollViewer _scrollviewerOverflow;
+        private ScrollViewer _scrollViewerOverflow;
 
         private Button _buttonScrollLeft;
 
@@ -147,6 +148,36 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     是否显示溢出按钮
+        /// </summary>
+        public static readonly DependencyProperty ShowOverflowButtonProperty = DependencyProperty.Register(
+            "ShowOverflowButton", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        /// <summary>
+        ///     是否显示溢出按钮
+        /// </summary>
+        public bool ShowOverflowButton
+        {
+            get => (bool) GetValue(ShowOverflowButtonProperty);
+            set => SetValue(ShowOverflowButtonProperty, value);
+        }
+
+        /// <summary>
+        ///     是否显示滚动按钮
+        /// </summary>
+        public static readonly DependencyProperty ShowScrollButtonProperty = DependencyProperty.Register(
+            "ShowScrollButton", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        /// <summary>
+        ///     是否显示滚动按钮
+        /// </summary>
+        public bool ShowScrollButton
+        {
+            get => (bool) GetValue(ShowScrollButtonProperty);
+            set => SetValue(ShowScrollButtonProperty, value);
+        }
+
+        /// <summary>
         ///     可见的标签数量
         /// </summary>
         private int _itemShowCount;
@@ -164,7 +195,7 @@ namespace HandyControl.Controls
             if (!IsEnableTabFill)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow.Show(Items.Count > 0 && Items.Count >= _itemShowCount);
+                _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
             }
 
             if (IsInternalAction)
@@ -214,7 +245,7 @@ namespace HandyControl.Controls
             if (IsEnableTabFill) return;
 
             _buttonOverflow = GetTemplateChild(OverflowButtonKey) as ContextMenuToggleButton;
-            _scrollviewerOverflow = GetTemplateChild(OverflowScrollviewer) as ScrollViewer;
+            _scrollViewerOverflow = GetTemplateChild(OverflowScrollviewer) as ScrollViewer;
             _buttonScrollLeft = GetTemplateChild(ScrollButtonLeft) as Button;
             _buttonScrollRight = GetTemplateChild(ScrollButtonRight) as Button;
 
@@ -224,7 +255,7 @@ namespace HandyControl.Controls
             if (_buttonOverflow != null)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow.Show(Items.Count > 0 && Items.Count >= _itemShowCount);
+                _buttonOverflow.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
 
                 var menu = new ContextMenu
                 {
@@ -240,12 +271,12 @@ namespace HandyControl.Controls
         private void Menu_Closed(object sender, RoutedEventArgs e) => _buttonOverflow.IsChecked = false;
 
         private void ButtonScrollRight_Click(object sender, RoutedEventArgs e) =>
-            _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(Math.Min(
-                _scrollviewerOverflow.CurrentHorizontalOffset + TabItemWidth, _scrollviewerOverflow.ScrollableWidth));
+            _scrollViewerOverflow.ScrollToHorizontalOffsetInternal(Math.Min(
+                _scrollViewerOverflow.CurrentHorizontalOffset + TabItemWidth, _scrollViewerOverflow.ScrollableWidth));
 
         private void ButtonScrollLeft_Click(object sender, RoutedEventArgs e) =>
-            _scrollviewerOverflow.ScrollToHorizontalOffsetInternal(Math.Max(
-                _scrollviewerOverflow.CurrentHorizontalOffset - TabItemWidth, 0));
+            _scrollViewerOverflow.ScrollToHorizontalOffsetInternal(Math.Max(
+                _scrollViewerOverflow.CurrentHorizontalOffset - TabItemWidth, 0));
 
         private void ButtonOverflow_Click(object sender, RoutedEventArgs e)
         {
@@ -288,11 +319,37 @@ namespace HandyControl.Controls
             }
         }
 
-        internal double GetHorizontalOffset() => _scrollviewerOverflow?.CurrentHorizontalOffset ?? 0;
+        internal double GetHorizontalOffset() => _scrollViewerOverflow?.CurrentHorizontalOffset ?? 0;
 
-        internal void UpdateScroll() => _scrollviewerOverflow?.RaiseEvent(new MouseWheelEventArgs(Mouse.PrimaryDevice, Environment.TickCount, 0)
+        internal void UpdateScroll() => _scrollViewerOverflow?.RaiseEvent(new MouseWheelEventArgs(Mouse.PrimaryDevice, Environment.TickCount, 0)
         {
             RoutedEvent = MouseWheelEvent
         });
+
+        internal void CloseAllItems() => CloseOtherItems(null);
+
+        internal void CloseOtherItems(TabItem currentItem)
+        {
+            IsInternalAction = true;
+            var enumerator = ((IEnumerable)Items).GetEnumerator();
+            while (enumerator.MoveNext())
+            {
+                var item = enumerator.Current;
+                if (!Equals(item, currentItem) && item != null)
+                {
+                    var argsClosing = new CancelRoutedEventArgs(TabItem.ClosingEvent, item);
+                    var elment = item as UIElement;
+                    if (elment != null)
+                    {
+                        elment.RaiseEvent(argsClosing);
+                        if (argsClosing.Cancel) return;
+                    }
+
+                    elment?.RaiseEvent(new RoutedEventArgs(TabItem.ClosedEvent, item));
+                    Items.Remove(item);
+                    enumerator = ((IEnumerable)Items).GetEnumerator();
+                }
+            }
+        }
     }
 }

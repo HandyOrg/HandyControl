@@ -115,7 +115,7 @@
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
-                <Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Margin="0,-1,0,0" Grid.Row="0" Grid.Column="0" BorderThickness="0,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Left" Panel.ZIndex="2">
+                <Border Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0,-1,0,0" Grid.Row="0" Grid.Column="0" BorderThickness="0,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Left" Panel.ZIndex="2">
                     <Border.CacheMode>
                         <BitmapCache SnapsToDevicePixels="True"/>
                     </Border.CacheMode>
@@ -134,12 +134,13 @@
                         </controls:TabPanel>
                     </Border>
                 </controls:ScrollViewer>
-                <Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Margin="0,-1,0,0" Grid.Row="0" Grid.Column="2" BorderThickness="1,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Right">
+                <Border Margin="0,-1,0,0" Grid.Row="0" Grid.Column="2" BorderThickness="1,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Right">
                     <Border.CacheMode>
                         <BitmapCache SnapsToDevicePixels="True"/>
                     </Border.CacheMode>
                     <StackPanel Orientation="Horizontal">
-                        <Button Style="{StaticResource ButtonIcon}" BorderBrush="{DynamicResource BorderBrush}" Padding="8" BorderThickness="0,0,1,0" controls:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight"/>
+                        <Button Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource ButtonIcon}" BorderBrush="{DynamicResource BorderBrush}" Padding="8" controls:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight"/>
+                        <Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Width="1" Background="{DynamicResource BorderBrush}"/>
                         <controls:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource DownGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}"/>
                     </StackPanel>
                 </Border>
