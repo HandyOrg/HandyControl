@@ -135,7 +135,7 @@
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="controls:StatusSwitchElement.HiddenElement" Value="True"/>
+                                <Condition Property="controls:StatusSwitchElement.HideUncheckedElement" Value="True"/>
                                 <Condition Property="IsChecked" Value="True"/>
                             </MultiTrigger.Conditions>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="UnCheckedElement"/>

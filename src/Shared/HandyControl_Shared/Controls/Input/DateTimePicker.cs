@@ -99,15 +99,6 @@ namespace HandyControl.Controls
             set => SetValue(DateTimeFormatProperty, value);
         }
 
-        public static readonly DependencyProperty ClockStyleProperty = DependencyProperty.Register(
-            "ClockStyle", typeof(Style), typeof(DateTimePicker), new PropertyMetadata(default(Style)));
-
-        public Style ClockStyle
-        {
-            get => (Style) GetValue(ClockStyleProperty);
-            set => SetValue(ClockStyleProperty, value);
-        }
-
         public static readonly DependencyProperty CalendarStyleProperty = DependencyProperty.Register(
             "CalendarStyle", typeof(Style), typeof(DateTimePicker), new PropertyMetadata(default(Style)));
 
