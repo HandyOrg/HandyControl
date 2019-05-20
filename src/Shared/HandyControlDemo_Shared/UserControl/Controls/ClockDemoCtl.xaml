@@ -4,6 +4,9 @@
              xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
              Background="{DynamicResource RegionBrush}">
     <controls:TransitioningContentControl>
-        <controls:Clock Margin="32"/>
+        <StackPanel Orientation="Horizontal" Margin="32">
+            <controls:Clock/>
+            <controls:ListClock Margin="16,0,0,0"/>
+        </StackPanel>
     </controls:TransitioningContentControl>
 </UserControl>

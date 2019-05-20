@@ -34,8 +34,6 @@ namespace HandyControl.Controls
 
         #region Data
 
-        private Clock _clock;
-
         private string _defaultText;
 
         private ButtonBase _dropDownButton;
@@ -79,7 +77,7 @@ namespace HandyControl.Controls
 
         public TimePicker()
         {
-            InitClock();
+            Clock = new Clock();
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
                 ClearValue(SelectedTimeProperty);
@@ -103,18 +101,6 @@ namespace HandyControl.Controls
 
         #endregion TimeFormat
 
-        #region ClockStyle
-
-        public Style ClockStyle
-        {
-            get => (Style)GetValue(ClockStyleProperty);
-            set => SetValue(ClockStyleProperty, value);
-        }
-
-        public static readonly DependencyProperty ClockStyleProperty = DependencyProperty.Register("ClockStyle", typeof(Style), typeof(TimePicker));
-
-        #endregion CalendarStyle
-
         #region DisplayTime
 
         public DateTime DisplayTime
@@ -133,8 +119,8 @@ namespace HandyControl.Controls
         private static object CoerceDisplayTime(DependencyObject d, object value)
         {
             var dp = (TimePicker)d;
-            dp._clock.DisplayTime = (DateTime)value;
-            return dp._clock.DisplayTime;
+            dp.Clock.DisplayTime = (DateTime)value;
+            return dp.Clock.DisplayTime;
         }
 
         #endregion DisplayTime
@@ -170,7 +156,7 @@ namespace HandyControl.Controls
 
                     dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action)delegate
                     {
-                        dp._clock.Focus();
+                        dp.Clock.Focus();
                     });
                 }
             }
@@ -212,8 +198,8 @@ namespace HandyControl.Controls
         private static object CoerceSelectedTime(DependencyObject d, object value)
         {
             var dp = (TimePicker)d;
-            dp._clock.SelectedTime = (DateTime?)value;
-            return dp._clock.SelectedTime;
+            dp.Clock.SelectedTime = (DateTime?)value;
+            return dp.Clock.SelectedTime;
         }
 
         #endregion SelectedDate
@@ -306,6 +292,35 @@ namespace HandyControl.Controls
             set => SetValue(ShowClearButtonProperty, value);
         }
 
+        public static readonly DependencyProperty ClockProperty = DependencyProperty.Register(
+            "Clock", typeof(ClockBase), typeof(TimePicker), new FrameworkPropertyMetadata(default(Clock), FrameworkPropertyMetadataOptions.NotDataBindable, OnClockChanged));
+
+        private static void OnClockChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (TimePicker) d;
+            var oldClock = e.OldValue as ClockBase;
+            var newClock = e.NewValue as ClockBase;
+
+            if (oldClock != null)
+            {
+                oldClock.SelectedTimeChanged -= ctl.Clock_SelectedTimeChanged;
+                oldClock.Confirmed -= ctl.Clock_Confirmed;
+            }
+
+            if (newClock != null)
+            {
+                newClock.ShowConfirmButton = true;
+                newClock.SelectedTimeChanged += ctl.Clock_SelectedTimeChanged;
+                newClock.Confirmed += ctl.Clock_Confirmed;
+            }
+        }
+
+        public ClockBase Clock
+        {
+            get => (ClockBase) GetValue(ClockProperty);
+            set => SetValue(ClockProperty, value);
+        }
+
         #endregion Public Properties
 
         #region Public Methods
@@ -374,7 +389,7 @@ namespace HandyControl.Controls
             _popUp.PreviewMouseLeftButtonDown += PopUp_PreviewMouseLeftButtonDown;
             _popUp.Opened += PopUp_Opened;
             _popUp.Closed += PopUp_Closed;
-            _popUp.Child = _clock;
+            _popUp.Child = Clock;
 
             if (IsDropDownOpen)
             {
@@ -439,20 +454,7 @@ namespace HandyControl.Controls
                 throw new Exception();
         }
 
-        private void InitClock()
-        {
-            _clock = new Clock
-            {
-                ShowConfirmButton = true
-            };
-            _clock.SelectedTimeChanged += Clock_SelectedTimeChanged;
-            _clock.Confirmed += Clock_Confirmed;
-        }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            SetSelectedTime();
-        }
+        private void TextBox_LostFocus(object sender, RoutedEventArgs e) => SetSelectedTime();
 
         private void SetIsHandlerSuspended(DependencyProperty property, bool value)
         {
@@ -560,7 +562,7 @@ namespace HandyControl.Controls
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
             }
 
-            _clock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+            Clock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
 
             OnClockOpened(new RoutedEventArgs());
         }
@@ -572,7 +574,7 @@ namespace HandyControl.Controls
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
             }
 
-            if (_clock.IsKeyboardFocusWithin)
+            if (Clock.IsKeyboardFocusWithin)
             {
                 MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
             }

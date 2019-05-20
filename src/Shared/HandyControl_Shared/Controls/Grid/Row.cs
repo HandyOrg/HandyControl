@@ -3,6 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
+using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
@@ -10,8 +11,14 @@ namespace HandyControl.Controls
     {
         private ColLayoutStatus _layoutStatus;
 
+        private double _maxChildDesiredHeight;
+
         public static readonly DependencyProperty GutterProperty = DependencyProperty.Register(
-            "Gutter", typeof(double), typeof(Row), new PropertyMetadata(default(double)));
+            "Gutter", typeof(double), typeof(Row), new PropertyMetadata(ValueBoxes.Double0Box, null, OnGutterCoerce), OnGutterValidate);
+
+        private static object OnGutterCoerce(DependencyObject d, object basevalue) => OnGutterValidate(basevalue) ? basevalue : .0;
+
+        private static bool OnGutterValidate(object value) => ValidateHelper.IsInRangeOfPosDouble(value, true);
 
         public double Gutter
         {
@@ -21,25 +28,24 @@ namespace HandyControl.Controls
 
         protected override Size MeasureOverride(Size constraint)
         {
-            var itemWidth = constraint.Width / ColLayout.ColMaxCellCount;
             var totalCellCount = 0;
             var totalRowCount = 1;
-            var maxChildDesiredHeight = .0;
+            var gutterHalf = Gutter / 2;
 
-            for (int i = 0, count = InternalChildren.Count; i < count; ++i)
+            foreach (var child in InternalChildren.OfType<Col>())
             {
-                var child = InternalChildren[i];
-
+                child.Margin = new Thickness(gutterHalf);
                 child.Measure(constraint);
                 var childDesiredSize = child.DesiredSize;
 
-                if (maxChildDesiredHeight < childDesiredSize.Height)
+                if (_maxChildDesiredHeight < childDesiredSize.Height)
                 {
-                    maxChildDesiredHeight = childDesiredSize.Height;
+                    _maxChildDesiredHeight = childDesiredSize.Height;
                 }
             }
 
-            var childBounds = new Rect(0, 0, 0, maxChildDesiredHeight);
+            var itemWidth = constraint.Width / ColLayout.ColMaxCellCount;
+            var childBounds = new Rect(-gutterHalf, -gutterHalf, 0, _maxChildDesiredHeight);
             _layoutStatus = ColLayout.GetLayoutStatus(constraint.Width);
 
             foreach (var child in InternalChildren.OfType<Col>())
@@ -49,19 +55,48 @@ namespace HandyControl.Controls
 
                 if (totalCellCount > ColLayout.ColMaxCellCount)
                 {
-                    childBounds.X = 0;
-                    childBounds.Y += maxChildDesiredHeight;
+                    childBounds.X = -gutterHalf;
+                    childBounds.Y += _maxChildDesiredHeight;
                     totalCellCount = cellCount;
                     totalRowCount++;
                 }
 
                 var childWidth = cellCount * itemWidth;
                 childBounds.Width = childWidth;
+                childBounds.X += childWidth + child.Offset * itemWidth;
+            }
+
+            return new Size(0, _maxChildDesiredHeight * totalRowCount - Gutter);
+        }
+
+        protected override Size ArrangeOverride(Size finalSize)
+        {
+            var totalCellCount = 0;
+            var gutterHalf = Gutter / 2;
+            var itemWidth = (finalSize.Width + Gutter) / ColLayout.ColMaxCellCount;
+            var childBounds = new Rect(-gutterHalf, -gutterHalf, 0, _maxChildDesiredHeight);
+            _layoutStatus = ColLayout.GetLayoutStatus(finalSize.Width);
+
+            foreach (var child in InternalChildren.OfType<Col>())
+            {
+                var cellCount = child.GetLayoutCellCount(_layoutStatus);
+                totalCellCount += cellCount;
+
+                var childWidth = cellCount * itemWidth;
+                childBounds.Width = childWidth;
+                childBounds.X += child.Offset * itemWidth;
+                if (totalCellCount > ColLayout.ColMaxCellCount)
+                {
+                    childBounds.X = -gutterHalf;
+                    childBounds.Y += _maxChildDesiredHeight;
+                    totalCellCount = cellCount;
+                }
+
                 child.Arrange(childBounds);
                 childBounds.X += childWidth;
             }
 
-            return new Size(constraint.Width, maxChildDesiredHeight * totalRowCount);
+            return finalSize;
         }
     }
 }

@@ -15,11 +15,9 @@ namespace HandyControl.Controls
         protected override Size MeasureOverride(Size availableSize)
         {
             var maxSize = new Size();
-            var children = InternalChildren;
 
-            for (int i = 0, count = children.Count; i < count; ++i)
+            foreach (UIElement child in InternalChildren)
             {
-                var child = children[i];
                 if (child != null)
                 {
                     child.Measure(availableSize);

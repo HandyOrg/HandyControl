@@ -34,6 +34,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<InteractiveDialogViewModel>();
             SimpleIoc.Default.Register<BadgeDemoViewModel>();
             SimpleIoc.Default.Register<SideMenuDemoViewModel>();
+            SimpleIoc.Default.Register<TabControlDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -74,6 +75,8 @@ namespace HandyControlDemo.ViewModel
         public BadgeDemoViewModel BadgeDemo => ServiceLocator.Current.GetInstance<BadgeDemoViewModel>();
 
         public SideMenuDemoViewModel SideMenuDemo => ServiceLocator.Current.GetInstance<SideMenuDemoViewModel>();
+
+        public TabControlDemoViewModel TabControlDemo => ServiceLocator.Current.GetInstance<TabControlDemoViewModel>();
 
         #endregion
     }

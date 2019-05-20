@@ -29,7 +29,7 @@
         }
 
         /// <summary>
-        ///     是否在正浮点数范围内
+        ///     是否在负浮点数范围内
         /// </summary>
         /// <param name="value"></param>
         /// <param name="includeZero"></param>

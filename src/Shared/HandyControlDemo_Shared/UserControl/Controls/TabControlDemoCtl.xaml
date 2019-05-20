@@ -2,12 +2,22 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
+             DataContext="{Binding TabControlDemo,Source={StaticResource Locator}}"
+             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl">
     <controls:TransitioningContentControl>
         <controls:ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <interactivity:Interaction.Triggers>
+                <interactivity:RoutedEventTrigger RoutedEvent="controls:TabItem.Closing">
+                    <interactivity:EventToCommand Command="{Binding ClosingCmd}" PassEventArgsToCommand="True" />
+                </interactivity:RoutedEventTrigger>
+                <interactivity:RoutedEventTrigger RoutedEvent="controls:TabItem.Closed">
+                    <interactivity:EventToCommand Command="{Binding ClosedCmd}" PassEventArgsToCommand="True" />
+                </interactivity:RoutedEventTrigger>
+            </interactivity:Interaction.Triggers>
             <StackPanel>
                 <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
-                <controls:TabControl Margin="32,16,32,0" Width="800" Height="300">
+                <controls:TabControl ShowOverflowButton="False" ShowScrollButton="True" Margin="32,16,32,0" Width="800" Height="300" IsScrollable="True">
                     <controls:TabItem Header="TabItem1">
                         <controls:SimplePanel Background="White"/>
                     </controls:TabItem>

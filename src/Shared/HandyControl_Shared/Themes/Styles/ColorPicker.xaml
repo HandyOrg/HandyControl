@@ -9,6 +9,7 @@
         <ResourceDictionary Source="../Basic/Converters.xaml"/>
         <ResourceDictionary Source="Slider.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
+        <ResourceDictionary Source="ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:ColorPicker">
@@ -64,18 +65,25 @@
                             </Grid.RowDefinitions>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="28"/>
                             </Grid.ColumnDefinitions>
-                            <Border Width="60" Height="32" CornerRadius="2" Background="{StaticResource ColorPickerOpacityBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"/>
-                            <Border Grid.Row="0" Grid.Column="0" Width="60" Height="32" CornerRadius="2" Background="{TemplateBinding SelectedBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"/>
-                            <Slider Name="PART_SliderColor" LargeChange="0.01" SmallChange="0.01" Grid.ColumnSpan="2" Value="6" Maximum="6" Background="{StaticResource ColorPickerRainbowBrush}" Margin="10,1,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Top" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"/>
-                            <Slider Name="PART_SliderOpacity" Grid.ColumnSpan="2" IsSnapToTickEnabled="True" Value="{Binding ChannelA,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Maximum="255" SmallChange="1" Foreground="{TemplateBinding SelectedBrushWithoutOpacity}" Background="{StaticResource ColorPickerOpacityBrush}" Margin="10,0,0,0" Grid.Row="0" Grid.Column="1" VerticalAlignment="Bottom" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"/>
-                            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,14,0,0" VerticalAlignment="Top" Visibility="{Binding ShowList[0],RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}">
+                            <ToggleButton Name="PART_ButtonDropper" Width="16" Height="16" Margin="0,0,10,0" Style="{StaticResource ToggleButtonCustom}" controls:StatusSwitchElement.HideUncheckedElement="True">
+                                <Path Data="{StaticResource DropperGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                                <controls:StatusSwitchElement.CheckedElement>
+                                    <Path Data="{StaticResource DropperGeometry}" Fill="{DynamicResource DarkPrimaryBrush}"/>
+                                </controls:StatusSwitchElement.CheckedElement>
+                            </ToggleButton>
+                            <Border Grid.Row="0" Grid.Column="1" Width="32" Height="32" CornerRadius="16" Background="{StaticResource ColorPickerOpacityBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"/>
+                            <Border Grid.Row="0" Grid.Column="1" Width="32" Height="32" CornerRadius="16" Background="{TemplateBinding SelectedBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"/>
+                            <Slider Name="PART_SliderColor" LargeChange="0.01" SmallChange="0.01" Grid.ColumnSpan="2" Value="6" Maximum="6" Background="{StaticResource ColorPickerRainbowBrush}" Margin="2,1,0,0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"/>
+                            <Slider Name="PART_SliderOpacity" Grid.ColumnSpan="2" IsSnapToTickEnabled="True" Value="{Binding ChannelA,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Maximum="255" SmallChange="1" Foreground="{TemplateBinding SelectedBrushWithoutOpacity}" Background="{StaticResource ColorPickerOpacityBrush}" Margin="2,0,0,0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"/>
+                            <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,14,0,0" VerticalAlignment="Top" Visibility="{Binding ShowList[0],RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}">
                                 <TextBox Padding="0" HorizontalContentAlignment="Center" Width="176" Text="{Binding SelectedBrush,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay,Converter={StaticResource Color2HexStrConverter},UpdateSourceTrigger=LostFocus}" FontSize="10" MaxLength="10" Height="24" />
                                 <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="HEX" HorizontalAlignment="Center"/>
                             </StackPanel>
-                            <UniformGrid Name="PART_PanelRgb" Visibility="{Binding ShowList[1],RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Rows="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Margin="-2,14,-2,0" VerticalAlignment="Top">
+                            <UniformGrid Name="PART_PanelRgb" Visibility="{Binding ShowList[1],RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Rows="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="-2,14,-2,0" VerticalAlignment="Top">
                                 <StackPanel Margin="2,0">
                                     <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="2,0" Tag="R" Value="{Binding ChannelR,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
                                     <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="R" HorizontalAlignment="Center"/>
@@ -93,7 +101,7 @@
                                     <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </UniformGrid>
-                            <Button Command="interactivity:ControlCommands.Switch" Padding="6" FontSize="8" BorderThickness="0" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="2" Grid.Row="1">
+                            <Button Command="interactivity:ControlCommands.Switch" Padding="6" FontSize="8" BorderThickness="0" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="3" Grid.Row="1">
                                 <Button.Content>
                                     <Path Fill="#323534" Style="{StaticResource UpDownPathStyle}"/>
                                 </Button.Content>

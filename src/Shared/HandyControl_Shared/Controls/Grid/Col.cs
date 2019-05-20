@@ -8,7 +8,7 @@ namespace HandyControl.Controls
     public class Col : ContentControl
     {
         public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register(
-            "Layout", typeof(ColLayout), typeof(Col), new PropertyMetadata(new ColLayout()));
+            "Layout", typeof(ColLayout), typeof(Col), new PropertyMetadata(default(ColLayout)));
 
         public ColLayout Layout
         {
@@ -17,7 +17,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty OffsetProperty = DependencyProperty.Register(
-            "Offset", typeof(int), typeof(Col), new PropertyMetadata(default(int)));
+            "Offset", typeof(int), typeof(Col), new PropertyMetadata(ValueBoxes.Int0Box));
 
         public int Offset
         {
@@ -25,18 +25,55 @@ namespace HandyControl.Controls
             set => SetValue(OffsetProperty, value);
         }
 
+        public static readonly DependencyProperty SpanProperty = DependencyProperty.Register(
+            "Span", typeof(int), typeof(Col), new PropertyMetadata(24), OnSpanValidate);
+
+        private static bool OnSpanValidate(object value)
+        {
+            var v = (int)value;
+            return v >= 1 || v <= 24;
+        }
+
+        public int Span
+        {
+            get => (int) GetValue(SpanProperty);
+            set => SetValue(SpanProperty, value);
+        }
+
         internal int GetLayoutCellCount(ColLayoutStatus status)
         {
-            switch (status)
+            var result = 0;
+
+            if (Layout != null)
             {
-                case ColLayoutStatus.Xs: return Layout.Xs;
-                case ColLayoutStatus.Sm: return Layout.Sm;
-                case ColLayoutStatus.Md: return Layout.Md;
-                case ColLayoutStatus.Lg: return Layout.Lg;
-                case ColLayoutStatus.Xl: return Layout.Xl;
-                case ColLayoutStatus.Xxl: return Layout.Xxl;
-                default: return 0;
+                switch (status)
+                {
+                    case ColLayoutStatus.Xs:
+                        result = Layout.Xs;
+                        break;
+                    case ColLayoutStatus.Sm:
+                        result = Layout.Sm;
+                        break;
+                    case ColLayoutStatus.Md:
+                        result = Layout.Md;
+                        break;
+                    case ColLayoutStatus.Lg:
+                        result = Layout.Lg;
+                        break;
+                    case ColLayoutStatus.Xl:
+                        result = Layout.Xl;
+                        break;
+                    case ColLayoutStatus.Xxl:
+                        result = Layout.Xxl;
+                        break;
+                }
             }
+            else
+            {
+                result = Span;
+            }
+
+            return result;
         }
     }
 }

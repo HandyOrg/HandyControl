@@ -15,7 +15,7 @@ namespace HandyControl.Controls
         private bool _isLoaded;
 
         /// <summary>
-        ///     故事版
+        ///     故事板
         /// </summary>
         private Storyboard _storyboard;
 

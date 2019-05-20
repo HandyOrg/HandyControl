@@ -38,4 +38,9 @@
   <ItemGroup>
     <None Remove="Themes\Styles\Base\TreeViewBaseStyle.xaml" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\dropper.cur">
+      <Link>Resources\dropper.cur</Link>
+    </Resource>
+  </ItemGroup>
 </Project>

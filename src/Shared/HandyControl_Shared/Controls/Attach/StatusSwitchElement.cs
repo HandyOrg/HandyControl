@@ -18,11 +18,11 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否隐藏元素
         /// </summary>
-        public static readonly DependencyProperty HiddenElementProperty = DependencyProperty.RegisterAttached(
-            "HiddenElement", typeof(bool), typeof(StatusSwitchElement), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty HideUncheckedElementProperty = DependencyProperty.RegisterAttached(
+            "HideUncheckedElement", typeof(bool), typeof(StatusSwitchElement), new PropertyMetadata(ValueBoxes.FalseBox));
 
-        public static void SetHiddenElement(DependencyObject element, bool value) => element.SetValue(HiddenElementProperty, value);
+        public static void SetHideUncheckedElement(DependencyObject element, bool value) => element.SetValue(HideUncheckedElementProperty, value);
 
-        public static bool GetHiddenElement(DependencyObject element) => (bool) element.GetValue(HiddenElementProperty);
+        public static bool GetHideUncheckedElement(DependencyObject element) => (bool) element.GetValue(HideUncheckedElementProperty);
     }
 }
