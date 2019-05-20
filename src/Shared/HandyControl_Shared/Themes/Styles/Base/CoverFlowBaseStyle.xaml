@@ -9,7 +9,7 @@
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <Viewport3D x:Name="PART_Viewport3D">
                             <Viewport3D.Camera>
-                                <PerspectiveCamera x:Name="PART_Camera" Position="0,0,3" UpDirection="0,1,0" LookDirection="0,0,-1" FieldOfView="100" NearPlaneDistance="0.125"/>
+                                <PerspectiveCamera x:Name="PART_Camera" Position="0,0,3" UpDirection="0,1,0" LookDirection="0,0,-1" FieldOfView="90"/>
                             </Viewport3D.Camera>
                             <Viewport3D.Children>
                                 <ModelVisual3D>

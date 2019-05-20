@@ -26,7 +26,7 @@
                     <ToggleButton Width="128" Margin="0,0,0,10" Content="ToggleButton" Style="{StaticResource ToggleButtonPrimary}"/>
                     <ToggleButton Width="128" Margin="0,0,0,10" Style="{StaticResource ToggleButtonIcon}" controls:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
                     <ToggleButton Width="128" Margin="0,0,0,10" IsChecked="True" Content="ToggleButton" controls:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource ToggleButtonPrimary}"/>
-                    <ToggleButton Margin="0,0,0,10" IsChecked="True" Style="{StaticResource ToggleButtonCustom}" controls:StatusSwitchElement.HiddenElement="True">
+                    <ToggleButton Margin="0,0,0,10" IsChecked="True" Style="{StaticResource ToggleButtonCustom}" controls:StatusSwitchElement.HideUncheckedElement="True">
                         <controls:StatusSwitchElement.CheckedElement>
                             <Border Width="128" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
                                 <Ellipse Width="20" Height="20" Fill="{DynamicResource PrimaryBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>

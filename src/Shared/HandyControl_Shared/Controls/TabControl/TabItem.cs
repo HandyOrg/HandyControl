@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
@@ -88,6 +88,11 @@ namespace HandyControl.Controls
         private int _currentIndex;
 
         /// <summary>
+        ///     标签容器横向滚动距离
+        /// </summary>
+        private double _scrollHorizontalOffset;
+
+        /// <summary>
         ///     标签容器
         /// </summary>
         internal TabPanel TabPanel { get; set; }
@@ -125,26 +130,11 @@ namespace HandyControl.Controls
 
         public TabItem()
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.Close, Close));
-            CommandBindings.Add(new CommandBinding(ControlCommands.CloseAll, (s, e) =>
-            {
-                TabControlParent.IsInternalAction = true;
-                TabControlParent.Items.Clear();
-            }));
-            CommandBindings.Add(new CommandBinding(ControlCommands.CloseOther, (s, e) =>
-            {
-                TabControlParent.IsInternalAction = true;
-                var enumerator = ((IEnumerable)TabControlParent.Items).GetEnumerator();
-                while (enumerator.MoveNext())
-                {
-                    var item = enumerator.Current;
-                    if (!Equals(item) && item != null)
-                    {
-                        TabControlParent.Items.Remove(item);
-                        enumerator = ((IEnumerable)TabControlParent.Items).GetEnumerator();
-                    }
-                }
-            }));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => Close()));
+            CommandBindings.Add(new CommandBinding(ControlCommands.CloseAll,
+                (s, e) => { TabControlParent.CloseAllItems(); }));
+            CommandBindings.Add(new CommandBinding(ControlCommands.CloseOther,
+                (s, e) => { TabControlParent.CloseOtherItems(this); }));
         }
 
         private TabControl TabControlParent => new Lazy<TabControl>(() => ItemsControl.ItemsControlFromItemContainer(this) as TabControl).Value;
@@ -156,11 +146,12 @@ namespace HandyControl.Controls
             Focus();
         }
 
-        /// <summary>
-        ///     关闭
-        /// </summary>
-        private void Close(object sender, RoutedEventArgs e)
+        internal void Close()
         {
+            var argsClosing = new CancelRoutedEventArgs(ClosingEvent, this);
+            RaiseEvent(argsClosing);
+            if (argsClosing.Cancel) return;
+
             if (TabControlParent.IsEnableAnimation)
             {
                 TabPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
@@ -170,6 +161,7 @@ namespace HandyControl.Controls
                 TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
             }
             TabControlParent.IsInternalAction = true;
+            RaiseEvent(new RoutedEventArgs(ClosedEvent, this));
             TabControlParent.Items.Remove(this);
         }
 
@@ -178,17 +170,21 @@ namespace HandyControl.Controls
             base.OnMouseLeftButtonDown(e);
             if (TabControlParent.IsDraggable && !ItemIsDragging && !_isDragging)
             {
+                TabControlParent.UpdateScroll();
                 TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
                 _mouseDownOffsetX = RenderTransform.Value.OffsetX;
-                var mx = TranslatePoint(new Point(), TabControlParent).X;
+                _scrollHorizontalOffset = TabControlParent.GetHorizontalOffset();
+                var mx = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
                 _mouseDownIndex = CalLocationIndex(mx);
-                _maxMoveLeft = -_mouseDownIndex * ItemWidth;
+                var subIndex = _mouseDownIndex - CalLocationIndex(_scrollHorizontalOffset);
+                _maxMoveLeft = -subIndex * ItemWidth;
                 _maxMoveRight = TabControlParent.ActualWidth - ActualWidth + _maxMoveLeft;
 
                 _isDragging = true;
                 ItemIsDragging = true;
                 _isWaiting = true;
                 _dragPoint = e.GetPosition(TabControlParent);
+                _dragPoint = new Point(_dragPoint.X + +_scrollHorizontalOffset, _dragPoint.Y);
                 _mouseDownPoint = _dragPoint;
                 CaptureMouse();
             }
@@ -199,9 +195,10 @@ namespace HandyControl.Controls
             base.OnMouseMove(e);
             if (ItemIsDragging && _isDragging)
             {
-                var subX = TranslatePoint(new Point(), TabControlParent).X;
+                var subX = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
                 CurrentIndex = CalLocationIndex(subX);
                 var p = e.GetPosition(TabControlParent);
+                p = new Point(p.X + _scrollHorizontalOffset, p.Y);
                 var subLeft = p.X - _dragPoint.X;
                 var totalLeft = p.X - _mouseDownPoint.X;
 
@@ -229,7 +226,7 @@ namespace HandyControl.Controls
             ReleaseMouseCapture();
             if (_isDragged)
             {
-                var subX = TranslatePoint(new Point(), TabControlParent).X;
+                var subX = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
                 var index = CalLocationIndex(subX);
                 var left = index * ItemWidth;
                 var offsetX = RenderTransform.Value.OffsetX;
@@ -273,7 +270,7 @@ namespace HandyControl.Controls
             animation.Completed += (s1, e1) => AnimationCompleted();
             var f = new TranslateTransform(offsetX, 0);
             RenderTransform = f;
-            f.BeginAnimation(TranslateTransform.XProperty, animation);
+            f.BeginAnimation(TranslateTransform.XProperty, animation, HandoffBehavior.Compose);
         }
 
         /// <summary>
@@ -289,6 +286,22 @@ namespace HandyControl.Controls
             var result = rest / ItemWidth > .5 ? div + 1 : div;
 
             return result > maxIndex ? maxIndex : result;
+        }
+
+        public static readonly RoutedEvent ClosingEvent = EventManager.RegisterRoutedEvent("Closing", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
+
+        public event EventHandler Closing
+        {
+            add => AddHandler(ClosingEvent, value);
+            remove => RemoveHandler(ClosingEvent, value);
+        }
+
+        public static readonly RoutedEvent ClosedEvent = EventManager.RegisterRoutedEvent("Closed", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
+
+        public event EventHandler Closed
+        {
+            add => AddHandler(ClosedEvent, value);
+            remove => RemoveHandler(ClosedEvent, value);
         }
     }
 }

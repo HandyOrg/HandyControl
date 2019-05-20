@@ -6,26 +6,23 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
-using HandyControl.Data;
 using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = ElementButtonAm, Type = typeof(RadioButton))]
     [TemplatePart(Name = ElementButtonPm, Type = typeof(RadioButton))]
-    [TemplatePart(Name = ElementButtonConfirm, Type = typeof(Button))]
     [TemplatePart(Name = ElementCanvas, Type = typeof(Canvas))]
     [TemplatePart(Name = ElementBorderTitle, Type = typeof(Border))]
     [TemplatePart(Name = ElementBorderClock, Type = typeof(Border))]
     [TemplatePart(Name = ElementPanelNum, Type = typeof(CirclePanel))]
     [TemplatePart(Name = ElementTimeStr, Type = typeof(TextBlock))]
-    public class Clock : Control
+    public class Clock : ClockBase
     {
         #region Constants
 
         private const string ElementButtonAm = "PART_ButtonAm";
         private const string ElementButtonPm = "PART_ButtonPm";
-        private const string ElementButtonConfirm = "PART_ButtonConfirm";
         private const string ElementCanvas = "PART_Canvas";
         private const string ElementBorderTitle = "PART_BorderTitle";
         private const string ElementBorderClock = "PART_BorderClock";
@@ -39,8 +36,6 @@ namespace HandyControl.Controls
         private RadioButton _buttonAm;
 
         private RadioButton _buttonPm;
-
-        private Button _buttonConfirm;
 
         private Canvas _canvas;
 
@@ -60,58 +55,9 @@ namespace HandyControl.Controls
 
         private int _secValue;
 
-        private bool _appliedTemplate;
-
         #endregion Data
 
-        #region Public Events
-
-        public static readonly RoutedEvent SelectedTimeChangedEvent =
-            EventManager.RegisterRoutedEvent("SelectedTimeChanged", RoutingStrategy.Direct,
-                typeof(EventHandler<FunctionEventArgs<DateTime?>>), typeof(Clock));
-
-        public event EventHandler<FunctionEventArgs<DateTime?>> SelectedTimeChanged
-        {
-            add => AddHandler(SelectedTimeChangedEvent, value);
-            remove => RemoveHandler(SelectedTimeChangedEvent, value);
-        }
-
-        public event EventHandler<FunctionEventArgs<DateTime>> DisplayTimeChanged;
-
-        public event Action Confirmed;
-
-        #endregion Public Events
-
         #region Public Properties
-
-        public static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
-            "SelectedTime", typeof(DateTime?), typeof(Clock), new PropertyMetadata(default(DateTime?), OnSelectedTimeChanged));
-
-        private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (Clock)d;
-            var v = (DateTime?)e.NewValue;
-            ctl.DisplayTime = v ?? DateTime.Now;
-            ctl.OnSelectedTimeChanged(new FunctionEventArgs<DateTime?>(SelectedTimeChangedEvent, ctl)
-            {
-                Info = v
-            });
-        }
-
-        public DateTime? SelectedTime
-        {
-            get => (DateTime?) GetValue(SelectedTimeProperty);
-            set => SetValue(SelectedTimeProperty, value);
-        }
-
-        public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
-            "TimeFormat", typeof(string), typeof(Clock), new PropertyMetadata("HH:mm:ss"));
-
-        public string TimeFormat
-        {
-            get => (string) GetValue(TimeFormatProperty);
-            set => SetValue(TimeFormatProperty, value);
-        }
 
         public static readonly DependencyProperty ClockRadioButtonStyleProperty = DependencyProperty.Register(
             "ClockRadioButtonStyle", typeof(Style), typeof(Clock), new PropertyMetadata(default(Style)));
@@ -120,32 +66,6 @@ namespace HandyControl.Controls
         {
             get => (Style) GetValue(ClockRadioButtonStyleProperty);
             set => SetValue(ClockRadioButtonStyleProperty, value);
-        }
-
-        public static readonly DependencyProperty DisplayTimeProperty = DependencyProperty.Register(
-            "DisplayTime", typeof(DateTime), typeof(Clock), new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayTimeChanged));
-
-        private static void OnDisplayTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (Clock) d;
-            var v = (DateTime) e.NewValue;
-            ctl.Update(v);
-            ctl.OnDisplayTimeChanged(new FunctionEventArgs<DateTime>(v));
-        }
-
-        public DateTime DisplayTime
-        {
-            get => (DateTime) GetValue(DisplayTimeProperty);
-            set => SetValue(DisplayTimeProperty, value);
-        }
-
-        internal static readonly DependencyProperty ShowConfirmButtonProperty = DependencyProperty.Register(
-            "ShowConfirmButton", typeof(bool), typeof(Clock), new PropertyMetadata(ValueBoxes.FalseBox));
-
-        internal bool ShowConfirmButton
-        {
-            get => (bool)GetValue(ShowConfirmButtonProperty);
-            set => SetValue(ShowConfirmButtonProperty, value);
         }
 
         private int SecValue
@@ -174,7 +94,7 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
-            _appliedTemplate = false;
+            AppliedTemplate = false;
             if (_buttonAm != null)
             {
                 _buttonAm.Click -= ButtonAm_OnClick;
@@ -185,9 +105,9 @@ namespace HandyControl.Controls
                 _buttonPm.Click -= ButtonPm_OnClick;
             }
 
-            if (_buttonConfirm != null)
+            if (ButtonConfirm != null)
             {
-                _buttonConfirm.Click -= ButtonConfirm_OnClick;
+                ButtonConfirm.Click -= ButtonConfirm_OnClick;
             }
 
             if (_borderTitle != null)
@@ -206,18 +126,18 @@ namespace HandyControl.Controls
 
             _buttonAm = GetTemplateChild(ElementButtonAm) as RadioButton;
             _buttonPm = GetTemplateChild(ElementButtonPm) as RadioButton;
-            _buttonConfirm = GetTemplateChild(ElementButtonConfirm) as Button;
+            ButtonConfirm = GetTemplateChild(ElementButtonConfirm) as Button;
             _borderTitle = GetTemplateChild(ElementBorderTitle) as Border;
             _canvas = GetTemplateChild(ElementCanvas) as Canvas;
             _borderClock = GetTemplateChild(ElementBorderClock) as Border;
             _circlePanel = GetTemplateChild(ElementPanelNum) as CirclePanel;
             _blockTime = GetTemplateChild(ElementTimeStr) as TextBlock;
 
-            CheckNull();
+            if (!CheckNull()) return;
 
             _buttonAm.Click += ButtonAm_OnClick;
             _buttonPm.Click += ButtonPm_OnClick;
-            _buttonConfirm.Click += ButtonConfirm_OnClick;
+            ButtonConfirm.Click += ButtonConfirm_OnClick;
             _borderTitle.MouseWheel += BorderTitle_OnMouseWheel;
 
             _canvas.MouseWheel += Canvas_OnMouseWheel;
@@ -241,7 +161,7 @@ namespace HandyControl.Controls
                 _circlePanel.Children.Add(button);
             }
 
-            _appliedTemplate = true;
+            AppliedTemplate = true;
             if (SelectedTime.HasValue)
             {
                 Update(SelectedTime.Value);
@@ -255,26 +175,15 @@ namespace HandyControl.Controls
 
         #endregion Public Methods
 
-        #region Protected Methods
-
-        protected virtual void OnSelectedTimeChanged(FunctionEventArgs<DateTime?> e) => RaiseEvent(e);
-
-        protected virtual void OnDisplayTimeChanged(FunctionEventArgs<DateTime> e)
-        {
-            var handler = DisplayTimeChanged;
-            handler?.Invoke(this, e);
-        }
-
-        #endregion Protected Methods
-
         #region Private Methods
 
-        private void CheckNull()
+        private bool CheckNull()
         {
-
-            if (_buttonPm == null || _buttonAm == null || _buttonConfirm == null || _canvas == null ||
+            if (_buttonPm == null || _buttonAm == null || ButtonConfirm == null || _canvas == null ||
                 _borderTitle == null || _borderClock == null || _circlePanel == null ||
-                _blockTime == null) throw new Exception();
+                _blockTime == null) return false;
+
+            return true;
         }
 
         private void BorderTitle_OnMouseWheel(object sender, MouseWheelEventArgs e)
@@ -339,7 +248,7 @@ namespace HandyControl.Controls
 
         private void Update()
         {
-            if (!_appliedTemplate) return;
+            if (!AppliedTemplate) return;
             var hValue = _currentButton.Num;
             if (_buttonPm.IsChecked == true)
             {
@@ -367,9 +276,9 @@ namespace HandyControl.Controls
         ///     更新
         /// </summary>
         /// <param name="time"></param>
-        internal void Update(DateTime time)
+        internal override void Update(DateTime time)
         {
-            if (!_appliedTemplate) return;
+            if (!AppliedTemplate) return;
             var h = time.Hour;
             var m = time.Minute;
 
@@ -394,12 +303,6 @@ namespace HandyControl.Controls
 
             _secValue = time.Second;
             Update();
-        }
-
-        private void ButtonConfirm_OnClick(object sender, RoutedEventArgs e)
-        {
-            SelectedTime = DisplayTime;
-            Confirmed?.Invoke();
         }
 
         /// <summary>

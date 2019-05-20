@@ -45,9 +45,9 @@ namespace HandyControl.Controls
             {
                 return 0;
             }
-            if (v >= ctl._uriList.Count)
+            if (v >= ctl._contentDic.Count)
             {
-                return ctl._uriList.Count - 1;
+                return ctl._contentDic.Count - 1;
             }
             return v;
         }
@@ -65,9 +65,9 @@ namespace HandyControl.Controls
             "Loop", typeof(bool), typeof(CoverFlow), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
-        ///     存储所有的资源标识符
+        ///     存储所有的内容
         /// </summary>
-        private readonly Dictionary<int, Uri> _uriList = new Dictionary<int, Uri>();
+        private readonly Dictionary<int, object> _contentDic = new Dictionary<int, object>();
 
         /// <summary>
         ///     当前在显示范围内的项
@@ -154,12 +154,12 @@ namespace HandyControl.Controls
         /// <summary>
         ///     批量添加资源
         /// </summary>
-        /// <param name="uriList"></param>
-        public void AddRange(List<Uri> uriList)
+        /// <param name="contentList"></param>
+        public void AddRange(IEnumerable<object> contentList)
         {
-            foreach (var uri in uriList)
+            foreach (var content in contentList)
             {
-                _uriList.Add(_uriList.Count, uri);
+                _contentDic.Add(_contentDic.Count, content);
             }
         }
 
@@ -167,13 +167,13 @@ namespace HandyControl.Controls
         ///     添加一项资源
         /// </summary>
         /// <param name="uriString"></param>
-        public void Add(string uriString) => _uriList.Add(_uriList.Count, new Uri(uriString));
+        public void Add(string uriString) => _contentDic.Add(_contentDic.Count, new Uri(uriString));
 
         /// <summary>
         ///     添加一项资源
         /// </summary>
         /// <param name="uri"></param>
-        public void Add(Uri uri) => _uriList.Add(_uriList.Count, uri);
+        public void Add(Uri uri) => _contentDic.Add(_contentDic.Count, uri);
 
         /// <summary>
         ///     跳转
@@ -187,12 +187,12 @@ namespace HandyControl.Controls
             if (e.Delta < 0)
             {
                 var index = PageIndex + 1;
-                PageIndex = index >= _uriList.Count ? (Loop ? 0 : _uriList.Count - 1) : index;
+                PageIndex = index >= _contentDic.Count ? Loop ? 0 : _contentDic.Count - 1 : index;
             }
             else
             {
                 var index = PageIndex - 1;
-                PageIndex = index < 0 ? (Loop ? _uriList.Count - 1 : 0) : index;
+                PageIndex = index < 0 ? Loop ? _contentDic.Count - 1 : 0 : index;
             }
 
             e.Handled = true;
@@ -273,7 +273,7 @@ namespace HandyControl.Controls
         private void UpdateShowRange()
         {
             var newFirstShowIndex = Math.Max(PageIndex - MaxShowCountHalf, 0);
-            var newLastShowIndex = Math.Min(PageIndex + MaxShowCountHalf, _uriList.Count - 1);
+            var newLastShowIndex = Math.Min(PageIndex + MaxShowCountHalf, _contentDic.Count - 1);
 
             if (_firstShowIndex < newFirstShowIndex)
             {
@@ -294,7 +294,7 @@ namespace HandyControl.Controls
             {
                 if (!_itemShowList.ContainsKey(i))
                 {
-                    var cover = new CoverFlowItem(i, PageIndex, BitmapFrame.Create(_uriList[i]));
+                    var cover = CreateCoverFlowItem(i, _contentDic[i]);
                     _itemShowList[i] = cover;
                     _visualParent.Children.Add(cover);
                 }
@@ -302,6 +302,22 @@ namespace HandyControl.Controls
 
             _firstShowIndex = newFirstShowIndex;
             _lastShowIndex = newLastShowIndex;
+        }
+
+        private CoverFlowItem CreateCoverFlowItem(int index, object content)
+        {
+            if (content is Uri uri)
+            {
+                return new CoverFlowItem(index, PageIndex, new Image
+                {
+                    Source = BitmapFrame.Create(uri)
+                });
+            }
+
+            return new CoverFlowItem(index, PageIndex, new ContentControl
+            {
+                Content = content
+            });
         }
     }
 }

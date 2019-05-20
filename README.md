@@ -54,6 +54,10 @@ Step 3：enjoy coding
 
 ## Latest examples
 
+### Grid
+
+![Grid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Grid.gif)
+
 ### SideMenu
 
 ![SideMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SideMenu.png)
@@ -70,11 +74,11 @@ Step 3：enjoy coding
 
 ![WaveProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaveProgressBar.gif)
 
+## History publication
+
 ### Badge
 
 ![Badge](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Badge.png)
-
-## History publication
 
 ### Gravatar
 

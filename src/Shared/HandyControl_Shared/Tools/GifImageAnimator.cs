@@ -4,8 +4,9 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Threading;
 using HandyControl.Controls;
+using HandyControl.Data;
 
-namespace HandyControl.Data
+namespace HandyControl.Tools
 {
     internal class ImageAnimator
     {

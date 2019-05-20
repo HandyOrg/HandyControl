@@ -115,6 +115,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 基础布局 的本地化字符串。
+        /// </summary>
+        public static string BasicLayout {
+            get {
+                return ResourceManager.GetString("BasicLayout", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 闪烁 的本地化字符串。
         /// </summary>
         public static string Blink {
@@ -135,9 +144,9 @@ namespace HandyControlDemo.Properties.Langs {
         /// <summary>
         ///   查找类似 边框 的本地化字符串。
         /// </summary>
-        public static string Border1 {
+        public static string Border {
             get {
-                return ResourceManager.GetString("Border1", resourceCulture);
+                return ResourceManager.GetString("Border", resourceCulture);
             }
         }
         
@@ -273,6 +282,24 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ColorPicker {
             get {
                 return ResourceManager.GetString("ColorPicker", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 分栏偏移 的本地化字符串。
+        /// </summary>
+        public static string ColumnOffset {
+            get {
+                return ResourceManager.GetString("ColumnOffset", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 分栏间隔 的本地化字符串。
+        /// </summary>
+        public static string ColumnSpacing {
+            get {
+                return ResourceManager.GetString("ColumnSpacing", resourceCulture);
             }
         }
         
@@ -624,6 +651,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string GrowlWarning {
             get {
                 return ResourceManager.GetString("GrowlWarning", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 混合布局 的本地化字符串。
+        /// </summary>
+        public static string HybridLayout {
+            get {
+                return ResourceManager.GetString("HybridLayout", resourceCulture);
             }
         }
         
@@ -1083,6 +1119,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Repository {
             get {
                 return ResourceManager.GetString("Repository", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 响应式布局 的本地化字符串。
+        /// </summary>
+        public static string ResponsiveLayout {
+            get {
+                return ResourceManager.GetString("ResponsiveLayout", resourceCulture);
             }
         }
         

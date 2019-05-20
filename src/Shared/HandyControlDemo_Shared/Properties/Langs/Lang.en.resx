@@ -309,9 +309,6 @@
   <data name="TreeView" xml:space="preserve">
     <value>TreeView</value>
   </data>
-  <data name="Border1" xml:space="preserve">
-    <value>Border</value>
-  </data>
   <data name="ScrollViewer" xml:space="preserve">
     <value>ScrollViewer</value>
   </data>
@@ -584,5 +581,23 @@
   </data>
   <data name="Grid" xml:space="preserve">
     <value>Grid</value>
+  </data>
+  <data name="BasicLayout" xml:space="preserve">
+    <value>Basic layout</value>
+  </data>
+  <data name="ColumnSpacing" xml:space="preserve">
+    <value>Column spacing</value>
+  </data>
+  <data name="HybridLayout" xml:space="preserve">
+    <value>Hybrid layout</value>
+  </data>
+  <data name="ColumnOffset" xml:space="preserve">
+    <value>Column offset</value>
+  </data>
+  <data name="ResponsiveLayout" xml:space="preserve">
+    <value>Responsive layout</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>Border</value>
   </data>
 </root>

@@ -18,14 +18,15 @@ namespace HandyControl.Controls
 
         private readonly Model3DGroup _model3DGroup;
 
-        private readonly ImageSource _source;
+        private readonly UIElement _uiElement;
 
         internal int Index { get; set; }
 
-        public CoverFlowItem(int itemIndex, int currentIndex, ImageSource source)
+        public CoverFlowItem(int itemIndex, int currentIndex, UIElement element)
         {
             Index = itemIndex;
-            _source = source;
+            _uiElement = element;
+            _uiElement.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
 
             _rotation3D = new AxisAngleRotation3D(new Vector3D(0, 1, 0), GetAngleByPos(currentIndex));
             _transform3D = new TranslateTransform3D(GetXByPos(currentIndex), 0, GetZByPos(currentIndex));
@@ -35,7 +36,7 @@ namespace HandyControl.Controls
             transformGroup.Children.Add(_transform3D);
 
             _model3DGroup = new Model3DGroup();
-            _model3DGroup.Children.Add(new GeometryModel3D(CreateItemGeometry(), new DiffuseMaterial(new ImageBrush(_source))));
+            _model3DGroup.Children.Add(new GeometryModel3D(CreateItemGeometry(), new DiffuseMaterial(new VisualBrush(element))));
             _model3DGroup.Transform = transformGroup;
 
             Content = _model3DGroup;
@@ -103,8 +104,8 @@ namespace HandyControl.Controls
         /// <returns></returns>
         private Geometry3D CreateItemGeometry()
         {
-            var sx = _source.Width > _source.Height ? 0 : 1 - _source.Width / _source.Height;
-            var sy = _source.Width < _source.Height ? 0 : 1 - _source.Height / _source.Width;
+            var sx = _uiElement.DesiredSize.Width > _uiElement.DesiredSize.Height ? 0 : 1 - _uiElement.DesiredSize.Width / _uiElement.DesiredSize.Height;
+            var sy = _uiElement.DesiredSize.Width < _uiElement.DesiredSize.Height ? 0 : 1 - _uiElement.DesiredSize.Height / _uiElement.DesiredSize.Width;
 
             var p0 = new Point3D(-1 + sx, -1 + sy, 0);
             var p1 = new Point3D(1 - sx, -1 + sy, 0);
