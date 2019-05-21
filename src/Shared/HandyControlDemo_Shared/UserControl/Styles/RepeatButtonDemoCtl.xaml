@@ -1,11 +1,11 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.RepeatButtonDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              Background="{DynamicResource RegionBrush}">
-    <controls:TransitioningContentControl>
-        <controls:ScrollViewer IsEnableInertia="True">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsEnableInertia="True">
             <StackPanel Margin="32">
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
@@ -40,49 +40,49 @@
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
-                        <RepeatButton Width="50" Padding="16,8" Margin="5" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
-                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="Default（DeleteGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <RepeatButton Content="{x:Static langs:Lang.Clock}" Margin="5" Style="{StaticResource RepeatButtonPrimary}" controls:IconElement.Geometry="{StaticResource ClockGeometry}"/>
-                        <RepeatButton Content="{x:Static langs:Lang.Clock}" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonPrimary}" controls:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        <RepeatButton Content="{x:Static langs:Lang.Clock}" Margin="5" Style="{StaticResource RepeatButtonPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        <RepeatButton Content="{x:Static langs:Lang.Clock}" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonPrimary（ClockGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <RepeatButton Content="{x:Static langs:Lang.Calendar}" Margin="5" Style="{StaticResource RepeatButtonSuccess}" controls:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
-                        <RepeatButton Content="{x:Static langs:Lang.Calendar}" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonSuccess}" controls:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        <RepeatButton Content="{x:Static langs:Lang.Calendar}" Margin="5" Style="{StaticResource RepeatButtonSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        <RepeatButton Content="{x:Static langs:Lang.Calendar}" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonSuccess（CalendarGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonInfo}" controls:IconElement.Geometry="{StaticResource DownGeometry}"/>
-                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonInfo}" controls:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonInfo（DownGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <RepeatButton Width="50" Margin="5" Style="{StaticResource RepeatButtonWarning}" controls:IconElement.Geometry="{StaticResource LeftGeometry}"/>
-                        <RepeatButton Width="50" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonWarning}" controls:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        <RepeatButton Width="50" Margin="5" Style="{StaticResource RepeatButtonWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        <RepeatButton Width="50" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonWarning（LeftGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonDanger}" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
-                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonDanger}" controls:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonDanger}" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonDanger}" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDanger（DeleteGeometry）"/>
                     </StackPanel>
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
-                        <RepeatButton Margin="5" Height="28" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonCustom}" Style="{StaticResource RepeatButtonCustom}" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
-                        <RepeatButton Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonCustom}" Style="{StaticResource RepeatButtonCustom}" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
+                        <RepeatButton Margin="5" Height="28" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonCustom}" Style="{StaticResource RepeatButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
+                        <RepeatButton Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonCustom}" Style="{StaticResource RepeatButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
                         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonCustom"/>
                     </StackPanel>
                     <StackPanel>
-                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" controls:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
-                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}"  controls:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}"  hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonIcon（UpDownGeometry）"/>
                     </StackPanel>
                 </WrapPanel>
             </StackPanel>
-        </controls:ScrollViewer>
-    </controls:TransitioningContentControl>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
 </UserControl>

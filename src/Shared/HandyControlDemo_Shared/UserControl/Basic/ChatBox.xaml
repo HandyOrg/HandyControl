@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:interactivity="clr-namespace:HandyControl.Interactivity;assembly=HandyControl"
              mc:Ignorable="d" 
              Height="486"
              Effect="{StaticResource EffectShadow5}"
@@ -17,15 +16,15 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False"  Background="Transparent" controls:ChatBubble.MaxWidth="300" BorderThickness="0" Style="{StaticResource StackPanelVerticalListBox}" ItemsSource="{Binding ChatInfos}">
-            <interactivity:Interaction.Triggers>
-                <interactivity:RoutedEventTrigger RoutedEvent="controls:ChatBubble.Selected">
-                    <interactivity:EventToCommand Command="{Binding ReadMessageCmd}" PassEventArgsToCommand="True" />
-                </interactivity:RoutedEventTrigger>
-            </interactivity:Interaction.Triggers>
+        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False"  Background="Transparent" hc:ChatBubble.MaxWidth="300" BorderThickness="0" Style="{StaticResource StackPanelVerticalListBox}" ItemsSource="{Binding ChatInfos}">
+            <hc:Interaction.Triggers>
+                <hc:RoutedEventTrigger RoutedEvent="hc:ChatBubble.Selected">
+                    <hc:EventToCommand Command="{Binding ReadMessageCmd}" PassEventArgsToCommand="True" />
+                </hc:RoutedEventTrigger>
+            </hc:Interaction.Triggers>
             <ListBox.ItemTemplate>
                 <DataTemplate>
-                    <controls:ChatBubble Role="{Binding Role}" Type="{Binding Type}" Content="{Binding Message}" Tag="{Binding}"/>
+                    <hc:ChatBubble Role="{Binding Role}" Type="{Binding Type}" Content="{Binding Message}" Tag="{Binding}"/>
                 </DataTemplate>
             </ListBox.ItemTemplate>
         </ListBox>
@@ -36,24 +35,24 @@
                     <ColumnDefinition/>
                     <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
-                <ToggleButton Name="ToggleButtonAudio" controls:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" Margin="6" controls:IconSwitchElement.Geometry="{StaticResource AudioGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource KeyboardGeometry}" Style="{StaticResource ToggleButtonIcon}"/>
-                <Button Command="{Binding OpenImageCmd}" Grid.Column="2" Margin="6,0,6,0" controls:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" controls:IconElement.Geometry="{StaticResource ImageGeometry}"/>
+                <ToggleButton Name="ToggleButtonAudio" hc:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" Margin="6" hc:IconSwitchElement.Geometry="{StaticResource AudioGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource KeyboardGeometry}" Style="{StaticResource ToggleButtonIcon}"/>
+                <Button Command="{Binding OpenImageCmd}" Grid.Column="2" Margin="6,0,6,0" hc:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" hc:IconElement.Geometry="{StaticResource ImageGeometry}"/>
                 <TextBox Grid.Column="1" Text="{Binding ChatString,UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudio,Converter={StaticResource Boolean2VisibilityReConverter}}">
-                    <interactivity:Interaction.Triggers>
-                        <interactivity:EventTrigger EventName="KeyDown">
-                            <interactivity:EventToCommand Command="{Binding SendStringCmd}" PassEventArgsToCommand="True" />
-                        </interactivity:EventTrigger>
-                    </interactivity:Interaction.Triggers>
+                    <hc:Interaction.Triggers>
+                        <hc:EventTrigger EventName="KeyDown">
+                            <hc:EventToCommand Command="{Binding SendStringCmd}" PassEventArgsToCommand="True" />
+                        </hc:EventTrigger>
+                    </hc:Interaction.Triggers>
                 </TextBox>
                 <Button Grid.Column="1" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudio,Converter={StaticResource Boolean2VisibilityConverter}}" Content="{x:Static langs:Lang.PushToTalk}" HorizontalAlignment="Stretch">
-                    <interactivity:Interaction.Triggers>
-                        <interactivity:EventTrigger EventName="PreviewMouseLeftButtonDown">
-                            <interactivity:EventToCommand Command="{Binding StartRecordCmd}"/>
-                        </interactivity:EventTrigger>
-                        <interactivity:EventTrigger EventName="PreviewMouseLeftButtonUp">
-                            <interactivity:EventToCommand Command="{Binding StopRecordCmd}"/>
-                        </interactivity:EventTrigger>
-                    </interactivity:Interaction.Triggers>
+                    <hc:Interaction.Triggers>
+                        <hc:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                            <hc:EventToCommand Command="{Binding StartRecordCmd}"/>
+                        </hc:EventTrigger>
+                        <hc:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                            <hc:EventToCommand Command="{Binding StopRecordCmd}"/>
+                        </hc:EventTrigger>
+                    </hc:Interaction.Triggers>
                 </Button>
             </Grid>
         </Border>

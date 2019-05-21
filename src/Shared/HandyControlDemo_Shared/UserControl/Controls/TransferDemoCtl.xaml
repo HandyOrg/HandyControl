@@ -2,14 +2,14 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
-    <controls:TransitioningContentControl>
-        <controls:Transfer ItemsSource="{Binding DataList}" Margin="32" Height="300">
-            <controls:Transfer.ItemTemplate>
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
+        <hc:Transfer ItemsSource="{Binding DataList}" Margin="32" Height="300">
+            <hc:Transfer.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Name}"/>
                 </DataTemplate>
-            </controls:Transfer.ItemTemplate>
-        </controls:Transfer>
-    </controls:TransitioningContentControl>
+            </hc:Transfer.ItemTemplate>
+        </hc:Transfer>
+    </hc:TransitioningContentControl>
 </UserControl>

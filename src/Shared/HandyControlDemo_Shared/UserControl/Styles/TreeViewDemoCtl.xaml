@@ -1,9 +1,9 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.TreeViewDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
-    <controls:TransitioningContentControl>
+    <hc:TransitioningContentControl>
           <TreeView Width="200" Margin="32" ItemsSource="{Binding DataList}">
               <TreeView.ItemTemplate>
                   <HierarchicalDataTemplate ItemsSource="{Binding DataList}">
@@ -11,5 +11,5 @@
                   </HierarchicalDataTemplate>
               </TreeView.ItemTemplate>
           </TreeView>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>
