@@ -79,8 +79,8 @@ namespace HandyControl.Controls
             {
                 if (_initEnumerable != null)
                 {
-                    OnItemsSourceChanged(null, _itemsSourceInternal);
-                    _itemsSourceInternal = null;
+                    OnItemsSourceChanged(null, _initEnumerable);
+                    _initEnumerable = null;
                 }
 
                 if (_initArgs != null)
@@ -89,7 +89,10 @@ namespace HandyControl.Controls
                     _initArgs = null;
                 }
 
-                Refresh();
+                if (_itemsOrigin.Items.Count == 0)
+                {
+                    Refresh();
+                }
             }
         }
 
