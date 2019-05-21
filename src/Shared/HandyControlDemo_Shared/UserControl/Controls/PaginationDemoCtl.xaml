@@ -3,22 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
              DataContext="{Binding PaginationDemo,Source={StaticResource Locator}}"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:i="clr-namespace:HandyControl.Interactivity;assembly=HandyControl">
-    <controls:TransitioningContentControl>
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs">
+    <hc:TransitioningContentControl>
         <Grid Margin="32">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <controls:Pagination MaxPageCount="10" PageIndex="{Binding PageIndex}">
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="PageUpdated">
-                        <i:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
-            </controls:Pagination>
+            <hc:Pagination MaxPageCount="10" PageIndex="{Binding PageIndex}">
+                <hc:Interaction.Triggers>
+                    <hc:EventTrigger EventName="PageUpdated">
+                        <hc:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />
+                    </hc:EventTrigger>
+                </hc:Interaction.Triggers>
+            </hc:Pagination>
             <DataGrid IsReadOnly="True" Width="600" Margin="0,16,0,0" Grid.Row="1" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
                 <DataGrid.RowHeaderTemplate>
                     <DataTemplate>
@@ -41,5 +40,5 @@
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>

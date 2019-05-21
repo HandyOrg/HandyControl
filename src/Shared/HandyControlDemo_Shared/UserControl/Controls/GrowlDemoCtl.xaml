@@ -1,11 +1,11 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.GrowlDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              DataContext="{Binding GrowlDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
-    <controls:TransitioningContentControl>
+    <hc:TransitioningContentControl>
         <StackPanel Margin="32">
             <WrapPanel VerticalAlignment="Center">
                 <Button Command="{Binding InfoCmd}" Content="{x:Static langs:Lang.Info}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
@@ -18,5 +18,5 @@
             </WrapPanel>
             <Button Command="{Binding NewWindowCmd}" Content="{x:Static langs:Lang.NewWindow}" Margin="0,5,0,0" HorizontalAlignment="Left"/>
         </StackPanel>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>

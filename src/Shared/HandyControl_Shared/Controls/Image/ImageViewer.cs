@@ -138,11 +138,6 @@ namespace HandyControl.Controls
         private double _imgWidHeiScale;
 
         /// <summary>
-        ///     是否已经初始化
-        /// </summary>
-        private bool _isLoaded;
-
-        /// <summary>
         ///     图片是否倾斜
         /// </summary>
         private bool _isOblique;
@@ -168,8 +163,6 @@ namespace HandyControl.Controls
 
         public ImageViewer()
         {
-            Loaded += ImageViewer_OnLoaded;
-
             CommandBindings.Add(new CommandBinding(ControlCommands.Save, ButtonSave_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Open, ButtonWindowsOpen_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Restore, ButtonActual_OnClick));
@@ -410,7 +403,7 @@ namespace HandyControl.Controls
             if (_imageMain != null)
             {
                 var t = new RotateTransform();
-                BindingOperations.SetBinding(t, RotateTransform.AngleProperty, new Binding(ImageRotateProperty.Name) {Source = this});
+                BindingOperations.SetBinding(t, RotateTransform.AngleProperty, new Binding(ImageRotateProperty.Name) { Source = this });
                 _imageMain.LayoutTransform = t;
                 _imageMain.MouseLeftButtonDown += ImageMain_OnMouseLeftButtonDown;
             }
@@ -422,6 +415,8 @@ namespace HandyControl.Controls
                 _canvasSmallImg.MouseMove += CanvasSmallImg_OnMouseMove;
                 _canvasSmallImg.MouseLeave += CanvasSmallImg_OnMouseLeave;
             }
+
+            Init();
         }
 
         private static void OnImageScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -469,25 +464,28 @@ namespace HandyControl.Controls
             }
 
             _imgWidHeiScale = width / height;
-            var scaleWindow = ActualWidth / ActualHeight;
+            Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            var scaleWindow = DesiredSize.Width / DesiredSize.Height;
             if (_imgWidHeiScale > scaleWindow)
             {
-                if (width > ActualWidth)
-                    ImageScale = ActualWidth / width;
+                if (width > DesiredSize.Width)
+                    ImageScale = DesiredSize.Width / width;
             }
-            else if (height > ActualHeight)
+            else if (height > DesiredSize.Height)
             {
-                ImageScale = ActualHeight / height;
+                ImageScale = DesiredSize.Height / height;
             }
             else
             {
                 ImageScale = 1;
             }
 
-            ImageMargin = new Thickness((ActualWidth - ImageWidth) / 2, (ActualHeight - ImageHeight) / 2, 0, 0);
+            ImageMargin = new Thickness((DesiredSize.Width - ImageWidth) / 2, (DesiredSize.Height - ImageHeight) / 2, 0, 0);
 
-            _imgActualScale = 1;
+            _imgActualScale = ImageScale;
             _imgActualMargin = ImageMargin;
+
+            InitBorderSmall();
         }
 
         private void ButtonActual_OnClick(object sender, RoutedEventArgs e)
@@ -571,8 +569,11 @@ namespace HandyControl.Controls
         {
             base.OnRenderSizeChanged(sizeInfo);
 
-            if (!_isLoaded) return;
+            OnRenderSizeChanged();
+        }
 
+        private void OnRenderSizeChanged()
+        {
             if (ImageWidth < 0.001 || ImageHeight < 0.001) return;
 
             _canMoveX = true;
@@ -599,13 +600,6 @@ namespace HandyControl.Controls
             BorderSmallShowSwitch();
             _imgSmallMouseDownMargin = _borderMove.Margin;
             MoveSmallImg(_imgSmallMouseDownMargin.Left, _imgSmallMouseDownMargin.Top);
-        }
-
-        private void ImageViewer_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            if (_isLoaded) return;
-            Init();
-            _isLoaded = true;
         }
 
         private void ImageMain_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -773,7 +767,7 @@ namespace HandyControl.Controls
         {
             _imgActualRotate = rotate;
 
-            _isOblique = ((int) _imgActualRotate - 90) % 180 == 0;
+            _isOblique = ((int)_imgActualRotate - 90) % 180 == 0;
             ShowSmallImgInternal = false;
             Init();
             InitBorderSmall();

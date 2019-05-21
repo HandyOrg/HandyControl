@@ -24,6 +24,8 @@ namespace HandyControl.Controls
 
         private readonly Dictionary<object, TransferEntry> _entryDic = new Dictionary<object, TransferEntry>();
 
+        private readonly List<TransferEntry> _entryList = new List<TransferEntry>();
+
         private SimpleItemsControl _itemsOrigin;
 
         private SimpleItemsControl _itemsSelected;
@@ -113,6 +115,7 @@ namespace HandyControl.Controls
                 SelectedItem = selected
             };
             _entryDic.Add(item, entry);
+            _entryList.Add(entry);
             _itemsOrigin.Items.Add(origin);
             _itemsSelected.Items.Add(selected);
         }
@@ -124,12 +127,14 @@ namespace HandyControl.Controls
                 _itemsOrigin.Items.Remove(entry.OriginItem);
                 _itemsSelected.Items.Remove(entry.SelectedItem);
                 _entryDic.Remove(item);
+                _entryList.Remove(entry);
             }
         }
 
         private void ClearItems()
         {
             _entryDic.Clear();
+            _entryList.Clear();
             _itemsOrigin.Items.Clear();
             _itemsSelected.Items.Clear();
         }
@@ -224,10 +229,10 @@ namespace HandyControl.Controls
 
         protected override void Refresh()
         {
-            if (_entryDic.Count > 0)
+            if (_entryList.Count > 0)
             {
-                _entryDic.Select(item => item.Value.OriginItem).Do(item => _itemsOrigin.Items.Add(item));
-                _entryDic.Select(item => item.Value.SelectedItem).Do(item => _itemsSelected.Items.Add(item));
+                _entryList.Select(item => item.OriginItem).Do(item => _itemsOrigin.Items.Add(item));
+                _entryList.Select(item => item.SelectedItem).Do(item => _itemsSelected.Items.Add(item));
             }
         }
 

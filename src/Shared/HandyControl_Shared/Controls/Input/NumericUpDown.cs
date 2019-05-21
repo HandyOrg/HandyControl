@@ -159,7 +159,10 @@ namespace HandyControl.Controls
         {
             var ctl = (NumericUpDown) d;
             var v = (double) e.NewValue;
-            ctl._textBox.Text = v.ToString();
+            if (ctl._textBox != null)
+            {
+                ctl._textBox.Text = v.ToString();
+            }
 
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
             {
