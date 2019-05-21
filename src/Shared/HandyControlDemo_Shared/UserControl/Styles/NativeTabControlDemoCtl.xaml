@@ -1,10 +1,10 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.NativeTabControlDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              Background="{DynamicResource RegionBrush}">
-    <controls:TransitioningContentControl>
+    <hc:TransitioningContentControl>
         <ScrollViewer>
             <UniformGrid Rows="2" Columns="2" Margin="16">
                 <TabControl TabStripPlacement="Right" Margin="16" Width="400" Height="200">
@@ -177,5 +177,5 @@
                 </TabControl>
             </UniformGrid>
         </ScrollViewer>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>

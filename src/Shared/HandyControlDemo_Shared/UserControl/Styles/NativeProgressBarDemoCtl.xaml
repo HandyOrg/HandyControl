@@ -2,8 +2,8 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
-    <controls:TransitioningContentControl>
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
         <WrapPanel Margin="32" ItemWidth="600">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Width="400">
@@ -40,5 +40,5 @@
                 </StackPanel>
             </StackPanel>
         </WrapPanel>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>
