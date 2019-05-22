@@ -2,9 +2,9 @@
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
-using HandyControl.Interactivity;
+using HandyControl.Tools;
 
-namespace HandyControl.Tools
+namespace HandyControl.Interactivity
 {
     /// <summary>
     ///     鼠标拖动行为，该类是反编译微软的System.Windows.Interactivity程序集得到的，并对其做了些扩展

@@ -113,6 +113,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\Window.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\CancelRoutedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\FunctionEventArgs!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Args\KeyboardHookEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\MouseHookEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ColorRange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\BadgeStatus.cs" />
@@ -246,6 +247,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ValidateHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\VisualHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\KeyboardHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\MouseHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\BitmapHandle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\BITMAPINFO.cs" />
@@ -261,7 +263,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\UnsafeNativeMethods.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\WNDCLASS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\WpfSafeHandle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\MouseDragElementBehaviorEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\MouseDragElementBehaviorEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularJudgment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularPatterns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\RadioGroupItemStyleSelector.cs" />

@@ -186,7 +186,8 @@ namespace HandyControl.Tools.Interop
 
         public enum HookType
         {
-            WH_MOUSE_LL = 14,
+            WH_KEYBOARD_LL = 13,
+            WH_MOUSE_LL = 14
         }
 
         [StructLayout(LayoutKind.Sequential)]

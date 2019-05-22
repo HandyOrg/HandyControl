@@ -31,6 +31,8 @@ namespace HandyControl.Tools.Interop
             NIIF_INFO = 0x00000001,
             NIIF_WARNING = 0x00000002,
             NIIF_ERROR = 0x00000003,
+            WM_KEYDOWN = 0x0100,
+            WM_KEYUP = 0x0101,
             WM_MOUSEMOVE = 0x0200,
             WM_LBUTTONDOWN = 0x0201,
             WM_LBUTTONUP = 0x0202,
