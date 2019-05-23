@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\LinkElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxMonitor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\GlobalShortcut.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TipElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TitleElement.cs" />
