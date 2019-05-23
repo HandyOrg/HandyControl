@@ -6,7 +6,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
-using HandyControl.Tools;
 
 
 namespace HandyControl.Controls

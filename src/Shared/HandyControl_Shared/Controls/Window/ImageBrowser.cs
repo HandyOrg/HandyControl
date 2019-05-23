@@ -58,6 +58,7 @@ namespace HandyControl.Controls
                 {
                     _imageViewer.ImageSource = BitmapFrame.Create(uri);
                     _imageViewer.ImgPath = uri.AbsolutePath;
+
                     if (File.Exists(_imageViewer.ImgPath))
                     {
                         var info = new FileInfo(_imageViewer.ImgPath);

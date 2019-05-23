@@ -170,6 +170,8 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Enlarge, ButtonEnlarge_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.RotateLeft, ButtonRotateLeft_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.RotateRight, ButtonRotateRight_OnClick));
+
+            Loaded += (s, e) => Init();
         }
 
         /// <summary>
@@ -210,7 +212,13 @@ namespace HandyControl.Controls
             "ShowImgMap", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
-            "ImageSource", typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame)));
+            "ImageSource", typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame), OnImageSourceChanged));
+
+        private static void OnImageSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (ImageViewer) d;
+            ctl.Init();
+        }
 
         public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
             "IsFullScreen", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
@@ -416,7 +424,7 @@ namespace HandyControl.Controls
                 _canvasSmallImg.MouseLeave += CanvasSmallImg_OnMouseLeave;
             }
 
-            Init();
+            _borderSmallIsLoaded = false;
         }
 
         private static void OnImageScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -434,7 +442,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void Init()
         {
-            if (ImageSource == null) return;
+            if (ImageSource == null || !IsLoaded) return;
 
             double width;
             double height;
@@ -464,23 +472,22 @@ namespace HandyControl.Controls
             }
 
             _imgWidHeiScale = width / height;
-            Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            var scaleWindow = DesiredSize.Width / DesiredSize.Height;
+            var scaleWindow = ActualWidth / ActualHeight;
             if (_imgWidHeiScale > scaleWindow)
             {
-                if (width > DesiredSize.Width)
-                    ImageScale = DesiredSize.Width / width;
+                if (width > ActualWidth)
+                    ImageScale = ActualWidth / width;
             }
-            else if (height > DesiredSize.Height)
+            else if (height > ActualHeight)
             {
-                ImageScale = DesiredSize.Height / height;
+                ImageScale = ActualHeight / height;
             }
             else
             {
                 ImageScale = 1;
             }
 
-            ImageMargin = new Thickness((DesiredSize.Width - ImageWidth) / 2, (DesiredSize.Height - ImageHeight) / 2, 0, 0);
+            ImageMargin = new Thickness((ActualWidth - ImageWidth) / 2, (ActualHeight - ImageHeight) / 2, 0, 0);
 
             _imgActualScale = ImageScale;
             _imgActualMargin = ImageMargin;
@@ -643,6 +650,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void InitBorderSmall()
         {
+            if (_canvasSmallImg == null) return;
             var scaleWindow = _canvasSmallImg.MaxWidth / _canvasSmallImg.MaxHeight;
             if (_imgWidHeiScale > scaleWindow)
             {
