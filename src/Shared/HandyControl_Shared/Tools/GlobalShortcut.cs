@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Input;
 using HandyControl.Data;
@@ -8,8 +7,6 @@ namespace HandyControl.Tools
 {
     public class GlobalShortcut
     {
-        private static ModifierKeys ModifierKeys;
-
         private static readonly Dictionary<string, KeyBinding> CommandDic = new Dictionary<string, KeyBinding>();
 
         static GlobalShortcut()
@@ -21,16 +18,11 @@ namespace HandyControl.Tools
 
         private static void HitTest(Key key)
         {
-            Console.WriteLine(key.ToString());
-            if (IsModifierKey(key))
-            {
-                ModifierKeys |= GetModifierKey(key);
-            }
-            else
-            {
-                var keyStr = ModifierKeys != ModifierKeys.None ? $"{ModifierKeys.ToString()}, {key.ToString()}" : key.ToString();
-                ExecuteCommand(keyStr);
-            }
+            if (IsModifierKey(key)) return;
+
+            var modifierKeys = Keyboard.Modifiers;
+            var keyStr = modifierKeys != ModifierKeys.None ? $"{modifierKeys.ToString()}, {key.ToString()}" : key.ToString();
+            ExecuteCommand(keyStr);
         }
 
         private static void ExecuteCommand(string key)
@@ -44,27 +36,6 @@ namespace HandyControl.Tools
                 {
                     command.Execute(keyBinding.CommandParameter);
                 }
-            }
-        }
-
-        private static ModifierKeys GetModifierKey(Key key)
-        {
-            switch (key)
-            {
-                case Key.LeftCtrl:
-                case Key.RightCtrl:
-                    return ModifierKeys.Control;
-                case Key.LeftAlt:
-                case Key.RightAlt:
-                    return ModifierKeys.Alt;
-                case Key.LeftShift:
-                case Key.RightShift:
-                    return ModifierKeys.Shift;
-                case Key.LWin:
-                case Key.RWin:
-                    return ModifierKeys.Windows;
-                default:
-                    return ModifierKeys.None;
             }
         }
 

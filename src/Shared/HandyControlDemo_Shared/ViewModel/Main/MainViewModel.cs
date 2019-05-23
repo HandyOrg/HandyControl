@@ -102,8 +102,8 @@ namespace HandyControlDemo.ViewModel
         public RelayCommand GlobalShortcutInfoCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(() => Growl.Info("Global Shortcut Info"))).Value;
 
-        public RelayCommand GlobalShortcutErrorCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => Growl.Info("Global Shortcut Error"))).Value;
+        public RelayCommand GlobalShortcutWarningCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(() => Growl.Warning("Global Shortcut Warning"))).Value;
 
         #endregion
 

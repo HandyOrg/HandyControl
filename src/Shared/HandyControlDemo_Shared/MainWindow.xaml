@@ -24,8 +24,8 @@
                      d:DesignHeight="800" 
                      d:DesignWidth="1400">
     <hc:GlobalShortcut.KeyBindings>
-        <KeyBinding Modifiers="Control+Alt" Key="I" Command="{Binding GlobalShortcutInfoCmd}"/>
-        <KeyBinding Modifiers="Control+Alt" Key="E" Command="{Binding GlobalShortcutErrorCmd}"/>
+        <KeyBinding Modifiers="Control+Alt" Key="I" Command="{Binding Main.GlobalShortcutInfoCmd, Source={StaticResource Locator}}"/>
+        <KeyBinding Modifiers="Control+Alt" Key="E" Command="{Binding Main.GlobalShortcutWarningCmd, Source={StaticResource Locator}}"/>
     </hc:GlobalShortcut.KeyBindings>
     <hc:Window.NonClientAreaContent>
         <userControl:NoUserContent/>

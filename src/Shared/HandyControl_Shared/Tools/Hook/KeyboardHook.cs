@@ -76,20 +76,14 @@ namespace HandyControl.Tools
                 else if (wParam == KeyUpIntPtr)
                 {
                     var virtualKey = Marshal.ReadInt32(lParam);
-                    if (VirtualKey != virtualKey)
-                    {
-                        VirtualKey = virtualKey;
-                        KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey, false));
-                    }
+                    VirtualKey = -1;
+                    KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey, false));
                 }
                 else if (wParam == SyskeyUpIntPtr)
                 {
                     var virtualKey = Marshal.ReadInt32(lParam);
-                    if (VirtualKey != virtualKey)
-                    {
-                        VirtualKey = virtualKey;
-                        KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey, true));
-                    }
+                    VirtualKey = -1;
+                    KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey, true));
                 }
             }
             return UnsafeNativeMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
