@@ -14,7 +14,14 @@ namespace HandyControl.Tools
 
         private static readonly UnsafeNativeMethods.HookProc Proc = HookCallback;
 
-        public static void Start() => HookId = SetHook(Proc);
+        public static void Start()
+        {
+            if (HookId != IntPtr.Zero)
+            {
+                Stop();
+            }
+            HookId = SetHook(Proc);
+        }
 
         public static void Stop() => UnsafeNativeMethods.UnhookWindowsHookEx(HookId);
 

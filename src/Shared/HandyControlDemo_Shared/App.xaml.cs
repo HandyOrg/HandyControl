@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading;
 using System.Windows;
-using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;

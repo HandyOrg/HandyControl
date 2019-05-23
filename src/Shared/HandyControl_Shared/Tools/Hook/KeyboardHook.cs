@@ -16,7 +16,24 @@ namespace HandyControl.Tools
 
         private static readonly UnsafeNativeMethods.HookProc Proc = HookCallback;
 
-        public static void Start() => HookId = SetHook(Proc);
+        private static int VirtualKey;
+
+        private static readonly IntPtr KeyDownIntPtr = (IntPtr)NativeMethods.WM_KEYDOWN;
+
+        private static readonly IntPtr KeyUpIntPtr = (IntPtr)NativeMethods.WM_KEYUP;
+
+        private static readonly IntPtr SyskeyDownIntPtr = (IntPtr)NativeMethods.WM_SYSKEYDOWN;
+
+        private static readonly IntPtr SyskeyUpIntPtr = (IntPtr)NativeMethods.WM_SYSKEYUP;
+
+        public static void Start()
+        {
+            if (HookId != IntPtr.Zero)
+            {
+                Stop();
+            }
+            HookId = SetHook(Proc);
+        }
 
         public static void Stop() => UnsafeNativeMethods.UnhookWindowsHookEx(HookId);
 
@@ -38,17 +55,41 @@ namespace HandyControl.Tools
         {
             if (nCode >= 0)
             {
-                if (wParam == (IntPtr)NativeMethods.WM_KEYDOWN)
+                if (wParam == KeyDownIntPtr)
                 {
                     var virtualKey = Marshal.ReadInt32(lParam);
-
-                    KeyDown?.Invoke(null, new KeyboardHookEventArgs(virtualKey));
+                    if (VirtualKey != virtualKey)
+                    {
+                        VirtualKey = virtualKey;
+                        KeyDown?.Invoke(null, new KeyboardHookEventArgs(virtualKey, false));
+                    }
                 }
-                else if (wParam == (IntPtr)NativeMethods.WM_KEYUP)
+                else if (wParam == SyskeyDownIntPtr)
                 {
                     var virtualKey = Marshal.ReadInt32(lParam);
-
-                    KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey));
+                    if (VirtualKey != virtualKey)
+                    {
+                        VirtualKey = virtualKey;
+                        KeyDown?.Invoke(null, new KeyboardHookEventArgs(virtualKey, true));
+                    }
+                }
+                else if (wParam == KeyUpIntPtr)
+                {
+                    var virtualKey = Marshal.ReadInt32(lParam);
+                    if (VirtualKey != virtualKey)
+                    {
+                        VirtualKey = virtualKey;
+                        KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey, false));
+                    }
+                }
+                else if (wParam == SyskeyUpIntPtr)
+                {
+                    var virtualKey = Marshal.ReadInt32(lParam);
+                    if (VirtualKey != virtualKey)
+                    {
+                        VirtualKey = virtualKey;
+                        KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey, true));
+                    }
                 }
             }
             return UnsafeNativeMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
