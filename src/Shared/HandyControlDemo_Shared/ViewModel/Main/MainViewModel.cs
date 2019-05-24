@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.CommandWpf;
 #endif
 using GalaSoft.MvvmLight.Messaging;
+using HandyControl.Controls;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 using HandyControlDemo.Tools;
@@ -98,9 +99,15 @@ namespace HandyControlDemo.ViewModel
         public RelayCommand OpenOverviewCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(OpenOverview)).Value;
 
-#endregion
+        public RelayCommand GlobalShortcutInfoCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(() => Growl.Info("Global Shortcut Info"))).Value;
 
-#region 方法
+        public RelayCommand GlobalShortcutWarningCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(() => Growl.Warning("Global Shortcut Warning"))).Value;
+
+        #endregion
+
+        #region 方法
 
         /// <summary>
         ///     切换例子
