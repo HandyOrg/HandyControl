@@ -51,11 +51,22 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="ToggleButtonSwitchBaseStyle" TargetType="ToggleButton">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    <Style x:Key="ToggleButtonSwitchBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="11" RadiusY="11"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="6,0,0,0"/>
@@ -162,14 +173,13 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ToggleButtonIconBaseStyle" TargetType="ToggleButton">
+    <Style x:Key="ToggleButtonIconBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="Width" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Padding" Value="8"/>
         <Setter Property="controls:IconSwitchElement.Geometry" Value="{x:Null}"/>
         <Setter Property="controls:IconSwitchElement.GeometrySelected" Value="{x:Null}"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>

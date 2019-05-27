@@ -51,15 +51,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ButtonCustom" TargetType="Button">
+    <Style x:Key="ButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{x:Null}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
