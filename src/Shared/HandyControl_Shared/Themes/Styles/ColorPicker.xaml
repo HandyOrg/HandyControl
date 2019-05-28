@@ -108,7 +108,7 @@
                             </Button>
                         </Grid>
                         <Border Grid.Row="2" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
-                            <WrapPanel Name="PART_PanelColor" Margin="12,12,0,12" HorizontalAlignment="Center"/>
+                            <WrapPanel Name="PART_PanelColor" Margin="6" HorizontalAlignment="Center"/>
                         </Border>
                         <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">

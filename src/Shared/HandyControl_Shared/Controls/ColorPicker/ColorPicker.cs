@@ -453,7 +453,7 @@ namespace HandyControl.Controls
 
             var button = new Button
             {
-                Margin = new Thickness(0, 0, 12, 12),
+                Margin = new Thickness(6),
                 Style = ResourceHelper.GetResource<Style>(ResourceToken.ButtonCustom),
                 Content = new Border
                 {
