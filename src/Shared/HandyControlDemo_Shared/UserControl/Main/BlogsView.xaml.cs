@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class AnimationPathDemoCtl
+    public partial class BlogsView
     {
-        public AnimationPathDemoCtl()
+        public BlogsView()
         {
             InitializeComponent();
         }

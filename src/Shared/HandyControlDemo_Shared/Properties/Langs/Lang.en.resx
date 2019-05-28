@@ -600,4 +600,10 @@
   <data name="Border" xml:space="preserve">
     <value>Border</value>
   </data>
+  <data name="Recommendation" xml:space="preserve">
+    <value>Recommendation</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
 </root>

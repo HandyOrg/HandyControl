@@ -16,9 +16,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\InfoElement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\LinkElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxMonitor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\GlobalShortcut.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TipElement.cs" />
@@ -182,7 +182,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Behavior!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Behavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\BehaviorCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ControlCommands.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\ControlCommands.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\DefaultTriggerAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\EventToCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\EventTrigger.cs" />
@@ -201,9 +201,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\NameResolvedEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\NameResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\PreviewInvokeEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\PushMainWindow2TopCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\PushMainWindow2TopCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\RoutedEventTrigger.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\ShutdownAppCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\ShutdownAppCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\TagType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\TransitionEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\TriggerAction!1.cs" />

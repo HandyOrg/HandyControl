@@ -98,7 +98,9 @@ var messageList = new List<string>
 	"GrowlDemoPanel",
 	"DialogDemoWindow",
 	"MainWindow",
-	"OverView"
+	"OverView",
+	"ProjectsView",
+	"BlogsView"
 };
 #>
 namespace HandyControlDemo.Data
