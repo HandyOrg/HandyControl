@@ -11,6 +11,8 @@
     </ItemsPanelTemplate>
 
     <Style x:Key="RadioGroupBaseStyle" TargetType="controls:RadioGroup">
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="ItemsPanel" Value="{StaticResource RadioGroupHorizontalItemsPanelTemplate}"/>
         <Setter Property="controls:TitleElement.BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="controls:TitleElement.Background" Value="{DynamicResource RegionBrush}"/>
