@@ -47,6 +47,10 @@
         </Setter>
     </Style>
 
+    <Style TargetType="Window">
+        <Setter Property="UseLayoutRounding" Value="True"/>
+    </Style>
+
     <Style x:Key="WindowDefault" BasedOn="{x:Null}" TargetType="Window">
         <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
