@@ -1,10 +1,10 @@
 ﻿using System;
-using System.Collections;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
@@ -130,26 +130,11 @@ namespace HandyControl.Controls
 
         public TabItem()
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.Close, Close));
-            CommandBindings.Add(new CommandBinding(ControlCommands.CloseAll, (s, e) =>
-            {
-                TabControlParent.IsInternalAction = true;
-                TabControlParent.Items.Clear();
-            }));
-            CommandBindings.Add(new CommandBinding(ControlCommands.CloseOther, (s, e) =>
-            {
-                TabControlParent.IsInternalAction = true;
-                var enumerator = ((IEnumerable)TabControlParent.Items).GetEnumerator();
-                while (enumerator.MoveNext())
-                {
-                    var item = enumerator.Current;
-                    if (!Equals(item) && item != null)
-                    {
-                        TabControlParent.Items.Remove(item);
-                        enumerator = ((IEnumerable)TabControlParent.Items).GetEnumerator();
-                    }
-                }
-            }));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => Close()));
+            CommandBindings.Add(new CommandBinding(ControlCommands.CloseAll,
+                (s, e) => { TabControlParent.CloseAllItems(); }));
+            CommandBindings.Add(new CommandBinding(ControlCommands.CloseOther,
+                (s, e) => { TabControlParent.CloseOtherItems(this); }));
         }
 
         private TabControl TabControlParent => new Lazy<TabControl>(() => ItemsControl.ItemsControlFromItemContainer(this) as TabControl).Value;
@@ -161,11 +146,12 @@ namespace HandyControl.Controls
             Focus();
         }
 
-        /// <summary>
-        ///     关闭
-        /// </summary>
-        private void Close(object sender, RoutedEventArgs e)
+        internal void Close()
         {
+            var argsClosing = new CancelRoutedEventArgs(ClosingEvent, this);
+            RaiseEvent(argsClosing);
+            if (argsClosing.Cancel) return;
+
             if (TabControlParent.IsEnableAnimation)
             {
                 TabPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
@@ -175,6 +161,7 @@ namespace HandyControl.Controls
                 TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
             }
             TabControlParent.IsInternalAction = true;
+            RaiseEvent(new RoutedEventArgs(ClosedEvent, this));
             TabControlParent.Items.Remove(this);
         }
 
@@ -299,6 +286,22 @@ namespace HandyControl.Controls
             var result = rest / ItemWidth > .5 ? div + 1 : div;
 
             return result > maxIndex ? maxIndex : result;
+        }
+
+        public static readonly RoutedEvent ClosingEvent = EventManager.RegisterRoutedEvent("Closing", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
+
+        public event EventHandler Closing
+        {
+            add => AddHandler(ClosingEvent, value);
+            remove => RemoveHandler(ClosingEvent, value);
+        }
+
+        public static readonly RoutedEvent ClosedEvent = EventManager.RegisterRoutedEvent("Closed", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
+
+        public event EventHandler Closed
+        {
+            add => AddHandler(ClosedEvent, value);
+            remove => RemoveHandler(ClosedEvent, value);
         }
     }
 }

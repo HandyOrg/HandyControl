@@ -23,7 +23,9 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<ImageBrowserDemoViewModel>();
             SimpleIoc.Default.Register<ComboBoxDemoViewModel>();
             SimpleIoc.Default.Register<WindowDemoViewModel>();
-            SimpleIoc.Default.Register<ContributorsViewModel>();
+            SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(ServiceLocator.Current.GetInstance<DataService>().GetContributorDataList), "Contributors");
+            SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(ServiceLocator.Current.GetInstance<DataService>().GetBlogDataList), "Blogs");
+            SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(ServiceLocator.Current.GetInstance<DataService>().GetProjectDataList), "Projects");
             SimpleIoc.Default.Register<StepBarDemoViewModel>();
             SimpleIoc.Default.Register<PaginationDemoViewModel>();
             SimpleIoc.Default.Register<ChatBoxViewModel>();
@@ -34,6 +36,8 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<InteractiveDialogViewModel>();
             SimpleIoc.Default.Register<BadgeDemoViewModel>();
             SimpleIoc.Default.Register<SideMenuDemoViewModel>();
+            SimpleIoc.Default.Register<TabControlDemoViewModel>();
+            SimpleIoc.Default.Register<NoUserViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -53,7 +57,11 @@ namespace HandyControlDemo.ViewModel
 
         public WindowDemoViewModel WindowDemo => ServiceLocator.Current.GetInstance<WindowDemoViewModel>();
 
-        public ContributorsViewModel ContributorsView => ServiceLocator.Current.GetInstance<ContributorsViewModel>();
+        public ItemsDisplayViewModel ContributorsView => ServiceLocator.Current.GetInstance<ItemsDisplayViewModel>("Contributors");
+
+        public ItemsDisplayViewModel BlogsView => ServiceLocator.Current.GetInstance<ItemsDisplayViewModel>("Blogs");
+
+        public ItemsDisplayViewModel ProjectsView => ServiceLocator.Current.GetInstance<ItemsDisplayViewModel>("Projects");
 
         public StepBarDemoViewModel StepBarDemo => ServiceLocator.Current.GetInstance<StepBarDemoViewModel>();
 
@@ -74,6 +82,10 @@ namespace HandyControlDemo.ViewModel
         public BadgeDemoViewModel BadgeDemo => ServiceLocator.Current.GetInstance<BadgeDemoViewModel>();
 
         public SideMenuDemoViewModel SideMenuDemo => ServiceLocator.Current.GetInstance<SideMenuDemoViewModel>();
+
+        public TabControlDemoViewModel TabControlDemo => ServiceLocator.Current.GetInstance<TabControlDemoViewModel>();
+
+        public NoUserViewModel NoUser => ServiceLocator.Current.GetInstance<NoUserViewModel>();
 
         #endregion
     }

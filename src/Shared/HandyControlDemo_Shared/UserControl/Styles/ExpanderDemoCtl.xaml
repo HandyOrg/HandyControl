@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
-    <controls:TransitioningContentControl>
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center">
             <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}" Width="240" HorizontalAlignment="Left">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
@@ -19,5 +19,5 @@
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
         </StackPanel>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>

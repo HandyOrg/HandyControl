@@ -4,14 +4,26 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="BaseStyle.xaml"/>
         <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="RadioButtonBaseStyle" TargetType="RadioButton">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    <Style x:Key="RadioButtonBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="-4" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -94,12 +106,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="RadioButtonIconBaseStyle" TargetType="RadioButton">
+    <Style x:Key="RadioButtonIconBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
         <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0}"/>
         <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -148,11 +159,9 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="RadioGroupItemBaseStyle" TargetType="RadioButton">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    <Style x:Key="RadioGroupItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>

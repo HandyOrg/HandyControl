@@ -2,11 +2,26 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="CheckBoxBaseStyle" TargetType="CheckBox">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="BaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="CheckBoxBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="CheckBox">
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="-4" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>

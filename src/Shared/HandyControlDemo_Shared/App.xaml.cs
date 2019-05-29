@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Globalization;
-using System.Threading;
+using System.Net;
+using System.Security.Authentication;
 using System.Windows;
-using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
@@ -30,6 +29,7 @@ namespace HandyControlDemo
 #if !Core
             ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
 #endif
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
         }
 
         protected override void OnExit(ExitEventArgs e)

@@ -1,12 +1,12 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.ClockDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
-    <controls:TransitioningContentControl>
+    <hc:TransitioningContentControl>
         <StackPanel Orientation="Horizontal" Margin="32">
-            <controls:Clock/>
-            <controls:ListClock Margin="16,0,0,0"/>
+            <hc:Clock/>
+            <hc:ListClock Margin="16,0,0,0"/>
         </StackPanel>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>

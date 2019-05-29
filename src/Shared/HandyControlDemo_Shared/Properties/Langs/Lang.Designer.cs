@@ -1052,6 +1052,16 @@ namespace HandyControlDemo.Properties.Langs {
         
         /// <summary>
         ///   Looks up a localized string similar to 按住说话.
+        ///   查找类似 项目 的本地化字符串。
+        /// </summary>
+        public static string Project {
+            get {
+                return ResourceManager.GetString("Project", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 按住说话 的本地化字符串。
         /// </summary>
         public static string PushToTalk {
             get {
@@ -1088,6 +1098,16 @@ namespace HandyControlDemo.Properties.Langs {
         
         /// <summary>
         ///   Looks up a localized string similar to 注册.
+        ///   查找类似 推荐 的本地化字符串。
+        /// </summary>
+        public static string Recommendation {
+            get {
+                return ResourceManager.GetString("Recommendation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 注册 的本地化字符串。
         /// </summary>
         public static string Register {
             get {

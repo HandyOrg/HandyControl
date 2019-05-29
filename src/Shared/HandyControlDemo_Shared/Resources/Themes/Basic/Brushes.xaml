@@ -46,6 +46,54 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
+    <DrawingBrush x:Key="BlogDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,120,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+        <DrawingBrush.Transform>
+            <TransformGroup>
+                <RotateTransform Angle="20"/>
+            </TransformGroup>
+        </DrawingBrush.Transform>
+        <DrawingBrush.Drawing>
+            <GeometryDrawing>
+                <GeometryDrawing.Geometry>
+                    <RectangleGeometry Rect="0,0,120,100"></RectangleGeometry>
+                </GeometryDrawing.Geometry>
+                <GeometryDrawing.Brush>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <StackPanel>
+                                <TextBlock Text="Blog" Foreground="{DynamicResource DarkMaskBrush}"/>
+                            </StackPanel>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </GeometryDrawing.Brush>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="ProjectDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,200,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+        <DrawingBrush.Transform>
+            <TransformGroup>
+                <RotateTransform Angle="20"/>
+            </TransformGroup>
+        </DrawingBrush.Transform>
+        <DrawingBrush.Drawing>
+            <GeometryDrawing>
+                <GeometryDrawing.Geometry>
+                    <RectangleGeometry Rect="0,0,200,100"></RectangleGeometry>
+                </GeometryDrawing.Geometry>
+                <GeometryDrawing.Brush>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <StackPanel>
+                                <TextBlock Text="Project" Foreground="{DynamicResource DarkMaskBrush}"/>
+                            </StackPanel>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </GeometryDrawing.Brush>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
     <LinearGradientBrush x:Key="MenuButtonBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
         <GradientStop Color="White" Offset="0"/>
         <GradientStop Color="#F2F2F2" Offset="1"/>

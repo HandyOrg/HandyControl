@@ -176,5 +176,9 @@
 
         public static readonly string OverView = nameof(OverView);
 
+        public static readonly string ProjectsView = nameof(ProjectsView);
+
+        public static readonly string BlogsView = nameof(BlogsView);
+
     }
 }

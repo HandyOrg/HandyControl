@@ -2,64 +2,73 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
-    <controls:TransitioningContentControl>
-        <controls:ScrollViewer HorizontalScrollBarVisibility="Auto">
+             DataContext="{Binding TabControlDemo,Source={StaticResource Locator}}"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer HorizontalScrollBarVisibility="Auto">
+            <hc:Interaction.Triggers>
+                <hc:RoutedEventTrigger RoutedEvent="hc:TabItem.Closing">
+                    <hc:EventToCommand Command="{Binding ClosingCmd}" PassEventArgsToCommand="True" />
+                </hc:RoutedEventTrigger>
+                <hc:RoutedEventTrigger RoutedEvent="hc:TabItem.Closed">
+                    <hc:EventToCommand Command="{Binding ClosedCmd}" PassEventArgsToCommand="True" />
+                </hc:RoutedEventTrigger>
+            </hc:Interaction.Triggers>
             <StackPanel>
                 <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
-                <controls:TabControl Margin="32,16,32,0" Width="800" Height="300" IsScrollable="True">
-                    <controls:TabItem Header="TabItem1">
-                        <controls:SimplePanel Background="White"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem2">
-                        <controls:SimplePanel Background="{DynamicResource DarkDangerBrush}"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem3" IsSelected="True">
-                        <controls:SimplePanel Background="{DynamicResource PrimaryBrush}"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem4">
-                        <controls:SimplePanel Background="{DynamicResource DarkInfoBrush}"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem5">
-                        <controls:SimplePanel Background="{DynamicResource DarkSuccessBrush}"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem6">
-                        <controls:SimplePanel Background="{DynamicResource DarkWarningBrush}"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem7">
-                        <controls:SimplePanel Background="{DynamicResource DarkAccentBrush}"/>
-                    </controls:TabItem>
-                </controls:TabControl>
+                <hc:TabControl ShowOverflowButton="False" ShowScrollButton="True" Margin="32,16,32,0" Width="800" Height="300" IsScrollable="True">
+                    <hc:TabItem Header="TabItem1">
+                        <hc:SimplePanel Background="White"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem2">
+                        <hc:SimplePanel Background="{DynamicResource DarkDangerBrush}"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem3" IsSelected="True">
+                        <hc:SimplePanel Background="{DynamicResource PrimaryBrush}"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem4">
+                        <hc:SimplePanel Background="{DynamicResource DarkInfoBrush}"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem5">
+                        <hc:SimplePanel Background="{DynamicResource DarkSuccessBrush}"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem6">
+                        <hc:SimplePanel Background="{DynamicResource DarkWarningBrush}"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem7">
+                        <hc:SimplePanel Background="{DynamicResource DarkAccentBrush}"/>
+                    </hc:TabItem>
+                </hc:TabControl>
                 <StackPanel Orientation="Horizontal" Margin="32,32,32,16">
                     <Label Style="{StaticResource LabelPrimary}" Margin="0" Content="IsEnableTabFill = True"/>
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="ShowCloseButton = True"/>
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsDraggable = True"/>
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsEnableAnimation = True"/>
                 </StackPanel>
-                <controls:TabControl IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
-                    <controls:TabItem Header="TabItem1">
-                        <controls:SimplePanel Background="White"/>
-                    </controls:TabItem>
-                    <controls:TabItem IsSelected="True" Header="TabItem2">
-                        <controls:SimplePanel Background="#FFE8563F"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem3">
-                        <controls:SimplePanel Background="#FF3F4EE8"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem4">
-                        <controls:SimplePanel Background="#FFE83F6D"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem5">
-                        <controls:SimplePanel Background="#FFB23FE8"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem6">
-                        <controls:SimplePanel Background="#FF3FE8E8"/>
-                    </controls:TabItem>
-                    <controls:TabItem Header="TabItem7">
-                        <controls:SimplePanel Background="#FFE8E03F"/>
-                    </controls:TabItem>
-                </controls:TabControl>
+                <hc:TabControl IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
+                    <hc:TabItem Header="TabItem1">
+                        <hc:SimplePanel Background="White"/>
+                    </hc:TabItem>
+                    <hc:TabItem IsSelected="True" Header="TabItem2">
+                        <hc:SimplePanel Background="#FFE8563F"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem3">
+                        <hc:SimplePanel Background="#FF3F4EE8"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem4">
+                        <hc:SimplePanel Background="#FFE83F6D"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem5">
+                        <hc:SimplePanel Background="#FFB23FE8"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem6">
+                        <hc:SimplePanel Background="#FF3FE8E8"/>
+                    </hc:TabItem>
+                    <hc:TabItem Header="TabItem7">
+                        <hc:SimplePanel Background="#FFE8E03F"/>
+                    </hc:TabItem>
+                </hc:TabControl>
             </StackPanel>
-        </controls:ScrollViewer>
-    </controls:TransitioningContentControl>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
 </UserControl>
