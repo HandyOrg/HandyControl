@@ -2,12 +2,15 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="BaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
     <!--默认ListBoxItem样式-->
-    <Style x:Key="ListBoxItemBaseStyle" TargetType="ListBoxItem">
+    <Style x:Key="ListBoxItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="ListBoxItem">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0Margin0}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Padding" Value="10,0"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="MinHeight" Value="32"/>
         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>

@@ -65,6 +65,7 @@
     </ControlTemplate>
 
     <Style x:Key="BadgeBaseStyle" TargetType="controls:Badge">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
         <Setter Property="BorderThickness" Value="1" />
