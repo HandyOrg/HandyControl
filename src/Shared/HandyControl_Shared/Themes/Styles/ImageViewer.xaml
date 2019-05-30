@@ -13,6 +13,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:ImageViewer">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="MinWidth" Value="400"/>
         <Setter Property="MinHeight" Value="250"/>
