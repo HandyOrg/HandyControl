@@ -9,8 +9,7 @@
         <ResourceDictionary Source="../Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="TagBaseStyle" TargetType="controls:Tag">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+    <Style x:Key="TagBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:Tag">
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="15"/>
@@ -20,6 +19,19 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Height" Value="30"/>
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="15" RadiusY="15"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Tag">
@@ -30,7 +42,7 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Button Name="ButtonClose" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="10,0,0,0" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,11" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Foreground="{TemplateBinding Foreground}"/>
+                            <Button Focusable="False" Name="ButtonClose" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="10,0,0,0" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,11" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Foreground="{TemplateBinding Foreground}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>

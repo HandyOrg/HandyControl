@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="CoverFlowBaseStyle" TargetType="controls:CoverFlow">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CoverFlow">

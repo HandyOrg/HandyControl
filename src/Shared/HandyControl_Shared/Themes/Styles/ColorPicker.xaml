@@ -13,6 +13,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:ColorPicker">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Width" Value="230"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>

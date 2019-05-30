@@ -1,13 +1,10 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
-using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Data;
-using HandyControlDemo.Tools;
 using HandyControlDemo.Window;
-
 
 namespace HandyControlDemo.UserControl
 {
@@ -29,7 +26,9 @@ namespace HandyControlDemo.UserControl
                     if (!b) return true;
                     GlobalData.Config.Lang = tag;
                     GlobalData.Save();
-                    Process.Start(Process.GetCurrentProcess().MainModule.FileName);
+                    var processModule = Process.GetCurrentProcess().MainModule;
+                    if (processModule != null)
+                        Process.Start(processModule.FileName);
                     Application.Current.Shutdown();
                     return true;
                 });
@@ -48,28 +47,6 @@ namespace HandyControlDemo.UserControl
                 GlobalData.Save();
                 ((App)Application.Current).UpdateSkin(tag);
             }
-        }
-
-        private void MenuItemLinks_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (e.OriginalSource is MenuItem menuItem && menuItem.Tag is string tag)
-            {
-                Process.Start(tag);
-            }
-        }
-
-        private void MenuItemQQGroup_OnClick(object sender, RoutedEventArgs e)
-        {
-            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
-            Messenger.Default.Send(true, MessageToken.FullSwitch);
-            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.QQGroupView}"), MessageToken.LoadShowContent);
-        }
-
-        private void MenuItemContributors_OnClick(object sender, RoutedEventArgs e)
-        {
-            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
-            Messenger.Default.Send(true, MessageToken.FullSwitch);
-            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.ContributorsView}"), MessageToken.LoadShowContent);
         }
 
         private void MenuAbout_OnClick(object sender, RoutedEventArgs e)

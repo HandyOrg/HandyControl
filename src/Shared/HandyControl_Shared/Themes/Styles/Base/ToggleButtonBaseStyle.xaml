@@ -70,6 +70,8 @@
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="6,0,0,0"/>
+        <Setter Property="Width" Value="36"/>
+        <Setter Property="Height" Value="22"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">

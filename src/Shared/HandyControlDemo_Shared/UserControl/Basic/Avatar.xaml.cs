@@ -1,7 +1,5 @@
-﻿using System.Diagnostics;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Media.Imaging;
-
 
 namespace HandyControlDemo.UserControl
 {
@@ -22,9 +20,9 @@ namespace HandyControlDemo.UserControl
         }
 
         public static readonly DependencyProperty UserNameProperty = DependencyProperty.Register(
-            "UserName", typeof(string), typeof(Avatar), new PropertyMetadata(default(string)));
+            "DisplayName", typeof(string), typeof(Avatar), new PropertyMetadata(default(string)));
 
-        public string UserName
+        public string DisplayName
         {
             get => (string) GetValue(UserNameProperty);
             set => SetValue(UserNameProperty, value);
@@ -38,7 +36,5 @@ namespace HandyControlDemo.UserControl
             get => (string) GetValue(LinkProperty);
             set => SetValue(LinkProperty, value);
         }
-
-        private void ButtonAvatar_OnClick(object sender, RoutedEventArgs e) => Process.Start(Link);
     }
 }
