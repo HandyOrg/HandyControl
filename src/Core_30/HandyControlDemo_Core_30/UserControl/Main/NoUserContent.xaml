@@ -3,7 +3,9 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
       Height="29"
-      xmlns:hc="https://handyorg.github.io/handycontrol">
+      DataContext="{Binding NoUser,Source={StaticResource Locator}}"
+      xmlns:hc="https://handyorg.github.io/handycontrol"
+      xmlns:data="clr-namespace:HandyControlDemo.Data">
     <Grid.ColumnDefinitions>
         <ColumnDefinition/>
         <ColumnDefinition Width="Auto"/>
@@ -20,36 +22,41 @@
             </hc:Interaction.Triggers>
             <Path Height="16" Fill="White" Stretch="Uniform" Data="{StaticResource LogoGeometry}"/>
         </Button>
-        <Menu MenuItem.Click="MenuItemLinks_OnClick"  Margin="10,0,0,0" Background="Transparent">
+        <Menu Margin="10,0,0,0" Background="Transparent">
             <MenuItem Foreground="White" Header="{x:Static langs:Lang.Repository}">
-                <MenuItem Tag="https://github.com/NaBian/HandyControl" Header="GitHub">
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://github.com/NaBian/HandyControl" Header="GitHub">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource GithubGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Tag="https://www.nuget.org/packages/HandyControl" Header="NuGet">
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://www.nuget.org/packages/HandyControl" Header="NuGet">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource NugetGeometry}" Fill="#30a5dd"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
             <MenuItem Foreground="White" Header="{x:Static langs:Lang.About}">
-                <MenuItem Click="MenuItemQQGroup_OnClick" Header="{x:Static langs:Lang.QQGroup}">
+                <MenuItem Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.ContributorsView}" Header="{x:Static langs:Lang.Contributors}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource ContributorsGeometry}" Fill="#ef6c00"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.QQGroupView}" Header="{x:Static langs:Lang.QQGroup}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource QqGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Tag="mailto:836904362@qq.com" Header="{x:Static langs:Lang.Email}">
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="mailto:836904362@qq.com" Header="{x:Static langs:Lang.Email}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource EmailGeometry}" Fill="{DynamicResource WarningBrush}"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Tag="https://gitter.im/HandyControl/Lobby" Header="{x:Static langs:Lang.Chatroom}">
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://gitter.im/HandyControl/Lobby" Header="{x:Static langs:Lang.Chatroom}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource GitterGeometry}" Fill="#e52e64"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Tag="https://www.cnblogs.com/nabian" Header="{x:Static langs:Lang.Blog}">
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://www.cnblogs.com/nabian" Header="{x:Static langs:Lang.Blog}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource CnblogsGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
                     </MenuItem.Icon>
@@ -60,10 +67,17 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Click="MenuItemContributors_OnClick" Foreground="White" Header="{x:Static langs:Lang.Contributors}">
-                <MenuItem.Icon>
-                    <Path Data="{StaticResource ContributorsGeometry}" Fill="#ef6c00"/>
-                </MenuItem.Icon>
+            <MenuItem Foreground="White" Header="{x:Static langs:Lang.Recommendation}">
+                <MenuItem Header="{x:Static langs:Lang.Project}" Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.ProjectsView}" >
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource ProjectGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{x:Static langs:Lang.Blog}" Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.BlogsView}" >
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource BlogGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
     </StackPanel>

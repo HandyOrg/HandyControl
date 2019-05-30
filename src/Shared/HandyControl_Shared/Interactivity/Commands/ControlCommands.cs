@@ -145,7 +145,7 @@ namespace HandyControl.Interactivity
         /// <summary>
         ///     打开链接
         /// </summary>
-        public static RoutedCommand OpenLink { get; } = new RoutedCommand(nameof(OpenLink), typeof(ControlCommands));
+        public static OpenLinkCommand OpenLink { get; } = new OpenLinkCommand();
 
         /// <summary>
         ///     关闭程序

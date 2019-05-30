@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.Data
 {
-    public class ContributorModel
+    public class AvatarModel
     {
-        public string UserName { get; set; }
+        public string DisplayName { get; set; }
 
         public string Link { get; set; }
 
