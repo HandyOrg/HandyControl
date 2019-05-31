@@ -8,6 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="StepBarItemBaseStyle" TargetType="controls:StepBarItem">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
         <Style.Triggers>
             <Trigger Property="Status" Value="Complete">
@@ -106,6 +107,7 @@
     </ControlTemplate>
 
     <Style x:Key="StepBarBaseStyle" TargetType="controls:StepBar">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemHorizontalTop}"/>
         <Setter Property="Template" Value="{StaticResource StepBarHorizontalTopControlTemplate}"/>
         <Setter Property="ItemsPanel" Value="{StaticResource StepBarHorizontalItemsPanelTemplate}"/>

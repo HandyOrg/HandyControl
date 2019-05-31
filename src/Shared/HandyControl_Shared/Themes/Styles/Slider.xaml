@@ -350,6 +350,7 @@
     </ControlTemplate>
 
     <Style TargetType="controls:CompareSlider">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>

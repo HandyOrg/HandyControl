@@ -8,6 +8,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:TimeBar">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="BorderThickness" Value="0,1,0,0"/>
         <Setter Property="Foreground" Value="White"/>

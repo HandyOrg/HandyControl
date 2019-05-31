@@ -37,12 +37,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="TreeViewItemBaseStyle" TargetType="TreeViewItem">
+    <Style x:Key="TreeViewItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="TreeViewItem">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0Margin0}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Padding" Value="10,0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -96,6 +95,7 @@
     </Style>
 
     <Style x:Key="TreeViewBaseStyle" TargetType="TreeView" BasedOn="{StaticResource BaseStyle}">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
