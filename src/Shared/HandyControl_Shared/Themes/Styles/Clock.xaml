@@ -143,7 +143,7 @@
 
     <Style TargetType="controls:ListClock">
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Width" Value="210"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
