@@ -88,7 +88,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\CompareSlider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\CompareTrack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\PreviewSlider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\Slider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\StepBar\StepBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\StepBar\StepBarItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\TabControl\TabControl.cs" />
@@ -330,6 +330,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\SkinViolet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\SliderBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

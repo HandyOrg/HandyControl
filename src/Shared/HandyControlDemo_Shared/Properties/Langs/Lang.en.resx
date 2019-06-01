@@ -606,4 +606,7 @@
   <data name="Project" xml:space="preserve">
     <value>Project</value>
   </data>
+  <data name="RangeSlider" xml:space="preserve">
+    <value>RangeSlider</value>
+  </data>
 </root>

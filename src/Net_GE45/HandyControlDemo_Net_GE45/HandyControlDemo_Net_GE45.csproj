@@ -435,6 +435,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\brackets_Square_16xLG.png">
+      <Link>Resources\Img\LeftMainContent\brackets_Square_16xLG.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\GridPane_16x.png">
       <Link>Resources\Img\LeftMainContent\GridPane_16x.png</Link>
     </Resource>
