@@ -15,6 +15,7 @@
     </Style>
 
     <Style TargetType="controls:FlipClock">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:FlipClock">

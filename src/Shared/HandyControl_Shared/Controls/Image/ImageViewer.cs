@@ -138,11 +138,6 @@ namespace HandyControl.Controls
         private double _imgWidHeiScale;
 
         /// <summary>
-        ///     是否已经初始化
-        /// </summary>
-        private bool _isLoaded;
-
-        /// <summary>
         ///     图片是否倾斜
         /// </summary>
         private bool _isOblique;
@@ -168,8 +163,6 @@ namespace HandyControl.Controls
 
         public ImageViewer()
         {
-            Loaded += ImageViewer_OnLoaded;
-
             CommandBindings.Add(new CommandBinding(ControlCommands.Save, ButtonSave_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Open, ButtonWindowsOpen_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Restore, ButtonActual_OnClick));
@@ -177,6 +170,8 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Enlarge, ButtonEnlarge_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.RotateLeft, ButtonRotateLeft_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.RotateRight, ButtonRotateRight_OnClick));
+
+            Loaded += (s, e) => Init();
         }
 
         /// <summary>
@@ -217,7 +212,13 @@ namespace HandyControl.Controls
             "ShowImgMap", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
-            "ImageSource", typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame)));
+            "ImageSource", typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame), OnImageSourceChanged));
+
+        private static void OnImageSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (ImageViewer) d;
+            ctl.Init();
+        }
 
         public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
             "IsFullScreen", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
@@ -410,7 +411,7 @@ namespace HandyControl.Controls
             if (_imageMain != null)
             {
                 var t = new RotateTransform();
-                BindingOperations.SetBinding(t, RotateTransform.AngleProperty, new Binding(ImageRotateProperty.Name) {Source = this});
+                BindingOperations.SetBinding(t, RotateTransform.AngleProperty, new Binding(ImageRotateProperty.Name) { Source = this });
                 _imageMain.LayoutTransform = t;
                 _imageMain.MouseLeftButtonDown += ImageMain_OnMouseLeftButtonDown;
             }
@@ -422,6 +423,8 @@ namespace HandyControl.Controls
                 _canvasSmallImg.MouseMove += CanvasSmallImg_OnMouseMove;
                 _canvasSmallImg.MouseLeave += CanvasSmallImg_OnMouseLeave;
             }
+
+            _borderSmallIsLoaded = false;
         }
 
         private static void OnImageScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -439,7 +442,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void Init()
         {
-            if (ImageSource == null) return;
+            if (ImageSource == null || !IsLoaded) return;
 
             double width;
             double height;
@@ -486,8 +489,10 @@ namespace HandyControl.Controls
 
             ImageMargin = new Thickness((ActualWidth - ImageWidth) / 2, (ActualHeight - ImageHeight) / 2, 0, 0);
 
-            _imgActualScale = 1;
+            _imgActualScale = ImageScale;
             _imgActualMargin = ImageMargin;
+
+            InitBorderSmall();
         }
 
         private void ButtonActual_OnClick(object sender, RoutedEventArgs e)
@@ -571,8 +576,11 @@ namespace HandyControl.Controls
         {
             base.OnRenderSizeChanged(sizeInfo);
 
-            if (!_isLoaded) return;
+            OnRenderSizeChanged();
+        }
 
+        private void OnRenderSizeChanged()
+        {
             if (ImageWidth < 0.001 || ImageHeight < 0.001) return;
 
             _canMoveX = true;
@@ -599,13 +607,6 @@ namespace HandyControl.Controls
             BorderSmallShowSwitch();
             _imgSmallMouseDownMargin = _borderMove.Margin;
             MoveSmallImg(_imgSmallMouseDownMargin.Left, _imgSmallMouseDownMargin.Top);
-        }
-
-        private void ImageViewer_OnLoaded(object sender, RoutedEventArgs e)
-        {
-            if (_isLoaded) return;
-            Init();
-            _isLoaded = true;
         }
 
         private void ImageMain_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
@@ -649,6 +650,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void InitBorderSmall()
         {
+            if (_canvasSmallImg == null) return;
             var scaleWindow = _canvasSmallImg.MaxWidth / _canvasSmallImg.MaxHeight;
             if (_imgWidHeiScale > scaleWindow)
             {
@@ -773,7 +775,7 @@ namespace HandyControl.Controls
         {
             _imgActualRotate = rotate;
 
-            _isOblique = ((int) _imgActualRotate - 90) % 180 == 0;
+            _isOblique = ((int)_imgActualRotate - 90) % 180 == 0;
             ShowSmallImgInternal = false;
             Init();
             InitBorderSmall();

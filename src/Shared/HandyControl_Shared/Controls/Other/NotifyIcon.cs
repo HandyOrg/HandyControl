@@ -85,21 +85,7 @@ namespace HandyControl.Controls
             _id = ++NextId;
             _callback = Callback;
 
-            Loaded += (s, e) =>
-            {
-                RegisterClass();
-                if (Visibility == Visibility.Visible)
-                {
-                    OnIconChanged();
-                    UpdateIcon(true);
-                }
-
-                _dispatcherTimerPos = new DispatcherTimer
-                {
-                    Interval = TimeSpan.FromMilliseconds(200)
-                };
-                _dispatcherTimerPos.Tick += DispatcherTimerPos_Tick;
-            };
+            Loaded += (s, e) => Init();
 
             if (Application.Current != null) Application.Current.Exit += (s, e) => Dispose();
         }
@@ -107,6 +93,22 @@ namespace HandyControl.Controls
         ~NotifyIcon()
         {
             Dispose(false);
+        }
+
+        public void Init()
+        {
+            RegisterClass();
+            if (Visibility == Visibility.Visible)
+            {
+                OnIconChanged();
+                UpdateIcon(true);
+            }
+
+            _dispatcherTimerPos = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(200)
+            };
+            _dispatcherTimerPos.Tick += DispatcherTimerPos_Tick;
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(

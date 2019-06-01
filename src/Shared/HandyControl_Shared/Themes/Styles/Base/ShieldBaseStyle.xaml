@@ -2,7 +2,11 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="ShieldBaseStyle" TargetType="controls:Shield">
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Base/BaseStyle.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="ShieldBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:Shield">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="3"/>

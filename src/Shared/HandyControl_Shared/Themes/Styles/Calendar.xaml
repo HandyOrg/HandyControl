@@ -65,15 +65,26 @@
         </Setter>
     </Style>
     
-    <Style x:Key="CalendarDayButtonStyle" TargetType="CalendarDayButton">
+    <Style x:Key="CalendarDayButtonStyle" BasedOn="{StaticResource BaseStyle}" TargetType="CalendarDayButton">
         <Setter Property="MinWidth" Value="10"/>
         <Setter Property="MinHeight" Value="10"/>
-        <Setter Property="FontSize" Value="12"/>
         <Setter Property="Width" Value="32"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="16" RadiusY="16"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CalendarDayButton">
@@ -175,7 +186,7 @@
                                     </Grid.RowDefinitions>
                                     <Border Background="{Binding Path=(controls:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="3"/>
                                     <Button x:Name="PART_PreviousButton" Width="50" HorizontalAlignment="Left" Grid.Column="0" Height="50" Padding="16" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource LeftGeometry}"/>
-                                    <Button x:Name="PART_HeaderButton" Foreground="White" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource ButtonCustom}"/>
+                                    <Button x:Name="PART_HeaderButton" Focusable="False" Foreground="White" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource ButtonCustom}"/>
                                     <Button x:Name="PART_NextButton" Width="50" HorizontalAlignment="Right" Height="50" Padding="16" Grid.Column="2" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RightGeometry}"/>
                                     <Grid Width="240" Height="240" x:Name="PART_MonthView" Margin="10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Visible">
                                         <Grid.ColumnDefinitions>

@@ -102,24 +102,20 @@
     <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="ToggleButton"/>
 
     <!--自定义-->
-    <Style x:Key="ToggleButtonCustom" TargetType="ToggleButton">
+    <Style x:Key="ToggleButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="IsTabStop" Value="False"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <controls:SimplePanel>
-                            <ContentPresenter Name="UnCheckedElement"  Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <ContentPresenter Name="UnCheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             <ContentPresenter Name="CheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Visibility="Collapsed" Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </controls:SimplePanel>
                     </Border>

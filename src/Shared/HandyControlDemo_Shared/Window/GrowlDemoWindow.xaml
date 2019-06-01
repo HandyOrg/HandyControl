@@ -1,15 +1,15 @@
 ﻿<Window x:Class="HandyControlDemo.Window.GrowlDemoWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
         xmlns:data="clr-namespace:HandyControlDemo.Data"
         DataContext="{Binding GrowlDemoWithToken,Source={StaticResource Locator}}"
         Title="{x:Static langs:Lang.GrowlDemo}"
         Width="800"
         Height="500">
-    <controls:TransitioningContentControl>
-        <controls:SimplePanel Margin="32">
+    <hc:TransitioningContentControl>
+        <hc:SimplePanel Margin="32">
             <WrapPanel>
                 <Button Command="{Binding InfoCmd}" Content="{x:Static langs:Lang.Info}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
                 <Button Command="{Binding SuccessCmd}" Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
@@ -19,9 +19,9 @@
                 <Button Command="{Binding FatalCmd}" Content="{x:Static langs:Lang.Fatal}" Margin="5,0"/>
                 <Button Command="{Binding ClearCmd}" Content="{x:Static langs:Lang.Clear}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
             </WrapPanel>
-            <controls:ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsEnableInertia="True" IsPenetrating="True">
-                <StackPanel controls:Growl.Token="{x:Static data:MessageToken.GrowlDemoPanel}" VerticalAlignment="Top" Margin="0,10,10,10"/>
-            </controls:ScrollViewer>
-        </controls:SimplePanel>
-    </controls:TransitioningContentControl>
+            <hc:ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsEnableInertia="True" IsPenetrating="True">
+                <StackPanel hc:Growl.Token="{x:Static data:MessageToken.GrowlDemoPanel}" VerticalAlignment="Top" Margin="0,10,10,10"/>
+            </hc:ScrollViewer>
+        </hc:SimplePanel>
+    </hc:TransitioningContentControl>
 </Window>

@@ -4,8 +4,8 @@
              Background="{DynamicResource RegionBrush}"
              MaxWidth="800"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
-    <controls:TransitioningContentControl>
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
         <TabControl Style="{StaticResource TabControlInLine}">
             <TabItem Header="{x:Static langs:Lang.Common}">
                 <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
@@ -31,7 +31,7 @@
                 </DataGrid>
             </TabItem>
             <TabItem Header="{x:Static langs:Lang.ShowRowNumber}">
-                <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" controls:DataGridAttach.ShowRowNumber="True">
+                <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" hc:DataGridAttach.ShowRowNumber="True">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="60" CanUserResize="False">
                             <DataGridTemplateColumn.CellTemplate>
@@ -48,5 +48,5 @@
                 </DataGrid>
             </TabItem>
         </TabControl>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>

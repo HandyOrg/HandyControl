@@ -63,6 +63,8 @@
         <ResourceDictionary Source="Badge.xaml"/>
         <ResourceDictionary Source="Dialog.xaml"/>
         <ResourceDictionary Source="SideMenu.xaml"/>
+        <ResourceDictionary Source="GridSplitter.xaml"/>
+        <ResourceDictionary Source="Col.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

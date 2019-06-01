@@ -7,9 +7,11 @@
         <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../../Basic/Behaviors.xaml"/>
         <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
+        <ResourceDictionary Source="../Base/BaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="TransferItemBaseStyle" TargetType="controls:TransferItem">
+    <Style x:Key="TransferItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:TransferItem">
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualMargin0}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="CanDeselect" Value="True"/>
         <Setter Property="SelfManage" Value="True"/>
@@ -64,6 +66,7 @@
     </Style>
 
     <Style x:Key="TransferGroupBaseStyle" TargetType="controls:TransferGroup">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
@@ -81,6 +84,7 @@
     </Style>
 
     <Style x:Key="TransferBaseStyle" TargetType="controls:Transfer">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>

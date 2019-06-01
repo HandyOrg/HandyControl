@@ -1,9 +1,5 @@
-﻿
-namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl
 {
-    /// <summary>
-    /// ButtonDemoCtl.xaml 的交互逻辑
-    /// </summary>
     public partial class ButtonDemoCtl
     {
         public ButtonDemoCtl()

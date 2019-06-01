@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/BaseStyle.xaml"/>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../Basic/Effects.xaml"/>
         <ResourceDictionary Source="Label.xaml"/>
@@ -85,7 +86,7 @@
         </controls:SimplePanel>
     </ControlTemplate>
 
-    <Style x:Key="ColorPickerSlider" TargetType="Slider">
+    <Style x:Key="ColorPickerSlider" BasedOn="{StaticResource BaseStyle}" TargetType="Slider">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -349,6 +350,7 @@
     </ControlTemplate>
 
     <Style TargetType="controls:CompareSlider">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -740,7 +742,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style x:Key="SliderBaseStyle" TargetType="Slider">
+    <Style x:Key="SliderBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="Slider">
         <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>

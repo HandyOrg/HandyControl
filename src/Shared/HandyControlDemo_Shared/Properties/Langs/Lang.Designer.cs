@@ -1042,6 +1042,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 项目 的本地化字符串。
+        /// </summary>
+        public static string Project {
+            get {
+                return ResourceManager.GetString("Project", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 按住说话 的本地化字符串。
         /// </summary>
         public static string PushToTalk {
@@ -1074,6 +1083,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Rate {
             get {
                 return ResourceManager.GetString("Rate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 推荐 的本地化字符串。
+        /// </summary>
+        public static string Recommendation {
+            get {
+                return ResourceManager.GetString("Recommendation", resourceCulture);
             }
         }
         

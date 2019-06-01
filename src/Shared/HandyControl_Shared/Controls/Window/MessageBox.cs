@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Media;
 using System.Text;
 using System.Windows;
 using System.Windows.Input;
@@ -156,6 +157,7 @@ namespace HandyControl.Controls
                 messageBox.ShowImage = true;
                 messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
                 messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.SuccessBrush);
+                SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
 #endif
@@ -185,6 +187,7 @@ namespace HandyControl.Controls
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Information);
+                SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
 #endif
@@ -214,6 +217,7 @@ namespace HandyControl.Controls
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Warning);
+                SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
 #endif
@@ -243,6 +247,7 @@ namespace HandyControl.Controls
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Error);
+                SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
 #endif
@@ -276,6 +281,7 @@ namespace HandyControl.Controls
                 messageBox.ShowImage = true;
                 messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
                 messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
+                SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
 #endif
@@ -305,6 +311,7 @@ namespace HandyControl.Controls
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel);
                 SetButtonStatus(messageBox, MessageBoxButton.OKCancel);
                 SetImage(messageBox, MessageBoxImage.Question);
+                SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
 #endif
@@ -350,6 +357,7 @@ namespace HandyControl.Controls
                 }
 
                 messageBox.Style = info.Style;
+                SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
 #endif
@@ -398,6 +406,7 @@ namespace HandyControl.Controls
                 messageBox = CreateMessageBox(owner, messageBoxText, caption, button, icon, defaultResult);
                 SetButtonStatus(messageBox, button);
                 SetImage(messageBox, icon);
+                SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
 #endif

@@ -1,9 +1,9 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.BrushDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
-    <controls:TransitioningContentControl>
+    <hc:TransitioningContentControl>
         <UniformGrid Margin="24" VerticalAlignment="Center" Columns="4" Rows="7">
             <Label Content="PrimaryBrush" Style="{StaticResource LabelPrimary}" Margin="8" HorizontalAlignment="Stretch"/>
             <Label Content="DarkPrimaryBrush" Background="{DynamicResource DarkPrimaryBrush}" Foreground="White" BorderThickness="0" Margin="8" HorizontalAlignment="Stretch"/>
@@ -39,5 +39,5 @@
             <Label Content="DarkMaskBrush" BorderThickness="0" Background="{DynamicResource DarkMaskBrush}" Foreground="{DynamicResource PrimaryTextBrush}" Margin="8" HorizontalAlignment="Stretch"/>
             <Label Content="DarkOpacityBrush" BorderThickness="0" Background="{DynamicResource DarkOpacityBrush}" Foreground="White" Margin="8" HorizontalAlignment="Stretch"/>
         </UniformGrid>
-    </controls:TransitioningContentControl>
+    </hc:TransitioningContentControl>
 </UserControl>

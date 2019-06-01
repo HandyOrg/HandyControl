@@ -78,18 +78,18 @@ namespace HandyControlDemo.Service
             return list;
         }
 
-        internal List<ContributorModel> GetContributorDataList()
+        internal List<AvatarModel> GetContributorDataList()
         {
             var client = new WebClient();
             client.Headers.Add("User-Agent", "request");
-            var list = new List<ContributorModel>();
+            var list = new List<AvatarModel>();
             try
             {
                 var json = client.DownloadString(new Uri("https://api.github.com/repos/nabian/handycontrol/contributors"));
                 var objList = JsonConvert.DeserializeObject<List<dynamic>>(json);
-                list.AddRange(objList.Select(item => new ContributorModel
+                list.AddRange(objList.Select(item => new AvatarModel
                 {
-                    UserName = item.login,
+                    DisplayName = item.login,
                     AvatarUri = item.avatar_url,
                     Link = item.html_url
                 }));
@@ -99,6 +99,44 @@ namespace HandyControlDemo.Service
                 // ignored
             }
             return list;
+        }
+
+        internal List<AvatarModel> GetBlogDataList()
+        {
+            return new List<AvatarModel>
+            {
+                new AvatarModel
+                {
+                    DisplayName = "林德熙",
+                    AvatarUri = "https://avatars3.githubusercontent.com/u/16054566?s=400&v=4",
+                    Link = "https://blog.lindexi.com/"
+                },
+                new AvatarModel
+                {
+                    DisplayName = "吕毅",
+                    AvatarUri = "https://avatars2.githubusercontent.com/u/9959623?s=400&v=4",
+                    Link = "https://blog.walterlv.com/"
+                }
+            };
+        }
+
+        internal List<AvatarModel> GetProjectDataList()
+        {
+            return new List<AvatarModel>
+            {
+                new AvatarModel
+                {
+                    DisplayName = "phpEnv",
+                    AvatarUri = "https://cdn.phpenv.cn:444/logo.png",
+                    Link = "https://www.phpenv.cn/"
+                },
+                new AvatarModel
+                {
+                    DisplayName = "AutumnBox",
+                    AvatarUri = "https://www.atmb.top/images/leaves.png",
+                    Link = "https://github.com/zsh2401/AutumnBox"
+                }
+            };
         }
 
         internal List<StepBarDemoModel> GetStepBarDemoDataList()

@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="CoverViewItemBaseStyle" TargetType="controls:CoverViewItem">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:CoverViewItem">
@@ -15,6 +16,7 @@
     </Style>
 
     <Style x:Key="CoverViewContentBaseStyle" TargetType="controls:CoverViewContent">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
@@ -52,6 +54,7 @@
     </Style>
 
     <Style x:Key="CoverViewBaseStyle" TargetType="controls:CoverView">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource CoverViewItemBaseStyle}"/>
         <Setter Property="CoverViewContentStyle" Value="{StaticResource CoverViewContentBaseStyle}"/>
         <Setter Property="ItemMargin" Value="8"/>
