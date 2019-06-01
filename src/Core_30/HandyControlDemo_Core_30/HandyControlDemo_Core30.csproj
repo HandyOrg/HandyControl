@@ -7,6 +7,7 @@
     <RootNamespace>HandyControlDemo</RootNamespace>
     <Version>1.5.5</Version>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
+    <Configurations>Debug;Release</Configurations>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
