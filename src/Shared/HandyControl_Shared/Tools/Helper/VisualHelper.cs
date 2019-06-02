@@ -42,7 +42,7 @@ namespace HandyControl.Tools
                 if (result != null) return result;
             }
 
-            return default(T);
+            return default;
         }
 
         /// <summary>
