@@ -153,7 +153,7 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
             "Value", typeof(double), typeof(NumericUpDown),
             new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
-                OnValueChanged, CoerceValue), ArithmeticHelper.IsValidDoubleValue);
+                OnValueChanged, CoerceValue), ValidateHelper.IsInRangeOfDouble);
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -208,7 +208,7 @@ namespace HandyControl.Controls
         ///     最大值
         /// </summary>
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-            "Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ArithmeticHelper.IsValidDoubleValue);
+            "Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ValidateHelper.IsInRangeOfDouble);
 
         private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -236,7 +236,7 @@ namespace HandyControl.Controls
         ///     最小值
         /// </summary>
         public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double0Box, OnMinimumChanged, CoerceMinimum), ArithmeticHelper.IsValidDoubleValue);
+            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double0Box, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
 
         private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

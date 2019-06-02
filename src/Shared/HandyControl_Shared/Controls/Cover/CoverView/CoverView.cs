@@ -135,7 +135,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty ItemContentHeightProperty = DependencyProperty.Register(
             "ItemContentHeight", typeof(double), typeof(CoverView), new PropertyMetadata(ValueBoxes.Double300Box),
-            value => ValidateHelper.IsInRangeOfPosDouble(value, true));
+            ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
         public double ItemContentHeight
         {
