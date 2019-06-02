@@ -548,7 +548,6 @@ namespace HandyControl.Controls
             if (track == null || track.ThumbStart == null | _track.ThumbEnd == null) return;
 
             var newValue = (isStart ? ValueStart : ValueEnd) + track.ValueFromDistance(e.HorizontalChange, e.VerticalChange);
-            Console.WriteLine(newValue);
             if (ValidateHelper.IsInRangeOfDouble(newValue))
             {
                 UpdateValue(newValue, isStart);
@@ -629,7 +628,6 @@ namespace HandyControl.Controls
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            Console.WriteLine(e.GetPosition(this));
             if (_thumbCurrent == null) return;
             if (e.MouseDevice.LeftButton != MouseButtonState.Pressed) return;
 
