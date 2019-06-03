@@ -606,4 +606,7 @@
   <data name="Project" xml:space="preserve">
     <value>项目</value>
   </data>
+  <data name="RangeSlider" xml:space="preserve">
+    <value>范围滑块</value>
+  </data>
 </root>

@@ -14,11 +14,9 @@ namespace HandyControl.Controls
         private double _maxChildDesiredHeight;
 
         public static readonly DependencyProperty GutterProperty = DependencyProperty.Register(
-            "Gutter", typeof(double), typeof(Row), new PropertyMetadata(ValueBoxes.Double0Box, null, OnGutterCoerce), OnGutterValidate);
+            "Gutter", typeof(double), typeof(Row), new PropertyMetadata(ValueBoxes.Double0Box, null, OnGutterCoerce), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
-        private static object OnGutterCoerce(DependencyObject d, object basevalue) => OnGutterValidate(basevalue) ? basevalue : .0;
-
-        private static bool OnGutterValidate(object value) => ValidateHelper.IsInRangeOfPosDouble(value, true);
+        private static object OnGutterCoerce(DependencyObject d, object basevalue) => ValidateHelper.IsInRangeOfPosDoubleIncludeZero(basevalue) ? basevalue : .0;
 
         public double Gutter
         {
@@ -44,8 +42,6 @@ namespace HandyControl.Controls
                 }
             }
 
-            var itemWidth = constraint.Width / ColLayout.ColMaxCellCount;
-            var childBounds = new Rect(-gutterHalf, -gutterHalf, 0, _maxChildDesiredHeight);
             _layoutStatus = ColLayout.GetLayoutStatus(constraint.Width);
 
             foreach (var child in InternalChildren.OfType<Col>())
@@ -55,15 +51,9 @@ namespace HandyControl.Controls
 
                 if (totalCellCount > ColLayout.ColMaxCellCount)
                 {
-                    childBounds.X = -gutterHalf;
-                    childBounds.Y += _maxChildDesiredHeight;
                     totalCellCount = cellCount;
                     totalRowCount++;
                 }
-
-                var childWidth = cellCount * itemWidth;
-                childBounds.Width = childWidth;
-                childBounds.X += childWidth + child.Offset * itemWidth;
             }
 
             return new Size(0, _maxChildDesiredHeight * totalRowCount - Gutter);

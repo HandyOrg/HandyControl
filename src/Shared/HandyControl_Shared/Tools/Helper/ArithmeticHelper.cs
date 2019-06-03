@@ -36,9 +36,9 @@ namespace HandyControl.Tools
         /// <summary>
         ///     计算控件在窗口中的可见坐标
         /// </summary>
-        public static Point CalSafePoint(FrameworkElement element, FrameworkElement showElement, Thickness thickness = default(Thickness))
+        public static Point CalSafePoint(FrameworkElement element, FrameworkElement showElement, Thickness thickness = default)
         {
-            if (element == null || showElement == null) return default(Point);
+            if (element == null || showElement == null) return default;
             var point = element.PointToScreen(new Point(0, 0));
 
             if (point.X < 0) point.X = 0;
@@ -121,19 +121,6 @@ namespace HandyControl.Tools
         /// <param name="p"></param>
         /// <returns></returns>
         public static double CalAngle(Point center, Point p) => Math.Atan2(p.Y - center.Y, p.X - center.X) * 180 / Math.PI;
-
-        /// <summary>
-        ///     判断是否是有效的双精度浮点数
-        /// </summary>
-        /// <param name="value"></param>
-        /// <returns></returns>
-        public static bool IsValidDoubleValue(object value)
-        {
-            var d = (double)value;
-            if (!double.IsNaN(d))
-                return !double.IsInfinity(d);
-            return false;
-        }
 
         /// <summary>
         ///     计算法线
