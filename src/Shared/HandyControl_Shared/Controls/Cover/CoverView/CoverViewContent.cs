@@ -43,7 +43,7 @@ namespace HandyControl.Controls
         }
 
         internal static readonly DependencyProperty ManualHeightProperty = DependencyProperty.Register(
-            "ManualHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double0Box), value => ValidateHelper.IsInRangeOfPosDouble(value, true));
+            "ManualHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double0Box), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
         internal double ManualHeight
         {
@@ -53,7 +53,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty ContentHeightProperty = DependencyProperty.Register(
             "ContentHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double300Box),
-            value => ValidateHelper.IsInRangeOfPosDouble(value, true));
+            ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
         public double ContentHeight
         {

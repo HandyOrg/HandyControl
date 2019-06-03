@@ -50,7 +50,8 @@ var controlList = new List<string>
 	"GravatarDemoCtl",
 	"DialogDemoCtl",
 	"SideMenuDemoCtl",
-	"GridDemoCtl"
+	"GridDemoCtl",
+	"RangeSliderDemoCtl"
 };
 var styleList = new List<string>
 {
