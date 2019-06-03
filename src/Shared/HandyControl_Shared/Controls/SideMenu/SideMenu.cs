@@ -141,8 +141,41 @@ namespace HandyControl.Controls
             }
             else if (mode == ExpandMode.ShowOne)
             {
-                var sideMenuItem = ItemsHost.Children.OfType<SideMenuItem>().FirstOrDefault(item => item.IsSelected);
-                ShowSelectedOne(sideMenuItem);
+                SideMenuItem sideMenuItemSelected = null;
+                foreach (var sideMenuItem in ItemsHost.Children.OfType<SideMenuItem>())
+                {
+                    if (sideMenuItemSelected != null)
+                    {
+                        sideMenuItem.IsSelected = false;
+                        if (sideMenuItem.ItemsHost != null)
+                        {
+                            foreach (var sideMenuSubItem in sideMenuItem.ItemsHost.Children.OfType<SideMenuItem>())
+                            {
+                                sideMenuSubItem.IsSelected = false;
+                            }
+                        }
+                    }
+                    else if (sideMenuItem.IsSelected)
+                    {
+                        ShowSelectedOne(sideMenuItem);
+                        sideMenuItemSelected = sideMenuItem;
+
+                        if (sideMenuItem.ItemsHost != null)
+                        {
+                            foreach (var sideMenuSubItem in sideMenuItem.ItemsHost.Children.OfType<SideMenuItem>())
+                            {
+                                if (_selectedItem != null)
+                                {
+                                    sideMenuSubItem.IsSelected = false;
+                                }
+                                else if (sideMenuSubItem.IsSelected)
+                                {
+                                    _selectedItem = sideMenuSubItem;
+                                }
+                            }
+                        }                          
+                    }
+                }
             }
         }
 
