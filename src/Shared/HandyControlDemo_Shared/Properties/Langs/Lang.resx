@@ -609,4 +609,7 @@
   <data name="RangeSlider" xml:space="preserve">
     <value>范围滑块</value>
   </data>
+  <data name="RelativePanel" xml:space="preserve">
+    <value>相对布局</value>
+  </data>
 </root>
