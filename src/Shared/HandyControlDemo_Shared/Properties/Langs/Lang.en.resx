@@ -609,4 +609,7 @@
   <data name="RangeSlider" xml:space="preserve">
     <value>RangeSlider</value>
   </data>
+  <data name="RelativePanel" xml:space="preserve">
+    <value>RelativePanel</value>
+  </data>
 </root>

@@ -1114,6 +1114,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 相对布局 的本地化字符串。
+        /// </summary>
+        public static string RelativePanel {
+            get {
+                return ResourceManager.GetString("RelativePanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 备注 的本地化字符串。
         /// </summary>
         public static string Remark {

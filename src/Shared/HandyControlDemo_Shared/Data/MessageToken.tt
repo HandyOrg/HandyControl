@@ -51,7 +51,8 @@ var controlList = new List<string>
 	"DialogDemoCtl",
 	"SideMenuDemoCtl",
 	"GridDemoCtl",
-	"RangeSliderDemoCtl"
+	"RangeSliderDemoCtl",
+	"RelativePanelDemoCtl"
 };
 var styleList = new List<string>
 {
