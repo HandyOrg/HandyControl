@@ -50,6 +50,10 @@ title: 转换器
 
 如果该转换器获取到的值为`null`则返回`false`，否则返回`true`。
 
+# Object2VisibilityConverter
+
+如果该转换器获取到的值为`null`则返回`Collapsed`，否则返回`Visible`。
+
 # String2VisibilityConverter
 
 该转换器接受一个字符串，如果该字符串为空或者为null，则返回`Collapse`，否则返回`Visible`。
