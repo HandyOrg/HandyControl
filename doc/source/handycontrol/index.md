@@ -8,8 +8,8 @@ HandyControl是一套WPF控件库，它几乎重写了所有原生样式，同�
 
  - .Net >= 4.0
  - OS   >= win7
- - IDE  >= vs2017
- - C#   >= 7.0
+ - IDE  >= vs2019
+ - C#   >= 7.3
 
 # 下载
 
@@ -28,7 +28,7 @@ Github上一般每天都有更新，相对而言不适合用于生产。
 {% endnote %}
 
 {% note warning %}
-文档的更新速度必然跟不上最新的Github源码，有出入的地方一切以本文档为准，因为文档是相对稳定的。
+文档的更新速度必然跟不上最新的Github源码，有出入的地方一切以Github上Demo示例为准。
 {% endnote %}
 
 # 项目结构介绍
@@ -38,7 +38,7 @@ Github上一般每天都有更新，相对而言不适合用于生产。
 从Github上克隆好源码后，进入src文件夹，该文件夹结构如下：
 ![Project_Structure](images/Project_Structure.png)
 
-这里一共有三个解决方案sln文件，需要注意的是HandyControl_Core30.sln需要用VS2019打开，其它两个用VS2017即可。
+这里一共有4个解决方案sln文件。
 
 `Net_GE45`的意思是.Net版本大于等于4.5
 
@@ -83,6 +83,6 @@ Controls中的每个控件一般都能在Themes中找到对应的xaml定义。
 {% endnote %}
 
 {% note info %}
-HandyControl_Net_GE45.sln解决方案中包含了3个项目类型，分别是.Net 4.5、.Net 4.6.2和.Net 4.7，请在解决方案配置下拉框中进行选择：
+打开HandyControl.sln，在解决方案配置下拉框中选择指定的环境进行编译：
 ![Build_Config](images/Build_Config.png)
 {% endnote %}
