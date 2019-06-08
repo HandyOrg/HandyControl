@@ -18,3 +18,4 @@ src/Net_GE45/HandyControl_Net_GE45/obj
 src/Net_GE45/HandyControlDemo_Net_GE45/bin
 src/Net_GE45/HandyControlDemo_Net_GE45/obj
 *.user
+*.xml
