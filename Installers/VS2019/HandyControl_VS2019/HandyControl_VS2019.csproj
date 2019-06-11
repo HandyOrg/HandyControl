@@ -49,7 +49,11 @@
     <Compile Include="HandyControl_VS2019Package.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ProjectTemplates\WpfApp1.zip">
+    <Content Include="ProjectTemplates\WpfApp.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <IncludeInVSIX>true</IncludeInVSIX>
+    </Content>
+    <Content Include="Packages\handycontrol.1.5.5.nupkg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <IncludeInVSIX>true</IncludeInVSIX>
     </Content>
@@ -77,15 +81,6 @@
       <IncludeInVSIX>true</IncludeInVSIX>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HandyControl_Template\HandyControl_Template.csproj">
-      <Project>{A9911E14-0CDF-4C25-B458-F16816D55E60}</Project>
-      <Name>HandyControl_Template</Name>
-      <VSIXSubPath>ProjectTemplates</VSIXSubPath>
-      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
-      <IncludeOutputGroupsInVSIX>TemplateProjectOutputGroup%3b</IncludeOutputGroupsInVSIX>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
