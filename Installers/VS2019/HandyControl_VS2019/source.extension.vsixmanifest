@@ -13,12 +13,12 @@
         <Tags>WPF C# Control</Tags>
     </Metadata>
     <Installation>
-        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0]" />
-        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[16.0, 17.0]" />
-        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[16.0, 17.0]" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[16.0, 17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Enterprise" Version="[16.0, 17.0)" />
+        <InstallationTarget Id="Microsoft.VisualStudio.Pro" Version="[16.0, 17.0)" />
     </Installation>
     <Dependencies>
-        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.5,)" />
+        <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.0,)" />
     </Dependencies>
     <Prerequisites>
         <Prerequisite Id="Microsoft.Net.ComponentGroup.TargetingPacks.Common" Version="[16.0.28516.191,17.0)" DisplayName=".NET Framework 4 – 4.6 开发工具" />
