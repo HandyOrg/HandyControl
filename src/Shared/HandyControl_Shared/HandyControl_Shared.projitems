@@ -271,6 +271,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\WNDCLASS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\WpfSafeHandle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\MouseDragElementBehaviorEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\IPool!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\SimplePool!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\SynchronizedPool!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Queue\Deque!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularJudgment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularPatterns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\RadioGroupItemStyleSelector.cs" />
