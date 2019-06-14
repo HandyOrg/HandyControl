@@ -340,7 +340,7 @@ namespace HandyControl.Controls
                     messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(info.IconBrushKey);
                 }
 
-                messageBox.Style = info.Style;
+                if (info.Style != null) messageBox.Style = info.Style;
                 messageBox.ShowDialog();
             }));
 #else
@@ -356,7 +356,7 @@ namespace HandyControl.Controls
                     messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(info.IconBrushKey);
                 }
 
-                messageBox.Style = info.Style;
+                if (info.Style != null) messageBox.Style = info.Style;
                 SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
             });
