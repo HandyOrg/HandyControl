@@ -353,7 +353,7 @@ namespace HandyControl.Controls
             {
                 if (_visualChildren == null) return 0;
 
-                for (int i = 0; i < _visualChildren.Length; i++)
+                for (var i = 0; i < _visualChildren.Length; i++)
                 {
                     if (_visualChildren[i] == null) return i;
                 }

@@ -38,7 +38,7 @@ namespace HandyControl.Controls
                 var count = Items.Count;
                 if (count <= 0) return;
 
-                for (int i = 0; i < count; i++)
+                for (var i = 0; i < count; i++)
                 {
                     if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepBarItem)
                     {
@@ -48,7 +48,7 @@ namespace HandyControl.Controls
 
                 if (StepIndex < count)
                 {
-                    for (int i = 0; i < StepIndex; i++)
+                    for (var i = 0; i < StepIndex; i++)
                     {
                         if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepBarItem)
                         {
