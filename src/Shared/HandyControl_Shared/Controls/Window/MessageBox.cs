@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Media;
 using System.Text;
 using System.Windows;
@@ -14,6 +15,7 @@ namespace HandyControl.Controls
     /// <summary>
     ///     消息框
     /// </summary>
+    [SuppressMessage("ReSharper", "RedundantDelegateCreation")]
     public sealed class MessageBox : Window
     {
         private MessageBoxResult _messageBoxResult = MessageBoxResult.Cancel;
@@ -131,14 +133,6 @@ namespace HandyControl.Controls
             }
         }
 
-        private void InternalShowDialog()
-        {
-#if !netle40
-            SystemSounds.Asterisk.Play();
-#endif
-            ShowDialog();
-        }
-
         /// <summary>
         ///     成功
         /// </summary>
@@ -155,8 +149,9 @@ namespace HandyControl.Controls
                 messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
                 messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.SuccessBrush);
                 SystemSounds.Asterisk.Play();
-                messageBox.InternalShowDialog();
+                messageBox.ShowDialog();
             }));
+
             return messageBox._messageBoxResult;
         }
 
@@ -174,8 +169,9 @@ namespace HandyControl.Controls
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Information);
                 SystemSounds.Asterisk.Play();
-                messageBox.InternalShowDialog();
+                messageBox.ShowDialog();
             }));
+
             return messageBox._messageBoxResult;
         }
 
@@ -193,8 +189,9 @@ namespace HandyControl.Controls
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Warning);
                 SystemSounds.Asterisk.Play();
-                messageBox.InternalShowDialog();
+                messageBox.ShowDialog();
             }));
+
             return messageBox._messageBoxResult;
         }
 
@@ -212,8 +209,9 @@ namespace HandyControl.Controls
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Error);
                 SystemSounds.Asterisk.Play();
-                messageBox.InternalShowDialog();
+                messageBox.ShowDialog();
             }));
+
             return messageBox._messageBoxResult;
         }
 
@@ -233,8 +231,9 @@ namespace HandyControl.Controls
                 messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
                 messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
                 SystemSounds.Asterisk.Play();
-                messageBox.InternalShowDialog();
+                messageBox.ShowDialog();
             }));
+
             return messageBox._messageBoxResult;
         }
 
@@ -252,8 +251,9 @@ namespace HandyControl.Controls
                 SetButtonStatus(messageBox, MessageBoxButton.OKCancel);
                 SetImage(messageBox, MessageBoxImage.Question);
                 SystemSounds.Asterisk.Play();
-                messageBox.InternalShowDialog();
+                messageBox.ShowDialog();
             }));
+
             return messageBox._messageBoxResult;
         }
 
@@ -282,8 +282,9 @@ namespace HandyControl.Controls
                     messageBox.Style = info.Style;
                 }
                 SystemSounds.Asterisk.Play();
-                messageBox.InternalShowDialog();
+                messageBox.ShowDialog();
             }));
+
             return messageBox._messageBoxResult;
         }
 
@@ -320,8 +321,9 @@ namespace HandyControl.Controls
                 SetButtonStatus(messageBox, button);
                 SetImage(messageBox, icon);
                 SystemSounds.Asterisk.Play();
-                messageBox.InternalShowDialog();
+                messageBox.ShowDialog();
             }));
+
             return messageBox._messageBoxResult;
         }
 
