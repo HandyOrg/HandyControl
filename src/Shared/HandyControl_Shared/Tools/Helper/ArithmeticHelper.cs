@@ -22,11 +22,11 @@ namespace HandyControl.Tools
             var arr = new int[count];
             var div = num / count;
             var rest = num % count;
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 arr[i] = div;
             }
-            for (int i = 0; i < rest; i++)
+            for (var i = 0; i < rest; i++)
             {
                 arr[i] += 1;
             }

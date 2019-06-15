@@ -66,7 +66,7 @@ namespace HandyControl.Data
                     //
                     var values = frameDelayItem.Value;
                     _frameDelay = new int[FrameCount];
-                    for (int i = 0; i < FrameCount; ++i)
+                    for (var i = 0; i < FrameCount; ++i)
                     {
                         _frameDelay[i] = values[i * 4] + 256 * values[i * 4 + 1] + 256 * 256 * values[i * 4 + 2] + 256 * 256 * 256 * values[i * 4 + 3];
                     }

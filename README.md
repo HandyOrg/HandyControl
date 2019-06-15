@@ -44,7 +44,16 @@ Step 2：Add code in App.xaml as follows:
     </ResourceDictionary>
 </Application.Resources>
 ```
-Step 3：enjoy coding
+
+Step 3: Add NameSpace:
+`xmlns:hc="https://handyorg.github.io/handycontrol"`
+
+Step 4：enjoy coding
+
+## VSIX packages for Visual Studio
+
+| [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019) |
+| ------------- |
 
 ## Overview
 
