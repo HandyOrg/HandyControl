@@ -42,7 +42,7 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="10,6"/>
         <Setter Property="Margin" Value="0,0,4,0"/>
         <Setter Property="Template">
@@ -161,6 +161,8 @@
     </Style>
     <Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Padding" Value="12,6,12,12"/>
         <Setter Property="MinHeight" Value="44"/>
