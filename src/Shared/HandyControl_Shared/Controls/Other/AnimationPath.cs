@@ -122,7 +122,7 @@ namespace HandyControl.Controls
             StretchProperty.AddOwner(typeof(AnimationPath), new FrameworkPropertyMetadata(Stretch.Uniform,
                 OnPropertiesChanged));
 
-            StrokeThicknessProperty.AddOwner(typeof(AnimationPath), new FrameworkPropertyMetadata(1.0,
+            StrokeThicknessProperty.AddOwner(typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double1Box,
                 OnPropertiesChanged));
         }
 

@@ -321,7 +321,7 @@ namespace HandyControl.Controls
 
                 try
                 {
-                    for (int i = 0; i < count; i++)
+                    for (var i = 0; i < count; i++)
                     {
                         guids[i] = (Guid)ExternDllHelper.PtrToStructure((IntPtr)((long)buffer + size * i), typeof(Guid));
                     }

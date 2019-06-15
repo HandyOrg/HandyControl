@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using HandyControl.Data;
 using HandyControl.Expression.Drawing;
 using HandyControl.Expression.Media;
 
@@ -16,7 +17,7 @@ namespace HandyControl.Expression.Shapes
             StretchProperty.OverrideMetadata(typeof(PrimitiveShape),
                 new DrawingPropertyMetadata(Stretch.Fill, DrawingPropertyMetadataOptions.AffectsRender));
             StrokeThicknessProperty.OverrideMetadata(typeof(PrimitiveShape),
-                new DrawingPropertyMetadata(1.0, DrawingPropertyMetadataOptions.AffectsRender));
+                new DrawingPropertyMetadata(ValueBoxes.Double1Box, DrawingPropertyMetadataOptions.AffectsRender));
         }
 
         protected sealed override Geometry DefiningGeometry =>

@@ -9,7 +9,6 @@ using HandyControl.Tools.Extension;
 using Microsoft.Windows.Shell;
 #else
 using System.Windows.Shell;
-
 #endif
 
 namespace HandyControl.Controls

@@ -19,7 +19,7 @@ namespace HandyControlDemo.Service
             for (var i = 1; i <= 20; i++)
             {
                 var dataList = new List<DemoDataModel>();
-                for (int j = 0; j < 3; j++)
+                for (var j = 0; j < 3; j++)
                 {
                     dataList.Add(new DemoDataModel
                     {

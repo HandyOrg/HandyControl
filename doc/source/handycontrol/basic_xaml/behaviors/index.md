@@ -14,5 +14,5 @@ title: 行为
 | BehaviorY400 | 流体移动行为，y轴运动，400毫秒结束动画 |
 
 {% note info no-icon %}
-用例：`controls:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}"`
+用例：`hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}"`
 {% endnote %}

@@ -102,7 +102,7 @@ namespace HandyControl.Controls
         private void CreateItemsSource(ItemsControl selector, int count)
         {
             var list = new List<string>();
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 list.Add(i.ToString("#00"));
             }

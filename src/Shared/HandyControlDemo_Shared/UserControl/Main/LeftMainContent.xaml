@@ -325,11 +325,6 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/Panel_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RelativePanelDemoCtl}" Content="{x:Static langs:Lang.RelativePanel}">
-                            <hc:EdgeElement.LeftContent>
-                                <Image Source="../../Resources/Img/LeftMainContent/PaneLayout_16x.png"/>
-                            </hc:EdgeElement.LeftContent>
-                        </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.CoverViewDemoCtl}" Content="{x:Static langs:Lang.CoverView}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/DetailDataView_16x.png"/>

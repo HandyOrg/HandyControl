@@ -197,7 +197,7 @@ namespace HandyControl.Tools
 
             var isBitmapIconDecoder = frames[0].Decoder is IconBitmapDecoder;
 
-            for (int i = 0; i < frames.Count && bestScore != 0; ++i)
+            for (var i = 0; i < frames.Count && bestScore != 0; ++i)
             {
                 var currentIconBitDepth = isBitmapIconDecoder ? frames[i].Thumbnail.Format.BitsPerPixel : frames[i].Format.BitsPerPixel;
 

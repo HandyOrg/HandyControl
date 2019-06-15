@@ -104,6 +104,29 @@
                         <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,9" Style="{StaticResource ToggleButtonSwitch}"/>
                         <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSwitch"/>
                     </StackPanel>
+                    <StackPanel>
+                        <ToggleButton BorderThickness="0" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
+                            <hc:StatusSwitchElement.CheckedElement>
+                                <Border Background="{DynamicResource PrimaryBrush}">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static langs:Lang.Off}" Foreground="{DynamicResource TextIconBrush}"/>
+                                </Border>
+                            </hc:StatusSwitchElement.CheckedElement>
+                            <Border Background="{DynamicResource DangerBrush}">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static langs:Lang.On}" Foreground="{DynamicResource TextIconBrush}"/>
+                            </Border>
+                        </ToggleButton>
+                        <ToggleButton BorderThickness="0" IsEnabled="False" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
+                            <hc:StatusSwitchElement.CheckedElement>
+                                <Border Background="{DynamicResource PrimaryBrush}">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static langs:Lang.Off}" Foreground="{DynamicResource TextIconBrush}"/>
+                                </Border>
+                            </hc:StatusSwitchElement.CheckedElement>
+                            <Border Background="{DynamicResource DangerBrush}">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static langs:Lang.On}" Foreground="{DynamicResource TextIconBrush}"/>
+                            </Border>
+                        </ToggleButton>
+                        <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonFlip"/>
+                    </StackPanel>
                 </WrapPanel>
             </StackPanel>
         </hc:ScrollViewer>
