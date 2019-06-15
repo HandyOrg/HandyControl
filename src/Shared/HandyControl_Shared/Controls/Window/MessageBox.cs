@@ -31,7 +31,7 @@ namespace HandyControl.Controls
 
         public string Message
         {
-            get => (string) GetValue(MessageProperty);
+            get => (string)GetValue(MessageProperty);
             set => SetValue(MessageProperty, value);
         }
 
@@ -40,7 +40,7 @@ namespace HandyControl.Controls
 
         public Geometry Image
         {
-            get => (Geometry) GetValue(ImageProperty);
+            get => (Geometry)GetValue(ImageProperty);
             set => SetValue(ImageProperty, value);
         }
 
@@ -49,7 +49,7 @@ namespace HandyControl.Controls
 
         public Brush ImageBrush
         {
-            get => (Brush) GetValue(ImageBrushProperty);
+            get => (Brush)GetValue(ImageBrushProperty);
             set => SetValue(ImageBrushProperty, value);
         }
 
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         public bool ShowImage
         {
-            get => (bool) GetValue(ShowImageProperty);
+            get => (bool)GetValue(ShowImageProperty);
             set => SetValue(ShowImageProperty, value);
         }
 
@@ -131,6 +131,14 @@ namespace HandyControl.Controls
             }
         }
 
+        private void InternalShowDialog()
+        {
+#if !netle40
+            SystemSounds.Asterisk.Play();
+#endif
+            ShowDialog();
+        }
+
         /// <summary>
         ///     成功
         /// </summary>
@@ -139,7 +147,6 @@ namespace HandyControl.Controls
         public static MessageBoxResult Success(string messageBoxText, string caption = null)
         {
             MessageBox messageBox = null;
-#if netle40
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
@@ -147,21 +154,9 @@ namespace HandyControl.Controls
                 messageBox.ShowImage = true;
                 messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
                 messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.SuccessBrush);
-                messageBox.ShowDialog();
-            }));
-#else
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
-                SetButtonStatus(messageBox, MessageBoxButton.OK);
-                messageBox.ShowImage = true;
-                messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.SuccessGeometry);
-                messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.SuccessBrush);
                 SystemSounds.Asterisk.Play();
-                messageBox.ShowDialog();
-            });
-#endif
-
+                messageBox.InternalShowDialog();
+            }));
             return messageBox._messageBoxResult;
         }
 
@@ -173,25 +168,14 @@ namespace HandyControl.Controls
         public static MessageBoxResult Info(string messageBoxText, string caption = null)
         {
             MessageBox messageBox = null;
-#if netle40
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Information);
-                messageBox.ShowDialog();
-            }));
-#else
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Information, MessageBoxResult.OK);
-                SetButtonStatus(messageBox, MessageBoxButton.OK);
-                SetImage(messageBox, MessageBoxImage.Information);
                 SystemSounds.Asterisk.Play();
-                messageBox.ShowDialog();
-            });
-#endif
-
+                messageBox.InternalShowDialog();
+            }));
             return messageBox._messageBoxResult;
         }
 
@@ -203,25 +187,14 @@ namespace HandyControl.Controls
         public static MessageBoxResult Warning(string messageBoxText, string caption = null)
         {
             MessageBox messageBox = null;
-#if netle40
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Warning);
-                messageBox.ShowDialog();
-            }));
-#else
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Warning, MessageBoxResult.OK);
-                SetButtonStatus(messageBox, MessageBoxButton.OK);
-                SetImage(messageBox, MessageBoxImage.Warning);
                 SystemSounds.Asterisk.Play();
-                messageBox.ShowDialog();
-            });
-#endif
-
+                messageBox.InternalShowDialog();
+            }));
             return messageBox._messageBoxResult;
         }
 
@@ -233,25 +206,14 @@ namespace HandyControl.Controls
         public static MessageBoxResult Error(string messageBoxText, string caption = null)
         {
             MessageBox messageBox = null;
-#if netle40
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
                 SetButtonStatus(messageBox, MessageBoxButton.OK);
                 SetImage(messageBox, MessageBoxImage.Error);
-                messageBox.ShowDialog();
-            }));
-#else
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.Error, MessageBoxResult.OK);
-                SetButtonStatus(messageBox, MessageBoxButton.OK);
-                SetImage(messageBox, MessageBoxImage.Error);
                 SystemSounds.Asterisk.Play();
-                messageBox.ShowDialog();
-            });
-#endif
-
+                messageBox.InternalShowDialog();
+            }));
             return messageBox._messageBoxResult;
         }
 
@@ -263,7 +225,6 @@ namespace HandyControl.Controls
         public static MessageBoxResult Fatal(string messageBoxText, string caption = null)
         {
             MessageBox messageBox = null;
-#if netle40
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
@@ -271,21 +232,9 @@ namespace HandyControl.Controls
                 messageBox.ShowImage = true;
                 messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
                 messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
-                messageBox.ShowDialog();
-            }));
-#else
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OK, MessageBoxImage.None, MessageBoxResult.OK);
-                SetButtonStatus(messageBox, MessageBoxButton.OK);
-                messageBox.ShowImage = true;
-                messageBox.Image = ResourceHelper.GetResource<Geometry>(ResourceToken.FatalGeometry);
-                messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryTextBrush);
                 SystemSounds.Asterisk.Play();
-                messageBox.ShowDialog();
-            });
-#endif
-
+                messageBox.InternalShowDialog();
+            }));
             return messageBox._messageBoxResult;
         }
 
@@ -297,25 +246,14 @@ namespace HandyControl.Controls
         public static MessageBoxResult Ask(string messageBoxText, string caption = null)
         {
             MessageBox messageBox = null;
-#if netle40
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel);
                 SetButtonStatus(messageBox, MessageBoxButton.OKCancel);
                 SetImage(messageBox, MessageBoxImage.Question);
-                messageBox.ShowDialog();
-            }));
-#else
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel);
-                SetButtonStatus(messageBox, MessageBoxButton.OKCancel);
-                SetImage(messageBox, MessageBoxImage.Question);
                 SystemSounds.Asterisk.Play();
-                messageBox.ShowDialog();
-            });
-#endif
-
+                messageBox.InternalShowDialog();
+            }));
             return messageBox._messageBoxResult;
         }
 
@@ -327,27 +265,7 @@ namespace HandyControl.Controls
         public static MessageBoxResult Show(MessageBoxInfo info)
         {
             MessageBox messageBox = null;
-#if netle40
             Application.Current.Dispatcher.Invoke(new Action(() =>
-            {
-                messageBox = CreateMessageBox(null, info.MessageBoxText, info.Caption, info.Button, MessageBoxImage.None, info.DefaultResult);
-                SetButtonStatus(messageBox, info.Button);
-
-                if (!string.IsNullOrEmpty(info.IconKey))
-                {
-                    messageBox.ShowImage = true;
-                    messageBox.Image = ResourceHelper.GetResource<Geometry>(info.IconKey);
-                    messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(info.IconBrushKey);
-                }
-
-                if (info.Style != null) 
-                {
-                    messageBox.Style = info.Style;
-                }
-                messageBox.ShowDialog();
-            }));
-#else
-            Application.Current.Dispatcher.Invoke(() =>
             {
                 messageBox = CreateMessageBox(null, info.MessageBoxText, info.Caption, info.Button, MessageBoxImage.None, info.DefaultResult);
                 SetButtonStatus(messageBox, info.Button);
@@ -364,10 +282,8 @@ namespace HandyControl.Controls
                     messageBox.Style = info.Style;
                 }
                 SystemSounds.Asterisk.Play();
-                messageBox.ShowDialog();
-            });
-#endif
-
+                messageBox.InternalShowDialog();
+            }));
             return messageBox._messageBoxResult;
         }
 
@@ -398,25 +314,14 @@ namespace HandyControl.Controls
         public static MessageBoxResult Show(System.Windows.Window owner, string messageBoxText, string caption = null, MessageBoxButton button = MessageBoxButton.OK, MessageBoxImage icon = MessageBoxImage.None, MessageBoxResult defaultResult = MessageBoxResult.None)
         {
             MessageBox messageBox = null;
-#if netle40
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
                 messageBox = CreateMessageBox(owner, messageBoxText, caption, button, icon, defaultResult);
                 SetButtonStatus(messageBox, button);
                 SetImage(messageBox, icon);
-                messageBox.ShowDialog();
-            }));
-#else
-            Application.Current.Dispatcher.Invoke(() =>
-            {
-                messageBox = CreateMessageBox(owner, messageBoxText, caption, button, icon, defaultResult);
-                SetButtonStatus(messageBox, button);
-                SetImage(messageBox, icon);
                 SystemSounds.Asterisk.Play();
-                messageBox.ShowDialog();
-            });
-#endif
-
+                messageBox.InternalShowDialog();
+            }));
             return messageBox._messageBoxResult;
         }
 
