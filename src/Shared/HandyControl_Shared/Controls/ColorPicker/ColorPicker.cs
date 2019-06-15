@@ -333,7 +333,7 @@ namespace HandyControl.Controls
                 }
 
                 var list = new List<bool>();
-                for (int i = 0; i < 2; i++)
+                for (var i = 0; i < 2; i++)
                 {
                     list.Add(false);
                 }

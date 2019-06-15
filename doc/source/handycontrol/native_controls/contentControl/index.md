@@ -1,5 +1,5 @@
 ---
-title: 建设中
+title: ContentControl 内容控件
 ---
 
-建设中
+所有的`ContentControl`默认无法获得焦点

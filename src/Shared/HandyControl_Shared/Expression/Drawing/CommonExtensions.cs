@@ -59,7 +59,7 @@ namespace HandyControl.Expression.Drawing
                 }
                 else
                 {
-                    for (int i = list.Count - 1; i >= count; i--)
+                    for (var i = list.Count - 1; i >= count; i--)
                     {
                         list.RemoveAt(i);
                     }
@@ -89,7 +89,7 @@ namespace HandyControl.Expression.Drawing
             }
             else
             {
-                for (int i = list.Count; i < count; i++)
+                for (var i = list.Count; i < count; i++)
                 {
                     list.Add((factory == null) ? default(T) : factory());
                 }

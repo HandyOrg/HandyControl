@@ -612,4 +612,10 @@
   <data name="RelativePanel" xml:space="preserve">
     <value>相对布局</value>
   </data>
+  <data name="On" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>关</value>
+  </data>
 </root>
