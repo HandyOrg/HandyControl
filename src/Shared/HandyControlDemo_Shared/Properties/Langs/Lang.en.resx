@@ -618,4 +618,7 @@
   <data name="Off" xml:space="preserve">
     <value>Off</value>
   </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>ButtonGroup</value>
+  </data>
 </root>

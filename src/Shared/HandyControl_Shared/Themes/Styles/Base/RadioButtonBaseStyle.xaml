@@ -196,9 +196,15 @@
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Panel.ZIndex" Value="{x:Static system:Int32.MaxValue}"/>
             </Trigger>
-            <DataTrigger Binding="{Binding Orientation,RelativeSource={RelativeSource  AncestorType=controls:RadioGroup}}" Value="Vertical">
+            <DataTrigger Binding="{Binding Orientation,RelativeSource={RelativeSource  AncestorType=controls:ButtonGroup}}" Value="Vertical">
                 <Setter Property="Margin" Value="0,-1,0,0"/>
             </DataTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+            </Trigger>
         </Style.Triggers>
     </Style>
 

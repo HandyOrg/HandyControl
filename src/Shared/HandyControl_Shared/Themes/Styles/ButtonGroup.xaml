@@ -3,12 +3,12 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/RadioGroupBaseStyle.xaml"/>
+        <ResourceDictionary Source="Base/ButtonGroupBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource RadioGroupBaseStyle}" TargetType="controls:RadioGroup"/>
+    <Style BasedOn="{StaticResource ButtonGroupBaseStyle}" TargetType="controls:ButtonGroup"/>
 
-    <Style x:Key="RadioGroupSolid" BasedOn="{StaticResource RadioGroupBaseStyle}" TargetType="controls:RadioGroup">
+    <Style x:Key="ButtonGroupSolid" BasedOn="{StaticResource ButtonGroupBaseStyle}" TargetType="controls:ButtonGroup">
         <Setter Property="controls:TitleElement.BorderBrush" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="controls:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="controls:TitleElement.Foreground" Value="{DynamicResource TextIconBrush}"/>
