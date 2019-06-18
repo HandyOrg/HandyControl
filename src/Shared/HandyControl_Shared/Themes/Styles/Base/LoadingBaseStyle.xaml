@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="LoadingBaseStyle" TargetType="controls:LoadingBase">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="DotDiameter" Value="10"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
     </Style>

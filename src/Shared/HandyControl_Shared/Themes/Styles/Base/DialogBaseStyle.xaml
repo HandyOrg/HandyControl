@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="DialogBaseStyle" TargetType="controls:Dialog">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">

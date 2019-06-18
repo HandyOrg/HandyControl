@@ -56,7 +56,7 @@
                                 </LinearGradientBrush>
                             </ContentPresenter.OpacityMask>
                         </ContentPresenter>
-                        <Button Grid.Column="1" Command="interactivity:ControlCommands.Close" Visibility="{Binding ShowCloseButton,RelativeSource={RelativeSource AncestorType=controls:TabControl},Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
+                        <Button Grid.Column="1" Focusable="False" Command="interactivity:ControlCommands.Close" Visibility="{Binding ShowCloseButton,RelativeSource={RelativeSource AncestorType=controls:TabControl},Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
                             <Path Fill="{DynamicResource PrimaryTextBrush}" Width="8" Height="8" Style="{StaticResource ClosePathStyle}"/>
                         </Button>
                     </Grid>
@@ -119,7 +119,7 @@
                     <Border.CacheMode>
                         <BitmapCache SnapsToDevicePixels="True"/>
                     </Border.CacheMode>
-                    <Button Style="{StaticResource ButtonIcon}" Padding="8" controls:IconElement.Geometry="{StaticResource LeftGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonLeft"/>
+                    <Button Focusable="False" Style="{StaticResource ButtonIcon}" Padding="8" controls:IconElement.Geometry="{StaticResource LeftGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonLeft"/>
                 </Border>
                 <controls:ScrollViewer HorizontalScrollBarVisibility="Hidden" CanMouseWheel="True" Orientation="Horizontal" IsEnableInertia="True" Grid.Row="0" Grid.Column="1" IsDeferredScrollingEnabled="True" x:Name="PART_OverflowScrollviewer">
                     <Border Background="{TemplateBinding Background}" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderBrush}" >
@@ -139,7 +139,7 @@
                         <BitmapCache SnapsToDevicePixels="True"/>
                     </Border.CacheMode>
                     <StackPanel Orientation="Horizontal">
-                        <Button Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource ButtonIcon}" BorderBrush="{DynamicResource BorderBrush}" Padding="8" controls:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight"/>
+                        <Button Focusable="False" Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource ButtonIcon}" BorderBrush="{DynamicResource BorderBrush}" Padding="8" controls:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight"/>
                         <Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Width="1" Background="{DynamicResource BorderBrush}"/>
                         <controls:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource DownGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}"/>
                     </StackPanel>

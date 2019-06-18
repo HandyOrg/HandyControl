@@ -6,7 +6,7 @@ using HandyControl.Tools.Interop;
 
 namespace HandyControl.Tools
 {
-    internal class KeyboardHook
+    public class KeyboardHook
     {
         public static event EventHandler<KeyboardHookEventArgs> KeyDown;
 

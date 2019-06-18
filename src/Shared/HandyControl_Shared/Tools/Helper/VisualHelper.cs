@@ -34,7 +34,7 @@ namespace HandyControl.Tools
                 return t;
             }
 
-            for (int i = 0; i < VisualTreeHelper.GetChildrenCount(d); i++)
+            for (var i = 0; i < VisualTreeHelper.GetChildrenCount(d); i++)
             {
                 var child = VisualTreeHelper.GetChild(d, i);
 
@@ -42,7 +42,7 @@ namespace HandyControl.Tools
                 if (result != null) return result;
             }
 
-            return default(T);
+            return default;
         }
 
         /// <summary>

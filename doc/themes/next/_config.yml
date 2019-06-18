@@ -161,8 +161,9 @@ menu:
   HandyControl:
     default: /handycontrol/ ||
     鸣谢: /tnx/ ||
-    总览: /overview/ ||
-    规范: /specifications/ ||
+    快速开始: /quick_start/ ||
+    # 总览: /overview/ ||
+    # 规范: /specifications/ ||
     基础xaml定义: 
       default: /basic_xaml/ ||
       行为: /behaviors/ ||
@@ -176,21 +177,20 @@ menu:
       尺寸: /sizes/ ||
     附加属性:
       default: /attach/ ||
-      BackgroundSwitchElement: /backgroundSwitchElement/ ||
-      BorderElement: /borderElement/ ||
-      DataGridAttach: /dataGridAttach/ ||
+      BackgroundSwitchElement 可切换背景的元素: /backgroundSwitchElement/ ||
+      BorderElement 具有边框的元素: /borderElement/ ||
+      DataGridAttach DataGrid专用: /dataGridAttach/ ||
       EdgeElement: /edgeElement/ ||
-      IconElement: /iconElement/ ||
-      IconSwitchElement: /iconSwitchElement/ ||
-      InfoElement: /infoElement/ ||
-      LinkElement: /linkElement/ ||
-      PanelElement: /panelElement/ ||
-      PasswordBoxMonitor: /passwordBoxMonitor/ ||
-      StatusSwitchElement: /statusSwitchElement/ ||
-      TipElement: /tipElement/ ||
-      TitleElement: /titleElement/ ||
-      VisualElement: /visualElement/ ||
-      WindowAttach: /windowAttach/ ||
+      IconElement 具有图标的元素: /iconElement/ ||
+      IconSwitchElement 可切换图标的元素: /iconSwitchElement/ ||
+      InfoElement 信息元素: /infoElement/ ||
+      PanelElement 面板元素: /panelElement/ ||
+      PasswordBoxAttach 密码框专用: /passwordBoxAttach/ ||
+      StatusSwitchElement 可切换状态的元素: /statusSwitchElement/ ||
+      TipElement 提示元素: /tipElement/ ||
+      TitleElement 标题元素: /titleElement/ ||
+      VisualElement 可视化元素: /visualElement/ ||
+      WindowAttach 窗体专用: /windowAttach/ ||
     原生控件:
       default: /native_controls/ ||
       Border 边框: /border/ ||

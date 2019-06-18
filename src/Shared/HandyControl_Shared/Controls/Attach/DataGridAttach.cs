@@ -246,7 +246,7 @@ namespace HandyControl.Controls
         {
             if (show)
             {
-                for (int i = 0; i < itemsCount; i++)
+                for (var i = 0; i < itemsCount; i++)
                 {
                     var row = (DataGridRow)generator.ContainerFromIndex(i);
                     if (row != null)
@@ -257,7 +257,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                for (int i = 0; i < itemsCount; i++)
+                for (var i = 0; i < itemsCount; i++)
                 {
                     var row = (DataGridRow)generator.ContainerFromIndex(i);
                     if (row != null)

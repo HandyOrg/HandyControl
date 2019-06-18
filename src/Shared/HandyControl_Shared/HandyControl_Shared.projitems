@@ -17,8 +17,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\InfoElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxMonitor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxAttach.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeTrack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeThumb.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\NameReferenceConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\FrameworkElementExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\GlobalShortcut.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TipElement.cs" />
@@ -86,9 +92,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Rate\RateItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\SideMenu\SideMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\SideMenu\SideMenuItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\CompareSlider.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\CompareTrack.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\CompareSlider\CompareSlider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\CompareSlider\CompareTrack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\PreviewSlider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeSlider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\StepBar\StepBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\StepBar\StepBarItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\TabControl\TabControl.cs" />
@@ -267,6 +274,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\WNDCLASS.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\WpfSafeHandle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\MouseDragElementBehaviorEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\IPool!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\SimplePool!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\SynchronizedPool!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Queue\Deque!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularJudgment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularPatterns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\RadioGroupItemStyleSelector.cs" />
@@ -330,6 +341,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\SkinViolet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\ColorPickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\SliderBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Col.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

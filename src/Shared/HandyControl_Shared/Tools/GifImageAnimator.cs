@@ -162,7 +162,7 @@ namespace HandyControl.Tools
             try
             {
                 // Find the corresponding reference and remove it
-                for (int i = 0; i < ImageInfoList.Count; i++)
+                for (var i = 0; i < ImageInfoList.Count; i++)
                 {
                     var imageInfo = ImageInfoList[i];
 

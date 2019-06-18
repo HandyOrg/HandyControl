@@ -1,7 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-
 namespace HandyControl.Controls
 {
     public class CompareSlider : Slider

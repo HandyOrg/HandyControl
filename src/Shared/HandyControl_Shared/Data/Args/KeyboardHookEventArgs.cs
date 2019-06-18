@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace HandyControl.Data
 {
-    internal class KeyboardHookEventArgs : EventArgs
+    public class KeyboardHookEventArgs : EventArgs
     {
         public bool IsSystemKey { get; }
 

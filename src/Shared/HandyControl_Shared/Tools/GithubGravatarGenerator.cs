@@ -27,23 +27,23 @@ namespace HandyControl.Tools
             }
 
             var index = 0;
-            for (int i = 0; i < 2; i++)
+            for (var i = 0; i < 2; i++)
             {
-                for (int j = 0; j < 5; j++, index++)
+                for (var j = 0; j < 5; j++, index++)
                 {
                     AddRec(i, j, renderData[index] == 0);
                 }
             }
 
-            for (int j = 0; j < 5; j++, index++)
+            for (var j = 0; j < 5; j++, index++)
             {
                 AddRec(2, j, renderData[index] == 0);
             }
 
             index -= 10;
-            for (int i = 3; i < 5; i++)
+            for (var i = 3; i < 5; i++)
             {
-                for (int j = 0; j < 5; j++, index++)
+                for (var j = 0; j < 5; j++, index++)
                 {
                     AddRec(i, j, renderData[index] == 0);
                 }
@@ -78,7 +78,7 @@ namespace HandyControl.Tools
         private int[] GetRenderData(string hashcode)
         {
             var arr = new int[RenderDataMaxLength];
-            for (int i = 0; i < RenderDataMaxLength; i++)
+            for (var i = 0; i < RenderDataMaxLength; i++)
             {
                 var c = hashcode[i];
                 var v = (int) c;

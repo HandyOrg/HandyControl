@@ -25,7 +25,19 @@
     </Style>
 
     <Style x:Key="DataGridCellStyle" TargetType="DataGridCell">
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Margin="2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -212,7 +224,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">
-                    <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Text}" Focusable="True" TextTrimming="CharacterEllipsis"/>
+                    <TextBlock IsHitTestVisible="False" Text="{TemplateBinding Text}" TextTrimming="CharacterEllipsis"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

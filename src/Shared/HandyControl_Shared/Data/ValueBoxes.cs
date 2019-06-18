@@ -11,7 +11,11 @@
 
         internal static object Double0Box = .0;
 
+        internal static object Double01Box = .1;
+
         internal static object Double1Box = 1.0;
+
+        internal static object Double10Box = 10.0;
 
         internal static object Double20Box = 20.0;
 

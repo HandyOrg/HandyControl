@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Border.xaml"/>
         <ResourceDictionary Source="Base/ToggleButtonBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
@@ -101,6 +102,124 @@
     <!--开关-->
     <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="ToggleButton"/>
 
+    <!--翻转-->
+    <Style x:Key="ToggleButtonFlip" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="StoryboardChecked">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="CheckedElement">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="UnCheckedElement">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckedElement">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="UnCheckedElement">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="StoryboardUnChecked">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="CheckedElement">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="UnCheckedElement">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckedElement">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="UnCheckedElement">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1">
+                                    <EasingDoubleKeyFrame.EasingFunction>
+                                        <PowerEase EasingMode="EaseOut"/>
+                                    </EasingDoubleKeyFrame.EasingFunction>
+                                </EasingDoubleKeyFrame>
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Viewbox>
+                        <controls:SimplePanel Height="28" Width="28">
+                            <Border Name="UnCheckedElement" Style="{StaticResource BorderClip}" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="1"/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                                <ContentPresenter Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            </Border>
+                            <Border Name="CheckedElement" Style="{StaticResource BorderClip}" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform ScaleX="0"/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                                <ContentPresenter Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </Border>
+                        </controls:SimplePanel>
+                    </Viewbox>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value=".9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value=".6"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource StoryboardChecked}"/>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard Storyboard="{StaticResource StoryboardUnChecked}"/>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <!--自定义-->
     <Style x:Key="ToggleButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="Transparent"/>
@@ -115,7 +234,7 @@
                 <ControlTemplate TargetType="ToggleButton">
                     <Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <controls:SimplePanel>
-                            <ContentPresenter Name="UnCheckedElement"  Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <ContentPresenter Name="UnCheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             <ContentPresenter Name="CheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Visibility="Collapsed" Content="{Binding Path=(controls:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </controls:SimplePanel>
                     </Border>

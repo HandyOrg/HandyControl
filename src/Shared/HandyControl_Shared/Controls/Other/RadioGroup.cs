@@ -33,7 +33,7 @@ namespace HandyControl.Controls
             base.OnVisualChildrenChanged(visualAdded, visualRemoved);
 
             var count = Items.Count;
-            for (int i = 0; i < count; i++)
+            for (var i = 0; i < count; i++)
             {
                 var item = (RadioButton)Items[i];
                 item.Style = ItemStyleSelector?.SelectStyle(item, this);

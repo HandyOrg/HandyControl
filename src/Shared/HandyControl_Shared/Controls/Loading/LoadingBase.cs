@@ -36,11 +36,11 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty DotCountProperty = DependencyProperty.Register(
             "DotCount", typeof(int), typeof(LoadingBase),
-            new FrameworkPropertyMetadata(5, FrameworkPropertyMetadataOptions.AffectsRender));
+            new FrameworkPropertyMetadata(ValueBoxes.Int5Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
         public static readonly DependencyProperty DotIntervalProperty = DependencyProperty.Register(
             "DotInterval", typeof(double), typeof(LoadingBase),
-            new FrameworkPropertyMetadata(10.0, FrameworkPropertyMetadataOptions.AffectsRender));
+            new FrameworkPropertyMetadata(ValueBoxes.Double10Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
         public static readonly DependencyProperty DotBorderBrushProperty = DependencyProperty.Register(
             "DotBorderBrush", typeof(Brush), typeof(LoadingBase),

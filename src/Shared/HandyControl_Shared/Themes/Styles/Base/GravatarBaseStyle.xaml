@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="GravatarBaseStyle" TargetType="controls:Gravatar">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Width" Value="72"/>
         <Setter Property="Height" Value="72"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>

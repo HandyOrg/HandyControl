@@ -23,7 +23,7 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <ToggleButton Padding="10,0,0,0" Foreground="{TemplateBinding Foreground}" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Width="{TemplateBinding Width}" Height="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
+                            <ToggleButton Focusable="False" Padding="10,0,0,0" Foreground="{TemplateBinding Foreground}" Grid.ColumnSpan="2" HorizontalContentAlignment="Stretch" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Width="{TemplateBinding Width}" Height="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
                                 <ToggleButton.Content>
                                     <Grid>
                                         <Grid.ColumnDefinitions>
