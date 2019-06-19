@@ -1,17 +1,16 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    public class RadioGroup : ItemsControl
+    public class ButtonGroup : ItemsControl
     {
-        protected override DependencyObject GetContainerForItemOverride() => new RadioButton();
-
-        protected override bool IsItemItsOwnContainerOverride(object item) => item is RadioButton;
+        protected override bool IsItemItsOwnContainerOverride(object item) => item is Button || item is RadioButton || item is ToggleButton;
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-            "Orientation", typeof(Orientation), typeof(RadioGroup), new PropertyMetadata(default(Orientation)));
+            "Orientation", typeof(Orientation), typeof(ButtonGroup), new PropertyMetadata(default(Orientation)));
 
         public Orientation Orientation
         {
@@ -20,7 +19,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ItemStyleSelectorProperty = DependencyProperty.Register(
-            "ItemStyleSelector", typeof(StyleSelector), typeof(RadioGroup), new PropertyMetadata(new RadioGroupItemStyleSelector()));
+            "ItemStyleSelector", typeof(StyleSelector), typeof(ButtonGroup), new PropertyMetadata(new ButtonGroupItemStyleSelector()));
 
         public StyleSelector ItemStyleSelector
         {
@@ -35,7 +34,7 @@ namespace HandyControl.Controls
             var count = Items.Count;
             for (var i = 0; i < count; i++)
             {
-                var item = (RadioButton)Items[i];
+                var item = (ButtonBase)Items[i];
                 item.Style = ItemStyleSelector?.SelectStyle(item, this);
             }
         }

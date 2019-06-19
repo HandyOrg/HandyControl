@@ -49,7 +49,7 @@
         <ResourceDictionary Source="ToolBar.xaml"/>
         <ResourceDictionary Source="SearchBar.xaml"/>
         <ResourceDictionary Source="Tag.xaml"/>
-        <ResourceDictionary Source="RadioGroup.xaml"/>
+        <ResourceDictionary Source="ButtonGroup.xaml"/>
         <ResourceDictionary Source="FlipClock.xaml"/>
         <ResourceDictionary Source="Rate.xaml"/>
         <ResourceDictionary Source="Shield.xaml"/>
