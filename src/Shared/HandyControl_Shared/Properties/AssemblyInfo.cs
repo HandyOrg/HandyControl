@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
-[assembly: AssemblyVersion("1.5.5")]
+[assembly: AssemblyVersion("2.0.0")]
 #endif
 
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Controls")]

@@ -2,24 +2,25 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
-    <ItemsPanelTemplate x:Key="RadioGroupHorizontalItemsPanelTemplate">
+    <ItemsPanelTemplate x:Key="ButtonGroupHorizontalItemsPanelTemplate">
         <UniformGrid FocusVisualStyle="{x:Null}" Rows="1"/>
     </ItemsPanelTemplate>
 
-    <ItemsPanelTemplate x:Key="RadioGroupVerticalItemsPanelTemplate">
+    <ItemsPanelTemplate x:Key="ButtonGroupVerticalItemsPanelTemplate">
         <UniformGrid FocusVisualStyle="{x:Null}" Columns="1"/>
     </ItemsPanelTemplate>
 
-    <Style x:Key="RadioGroupBaseStyle" TargetType="controls:RadioGroup">
+    <Style x:Key="ButtonGroupBaseStyle" TargetType="controls:ButtonGroup">
+        <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="ItemsPanel" Value="{StaticResource RadioGroupHorizontalItemsPanelTemplate}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupHorizontalItemsPanelTemplate}"/>
         <Setter Property="controls:TitleElement.BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="controls:TitleElement.Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="controls:TitleElement.Foreground" Value="{DynamicResource PrimaryBrush}"/>
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
-                <Setter Property="ItemsPanel" Value="{StaticResource RadioGroupVerticalItemsPanelTemplate}"/>
+                <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupVerticalItemsPanelTemplate}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

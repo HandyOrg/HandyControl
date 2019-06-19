@@ -264,4 +264,28 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ToggleButtonGroupItemDefault" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton"/>
+
+    <Style x:Key="ToggleButtonGroupItemHorizontalFirst" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4,0,0,4"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonGroupItemHorizontalLast" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="0,4,4,0"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonGroupItemSingle" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonGroupItemVerticalFirst" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4,4,0,0"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonGroupItemVerticalLast" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="0,0,4,4"/>
+    </Style>
+
 </ResourceDictionary>

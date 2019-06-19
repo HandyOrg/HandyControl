@@ -81,4 +81,28 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ButtonGroupItemDefault" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button"/>
+
+    <Style x:Key="ButtonGroupItemHorizontalFirst" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4,0,0,4"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemHorizontalLast" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="0,4,4,0"/>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemSingle" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemVerticalFirst" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4,4,0,0"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemVerticalLast" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="0,0,4,4"/>
+    </Style>
+
 </ResourceDictionary>
