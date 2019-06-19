@@ -178,6 +178,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 按钮组 的本地化字符串。
+        /// </summary>
+        public static string ButtonGroup {
+            get {
+                return ResourceManager.GetString("ButtonGroup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 日历 的本地化字符串。
         /// </summary>
         public static string Calendar {

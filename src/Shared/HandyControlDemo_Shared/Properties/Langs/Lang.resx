@@ -618,4 +618,7 @@
   <data name="Off" xml:space="preserve">
     <value>关</value>
   </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>按钮组</value>
+  </data>
 </root>
