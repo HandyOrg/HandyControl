@@ -621,4 +621,7 @@
   <data name="ButtonGroup" xml:space="preserve">
     <value>按钮组</value>
   </data>
+  <data name="Card" xml:space="preserve">
+    <value>卡片</value>
+  </data>
 </root>

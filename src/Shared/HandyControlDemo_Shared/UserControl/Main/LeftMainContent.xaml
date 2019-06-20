@@ -225,7 +225,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/Bubble_16xLG.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NotifyIconDemoCtl}" Content="{x:Static langs:Lang.NotifyIcon}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.NotifyIconDemoCtl}" Content="{x:Static langs:Lang.NotifyIcon}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/NotificationHub_16x.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -313,6 +313,11 @@
                         <ListBoxItem Tag="{x:Static data:MessageToken.OutlineTextDemoCtl}" Content="{x:Static langs:Lang.OutlineText}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CardDemoCtl}" Content="{x:Static langs:Lang.Card}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/VSO_Card_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}">

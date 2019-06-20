@@ -63,6 +63,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### Card
+
+![Card](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Card.png)
+
 ### ButtonGroup
 
 ![ButtonGroup](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ButtonGroup.png)
@@ -79,11 +83,11 @@ Step 4：enjoy coding
 
 ![NotifyIcon](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/NotifyIcon.png)
 
+## History publication
+
 ### Dialog
 
 ![Dialog](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Dialog.png)
-
-## History publication
 
 ### WaveProgressBar
 
