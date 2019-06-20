@@ -100,6 +100,8 @@
 	
         public static readonly string ButtonGroupDemoCtl = nameof(ButtonGroupDemoCtl);
 	
+        public static readonly string CardDemoCtl = nameof(CardDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string RepeatButtonDemoCtl = nameof(RepeatButtonDemoCtl);

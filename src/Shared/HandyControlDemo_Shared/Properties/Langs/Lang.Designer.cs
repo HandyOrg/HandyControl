@@ -205,6 +205,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 卡片 的本地化字符串。
+        /// </summary>
+        public static string Card {
+            get {
+                return ResourceManager.GetString("Card", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 轮播 的本地化字符串。
         /// </summary>
         public static string Carousel {

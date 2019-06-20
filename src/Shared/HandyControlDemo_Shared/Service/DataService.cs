@@ -145,6 +145,73 @@ namespace HandyControlDemo.Service
             };
         }
 
+        internal List<CardModel> GetCardDataList()
+        {
+            return new List<CardModel>
+            {
+                new CardModel
+                {
+                    Header = "Atomic",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/1.jpg",
+                    Footer = "Stive Morgan"
+                },
+                new CardModel
+                {
+                    Header = "Zinderlong",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/2.jpg",
+                    Footer = "Zonderling"
+                },
+                new CardModel
+                {
+                    Header = "Busy Doin' Nothin'",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/3.jpg",
+                    Footer = "Ace Wilder"
+                },
+                new CardModel
+                {
+                    Header = "Wrong",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/4.jpg",
+                    Footer = "Blaxy Girls"
+                },
+                new CardModel
+                {
+                    Header = "The Lights",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/5.jpg",
+                    Footer = "Panda Eyes"
+                },
+                new CardModel
+                {
+                    Header = "EA7-50-Cent Disco",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/6.jpg",
+                    Footer = "еяхат музыка"
+                },
+                new CardModel
+                {
+                    Header = "Monsters",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/7.jpg",
+                    Footer = "Different Heaven"
+                },
+                new CardModel
+                {
+                    Header = "Gangsta Walk",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/8.jpg",
+                    Footer = "Illusionize"
+                },
+                new CardModel
+                {
+                    Header = "Won't Back Down",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/9.jpg",
+                    Footer = "Boehm / Benjamin Francis Leftwich"
+                },
+                new CardModel
+                {
+                    Header = "Katchi",
+                    Content = "/HandyControlDemo;component/Resources/Img/Album/10.jpg",
+                    Footer = "Ofenbach / Nick Waterhouse"
+                }
+            };
+        }
+
         internal List<StepBarDemoModel> GetStepBarDemoDataList()
         {
             return new List<StepBarDemoModel>
