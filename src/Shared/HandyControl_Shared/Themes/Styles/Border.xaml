@@ -30,10 +30,22 @@
         <Setter Property="controls:BorderElement.Circular" Value="True"/>
     </Style>
 
-    <Style x:Key="BorderClip" BasedOn="{StaticResource BorderCircular}" TargetType="Border">
+    <Style x:Key="BorderClip" TargetType="Border">
         <Setter Property="Clip">
             <Setter.Value>
                 <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                    <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="CornerRadius" RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BorderCircularClip" BasedOn="{StaticResource BorderCircular}" TargetType="Border">
+        <Setter Property="Clip">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource BorderCircularClipConverter}">
                     <Binding Path="ActualWidth" RelativeSource="{RelativeSource Self}"/>
                     <Binding Path="ActualHeight" RelativeSource="{RelativeSource Self}"/>
                     <Binding Path="CornerRadius" RelativeSource="{RelativeSource Self}"/>

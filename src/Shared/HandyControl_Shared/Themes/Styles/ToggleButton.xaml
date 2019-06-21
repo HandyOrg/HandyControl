@@ -178,7 +178,7 @@
                     </ControlTemplate.Resources>
                     <Viewbox>
                         <controls:SimplePanel Height="28" Width="28">
-                            <Border Name="UnCheckedElement" Style="{StaticResource BorderClip}" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                            <Border Name="UnCheckedElement" Style="{StaticResource BorderCircularClip}" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                                 <Border.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleX="1"/>
@@ -186,7 +186,7 @@
                                 </Border.RenderTransform>
                                 <ContentPresenter Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             </Border>
-                            <Border Name="CheckedElement" Style="{StaticResource BorderClip}" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                            <Border Name="CheckedElement" Style="{StaticResource BorderCircularClip}" RenderTransformOrigin="0.5,0.5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                                 <Border.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform ScaleX="0"/>

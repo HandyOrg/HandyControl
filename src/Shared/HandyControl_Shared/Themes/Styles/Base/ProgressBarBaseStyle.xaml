@@ -109,7 +109,7 @@
                     <StackPanel>
                         <Border Style="{StaticResource BorderCircular}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                             <Viewbox>
-                                <Border x:Name="PART_Clip" Style="{StaticResource BorderClip}" CornerRadius="100" Width="200" Height="200">
+                                <Border x:Name="PART_Clip" Style="{StaticResource BorderCircularClip}" CornerRadius="100" Width="200" Height="200">
                                     <Path x:Name="PART_Wave" Stroke="{TemplateBinding WaveStroke}" StrokeThickness="{TemplateBinding WaveThickness}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Height="250" Fill="{TemplateBinding WaveFill}" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Margin="0,0,-400,-20">
                                         <Path.Data>
                                             <PathGeometry>

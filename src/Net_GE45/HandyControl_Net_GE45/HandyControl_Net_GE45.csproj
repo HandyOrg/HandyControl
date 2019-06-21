@@ -58,6 +58,7 @@
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <netVersion>netgt40</netVersion>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net45|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
