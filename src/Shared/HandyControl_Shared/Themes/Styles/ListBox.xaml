@@ -26,13 +26,13 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ListBoxCustom" TargetType="ListBox">
+    <Style x:Key="ListBoxCustom" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemCustom}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
     </Style>
 
     <ItemsPanelTemplate x:Key="WrapPanelHorizontalItemsPanelTemplate">
-        <WrapPanel FocusVisualStyle="{x:Null}"/>
+        <WrapPanel FocusVisualStyle="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </ItemsPanelTemplate>
 
     <Style x:Key="WrapPanelHorizontalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
@@ -40,7 +40,7 @@
     </Style>
 
     <ItemsPanelTemplate x:Key="WrapPanelVerticalItemsPanelTemplate">
-        <WrapPanel FocusVisualStyle="{x:Null}" Orientation="Vertical"/>
+        <WrapPanel FocusVisualStyle="{x:Null}" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </ItemsPanelTemplate>
 
     <Style x:Key="WrapPanelVerticalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
