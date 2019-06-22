@@ -72,7 +72,7 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Prev, ButtonPrev_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Next, ButtonNext_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Selected, ToggleButton_OnChecked));
-            this.Show(MaxPageCount > 1);
+           // this.Show(MaxPageCount > 1);
         }
 
         #region Public Properties
