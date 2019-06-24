@@ -87,7 +87,7 @@
                                     </TransformGroup>
                                 </ContentPresenter.RenderTransform>
                             </ContentPresenter>
-                            <ContentPresenter x:Name="CurrentContentPresentationSite" Content="{x:Null}" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <ContentPresenter x:Name="CurrentContentPresentationSite" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
                                 <ContentPresenter.RenderTransform>
                                     <TransformGroup>
                                         <ScaleTransform />
