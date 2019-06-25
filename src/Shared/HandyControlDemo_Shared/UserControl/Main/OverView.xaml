@@ -343,13 +343,13 @@
                     </hc:Transfer.ItemTemplate>
                 </hc:Transfer>
             </Border>
-            <Border Visibility="Collapsed" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="611" Canvas.Top="976">
+            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="611" Canvas.Top="976">
                 <userControl:CoverFlowDemoCtl Width="563" Margin="-32" Background="Transparent"/>
             </Border>
-            <Border Visibility="Collapsed" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1391" Canvas.Top="648" Width="274">
+            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1391" Canvas.Top="648" Width="274">
                 <userControl:ColorPickerDemoCtl Margin="-32" Background="Transparent"/>
             </Border>
-            <Border Visibility="Collapsed" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1113" Canvas.Top="608" Width="264" Height="126">
+            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1113" Canvas.Top="608" Width="264" Height="126">
                 <hc:TagPanel Orientation="Horizontal" MaxWidth="400" VerticalAlignment="Center">
                     <hc:Tag ShowCloseButton="False" Content="TextText"/>
                     <hc:Tag Content="Text"/>
