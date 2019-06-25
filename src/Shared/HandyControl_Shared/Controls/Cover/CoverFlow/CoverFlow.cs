@@ -204,7 +204,7 @@ namespace HandyControl.Controls
         /// <param name="pos"></param>
         private void Remove(int pos)
         {
-            var item = _itemShowList[pos];
+            if (!_itemShowList.TryGetValue(pos, out var item)) return;
             _visualParent.Children.Remove(item);
             _itemShowList.Remove(pos);
         }
@@ -308,10 +308,17 @@ namespace HandyControl.Controls
         {
             if (content is Uri uri)
             {
-                return new CoverFlowItem(index, PageIndex, new Image
+                try
                 {
-                    Source = BitmapFrame.Create(uri)
-                });
+                    return new CoverFlowItem(index, PageIndex, new Image
+                    {
+                        Source = BitmapFrame.Create(uri, BitmapCreateOptions.DelayCreation, BitmapCacheOption.OnDemand)
+                    });
+                }
+                catch
+                {
+                    return new CoverFlowItem(index, PageIndex, new ContentControl());
+                }
             }
 
             return new CoverFlowItem(index, PageIndex, new ContentControl
