@@ -1,28 +1,34 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Text;
-using System.Windows.Controls;
 using System.Windows.Data;
+using HandyControl.Expression.Drawing;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Tools.Converter
 {
-    public class Number2PercentageConverter : IValueConverter
+    public class Number2PercentageConverter : IMultiValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
-            string result = "";
-            if (value is ProgressBar element)
-            {
-                double result_double = element.Value * 100 / element.Maximum;
-                int result_int = (int)result_double;
-                if (result_double - result_int > 0) result = (element.Value * 100 / element.Maximum).ToString("f1");
-                else result = result_int.ToString();
-            }
-            return result;
+            if (values == null || values.Length != 2) return .0;
+
+            var obj1 = values[0];
+            var obj2 = values[1];
+
+            if (obj1 == null || obj2 == null) return .0;
+
+            var str1 = values[0].ToString();
+            var str2 = values[1].ToString();
+
+            var v1 = str1.Value<double>();
+            var v2 = str2.Value<double>();
+
+            if (MathHelper.IsVerySmall(v2)) return 100.0;
+
+            return v1 / v2 * 100;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

@@ -25,7 +25,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\NameReferenceConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\FrameworkElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />

@@ -16,6 +16,14 @@
     </LinearGradientBrush>
 
     <Style x:Key="ProgressBarBaseStyle" TargetType="ProgressBar">
+        <Setter Property="controls:VisualElement.Text">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource Number2PercentageConverter}" StringFormat="{}{0} %">
+                    <Binding Path="Value" RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="Maximum" RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Height" Value="20"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
@@ -33,7 +41,7 @@
                                     <Rectangle x:Name="PART_GlowRect" Fill="{StaticResource ProgressBarIndicatorAnimatedFill}" HorizontalAlignment="Left" Margin="-100,0,0,0" Width="100"/>
                                 </Border>
                             </Decorator>
-                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Converter={StaticResource Number2PercentageConverter},RelativeSource={RelativeSource TemplatedParent},StringFormat={}{0} %}"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Path=(controls:VisualElement.Text),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </controls:SimplePanel>
                     </controls:SimplePanel>
                 </ControlTemplate>
@@ -41,7 +49,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ProgressBarStripeBaseStyle" BasedOn="{StaticResource ProgressBarBaseStyle}" TargetType="ProgressBar">
+    <Style x:Key="ProgressBarStripeBaseStyle" TargetType="ProgressBar">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
