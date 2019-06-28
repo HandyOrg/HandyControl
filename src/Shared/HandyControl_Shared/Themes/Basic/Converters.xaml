@@ -18,5 +18,5 @@
     <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter"/>
     <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>
     <converter:Object2VisibilityConverter x:Key="Object2VisibilityConverter"/>
-
+    <converter:Number2PercentageConverter x:Key="Number2PercentageConverter"/>
 </ResourceDictionary>
