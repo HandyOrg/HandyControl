@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Input;
 using HandyControl.Data;
@@ -7,14 +10,17 @@ namespace HandyControl.Tools
 {
     public class GlobalShortcut
     {
+        private static ObservableCollection<KeyBinding> KeyBindingCollection;
+
         private static readonly Dictionary<string, KeyBinding> CommandDic = new Dictionary<string, KeyBinding>();
+
+        private static void KeyboardHook_KeyDown(object sender, KeyboardHookEventArgs e) => HitTest(e.Key);
 
         static GlobalShortcut()
         {
+
             KeyboardHook.KeyDown += KeyboardHook_KeyDown;
         }
-
-        private static void KeyboardHook_KeyDown(object sender, KeyboardHookEventArgs e) => HitTest(e.Key);
 
         private static void HitTest(Key key)
         {
@@ -45,21 +51,26 @@ namespace HandyControl.Tools
                    key == Key.RightCtrl || key == Key.RightAlt || key == Key.RightShift || key == Key.RWin;
         }
 
+        [Obsolete("pls use Host attach property instead of Init method")]
         public static void Init(DependencyObject host)
         {
             CommandDic.Clear();
 
             if (host == null) return;
 
-            var keyBindings = GetKeyBindings(host);
-            if (keyBindings == null || keyBindings.Count == 0) return;
+            KeyBindingCollection = GetKeyBindings(host);
+            if (KeyBindingCollection == null || KeyBindingCollection.Count == 0) return;
 
-            foreach (KeyBinding item in keyBindings)
+            AddKeyBindings(KeyBindingCollection);
+
+            KeyboardHook.Start();
+        }
+
+        private static void AddKeyBindings(IEnumerable<KeyBinding> keyBindings)
+        {
+            foreach (var item in keyBindings)
             {
-                if (item.Key == Key.None)
-                {
-                    continue;
-                }
+                if (item.Key == Key.None) continue;
 
                 if (item.Modifiers == ModifierKeys.None)
                 {
@@ -71,17 +82,45 @@ namespace HandyControl.Tools
                     CommandDic[keyStr] = item;
                 }
             }
+        }
 
+        public static readonly DependencyProperty HostProperty = DependencyProperty.RegisterAttached(
+            "Host", typeof(bool), typeof(GlobalShortcut), new PropertyMetadata(ValueBoxes.FalseBox, OnHostChanged));
+
+        private static void OnHostChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (DesignerHelper.IsInDesignMode) return;
+
+            if (KeyBindingCollection != null)
+            {
+                KeyBindingCollection.CollectionChanged -= KeyBindingCollection_CollectionChanged;
+            }
+            KeyBindingCollection = GetKeyBindings(d);
+            if (KeyBindingCollection != null)
+            {
+                KeyBindingCollection.CollectionChanged += KeyBindingCollection_CollectionChanged;
+            }
+        }
+
+        private static void KeyBindingCollection_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            AddKeyBindings(KeyBindingCollection);
             KeyboardHook.Start();
         }
 
-        public static readonly DependencyProperty KeyBindingsProperty = DependencyProperty.RegisterAttached(
-            "KeyBindings", typeof(InputBindingCollection), typeof(GlobalShortcut), new PropertyMetadata(new InputBindingCollection()));
+        public static void SetHost(DependencyObject element, bool value)
+            => element.SetValue(HostProperty, value);
 
-        public static void SetKeyBindings(DependencyObject element, InputBindingCollection value)
+        public static bool GetHost(DependencyObject element)
+            => (bool) element.GetValue(HostProperty);
+
+        public static readonly DependencyProperty KeyBindingsProperty = DependencyProperty.RegisterAttached(
+            "KeyBindings", typeof(ObservableCollection<KeyBinding>), typeof(GlobalShortcut), new PropertyMetadata(new ObservableCollection<KeyBinding>()));
+
+        public static void SetKeyBindings(DependencyObject element, ObservableCollection<KeyBinding> value)
             => element.SetValue(KeyBindingsProperty, value);
 
-        public static InputBindingCollection GetKeyBindings(DependencyObject element)
-            => (InputBindingCollection) element.GetValue(KeyBindingsProperty);
+        public static ObservableCollection<KeyBinding> GetKeyBindings(DependencyObject element)
+            => (ObservableCollection<KeyBinding>) element.GetValue(KeyBindingsProperty);
     }
 }
