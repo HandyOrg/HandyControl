@@ -40,7 +40,7 @@
                                     <ColumnDefinition/>
                                     <ColumnDefinition Width="Auto"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Name="PART_TitleBlock" Background="Transparent" Padding="10,6" Foreground="White" Text="{TemplateBinding Title}" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
+                                <TextBlock Name="PART_TitleBlock" Background="Transparent" Padding="{StaticResource DefaultControlPadding}" Foreground="White" Text="{TemplateBinding Title}" VerticalAlignment="Center" TextWrapping="Wrap" TextTrimming="WordEllipsis"/>
                                 <Button Margin="0,0,1,0" Background="Transparent" Name="CloseButton" Foreground="White" Grid.Column="1" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="Red" Command="interactivity:ControlCommands.Close" IsCancel="True" Height="28" Style="{StaticResource ButtonCustom}" Width="44" Padding="9">
                                     <Path Fill="{Binding ElementName=CloseButton,Path=Foreground}" Style="{StaticResource ClosePathStyle}"/>
                                 </Button>

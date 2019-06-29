@@ -13,8 +13,8 @@
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="Margin" Value="0"/>
-        <Setter Property="Padding" Value="10,6"/>
-        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
+        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Template">
@@ -139,7 +139,7 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="0"/>
-        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Padding" Value="10,0"/>
         <Setter Property="Margin" Value="-1,0,0,0"/>
         <Setter Property="Template">

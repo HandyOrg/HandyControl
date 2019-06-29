@@ -34,8 +34,8 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    BindingOperations.ClearBinding(border, FrameworkElement.MinWidthProperty);
-                    BindingOperations.ClearBinding(border, FrameworkElement.MinHeightProperty);
+                    BindingOperations.ClearBinding(border, FrameworkElement.ActualWidthProperty);
+                    BindingOperations.ClearBinding(border, FrameworkElement.ActualHeightProperty);
                     BindingOperations.ClearBinding(border, Border.CornerRadiusProperty);
                 }
             }

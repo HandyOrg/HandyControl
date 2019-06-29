@@ -249,7 +249,7 @@
     </Style>
 
     <Style x:Key="TabItemCapsuleSingle" BasedOn="{StaticResource TabItemCapsuleBaseStyle}" TargetType="TabItem">
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
     </Style>
 
     <Style x:Key="TabItemCapsuleVerticalFirst" BasedOn="{StaticResource TabItemCapsuleBaseStyle}" TargetType="TabItem">

@@ -16,7 +16,7 @@
         <Setter Property="Padding" Value="{StaticResource DefaultInputPadding}"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">

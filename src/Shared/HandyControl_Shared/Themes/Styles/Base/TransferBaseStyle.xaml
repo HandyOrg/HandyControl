@@ -86,7 +86,7 @@
     <Style x:Key="TransferBaseStyle" TargetType="controls:Transfer">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource TransferItemBaseStyle}"/>
         <Setter Property="Template">

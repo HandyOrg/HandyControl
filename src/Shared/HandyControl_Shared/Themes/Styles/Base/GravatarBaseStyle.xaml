@@ -2,12 +2,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
     <Style x:Key="GravatarBaseStyle" TargetType="controls:Gravatar">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Width" Value="72"/>
         <Setter Property="Height" Value="72"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="Template">
             <Setter.Value>

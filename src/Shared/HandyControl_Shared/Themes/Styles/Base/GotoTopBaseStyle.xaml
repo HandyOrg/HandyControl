@@ -5,6 +5,7 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../Button.xaml"/>
+        <ResourceDictionary Source="../Rectangle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="GotoTopBaseStyle" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="controls:GotoTop">
@@ -21,7 +22,7 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="25" RadiusY="25"/>
+                                <Rectangle Style="{StaticResource RectangleFocusVisualCircular}"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>

@@ -2,6 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
     <ControlTemplate x:Key="GroupBoxBaseTopTemplate" TargetType="GroupBox">
         <Grid>
             <Grid.RowDefinitions>
@@ -44,7 +48,7 @@
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="controls:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="controls:TitleElement.TitleAlignment" Value="Top"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="BorderThickness" Value="0"/>
