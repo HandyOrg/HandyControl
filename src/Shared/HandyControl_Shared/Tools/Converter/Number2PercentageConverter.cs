@@ -7,22 +7,21 @@ using System.Windows.Data;
 
 namespace HandyControl.Tools.Converter
 {
-    public class Number2PercentageConverter : IValueConverter
+
+    public class Number2PercentageConverter : IMultiValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
             string result = "";
-            if (value is ProgressBar element)
+            if (values.Length == 2)
             {
-                double result_double = element.Value * 100 / element.Maximum;
-                int result_int = (int)result_double;
-                if (result_double - result_int > 0) result = (element.Value * 100 / element.Maximum).ToString("f1");
-                else result = result_int.ToString();
+                var result_double = int.Parse(values[1].ToString()) * 100 / int.Parse(values[0].ToString());
+                return result_double.ToString(result_double - (int)result_double > 0 ? "f1" : "f0");
             }
             return result;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

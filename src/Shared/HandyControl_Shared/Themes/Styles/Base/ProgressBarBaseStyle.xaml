@@ -33,7 +33,14 @@
                                     <Rectangle x:Name="PART_GlowRect" Fill="{StaticResource ProgressBarIndicatorAnimatedFill}" HorizontalAlignment="Left" Margin="-100,0,0,0" Width="100"/>
                                 </Border>
                             </Decorator>
-                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Converter={StaticResource Number2PercentageConverter},RelativeSource={RelativeSource TemplatedParent},StringFormat={}{0} %}"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}">
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource Number2PercentageConverter}" StringFormat="{}{0} %">
+                                        <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Maximum" />
+                                        <Binding RelativeSource="{RelativeSource Mode=TemplatedParent}" Path="Value"   />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
                         </controls:SimplePanel>
                     </controls:SimplePanel>
                 </ControlTemplate>
