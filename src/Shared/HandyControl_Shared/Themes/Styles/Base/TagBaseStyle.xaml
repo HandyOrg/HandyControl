@@ -7,25 +7,26 @@
         <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
         <ResourceDictionary Source="../Button.xaml"/>
+        <ResourceDictionary Source="../Border.xaml"/>
+        <ResourceDictionary Source="../Rectangle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="TagBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:Tag">
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="15"/>
-        <Setter Property="Padding" Value="10,6"/>
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="Height" Value="30"/>
+        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="FocusVisualStyle">
             <Setter.Value>
                 <Style>
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="15" RadiusY="15"/>
+                                <Rectangle Style="{StaticResource RectangleFocusVisualCircular}"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
@@ -35,7 +36,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Tag">
-                    <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                    <Border Style="{StaticResource BorderCircular}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
@@ -68,10 +69,9 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="AddTagButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonIcon}">
+    <Style x:Key="AddTagButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonIconCircular}">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="controls:IconElement.Geometry" Value="{StaticResource AddGeometry}"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="15"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="FocusVisualStyle">
@@ -80,7 +80,7 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="15" RadiusY="15"/>
+                                <Rectangle Style="{StaticResource RectangleFocusVisualCircular}"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>

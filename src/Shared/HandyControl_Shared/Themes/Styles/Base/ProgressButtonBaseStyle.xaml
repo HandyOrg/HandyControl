@@ -10,7 +10,7 @@
 
     <Style x:Key="ProgressBarFlat4ProgressButton" TargetType="ProgressBar">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Foreground" Value="{DynamicResource DarkMaskBrush}"/>
         <Setter Property="Template">
             <Setter.Value>

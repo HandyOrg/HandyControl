@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Basic/Sizes.xaml"/>
         <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
@@ -59,7 +60,7 @@
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="true"/>
         <Setter Property="Margin" Value="0,0,0,4"/>
-        <Setter Property="Padding" Value="8,6"/>
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
         <Setter Property="MinHeight" Value="44"/>
         <Setter Property="Template">
             <Setter.Value>

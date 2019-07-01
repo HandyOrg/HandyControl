@@ -5,6 +5,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="Rectangle.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
@@ -78,7 +79,7 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="16" RadiusY="16"/>
+                                <Rectangle Style="{StaticResource RectangleFocusVisualCircular}"/>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
