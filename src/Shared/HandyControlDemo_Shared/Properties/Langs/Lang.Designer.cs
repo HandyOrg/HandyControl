@@ -1132,7 +1132,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 推荐 的本地化字符串。
+        ///   查找类似 群友推荐 的本地化字符串。
         /// </summary>
         public static string Recommendation {
             get {
