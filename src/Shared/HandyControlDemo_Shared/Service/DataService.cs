@@ -116,6 +116,18 @@ namespace HandyControlDemo.Service
                     DisplayName = "吕毅",
                     AvatarUri = "https://avatars2.githubusercontent.com/u/9959623?s=400&v=4",
                     Link = "https://blog.walterlv.com/"
+                },
+                new AvatarModel
+                {
+                    DisplayName = "DinoChan",
+                    AvatarUri = "https://avatars1.githubusercontent.com/u/6076257?s=400&v=4",
+                    Link = "https://www.cnblogs.com/dino623/"
+                },
+                new AvatarModel
+                {
+                    DisplayName = "noctwolf",
+                    AvatarUri = "https://avatars3.githubusercontent.com/u/21022467?s=400&v=4",
+                    Link = "https://www.cnblogs.com/noctwolf/"
                 }
             };
         }
