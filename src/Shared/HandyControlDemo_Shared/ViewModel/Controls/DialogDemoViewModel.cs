@@ -9,6 +9,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 #endif
 using HandyControl.Controls;
 using HandyControl.Tools.Extension;
+using HandyControlDemo.Data;
 using HandyControlDemo.UserControl;
 using HandyControlDemo.ViewModel.Basic;
 using HandyControlDemo.Window;
@@ -51,7 +52,7 @@ namespace HandyControlDemo.ViewModel
             }
             else
             {
-                Dialog.Show<TextDialogWithTimer>().GetResultAsync<string>();
+                Dialog.Show<TextDialogWithTimer>(MessageToken.MainWindow).GetResultAsync<string>();
             }
         }
 #else
@@ -68,7 +69,7 @@ namespace HandyControlDemo.ViewModel
             }
             else
             {
-                await Dialog.Show<TextDialogWithTimer>().GetResultAsync<string>();
+                await Dialog.Show<TextDialogWithTimer>(MessageToken.MainWindow).GetResultAsync<string>();
             }
         }
 #endif

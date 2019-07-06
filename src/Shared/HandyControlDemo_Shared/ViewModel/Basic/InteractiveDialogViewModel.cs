@@ -6,13 +6,12 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.CommandWpf;       
 #endif
 using HandyControl.Tools.Extension;
-using HandyControlDemo.Data;
 
 namespace HandyControlDemo.ViewModel.Basic
 {
     public class InteractiveDialogViewModel : ViewModelBase, IDialogResultable<string>
     {
-        public Action<string> CloseAction { get; set; }
+        public Action CloseAction { get; set; }
 
         private string _result;
 
@@ -38,6 +37,6 @@ namespace HandyControlDemo.ViewModel.Basic
 #endif
         }
 
-        public RelayCommand CloseCmd => new Lazy<RelayCommand>(() => new RelayCommand(() => CloseAction?.Invoke(MessageToken.MainWindow))).Value;
+        public RelayCommand CloseCmd => new Lazy<RelayCommand>(() => new RelayCommand(() => CloseAction?.Invoke())).Value;
     }
 }

@@ -12,6 +12,8 @@ namespace HandyControl.Controls
 {
     public class Dialog : ContentControl
     {
+        private string _token;
+
         private Adorner _container;
 
         private static readonly Dictionary<string, System.Windows.Window> WindowDic = new Dictionary<string, System.Windows.Window>();
@@ -99,6 +101,7 @@ namespace HandyControl.Controls
         {
             var dialog = new Dialog
             {
+                _token = token,
                 Content = content
             };
 
@@ -139,18 +142,15 @@ namespace HandyControl.Controls
             return dialog;
         }
 
-        public void Close(string token = "")
+        public void Close()
         {
-            if (!string.IsNullOrEmpty(token))
-            {
-                if (WindowDic.TryGetValue(token, out var window))
-                {
-                    Close(window);
-                }
-            }
-            else
+            if (string.IsNullOrEmpty(_token))
             {
                 Close(VisualHelper.GetActiveWindow());
+            }
+            else if (WindowDic.TryGetValue(_token, out var window))
+            {
+                Close(window);
             }
         }
 
