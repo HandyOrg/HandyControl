@@ -1411,6 +1411,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 文本对话框，带计时器 的本地化字符串。
+        /// </summary>
+        public static string TextDialogWithTimer {
+            get {
+                return ResourceManager.GetString("TextDialogWithTimer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 时间条 的本地化字符串。
         /// </summary>
         public static string TimeBar {

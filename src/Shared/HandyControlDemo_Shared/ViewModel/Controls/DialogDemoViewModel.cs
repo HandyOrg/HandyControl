@@ -10,7 +10,6 @@ using GalaSoft.MvvmLight.CommandWpf;
 using HandyControl.Controls;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.UserControl;
-using HandyControlDemo.UserControl.Basic;
 using HandyControlDemo.ViewModel.Basic;
 using HandyControlDemo.Window;
 
@@ -39,24 +38,38 @@ namespace HandyControlDemo.ViewModel
         }
 
 #if netle40
-        public RelayCommand ShowInteractiveDialogCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(ShowInteractiveDialog)).Value;
+        public RelayCommand<bool> ShowInteractiveDialogCmd => new Lazy<RelayCommand<bool>>(() =>
+            new RelayCommand<bool>(ShowInteractiveDialog)).Value;
 
-        private void ShowInteractiveDialog()
+        private void ShowInteractiveDialog(bool withTimer)
         {
-            Dialog.Show<InteractiveDialog>()
-                .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
-                .GetResultAsync<string>().ContinueWith(str => DialogResult = str.Result);
+            if (!withTimer)
+            {
+                Dialog.Show<InteractiveDialog>()
+                    .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
+                    .GetResultAsync<string>().ContinueWith(str => DialogResult = str.Result);
+            }
+            else
+            {
+                Dialog.Show<TextDialogWithTimer>().GetResultAsync<string>();
+            }
         }
 #else
-        public RelayCommand ShowInteractiveDialogCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(async () => await ShowInteractiveDialog())).Value;
+        public RelayCommand<bool> ShowInteractiveDialogCmd => new Lazy<RelayCommand<bool>>(() =>
+            new RelayCommand<bool>(async withTimer => await ShowInteractiveDialog(withTimer))).Value;
 
-        private async Task ShowInteractiveDialog()
+        private async Task ShowInteractiveDialog(bool withTimer)
         {
-            DialogResult = await Dialog.Show<InteractiveDialog>()
-                .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
-                .GetResultAsync<string>();
+            if (!withTimer)
+            {
+                DialogResult = await Dialog.Show<InteractiveDialog>()
+                    .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
+                    .GetResultAsync<string>();
+            }
+            else
+            {
+                await Dialog.Show<TextDialogWithTimer>().GetResultAsync<string>();
+            }
         }
 #endif
 
