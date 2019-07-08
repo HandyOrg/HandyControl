@@ -37,7 +37,7 @@
                 </Grid.ColumnDefinitions>
                 <ToggleButton Name="ToggleButtonAudio" hc:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" Margin="6" hc:IconSwitchElement.Geometry="{StaticResource AudioGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource KeyboardGeometry}" Style="{StaticResource ToggleButtonIcon}"/>
                 <Button Command="{Binding OpenImageCmd}" Grid.Column="2" Margin="6,0,6,0" hc:BorderElement.CornerRadius="15" Width="30" Height="30" Padding="7" hc:IconElement.Geometry="{StaticResource ImageGeometry}"/>
-                <TextBox Grid.Column="1" Text="{Binding ChatString,UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudio,Converter={StaticResource Boolean2VisibilityReConverter}}">
+                <TextBox VerticalAlignment="Center" Grid.Column="1" Text="{Binding ChatString,UpdateSourceTrigger=PropertyChanged}" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudio,Converter={StaticResource Boolean2VisibilityReConverter}}">
                     <hc:Interaction.Triggers>
                         <hc:EventTrigger EventName="KeyDown">
                             <hc:EventToCommand Command="{Binding SendStringCmd}" PassEventArgsToCommand="True" />

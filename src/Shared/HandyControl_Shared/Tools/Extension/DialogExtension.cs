@@ -9,7 +9,7 @@ namespace HandyControl.Tools.Extension
     {
         T Result { get; set; }
 
-        Action<string> CloseAction { get; set; }
+        Action CloseAction { get; set; }
     }
 
     public static class DialogExtension

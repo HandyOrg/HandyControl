@@ -624,4 +624,7 @@
   <data name="Card" xml:space="preserve">
     <value>卡片</value>
   </data>
+  <data name="TextDialogWithTimer" xml:space="preserve">
+    <value>文本对话框，带计时器</value>
+  </data>
 </root>

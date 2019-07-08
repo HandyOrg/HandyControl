@@ -9,6 +9,7 @@
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center">
             <Button Content="{x:Static langs:Lang.TextDialog}" Command="{Binding ShowTextCmd}" />
+            <Button Margin="0,32,0,0" Content="{x:Static langs:Lang.TextDialogWithTimer}" Command="{Binding ShowInteractiveDialogCmd}" CommandParameter="True"/>
             <TextBox Margin="0,32,0,0" Text="{Binding DialogResult,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxExtend}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PleaseInput}"/>
             <Button Margin="0,10,0,0" Content="{x:Static langs:Lang.InteractiveDialog}" Command="{Binding ShowInteractiveDialogCmd}"/>
             <Button Margin="0,32,0,0" Content="{x:Static langs:Lang.NewWindow}" Command="{Binding NewWindowCmd}"/>
