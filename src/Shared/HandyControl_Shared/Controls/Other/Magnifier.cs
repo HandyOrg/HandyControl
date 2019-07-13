@@ -1,10 +1,11 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Interactivity;
+using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
@@ -14,13 +15,33 @@ namespace HandyControl.Controls
     {
         private Size _viewboxSize;
 
-        private Adorner _adorner;
+        private AdornerContainer _adorner;
 
         private UIElement _elementTarget;
 
         private const string ElementVisualBrush = "PART_VisualBrush";
 
         private VisualBrush _visualBrush = new VisualBrush();
+
+        private readonly TranslateTransform _translateTransform;
+
+        public static readonly DependencyProperty HorizontalOffsetProperty = DependencyProperty.Register(
+            "HorizontalOffset", typeof(double), typeof(Magnifier), new PropertyMetadata(ValueBoxes.Double0Box));
+
+        public double HorizontalOffset
+        {
+            get => (double) GetValue(HorizontalOffsetProperty);
+            set => SetValue(HorizontalOffsetProperty, value);
+        }
+
+        public static readonly DependencyProperty VerticalOffsetProperty = DependencyProperty.Register(
+            "VerticalOffset", typeof(double), typeof(Magnifier), new PropertyMetadata(ValueBoxes.Double0Box));
+
+        public double VerticalOffset
+        {
+            get => (double) GetValue(VerticalOffsetProperty);
+            set => SetValue(VerticalOffsetProperty, value);
+        }
 
         public static readonly DependencyProperty InstanceProperty = DependencyProperty.RegisterAttached(
             "Instance", typeof(Magnifier), typeof(Magnifier), new PropertyMetadata(default(Magnifier), OnMagnifierChanged));
@@ -37,6 +58,8 @@ namespace HandyControl.Controls
 
         public static Magnifier GetInstance(DependencyObject element)
             => (Magnifier) element.GetValue(InstanceProperty);
+
+        public static Magnifier Default => new Magnifier();
 
         internal static readonly DependencyProperty TargetProperty = DependencyProperty.Register(
             "Target", typeof(UIElement), typeof(Magnifier), new PropertyMetadata(default(UIElement), OnTargetChanged));
@@ -55,7 +78,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(
-            "Scale", typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged));
+            "Scale", typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged), ValidateHelper.IsInRangeOfPosDouble);
 
         private static void OnScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((Magnifier)d).UpdateViewboxSize();
 
@@ -63,6 +86,12 @@ namespace HandyControl.Controls
         {
             get => (double)GetValue(ScaleProperty);
             set => SetValue(ScaleProperty, value);
+        }
+
+        public Magnifier()
+        {
+            _translateTransform = new TranslateTransform();
+            RenderTransform = _translateTransform;
         }
 
         public override void OnApplyTemplate()
@@ -102,25 +131,30 @@ namespace HandyControl.Controls
             }
         }
 
-        private void UpdateLocation(Point adornerPoint)
+        private void UpdateLocation()
         {
             var targetPoint = Mouse.GetPosition(Target);
-
             var subX = targetPoint.X - _visualBrush.Viewbox.Width / 2;
             var subY = targetPoint.Y - _visualBrush.Viewbox.Height / 2;
 
-            _visualBrush.Viewbox = new Rect(new Point(subX, subY), _viewboxSize);
+            var targetVector = VisualTreeHelper.GetOffset(Target);
+            _visualBrush.Viewbox = new Rect(new Point(subX + targetVector.X, subY + targetVector.Y), _viewboxSize);
 
-            var x = adornerPoint.X - ActualWidth / 2;
-            var y = adornerPoint.Y - ActualHeight / 2;
-            Arrange(new Rect(x, y, ActualWidth, ActualHeight));
-
-            Console.WriteLine(new Rect(x, y, ActualWidth, ActualHeight));
+            var adornerPoint = Mouse.GetPosition(_adorner);
+            _translateTransform.X = adornerPoint.X + HorizontalOffset;
+            _translateTransform.Y = adornerPoint.Y + VerticalOffset;
         }
 
-        private void Element_MouseMove(object sender, MouseEventArgs e) => UpdateLocation(Mouse.GetPosition(_adorner));
+        private void Element_MouseMove(object sender, MouseEventArgs e) => UpdateLocation();
 
-        private void Element_MouseLeave(object sender, MouseEventArgs e) => _adorner?.Collapse();
+        private void Element_MouseLeave(object sender, MouseEventArgs e)
+        {
+            var layer = AdornerLayer.GetAdornerLayer(Target);
+            if (layer == null) return;
+            layer.Remove(_adorner);
+            _adorner.Child = null;
+            _adorner = null;
+        }
 
         private void Element_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -134,9 +168,7 @@ namespace HandyControl.Controls
                 };
                 layer.Add(_adorner);
             }
-
-            _adorner.Show();
-            UpdateLocation(Mouse.GetPosition(_adorner));
+            this.Show();
         }
     }
 }

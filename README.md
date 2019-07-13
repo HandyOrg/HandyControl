@@ -63,6 +63,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### Magnifier
+
+![Magnifier](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Magnifier.png)
+
 ### Card
 
 ![Card](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Card.png)
@@ -79,11 +83,11 @@ Step 4：enjoy coding
 
 ![SideMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SideMenu.png)
 
+## History publication
+
 ### NotifyIcon
 
 ![NotifyIcon](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/NotifyIcon.png)
-
-## History publication
 
 ### Dialog
 

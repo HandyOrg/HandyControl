@@ -8,6 +8,8 @@
 
     <Style x:Key="MagnifierBaseStyle" TargetType="controls:Magnifier">
         <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Width" Value="180"/>
         <Setter Property="Height" Value="180"/>
         <Setter Property="BorderThickness" Value="8"/>
