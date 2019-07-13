@@ -17,6 +17,13 @@ namespace HandyControl.Interactivity
             get => _child;
             set
             {
+                if (value == null)
+                {
+                    RemoveVisualChild(_child);
+                    // ReSharper disable once ExpressionIsAlwaysNull
+                    _child = value;
+                    return;
+                }
                 AddVisualChild(value);
                 _child = value;
             }

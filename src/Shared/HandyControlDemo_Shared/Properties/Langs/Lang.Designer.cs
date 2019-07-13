@@ -772,6 +772,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 放大镜 的本地化字符串。
+        /// </summary>
+        public static string Magnifier {
+            get {
+                return ResourceManager.GetString("Magnifier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 菜单 的本地化字符串。
         /// </summary>
         public static string Menu {
