@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/MenuBaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="MenuItem"/>
+
+    <Style BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu"/>
+
+</ResourceDictionary>

@@ -158,6 +158,12 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
+    <Style x:Key="ScrollViewerNativeBaseStyle" TargetType="ScrollViewer">
+        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template" Value="{StaticResource ScrollViewerNativeBaseControlTemplate}"/>
+    </Style>
+
     <ControlTemplate x:Key="ScrollViewerBaseControlTemplate" TargetType="controls:ScrollViewer">
         <ControlTemplate.Resources>
             <Storyboard x:Key="Storyboard1">
@@ -199,12 +205,6 @@
             </EventTrigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-
-    <Style x:Key="ScrollViewerNativeBaseStyle" TargetType="ScrollViewer">
-        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Template" Value="{StaticResource ScrollViewerNativeBaseControlTemplate}"/>
-    </Style>
     
     <Style x:Key="ScrollViewerBaseStyle" TargetType="controls:ScrollViewer">
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>

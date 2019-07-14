@@ -4,12 +4,6 @@
         <ResourceDictionary Source="Base/ContextMenuBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!--默认普通菜单-->
     <Style BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="ContextMenu"/>
-
-    <!--默认普通菜单项-->
-    <Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="MenuItem"/>
-
-    <Style BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu"/>
 
 </ResourceDictionary>
