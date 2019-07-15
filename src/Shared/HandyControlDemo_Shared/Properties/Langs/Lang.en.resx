@@ -627,4 +627,7 @@
   <data name="TextDialogWithTimer" xml:space="preserve">
     <value>TextDialog with timer</value>
   </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>Magnifier</value>
+  </data>
 </root>

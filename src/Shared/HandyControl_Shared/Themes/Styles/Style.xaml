@@ -18,6 +18,7 @@
         <ResourceDictionary Source="TabControl.xaml"/>
         <ResourceDictionary Source="ListBox.xaml"/>
         <ResourceDictionary Source="Loading.xaml"/>
+        <ResourceDictionary Source="Menu.xaml"/>
         <ResourceDictionary Source="ContextMenu.xaml"/>
         <ResourceDictionary Source="ToolTip.xaml"/>
         <ResourceDictionary Source="Expander.xaml"/>
@@ -67,6 +68,7 @@
         <ResourceDictionary Source="Col.xaml"/>
         <ResourceDictionary Source="Card.xaml"/>
         <ResourceDictionary Source="Rectangle.xaml"/>
+        <ResourceDictionary Source="Magnifier.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -627,4 +627,7 @@
   <data name="TextDialogWithTimer" xml:space="preserve">
     <value>文本对话框，带计时器</value>
   </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>放大镜</value>
+  </data>
 </root>

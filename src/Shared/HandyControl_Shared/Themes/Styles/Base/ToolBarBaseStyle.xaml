@@ -9,7 +9,7 @@
         <ResourceDictionary Source="../RadioButton.xaml"/>
         <ResourceDictionary Source="../ComboBox.xaml"/>
         <ResourceDictionary Source="../TextBox.xaml"/>
-        <ResourceDictionary Source="../ContextMenu.xaml"/>
+        <ResourceDictionary Source="../Menu.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="{x:Static ToolBar.SeparatorStyleKey}" TargetType="Separator">

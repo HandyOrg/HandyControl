@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.MagnifierDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
+        <WrapPanel Margin="16">
+            <Image Margin="16" hc:Magnifier.Instance="{x:Static hc:Magnifier.Default}" Source="/HandyControlDemo;component/Resources/Img/b1.jpg" Stretch="None"/>
+
+            <Image Margin="16" Source="/HandyControlDemo;component/Resources/Img/b1.jpg" Stretch="None">
+                <hc:Magnifier.Instance>
+                    <hc:Magnifier Scale="6" HorizontalOffset="-16" VerticalOffset="-16"/>
+                </hc:Magnifier.Instance>
+            </Image>
+        </WrapPanel>
+    </hc:TransitioningContentControl>
+</UserControl>
