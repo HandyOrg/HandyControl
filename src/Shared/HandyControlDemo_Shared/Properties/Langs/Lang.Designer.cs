@@ -691,6 +691,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 图片块 的本地化字符串。
+        /// </summary>
+        public static string ImageBlock {
+            get {
+                return ResourceManager.GetString("ImageBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 图片浏览器 的本地化字符串。
         /// </summary>
         public static string ImageBrowser {

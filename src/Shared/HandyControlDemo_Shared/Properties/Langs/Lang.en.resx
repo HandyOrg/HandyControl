@@ -630,4 +630,7 @@
   <data name="Magnifier" xml:space="preserve">
     <value>Magnifier</value>
   </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>ImageBlock</value>
+  </data>
 </root>

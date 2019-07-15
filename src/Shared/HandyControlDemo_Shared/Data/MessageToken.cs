@@ -104,6 +104,8 @@
 	
         public static readonly string MagnifierDemoCtl = nameof(MagnifierDemoCtl);
 	
+        public static readonly string ImageBlockDemoCtl = nameof(ImageBlockDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string RepeatButtonDemoCtl = nameof(RepeatButtonDemoCtl);

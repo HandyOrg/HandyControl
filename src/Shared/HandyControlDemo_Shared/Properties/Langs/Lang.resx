@@ -630,4 +630,7 @@
   <data name="Magnifier" xml:space="preserve">
     <value>放大镜</value>
   </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>图片块</value>
+  </data>
 </root>
