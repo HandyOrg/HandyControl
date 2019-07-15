@@ -24,7 +24,7 @@
             <Path Height="16" Fill="White" Stretch="Uniform" Data="{StaticResource LogoGeometry}"/>
         </Button>
         <Menu Margin="10,0,0,0" Background="Transparent">
-            <MenuItem Foreground="White" Header="{x:Static langs:Lang.Repository}">
+            <MenuItem Height="29" Foreground="White" Header="{x:Static langs:Lang.Repository}">
                 <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://github.com/NaBian/HandyControl" Header="GitHub">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource GithubGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
@@ -36,7 +36,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Foreground="White" Header="{x:Static langs:Lang.About}">
+            <MenuItem Height="29" Foreground="White" Header="{x:Static langs:Lang.About}">
                 <MenuItem Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.ContributorsView}" Header="{x:Static langs:Lang.Contributors}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource ContributorsGeometry}" Fill="#ef6c00"/>
@@ -68,7 +68,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Foreground="White" Header="{x:Static langs:Lang.Recommendation}">
+            <MenuItem Height="29" Foreground="White" Header="{x:Static langs:Lang.Recommendation}">
                 <MenuItem Header="{x:Static langs:Lang.Project}" Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.ProjectsView}" >
                     <MenuItem.Icon>
                         <Path Data="{StaticResource ProjectGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
