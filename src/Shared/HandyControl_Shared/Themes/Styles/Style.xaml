@@ -69,6 +69,7 @@
         <ResourceDictionary Source="Card.xaml"/>
         <ResourceDictionary Source="Rectangle.xaml"/>
         <ResourceDictionary Source="Magnifier.xaml"/>
+        <ResourceDictionary Source="ToggleBlock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -8,18 +8,18 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="MenuItemBaseStyle" TargetType="MenuItem">
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
         <Setter Property="OverridesDefaultStyle" Value="True"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="MinHeight" Value="32"/>
         <Setter Property="controls:ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="MenuItem">
-                    <Border x:Name="Bd" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Uid="Border_38">
-                        <Grid x:Name="Grid" Uid="Grid_49">
+                    <Border x:Name="Bd" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                        <Grid x:Name="Grid" Margin="{TemplateBinding Padding}">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="26"/>
                                 <ColumnDefinition Width="*"/>
@@ -27,12 +27,12 @@
                                 <ColumnDefinition SharedSizeGroup="MenuItemIGTColumnGroup" Width="Auto"/>
                                 <ColumnDefinition Width="20"/>
                             </Grid.ColumnDefinitions>
-                            <ContentPresenter x:Name="Icon" Content="{TemplateBinding Icon}" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
-                            <Border Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
-                                <Path x:Name="Glyph" Margin="2" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Fill="White" FlowDirection="LeftToRight"/>
+                            <ContentPresenter Margin="0,0,10,0" x:Name="Icon" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
+                            <Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
+                                <Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
                             </Border>
-                            <ContentPresenter Grid.Column="1" x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" ContentSource="Header" Margin="10" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Uid="ContentPresenter_33"/>
-                            <TextBlock x:Name="InputGestureText" Margin="0,0,10,0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{TemplateBinding InputGestureText}" Uid="TextBlock_10"/>
+                            <ContentPresenter Grid.Column="1" x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentSource="Header" Margin="0,3" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <TextBlock x:Name="InputGestureText" Margin="0,0,10,0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{TemplateBinding InputGestureText}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -49,21 +49,20 @@
         <Style.Triggers>
             <Trigger Property="Role" Value="TopLevelHeader">
                 <Setter Property="Margin" Value="0"/>
-                <Setter Property="Padding" Value="10,0"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="MenuItem">
-                            <Border MinWidth="44" Height="{TemplateBinding Height}" x:Name="templateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                                <Grid VerticalAlignment="Center">
+                            <Border MinWidth="44" x:Name="templateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <Grid VerticalAlignment="Center" Margin="{TemplateBinding Padding}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
-                                    <ContentPresenter x:Name="Icon" Visibility="Collapsed" Content="{TemplateBinding Icon}" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
-                                    <Border Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
-                                        <Path x:Name="Glyph" Margin="2" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Fill="White" FlowDirection="LeftToRight"/>
+                                    <ContentPresenter Margin="0,0,10,0" x:Name="Icon" Visibility="Collapsed" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
+                                    <Border Margin="0,0,10,0" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
+                                        <Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
                                     </Border>
-                                    <ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    <ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                     <Popup Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=templateRoot}" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom">
                                         <controls:SimplePanel>
                                             <Border CornerRadius="0,0,2,2" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
@@ -100,21 +99,20 @@
             </Trigger>
             <Trigger Property="Role" Value="TopLevelItem">
                 <Setter Property="Margin" Value="0"/>
-                <Setter Property="Padding" Value="10,0"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="MenuItem">
-                            <Border Padding="{TemplateBinding Padding}" x:Name="templateRoot" Height="{TemplateBinding Height}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                                <Grid>
+                            <Border x:Name="templateRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1,1,1,0" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <Grid Margin="{TemplateBinding Padding}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <ContentPresenter x:Name="Icon" Visibility="Collapsed" HorizontalAlignment="Left" Content="{TemplateBinding Icon}" ContentSource="Icon" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
-                                    <Border Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
-                                        <Path x:Name="Glyph" Margin="2" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Fill="White" FlowDirection="LeftToRight"/>
+                                    <ContentPresenter Margin="0,0,10,0" x:Name="Icon" Visibility="Collapsed" HorizontalAlignment="Left" ContentSource="Icon" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
+                                    <Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
+                                        <Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
                                     </Border>
-                                    <ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" HorizontalAlignment="Left" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                                    <ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" HorizontalAlignment="Left" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
                                 </Grid>
                             </Border>
                             <ControlTemplate.Triggers>
@@ -148,13 +146,12 @@
             </Trigger>
             <Trigger Property="Role" Value="SubmenuHeader">
                 <Setter Property="DockPanel.Dock" Value="Top"/>
-                <Setter Property="Padding" Value="0"/>
                 <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="MenuItem">
-                            <Border x:Name="Bd" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" Uid="Border_42">
-                                <Grid x:Name="Grid" Uid="Grid_50">
+                            <Border x:Name="Bd" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                                <Grid x:Name="Grid" Margin="{TemplateBinding Padding}">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="26"/>
                                         <ColumnDefinition Width="*"/>
@@ -162,13 +159,13 @@
                                         <ColumnDefinition SharedSizeGroup="MenuItemIGTColumnGroup" Width="Auto"/>
                                         <ColumnDefinition Width="20"/>
                                     </Grid.ColumnDefinitions>
-                                    <ContentPresenter x:Name="Icon" Content="{TemplateBinding Icon}" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
-                                    <Border Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
-                                        <Path x:Name="Glyph" Margin="2" Stretch="Uniform" HorizontalAlignment="Center" VerticalAlignment="Center" Data="F1 M 9.97498,1.22334L 4.6983,9.09834L 4.52164,9.09834L 0,5.19331L 1.27664,3.52165L 4.255,6.08833L 8.33331,1.52588e-005L 9.97498,1.22334 Z " Fill="White" FlowDirection="LeftToRight"/>
+                                    <ContentPresenter Margin="0,0,10,0" x:Name="Icon" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16"/>
+                                    <Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
+                                        <Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
                                     </Border>
-                                    <ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}"  x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Content="{TemplateBinding Header}" Grid.Column="1" ContentSource="Header" Margin="10" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Uid="ContentPresenter_39"/>
-                                    <Path x:Name="Path" Grid.Column="4" Width="10" Height="10" HorizontalAlignment="Left" Data="{StaticResource RightGeometry}" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Uid="Path_16" VerticalAlignment="Center"/>
-                                    <Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="-7">
+                                    <ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,3" x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                    <Path x:Name="Path" Grid.Column="4" Width="10" Height="10" HorizontalAlignment="Left" Data="{StaticResource RightGeometry}" Stretch="Uniform" Fill="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
+                                    <Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="-13" HorizontalOffset="10">
                                         <Border CornerRadius="2" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
                                             <ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="0,6">
                                                 <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle"/>
