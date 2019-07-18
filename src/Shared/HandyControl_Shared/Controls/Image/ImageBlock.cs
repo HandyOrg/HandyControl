@@ -24,25 +24,13 @@ namespace HandyControl.Controls
                 Interval = Interval
             };
             _dispatcherTimer.Tick += DispatcherTimer_Tick;
-            _dispatcherTimer.Start();
         }
-
-        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
-        {
-            base.OnRenderSizeChanged(sizeInfo);
-            OnPositionsChanged();
-        }
-
-        private void DispatcherTimer_Tick(object sender, EventArgs e) => InvalidateVisual();
-
-        public static readonly DependencyProperty StartColumnProperty = DependencyProperty.Register(
-            "StartColumn", typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged));
 
         private void OnPositionsChanged()
         {
             _indexMin = StartRow * Columns + StartColumn;
             _indexMax = EndRow * Columns + EndColumn;
+            _currentIndex = _indexMin;
         }
 
         private static void OnPositionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -50,6 +38,12 @@ namespace HandyControl.Controls
             var ctl = (ImageBlock)d;
             ctl.OnPositionsChanged();
         }
+
+        private void DispatcherTimer_Tick(object sender, EventArgs e) => InvalidateVisual();
+
+        public static readonly DependencyProperty StartColumnProperty = DependencyProperty.Register(
+            "StartColumn", typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
+                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged));
 
         public int StartColumn
         {
@@ -88,13 +82,20 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsPlayingProperty = DependencyProperty.Register(
-            "IsPlaying", typeof(bool), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.TrueBox,
+            "IsPlaying", typeof(bool), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox,
                 FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnIsPlayingChanged));
 
         private static void OnIsPlayingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (ImageBlock)d;
-            ctl._dispatcherTimer.IsEnabled = (bool) e.NewValue;
+            if ((bool) e.NewValue)
+            {
+                ctl._dispatcherTimer.Start();
+            }
+            else
+            {
+                ctl._dispatcherTimer.Stop();
+            }
         }
 
         public bool IsPlaying
