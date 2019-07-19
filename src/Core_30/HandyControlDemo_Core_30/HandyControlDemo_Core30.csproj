@@ -5,7 +5,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemo</AssemblyName>
     <RootNamespace>HandyControlDemo</RootNamespace>
-    <Version>2.0.0</Version>
+    <Version>2.1.0</Version>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
     <Configurations>Debug;Release</Configurations>
     <Copyright>Copyright © HandyOrg 2018-2019</Copyright>
@@ -358,6 +358,12 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\VSO_Card_16x.png">
       <Link>Resources\Img\LeftMainContent\VSO_Card_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\ImageStack_16x.png">
+      <Link>Resources\Img\LeftMainContent\ImageStack_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Dance.png">
+      <Link>Resources\Img\Dance.png</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>

@@ -63,6 +63,12 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### ImageBlock
+
+![ImageBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBlock.gif)  
+
+![ImageBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBlock.png)
+
 ### Magnifier
 
 ![Magnifier](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Magnifier.png)
@@ -75,6 +81,8 @@ Step 4：enjoy coding
 
 ![ButtonGroup](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ButtonGroup.png)
 
+## History publication
+
 ### Grid
 
 ![Grid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Grid.gif)
@@ -82,8 +90,6 @@ Step 4：enjoy coding
 ### SideMenu
 
 ![SideMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SideMenu.png)
-
-## History publication
 
 ### NotifyIcon
 
