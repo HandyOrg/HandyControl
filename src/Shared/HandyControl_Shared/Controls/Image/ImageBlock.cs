@@ -11,11 +11,17 @@ namespace HandyControl.Controls
     {
         private readonly DispatcherTimer _dispatcherTimer;
 
+        private BitmapSource _source;
+
         private int _indexMax;
 
         private int _indexMin;
 
         private int _currentIndex;
+
+        private int _blockWidth;
+
+        private int _blockHeight;
 
         public ImageBlock()
         {
@@ -26,17 +32,20 @@ namespace HandyControl.Controls
             _dispatcherTimer.Tick += DispatcherTimer_Tick;
         }
 
-        private void OnPositionsChanged()
+        private void UpdateDatas()
         {
+            if (_source == null) return;
             _indexMin = StartRow * Columns + StartColumn;
             _indexMax = EndRow * Columns + EndColumn;
             _currentIndex = _indexMin;
+            _blockWidth = _source.PixelWidth / Columns;
+            _blockHeight = _source.PixelHeight / Rows;
         }
 
         private static void OnPositionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (ImageBlock)d;
-            ctl.OnPositionsChanged();
+            ctl.UpdateDatas();
         }
 
         private void DispatcherTimer_Tick(object sender, EventArgs e) => InvalidateVisual();
@@ -106,7 +115,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty ColumnsProperty = DependencyProperty.Register(
             "Columns", typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int1Box,
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender), obj => (int)obj >= 1);
+                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int)obj >= 1);
 
         public int Columns
         {
@@ -116,7 +125,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty RowsProperty = DependencyProperty.Register(
             "Rows", typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int1Box,
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender), obj => (int)obj >= 1);
+                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int)obj >= 1);
 
         public int Rows
         {
@@ -141,7 +150,14 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(
             "Source", typeof(ImageSource), typeof(ImageBlock), new FrameworkPropertyMetadata(default(ImageSource),
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender));
+                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnSourceChanged));
+
+        private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (ImageBlock)d;
+            ctl._source = e.NewValue as BitmapSource;
+            ctl.UpdateDatas();
+        }
 
         public ImageSource Source
         {
@@ -151,27 +167,22 @@ namespace HandyControl.Controls
 
         protected override void OnRender(DrawingContext dc)
         {
-            if (Source != null && Source is BitmapSource source)
-            {
-                // ReSharper disable once AssignNullToNotNullAttribute
-                var croppedBitmap = new CroppedBitmap(source,
-                    CalDisplayRect(source.PixelWidth / Columns, source.PixelHeight / Rows));
-                dc.DrawImage(croppedBitmap, new Rect(0, 0, RenderSize.Width, RenderSize.Height));
-            }
+            if (_source == null) return;
+            var croppedBitmap = new CroppedBitmap(_source, CalDisplayRect());
+            dc.DrawImage(croppedBitmap, new Rect(0, 0, RenderSize.Width, RenderSize.Height));
         }
 
-        private Int32Rect CalDisplayRect(int width, int height)
+        private Int32Rect CalDisplayRect()
         {
             if (_currentIndex > _indexMax)
             {
                 _currentIndex = _indexMin;
             }
 
-            var x = _currentIndex % Columns * width;
-            // ReSharper disable once PossibleLossOfFraction
-            var y = _currentIndex / Columns * height;
+            var x = _currentIndex % Columns * _blockWidth;
+            var y = _currentIndex / Columns * _blockHeight;
 
-            var rect = new Int32Rect(x, y, width, height);
+            var rect = new Int32Rect(x, y, _blockWidth, _blockHeight);
             _currentIndex++;
             return rect;
         }
