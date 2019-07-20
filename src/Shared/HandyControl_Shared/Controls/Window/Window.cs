@@ -357,5 +357,7 @@ namespace HandyControl.Controls
             if (SizeToContent == SizeToContent.WidthAndHeight)
                 InvalidateMeasure();
         }
+
+        public static Thickness MaximizedPadding => new Thickness((SystemParameters.MaximizedPrimaryScreenWidth - SystemParameters.WorkArea.Width) / 2);
     }
 }
