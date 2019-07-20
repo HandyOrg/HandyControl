@@ -154,23 +154,24 @@ namespace HandyControl.Controls
             if (Source != null && Source is BitmapSource source)
             {
                 // ReSharper disable once AssignNullToNotNullAttribute
-                var croppedBitmap = new CroppedBitmap(source, CalDisplayRect());
+                var croppedBitmap = new CroppedBitmap(source,
+                    CalDisplayRect(source.PixelWidth / Columns, source.PixelHeight / Rows));
                 dc.DrawImage(croppedBitmap, new Rect(0, 0, RenderSize.Width, RenderSize.Height));
             }
         }
 
-        private Int32Rect CalDisplayRect()
+        private Int32Rect CalDisplayRect(int width, int height)
         {
             if (_currentIndex > _indexMax)
             {
                 _currentIndex = _indexMin;
             }
 
-            var x = (int) (_currentIndex % Columns * RenderSize.Width);
+            var x = _currentIndex % Columns * width;
             // ReSharper disable once PossibleLossOfFraction
-            var y = (int) (_currentIndex / Columns * RenderSize.Height);
+            var y = _currentIndex / Columns * height;
 
-            var rect = new Int32Rect(x, y, (int)RenderSize.Width, (int)RenderSize.Height);
+            var rect = new Int32Rect(x, y, width, height);
             _currentIndex++;
             return rect;
         }
