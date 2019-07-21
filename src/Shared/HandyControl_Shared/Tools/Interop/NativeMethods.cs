@@ -2,6 +2,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
+using System.Security;
 
 namespace HandyControl.Tools.Interop
 {
@@ -55,7 +56,15 @@ namespace HandyControl.Tools.Interop
             MEM_COMMIT = 0x1000,
             MEM_RELEASE = 0x8000,
             PAGE_READWRITE = 0x04,
-            TBSTATE_HIDDEN = 0x08;
+            TBSTATE_HIDDEN = 0x08,
+            VERTRES = 10,
+            HORZRES = 8,
+            DESKTOPVERTRES = 117,
+            DESKTOPHORZRES = 118,
+            LOGPIXELSX = 88,
+            LOGPIXELSY = 90,
+            CXFRAME = 32,
+            CXSIZEFRAME = CXFRAME;
 
         [Flags]
         public enum ProcessAccess
@@ -205,5 +214,10 @@ namespace HandyControl.Tools.Interop
 
         [DllImport(ExternDll.User32, CharSet = CharSet.Auto)]
         public static extern bool GetCursorPos(out POINT pt);
+
+        [SecurityCritical]
+        [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
+        [DllImport(ExternDll.User32)]
+        public static extern int GetSystemMetrics(SM nIndex);
     }
 }

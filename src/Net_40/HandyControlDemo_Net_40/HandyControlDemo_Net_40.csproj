@@ -73,15 +73,6 @@
     <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="UserControl\Main\NoUserContent.xaml.cs">
-      <DependentUpon>NoUserContent.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="UserControl\Main\NoUserContent.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.Designer.cs">
@@ -436,6 +427,7 @@
       <Link>Resources\Img\LeftMainContent\RepeatButton_16x.png</Link>
     </Resource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\..\Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

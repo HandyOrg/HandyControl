@@ -5,7 +5,7 @@
     <AssemblyName>HandyControl</AssemblyName>
     <RootNamespace>HandyControl</RootNamespace>
     <Version>2.1.0</Version>
-    <AssemblyVersion>2.0.0.0</AssemblyVersion>
+    <AssemblyVersion>2.1.0.0</AssemblyVersion>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright © HandyOrg 2018-2019</Copyright>

@@ -12,7 +12,19 @@ namespace HandyControl.Interactivity
         {
             if (parameter is string link)
             {
-                Process.Start(link);
+                link = link.Replace("&", "^&");
+                try
+                {
+                    Process.Start(new ProcessStartInfo("cmd", $"/c start {link}")
+                    {
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    });
+                }
+                catch
+                {
+                    // ignored
+                }
             }
         }
 

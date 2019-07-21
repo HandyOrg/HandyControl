@@ -215,5 +215,11 @@ namespace HandyControl.Tools.Interop
 
         [DllImport(ExternDll.User32, SetLastError = true)]
         public static extern int ReleaseDC(IntPtr window, IntPtr dc);
+
+        [DllImport(ExternDll.Gdi32, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Auto)]
+        public static extern int GetDeviceCaps(IntPtr hdc, int nIndex);
+
+        [DllImport(ExternDll.User32, CharSet = CharSet.Auto)]
+        public static extern IntPtr GetDC(IntPtr ptr);
     }
 }
