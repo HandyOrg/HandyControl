@@ -91,7 +91,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=(controls:IconSwitchElement.GeometrySelected)}"/>
+                            <Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(controls:IconSwitchElement.GeometrySelected)}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

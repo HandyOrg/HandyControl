@@ -70,7 +70,7 @@ namespace HandyControl.Controls
             new PropertyMetadata(ValueBoxes.TrueBox, OnShowNonClientAreaChanged));
 
         public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
-            "ShowTitle", typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.FalseBox));
+            "ShowTitle", typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
             "IsFullScreen", typeof(bool), typeof(Window),
@@ -94,11 +94,20 @@ namespace HandyControl.Controls
 
         public Window()
         {
+#if netle40
             var chrome = new WindowChrome
             {
                 CornerRadius = new CornerRadius(),
                 GlassFrameThickness = new Thickness(0, 0, 0, 1)
             };
+#else
+            var chrome = new WindowChrome
+            {
+                CornerRadius = new CornerRadius(),
+                GlassFrameThickness = new Thickness(0, 0, 0, 1),
+                UseAeroCaptionButtons = false
+            };
+#endif
             BindingOperations.SetBinding(chrome, WindowChrome.CaptionHeightProperty,
                 new Binding(NonClientAreaHeightProperty.Name) {Source = this});
             WindowChrome.SetWindowChrome(this, chrome);

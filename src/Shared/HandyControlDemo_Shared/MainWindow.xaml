@@ -7,22 +7,17 @@
                xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
                xmlns:data="clr-namespace:HandyControlDemo.Data"
                mc:Ignorable="d"
-               BorderThickness="1"
-               BorderBrush="#262e2f"
-               NonClientAreaBackground="#262e2f"
-               OtherButtonHoverBackground="#888580"
-               CloseButtonForeground="White"
-               OtherButtonHoverForeground="White"
-               OtherButtonForeground="White"
                Style="{StaticResource WindowBlur}"
-               Title="MainWindow" 
+               Title="HandyControlDemo"
+               ShowTitle="False"
                ResizeMode="CanResizeWithGrip"
                WindowStartupLocation="CenterScreen"
                hc:GlobalShortcut.Host="True"
                DataContext="{Binding Main,Source={StaticResource Locator}}"
                hc:Dialog.Token="{x:Static data:MessageToken.MainWindow}"
                d:DesignHeight="800" 
-               d:DesignWidth="1400">
+               d:DesignWidth="1400" 
+               Icon="/HandyControlDemo;component/Resources/Img/icon.ico">
     <hc:GlobalShortcut.KeyBindings>
         <KeyBinding Modifiers="Control+Alt" Key="I" Command="{Binding Main.GlobalShortcutInfoCmd, Source={StaticResource Locator}}"/>
         <KeyBinding Modifiers="Control+Alt" Key="E" Command="{Binding Main.GlobalShortcutWarningCmd, Source={StaticResource Locator}}"/>

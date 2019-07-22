@@ -86,6 +86,7 @@
         <Setter Property="OtherButtonHoverForeground" Value="White"/>
         <Setter Property="NonClientAreaForeground" Value="White"/>
         <Setter Property="CloseButtonForeground" Value="White"/>
+        <Setter Property="Icon" Value="/HandyControlDemo;component/Resources/Img/icon.ico"/>
     </Style>
 
     <Style x:Key="TextBlockFabricIcons" TargetType="TextBlock">
