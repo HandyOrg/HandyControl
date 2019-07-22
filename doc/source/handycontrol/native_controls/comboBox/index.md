@@ -29,7 +29,7 @@ title: ComboBox 组合框
 {% note warning %}
 标题在左时，为了多个输入框左侧对齐，需要设置标题宽度，标题宽度无需逐个设置，可在外部容器上统一设置。
 {% endnote %}
-{% note waining %}
+{% note warning %}
 常见问题：
 Combobox的字体比原有默认字体大，同时设定标题在左，标题因字体过大显示不全
 ![ComboBoxExtend_2_Error1](../images/ComboBoxExtend_2_Error1.png)
