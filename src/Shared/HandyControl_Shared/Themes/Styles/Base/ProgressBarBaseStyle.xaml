@@ -4,6 +4,7 @@
                     xmlns:shapes="clr-namespace:HandyControl.Expression.Shapes">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
         <ResourceDictionary Source="../Border.xaml"/>
     </ResourceDictionary.MergedDictionaries>
@@ -16,8 +17,16 @@
     </LinearGradientBrush>
 
     <Style x:Key="ProgressBarBaseStyle" TargetType="ProgressBar">
+        <Setter Property="controls:VisualElement.Text">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource Number2PercentageConverter}" StringFormat="{}{0} %">
+                    <Binding Path="Value" RelativeSource="{RelativeSource Self}"/>
+                    <Binding Path="Maximum" RelativeSource="{RelativeSource Self}"/>
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Height" Value="20"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
@@ -33,7 +42,7 @@
                                     <Rectangle x:Name="PART_GlowRect" Fill="{StaticResource ProgressBarIndicatorAnimatedFill}" HorizontalAlignment="Left" Margin="-100,0,0,0" Width="100"/>
                                 </Border>
                             </Decorator>
-                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Value,RelativeSource={RelativeSource TemplatedParent},StringFormat={}{0} %}"/>
+                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Path=(controls:VisualElement.Text),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </controls:SimplePanel>
                     </controls:SimplePanel>
                 </ControlTemplate>
@@ -41,7 +50,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ProgressBarStripeBaseStyle" BasedOn="{StaticResource ProgressBarBaseStyle}" TargetType="ProgressBar">
+    <Style x:Key="ProgressBarStripeBaseStyle" TargetType="ProgressBar">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
@@ -109,7 +123,7 @@
                     <StackPanel>
                         <Border Style="{StaticResource BorderCircular}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                             <Viewbox>
-                                <Border x:Name="PART_Clip" Style="{StaticResource BorderClip}" CornerRadius="100" Width="200" Height="200">
+                                <Border x:Name="PART_Clip" Style="{StaticResource BorderCircularClip}" CornerRadius="100" Width="200" Height="200">
                                     <Path x:Name="PART_Wave" Stroke="{TemplateBinding WaveStroke}" StrokeThickness="{TemplateBinding WaveThickness}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="600" Height="250" Fill="{TemplateBinding WaveFill}" Stretch="Fill" RenderTransformOrigin="0.5,0.5" UseLayoutRounding="False" Margin="0,0,-400,-20">
                                         <Path.Data>
                                             <PathGeometry>

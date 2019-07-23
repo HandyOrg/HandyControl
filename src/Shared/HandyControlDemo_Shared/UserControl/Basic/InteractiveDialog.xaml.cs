@@ -1,4 +1,4 @@
-﻿namespace HandyControlDemo.UserControl.Basic
+﻿namespace HandyControlDemo.UserControl
 {
     public partial class InteractiveDialog
     {

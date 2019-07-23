@@ -3,7 +3,7 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <system:Double x:Key="DefaultControlHeight">30</system:Double>
-    <Thickness x:Key="DefaultControlPadding">12,6</Thickness>
+    <Thickness x:Key="DefaultControlPadding">10,6</Thickness>
     <Thickness x:Key="DefaultInputPadding">8,6</Thickness>
     <CornerRadius x:Key="DefaultCornerRadius">4</CornerRadius>
 

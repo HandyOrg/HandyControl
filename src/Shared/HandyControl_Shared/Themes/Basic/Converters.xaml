@@ -15,7 +15,10 @@
     <converter:Boolean2StrConverter x:Key="Boolean2StrConverter"/>
     <converter:Int2StrConverter x:Key="Int2StrConverter"/>
     <converter:BorderClipConverter x:Key="BorderClipConverter"/>
+    <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter"/>
     <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>
     <converter:Object2VisibilityConverter x:Key="Object2VisibilityConverter"/>
-
+    <converter:Number2PercentageConverter x:Key="Number2PercentageConverter"/>
+    <converter:RectangleCircularConverter x:Key="RectangleCircularConverter"/>
+    <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter" />
 </ResourceDictionary>

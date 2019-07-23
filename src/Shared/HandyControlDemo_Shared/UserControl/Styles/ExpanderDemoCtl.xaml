@@ -5,17 +5,17 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
-        <StackPanel Margin="32" VerticalAlignment="Center">
-            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}" Width="240" HorizontalAlignment="Left">
+        <StackPanel Margin="32" VerticalAlignment="Center" Width="240">
+            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
-            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}" Width="240" HorizontalAlignment="Left">
+            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
-            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}" Width="240" HorizontalAlignment="Left">
+            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
-            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Width="240" HorizontalAlignment="Left">
+            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
         </StackPanel>

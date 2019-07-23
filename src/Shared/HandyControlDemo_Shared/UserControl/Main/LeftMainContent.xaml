@@ -195,6 +195,16 @@
                         </hc:StatusSwitchElement.CheckedElement>
                     </ToggleButton>
                     <ListBox Name="ListBoxControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ImageBlockDemoCtl}" Content="{x:Static langs:Lang.ImageBlock}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/ImageStack_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.MagnifierDemoCtl}" Content="{x:Static langs:Lang.Magnifier}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/Search_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.GravatarDemoCtl}" Content="{x:Static langs:Lang.Gravatar}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/User_16x.png"/>
@@ -210,6 +220,11 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/GoToTop_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ButtonGroupDemoCtl}" Content="{x:Static langs:Lang.ButtonGroup}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/ButtonGroup_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.ProgressButtonDemoCtl}" Content="{x:Static langs:Lang.ProgressButton}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ProgressButton_16x.png"/>
@@ -220,7 +235,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/Bubble_16xLG.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NotifyIconDemoCtl}" Content="{x:Static langs:Lang.NotifyIcon}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.NotifyIconDemoCtl}" Content="{x:Static langs:Lang.NotifyIcon}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/NotificationHub_16x.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -310,12 +325,17 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CardDemoCtl}" Content="{x:Static langs:Lang.Card}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/VSO_Card_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ColorWheel_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.GridDemoCtl}" Content="{x:Static langs:Lang.Grid}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.GridDemoCtl}" Content="{x:Static langs:Lang.Grid}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/GridPane_16x.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -405,7 +425,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/TabPage_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.SideMenuDemoCtl}" Content="{x:Static langs:Lang.SideMenu}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.SideMenuDemoCtl}" Content="{x:Static langs:Lang.SideMenu}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/MainMenuControl_16x.png"/>
                             </hc:EdgeElement.LeftContent>

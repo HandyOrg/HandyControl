@@ -29,7 +29,13 @@ title: ComboBox 组合框
 {% note warning %}
 标题在左时，为了多个输入框左侧对齐，需要设置标题宽度，标题宽度无需逐个设置，可在外部容器上统一设置。
 {% endnote %}
-
+{% note warning %}
+常见问题：
+Combobox的字体比原有默认字体大，同时设定标题在左，标题因字体过大显示不全
+![ComboBoxExtend_2_Error1](../images/ComboBoxExtend_2_Error1.png)
+解决方案：
+在该Combobox中添加附加属性`hc:InfoElement.ContentHeight`，默认值为30，默认字体号为12，变更后可根据新的字体大小设定该附加属性的数值，如上图，字体大小为18，则设定`hc:InfoElement.ContentHeight`为38，结果如下：![ComboBoxExtend_2_Ok1](../images/ComboBoxExtend_2_Ok1.png)
+{% endnote %}
 - 标题在上，带有水印
 `<ComboBox ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="请输入内容" hc:InfoElement.Title="此项必填" Style="{StaticResource ComboBoxExtend}"/>`
 ![ComboBoxExtend_3](../images/ComboBoxExtend_3.png)

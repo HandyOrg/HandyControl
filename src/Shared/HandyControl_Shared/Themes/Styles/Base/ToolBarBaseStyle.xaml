@@ -9,7 +9,7 @@
         <ResourceDictionary Source="../RadioButton.xaml"/>
         <ResourceDictionary Source="../ComboBox.xaml"/>
         <ResourceDictionary Source="../TextBox.xaml"/>
-        <ResourceDictionary Source="../ContextMenu.xaml"/>
+        <ResourceDictionary Source="../Menu.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="{x:Static ToolBar.SeparatorStyleKey}" TargetType="Separator">
@@ -130,7 +130,7 @@
 
     <Style x:Key="ToolBarBaseStyle" TargetType="ToolBar">
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Margin" Value="0,0,4,4"/>
         <Setter Property="Template">
             <Setter.Value>

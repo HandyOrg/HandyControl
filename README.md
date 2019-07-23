@@ -63,6 +63,26 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### ImageBlock
+
+![ImageBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBlock.gif)  
+
+![ImageBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBlock.png)
+
+### Magnifier
+
+![Magnifier](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Magnifier.png)
+
+### Card
+
+![Card](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Card.png)
+
+### ButtonGroup
+
+![ButtonGroup](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ButtonGroup.png)
+
+## History publication
+
 ### Grid
 
 ![Grid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Grid.gif)
@@ -82,8 +102,6 @@ Step 4：enjoy coding
 ### WaveProgressBar
 
 ![WaveProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaveProgressBar.gif)
-
-## History publication
 
 ### Badge
 

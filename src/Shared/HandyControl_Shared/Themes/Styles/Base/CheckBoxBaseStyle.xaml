@@ -4,6 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="BaseStyle.xaml"/>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="CheckBoxBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="CheckBox">
@@ -49,7 +50,7 @@
                         </Grid.ColumnDefinitions>
                         <Border Height="18" Width="18" x:Name="checkBoxBorder" Background="{TemplateBinding Background}" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
                         <controls:SimplePanel Grid.Column="0" Height="18" Width="18" x:Name="markGrid">
-                            <Path UseLayoutRounding="True" x:Name="path" StrokeDashOffset="8" StrokeDashArray="8,8" Width="12" Height="12" Data="M 0,2 3,5 8,0" StrokeThickness="2" Stretch="Uniform" Stroke="White"/>
+                            <Path UseLayoutRounding="True" x:Name="path" StrokeDashOffset="8" StrokeDashArray="8,8" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
                             <Rectangle x:Name="indeterminateMark" RadiusX="2" RadiusY="2" Fill="{DynamicResource PrimaryBrush}" Margin="2" Opacity="0"/>
                         </controls:SimplePanel>
                         <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>

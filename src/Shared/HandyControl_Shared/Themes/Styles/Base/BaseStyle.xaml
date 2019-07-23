@@ -3,13 +3,14 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Basic/Fonts.xaml"/>
+        <ResourceDictionary Source="../Rectangle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="FocusVisual">
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4"/>
+                    <Rectangle Style="{StaticResource RectangleFocusVisual}" RadiusX="4" RadiusY="4"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -19,7 +20,7 @@
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Rectangle Margin="-2" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1"/>
+                    <Rectangle Style="{StaticResource RectangleFocusVisual}"/>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

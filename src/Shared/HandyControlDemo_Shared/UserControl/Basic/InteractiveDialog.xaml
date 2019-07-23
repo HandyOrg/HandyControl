@@ -1,4 +1,4 @@
-﻿<Border x:Class="HandyControlDemo.UserControl.Basic.InteractiveDialog"
+﻿<Border x:Class="HandyControlDemo.UserControl.InteractiveDialog"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"

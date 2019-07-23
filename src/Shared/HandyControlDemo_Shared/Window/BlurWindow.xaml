@@ -8,7 +8,6 @@
                      mc:Ignorable="d"
                      WindowStartupLocation="CenterScreen"
                      Title="{x:Static langs:Lang.Title}"
-                     ShowTitle="True"
                      Style="{StaticResource WindowBlur}"
                      Height="450" 
                      Width="800" 

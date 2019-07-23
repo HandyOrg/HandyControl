@@ -15,6 +15,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = OverflowScrollviewer, Type = typeof(ScrollViewer))]
     [TemplatePart(Name = ScrollButtonLeft, Type = typeof(Button))]
     [TemplatePart(Name = ScrollButtonRight, Type = typeof(Button))]
+    [TemplatePart(Name = HeaderBorder, Type = typeof(Border))]
     public class TabControl : System.Windows.Controls.TabControl
     {
         private const string OverflowButtonKey = "PART_OverflowButton";
@@ -27,6 +28,8 @@ namespace HandyControl.Controls
 
         private const string ScrollButtonRight = "PART_ScrollButtonRight";
 
+        private const string HeaderBorder = "PART_HeaderBorder";
+
         private ContextMenuToggleButton _buttonOverflow;
 
         private TabPanel _headerPanel;
@@ -36,6 +39,8 @@ namespace HandyControl.Controls
         private Button _buttonScrollLeft;
 
         private Button _buttonScrollRight;
+
+        private Border _headerBorder;
 
         /// <summary>
         ///     是否为内部操作
@@ -220,6 +225,9 @@ namespace HandyControl.Controls
                     item.TabPanel = _headerPanel;
                 }
             }
+
+            _headerBorder?.InvalidateMeasure();
+
             IsInternalAction = false;
         }
 
@@ -248,6 +256,7 @@ namespace HandyControl.Controls
             _scrollViewerOverflow = GetTemplateChild(OverflowScrollviewer) as ScrollViewer;
             _buttonScrollLeft = GetTemplateChild(ScrollButtonLeft) as Button;
             _buttonScrollRight = GetTemplateChild(ScrollButtonRight) as Button;
+            _headerBorder = GetTemplateChild(HeaderBorder) as Border;
 
             if (_buttonScrollLeft != null) _buttonScrollLeft.Click += ButtonScrollLeft_Click;
             if (_buttonScrollRight != null) _buttonScrollRight.Click += ButtonScrollRight_Click;

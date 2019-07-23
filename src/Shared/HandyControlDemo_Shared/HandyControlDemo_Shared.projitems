@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\AppConfig.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\DemoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\GlobalData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CardModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\ChatInfoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\AvatarModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CoverViewDemoModel.cs" />
@@ -25,7 +26,7 @@
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Service\DataService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service\Data\DataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\String2BrushConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\StringRepeatConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\AssemblyHelper.cs" />
@@ -44,8 +45,20 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialog.xaml.cs">
       <DependentUpon>TextDialog.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml.cs">
+      <DependentUpon>TextDialogWithTimer.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CardDemoCtl.xaml.cs">
+      <DependentUpon>CardDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBlockDemoCtl.xaml.cs">
+      <DependentUpon>ImageBlockDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemoCtl.xaml.cs">
+      <DependentUpon>MagnifierDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
       <DependentUpon>RangeSliderDemoCtl.xaml</DependentUpon>
@@ -55,6 +68,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\BadgeDemoCtl.xaml.cs">
       <DependentUpon>BadgeDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ButtonGroupDemoCtl.xaml.cs">
+      <DependentUpon>ButtonGroupDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CalendarWithClockDemoCtl.xaml.cs">
       <DependentUpon>CalendarWithClockDemoCtl.xaml</DependentUpon>
@@ -189,6 +205,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\BlogsView.xaml.cs">
       <DependentUpon>BlogsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\NoUserContent.xaml.cs">
+      <DependentUpon>NoUserContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
     </Compile>
@@ -295,6 +314,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\InteractiveDialogViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Common\ComboBoxDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\BadgeDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\CardDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\CoverViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\DialogDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\GrowlDemoViewModel.cs" />
@@ -398,7 +418,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\AnimationPathDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CardDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBlockDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -411,6 +447,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\BadgeDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ButtonGroupDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -594,6 +634,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\NoUserContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\ProjectsView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -766,8 +810,6 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="C:\Users\Mahdi\Documents\GitHub\HandyControl\src\Shared\HandyControlDemo_Shared\UserControl\Controls\PoptipDemoCtl.xaml.cs">
-      <DependentUpon>PoptipDemoCtl.xaml</DependentUpon>
-    </Compile>
+    <Folder Include="$(MSBuildThisFileDirectory)Service\Data\" />
   </ItemGroup>
 </Project>

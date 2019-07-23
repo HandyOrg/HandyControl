@@ -4,6 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/ButtonBaseStyle.xaml"/>
+        <ResourceDictionary Source="Border.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
@@ -51,6 +52,20 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ButtonIconCircular" BasedOn="{StaticResource ButtonIcon}" TargetType="Button">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Style="{StaticResource BorderCircular}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Path Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Data="{TemplateBinding controls:IconElement.Geometry}"/>
+                        </ContentControl>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style x:Key="ButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -79,6 +94,30 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemDefault" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button"/>
+
+    <Style x:Key="ButtonGroupItemHorizontalFirst" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4,0,0,4"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemHorizontalLast" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="0,4,4,0"/>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemSingle" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemVerticalFirst" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="4,4,0,0"/>
+        <Setter Property="Margin" Value="0"/>
+    </Style>
+
+    <Style x:Key="ButtonGroupItemVerticalLast" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="0,0,4,4"/>
     </Style>
 
 </ResourceDictionary>

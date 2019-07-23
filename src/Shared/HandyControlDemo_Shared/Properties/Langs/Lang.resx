@@ -604,7 +604,7 @@
     <value>Poptip</value>
   </data>
   <data name="Recommendation" xml:space="preserve">
-    <value>推荐</value>
+    <value>群友推荐</value>
   </data>
   <data name="Project" xml:space="preserve">
     <value>项目</value>
@@ -620,5 +620,20 @@
   </data>
   <data name="Off" xml:space="preserve">
     <value>关</value>
+  </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>按钮组</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>卡片</value>
+  </data>
+  <data name="TextDialogWithTimer" xml:space="preserve">
+    <value>文本对话框，带计时器</value>
+  </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>放大镜</value>
+  </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>图片块</value>
   </data>
 </root>

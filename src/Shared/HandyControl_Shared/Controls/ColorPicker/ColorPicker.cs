@@ -478,7 +478,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void UpdateStatus(Color color)
         {
-            if (_isOnDragging) return;
+            if (_isOnDragging || _sliderColor == null) return;
 
             var r = color.R;
             var g = color.G;

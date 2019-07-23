@@ -58,31 +58,31 @@
                             <RadioButton Margin="10,0,0,0" BorderThickness="1" Style="{StaticResource RadioButtonIcon}" Content="Radio"/>
                         </UniformGrid>
                     </StackPanel>
-                    <hc:RadioGroup Margin="0,32,0,0">
+                    <hc:ButtonGroup Margin="0,32,0,0">
                         <RadioButton Content="Radio" IsChecked="True"/>
                         <RadioButton Content="Radio"/>
                         <RadioButton IsEnabled="False" Content="Radio"/>
                         <RadioButton Content="Radio"/>
-                    </hc:RadioGroup>
-                    <hc:RadioGroup Margin="0,16,0,0" Style="{StaticResource RadioGroupSolid}">
+                    </hc:ButtonGroup>
+                    <hc:ButtonGroup Margin="0,16,0,0" Style="{StaticResource ButtonGroupSolid}">
                         <RadioButton Content="Radio"/>
                         <RadioButton Content="Radio"/>
                         <RadioButton IsEnabled="False" Content="Radio"/>
                         <RadioButton Content="Radio" IsChecked="True"/>
-                    </hc:RadioGroup>
+                    </hc:ButtonGroup>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                        <hc:RadioGroup Margin="0,16,8,0" Orientation="Vertical">
+                        <hc:ButtonGroup Margin="0,16,8,0" Orientation="Vertical">
                             <RadioButton Content="Radio" IsChecked="True"/>
                             <RadioButton Content="Radio"/>
                             <RadioButton IsEnabled="False" Content="Radio"/>
                             <RadioButton Content="Radio"/>
-                        </hc:RadioGroup>
-                        <hc:RadioGroup Margin="8,16,0,0" Orientation="Vertical" Style="{StaticResource RadioGroupSolid}">
+                        </hc:ButtonGroup>
+                        <hc:ButtonGroup Margin="8,16,0,0" Orientation="Vertical" Style="{StaticResource ButtonGroupSolid}">
                             <RadioButton Content="Radio"/>
                             <RadioButton Content="Radio"/>
                             <RadioButton IsEnabled="False" Content="Radio"/>
                             <RadioButton Content="Radio" IsChecked="True"/>
-                        </hc:RadioGroup>
+                        </hc:ButtonGroup>
                     </StackPanel>
                 </StackPanel>
             </Border>
@@ -156,19 +156,19 @@
                     <ProgressBar Style="{StaticResource ProgressBarFlat}" Margin="0,8,0,10" Value="110" Maximum="200" />
                 </StackPanel>
             </Border>
-            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="859" Height="264" Canvas.Top="130">
+            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="859" Height="262" Canvas.Top="130">
                 <ScrollViewer>
-                    <StackPanel VerticalAlignment="Top">
-                        <Expander Header="Title" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}" Width="206" HorizontalAlignment="Left">
+                    <StackPanel VerticalAlignment="Top" Width="206">
+                        <Expander Header="Title" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
                             <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
                         </Expander>
-                        <Expander Header="Title" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}" Width="206" HorizontalAlignment="Left">
+                        <Expander Header="Title" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
                             <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
                         </Expander>
-                        <Expander Header="Title" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}" Width="206" HorizontalAlignment="Left">
+                        <Expander Header="Title" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
                             <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
                         </Expander>
-                        <Expander Header="Title" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Width="206" HorizontalAlignment="Left">
+                        <Expander Header="Title" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
                             <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
                         </Expander>
                     </StackPanel>
@@ -314,7 +314,7 @@
                     </hc:Badge>
                 </StackPanel>
             </Border>
-            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="128" Canvas.Top="310" Width="162" Height="84">
+            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="128" Canvas.Top="310" Width="160" Height="84">
                 <WrapPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                     <hc:Shield Subject="chat" Status="on gitter" Margin="0,0,0,0" Color="#4eb899" Command="hc:ControlCommands.OpenLink" CommandParameter="https://gitter.im/HandyControl/Lobby?utm_source=badge&amp;utm_medium=badge&amp;utm_campaign=pr-badge&amp;utm_content=badge"/>
                     <hc:Shield Subject="qq" Status="714704041" Margin="0,4,0,0" Color="#d8624c" Command="hc:ControlCommands.OpenLink" CommandParameter="http://shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1"/>
@@ -343,13 +343,13 @@
                     </hc:Transfer.ItemTemplate>
                 </hc:Transfer>
             </Border>
-            <Border Visibility="Collapsed" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="611" Canvas.Top="976">
-                <userControl:CoverFlowDemoCtl Width="563" Margin="-32" Background="Transparent"/>
+            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="611" Canvas.Top="976">
+                <userControl:CoverFlowDemoCtl Width="559" Margin="-32" Background="Transparent"/>
             </Border>
-            <Border Visibility="Collapsed" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1391" Canvas.Top="648" Width="274">
+            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1391" Canvas.Top="648" Width="274">
                 <userControl:ColorPickerDemoCtl Margin="-32" Background="Transparent"/>
             </Border>
-            <Border Visibility="Collapsed" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1113" Canvas.Top="608" Width="264" Height="126">
+            <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4" Canvas.Left="1113" Canvas.Top="608" Width="264" Height="126">
                 <hc:TagPanel Orientation="Horizontal" MaxWidth="400" VerticalAlignment="Center">
                     <hc:Tag ShowCloseButton="False" Content="TextText"/>
                     <hc:Tag Content="Text"/>

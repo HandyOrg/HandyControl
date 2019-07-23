@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell">
+                    xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
+                    xmlns:tools="clr-namespace:HandyControl.Tools">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Button.xaml"/>
@@ -57,6 +58,8 @@
     </Style>
 
     <Style x:Key="WindowWin10" BasedOn="{x:Null}" TargetType="controls:Window">
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="#262e2f"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
@@ -68,7 +71,7 @@
         <Setter Property="CloseButtonHoverForeground" Value="White"/>
         <Setter Property="OtherButtonBackground" Value="Transparent"/>
         <Setter Property="OtherButtonForeground" Value="{DynamicResource ReverseTextBrush}"/>
-        <Setter Property="OtherButtonHoverBackground" Value="#e5e5e5"/>
+        <Setter Property="OtherButtonHoverBackground" Value="{DynamicResource DarkMaskBrush}"/>
         <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource ReverseTextBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -96,8 +99,24 @@
                                         <ColumnDefinition Width="Auto"/>
                                         <ColumnDefinition/>
                                     </Grid.ColumnDefinitions>
-                                    <Image Name="Icon" Margin="10,0,0,0" Source="{TemplateBinding Icon}" VerticalAlignment="Center" Width="16" Height="16"/>
-                                    <TextBlock Name="Title" Grid.Column="1" Text="{TemplateBinding Title}" Padding="10,0,0,0" VerticalAlignment="Center"/>
+                                    <Button Name="ButtonIcon" Visibility="{TemplateBinding Icon,Converter={StaticResource Object2VisibilityConverter}}" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+                                        <interactivity:Interaction.Triggers>
+                                            <interactivity:EventTrigger EventName="MouseDoubleClick">
+                                                <interactivity:InvokeCommandAction Command="{x:Static shell:SystemCommands.CloseWindowCommand}" />
+                                            </interactivity:EventTrigger>
+                                        </interactivity:Interaction.Triggers>
+                                        <Image IsHitTestVisible="False" Name="Icon" Source="{TemplateBinding Icon}" VerticalAlignment="Center" Width="16" Height="16"/>
+                                    </Button>
+                                    <TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Padding="10,0,0,0" VerticalAlignment="Center">
+                                        <TextBlock.Visibility>
+                                            <MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
+                                                <MultiBinding.Bindings>
+                                                    <Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}"/>
+                                                    <Binding Path="Title" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}"/>
+                                                </MultiBinding.Bindings>
+                                            </MultiBinding>
+                                        </TextBlock.Visibility>
+                                    </TextBlock>
                                     <ContentPresenter shell:WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="2" x:Name="ContentPresenterMain" Content="{TemplateBinding NonClientAreaContent}"/>
                                 </Grid>
                             </Grid>
@@ -112,11 +131,8 @@
                             <Setter Property="Opacity" Value=".8" TargetName="ContentPresenterMain"/>
                             <Setter Property="Opacity" Value=".8" TargetName="ButtonPanel"/>
                         </Trigger>
-                        <Trigger Property="Icon" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="Icon"/>
-                        </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
-                            <Setter Property="Padding" Value="8"/>
+                            <Setter Property="Padding" Value="{x:Static tools:VisualHelper.WindowMaximizedPadding}"/>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
                             <Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore"/>
                         </Trigger>
@@ -134,23 +150,20 @@
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonClose">
-                            <Setter Property="Background" TargetName="ButtonClose" Value="{Binding CloseButtonHoverBackground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
-                            <Setter Property="Foreground" TargetName="ButtonClose" Value="{Binding CloseButtonHoverForeground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <Setter Property="Background" TargetName="ButtonClose" Value="{Binding CloseButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter Property="Foreground" TargetName="ButtonClose" Value="{Binding CloseButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMax">
-                            <Setter Property="Background" TargetName="ButtonMax" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
-                            <Setter Property="Foreground" TargetName="ButtonMax" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <Setter Property="Background" TargetName="ButtonMax" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter Property="Foreground" TargetName="ButtonMax" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonRestore">
-                            <Setter Property="Background" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
-                            <Setter Property="Foreground" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
+                            <Setter Property="Background" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter Property="Foreground" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMin">
-                            <Setter Property="Background" TargetName="ButtonMin" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
-                            <Setter Property="Foreground" TargetName="ButtonMin" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource Mode=TemplatedParent}}"/>
-                        </Trigger>
-                        <Trigger Property="ShowTitle" Value="False">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="Title"/>
+                            <Setter Property="Background" TargetName="ButtonMin" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter Property="Foreground" TargetName="ButtonMin" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

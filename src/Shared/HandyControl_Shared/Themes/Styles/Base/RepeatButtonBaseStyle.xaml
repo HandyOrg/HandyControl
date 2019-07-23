@@ -8,7 +8,7 @@
 
     <Style x:Key="RepeatButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="4"/>
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">

@@ -61,7 +61,7 @@ namespace HandyControl.Controls
             _itemsControl = GetTemplateChild(ElementItemsControl) as ItemsPresenter;
             _panelPage = GetTemplateChild(ElementPanelPage) as Panel;
 
-            CheckNull();
+            if (!CheckNull()) return;
 
             _panelPage.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(ButtonPages_OnClick));
             _appliedTemplate = true;
@@ -74,10 +74,7 @@ namespace HandyControl.Controls
             UpdatePageButtons(_pageIndex);
         }
 
-        private void CheckNull()
-        {
-            if (_itemsControl == null || _panelPage == null) throw new Exception();
-        }
+        private bool CheckNull() => !(_itemsControl == null || _panelPage == null);
 
         public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
             "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
@@ -195,6 +192,7 @@ namespace HandyControl.Controls
         /// </summary>
         public void UpdatePageButtons(int index = -1)
         {
+            if (!CheckNull()) return;
             if (!_appliedTemplate) return;
 
             var count = Items.Count;
@@ -236,6 +234,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void UpdateItemsPosition()
         {
+            if (!CheckNull()) return;
             if (!_appliedTemplate) return;
             if (Items.Count == 0) return;
             if (!IsCenter)
@@ -284,6 +283,7 @@ namespace HandyControl.Controls
 
         private void ButtonPages_OnClick(object sender, RoutedEventArgs e)
         {
+            if (!CheckNull()) return;
             if (_selectedButton != null && _selectedButton.Content is Border borderOri)
                 borderOri.Background = Brushes.White;
             _selectedButton = e.OriginalSource as Button;

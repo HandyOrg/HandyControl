@@ -76,18 +76,7 @@
     </Style>
 
     <ItemsPanelTemplate x:Key="FluidMoveBehaviorWrapPanelItemsPanelTemplate">
-        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center">
-            <hc:Interaction.Behaviors>
-                <hc:FluidMoveBehavior AppliesTo="Children" Duration="0:0:.2">
-                    <hc:FluidMoveBehavior.EaseX>
-                        <PowerEase/>
-                    </hc:FluidMoveBehavior.EaseX>
-                    <hc:FluidMoveBehavior.EaseY>
-                        <PowerEase/>
-                    </hc:FluidMoveBehavior.EaseY>
-                </hc:FluidMoveBehavior>
-            </hc:Interaction.Behaviors>
-        </WrapPanel>
+        <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}"/>
     </ItemsPanelTemplate>
 
     <Style x:Key="MessageBoxCustom" TargetType="hc:MessageBox" BasedOn="{StaticResource {x:Type hc:MessageBox}}">
@@ -97,6 +86,7 @@
         <Setter Property="OtherButtonHoverForeground" Value="White"/>
         <Setter Property="NonClientAreaForeground" Value="White"/>
         <Setter Property="CloseButtonForeground" Value="White"/>
+        <Setter Property="Icon" Value="/HandyControlDemo;component/Resources/Img/icon.ico"/>
     </Style>
 
     <Style x:Key="TextBlockFabricIcons" TargetType="TextBlock">

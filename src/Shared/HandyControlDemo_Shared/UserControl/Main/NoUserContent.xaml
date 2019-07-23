@@ -11,19 +11,8 @@
         <ColumnDefinition Width="Auto"/>
     </Grid.ColumnDefinitions>
     <StackPanel VerticalAlignment="Stretch" Orientation="Horizontal">
-        <Button Margin="4,0,0,0" Width="28" Height="29" Style="{StaticResource ButtonCustom}">
-            <hc:Interaction.Triggers>
-                <hc:EventTrigger EventName="Click">
-                    <hc:InvokeCommandAction Command="{x:Static SystemCommands.ShowSystemMenuCommand}" />
-                </hc:EventTrigger>
-                <hc:EventTrigger EventName="MouseDoubleClick">
-                    <hc:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
-                </hc:EventTrigger>
-            </hc:Interaction.Triggers>
-            <Path Height="16" Fill="White" Stretch="Uniform" Data="{StaticResource LogoGeometry}"/>
-        </Button>
         <Menu Margin="10,0,0,0" Background="Transparent">
-            <MenuItem Foreground="White" Header="{x:Static langs:Lang.Repository}">
+            <MenuItem Height="29" Header="{x:Static langs:Lang.Repository}">
                 <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://github.com/NaBian/HandyControl" Header="GitHub">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource GithubGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
@@ -35,7 +24,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Foreground="White" Header="{x:Static langs:Lang.About}">
+            <MenuItem Height="29" Header="{x:Static langs:Lang.About}">
                 <MenuItem Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.ContributorsView}" Header="{x:Static langs:Lang.Contributors}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource ContributorsGeometry}" Fill="#ef6c00"/>
@@ -67,7 +56,7 @@
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
-            <MenuItem Foreground="White" Header="{x:Static langs:Lang.Recommendation}">
+            <MenuItem Height="29" Header="{x:Static langs:Lang.Recommendation}">
                 <MenuItem Header="{x:Static langs:Lang.Project}" Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.ProjectsView}" >
                     <MenuItem.Icon>
                         <Path Data="{StaticResource ProjectGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
@@ -81,7 +70,7 @@
             </MenuItem>
         </Menu>
     </StackPanel>
-    <Button Grid.Column="1" Click="ButtonConfig_OnClick" Name="ButtonConfig" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource ConfigGeometry}"/>
+    <Button Grid.Column="1" Click="ButtonConfig_OnClick" Name="ButtonConfig" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource ConfigGeometry}"/>
     <Popup AllowsTransparency="True" Grid.Column="1" PlacementTarget="{Binding ElementName=ButtonConfig}" HorizontalOffset="-25" Name="PopupConfig" VerticalOffset="6" StaysOpen="False">
         <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
             <StackPanel Orientation="Horizontal">

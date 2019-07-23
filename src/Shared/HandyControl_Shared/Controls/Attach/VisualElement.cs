@@ -12,6 +12,15 @@ namespace HandyControl.Controls
             => element.SetValue(HighlightBrushProperty, value);
 
         public static Brush GetHighlightBrush(DependencyObject element)
-            => (Brush) element.GetValue(HighlightBrushProperty);        
+            => (Brush) element.GetValue(HighlightBrushProperty);
+
+        public static readonly DependencyProperty TextProperty = DependencyProperty.RegisterAttached(
+            "Text", typeof(string), typeof(VisualElement), new PropertyMetadata(default(string)));
+
+        public static void SetText(DependencyObject element, string value)
+            => element.SetValue(TextProperty, value);
+
+        public static string GetText(DependencyObject element)
+            => (string) element.GetValue(TextProperty);
     }
 }

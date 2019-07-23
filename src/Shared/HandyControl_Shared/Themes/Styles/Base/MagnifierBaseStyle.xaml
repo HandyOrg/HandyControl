@@ -1,0 +1,33 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Border.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="MagnifierBaseStyle" TargetType="controls:Magnifier">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Width" Value="180"/>
+        <Setter Property="Height" Value="180"/>
+        <Setter Property="BorderThickness" Value="8"/>
+        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:Magnifier">
+                    <Border Style="{StaticResource BorderCircular}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <Ellipse>
+                            <Ellipse.Fill>
+                                <VisualBrush Visual="{Binding Target,RelativeSource={RelativeSource TemplatedParent}}" ViewboxUnits="Absolute" x:Name="PART_VisualBrush"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

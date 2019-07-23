@@ -621,4 +621,19 @@
   <data name="Off" xml:space="preserve">
     <value>Off</value>
   </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>ButtonGroup</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="TextDialogWithTimer" xml:space="preserve">
+    <value>TextDialog with timer</value>
+  </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>Magnifier</value>
+  </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>ImageBlock</value>
+  </data>
 </root>

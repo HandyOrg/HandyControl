@@ -18,6 +18,7 @@
         <ResourceDictionary Source="TabControl.xaml"/>
         <ResourceDictionary Source="ListBox.xaml"/>
         <ResourceDictionary Source="Loading.xaml"/>
+        <ResourceDictionary Source="Menu.xaml"/>
         <ResourceDictionary Source="ContextMenu.xaml"/>
         <ResourceDictionary Source="ToolTip.xaml"/>
         <ResourceDictionary Source="Expander.xaml"/>
@@ -49,7 +50,7 @@
         <ResourceDictionary Source="ToolBar.xaml"/>
         <ResourceDictionary Source="SearchBar.xaml"/>
         <ResourceDictionary Source="Tag.xaml"/>
-        <ResourceDictionary Source="RadioGroup.xaml"/>
+        <ResourceDictionary Source="ButtonGroup.xaml"/>
         <ResourceDictionary Source="FlipClock.xaml"/>
         <ResourceDictionary Source="Rate.xaml"/>
         <ResourceDictionary Source="Shield.xaml"/>
@@ -65,6 +66,10 @@
         <ResourceDictionary Source="SideMenu.xaml"/>
         <ResourceDictionary Source="GridSplitter.xaml"/>
         <ResourceDictionary Source="Col.xaml"/>
+        <ResourceDictionary Source="Card.xaml"/>
+        <ResourceDictionary Source="Rectangle.xaml"/>
+        <ResourceDictionary Source="Magnifier.xaml"/>
+        <ResourceDictionary Source="ToggleBlock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

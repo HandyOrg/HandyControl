@@ -400,6 +400,7 @@ namespace HandyControl.Controls
 
         private void TimeBar_OnSizeChanged(object sender, SizeChangedEventArgs e)
         {
+            if (_canvasSpe == null) return;
             _speBlockList.Clear();
             _canvasSpe.Children.Clear();
 
@@ -442,7 +443,7 @@ namespace HandyControl.Controls
         {
             var p = Mouse.GetPosition(this);
             var mlliseconds = (p.X - ActualWidth / 2) / _itemWidth * _timeSpeList[_speIndex];
-            if (double.IsInfinity(mlliseconds)) return;
+            if (double.IsNaN(mlliseconds) || double.IsInfinity(mlliseconds)) return;
             _textBlockMove.Text = mlliseconds < 0
                 ? (SelectedTime - TimeSpan.FromMilliseconds(-mlliseconds)).ToString(TimeFormat)
                 : (SelectedTime + TimeSpan.FromMilliseconds(mlliseconds)).ToString(TimeFormat);

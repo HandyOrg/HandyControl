@@ -52,7 +52,11 @@ var controlList = new List<string>
 	"SideMenuDemoCtl",
 	"GridDemoCtl",
 	"PoptipDemoCtl",
-	"RangeSliderDemoCtl"
+	"RangeSliderDemoCtl",
+	"ButtonGroupDemoCtl",
+	"CardDemoCtl",
+	"MagnifierDemoCtl",
+	"ImageBlockDemoCtl"
 };
 var styleList = new List<string>
 {

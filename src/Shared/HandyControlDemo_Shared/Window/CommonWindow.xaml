@@ -6,7 +6,6 @@
            xmlns:hc="https://handyorg.github.io/handycontrol"
            xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
            mc:Ignorable="d"
-           ShowTitle="True"
            Background="{DynamicResource MainContentBackgroundBrush}"
            WindowStartupLocation="CenterScreen"
            Style="{StaticResource WindowWin10}"

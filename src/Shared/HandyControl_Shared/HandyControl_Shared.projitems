@@ -18,13 +18,22 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\InfoElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxAttach.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\RectangleAttach.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Magnifier.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ButtonGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Card.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ToggleBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeTrack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeThumb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\NameReferenceConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\RectangleCircularConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\FrameworkElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ValueExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\GlobalShortcut.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TipElement.cs" />
@@ -77,7 +86,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Growl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\NotifyIcon.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Pagination.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\RadioGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ScrollViewer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Shield.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\TransitioningContentControl.cs" />
@@ -102,8 +110,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\TabControl\TabItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\TabControl\TabPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\OutlineText.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\Tag\Tag.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\Tag\TagPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Tag\Tag.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Tag\TagPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\CalendarWithClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\Clock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ListClock.cs" />
@@ -250,6 +258,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ConfigHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\CreateParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DesignerHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DpiHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\IconHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ResourceHelper.cs" />
@@ -280,7 +289,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Queue\Deque!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularJudgment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularPatterns.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\RadioGroupItemStyleSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ButtonGroupItemStyleSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\TabItemCapsuleStyleSelector.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -344,7 +353,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\CardBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\ColorPickerBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\MenuBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\ExpanderBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\MagnifierBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -352,7 +377,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\ToggleBlockBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Card.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Col.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Menu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -468,7 +505,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\RadioGroupBaseStyle.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\ButtonGroupBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -636,6 +673,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Magnifier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\NumericUpDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -664,11 +705,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\RadioGroup.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\ButtonGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Rate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Rectangle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -733,6 +778,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\TimePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\ToggleBlock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
