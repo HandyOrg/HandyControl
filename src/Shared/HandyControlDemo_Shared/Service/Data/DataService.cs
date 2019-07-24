@@ -7,7 +7,9 @@ using System.Net;
 using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools.Converter;
+#if !Core
 using Newtonsoft.Json;
+#endif
 
 namespace HandyControlDemo.Service
 {
@@ -86,7 +88,11 @@ namespace HandyControlDemo.Service
             try
             {
                 var json = client.DownloadString(new Uri("https://api.github.com/repos/nabian/handycontrol/contributors"));
+#if !Core
                 var objList = JsonConvert.DeserializeObject<List<dynamic>>(json);
+#else
+                var objList = System.Text.Json.JsonSerializer.Deserialize<List<dynamic>>(json);
+#endif
                 list.AddRange(objList.Select(item => new AvatarModel
                 {
                     DisplayName = item.login,
