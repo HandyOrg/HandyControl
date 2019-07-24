@@ -80,8 +80,8 @@ namespace HandyControl.Controls
             Clock = new Clock();
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(SelectedTimeProperty);
-                ClearValue(TextProperty);
+                SetCurrentValue(SelectedTimeProperty, null);
+                SetCurrentValue(TextProperty, "");
                 _textBox.Text = string.Empty;
             }));
         }
@@ -497,29 +497,29 @@ namespace HandyControl.Controls
             switch (e.Key)
             {
                 case Key.System:
-                {
-                    switch (e.SystemKey)
                     {
-                        case Key.Down:
+                        switch (e.SystemKey)
                         {
-                            if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                            {
-                                TogglePopUp();
-                                return true;
-                            }
+                            case Key.Down:
+                                {
+                                    if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+                                    {
+                                        TogglePopUp();
+                                        return true;
+                                    }
 
-                            break;
+                                    break;
+                                }
                         }
+
+                        break;
                     }
 
-                    break;
-                }
-
                 case Key.Enter:
-                {
-                    SetSelectedTime();
-                    return true;
-                }
+                    {
+                        SetSelectedTime();
+                        return true;
+                    }
             }
 
             return false;
