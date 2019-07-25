@@ -1,5 +1,4 @@
-﻿#if !Core
-using System.Linq;
+﻿using System.Linq;
 using System.Management;
 using HandyControl.Data;
 
@@ -24,4 +23,3 @@ namespace HandyControlDemo.Tools
         }
     }
 }
-#endif
