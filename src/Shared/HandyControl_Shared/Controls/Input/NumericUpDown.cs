@@ -43,7 +43,7 @@ namespace HandyControl.Controls
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(ValueProperty);
+                SetCurrentValue(ValueProperty, 0d);
                 _textBox.Text = string.Empty;
             }));
 

@@ -43,10 +43,10 @@ namespace HandyControl.Controls
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(SelectedValueProperty);
-                ClearValue(SelectedItemProperty);
-                ClearValue(SelectedIndexProperty);
-                ClearValue(TextProperty);
+                SetCurrentValue(SelectedValueProperty, null);
+                SetCurrentValue(SelectedItemProperty, null);
+                SetCurrentValue(SelectedIndexProperty, -1);
+                SetCurrentValue(TextProperty, "");
             }));
         }
 
@@ -85,7 +85,7 @@ namespace HandyControl.Controls
                             UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
                             Mode = BindingMode.OneWayToSource,
 #if !netle40
-                            Delay = 500,              
+                            Delay = 500,
 #endif
                             Source = this
                         });

@@ -154,7 +154,7 @@ namespace HandyControl.Controls
 
             if (TabControlParent.IsEnableAnimation)
             {
-                TabPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
+                TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
             }
             else
             {

@@ -20,8 +20,8 @@ namespace HandyControl.Controls
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(SelectedDateProperty);
-                ClearValue(TextProperty);
+                SetCurrentValue(SelectedDateProperty, null);
+                SetCurrentValue(TextProperty, "");
             }));
         }
 
