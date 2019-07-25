@@ -19,7 +19,7 @@ namespace HandyControlDemo.Tools
                     return info;
                 }
             }
-            return default(SystemVersionInfo);
+            return default;
         }
     }
 }
