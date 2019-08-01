@@ -18,6 +18,7 @@ namespace HandyControlDemo
         {
             base.OnStartup(e);
 
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
             GlobalData.Init();
             ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
 
@@ -26,9 +27,8 @@ namespace HandyControlDemo
                 UpdateSkin(GlobalData.Config.Skin);
             }
 
-#if !Core
             ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
-#endif
+
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
         }
 

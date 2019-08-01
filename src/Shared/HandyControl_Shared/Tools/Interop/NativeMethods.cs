@@ -64,7 +64,8 @@ namespace HandyControl.Tools.Interop
             LOGPIXELSX = 88,
             LOGPIXELSY = 90,
             CXFRAME = 32,
-            CXSIZEFRAME = CXFRAME;
+            CXSIZEFRAME = CXFRAME,
+            SW_HIDE = 0;
 
         [Flags]
         public enum ProcessAccess
@@ -219,5 +220,8 @@ namespace HandyControl.Tools.Interop
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport(ExternDll.User32)]
         public static extern int GetSystemMetrics(SM nIndex);
+
+        [DllImport(ExternDll.User32)]
+        public static extern IntPtr GetDesktopWindow();
     }
 }

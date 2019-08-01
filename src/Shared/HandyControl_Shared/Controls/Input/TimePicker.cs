@@ -80,8 +80,8 @@ namespace HandyControl.Controls
             Clock = new Clock();
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(SelectedTimeProperty);
-                ClearValue(TextProperty);
+                SetCurrentValue(SelectedTimeProperty, null);
+                SetCurrentValue(TextProperty, "");
                 _textBox.Text = string.Empty;
             }));
         }
@@ -261,7 +261,7 @@ namespace HandyControl.Controls
 
         public bool IsError
         {
-            get => (bool) GetValue(IsErrorProperty);
+            get => (bool)GetValue(IsErrorProperty);
             set => SetValue(IsErrorProperty, value);
         }
 
@@ -270,7 +270,7 @@ namespace HandyControl.Controls
 
         public string ErrorStr
         {
-            get => (string) GetValue(ErrorStrProperty);
+            get => (string)GetValue(ErrorStrProperty);
             set => SetValue(ErrorStrProperty, value);
         }
 
@@ -279,7 +279,7 @@ namespace HandyControl.Controls
 
         public TextType TextType
         {
-            get => (TextType) GetValue(TextTypeProperty);
+            get => (TextType)GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 
@@ -288,7 +288,7 @@ namespace HandyControl.Controls
 
         public bool ShowClearButton
         {
-            get => (bool) GetValue(ShowClearButtonProperty);
+            get => (bool)GetValue(ShowClearButtonProperty);
             set => SetValue(ShowClearButtonProperty, value);
         }
 
@@ -297,7 +297,7 @@ namespace HandyControl.Controls
 
         private static void OnClockChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (TimePicker) d;
+            var ctl = (TimePicker)d;
             var oldClock = e.OldValue as ClockBase;
             var newClock = e.NewValue as ClockBase;
 
@@ -317,7 +317,7 @@ namespace HandyControl.Controls
 
         public ClockBase Clock
         {
-            get => (ClockBase) GetValue(ClockProperty);
+            get => (ClockBase)GetValue(ClockProperty);
             set => SetValue(ClockProperty, value);
         }
 
@@ -497,29 +497,29 @@ namespace HandyControl.Controls
             switch (e.Key)
             {
                 case Key.System:
-                {
-                    switch (e.SystemKey)
                     {
-                        case Key.Down:
+                        switch (e.SystemKey)
                         {
-                            if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                            {
-                                TogglePopUp();
-                                return true;
-                            }
+                            case Key.Down:
+                                {
+                                    if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+                                    {
+                                        TogglePopUp();
+                                        return true;
+                                    }
 
-                            break;
+                                    break;
+                                }
                         }
+
+                        break;
                     }
 
-                    break;
-                }
-
                 case Key.Enter:
-                {
-                    SetSelectedTime();
-                    return true;
-                }
+                    {
+                        SetSelectedTime();
+                        return true;
+                    }
             }
 
             return false;
@@ -644,7 +644,7 @@ namespace HandyControl.Controls
 
             if (SelectedTime != null)
             {
-                var newtext = DateTimeToString((DateTime) SelectedTime);
+                var newtext = DateTimeToString((DateTime)SelectedTime);
                 SafeSetText(newtext);
                 return SelectedTime;
             }

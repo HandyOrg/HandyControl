@@ -15,7 +15,7 @@ namespace HandyControl.Controls
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(TextProperty);
+                SetCurrentValue(TextProperty, "");
             }));
         }
 

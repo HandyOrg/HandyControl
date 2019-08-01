@@ -210,7 +210,7 @@ namespace HandyControl.Controls
             }
             if (IsEnableAnimation)
             {
-                _headerPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
+                _headerPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
             }
             else
             {
@@ -311,7 +311,7 @@ namespace HandyControl.Controls
                             Items.Insert(0, item);
                             if (IsEnableAnimation)
                             {
-                                _headerPanel.ClearValue(TabPanel.FluidMoveDurationProperty);
+                                _headerPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
                             }
                             else
                             {
