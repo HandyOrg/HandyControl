@@ -63,9 +63,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
       <DependentUpon>RangeSliderDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RelativePanelDemoCtl.xaml.cs">
-      <DependentUpon>RelativePanelDemoCtl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\BadgeDemoCtl.xaml.cs">
       <DependentUpon>BadgeDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -431,10 +428,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemoCtl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RelativePanelDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

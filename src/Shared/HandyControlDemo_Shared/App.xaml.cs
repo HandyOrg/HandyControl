@@ -18,6 +18,7 @@ namespace HandyControlDemo
         {
             base.OnStartup(e);
 
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
             GlobalData.Init();
             ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
 

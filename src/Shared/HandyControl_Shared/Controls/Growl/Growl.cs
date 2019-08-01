@@ -31,6 +31,8 @@ namespace HandyControl.Controls
 
         #region Data
 
+        private static GrowlWindow GrowlWindow;
+
         private Panel _panelMore;
 
         private Grid _gridMain;
@@ -293,6 +295,8 @@ namespace HandyControl.Controls
 
         private static void InitGrowlPanel(Panel panel)
         {
+            if (panel == null) return;
+
             var menuItem = new MenuItem
             {
                 Header = Properties.Langs.Lang.Clear
@@ -334,6 +338,61 @@ namespace HandyControl.Controls
             if (!_staysOpen) StartTimer();
         }
 
+        private static void ShowGlobal(GrowlInfo growlInfo)
+        {
+            if (GrowlWindow == null)
+            {
+                GrowlWindow = new GrowlWindow();
+                GrowlWindow.Show();
+                InitGrowlPanel(GrowlWindow.GrowlPanel);
+                GrowlWindow.Init();
+            }
+
+            GrowlWindow.Show(true);
+
+#if netle40
+            Application.Current.Dispatcher?.Invoke(new Action(() =>
+            {
+                var ctl = new Growl
+                {
+                    Message = growlInfo.Message,
+                    Time = DateTime.Now,
+                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
+                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                    _showCloseButton = growlInfo.ShowCloseButton,
+                    ActionBeforeClose = growlInfo.ActionBeforeClose,
+                    _staysOpen = growlInfo.StaysOpen,
+                    ShowDateTime = growlInfo.ShowDateTime,
+                    ConfirmStr = growlInfo.ConfirmStr,
+                    CancelStr = growlInfo.CancelStr,
+                    Type = growlInfo.Type,
+                    _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                };
+                GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
+            }));
+#else
+            Application.Current.Dispatcher?.Invoke(() =>
+            {
+                var ctl = new Growl
+                {
+                    Message = growlInfo.Message,
+                    Time = DateTime.Now,
+                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
+                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                    _showCloseButton = growlInfo.ShowCloseButton,
+                    ActionBeforeClose = growlInfo.ActionBeforeClose,
+                    _staysOpen = growlInfo.StaysOpen,
+                    ShowDateTime = growlInfo.ShowDateTime,
+                    ConfirmStr = growlInfo.ConfirmStr,
+                    CancelStr = growlInfo.CancelStr,
+                    Type = growlInfo.Type,
+                    _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                };
+                GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
+            });
+#endif 
+        }
+
         /// <summary>
         ///     显示信息
         /// </summary>
@@ -341,7 +400,7 @@ namespace HandyControl.Controls
         private static void Show(GrowlInfo growlInfo)
         {
 #if netle40
-            Application.Current.Dispatcher.Invoke(new Action(() =>
+            Application.Current.Dispatcher?.Invoke(new Action(() =>
             {
                 var ctl = new Growl
                 {
@@ -371,7 +430,7 @@ namespace HandyControl.Controls
                 }
             }));
 #else
-            Application.Current.Dispatcher.Invoke(() =>
+            Application.Current.Dispatcher?.Invoke(() =>
             {
                 var ctl = new Growl
                 {
@@ -431,6 +490,31 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     成功
+        /// </summary>
+        /// <param name="message"></param>
+        public static void SuccessGlobal(string message) => SuccessGlobal(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     成功
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void SuccessGlobal(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.SuccessGeometry;
+                growlInfo.IconBrushKey = ResourceToken.SuccessBrush;
+                growlInfo.Type = InfoType.Success;
+            }
+            ShowGlobal(growlInfo);
+        }
+
+        /// <summary>
         ///     消息
         /// </summary>
         /// <param name="message"></param>
@@ -455,6 +539,31 @@ namespace HandyControl.Controls
                 growlInfo.Type = InfoType.Info;
             }
             Show(growlInfo);
+        }
+
+        /// <summary>
+        ///     消息
+        /// </summary>
+        /// <param name="message"></param>
+        public static void InfoGlobal(string message) => InfoGlobal(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     消息
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void InfoGlobal(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.InfoGeometry;
+                growlInfo.IconBrushKey = ResourceToken.InfoBrush;
+                growlInfo.Type = InfoType.Info;
+            }
+            ShowGlobal(growlInfo);
         }
 
         /// <summary>
@@ -485,6 +594,31 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     警告
+        /// </summary>
+        /// <param name="message"></param>
+        public static void WarningGlobal(string message) => WarningGlobal(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     警告
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void WarningGlobal(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.WarningGeometry;
+                growlInfo.IconBrushKey = ResourceToken.WarningBrush;
+                growlInfo.Type = InfoType.Warning;
+            }
+            ShowGlobal(growlInfo);
+        }
+
+        /// <summary>
         ///     错误
         /// </summary>
         /// <param name="message"></param>
@@ -510,6 +644,32 @@ namespace HandyControl.Controls
                 growlInfo.Type = InfoType.Error;
             }
             Show(growlInfo);
+        }
+
+        /// <summary>
+        ///     错误
+        /// </summary>
+        /// <param name="message"></param>
+        public static void ErrorGlobal(string message) => ErrorGlobal(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     错误
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void ErrorGlobal(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.ErrorGeometry;
+                growlInfo.IconBrushKey = ResourceToken.DangerBrush;
+                growlInfo.StaysOpen = true;
+                growlInfo.Type = InfoType.Error;
+            }
+            ShowGlobal(growlInfo);
         }
 
         /// <summary>
@@ -543,6 +703,34 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     严重
+        /// </summary>
+        /// <param name="message"></param>
+        public static void FatalGlobal(string message) => FatalGlobal(new GrowlInfo
+        {
+            Message = message
+        });
+
+        /// <summary>
+        ///     严重
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void FatalGlobal(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.FatalGeometry;
+                growlInfo.IconBrushKey = ResourceToken.PrimaryTextBrush;
+                growlInfo.StaysOpen = true;
+                growlInfo.ShowCloseButton = false;
+                growlInfo.Type = InfoType.Fatal;
+                if (GrowlPanel.ContextMenu != null) GrowlPanel.ContextMenu.Opacity = 0;
+            }
+            ShowGlobal(growlInfo);
+        }
+
+        /// <summary>
         ///     询问
         /// </summary>
         /// <param name="message"></param>
@@ -573,6 +761,35 @@ namespace HandyControl.Controls
             Show(growlInfo);
         }
 
+        /// <summary>
+        ///     询问
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="actionBeforeClose"></param>
+        public static void AskGlobal(string message, Func<bool, bool> actionBeforeClose) => AskGlobal(new GrowlInfo
+        {
+            Message = message,
+            ActionBeforeClose = actionBeforeClose
+        });
+
+        /// <summary>
+        ///     询问
+        /// </summary>
+        /// <param name="growlInfo"></param>
+        public static void AskGlobal(GrowlInfo growlInfo)
+        {
+            if (growlInfo == null) throw new ArgumentNullException(nameof(growlInfo));
+            if (!growlInfo.IsCustom)
+            {
+                growlInfo.IconKey = ResourceToken.AskGeometry;
+                growlInfo.IconBrushKey = ResourceToken.AccentBrush;
+                growlInfo.StaysOpen = true;
+                growlInfo.ShowCloseButton = false;
+                growlInfo.Type = InfoType.Ask;
+            }
+            ShowGlobal(growlInfo);
+        }
+
         private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close();
 
         /// <summary>
@@ -589,6 +806,12 @@ namespace HandyControl.Controls
                 if (Parent is Panel panel)
                 {
                     panel.Children.Remove(this);
+
+                    if (GrowlWindow?.GrowlPanel != null && GrowlWindow.GrowlPanel.Children.Count == 0)
+                    {
+                        GrowlWindow.Close();
+                        GrowlWindow = null;
+                    }
                 }
             };
             transform.BeginAnimation(TranslateTransform.XProperty, animation);
@@ -619,12 +842,24 @@ namespace HandyControl.Controls
         /// <param name="panel"></param>
         private static void Clear(Panel panel)
         {
+            if (panel == null) return;
             panel.Children.Clear();
             if (panel.ContextMenu != null)
             {
                 panel.ContextMenu.IsOpen = false;
                 panel.ContextMenu.Opacity = 1;
             }
+        }
+
+        /// <summary>
+        ///     清除
+        /// </summary>
+        public static void ClearGlobal()
+        {
+            if (GrowlWindow == null) return;
+            Clear(GrowlWindow.GrowlPanel);
+            GrowlWindow.Close();
+            GrowlWindow = null;
         }
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e)
