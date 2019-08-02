@@ -633,4 +633,7 @@
   <data name="ImageBlock" xml:space="preserve">
     <value>图片块</value>
   </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>滚动块</value>
+  </data>
 </root>

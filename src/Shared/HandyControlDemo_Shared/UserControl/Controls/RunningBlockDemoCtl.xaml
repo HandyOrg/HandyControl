@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.RunningBlockDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs">
+    <StackPanel Margin="32">
+        <hc:RunningBlock Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+        <hc:RunningBlock Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=10}" Duration="0:0:10" Margin="0,16,0,0"/>
+        <hc:RunningBlock Margin="0,16,0,0" Duration="0:0:20">
+            <StackPanel Orientation="Horizontal">
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/1.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/2.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/3.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/4.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/5.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/6.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/7.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/8.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/9.gif"/>
+                <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/10.gif"/>
+            </StackPanel>
+        </hc:RunningBlock>
+    </StackPanel>
+</UserControl>
