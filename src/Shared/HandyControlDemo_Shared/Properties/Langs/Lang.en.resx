@@ -633,4 +633,7 @@
   <data name="ImageBlock" xml:space="preserve">
     <value>ImageBlock</value>
   </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>RunningBlock</value>
+  </data>
 </root>
