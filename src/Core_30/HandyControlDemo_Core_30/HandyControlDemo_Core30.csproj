@@ -48,6 +48,36 @@
     <ProjectReference Include="..\HandyControl_Core_30\HandyControl_Core_30.csproj" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\1.gif">
+      <Link>Resources\Img\QQ\1.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\2.gif">
+      <Link>Resources\Img\QQ\2.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\3.gif">
+      <Link>Resources\Img\QQ\3.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\4.gif">
+      <Link>Resources\Img\QQ\4.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\5.gif">
+      <Link>Resources\Img\QQ\5.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\6.gif">
+      <Link>Resources\Img\QQ\6.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\7.gif">
+      <Link>Resources\Img\QQ\7.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\8.gif">
+      <Link>Resources\Img\QQ\8.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\9.gif">
+      <Link>Resources\Img\QQ\9.gif</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\10.gif">
+      <Link>Resources\Img\QQ\10.gif</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\1.jpg">
       <Link>Resources\Img\1.jpg</Link>
     </Resource>
@@ -362,6 +392,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\ImageStack_16x.png">
       <Link>Resources\Img\LeftMainContent\ImageStack_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Dynamic_16x.png">
+      <Link>Resources\Img\LeftMainContent\Dynamic_16x.png</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Dance.png">
       <Link>Resources\Img\Dance.png</Link>

@@ -63,6 +63,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### RunningBlock
+
+![RunningBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/RunningBlock.gif)
+
 ### ImageBlock
 
 ![ImageBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBlock.gif)  

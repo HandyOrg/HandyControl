@@ -325,6 +325,11 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RunningBlockDemoCtl}" Content="{x:Static langs:Lang.RunningBlock}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/Dynamic_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                         <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CardDemoCtl}" Content="{x:Static langs:Lang.Card}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/VSO_Card_16x.png"/>
@@ -400,7 +405,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/HoverMenu_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RangeSliderDemoCtl}" Content="{x:Static langs:Lang.RangeSlider}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.RangeSliderDemoCtl}" Content="{x:Static langs:Lang.RangeSlider}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/brackets_Square_16xLG.png"/>
                             </hc:EdgeElement.LeftContent>

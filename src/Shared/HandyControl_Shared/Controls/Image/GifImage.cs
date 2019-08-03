@@ -83,6 +83,8 @@ namespace HandyControl.Controls
                     StartAnimate();
                 }
             };
+
+            Unloaded += (s, e) => Dispose();
         }
 
         public GifImage(string filename)
