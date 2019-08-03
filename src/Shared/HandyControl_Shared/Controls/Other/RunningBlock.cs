@@ -7,28 +7,26 @@ using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
-    [TemplatePart(Name = ElementContent, Type = typeof(UIElement))]
+    [TemplatePart(Name = ElementContent, Type = typeof(FrameworkElement))]
+    [TemplatePart(Name = ElementPanel, Type = typeof(Panel))]
     public class RunningBlock : ContentControl
     {
         private const string ElementContent = "PART_ContentElement";
 
+        private const string ElementPanel = "PART_Panel";
+
         protected Storyboard _storyboard;
 
-        private UIElement _elementContent;
+        private FrameworkElement _elementContent;
+
+        private FrameworkElement _elementPanel;
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
 
-            _elementContent = GetTemplateChild(ElementContent) as UIElement;
-        }
-
-        public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-            "Orientation", typeof(Orientation), typeof(RunningBlock), new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsRender));
-
-        public Orientation Orientation
-        {
-            get => (Orientation) GetValue(OrientationProperty);
-            set => SetValue(OrientationProperty, value);
+            _elementContent = GetTemplateChild(ElementContent) as FrameworkElement;
+            _elementPanel = GetTemplateChild(ElementPanel) as Panel;
         }
 
         public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(
@@ -63,11 +61,16 @@ namespace HandyControl.Controls
 
         private void UpdateContent()
         {
-            if (_elementContent == null) return;
+            if (_elementContent == null || _elementPanel == null) return;
 
+            _storyboard?.Stop();
             _storyboard = new Storyboard();
 
-            var animation = new DoubleAnimation(-ActualWidth, ActualWidth, Duration)
+            _elementPanel.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            _elementPanel.Width = _elementPanel.DesiredSize.Width;
+            _elementPanel.Height = _elementPanel.DesiredSize.Height;
+
+            var animation = new DoubleAnimation(-_elementContent.ActualWidth, ActualWidth, Duration)
             {
                 RepeatBehavior = RepeatBehavior.Forever
             };
