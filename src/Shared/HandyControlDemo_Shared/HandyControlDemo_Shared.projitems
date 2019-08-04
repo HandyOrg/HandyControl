@@ -807,9 +807,4 @@
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Service\Data\" />
   </ItemGroup>
-  <ItemGroup>
-    <Compile Update="E:\Work\GitHub\HandyControl\src\Shared\HandyControlDemo_Shared\UserControl\Controls\RunningTextDemoCtl.xaml.cs">
-      <DependentUpon>RunningBlockDemoCtl.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
 </Project>
