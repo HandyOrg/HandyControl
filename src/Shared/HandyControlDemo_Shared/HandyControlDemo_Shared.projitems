@@ -63,9 +63,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
       <DependentUpon>RangeSliderDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RelativePanelDemoCtl.xaml.cs">
-      <DependentUpon>RelativePanelDemoCtl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\BadgeDemoCtl.xaml.cs">
       <DependentUpon>BadgeDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -161,6 +158,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RateDemoCtl.xaml.cs">
       <DependentUpon>RateDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RunningBlockDemoCtl.xaml.cs">
+      <DependentUpon>RunningBlockDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
       <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
@@ -437,10 +437,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RelativePanelDemoCtl.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -570,6 +566,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RateDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RunningBlockDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

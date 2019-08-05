@@ -70,6 +70,7 @@
         <ResourceDictionary Source="Rectangle.xaml"/>
         <ResourceDictionary Source="Magnifier.xaml"/>
         <ResourceDictionary Source="ToggleBlock.xaml"/>
+        <ResourceDictionary Source="RunningBlock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

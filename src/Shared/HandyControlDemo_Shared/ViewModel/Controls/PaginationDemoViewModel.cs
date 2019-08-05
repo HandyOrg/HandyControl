@@ -39,7 +39,7 @@ namespace HandyControlDemo.ViewModel
 
         public PaginationDemoViewModel(DataService dataService)
         {
-            _totalDataList = dataService.GetDemoDataList(10);
+            _totalDataList = dataService.GetDemoDataList(100);
             DataList = _totalDataList.Take(10).ToList();
         }
 

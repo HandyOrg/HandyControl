@@ -1240,6 +1240,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 滚动块 的本地化字符串。
+        /// </summary>
+        public static string RunningBlock {
+            get {
+                return ResourceManager.GetString("RunningBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 滚动视图 的本地化字符串。
         /// </summary>
         public static string ScrollViewer {

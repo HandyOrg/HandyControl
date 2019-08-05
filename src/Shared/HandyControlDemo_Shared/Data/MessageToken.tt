@@ -55,7 +55,8 @@ var controlList = new List<string>
 	"ButtonGroupDemoCtl",
 	"CardDemoCtl",
 	"MagnifierDemoCtl",
-	"ImageBlockDemoCtl"
+	"ImageBlockDemoCtl",
+	"RunningBlockDemoCtl"
 };
 var styleList = new List<string>
 {
