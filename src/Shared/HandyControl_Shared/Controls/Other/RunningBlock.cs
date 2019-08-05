@@ -70,7 +70,7 @@ namespace HandyControl.Controls
             _elementPanel.Width = _elementPanel.DesiredSize.Width;
             _elementPanel.Height = _elementPanel.DesiredSize.Height;
 
-            var animation = new DoubleAnimation(-_elementContent.ActualWidth, ActualWidth, Duration)
+            var animation = new DoubleAnimation(-_elementPanel.Width, ActualWidth, Duration)
             {
                 RepeatBehavior = RepeatBehavior.Forever
             };
