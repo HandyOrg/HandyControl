@@ -2,18 +2,18 @@
 title: DataGrid 数据表格
 ---
 
-**HandyControl中自带DataGrid相关样式**
+# 相关样式
 
-| style名称                 | 所属类型                                    | 用途描述                                               |
-| :------------------------ | :------------------------------------------ | :----------------------------------------------------- |
-| RowHeaderGripperStyle     | Thumb                                       | RowHeader的可拖拽样式                                  |
-| ColumnHeaderGripperStyle  | Thumb                                       | ColumnHeader可拖拽样式                                 |
-| DataGridCellStyle         | DataGridCell                                | DataGrid数据列样式                                     |
-| DataGridRowStyle          | DataGridRow                                 | DataGrid数据行样式                                     |
-| DataGridColumnHeaderStyle | DataGridColumnHeader                        | DataGrid列头样式                                       |
-| DataGridRowHeaderStyle    | DataGridRowHeader                           | DataGrid行头样式                                       |
-| TextBlockComboBoxStyle    | controls:DataGridAttach.ComboBoxColumnStyle | DataGrid附加属性文本框下拉列的非编辑模式下文本显示样式 |
-| DataGridTextColumnStyle   | TextBlock                                   | DataGrid文本列样式                                     |
+| style名称 | 所属类型 | 用途描述 |
+| - | - | - |
+| RowHeaderGripperStyle     | Thumb                                       | 行标题拖拽条样式       |
+| ColumnHeaderGripperStyle  | Thumb                                       | 列标题拖拽条样式       |
+| DataGridCellStyle         | DataGridCell                                | 单元格样式            |
+| DataGridRowStyle          | DataGridRow                                 | 行样式                |
+| DataGridColumnHeaderStyle | DataGridColumnHeader                        | 列标题样式             |
+| DataGridRowHeaderStyle    | DataGridRowHeader                           | 行标题样式             |
+| TextBlockComboBoxStyle    | ComboBox                                    | ComboBox非编辑模式样式 |
+| DataGridTextColumnStyle   | TextBlock                                   | 默认文本样式           |
 
 {% note info no-icon %}
 用例：
@@ -44,7 +44,7 @@ title: DataGrid 数据表格
 ![ContextMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataGrid.png)
 {% endnote %}
 
-**常见问题：**
+# FAQ
 {% note warning  no-icon%}
 对于文本显示列`DataGridTextColumn`需要设定文本内容`水平居中`或者`水平居右`，而不是HandyControl中设定的样式默认显示为`居左`时，需要继承`DataGridCellStyle`重写`HorizontalContentAlignment` 属性为`Center` 或`Right` 需要注意的是，此方式仅仅适用于引入了HandControl资源样式的项目，普通原生DataGrid使用该方式无效。
 
@@ -63,14 +63,10 @@ title: DataGrid 数据表格
 xaml中的使用：
 
 <DataGrid ItemsSource="{Binding Datas}" AutoGenerateColumns="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn Header="居左" Binding="{Binding Name}" Width="*">
-
-​				</DataGridTextColumn>
-​                <DataGridTextColumn Header="居中" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Width="*" Binding="{Binding Name}">
-
-​				</DataGridTextColumn>
-​            </DataGrid.Columns>
+    <DataGrid.Columns>
+        <DataGridTextColumn Header="居左" Binding="{Binding Name}" Width="*"/>
+        <DataGridTextColumn Header="居中" CellStyle="{StaticResource DataGridTextCenterColumnStyle}" Width="*" Binding="{Binding Name}"/>
+​    </DataGrid.Columns>
 </DataGrid>
 
 {% endcode %}
