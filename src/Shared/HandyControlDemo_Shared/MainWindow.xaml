@@ -12,9 +12,10 @@
                ShowTitle="False"
                ResizeMode="CanResizeWithGrip"
                WindowStartupLocation="CenterScreen"
-               hc:GlobalShortcut.Host="True"
                DataContext="{Binding Main,Source={StaticResource Locator}}"
+               hc:GlobalShortcut.Host="True"
                hc:Dialog.Token="{x:Static data:MessageToken.MainWindow}"
+               hc:WindowAttach.IgnoreAltF4="True"
                d:DesignHeight="800" 
                d:DesignWidth="1400" 
                Icon="/HandyControlDemo;component/Resources/Img/icon.ico">
