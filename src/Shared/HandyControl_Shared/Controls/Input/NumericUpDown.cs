@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Interactivity;
@@ -65,7 +66,8 @@ namespace HandyControl.Controls
         {
             if (_textBox != null)
             {
-                _textBox.TextChanged -= TextBox_TextChanged;
+                TextCompositionManager.RemovePreviewTextInputHandler(_textBox, PreviewTextInputHandler);
+                _textBox.TextChanged -= _textBox_TextChanged;
                 _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
                 _textBox.LostFocus -= TextBox_LostFocus;
             }
@@ -76,12 +78,26 @@ namespace HandyControl.Controls
 
             if (_textBox != null)
             {
-                _textBox.TextChanged += TextBox_TextChanged;
+                TextCompositionManager.AddPreviewTextInputHandler(_textBox, PreviewTextInputHandler);
+                _textBox.TextChanged += _textBox_TextChanged;
                 _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
                 _textBox.LostFocus += TextBox_LostFocus;
                 _textBox.Text = CurrentText;
             }
         }
+
+        private void _textBox_TextChanged(object sender, TextChangedEventArgs e) => UpdateData();
+
+        private void UpdateData()
+        {
+            if (!VerifyData()) return;
+            if (double.TryParse(_textBox.Text, out var value))
+            {
+                Value = value;
+            }
+        }
+
+        private void PreviewTextInputHandler(object sender, TextCompositionEventArgs e) => UpdateData();
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -100,15 +116,6 @@ namespace HandyControl.Controls
             {
                 Value -= Increment;
                 _textBox.Text = CurrentText;
-            }
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (!VerifyData()) return;
-            if (double.TryParse(_textBox.Text, out var value))
-            {
-                Value = value;
             }
         }
 
