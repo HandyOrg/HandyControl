@@ -157,9 +157,9 @@ namespace HandyControlDemo.Service
             };
         }
 
-        internal List<CardModel> GetCardDataList()
+        internal ObservableCollection<CardModel> GetCardDataList()
         {
-            return new List<CardModel>
+            return new ObservableCollection<CardModel>
             {
                 new CardModel
                 {
@@ -221,6 +221,14 @@ namespace HandyControlDemo.Service
                     Content = "/HandyControlDemo;component/Resources/Img/Album/10.jpg",
                     Footer = "Ofenbach / Nick Waterhouse"
                 }
+            };
+        }
+
+        internal CardModel GetCardData()
+        {
+            return new CardModel
+            {
+                Content = $"/HandyControlDemo;component/Resources/Img/Album/{DateTime.Now.Second % 10 + 1}.jpg"
             };
         }
 

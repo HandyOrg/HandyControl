@@ -4,10 +4,12 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="../Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
     <!--用于包裹一个区域-->
     <Style x:Key="BorderRegion" TargetType="Border">
+        <Setter Property="CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
