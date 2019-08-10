@@ -257,6 +257,7 @@
         <Setter Property="controls:DataGridAttach.EditingComboBoxColumnStyle" Value="{StaticResource ComboBoxBaseStyle}"/>
         <Setter Property="controls:DataGridAttach.CheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}"/>
         <Setter Property="controls:DataGridAttach.EditingCheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}"/>
+        <Setter Property="controls:DataGridAttach.ApplyDefaultStyle" Value="True"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="DataGrid">
