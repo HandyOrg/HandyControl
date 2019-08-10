@@ -88,7 +88,7 @@ namespace HandyControlDemo.ViewModel
 
         public NoUserViewModel NoUser => ServiceLocator.Current.GetInstance<NoUserViewModel>();
 
-        public CardDemoViewModel CardDemo => ServiceLocator.Current.GetInstance<CardDemoViewModel>();
+        public CardDemoViewModel CardDemo => new CardDemoViewModel(ServiceLocator.Current.GetInstance<DataService>());
 
         #endregion
     }

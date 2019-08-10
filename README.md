@@ -63,6 +63,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### HoneycombPanel
+
+![HoneycombPanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/HoneycombPanel.png)
+
 ### RunningBlock
 
 ![RunningBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/RunningBlock.gif)
@@ -81,11 +85,11 @@ Step 4：enjoy coding
 
 ![Card](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Card.png)
 
+## History publication
+
 ### ButtonGroup
 
 ![ButtonGroup](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ButtonGroup.png)
-
-## History publication
 
 ### Grid
 

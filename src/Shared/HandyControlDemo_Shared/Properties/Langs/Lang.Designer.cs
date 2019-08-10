@@ -70,6 +70,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 添加项 的本地化字符串。
+        /// </summary>
+        public static string AddItem {
+            get {
+                return ResourceManager.GetString("AddItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 动画路径 的本地化字符串。
         /// </summary>
         public static string AnimationPath {
@@ -673,6 +682,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 蜂窝布局 的本地化字符串。
+        /// </summary>
+        public static string HoneycombPanel {
+            get {
+                return ResourceManager.GetString("HoneycombPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 混合布局 的本地化字符串。
         /// </summary>
         public static string HybridLayout {
@@ -1182,6 +1200,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Remark {
             get {
                 return ResourceManager.GetString("Remark", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 删除项 的本地化字符串。
+        /// </summary>
+        public static string RemoveItem {
+            get {
+                return ResourceManager.GetString("RemoveItem", resourceCulture);
             }
         }
         
