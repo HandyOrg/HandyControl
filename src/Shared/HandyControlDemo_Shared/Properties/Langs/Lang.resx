@@ -645,4 +645,7 @@
   <data name="RemoveItem" xml:space="preserve">
     <value>删除项</value>
   </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>精灵</value>
+  </data>
 </root>

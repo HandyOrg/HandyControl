@@ -645,4 +645,7 @@
   <data name="RemoveItem" xml:space="preserve">
     <value>Remove an item</value>
   </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>Sprite</value>
+  </data>
 </root>

@@ -1366,6 +1366,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 精灵 的本地化字符串。
+        /// </summary>
+        public static string Sprite {
+            get {
+                return ResourceManager.GetString("Sprite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 步骤 的本地化字符串。
         /// </summary>
         public static string Step {
