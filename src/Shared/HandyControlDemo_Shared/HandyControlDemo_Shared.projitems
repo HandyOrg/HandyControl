@@ -54,6 +54,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CardDemoCtl.xaml.cs">
       <DependentUpon>CardDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\HoneycombPanelDemoCtl.xaml.cs">
+      <DependentUpon>HoneycombPanelDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBlockDemoCtl.xaml.cs">
       <DependentUpon>ImageBlockDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -426,6 +429,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CardDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\HoneycombPanelDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

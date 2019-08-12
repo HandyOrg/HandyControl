@@ -16,7 +16,7 @@ namespace HandyControlDemo.ViewModel
 {
     public class MainViewModel : DemoViewModelBase<DemoDataModel>
     {
-#region 字段
+        #region 字段
 
         /// <summary>
         ///     内容标题
@@ -33,7 +33,7 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private ListBoxItem _listBoxItemCurrent;
 
-#endregion
+        #endregion
 
         public MainViewModel(DataService dataService)
         {
@@ -54,7 +54,7 @@ namespace HandyControlDemo.ViewModel
             DataList = dataService.GetDemoDataList();
         }
 
-#region 属性
+        #region 属性
 
         /// <summary>
         ///     子内容
@@ -84,7 +84,7 @@ namespace HandyControlDemo.ViewModel
 
         #endregion
 
-#region 命令
+        #region 命令
 
         /// <summary>
         ///     切换例子命令

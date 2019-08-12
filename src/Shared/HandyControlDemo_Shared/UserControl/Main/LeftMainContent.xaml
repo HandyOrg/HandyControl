@@ -220,7 +220,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/GoToTop_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ButtonGroupDemoCtl}" Content="{x:Static langs:Lang.ButtonGroup}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.ButtonGroupDemoCtl}" Content="{x:Static langs:Lang.ButtonGroup}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ButtonGroup_16x.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -348,6 +348,11 @@
                         <ListBoxItem Tag="{x:Static data:MessageToken.WaterfallPanelDemoCtl}" Content="{x:Static langs:Lang.WaterfallPanel}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/Panel_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.HoneycombPanelDemoCtl}" Content="{x:Static langs:Lang.HoneycombPanel}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/PolygonHexagon_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.CoverViewDemoCtl}" Content="{x:Static langs:Lang.CoverView}">
