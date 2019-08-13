@@ -93,7 +93,7 @@ namespace HandyControl.Controls
                 child.Arrange(_stuffer.Move());
             }
 
-            return base.ArrangeOverride(finalSize);
+            return finalSize;
         }
 
         private class HoneycombStuffer

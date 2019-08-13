@@ -94,4 +94,8 @@
         <Setter Property="FontSize" Value="14"/>
     </Style>
 
+    <Style TargetType="hc:Sprite" BasedOn="{StaticResource {x:Type hc:Sprite}}">
+        <Setter Property="Padding" Value="25"/>
+    </Style>
+
 </ResourceDictionary>
