@@ -648,4 +648,7 @@
   <data name="Sprite" xml:space="preserve">
     <value>精灵</value>
   </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>打开精灵</value>
+  </data>
 </root>

@@ -988,6 +988,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 打开精灵 的本地化字符串。
+        /// </summary>
+        public static string OpenSprite {
+            get {
+                return ResourceManager.GetString("OpenSprite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 轮廓文本 的本地化字符串。
         /// </summary>
         public static string OutlineText {

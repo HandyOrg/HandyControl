@@ -648,4 +648,7 @@
   <data name="Sprite" xml:space="preserve">
     <value>Sprite</value>
   </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>Open sprite</value>
+  </data>
 </root>
