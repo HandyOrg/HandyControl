@@ -63,6 +63,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemoCtl.xaml.cs">
       <DependentUpon>MagnifierDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotificationDemoCtl.xaml.cs">
+      <DependentUpon>NotificationDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
       <DependentUpon>RangeSliderDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -207,6 +210,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\WindowDemoCtl.xaml.cs">
       <DependentUpon>WindowDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\AppNotification.xaml.cs">
+      <DependentUpon>AppNotification.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\BlogsView.xaml.cs">
       <DependentUpon>BlogsView.xaml</DependentUpon>
     </Compile>
@@ -324,6 +330,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\DialogDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\GrowlDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\ImageBrowserDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\NotificationDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\NotifyIconDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\PaginationDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SearchBarDemoViewModel.cs" />
@@ -448,6 +455,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotificationDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -640,6 +651,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\WindowDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\AppNotification.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
