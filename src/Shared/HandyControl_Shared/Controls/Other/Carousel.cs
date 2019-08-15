@@ -213,15 +213,8 @@ namespace HandyControl.Controls
                 _panelPage.Children.Add(CreatePateButton());
             }
 
-            if (index == -1)
-            {
-                if (count > 0)
-                {
-                    var button = _panelPage.Children[0];
-                    button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent, button));
-                }
-            }
-            else if (index >= 0 && index < count)
+            if (index == -1 && count > 0) index = 0;
+            if (index >= 0 && index < count)
             {
                 var button = _panelPage.Children[index];
                 button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent, button));
