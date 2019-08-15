@@ -1,5 +1,4 @@
 ﻿using System;
-using GalaSoft.MvvmLight;
 using HandyControl.Controls;
 using HandyControlDemo.UserControl;
 #if netle40
@@ -8,9 +7,9 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.CommandWpf;
 # endif
 
-namespace HandyControlDemo
+namespace HandyControlDemo.ViewModel
 {
-    public class SpriteDemoViewModel : ViewModelBase
+    public class SpriteDemoViewModel
     {
         public RelayCommand OpenCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(()=> Sprite.Show(new AppSprite()))).Value;

@@ -11,7 +11,6 @@ using HandyControl.Controls;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
 using HandyControlDemo.UserControl;
-using HandyControlDemo.ViewModel.Basic;
 using HandyControlDemo.Window;
 
 namespace HandyControlDemo.ViewModel

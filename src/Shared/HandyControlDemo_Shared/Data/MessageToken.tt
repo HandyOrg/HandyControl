@@ -58,7 +58,8 @@ var controlList = new List<string>
 	"ImageBlockDemoCtl",
 	"RunningBlockDemoCtl",
 	"HoneycombPanelDemoCtl",
-	"SpriteDemoCtl"
+	"SpriteDemoCtl",
+	"NotificationDemoCtl"
 };
 var styleList = new List<string>
 {

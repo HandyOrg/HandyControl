@@ -7,7 +7,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 #endif
 using HandyControl.Tools.Extension;
 
-namespace HandyControlDemo.ViewModel.Basic
+namespace HandyControlDemo.ViewModel
 {
     public class InteractiveDialogViewModel : ViewModelBase, IDialogResultable<string>
     {
