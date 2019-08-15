@@ -72,6 +72,7 @@
         <ResourceDictionary Source="ToggleBlock.xaml"/>
         <ResourceDictionary Source="RunningBlock.xaml"/>
         <ResourceDictionary Source="Sprite.xaml"/>
+        <ResourceDictionary Source="Notification.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

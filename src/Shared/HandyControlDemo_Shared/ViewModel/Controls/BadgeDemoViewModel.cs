@@ -6,7 +6,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.CommandWpf;
 #endif
 
-namespace HandyControlDemo.ViewModel.Controls
+namespace HandyControlDemo.ViewModel
 {
     public class BadgeDemoViewModel : ViewModelBase
     {
