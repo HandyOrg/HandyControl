@@ -636,4 +636,19 @@
   <data name="RunningBlock" xml:space="preserve">
     <value>滚动块</value>
   </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>蜂窝布局</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>添加项</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>删除项</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>精灵</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>打开精灵</value>
+  </data>
 </root>

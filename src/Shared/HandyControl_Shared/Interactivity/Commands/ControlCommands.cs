@@ -156,5 +156,10 @@ namespace HandyControl.Interactivity
         ///     前置主窗口
         /// </summary>
         public static PushMainWindow2TopCommand PushMainWindow2Top { get; } = new PushMainWindow2TopCommand();
+
+        /// <summary>
+        ///     关闭窗口
+        /// </summary>
+        public static CloseWindowCommand CloseWindow { get; } = new CloseWindowCommand();
     }
 }

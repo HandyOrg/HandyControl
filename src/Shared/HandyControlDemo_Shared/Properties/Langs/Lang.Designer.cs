@@ -70,6 +70,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 添加项 的本地化字符串。
+        /// </summary>
+        public static string AddItem {
+            get {
+                return ResourceManager.GetString("AddItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 动画路径 的本地化字符串。
         /// </summary>
         public static string AnimationPath {
@@ -673,6 +682,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 蜂窝布局 的本地化字符串。
+        /// </summary>
+        public static string HoneycombPanel {
+            get {
+                return ResourceManager.GetString("HoneycombPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 混合布局 的本地化字符串。
         /// </summary>
         public static string HybridLayout {
@@ -970,6 +988,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 打开精灵 的本地化字符串。
+        /// </summary>
+        public static string OpenSprite {
+            get {
+                return ResourceManager.GetString("OpenSprite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 轮廓文本 的本地化字符串。
         /// </summary>
         public static string OutlineText {
@@ -1186,6 +1213,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 删除项 的本地化字符串。
+        /// </summary>
+        public static string RemoveItem {
+            get {
+                return ResourceManager.GetString("RemoveItem", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 重复按钮 的本地化字符串。
         /// </summary>
         public static string RepeatButton {
@@ -1335,6 +1371,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Slider {
             get {
                 return ResourceManager.GetString("Slider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 精灵 的本地化字符串。
+        /// </summary>
+        public static string Sprite {
+            get {
+                return ResourceManager.GetString("Sprite", resourceCulture);
             }
         }
         

@@ -39,6 +39,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<TabControlDemoViewModel>();
             SimpleIoc.Default.Register<NoUserViewModel>();
             SimpleIoc.Default.Register<CardDemoViewModel>();
+            SimpleIoc.Default.Register<SpriteDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -88,7 +89,9 @@ namespace HandyControlDemo.ViewModel
 
         public NoUserViewModel NoUser => ServiceLocator.Current.GetInstance<NoUserViewModel>();
 
-        public CardDemoViewModel CardDemo => ServiceLocator.Current.GetInstance<CardDemoViewModel>();
+        public CardDemoViewModel CardDemo => new CardDemoViewModel(ServiceLocator.Current.GetInstance<DataService>());
+
+        public SpriteDemoViewModel SpriteDemo => ServiceLocator.Current.GetInstance<SpriteDemoViewModel>();
 
         #endregion
     }

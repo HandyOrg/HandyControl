@@ -636,4 +636,19 @@
   <data name="RunningBlock" xml:space="preserve">
     <value>RunningBlock</value>
   </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>HoneycombPanel</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Add an item</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>Remove an item</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>Sprite</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>Open sprite</value>
+  </data>
 </root>
