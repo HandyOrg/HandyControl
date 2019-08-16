@@ -4,7 +4,7 @@
     {
         None,
         HorizontalMove,
-        verticalMove,
+        VerticalMove,
         Fade
     }
 }
