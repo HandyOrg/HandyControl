@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
 using HandyControl.Data;
@@ -60,7 +59,7 @@ namespace HandyControl.Controls
                     notification.Top = topMax;
                     notification.BeginAnimation(LeftProperty, AnimationHelper.CreateAnimation(leftMax));
                     break;
-                case ShowAnimation.verticalMove:
+                case ShowAnimation.VerticalMove:
                     notification.Opacity = 1;
                     notification.Left = leftMax;
                     notification.Top = desktopWorkingArea.Height;
@@ -106,7 +105,7 @@ namespace HandyControl.Controls
                         _shouldBeClosed = true;
                     }
                     break;
-                case ShowAnimation.verticalMove:
+                case ShowAnimation.VerticalMove:
                     {
                         var animation = AnimationHelper.CreateAnimation(desktopWorkingArea.Height);
                         animation.Completed += Animation_Completed;
