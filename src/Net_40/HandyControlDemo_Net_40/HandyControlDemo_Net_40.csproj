@@ -406,10 +406,10 @@
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>
     </EmbeddedResource>
-     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.fa.resx">
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.fa.resx">
       <Link>Properties\Langs\Lang.fa.resx</Link>
     </EmbeddedResource>
-     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.fr.resx">
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.fr.resx">
       <Link>Properties\Langs\Lang.fr.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.resx">
