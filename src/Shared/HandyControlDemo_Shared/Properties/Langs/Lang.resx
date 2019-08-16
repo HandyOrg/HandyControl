@@ -645,4 +645,19 @@
   <data name="RemoveItem" xml:space="preserve">
     <value>删除项</value>
   </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>精灵</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>打开精灵</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>桌面通知</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>发送通知</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>保持打开</value>
+  </data>
 </root>

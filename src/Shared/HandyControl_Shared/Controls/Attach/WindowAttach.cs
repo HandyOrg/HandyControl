@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Interop;
 using HandyControl.Data;
+using HandyControl.Tools.Interop;
 
 namespace HandyControl.Controls
 {
@@ -21,7 +24,7 @@ namespace HandyControl.Controls
             {
                 if ((bool)e.NewValue)
                 {
-                    ctl.MouseLeftButtonDown += DragElement_MouseLeftButtonDown; ;
+                    ctl.MouseLeftButtonDown += DragElement_MouseLeftButtonDown;
                 }
                 else
                 {
@@ -69,5 +72,40 @@ namespace HandyControl.Controls
 
         public static bool GetIgnoreAltF4(DependencyObject element)
             => (bool) element.GetValue(IgnoreAltF4Property);
+
+        public static readonly DependencyProperty ShowInTaskManagerProperty = DependencyProperty.RegisterAttached(
+            "ShowInTaskManager", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.TrueBox, OnShowInTaskManagerChanged));
+
+        private static void OnShowInTaskManagerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is System.Windows.Window window)
+            {
+                if ((bool)e.NewValue)
+                {
+                    window.SourceInitialized -= Window_SourceInitialized;
+                }
+                else
+                {
+                    window.SourceInitialized += Window_SourceInitialized;
+                }
+            }
+        }
+
+        private static void Window_SourceInitialized(object sender, EventArgs e)
+        {
+            if (sender is System.Windows.Window window)
+            {
+                var _ = new WindowInteropHelper(window)
+                {
+                    Owner = NativeMethods.GetDesktopWindow()
+                };
+            }
+        }
+
+        public static void SetShowInTaskManager(DependencyObject element, bool value)
+            => element.SetValue(ShowInTaskManagerProperty, value);
+
+        public static bool GetShowInTaskManager(DependencyObject element)
+            => (bool) element.GetValue(ShowInTaskManagerProperty);
     }
 }

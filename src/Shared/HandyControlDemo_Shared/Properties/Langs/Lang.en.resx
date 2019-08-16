@@ -645,4 +645,19 @@
   <data name="RemoveItem" xml:space="preserve">
     <value>Remove an item</value>
   </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>Sprite</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>Open sprite</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>Send notification</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>Stays open</value>
+  </data>
 </root>

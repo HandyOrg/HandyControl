@@ -200,7 +200,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/ImageStack_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.MagnifierDemoCtl}" Content="{x:Static langs:Lang.Magnifier}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.MagnifierDemoCtl}" Content="{x:Static langs:Lang.Magnifier}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/Search_16x.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -330,7 +330,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/Dynamic_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CardDemoCtl}" Content="{x:Static langs:Lang.Card}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.CardDemoCtl}" Content="{x:Static langs:Lang.Card}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/VSO_Card_16x.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -443,6 +443,16 @@
                         <ListBoxItem Tag="{x:Static data:MessageToken.ScrollViewerDemoCtl}" Content="{x:Static langs:Lang.ScrollViewer}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ScrollBox_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.SpriteDemoCtl}" Content="{x:Static langs:Lang.Sprite}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/HandyControl.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NotificationDemoCtl}" Content="{x:Static langs:Lang.Notification}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/Procedure_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.DialogDemoCtl}" Content="{x:Static langs:Lang.Dialog}">
