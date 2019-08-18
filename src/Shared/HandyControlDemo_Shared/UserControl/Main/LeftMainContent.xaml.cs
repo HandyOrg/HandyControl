@@ -63,23 +63,14 @@ namespace HandyControlDemo.UserControl
             }
         }
 
-        private void SearchBarStyle_OnSearchStarted(object sender, FunctionEventArgs<string> e)
+        private void SearchBar_OnSearchStarted(object sender, FunctionEventArgs<string> e)
         {
             if (e.Info == null) return;
-
-            foreach (var listBoxItem in ListBoxStyle.Items.OfType<ListBoxItem>())
+            if (!(sender is FrameworkElement searchBar && searchBar.Tag is ListBox listBox)) return;
+            foreach (var listBoxItem in listBox.Items.OfType<ListBoxItem>())
             {
-                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
-            }
-        }
-
-        private void SearchBarControl_OnSearchStarted(object sender, FunctionEventArgs<string> e)
-        {
-            if (e.Info == null) return;
-
-            foreach (var listBoxItem in ListBoxControl.Items.OfType<ListBoxItem>())
-            {
-                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
+                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()) ||
+                                 listBoxItem.Tag.ToString().Replace("DemoCtl", "").ToLower().Contains(e.Info.ToLower()));
             }
         }
     }
