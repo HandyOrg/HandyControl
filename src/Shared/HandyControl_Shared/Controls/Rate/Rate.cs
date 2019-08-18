@@ -44,6 +44,8 @@ namespace HandyControl.Controls
 
         private bool _isLoaded;
 
+        private bool _updateItems;
+
         public Rate()
         {
             AddHandler(RateItem.SelectedChangedEvent, new RoutedEventHandler(RateItemSelectedChanged));
@@ -52,8 +54,15 @@ namespace HandyControl.Controls
             Loaded += (s, e) =>
             {
                 if (DesignerHelper.IsInDesignMode) return;
+
+                _updateItems = false;
+                OnApplyTemplateInternal();
+                _updateItems = true;
+                UpdateItems();
+
                 if (_isLoaded) return;
                 _isLoaded = true;
+
                 if (Value <= 0)
                 {
                     if (DefaultValue > 0)
@@ -164,19 +173,28 @@ namespace HandyControl.Controls
             return new RateItem();
         }
 
+        private void OnApplyTemplateInternal()
+        {
+            Items.Clear();
+
+            for (var i = 1; i <= Count; i++)
+            {
+                var item = new RateItem
+                {
+                    Index = i
+                };
+
+                Items.Add(item);
+            }
+        }
+
         public override void OnApplyTemplate()
         {
             if (!_isLoaded)
             {
-                Items.Clear();
-
-                for (var i = 1; i <= Count; i++)
-                {
-                    Items.Add(new RateItem
-                    {
-                        Index = i
-                    });
-                }
+                _updateItems = true;
+                OnApplyTemplateInternal();
+                _updateItems = false;
             }
 
             base.OnApplyTemplate();
@@ -191,7 +209,7 @@ namespace HandyControl.Controls
 
         protected override void UpdateItems()
         {
-            if (!_isLoaded) return;
+            if (!_isLoaded || !_updateItems) return;
             var count = (int) Value;
 
             for (var i = 0; i < count; i++)
