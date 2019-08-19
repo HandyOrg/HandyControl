@@ -1,11 +1,11 @@
 ﻿using System.Reflection;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("HandyControl_VS2019")]
+[assembly: AssemblyTitle("HandyControl_VS2019_WpfApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HandyControl_VS2019")]
+[assembly: AssemblyProduct("HandyControl_VS2019_WpfApp")]
 [assembly: AssemblyCopyright("Copyright © HandyOrg 2018-2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
