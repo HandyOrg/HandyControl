@@ -1,0 +1,38 @@
+﻿<hc:Window x:Class="$safeprojectname$.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        mc:Ignorable="d"
+        Title="MainWindow" 
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource WindowWin10}"
+        ShowTitle="True"
+        Height="450" 
+        Width="800">
+    <hc:Window.NonClientAreaContent>
+        <StackPanel Height="29">
+            <Menu HorizontalAlignment="Left">
+                <MenuItem Header="Header1">
+                    <MenuItem Header="Header1"/>
+                    <MenuItem Header="Header2"/>
+                    <MenuItem Header="Header2"/>
+                </MenuItem>
+                <MenuItem Header="Header2">
+                    <MenuItem Header="Header1"/>
+                    <MenuItem Header="Header2"/>
+                    <MenuItem Header="Header2"/>
+                </MenuItem>
+                <MenuItem Header="Header3">
+                    <MenuItem Header="Header1"/>
+                    <MenuItem Header="Header2"/>
+                    <MenuItem Header="Header2"/>
+                </MenuItem>
+            </Menu>
+        </StackPanel>
+    </hc:Window.NonClientAreaContent>
+    <Grid>
+
+    </Grid>
+</hc:Window>
