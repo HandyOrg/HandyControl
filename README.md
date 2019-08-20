@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/icon.png)
+![logo](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/icon.png)
 
 ![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![csharp-version](https://img.shields.io/badge/C%23-7.3-blue.svg) ![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl) [![build-status](https://ci.appveyor.com/api/projects/status/github/handyorg/handycontrol?svg=true)](https://ci.appveyor.com/project/handyorg/handycontrol) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![qq-group](https://img.shields.io/badge/qq-714704041-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1)
 [![wiki](https://img.shields.io/badge/wiki-Complete-brightgreen.svg)](https://github.com/ghost1372/HandyControl/wiki) ![repo-size](https://img.shields.io/github/repo-size/handyorg/handycontrol.svg)
@@ -7,7 +7,7 @@
 
 ## We're all here
 
-![qq-group](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qq-group.png)
+![qq-group](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/qq-group.png)
 
 ## 面向中国
 
@@ -21,11 +21,11 @@
 * [以HandyControl的名义为慈善事业做贡献](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
 
 * 为我们购买防脱洗发水  
-![qrcode](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/qrcode.png)
+![qrcode](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/qrcode.png)
 
 ## Special thanks to
 
-[![JetBrains](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
+[![JetBrains](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
 
 ## Usage
 
@@ -57,318 +57,318 @@ Step 4：enjoy coding
 
 ## Overview
 
-![Overview](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Overview.png)
+![Overview](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Overview.png)
 
-![Overview-dark](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Overview-dark.png)
+![Overview-dark](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Overview-dark.png)
 
 ## Latest examples
 
 ### HoneycombPanel
 
-![HoneycombPanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/HoneycombPanel.png)
+![HoneycombPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/HoneycombPanel.png)
 
 ### RunningBlock
 
-![RunningBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/RunningBlock.gif)
+![RunningBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/RunningBlock.gif)
 
 ### ImageBlock
 
-![ImageBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBlock.gif)  
+![ImageBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ImageBlock.gif)  
 
-![ImageBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBlock.png)
+![ImageBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ImageBlock.png)
 
 ### Magnifier
 
-![Magnifier](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Magnifier.png)
+![Magnifier](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Magnifier.png)
 
 ### Card
 
-![Card](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Card.png)
+![Card](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Card.png)
 
 ## History publication
 
 ### ButtonGroup
 
-![ButtonGroup](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ButtonGroup.png)
+![ButtonGroup](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ButtonGroup.png)
 
 ### Grid
 
-![Grid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Grid.gif)
+![Grid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Grid.gif)
 
 ### SideMenu
 
-![SideMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SideMenu.png)
+![SideMenu](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/SideMenu.png)
 
 ### NotifyIcon
 
-![NotifyIcon](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/NotifyIcon.png)
+![NotifyIcon](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/NotifyIcon.png)
 
 ### Dialog
 
-![Dialog](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Dialog.png)
+![Dialog](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Dialog.png)
 
 ### WaveProgressBar
 
-![WaveProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaveProgressBar.gif)
+![WaveProgressBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/WaveProgressBar.gif)
 
 ### Badge
 
-![Badge](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Badge.png)
+![Badge](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Badge.png)
 
 ### Gravatar
 
-![Gravatar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Gravatar.gif)
+![Gravatar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Gravatar.gif)
 
 ### GoToTop
 
-![GoToTop](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/GoToTop.gif)
+![GoToTop](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GoToTop.gif)
 
 ### ChatBubble
 
-![ChatBubble](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ChatBubble.png)
+![ChatBubble](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ChatBubble.png)
 
 ### Label
 
-![Label](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Label.png)
+![Label](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Label.png)
 
 ### Transfer
 
-![Transfer](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Transfer.png)
+![Transfer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Transfer.png)
 
 ### ProgressButton
 
-![ProgressButton](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressButton.png)
+![ProgressButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ProgressButton.png)
 
 ### CoverFlow
 
-![CoverFlow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverFlow.gif)
+![CoverFlow](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CoverFlow.gif)
 
 ### CoverView
 
-![CoverView](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CoverView.gif)
+![CoverView](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CoverView.gif)
 
 ### MessageBox
 
-![MessageBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/MessageBox.png)
+![MessageBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/MessageBox.png)
 
 ### WaterfallPanel
 
-![WaterfallPanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/WaterfallPanel.png)
+![WaterfallPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/WaterfallPanel.png)
 
 ### Rate
 
-![Rate](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Rate.png)
+![Rate](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Rate.png)
 
 ### BlurWindow
 
-![BlurWindow](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/BlurWindow.png)
+![BlurWindow](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/BlurWindow.png)
 
 ### FlipClock
 
-![FlipClock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/FlipClock.gif)
+![FlipClock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FlipClock.gif)
 
 ### Shield
 
-![Shield](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Shield.png)
+![Shield](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Shield.png)
 
 ### OutlineText
 
-![OutlineText](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/OutlineText.png)
+![OutlineText](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/OutlineText.png)
 
 ### Tag
 
-![Tag](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Tag.png)
+![Tag](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Tag.png)
 
 ### ToolBar
 
-![ToolBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ToolBar.png)
+![ToolBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ToolBar.png)
 
 ### Slider
 
-![Slider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Slider.png)
+![Slider](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Slider.png)
 
 ### CircleProgressBar
 
-![CircleProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CircleProgressBar.png)
+![CircleProgressBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CircleProgressBar.png)
 
 ### ButtonStyle
 
-![ButtonStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Button.png)
+![ButtonStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Button.png)
 
 ### ToggleButtonStyle
 
-![ToggleButtonStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ToggleButton.png)
+![ToggleButtonStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ToggleButton.png)
 
 ### RadioButtonStyle
 
-![RadioButtonStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/RadioButton.png)
+![RadioButtonStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/RadioButton.png)
 
 ### CheckBoxStyle
 
-![CheckBoxStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CheckBox.png)
+![CheckBoxStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CheckBox.png)
 
 ### ListBoxStyle
 
-![ListBoxStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ListBox.png)
+![ListBoxStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ListBox.png)
 
 ### TreeViewStyle
 
-![TreeViewStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TreeView.png)
+![TreeViewStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TreeView.png)
 
 ### ListViewStyle
 
-![ListViewStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ListView.png)
+![ListViewStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ListView.png)
 
 ### DataGrid
 
-![DataGrid](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataGrid.png)
+![DataGrid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DataGrid.png)
 
 ### Now you can switch to dark theme
 
-![dark theme](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DarkTheme.png)
+![dark theme](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DarkTheme.png)
 
 ### ColorPicker
 
-![ColorPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ColorPicker.gif)
+![ColorPicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ColorPicker.gif)
 
 ### Loading
 
-![Loading](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Loading.gif)
+![Loading](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Loading.gif)
 
 ### Carousel
 
-![Carousel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Carousel.gif)
+![Carousel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Carousel.gif)
 
 ### Pagination
 
-![Pagination](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Pagination.gif)
+![Pagination](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Pagination.gif)
 
 ### Expander
 
-![Expander](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Expander.gif)
+![Expander](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Expander.gif)
 
 ### TimeBar
 
-![TimeBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimeBar.gif)
+![TimeBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TimeBar.gif)
 
 ### ImageBrowser
 
-![ImageBrowser](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ImageBrowser.gif)
+![ImageBrowser](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ImageBrowser.gif)
 
 ### PreviewSlider
 
-![PreviewSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PreviewSlider.gif)
+![PreviewSlider](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PreviewSlider.gif)
 
 ### CompareSlider
 
-![CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-h.gif)
+![CompareSlider](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CompareSlider-h.gif)
 
-![CompareSlider](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CompareSlider-v.gif)
+![CompareSlider](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CompareSlider-v.gif)
 
 ### Growl
 
-![Growl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Growl.gif)
+![Growl](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Growl.gif)
 
 ### AnimationPath
 
-![AnimationPath](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/AnimationPath.gif)
+![AnimationPath](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/AnimationPath.gif)
 
 ### ProgressBar
 
-![ProgressBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ProgressBar.gif)
+![ProgressBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ProgressBar.gif)
 
 ### TabControl
 
-![TabControl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.gif)
+![TabControl](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TabControl.gif)
 
 ### TabControlStyle
 
-![TabControlStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TabControl.png)
+![TabControlStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TabControl.png)
 
 ### GroupBox
 
-![GroupBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/GroupBox.png)
+![GroupBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GroupBox.png)
 
 ### StepBar
 
-![StepBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/StepBar.png)
+![StepBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/StepBar.png)
 
 ### GifImage
 
-![GifImage](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/GifImage.gif)
+![GifImage](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GifImage.gif)
 
 ### ContextMenu
 
-![ContextMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ContextMenu.png)
+![ContextMenu](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ContextMenu.png)
 
 ### Calendar
 
-![Calendar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Calendar.jpg)
+![Calendar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Calendar.jpg)
 
 ### Clock
 
-![Clock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Clock.jpg)
+![Clock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Clock.jpg)
 
 ### CalendarWithClock
 
-![CalendarWithClock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CalendarWithClock.png)
+![CalendarWithClock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CalendarWithClock.png)
 
 ### TextBlock
 
-![TextBlock](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBlock.jpg)
+![TextBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TextBlock.jpg)
 
 ### RichTextBoxStyle
 
-![RichTextBoxStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/RichTextBox.png)
+![RichTextBoxStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/RichTextBox.png)
 
 ### TextBox
 
-![TextBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TextBox.jpg)
+![TextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TextBox.jpg)
 
 ### ComboBox
 
-![ComboBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ComboBox.jpg)
+![ComboBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ComboBox.jpg)
 
 ### NumericUpDown
 
-![NumericUpDown](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/NumericUpDown.png)
+![NumericUpDown](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/NumericUpDown.png)
 
 ### SearchBar
 
-![SearchBar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SearchBar.png)
+![SearchBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/SearchBar.png)
 
 ### PasswordBox
 
-![PasswordBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/PasswordBox.jpg)
+![PasswordBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PasswordBox.jpg)
 
 ### DataPicker
 
-![DataPicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataPicker.jpg)
+![DataPicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DataPicker.jpg)
 
 ### TimePicker
 
-![TimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/TimePicker.jpg)
+![TimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TimePicker.jpg)
 
 ### DateTimePicker
 
-![DateTimePicker](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DateTimePicker.png)
+![DateTimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DateTimePicker.png)
 
 ### ScrollViewer
 
-![ScrollViewer](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ScrollViewer.png)
+![ScrollViewer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ScrollViewer.png)
 
 ### CirclePanel
 
-![CirclePanel](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CirclePanel.jpg)
+![CirclePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CirclePanel.jpg)
 
 ### BorderStyle
 
-![BorderStyle](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Border.png)
+![BorderStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Border.png)
 
 ### Brush
 
-![Brush](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Brush.png)
+![Brush](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Brush.png)
 
 ## Switching configuration
 
-![Switching configuration](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/SwitchConfig.png)
+![Switching configuration](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/SwitchConfig.png)
