@@ -46,6 +46,7 @@ namespace HandyControl.Tools.Interop
             WM_MBUTTONDOWN = 0x0207,
             WM_MBUTTONUP = 0x0208,
             WM_MBUTTONDBLCLK = 0x0209,
+            WM_CLIPBOARDUPDATE = 0x031D,
             WM_USER = 0x0400,
             TB_GETBUTTON = WM_USER + 23,
             TB_BUTTONCOUNT = WM_USER + 24,
@@ -223,5 +224,13 @@ namespace HandyControl.Tools.Interop
 
         [DllImport(ExternDll.User32)]
         public static extern IntPtr GetDesktopWindow();
+
+        [DllImport(ExternDll.User32, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool AddClipboardFormatListener(IntPtr hwnd);
+
+        [DllImport(ExternDll.User32, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool RemoveClipboardFormatListener(IntPtr hwnd);
     }
 }

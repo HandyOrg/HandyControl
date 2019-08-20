@@ -6,7 +6,7 @@
     <SharedGUID>c4694269-c9b8-45d5-87f8-d0088c532510</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>HandyControlDemo_Shared</Import_RootNamespace>
+    <Import_RootNamespace>HandyControlDemo</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
