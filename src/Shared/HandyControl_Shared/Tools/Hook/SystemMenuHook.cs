@@ -10,7 +10,7 @@ namespace HandyControl.Tools
     {
         private static readonly Dictionary<int, HwndSource> DataDic = new Dictionary<int, HwndSource>();
 
-        public static event EventHandler<int> Click;
+        public static event Action<int> Click;
 
         public static void Insert(int index, int id, string text, Window window)
         {
@@ -44,7 +44,7 @@ namespace HandyControl.Tools
                 var id = wparam.ToInt32();
                 if (DataDic.ContainsKey(id))
                 {
-                    Click?.Invoke(null, id);
+                    Click?.Invoke(id);
                 }
             }
             return IntPtr.Zero;
