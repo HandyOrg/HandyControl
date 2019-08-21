@@ -261,7 +261,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ArithmeticHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ColorHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ConfigHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\CreateParams.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DesignerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DpiHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ExternDllHelper.cs" />
@@ -271,9 +270,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ValidateHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\VisualHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\WindowHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\ClipboardHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\KeyboardHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\MouseHook.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\SystemMenuHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\BitmapHandle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\BITMAPINFO.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\CommonHandles.cs" />

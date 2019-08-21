@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Windows;
 using System.Windows.Interop;
 using HandyControl.Tools.Interop;
 
@@ -20,7 +19,7 @@ namespace HandyControl.Tools
                 Stop();
             }
 
-            HookId = new WindowInteropHelper(new Window()).EnsureHandle();
+            HookId = WindowHelper.CreateHandle();
             HWndSource = HwndSource.FromHwnd(HookId);
             if (HWndSource != null)
             {
@@ -29,7 +28,11 @@ namespace HandyControl.Tools
             }
         }
 
-        public static void Stop() => NativeMethods.RemoveClipboardFormatListener(HookId);
+        public static void Stop()
+        {
+            HWndSource.RemoveHook(WinProc);
+            NativeMethods.RemoveClipboardFormatListener(HookId);
+        }
 
         private static IntPtr WinProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
         {
