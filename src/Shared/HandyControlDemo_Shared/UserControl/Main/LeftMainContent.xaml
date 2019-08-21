@@ -26,7 +26,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <hc:SearchBar x:Name="SearchBarStyle" SearchStarted="SearchBarStyle_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4"/>
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxStyle, Mode=OneWay}"/>
                     <ToggleButton Name="ButtonStyleAscending" Click="ButtonStyleAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
                         <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
                             <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
@@ -185,7 +185,7 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <hc:SearchBar SearchStarted="SearchBarControl_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4"/>
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxControl, Mode=OneWay}"/>
                     <ToggleButton Name="ButtonControlAscending" Click="ButtonControlAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
                         <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
                             <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
