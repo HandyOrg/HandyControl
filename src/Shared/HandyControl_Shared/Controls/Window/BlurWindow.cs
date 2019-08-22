@@ -51,7 +51,7 @@ namespace HandyControl.Controls
                 Data = accentPtr
             };
 
-            ExternDllHelper.SetWindowCompositionAttribute(new WindowInteropHelper(window).Handle, ref data);
+            ExternDllHelper.SetWindowCompositionAttribute(window.GetHandle(), ref data);
 
             Marshal.FreeHGlobal(accentPtr);
         }
