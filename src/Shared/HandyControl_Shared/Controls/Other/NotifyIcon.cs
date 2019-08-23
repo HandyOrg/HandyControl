@@ -5,7 +5,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
@@ -508,26 +507,14 @@ namespace HandyControl.Controls
                     Content = ContextContent
                 };
                 _contextContent.IsOpen = true;
-                var handle = IntPtr.Zero;
-                var hwndSource = (HwndSource)PresentationSource.FromVisual(_contextContent.Child);
-                if (hwndSource != null)
-                {
-                    handle = hwndSource.Handle;
-                }
-                UnsafeNativeMethods.SetForegroundWindow(handle);
+                UnsafeNativeMethods.SetForegroundWindow(_contextContent.Child.GetHandle());
             }
             else if (ContextMenu != null)
             {
                 ContextMenu.Placement = PlacementMode.Mouse;
                 ContextMenu.IsOpen = true;
 
-                var handle = IntPtr.Zero;
-                var hwndSource = (HwndSource)PresentationSource.FromVisual(ContextMenu);
-                if (hwndSource != null)
-                {
-                    handle = hwndSource.Handle;
-                }
-                UnsafeNativeMethods.SetForegroundWindow(handle);
+                UnsafeNativeMethods.SetForegroundWindow(ContextMenu.GetHandle());
             }
         }
 
