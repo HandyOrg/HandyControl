@@ -5,12 +5,12 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemo</AssemblyName>
     <RootNamespace>HandyControlDemo</RootNamespace>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
     <Configurations>Debug;Release</Configurations>
     <Copyright>Copyright © HandyOrg 2018-2019</Copyright>
-    <FileVersion>2.1.0.0</FileVersion>
-    <AssemblyVersion>2.1.0.0</AssemblyVersion>
+    <FileVersion>2.2.0.0</FileVersion>
+    <AssemblyVersion>2.2.0.0</AssemblyVersion>
     <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
