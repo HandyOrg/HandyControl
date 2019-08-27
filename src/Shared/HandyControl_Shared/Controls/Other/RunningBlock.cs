@@ -29,6 +29,24 @@ namespace HandyControl.Controls
             _elementPanel = GetTemplateChild(ElementPanel) as Panel;
         }
 
+        public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
+            "Runaway", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public bool Runaway
+        {
+            get => (bool) GetValue(RunawayProperty);
+            set => SetValue(RunawayProperty, value);
+        }
+
+        public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
+            "AutoRun", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public bool AutoRun
+        {
+            get => (bool) GetValue(AutoRunProperty);
+            set => SetValue(AutoRunProperty, value);
+        }
+
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
             "Orientation", typeof(Orientation), typeof(RunningBlock), new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsRender));
 
@@ -82,33 +100,65 @@ namespace HandyControl.Controls
             if (_elementContent == null || _elementPanel == null) return;
 
             _storyboard?.Stop();
-            _storyboard = new Storyboard();
 
             _elementPanel.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             _elementPanel.Width = _elementPanel.DesiredSize.Width;
             _elementPanel.Height = _elementPanel.DesiredSize.Height;
 
-            DoubleAnimation animation;
+            double from;
+            double to;
+            PropertyPath propertyPath;
+
             if (Orientation == Orientation.Horizontal)
             {
-                animation = new DoubleAnimation(-_elementPanel.Width, ActualWidth, Duration)
+                if (AutoRun && _elementPanel.Width < ActualWidth)
                 {
-                    RepeatBehavior = RepeatBehavior.Forever,
-                    AutoReverse = AutoReverse
-                };
-                Storyboard.SetTargetProperty(animation, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"));
+                    return;
+                }
+
+                if (Runaway)
+                {
+                    from = -_elementPanel.Width;
+                    to = ActualWidth;
+                }
+                else
+                {
+                    from = 0;
+                    to = ActualWidth - _elementPanel.Width;
+                    SetCurrentValue(AutoReverseProperty, ValueBoxes.TrueBox);
+                }
+                propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)");
             }
             else
             {
-                animation = new DoubleAnimation(-_elementPanel.Height, ActualHeight, Duration)
+                if (AutoRun && _elementPanel.Height < ActualHeight)
                 {
-                    RepeatBehavior = RepeatBehavior.Forever,
-                    AutoReverse = AutoReverse
-                };
-                Storyboard.SetTargetProperty(animation, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)"));
+                    return;
+                }
+
+                if (Runaway)
+                {
+                    from = -_elementPanel.Height;
+                    to = ActualHeight;
+                }
+                else
+                {
+                    from = 0;
+                    to = ActualHeight - _elementPanel.Height;
+                    SetCurrentValue(AutoReverseProperty, ValueBoxes.TrueBox);
+                }
+                propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)");
             }
 
+            var animation = new DoubleAnimation(from, to, Duration)
+            {
+                RepeatBehavior = RepeatBehavior.Forever,
+                AutoReverse = AutoReverse
+            };
+            Storyboard.SetTargetProperty(animation, propertyPath);
             Storyboard.SetTarget(animation, _elementContent);
+
+            _storyboard = new Storyboard();
             _storyboard.Children.Add(animation);
             _storyboard.Begin();
         }
