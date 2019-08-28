@@ -660,4 +660,7 @@
   <data name="StaysOpen" xml:space="preserve">
     <value>Reste ouvert</value>
   </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>FloatingBlock</value>
+  </data>
 </root>

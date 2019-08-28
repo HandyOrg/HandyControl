@@ -114,6 +114,8 @@
 	
         public static readonly string NotificationDemoCtl = nameof(NotificationDemoCtl);
 	
+        public static readonly string FloatingBlockDemoCtl = nameof(FloatingBlockDemoCtl);
+	
         public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string RepeatButtonDemoCtl = nameof(RepeatButtonDemoCtl);

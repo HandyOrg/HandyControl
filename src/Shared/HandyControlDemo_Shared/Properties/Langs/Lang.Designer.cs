@@ -556,6 +556,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 漂浮块 的本地化字符串。
+        /// </summary>
+        public static string FloatingBlock {
+            get {
+                return ResourceManager.GetString("FloatingBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
         public static string GifImage {
