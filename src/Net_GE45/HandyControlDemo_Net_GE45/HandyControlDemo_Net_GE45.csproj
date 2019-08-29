@@ -492,6 +492,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\thumbs_up.png">
+      <Link>Resources\Img\LeftMainContent\thumbs_up.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Procedure_16x.png">
       <Link>Resources\Img\LeftMainContent\Procedure_16x.png</Link>
     </Resource>

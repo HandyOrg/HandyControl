@@ -195,7 +195,12 @@
                         </hc:StatusSwitchElement.CheckedElement>
                     </ToggleButton>
                     <ListBox Name="ListBoxControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ImageBlockDemoCtl}" Content="{x:Static langs:Lang.ImageBlock}">
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.FloatingBlockDemoCtl}" Content="{x:Static langs:Lang.FloatingBlock}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/thumbs_up.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Tag="{x:Static data:MessageToken.ImageBlockDemoCtl}" Content="{x:Static langs:Lang.ImageBlock}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ImageStack_16x.png"/>
                             </hc:EdgeElement.LeftContent>

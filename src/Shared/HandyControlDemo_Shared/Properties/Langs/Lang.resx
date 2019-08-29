@@ -660,4 +660,7 @@
   <data name="StaysOpen" xml:space="preserve">
     <value>保持打开</value>
   </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>漂浮块</value>
+  </data>
 </root>
