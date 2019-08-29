@@ -20,7 +20,7 @@
                             <ContentPresenter x:Name="PART_ContentElement" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
                                 <ContentPresenter.RenderTransform>
                                     <TransformGroup>
-                                        <TranslateTransform X="0"/>
+                                        <TranslateTransform/>
                                     </TransformGroup>
                                 </ContentPresenter.RenderTransform>
                             </ContentPresenter>
@@ -29,6 +29,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Padding" Value="10,0"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>

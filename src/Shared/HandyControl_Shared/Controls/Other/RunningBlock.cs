@@ -29,6 +29,33 @@ namespace HandyControl.Controls
             _elementPanel = GetTemplateChild(ElementPanel) as Panel;
         }
 
+        public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
+            "Runaway", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public bool Runaway
+        {
+            get => (bool) GetValue(RunawayProperty);
+            set => SetValue(RunawayProperty, value);
+        }
+
+        public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
+            "AutoRun", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public bool AutoRun
+        {
+            get => (bool) GetValue(AutoRunProperty);
+            set => SetValue(AutoRunProperty, value);
+        }
+
+        public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
+            "Orientation", typeof(Orientation), typeof(RunningBlock), new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public Orientation Orientation
+        {
+            get => (Orientation) GetValue(OrientationProperty);
+            set => SetValue(OrientationProperty, value);
+        }
+
         public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(
             "Duration", typeof(Duration), typeof(RunningBlock), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(5)), FrameworkPropertyMetadataOptions.AffectsRender));
 
@@ -59,25 +86,80 @@ namespace HandyControl.Controls
             set => SetValue(IsRunningProperty, value);
         }
 
+        public static readonly DependencyProperty AutoReverseProperty = DependencyProperty.Register(
+            "AutoReverse", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public bool AutoReverse
+        {
+            get => (bool) GetValue(AutoReverseProperty);
+            set => SetValue(AutoReverseProperty, value);
+        }
+
         private void UpdateContent()
         {
             if (_elementContent == null || _elementPanel == null) return;
 
             _storyboard?.Stop();
-            _storyboard = new Storyboard();
 
             _elementPanel.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             _elementPanel.Width = _elementPanel.DesiredSize.Width;
             _elementPanel.Height = _elementPanel.DesiredSize.Height;
 
-            var animation = new DoubleAnimation(-_elementPanel.Width, ActualWidth, Duration)
-            {
-                RepeatBehavior = RepeatBehavior.Forever
-            };
-            Storyboard.SetTarget(animation, _elementContent);
-            Storyboard.SetTargetProperty(animation, new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)"));
-            _storyboard.Children.Add(animation);
+            double from;
+            double to;
+            PropertyPath propertyPath;
 
+            if (Orientation == Orientation.Horizontal)
+            {
+                if (AutoRun && _elementPanel.Width < ActualWidth)
+                {
+                    return;
+                }
+
+                if (Runaway)
+                {
+                    from = -_elementPanel.Width;
+                    to = ActualWidth;
+                }
+                else
+                {
+                    from = 0;
+                    to = ActualWidth - _elementPanel.Width;
+                    SetCurrentValue(AutoReverseProperty, ValueBoxes.TrueBox);
+                }
+                propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)");
+            }
+            else
+            {
+                if (AutoRun && _elementPanel.Height < ActualHeight)
+                {
+                    return;
+                }
+
+                if (Runaway)
+                {
+                    from = -_elementPanel.Height;
+                    to = ActualHeight;
+                }
+                else
+                {
+                    from = 0;
+                    to = ActualHeight - _elementPanel.Height;
+                    SetCurrentValue(AutoReverseProperty, ValueBoxes.TrueBox);
+                }
+                propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)");
+            }
+
+            var animation = new DoubleAnimation(from, to, Duration)
+            {
+                RepeatBehavior = RepeatBehavior.Forever,
+                AutoReverse = AutoReverse
+            };
+            Storyboard.SetTargetProperty(animation, propertyPath);
+            Storyboard.SetTarget(animation, _elementContent);
+
+            _storyboard = new Storyboard();
+            _storyboard.Children.Add(animation);
             _storyboard.Begin();
         }
 
