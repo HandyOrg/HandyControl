@@ -73,6 +73,7 @@
         <ResourceDictionary Source="RunningBlock.xaml"/>
         <ResourceDictionary Source="Sprite.xaml"/>
         <ResourceDictionary Source="Notification.xaml"/>
+        <ResourceDictionary Source="FloatingBlock.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
