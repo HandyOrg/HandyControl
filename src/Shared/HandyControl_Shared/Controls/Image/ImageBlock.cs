@@ -25,7 +25,7 @@ namespace HandyControl.Controls
 
         public ImageBlock()
         {
-            _dispatcherTimer = new DispatcherTimer
+            _dispatcherTimer = new DispatcherTimer(DispatcherPriority.Render)
             {
                 Interval = Interval
             };
