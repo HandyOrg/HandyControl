@@ -63,6 +63,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### FloatingBlock
+
+![FloatingBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FloatingBlock.gif)
+
 ### HoneycombPanel
 
 ![HoneycombPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/HoneycombPanel.png)
@@ -81,11 +85,11 @@ Step 4：enjoy coding
 
 ![Magnifier](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Magnifier.png)
 
+## History publication
+
 ### Card
 
 ![Card](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Card.png)
-
-## History publication
 
 ### ButtonGroup
 
