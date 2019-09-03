@@ -225,6 +225,11 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/GoToTop_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.SplitButtonDemoCtl}" Content="{x:Static langs:Lang.SplitButton}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/SplitButton_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.ButtonGroupDemoCtl}" Content="{x:Static langs:Lang.ButtonGroup}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ButtonGroup_16x.png"/>
@@ -330,7 +335,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RunningBlockDemoCtl}" Content="{x:Static langs:Lang.RunningBlock}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.RunningBlockDemoCtl}" Content="{x:Static langs:Lang.RunningBlock}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/Dynamic_16x.png"/>
                             </hc:EdgeElement.LeftContent>

@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\RectangleAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TextBlockAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\FloatingBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\GrowlWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Magnifier.cs" />
@@ -34,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeThumb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\RunningBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\MouseHitMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ShowAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
@@ -387,6 +389,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\SliderBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\SplitButtonBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -775,6 +781,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Slider.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\SplitButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

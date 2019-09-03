@@ -183,6 +183,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SideMenuDemoCtl.xaml.cs">
       <DependentUpon>SideMenuDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SplitButtonDemoCtl.xaml.cs">
+      <DependentUpon>SplitButtonDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SpriteDemoCtl.xaml.cs">
       <DependentUpon>SpriteDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -618,6 +621,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SideMenuDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SplitButtonDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
