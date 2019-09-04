@@ -21,7 +21,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\RectangleAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TextBlockAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\FloatingBlock.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton\SplitButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton\SplitButtonItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\GrowlWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Magnifier.cs" />
@@ -40,8 +41,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\RectangleCircularConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ThicknessSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\FrameworkElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ValueExtension.cs" />
@@ -859,5 +862,11 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Controls\Growl\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="E:\Work\GitHub\HandyControl\src\Shared\HandyControl_Shared\Themes\Styles\Base\SplitButtonBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
 </Project>
