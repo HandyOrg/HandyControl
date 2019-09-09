@@ -38,6 +38,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\ChatBox.xaml.cs">
       <DependentUpon>ChatBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\CustomSplitButtonItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\IFull.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\InteractiveDialog.xaml.cs">
       <DependentUpon>InteractiveDialog.xaml</DependentUpon>
@@ -341,6 +342,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\PaginationDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SearchBarDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SideMenuDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SplitButtonDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SpriteDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\StepBarDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\TabControlDemoViewModel.cs" />

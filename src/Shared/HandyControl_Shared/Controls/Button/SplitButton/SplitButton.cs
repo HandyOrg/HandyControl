@@ -1,11 +1,19 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Input;
+using HandyControl.Data;
 using HandyControl.Data.Enum;
 
 namespace HandyControl.Controls
 {
-    public class SplitButton : ItemsControl
+    [TemplatePart(Name = ElementArrow, Type = typeof(ToggleButton))]
+    public class SplitButton : ButtonBase
     {
+        private const string ElementArrow = "PART_Arrow";
+
+        private ToggleButton _toggleArrow;
+
         public static readonly DependencyProperty HitModeProperty = DependencyProperty.Register(
             "HitMode", typeof(MouseHitMode), typeof(SplitButton), new PropertyMetadata(default(MouseHitMode)));
 
@@ -13,24 +21,6 @@ namespace HandyControl.Controls
         {
             get => (MouseHitMode) GetValue(HitModeProperty);
             set => SetValue(HitModeProperty, value);
-        }
-
-        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
-            "Content", typeof(object), typeof(SplitButton), new PropertyMetadata(default(object)));
-
-        public object Content
-        {
-            get => GetValue(ContentProperty);
-            set => SetValue(ContentProperty, value);
-        }
-
-        public static readonly DependencyProperty ContentTemplateProperty = DependencyProperty.Register(
-            "ContentTemplate", typeof(DataTemplate), typeof(SplitButton), new PropertyMetadata(default(DataTemplate)));
-
-        public DataTemplate ContentTemplate
-        {
-            get => (DataTemplate) GetValue(ContentTemplateProperty);
-            set => SetValue(ContentTemplateProperty, value);
         }
 
         public static readonly DependencyProperty MaxDropDownHeightProperty = DependencyProperty.Register(
@@ -42,8 +32,57 @@ namespace HandyControl.Controls
             set => SetValue(MaxDropDownHeightProperty, value);
         }
 
-        protected override bool IsItemItsOwnContainerOverride(object item) => item is SplitButtonItem;
+        public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
+            "IsDropDownOpen", typeof(bool), typeof(SplitButton), new PropertyMetadata(ValueBoxes.FalseBox));
 
-        protected override DependencyObject GetContainerForItemOverride() => new SplitButtonItem();
+        public bool IsDropDownOpen
+        {
+            get => (bool) GetValue(IsDropDownOpenProperty);
+            set => SetValue(IsDropDownOpenProperty, value);
+        }
+
+        public static readonly DependencyProperty DropDownContentProperty = DependencyProperty.Register(
+            "DropDownContent", typeof(object), typeof(SplitButton), new PropertyMetadata(default(object)));
+
+        public object DropDownContent
+        {
+            get => GetValue(DropDownContentProperty);
+            set => SetValue(DropDownContentProperty, value);
+        }
+
+        public SplitButton()
+        {
+            AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(ItemsOnClick));
+        }
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            _toggleArrow = GetTemplateChild(ElementArrow) as ToggleButton;
+        }
+
+        private void ItemsOnClick(object sender, RoutedEventArgs e)
+        {
+            if (e.OriginalSource is ISplitButtonItem)
+            {
+                SetCurrentValue(IsDropDownOpenProperty, false);
+            }
+        }
+
+        protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
+        {
+            base.OnPreviewMouseLeftButtonDown(e);
+
+            if (HitMode == MouseHitMode.Hover)
+            {
+                e.Handled = true;
+            }
+            else if (_toggleArrow != null && _toggleArrow.IsMouseOver)
+            {
+                SetCurrentValue(IsDropDownOpenProperty, _toggleArrow.IsChecked != true);
+                e.Handled = true;
+            }
+        }
     }
 }

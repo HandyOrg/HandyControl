@@ -1,8 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
@@ -131,12 +130,12 @@
     <Style x:Key="NumericUpDownExtendBaseStyle" BasedOn="{StaticResource NumericUpDownBaseStyle}" TargetType="controls:NumericUpDown">
         <Setter Property="controls:InfoElement.Symbol" Value="●"/>
         <Setter Property="controls:InfoElement.ContentHeight" Value="{StaticResource DefaultControlHeight}"/>
-        <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
+        <Setter Property="Height" Value="Auto"/>
         <Setter Property="Template" Value="{StaticResource NumericUpDownExtendTopTemplate}"/>
         <Style.Triggers>
             <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
                 <Setter Property="Template" Value="{StaticResource NumericUpDownExtendLeftTemplate}"/>
-                <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
+                <Setter Property="Width" Value="Auto"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -270,7 +269,7 @@
         <Style.Triggers>
             <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
                 <Setter Property="Template" Value="{StaticResource NumericUpDownPlusLeftTemplate}"/>
-                <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
+                <Setter Property="Width" Value="Auto"/>
             </Trigger>
         </Style.Triggers>
     </Style>

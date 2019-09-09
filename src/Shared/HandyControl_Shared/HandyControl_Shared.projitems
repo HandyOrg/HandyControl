@@ -21,6 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\RectangleAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TextBlockAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\FloatingBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton\ISplitButtonItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton\SplitButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton\SplitButtonItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\GrowlWindow.cs" />

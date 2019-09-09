@@ -2,8 +2,8 @@
 
 namespace HandyControl.Controls
 {
-    public class SplitButtonItem : MenuItem
+    public class SplitButtonItem : MenuItem, ISplitButtonItem
     {
-
+        
     }
 }
