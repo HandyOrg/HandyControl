@@ -165,7 +165,39 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty IsBlinkProperty = DependencyProperty.Register(
             "IsBlink", typeof(bool), typeof(NotifyIcon), new PropertyMetadata(ValueBoxes.FalseBox, OnIsBlinkChanged));
 
-        private static void OnIsBlinkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        public void ShowBalloonTip(string tipTitle, string tipText, ToolTipIcon tipIcon)
+        {
+            if (DesignerHelper.IsInDesignMode) return;
+
+            var data = new NOTIFYICONDATA
+            {
+                hWnd = _messageWindowHandle,
+                uID = _id,
+                uFlags = NativeMethods.NIF_INFO,
+                dwInfoFlags = NativeMethods.NIF_TIP,
+                szInfoTitle = tipTitle ?? string.Empty,
+                szInfo = tipText ?? string.Empty,
+            };
+
+            switch (tipIcon)
+            {
+                case ToolTipIcon.Info:
+                    data.dwInfoFlags = NativeMethods.NIIF_INFO;
+                    break;
+                case ToolTipIcon.Warning:
+                    data.dwInfoFlags = NativeMethods.NIIF_WARNING;
+                    break;
+                case ToolTipIcon.Error:
+                    data.dwInfoFlags = NativeMethods.NIIF_ERROR;
+                    break;
+                case ToolTipIcon.None:
+                    data.dwInfoFlags = NativeMethods.NIIF_NONE;
+                    break;
+            }
+            UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_MODIFY, data);
+    }
+
+    private static void OnIsBlinkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (NotifyIcon)d;
             if (ctl.Visibility != Visibility.Visible) return;
