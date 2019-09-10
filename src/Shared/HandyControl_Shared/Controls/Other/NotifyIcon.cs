@@ -195,9 +195,9 @@ namespace HandyControl.Controls
                     break;
             }
             UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_MODIFY, data);
-    }
+        }
 
-    private static void OnIsBlinkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnIsBlinkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (NotifyIcon)d;
             if (ctl.Visibility != Visibility.Visible) return;
