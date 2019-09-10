@@ -6,6 +6,7 @@ using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.CommandWpf;
 # endif
 using HandyControl.Controls;
+using HandyControl.Data;
 using HandyControlDemo.Data;
 
 namespace HandyControlDemo.ViewModel
@@ -15,6 +16,18 @@ namespace HandyControlDemo.ViewModel
         private bool _isCleanup;
 
         private bool _reversed;
+
+        private string _content = "Hello~~~";
+
+        public string Content
+        {
+            get => _content;
+#if netle40
+            set => Set(nameof(Content), ref _content, value);
+#else
+            set => Set(ref _content, value);
+#endif
+        }
 
         private bool _contextMenuIsShow;
 
@@ -86,6 +99,14 @@ namespace HandyControlDemo.ViewModel
 
         public RelayCommand<object> MouseCmd => new Lazy<RelayCommand<object>>(() =>
             new RelayCommand<object>(str=> Growl.Info(str.ToString()))).Value;
+
+        public RelayCommand SendNotificationCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(SendNotification)).Value;
+
+        private void SendNotification()
+        {
+            NotifyIcon.ShowBalloonTip("HandyControl", Content, NotifyIconInfoType.None, ContextMenuIsShow ? MessageToken.NotifyIconDemo : MessageToken.NotifyIconContextDemo);
+        }
 
         public override void Cleanup()
         {
