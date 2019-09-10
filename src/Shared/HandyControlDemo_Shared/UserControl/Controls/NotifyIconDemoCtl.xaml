@@ -5,35 +5,42 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
              xmlns:command="http://www.galasoft.ch/mvvmlight"
+             xmlns:data="clr-namespace:HandyControlDemo.Data"
              DataContext="{Binding NotifyIconDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:SimplePanel Margin="32">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <GroupBox Header="ContextMenu" Padding="10">
-                    <StackPanel>
-                        <GroupBox hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{x:Static langs:Lang.Visibility}">
-                            <ToggleButton IsChecked="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
-                        </GroupBox>
-                        <TextBlock Foreground="{DynamicResource InfoBrush}" Visibility="{Binding ContextMenuIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{x:Static langs:Lang.Try2CloseApp}" Margin="0,6,0,0"/>
-                        <GroupBox Margin="0,10,0,0" hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{x:Static langs:Lang.Blink}">
-                            <ToggleButton IsChecked="{Binding ContextMenuIsBlink}" IsEnabled="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
-                        </GroupBox>
-                    </StackPanel>
-                </GroupBox>
-                <GroupBox Header="ContextContent" Margin="16,0,0,0" Padding="10">
-                    <StackPanel>
-                        <GroupBox hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{x:Static langs:Lang.Visibility}">
-                            <ToggleButton IsChecked="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
-                        </GroupBox>
-                        <TextBlock Foreground="{DynamicResource InfoBrush}" Visibility="{Binding ContextContentIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{x:Static langs:Lang.Try2CloseApp}" Margin="0,6,0,0"/>
-                        <GroupBox Margin="0,10,0,0" hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{x:Static langs:Lang.Blink}">
-                            <ToggleButton IsChecked="{Binding ContextContentIsBlink}" IsEnabled="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
-                        </GroupBox>
-                    </StackPanel>
-                </GroupBox>
+        <hc:SimplePanel Margin="32" VerticalAlignment="Center">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <GroupBox Header="ContextMenu" Padding="10">
+                        <StackPanel>
+                            <GroupBox hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{x:Static langs:Lang.Visibility}">
+                                <ToggleButton IsChecked="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
+                            </GroupBox>
+                            <TextBlock Foreground="{DynamicResource InfoBrush}" Visibility="{Binding ContextMenuIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{x:Static langs:Lang.Try2CloseApp}" Margin="0,6,0,0"/>
+                            <GroupBox Margin="0,10,0,0" hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{x:Static langs:Lang.Blink}">
+                                <ToggleButton IsChecked="{Binding ContextMenuIsBlink}" IsEnabled="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
+                            </GroupBox>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="ContextContent" Margin="16,0,0,0" Padding="10">
+                        <StackPanel>
+                            <GroupBox hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{x:Static langs:Lang.Visibility}">
+                                <ToggleButton IsChecked="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
+                            </GroupBox>
+                            <TextBlock Foreground="{DynamicResource InfoBrush}" Visibility="{Binding ContextContentIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{x:Static langs:Lang.Try2CloseApp}" Margin="0,6,0,0"/>
+                            <GroupBox Margin="0,10,0,0" hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{x:Static langs:Lang.Blink}">
+                                <ToggleButton IsChecked="{Binding ContextContentIsBlink}" IsEnabled="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
+                            </GroupBox>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+                <DockPanel Margin="0,16,0,0" LastChildFill="True">
+                    <Button Command="{Binding SendNotificationCmd}" Content="{x:Static langs:Lang.SendNotification}" DockPanel.Dock="Right" HorizontalAlignment="Stretch" Margin="10,0,0,0"/>
+                    <TextBox Text="{Binding Content}"/>
+                </DockPanel>
             </StackPanel>
-            <hc:NotifyIcon Text="HandyControl" IsBlink="{Binding ContextMenuIsBlink}" Visibility="{Binding ContextMenuIsShow,Converter={StaticResource Boolean2VisibilityConverter}}">
+            <hc:NotifyIcon Token="{x:Static data:MessageToken.NotifyIconDemo}" Text="HandyControl" IsBlink="{Binding ContextMenuIsBlink}" Visibility="{Binding ContextMenuIsShow,Converter={StaticResource Boolean2VisibilityConverter}}">
                 <hc:NotifyIcon.ContextMenu>
                     <ContextMenu>
                         <MenuItem Command="hc:ControlCommands.PushMainWindow2Top" Header="{x:Static langs:Lang.OpenPanel}"/>
@@ -49,7 +56,7 @@
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
             </hc:NotifyIcon>
-            <hc:NotifyIcon x:Name="NotifyIconContextContent" Text="HandyControl" IsBlink="{Binding ContextContentIsBlink}" Visibility="{Binding ContextContentIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Icon="/HandyControlDemo;component/Resources/Img/icon-white.ico">
+            <hc:NotifyIcon Token="{x:Static data:MessageToken.NotifyIconContextDemo}" x:Name="NotifyIconContextContent" Text="HandyControl" IsBlink="{Binding ContextContentIsBlink}" Visibility="{Binding ContextContentIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Icon="/HandyControlDemo;component/Resources/Img/icon-white.ico">
                 <hc:NotifyIcon.ContextContent>
                     <Border CornerRadius="4" Margin="10" Background="White" Effect="{StaticResource EffectShadow2}">
                         <StackPanel VerticalAlignment="Center" Margin="16">
