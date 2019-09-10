@@ -1,25 +1,25 @@
 ﻿namespace HandyControl.Data
 {
-    public enum ToolTipIcon
+    public enum NotifyIconInfoType
     {
         /// <summary>
         ///  No Icon.
         /// </summary>
-        None = 0,
+        None,
 
         /// <summary>
         ///  A Information Icon.
         /// </summary>
-        Info = 1,
+        Info,
 
         /// <summary>
         ///  A Warning Icon.
         /// </summary>
-        Warning = 2,
+        Warning,
 
         /// <summary>
         ///  A Error Icon.
         /// </summary>
-        Error = 3
+        Error
     }
 }
