@@ -165,6 +165,7 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty IsBlinkProperty = DependencyProperty.Register(
             "IsBlink", typeof(bool), typeof(NotifyIcon), new PropertyMetadata(ValueBoxes.FalseBox, OnIsBlinkChanged));
 
+
         public void ShowBalloonTip(string tipTitle, string tipText, ToolTipIcon tipIcon)
         {
             if (DesignerHelper.IsInDesignMode) return;
@@ -174,7 +175,6 @@ namespace HandyControl.Controls
                 hWnd = _messageWindowHandle,
                 uID = _id,
                 uFlags = NativeMethods.NIF_INFO,
-                dwInfoFlags = NativeMethods.NIF_TIP,
                 szInfoTitle = tipTitle ?? string.Empty,
                 szInfo = tipText ?? string.Empty,
             };
