@@ -198,5 +198,9 @@
 
         public static readonly string BlogsView = nameof(BlogsView);
 
+        public static readonly string NotifyIconDemo = nameof(NotifyIconDemo);
+
+        public static readonly string NotifyIconContextDemo = nameof(NotifyIconContextDemo);
+
     }
 }
