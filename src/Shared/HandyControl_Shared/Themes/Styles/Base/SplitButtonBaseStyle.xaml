@@ -7,8 +7,6 @@
         <ResourceDictionary Source="../ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="controls:SplitButtonItem"/>
-
     <Style x:Key="SplitButtonBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:SplitButton">
         <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
@@ -36,10 +34,10 @@
                                     <Path x:Name="PathMain" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
                                     <ContentPresenter x:Name="ContentPresenterMain" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                 </StackPanel>
-                                <ToggleButton x:Name="PART_Arrow" Foreground="{TemplateBinding Foreground}" IsChecked="{TemplateBinding IsDropDownOpen}" Width="22" Height="Auto" Padding="0,10,8,10" HorizontalContentAlignment="Left" Grid.Column="1" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" controls:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                                <ToggleButton x:Name="PART_Arrow" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Width="22" Height="Auto" Padding="0,10,8,10" HorizontalContentAlignment="Left" Grid.Column="1" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" controls:IconElement.Geometry="{StaticResource DownGeometry}"/>
                             </Grid>
                         </Border>
-                        <Popup x:Name="PART_Popup" AllowsTransparency="true" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
+                        <Popup AllowsTransparency="true" StaysOpen="False" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="Fade"  Placement="Bottom">
                             <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
                                 <ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
                                     <controls:SimplePanel RenderOptions.ClearTypeHint="Enabled">
@@ -60,13 +58,6 @@
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
                             <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain"/>
                         </Trigger>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="HitMode" Value="Hover"/>
-                                <Condition Property="IsMouseOver" Value="True"/>
-                            </MultiTrigger.Conditions>
-                            <Setter Property="IsDropDownOpen" Value="True"/>
-                        </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
                                 <Condition Property="HitMode" Value="Click"/>

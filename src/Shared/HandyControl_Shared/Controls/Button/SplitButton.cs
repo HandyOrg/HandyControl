@@ -7,13 +7,8 @@ using HandyControl.Data.Enum;
 
 namespace HandyControl.Controls
 {
-    [TemplatePart(Name = ElementArrow, Type = typeof(ToggleButton))]
     public class SplitButton : ButtonBase
     {
-        private const string ElementArrow = "PART_Arrow";
-
-        private ToggleButton _toggleArrow;
-
         public static readonly DependencyProperty HitModeProperty = DependencyProperty.Register(
             "HitMode", typeof(MouseHitMode), typeof(SplitButton), new PropertyMetadata(default(MouseHitMode)));
 
@@ -55,18 +50,11 @@ namespace HandyControl.Controls
             AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(ItemsOnClick));
         }
 
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-
-            _toggleArrow = GetTemplateChild(ElementArrow) as ToggleButton;
-        }
-
         private void ItemsOnClick(object sender, RoutedEventArgs e)
         {
-            if (e.OriginalSource is ISplitButtonItem)
+            if (e.OriginalSource is MenuItem)
             {
-                SetCurrentValue(IsDropDownOpenProperty, false);
+                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
             }
         }
 
@@ -78,10 +66,15 @@ namespace HandyControl.Controls
             {
                 e.Handled = true;
             }
-            else if (_toggleArrow != null && _toggleArrow.IsMouseOver)
+        }
+
+        protected override void OnMouseEnter(MouseEventArgs e)
+        {
+            base.OnMouseEnter(e);
+
+            if (HitMode == MouseHitMode.Hover)
             {
-                SetCurrentValue(IsDropDownOpenProperty, _toggleArrow.IsChecked != true);
-                e.Handled = true;
+                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
             }
         }
     }
