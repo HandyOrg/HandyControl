@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <ResourceDictionary.MergedDictionaries>
@@ -486,7 +485,7 @@
 
     <!--下拉框扩展样式-->
     <Style x:Key="ComboBoxExtendBaseStyle" BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="ComboBox">
-        <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
+        <Setter Property="Height" Value="Auto"/>
         <Setter Property="Template" Value="{StaticResource ComboBoxTopTemplate}"/>
         <Setter Property="controls:InfoElement.Symbol" Value="●"/>
         <Setter Property="controls:InfoElement.ContentHeight" Value="{StaticResource DefaultControlHeight}"/>

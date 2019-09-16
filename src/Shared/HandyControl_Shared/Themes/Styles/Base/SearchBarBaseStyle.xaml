@@ -1,7 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <ResourceDictionary.MergedDictionaries>
@@ -109,13 +108,13 @@
     </ControlTemplate>
 
     <Style x:Key="SearchBarExtendBaseStyle" BasedOn="{StaticResource SearchBarBaseStyle}" TargetType="controls:SearchBar">
-        <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
+        <Setter Property="Height" Value="Auto"/>
         <Setter Property="controls:InfoElement.Symbol" Value="●"/>
         <Setter Property="Template" Value="{StaticResource SearchBarExtendTopTemplate}"/>
         <Style.Triggers>
             <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
                 <Setter Property="Template" Value="{StaticResource SearchBarExtendLeftTemplate}"/>
-                <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
+                <Setter Property="Width" Value="Auto"/>
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -249,7 +248,7 @@
         <Style.Triggers>
             <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
                 <Setter Property="Template" Value="{StaticResource SearchBarPlusLeftTemplate}"/>
-                <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
+                <Setter Property="Width" Value="Auto"/>
             </Trigger>
         </Style.Triggers>
     </Style>

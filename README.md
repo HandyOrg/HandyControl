@@ -63,6 +63,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### SplitButton
+
+![SplitButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/SplitButton.png)
+
 ### FloatingBlock
 
 ![FloatingBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FloatingBlock.gif)
