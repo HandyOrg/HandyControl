@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Media.Animation;
 using HandyControl.Data;
 using HandyControl.Tools;
@@ -14,7 +15,8 @@ namespace HandyControl.Controls
     [TemplateVisualState(GroupName = PresentationGroup, Name = DefaultTransitionState)]
     [TemplatePart(Name = PreviousContentPresentationSitePartName, Type = typeof(ContentControl))]
     [TemplatePart(Name = CurrentContentPresentationSitePartName, Type = typeof(ContentControl))]
-    public class TransitioningContentControl : ContentControl
+    [ContentProperty("Content")]
+    public class TransitioningContentControl : Control
     {
         private Storyboard _currentTransition;
 
@@ -76,11 +78,28 @@ namespace HandyControl.Controls
             VisualStateManager.GoToState(this, Transition, true);
         }
 
-        protected override void OnContentChanged(object oldContent, object newContent)
-        {
-            base.OnContentChanged(oldContent, newContent);
+        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
+            "Content", typeof(object), typeof(TransitioningContentControl), new PropertyMetadata(default(object), OnContentChanged));
 
-            StartTransition(oldContent, newContent);
+        private static void OnContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (TransitioningContentControl) d;
+            ctl.StartTransition(e.OldValue, e.NewValue);
+        }
+
+        public static readonly DependencyProperty ContentTemplateProperty = DependencyProperty.Register(
+            "ContentTemplate", typeof(DataTemplate), typeof(TransitioningContentControl), new PropertyMetadata(default(DataTemplate)));
+
+        public DataTemplate ContentTemplate
+        {
+            get => (DataTemplate) GetValue(ContentTemplateProperty);
+            set => SetValue(ContentTemplateProperty, value);
+        }
+
+        public object Content
+        {
+            get => GetValue(ContentProperty);
+            set => SetValue(ContentProperty, value);
         }
 
         [SuppressMessage("Microsoft.Usage", "CA1801:ReviewUnusedParameters", MessageId = "newContent", Justification = "Should be used in the future.")]

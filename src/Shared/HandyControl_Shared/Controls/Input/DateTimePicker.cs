@@ -147,7 +147,6 @@ namespace HandyControl.Controls
                         dp._calendarWithClock.Focus();
                     });
                 }
-
             }
         }
 

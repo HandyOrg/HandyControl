@@ -20,5 +20,7 @@
     <converter:Object2VisibilityConverter x:Key="Object2VisibilityConverter"/>
     <converter:Number2PercentageConverter x:Key="Number2PercentageConverter"/>
     <converter:RectangleCircularConverter x:Key="RectangleCircularConverter"/>
+    <converter:ThicknessSplitConverter x:Key="ThicknessSplitConverter"/>
+    <converter:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter"/>
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter" />
 </ResourceDictionary>

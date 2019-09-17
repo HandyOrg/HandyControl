@@ -132,11 +132,8 @@ namespace HandyControl.Controls
             set => SetValue(IsReadOnlyProperty, value);
         }
 
-        private void RateItemValueChanged(object sender, RoutedEventArgs e)
-        {
-            Value =
-                (from RateItem item in Items where item.IsSelected select item.IsHalf ? 0.5 : 1).Sum();
-        }
+        private void RateItemValueChanged(object sender, RoutedEventArgs e) =>
+            Value = (from RateItem item in Items where item.IsSelected select item.IsHalf ? 0.5 : 1).Sum();
 
         private void RateItemSelectedChanged(object sender, RoutedEventArgs e)
         {
@@ -163,15 +160,9 @@ namespace HandyControl.Controls
             }
         }
 
-        protected override bool IsItemItsOwnContainerOverride(object item)
-        {
-            return item is RateItem;
-        }
+        protected override bool IsItemItsOwnContainerOverride(object item) => item is RateItem;
 
-        protected override DependencyObject GetContainerForItemOverride()
-        {
-            return new RateItem();
-        }
+        protected override DependencyObject GetContainerForItemOverride() => new RateItem();
 
         private void OnApplyTemplateInternal()
         {
@@ -242,9 +233,6 @@ namespace HandyControl.Controls
             }
         }
 
-        public void Reset()
-        {
-            Value = DefaultValue;
-        }
+        public void Reset() => Value = DefaultValue;
     }
 }
