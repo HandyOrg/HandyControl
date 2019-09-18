@@ -1402,6 +1402,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 分割按钮 的本地化字符串。
+        /// </summary>
+        public static string SplitButton {
+            get {
+                return ResourceManager.GetString("SplitButton", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 精灵 的本地化字符串。
         /// </summary>
         public static string Sprite {

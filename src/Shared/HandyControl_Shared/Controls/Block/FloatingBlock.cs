@@ -101,13 +101,13 @@ namespace HandyControl.Controls
         {
             if (!(d is UIElement target)) return;
 
-            target.RemoveHandler(PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(Target_PreviewMouseLeftButtonDown));
-            target.RemoveHandler(PreviewMouseLeftButtonUpEvent, new MouseButtonEventHandler(Target_PreviewMouseLeftButtonUp));
+            target.PreviewMouseLeftButtonDown -= Target_PreviewMouseLeftButtonDown;
+            target.PreviewMouseLeftButtonUp -= Target_PreviewMouseLeftButtonUp;
 
             if (e.NewValue != null)
             {
-                target.AddHandler(PreviewMouseLeftButtonDownEvent, new MouseButtonEventHandler(Target_PreviewMouseLeftButtonDown));
-                target.AddHandler(PreviewMouseLeftButtonUpEvent, new MouseButtonEventHandler(Target_PreviewMouseLeftButtonUp));
+                target.PreviewMouseLeftButtonDown += Target_PreviewMouseLeftButtonDown;
+                target.PreviewMouseLeftButtonUp += Target_PreviewMouseLeftButtonUp;
             }
         }
 

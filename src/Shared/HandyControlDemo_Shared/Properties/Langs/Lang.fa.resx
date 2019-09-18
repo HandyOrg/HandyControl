@@ -663,4 +663,7 @@
   <data name="FloatingBlock" xml:space="preserve">
     <value>FloatingBlock</value>
   </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>SplitButton</value>
+  </data>
 </root>

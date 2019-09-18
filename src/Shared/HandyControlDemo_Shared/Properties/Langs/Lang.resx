@@ -663,4 +663,7 @@
   <data name="FloatingBlock" xml:space="preserve">
     <value>漂浮块</value>
   </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>分割按钮</value>
+  </data>
 </root>
