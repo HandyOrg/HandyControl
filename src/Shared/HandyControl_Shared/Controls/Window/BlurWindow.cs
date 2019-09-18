@@ -1,5 +1,4 @@
 ﻿using System.Runtime.InteropServices;
-using System.Windows.Interop;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
@@ -18,18 +17,8 @@ namespace HandyControl.Controls
 
         internal static void EnableBlur(Window window)
         {
-            var accentPolicy = new ExternDllHelper.ACCENTPOLICY();
-            var accentPolicySize = Marshal.SizeOf(accentPolicy);
-
-            if (SystemVersionInfo >= SystemVersionInfo.Windows10_1809)
-            {
-                accentPolicy.AccentState = ExternDllHelper.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
-            }
-            else if (SystemVersionInfo >= SystemVersionInfo.Windows10)
-            {
-                accentPolicy.AccentState = ExternDllHelper.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND;
-            }
-            else
+            if (SystemVersionInfo < SystemVersionInfo.Windows10 ||
+                SystemVersionInfo >= SystemVersionInfo.Windows10_1903)
             {
                 var colorValue = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
                 var color = ColorHelper.ToColor(colorValue);
@@ -37,6 +26,13 @@ namespace HandyControl.Controls
                 window.Background = new SolidColorBrush(color);
                 return;
             }
+
+            var accentPolicy = new ExternDllHelper.ACCENTPOLICY();
+            var accentPolicySize = Marshal.SizeOf(accentPolicy);
+
+            accentPolicy.AccentState = SystemVersionInfo < SystemVersionInfo.Windows10_1809
+                ? ExternDllHelper.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND
+                : ExternDllHelper.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
 
             accentPolicy.AccentFlags = 2;
             accentPolicy.GradientColor = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
