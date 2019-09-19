@@ -41,6 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\RectangleCircularConverter.cs" />
@@ -275,6 +276,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ResourceHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SecurityHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TokenizerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ValidateHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\VisualHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\WindowHelper.cs" />

@@ -52,14 +52,16 @@ namespace HandyControl.Controls
                 Info = Text
             });
 
-            if (Command == null) return;
-            if (Command is RoutedCommand command)
+            switch (Command)
             {
-                command.Execute(CommandParameter, CommandTarget);
-            }
-            else
-            {
-                Command.Execute(CommandParameter);
+                case null:
+                    return;
+                case RoutedCommand command:
+                    command.Execute(CommandParameter, CommandTarget);
+                    break;
+                default:
+                    Command.Execute(CommandParameter);
+                    break;
             }
         }
 

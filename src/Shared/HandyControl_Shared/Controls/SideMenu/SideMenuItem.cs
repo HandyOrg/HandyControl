@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
@@ -7,7 +8,7 @@ using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
-    public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable
+    public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSource
     {
         private bool _isMouseLeftButtonDown;
 
@@ -68,7 +69,22 @@ namespace HandyControl.Controls
             }
         }
 
-        protected virtual void OnSelected(RoutedEventArgs e) => RaiseEvent(e);
+        protected virtual void OnSelected(RoutedEventArgs e)
+        {
+            RaiseEvent(e);
+
+            switch (Command)
+            {
+                case null:
+                    return;
+                case RoutedCommand command:
+                    command.Execute(CommandParameter, CommandTarget);
+                    break;
+                default:
+                    Command.Execute(CommandParameter);
+                    break;
+            }
+        }
 
         public static readonly RoutedEvent SelectedEvent =
             EventManager.RegisterRoutedEvent("Selected", RoutingStrategy.Bubble,
@@ -147,6 +163,55 @@ namespace HandyControl.Controls
             {
                 ItemsHost.Show(isShow);
             }
+        }
+
+        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
+            "Command", typeof(ICommand), typeof(SideMenuItem), new PropertyMetadata(default(ICommand), OnCommandChanged));
+
+        private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (SideMenuItem)d;
+            if (e.OldValue is ICommand oldCommand)
+            {
+                oldCommand.CanExecuteChanged -= ctl.CanExecuteChanged;
+            }
+            if (e.NewValue is ICommand newCommand)
+            {
+                newCommand.CanExecuteChanged += ctl.CanExecuteChanged;
+            }
+        }
+
+        public ICommand Command
+        {
+            get => (ICommand) GetValue(CommandProperty);
+            set => SetValue(CommandProperty, value);
+        }
+
+        public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
+            "CommandParameter", typeof(object), typeof(SideMenuItem), new PropertyMetadata(default(object)));
+
+        public object CommandParameter
+        {
+            get => GetValue(CommandParameterProperty);
+            set => SetValue(CommandParameterProperty, value);
+        }
+        
+        public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
+            "CommandTarget", typeof(IInputElement), typeof(SideMenuItem), new PropertyMetadata(default(IInputElement)));
+
+        public IInputElement CommandTarget
+        {
+            get => (IInputElement) GetValue(CommandTargetProperty);
+            set => SetValue(CommandTargetProperty, value);
+        }
+
+        private void CanExecuteChanged(object sender, EventArgs e)
+        {
+            if (Command == null) return;
+
+            IsEnabled = Command is RoutedCommand command
+                ? command.CanExecute(CommandParameter, CommandTarget)
+                : Command.CanExecute(CommandParameter);
         }
     }
 }
