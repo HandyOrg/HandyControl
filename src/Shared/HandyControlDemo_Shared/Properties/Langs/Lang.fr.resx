@@ -666,4 +666,10 @@
   <data name="SplitButton" xml:space="preserve">
     <value>SplitButton</value>
   </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="HatchBrushGenerator" xml:space="preserve">
+    <value>HatchBrushGenerator</value>
+  </data>
 </root>
