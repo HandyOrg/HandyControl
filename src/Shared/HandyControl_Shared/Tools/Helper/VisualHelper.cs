@@ -29,7 +29,7 @@ namespace HandyControl.Tools
                 : null;
         }
 
-        internal static T GetChild<T>(DependencyObject d) where T : DependencyObject
+        public static T GetChild<T>(DependencyObject d) where T : DependencyObject
         {
             if (d is T t)
             {

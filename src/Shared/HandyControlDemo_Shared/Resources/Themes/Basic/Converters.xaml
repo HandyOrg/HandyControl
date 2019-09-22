@@ -4,5 +4,6 @@
 
     <converter:StringRepeatConverter x:Key="StringRepeatConverter"/>
     <converter:String2BrushConverter x:Key="String2BrushConverter"/>
+    <converter:HatchBrushConverter x:Key="HatchBrushConverter"/>
 
 </ResourceDictionary>
