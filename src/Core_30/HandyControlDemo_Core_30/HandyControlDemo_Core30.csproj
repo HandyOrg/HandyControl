@@ -23,7 +23,7 @@
     <PackageReference Include="CommonServiceLocator" Version="2.0.2" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
-    <PackageReference Include="System.Management" Version="4.6.0-preview7.19362.9" />
+    <PackageReference Include="System.Management" Version="4.6.0-rc1.19456.4" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Shared\HandyControlDemo_Shared\Data\MessageToken.cs">
@@ -419,6 +419,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\SplitButton_16x.png">
       <Link>Resources\Img\SplitButton_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\DataGenerator_16x.png">
+      <Link>Resources\Img\DataGenerator_16x.png</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>

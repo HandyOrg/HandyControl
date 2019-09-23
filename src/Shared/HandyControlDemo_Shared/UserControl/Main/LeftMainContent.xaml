@@ -26,8 +26,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxStyle, Mode=OneWay}"/>
-                    <ToggleButton Name="ButtonStyleAscending" Click="ButtonStyleAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxStyle}"/>
+                    <ToggleButton Tag="{Binding ElementName=ListBoxStyle}" Name="ButtonStyleAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
                         <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
                             <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
                         </Border>
@@ -185,8 +185,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxControl, Mode=OneWay}"/>
-                    <ToggleButton Name="ButtonControlAscending" Click="ButtonControlAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxControl}"/>
+                    <ToggleButton Tag="{Binding ElementName=ListBoxControl}" Name="ButtonControlAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
                         <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
                             <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
                         </Border>
@@ -473,6 +473,34 @@
                         <ListBoxItem Tag="{x:Static data:MessageToken.WindowDemoCtl}" Content="{x:Static langs:Lang.Window}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/WindowsForm_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Background="Transparent" Header="{x:Static langs:Lang.Tools}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxStyle}"/>
+                    <ToggleButton Tag="{Binding ElementName=ListBoxTool}" Name="ButtonToolAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
+                        <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
+                            <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
+                        </Border>
+                        <hc:StatusSwitchElement.CheckedElement>
+                            <Border CornerRadius="4" Height="30" Width="30" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}"/>
+                        </hc:StatusSwitchElement.CheckedElement>
+                    </ToggleButton>
+                    <ListBox Name="ListBoxTool" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.HatchBrushGeneratorDemoCtl}" Content="{x:Static langs:Lang.HatchBrushGenerator}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/DataGenerator_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
                     </ListBox>

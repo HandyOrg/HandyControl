@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeThumb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\RunningBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HatchStyle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\MouseHitMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ShowAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\NotifyIconInfoType.cs" />
@@ -264,7 +265,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\GeometryExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\UIElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\GifImageAnimator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\GithubGravatarGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Generator\GithubGravatarGenerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Generator\HatchBrushGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\AnimationHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ArithmeticHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ColorHelper.cs" />
@@ -864,6 +866,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="$(MSBuildThisFileDirectory)Controls\Growl\" />
+    <Folder Include="$(MSBuildThisFileDirectory)Tools\Generator\" />
   </ItemGroup>
   <ItemGroup>
     <Page Update="E:\Work\GitHub\HandyControl\src\Shared\HandyControl_Shared\Themes\Styles\Base\SplitButtonBaseStyle.xaml">
