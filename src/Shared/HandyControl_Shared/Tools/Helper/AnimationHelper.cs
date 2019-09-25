@@ -15,7 +15,7 @@ namespace HandyControl.Tools
         /// <param name="thickness"></param>
         /// <param name="milliseconds"></param>
         /// <returns></returns>
-        public static ThicknessAnimation CreateAnimation(Thickness thickness = default(Thickness), double milliseconds = 200)
+        public static ThicknessAnimation CreateAnimation(Thickness thickness = default, double milliseconds = 200)
         {
             return new ThicknessAnimation(thickness, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
             {
