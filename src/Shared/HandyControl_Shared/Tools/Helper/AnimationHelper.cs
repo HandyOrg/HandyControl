@@ -66,5 +66,17 @@ namespace HandyControl.Tools
 
             return Geometry.Parse(builder.ToString());
         }
+
+        internal static Geometry InterpolateGeometry(double[] from, double[] to, double progress, string[] strings)
+        {
+            var accumulated = new double[to.Length];
+            for (var i = 0; i < to.Length; i++)
+            {
+                var fromValue = from[i];
+                accumulated[i] = fromValue + (to[i] - fromValue) * progress;
+            }
+
+            return ComposeGeometry(strings, accumulated);
+        }
     }
 }

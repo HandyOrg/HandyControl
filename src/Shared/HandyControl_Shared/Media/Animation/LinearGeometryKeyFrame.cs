@@ -25,7 +25,7 @@ namespace HandyControl.Media.Animation
 
         }
 
-        protected override Freezable CreateInstanceCore() => new LinearDoubleKeyFrame();
+        protected override Freezable CreateInstanceCore() => new LinearGeometryKeyFrame();
 
         protected override Geometry InterpolateValueCore(Geometry baseValue, double keyFrameProgress)
         {
@@ -44,13 +44,7 @@ namespace HandyControl.Media.Animation
                 return AnimationHelper.ComposeGeometry(Strings, Value);
             }
 
-            var accumulated = new double[Value.Length];
-            for (var i = 0; i < Value.Length; i++)
-            {
-                accumulated[i] = _baseValues[i] + (Value[i] - _baseValues[i]) * keyFrameProgress;
-            }
-
-            return AnimationHelper.ComposeGeometry(Strings, accumulated);
+            return AnimationHelper.InterpolateGeometry(_baseValues, Value, keyFrameProgress, Strings);
         }
     }
 }
