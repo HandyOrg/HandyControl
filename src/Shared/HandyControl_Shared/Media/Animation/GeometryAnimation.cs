@@ -20,10 +20,6 @@ namespace HandyControl.Media.Animation
 
         private double[] _numbersAccumulator;
 
-        private double[][] _keyValues;
-
-        private bool _isAnimationFunctionValid;
-
         public GeometryAnimation()
         {
 
@@ -99,10 +95,25 @@ namespace HandyControl.Media.Animation
 
         protected override Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock)
         {
-            if (!_isAnimationFunctionValid)
+            if (_numbersAccumulator == null)
             {
-                ValidateAnimationFunction();
+                if (_numbersFrom == null)
+                {
+                    var geometryStr = defaultOriginValue.ToString();
+                    DecomposeValue(geometryStr, out _numbersFrom);
+                }
+
+                if (_numbersTo == null)
+                {
+                    var geometryStr = defaultDestinationValue.ToString();
+                    DecomposeValue(geometryStr, out _numbersTo);
+                    _strings = Regex.Split(geometryStr, Rgx);
+                }
+
+                UpdateValue();
             }
+
+            if (_numbersAccumulator == null) return defaultOriginValue;
 
             var progress = animationClock.CurrentProgress.Value;
 
@@ -113,16 +124,7 @@ namespace HandyControl.Media.Animation
             }
 
             var accumulated = new double[_numbersAccumulator.Length];
-            var foundation = new double[_numbersAccumulator.Length];
-
-            var from = _keyValues[0];
-
-            if (IsAdditive)
-            {
-                foundation = new double[_numbersAccumulator.Length];
-            }
-
-
+            
             if (IsCumulative)
             {
                 var currentRepeat = (double)(animationClock.CurrentIteration - 1);
@@ -141,21 +143,10 @@ namespace HandyControl.Media.Animation
 
             for (var i = 0; i < _numbersAccumulator.Length; i++)
             {
-                numbers[i] = foundation[i] + accumulated[i] + from[i] + _numbersAccumulator[i] * progress;
+                numbers[i] = accumulated[i] + _numbersFrom[i] + _numbersAccumulator[i] * progress;
             }
 
             return ConvertToGeometry(numbers);
-        }
-
-        private void ValidateAnimationFunction()
-        {
-            _keyValues = null;
-
-            _keyValues = new double[2][];
-            _keyValues[0] = _numbersFrom;
-            _keyValues[1] = _numbersTo;
-
-            _isAnimationFunctionValid = true;
         }
 
         public static readonly DependencyProperty FromProperty = DependencyProperty.Register(
@@ -205,12 +196,6 @@ namespace HandyControl.Media.Animation
         {
             get => (IEasingFunction)GetValue(EasingFunctionProperty);
             set => SetValue(EasingFunctionProperty, value);
-        }
-
-        public bool IsAdditive
-        {
-            get => (bool)GetValue(IsAdditiveProperty);
-            set => SetValue(IsAdditiveProperty, value);
         }
 
         public bool IsCumulative
