@@ -5,6 +5,11 @@ using System.Windows.Media.Animation;
 
 public abstract class GeometryKeyFrame : Freezable, IKeyFrame
 {
+    protected GeometryKeyFrame()
+    {
+        
+    }
+
     protected GeometryKeyFrame(Geometry value)
     {
         Value = value;
