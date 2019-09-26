@@ -1,17 +1,14 @@
-﻿using System.Text;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using HandyControl.Tools.Extension;
+using HandyControl.Tools;
 // ReSharper disable PossibleInvalidOperationException
 
 namespace HandyControl.Media.Animation
 {
     public class GeometryAnimation : GeometryAnimationBase
     {
-        private const string Rgx = @"[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?";
-
         private string[] _strings;
 
         private double[] _numbersFrom;
@@ -42,16 +39,6 @@ namespace HandyControl.Media.Animation
             }
         }
 
-        private static void DecomposeValue(string geometryStr, out double[] arr)
-        {
-            var collection = Regex.Matches(geometryStr, Rgx);
-            arr = new double[collection.Count];
-            for (var i = 0; i < collection.Count; i++)
-            {
-                arr[i] = collection[i].Value.Value<double>();
-            }
-        }
-
         public GeometryAnimation(Geometry fromValue, Geometry toValue) : this()
         {
             From = fromValue;
@@ -77,22 +64,6 @@ namespace HandyControl.Media.Animation
 
         protected override Freezable CreateInstanceCore() => new GeometryAnimation();
 
-        private Geometry ConvertToGeometry(double[] arr)
-        {
-            var builder = new StringBuilder(_strings[0]);
-            for (var i = 0; i < _numbersAccumulator.Length; i++)
-            {
-                var s = _strings[i + 1];
-                var n = arr[i];
-                if (!double.IsNaN(n))
-                {
-                    builder.Append(n).Append(s);
-                }
-            }
-
-            return Geometry.Parse(builder.ToString());
-        }
-
         protected override Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock)
         {
             if (_numbersAccumulator == null)
@@ -100,14 +71,14 @@ namespace HandyControl.Media.Animation
                 if (_numbersFrom == null)
                 {
                     var geometryStr = defaultOriginValue.ToString();
-                    DecomposeValue(geometryStr, out _numbersFrom);
+                    AnimationHelper.DecomposeGeometryStr(geometryStr, out _numbersFrom);
                 }
 
                 if (_numbersTo == null)
                 {
                     var geometryStr = defaultDestinationValue.ToString();
-                    DecomposeValue(geometryStr, out _numbersTo);
-                    _strings = Regex.Split(geometryStr, Rgx);
+                    AnimationHelper.DecomposeGeometryStr(geometryStr, out _numbersTo);
+                    _strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern);
                 }
 
                 UpdateValue();
@@ -146,7 +117,7 @@ namespace HandyControl.Media.Animation
                 numbers[i] = accumulated[i] + _numbersFrom[i] + _numbersAccumulator[i] * progress;
             }
 
-            return ConvertToGeometry(numbers);
+            return AnimationHelper.ComposeGeometry(_strings, numbers);
         }
 
         public static readonly DependencyProperty FromProperty = DependencyProperty.Register(
@@ -157,7 +128,7 @@ namespace HandyControl.Media.Animation
             var obj = (GeometryAnimation) d;
             if (e.NewValue is Geometry geometry)
             {
-                DecomposeValue(geometry.ToString(), out obj._numbersFrom);
+                AnimationHelper.DecomposeGeometryStr(geometry.ToString(), out obj._numbersFrom);
                 obj.UpdateValue();
             }
         }
@@ -177,8 +148,8 @@ namespace HandyControl.Media.Animation
             if (e.NewValue is Geometry geometry)
             {
                 var geometryStr = geometry.ToString();
-                DecomposeValue(geometryStr, out obj._numbersTo);
-                obj._strings = Regex.Split(geometryStr, Rgx);
+                AnimationHelper.DecomposeGeometryStr(geometryStr, out obj._numbersTo);
+                obj._strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern);
                 obj.UpdateValue();
             }
         }

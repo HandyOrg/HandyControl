@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using HandyControl.Tools;
 
 public abstract class GeometryKeyFrame : Freezable, IKeyFrame
 {
@@ -12,12 +13,12 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
 
     protected GeometryKeyFrame(Geometry value)
     {
-        Value = value;
+        AnimationHelper.DecomposeGeometryStr(value.ToString(), out var arr);
+        Value = arr;
     }
 
-    protected GeometryKeyFrame(Geometry value, KeyTime keyTime)
+    protected GeometryKeyFrame(Geometry value, KeyTime keyTime) : this(value)
     {
-        Value = value;
         KeyTime = keyTime;
     }
 
@@ -33,17 +34,19 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
     object IKeyFrame.Value
     {
         get => Value;
-        set => Value = (Geometry)value;
+        set => Value = (double[])value;
     }
 
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-        "Value", typeof(Geometry), typeof(GeometryKeyFrame), new PropertyMetadata(default(Geometry)));
+        "Value", typeof(Geometry), typeof(GeometryKeyFrame), new PropertyMetadata(default(double[])));
 
-    public Geometry Value
+    public double[] Value
     {
-        get => (Geometry) GetValue(ValueProperty);
+        get => (double[]) GetValue(ValueProperty);
         set => SetValue(ValueProperty, value);
     }
+
+    protected string[] Strings { get; set; }
 
     public Geometry InterpolateValue(Geometry baseValue, double keyFrameProgress)
     {

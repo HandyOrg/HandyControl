@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Text;
+using System.Text.RegularExpressions;
 using System.Windows;
+using System.Windows.Media;
 using System.Windows.Media.Animation;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Tools
 {
@@ -35,6 +39,32 @@ namespace HandyControl.Tools
             {
                 EasingFunction = new PowerEase { EasingMode = EasingMode.EaseInOut }
             };
+        }
+
+        internal static void DecomposeGeometryStr(string geometryStr, out double[] arr)
+        {
+            var collection = Regex.Matches(geometryStr, RegularPatterns.DigitsPattern);
+            arr = new double[collection.Count];
+            for (var i = 0; i < collection.Count; i++)
+            {
+                arr[i] = collection[i].Value.Value<double>();
+            }
+        }
+
+        internal static Geometry ComposeGeometry(string[] strings, double[] arr)
+        {
+            var builder = new StringBuilder(strings[0]);
+            for (var i = 0; i < arr.Length; i++)
+            {
+                var s = strings[i + 1];
+                var n = arr[i];
+                if (!double.IsNaN(n))
+                {
+                    builder.Append(n).Append(s);
+                }
+            }
+
+            return Geometry.Parse(builder.ToString());
         }
     }
 }

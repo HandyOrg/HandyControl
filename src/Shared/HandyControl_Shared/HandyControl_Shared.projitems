@@ -41,8 +41,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\NotifyIconInfoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\DiscreteGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimationBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimationUsingKeyFrames.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryKeyFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryKeyFrameCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\LinearGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />
