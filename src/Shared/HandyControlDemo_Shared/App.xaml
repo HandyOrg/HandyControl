@@ -42,6 +42,11 @@
                 </ObjectDataProvider.MethodParameters>
             </ObjectDataProvider>
 
+            <ObjectDataProvider x:Key="HatchStyles" MethodName="GetValues" ObjectType="sys:Enum">
+                <ObjectDataProvider.MethodParameters>
+                    <x:Type Type="hc:HatchStyle"/>
+                </ObjectDataProvider.MethodParameters>
+            </ObjectDataProvider>
         </ResourceDictionary>
 
     </Application.Resources>

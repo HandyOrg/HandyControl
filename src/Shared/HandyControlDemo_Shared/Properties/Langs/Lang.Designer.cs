@@ -691,6 +691,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 阴影画笔生成器 的本地化字符串。
+        /// </summary>
+        public static string HatchBrushGenerator {
+            get {
+                return ResourceManager.GetString("HatchBrushGenerator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 蜂窝布局 的本地化字符串。
         /// </summary>
         public static string HoneycombPanel {
@@ -831,6 +840,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string MessageBox {
             get {
                 return ResourceManager.GetString("MessageBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 变形动画 的本地化字符串。
+        /// </summary>
+        public static string Morphing_Animation {
+            get {
+                return ResourceManager.GetString("Morphing Animation", resourceCulture);
             }
         }
         
@@ -1614,6 +1632,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string ToolBar {
             get {
                 return ResourceManager.GetString("ToolBar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 工具 的本地化字符串。
+        /// </summary>
+        public static string Tools {
+            get {
+                return ResourceManager.GetString("Tools", resourceCulture);
             }
         }
         

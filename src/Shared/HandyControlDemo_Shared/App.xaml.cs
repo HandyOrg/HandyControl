@@ -53,16 +53,6 @@ namespace HandyControlDemo
                 Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
             });
             Current.MainWindow?.OnApplyTemplate();
-
-            Resources.MergedDictionaries.Clear();
-            Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri($"pack://application:,,,/HandyControl;component/Themes/Skin{skin.ToString()}.xaml")
-            });
-            Resources.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-            });
         }
     }
 }

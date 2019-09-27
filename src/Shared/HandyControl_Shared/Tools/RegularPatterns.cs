@@ -89,7 +89,7 @@
         /// <summary>
         ///     计算性质数字正则匹配
         /// </summary>
-        public const string DigitsPattern = @"^[+-]?([0-9]*\.?[0-9]+|[0-9]+\.?[0-9]*)([eE][+-]?[0-9]+)?$";
+        public const string DigitsPattern = @"[+-]?\d*\.?\d+(?:\.\d+)?(?:[eE][+-]?\d+)?";
 
         /// <summary>
         ///     正整数正则匹配
