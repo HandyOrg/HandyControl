@@ -8,8 +8,6 @@ namespace HandyControl.Media.Animation
 {
     public class LinearGeometryKeyFrame : GeometryKeyFrame
     {
-        private double[] _baseValues;
-
         public LinearGeometryKeyFrame()
         {
 
@@ -27,13 +25,8 @@ namespace HandyControl.Media.Animation
 
         protected override Freezable CreateInstanceCore() => new LinearGeometryKeyFrame();
 
-        protected override Geometry InterpolateValueCore(Geometry baseValue, double keyFrameProgress)
+        protected override double[] InterpolateValueCore(double[] baseValue, double keyFrameProgress)
         {
-            if (_baseValues == null)
-            {
-                AnimationHelper.DecomposeGeometryStr(baseValue.ToString(), out _baseValues);
-            }
-
             if (MathHelper.IsVerySmall(keyFrameProgress))
             {
                 return baseValue;
@@ -41,10 +34,10 @@ namespace HandyControl.Media.Animation
 
             if (MathHelper.AreClose(keyFrameProgress, 1))
             {
-                return AnimationHelper.ComposeGeometry(Strings, Value);
+                return Numbers;
             }
 
-            return AnimationHelper.InterpolateGeometry(_baseValues, Value, keyFrameProgress, Strings);
+            return AnimationHelper.InterpolateGeometryValue(baseValue, Numbers, keyFrameProgress);
         }
     }
 }

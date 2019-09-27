@@ -6,10 +6,7 @@ namespace HandyControl.Media.Animation
 {
     public abstract class GeometryAnimationBase : AnimationTimeline
     {
-        public new GeometryAnimationBase Clone()
-        {
-            return (GeometryAnimationBase)base.Clone();
-        }
+        public new GeometryAnimationBase Clone() => (GeometryAnimationBase)base.Clone();
 
         public sealed override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue, AnimationClock animationClock)
         {

@@ -9,8 +9,6 @@ namespace HandyControl.Media.Animation
 {
     public class SplineGeometryKeyFrame : GeometryKeyFrame
     {
-        private double[] _baseValues;
-
         public SplineGeometryKeyFrame()
         {
 
@@ -33,13 +31,8 @@ namespace HandyControl.Media.Animation
 
         protected override Freezable CreateInstanceCore() => new SplineGeometryKeyFrame();
 
-        protected override Geometry InterpolateValueCore(Geometry baseValue, double keyFrameProgress)
+        protected override double[] InterpolateValueCore(double[] baseValue, double keyFrameProgress)
         {
-            if (_baseValues == null)
-            {
-                AnimationHelper.DecomposeGeometryStr(baseValue.ToString(), out _baseValues);
-            }
-
             if (MathHelper.IsVerySmall(keyFrameProgress))
             {
                 return baseValue;
@@ -47,11 +40,11 @@ namespace HandyControl.Media.Animation
 
             if (MathHelper.AreClose(keyFrameProgress, 1))
             {
-                return AnimationHelper.ComposeGeometry(Strings, Value);
+                return Numbers;
             }
 
             var splineProgress = KeySpline.GetSplineProgress(keyFrameProgress);
-            return AnimationHelper.InterpolateGeometry(_baseValues, Value, splineProgress, Strings);
+            return AnimationHelper.InterpolateGeometryValue(baseValue, Numbers, splineProgress);
         }
 
         public static readonly DependencyProperty KeySplineProperty = DependencyProperty.Register(

@@ -2,21 +2,24 @@
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-public class DiscreteGeometryKeyFrame : GeometryKeyFrame
+namespace HandyControl.Media.Animation
 {
-    public DiscreteGeometryKeyFrame()
+    public class DiscreteGeometryKeyFrame : GeometryKeyFrame
     {
+        public DiscreteGeometryKeyFrame()
+        {
+        }
+
+        public DiscreteGeometryKeyFrame(Geometry value) : base(value)
+        {
+        }
+
+        public DiscreteGeometryKeyFrame(Geometry value, KeyTime keyTime) : base(value, keyTime)
+        {
+        }
+
+        protected override Freezable CreateInstanceCore() => new DiscreteGeometryKeyFrame();
+
+        protected override double[] InterpolateValueCore(double[] baseValue, double keyFrameProgress) => keyFrameProgress < 1.0 ? baseValue : Numbers;
     }
-
-    public DiscreteGeometryKeyFrame(Geometry value) : base(value)
-    {
-    }
-
-    public DiscreteGeometryKeyFrame(Geometry value, KeyTime keyTime) : base(value, keyTime)
-    {
-    }
-
-    protected override Freezable CreateInstanceCore() => new DiscreteGeometryKeyFrame();
-
-    protected override Geometry InterpolateValueCore(Geometry baseValue, double keyFrameProgress) => keyFrameProgress < 1.0 ? baseValue : Value;
 }

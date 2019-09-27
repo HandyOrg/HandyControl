@@ -8,8 +8,6 @@ namespace HandyControl.Media.Animation
 {
     public class EasingGeometryKeyFrame : GeometryKeyFrame
     {
-        private double[] _baseValues;
-
         public EasingGeometryKeyFrame()
         {
 
@@ -32,13 +30,8 @@ namespace HandyControl.Media.Animation
 
         protected override Freezable CreateInstanceCore() => new EasingGeometryKeyFrame();
 
-        protected override Geometry InterpolateValueCore(Geometry baseValue, double keyFrameProgress)
+        protected override double[] InterpolateValueCore(double[] baseValue, double keyFrameProgress)
         {
-            if (_baseValues == null)
-            {
-                AnimationHelper.DecomposeGeometryStr(baseValue.ToString(), out _baseValues);
-            }
-
             var easingFunction = EasingFunction;
             if (easingFunction != null)
             {
@@ -52,10 +45,10 @@ namespace HandyControl.Media.Animation
 
             if (MathHelper.AreClose(keyFrameProgress, 1))
             {
-                return AnimationHelper.ComposeGeometry(Strings, Value);
+                return Numbers;
             }
 
-            return AnimationHelper.InterpolateGeometry(_baseValues, Value, keyFrameProgress, Strings);
+            return AnimationHelper.InterpolateGeometryValue(baseValue, Numbers, keyFrameProgress);
         }
 
         public static readonly DependencyProperty EasingFunctionProperty = DependencyProperty.Register(

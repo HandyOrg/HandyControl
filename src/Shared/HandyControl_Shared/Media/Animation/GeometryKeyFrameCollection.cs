@@ -34,7 +34,7 @@ namespace HandyControl.Media.Animation
                 }
 
                 return s_emptyCollection;
-            }
+            } 
         }
 
         public new GeometryKeyFrameCollection Clone() => (GeometryKeyFrameCollection)base.Clone();

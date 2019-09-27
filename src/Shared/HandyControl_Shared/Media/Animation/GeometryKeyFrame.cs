@@ -6,6 +6,8 @@ using HandyControl.Tools;
 
 public abstract class GeometryKeyFrame : Freezable, IKeyFrame
 {
+    internal double[] Numbers;
+
     protected GeometryKeyFrame()
     {
         
@@ -14,13 +16,11 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
     protected GeometryKeyFrame(Geometry value)
     {
         AnimationHelper.DecomposeGeometryStr(value.ToString(), out var arr);
-        Value = arr;
+        Numbers = arr;
+        Value = value;
     }
 
-    protected GeometryKeyFrame(Geometry value, KeyTime keyTime) : this(value)
-    {
-        KeyTime = keyTime;
-    }
+    protected GeometryKeyFrame(Geometry value, KeyTime keyTime) : this(value) => KeyTime = keyTime;
 
     public static readonly DependencyProperty KeyTimeProperty = DependencyProperty.Register(
         "KeyTime", typeof(KeyTime), typeof(GeometryKeyFrame), new PropertyMetadata(KeyTime.Uniform));
@@ -34,21 +34,27 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
     object IKeyFrame.Value
     {
         get => Value;
-        set => Value = (double[])value;
+        set => Value = (Geometry)value;
     }
 
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-        "Value", typeof(Geometry), typeof(GeometryKeyFrame), new PropertyMetadata(default(double[])));
+        "Value", typeof(Geometry), typeof(GeometryKeyFrame), new PropertyMetadata(default(Geometry), OnValueChanged));
 
-    public double[] Value
+    private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        get => (double[]) GetValue(ValueProperty);
+        var obj = (GeometryKeyFrame) d;
+        var v = (Geometry) e.NewValue;
+        AnimationHelper.DecomposeGeometryStr(v.ToString(), out var arr);
+        obj.Numbers = arr;
+    }
+
+    public Geometry Value
+    {
+        get => (Geometry) GetValue(ValueProperty);
         set => SetValue(ValueProperty, value);
     }
 
-    protected string[] Strings { get; set; }
-
-    public Geometry InterpolateValue(Geometry baseValue, double keyFrameProgress)
+    public double[] InterpolateValue(double[] baseValue, double keyFrameProgress)
     {
         if (keyFrameProgress < 0.0 || keyFrameProgress > 1.0)
         {
@@ -58,5 +64,5 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
         return InterpolateValueCore(baseValue, keyFrameProgress);
     }
 
-    protected abstract Geometry InterpolateValueCore(Geometry baseValue, double keyFrameProgress);
+    protected abstract double[] InterpolateValueCore(double[] baseValue, double keyFrameProgress);
 }
