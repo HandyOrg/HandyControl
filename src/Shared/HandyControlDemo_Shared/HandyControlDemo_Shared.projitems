@@ -328,6 +328,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemoCtl.xaml.cs">
       <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\GeometryAnimationDemoCtl.xaml.cs">
+      <DependentUpon>GeometryAnimationDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\HatchBrushGeneratorDemoCtl.xaml.cs">
       <DependentUpon>HatchBrushGeneratorDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -818,6 +821,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Tools\GeometryAnimationDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
