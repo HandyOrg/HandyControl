@@ -672,4 +672,7 @@
   <data name="HatchBrushGenerator" xml:space="preserve">
     <value>阴影画笔生成器</value>
   </data>
+  <data name="Morphing Animation" xml:space="preserve">
+    <value>变形动画</value>
+  </data>
 </root>
