@@ -78,7 +78,7 @@ namespace HandyControl.Media.Animation
                 {
                     var geometryStr = defaultDestinationValue.ToString();
                     AnimationHelper.DecomposeGeometryStr(geometryStr, out _numbersTo);
-                    _strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern);
+                    _strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern, RegexOptions.CultureInvariant);
                 }
 
                 UpdateValue();
@@ -149,7 +149,7 @@ namespace HandyControl.Media.Animation
             {
                 var geometryStr = geometry.ToString();
                 AnimationHelper.DecomposeGeometryStr(geometryStr, out obj._numbersTo);
-                obj._strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern);
+                obj._strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern, RegexOptions.CultureInvariant);
                 obj.UpdateValue();
             }
         }
