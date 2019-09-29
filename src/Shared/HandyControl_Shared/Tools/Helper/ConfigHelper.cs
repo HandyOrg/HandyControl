@@ -9,6 +9,7 @@ using System.Windows.Markup;
 using HandyControl.Controls;
 using HandyControl.Data;
 using System.Threading;
+
 namespace HandyControl.Tools
 {
     public class ConfigHelper : INotifyPropertyChanged
@@ -43,7 +44,7 @@ namespace HandyControl.Tools
         public void SetLang(string lang)
         {
             Application.Current.Dispatcher.Thread.CurrentUICulture = new CultureInfo(lang);
-            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             Lang = XmlLanguage.GetLanguage(lang);
         }
 
