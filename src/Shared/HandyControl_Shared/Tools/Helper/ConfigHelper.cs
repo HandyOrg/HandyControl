@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Markup;
 using HandyControl.Controls;
 using HandyControl.Data;
+using System.Threading;
 
 namespace HandyControl.Tools
 {
@@ -43,6 +44,7 @@ namespace HandyControl.Tools
         public void SetLang(string lang)
         {
             Application.Current.Dispatcher.Thread.CurrentUICulture = new CultureInfo(lang);
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             Lang = XmlLanguage.GetLanguage(lang);
         }
 
