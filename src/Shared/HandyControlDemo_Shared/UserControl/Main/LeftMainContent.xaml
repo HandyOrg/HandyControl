@@ -503,6 +503,11 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/DataGenerator_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
+                        <ListBoxItem Tag="{x:Static data:MessageToken.GeometryAnimationDemoCtl}" Content="{x:Static langs:Lang.Morphing_Animation}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/Animation_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                     </ListBox>
                 </Grid>
             </TabItem>

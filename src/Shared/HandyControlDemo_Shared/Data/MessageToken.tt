@@ -96,7 +96,8 @@ var styleList = new List<string>
 };
 var toolList = new List<string>
 {
-	"HatchBrushGeneratorDemoCtl"
+	"HatchBrushGeneratorDemoCtl",
+	"GeometryAnimationDemoCtl"
 };
 var windowList = new List<string>
 {

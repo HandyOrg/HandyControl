@@ -844,6 +844,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 变形动画 的本地化字符串。
+        /// </summary>
+        public static string Morphing_Animation {
+            get {
+                return ResourceManager.GetString("Morphing Animation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 名称 的本地化字符串。
         /// </summary>
         public static string Name {
