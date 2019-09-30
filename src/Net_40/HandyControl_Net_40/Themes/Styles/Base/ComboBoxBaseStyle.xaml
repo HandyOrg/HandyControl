@@ -113,6 +113,9 @@
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Opacity" Value="0.4"/>
             </Trigger>
@@ -169,6 +172,9 @@
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            </Trigger>
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Opacity" Value="0.4" TargetName="toggleButton"/>
                 <Setter Property="Opacity" Value="0.4" TargetName="contentPresenter"/>
@@ -221,6 +227,9 @@
                 <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
             </MultiTrigger>
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
@@ -595,6 +604,9 @@
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
+            <Trigger Property="IsFocused" Value="True">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            </Trigger>
             <Trigger Property="IsError" Value="true">
                 <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
                 <Trigger.EnterActions>
@@ -687,6 +699,9 @@
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear"/>
             </MultiTrigger>
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            </Trigger>
+            <Trigger Property="IsFocused" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
             <Trigger Property="IsError" Value="true">
