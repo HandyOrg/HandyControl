@@ -174,6 +174,12 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico">
       <Link>Resources\Img\icon.ico</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\qq_group_1.jpg">
+      <Link>Resources\Img\qq_group_1.jpg</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\qq_group_2.jpg">
+      <Link>Resources\Img\qq_group_2.jpg</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Animation_16x.png">
       <Link>Resources\Img\LeftMainContent\Animation_16x.png</Link>
     </Resource>
@@ -359,9 +365,6 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\GridPane_16x.png">
       <Link>Resources\Img\LeftMainContent\GridPane_16x.png</Link>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\qq-group.jpg">
-      <Link>Resources\Img\qq-group.jpg</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\under_construction.gif">
       <Link>Resources\Img\under_construction.gif</Link>

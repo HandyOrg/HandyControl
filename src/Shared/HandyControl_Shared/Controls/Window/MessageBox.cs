@@ -267,7 +267,7 @@ namespace HandyControl.Controls
             MessageBox messageBox = null;
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
-                messageBox = CreateMessageBox(null, info.MessageBoxText, info.Caption, info.Button, MessageBoxImage.None, info.DefaultResult);
+                messageBox = CreateMessageBox(null, info.Message, info.Caption, info.Button, MessageBoxImage.None, info.DefaultResult);
                 SetButtonStatus(messageBox, info.Button);
 
                 if (!string.IsNullOrEmpty(info.IconKey))
@@ -277,9 +277,9 @@ namespace HandyControl.Controls
                     messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(info.IconBrushKey);
                 }
 
-                if (info.Style != null)
+                if (info.StyleKey != null)
                 {
-                    messageBox.Style = info.Style;
+                    messageBox.Style = ResourceHelper.GetResource<Style>(info.StyleKey);
                 }
                 SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();

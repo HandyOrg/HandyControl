@@ -464,9 +464,6 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\WindowsForm_16x.png">
       <Link>Resources\Img\LeftMainContent\WindowsForm_16x.png</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\qq-group.jpg">
-      <Link>Resources\Img\qq-group.jpg</Link>
-    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\under_construction.gif">
       <Link>Resources\Img\under_construction.gif</Link>
     </Resource>
@@ -499,6 +496,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\qq_group_1.jpg">
+      <Link>Resources\Img\qq_group_1.jpg</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\qq_group_2.jpg">
+      <Link>Resources\Img\qq_group_2.jpg</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\DataGenerator_16x.png">
       <Link>Resources\Img\LeftMainContent\DataGenerator_16x.png</Link>
     </Resource>
