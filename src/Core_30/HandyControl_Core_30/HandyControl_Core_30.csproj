@@ -4,14 +4,15 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControl</AssemblyName>
     <RootNamespace>HandyControl</RootNamespace>
-    <Version>2.2.0</Version>
-    <AssemblyVersion>2.2.0.0</AssemblyVersion>
+    <Version>2.3.0</Version>
+    <AssemblyVersion>2.3.0.0</AssemblyVersion>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright © HandyOrg 2018-2019</Copyright>
     <Description>Contains some commonly used simple WPF controls</Description>
     <Configurations>Debug;Release</Configurations>
     <LangVersion>8.0</LangVersion>
+    <Authors>HandyOrg</Authors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>

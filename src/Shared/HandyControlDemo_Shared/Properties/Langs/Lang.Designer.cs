@@ -493,6 +493,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 分割线 的本地化字符串。
+        /// </summary>
+        public static string Divider {
+            get {
+                return ResourceManager.GetString("Divider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 在这里拖拽 的本地化字符串。
         /// </summary>
         public static string DragHere {

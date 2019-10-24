@@ -675,4 +675,7 @@
   <data name="Morphing Animation" xml:space="preserve">
     <value>变形动画</value>
   </data>
+  <data name="Divider" xml:space="preserve">
+    <value>分割线</value>
+  </data>
 </root>
