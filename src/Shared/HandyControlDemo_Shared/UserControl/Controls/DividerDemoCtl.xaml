@@ -1,8 +1,15 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.DividerDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
-    <Grid>
-            
-    </Grid>
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32" Width="300">
+            <hc:Divider/>
+            <hc:Divider Content="With Text"/>
+            <hc:Divider Content="With Text" Padding="10,0"/>
+            <hc:Divider LineStrokeThickness="2" LineStroke="{DynamicResource DarkPrimaryBrush}"/>
+            <hc:Divider LineStrokeDashArray="2,2"/>
+        </StackPanel>
+    </hc:TransitioningContentControl>
 </UserControl>

@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
@@ -66,6 +67,10 @@ namespace HandyControl.Controls
                     case ColLayoutStatus.Xxl:
                         result = Layout.Xxl;
                         break;
+                    case ColLayoutStatus.Auto:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(status), status, null);
                 }
             }
             else

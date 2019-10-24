@@ -4,6 +4,32 @@
 
     <Style x:Key="DividerBaseStyle" TargetType="controls:Divider">
         <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Margin" Value="0, 24"/>
+        <Setter Property="Padding" Value="24, 0"/>
+        <Setter Property="LineStroke" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:Divider">
+                    <controls:Row>
+                        <controls:Col Layout="12">
+                            <Line VerticalAlignment="Center" StrokeDashArray="{TemplateBinding LineStrokeDashArray}" Stroke="{TemplateBinding LineStroke}" X2="1" StrokeThickness="{TemplateBinding LineStrokeThickness}" Stretch="Fill" StrokeEndLineCap="Square" StrokeStartLineCap="Square"/>
+                        </controls:Col>
+                        <controls:Col Layout="0">
+                            <ContentPresenter Margin="{TemplateBinding Padding}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </controls:Col>
+                        <controls:Col Layout="12">
+                            <Line VerticalAlignment="Center" StrokeDashArray="{TemplateBinding LineStrokeDashArray}" Stroke="{TemplateBinding LineStroke}" X2="1" StrokeThickness="{TemplateBinding LineStrokeThickness}" Stretch="Fill" StrokeEndLineCap="Square" StrokeStartLineCap="Square"/>
+                        </controls:Col>
+                    </controls:Row>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Content" Value="{x:Null}">
+                <Setter Property="Padding" Value="0"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
