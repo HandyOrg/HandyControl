@@ -14,14 +14,14 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
 
 {% code %}
 <Trigger Property="IsMouseOver" Value="True">
-    <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
+    <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(hc:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
 </Trigger>
 {% endcode %}
 
 随后我们就可以使用该属性了：
 
 {% code %}
-<目标控件  controls:BackgroundSwitchElement.MouseHoverBackground ="Blue"/>
+<目标控件  hc:BackgroundSwitchElement.MouseHoverBackground ="Blue"/>
 {% endcode %}
 
 ## MouseDownBackground  `鼠标按下背景色`
@@ -31,12 +31,12 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
 {% code %}
 <Trigger Property="IsPressed" Value="True">
     <Setter Property="Background" TargetName="Chrome" 
-    Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
+    Value="{Binding Path=(hc:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
 </Trigger>
 {% endcode %}
 
 随后我们就可以使用该属性了：
 
 {% code %}
-<目标控件 controls:BackgroundSwitchElement.MouseDownBackground ="Yellow"/>
+<目标控件 hc:BackgroundSwitchElement.MouseDownBackground ="Yellow"/>
 {% endcode %}
