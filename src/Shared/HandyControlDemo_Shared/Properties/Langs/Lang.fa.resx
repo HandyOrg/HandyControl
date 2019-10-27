@@ -675,4 +675,7 @@
   <data name="Morphing Animation" xml:space="preserve">
     <value>Morphing Animation</value>
   </data>
+  <data name="Divider" xml:space="preserve">
+    <value>Divider</value>
+  </data>
 </root>

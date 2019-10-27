@@ -13,6 +13,8 @@ namespace HandyControl.Controls
 
         private double _maxChildDesiredHeight;
 
+        private double _totalAutoWidth;
+
         public static readonly DependencyProperty GutterProperty = DependencyProperty.Register(
             "Gutter", typeof(double), typeof(Row), new PropertyMetadata(ValueBoxes.Double0Box, null, OnGutterCoerce), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
@@ -29,6 +31,7 @@ namespace HandyControl.Controls
             var totalCellCount = 0;
             var totalRowCount = 1;
             var gutterHalf = Gutter / 2;
+            _totalAutoWidth = 0;
 
             foreach (var child in InternalChildren.OfType<Col>())
             {
@@ -40,12 +43,7 @@ namespace HandyControl.Controls
                 {
                     _maxChildDesiredHeight = childDesiredSize.Height;
                 }
-            }
 
-            _layoutStatus = ColLayout.GetLayoutStatus(constraint.Width);
-
-            foreach (var child in InternalChildren.OfType<Col>())
-            {
                 var cellCount = child.GetLayoutCellCount(_layoutStatus);
                 totalCellCount += cellCount;
 
@@ -54,16 +52,21 @@ namespace HandyControl.Controls
                     totalCellCount = cellCount;
                     totalRowCount++;
                 }
+
+                if (cellCount == 0 || child.IsFixed)
+                {
+                    _totalAutoWidth += childDesiredSize.Width;
+                }
             }
 
-            return new Size(0, _maxChildDesiredHeight * totalRowCount - Gutter);
+            return new Size(constraint.Width, _maxChildDesiredHeight * totalRowCount - Gutter);
         }
 
         protected override Size ArrangeOverride(Size finalSize)
         {
             var totalCellCount = 0;
             var gutterHalf = Gutter / 2;
-            var itemWidth = (finalSize.Width + Gutter) / ColLayout.ColMaxCellCount;
+            var itemWidth = (finalSize.Width - _totalAutoWidth + Gutter) / ColLayout.ColMaxCellCount;
             var childBounds = new Rect(-gutterHalf, -gutterHalf, 0, _maxChildDesiredHeight);
             _layoutStatus = ColLayout.GetLayoutStatus(finalSize.Width);
 
@@ -72,7 +75,8 @@ namespace HandyControl.Controls
                 var cellCount = child.GetLayoutCellCount(_layoutStatus);
                 totalCellCount += cellCount;
 
-                var childWidth = cellCount * itemWidth;
+                var childWidth = cellCount > 0 ? cellCount * itemWidth : child.DesiredSize.Width;
+
                 childBounds.Width = childWidth;
                 childBounds.X += child.Offset * itemWidth;
                 if (totalCellCount > ColLayout.ColMaxCellCount)

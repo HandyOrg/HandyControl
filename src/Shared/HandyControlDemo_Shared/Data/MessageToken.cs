@@ -120,6 +120,8 @@
 	
         public static readonly string SplitButtonDemoCtl = nameof(SplitButtonDemoCtl);
 	
+        public static readonly string DividerDemoCtl = nameof(DividerDemoCtl);
+	
     	/*-------------------- Tools --------------------*/
 
 	    public static readonly string HatchBrushGeneratorDemoCtl = nameof(HatchBrushGeneratorDemoCtl);

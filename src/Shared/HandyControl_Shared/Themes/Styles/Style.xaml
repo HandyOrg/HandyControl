@@ -75,6 +75,7 @@
         <ResourceDictionary Source="Notification.xaml"/>
         <ResourceDictionary Source="FloatingBlock.xaml"/>
         <ResourceDictionary Source="SplitButton.xaml"/>
+        <ResourceDictionary Source="Divider.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

@@ -26,16 +26,18 @@
     <hc:Window.NonClientAreaContent>
         <userControl:NoUserContent/>
     </hc:Window.NonClientAreaContent>
-    <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"/>
-            <ColumnDefinition MinWidth="200"/>
-        </Grid.ColumnDefinitions>
-        <userControl:LeftMainContent/>
-        <userControl:MainContent Grid.Column="1"/>
-        <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="4" Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="{DynamicResource BorderBrush}"/>
-        <hc:ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsEnableInertia="True" IsPenetrating="True">
-            <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10"/>
-        </hc:ScrollViewer>
-    </Grid>
+    <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"/>
+                <ColumnDefinition MinWidth="200"/>
+            </Grid.ColumnDefinitions>
+            <userControl:LeftMainContent/>
+            <userControl:MainContent Grid.Column="1"/>
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="4" Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="{DynamicResource BorderBrush}"/>
+            <hc:ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsEnableInertia="True" IsPenetrating="True">
+                <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10"/>
+            </hc:ScrollViewer>
+        </Grid>
+    </Border>
 </hc:BlurWindow>

@@ -8,5 +8,6 @@
         Lg,
         Xl,
         Xxl,
+        Auto
     }
 }
