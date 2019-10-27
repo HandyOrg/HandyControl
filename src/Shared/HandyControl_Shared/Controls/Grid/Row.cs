@@ -53,7 +53,7 @@ namespace HandyControl.Controls
                     totalRowCount++;
                 }
 
-                if (cellCount == 0)
+                if (cellCount == 0 || child.IsFixed)
                 {
                     _totalAutoWidth += childDesiredSize.Width;
                 }

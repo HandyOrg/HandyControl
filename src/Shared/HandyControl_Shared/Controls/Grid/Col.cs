@@ -41,36 +41,48 @@ namespace HandyControl.Controls
             set => SetValue(SpanProperty, value);
         }
 
+        public static readonly DependencyProperty IsFixedProperty = DependencyProperty.Register(
+            "IsFixed", typeof(bool), typeof(Col), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool IsFixed
+        {
+            get => (bool) GetValue(IsFixedProperty);
+            set => SetValue(IsFixedProperty, value);
+        }
+
         internal int GetLayoutCellCount(ColLayoutStatus status)
         {
             var result = 0;
 
             if (Layout != null)
             {
-                switch (status)
+                if (!IsFixed)
                 {
-                    case ColLayoutStatus.Xs:
-                        result = Layout.Xs;
-                        break;
-                    case ColLayoutStatus.Sm:
-                        result = Layout.Sm;
-                        break;
-                    case ColLayoutStatus.Md:
-                        result = Layout.Md;
-                        break;
-                    case ColLayoutStatus.Lg:
-                        result = Layout.Lg;
-                        break;
-                    case ColLayoutStatus.Xl:
-                        result = Layout.Xl;
-                        break;
-                    case ColLayoutStatus.Xxl:
-                        result = Layout.Xxl;
-                        break;
-                    case ColLayoutStatus.Auto:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(status), status, null);
+                    switch (status)
+                    {
+                        case ColLayoutStatus.Xs:
+                            result = Layout.Xs;
+                            break;
+                        case ColLayoutStatus.Sm:
+                            result = Layout.Sm;
+                            break;
+                        case ColLayoutStatus.Md:
+                            result = Layout.Md;
+                            break;
+                        case ColLayoutStatus.Lg:
+                            result = Layout.Lg;
+                            break;
+                        case ColLayoutStatus.Xl:
+                            result = Layout.Xl;
+                            break;
+                        case ColLayoutStatus.Xxl:
+                            result = Layout.Xxl;
+                            break;
+                        case ColLayoutStatus.Auto:
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(status), status, null);
+                    }
                 }
             }
             else
