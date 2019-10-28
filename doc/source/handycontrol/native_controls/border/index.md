@@ -6,7 +6,7 @@ title: Border 边框
 
 此样式用于包裹一个控件区域，配合基础xaml定义中的几个DropShadowEffect资源可制作如下效果：
 
-![Border](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Border.png)
+![Border](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Border.png)
 
 以上效果的xaml代码如下：
 

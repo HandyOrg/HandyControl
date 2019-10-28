@@ -1,47 +1,49 @@
 ---
-title: 具有边框的元素
+title: BorderElement 具有边框的元素
 ---
+
 # 准备工作
 
-使用该系附加属性的`.xaml`文件中，需要添加`HandyControl`命名空间
-{% code %}
-      xmlns:hc="https://handyorg.github.io/handycontrol"
-{% endcode %}
+添加`HandyControl`命名空间
+
+```xml
+xmlns:hc="https://handyorg.github.io/handycontrol"
+```
 
 # 相关属性
 
-| 名称         | 用途                               |
-| ------------ | ---------------------------------- |
-| CornerRadius | 设置边框圆角值                     |
-| Circular     | 是否呈现为圆形 True为是、False为否 |
+| 名称 | 用途 |
+|-|-|
+| CornerRadius | 设置边框圆角值 |
+| Circular | 是否呈现为圆形 True为是、False为否 |
 
 # 使用案例
 
-## CornerRadius
-设置边框的圆角值
+## CornerRadius 设置边框圆角值
+
 ```xml
 <Button Content="[Button]测试CornerRadius" hc:BorderElement.CornerRadius="0"></Button>
 <hc:TextBox Text="[hc:TextBox]测试CornerRadius" hc:BorderElement.CornerRadius="15"></hc:TextBox>
 <TextBox Text="[TextBox]测试CornerRadius" hc:BorderElement.CornerRadius="0"></TextBox>
 <Button Content="[Button]测试CornerRadius" hc:BorderElement.CornerRadius="0,0,4,4"></Button>
 ```
-**效果图如下：**
 
-![CorberRadius_Case_01](..\images\borderelment_case_01.png)
-## Circular
+![CorberRadius_Case_01](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach\borderelment_case_01.png)
+
+## Circular 是否呈现为圆形
+
 借助`BorderElement.Circular`附加属性实现圆形Border
 ```xml
 <Border Style="{StaticResource BorderCircular}" Background="OrangeRed" Width="100" Height="100"/>
 ```
-**效果如下：**
-![borderElement_Case_02](..\images\borderElement_Case_02.png)
+![borderElement_Case_02](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach\borderElement_Case_02.png)
 
 # 温馨提示
 
 ## 常见控件支持项
 
 **所属**  是指该控件为`WPF默认`控件还是为`HandControl自定义`实现的控件
-**适用属性 ** 为当前控件`borderElement`对应有效的附加属性
+**适用属性 ** 为当前控件`BorderElement`对应有效的附加属性
 
 | 控件类型 | 所属                  | 适用属性     |
 | -------- | --------------------- | ------------ |

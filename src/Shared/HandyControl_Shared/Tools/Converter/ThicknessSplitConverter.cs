@@ -9,17 +9,17 @@ namespace HandyControl.Tools.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is Thickness cornerRadius)
+            if (value is Thickness thickness)
             {
                 if (parameter is string str)
                 {
                     var arr = str.Split(',');
-                    if (arr.Length != 4) return cornerRadius;
+                    if (arr.Length != 4) return thickness;
 
-                    return new CornerRadius(arr[0].Equals("1") ? cornerRadius.Left : 0,
-                        arr[1].Equals("1") ? cornerRadius.Top : 0,
-                        arr[1].Equals("1") ? cornerRadius.Right : 0,
-                        arr[1].Equals("1") ? cornerRadius.Bottom : 0);
+                    return new Thickness(arr[0].Equals("1") ? thickness.Left : 0,
+                        arr[1].Equals("1") ? thickness.Top : 0,
+                        arr[1].Equals("1") ? thickness.Right : 0,
+                        arr[1].Equals("1") ? thickness.Bottom : 0);
                 }
             }
             return value;

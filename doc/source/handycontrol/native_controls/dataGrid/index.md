@@ -41,7 +41,7 @@ title: DataGrid 数据表格
     </DataGrid.Columns>
 </DataGrid>
 {% endcode %}
-![ContextMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/DataGrid.png)
+![DataGrid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DataGrid.png)
 {% endnote %}
 
 # FAQ
