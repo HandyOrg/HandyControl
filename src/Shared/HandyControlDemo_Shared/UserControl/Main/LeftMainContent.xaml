@@ -345,6 +345,11 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/VSO_Card_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.DividerDemoCtl}" Content="{x:Static langs:Lang.Divider}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/DottedSplitter_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ColorWheel_16x.png"/>
@@ -455,7 +460,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/ScrollBox_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.SpriteDemoCtl}" Content="{x:Static langs:Lang.Sprite}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.SpriteDemoCtl}" Content="{x:Static langs:Lang.Sprite}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/HandyControl.png"/>
                             </hc:EdgeElement.LeftContent>

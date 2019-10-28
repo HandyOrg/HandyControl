@@ -13,6 +13,8 @@ namespace HandyControl.Tools.Extension
     {
         public static readonly int ColMaxCellCount = 24;
 
+        public static readonly int HalfColMaxCellCount = 12;
+
         public static readonly int XsMaxWidth = 768;
 
         public static readonly int SmMaxWidth = 992;
