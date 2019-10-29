@@ -19,5 +19,5 @@ title: CheckBox 复选框
     <CheckBox Margin="0,16,0,0" Content="CheckBox" IsChecked="{x:Null}" IsEnabled="False"/>
 </StackPanel>
 {% endcode %}
-![CheckBox](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/CheckBox.png)
+![CheckBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CheckBox.png)
 {% endnote %}
