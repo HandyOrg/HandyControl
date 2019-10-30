@@ -79,7 +79,5 @@ Controls中的每个控件一般都能在Themes中找到对应的xaml定义。
 编译前请确认你的开发环境是否符合要求。
 {% endnote %}
 
-{% note info %}
 打开HandyControl.sln，在解决方案配置下拉框中选择指定的环境进行编译：
-![Build_Config](images/Build_Config.png)
-{% endnote %}
+![Build_Config](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/Build_Config.png)

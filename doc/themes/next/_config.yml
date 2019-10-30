@@ -180,7 +180,7 @@ menu:
       BackgroundSwitchElement 可切换背景的元素: /backgroundSwitchElement/ ||
       BorderElement 具有边框的元素: /borderElement/ ||
       DataGridAttach DataGrid专用: /dataGridAttach/ ||
-      EdgeElement: /edgeElement/ ||
+      EdgeElement 具有边界内容的元素: /edgeElement/ ||
       IconElement 具有图标的元素: /iconElement/ ||
       IconSwitchElement 可切换图标的元素: /iconSwitchElement/ ||
       InfoElement 信息元素: /infoElement/ ||
@@ -319,10 +319,12 @@ site_state: false
 social:
   GitHub: https://github.com/HandyOrg || github
   E-Mail: mailto:handycontrol@qq.com || envelope
-  QQ: //shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1 || qq
+  QQ群1: //shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1 || qq
+  QQ群2: //shang.qq.com/wpa/qunwpa?idkey=5c18622a0f6ee07a6f33afa8cdb85b1f72ea50e878271dfcec919c76b55afee7 || qq
   Nuget: https://www.nuget.org/packages/HandyControl || code
   Gitter: https://gitter.im/HandyControl/Lobby || commenting
   Wiki-en: https://github.com/ghost1372/HandyControl/wiki || book
+  Wiki-fr: https://github.com/TheKeytrap/HandyControl/wiki || book
 
 social_icons:
   enable: true

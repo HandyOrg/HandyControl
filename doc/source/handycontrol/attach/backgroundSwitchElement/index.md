@@ -2,15 +2,7 @@
 title: BackgroundSwitchElement 可切换背景的元素
 ---
 
-# 准备工作
-
-添加`HandyControl`命名空间
-
-```xml
-xmlns:hc="https://handyorg.github.io/handycontrol"
-```
-
-# 相关属性
+# 属性
 
 | 名称 | 用途 |
 |-|-|
