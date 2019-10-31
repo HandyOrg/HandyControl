@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -15,7 +16,7 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
 
     protected GeometryKeyFrame(Geometry value)
     {
-        AnimationHelper.DecomposeGeometryStr(value.ToString(), out var arr);
+        AnimationHelper.DecomposeGeometryStr(value.ToString(CultureInfo.InvariantCulture), out var arr);
         Numbers = arr;
         Value = value;
     }
@@ -44,7 +45,7 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
     {
         var obj = (GeometryKeyFrame) d;
         var v = (Geometry) e.NewValue;
-        AnimationHelper.DecomposeGeometryStr(v.ToString(), out var arr);
+        AnimationHelper.DecomposeGeometryStr(v.ToString(CultureInfo.InvariantCulture), out var arr);
         obj.Numbers = arr;
     }
 
