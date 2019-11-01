@@ -197,6 +197,18 @@ namespace HandyControl.Controls
             Focus();
         }
 
+        protected override void OnHeaderChanged(object oldHeader, object newHeader)
+        {
+            base.OnHeaderChanged(oldHeader, newHeader);
+
+            if (TabPanel != null)
+            {
+                TabPanel.ForceUpdate = true;
+                InvalidateMeasure();
+                TabPanel.ForceUpdate = true;
+            }
+        }
+
         internal void Close()
         {
             var argsClosing = new CancelRoutedEventArgs(ClosingEvent, this);
