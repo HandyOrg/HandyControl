@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
-using System.Security.Authentication;
+using System.Security.Authentication; 
 using System.Threading;
 using System.Windows;
 using HandyControl.Data;
@@ -41,6 +41,9 @@ namespace HandyControlDemo
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            var splashScreen = new SplashScreen("Resources/Img/Cover.png");
+            splashScreen.Show(true);
+
             base.OnStartup(e);
 
             UpdateRegistry();

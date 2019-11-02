@@ -22,5 +22,6 @@
     <converter:RectangleCircularConverter x:Key="RectangleCircularConverter"/>
     <converter:ThicknessSplitConverter x:Key="ThicknessSplitConverter"/>
     <converter:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter"/>
-    <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter" />
+    <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter"/>
+    <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter" />
 </ResourceDictionary>
