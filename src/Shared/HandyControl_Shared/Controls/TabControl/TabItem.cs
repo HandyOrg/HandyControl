@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -137,7 +139,18 @@ namespace HandyControl.Controls
         ///     是否显示上下文菜单
         /// </summary>
         public static readonly DependencyProperty ShowContextMenuProperty =
-            TabControl.ShowContextMenuProperty.AddOwner(typeof(TabItem));
+            TabControl.ShowContextMenuProperty.AddOwner(typeof(TabItem), new FrameworkPropertyMetadata(OnShowContextMenuChanged));
+
+        private static void OnShowContextMenuChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (TabItem) d;
+            if (ctl.Menu != null)
+            {
+                var show = (bool)e.NewValue;
+                ctl.Menu.IsEnabled = show;
+                ctl.Menu.Show(show);
+            }
+        }
 
         /// <summary>
         ///     是否显示上下文菜单
@@ -155,7 +168,30 @@ namespace HandyControl.Controls
             => (bool)element.GetValue(ShowContextMenuProperty);
 
         public static readonly DependencyProperty MenuProperty = DependencyProperty.Register(
-            "Menu", typeof(ContextMenu), typeof(TabItem), new PropertyMetadata(default(ContextMenu)));
+            "Menu", typeof(ContextMenu), typeof(TabItem), new PropertyMetadata(default(ContextMenu), OnMenuChanged));
+
+        private static void OnMenuChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (TabItem) d;
+            ctl.OnMenuChanged(e.NewValue as ContextMenu);
+        }
+
+        private void OnMenuChanged(ContextMenu menu)
+        {
+            if (IsLoaded && menu != null)
+            {
+                menu.DataContext = this;
+                menu.SetBinding(IsEnabledProperty, new Binding(ShowContextMenuProperty.Name)
+                {
+                    Source = this
+                });
+                menu.SetBinding(VisibilityProperty, new Binding(ShowContextMenuProperty.Name)
+                {
+                    Source = this,
+                    Converter = ResourceHelper.GetResource<IValueConverter>("Boolean2VisibilityConverter")
+                });
+            }
+        }
 
         public ContextMenu Menu
         {
@@ -186,6 +222,8 @@ namespace HandyControl.Controls
                 (s, e) => { TabControlParent.CloseAllItems(); }));
             CommandBindings.Add(new CommandBinding(ControlCommands.CloseOther,
                 (s, e) => { TabControlParent.CloseOtherItems(this); }));
+
+            Loaded += (s, e) => OnMenuChanged(Menu);
         }
 
         private TabControl TabControlParent => new Lazy<TabControl>(() => ItemsControl.ItemsControlFromItemContainer(this) as TabControl).Value;

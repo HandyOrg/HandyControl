@@ -13,6 +13,12 @@
         <ResourceDictionary Source="Base/TabControlBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    <ContextMenu x:Key="TabItemMenu" x:Shared="False">
+        <MenuItem Command="interactivity:ControlCommands.Close" Header="{x:Static langs:Lang.Close}"/>
+        <MenuItem Command="interactivity:ControlCommands.CloseAll" Header="{x:Static langs:Lang.CloseAll}"/>
+        <MenuItem Command="interactivity:ControlCommands.CloseOther" Header="{x:Static langs:Lang.CloseOther}"/>
+    </ContextMenu>
+
     <Style TargetType="controls:TabItem">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
@@ -23,15 +29,7 @@
         <Setter Property="Padding" Value="16,0"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-        <Setter Property="Menu">
-            <Setter.Value>
-                <ContextMenu IsEnabled="{Binding ShowContextMenu,RelativeSource={RelativeSource AncestorType=controls:TabItem}}" Visibility="{Binding ShowContextMenu,RelativeSource={RelativeSource AncestorType=controls:TabItem},Converter={StaticResource Boolean2VisibilityConverter}}">
-                    <MenuItem Command="interactivity:ControlCommands.Close" Header="{x:Static langs:Lang.Close}"/>
-                    <MenuItem Command="interactivity:ControlCommands.CloseAll" Header="{x:Static langs:Lang.CloseAll}"/>
-                    <MenuItem Command="interactivity:ControlCommands.CloseOther" Header="{x:Static langs:Lang.CloseOther}"/>
-                </ContextMenu>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Menu" Value="{StaticResource TabItemMenu}"/>
         <Setter Property="HeaderTemplate">
             <Setter.Value>
                 <DataTemplate>
