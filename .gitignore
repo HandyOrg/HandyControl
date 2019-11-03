@@ -3,3 +3,4 @@
 *.xml
 [Bb]in/
 [Oo]bj/
+packages/

@@ -3,7 +3,7 @@ title: 基础xaml定义
 ---
 
 基础xaml定义都在Basic文件夹中，其内部结构如下：
-![Basic_Structure](images/Basic_Structure.png)
+![Basic_Structure](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/basic_xaml/Basic_Structure.png)
 
 对它们的描述如下表所示：
 

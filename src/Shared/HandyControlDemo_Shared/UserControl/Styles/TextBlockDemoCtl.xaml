@@ -42,7 +42,7 @@
                 <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultDanger}"/>
                 <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultWarning}"/>
                 <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultInfo}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultSuccess}"/>
+                <TextBlock hc:TextBlockAttach.AutoTooltip="True" Width="300" HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultSuccess}"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

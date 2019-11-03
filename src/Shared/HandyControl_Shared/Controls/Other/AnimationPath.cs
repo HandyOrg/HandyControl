@@ -12,8 +12,6 @@ namespace HandyControl.Controls
 {
     public class AnimationPath : Shape
     {
-        private bool _isLoaded;
-
         /// <summary>
         ///     故事板
         /// </summary>
@@ -126,15 +124,7 @@ namespace HandyControl.Controls
                 OnPropertiesChanged));
         }
 
-        public AnimationPath()
-        {
-            Loaded += (s, e) =>
-            {
-                if (_isLoaded) return;
-                UpdatePath();
-                _isLoaded = true;
-            };
-        }
+        public AnimationPath() => Loaded += (s, e) => UpdatePath();
 
         /// <summary>
         ///     动画完成事件

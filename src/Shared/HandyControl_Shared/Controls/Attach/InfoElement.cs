@@ -44,5 +44,29 @@ namespace HandyControl.Controls
         public static void SetContentHeight(DependencyObject element, double value) => element.SetValue(ContentHeightProperty, value);
 
         public static double GetContentHeight(DependencyObject element) => (double)element.GetValue(ContentHeightProperty);
+
+        /// <summary>
+        ///     最小内容高度
+        /// </summary>
+        public static readonly DependencyProperty MinContentHeightProperty = DependencyProperty.RegisterAttached(
+            "MinContentHeight", typeof(double), typeof(InfoElement), new PropertyMetadata(30.0));
+
+        public static void SetMinContentHeight(DependencyObject element, double value)
+            => element.SetValue(MinContentHeightProperty, value);
+
+        public static double GetMinContentHeight(DependencyObject element)
+            => (double) element.GetValue(MinContentHeightProperty);
+
+        /// <summary>
+        ///     最大内容高度
+        /// </summary>
+        public static readonly DependencyProperty MaxContentHeightProperty = DependencyProperty.RegisterAttached(
+            "MaxContentHeight", typeof(double), typeof(InfoElement), new PropertyMetadata(double.PositiveInfinity));
+
+        public static void SetMaxContentHeight(DependencyObject element, double value)
+            => element.SetValue(MaxContentHeightProperty, value);
+
+        public static double GetMaxContentHeight(DependencyObject element)
+            => (double) element.GetValue(MaxContentHeightProperty);
     }
 }

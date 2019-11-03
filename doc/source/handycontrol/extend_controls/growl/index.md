@@ -6,7 +6,7 @@ title: Growl 信息通知
 
 # 控件效果
 
-![Growl](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Growl.gif)
+![Growl](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Growl.gif)
 
 # 准备工作
 

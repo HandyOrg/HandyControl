@@ -70,6 +70,12 @@
         <ResourceDictionary Source="Rectangle.xaml"/>
         <ResourceDictionary Source="Magnifier.xaml"/>
         <ResourceDictionary Source="ToggleBlock.xaml"/>
+        <ResourceDictionary Source="RunningBlock.xaml"/>
+        <ResourceDictionary Source="Sprite.xaml"/>
+        <ResourceDictionary Source="Notification.xaml"/>
+        <ResourceDictionary Source="FloatingBlock.xaml"/>
+        <ResourceDictionary Source="SplitButton.xaml"/>
+        <ResourceDictionary Source="Divider.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

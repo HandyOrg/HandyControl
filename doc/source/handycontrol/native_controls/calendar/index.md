@@ -12,5 +12,5 @@ title: Calendar 日历
 {% code %}
 <Calendar/>
 {% endcode %}
-![Calendar](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Calendar.jpg)
+![Calendar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Calendar.jpg)
 {% endnote %}

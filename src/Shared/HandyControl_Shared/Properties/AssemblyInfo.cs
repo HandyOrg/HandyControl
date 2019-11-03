@@ -12,7 +12,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
-[assembly: AssemblyVersion("2.1.0")]
+[assembly: AssemblyVersion("2.3.0")]
 #endif
 
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Controls")]
@@ -21,6 +21,7 @@ using System.Runtime.InteropServices;
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Interactivity")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Expression.Shapes")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Expression.Media")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Media.Animation")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Data")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Properties.Langs")]
 [assembly: XmlnsPrefix("https://handyorg.github.io/handycontrol", "hc")]

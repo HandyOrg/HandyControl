@@ -82,8 +82,8 @@ namespace HandyControl.Controls
             InitCalendarWithClock();
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(SelectedDateTimeProperty);
-                ClearValue(TextProperty);
+                SetCurrentValue(SelectedDateTimeProperty, null);
+                SetCurrentValue(TextProperty, "");
                 _textBox.Text = string.Empty;
             }));
         }
@@ -147,7 +147,6 @@ namespace HandyControl.Controls
                         dp._calendarWithClock.Focus();
                     });
                 }
-
             }
         }
 

@@ -32,10 +32,12 @@ namespace HandyControl.Tools.Interop
             NIIF_INFO = 0x00000001,
             NIIF_WARNING = 0x00000002,
             NIIF_ERROR = 0x00000003,
+            NIIF_LARGE_ICON = 0x00000020,
             WM_KEYDOWN = 0x0100,
             WM_KEYUP = 0x0101,
             WM_SYSKEYDOWN = 0x0104,
             WM_SYSKEYUP = 0x0105,
+            WM_SYSCOMMAND = 0x112,
             WM_MOUSEMOVE = 0x0200,
             WM_LBUTTONDOWN = 0x0201,
             WM_LBUTTONUP = 0x0202,
@@ -46,7 +48,10 @@ namespace HandyControl.Tools.Interop
             WM_MBUTTONDOWN = 0x0207,
             WM_MBUTTONUP = 0x0208,
             WM_MBUTTONDBLCLK = 0x0209,
+            WM_CLIPBOARDUPDATE = 0x031D,
             WM_USER = 0x0400,
+            MF_BYPOSITION = 0x400,
+            MF_SEPARATOR = 0x800,
             TB_GETBUTTON = WM_USER + 23,
             TB_BUTTONCOUNT = WM_USER + 24,
             TB_GETITEMRECT = WM_USER + 29,
@@ -64,7 +69,8 @@ namespace HandyControl.Tools.Interop
             LOGPIXELSX = 88,
             LOGPIXELSY = 90,
             CXFRAME = 32,
-            CXSIZEFRAME = CXFRAME;
+            CXSIZEFRAME = CXFRAME,
+            SW_HIDE = 0;
 
         [Flags]
         public enum ProcessAccess
@@ -219,5 +225,22 @@ namespace HandyControl.Tools.Interop
         [SuppressMessage("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         [DllImport(ExternDll.User32)]
         public static extern int GetSystemMetrics(SM nIndex);
+
+        [DllImport(ExternDll.User32)]
+        public static extern IntPtr GetDesktopWindow();
+
+        [DllImport(ExternDll.User32, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool AddClipboardFormatListener(IntPtr hwnd);
+
+        [DllImport(ExternDll.User32, SetLastError = true)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        public static extern bool RemoveClipboardFormatListener(IntPtr hwnd);
+
+        [DllImport(ExternDll.User32)]
+        public static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
+
+        [DllImport(ExternDll.User32)]
+        public static extern bool InsertMenu(IntPtr hMenu, int wPosition, int wFlags, int wIDNewItem, string lpNewItem);
     }
 }

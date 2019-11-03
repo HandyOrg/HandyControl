@@ -142,8 +142,11 @@
                         <TextBlock Margin="0,10,0,0" Visibility="{Binding ShowText,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Text}"/>
                     </StackPanel>
                     <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-                            <BeginStoryboard Storyboard="{StaticResource StoryboardOnLoaded}"/>
+                        <EventTrigger RoutedEvent="FrameworkElement.Loaded" SourceName="PART_Wave">
+                            <BeginStoryboard Name="BeginStoryboardWave" Storyboard="{StaticResource StoryboardOnLoaded}"/>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="FrameworkElement.Unloaded" SourceName="PART_Wave">
+                            <StopStoryboard BeginStoryboardName="BeginStoryboardWave"/>
                         </EventTrigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

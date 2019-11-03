@@ -2,6 +2,8 @@
 {
 	public class MessageToken
     {
+		/*-------------------- Controls --------------------*/
+
         public static readonly string GrowlDemoCtl = nameof(GrowlDemoCtl);
 	
         public static readonly string LoadingDemoCtl = nameof(LoadingDemoCtl);
@@ -108,7 +110,29 @@
 	
         public static readonly string ImageBlockDemoCtl = nameof(ImageBlockDemoCtl);
 	
-        public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
+        public static readonly string RunningBlockDemoCtl = nameof(RunningBlockDemoCtl);
+	
+        public static readonly string HoneycombPanelDemoCtl = nameof(HoneycombPanelDemoCtl);
+	
+        public static readonly string SpriteDemoCtl = nameof(SpriteDemoCtl);
+	
+        public static readonly string NotificationDemoCtl = nameof(NotificationDemoCtl);
+	
+        public static readonly string FloatingBlockDemoCtl = nameof(FloatingBlockDemoCtl);
+	
+        public static readonly string SplitButtonDemoCtl = nameof(SplitButtonDemoCtl);
+	
+        public static readonly string DividerDemoCtl = nameof(DividerDemoCtl);
+	
+    	/*-------------------- Tools --------------------*/
+
+	    public static readonly string HatchBrushGeneratorDemoCtl = nameof(HatchBrushGeneratorDemoCtl);
+
+        public static readonly string GeometryAnimationDemoCtl = nameof(GeometryAnimationDemoCtl);
+
+    	/*-------------------- Styles --------------------*/
+
+	    public static readonly string ButtonDemoCtl = nameof(ButtonDemoCtl);
 
         public static readonly string RepeatButtonDemoCtl = nameof(RepeatButtonDemoCtl);
 
@@ -164,11 +188,15 @@
 
         public static readonly string LabelDemoCtl = nameof(LabelDemoCtl);
 
-        public static readonly string CommonWindow = nameof(CommonWindow);
+    	/*-------------------- Windows --------------------*/
+
+	    public static readonly string CommonWindow = nameof(CommonWindow);
 
         public static readonly string CustomNonClientAreaWindow = nameof(CustomNonClientAreaWindow);
 
-        public static readonly string LoadShowContent = nameof(LoadShowContent);
+    	/*-------------------- Messages --------------------*/
+
+	    public static readonly string LoadShowContent = nameof(LoadShowContent);
 
         public static readonly string FullSwitch = nameof(FullSwitch);
 
@@ -189,6 +217,10 @@
         public static readonly string ProjectsView = nameof(ProjectsView);
 
         public static readonly string BlogsView = nameof(BlogsView);
+
+        public static readonly string NotifyIconDemo = nameof(NotifyIconDemo);
+
+        public static readonly string NotifyIconContextDemo = nameof(NotifyIconContextDemo);
 
     }
 }

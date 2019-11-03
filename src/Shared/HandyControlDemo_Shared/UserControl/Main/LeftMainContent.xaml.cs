@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using HandyControl.Data;
+using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
 
@@ -28,7 +30,8 @@ namespace HandyControlDemo.UserControl
         private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count == 0) return;
-            if (e.AddedItems[0] is TabItem tabItem && tabItem.Content is ListBox listBox)
+            if (e.AddedItems[0] is TabItem tabItem && 
+                VisualHelper.GetChild<ListBox>(tabItem.Content as DependencyObject) is ListBox listBox)
             {
                 if (listBox.SelectedItem != null)
                 {
@@ -39,47 +42,29 @@ namespace HandyControlDemo.UserControl
             }
         }
 
-        private void ButtonStyleAscending_OnClick(object sender, RoutedEventArgs e)
+        private void ButtonAscending_OnClick(object sender, RoutedEventArgs e)
         {
-            if (ButtonStyleAscending.IsChecked == true)
+            if (sender is ToggleButton button && button.Tag is ItemsControl itemsControl)
             {
-                ListBoxStyle.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
-            }
-            else
-            {
-                ListBoxStyle.Items.SortDescriptions.Clear();
+                if (button.IsChecked == true)
+                {
+                    itemsControl.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
+                }
+                else
+                {
+                    itemsControl.Items.SortDescriptions.Clear();
+                }
             }
         }
 
-        private void ButtonControlAscending_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (ButtonControlAscending.IsChecked == true)
-            {
-                ListBoxControl.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
-            }
-            else
-            {
-                ListBoxControl.Items.SortDescriptions.Clear();
-            }
-        }
-
-        private void SearchBarStyle_OnSearchStarted(object sender, FunctionEventArgs<string> e)
+        private void SearchBar_OnSearchStarted(object sender, FunctionEventArgs<string> e)
         {
             if (e.Info == null) return;
-
-            foreach (var listBoxItem in ListBoxStyle.Items.OfType<ListBoxItem>())
+            if (!(sender is FrameworkElement searchBar && searchBar.Tag is ListBox listBox)) return;
+            foreach (var listBoxItem in listBox.Items.OfType<ListBoxItem>())
             {
-                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
-            }
-        }
-
-        private void SearchBarControl_OnSearchStarted(object sender, FunctionEventArgs<string> e)
-        {
-            if (e.Info == null) return;
-
-            foreach (var listBoxItem in ListBoxControl.Items.OfType<ListBoxItem>())
-            {
-                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
+                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()) ||
+                                 listBoxItem.Tag.ToString().Replace("DemoCtl", "").ToLower().Contains(e.Info.ToLower()));
             }
         }
     }

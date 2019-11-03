@@ -88,7 +88,7 @@ namespace HandyControlDemo.ViewModel
                 {
                     new ImageBrowser(new Uri(info.Enclosure.ToString()))
                     {
-                        Owner = VisualHelper.GetActiveWindow()
+                        Owner = WindowHelper.GetActiveWindow()
                     }.Show();
                 }
                 else if (info.Type == ChatMessageType.Audio)

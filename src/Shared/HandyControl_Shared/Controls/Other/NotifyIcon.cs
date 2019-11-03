@@ -1,11 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
@@ -23,8 +24,6 @@ namespace HandyControl.Controls
         private readonly object _syncObj = new object();
 
         private readonly int _id;
-
-        private static int NextId;
 
         private ImageSource _icon;
 
@@ -55,6 +54,10 @@ namespace HandyControl.Controls
         private bool _isTransparent;
 
         private bool _isDisposed;
+
+        private static int NextId;
+
+        private static readonly Dictionary<string, NotifyIcon> NotifyIconDic = new Dictionary<string, NotifyIcon>();
 
         static NotifyIcon()
         {
@@ -109,6 +112,127 @@ namespace HandyControl.Controls
                 Interval = TimeSpan.FromMilliseconds(200)
             };
             _dispatcherTimerPos.Tick += DispatcherTimerPos_Tick;
+        }
+
+        public static void Register(string token, NotifyIcon notifyIcon)
+        {
+            if (string.IsNullOrEmpty(token) || notifyIcon == null) return;
+            NotifyIconDic[token] = notifyIcon;
+        }
+
+        public static void Unregister(string token, NotifyIcon notifyIcon)
+        {
+            if (string.IsNullOrEmpty(token) || notifyIcon == null) return;
+
+            if (NotifyIconDic.ContainsKey(token))
+            {
+                if (ReferenceEquals(NotifyIconDic[token], notifyIcon))
+                {
+                    NotifyIconDic.Remove(token);
+                }
+            }
+        }
+
+        public static void Unregister(NotifyIcon notifyIcon)
+        {
+            if (notifyIcon == null) return;
+            var first = NotifyIconDic.FirstOrDefault(item => ReferenceEquals(notifyIcon, item.Value));
+            if (!string.IsNullOrEmpty(first.Key))
+            {
+                NotifyIconDic.Remove(first.Key);
+            }
+        }
+
+        public static void Unregister(string token)
+        {
+            if (string.IsNullOrEmpty(token)) return;
+
+            if (NotifyIconDic.ContainsKey(token))
+            {
+                NotifyIconDic.Remove(token);
+            }
+        }
+
+        public static void ShowBalloonTip(string title, string content, NotifyIconInfoType infoType, string token)
+        {
+            if (NotifyIconDic.TryGetValue(token, out var notifyIcon))
+            {
+                notifyIcon.ShowBalloonTip(title, content, infoType);
+            }
+        }
+
+        public void ShowBalloonTip(string title, string content, NotifyIconInfoType infoType)
+        {
+            if (!_added || DesignerHelper.IsInDesignMode) return;
+
+            var data = new NOTIFYICONDATA
+            {
+                uFlags = NativeMethods.NIF_INFO,
+                hWnd = _messageWindowHandle,
+                uID = _id,
+                szInfoTitle = title ?? string.Empty,
+                szInfo = content ?? string.Empty
+            };
+
+            switch (infoType)
+            {
+                case NotifyIconInfoType.Info:
+                    data.dwInfoFlags = NativeMethods.NIIF_INFO;
+                    break;
+                case NotifyIconInfoType.Warning:
+                    data.dwInfoFlags = NativeMethods.NIIF_WARNING;
+                    break;
+                case NotifyIconInfoType.Error:
+                    data.dwInfoFlags = NativeMethods.NIIF_ERROR;
+                    break;
+                case NotifyIconInfoType.None:
+                    data.dwInfoFlags = NativeMethods.NIIF_NONE;
+                    break;
+            }
+
+            UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_MODIFY, data);
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        public void CloseContextControl()
+        {
+            if (_contextContent != null)
+            {
+                _contextContent.IsOpen = false;
+            }
+            else if (ContextMenu != null)
+            {
+                ContextMenu.IsOpen = false;
+            }
+        }
+
+        public static readonly DependencyProperty TokenProperty = DependencyProperty.Register(
+            "Token", typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string), OnTokenChanged));
+
+        private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is NotifyIcon notifyIcon)
+            {
+                if (e.NewValue == null)
+                {
+                    Unregister(notifyIcon);
+                }
+                else
+                {
+                    Register(e.NewValue.ToString(), notifyIcon);
+                }
+            }
+        }
+
+        public string Token
+        {
+            get => (string) GetValue(TokenProperty);
+            set => SetValue(TokenProperty, value);
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
@@ -188,6 +312,12 @@ namespace HandyControl.Controls
                 ctl._dispatcherTimerBlink = null;
                 ctl.UpdateIcon(true);
             }
+        }
+
+        public bool IsBlink
+        {
+            get => (bool)GetValue(IsBlinkProperty);
+            set => SetValue(IsBlinkProperty, value);
         }
 
         private void DispatcherTimerBlinkTick(object sender, EventArgs e)
@@ -339,12 +469,6 @@ namespace HandyControl.Controls
                 NativeMethods.CloseHandle(hProcess);
             }
             return isFind;            
-        }
-
-        public bool IsBlink
-        {
-            get => (bool) GetValue(IsBlinkProperty);
-            set => SetValue(IsBlinkProperty, value);
         }
 
         private void OnIconChanged()
@@ -508,26 +632,14 @@ namespace HandyControl.Controls
                     Content = ContextContent
                 };
                 _contextContent.IsOpen = true;
-                var handle = IntPtr.Zero;
-                var hwndSource = (HwndSource)PresentationSource.FromVisual(_contextContent.Child);
-                if (hwndSource != null)
-                {
-                    handle = hwndSource.Handle;
-                }
-                UnsafeNativeMethods.SetForegroundWindow(handle);
+                UnsafeNativeMethods.SetForegroundWindow(_contextContent.Child.GetHandle());
             }
             else if (ContextMenu != null)
             {
                 ContextMenu.Placement = PlacementMode.Mouse;
                 ContextMenu.IsOpen = true;
 
-                var handle = IntPtr.Zero;
-                var hwndSource = (HwndSource)PresentationSource.FromVisual(ContextMenu);
-                if (hwndSource != null)
-                {
-                    handle = hwndSource.Handle;
-                }
-                UnsafeNativeMethods.SetForegroundWindow(handle);
+                UnsafeNativeMethods.SetForegroundWindow(ContextMenu.GetHandle());
             }
         }
 
@@ -564,24 +676,6 @@ namespace HandyControl.Controls
             }
 
             _isDisposed = true;
-        }
-
-        public void Dispose()
-        {
-            Dispose(true);
-            GC.SuppressFinalize(this);
-        }
-
-        public void CloseContextControl()
-        {
-            if (_contextContent != null)
-            {
-                _contextContent.IsOpen = false;
-            }
-            else if (ContextMenu != null)
-            {
-                ContextMenu.IsOpen = false;
-            }
         }
     }
 }

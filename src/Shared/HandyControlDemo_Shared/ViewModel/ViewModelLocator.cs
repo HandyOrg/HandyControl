@@ -4,8 +4,6 @@ using CommonServiceLocator;
 using GalaSoft.MvvmLight.Ioc;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
-using HandyControlDemo.ViewModel.Basic;
-using HandyControlDemo.ViewModel.Controls;
 
 namespace HandyControlDemo.ViewModel
 {
@@ -39,6 +37,9 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<TabControlDemoViewModel>();
             SimpleIoc.Default.Register<NoUserViewModel>();
             SimpleIoc.Default.Register<CardDemoViewModel>();
+            SimpleIoc.Default.Register<SpriteDemoViewModel>();
+            SimpleIoc.Default.Register<NotificationDemoViewModel>();
+            SimpleIoc.Default.Register<SplitButtonDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -88,7 +89,13 @@ namespace HandyControlDemo.ViewModel
 
         public NoUserViewModel NoUser => ServiceLocator.Current.GetInstance<NoUserViewModel>();
 
-        public CardDemoViewModel CardDemo => ServiceLocator.Current.GetInstance<CardDemoViewModel>();
+        public CardDemoViewModel CardDemo => new CardDemoViewModel(ServiceLocator.Current.GetInstance<DataService>());
+
+        public SpriteDemoViewModel SpriteDemo => ServiceLocator.Current.GetInstance<SpriteDemoViewModel>();
+
+        public NotificationDemoViewModel NotificationDemo => ServiceLocator.Current.GetInstance<NotificationDemoViewModel>();
+
+        public SplitButtonDemoViewModel SplitButtonDemo => ServiceLocator.Current.GetInstance<SplitButtonDemoViewModel>();
 
         #endregion
     }

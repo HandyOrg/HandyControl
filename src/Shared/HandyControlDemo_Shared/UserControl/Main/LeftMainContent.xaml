@@ -26,8 +26,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <hc:SearchBar x:Name="SearchBarStyle" SearchStarted="SearchBarStyle_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4"/>
-                    <ToggleButton Name="ButtonStyleAscending" Click="ButtonStyleAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxStyle}"/>
+                    <ToggleButton Tag="{Binding ElementName=ListBoxStyle}" Name="ButtonStyleAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
                         <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
                             <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
                         </Border>
@@ -185,8 +185,8 @@
                         <ColumnDefinition/>
                         <ColumnDefinition Width="Auto"/>
                     </Grid.ColumnDefinitions>
-                    <hc:SearchBar SearchStarted="SearchBarControl_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4"/>
-                    <ToggleButton Name="ButtonControlAscending" Click="ButtonControlAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxControl}"/>
+                    <ToggleButton Tag="{Binding ElementName=ListBoxControl}" Name="ButtonControlAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
                         <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
                             <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
                         </Border>
@@ -195,12 +195,17 @@
                         </hc:StatusSwitchElement.CheckedElement>
                     </ToggleButton>
                     <ListBox Name="ListBoxControl" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single"  Style="{StaticResource ListBoxTransparent}">
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ImageBlockDemoCtl}" Content="{x:Static langs:Lang.ImageBlock}">
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.FloatingBlockDemoCtl}" Content="{x:Static langs:Lang.FloatingBlock}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/thumbs_up.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Tag="{x:Static data:MessageToken.ImageBlockDemoCtl}" Content="{x:Static langs:Lang.ImageBlock}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ImageStack_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.MagnifierDemoCtl}" Content="{x:Static langs:Lang.Magnifier}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.MagnifierDemoCtl}" Content="{x:Static langs:Lang.Magnifier}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/Search_16x.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -220,7 +225,12 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/GoToTop_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.ButtonGroupDemoCtl}" Content="{x:Static langs:Lang.ButtonGroup}">
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.SplitButtonDemoCtl}" Content="{x:Static langs:Lang.SplitButton}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/SplitButton_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Tag="{x:Static data:MessageToken.ButtonGroupDemoCtl}" Content="{x:Static langs:Lang.ButtonGroup}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/ButtonGroup_16x.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -325,9 +335,19 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/TextBlock_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.CardDemoCtl}" Content="{x:Static langs:Lang.Card}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.RunningBlockDemoCtl}" Content="{x:Static langs:Lang.RunningBlock}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/Dynamic_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Tag="{x:Static data:MessageToken.CardDemoCtl}" Content="{x:Static langs:Lang.Card}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/VSO_Card_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.DividerDemoCtl}" Content="{x:Static langs:Lang.Divider}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/DottedSplitter_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.CirclePanelDemoCtl}" Content="{x:Static langs:Lang.CirclePanel}">
@@ -343,6 +363,11 @@
                         <ListBoxItem Tag="{x:Static data:MessageToken.WaterfallPanelDemoCtl}" Content="{x:Static langs:Lang.WaterfallPanel}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/Panel_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.HoneycombPanelDemoCtl}" Content="{x:Static langs:Lang.HoneycombPanel}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/PolygonHexagon_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.CoverViewDemoCtl}" Content="{x:Static langs:Lang.CoverView}">
@@ -400,7 +425,7 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/HoverMenu_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
-                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.RangeSliderDemoCtl}" Content="{x:Static langs:Lang.RangeSlider}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.RangeSliderDemoCtl}" Content="{x:Static langs:Lang.RangeSlider}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/brackets_Square_16xLG.png"/>
                             </hc:EdgeElement.LeftContent>
@@ -435,6 +460,16 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/ScrollBox_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
+                        <ListBoxItem Tag="{x:Static data:MessageToken.SpriteDemoCtl}" Content="{x:Static langs:Lang.Sprite}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/HandyControl.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Style="{StaticResource ListBoxItemNew}" Tag="{x:Static data:MessageToken.NotificationDemoCtl}" Content="{x:Static langs:Lang.Notification}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/Procedure_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.DialogDemoCtl}" Content="{x:Static langs:Lang.Dialog}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/Dialog_16x.png"/>
@@ -449,6 +484,39 @@
                             <controls:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/WindowsForm_16x.png"/>
                             </controls:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Background="Transparent" Header="{x:Static langs:Lang.Tools}">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxStyle}"/>
+                    <ToggleButton Tag="{Binding ElementName=ListBoxTool}" Name="ButtonToolAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource ToggleButtonCustom}">
+                        <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
+                            <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
+                        </Border>
+                        <hc:StatusSwitchElement.CheckedElement>
+                            <Border CornerRadius="4" Height="30" Width="30" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}"/>
+                        </hc:StatusSwitchElement.CheckedElement>
+                    </ToggleButton>
+                    <ListBox Name="ListBoxTool" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
+                        <ListBoxItem Tag="{x:Static data:MessageToken.HatchBrushGeneratorDemoCtl}" Content="{x:Static langs:Lang.HatchBrushGenerator}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/DataGenerator_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
+                        <ListBoxItem Tag="{x:Static data:MessageToken.GeometryAnimationDemoCtl}" Content="{x:Static langs:Lang.Morphing_Animation}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/Animation_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
                     </ListBox>
                 </Grid>

@@ -636,4 +636,49 @@
   <data name="ImageBlock" xml:space="preserve">
     <value>ImageBlock</value>
   </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>RunningBlock</value>
+  </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>HoneycombPanel</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Add an item</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>Remove an item</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>Sprite</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>Open sprite</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>Send notification</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>Stays open</value>
+  </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>FloatingBlock</value>
+  </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>SplitButton</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="HatchBrushGenerator" xml:space="preserve">
+    <value>HatchBrushGenerator</value>
+  </data>
+  <data name="Morphing Animation" xml:space="preserve">
+    <value>Morphing Animation</value>
+  </data>
+  <data name="Divider" xml:space="preserve">
+    <value>Divider</value>
+  </data>
 </root>

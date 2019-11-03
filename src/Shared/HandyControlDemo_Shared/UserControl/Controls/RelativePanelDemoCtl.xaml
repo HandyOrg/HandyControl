@@ -1,6 +1,0 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.RelativePanelDemoCtl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:userControl="clr-namespace:HandyControlDemo.UserControl">
-    <userControl:UnderConstruction/>
-</UserControl>
