@@ -23,7 +23,7 @@
                         </ItemsPanelTemplate>
                     </ListBox.ItemsPanel>
                     <ListBox.ItemTemplate>
-                        <DataTemplate DataType="data:CardModel">
+                        <DataTemplate>
                             <hc:Gravatar Style="{StaticResource GravatarCircle}" Margin="10" Source="{Binding Content}"/>
                         </DataTemplate>
                     </ListBox.ItemTemplate>

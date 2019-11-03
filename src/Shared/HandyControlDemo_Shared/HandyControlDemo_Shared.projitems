@@ -161,7 +161,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PasswordBoxDemoCtl.xaml.cs">
       <DependentUpon>PasswordBoxDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemoCtl.xaml.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemoCtl.xaml.cs">
+      <DependentUpon>PoptipDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
     </Compile>

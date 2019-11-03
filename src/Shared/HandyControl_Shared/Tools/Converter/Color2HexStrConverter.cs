@@ -5,7 +5,7 @@ using System.Windows.Media;
 
 namespace HandyControl.Tools.Converter
 {
-    public class Color2HexStrConverter : IValueConverter
+    public class Color2HexStringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

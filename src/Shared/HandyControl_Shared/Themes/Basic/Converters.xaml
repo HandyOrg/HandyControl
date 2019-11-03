@@ -10,10 +10,10 @@
     <converter:String2VisibilityReConverter x:Key="String2VisibilityReConverter"/>
     <BooleanToVisibilityConverter x:Key="Boolean2VisibilityConverter"/>
     <converter:TreeViewItemMarginConverter x:Key="TreeViewItemMarginConverter"/>
-    <converter:Color2HexStrConverter x:Key="Color2HexStrConverter"/>
+    <converter:Color2HexStringConverter x:Key="Color2HexStringConverter"/>
     <converter:Object2BooleanConverter x:Key="Object2BooleanConverter"/>
-    <converter:Boolean2StrConverter x:Key="Boolean2StrConverter"/>
-    <converter:Int2StrConverter x:Key="Int2StrConverter"/>
+    <converter:Boolean2StringConverter x:Key="Boolean2StringConverter"/>
+    <converter:Int2StringConverter x:Key="Int2StringConverter"/>
     <converter:BorderClipConverter x:Key="BorderClipConverter"/>
     <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter"/>
     <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>

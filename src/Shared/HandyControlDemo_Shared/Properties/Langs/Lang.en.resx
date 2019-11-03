@@ -681,4 +681,7 @@
   <data name="Divider" xml:space="preserve">
     <value>Divider</value>
   </data>
+  <data name="PoptipPositionStr" xml:space="preserve">
+    <value>top-start;top;top-end;right-start;right;right-end;bottom-end;bottom;bottom-start;left-end;left;left-start</value>
+  </data>
 </root>
