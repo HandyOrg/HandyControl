@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/TreeViewBaseStyle.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/Base/TreeViewBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource TreeViewItemBaseStyle}" TargetType="TreeViewItem"/>

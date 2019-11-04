@@ -3,8 +3,8 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Sizes.xaml"/>
-        <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Basic/Sizes.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/Base/ScrollViewerBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="GridViewColumnHeaderGripper" TargetType="Thumb">

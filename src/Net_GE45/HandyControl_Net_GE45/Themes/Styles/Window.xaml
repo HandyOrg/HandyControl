@@ -6,8 +6,8 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Button.xaml"/>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Basic/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <LinearGradientBrush x:Key="ResizeGripperForeground" EndPoint="1,0.75" StartPoint="0,0.25">

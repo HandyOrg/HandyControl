@@ -3,7 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Basic/Converters.xaml"/>
         <ResourceDictionary Source="BaseStyle.xaml"/>
         <ResourceDictionary Source="ScrollViewerBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>

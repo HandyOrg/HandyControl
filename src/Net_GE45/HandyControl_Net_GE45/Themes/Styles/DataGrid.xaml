@@ -3,11 +3,11 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/Base/ScrollViewerBaseStyle.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
         <ResourceDictionary Source="ToggleButton.xaml"/>
         <ResourceDictionary Source="TextBox.xaml"/>
-        <ResourceDictionary Source="ComboBox.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/ComboBox.xaml"/>
         <ResourceDictionary Source="CheckBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 

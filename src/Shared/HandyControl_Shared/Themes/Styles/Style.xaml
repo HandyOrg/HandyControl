@@ -1,9 +1,9 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Window.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/Window.xaml"/>
         <ResourceDictionary Source="PopupWindow.xaml"/>
-        <ResourceDictionary Source="MessageBox.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/MessageBox.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
         <ResourceDictionary Source="RepeatButton.xaml"/>
         <ResourceDictionary Source="ToggleButton.xaml"/>
@@ -13,7 +13,7 @@
         <ResourceDictionary Source="ScrollViewer.xaml"/>
         <ResourceDictionary Source="Slider.xaml"/>
         <ResourceDictionary Source="Clock.xaml"/>
-        <ResourceDictionary Source="TreeView.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/TreeView.xaml"/>
         <ResourceDictionary Source="Pagination.xaml"/>
         <ResourceDictionary Source="TabControl.xaml"/>
         <ResourceDictionary Source="ListBox.xaml"/>
@@ -23,7 +23,7 @@
         <ResourceDictionary Source="ToolTip.xaml"/>
         <ResourceDictionary Source="Expander.xaml"/>
         <ResourceDictionary Source="TextBox.xaml"/>
-        <ResourceDictionary Source="ComboBox.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/ComboBox.xaml"/>
         <ResourceDictionary Source="CheckBox.xaml"/>
         <ResourceDictionary Source="RadioButton.xaml"/>
         <ResourceDictionary Source="NumericUpDown.xaml"/>
@@ -37,7 +37,7 @@
         <ResourceDictionary Source="Carousel.xaml"/>
         <ResourceDictionary Source="TimeBar.xaml"/>
         <ResourceDictionary Source="ColorPicker.xaml"/>
-        <ResourceDictionary Source="DataGrid.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/DataGrid.xaml"/>
         <ResourceDictionary Source="TransitioningContentControl.xaml"/>
         <ResourceDictionary Source="Image.xaml"/>
         <ResourceDictionary Source="Label.xaml"/>
@@ -45,9 +45,9 @@
         <ResourceDictionary Source="CalendarWithClock.xaml"/>
         <ResourceDictionary Source="DateTimePicker.xaml"/>
         <ResourceDictionary Source="GroupBox.xaml"/>
-        <ResourceDictionary Source="ListView.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/ListView.xaml"/>
         <ResourceDictionary Source="RichTextBox.xaml"/>
-        <ResourceDictionary Source="ToolBar.xaml"/>
+        <ResourceDictionary Source="/HandyControl;component/Themes/Styles/ToolBar.xaml"/>
         <ResourceDictionary Source="SearchBar.xaml"/>
         <ResourceDictionary Source="Tag.xaml"/>
         <ResourceDictionary Source="ButtonGroup.xaml"/>
