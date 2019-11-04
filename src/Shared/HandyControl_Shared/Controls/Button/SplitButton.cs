@@ -10,11 +10,11 @@ namespace HandyControl.Controls
     public class SplitButton : ButtonBase
     {
         public static readonly DependencyProperty HitModeProperty = DependencyProperty.Register(
-            "HitMode", typeof(MouseHitMode), typeof(SplitButton), new PropertyMetadata(default(MouseHitMode)));
+            "HitMode", typeof(HitMode), typeof(SplitButton), new PropertyMetadata(default(HitMode)));
 
-        public MouseHitMode HitMode
+        public HitMode HitMode
         {
-            get => (MouseHitMode) GetValue(HitModeProperty);
+            get => (HitMode) GetValue(HitModeProperty);
             set => SetValue(HitModeProperty, value);
         }
 
@@ -62,7 +62,7 @@ namespace HandyControl.Controls
         {
             base.OnPreviewMouseLeftButtonDown(e);
 
-            if (HitMode == MouseHitMode.Hover)
+            if (HitMode == HitMode.Hover)
             {
                 e.Handled = true;
             }
@@ -72,7 +72,7 @@ namespace HandyControl.Controls
         {
             base.OnMouseEnter(e);
 
-            if (HitMode == MouseHitMode.Hover)
+            if (HitMode == HitMode.Hover)
             {
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
             }
