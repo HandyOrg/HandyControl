@@ -1,5 +1,5 @@
 ---
-title: TitleElement标题元素
+title: TitleElement 标题元素
 ---
 
 # 属性
@@ -15,23 +15,16 @@ title: TitleElement标题元素
 
 # 使用案例
 
-对应`xaml`引入`handycontrol`对应的命名空间
-
-```xml
-xmlns:hc="https://handyorg.github.io/handycontrol"
-```
-
-## `Title` 标题信息
+## Title 标题信息
 
 ```xml
     <hc:TextBox hc:TitleElement.Title="标题信息"
                 Margin="10,10"></hc:TextBox>
 ```
 
-效果：
 ![TitleElement.Title](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/TitleElement.Title.png)
 
-## `TitleAlignment` 标题对齐方式
+## TitleAlignment 标题对齐方式
 
 ```xml
     <!--标题居于顶侧-->
@@ -44,11 +37,9 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
              Margin="10,10"></hc:TextBox>
 ```
 
-效果：
-
 ![TitleElement.TitleAlignment](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/TitleElement.TitleAlignment.png)
 
-## `TitleWidth` 标题宽度
+## TitleWidth 标题宽度
 
 ```xml
         <!--设定TitleWidth为Auto-->
@@ -62,7 +53,5 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
              hc:TitleElement.TitleWidth="60"
              Margin="10,10"></hc:TextBox>
 ```
-
-效果：
 
 ![TitleElement.TitleWidth](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/TitleElement.TitleWidth.png)

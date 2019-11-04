@@ -1,10 +1,10 @@
 ---
-title: InfoElement信息元素
+title: InfoElement 信息元素
 ---
 
 {%  note info no-icon %}
 
-继承至[TitleElement]( https://handyorg.github.io/handycontrol/attach/titleElement/ )
+继承自 [TitleElement]( https://handyorg.github.io/handycontrol/attach/titleElement/ )
 
 {% endnote%}
 
@@ -21,24 +21,18 @@ title: InfoElement信息元素
 
 # 使用案例
 
-对应`xaml`引入`handycontrol`对应的命名空间
+## Placeholder 占位符
 
 ```xml
-xmlns:hc="https://handyorg.github.io/handycontrol"
+<StackPanel Width="200" VerticalAlignment="Center">
+    <hc:SearchBar/>
+    <hc:SearchBar hc:InfoElement.Placeholder="请输入查询条件" Style="{StaticResource SearchBarExtend}" Margin="0,16,0,0"/>
+</StackPanel>
 ```
-
-## `Placeholder` 占位符
-
-```xml
-    <hc:SearchBar Style="{StaticResource SearchBarExtend}" Margin="10,10"/>
-    <hc:SearchBar hc:InfoElement.Placeholder="请输入查询条件" Style="{StaticResource SearchBarExtend}" Margin="10,10"/>
-```
-
-效果：
 
 ![InfoElement.Placeholder](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/InfoElement.Placeholder.png)
 
-## `Necessary` 是否必填
+## Necessary 是否必填
 
 ```xml
     <hc:SearchBar hc:InfoElement.Placeholder="请输入查询条件" 
@@ -47,13 +41,11 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
                   Style="{StaticResource SearchBarExtend}"/>
 ```
 
-其中`hc:InfoElement.Title="查询条件" `为继承至父类
-
-效果：
+其中`hc:InfoElement.Title="查询条件" `继承自父类
 
 ![InfoElement.Necssary](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/InfoElement.Necssary.png)
 
-## `Symbol` 标记信息
+## Symbol 标记信息
 
 ```xml
     <hc:SearchBar hc:InfoElement.Placeholder="请输入内容" 
@@ -62,11 +54,9 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
               hc:InfoElement.Symbol="x"/>
 ```
 
-效果：
-
 ![InfoElement.Symbol](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/InfoElement.Symbol.png)
 
-## `ContentHeight` 内容高度
+## ContentHeight 内容高度
 
 ```xml
     <hc:SearchBar hc:InfoElement.Placeholder="请输入查询条件" 
@@ -75,7 +65,5 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
                   Margin="10,10" hc:InfoElement.Necessary="True" 
                   Style="{StaticResource SearchBarExtend}"/>
 ```
-
-效果：
 
 ![InfoElement.ContentHeight](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/InfoElement.ContentHeight.png)
