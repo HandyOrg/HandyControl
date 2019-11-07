@@ -22,7 +22,7 @@
         </Style>
     </UserControl.Resources>
     <hc:TransitioningContentControl>
-        <Grid Margin="24,320">
+        <Grid Margin="24,32">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
