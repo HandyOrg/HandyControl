@@ -1,21 +1,18 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Data.Enum;
-using HandyControl.Interactivity;
 
 namespace HandyControl.Controls
 {
     public class Poptip : Control
     {
-        private Popup _popup;
-
-        private AdornerContainer _adorner;
+        private readonly Popup _popup;
 
         private UIElement _elementTarget;
 
@@ -27,15 +24,17 @@ namespace HandyControl.Controls
                 Child = this
             };
 
-            _popup.SetBinding(Popup.IsOpenProperty, new Binding(IsOpenProperty.Name)
-            {
-                Source = this,
-                Mode = BindingMode.TwoWay
-            });
+            _popup.SetBinding(DataContextProperty, new Binding(DataContextProperty.Name) {Source = this});
         }
 
-        public static readonly DependencyProperty HitModeProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty HitModeProperty = DependencyProperty.RegisterAttached(
             "HitMode", typeof(HitMode), typeof(Poptip), new PropertyMetadata(HitMode.Hover));
+
+        public static void SetHitMode(DependencyObject element, HitMode value)
+            => element.SetValue(HitModeProperty, value);
+
+        public static HitMode GetHitMode(DependencyObject element)
+            => (HitMode) element.GetValue(HitModeProperty);
 
         public HitMode HitMode
         {
@@ -43,8 +42,33 @@ namespace HandyControl.Controls
             set => SetValue(HitModeProperty, value);
         }
 
-        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
-            "Content", typeof(object), typeof(Poptip), new PropertyMetadata(default(object)));
+        private static readonly DependencyProperty IsInstanceProperty = DependencyProperty.RegisterAttached(
+            "IsInstance", typeof(bool), typeof(Poptip), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        private static void SetIsInstance(DependencyObject element, bool value)
+            => element.SetValue(IsInstanceProperty, value);
+
+        private static bool GetIsInstance(DependencyObject element)
+            => (bool) element.GetValue(IsInstanceProperty);
+
+        public static readonly DependencyProperty ContentProperty = DependencyProperty.RegisterAttached(
+            "Content", typeof(object), typeof(Poptip), new PropertyMetadata(default, OnContentChanged));
+
+        private static void OnContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Poptip) return;
+            if (GetInstance(d) == null)
+            {
+                SetInstance(d, Default);
+                SetIsInstance(d, false);
+            }
+        }
+
+        public static void SetContent(DependencyObject element, object value)
+            => element.SetValue(ContentProperty, value);
+
+        public static object GetContent(DependencyObject element)
+            => element.GetValue(ContentProperty);
 
         public object Content
         {
@@ -79,35 +103,56 @@ namespace HandyControl.Controls
             set => SetValue(ContentTemplateSelectorProperty, value);
         }
 
-        public static readonly DependencyProperty HorizontalOffsetProperty = DependencyProperty.Register(
-            "HorizontalOffset", typeof(double), typeof(Poptip), new PropertyMetadata(ValueBoxes.Double0Box));
+        public static readonly DependencyProperty OffsetProperty = DependencyProperty.RegisterAttached(
+            "Offset", typeof(double), typeof(Poptip), new PropertyMetadata(6.0));
 
-        public double HorizontalOffset
+        public static void SetOffset(DependencyObject element, double value)
+            => element.SetValue(OffsetProperty, value);
+
+        public static double GetOffset(DependencyObject element)
+            => (double) element.GetValue(OffsetProperty);
+
+        public double Offset
         {
-            get => (double)GetValue(HorizontalOffsetProperty);
-            set => SetValue(HorizontalOffsetProperty, value);
+            get => (double)GetValue(OffsetProperty);
+            set => SetValue(OffsetProperty, value);
         }
 
-        public static readonly DependencyProperty VerticalOffsetProperty = DependencyProperty.Register(
-            "VerticalOffset", typeof(double), typeof(Poptip), new PropertyMetadata(ValueBoxes.Double0Box));
-
-        public double VerticalOffset
-        {
-            get => (double)GetValue(VerticalOffsetProperty);
-            set => SetValue(VerticalOffsetProperty, value);
-        }
-
-        public static readonly DependencyProperty PlacementProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty PlacementProperty = DependencyProperty.RegisterAttached(
             "Placement", typeof(TipPlacement), typeof(Poptip), new PropertyMetadata(TipPlacement.Top));
+
+        public static void SetPlacement(DependencyObject element, TipPlacement value)
+            => element.SetValue(PlacementProperty, value);
+
+        public static TipPlacement GetPlacement(DependencyObject element)
+            => (TipPlacement) element.GetValue(PlacementProperty);
 
         public TipPlacement Placement
         {
-            get => (TipPlacement) GetValue(PlacementProperty);
+            get => (TipPlacement)GetValue(PlacementProperty);
             set => SetValue(PlacementProperty, value);
         }
 
-        public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
-            "IsOpen", typeof(bool), typeof(Poptip), new PropertyMetadata(default(bool)));
+        public static readonly DependencyProperty IsOpenProperty = DependencyProperty.RegisterAttached(
+            "IsOpen", typeof(bool), typeof(Poptip), new PropertyMetadata(ValueBoxes.FalseBox, OnIsOpenChanged));
+
+        private static void OnIsOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Poptip poptip)
+            {
+                poptip.SwitchPoptip((bool) e.NewValue);
+            }
+            else
+            {
+                GetInstance(d)?.SwitchPoptip((bool)e.NewValue);
+            }
+        }
+
+        public static void SetIsOpen(DependencyObject element, bool value)
+            => element.SetValue(IsOpenProperty, value);
+
+        public static bool GetIsOpen(DependencyObject element)
+            => (bool) element.GetValue(IsOpenProperty);
 
         public bool IsOpen
         {
@@ -125,6 +170,7 @@ namespace HandyControl.Controls
             ctl.UpdateTarget((UIElement)e.NewValue, true);
         }
 
+        [Bindable(true), Category("Layout")]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public UIElement Target
         {
@@ -133,9 +179,9 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty InstanceProperty = DependencyProperty.RegisterAttached(
-            "Instance", typeof(Poptip), typeof(Poptip), new PropertyMetadata(default(Poptip), OnMagnifierChanged));
+            "Instance", typeof(Poptip), typeof(Poptip), new PropertyMetadata(default(Poptip), OnPoptipChanged));
 
-        private static void OnMagnifierChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnPoptipChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (!(d is UIElement target)) return;
             var poptip = (Poptip)e.NewValue;
@@ -175,61 +221,141 @@ namespace HandyControl.Controls
 
         private void UpdateLocation()
         {
-            var targetPoint = Mouse.GetPosition(Target);
-        }
+            var targetWidth = Target.RenderSize.Width;
+            var targetHeight = Target.RenderSize.Height;
 
-        private void ShowPoptip()
-        {
-            if (_adorner == null)
+            Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+            var size = DesiredSize;
+
+            var width = size.Width;
+            var height = size.Height;
+
+            var offsetX = .0;
+            var offsetY = .0;
+
+            var poptip = GetInstance(Target);
+            var popupPlacement = poptip.Placement;
+            var popupOffset = poptip.Offset;
+
+            PlacementMode placementMode;
+
+            switch (popupPlacement)
             {
-                var layer = AdornerLayer.GetAdornerLayer(Target);
-                if (layer == null) return;
-                _adorner = new AdornerContainer(layer)
-                {
-                    Child = this
-                };
-                layer.Add(_adorner);
+                case TipPlacement.LeftTop:
+                    offsetX = -popupOffset;
+                    placementMode = PlacementMode.Left;
+                    break;
+                case TipPlacement.Left:
+                    offsetX = -popupOffset;
+                    offsetY = (targetHeight - height) / 2;
+                    placementMode = PlacementMode.Left;
+                    break;
+                case TipPlacement.LeftBottom:
+                    offsetX = -popupOffset;
+                    offsetY = targetHeight - height;
+                    placementMode = PlacementMode.Left;
+                    break;
+                case TipPlacement.TopLeft:
+                    offsetY = -popupOffset;
+                    placementMode = PlacementMode.Top;
+                    break;
+                case TipPlacement.Top:
+                    offsetX = (targetWidth - width) / 2;
+                    offsetY = -popupOffset;
+                    placementMode = PlacementMode.Top;
+                    break;
+                case TipPlacement.TopRight:
+                    offsetX = targetWidth - width;
+                    offsetY = -popupOffset;
+                    placementMode = PlacementMode.Top;
+                    break;
+                case TipPlacement.RightTop:
+                    offsetX = popupOffset;
+                    placementMode = PlacementMode.Right;
+                    break;
+                case TipPlacement.Right:
+                    offsetX = popupOffset;
+                    offsetY = (targetHeight - height) / 2;
+                    placementMode = PlacementMode.Right;
+                    break;
+                case TipPlacement.RightBottom:
+                    offsetX = popupOffset;
+                    offsetY = targetHeight - height;
+                    placementMode = PlacementMode.Right;
+                    break;
+                case TipPlacement.BottomLeft:
+                    offsetY = popupOffset;
+                    placementMode = PlacementMode.Bottom;
+                    break;
+                case TipPlacement.Bottom:
+                    offsetX = (targetWidth - width) / 2;
+                    offsetY = popupOffset;
+                    placementMode = PlacementMode.Bottom;
+                    break;
+                case TipPlacement.BottomRight:
+                    offsetX = targetWidth - width;
+                    offsetY = popupOffset;
+                    placementMode = PlacementMode.Bottom;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
-            UpdateLocation();
-            SetCurrentValue(IsOpenProperty, true);
+            _popup.HorizontalOffset = offsetX;
+            _popup.VerticalOffset = offsetY;
+            _popup.Placement = placementMode;
         }
 
-        private void ClosePoptip()
+        private void SwitchPoptip(bool isShow)
         {
-            var layer = AdornerLayer.GetAdornerLayer(Target);
-            if (layer == null) return;
-            layer.Remove(_adorner);
-            _adorner.Child = null;
-            _adorner = null;
+            if (isShow)
+            {
+                if (!GetIsInstance(Target))
+                {
+                    SetCurrentValue(ContentProperty, GetContent(Target));
+                    SetCurrentValue(PlacementProperty, GetPlacement(Target));
+                    SetCurrentValue(HitModeProperty, GetHitMode(Target));
+                    SetCurrentValue(OffsetProperty, GetOffset(Target));
+                    SetCurrentValue(IsOpenProperty, GetIsOpen(Target));
+                }
+
+                _popup.PlacementTarget = Target;
+                UpdateLocation();
+            }
+            _popup.IsOpen = isShow;
+            Target.SetCurrentValue(IsOpenProperty, isShow);
         }
 
         private void Element_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (HitMode != HitMode.Hover) return;
+            var hitMode = GetIsInstance(Target) ? HitMode : GetHitMode(Target);
+            if (hitMode != HitMode.Hover || hitMode == HitMode.None) return;
 
-            ShowPoptip();
+            SwitchPoptip(true);
         }
 
         private void Element_MouseLeave(object sender, MouseEventArgs e)
         {
-            if (HitMode != HitMode.Hover) return;
+            var hitMode = GetIsInstance(Target) ? HitMode : GetHitMode(Target);
+            if (hitMode != HitMode.Hover || hitMode == HitMode.None) return;
 
-            ClosePoptip();
+            SwitchPoptip(false);
         }
 
         private void Element_GotFocus(object sender, RoutedEventArgs e)
         {
-            if (HitMode != HitMode.Focus) return;
+            var hitMode = GetIsInstance(Target) ? HitMode : GetHitMode(Target);
+            if (hitMode != HitMode.Focus || hitMode == HitMode.None) return;
 
-            ShowPoptip();
+            SwitchPoptip(true);
         }
 
         private void Element_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (HitMode != HitMode.Focus) return;
+            var hitMode = GetIsInstance(Target) ? HitMode : GetHitMode(Target);
+            if (hitMode != HitMode.Focus || hitMode == HitMode.None) return;
 
-            ClosePoptip();
+            SwitchPoptip(false);
         }
     }
 }

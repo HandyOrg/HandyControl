@@ -4,6 +4,7 @@
     {
         Click,
         Hover,
-        Focus
+        Focus,
+        None
     }
 }
