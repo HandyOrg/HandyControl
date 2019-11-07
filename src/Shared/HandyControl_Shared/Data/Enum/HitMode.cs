@@ -1,8 +1,10 @@
 ﻿namespace HandyControl.Data.Enum
 {
-    public enum MouseHitMode
+    public enum HitMode
     {
         Click,
-        Hover
+        Hover,
+        Focus,
+        None
     }
 }

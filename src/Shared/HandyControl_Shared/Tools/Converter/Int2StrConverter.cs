@@ -4,24 +4,27 @@ using System.Windows.Data;
 
 namespace HandyControl.Tools.Converter
 {
-    public class Int2StrConverter : IValueConverter
+    public class Int2StringConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is int intValue)
+            if (value != null)
             {
-                if (parameter is string str)
+                if (int.TryParse(value.ToString(), out var intValue))
                 {
-                    var arr = str.Split(';');
-                    if (arr.Length > intValue)
+                    if (parameter is string str)
                     {
-                        return arr[intValue];
+                        var arr = str.Split(';');
+                        if (arr.Length > intValue)
+                        {
+                            return arr[intValue];
+                        }
+
+                        return intValue;
                     }
 
                     return intValue;
                 }
-
-                return intValue;
             }
 
             return value;

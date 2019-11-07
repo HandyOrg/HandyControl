@@ -1123,6 +1123,24 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 气泡提示 的本地化字符串。
+        /// </summary>
+        public static string Poptip {
+            get {
+                return ResourceManager.GetString("Poptip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上左;上边;上右;右上;右边;右下;下右;下边;下左;左下;左边;左上 的本地化字符串。
+        /// </summary>
+        public static string PoptipPositionStr {
+            get {
+                return ResourceManager.GetString("PoptipPositionStr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 上一步 的本地化字符串。
         /// </summary>
         public static string Prev {

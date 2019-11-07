@@ -65,6 +65,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### Poptip
+
+![Poptip](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Poptip.gif)
+
 ### Divider
 
 ![Divider](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Divider.png)
@@ -81,11 +85,11 @@ Step 4：enjoy coding
 
 ![FloatingBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FloatingBlock.gif)
 
+## History publication
+
 ### HoneycombPanel
 
 ![HoneycombPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/HoneycombPanel.png)
-
-## History publication
 
 ### RunningBlock
 

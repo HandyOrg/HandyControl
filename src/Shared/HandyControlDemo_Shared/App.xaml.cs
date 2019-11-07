@@ -19,10 +19,10 @@ namespace HandyControlDemo
         [SuppressMessage("代码质量", "IDE0052:删除未读的私有成员", Justification = "<挂起>")]
         private static Mutex AppMutex;
 
-        public App()
+        protected override void OnStartup(StartupEventArgs e)
         {
             AppMutex = new Mutex(true, "HandyControlDemo", out var createdNew);
-            
+
             if (!createdNew)
             {
                 var current = Process.GetCurrentProcess();
@@ -37,29 +37,28 @@ namespace HandyControlDemo
                 }
                 Shutdown();
             }
-        }
-
-        protected override void OnStartup(StartupEventArgs e)
-        {
-            var splashScreen = new SplashScreen("Resources/Img/Cover.png");
-            splashScreen.Show(true);
-
-            base.OnStartup(e);
-
-            UpdateRegistry();
-
-            ShutdownMode = ShutdownMode.OnMainWindowClose;
-            GlobalData.Init();
-            ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
-
-            if (GlobalData.Config.Skin != SkinType.Default)
+            else
             {
-                UpdateSkin(GlobalData.Config.Skin);
+                var splashScreen = new SplashScreen("Resources/Img/Cover.png");
+                splashScreen.Show(true);
+
+                base.OnStartup(e);
+
+                UpdateRegistry();
+
+                ShutdownMode = ShutdownMode.OnMainWindowClose;
+                GlobalData.Init();
+                ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
+
+                if (GlobalData.Config.Skin != SkinType.Default)
+                {
+                    UpdateSkin(GlobalData.Config.Skin);
+                }
+
+                ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
+
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
             }
-
-            ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
-
-            ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
         }
 
         protected override void OnExit(ExitEventArgs e)
