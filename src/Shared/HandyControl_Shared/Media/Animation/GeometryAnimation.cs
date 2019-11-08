@@ -1,4 +1,5 @@
-﻿using System.Text.RegularExpressions;
+﻿using System.Globalization;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -70,15 +71,15 @@ namespace HandyControl.Media.Animation
             {
                 if (_numbersFrom == null)
                 {
-                    var geometryStr = defaultOriginValue.ToString();
+                    var geometryStr = defaultOriginValue.ToString(CultureInfo.InvariantCulture);
                     AnimationHelper.DecomposeGeometryStr(geometryStr, out _numbersFrom);
                 }
 
                 if (_numbersTo == null)
                 {
-                    var geometryStr = defaultDestinationValue.ToString();
+                    var geometryStr = defaultDestinationValue.ToString(CultureInfo.InvariantCulture);
                     AnimationHelper.DecomposeGeometryStr(geometryStr, out _numbersTo);
-                    _strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern, RegexOptions.CultureInvariant);
+                    _strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern);
                 }
 
                 UpdateValue();
@@ -128,7 +129,7 @@ namespace HandyControl.Media.Animation
             var obj = (GeometryAnimation) d;
             if (e.NewValue is Geometry geometry)
             {
-                AnimationHelper.DecomposeGeometryStr(geometry.ToString(), out obj._numbersFrom);
+                AnimationHelper.DecomposeGeometryStr(geometry.ToString(CultureInfo.InvariantCulture), out obj._numbersFrom);
                 obj.UpdateValue();
             }
         }
@@ -147,9 +148,9 @@ namespace HandyControl.Media.Animation
             var obj = (GeometryAnimation)d;
             if (e.NewValue is Geometry geometry)
             {
-                var geometryStr = geometry.ToString();
+                var geometryStr = geometry.ToString(CultureInfo.InvariantCulture);
                 AnimationHelper.DecomposeGeometryStr(geometryStr, out obj._numbersTo);
-                obj._strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern, RegexOptions.CultureInvariant);
+                obj._strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern);
                 obj.UpdateValue();
             }
         }

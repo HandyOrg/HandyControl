@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Diagnostics.CodeAnalysis;
+using System.IO;
 using System.Net;
-using System.Security.Authentication;
+using System.Security.Authentication; 
+using System.Threading;
 using System.Windows;
 using HandyControl.Data;
 using HandyControl.Tools;
@@ -11,22 +15,50 @@ namespace HandyControlDemo
 {
     public partial class App
     {
+        // ReSharper disable once NotAccessedField.Local
+        [SuppressMessage("代码质量", "IDE0052:删除未读的私有成员", Justification = "<挂起>")]
+        private static Mutex AppMutex;
+
         protected override void OnStartup(StartupEventArgs e)
         {
-            base.OnStartup(e);
+            AppMutex = new Mutex(true, "HandyControlDemo", out var createdNew);
 
-            ShutdownMode = ShutdownMode.OnMainWindowClose;
-            GlobalData.Init();
-            ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
-
-            if (GlobalData.Config.Skin != SkinType.Default)
+            if (!createdNew)
             {
-                UpdateSkin(GlobalData.Config.Skin);
+                var current = Process.GetCurrentProcess();
+
+                foreach (var process in Process.GetProcessesByName(current.ProcessName))
+                {
+                    if (process.Id != current.Id)
+                    {
+                        Win32Helper.SetForegroundWindow(process.MainWindowHandle);
+                        break;
+                    }
+                }
+                Shutdown();
             }
+            else
+            {
+                var splashScreen = new SplashScreen("Resources/Img/Cover.png");
+                splashScreen.Show(true);
 
-            ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
+                base.OnStartup(e);
 
-            ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
+                UpdateRegistry();
+
+                ShutdownMode = ShutdownMode.OnMainWindowClose;
+                GlobalData.Init();
+                ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
+
+                if (GlobalData.Config.Skin != SkinType.Default)
+                {
+                    UpdateSkin(GlobalData.Config.Skin);
+                }
+
+                ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
+
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
+            }
         }
 
         protected override void OnExit(ExitEventArgs e)
@@ -53,6 +85,31 @@ namespace HandyControlDemo
                 Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
             });
             Current.MainWindow?.OnApplyTemplate();
+        }
+
+        private void UpdateRegistry()
+        {
+            var processModule = Process.GetCurrentProcess().MainModule;
+            if (processModule != null)
+            {
+                var registryFilePath = $"{Path.GetDirectoryName(processModule.FileName)}\\Registry.reg";
+                if (!File.Exists(registryFilePath))
+                {
+                    var streamResourceInfo = GetResourceStream(new Uri("pack://application:,,,/Resources/Registry.txt"));
+                    if (streamResourceInfo != null)
+                    {
+                        using var reader = new StreamReader(streamResourceInfo.Stream);
+                        var registryStr = reader.ReadToEnd();
+                        var newRegistryStr = registryStr.Replace("#", processModule.FileName.Replace("\\", "\\\\"));
+                        File.WriteAllText(registryFilePath, newRegistryStr);
+                        Process.Start(new ProcessStartInfo("cmd", $"/c {registryFilePath}")
+                        {
+                            UseShellExecute = false,
+                            CreateNoWindow = true
+                        });
+                    }
+                }
+            }
         }
     }
 }

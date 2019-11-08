@@ -59,7 +59,7 @@ namespace HandyControl.Controls
                 }
             }
 
-            return new Size(constraint.Width, _maxChildDesiredHeight * totalRowCount - Gutter);
+            return new Size(0, _maxChildDesiredHeight * totalRowCount - Gutter);
         }
 
         protected override Size ArrangeOverride(Size finalSize)

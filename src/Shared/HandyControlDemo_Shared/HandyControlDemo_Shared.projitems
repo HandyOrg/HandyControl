@@ -33,6 +33,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\AssemblyHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\CommonHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ExternDllHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\Win32Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
     </Compile>
@@ -159,6 +160,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PasswordBoxDemoCtl.xaml.cs">
       <DependentUpon>PasswordBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemoCtl.xaml.cs">
+      <DependentUpon>PoptipDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
       <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
@@ -600,6 +604,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PasswordBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

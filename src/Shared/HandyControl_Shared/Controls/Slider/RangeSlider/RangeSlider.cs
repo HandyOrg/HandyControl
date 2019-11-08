@@ -22,9 +22,9 @@ namespace HandyControl.Controls
 
         private RangeTrack _track;
 
-        private readonly ToolTip _autoToolTipStart = null;
+        private readonly System.Windows.Controls.ToolTip _autoToolTipStart = null;
 
-        private readonly ToolTip _autoToolTipEnd = null;
+        private readonly System.Windows.Controls.ToolTip _autoToolTipEnd = null;
 
         private RangeThumb _thumbCurrent;
 
@@ -448,11 +448,11 @@ namespace HandyControl.Controls
             OnThumbDragStarted(isStart ? _autoToolTipStart : _autoToolTipEnd, isStart);
         }
 
-        private void OnThumbDragStarted(ToolTip toolTip, bool isStart)
+        private void OnThumbDragStarted(System.Windows.Controls.ToolTip toolTip, bool isStart)
         {
             if (toolTip == null)
             {
-                toolTip = new ToolTip
+                toolTip = new System.Windows.Controls.ToolTip
                 {
                     Placement = PlacementMode.Custom,
                     PlacementTarget = isStart ? _track.ThumbStart : _track.ThumbEnd,
@@ -556,7 +556,7 @@ namespace HandyControl.Controls
             // Show AutoToolTip if needed
             if (AutoToolTipPlacement != AutoToolTipPlacement.None)
             {
-                var toolTip = (isStart ? _autoToolTipStart : _autoToolTipEnd) ?? new ToolTip();
+                var toolTip = (isStart ? _autoToolTipStart : _autoToolTipEnd) ?? new System.Windows.Controls.ToolTip();
 
                 toolTip.Content = GetAutoToolTipNumber(isStart);
 

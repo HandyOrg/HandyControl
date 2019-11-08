@@ -1,27 +1,24 @@
 ﻿using System;
 using System.Globalization;
+using System.Windows;
 using System.Windows.Data;
 
 namespace HandyControl.Tools.Converter
 {
-    public class Boolean2StringConverter : IValueConverter
+    public class Double2GridLengthConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if (value is bool boolValue)
+            if (value is double doubleValue)
             {
-                if (parameter is string str)
+                if (double.IsNaN(doubleValue) || double.IsInfinity(doubleValue))
                 {
-                    var arr = str.Split(';');
-                    if (arr.Length > 1)
-                    {
-                        return boolValue ? arr[1] : arr[0];
-                    }
-                    return "";
+                    return new GridLength(1.0, GridUnitType.Star);
                 }
-                return "";
+                return new GridLength(doubleValue);
             }
-            return "";
+
+            return new GridLength(0);
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

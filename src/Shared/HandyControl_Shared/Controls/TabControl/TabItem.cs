@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -113,6 +115,91 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     是否显示关闭按钮
+        /// </summary>
+        public static readonly DependencyProperty ShowCloseButtonProperty =
+            TabControl.ShowCloseButtonProperty.AddOwner(typeof(TabItem));
+
+        /// <summary>
+        ///     是否显示关闭按钮
+        /// </summary>
+        public bool ShowCloseButton
+        {
+            get => (bool)GetValue(ShowCloseButtonProperty);
+            set => SetValue(ShowCloseButtonProperty, value);
+        }
+
+        public static void SetShowCloseButton(DependencyObject element, bool value)
+            => element.SetValue(ShowCloseButtonProperty, value);
+
+        public static bool GetShowCloseButton(DependencyObject element)
+            => (bool)element.GetValue(ShowCloseButtonProperty);
+
+        /// <summary>
+        ///     是否显示上下文菜单
+        /// </summary>
+        public static readonly DependencyProperty ShowContextMenuProperty =
+            TabControl.ShowContextMenuProperty.AddOwner(typeof(TabItem), new FrameworkPropertyMetadata(OnShowContextMenuChanged));
+
+        private static void OnShowContextMenuChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (TabItem) d;
+            if (ctl.Menu != null)
+            {
+                var show = (bool)e.NewValue;
+                ctl.Menu.IsEnabled = show;
+                ctl.Menu.Show(show);
+            }
+        }
+
+        /// <summary>
+        ///     是否显示上下文菜单
+        /// </summary>
+        public bool ShowContextMenu
+        {
+            get => (bool) GetValue(ShowContextMenuProperty);
+            set => SetValue(ShowContextMenuProperty, value);
+        }
+
+        public static void SetShowContextMenu(DependencyObject element, bool value)
+            => element.SetValue(ShowContextMenuProperty, value);
+
+        public static bool GetShowContextMenu(DependencyObject element)
+            => (bool)element.GetValue(ShowContextMenuProperty);
+
+        public static readonly DependencyProperty MenuProperty = DependencyProperty.Register(
+            "Menu", typeof(ContextMenu), typeof(TabItem), new PropertyMetadata(default(ContextMenu), OnMenuChanged));
+
+        private static void OnMenuChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (TabItem) d;
+            ctl.OnMenuChanged(e.NewValue as ContextMenu);
+        }
+
+        private void OnMenuChanged(ContextMenu menu)
+        {
+            if (IsLoaded && menu != null)
+            {
+                menu.DataContext = this;
+                menu.SetBinding(IsEnabledProperty, new Binding(ShowContextMenuProperty.Name)
+                {
+                    Source = this
+                });
+                menu.SetBinding(VisibilityProperty, new Binding(ShowContextMenuProperty.Name)
+                {
+                    Source = this,
+                    Converter = ResourceHelper.GetResource<IValueConverter>("Boolean2VisibilityConverter")
+                });
+            }
+        }
+
+        public ContextMenu Menu
+        {
+            get => (ContextMenu) GetValue(MenuProperty);
+            set => SetValue(MenuProperty, value);
+        }
+
+        /// <summary>
         ///     更新选项卡横向偏移
         /// </summary>
         /// <param name="oldIndex"></param>
@@ -135,6 +222,8 @@ namespace HandyControl.Controls
                 (s, e) => { TabControlParent.CloseAllItems(); }));
             CommandBindings.Add(new CommandBinding(ControlCommands.CloseOther,
                 (s, e) => { TabControlParent.CloseOtherItems(this); }));
+
+            Loaded += (s, e) => OnMenuChanged(Menu);
         }
 
         private TabControl TabControlParent => new Lazy<TabControl>(() => ItemsControl.ItemsControlFromItemContainer(this) as TabControl).Value;
@@ -146,20 +235,28 @@ namespace HandyControl.Controls
             Focus();
         }
 
+        protected override void OnHeaderChanged(object oldHeader, object newHeader)
+        {
+            base.OnHeaderChanged(oldHeader, newHeader);
+
+            if (TabPanel != null)
+            {
+                TabPanel.ForceUpdate = true;
+                InvalidateMeasure();
+                TabPanel.ForceUpdate = true;
+            }
+        }
+
         internal void Close()
         {
             var argsClosing = new CancelRoutedEventArgs(ClosingEvent, this);
             RaiseEvent(argsClosing);
             if (argsClosing.Cancel) return;
 
-            if (TabControlParent.IsEnableAnimation)
-            {
-                TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
-            }
-            else
-            {
-                TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
-            }
+            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty,
+                TabControlParent.IsEnableAnimation
+                    ? new Duration(TimeSpan.FromMilliseconds(200))
+                    : new Duration(TimeSpan.FromMilliseconds(1)));
             TabControlParent.IsInternalAction = true;
             RaiseEvent(new RoutedEventArgs(ClosedEvent, this));
             TabControlParent.Items.Remove(this);

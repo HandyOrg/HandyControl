@@ -51,6 +51,7 @@ var controlList = new List<string>
 	"DialogDemoCtl",
 	"SideMenuDemoCtl",
 	"GridDemoCtl",
+	"PoptipDemoCtl",
 	"RangeSliderDemoCtl",
 	"ButtonGroupDemoCtl",
 	"CardDemoCtl",

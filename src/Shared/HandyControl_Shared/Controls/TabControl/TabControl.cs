@@ -80,8 +80,14 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否显示关闭按钮
         /// </summary>
-        public static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
-            "ShowCloseButton", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.RegisterAttached(
+            "ShowCloseButton", typeof(bool), typeof(TabControl), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetShowCloseButton(DependencyObject element, bool value)
+            => element.SetValue(ShowCloseButtonProperty, value);
+
+        public static bool GetShowCloseButton(DependencyObject element)
+            => (bool) element.GetValue(ShowCloseButtonProperty);
 
         /// <summary>
         ///     是否显示关闭按钮
@@ -90,6 +96,27 @@ namespace HandyControl.Controls
         {
             get => (bool)GetValue(ShowCloseButtonProperty);
             set => SetValue(ShowCloseButtonProperty, value);
+        }
+
+        /// <summary>
+        ///     是否显示上下文菜单
+        /// </summary>
+        public static readonly DependencyProperty ShowContextMenuProperty = DependencyProperty.RegisterAttached(
+            "ShowContextMenu", typeof(bool), typeof(TabControl), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetShowContextMenu(DependencyObject element, bool value)
+            => element.SetValue(ShowContextMenuProperty, value);
+
+        public static bool GetShowContextMenu(DependencyObject element)
+            => (bool) element.GetValue(ShowContextMenuProperty);
+
+        /// <summary>
+        ///     是否显示上下文菜单
+        /// </summary>
+        public bool ShowContextMenu
+        {
+            get => (bool)GetValue(ShowContextMenuProperty);
+            set => SetValue(ShowContextMenuProperty, value);
         }
 
         /// <summary>

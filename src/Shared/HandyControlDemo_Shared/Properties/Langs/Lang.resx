@@ -600,6 +600,9 @@
   <data name="ResponsiveLayout" xml:space="preserve">
     <value>响应式布局</value>
   </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>气泡提示</value>
+  </data>
   <data name="Recommendation" xml:space="preserve">
     <value>群友推荐</value>
   </data>
@@ -677,5 +680,8 @@
   </data>
   <data name="Divider" xml:space="preserve">
     <value>分割线</value>
+  </data>
+  <data name="PoptipPositionStr" xml:space="preserve">
+    <value>上左;上边;上右;右上;右边;右下;下右;下边;下左;左下;左边;左上</value>
   </data>
 </root>

@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Markup;
@@ -27,7 +28,7 @@ namespace HandyControl.Media.Animation
                     return null;
                 }
 
-                return _strings ??= Regex.Split(_keyFrames[0].Value.ToString(), RegularPatterns.DigitsPattern, RegexOptions.CultureInvariant);
+                return _strings ??= Regex.Split(_keyFrames[0].Value.ToString(CultureInfo.InvariantCulture), RegularPatterns.DigitsPattern);
             }
         }
 
@@ -212,7 +213,7 @@ namespace HandyControl.Media.Animation
 
                 if (currentResolvedKeyFrameIndex == 0)
                 {
-                    AnimationHelper.DecomposeGeometryStr(defaultOriginValue.ToString(), out fromValue);
+                    AnimationHelper.DecomposeGeometryStr(defaultOriginValue.ToString(CultureInfo.InvariantCulture), out fromValue);
 
                     currentSegmentProgress = currentTime.TotalMilliseconds / _sortedResolvedKeyFrames[0]._resolvedKeyTime.TotalMilliseconds;
                 }

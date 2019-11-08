@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
@@ -134,7 +135,7 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <RowDefinition MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -198,13 +199,13 @@
 
     <!--标题在左侧的下拉框模板-->
     <ControlTemplate x:Key="ComboBoxLeftTemplate" TargetType="ComboBox">
-        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,8,6,8" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
+            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
@@ -342,7 +343,7 @@
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <RowDefinition MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -406,13 +407,13 @@
 
     <!--标题在左侧的可编辑下拉框模板-->
     <ControlTemplate x:Key="ComboBoxEditableLeftTemplate" TargetType="ComboBox">
-        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,8,6,8" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
+            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
@@ -539,7 +540,8 @@
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Template" Value="{StaticResource ComboBoxTopTemplate}"/>
         <Setter Property="controls:InfoElement.Symbol" Value="●"/>
-        <Setter Property="controls:InfoElement.ContentHeight" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="controls:InfoElement.ContentHeight" Value="{x:Static system:Double.NaN}"/>
+        <Setter Property="controls:InfoElement.MinContentHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Style.Triggers>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
@@ -578,7 +580,7 @@
         <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <RowDefinition MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -682,13 +684,13 @@
                 <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
             </Storyboard>
         </ControlTemplate.Resources>
-        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto" MinWidth="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,8,6,8" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
+            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
@@ -789,7 +791,7 @@
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <RowDefinition MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -913,7 +915,7 @@
         <Grid x:Name="templateRoot" SnapsToDevicePixels="true">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <RowDefinition MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -1052,13 +1054,13 @@
                 <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
             </Storyboard>
         </ControlTemplate.Resources>
-        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto" MinWidth="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,8,6,8" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
+            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
@@ -1173,13 +1175,13 @@
                 <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
             </Storyboard>
         </ControlTemplate.Resources>
-        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
+        <Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="Auto" MinWidth="30"/>
             </Grid.ColumnDefinitions>
-            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,8,6,8" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
+            <StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
                 <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
