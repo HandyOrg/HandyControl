@@ -2,6 +2,8 @@
 title: DataGridAttach DataGrid专用
 ---
 
+该附加属性为hc内部DataGrid样式专用，不推荐直接使用。
+
 # 属性
 
 | 名称 | 用途 |
