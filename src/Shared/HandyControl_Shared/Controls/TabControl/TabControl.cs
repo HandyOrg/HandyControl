@@ -13,8 +13,8 @@ namespace HandyControl.Controls
     [TemplatePart(Name = OverflowButtonKey, Type = typeof(ContextMenuToggleButton))]
     [TemplatePart(Name = HeaderPanelKey, Type = typeof(TabPanel))]
     [TemplatePart(Name = OverflowScrollviewer, Type = typeof(ScrollViewer))]
-    [TemplatePart(Name = ScrollButtonLeft, Type = typeof(Button))]
-    [TemplatePart(Name = ScrollButtonRight, Type = typeof(Button))]
+    [TemplatePart(Name = ScrollButtonLeft, Type = typeof(ButtonBase))]
+    [TemplatePart(Name = ScrollButtonRight, Type = typeof(ButtonBase))]
     [TemplatePart(Name = HeaderBorder, Type = typeof(Border))]
     public class TabControl : System.Windows.Controls.TabControl
     {
@@ -36,9 +36,9 @@ namespace HandyControl.Controls
 
         private ScrollViewer _scrollViewerOverflow;
 
-        private Button _buttonScrollLeft;
+        private ButtonBase _buttonScrollLeft;
 
-        private Button _buttonScrollRight;
+        private ButtonBase _buttonScrollRight;
 
         private Border _headerBorder;
 
@@ -281,8 +281,8 @@ namespace HandyControl.Controls
 
             _buttonOverflow = GetTemplateChild(OverflowButtonKey) as ContextMenuToggleButton;
             _scrollViewerOverflow = GetTemplateChild(OverflowScrollviewer) as ScrollViewer;
-            _buttonScrollLeft = GetTemplateChild(ScrollButtonLeft) as Button;
-            _buttonScrollRight = GetTemplateChild(ScrollButtonRight) as Button;
+            _buttonScrollLeft = GetTemplateChild(ScrollButtonLeft) as ButtonBase;
+            _buttonScrollRight = GetTemplateChild(ScrollButtonRight) as ButtonBase;
             _headerBorder = GetTemplateChild(HeaderBorder) as Border;
 
             if (_buttonScrollLeft != null) _buttonScrollLeft.Click += ButtonScrollLeft_Click;
