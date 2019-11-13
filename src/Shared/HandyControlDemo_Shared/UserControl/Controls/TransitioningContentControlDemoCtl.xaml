@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.TransitioningContentControlDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}"
+             Width="720"
+             Height="500">
+    <Grid Margin="32">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <ToggleButton Margin="0,0,0,32" IsChecked="True" Name="ButtonVisibilitySwitch" Style="{StaticResource ToggleButtonSwitch}"/>
+        <UniformGrid Visibility="{Binding IsChecked,ElementName=ButtonVisibilitySwitch,Converter={StaticResource Boolean2VisibilityConverter}}" Grid.Row="1" Rows="4" Columns="3">
+            <hc:TransitioningContentControl>
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Right2Left}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionMode="Left2Right">
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Left2Right}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionMode="Bottom2Top">
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Bottom2Top}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionMode="Top2Bottom">
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Top2Bottom}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionMode="Right2LeftWithFade">
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Right2LeftWithFade}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionMode="Left2RightWithFade">
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Left2RightWithFade}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionMode="Bottom2TopWithFade">
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Bottom2TopWithFade}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionMode="Top2BottomWithFade">
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Top2BottomWithFade}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionMode="Right2LeftWithFade">
+                <Label HorizontalAlignment="Stretch" Content="{x:Static hc:TransitionMode.Right2LeftWithFade}" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionStoryboard="{StaticResource Custom1Transition}">
+                <Label HorizontalAlignment="Stretch" Content="Custom1" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionStoryboard="{StaticResource Custom2Transition}">
+                <Label HorizontalAlignment="Stretch" Content="Custom2" Margin="32"/>
+            </hc:TransitioningContentControl>
+            <hc:TransitioningContentControl TransitionStoryboard="{StaticResource Custom3Transition}">
+                <Label HorizontalAlignment="Stretch" Content="Custom3" Margin="32"/>
+            </hc:TransitioningContentControl>
+        </UniformGrid>
+    </Grid>
+</UserControl>
