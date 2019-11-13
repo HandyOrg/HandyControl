@@ -684,4 +684,7 @@
   <data name="PoptipPositionStr" xml:space="preserve">
     <value>上左;上边;上右;右上;右边;右下;下右;下边;下左;左下;左边;左上</value>
   </data>
+  <data name="TransitioningContentControl" xml:space="preserve">
+    <value>内容过渡控件</value>
+  </data>
 </root>

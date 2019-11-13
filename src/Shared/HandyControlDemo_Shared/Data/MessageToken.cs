@@ -99,7 +99,7 @@
         public static readonly string GridDemoCtl = nameof(GridDemoCtl);
 	
         public static readonly string PoptipDemoCtl = nameof(PoptipDemoCtl);
-        
+	
         public static readonly string RangeSliderDemoCtl = nameof(RangeSliderDemoCtl);
 	
         public static readonly string ButtonGroupDemoCtl = nameof(ButtonGroupDemoCtl);
@@ -123,6 +123,8 @@
         public static readonly string SplitButtonDemoCtl = nameof(SplitButtonDemoCtl);
 	
         public static readonly string DividerDemoCtl = nameof(DividerDemoCtl);
+	
+        public static readonly string TransitioningContentControlDemoCtl = nameof(TransitioningContentControlDemoCtl);
 	
     	/*-------------------- Tools --------------------*/
 
