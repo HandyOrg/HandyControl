@@ -9,322 +9,8 @@
         <ResourceDictionary Source="../Label.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <!--CompareSlider-->
-    <Style x:Key="CompareSliderRepeatButtonTransparent" TargetType="RepeatButton">
-        <Setter Property="OverridesDefaultStyle" Value="true"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Focusable" Value="false"/>
-        <Setter Property="IsTabStop" Value="false"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RepeatButton">
-                    <ContentPresenter Content="{TemplateBinding Content}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
+    <!--region Common-->
 
-    <ControlTemplate x:Key="CompareSliderThumbHorizontal" TargetType="Thumb">
-        <ControlTemplate.Resources>
-            <Storyboard x:Key="Storyboard1">
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathLeft">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="-2"/>
-                </DoubleAnimationUsingKeyFrames>
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathRight">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
-                </DoubleAnimationUsingKeyFrames>
-            </Storyboard>
-            <Storyboard x:Key="Storyboard2">
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathLeft">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                </DoubleAnimationUsingKeyFrames>
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathRight">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                </DoubleAnimationUsingKeyFrames>
-            </Storyboard>
-        </ControlTemplate.Resources>
-        <controls:SimplePanel>
-            <Border Width="1" HorizontalAlignment="Center">
-                <Border.Background>
-                    <DrawingBrush RenderOptions.CachingHint="Cache" Viewport="0,0,1,8" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
-                        <DrawingBrush.Drawing>
-                            <DrawingGroup>
-                                <GeometryDrawing Brush="{DynamicResource BorderBrush}">
-                                    <GeometryDrawing.Geometry>
-                                        <GeometryGroup>
-                                            <RectangleGeometry Rect="0,0,1,4" />
-                                        </GeometryGroup>
-                                    </GeometryDrawing.Geometry>
-                                </GeometryDrawing>
-                            </DrawingGroup>
-                        </DrawingBrush.Drawing>
-                    </DrawingBrush>
-                </Border.Background>
-            </Border>
-            <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
-                <controls:SimplePanel Width="30" Height="30" Margin="-1,-1,0,0">
-                    <Path x:Name="PathLeft" Data="{StaticResource LeftGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Left" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
-                        <Path.RenderTransform>
-                            <TransformGroup>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Path.RenderTransform>
-                    </Path>
-                    <Path x:Name="PathRight" Data="{StaticResource RightGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Right" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
-                        <Path.RenderTransform>
-                            <TransformGroup>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Path.RenderTransform>
-                    </Path>
-                </controls:SimplePanel>
-            </Border>
-        </controls:SimplePanel>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
-                <Setter Property="Stroke" TargetName="PathLeft" Value="White"/>
-                <Setter Property="Stroke" TargetName="PathRight" Value="White"/>
-            </Trigger>
-            <Trigger Property="IsDragging" Value="true">
-                <Trigger.EnterActions>
-                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
-                </Trigger.EnterActions>
-                <Trigger.ExitActions>
-                    <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
-                </Trigger.ExitActions>
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-
-    <ControlTemplate x:Key="CompareSliderHorizontal" TargetType="controls:CompareSlider">
-        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-            <controls:CompareTrack Margin="-14,0,-15,0" x:Name="PART_Track">
-                <Track.DecreaseRepeatButton>
-                    <RepeatButton Margin="14,0,-15,0" Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
-                        <RepeatButton.Content>
-                            <Border HorizontalAlignment="Left" Width="{TemplateBinding Width}">
-                                <ContentPresenter Content="{TemplateBinding TargetContent}"/>
-                            </Border>
-                        </RepeatButton.Content>
-                    </RepeatButton>
-                </Track.DecreaseRepeatButton>
-                <Track.IncreaseRepeatButton>
-                    <RepeatButton Margin="-15,0,15,0" Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
-                        <RepeatButton.Content>
-                            <Border HorizontalAlignment="Right" Width="{TemplateBinding ActualWidth}">
-                                <ContentPresenter Content="{TemplateBinding SourceContent}"/>
-                            </Border>
-                        </RepeatButton.Content>
-                    </RepeatButton>
-                </Track.IncreaseRepeatButton>
-                <Track.Thumb>
-                    <Thumb x:Name="Thumb" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource CompareSliderThumbHorizontal}" Width="30" Margin="0,0,0,0"/>
-                </Track.Thumb>
-            </controls:CompareTrack>
-        </Border>
-    </ControlTemplate>
-
-    <ControlTemplate x:Key="CompareSliderThumbVertical" TargetType="Thumb">
-        <ControlTemplate.Resources>
-            <Storyboard x:Key="Storyboard1">
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathUp">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="-2"/>
-                </DoubleAnimationUsingKeyFrames>
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathDown">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
-                </DoubleAnimationUsingKeyFrames>
-            </Storyboard>
-            <Storyboard x:Key="Storyboard2">
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathUp">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                </DoubleAnimationUsingKeyFrames>
-                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathDown">
-                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                </DoubleAnimationUsingKeyFrames>
-            </Storyboard>
-        </ControlTemplate.Resources>
-        <controls:SimplePanel>
-            <Border Height="1" VerticalAlignment="Center">
-                <Border.Background>
-                    <DrawingBrush RenderOptions.CachingHint="Cache" Viewport="0,0,8,1" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
-                        <DrawingBrush.Drawing>
-                            <DrawingGroup>
-                                <GeometryDrawing Brush="{DynamicResource BorderBrush}">
-                                    <GeometryDrawing.Geometry>
-                                        <GeometryGroup>
-                                            <RectangleGeometry Rect="0,0,4,1" />
-                                        </GeometryGroup>
-                                    </GeometryDrawing.Geometry>
-                                </GeometryDrawing>
-                            </DrawingGroup>
-                        </DrawingBrush.Drawing>
-                    </DrawingBrush>
-                </Border.Background>
-            </Border>
-            <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
-                <controls:SimplePanel Width="30" Height="30" Margin="-1,-1,0,0">
-                    <Path x:Name="PathUp" Data="{StaticResource UpGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Top" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
-                        <Path.RenderTransform>
-                            <TransformGroup>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Path.RenderTransform>
-                    </Path>
-                    <Path x:Name="PathDown" Data="{StaticResource DownGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Bottom" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
-                        <Path.RenderTransform>
-                            <TransformGroup>
-                                <TranslateTransform/>
-                            </TransformGroup>
-                        </Path.RenderTransform>
-                    </Path>
-                </controls:SimplePanel>
-            </Border>
-        </controls:SimplePanel>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="true" SourceName="grip">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
-                <Setter Property="Stroke" TargetName="PathUp" Value="White"/>
-                <Setter Property="Stroke" TargetName="PathDown" Value="White"/>
-            </Trigger>
-            <Trigger Property="IsDragging" Value="true">
-                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
-                <Setter Property="Stroke" TargetName="PathUp" Value="White"/>
-                <Setter Property="Stroke" TargetName="PathDown" Value="White"/>
-                <Trigger.EnterActions>
-                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
-                </Trigger.EnterActions>
-                <Trigger.ExitActions>
-                    <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
-                </Trigger.ExitActions>
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-
-    <ControlTemplate x:Key="CompareSliderVertical" TargetType="controls:CompareSlider">
-        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-            <controls:CompareTrack Margin="0,-14,0,-15" x:Name="PART_Track">
-                <Track.DecreaseRepeatButton>
-                    <RepeatButton Margin="0,-15,0,15" Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
-                        <RepeatButton.Content>
-                            <Border VerticalAlignment="Bottom" Height="{TemplateBinding Height}">
-                                <ContentPresenter Content="{TemplateBinding TargetContent}"/>
-                            </Border>
-                        </RepeatButton.Content>
-                    </RepeatButton>
-                </Track.DecreaseRepeatButton>
-                <Track.IncreaseRepeatButton>
-                    <RepeatButton Margin="0,14,0,-15" Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
-                        <RepeatButton.Content>
-                            <Border VerticalAlignment="Top" Height="{TemplateBinding Height}">
-                                <ContentPresenter Content="{TemplateBinding SourceContent}"/>
-                            </Border>
-                        </RepeatButton.Content>
-                    </RepeatButton>
-                </Track.IncreaseRepeatButton>
-                <Track.Thumb>
-                    <Thumb x:Name="Thumb" Focusable="False" Height="30" OverridesDefaultStyle="True" Template="{StaticResource CompareSliderThumbVertical}" VerticalAlignment="Top"/>
-                </Track.Thumb>
-            </controls:CompareTrack>
-        </Border>
-    </ControlTemplate>
-
-    <Style x:Key="CompareSliderBaseStyle" TargetType="controls:CompareSlider">
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="MinWidth" Value="30"/>
-        <Setter Property="MinHeight" Value="30"/>
-        <Setter Property="Template" Value="{StaticResource CompareSliderHorizontal}"/>
-        <Style.Triggers>
-            <Trigger Property="Orientation" Value="Vertical">
-                <Setter Property="Template" Value="{StaticResource CompareSliderVertical}"/>
-            </Trigger>
-        </Style.Triggers>
-    </Style>
-
-    <!--PreviewSlider-->
-    <Style x:Key="PreviewSliderRepeatButtonStyle" TargetType="RepeatButton">
-        <Setter Property="OverridesDefaultStyle" Value="true"/>
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Focusable" Value="false"/>
-        <Setter Property="IsTabStop" Value="false"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="RepeatButton">
-                    <Border Background="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
-                        <Rectangle Fill="{TemplateBinding Background}" Height="2"/>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <ControlTemplate x:Key="PreviewSliderThumbHorizontal" TargetType="Thumb">
-        <Border Effect="{StaticResource EffectShadow1}" Name="BorderDot"  BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Effect" Value="{StaticResource EffectShadow2}"/>
-            </Trigger>
-            <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown">
-                <EventTrigger.Actions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ThicknessAnimation To="2" Duration="0:0:.1" Storyboard.TargetName="BorderDot" Storyboard.TargetProperty="BorderThickness"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger.Actions>
-            </EventTrigger>
-            <EventTrigger RoutedEvent="PreviewMouseLeftButtonUp">
-                <EventTrigger.Actions>
-                    <BeginStoryboard>
-                        <Storyboard>
-                            <ThicknessAnimation To="0" Duration="0:0:.1" Storyboard.TargetName="BorderDot" Storyboard.TargetProperty="BorderThickness"/>
-                        </Storyboard>
-                    </BeginStoryboard>
-                </EventTrigger.Actions>
-            </EventTrigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-
-    <ControlTemplate x:Key="PreviewSliderHorizontal" TargetType="controls:PreviewSlider">
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto" MinHeight="{TemplateBinding MinHeight}"/>
-            </Grid.RowDefinitions>
-            <ContentControl x:Name="PART_ContentBorder" HorizontalAlignment="Left" VerticalAlignment="Bottom" Visibility="Hidden" Content="{TemplateBinding PreviewContent}" Margin="9,0,9,6"/>
-            <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Height="2" Grid.Row="1" VerticalAlignment="center" Margin="9,0"/>
-            <Track Margin="9,0" x:Name="PART_Track" Grid.Row="1">
-                <Track.DecreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource PreviewSliderRepeatButtonStyle}"/>
-                </Track.DecreaseRepeatButton>
-                <Track.IncreaseRepeatButton>
-                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource PreviewSliderRepeatButtonStyle}"/>
-                </Track.IncreaseRepeatButton>
-                <Track.Thumb>
-                    <Thumb Margin="-9,0" x:Name="Thumb" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{StaticResource PreviewSliderThumbHorizontal}" VerticalAlignment="Center" Width="18"/>
-                </Track.Thumb>
-            </Track>
-        </Grid>
-        <ControlTemplate.Triggers>
-            <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Visibility" Value="Visible" TargetName="PART_ContentBorder"/>
-            </Trigger>
-        </ControlTemplate.Triggers>
-    </ControlTemplate>
-
-    <Style x:Key="PreviewSliderBaseStyle" TargetType="controls:PreviewSlider">
-        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
-        <Setter Property="IsMoveToPointEnabled" Value="True"/>
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Template" Value="{StaticResource PreviewSliderHorizontal}"/>
-    </Style>
-
-    <!--Common-->
     <Style x:Key="SliderRepeatButtonHorizontalStyle" TargetType="RepeatButton">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="Background" Value="Transparent"/>
@@ -638,7 +324,362 @@
         </Style.Triggers>
     </Style>
 
-    <!--RangeSlider-->
+    <!--endregion-->
+
+    <!--region CompareSlider-->
+
+    <Style x:Key="CompareSliderRepeatButtonTransparent" TargetType="RepeatButton">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <ContentPresenter Content="{TemplateBinding Content}" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}"/>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="CompareSliderThumbHorizontal" TargetType="Thumb">
+        <ControlTemplate.Resources>
+            <Storyboard x:Key="Storyboard1">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathLeft">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="-2"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathRight">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="Storyboard2">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathLeft">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="PathRight">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ControlTemplate.Resources>
+        <controls:SimplePanel>
+            <Border Width="1" HorizontalAlignment="Center">
+                <Border.Background>
+                    <DrawingBrush RenderOptions.CachingHint="Cache" Viewport="0,0,1,8" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
+                        <DrawingBrush.Drawing>
+                            <DrawingGroup>
+                                <GeometryDrawing Brush="{DynamicResource BorderBrush}">
+                                    <GeometryDrawing.Geometry>
+                                        <GeometryGroup>
+                                            <RectangleGeometry Rect="0,0,1,4" />
+                                        </GeometryGroup>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingGroup>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Border.Background>
+            </Border>
+            <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
+                <controls:SimplePanel Width="30" Height="30" Margin="-1,-1,0,0">
+                    <Path x:Name="PathLeft" Data="{StaticResource LeftGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Left" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path x:Name="PathRight" Data="{StaticResource RightGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="6,8" HorizontalAlignment="Right" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </controls:SimplePanel>
+            </Border>
+        </controls:SimplePanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="Stroke" TargetName="PathLeft" Value="White"/>
+                <Setter Property="Stroke" TargetName="PathRight" Value="White"/>
+            </Trigger>
+            <Trigger Property="IsDragging" Value="true">
+                <Trigger.EnterActions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="CompareSliderHorizontal" TargetType="controls:CompareSlider">
+        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+            <controls:CompareTrack Margin="-14,0,-15,0" x:Name="PART_Track">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Margin="14,0,-15,0" Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
+                        <RepeatButton.Content>
+                            <Border HorizontalAlignment="Left" Width="{TemplateBinding Width}">
+                                <ContentPresenter Content="{TemplateBinding TargetContent}"/>
+                            </Border>
+                        </RepeatButton.Content>
+                    </RepeatButton>
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Margin="-15,0,15,0" Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
+                        <RepeatButton.Content>
+                            <Border HorizontalAlignment="Right" Width="{TemplateBinding ActualWidth}">
+                                <ContentPresenter Content="{TemplateBinding SourceContent}"/>
+                            </Border>
+                        </RepeatButton.Content>
+                    </RepeatButton>
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb x:Name="Thumb" Focusable="False" OverridesDefaultStyle="True" Template="{StaticResource CompareSliderThumbHorizontal}" Width="30" Margin="0,0,0,0"/>
+                </Track.Thumb>
+            </controls:CompareTrack>
+        </Border>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="CompareSliderThumbVertical" TargetType="Thumb">
+        <ControlTemplate.Resources>
+            <Storyboard x:Key="Storyboard1">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathUp">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="-2"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathDown">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="2"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+            <Storyboard x:Key="Storyboard2">
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathUp">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)" Storyboard.TargetName="PathDown">
+                    <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ControlTemplate.Resources>
+        <controls:SimplePanel>
+            <Border Height="1" VerticalAlignment="Center">
+                <Border.Background>
+                    <DrawingBrush RenderOptions.CachingHint="Cache" Viewport="0,0,8,1" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
+                        <DrawingBrush.Drawing>
+                            <DrawingGroup>
+                                <GeometryDrawing Brush="{DynamicResource BorderBrush}">
+                                    <GeometryDrawing.Geometry>
+                                        <GeometryGroup>
+                                            <RectangleGeometry Rect="0,0,4,1" />
+                                        </GeometryGroup>
+                                    </GeometryDrawing.Geometry>
+                                </GeometryDrawing>
+                            </DrawingGroup>
+                        </DrawingBrush.Drawing>
+                    </DrawingBrush>
+                </Border.Background>
+            </Border>
+            <Border x:Name="grip" Width="30" Height="30" CornerRadius="15" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="White">
+                <controls:SimplePanel Width="30" Height="30" Margin="-1,-1,0,0">
+                    <Path x:Name="PathUp" Data="{StaticResource UpGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Top" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                    <Path x:Name="PathDown" Data="{StaticResource DownGeometry}" StrokeThickness="1" Stroke="{DynamicResource PrimaryBrush}" Margin="9,6" VerticalAlignment="Bottom" Stretch="Uniform" Width="12" Height="12" RenderTransformOrigin="0.5,0.5">
+                        <Path.RenderTransform>
+                            <TransformGroup>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Path.RenderTransform>
+                    </Path>
+                </controls:SimplePanel>
+            </Border>
+        </controls:SimplePanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="true" SourceName="grip">
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="Stroke" TargetName="PathUp" Value="White"/>
+                <Setter Property="Stroke" TargetName="PathDown" Value="White"/>
+            </Trigger>
+            <Trigger Property="IsDragging" Value="true">
+                <Setter Property="Background" TargetName="grip" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="Stroke" TargetName="PathUp" Value="White"/>
+                <Setter Property="Stroke" TargetName="PathDown" Value="White"/>
+                <Trigger.EnterActions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                </Trigger.EnterActions>
+                <Trigger.ExitActions>
+                    <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+                </Trigger.ExitActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="CompareSliderVertical" TargetType="controls:CompareSlider">
+        <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+            <controls:CompareTrack Margin="0,-14,0,-15" x:Name="PART_Track">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Margin="0,-15,0,15" Command="{x:Static Slider.DecreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
+                        <RepeatButton.Content>
+                            <Border VerticalAlignment="Bottom" Height="{TemplateBinding Height}">
+                                <ContentPresenter Content="{TemplateBinding TargetContent}"/>
+                            </Border>
+                        </RepeatButton.Content>
+                    </RepeatButton>
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Margin="0,14,0,-15" Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource CompareSliderRepeatButtonTransparent}">
+                        <RepeatButton.Content>
+                            <Border VerticalAlignment="Top" Height="{TemplateBinding Height}">
+                                <ContentPresenter Content="{TemplateBinding SourceContent}"/>
+                            </Border>
+                        </RepeatButton.Content>
+                    </RepeatButton>
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb x:Name="Thumb" Focusable="False" Height="30" OverridesDefaultStyle="True" Template="{StaticResource CompareSliderThumbVertical}" VerticalAlignment="Top"/>
+                </Track.Thumb>
+            </controls:CompareTrack>
+        </Border>
+    </ControlTemplate>
+
+    <Style x:Key="CompareSliderBaseStyle" TargetType="controls:CompareSlider">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="MinWidth" Value="30"/>
+        <Setter Property="MinHeight" Value="30"/>
+        <Setter Property="Template" Value="{StaticResource CompareSliderHorizontal}"/>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Template" Value="{StaticResource CompareSliderVertical}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--endregion-->
+
+    <!--region PreviewSlider-->
+
+    <Style x:Key="PreviewSliderRepeatButtonHorizontalStyle" TargetType="RepeatButton">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Background="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                        <Rectangle Fill="{TemplateBinding Background}" Height="2"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="PreviewSliderRepeatButtonVerticalStyle" TargetType="RepeatButton">
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="IsTabStop" Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Background="Transparent" Height="{TemplateBinding Height}" Width="{TemplateBinding Width}">
+                        <Rectangle Fill="{TemplateBinding Background}" Width="2"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <ControlTemplate x:Key="PreviewSliderThumb" TargetType="Thumb">
+        <Border Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Effect" Value="{StaticResource EffectShadow2}"/>
+            </Trigger>
+            <EventTrigger RoutedEvent="PreviewMouseLeftButtonDown">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation To="2" Duration="0:0:.1" Storyboard.TargetName="BorderDot" Storyboard.TargetProperty="BorderThickness"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="PreviewMouseLeftButtonUp">
+                <EventTrigger.Actions>
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ThicknessAnimation To="0" Duration="0:0:.1" Storyboard.TargetName="BorderDot" Storyboard.TargetProperty="BorderThickness"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger.Actions>
+            </EventTrigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PreviewSliderHorizontal" TargetType="controls:PreviewSlider">
+        <controls:SimplePanel>
+            <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Height="2" VerticalAlignment="center" Margin="9,0"/>
+            <Track Margin="9,0" x:Name="PART_Track">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource PreviewSliderRepeatButtonHorizontalStyle}"/>
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource PreviewSliderRepeatButtonHorizontalStyle}"/>
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Margin="-9,0" x:Name="PART_Thumb" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{StaticResource PreviewSliderThumb}" VerticalAlignment="Center" Width="18"/>
+                </Track.Thumb>
+            </Track>
+        </controls:SimplePanel>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="PreviewSliderVertical" TargetType="controls:PreviewSlider">
+        <controls:SimplePanel>
+            <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Width="2" HorizontalAlignment="center" Margin="0,9"/>
+            <Track Margin="0,9" x:Name="PART_Track">
+                <Track.DecreaseRepeatButton>
+                    <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource PreviewSliderRepeatButtonVerticalStyle}"/>
+                </Track.DecreaseRepeatButton>
+                <Track.IncreaseRepeatButton>
+                    <RepeatButton Command="{x:Static Slider.IncreaseLarge}" Style="{StaticResource PreviewSliderRepeatButtonVerticalStyle}"/>
+                </Track.IncreaseRepeatButton>
+                <Track.Thumb>
+                    <Thumb Margin="0,-9" x:Name="PART_Thumb" Focusable="False" Height="18" OverridesDefaultStyle="True" Template="{StaticResource PreviewSliderThumb}" HorizontalAlignment="Center" Width="18"/>
+                </Track.Thumb>
+            </Track>
+        </controls:SimplePanel>
+    </ControlTemplate>
+
+    <Style x:Key="PreviewSliderBaseStyle" TargetType="controls:PreviewSlider">
+        <Setter Property="Stylus.IsPressAndHoldEnabled" Value="false"/>
+        <Setter Property="IsMoveToPointEnabled" Value="True"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="Template" Value="{StaticResource PreviewSliderHorizontal}"/>
+        <Style.Triggers>
+            <Trigger Property="Orientation" Value="Vertical">
+                <Setter Property="Template" Value="{StaticResource PreviewSliderVertical}"/>
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value=".4"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--endregion-->
+
+    <!--region RangeSlider-->
+
     <ControlTemplate x:Key="RangeSliderThumb" TargetType="controls:RangeThumb">
         <Border Effect="{StaticResource EffectShadow1}" Name="BorderDot"  BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         <ControlTemplate.Triggers>
@@ -921,5 +962,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <!--endregion-->  
 
 </ResourceDictionary>
