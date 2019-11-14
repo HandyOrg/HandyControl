@@ -17,13 +17,30 @@
 
 [https://handyorg.github.io/handycontrol/](https://handyorg.github.io/handycontrol/)
 
-### 捐赠
-如果您觉得HandyControl还不错，并且刚好有些闲钱，那么可以选择以下两种方式来捐赠：
+### 赞助
+如果您觉得HandyControl还不错，并且刚好有些闲钱，那么可以选择以下两种方式来赞助：
 
 * [以HandyControl的名义为慈善事业做贡献](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
 
 * 为我们购买防脱洗发水  
 ![qrcode](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/qrcode.png)
+
+## Contributors
+
+<a href="https://github.com/ghost1372" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/9213496?s=400&amp;v=4"></a>
+<a href="https://github.com/DingpingZhang" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/8541016?s=400&v=4"></a>
+<a href="https://github.com/M0n7y5" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/17201053?s=400&v=4"></a>
+<a href="https://github.com/guanguanchuangyu" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/25916858?s=400&v=4"></a>
+<a href="https://github.com/yanchao891012" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/16846702?s=400&v=4"></a>
+<a href="https://github.com/noctwolf" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/21022467?s=400&v=4"></a>
+<a href="https://github.com/xianyun666" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/22339210?s=400&v=4"></a>
+
+## Backers
+
+<a href="https://github.com/bigorange1900" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/49062011?s=400&v=4"></a>
+<a href="https://github.com/14632791" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/27358331?s=400&v=4"></a>
+<a href="https://github.com/IUpdatable" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/51181716?s=400&v=4"></a>
+<a href="https://github.com/maplewei" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/13778095?s=400&v=4"></a>
 
 ## Special thanks to
 
@@ -382,6 +399,10 @@ Step 4：enjoy coding
 ### CirclePanel
 
 ![CirclePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CirclePanel.jpg)
+
+### TransitioningContentControl
+
+![TransitioningContentControl](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TransitioningContentControl.gif)
 
 ### BorderStyle
 

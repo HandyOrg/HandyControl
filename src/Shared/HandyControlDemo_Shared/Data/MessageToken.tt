@@ -63,7 +63,8 @@ var controlList = new List<string>
 	"NotificationDemoCtl",
 	"FloatingBlockDemoCtl",
 	"SplitButtonDemoCtl",
-	"DividerDemoCtl"
+	"DividerDemoCtl",
+	"TransitioningContentControlDemoCtl"
 };
 var styleList = new List<string>
 {

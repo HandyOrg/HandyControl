@@ -375,6 +375,11 @@
                                 <Image Source="../../Resources/Img/LeftMainContent/PolygonHexagon_16x.png"/>
                             </hc:EdgeElement.LeftContent>
                         </ListBoxItem>
+                        <ListBoxItem Tag="{x:Static data:MessageToken.TransitioningContentControlDemoCtl}" Content="{x:Static langs:Lang.TransitioningContentControl}">
+                            <hc:EdgeElement.LeftContent>
+                                <Image Source="../../Resources/Img/LeftMainContent/TransitioningContentControl_16x.png"/>
+                            </hc:EdgeElement.LeftContent>
+                        </ListBoxItem>
                         <ListBoxItem Tag="{x:Static data:MessageToken.CoverViewDemoCtl}" Content="{x:Static langs:Lang.CoverView}">
                             <hc:EdgeElement.LeftContent>
                                 <Image Source="../../Resources/Img/LeftMainContent/DetailDataView_16x.png"/>

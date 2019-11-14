@@ -9,6 +9,7 @@
         <ResourceDictionary Source="../Basic/Paths.xaml"/>
         <ResourceDictionary Source="../Basic/Converters.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
+        <ResourceDictionary Source="RepeatButton.xaml"/>
         <ResourceDictionary Source="ToggleButton.xaml"/>
         <ResourceDictionary Source="Base/TabControlBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
@@ -119,7 +120,7 @@
                     <Border.CacheMode>
                         <BitmapCache SnapsToDevicePixels="True"/>
                     </Border.CacheMode>
-                    <Button Focusable="False" Style="{StaticResource ButtonIcon}" Padding="8" controls:IconElement.Geometry="{StaticResource LeftGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonLeft"/>
+                    <RepeatButton Focusable="False" Style="{StaticResource RepeatButtonIcon}" Padding="8" controls:IconElement.Geometry="{StaticResource LeftGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonLeft"/>
                 </Border>
                 <controls:ScrollViewer HorizontalScrollBarVisibility="Hidden" CanMouseWheel="True" Orientation="Horizontal" IsEnableInertia="True" Grid.Row="0" Grid.Column="1" IsDeferredScrollingEnabled="True" x:Name="PART_OverflowScrollviewer">
                     <Border Background="{TemplateBinding Background}" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Name="PART_HeaderBorder">
@@ -139,7 +140,7 @@
                         <BitmapCache SnapsToDevicePixels="True"/>
                     </Border.CacheMode>
                     <StackPanel Orientation="Horizontal">
-                        <Button Focusable="False" Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource ButtonIcon}" BorderBrush="{DynamicResource BorderBrush}" Padding="8" controls:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight"/>
+                        <RepeatButton Focusable="False" Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource RepeatButtonIcon}" BorderBrush="{DynamicResource BorderBrush}" Padding="8" controls:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight"/>
                         <Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Width="1" Background="{DynamicResource BorderBrush}"/>
                         <controls:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource DownGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}"/>
                     </StackPanel>
