@@ -179,12 +179,6 @@ namespace HandyControlDemo.Service
                     DisplayName = "AutumnBox",
                     AvatarUri = "https://www.atmb.top/images/leaves.png",
                     Link = "https://github.com/zsh2401/AutumnBox"
-                },
-                new AvatarModel
-                {
-                    DisplayName = "PandaX Studio",
-                    AvatarUri = "https://raw.githubusercontent.com/aboutlong/pandaxstudio/master/pandax/pandax/source/image/logo.png",
-                    Link = "https://github.com/aboutlong/pandaxstudio"
                 }
             };
         }
