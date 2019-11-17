@@ -18,7 +18,7 @@
                 <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
                 <hc:TabControl ShowOverflowButton="False" ShowScrollButton="True" Margin="32,16,32,0" Width="800" Height="300" IsScrollable="True">
                     <hc:TabItem Header="TabItem1" IsSelected="True">
-                        <hc:SimplePanel Background="White"/>
+                        <hc:SimplePanel Background="{DynamicResource RegionBrush}"/>
                     </hc:TabItem>
                     <hc:TabItem Header="TabItem2">
                         <hc:SimplePanel Background="{DynamicResource DarkDangerBrush}"/>
@@ -47,7 +47,7 @@
                 </StackPanel>
                 <hc:TabControl x:Name="TabControlDemo" IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
                     <hc:TabItem Header="TabItem1">
-                        <hc:SimplePanel Background="White"/>
+                        <hc:SimplePanel Background="{DynamicResource RegionBrush}"/>
                     </hc:TabItem>
                     <hc:TabItem IsSelected="True" Header="TabItem2">
                         <hc:SimplePanel Tag="123" Background="#FFE8563F"/>

@@ -41,7 +41,6 @@
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0Margin0}"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Padding" Value="10,0"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -52,7 +51,7 @@
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
-                            <StackPanel Orientation="Horizontal" Margin="{Binding Converter={StaticResource TreeViewItemMarginConverter}, RelativeSource={RelativeSource  AncestorLevel=1, AncestorType=TreeViewItem}}">
+                            <StackPanel Orientation="Horizontal" Margin="{Binding Converter={StaticResource TreeViewItemMarginConverter}, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ExpandCollapseToggleStyle}"/>
                                 <ContentPresenter VerticalAlignment="Center" x:Name="PART_Header" ContentSource="Header" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             </StackPanel>
