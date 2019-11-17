@@ -41,6 +41,7 @@
 <a href="https://github.com/14632791" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/27358331?s=400&v=4"></a>
 <a href="https://github.com/IUpdatable" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/51181716?s=400&v=4"></a>
 <a href="https://github.com/maplewei" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/13778095?s=400&v=4"></a>
+<a href="https://github.com/sunshang-hl" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/34593206?s=400&v=4"></a>
 
 ## Special thanks to
 
