@@ -21,4 +21,4 @@ title: IconElement 具有图标的元素
 </StackPanel>
 ```
 
-![IconElement.Geometry](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach\IconElement.Geometry.png)
+![IconElement.Geometry](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/IconElement.Geometry.png)
