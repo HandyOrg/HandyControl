@@ -25,6 +25,6 @@ Expander 展开框 默认样式，不推荐直接使用，应该始终被其它�
 </StackPanel>
 {% endcode %}
 
-![HC Expander](../images/hc_expander.png)
+![ExpanderBaseStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ExpanderBaseStyle.png)
 
 {% endnote %}

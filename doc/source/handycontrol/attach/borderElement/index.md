@@ -20,7 +20,7 @@ title: BorderElement 具有边框的元素
 </StackPanel>
 ```
 
-![BorderElement.CornerRadius](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach\BorderElement.CornerRadius.png)
+![BorderElement.CornerRadius](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/BorderElement.CornerRadius.png)
 
 ## Circular 是否呈现为圆形
 
@@ -28,4 +28,4 @@ title: BorderElement 具有边框的元素
 ```xml
 <Border Style="{StaticResource BorderCircular}" Background="OrangeRed" Width="100" Height="100"/>
 ```
-![BorderElement.Circular](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach\BorderElement.Circular.png)
+![BorderElement.Circular](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/BorderElement.Circular.png)
