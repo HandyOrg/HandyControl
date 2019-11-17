@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CoverViewDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoDataModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\StepBarDemoModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\TabControlDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainWindow.xaml.cs">
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>

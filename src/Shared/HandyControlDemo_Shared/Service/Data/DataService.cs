@@ -13,6 +13,38 @@ namespace HandyControlDemo.Service
 {
     public class DataService
     {
+        internal ObservableCollection<TabControlDemoModel> GetTabControlDemoDataList()
+        {
+            return new ObservableCollection<TabControlDemoModel>
+            {
+                new TabControlDemoModel
+                {
+                    Header = "Success",
+                    BackgroundToken = ResourceToken.SuccessBrush
+                },
+                new TabControlDemoModel
+                {
+                    Header = "Primary",
+                    BackgroundToken = ResourceToken.PrimaryBrush
+                },
+                new TabControlDemoModel
+                {
+                    Header = "Warning",
+                    BackgroundToken = ResourceToken.WarningBrush
+                },
+                new TabControlDemoModel
+                {
+                    Header = "Danger",
+                    BackgroundToken = ResourceToken.DangerBrush
+                },
+                new TabControlDemoModel
+                {
+                    Header = "Info",
+                    BackgroundToken = ResourceToken.InfoBrush
+                }
+            };
+        }
+
         internal List<DemoDataModel> GetDemoDataList()
         {
             var list = new List<DemoDataModel>();
