@@ -8,7 +8,6 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Markup;
-using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
@@ -42,7 +41,7 @@ namespace HandyControl.Controls
 
         private int _pageIndex = -1;
 
-        private Button _selectedButton;
+        private RadioButton _selectedButton;
 
         private DispatcherTimer _updateTimer;
 
@@ -102,6 +101,15 @@ namespace HandyControl.Controls
         {
             get => (bool)GetValue(IsCenterProperty);
             set => SetValue(IsCenterProperty, value);
+        }
+
+        public static readonly DependencyProperty PageButtonStyleProperty = DependencyProperty.Register(
+            "PageButtonStyle", typeof(Style), typeof(Carousel), new PropertyMetadata(default(Style)));
+
+        public Style PageButtonStyle
+        {
+            get => (Style) GetValue(PageButtonStyleProperty);
+            set => SetValue(PageButtonStyleProperty, value);
         }
 
         public Carousel()
@@ -210,15 +218,21 @@ namespace HandyControl.Controls
             _panelPage.Children.Clear();
             for (var i = 0; i < count; i++)
             {
-                _panelPage.Children.Add(CreatePateButton());
+                _panelPage.Children.Add(new RadioButton
+                {
+                    Style = PageButtonStyle
+                });
             }
 
             if (index == -1 && count > 0) index = 0;
             if (index >= 0 && index < count)
             {
-                var button = _panelPage.Children[index];
-                button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent, button));
-                UpdateItemsPosition();
+                if (_panelPage.Children[index] is RadioButton button)
+                {
+                    button.IsChecked = true;
+                    button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent, button));
+                    UpdateItemsPosition();
+                }
             }
         }
 
@@ -251,40 +265,17 @@ namespace HandyControl.Controls
             UpdateItemsPosition();
         }
 
-        /// <summary>
-        ///     创建页按钮
-        /// </summary>
-        /// <returns></returns>
-        private Button CreatePateButton()
-        {
-            var button = new Button
-            {
-                Style = ResourceHelper.GetResource<Style>(ResourceToken.ButtonCustom),
-                Content = new Border
-                {
-                    Width = 10,
-                    Height = 10,
-                    CornerRadius = new CornerRadius(5),
-                    Background = Brushes.White,
-                    Margin = new Thickness(5, 0, 5, 0),
-                    BorderThickness = new Thickness(1),
-                    BorderBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush)
-                }
-            };
-            return button;
-        }
-
         private void ButtonPages_OnClick(object sender, RoutedEventArgs e)
         {
             if (!CheckNull()) return;
-            if (_selectedButton != null && _selectedButton.Content is Border borderOri)
-                borderOri.Background = Brushes.White;
-            _selectedButton = e.OriginalSource as Button;
-            if (_selectedButton != null && _selectedButton.Content is Border border)
-                border.Background = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush);
+
+            _selectedButton = e.OriginalSource as RadioButton;
+            
             var index = _panelPage.Children.IndexOf(_selectedButton);
             if (index != -1)
+            {
                 PageIndex = index;
+            }
         }
 
         private void ButtonPrev_OnClick(object sender, RoutedEventArgs e) => PageIndex--;

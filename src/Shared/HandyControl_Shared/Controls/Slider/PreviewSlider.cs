@@ -153,10 +153,20 @@ namespace HandyControl.Controls
             base.OnMouseLeave(e);
 
             var layer = AdornerLayer.GetAdornerLayer(this);
-            if (layer == null) return;
-            layer.Remove(_adorner);
-            _adorner.Child = null;
-            _adorner = null;
+            if (layer != null)
+            {
+                layer.Remove(_adorner);
+            }
+            else if (_adorner != null && _adorner.Parent is AdornerLayer parent)
+            {
+                parent.Remove(_adorner);
+            }
+
+            if (_adorner != null)
+            {
+                _adorner.Child = null;
+                _adorner = null;
+            }
         }
 
         public override void OnApplyTemplate()
