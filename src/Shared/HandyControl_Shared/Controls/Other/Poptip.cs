@@ -1,5 +1,4 @@
 ﻿using System;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -10,11 +9,9 @@ using HandyControl.Data.Enum;
 
 namespace HandyControl.Controls
 {
-    public class Poptip : Control
+    public class Poptip : AdornerElement
     {
         private readonly Popup _popup;
-
-        private UIElement _elementTarget;
 
         public Poptip()
         {
@@ -41,15 +38,6 @@ namespace HandyControl.Controls
             get => (HitMode)GetValue(HitModeProperty);
             set => SetValue(HitModeProperty, value);
         }
-
-        private static readonly DependencyProperty IsInstanceProperty = DependencyProperty.RegisterAttached(
-            "IsInstance", typeof(bool), typeof(Poptip), new PropertyMetadata(ValueBoxes.TrueBox));
-
-        private static void SetIsInstance(DependencyObject element, bool value)
-            => element.SetValue(IsInstanceProperty, value);
-
-        private static bool GetIsInstance(DependencyObject element)
-            => (bool) element.GetValue(IsInstanceProperty);
 
         public static readonly DependencyProperty ContentProperty = DependencyProperty.RegisterAttached(
             "Content", typeof(object), typeof(Poptip), new PropertyMetadata(default, OnContentChanged));
@@ -144,7 +132,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                GetInstance(d)?.SwitchPoptip((bool)e.NewValue);
+                ((Poptip)GetInstance(d))?.SwitchPoptip((bool)e.NewValue);
             }
         }
 
@@ -160,44 +148,12 @@ namespace HandyControl.Controls
             set => SetValue(IsOpenProperty, value);
         }
 
-        public static readonly DependencyProperty TargetProperty = DependencyProperty.Register(
-            "Target", typeof(UIElement), typeof(Poptip), new PropertyMetadata(default(UIElement), OnTargetChanged));
-
-        private static void OnTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (Poptip)d;
-            ctl.UpdateTarget(ctl._elementTarget, false);
-            ctl.UpdateTarget((UIElement)e.NewValue, true);
-        }
-
-        [Bindable(true), Category("Layout")]
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public UIElement Target
-        {
-            get => (UIElement) GetValue(TargetProperty);
-            set => SetValue(TargetProperty, value);
-        }
-
-        public static readonly DependencyProperty InstanceProperty = DependencyProperty.RegisterAttached(
-            "Instance", typeof(Poptip), typeof(Poptip), new PropertyMetadata(default(Poptip), OnPoptipChanged));
-
-        private static void OnPoptipChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!(d is UIElement target)) return;
-            var poptip = (Poptip)e.NewValue;
-            poptip.Target = target;
-        }
-
-        public static void SetInstance(DependencyObject element, Poptip value)
-            => element.SetValue(InstanceProperty, value);
-
-        public static Poptip GetInstance(DependencyObject element)
-            => (Poptip)element.GetValue(InstanceProperty);
-
         public static Poptip Default => new Poptip();
 
-        private void UpdateTarget(UIElement element, bool isNew)
+        protected sealed override void OnTargetChanged(FrameworkElement element, bool isNew)
         {
+            base.OnTargetChanged(element, isNew);
+
             if (element == null) return;
 
             if (!isNew)
@@ -206,7 +162,7 @@ namespace HandyControl.Controls
                 element.MouseLeave -= Element_MouseLeave;
                 element.GotFocus -= Element_GotFocus;
                 element.LostFocus -= Element_LostFocus;
-                _elementTarget = null;
+                ElementTarget = null;
             }
             else
             {
@@ -214,10 +170,12 @@ namespace HandyControl.Controls
                 element.MouseLeave += Element_MouseLeave;
                 element.GotFocus += Element_GotFocus;
                 element.LostFocus += Element_LostFocus;
-                _elementTarget = element;
-                _popup.PlacementTarget = _elementTarget;
+                ElementTarget = element;
+                _popup.PlacementTarget = ElementTarget;
             }
         }
+
+        protected override void Dispose() => SwitchPoptip(false);
 
         private void UpdateLocation()
         {
@@ -233,7 +191,7 @@ namespace HandyControl.Controls
             var offsetX = .0;
             var offsetY = .0;
 
-            var poptip = GetInstance(Target);
+            var poptip = (Poptip)GetInstance(Target);
             var popupPlacement = poptip.Placement;
             var popupOffset = poptip.Offset;
 
