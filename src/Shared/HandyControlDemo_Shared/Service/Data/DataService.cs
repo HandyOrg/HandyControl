@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Windows;
 using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools.Converter;
@@ -340,6 +342,57 @@ namespace HandyControlDemo.Service
                     BackgroundToken = ResourceToken.DangerBrush
                 }
             };
+        }
+
+        internal List<DemoInfoModel> GetDemoInfo()
+        {
+            var infoList = new List<DemoInfoModel>();
+
+            var stream = Application.GetResourceStream(new Uri("Data/DemoInfo.json", UriKind.Relative))?.Stream;
+            if (stream == null) return infoList;
+            
+            string jsonStr;
+            using (var reader = new StreamReader(stream))
+            {
+                jsonStr = reader.ReadToEnd();
+            }
+
+            var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonStr);
+            foreach (var item in jsonObj)
+            {
+                var title = Properties.Langs.Lang.ResourceManager.GetString((string)item.title);
+                var list = Convert2DemoItemList(item.demoItemList);
+                infoList.Add(new DemoInfoModel
+                {
+                    Title = title,
+                    DemoItemList = list
+                });
+            }
+
+            return infoList;
+        }
+
+        private List<DemoItemModel> Convert2DemoItemList(dynamic list)
+        {
+            var resultList = new List<DemoItemModel>();
+
+            foreach (var item in list)
+            {
+                var name = Properties.Langs.Lang.ResourceManager.GetString((string) item[0]);
+                string targetCtlName = item[1];
+                string imageName = item[2];
+                var isNew = !string.IsNullOrEmpty((string) item[3]);
+
+                resultList.Add(new DemoItemModel
+                {
+                    Name = name, 
+                    TargetCtlName = targetCtlName, 
+                    ImageName = $"../../Resources/Img/LeftMainContent/{imageName}.png", 
+                    IsNew = isNew
+                });
+            }
+
+            return resultList;
         }
     }
 }

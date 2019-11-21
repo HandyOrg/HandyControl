@@ -1,11 +1,12 @@
 ﻿using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
+using HandyControlDemo.Data;
 
 
 namespace HandyControlDemo.UserControl
@@ -19,27 +20,36 @@ namespace HandyControlDemo.UserControl
         {
             InitializeComponent();
 
-            /*You have to ask me why I made Border special.
-             What drives me crazy is that if you don't do this, 
-             the content of ListBoxItemBorder will always be 1 ! 
-             How amazing!
-             I wish someone could tell me why. */
-            ListBoxItemBorder.Content = Properties.Langs.Lang.Border;
+            //Messenger.Default.Register<object>(this, MessageToken.ClearLeftSelected, obj =>
+            //{
+            //    ListBoxStyle.SelectedItem = null;
+            //    ListBoxControl.SelectedItem = null;
+            //    ListBoxTool.SelectedItem = null;
+            //});
         }
 
         private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count == 0) return;
-            if (e.AddedItems[0] is TabItem tabItem && 
-                VisualHelper.GetChild<ListBox>(tabItem.Content as DependencyObject) is ListBox listBox)
+            if (e.AddedItems[0] is DemoInfoModel demoInfo)
             {
-                if (listBox.SelectedItem != null)
-                {
-                    var item = listBox.SelectedItem;
-                    listBox.SelectedIndex = -1;
-                    listBox.SelectedItem = item;
-                }
+                var selectedIndex = demoInfo.SelectedIndex;
+                demoInfo.SelectedIndex = -1;
+                demoInfo.SelectedIndex = selectedIndex;
             }
+
+            //if (e.OriginalSource is ItemsControl itemsControl)
+            //{
+            //    if (!(itemsControl.ItemContainerGenerator.ContainerFromItem(e.AddedItems[0]) is ContentControl container)) return;
+                
+            //    var selector = VisualHelper.GetChild<Selector>(container as DependencyObject);
+            //    if (selector.SelectedItem != null)
+            //    {
+            //        var item = selector.SelectedItem;
+            //        selector.SelectedIndex = -1;
+            //        selector.SelectedItem = item;
+            //    }
+            //}
         }
 
         private void ButtonAscending_OnClick(object sender, RoutedEventArgs e)
@@ -48,7 +58,7 @@ namespace HandyControlDemo.UserControl
             {
                 if (button.IsChecked == true)
                 {
-                    itemsControl.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
+                    itemsControl.Items.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
                 }
                 else
                 {
@@ -61,10 +71,11 @@ namespace HandyControlDemo.UserControl
         {
             if (e.Info == null) return;
             if (!(sender is FrameworkElement searchBar && searchBar.Tag is ListBox listBox)) return;
-            foreach (var listBoxItem in listBox.Items.OfType<ListBoxItem>())
+            foreach (DemoItemModel item in listBox.Items)
             {
-                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()) ||
-                                 listBoxItem.Tag.ToString().Replace("DemoCtl", "").ToLower().Contains(e.Info.ToLower()));
+                var listBoxItem = listBox.ItemContainerGenerator.ContainerFromItem(item) as ListBoxItem;
+                listBoxItem?.Show(item.Name.ToLower().Contains(e.Info.ToLower()) ||
+                                  item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(e.Info.ToLower()));
             }
         }
     }

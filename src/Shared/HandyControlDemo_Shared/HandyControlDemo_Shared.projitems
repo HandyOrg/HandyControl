@@ -21,6 +21,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\AvatarModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CoverViewDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoDataModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoInfoModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoItemModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\StepBarDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\TabControlDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainWindow.xaml.cs">
@@ -59,6 +61,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DividerDemoCtl.xaml.cs">
       <DependentUpon>DividerDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DrawerDemoCtl.xaml.cs">
+      <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\FloatingBlockDemoCtl.xaml.cs">
       <DependentUpon>FloatingBlockDemoCtl.xaml</DependentUpon>
@@ -472,6 +477,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DividerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DrawerDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

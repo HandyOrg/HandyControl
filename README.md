@@ -43,6 +43,8 @@
 <a href="https://github.com/maplewei" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/13778095?s=400&v=4"></a>
 <a href="https://github.com/sunshang-hl" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/34593206?s=400&v=4"></a>
 <a href="https://github.com/yangkang326" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/51224259?s=400&v=4"></a>
+<a href="https://github.com/zmrbak" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/7257543?s=400&v=4"></a>
+<a href="https://github.com/AFei19911012" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/31465314?s=400&v=4"></a>
 
 ## Special thanks to
 
