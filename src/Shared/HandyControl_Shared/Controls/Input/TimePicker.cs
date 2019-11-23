@@ -38,7 +38,7 @@ namespace HandyControl.Controls
 
         private ButtonBase _dropDownButton;
 
-        private Popup _popUp;
+        private Popup _popup;
 
         private bool _disablePopupReopen;
 
@@ -147,9 +147,9 @@ namespace HandyControl.Controls
             var dp = d as TimePicker;
 
             var newValue = (bool)e.NewValue;
-            if (dp?._popUp != null && dp._popUp.IsOpen != newValue)
+            if (dp?._popup != null && dp._popup.IsOpen != newValue)
             {
-                dp._popUp.IsOpen = newValue;
+                dp._popup.IsOpen = newValue;
                 if (newValue)
                 {
                     dp._originalSelectedTime = dp.SelectedTime;
@@ -357,12 +357,12 @@ namespace HandyControl.Controls
         public override void OnApplyTemplate()
         {
             if (DesignerProperties.GetIsInDesignMode(this)) return;
-            if (_popUp != null)
+            if (_popup != null)
             {
-                _popUp.PreviewMouseLeftButtonDown -= PopUp_PreviewMouseLeftButtonDown;
-                _popUp.Opened -= PopUp_Opened;
-                _popUp.Closed -= PopUp_Closed;
-                _popUp.Child = null;
+                _popup.PreviewMouseLeftButtonDown -= PopupPreviewMouseLeftButtonDown;
+                _popup.Opened -= PopupOpened;
+                _popup.Closed -= PopupClosed;
+                _popup.Child = null;
             }
 
             if (_dropDownButton != null)
@@ -380,20 +380,20 @@ namespace HandyControl.Controls
 
             base.OnApplyTemplate();
 
-            _popUp = GetTemplateChild(ElementPopup) as Popup;
+            _popup = GetTemplateChild(ElementPopup) as Popup;
             _dropDownButton = GetTemplateChild(ElementButton) as Button;
             _textBox = GetTemplateChild(ElementTextBox) as WatermarkTextBox;
 
             CheckNull();
 
-            _popUp.PreviewMouseLeftButtonDown += PopUp_PreviewMouseLeftButtonDown;
-            _popUp.Opened += PopUp_Opened;
-            _popUp.Closed += PopUp_Closed;
-            _popUp.Child = Clock;
+            _popup.PreviewMouseLeftButtonDown += PopupPreviewMouseLeftButtonDown;
+            _popup.Opened += PopupOpened;
+            _popup.Closed += PopupClosed;
+            _popup.Child = Clock;
 
             if (IsDropDownOpen)
             {
-                _popUp.IsOpen = true;
+                _popup.IsOpen = true;
             }
 
             _dropDownButton.Click += DropDownButton_Click;
@@ -450,7 +450,7 @@ namespace HandyControl.Controls
 
         private void CheckNull()
         {
-            if (_dropDownButton == null || _popUp == null || _textBox == null)
+            if (_dropDownButton == null || _popup == null || _textBox == null)
                 throw new Exception();
         }
 
@@ -504,7 +504,7 @@ namespace HandyControl.Controls
                                 {
                                     if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
                                     {
-                                        TogglePopUp();
+                                        TogglePopup();
                                         return true;
                                     }
 
@@ -540,7 +540,7 @@ namespace HandyControl.Controls
             return _isHandlerSuspended != null && _isHandlerSuspended.ContainsKey(property);
         }
 
-        private void PopUp_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void PopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             if (sender is Popup popup && !popup.StaysOpen)
             {
@@ -553,9 +553,9 @@ namespace HandyControl.Controls
 
         private void Clock_SelectedTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedTime = e.Info;
 
-        private void Clock_Confirmed() => TogglePopUp();
+        private void Clock_Confirmed() => TogglePopup();
 
-        private void PopUp_Opened(object sender, EventArgs e)
+        private void PopupOpened(object sender, EventArgs e)
         {
             if (!IsDropDownOpen)
             {
@@ -567,7 +567,7 @@ namespace HandyControl.Controls
             OnClockOpened(new RoutedEventArgs());
         }
 
-        private void PopUp_Closed(object sender, EventArgs e)
+        private void PopupClosed(object sender, EventArgs e)
         {
             if (IsDropDownOpen)
             {
@@ -582,9 +582,9 @@ namespace HandyControl.Controls
             OnClockClosed(new RoutedEventArgs());
         }
 
-        private void DropDownButton_Click(object sender, RoutedEventArgs e) => TogglePopUp();
+        private void DropDownButton_Click(object sender, RoutedEventArgs e) => TogglePopup();
 
-        private void TogglePopUp()
+        private void TogglePopup()
         {
             if (IsDropDownOpen)
             {

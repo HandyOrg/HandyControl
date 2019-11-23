@@ -73,4 +73,4 @@ xaml中的使用：
 
 效果如下：
 
-![DataGridWarning01](../images/DataGrid-Warning01.png)
+![DataGridWarning01](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/DataGrid-Warning01.png)

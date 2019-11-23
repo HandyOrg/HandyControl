@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class TabControlDemoCtl
+    public partial class DrawerDemoCtl
     {
-        public TabControlDemoCtl()
+        public DrawerDemoCtl()
         {
             InitializeComponent();
         }

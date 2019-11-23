@@ -22,9 +22,9 @@ namespace HandyControl.Controls
 
         private RangeTrack _track;
 
-        private readonly System.Windows.Controls.ToolTip _autoToolTipStart = null;
+        private readonly ToolTip _autoToolTipStart = null;
 
-        private readonly System.Windows.Controls.ToolTip _autoToolTipEnd = null;
+        private readonly ToolTip _autoToolTipEnd = null;
 
         private RangeThumb _thumbCurrent;
 
@@ -390,6 +390,7 @@ namespace HandyControl.Controls
                     var start = Math.Max(Minimum, Math.Min(Maximum, snappedValue));
                     if (start > ValueEnd)
                     {
+                        SetCurrentValue(ValueStartProperty, ValueEnd);
                         SetCurrentValue(ValueEndProperty, start);
                         _track.ThumbStart.CancelDrag();
                         _track.ThumbEnd.StartDrag();
@@ -408,6 +409,7 @@ namespace HandyControl.Controls
                     var end = Math.Max(Minimum, Math.Min(Maximum, snappedValue));
                     if (end < ValueStart)
                     {
+                        SetCurrentValue(ValueEndProperty, ValueStart);
                         SetCurrentValue(ValueStartProperty, end);
                         _track.ThumbEnd.CancelDrag();
                         _track.ThumbStart.StartDrag();
@@ -448,11 +450,11 @@ namespace HandyControl.Controls
             OnThumbDragStarted(isStart ? _autoToolTipStart : _autoToolTipEnd, isStart);
         }
 
-        private void OnThumbDragStarted(System.Windows.Controls.ToolTip toolTip, bool isStart)
+        private void OnThumbDragStarted(ToolTip toolTip, bool isStart)
         {
             if (toolTip == null)
             {
-                toolTip = new System.Windows.Controls.ToolTip
+                toolTip = new ToolTip
                 {
                     Placement = PlacementMode.Custom,
                     PlacementTarget = isStart ? _track.ThumbStart : _track.ThumbEnd,
@@ -556,7 +558,7 @@ namespace HandyControl.Controls
             // Show AutoToolTip if needed
             if (AutoToolTipPlacement != AutoToolTipPlacement.None)
             {
-                var toolTip = (isStart ? _autoToolTipStart : _autoToolTipEnd) ?? new System.Windows.Controls.ToolTip();
+                var toolTip = (isStart ? _autoToolTipStart : _autoToolTipEnd) ?? new ToolTip();
 
                 toolTip.Content = GetAutoToolTipNumber(isStart);
 
@@ -630,7 +632,6 @@ namespace HandyControl.Controls
         {
             if (_thumbCurrent == null) return;
             if (e.MouseDevice.LeftButton != MouseButtonState.Pressed) return;
-
             if (!_thumbCurrent.IsDragging) return;
 
             var thumbCoordPosition = e.GetPosition(_thumbCurrent);

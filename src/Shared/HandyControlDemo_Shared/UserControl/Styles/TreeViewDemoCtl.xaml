@@ -4,7 +4,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-          <TreeView Width="200" Margin="32" ItemsSource="{Binding DataList}">
+        <TreeView Width="200" Margin="32" ItemsSource="{Binding DataList}">
               <TreeView.ItemTemplate>
                   <HierarchicalDataTemplate ItemsSource="{Binding DataList}">
                       <TextBlock Text="{Binding Name}"/>

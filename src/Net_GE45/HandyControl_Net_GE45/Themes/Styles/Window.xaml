@@ -61,7 +61,6 @@
         <Setter Property="BorderBrush" Value="#262e2f"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource ReverseTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="NonClientAreaForeground" Value="{DynamicResource PrimaryTextBrush}"/>

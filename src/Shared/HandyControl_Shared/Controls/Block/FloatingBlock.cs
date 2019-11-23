@@ -173,9 +173,16 @@ namespace HandyControl.Controls
             storyboard.Completed += (s, e) =>
             {
                 var layer = AdornerLayer.GetAdornerLayer(element);
-                if (layer == null) return;
+                if (layer != null)
+                {
+                    layer.Remove(adorner);
+                }
+                else if (adorner.Parent is AdornerLayer parent)
+                {
+                    parent.Remove(adorner);
+                }
+
                 adorner.Child = null;
-                layer.Remove(adorner);
             };
             storyboard.Children.Add(animationX);
             storyboard.Children.Add(animationY);

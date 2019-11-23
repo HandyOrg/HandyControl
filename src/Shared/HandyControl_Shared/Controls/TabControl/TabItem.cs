@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -94,10 +95,16 @@ namespace HandyControl.Controls
         /// </summary>
         private double _scrollHorizontalOffset;
 
+        private TabPanel _tabPanel;
+
         /// <summary>
         ///     标签容器
         /// </summary>
-        internal TabPanel TabPanel { get; set; }
+        internal TabPanel TabPanel
+        {
+            get => _tabPanel ??= TabControlParent.HeaderPanel;
+            set => _tabPanel = value;
+        }
 
         /// <summary>
         ///     当前编号
@@ -180,7 +187,12 @@ namespace HandyControl.Controls
         {
             if (IsLoaded && menu != null)
             {
-                menu.DataContext = this;
+                var parent = TabControlParent;
+                if (parent == null) return;
+
+                var item = parent.ItemContainerGenerator.ItemFromContainer(this);
+
+                menu.DataContext = item;
                 menu.SetBinding(IsEnabledProperty, new Binding(ShowContextMenuProperty.Name)
                 {
                     Source = this
@@ -226,7 +238,7 @@ namespace HandyControl.Controls
             Loaded += (s, e) => OnMenuChanged(Menu);
         }
 
-        private TabControl TabControlParent => new Lazy<TabControl>(() => ItemsControl.ItemsControlFromItemContainer(this) as TabControl).Value;
+        private TabControl TabControlParent => ItemsControl.ItemsControlFromItemContainer(this) as TabControl;
 
         protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
         {
@@ -249,38 +261,49 @@ namespace HandyControl.Controls
 
         internal void Close()
         {
-            var argsClosing = new CancelRoutedEventArgs(ClosingEvent, this);
+            var parent = TabControlParent;
+            if (parent == null) return;
+
+            var item = parent.ItemContainerGenerator.ItemFromContainer(this);
+
+            var argsClosing = new CancelRoutedEventArgs(ClosingEvent, item);
             RaiseEvent(argsClosing);
             if (argsClosing.Cancel) return;
 
-            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty,
-                TabControlParent.IsEnableAnimation
+            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, parent.IsEnableAnimation
                     ? new Duration(TimeSpan.FromMilliseconds(200))
                     : new Duration(TimeSpan.FromMilliseconds(1)));
-            TabControlParent.IsInternalAction = true;
-            RaiseEvent(new RoutedEventArgs(ClosedEvent, this));
-            TabControlParent.Items.Remove(this);
+            
+            parent.IsInternalAction = true;
+            RaiseEvent(new RoutedEventArgs(ClosedEvent, item));
+
+            var list = parent.GetActuaList();
+            list?.Remove(item);
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonDown(e);
-            if (TabControlParent.IsDraggable && !ItemIsDragging && !_isDragging)
+
+            var parent = TabControlParent;
+            if (parent == null) return;
+
+            if (parent.IsDraggable && !ItemIsDragging && !_isDragging)
             {
-                TabControlParent.UpdateScroll();
+                parent.UpdateScroll();
                 TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
                 _mouseDownOffsetX = RenderTransform.Value.OffsetX;
-                _scrollHorizontalOffset = TabControlParent.GetHorizontalOffset();
-                var mx = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
+                _scrollHorizontalOffset = parent.GetHorizontalOffset();
+                var mx = TranslatePoint(new Point(), parent).X + _scrollHorizontalOffset;
                 _mouseDownIndex = CalLocationIndex(mx);
                 var subIndex = _mouseDownIndex - CalLocationIndex(_scrollHorizontalOffset);
                 _maxMoveLeft = -subIndex * ItemWidth;
-                _maxMoveRight = TabControlParent.ActualWidth - ActualWidth + _maxMoveLeft;
+                _maxMoveRight = parent.ActualWidth - ActualWidth + _maxMoveLeft;
 
                 _isDragging = true;
                 ItemIsDragging = true;
                 _isWaiting = true;
-                _dragPoint = e.GetPosition(TabControlParent);
+                _dragPoint = e.GetPosition(parent);
                 _dragPoint = new Point(_dragPoint.X + +_scrollHorizontalOffset, _dragPoint.Y);
                 _mouseDownPoint = _dragPoint;
                 CaptureMouse();
@@ -290,18 +313,26 @@ namespace HandyControl.Controls
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+
             if (ItemIsDragging && _isDragging)
             {
-                var subX = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
+                var parent = TabControlParent;
+                if (parent == null) return;
+
+                var subX = TranslatePoint(new Point(), parent).X + _scrollHorizontalOffset;
                 CurrentIndex = CalLocationIndex(subX);
-                var p = e.GetPosition(TabControlParent);
+                
+                var p = e.GetPosition(parent);
                 p = new Point(p.X + _scrollHorizontalOffset, p.Y);
+                
                 var subLeft = p.X - _dragPoint.X;
                 var totalLeft = p.X - _mouseDownPoint.X;
 
                 if (Math.Abs(subLeft) <= WaitLength && _isWaiting) return;
+                
                 _isWaiting = false;
                 _isDragged = true;
+                
                 var left = subLeft + RenderTransform.Value.OffsetX;
                 if (totalLeft < _maxMoveLeft)
                 {
@@ -311,6 +342,7 @@ namespace HandyControl.Controls
                 {
                     left = _maxMoveRight + _mouseDownOffsetX;
                 }
+                
                 var t = new TranslateTransform(left, 0);
                 RenderTransform = t;
                 _dragPoint = p;
@@ -320,15 +352,21 @@ namespace HandyControl.Controls
         protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonUp(e);
+            
             ReleaseMouseCapture();
+            
             if (_isDragged)
             {
-                var subX = TranslatePoint(new Point(), TabControlParent).X + _scrollHorizontalOffset;
+                var parent = TabControlParent;
+                if (parent == null) return;
+
+                var subX = TranslatePoint(new Point(), parent).X + _scrollHorizontalOffset;
                 var index = CalLocationIndex(subX);
                 var left = index * ItemWidth;
                 var offsetX = RenderTransform.Value.OffsetX;
                 CreateAnimation(offsetX, offsetX - subX + left, index);
             }
+            
             _isDragging = false;
             ItemIsDragging = false;
             _isDragged = false;
@@ -339,29 +377,46 @@ namespace HandyControl.Controls
         /// </summary>
         internal void CreateAnimation(double offsetX, double resultX, int index = -1)
         {
+            var parent = TabControlParent;
+
             void AnimationCompleted()
             {
                 RenderTransform = new TranslateTransform(resultX, 0);
                 if (index == -1) return;
-                var parent = TabControlParent;
+
+                var list = parent.GetActuaList();
+                if (list == null) return;
+
+                var item = parent.ItemContainerGenerator.ItemFromContainer(this);
+                if (item == null) return;
+
                 TabPanel.CanUpdate = false;
                 parent.IsInternalAction = true;
-                parent.Items.Remove(this);
+
+                list.Remove(item);
                 parent.IsInternalAction = true;
-                parent.Items.Insert(index, this);
+                list.Insert(index, item);
                 TabPanel.CanUpdate = true;
                 TabPanel.ForceUpdate = true;
                 TabPanel.Measure(new Size(TabPanel.DesiredSize.Width, ActualHeight));
                 TabPanel.ForceUpdate = false;
+                
                 Focus();
                 IsSelected = true;
+
+                if (!IsMouseCaptured)
+                {
+                    parent.SetCurrentValue(Selector.SelectedIndexProperty, _currentIndex);
+                }
             }
+
             TargetOffsetX = resultX;
-            if (!TabControlParent.IsEnableAnimation)
+            if (!parent.IsEnableAnimation)
             {
                 AnimationCompleted();
                 return;
             }
+
             var animation = AnimationHelper.CreateAnimation(resultX, AnimationSpeed);
             animation.FillBehavior = FillBehavior.Stop;
             animation.Completed += (s1, e1) => AnimationCompleted();
