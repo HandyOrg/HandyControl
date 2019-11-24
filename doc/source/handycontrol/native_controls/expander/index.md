@@ -7,7 +7,7 @@ title: Expander 展开框
 Expander 展开框 默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
 
 {% note info no-icon %}
-
+用例：
 {% code %}
 <StackPanel Margin="32" VerticalAlignment="Center" Width="240">
     <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
