@@ -156,6 +156,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
+    <Compile Include="DrawerDemoCtl.xaml.cs">
+      <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\QQ\1.gif">
@@ -496,6 +499,9 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\View_Portrait_16x.png">
+      <Link>Resources\Img\LeftMainContent\View_Portrait_16x.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\TransitioningContentControl_16x.png">
       <Link>Resources\Img\LeftMainContent\TransitioningContentControl_16x.png</Link>
     </Resource>
@@ -579,6 +585,17 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Registry.txt">
       <Link>Resources\Registry.txt</Link>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Data\DemoInfo.json">
+      <Link>Data\DemoInfo.json</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="DrawerDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

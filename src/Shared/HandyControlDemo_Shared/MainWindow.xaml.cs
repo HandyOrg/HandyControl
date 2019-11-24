@@ -18,7 +18,6 @@ namespace HandyControlDemo
         {
             base.OnInitialized(e);
 
-            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
             Messenger.Default.Send(true, MessageToken.FullSwitch);
             Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.OverView}"), MessageToken.LoadShowContent);
         }

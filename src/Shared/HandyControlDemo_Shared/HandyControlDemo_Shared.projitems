@@ -21,6 +21,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\AvatarModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CoverViewDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoDataModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoInfoModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoItemModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\StepBarDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\TabControlDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainWindow.xaml.cs">
