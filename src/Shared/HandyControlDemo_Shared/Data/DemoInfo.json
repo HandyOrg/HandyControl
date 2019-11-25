@@ -34,7 +34,7 @@
   {
     "title": "Controls",
     "demoItemList": [
-      [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "1" ],
+      [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "" ],
       [ "ImageBlock", "ImageBlockDemoCtl", "ImageStack_16x", "" ],
       [ "Magnifier", "MagnifierDemoCtl", "Search_16x", "" ],
       [ "Gravatar", "GravatarDemoCtl", "User_16x", "" ],
@@ -69,8 +69,9 @@
       [ "CirclePanel", "CirclePanelDemoCtl", "ColorWheel_16x", "" ],
       [ "Grid", "GridDemoCtl", "GridPane_16x", "" ],
       [ "WaterfallPanel", "WaterfallPanelDemoCtl", "Panel_16x", "" ],
-      [ "HoneycombPanel", "HoneycombPanelDemoCtl", "PolygonHexagon_16x", "1" ],
+      [ "HoneycombPanel", "HoneycombPanelDemoCtl", "PolygonHexagon_16x", "" ],
       [ "TransitioningContentControl", "TransitioningContentControlDemoCtl", "TransitioningContentControl_16x", "" ],
+      [ "Drawer", "DrawerDemoCtl", "View_Portrait_16x", "1" ],
       [ "CoverView", "CoverViewDemoCtl", "DetailDataView_16x", "" ],
       [ "CoverFlow", "CoverFlowDemoCtl", "LinearCarousel_16x", "" ],
       [ "ProgressBar", "ProgressBarDemoCtl", "ProgressBar_16x", "" ],
@@ -99,7 +100,7 @@
     "title": "Tools",
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemoCtl", "DataGenerator_16x", "" ],
-      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "" ]
+      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "1" ]
     ]
   }
 ]

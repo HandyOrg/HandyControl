@@ -47,7 +47,7 @@ namespace HandyControl.Tools
                 return resource;
             }
 
-            return default;
+            return default(T);
         }
 
         /// <summary>

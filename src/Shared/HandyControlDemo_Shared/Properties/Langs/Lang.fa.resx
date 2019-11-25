@@ -687,4 +687,7 @@
   <data name="TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>
   </data>
+  <data name="Drawer" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
 </root>

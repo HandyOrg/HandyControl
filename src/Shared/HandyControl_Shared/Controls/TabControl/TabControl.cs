@@ -368,7 +368,7 @@ namespace HandyControl.Controls
                             HeaderPanel.ForceUpdate = true;
                             HeaderPanel.Measure(new Size(HeaderPanel.DesiredSize.Width, ActualHeight));
                             HeaderPanel.ForceUpdate = false;
-                            SetCurrentValue(SelectedIndexProperty, 0);
+                            SetCurrentValue(SelectedIndexProperty, ValueBoxes.Int0Box);
                         }
 
                         item.IsSelected = true;
