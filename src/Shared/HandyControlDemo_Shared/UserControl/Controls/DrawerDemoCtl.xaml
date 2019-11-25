@@ -21,7 +21,7 @@
                 <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2" Content="Right" IsChecked="{Binding IsOpen,ElementName=DrawerRight}"/>
                 <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Content="Bottom" IsChecked="{Binding IsOpen,ElementName=DrawerBottom}"/>
             </Grid>
-            <hc:Drawer Name="DrawerLeft" Dock="Left">
+            <hc:Drawer Name="DrawerLeft" Dock="Left" ShowMode="Push">
                 <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -33,7 +33,7 @@
                     </Grid>
                 </Border>
             </hc:Drawer>
-            <hc:Drawer Name="DrawerTop" Dock="Top">
+            <hc:Drawer Name="DrawerTop" Dock="Top" ShowMode="Press">
                 <Border Background="{DynamicResource RegionBrush}" Height="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                     <Grid>
                         <Grid.RowDefinitions>
@@ -45,8 +45,8 @@
                     </Grid>
                 </Border>
             </hc:Drawer>
-            <hc:Drawer Name="DrawerRight" ShowMask="False">
-                <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="1,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
+            <hc:Drawer Name="DrawerRight" MaskCanClose="False">
+                <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
@@ -57,8 +57,8 @@
                     </Grid>
                 </Border>
             </hc:Drawer>
-            <hc:Drawer Name="DrawerBottom" Dock="Bottom">
-                <Border Background="{DynamicResource RegionBrush}" Height="300" BorderBrush="{DynamicResource BorderBrush}">
+            <hc:Drawer Name="DrawerBottom" Dock="Bottom" ShowMask="False">
+                <Border Background="{DynamicResource RegionBrush}" Height="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
