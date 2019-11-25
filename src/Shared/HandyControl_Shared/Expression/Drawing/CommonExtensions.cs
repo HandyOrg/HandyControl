@@ -91,7 +91,7 @@ namespace HandyControl.Expression.Drawing
             {
                 for (var i = list.Count; i < count; i++)
                 {
-                    list.Add((factory == null) ? default : factory());
+                    list.Add((factory == null) ? default(T) : factory());
                 }
             }
             return true;

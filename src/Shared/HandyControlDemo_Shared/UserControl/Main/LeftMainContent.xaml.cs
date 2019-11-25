@@ -2,9 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Data;
-using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
 
@@ -19,13 +17,6 @@ namespace HandyControlDemo.UserControl
         public LeftMainContent()
         {
             InitializeComponent();
-
-            //Messenger.Default.Register<object>(this, MessageToken.ClearLeftSelected, obj =>
-            //{
-            //    ListBoxStyle.SelectedItem = null;
-            //    ListBoxControl.SelectedItem = null;
-            //    ListBoxTool.SelectedItem = null;
-            //});
         }
 
         private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -37,19 +28,6 @@ namespace HandyControlDemo.UserControl
                 demoInfo.SelectedIndex = -1;
                 demoInfo.SelectedIndex = selectedIndex;
             }
-
-            //if (e.OriginalSource is ItemsControl itemsControl)
-            //{
-            //    if (!(itemsControl.ItemContainerGenerator.ContainerFromItem(e.AddedItems[0]) is ContentControl container)) return;
-                
-            //    var selector = VisualHelper.GetChild<Selector>(container as DependencyObject);
-            //    if (selector.SelectedItem != null)
-            //    {
-            //        var item = selector.SelectedItem;
-            //        selector.SelectedIndex = -1;
-            //        selector.SelectedItem = item;
-            //    }
-            //}
         }
 
         private void ButtonAscending_OnClick(object sender, RoutedEventArgs e)

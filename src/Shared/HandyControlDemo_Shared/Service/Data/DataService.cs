@@ -350,7 +350,7 @@ namespace HandyControlDemo.Service
 
             var stream = Application.GetResourceStream(new Uri("Data/DemoInfo.json", UriKind.Relative))?.Stream;
             if (stream == null) return infoList;
-            
+
             string jsonStr;
             using (var reader = new StreamReader(stream))
             {
@@ -378,16 +378,16 @@ namespace HandyControlDemo.Service
 
             foreach (var item in list)
             {
-                var name = Properties.Langs.Lang.ResourceManager.GetString((string) item[0]);
+                var name = Properties.Langs.Lang.ResourceManager.GetString((string)item[0]);
                 string targetCtlName = item[1];
                 string imageName = item[2];
-                var isNew = !string.IsNullOrEmpty((string) item[3]);
+                var isNew = !string.IsNullOrEmpty((string)item[3]);
 
                 resultList.Add(new DemoItemModel
                 {
-                    Name = name, 
-                    TargetCtlName = targetCtlName, 
-                    ImageName = $"../../Resources/Img/LeftMainContent/{imageName}.png", 
+                    Name = name,
+                    TargetCtlName = targetCtlName,
+                    ImageName = $"../../Resources/Img/LeftMainContent/{imageName}.png",
                     IsNew = isNew
                 });
             }

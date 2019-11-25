@@ -55,6 +55,10 @@ namespace HandyControlDemo.ViewModel
             Messenger.Default.Register<object>(this, MessageToken.ClearLeftSelected, obj =>
             {
                 _demoItemCurrent = null;
+                foreach (var item in DemoInfoList)
+                {
+                    item.SelectedIndex = -1;
+                }
             });
 
             DataList = dataService.GetDemoDataList();
