@@ -16,10 +16,11 @@ namespace HandyControl.Tools.Converter
                     var arr = str.Split(',');
                     if (arr.Length != 4) return thickness;
 
-                    return new Thickness(arr[0].Equals("1") ? thickness.Left : 0,
+                    return new Thickness(
+                        arr[0].Equals("1") ? thickness.Left : 0,
                         arr[1].Equals("1") ? thickness.Top : 0,
-                        arr[1].Equals("1") ? thickness.Right : 0,
-                        arr[1].Equals("1") ? thickness.Bottom : 0);
+                        arr[2].Equals("1") ? thickness.Right : 0,
+                        arr[3].Equals("1") ? thickness.Bottom : 0);
                 }
             }
             return value;
