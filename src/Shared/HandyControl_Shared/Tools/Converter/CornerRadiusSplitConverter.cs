@@ -16,10 +16,11 @@ namespace HandyControl.Tools.Converter
                     var arr = str.Split(',');
                     if (arr.Length != 4) return cornerRadius;
 
-                    return new CornerRadius(arr[0].Equals("1") ? cornerRadius.TopLeft : 0,
+                    return new CornerRadius(
+                        arr[0].Equals("1") ? cornerRadius.TopLeft : 0,
                         arr[1].Equals("1") ? cornerRadius.TopRight : 0,
-                        arr[1].Equals("1") ? cornerRadius.BottomRight : 0,
-                        arr[1].Equals("1") ? cornerRadius.BottomLeft : 0);
+                        arr[2].Equals("1") ? cornerRadius.BottomRight : 0,
+                        arr[3].Equals("1") ? cornerRadius.BottomLeft : 0);
                 }
             }
             return value;
