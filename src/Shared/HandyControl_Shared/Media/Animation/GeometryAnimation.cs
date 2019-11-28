@@ -20,7 +20,7 @@ namespace HandyControl.Media.Animation
 
         public GeometryAnimation()
         {
-
+            System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         }
 
         public GeometryAnimation(string fromValue, string toValue) : this()

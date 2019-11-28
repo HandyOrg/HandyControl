@@ -40,11 +40,7 @@ namespace HandyControl.Media.Animation
 
         public GeometryAnimationUsingKeyFrames()
         {
-            var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Parent.Name;
-            if (!currentCulture.Equals("en", StringComparison.OrdinalIgnoreCase))
-            {
-                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
-            }
+            System.Threading.Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             _areKeyTimesValid = true;
         }
 
