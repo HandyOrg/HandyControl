@@ -38,7 +38,15 @@ namespace HandyControl.Media.Animation
         
         private bool _areKeyTimesValid;
 
-        public GeometryAnimationUsingKeyFrames() => _areKeyTimesValid = true;
+        public GeometryAnimationUsingKeyFrames()
+        {
+            var currentCulture = System.Threading.Thread.CurrentThread.CurrentCulture.Parent.Name;
+            if (!currentCulture.Equals("en", StringComparison.OrdinalIgnoreCase))
+            {
+                System.Threading.Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo("en-US");
+            }
+            _areKeyTimesValid = true;
+        }
 
         public new GeometryAnimationUsingKeyFrames Clone() => (GeometryAnimationUsingKeyFrames)base.Clone();
 
