@@ -12,7 +12,7 @@ title: WindowAttach 窗体专用
 
 # 使用案例
 
-对应`xaml`中添加`HandyControl`对应的命名空`xmlns:hc="https://handyorg.github.io/handycontrol"`
+## IsDragElement 是否允许当前元素可拖动窗体
 
 ```xml
 <hc:BlurWindow x:Class="类命名空间"
@@ -36,21 +36,19 @@ title: WindowAttach 窗体专用
 
 ![WindowAttach.IsDragElement](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/WindowAttach.IsDragElement.png)
 
-# IgnoreAltF4 是否忽略快捷键Alt和F4
+## IgnoreAltF4 是否忽略快捷键Alt和F4
 
-常用于自定义设定需要手动关闭当前激活状态的应用程序，如`HandyControl`中的`Notifycation`或者`NotifyIcon`控件，默认为False
+用于屏蔽窗口的 Alt+F4 关闭功能。
 
 ```xml
 <Setter Property="hc:WindowAttach.IgnoreAltF4" Value="True"/>
 ```
 
-## ShowInTaskManager 是否窗体显示到任务管理器中
-
-设定`Window`控件及其子类是否显示在任务管理器中
+## ShowInTaskManager 是否将窗体显示到任务管理器中
 
 使用前提：
 
-- 窗体的实例显示时，不使用`ShowDialog`
-- 同时设置`ShowInTaskBar`为`false`
+- 窗口必须为非模态窗口，即不能使用`ShowDialog`显示窗口。
+- 窗口必须同时设置`ShowInTaskBar`为`false`
 
 ps：该附加属性在`Windows7`中效果不是很明显
