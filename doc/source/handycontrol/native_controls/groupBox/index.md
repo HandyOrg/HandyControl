@@ -41,8 +41,6 @@ hc:TitleElement.TitleAlignment="Left"
 ![GroupBox_Base_left](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/GroupBox_Base_left.png)
 {% endnote %}
 
----
-
 # GroupBoxTab : GroupBoxTabBaseStyle : GroupBoxBaseStyle
 
 GroupBox 分组框 的另一种样式  GroupBoxTabBaseStyle 不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
@@ -63,9 +61,6 @@ GroupBox 分组框 的另一种样式  GroupBoxTabBaseStyle 不推荐直接使�
 
 ![GroupBox_Tab](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/GroupBox_Tab.png) ![GroupBox_Tab_left](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/GroupBox_Tab_left.png)
 {% endnote %}
-
-
----
 
 # GroupBoxOriginal : GroupBoxOriginalBaseStyle : GroupBoxBaseStyle
 
