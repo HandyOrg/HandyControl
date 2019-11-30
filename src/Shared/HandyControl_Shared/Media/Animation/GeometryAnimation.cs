@@ -4,8 +4,8 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using HandyControl.Tools;
-// ReSharper disable PossibleInvalidOperationException
 
+// ReSharper disable PossibleInvalidOperationException
 namespace HandyControl.Media.Animation
 {
     public class GeometryAnimation : GeometryAnimationBase
@@ -20,7 +20,7 @@ namespace HandyControl.Media.Animation
 
         public GeometryAnimation()
         {
-
+            
         }
 
         public GeometryAnimation(string fromValue, string toValue) : this()
