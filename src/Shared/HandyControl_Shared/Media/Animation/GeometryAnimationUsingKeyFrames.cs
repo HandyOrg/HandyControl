@@ -11,7 +11,6 @@ using System.Windows.Media.Animation;
 using HandyControl.Tools;
 
 // ReSharper disable PossibleInvalidOperationException
-
 namespace HandyControl.Media.Animation
 {
     [ContentProperty("KeyFrames")]
@@ -38,7 +37,10 @@ namespace HandyControl.Media.Animation
         
         private bool _areKeyTimesValid;
 
-        public GeometryAnimationUsingKeyFrames() => _areKeyTimesValid = true;
+        public GeometryAnimationUsingKeyFrames()
+        {
+            _areKeyTimesValid = true;
+        }
 
         public new GeometryAnimationUsingKeyFrames Clone() => (GeometryAnimationUsingKeyFrames)base.Clone();
 

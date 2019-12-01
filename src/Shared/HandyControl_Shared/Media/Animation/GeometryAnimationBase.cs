@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
@@ -6,6 +8,11 @@ namespace HandyControl.Media.Animation
 {
     public abstract class GeometryAnimationBase : AnimationTimeline
     {
+        protected GeometryAnimationBase()
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+        }
+
         public new GeometryAnimationBase Clone() => (GeometryAnimationBase)base.Clone();
 
         public sealed override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue, AnimationClock animationClock)
