@@ -636,6 +636,22 @@ namespace HandyControl.Controls
             }
             else if (ContextMenu != null)
             {
+                if (ContextMenu.Items.Count == 0) return;
+
+                ContextMenu.InvalidateProperty(StyleProperty);
+                foreach (var item in ContextMenu.Items)
+                {
+                    if (item is MenuItem menuItem)
+                    {
+                        menuItem.InvalidateProperty(StyleProperty);
+                    }
+                    else
+                    {
+                        var container = ContextMenu.ItemContainerGenerator.ContainerFromItem(item) as MenuItem;
+                        container?.InvalidateProperty(StyleProperty);
+                    }
+                }
+
                 ContextMenu.Placement = PlacementMode.Mouse;
                 ContextMenu.IsOpen = true;
 

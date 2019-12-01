@@ -910,10 +910,4 @@
     <Folder Include="$(MSBuildThisFileDirectory)Controls\Growl\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tools\Generator\" />
   </ItemGroup>
-  <ItemGroup>
-    <Page Update="E:\Work\GitHub\HandyControl\src\Shared\HandyControl_Shared\Themes\Styles\Base\SplitButtonBaseStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
 </Project>
