@@ -4,3 +4,7 @@
 [Bb]in/
 [Oo]bj/
 packages/
+build/*
+!build/build.cake
+!build/build.nuspec
+!build/build.ps1

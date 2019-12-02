@@ -304,7 +304,7 @@ namespace HandyControl.Controls
                 ItemIsDragging = true;
                 _isWaiting = true;
                 _dragPoint = e.GetPosition(parent);
-                _dragPoint = new Point(_dragPoint.X + +_scrollHorizontalOffset, _dragPoint.Y);
+                _dragPoint = new Point(_dragPoint.X + _scrollHorizontalOffset, _dragPoint.Y);
                 _mouseDownPoint = _dragPoint;
                 CaptureMouse();
             }
@@ -432,6 +432,11 @@ namespace HandyControl.Controls
         /// <returns></returns>
         private int CalLocationIndex(double left)
         {
+            if (_isWaiting)
+            {
+                return CurrentIndex;
+            } 
+            
             var maxIndex = TabControlParent.Items.Count - 1;
             var div = (int)(left / ItemWidth);
             var rest = left % ItemWidth;

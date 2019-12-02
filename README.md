@@ -49,7 +49,11 @@
 
 ## Special thanks to
 
+[![Visual Studio Community 2019](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/vs2019_logo.png)](https://visualstudio.microsoft.com/free-developer-offers/)
 [![JetBrains](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
+[![Cake](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/cake_logo.png)](https://cakebuild.net/)
+[![AppVeyor](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/appveyor_logo.png)](https://www.appveyor.com/)
+[![Gitter](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/gitter_logo.png)](https://gitter.im/)
 
 ## Usage
 
