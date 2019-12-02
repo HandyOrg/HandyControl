@@ -800,7 +800,7 @@ namespace HandyControl.Controls
             _timerClose?.Stop();
             var transform = new TranslateTransform();
             _gridMain.RenderTransform = transform;
-            var animation = AnimationHelper.CreateAnimation(MaxWidth);
+            var animation = AnimationHelper.CreateAnimation(ActualWidth);
             animation.Completed += (s, e) =>
             {
                 if (Parent is Panel panel)

@@ -3,24 +3,27 @@ using System.Windows.Controls;
 
 namespace HandyControl.Controls
 {
-    [TemplatePart(Name = ElementGrowPanel, Type = typeof(Panel))]
     internal class GrowlWindow : Window
     {
-        private const string ElementGrowPanel = "PART_GrowPanel";
-
         public Panel GrowlPanel { get; set; }
 
         public GrowlWindow()
         {
             WindowStyle = WindowStyle.None;
             AllowsTransparency = true;
-        }
 
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
+            GrowlPanel = new StackPanel
+            {
+                VerticalAlignment = VerticalAlignment.Top,
+                Margin = new Thickness(0, 10, 10, 10)
+            };
 
-            GrowlPanel = GetTemplateChild(ElementGrowPanel) as Panel;
+            Content = new ScrollViewer
+            {
+                VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
+                IsEnableInertia = true,
+                Content = GrowlPanel
+            };
         }
 
         public void Init()

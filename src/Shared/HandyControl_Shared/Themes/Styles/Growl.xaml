@@ -19,15 +19,6 @@
         <Setter Property="ShowActivated" Value="False"/>
         <Setter Property="ShowInTaskbar" Value="False"/>
         <Setter Property="Topmost" Value="True"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="controls:GrowlWindow">
-                    <controls:ScrollViewer VerticalScrollBarVisibility="Hidden" IsEnableInertia="True">
-                        <StackPanel Name="PART_GrowPanel" VerticalAlignment="Top" Margin="0,10,10,10"/>
-                    </controls:ScrollViewer>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     <Style TargetType="controls:Growl">
