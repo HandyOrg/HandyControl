@@ -3,11 +3,11 @@ using System.Windows.Controls;
 
 namespace HandyControl.Controls
 {
-    internal class GrowlWindow : Window
+    public sealed class GrowlWindow : Window
     {
-        public Panel GrowlPanel { get; set; }
+        internal Panel GrowlPanel { get; set; }
 
-        public GrowlWindow()
+        internal GrowlWindow()
         {
             WindowStyle = WindowStyle.None;
             AllowsTransparency = true;
@@ -26,7 +26,7 @@ namespace HandyControl.Controls
             };
         }
 
-        public void Init()
+        internal void Init()
         {
             var desktopWorkingArea = SystemParameters.WorkArea;
             Height = desktopWorkingArea.Height;
