@@ -434,6 +434,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void Init()
         {
+            if (_panelColor == null) return;
             UpdateStatus(SelectedBrush.Color);
             _panelColor.Children.Clear();
             foreach (var item in _colorPresetList)
