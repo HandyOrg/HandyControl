@@ -102,7 +102,15 @@ namespace HandyControl.Controls
         /// </summary>
         internal TabPanel TabPanel
         {
-            get => _tabPanel ??= TabControlParent.HeaderPanel;
+            get
+            {
+                if (_tabPanel == null && TabControlParent != null)
+                {
+                    _tabPanel = TabControlParent.HeaderPanel;
+                }
+
+                return _tabPanel;
+            }
             set => _tabPanel = value;
         }
 
