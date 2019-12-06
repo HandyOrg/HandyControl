@@ -163,6 +163,10 @@ namespace HandyControl.Controls
         {
             var dp = (DateTimePicker)d;
             dp._calendarWithClock.SelectedDateTime = (DateTime?)value;
+            if (dp._calendarWithClock.DisplayDateTime != dp._calendarWithClock.SelectedDateTime)
+            {
+                dp._calendarWithClock.DisplayDateTime = (DateTime)dp._calendarWithClock.SelectedDateTime;
+            }
             return dp._calendarWithClock.SelectedDateTime;
         }
 
