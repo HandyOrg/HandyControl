@@ -91,8 +91,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverViewContent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverViewItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Grid\Col.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Grid\Row.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\Grid\Col.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\Grid\Row.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\GifImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageViewer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\ComboBox.cs" />
