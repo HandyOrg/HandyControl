@@ -1,6 +1,6 @@
 ![logo](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/icon.png)
 
-![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg) ![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl) [![build-status](https://ci.appveyor.com/api/projects/status/github/handyorg/handycontrol?svg=true)](https://ci.appveyor.com/project/handyorg/handycontrol) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![wiki](https://img.shields.io/badge/wiki-Complete-brightgreen.svg)](https://github.com/ghost1372/HandyControl/wiki) [![Nuget](https://img.shields.io/nuget/dt/handycontrol)](https://www.nuget.org/packages/HandyControl)
+[![Financial Contributors on Open Collective](https://opencollective.com/HandyControl/all/badge.svg?label=financial+contributors)](https://opencollective.com/HandyControl) ![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg) ![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl) [![build-status](https://ci.appveyor.com/api/projects/status/github/handyorg/handycontrol?svg=true)](https://ci.appveyor.com/project/handyorg/handycontrol) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![wiki](https://img.shields.io/badge/wiki-Complete-brightgreen.svg)](https://github.com/ghost1372/HandyControl/wiki) [![Nuget](https://img.shields.io/nuget/dt/handycontrol)](https://www.nuget.org/packages/HandyControl)
 
 # Welcome to HandyControl
 
@@ -432,3 +432,33 @@ Step 4：enjoy coding
 ## Switching configuration
 
 ![Switching configuration](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/SwitchConfig.png)
+
+## Contributors
+
+### Code Contributors
+
+This project exists thanks to all the people who contribute. [[Contribute](CONTRIBUTING.md)].
+<a href="https://github.com/HandyOrg/HandyControl/graphs/contributors"><img src="https://opencollective.com/HandyControl/contributors.svg?width=890&button=false" /></a>
+
+### Financial Contributors
+
+Become a financial contributor and help us sustain our community. [[Contribute](https://opencollective.com/HandyControl/contribute)]
+
+#### Individuals
+
+<a href="https://opencollective.com/HandyControl"><img src="https://opencollective.com/HandyControl/individuals.svg?width=890"></a>
+
+#### Organizations
+
+Support this project with your organization. Your logo will show up here with a link to your website. [[Contribute](https://opencollective.com/HandyControl/contribute)]
+
+<a href="https://opencollective.com/HandyControl/organization/0/website"><img src="https://opencollective.com/HandyControl/organization/0/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/1/website"><img src="https://opencollective.com/HandyControl/organization/1/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/2/website"><img src="https://opencollective.com/HandyControl/organization/2/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/3/website"><img src="https://opencollective.com/HandyControl/organization/3/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/4/website"><img src="https://opencollective.com/HandyControl/organization/4/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/5/website"><img src="https://opencollective.com/HandyControl/organization/5/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/6/website"><img src="https://opencollective.com/HandyControl/organization/6/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/7/website"><img src="https://opencollective.com/HandyControl/organization/7/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/8/website"><img src="https://opencollective.com/HandyControl/organization/8/avatar.svg"></a>
+<a href="https://opencollective.com/HandyControl/organization/9/website"><img src="https://opencollective.com/HandyControl/organization/9/avatar.svg"></a>
