@@ -5,12 +5,12 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemo</AssemblyName>
     <RootNamespace>HandyControlDemo</RootNamespace>
-    <Version>2.3.0</Version>
+    <Version>2.4.0</Version>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
     <Configurations>Debug;Release</Configurations>
     <Copyright>Copyright © HandyOrg 2018-2019</Copyright>
-    <FileVersion>2.3.0.0</FileVersion>
-    <AssemblyVersion>2.3.0.0</AssemblyVersion>
+    <FileVersion>2.4.0.0</FileVersion>
+    <AssemblyVersion>2.4.0.0</AssemblyVersion>
     <LangVersion>8.0</LangVersion>
     <Authors>HandyOrg</Authors>
   </PropertyGroup>
@@ -447,6 +447,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\View_Portrait_16x.png">
       <Link>Resources\Img\LeftMainContent\View_Portrait_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\TransformRelative_16x.png">
+      <Link>Resources\Img\LeftMainContent\TransformRelative_16x.png</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>
