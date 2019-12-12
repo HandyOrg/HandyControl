@@ -690,4 +690,7 @@
   <data name="Drawer" xml:space="preserve">
     <value>Drawer</value>
   </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>مستندات</value>
+  </data>
 </root>

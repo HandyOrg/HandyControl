@@ -690,4 +690,7 @@
   <data name="Drawer" xml:space="preserve">
     <value>抽屉</value>
   </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>文献资料</value>
+  </data>
 </root>
