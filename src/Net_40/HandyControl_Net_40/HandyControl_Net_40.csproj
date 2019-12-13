@@ -108,6 +108,9 @@
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\dropper.cur">
       <Link>Resources\dropper.cur</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ColorComplementEffect.ps">
+      <Link>Resources\Effects\ColorComplementEffect.ps</Link>
+    </Resource>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
