@@ -690,4 +690,7 @@
   <data name="Drawer" xml:space="preserve">
     <value>抽屉</value>
   </data>
+  <data name="Effects" xml:space="preserve">
+    <value>效果</value>
+  </data>
 </root>
