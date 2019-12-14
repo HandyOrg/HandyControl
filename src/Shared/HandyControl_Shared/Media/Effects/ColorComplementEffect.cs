@@ -22,6 +22,7 @@ namespace HandyControl.Media.Effects
         public ColorComplementEffect()
         {
             PixelShader = Shader;
+
             UpdateShaderValue(InputProperty);
         }
 

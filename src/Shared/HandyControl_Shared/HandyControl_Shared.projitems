@@ -59,6 +59,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\ResolvedKeyFrameEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\SplineGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorComplementEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />

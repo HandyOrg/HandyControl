@@ -101,7 +101,8 @@
     "title": "Tools",
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemoCtl", "DataGenerator_16x", "" ],
-      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "1" ]
+      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "" ],
+      [ "Effects", "EffectsDemoCtl", "Effects_16x", "1" ]
     ]
   }
 ]
