@@ -39,11 +39,13 @@ namespace HandyControl.Controls
         private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (GifImage) d;
+            ctl.StopAnimate();
 
             if (e.NewValue != null)
             {
                 var v = (Uri)e.NewValue;
-                ctl.Source = new BitmapImage(v);
+                ctl.GetGifStreamFromPack(v);
+                ctl.StartAnimate();
             }
             else
             {
