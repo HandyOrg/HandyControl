@@ -120,6 +120,7 @@ var messageList = new List<string>
 	"OverView",
 	"ProjectsView",
 	"BlogsView",
+	"WebsitesView",
 	"NotifyIconDemo",
 	"NotifyIconContextDemo"
 };

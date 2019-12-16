@@ -1780,6 +1780,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 网站 的本地化字符串。
+        /// </summary>
+        public static string Website {
+            get {
+                return ResourceManager.GetString("Website", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 窗口 的本地化字符串。
         /// </summary>
         public static string Window {

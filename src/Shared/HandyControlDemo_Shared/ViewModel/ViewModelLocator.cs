@@ -25,6 +25,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetContributorDataList), "Contributors");
             SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetBlogDataList), "Blogs");
             SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetProjectDataList), "Projects");
+            SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetWebsiteDataList), "Websites");
             SimpleIoc.Default.Register<StepBarDemoViewModel>();
             SimpleIoc.Default.Register<PaginationDemoViewModel>();
             SimpleIoc.Default.Register<ChatBoxViewModel>();
@@ -65,6 +66,8 @@ namespace HandyControlDemo.ViewModel
         public ItemsDisplayViewModel BlogsView => ServiceLocator.Current.GetInstance<ItemsDisplayViewModel>("Blogs");
 
         public ItemsDisplayViewModel ProjectsView => ServiceLocator.Current.GetInstance<ItemsDisplayViewModel>("Projects");
+
+        public ItemsDisplayViewModel WebsitesView => ServiceLocator.Current.GetInstance<ItemsDisplayViewModel>("Websites");
 
         public StepBarDemoViewModel StepBarDemo => ServiceLocator.Current.GetInstance<StepBarDemoViewModel>();
 
