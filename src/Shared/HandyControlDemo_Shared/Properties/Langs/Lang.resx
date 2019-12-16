@@ -693,4 +693,10 @@
   <data name="Documentation" xml:space="preserve">
     <value>文献资料</value>
   </data>
+  <data name="Effects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>网站</value>
+  </data>
 </root>

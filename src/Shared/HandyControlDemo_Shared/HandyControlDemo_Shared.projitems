@@ -266,6 +266,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\UnderConstruction.xaml.cs">
       <DependentUpon>UnderConstruction.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\WebsitesView.xaml.cs">
+      <DependentUpon>WebsitesView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\BorderDemoCtl.xaml.cs">
       <DependentUpon>BorderDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -346,6 +349,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemoCtl.xaml.cs">
       <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\EffectsDemoCtl.xaml.cs">
+      <DependentUpon>EffectsDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\GeometryAnimationDemoCtl.xaml.cs">
       <DependentUpon>GeometryAnimationDemoCtl.xaml</DependentUpon>
@@ -755,6 +761,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\WebsitesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\BorderDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -860,6 +870,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Tools\EffectsDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -89,6 +89,11 @@
                         <Path Data="{StaticResource BlogGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem Header="{x:Static langs:Lang.Website}" Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.WebsitesView}" >
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource WebsiteGeometry}" Fill="{DynamicResource WarningBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
     </StackPanel>

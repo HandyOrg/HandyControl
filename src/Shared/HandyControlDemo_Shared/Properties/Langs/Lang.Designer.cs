@@ -530,6 +530,16 @@ namespace HandyControlDemo.Properties.Langs {
         
         /// <summary>
         ///   Looks up a localized string similar to 邮箱.
+        ///   查找类似 效果 的本地化字符串。
+        /// </summary>
+        public static string Effects {
+            get {
+                return ResourceManager.GetString("Effects", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 邮箱 的本地化字符串。
         /// </summary>
         public static string Email {
             get {
@@ -1781,6 +1791,16 @@ namespace HandyControlDemo.Properties.Langs {
         
         /// <summary>
         ///   Looks up a localized string similar to 窗口.
+        ///   查找类似 网站 的本地化字符串。
+        /// </summary>
+        public static string Website {
+            get {
+                return ResourceManager.GetString("Website", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 窗口 的本地化字符串。
         /// </summary>
         public static string Window {
             get {
