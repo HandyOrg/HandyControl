@@ -475,6 +475,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 示例 的本地化字符串。
+        /// </summary>
+        public static string Demo {
+            get {
+                return ResourceManager.GetString("Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 对话框 的本地化字符串。
         /// </summary>
         public static string Dialog {
@@ -498,6 +507,33 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Divider {
             get {
                 return ResourceManager.GetString("Divider", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 中文文档 的本地化字符串。
+        /// </summary>
+        public static string Doc_cn {
+            get {
+                return ResourceManager.GetString("Doc_cn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 英文文档 的本地化字符串。
+        /// </summary>
+        public static string Doc_en {
+            get {
+                return ResourceManager.GetString("Doc_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文献资料 的本地化字符串。
+        /// </summary>
+        public static string Documentation {
+            get {
+                return ResourceManager.GetString("Documentation", resourceCulture);
             }
         }
         
@@ -1758,6 +1794,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Visibility {
             get {
                 return ResourceManager.GetString("Visibility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 VS 插件 的本地化字符串。
+        /// </summary>
+        public static string Vsix {
+            get {
+                return ResourceManager.GetString("Vsix", resourceCulture);
             }
         }
         
