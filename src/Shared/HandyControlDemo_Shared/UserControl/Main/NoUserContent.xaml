@@ -23,26 +23,9 @@
                         <Path Data="{StaticResource NugetGeometry}" Fill="#30a5dd"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019" Header="MarketPlace">
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019" Header="{x:Static langs:Lang.Vsix}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource VisualStudioGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-            </MenuItem>
-            <MenuItem Height="29" Header="{x:Static langs:Lang.Documentation}">
-                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://github.com/ghost1372/HandyControl/wiki/Documentation" Header="Wiki">
-                    <MenuItem.Icon>
-                        <Path Data="{StaticResource GithubGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://ghost1372.github.io" Header="English Full Detail Documentation">
-                    <MenuItem.Icon>
-                        <Path Data="{StaticResource LogoGeometry}" Fill="#ef6c00"/>
-                    </MenuItem.Icon>
-                </MenuItem>
-                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://handyorg.github.io" Header="Chinese Full Detail Documentation">
-                    <MenuItem.Icon>
-                        <Path Data="{StaticResource LogoGeometry}" Fill="#ef6c00"/>
                     </MenuItem.Icon>
                 </MenuItem>
             </MenuItem>
@@ -71,6 +54,36 @@
                     <MenuItem.Icon>
                         <Path Data="{StaticResource CnblogsGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
                     </MenuItem.Icon>
+                </MenuItem>
+                <MenuItem Header="{x:Static langs:Lang.Demo}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource CodeGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                    </MenuItem.Icon>
+                    <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://github.com/AFei19911012/HandyControl" Header="AFei19911012 / HandyControl">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource CodeGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static langs:Lang.Documentation}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource DocGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
+                    </MenuItem.Icon>
+                    <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://github.com/ghost1372/HandyControl/wiki/Documentation" Header="Wiki">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource WikiGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://ghost1372.github.io" Header="{x:Static langs:Lang.Doc_en}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource LogoGeometry}" Fill="#ef6c00"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://handyorg.github.io" Header="{x:Static langs:Lang.Doc_cn}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource LogoGeometry}" Fill="#ef6c00"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
                 </MenuItem>
                 <MenuItem Header="{x:Static langs:Lang.About}" Click="MenuAbout_OnClick">
                     <MenuItem.Icon>
