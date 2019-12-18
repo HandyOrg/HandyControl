@@ -622,6 +622,11 @@ namespace HandyControl.Controls
 
                     if (SelectedDateTime != null)
                     {
+                        if (SelectedDateTime != DisplayDateTime)
+                        {
+                            SetCurrentValue(DisplayDateTimeProperty, SelectedDateTime);
+                        }
+
                         var selectedTime = DateTimeToString(SelectedDateTime.Value);
 
                         if (string.Compare(selectedTime, s, StringComparison.Ordinal) == 0)

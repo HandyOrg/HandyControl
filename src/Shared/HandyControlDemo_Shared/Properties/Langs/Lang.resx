@@ -690,4 +690,25 @@
   <data name="Drawer" xml:space="preserve">
     <value>抽屉</value>
   </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>文献资料</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>VS 插件</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>英文文档</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>中文文档</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>示例</value>
+  </data>
 </root>
