@@ -909,7 +909,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Controls\Growl\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Tools\Generator\" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorComplementEffect.fx" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\GrayScaleEffect.fx" />
   </ItemGroup>
 </Project>
