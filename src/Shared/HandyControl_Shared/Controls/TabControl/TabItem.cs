@@ -208,7 +208,7 @@ namespace HandyControl.Controls
                 menu.SetBinding(VisibilityProperty, new Binding(ShowContextMenuProperty.Name)
                 {
                     Source = this,
-                    Converter = ResourceHelper.GetResource<IValueConverter>("Boolean2VisibilityConverter")
+                    Converter = ResourceHelper.GetResource<IValueConverter>(ResourceToken.Boolean2VisibilityConverter)
                 });
             }
         }
