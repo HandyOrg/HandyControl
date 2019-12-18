@@ -192,6 +192,8 @@
 
         public const string Double2GridLengthConverter = nameof(Double2GridLengthConverter);
 
+        public const string DoubleMinConverter = nameof(DoubleMinConverter);
+
         #endregion
 
         #region Effect

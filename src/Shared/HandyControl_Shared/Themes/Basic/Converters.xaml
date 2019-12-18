@@ -24,4 +24,5 @@
     <converter:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter"/>
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter"/>
     <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter" />
+    <converter:DoubleMinConverter x:Key="DoubleMinConverter" />
 </ResourceDictionary>

@@ -227,7 +227,7 @@ namespace HandyControl.Controls
                 if (_passwordChar != default(char))
                 {
                     ActualPasswordBox.PasswordChar = _passwordChar;
-                    _passwordChar = default(char);
+                    _passwordChar = default;
                 }
             }
 
