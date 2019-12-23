@@ -185,6 +185,19 @@ namespace HandyControlDemo.Service
             };
         }
 
+        internal List<AvatarModel> GetWebsiteDataList()
+        {
+            return new List<AvatarModel>
+            {
+                new AvatarModel
+                {
+                    DisplayName = "Dotnet9",
+                    AvatarUri = "https://pic.cnblogs.com/avatar/1663243/20191124121029.png",
+                    Link = "https://dotnet9.com/"
+                }
+            };
+        }
+
         internal ObservableCollection<CardModel> GetCardDataList()
         {
             return new ObservableCollection<CardModel>

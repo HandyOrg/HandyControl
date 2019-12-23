@@ -40,7 +40,7 @@
       [ "Gravatar", "GravatarDemoCtl", "User_16x", "" ],
       [ "Badge", "BadgeDemoCtl", "DotLarge_16x", "" ],
       [ "GotoTop", "GotoTopDemoCtl", "GoToTop_16x", "" ],
-      [ "SplitButton", "SplitButtonDemoCtl", "SplitButton_16x", "1" ],
+      [ "SplitButton", "SplitButtonDemoCtl", "SplitButton_16x", "" ],
       [ "ButtonGroup", "ButtonGroupDemoCtl", "ButtonGroup_16x", "" ],
       [ "ProgressButton", "ProgressButtonDemoCtl", "ProgressButton_16x", "" ],
       [ "ChatBubble", "ChatBubbleDemoCtl", "Bubble_16xLG", "" ],
@@ -68,6 +68,7 @@
       [ "Divider", "DividerDemoCtl", "DottedSplitter_16x", "1" ],
       [ "CirclePanel", "CirclePanelDemoCtl", "ColorWheel_16x", "" ],
       [ "Grid", "GridDemoCtl", "GridPane_16x", "" ],
+      [ "RelativePanel", "RelativePanelDemoCtl", "TransformRelative_16x", "1" ],
       [ "WaterfallPanel", "WaterfallPanelDemoCtl", "Panel_16x", "" ],
       [ "HoneycombPanel", "HoneycombPanelDemoCtl", "PolygonHexagon_16x", "" ],
       [ "TransitioningContentControl", "TransitioningContentControlDemoCtl", "TransitioningContentControl_16x", "" ],
@@ -100,7 +101,8 @@
     "title": "Tools",
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemoCtl", "DataGenerator_16x", "" ],
-      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "1" ]
+      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "" ],
+      [ "Effects", "EffectsDemoCtl", "Effects_16x", "1" ]
     ]
   }
 ]

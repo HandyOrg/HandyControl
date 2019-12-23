@@ -78,5 +78,14 @@ namespace HandyControl.Controls
             get => (Thickness)GetValue(BadgeMarginProperty);
             set => SetValue(BadgeMarginProperty, value);
         }
+
+        public static readonly DependencyProperty ShowBadgeProperty = DependencyProperty.Register(
+            "ShowBadge", typeof(bool), typeof(Badge), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool ShowBadge
+        {
+            get => (bool) GetValue(ShowBadgeProperty);
+            set => SetValue(ShowBadgeProperty, value);
+        }
     }
 }

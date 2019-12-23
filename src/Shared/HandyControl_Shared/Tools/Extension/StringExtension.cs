@@ -13,7 +13,7 @@ namespace HandyControl.Tools.Extension
             }
             catch
             {
-                return default(T);
+                return default;
             }
         }
 

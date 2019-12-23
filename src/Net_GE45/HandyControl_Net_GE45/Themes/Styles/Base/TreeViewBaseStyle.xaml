@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
         <ResourceDictionary Source="BaseStyle.xaml"/>
         <ResourceDictionary Source="ScrollViewerBaseStyle.xaml"/>
@@ -47,7 +48,7 @@
                 <ControlTemplate TargetType="TreeViewItem">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition MinHeight="32"/>
+                            <RowDefinition MinHeight="{StaticResource DefaultControlHeight}"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
                         <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">

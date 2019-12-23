@@ -19,15 +19,6 @@
         <Setter Property="ShowActivated" Value="False"/>
         <Setter Property="ShowInTaskbar" Value="False"/>
         <Setter Property="Topmost" Value="True"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="controls:GrowlWindow">
-                    <controls:ScrollViewer VerticalScrollBarVisibility="Hidden" IsEnableInertia="True">
-                        <StackPanel Name="PART_GrowPanel" VerticalAlignment="Top" Margin="0,10,10,10"/>
-                    </controls:ScrollViewer>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     <Style TargetType="controls:Growl">
@@ -56,7 +47,7 @@
                             <RowDefinition/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <Border Grid.ColumnSpan="3" Grid.RowSpan="2" Effect="{StaticResource EffectShadow2}" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Width="320"/>
+                        <Border Grid.ColumnSpan="3" Grid.RowSpan="2" Effect="{StaticResource EffectShadow2}" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
                         <Path Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="0,15,0,0" Width="30" Height="30" Data="{TemplateBinding Icon}" Stretch="Uniform" Fill="{TemplateBinding IconBrush}"/>
                         <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0,10,10,10">
                             <TextBlock Text="{TemplateBinding Message}" Style="{StaticResource TextBlockDefault}" HorizontalAlignment="Left" TextWrapping="Wrap"/>
@@ -65,14 +56,14 @@
                         <Button Grid.Row="0" Visibility="Collapsed" Margin="11,0" Name="PART_ButtonClose" Command="interactivity:ControlCommands.Close" Grid.Column="2" Background="Transparent" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="18" Height="18">
                             <Path Data="{StaticResource ErrorGeometry}" Stretch="Uniform" Fill="{DynamicResource SecondaryTextBrush}"/>
                         </Button>
-                        <StackPanel Name="PART_PanelMore" IsEnabled="False" Visibility="Collapsed" Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="3" Height="28" Grid.Column="0">
-                            <Button Command="interactivity:ControlCommands.Cancel" Style="{StaticResource ButtonCustom}" Width="160">
+                        <UniformGrid Columns="2" Name="PART_PanelMore" IsEnabled="False" Visibility="Collapsed" Grid.Row="1" Grid.ColumnSpan="3" Height="28" Grid.Column="0">
+                            <Button Command="interactivity:ControlCommands.Cancel" Style="{StaticResource ButtonCustom}" HorizontalAlignment="Stretch" Background="Transparent">
                                 <TextBlock Text="{Binding CancelStr,RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Center" Foreground="{DynamicResource DangerBrush}"/>
                             </Button>
-                            <Button Command="interactivity:ControlCommands.Confirm" Style="{StaticResource ButtonCustom}" Width="160">
+                            <Button Command="interactivity:ControlCommands.Confirm" Style="{StaticResource ButtonCustom}" HorizontalAlignment="Stretch" Background="Transparent">
                                 <TextBlock Text="{Binding ConfirmStr,RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Center" Foreground="{DynamicResource PrimaryBrush}"/>
                             </Button>
-                        </StackPanel>
+                        </UniformGrid>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

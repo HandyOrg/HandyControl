@@ -23,10 +23,10 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Width="1*" Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
                         <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{x:Static langs:Lang.Selected}"/>
                         <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{x:Static langs:Lang.Type}"/>
-                        <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
+                        <DataGridTextColumn Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
@@ -40,10 +40,10 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Width="1*" Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
                         <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{x:Static langs:Lang.Selected}"/>
                         <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{x:Static langs:Lang.Type}"/>
-                        <DataGridTextColumn Width="1*" Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
+                        <DataGridTextColumn Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
