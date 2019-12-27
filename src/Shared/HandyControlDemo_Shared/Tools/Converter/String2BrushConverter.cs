@@ -10,7 +10,7 @@ namespace HandyControlDemo.Tools.Converter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return value is string str ? ResourceHelper.GetResource<Brush>(str) : default(Brush);
+            return value is string str ? ResourceHelper.GetResource<Brush>(str) : default;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

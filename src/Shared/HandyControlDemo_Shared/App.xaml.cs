@@ -15,9 +15,10 @@ namespace HandyControlDemo
 {
     public partial class App
     {
-        // ReSharper disable once NotAccessedField.Local
-        [SuppressMessage("代码质量", "IDE0052:删除未读的私有成员", Justification = "<挂起>")]
+#pragma warning disable IDE0052
+        [SuppressMessage("ReSharper", "NotAccessedField.Local")] 
         private static Mutex AppMutex;
+#pragma warning restore IDE0052
 
         protected override void OnStartup(StartupEventArgs e)
         {
