@@ -76,7 +76,7 @@
                 <RowDefinition MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}"/>
             </Grid.RowDefinitions>
             <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-                <TextBlock Foreground="{DynamicResource PrimaryTextBrush}" Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
             <Border x:Name="border" Grid.Row="1" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"/>
@@ -105,7 +105,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackPanel Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-                <TextBlock Foreground="{DynamicResource PrimaryTextBrush}" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
             <Border x:Name="border" Grid.Column="1" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True"/>
@@ -157,7 +157,7 @@
             </Grid.RowDefinitions>
             <TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1"/>
             <StackPanel Grid.Row="0" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-                <TextBlock Foreground="{DynamicResource PrimaryTextBrush}" Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
             <Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
@@ -217,7 +217,7 @@
             </Grid.ColumnDefinitions>
             <TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1"/>
             <StackPanel Grid.Column="0" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-                <TextBlock Foreground="{DynamicResource PrimaryTextBrush}" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
+                <TextBlock Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
             </StackPanel>
             <Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
