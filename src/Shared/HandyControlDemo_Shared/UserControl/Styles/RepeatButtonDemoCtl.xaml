@@ -5,7 +5,7 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:ScrollViewer IsEnableInertia="True">
+        <hc:ScrollViewer IsInertiaEnabled="True">
             <StackPanel Margin="32">
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>

@@ -35,7 +35,7 @@ namespace HandyControl.Controls
             {
                 _scrollViewer.ScrollChanged += ScrollViewer_ScrollChanged;
 
-                if (_scrollViewer is ScrollViewer scrollViewerHandy && Animated && scrollViewerHandy.IsEnableInertia)
+                if (_scrollViewer is ScrollViewer scrollViewerHandy && Animated && scrollViewerHandy.IsInertiaEnabled)
                 {
                     _gotoTopAction = () => scrollViewerHandy.ScrollToTopInternal(AnimationTime);
                 }

@@ -21,7 +21,7 @@ namespace HandyControl.Controls
             Content = new ScrollViewer
             {
                 VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
-                IsEnableInertia = true,
+                IsInertiaEnabled = true,
                 Content = GrowlPanel
             };
         }

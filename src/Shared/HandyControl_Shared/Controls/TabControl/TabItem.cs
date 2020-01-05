@@ -278,7 +278,7 @@ namespace HandyControl.Controls
             RaiseEvent(argsClosing);
             if (argsClosing.Cancel) return;
 
-            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, parent.IsEnableAnimation
+            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, parent.IsAnimationEnabled
                     ? new Duration(TimeSpan.FromMilliseconds(200))
                     : new Duration(TimeSpan.FromMilliseconds(1)));
             
@@ -419,7 +419,7 @@ namespace HandyControl.Controls
             }
 
             TargetOffsetX = resultX;
-            if (!parent.IsEnableAnimation)
+            if (!parent.IsAnimationEnabled)
             {
                 AnimationCompleted();
                 return;
