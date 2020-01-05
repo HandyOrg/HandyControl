@@ -2,11 +2,11 @@
 title: ListView 列表视图
 ---
 
-`HandyControl`中仅仅提供了一个默认的`ListView`的资源样式，可根据个人需求，自行定义
+`HandyControl`中仅提供了一个默认的`ListView`样式，可根据个人需求，自行定义。
 
-# 案例
-
-```
+{% note info no-icon %}
+用例：
+{% code %}
     <ListView ItemsSource="{Binding DataList}" Margin="20">
         <ListView.View>
             <GridView>
@@ -16,8 +16,8 @@ title: ListView 列表视图
             </GridView>
         </ListView.View>
     </ListView>
-```
-
-
+{% endcode %}
 
 ![ListView.DefaultStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ListView.DefaultStyle.png)
+
+{% endnote %}

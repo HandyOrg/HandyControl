@@ -4,29 +4,29 @@ title: PasswordBox 密码框
 
 # PasswordBoxBaseStyle
 
-控件默认样式，该样式不建议直接使用，而是选择继承的方式进行个人控件样式的处理，参考在线资源[PasswordBoxBaseStyle](https://github.com/HandyOrg/HandyControl/blob/master/src/Shared/HandyControl_Shared/Themes/Styles/Base/PasswordBoxBaseStyle.xaml)
+原生密码框默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
 
-```
-<Style BasedOn="{StaticResource PasswordBoxBaseStyle}" TargetType="PasswordBox"/>
-```
-
-使用
-
-```
-    <PasswordBox PasswordChar="*"
-                 VerticalAlignment="Center"
-                 Width="120"></PasswordBox>
-```
-
-效果
+{% note info no-icon %}
+用例：
+{% code %}
+    <PasswordBox PasswordChar="*" VerticalAlignment="Center" Width="120"></PasswordBox>
+{% endcode %}
 
 ![PasswordBox.BaseStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/PasswordBox.BaseStyle.png)
 
-# PasswordBoxExtendBaseStyle
+{% endnote %}
 
-控件拓展基础样式，是样式`PasswordBoxExtend`的基本样式，不建议直接使用，而是选择使用`PasswordBoxExtend`，该样式支持添加`PasswordBox`专用附加属性`PasswordBoxAttach`、额外信息元素`InfoElement`和标题元素`TitleElement`
+# PasswordBoxExtendBaseStyle : PasswordBoxBaseStyle
 
-```
+原生密码框扩展默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
+
+# PasswordBoxExtend : PasswordBoxExtendBaseStyle
+
+相对于原生密码框默认样式，它借助于附加属性可以实现标题、水印的功能。
+
+{% note info no-icon %}
+用例：
+{% code %}
     <!--为使普通密码输入文本框显示水印,需要设定PasswordBoxAttach.PasswordLength="0"-->
     <PasswordBox Style="{DynamicResource PasswordBoxExtend}" PasswordChar="*" 
                  hc:PasswordBoxAttach.PasswordLength="0"
@@ -38,9 +38,8 @@ title: PasswordBox 密码框
                  hc:TitleElement.TitleAlignment="Top"
                  VerticalAlignment="Center"
                  Width="120"></PasswordBox>
-```
-
-效果
+{% endcode %}
 
 ![PasswordBox.ExtendStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/PasswordBox.ExtendStyle.png)
 
+{% endnote %}

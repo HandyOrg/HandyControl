@@ -4,7 +4,7 @@ title: Lable标签
 
 # LabelBaseStyle
 
-Label标签 默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
+Label标签默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
 
 {% note info no-icon %}
 用例：

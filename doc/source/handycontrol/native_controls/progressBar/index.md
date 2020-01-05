@@ -4,30 +4,25 @@ title: ProgressBar 进度条
 
 # ProgressBarBaseStyle
 
-`HandyControl`中自带的默认样式，不建议直接使用而是选择继承的方式，案例如下：
-
-```
-<Style BasedOn="{StaticResource ProgressBarBaseStyle}" TargetType="ProgressBar">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
-</Style>
-```
+进度条默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
 
 # 其他样式
 
 `HandyControl`中自带的其他样式和效果，其中包含如下样式：
 
-| 样式Key            | 用途 |
-| ------------------ | ---- |
-| ProgressBarSuccess | 成功色进度条 |
-| ProgressBarInfo | 提示色进度条 |
-| ProgressBarWarning | 警告色进度条 |
-| ProgressBarDanger | 危险色进度条 |
-| ProgressBarPrimaryStripe | 主题色条纹进度条 |
-| ProgressBarSuccessStripe | 成功色条纹进度条 |
-| ProgressBarInfoStripe | 信息色条纹进度条 |
-| ProgressBarWarningStripe | 警告色条纹进度条 |
-| ProgressBarDangerStripe | 危险色条纹进度条 |
-| ProgressBarFlat | 扁平风格 |
+| 样式Key            | 用途 |父样式|
+| ------------------ | ---- ||
+| ProgressBarSuccess | 成功色进度条 |ProgressBarBaseStyle|
+| ProgressBarInfo | 提示色进度条 |ProgressBarBaseStyle|
+| ProgressBarWarning | 警告色进度条 |ProgressBarBaseStyle|
+| ProgressBarDanger | 危险色进度条 |ProgressBarBaseStyle|
+| ProgressBarStripeBaseStyle | 条纹进度条默认样式（不推荐直接使用） |-|
+| ProgressBarPrimaryStripe | 主题色条纹进度条 |ProgressBarStripeBaseStyle|
+| ProgressBarSuccessStripe | 成功色条纹进度条 |ProgressBarStripeBaseStyle|
+| ProgressBarInfoStripe | 信息色条纹进度条 |ProgressBarStripeBaseStyle|
+| ProgressBarWarningStripe | 警告色条纹进度条 |ProgressBarStripeBaseStyle|
+| ProgressBarDangerStripe | 危险色条纹进度条 |ProgressBarStripeBaseStyle|
+| ProgressBarFlat | 扁平风格 |-|
 
 案例：
 ```xml
@@ -81,5 +76,4 @@ title: ProgressBar 进度条
 
 # 温馨提示
 
-对于进度条进度颜色、圆角以及其他样式的个人使用需求，可查看`HandyControl`开源目中的[源码样式部分](https://github.com/HandyOrg/HandyControl/blob/master/src/Shared/HandyControl_Shared/Themes/Styles/ProgressBar.xaml)自行定义
-
+对于颜色、圆角或其它自定义需求，可参考[进度条样式源码](https://github.com/HandyOrg/HandyControl/blob/master/src/Shared/HandyControl_Shared/Themes/Styles/ProgressBar.xaml)自行定义。
