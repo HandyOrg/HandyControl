@@ -27,7 +27,7 @@
         <Setter Property="BorderThickness" Value="1,0,1,1"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Margin" Value="0"/>
-        <Setter Property="Padding" Value="16,0"/>
+        <Setter Property="Padding" Value="10,0,0,0"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Menu" Value="{StaticResource TabItemMenu}"/>
@@ -48,28 +48,18 @@
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
                         <Border Grid.ColumnSpan="3" BorderThickness="{TemplateBinding BorderThickness}" x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Margin="0">
-                            <Border Margin="0,0,0,-1" x:Name="innerBorder" Background="{DynamicResource RegionBrush}" Opacity="0"/>
+                            <Border Margin="0,0,0,-1" x:Name="innerBorder" Background="{DynamicResource RegionBrush}" Visibility="Collapsed"/>
                         </Border>
-                        <Path Grid.Column="0" Margin="10,0,0,0" x:Name="PathMain" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}">
-                            <Path.Style>
-                                <Style TargetType="Path">
-                                    <Setter Property="Visibility" Value="Visible"/>
-                                    <Style.Triggers>
-                                        <Trigger Property="Data" Value="{x:Null}">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
-                                        </Trigger>
-                                    </Style.Triggers>
-                                </Style>
-                            </Path.Style>
-                        </Path>
-                        <ContentPresenter Grid.Column="1" x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Stretch" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center">
-                            <ContentPresenter.OpacityMask>
+                        <Path x:Name="PathMain" Margin="10,0,0,0" Grid.Column="0" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
+                        <ContentPresenter Grid.Column="1" x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Stretch" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                        <Border Name="BorderMask" Grid.Column="1" HorizontalAlignment="Right" Width="20" Background="{TemplateBinding Background}">
+                            <Border.OpacityMask>
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
-                                    <GradientStop Offset="1"/>
-                                    <GradientStop Color="White" Offset="0.8"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                    <GradientStop Offset="0"/>
                                 </LinearGradientBrush>
-                            </ContentPresenter.OpacityMask>
-                        </ContentPresenter>
+                            </Border.OpacityMask>
+                        </Border>
                         <Button Grid.Column="2" Focusable="False" Command="interactivity:ControlCommands.Close" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
                             <Path Fill="{DynamicResource PrimaryTextBrush}" Width="8" Height="8" Style="{StaticResource ClosePathStyle}"/>
                         </Button>
@@ -77,7 +67,11 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="true">
                             <Setter Property="Panel.ZIndex" Value="1"/>
-                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                            <Setter Property="Visibility" TargetName="innerBorder" Value="Visible"/>
+                            <Setter Property="Background" TargetName="BorderMask" Value="{DynamicResource RegionBrush}"/>
+                        </Trigger>
+                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
