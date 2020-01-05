@@ -4,87 +4,84 @@ title: Lable标签
 
 # LabelBaseStyle
 
-Label标签 默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用，
+Label标签 默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
 
-具体源码见：[LabelBaseStyle.xaml]( https://github.com/HandyOrg/HandyControl/blob/master/src/Shared/HandyControl_Shared/Themes/Styles/Base/LabelBaseStyle.xaml )
-
-使用如下：
-
-```
-    <Style BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-    </Style>
-```
-
-案例：
-
-```
+{% note info no-icon %}
+用例：
+{% code %}
     <Label Content="Label默认样式" Margin="10"></Label>
-```
+{% endcode %}
 
 ![Label.BaseStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/Label.BaseStyle.png)
 
-# LabelPrimary
+{% endnote %}
 
-Label标签 主样式
+# LabelPrimary : LabelBaseStyle
 
-案例：
+主样式
 
-```
-    <Label Content="LabelPrimary样式" Margin="10" 
-    Style="{DynamicResource LabelPrimary}"></Label>
-```
+{% note info no-icon %}
+用例：
+{% code %}
+    <Label Content="LabelPrimary样式" Margin="10" Style="{DynamicResource LabelPrimary}"></Label>
+{% endcode %}
 
 ![Label.PrimaryStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/Label.PrimaryStyle.png)
 
-# LabelSuccess
+{% endnote %}
 
-Label标签 成功类型样式
+# LabelSuccess : LabelBaseStyle
 
-案例：
+成功类型样式
 
-```
-    <Label Content="LabelSuccess样式" Margin="10" 
-    Style="{DynamicResource LabelSuccess}"></Label>
-```
+{% note info no-icon %}
+用例：
+{% code %}
+    <Label Content="LabelSuccess样式" Margin="10" Style="{DynamicResource LabelSuccess}"></Label>
+{% endcode %}
 
 ![Label.SuccessStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/Label.SuccessStyle.png)
 
-# LabelInfo
+{% endnote %}
 
-Label标签 信息类型样式
+# LabelInfo : LabelBaseStyle
 
-案例：
+信息类型样式
 
-```
-    <Label Content="LabelInfo样式" Margin="10" 
-    Style="{DynamicResource LabelInfo}"></Label>
-```
+{% note info no-icon %}
+用例：
+{% code %}
+    <Label Content="LabelInfo样式" Margin="10" Style="{DynamicResource LabelInfo}"></Label>
+{% endcode %}
 
 ![Label.InfoStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/Label.InfoStyle.png)
 
-# LabelWarning
+{% endnote %}
 
-Label标签 警告类型样式
+# LabelWarning : LabelBaseStyle
 
-案例：
+警告类型样式
 
-```
-    <Label Content="LabelWarning样式" Margin="10" 
-    Style="{DynamicResource LabelWarning}"></Label>
-```
+{% note info no-icon %}
+用例：
+{% code %}
+    <Label Content="LabelWarning样式" Margin="10" Style="{DynamicResource LabelWarning}"></Label>
+{% endcode %}
 
 ![Label.WarningStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/Label.WarningStyle.png)
 
-# LabelDanger
+{% endnote %}
 
-Label标签 危险类型样式
+# LabelDanger : LabelBaseStyle
 
-```
-    <Label Content="LabelDanger样式" Margin="10" 
-    Style="{DynamicResource LabelDanger}"></Label>
-```
+危险类型样式
+
+{% note info no-icon %}
+用例：
+{% code %}
+    <Label Content="LabelDanger样式" Margin="10" Style="{DynamicResource LabelDanger}"></Label>
+{% endcode %}
 
 ![Label.DangerStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/Label.DangerStyle.png)
 
+{% endnote %}
