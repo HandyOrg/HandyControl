@@ -31,8 +31,7 @@ namespace HandyControl.Controls
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) =>
             {
-                if (IsReadOnly)
-                    return;
+                if (IsReadOnly) return;
 
                 Value += Increment;
                 _textBox.Text = CurrentText;
@@ -40,9 +39,7 @@ namespace HandyControl.Controls
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) =>
             {
-                if (IsReadOnly)
-                    return;
-
+                if (IsReadOnly) return;
 
                 Value -= Increment;
                 _textBox.Text = CurrentText;
@@ -50,8 +47,7 @@ namespace HandyControl.Controls
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                if (IsReadOnly)
-                    return;
+                if (IsReadOnly) return;
 
                 SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
                 _textBox.Text = string.Empty;
@@ -116,8 +112,7 @@ namespace HandyControl.Controls
 
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (IsReadOnly)
-                return;
+            if (IsReadOnly) return;
 
             if (e.Key == Key.Up)
             {
@@ -135,7 +130,7 @@ namespace HandyControl.Controls
         {
             base.OnMouseWheel(e);
 
-            if (_textBox.IsFocused&&IsReadOnly==false)
+            if (_textBox.IsFocused && !IsReadOnly)
             {
                 Value += e.Delta > 0 ? Increment : -Increment;
                 _textBox.Text = CurrentText;
@@ -376,20 +371,19 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     标识 IsReadOnly 依赖属性。
+        /// </summary>
+        public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
+            "IsReadOnly", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        /// <summary>
         ///     获取或设置一个值，该值指示NumericUpDown是否只读。
         /// </summary>
         public bool IsReadOnly
         {
-            get => (bool)GetValue(IsReadOnlyProperty);
+            get => (bool) GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, value);
         }
-
-        /// <summary>
-        ///     标识 IsReadOnly 依赖属性。
-        /// </summary>
-        public static readonly DependencyProperty IsReadOnlyProperty =
-            DependencyProperty.Register(nameof(IsReadOnly), typeof(bool), typeof(NumericUpDown), new PropertyMetadata(default(bool)));
-
 
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
 
