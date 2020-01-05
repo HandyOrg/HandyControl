@@ -12,7 +12,7 @@
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Offset" Value="6"/>
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
