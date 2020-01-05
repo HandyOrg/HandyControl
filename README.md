@@ -46,10 +46,16 @@
 <a href="https://github.com/yangkang326" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/51224259?s=400&v=4"></a>	
 <a href="https://github.com/zmrbak" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/7257543?s=400&v=4"></a>	
 <a href="https://github.com/AFei19911012" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/31465314?s=400&v=4"></a>
+<a href="https://github.com/wayne2006" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/21210915?s=400&v=4"></a>
+<a href="https://github.com/towerDLH" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/53053537?s=400&v=4"></a>
 
 ## Special thanks to
 
+[![Visual Studio Community 2019](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/vs2019_logo.png)](https://visualstudio.microsoft.com/free-developer-offers/)
 [![JetBrains](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
+[![Cake](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/cake_logo.png)](https://cakebuild.net/)
+[![AppVeyor](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/appveyor_logo.png)](https://www.appveyor.com/)
+[![Gitter](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/gitter_logo.png)](https://gitter.im/)
 
 ## Usage
 
@@ -87,6 +93,14 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### Effects
+
+![Effects](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Effects.png)
+
+### RelativePanel
+
+![RelativePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/RelativePanel.png)
+
 ### Drawer
 
 ![Drawer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Drawer.gif)
@@ -99,6 +113,8 @@ Step 4：enjoy coding
 
 ![Divider](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Divider.png)
 
+## History publication
+
 ### GeometryAnimation
 
 ![GeometryAnimation](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GeometryAnimation.gif)
@@ -106,8 +122,6 @@ Step 4：enjoy coding
 ### SplitButton
 
 ![SplitButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/SplitButton.png)
-
-## History publication
 
 ### FloatingBlock
 

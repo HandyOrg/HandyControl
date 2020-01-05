@@ -35,6 +35,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\ToggleBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\HoneycombPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\RelativePanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeTrack.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeThumb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
@@ -57,10 +58,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\LinearGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\ResolvedKeyFrameEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\SplineGeometryKeyFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorComplementEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Double2GridLengthConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\DoubleMinConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\RectangleCircularConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ThicknessSplitConverter.cs" />
@@ -90,8 +94,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverViewContent.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Cover\CoverView\CoverViewItem.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Grid\Col.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Grid\Row.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\Grid\Col.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\Grid\Row.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\GifImage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageViewer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\ComboBox.cs" />
@@ -906,13 +910,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Controls\Growl\" />
-    <Folder Include="$(MSBuildThisFileDirectory)Tools\Generator\" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="E:\Work\GitHub\HandyControl\src\Shared\HandyControl_Shared\Themes\Styles\Base\SplitButtonBaseStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorComplementEffect.fx" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\GrayScaleEffect.fx" />
   </ItemGroup>
 </Project>

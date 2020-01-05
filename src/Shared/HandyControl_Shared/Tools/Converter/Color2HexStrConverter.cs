@@ -30,11 +30,11 @@ namespace HandyControl.Tools.Converter
                 }
                 catch
                 {
-                    return new SolidColorBrush(default(Color));
+                    return new SolidColorBrush(default);
                 }
-                return new SolidColorBrush(default(Color));
+                return new SolidColorBrush(default);
             }
-            return new SolidColorBrush(default(Color));
+            return new SolidColorBrush(default);
         }
     }
 }

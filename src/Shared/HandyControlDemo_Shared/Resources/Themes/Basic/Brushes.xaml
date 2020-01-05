@@ -46,7 +46,7 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <DrawingBrush x:Key="BlogDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,120,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+    <DrawingBrush x:Key="BlogDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,160,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Transform>
             <TransformGroup>
                 <RotateTransform Angle="20"/>
@@ -55,7 +55,7 @@
         <DrawingBrush.Drawing>
             <GeometryDrawing>
                 <GeometryDrawing.Geometry>
-                    <RectangleGeometry Rect="0,0,120,100"></RectangleGeometry>
+                    <RectangleGeometry Rect="0,0,160,100"></RectangleGeometry>
                 </GeometryDrawing.Geometry>
                 <GeometryDrawing.Brush>
                     <VisualBrush>
@@ -70,7 +70,7 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <DrawingBrush x:Key="ProjectDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,200,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+    <DrawingBrush x:Key="WebsiteDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,320,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Transform>
             <TransformGroup>
                 <RotateTransform Angle="20"/>
@@ -79,7 +79,31 @@
         <DrawingBrush.Drawing>
             <GeometryDrawing>
                 <GeometryDrawing.Geometry>
-                    <RectangleGeometry Rect="0,0,200,100"></RectangleGeometry>
+                    <RectangleGeometry Rect="0,0,320,100"></RectangleGeometry>
+                </GeometryDrawing.Geometry>
+                <GeometryDrawing.Brush>
+                    <VisualBrush>
+                        <VisualBrush.Visual>
+                            <StackPanel>
+                                <TextBlock Text="Website" Foreground="{DynamicResource DarkMaskBrush}"/>
+                            </StackPanel>
+                        </VisualBrush.Visual>
+                    </VisualBrush>
+                </GeometryDrawing.Brush>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <DrawingBrush x:Key="ProjectDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,240,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+        <DrawingBrush.Transform>
+            <TransformGroup>
+                <RotateTransform Angle="20"/>
+            </TransformGroup>
+        </DrawingBrush.Transform>
+        <DrawingBrush.Drawing>
+            <GeometryDrawing>
+                <GeometryDrawing.Geometry>
+                    <RectangleGeometry Rect="0,0,240,100"></RectangleGeometry>
                 </GeometryDrawing.Geometry>
                 <GeometryDrawing.Brush>
                     <VisualBrush>
