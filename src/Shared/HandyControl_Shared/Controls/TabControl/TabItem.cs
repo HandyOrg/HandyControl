@@ -285,7 +285,7 @@ namespace HandyControl.Controls
             parent.IsInternalAction = true;
             RaiseEvent(new RoutedEventArgs(ClosedEvent, item));
 
-            var list = parent.GetActuaList();
+            var list = parent.GetActualList();
             list?.Remove(item);
         }
 
@@ -392,7 +392,7 @@ namespace HandyControl.Controls
                 RenderTransform = new TranslateTransform(resultX, 0);
                 if (index == -1) return;
 
-                var list = parent.GetActuaList();
+                var list = parent.GetActualList();
                 if (list == null) return;
 
                 var item = parent.ItemContainerGenerator.ItemFromContainer(this);

@@ -224,11 +224,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-            if (!IsTabFillEnabled)
-            {
-                _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
-            }
+            UpdateOverflowButton();
 
             if (IsInternalAction)
             {
@@ -292,15 +288,6 @@ namespace HandyControl.Controls
 
             if (_buttonOverflow != null)
             {
-                if (ItemsSource != null)
-                {
-                    Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-                }
-
-                var size = DesiredSize;
-                _itemShowCount = (int)(size.Width / TabItemWidth);
-                _buttonOverflow.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
-
                 var menu = new ContextMenu
                 {
                     Placement = PlacementMode.Bottom,
@@ -309,6 +296,21 @@ namespace HandyControl.Controls
                 menu.Closed += Menu_Closed;
                 _buttonOverflow.Menu = menu;
                 _buttonOverflow.Click += ButtonOverflow_Click;
+            }
+        }
+
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            base.OnRenderSizeChanged(sizeInfo);
+            UpdateOverflowButton();
+        }
+
+        private void UpdateOverflowButton()
+        {
+            if (!IsTabFillEnabled)
+            {
+                _itemShowCount = (int)(ActualWidth / TabItemWidth);
+                _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
             }
         }
 
@@ -346,7 +348,7 @@ namespace HandyControl.Controls
                     {
                         _buttonOverflow.IsChecked = false;
 
-                        var list = GetActuaList();
+                        var list = GetActualList();
                         if (list == null) return;
 
                         var actualItem = ItemContainerGenerator.ItemFromContainer(item);
@@ -391,7 +393,7 @@ namespace HandyControl.Controls
         {
             var actualItem = currentItem != null ? ItemContainerGenerator.ItemFromContainer(currentItem) : null;
 
-            var list = GetActuaList();
+            var list = GetActualList();
             if (list == null) return;
 
             IsInternalAction = true;
@@ -418,7 +420,7 @@ namespace HandyControl.Controls
             SetCurrentValue(SelectedIndexProperty, Items.Count == 0 ? -1 : 0);
         }
 
-        internal IList GetActuaList()
+        internal IList GetActualList()
         {
             IList list;
             if (ItemsSource != null)
