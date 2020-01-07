@@ -48,6 +48,7 @@
 <a href="https://github.com/AFei19911012" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/31465314?s=400&v=4"></a>
 <a href="https://github.com/wayne2006" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/21210915?s=400&v=4"></a>
 <a href="https://github.com/towerDLH" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/53053537?s=400&v=4"></a>
+<a href="https://github.com/BluceBosen" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/24750822?s=400&v=4"></a>
 
 ## Special thanks to
 
