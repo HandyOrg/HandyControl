@@ -321,10 +321,8 @@ namespace HandyControl.Controls
 
         private void Update()
         {
-            if (ActionBeforeClose != null)
+            if (Type == InfoType.Ask)
             {
-                _staysOpen = true;
-                _showCloseButton = false;
                 _panelMore.IsEnabled = true;
                 _panelMore.Show();
             }
@@ -534,12 +532,12 @@ namespace HandyControl.Controls
                     }
                     break;
                 case InfoType.Ask:
+                    growlInfo.StaysOpen = true;
+                    growlInfo.ShowCloseButton = false;
                     if (!growlInfo.IsCustom)
                     {
                         growlInfo.IconKey = ResourceToken.AskGeometry;
                         growlInfo.IconBrushKey = ResourceToken.AccentBrush;
-                        growlInfo.StaysOpen = true;
-                        growlInfo.ShowCloseButton = false;
                     }
                     else
                     {
@@ -805,7 +803,7 @@ namespace HandyControl.Controls
         {
             if (invokeActionBeforeClose)
             {
-                ActionBeforeClose?.Invoke(invokeParam);
+                if (ActionBeforeClose?.Invoke(invokeParam) == false) return;
             }
 
             _timerClose?.Stop();
