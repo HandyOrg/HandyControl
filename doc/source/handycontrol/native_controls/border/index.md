@@ -12,38 +12,40 @@ title: Border 边框
 
 ``` xml
         <UniformGrid Margin="32,32,0,0" Columns="3" Rows="2">
-            <Border Style="{StaticResource BorderRegionStyle}" Width="200" Height="200" Margin="0,0,32,32">
+            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32">
                 <Border Background="{DynamicResource PrimaryBrush}">
                     <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                 </Border>
             </Border>
-            <Border Style="{StaticResource BorderRegionStyle}" Width="200" Height="200" Margin="0,0,32,32" Effect="{StaticResource EffectShadow1}">
+            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32" Effect="{StaticResource EffectShadow1}">
                 <Border Background="{DynamicResource InfoBrush}">
                     <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                 </Border>
             </Border>
-            <Border Style="{StaticResource BorderRegionStyle}" Width="200" Height="200" Margin="0,0,32,32" Effect="{StaticResource EffectShadow2}">
+            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32" Effect="{StaticResource EffectShadow2}">
                 <Border Background="{DynamicResource WarningBrush}">
                     <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                 </Border>
             </Border>
-            <Border Style="{StaticResource BorderRegionStyle}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow3}">
+            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow3}">
                 <Border Background="{DynamicResource DangerBrush}">
                     <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                 </Border>
             </Border>
-            <Border Style="{StaticResource BorderRegionStyle}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow4}">
+            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow4}">
                 <Border Background="{DynamicResource AccentBrush}">
                     <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                 </Border>
             </Border>
-            <Border Style="{StaticResource BorderRegionStyle}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow5}">
+            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow5}">
                 <Border Background="{DynamicResource BorderBrush}">
                     <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 </Border>
             </Border>
         </UniformGrid>
 ```
+
+提示：新版本中使用的`BorderRegion`，有别于老版本使用样式`BorderRegionStyle`，由直角变更为圆角
 
 # BorderVerticallySplitter
 

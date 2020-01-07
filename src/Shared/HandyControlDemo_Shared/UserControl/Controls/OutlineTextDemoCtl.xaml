@@ -11,6 +11,8 @@
             <hc:OutlineText Margin="0,10,0,0" FontSize="30" FontStyle="Italic" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=8}"/>
             <hc:OutlineText Margin="0,10,0,0" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontSize="50" StrokeThickness="2" Fill="{DynamicResource DangerBrush}" Stroke="{DynamicResource PrimaryBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
             <hc:OutlineText Margin="0,10,0,0" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+            <hc:OutlineText Margin="0,10,0,0" StrokePosition="Outside" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+            <hc:OutlineText Margin="0,10,0,0" StrokePosition="InSide" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
         </StackPanel>
     </hc:TransitioningContentControl>
 </UserControl>

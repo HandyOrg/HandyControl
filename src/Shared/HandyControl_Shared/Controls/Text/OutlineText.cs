@@ -10,14 +10,27 @@ namespace HandyControl.Controls
 {
     public class OutlineText : FrameworkElement
     {
+        private Pen _pen;
+
         private FormattedText _formattedText;
 
         private Geometry _textGeometry;
+
+        private PathGeometry _clipGeometry;
 
         static OutlineText()
         {
             SnapsToDevicePixelsProperty.OverrideMetadata(typeof(OutlineText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
             UseLayoutRoundingProperty.OverrideMetadata(typeof(OutlineText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+        }
+
+        public static readonly DependencyProperty StrokePositionProperty = DependencyProperty.Register(
+            "StrokePosition", typeof(StrokePosition), typeof(OutlineText), new PropertyMetadata(default(StrokePosition)));
+
+        public StrokePosition StrokePosition
+        {
+            get => (StrokePosition) GetValue(StrokePositionProperty);
+            set => SetValue(StrokePositionProperty, value);
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
@@ -143,7 +156,34 @@ namespace HandyControl.Controls
         protected override void OnRender(DrawingContext drawingContext)
         {
             EnsureGeometry();
-            drawingContext.DrawGeometry(Fill, new Pen(Stroke, StrokeThickness), _textGeometry);
+
+            drawingContext.DrawGeometry(Fill, null, _textGeometry);
+
+            if (StrokePosition == StrokePosition.Outside)
+            {
+                drawingContext.PushClip(_clipGeometry);
+            }
+            else if (StrokePosition == StrokePosition.Inside)
+            {
+                drawingContext.PushClip(_textGeometry);
+            }
+
+            drawingContext.DrawGeometry(null, _pen, _textGeometry);
+
+            if (StrokePosition == StrokePosition.Outside || StrokePosition == StrokePosition.Inside)
+            {
+                drawingContext.Pop();
+            }
+        }
+
+        private void UpdatePen()
+        {
+            _pen = new Pen(Stroke, StrokeThickness);
+
+            if (StrokePosition == StrokePosition.Outside || StrokePosition == StrokePosition.Inside)
+            {
+                _pen.Thickness = StrokeThickness * 2;
+            }
         }
 
         private void EnsureFormattedText()
@@ -187,6 +227,12 @@ namespace HandyControl.Controls
 
             EnsureFormattedText();
             _textGeometry = _formattedText.BuildGeometry(new Point(0, 0));
+
+            if (StrokePosition == StrokePosition.Outside)
+            {
+                var geometry = new RectangleGeometry(new Rect(0, 0, ActualWidth, ActualHeight));
+                _clipGeometry = Geometry.Combine(geometry, _textGeometry, GeometryCombineMode.Exclude, null);
+            }
         }
 
         private void UpdateFormattedText()
@@ -236,6 +282,8 @@ namespace HandyControl.Controls
             // the Math.Max call is to ensure we don't hit zero, which will cause MaxTextHeight to throw
             _formattedText.MaxTextWidth = Math.Min(3579139, availableSize.Width);
             _formattedText.MaxTextHeight = Math.Max(0.0001d, availableSize.Height);
+
+            UpdatePen();
 
             // return the desired size
             return new Size(_formattedText.Width, _formattedText.Height);

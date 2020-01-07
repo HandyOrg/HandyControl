@@ -27,7 +27,7 @@
         <Setter Property="BorderThickness" Value="1,0,1,1"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Margin" Value="0"/>
-        <Setter Property="Padding" Value="16,0"/>
+        <Setter Property="Padding" Value="10,0,0,0"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Menu" Value="{StaticResource TabItemMenu}"/>
@@ -43,28 +43,35 @@
                 <ControlTemplate TargetType="controls:TabItem">
                     <Grid x:Name="templateRoot" SnapsToDevicePixels="true" ContextMenu="{TemplateBinding Menu}">
                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Border Grid.ColumnSpan="2" BorderThickness="{TemplateBinding BorderThickness}" x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Margin="0">
-                            <Border Margin="0,0,0,-1" x:Name="innerBorder" Background="{DynamicResource RegionBrush}" Opacity="0"/>
+                        <Border Grid.ColumnSpan="3" BorderThickness="{TemplateBinding BorderThickness}" x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" Margin="0">
+                            <Border Margin="0,0,0,-1" x:Name="innerBorder" Background="{DynamicResource RegionBrush}" Visibility="Collapsed"/>
                         </Border>
-                        <ContentPresenter Grid.Column="0" x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Stretch" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center">
-                            <ContentPresenter.OpacityMask>
+                        <Path x:Name="PathMain" Margin="10,0,0,0" Grid.Column="0" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
+                        <ContentPresenter Grid.Column="1" x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Stretch" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                        <Border Name="BorderMask" Grid.Column="1" HorizontalAlignment="Right" Width="20" Background="{TemplateBinding Background}">
+                            <Border.OpacityMask>
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
-                                    <GradientStop Offset="1"/>
-                                    <GradientStop Color="White" Offset="0.8"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                    <GradientStop Offset="0"/>
                                 </LinearGradientBrush>
-                            </ContentPresenter.OpacityMask>
-                        </ContentPresenter>
-                        <Button Grid.Column="1" Focusable="False" Command="interactivity:ControlCommands.Close" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
+                            </Border.OpacityMask>
+                        </Border>
+                        <Button Grid.Column="2" Focusable="False" Command="interactivity:ControlCommands.Close" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Background="Transparent" Style="{StaticResource ButtonCustom}" Width="28">
                             <Path Fill="{DynamicResource PrimaryTextBrush}" Width="8" Height="8" Style="{StaticResource ClosePathStyle}"/>
                         </Button>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="true">
                             <Setter Property="Panel.ZIndex" Value="1"/>
-                            <Setter Property="Opacity" TargetName="innerBorder" Value="1"/>
+                            <Setter Property="Visibility" TargetName="innerBorder" Value="Visible"/>
+                            <Setter Property="Background" TargetName="BorderMask" Value="{DynamicResource RegionBrush}"/>
+                        </Trigger>
+                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -84,7 +91,7 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
                 <Border Background="{TemplateBinding Background}" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderBrush}">
-                    <controls:TabPanel MinHeight="{TemplateBinding TabItemHeight}" TabItemHeight="{TemplateBinding TabItemHeight}" TabItemWidth="{TemplateBinding TabItemWidth}" IsEnableTabFill="{TemplateBinding IsEnableTabFill}" Margin="0,0,-1,-1" x:Name="PART_HeaderPanel" HorizontalAlignment="Left" Background="{DynamicResource SecondaryTextBrush}" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1">
+                    <controls:TabPanel MinHeight="{TemplateBinding TabItemHeight}" TabItemHeight="{TemplateBinding TabItemHeight}" TabItemWidth="{TemplateBinding TabItemWidth}" IsTabFillEnabled="{TemplateBinding IsTabFillEnabled}" Margin="0,0,-1,-1" x:Name="PART_HeaderPanel" HorizontalAlignment="Left" Background="{DynamicResource SecondaryTextBrush}" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1">
                         <interactivity:Interaction.Behaviors>
                             <interactivity:FluidMoveBehavior AppliesTo="Children" Duration="{Binding FluidMoveDuration,ElementName=PART_HeaderPanel}">
                                 <interactivity:FluidMoveBehavior.EaseX>
@@ -122,9 +129,9 @@
                     </Border.CacheMode>
                     <RepeatButton Focusable="False" Style="{StaticResource RepeatButtonIcon}" Padding="8" controls:IconElement.Geometry="{StaticResource LeftGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonLeft"/>
                 </Border>
-                <controls:ScrollViewer HorizontalScrollBarVisibility="Hidden" CanMouseWheel="True" Orientation="Horizontal" IsEnableInertia="True" Grid.Row="0" Grid.Column="1" IsDeferredScrollingEnabled="True" x:Name="PART_OverflowScrollviewer">
+                <controls:ScrollViewer HorizontalScrollBarVisibility="Hidden" CanMouseWheel="True" Orientation="Horizontal" IsInertiaEnabled="True" Grid.Row="0" Grid.Column="1" IsDeferredScrollingEnabled="True" x:Name="PART_OverflowScrollviewer">
                     <Border Background="{TemplateBinding Background}" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Name="PART_HeaderBorder">
-                        <controls:TabPanel MinHeight="{TemplateBinding TabItemHeight}" TabItemHeight="{TemplateBinding TabItemHeight}" TabItemWidth="{TemplateBinding TabItemWidth}" IsEnableTabFill="{TemplateBinding IsEnableTabFill}" Margin="0,0,-1,-1" x:Name="PART_HeaderPanel" HorizontalAlignment="Left" Background="{DynamicResource SecondaryTextBrush}" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1">
+                        <controls:TabPanel MinHeight="{TemplateBinding TabItemHeight}" TabItemHeight="{TemplateBinding TabItemHeight}" TabItemWidth="{TemplateBinding TabItemWidth}" IsTabFillEnabled="{TemplateBinding IsTabFillEnabled}" Margin="0,0,-1,-1" x:Name="PART_HeaderPanel" HorizontalAlignment="Left" Background="{DynamicResource SecondaryTextBrush}" IsItemsHost="true" KeyboardNavigation.TabIndex="1" Panel.ZIndex="1">
                             <interactivity:Interaction.Behaviors>
                                 <interactivity:FluidMoveBehavior AppliesTo="Children" Duration="{Binding FluidMoveDuration,ElementName=PART_HeaderPanel}">
                                     <interactivity:FluidMoveBehavior.EaseX>
@@ -164,7 +171,7 @@
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsScrollable" Value="True"/>
-                    <Condition Property="IsEnableTabFill" Value="False"/>
+                    <Condition Property="IsTabFillEnabled" Value="False"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource TabControlPlusScrollableTemplate}"/>
             </MultiTrigger>

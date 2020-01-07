@@ -25,36 +25,29 @@ namespace HandyControl.Controls
 
         private TextBox _textBox;
 
+        private bool _updateText;
+
         #endregion Data
 
         public NumericUpDown()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) =>
             {
-                if (IsReadOnly)
-                    return;
+                if (IsReadOnly) return;
 
                 Value += Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) =>
             {
-                if (IsReadOnly)
-                    return;
-
+                if (IsReadOnly) return;
 
                 Value -= Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                if (IsReadOnly)
-                    return;
+                if (IsReadOnly) return;
 
                 SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
-                _textBox.Text = string.Empty;
             }));
 
             Loaded += (s, e) => OnApplyTemplate();
@@ -102,7 +95,9 @@ namespace HandyControl.Controls
             if (!VerifyData()) return;
             if (double.TryParse(_textBox.Text, out var value))
             {
+                _updateText = false;
                 Value = value;
+                _updateText = true;
             }
         }
 
@@ -116,18 +111,15 @@ namespace HandyControl.Controls
 
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
-            if (IsReadOnly)
-                return;
+            if (IsReadOnly) return;
 
             if (e.Key == Key.Up)
             {
                 Value += Increment;
-                _textBox.Text = CurrentText;
             }
             else if (e.Key == Key.Down)
             {
                 Value -= Increment;
-                _textBox.Text = CurrentText;
             }
         }
 
@@ -135,11 +127,9 @@ namespace HandyControl.Controls
         {
             base.OnMouseWheel(e);
 
-            if (_textBox.IsFocused&&IsReadOnly==false)
+            if (_textBox.IsFocused && !IsReadOnly)
             {
                 Value += e.Delta > 0 ? Increment : -Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
                 e.Handled = true;
             }
         }
@@ -178,9 +168,10 @@ namespace HandyControl.Controls
         {
             var ctl = (NumericUpDown) d;
             var v = (double) e.NewValue;
-            if (ctl._textBox != null)
+            if (ctl._updateText && ctl._textBox != null)
             {
-                ctl._textBox.Text = v.ToString();
+                ctl._textBox.Text = ctl.CurrentText;
+                ctl._textBox.Select(ctl._textBox.Text.Length, 0);
             }
 
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
@@ -376,20 +367,19 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     标识 IsReadOnly 依赖属性。
+        /// </summary>
+        public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
+            "IsReadOnly", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        /// <summary>
         ///     获取或设置一个值，该值指示NumericUpDown是否只读。
         /// </summary>
         public bool IsReadOnly
         {
-            get => (bool)GetValue(IsReadOnlyProperty);
+            get => (bool) GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, value);
         }
-
-        /// <summary>
-        ///     标识 IsReadOnly 依赖属性。
-        /// </summary>
-        public static readonly DependencyProperty IsReadOnlyProperty =
-            DependencyProperty.Register(nameof(IsReadOnly), typeof(bool), typeof(NumericUpDown), new PropertyMetadata(default(bool)));
-
 
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
 

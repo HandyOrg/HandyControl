@@ -1,4 +1,4 @@
-﻿<Border hc:ScrollViewer.IsEnableInertia="True"
+﻿<Border hc:ScrollViewer.IsInertiaEnabled="True"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:command="http://www.galasoft.ch/mvvmlight"
         x:Class="HandyControlDemo.UserControl.LeftMainContent"

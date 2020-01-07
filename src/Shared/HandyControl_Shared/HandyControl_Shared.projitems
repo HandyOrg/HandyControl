@@ -45,6 +45,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HitMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ShowAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\NotifyIconInfoType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StrokePosition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TransitionMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />

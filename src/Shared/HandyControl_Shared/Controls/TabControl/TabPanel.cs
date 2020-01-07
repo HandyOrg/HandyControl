@@ -40,16 +40,16 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否将标签填充
         /// </summary>
-        public static readonly DependencyProperty IsEnableTabFillProperty = DependencyProperty.Register(
-            "IsEnableTabFill", typeof(bool), typeof(TabPanel), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty IsTabFillEnabledProperty = DependencyProperty.Register(
+            "IsTabFillEnabled", typeof(bool), typeof(TabPanel), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     是否将标签填充
         /// </summary>
-        public bool IsEnableTabFill
+        public bool IsTabFillEnabled
         {
-            get => (bool)GetValue(IsEnableTabFillProperty);
-            set => SetValue(IsEnableTabFillProperty, value);
+            get => (bool)GetValue(IsTabFillEnabledProperty);
+            set => SetValue(IsTabFillEnabledProperty, value);
         }
 
         /// <summary>
@@ -115,7 +115,7 @@ namespace HandyControl.Controls
             var itemWidth = .0;
             var arr = new int[count];
 
-            if (!IsEnableTabFill)
+            if (!IsTabFillEnabled)
             {
                 itemWidth = TabItemWidth;
             }
@@ -129,7 +129,7 @@ namespace HandyControl.Controls
 
             for (var index = 0; index < count; index++)
             {
-                if (IsEnableTabFill)
+                if (IsTabFillEnabled)
                 {
                     itemWidth = arr[index];
                 }

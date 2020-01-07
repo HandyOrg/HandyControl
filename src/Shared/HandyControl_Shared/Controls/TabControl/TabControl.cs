@@ -50,16 +50,16 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否启用动画
         /// </summary>
-        public static readonly DependencyProperty IsEnableAnimationProperty = DependencyProperty.Register(
-            "IsEnableAnimation", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty IsAnimationEnabledProperty = DependencyProperty.Register(
+            "IsAnimationEnabled", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     是否启用动画
         /// </summary>
-        public bool IsEnableAnimation
+        public bool IsAnimationEnabled
         {
-            get => (bool)GetValue(IsEnableAnimationProperty);
-            set => SetValue(IsEnableAnimationProperty, value);
+            get => (bool)GetValue(IsAnimationEnabledProperty);
+            set => SetValue(IsAnimationEnabledProperty, value);
         }
 
         /// <summary>
@@ -122,16 +122,16 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否将标签填充
         /// </summary>
-        public static readonly DependencyProperty IsEnableTabFillProperty = DependencyProperty.Register(
-            "IsEnableTabFill", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty IsTabFillEnabledProperty = DependencyProperty.Register(
+            "IsTabFillEnabled", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     是否将标签填充
         /// </summary>
-        public bool IsEnableTabFill
+        public bool IsTabFillEnabled
         {
-            get => (bool)GetValue(IsEnableTabFillProperty);
-            set => SetValue(IsEnableTabFillProperty, value);
+            get => (bool)GetValue(IsTabFillEnabledProperty);
+            set => SetValue(IsTabFillEnabledProperty, value);
         }
 
         /// <summary>
@@ -224,7 +224,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-            if (!IsEnableTabFill)
+            if (!IsTabFillEnabled)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);
                 _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
@@ -236,7 +236,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-            if (IsEnableAnimation)
+            if (IsAnimationEnabled)
             {
                 HeaderPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
             }
@@ -279,7 +279,7 @@ namespace HandyControl.Controls
             base.OnApplyTemplate();
             HeaderPanel = GetTemplateChild(HeaderPanelKey) as TabPanel;
 
-            if (IsEnableTabFill) return;
+            if (IsTabFillEnabled) return;
 
             _buttonOverflow = GetTemplateChild(OverflowButtonKey) as ContextMenuToggleButton;
             _scrollViewerOverflow = GetTemplateChild(OverflowScrollviewer) as ScrollViewer;
@@ -357,7 +357,7 @@ namespace HandyControl.Controls
                         {
                             list.Remove(actualItem);
                             list.Insert(0, actualItem);
-                            if (IsEnableAnimation)
+                            if (IsAnimationEnabled)
                             {
                                 HeaderPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
                             }
