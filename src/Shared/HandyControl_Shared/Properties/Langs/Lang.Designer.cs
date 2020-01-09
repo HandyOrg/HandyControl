@@ -142,7 +142,7 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 错误的图片路径！ 的本地化字符串。
+        ///   查找类似 错误的图片路径 的本地化字符串。
         /// </summary>
         public static string ErrorImgPath {
             get {
@@ -151,7 +151,7 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 非法的图片尺寸！ 的本地化字符串。
+        ///   查找类似 非法的图片尺寸 的本地化字符串。
         /// </summary>
         public static string ErrorImgSize {
             get {

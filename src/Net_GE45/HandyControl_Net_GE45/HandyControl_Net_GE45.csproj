@@ -168,6 +168,9 @@
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fr.resx">
       <Link>Properties\Langs\Lang.fr.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ko-KR.resx">
+      <Link>Properties\Langs\Lang.ko-KR.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.resx">
       <Link>Properties\Langs\Lang.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
