@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -710,5 +710,8 @@
   </data>
   <data name="Window" xml:space="preserve">
     <value>Window</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PinBox</value>
   </data>
 </root>

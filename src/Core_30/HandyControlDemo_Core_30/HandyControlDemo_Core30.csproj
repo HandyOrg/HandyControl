@@ -8,7 +8,7 @@
     <Version>2.4.0</Version>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
     <Configurations>Debug;Release</Configurations>
-    <Copyright>Copyright © HandyOrg 2018-2019</Copyright>
+    <Copyright>Copyright © HandyOrg 2018-2020</Copyright>
     <FileVersion>2.4.0.0</FileVersion>
     <AssemblyVersion>2.4.0.0</AssemblyVersion>
     <LangVersion>8.0</LangVersion>
@@ -453,6 +453,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Effects_16x.png">
       <Link>Resources\Img\LeftMainContent\Effects_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Ellipsis_16x.png">
+      <Link>Resources\Img\LeftMainContent\Ellipsis_16x.png</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>
