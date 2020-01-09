@@ -107,10 +107,10 @@
     <value>PNG图片</value>
   </data>
   <data name="ErrorImgPath" xml:space="preserve">
-    <value>错误的图片路径！</value>
+    <value>错误的图片路径</value>
   </data>
   <data name="ErrorImgSize" xml:space="preserve">
-    <value>非法的图片尺寸！</value>
+    <value>非法的图片尺寸</value>
   </data>
   <data name="UnknownSize" xml:space="preserve">
     <value>未知大小</value>
