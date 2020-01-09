@@ -1132,6 +1132,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 PIN码框 的本地化字符串。
+        /// </summary>
+        public static string PinBox {
+            get {
+                return ResourceManager.GetString("PinBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 请输入... 的本地化字符串。
         /// </summary>
         public static string PleaseInput {

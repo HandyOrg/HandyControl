@@ -711,4 +711,7 @@
   <data name="Demo" xml:space="preserve">
     <value>Demo</value>
   </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PinBox</value>
+  </data>
 </root>
