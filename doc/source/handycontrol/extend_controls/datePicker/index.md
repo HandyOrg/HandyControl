@@ -9,7 +9,7 @@ DatePicker 控件允许用户通过在文本框中键入日期或使用下拉的
 public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
 ```
 
-# 创建日期选取器
+# 创建DatePicker
 
 ``` XML
 <hc:DatePicker />
@@ -21,15 +21,15 @@ var datePicker = new DatePicker();
 
 生成的DatePicker如下图所示：
 
-![DatePicker](https://raw.githubusercontent.com/DinoChan/HandyOrgResource/master/HandyControl/Doc/extend_controls/DatePicker_1.png)
+![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/DatePicker_1.png)
 
 
 
 # 选择日期
 
-可以通过文本框输入日期，或者点击文本框右边的按钮打开下来的日历控件选择日期。
+可以通过文本框输入日期，或者点击文本框右边的按钮打开下拉的日历控件选择日期。
 
-![DatePicker](https://raw.githubusercontent.com/DinoChan/HandyOrgResource/master/HandyControl/Doc/extend_controls/DatePicker_2.png)
+![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/DatePicker_2.png)
 
 也可以在XAML钟或代码中这样设置日期。
 
@@ -57,7 +57,7 @@ datePicker.SelectedDate = DateTime.Now;
 
 # 属性
 
-| 属性             |                |
+| 属性             |  描述             |
 | ---------------- | ------------------ |
 | SelectedDate      | 获取或设置当前选中的日期 |
 | VerifyFunc        | 获取或设置数据验证委托           |
@@ -68,7 +68,7 @@ datePicker.SelectedDate = DateTime.Now;
 
 # 方法
 
-| 方法             |                |
+| 方法             |   描述             |
 | ---------------- | ------------------ |
 | VerifyData()      | 验证数据 |
 
