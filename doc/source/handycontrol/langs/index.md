@@ -21,7 +21,7 @@ title: 国际化
 
 # 扩展
 
-控件库自带的语言包包括简体中文（zh-cn）、英文（en）、波斯语（fa）、法语（fr），默认为简体中文（zh-cn）：
+控件库自带的语言包包括简体中文（zh-cn）、英文（en）、波斯语（fa）、法语（fr），韩国人 (ko-kr) , 默认为简体中文（zh-cn）：
 
 ![Langs](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/langs/Langs.png)
 

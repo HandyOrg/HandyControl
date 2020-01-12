@@ -175,13 +175,16 @@ menu:
       尺寸: /sizes/ ||
     附加属性:
       default: /attach/ ||
+      TextBlockAttach : /textBlockAttach/ ||
       BackgroundSwitchElement 可切换背景的元素: /backgroundSwitchElement/ ||
       BorderElement 具有边框的元素: /borderElement/ ||
       DataGridAttach DataGrid专用: /dataGridAttach/ ||
       EdgeElement 具有边界内容的元素: /edgeElement/ ||
+      GlobalShortcut : /globalShortcut/ ||
       IconElement 具有图标的元素: /iconElement/ ||
       IconSwitchElement 可切换图标的元素: /iconSwitchElement/ ||
       InfoElement 信息元素: /infoElement/ ||
+      LinkElement : /linkElement/ ||
       PanelElement 面板元素: /panelElement/ ||
       PasswordBoxAttach 密码框专用: /passwordBoxAttach/ ||
       StatusSwitchElement 可切换状态的元素: /statusSwitchElement/ ||
@@ -225,8 +228,10 @@ menu:
       default: /extend_controls/ ||
       AnimationPath 动画路径: /animationPath/ ||
       Badge 标记: /badge/ ||
+      ButtonGroup : /buttonGroup/ ||
       BlurWindow 背景模糊窗口: /blurWindow/ ||
       CalendarWithClock 带有时钟的日历: /calendarWithClock/ ||
+      Card : /card/ ||
       Carousel 轮播: /carousel/ ||
       ChatBubble 对话气泡: /chatBubble/ ||
       CirclePanel 圆形布局: /circlePanel/ ||
@@ -240,30 +245,45 @@ menu:
       DatePicker 日期选择器: /datePicker/ ||
       DateTimePicker 日期时间选择器: /dateTimePicker/ ||
       Dialog 对话框: /dialog/ ||
+      Divider : /divider/ ||
+      Drawer : /drawer/ ||
       FlipClock 翻页时钟: /flipClock/ ||
+      FloatingBlock : /floatingBlock/ ||
       GifImage Gif图片: /gifImage/ ||
       GotoTop 回到顶部: /gotoTop/ ||
       Gravatar 头像: /gravatar/ ||
+      Grid : /grid/ ||
       Growl 信息通知: /growl/ ||
+      HoneycombPanel : /honeycombPanel/ ||
+      ImageBlock : /imageBlock/ ||
       ImageBrowser 图片浏览器: /imageBrowser/ ||
       ImageViewer 图片视图: /imageViewer/ ||
       Loading 加载条: /loading/ ||
+      Magnifier : /magnifier/ ||
       MessageBox 消息对话框: /messageBox/ ||
+      Notification : /notification/ ||
       NotifyIcon 托盘图标: /notifyIcon/ ||
       NumericUpDown 数值选择控件: /numericUpDown/ ||
       OutlineText 轮廓文本: /outlineText/ ||
       Pagination 页码条: /pagination/ ||
       PasswordBox 密码框: /passwordBox/ ||
+      PopTip : /popTip/ ||
       PopupWindow 弹出窗口: /popupWindow/ ||
       PreviewSlider 预览滑块: /previewSlider/ ||
       ProgressButton 进度按钮: /progressButton/ ||
+      RangeSlider : /rangeSlider/ ||
       RadioGroup 单选按钮组: /radioGroup/ ||
       Rate 评分: /rate/ ||
+      RelativePanel : /relativePanel/ ||
+      RunningBlock : /runningBlock/ ||
       ScrollViewer 滚动视图: /scrollViewer/ ||
       SearchBar 搜索栏: /searchBar/ ||
       Shield 徽章: /shield/ ||
+      SideMenu : /sideMenu/ ||
       SimpleItemsControl 简单项目控件: /simpleItemsControl/ ||
       SimplePanel 简单面板: /simplePanel/ ||
+      SplitButton : /splitButton/ ||
+      Sprite : /sprite/ ||
       StepBar 步骤条: /stepBar/ ||
       TabControl 选项卡控件: /tabControl/ ||
       Tag 标签: /tag/ ||
@@ -281,6 +301,9 @@ menu:
       InfoType: /InfoType/ ||
     工具和扩展:
       default: /tools/ ||
+      HatchBrushGenerator : /hatchBrushGenerator/ ||
+      Effect : /effect/ ||
+      MorphingAnimation : /morphingAnimation/ ||
     国际化:
       default: /langs/ ||
 
