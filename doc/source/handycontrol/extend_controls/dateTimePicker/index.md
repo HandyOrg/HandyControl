@@ -35,7 +35,7 @@ var dateTimePicker = new DateTimePicker();
 
 ![DateTimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/DateTimePicker_2.png)
 
-也可以在XAML钟或代码中这样设置日期。
+也可以在XAML中或代码中这样设置日期。
 
 ``` XML
 <hc:DateTimePicker SelectedDateTime="{x:Static system:DateTime.Now}"/>
