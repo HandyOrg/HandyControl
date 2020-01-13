@@ -12,7 +12,7 @@ TimePicker 控件允许用户通过在文本框中键入时间或使用下拉的
 public class TimePicker : Control, IDataInput
 ```
 
-# 创建DatePicker
+# 创建TimePicker
 
 ``` XML
 <hc:TimePicker />
@@ -32,7 +32,7 @@ var timePicker = new TimePicker();
 
 可以通过文本框输入时间，或者点击文本框右边的按钮打开下拉的时钟控件选择时间。
 
-![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/TimePicker_2.png)
+![TimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/TimePicker_2.png)
 
 也可以在XAML钟或代码中这样设置日期。
 
@@ -56,7 +56,7 @@ timePicker.SelectedTime = DateTime.Now;
 </hc:TimePicker>
 ```
 
-![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/TimePicker_3.png)
+![TimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/TimePicker_3.png)
 
 # 设置标题和占位符文本
 
