@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Tools;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -20,6 +24,10 @@ namespace HandyControl.Controls
         private int _inputIndex;
 
         private bool _changed;
+
+        private bool _isInternalAction;
+
+        private List<SecureString> _passwordList;
 
         private RoutedEventHandler _passwordBoxsGotFocusEventHandler;
 
@@ -51,6 +59,8 @@ namespace HandyControl.Controls
 
         private void PasswordBoxsPasswordChanged(object sender, RoutedEventArgs e)
         {
+            if (_isInternalAction) return;
+
             if (e.OriginalSource is System.Windows.Controls.PasswordBox passwordBox)
             {
                 if (passwordBox.Password.Length > 0)
@@ -88,6 +98,7 @@ namespace HandyControl.Controls
             if (e.OriginalSource is System.Windows.Controls.PasswordBox passwordBox)
             {
                 _inputIndex = _panel.Children.IndexOf(passwordBox);
+                passwordBox.SelectAll();
             }
         }
 
@@ -103,7 +114,10 @@ namespace HandyControl.Controls
                     return;
                 }
 
-                FocusManager.SetFocusedElement(this, _panel.Children[_inputIndex]);
+                var passwordBox = _panel.Children[_inputIndex] as System.Windows.Controls.PasswordBox;
+                passwordBox?.SelectAll();
+
+                FocusManager.SetFocusedElement(this, passwordBox);
             }
             else if (e.Key == Key.Right)
             {
@@ -113,7 +127,10 @@ namespace HandyControl.Controls
                     return;
                 }
 
-                FocusManager.SetFocusedElement(this, _panel.Children[_inputIndex]);
+                var passwordBox = _panel.Children[_inputIndex] as System.Windows.Controls.PasswordBox;
+                passwordBox?.SelectAll();
+
+                FocusManager.SetFocusedElement(this, passwordBox);
             }
         }
 
@@ -129,6 +146,13 @@ namespace HandyControl.Controls
 
             if (e.Key == Key.Delete || e.Key == Key.Back)
             {
+                if (_panel.Children[_inputIndex] is System.Windows.Controls.PasswordBox passwordBox)
+                {
+                    _isInternalAction = true;
+                    passwordBox.Clear();
+                    _isInternalAction = false;
+                }
+
                 if (--_inputIndex < 0)
                 {
                     _inputIndex = 0;
@@ -139,8 +163,66 @@ namespace HandyControl.Controls
             }
         }
 
+        public string Password
+        {
+            get
+            {
+                return string.Join("", _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Select(item => item.Password));
+            }
+            set
+            {
+                if (_panel == null)
+                {
+                    _passwordList = new List<SecureString>();
+
+                    if (value == null)
+                    {
+                        value = string.Empty;
+                    }
+
+                    foreach (var item in value)
+                    {
+                        var secureString = new SecureString();
+                        secureString.AppendChar(item);
+                        _passwordList.Add(secureString);
+                    }
+
+                    return;
+                }
+
+                var length = Length;
+                if (string.IsNullOrEmpty(value) || value.Length != length || value.Length != _panel.Children.Count)
+                {
+                    _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Do(item => item.Clear());
+                }
+                else
+                {
+                    _panel.Children.OfType<System.Windows.Controls.PasswordBox>().DoWithIndex((item, index) => item.Password = value[index].ToString());
+                }
+            }
+        }
+
+        /// <summary>
+        ///     掩码字符
+        /// </summary>
+        public static readonly DependencyProperty PasswordCharProperty =
+            System.Windows.Controls.PasswordBox.PasswordCharProperty.AddOwner(typeof(PinBox),
+                new FrameworkPropertyMetadata('●'));
+
+        public char PasswordChar
+        {
+            get => (char)GetValue(PasswordCharProperty);
+            set => SetValue(PasswordCharProperty, value);
+        }
+
         public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(
-            "Length", typeof(int), typeof(PinBox), new PropertyMetadata(MinLength, null, CoerceLength), ValidateHelper.IsInRangeOfPosInt);
+            "Length", typeof(int), typeof(PinBox), new PropertyMetadata(MinLength, OnLengthChanged, CoerceLength), ValidateHelper.IsInRangeOfPosInt);
+
+        private static void OnLengthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (PinBox) d;
+            ctl.UpdateItems();
+        }
 
         private static object CoerceLength(DependencyObject d, object basevalue) => (int)basevalue < 4 ? MinLength : basevalue;
 
@@ -179,9 +261,9 @@ namespace HandyControl.Controls
 
         public static readonly RoutedEvent CompletedEvent =
             EventManager.RegisterRoutedEvent("Completed", RoutingStrategy.Bubble,
-                typeof(EventHandler), typeof(PinBox));
+                typeof(RoutedEventHandler), typeof(PinBox));
 
-        public event EventHandler Completed
+        public event RoutedEventHandler Completed
         {
             add => AddHandler(CompletedEvent, value);
             remove => RemoveHandler(CompletedEvent, value);
@@ -189,6 +271,8 @@ namespace HandyControl.Controls
 
         private void UpdateItems()
         {
+            if (_panel == null) return;
+
             _panel.Children.Clear();
             var length = Length;
 
@@ -208,7 +292,8 @@ namespace HandyControl.Controls
                 Margin = ItemMargin,
                 Width = ItemWidth,
                 Height = ItemHeight,
-                Padding = new Thickness()
+                Padding = default,
+                PasswordChar = PasswordChar
             };
         }
 
@@ -220,6 +305,34 @@ namespace HandyControl.Controls
             if (_panel != null)
             {
                 UpdateItems();
+
+                var length = Length;
+                if (_passwordList != null && _passwordList.Count == length && _panel.Children.Count == length)
+                {
+                    for (var i = 0; i < length; i++)
+                    {
+                        var password = _passwordList[i];
+                        if (password.Length > 0)
+                        {
+                            var valuePtr = IntPtr.Zero;
+                            try
+                            {
+                                valuePtr = Marshal.SecureStringToGlobalAllocUnicode(password);
+                                if (_panel.Children[i] is System.Windows.Controls.PasswordBox passwordBox)
+                                {
+                                    passwordBox.Password = Marshal.PtrToStringUni(valuePtr) ?? throw new InvalidOperationException();
+                                }
+                            }
+                            finally
+                            {
+                                Marshal.ZeroFreeGlobalAllocUnicode(valuePtr);
+                                password.Clear();
+                            }
+                        }
+                    }
+
+                    _passwordList.Clear();
+                }
             }
         }
     }
