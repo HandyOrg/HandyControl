@@ -215,7 +215,9 @@ menu:
       RadioButton 单选按钮: /radioButton/ ||
       RichTextBox 富文本框: /richTextBox/ ||
       ScrollViewer 滚动视图: /scrollViewer/ ||
+      Seperator: /seperator/ ||
       Slider 滑块: /slider/ ||
+      StatusBar: /statusBar/ ||
       TabControl 选项卡控件: /tabControl/ ||
       TextBlock 文本块: /textBlock/ ||
       TextBox 文本框: /textBox/ ||
@@ -267,6 +269,7 @@ menu:
       OutlineText 轮廓文本: /outlineText/ ||
       Pagination 页码条: /pagination/ ||
       PasswordBox 密码框: /passwordBox/ ||
+      PinBox: /pinBox/ ||
       PopTip : /popTip/ ||
       PopupWindow 弹出窗口: /popupWindow/ ||
       PreviewSlider 预览滑块: /previewSlider/ ||
