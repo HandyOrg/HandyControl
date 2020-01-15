@@ -79,6 +79,8 @@
         <ResourceDictionary Source="Poptip.xaml"/>
         <ResourceDictionary Source="Drawer.xaml"/>
         <ResourceDictionary Source="PinBox.xaml"/>
+        <ResourceDictionary Source="Separator.xaml"/>
+        <ResourceDictionary Source="StatusBar.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>
