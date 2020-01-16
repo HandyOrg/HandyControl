@@ -18,5 +18,14 @@ namespace HandyControl.Controls
         public static void SetPlacement(DependencyObject element, TipPlacement value) => element.SetValue(PlacementProperty, value);
 
         public static TipPlacement GetPlacement(DependencyObject element) => (TipPlacement) element.GetValue(PlacementProperty);
+
+        public static readonly DependencyProperty StringFormatProperty = DependencyProperty.RegisterAttached(
+            "StringFormat", typeof(string), typeof(TipElement), new PropertyMetadata("#0.0"));
+
+        public static void SetStringFormat(DependencyObject element, string value)
+            => element.SetValue(StringFormatProperty, value);
+
+        public static string GetStringFormat(DependencyObject element)
+            => (string) element.GetValue(StringFormatProperty);
     }
 }

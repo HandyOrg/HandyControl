@@ -72,7 +72,7 @@
 
     <ControlTemplate x:Key="TipSliderThumbHorizontalTop" TargetType="Thumb">
         <controls:InternalCanvas>
-            <Label Name="LabelValue" Opacity="0" Canvas.Bottom="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Bottom="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}" ContentStringFormat="{Binding Path=(controls:TipElement.StringFormat),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Canvas.Bottom="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -103,7 +103,7 @@
 
     <ControlTemplate x:Key="TipSliderThumbHorizontalBottom" TargetType="Thumb">
         <controls:InternalCanvas>
-            <Label Name="LabelValue" Opacity="0" Canvas.Top="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Top="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}" ContentStringFormat="{Binding Path=(controls:TipElement.StringFormat),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Canvas.Bottom="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -134,7 +134,7 @@
 
     <ControlTemplate x:Key="TipSliderThumbVerticalLeft" TargetType="Thumb">
         <controls:InternalCanvas Orientation="Vertical">
-            <Label Name="LabelValue" Opacity="0" Canvas.Right="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Right="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}" ContentStringFormat="{Binding Path=(controls:TipElement.StringFormat),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Canvas.Right="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -165,7 +165,7 @@
 
     <ControlTemplate x:Key="TipSliderThumbVerticalRight" TargetType="Thumb">
         <controls:InternalCanvas Orientation="Vertical">
-            <Label Name="LabelValue" Opacity="0" Canvas.Left="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Left="28" Style="{StaticResource LabelPrimary}" Content="{Binding Value,RelativeSource={RelativeSource AncestorType=Slider}}" ContentStringFormat="{Binding Path=(controls:TipElement.StringFormat),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Canvas.Right="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -223,14 +223,14 @@
         <ControlTemplate.Triggers>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="controls:TipElement.Placement" Value="TopLeft"/>
+                    <Condition Property="controls:TipElement.Placement" Value="Top"/>
                     <Condition Property="controls:TipElement.Visibility" Value="Visible"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" TargetName="Thumb" Value="{StaticResource TipSliderThumbHorizontalTop}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="controls:TipElement.Placement" Value="BottomRight"/>
+                    <Condition Property="controls:TipElement.Placement" Value="Bottom"/>
                     <Condition Property="controls:TipElement.Visibility" Value="Visible"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" TargetName="Thumb" Value="{StaticResource TipSliderThumbHorizontalBottom}"/>
@@ -280,14 +280,14 @@
         <ControlTemplate.Triggers>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="controls:TipElement.Placement" Value="TopLeft"/>
+                    <Condition Property="controls:TipElement.Placement" Value="Left"/>
                     <Condition Property="controls:TipElement.Visibility" Value="Visible"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" TargetName="Thumb" Value="{StaticResource TipSliderThumbVerticalLeft}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="controls:TipElement.Placement" Value="BottomRight"/>
+                    <Condition Property="controls:TipElement.Placement" Value="Right"/>
                     <Condition Property="controls:TipElement.Visibility" Value="Visible"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" TargetName="Thumb" Value="{StaticResource TipSliderThumbVerticalRight}"/>
@@ -709,7 +709,7 @@
 
     <ControlTemplate x:Key="TipRangeSliderThumbHorizontalTop" TargetType="controls:RangeThumb">
         <controls:InternalCanvas>
-            <Label Name="LabelValue" Opacity="0" Canvas.Bottom="28" Style="{StaticResource LabelPrimary}" Content="{TemplateBinding Content}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Bottom="28" Style="{StaticResource LabelPrimary}" Content="{TemplateBinding Content}" ContentStringFormat="{Binding Path=(controls:TipElement.StringFormat),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Canvas.Bottom="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -740,7 +740,7 @@
 
     <ControlTemplate x:Key="TipRangeSliderThumbHorizontalBottom" TargetType="controls:RangeThumb">
         <controls:InternalCanvas>
-            <Label Name="LabelValue" Opacity="0" Canvas.Top="28" Style="{StaticResource LabelPrimary}" Content="{TemplateBinding Content}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Top="28" Style="{StaticResource LabelPrimary}" Content="{TemplateBinding Content}" ContentStringFormat="{Binding Path=(controls:TipElement.StringFormat),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Canvas.Bottom="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -771,7 +771,7 @@
 
     <ControlTemplate x:Key="TipRangeSliderThumbVerticalLeft" TargetType="controls:RangeThumb">
         <controls:InternalCanvas Orientation="Vertical">
-            <Label Name="LabelValue" Opacity="0" Canvas.Right="28" Style="{StaticResource LabelPrimary}" Content="{TemplateBinding Content}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Right="28" Style="{StaticResource LabelPrimary}" Content="{TemplateBinding Content}" ContentStringFormat="{Binding Path=(controls:TipElement.StringFormat),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Canvas.Right="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -802,7 +802,7 @@
 
     <ControlTemplate x:Key="TipRangeSliderThumbVerticalRight" TargetType="controls:RangeThumb">
         <controls:InternalCanvas Orientation="Vertical">
-            <Label Name="LabelValue" Opacity="0" Canvas.Left="28" Style="{StaticResource LabelPrimary}" Content="{TemplateBinding Content}"/>
+            <Label Name="LabelValue" Opacity="0" Canvas.Left="28" Style="{StaticResource LabelPrimary}" Content="{TemplateBinding Content}" ContentStringFormat="{Binding Path=(controls:TipElement.StringFormat),RelativeSource={RelativeSource TemplatedParent}}"/>
             <Border Canvas.Right="0" Effect="{StaticResource EffectShadow1}" Name="BorderDot" BorderThickness="0" BorderBrush="{DynamicResource PrimaryBrush}" Width="18" Height="18" Background="White" CornerRadius="9"/>
         </controls:InternalCanvas>
         <ControlTemplate.Triggers>
@@ -862,7 +862,7 @@
         <ControlTemplate.Triggers>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="controls:TipElement.Placement" Value="TopLeft"/>
+                    <Condition Property="controls:TipElement.Placement" Value="Top"/>
                     <Condition Property="controls:TipElement.Visibility" Value="Visible"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" TargetName="ThumbStart" Value="{StaticResource TipRangeSliderThumbHorizontalTop}"/>
@@ -870,7 +870,7 @@
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="controls:TipElement.Placement" Value="BottomRight"/>
+                    <Condition Property="controls:TipElement.Placement" Value="Bottom"/>
                     <Condition Property="controls:TipElement.Visibility" Value="Visible"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" TargetName="ThumbStart" Value="{StaticResource TipRangeSliderThumbHorizontalBottom}"/>
@@ -920,7 +920,7 @@
         <ControlTemplate.Triggers>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="controls:TipElement.Placement" Value="TopLeft"/>
+                    <Condition Property="controls:TipElement.Placement" Value="Left"/>
                     <Condition Property="controls:TipElement.Visibility" Value="Visible"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" TargetName="ThumbStart" Value="{StaticResource TipRangeSliderThumbVerticalLeft}"/>
@@ -928,7 +928,7 @@
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
-                    <Condition Property="controls:TipElement.Placement" Value="BottomRight"/>
+                    <Condition Property="controls:TipElement.Placement" Value="Right"/>
                     <Condition Property="controls:TipElement.Visibility" Value="Visible"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" TargetName="ThumbStart" Value="{StaticResource TipRangeSliderThumbVerticalRight}"/>

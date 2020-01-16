@@ -184,4 +184,10 @@
   <data name="No" xml:space="preserve">
     <value>否</value>
   </data>
+  <data name="ZoomIn" xml:space="preserve">
+    <value>放大</value>
+  </data>
+  <data name="ZoomOut" xml:space="preserve">
+    <value>缩小</value>
+  </data>
 </root>

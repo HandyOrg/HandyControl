@@ -97,6 +97,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### FlowDocumentScrollViewerStyle
+
+![FlowDocumentScrollViewerStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FlowDocumentScrollViewer.png)
+
 ### PinBox
 
 ![PinBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PinBox.png)
@@ -113,11 +117,11 @@ Step 4：enjoy coding
 
 ![Drawer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Drawer.gif)
 
+## History publication
+
 ### Poptip
 
 ![Poptip](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Poptip.gif)
-
-## History publication
 
 ### Divider
 
