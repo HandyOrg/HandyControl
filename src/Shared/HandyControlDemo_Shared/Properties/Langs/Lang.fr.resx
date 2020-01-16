@@ -714,4 +714,7 @@
   <data name="PinBox" xml:space="preserve">
     <value>PinBox</value>
   </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>FlowDocumentScrollViewer</value>
+  </data>
 </root>

@@ -26,6 +26,7 @@
       [ "GroupBox", "GroupBoxDemoCtl", "GroupBox_16x", "" ],
       [ "Menu", "MenuDemoCtl", "ContextMenu_16x", "" ],
       [ "RichTextBox", "RichTextBoxDemoCtl", "RichTextBox_16x", "" ],
+      [ "FlowDocumentScrollViewer", "FlowDocumentScrollViewerDemoCtl", "WPFFlowDocument_16x", "1" ],
       [ "ToolBar", "ToolBarDemoCtl", "ToolBar_16x", "" ],
       [ "Border", "BorderDemoCtl", "BorderElement_16x", "" ],
       [ "Label", "LabelDemoCtl", "Label_16x", "" ]

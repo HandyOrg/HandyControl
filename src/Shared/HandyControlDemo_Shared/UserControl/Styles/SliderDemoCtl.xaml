@@ -9,15 +9,15 @@
                 <Slider Width="400" IsSnapToTickEnabled="True" Value="8"/>
                 <Slider Width="400" IsSnapToTickEnabled="True" Value="3" Margin="0,32,0,0" IsEnabled="False"/>
                 <Slider Width="400" IsSnapToTickEnabled="True" TickFrequency="5" Maximum="100" TickPlacement="TopLeft" Value="10" IsSelectionRangeEnabled="True" SelectionStart="10" SelectionEnd="80" Margin="0,32,0,0"/>
-                <Slider Width="400" hc:TipElement.Visibility="Visible" IsSnapToTickEnabled="True" Maximum="100" Value="60" TickFrequency="10" TickPlacement="BottomRight" Margin="0,32,0,0"/>
-                <Slider Width="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="BottomRight" IsSnapToTickEnabled="True" Value="5" TickPlacement="Both" Margin="0,32,0,0"/>
+                <Slider Width="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Top" IsSnapToTickEnabled="True" Maximum="100" Value="60" TickFrequency="10" TickPlacement="BottomRight" Margin="0,32,0,0"/>
+                <Slider Width="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Bottom" hc:TipElement.StringFormat="#0.00" Value="5" TickPlacement="Both" Margin="0,32,0,0"/>
             </StackPanel>
             <StackPanel Margin="32,0,0,0" Orientation="Horizontal">
                 <Slider Height="400" IsSnapToTickEnabled="True" Value="8" Orientation="Vertical"/>
                 <Slider Height="400" IsSnapToTickEnabled="True" Value="3" Margin="32,0,0,0" IsEnabled="False" Orientation="Vertical"/>
                 <Slider Height="400" IsSnapToTickEnabled="True" TickFrequency="5" Maximum="100" TickPlacement="TopLeft" Value="10" IsSelectionRangeEnabled="True" SelectionStart="20" SelectionEnd="80" Margin="32,0,0,0" Orientation="Vertical"/>
-                <Slider Height="400" hc:TipElement.Visibility="Visible" IsSnapToTickEnabled="True" Maximum="100" Value="60" TickFrequency="10" TickPlacement="BottomRight" Margin="32,0,0,0" Orientation="Vertical"/>
-                <Slider Height="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="BottomRight" IsSnapToTickEnabled="True" Value="5" TickPlacement="Both" Margin="32,0" Orientation="Vertical"/>
+                <Slider Height="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Left" IsSnapToTickEnabled="True" Maximum="100" Value="60" TickFrequency="10" TickPlacement="BottomRight" Margin="32,0,0,0" Orientation="Vertical"/>
+                <Slider Height="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Right" hc:TipElement.StringFormat="#0.00" Value="5" TickPlacement="Both" Margin="32,0" Orientation="Vertical"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

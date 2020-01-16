@@ -714,4 +714,7 @@
   <data name="PinBox" xml:space="preserve">
     <value>PIN码框</value>
   </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>流文档滚动视图</value>
+  </data>
 </root>
