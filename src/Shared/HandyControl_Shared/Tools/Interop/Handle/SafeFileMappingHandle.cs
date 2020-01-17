@@ -43,7 +43,7 @@ namespace HandyControl.Tools.Interop
         public static bool CloseHandleNoThrow(HandleRef handle)
         {
             HandleCollector.Remove((IntPtr)handle, CommonHandles.Kernel);
-            var result = UnsafeNativeMethods.IntCloseHandle(handle);
+            var result = InteropMethods.IntCloseHandle(handle);
             return result;
         }
     }

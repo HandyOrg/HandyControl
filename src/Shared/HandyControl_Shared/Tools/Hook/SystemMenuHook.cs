@@ -19,14 +19,14 @@ namespace HandyControl.Tools
             if (source != null)
             {
                 DataDic[id] = source;
-                NativeMethods.InsertMenu(NativeMethods.GetSystemMenu(hookId, false), index, NativeMethods.MF_BYPOSITION, id, text);
+                InteropMethods.InsertMenu(InteropMethods.GetSystemMenu(hookId, false), index, InteropValues.MF_BYPOSITION, id, text);
                 source.AddHook(WinProc);
             }
         }
 
-        public static void InsertSeperator(int index, Window window) => NativeMethods.InsertMenu(
-            NativeMethods.GetSystemMenu(window.GetHandle(), false), index,
-            NativeMethods.MF_BYPOSITION | NativeMethods.MF_SEPARATOR, 0, "");
+        public static void InsertSeperator(int index, Window window) => InteropMethods.InsertMenu(
+            InteropMethods.GetSystemMenu(window.GetHandle(), false), index,
+            InteropValues.MF_BYPOSITION | InteropValues.MF_SEPARATOR, 0, "");
 
         public static void Remove(int id)
         {
@@ -39,7 +39,7 @@ namespace HandyControl.Tools
 
         private static IntPtr WinProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
         {
-            if (msg == NativeMethods.WM_SYSCOMMAND)
+            if (msg == InteropValues.WM_SYSCOMMAND)
             {
                 var id = wparam.ToInt32();
                 if (DataDic.ContainsKey(id))
