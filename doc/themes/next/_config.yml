@@ -204,6 +204,7 @@ menu:
       DataGrid 数据表格: /dataGrid/ ||
       DatePicker 日期选择器: /datePicker/ ||
       Expander 展开框: /expander/ ||
+      FlowDocumentScrollViewer: /flowDocumentScrollViewer/ ||
       GroupBox 分组框: /groupBox/ ||
       Image 图片: /image/ ||
       Label 标签: /label/ ||
@@ -253,6 +254,7 @@ menu:
       FloatingBlock : /floatingBlock/ ||
       GifImage Gif图片: /gifImage/ ||
       GotoTop 回到顶部: /gotoTop/ ||
+      GlowWindow: /glowWindow/ ||
       Gravatar 头像: /gravatar/ ||
       Grid : /grid/ ||
       Growl 信息通知: /growl/ ||
