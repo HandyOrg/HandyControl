@@ -7,7 +7,6 @@
                xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
                xmlns:data="clr-namespace:HandyControlDemo.Data"
                mc:Ignorable="d"
-               Style="{StaticResource WindowBlur}"
                Title="HandyControlDemo"
                ShowTitle="False"
                ResizeMode="CanResizeWithGrip"

@@ -7,6 +7,6 @@ namespace HandyControl.Data
     {
         public MouseHookMessageType Message { get; set; }
 
-        public NativeMethods.POINT Point { get; set; }
+        public InteropValues.POINT Point { get; set; }
     }
 }

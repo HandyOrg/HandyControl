@@ -41,6 +41,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeThumb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\RunningBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DisposableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\DrawerShowMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HatchStyle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HitMode.cs" />
@@ -48,6 +50,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\NotifyIconInfoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StrokePosition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TransitionMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\ChangeScope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowBitmap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowBitmapPart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowDrawingContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowEdge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\HwndWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\DiscreteGeometryKeyFrame.cs" />
@@ -70,6 +78,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\RectangleCircularConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ThicknessSplitConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\DependencyObjectExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\FrameworkElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ValueExtension.cs" />
@@ -299,6 +308,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\IconHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ResourceHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ScreenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SecurityHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TokenizerHelper.cs" />
@@ -309,20 +319,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\KeyboardHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\MouseHook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Hook\SystemMenuHook.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\BitmapHandle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\BITMAPINFO.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\CommonHandles.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\ExternDll.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\HandleCollector.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\IconHandle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\ICONINFO.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\NativeMethods.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\NativeValues.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\NOTIFYICONDATA.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\SafeFileMappingHandle.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\UnsafeNativeMethods.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\WNDCLASS.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\WpfSafeHandle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\BitmapHandle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\CommonHandles.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\HandleCollector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\IconHandle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\InteropMethods.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\InteropValues.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\SafeFileMappingHandle.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\WpfSafeHandle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\MouseDragElementBehaviorEx.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\IPool!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\SimplePool!1.cs" />
@@ -942,5 +946,8 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorComplementEffect.fx" />
     <None Include="$(MSBuildThisFileDirectory)Resources\Effects\GrayScaleEffect.fx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\" />
   </ItemGroup>
 </Project>

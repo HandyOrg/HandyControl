@@ -97,6 +97,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### GlowWindow
+
+![GlowWindow](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GlowWindow.png)
+
 ### FlowDocumentScrollViewerStyle
 
 ![FlowDocumentScrollViewerStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FlowDocumentScrollViewer.png)
@@ -113,11 +117,11 @@ Step 4：enjoy coding
 
 ![RelativePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/RelativePanel.png)
 
+## History publication
+
 ### Drawer
 
 ![Drawer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Drawer.gif)
-
-## History publication
 
 ### Poptip
 

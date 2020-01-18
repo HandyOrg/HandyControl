@@ -14,17 +14,17 @@ namespace HandyControl.Tools
 
         private static IntPtr HookId = IntPtr.Zero;
 
-        private static readonly UnsafeNativeMethods.HookProc Proc = HookCallback;
+        private static readonly InteropValues.HookProc Proc = HookCallback;
 
         private static int VirtualKey;
 
-        private static readonly IntPtr KeyDownIntPtr = (IntPtr)NativeMethods.WM_KEYDOWN;
+        private static readonly IntPtr KeyDownIntPtr = (IntPtr)InteropValues.WM_KEYDOWN;
 
-        private static readonly IntPtr KeyUpIntPtr = (IntPtr)NativeMethods.WM_KEYUP;
+        private static readonly IntPtr KeyUpIntPtr = (IntPtr)InteropValues.WM_KEYUP;
 
-        private static readonly IntPtr SyskeyDownIntPtr = (IntPtr)NativeMethods.WM_SYSKEYDOWN;
+        private static readonly IntPtr SyskeyDownIntPtr = (IntPtr)InteropValues.WM_SYSKEYDOWN;
 
-        private static readonly IntPtr SyskeyUpIntPtr = (IntPtr)NativeMethods.WM_SYSKEYUP;
+        private static readonly IntPtr SyskeyUpIntPtr = (IntPtr)InteropValues.WM_SYSKEYUP;
 
         public static void Start()
         {
@@ -35,17 +35,17 @@ namespace HandyControl.Tools
             HookId = SetHook(Proc);
         }
 
-        public static void Stop() => UnsafeNativeMethods.UnhookWindowsHookEx(HookId);
+        public static void Stop() => InteropMethods.UnhookWindowsHookEx(HookId);
 
-        private static IntPtr SetHook(UnsafeNativeMethods.HookProc proc)
+        private static IntPtr SetHook(InteropValues.HookProc proc)
         {
             using (var curProcess = Process.GetCurrentProcess())
             using (var curModule = curProcess.MainModule)
             {
                 if (curModule != null)
                 {
-                    return UnsafeNativeMethods.SetWindowsHookEx((int)UnsafeNativeMethods.HookType.WH_KEYBOARD_LL, proc,
-                        UnsafeNativeMethods.GetModuleHandle(curModule.ModuleName), 0);
+                    return InteropMethods.SetWindowsHookEx((int)InteropValues.HookType.WH_KEYBOARD_LL, proc,
+                        InteropMethods.GetModuleHandle(curModule.ModuleName), 0);
                 }
                 return IntPtr.Zero;
             }
@@ -86,7 +86,7 @@ namespace HandyControl.Tools
                     KeyUp?.Invoke(null, new KeyboardHookEventArgs(virtualKey, true));
                 }
             }
-            return UnsafeNativeMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
+            return InteropMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
         }
     }
 }

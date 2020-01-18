@@ -717,4 +717,7 @@
   <data name="FlowDocumentScrollViewer" xml:space="preserve">
     <value>FlowDocumentScrollViewer</value>
   </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>Open glowWindow</value>
+  </data>
 </root>

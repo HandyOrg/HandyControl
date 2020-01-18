@@ -10,7 +10,6 @@
            ShowTitle="True"
            BorderThickness="1"
            BorderBrush="#262e2f"
-           Style="{StaticResource WindowWin10}"
            ResizeMode="NoResize"
            ShowInTaskbar="False"
            WindowStartupLocation="CenterOwner"

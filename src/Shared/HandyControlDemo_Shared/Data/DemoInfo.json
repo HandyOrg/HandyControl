@@ -45,7 +45,7 @@
       [ "ButtonGroup", "ButtonGroupDemoCtl", "ButtonGroup_16x", "" ],
       [ "ProgressButton", "ProgressButtonDemoCtl", "ProgressButton_16x", "" ],
       [ "ChatBubble", "ChatBubbleDemoCtl", "Bubble_16xLG", "" ],
-      [ "Poptip", "PoptipDemoCtl", "PopupCursor_16x", "1" ],
+      [ "Poptip", "PoptipDemoCtl", "PopupCursor_16x", "" ],
       [ "NotifyIcon", "NotifyIconDemoCtl", "NotificationHub_16x", "" ],
       [ "NumericUpDown", "NumericUpDownDemoCtl", "NumericListBox_16x", "" ],
       [ "TextBox", "TextBoxDemoCtl", "TextBox_16x", "" ],
@@ -74,7 +74,7 @@
       [ "WaterfallPanel", "WaterfallPanelDemoCtl", "Panel_16x", "" ],
       [ "HoneycombPanel", "HoneycombPanelDemoCtl", "PolygonHexagon_16x", "" ],
       [ "TransitioningContentControl", "TransitioningContentControlDemoCtl", "TransitioningContentControl_16x", "" ],
-      [ "Drawer", "DrawerDemoCtl", "View_Portrait_16x", "1" ],
+      [ "Drawer", "DrawerDemoCtl", "View_Portrait_16x", "" ],
       [ "CoverView", "CoverViewDemoCtl", "DetailDataView_16x", "" ],
       [ "CoverFlow", "CoverFlowDemoCtl", "LinearCarousel_16x", "" ],
       [ "ProgressBar", "ProgressBarDemoCtl", "ProgressBar_16x", "" ],
@@ -96,7 +96,7 @@
       [ "Sprite", "SpriteDemoCtl", "HandyControl", "" ],
       [ "Notification", "NotificationDemoCtl", "Procedure_16x", "" ],
       [ "Dialog", "DialogDemoCtl", "Dialog_16x", "" ],
-      [ "Window", "WindowDemoCtl", "WindowsForm_16x", "" ]
+      [ "Window", "WindowDemoCtl", "WindowsForm_16x", "1" ]
     ]
   },
   {

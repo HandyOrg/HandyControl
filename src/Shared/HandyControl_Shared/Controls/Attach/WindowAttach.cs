@@ -97,7 +97,7 @@ namespace HandyControl.Controls
             {
                 var _ = new WindowInteropHelper(window)
                 {
-                    Owner = NativeMethods.GetDesktopWindow()
+                    Owner = InteropMethods.GetDesktopWindow()
                 };
             }
         }

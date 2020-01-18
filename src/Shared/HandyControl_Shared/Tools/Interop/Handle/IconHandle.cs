@@ -15,7 +15,7 @@ namespace HandyControl.Tools.Interop
         [ReliabilityContract(Consistency.WillNotCorruptState, Cer.MayFail)]
         protected override bool ReleaseHandle()
         {
-            return UnsafeNativeMethods.DestroyIcon(handle);
+            return InteropMethods.DestroyIcon(handle);
         }
 
         [SecurityCritical, SecuritySafeCritical]

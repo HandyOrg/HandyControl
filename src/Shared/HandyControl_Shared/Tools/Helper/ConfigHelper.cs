@@ -52,6 +52,15 @@ namespace HandyControl.Tools
             SetLang(config.Lang);
         }
 
+        public void SetWindowDefaultStyle(object resourceKey = null)
+        {
+            var metadata = resourceKey == null
+                ? new FrameworkPropertyMetadata(Application.Current.FindResource(typeof(System.Windows.Window)))
+                : new FrameworkPropertyMetadata(Application.Current.FindResource(resourceKey));
+
+            FrameworkElement.StyleProperty.OverrideMetadata(typeof(System.Windows.Window), metadata);
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
 #if netle40
