@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows;
@@ -11,16 +10,13 @@ using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Expression.Drawing;
 using HandyControl.Tools;
-using HandyControl.Tools.Extension;
 using HandyControl.Tools.Interop;
 
 namespace HandyControl.Controls
 {
-    public class GlowWindow : System.Windows.Window
+    public class GlowWindow : Window
     {
         internal int DeferGlowChangesCount;
-
-        private IntPtr _ownerForActivate;
 
         private readonly GlowEdge[] _glowEdges = new GlowEdge[4];
 
@@ -30,11 +26,7 @@ namespace HandyControl.Controls
 
         private bool _useLogicalSizeForRestore;
 
-        private bool _isNonClientStripVisible;
-
         private bool _updatingZOrder;
-
-        private int _lastWindowPlacement;
 
         private Rect _logicalSizeForRestore = Rect.Empty;
 
@@ -62,36 +54,16 @@ namespace HandyControl.Controls
             ResizeModeProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(OnResizeModeChanged));
         }
 
-        public void ChangeOwnerForActivate(IntPtr newOwner)
+        #region internal
+
+        internal void EndDeferGlowChanges()
         {
-            _ownerForActivate = newOwner;
+            foreach (var current in LoadedGlowWindows) current.CommitChanges();
         }
 
-        public void ChangeOwner(IntPtr newOwner)
-        {
-            var _ = new WindowInteropHelper(this)
-            {
-                Owner = newOwner
-            };
-            foreach (var current in LoadedGlowWindows) current.ChangeOwner(newOwner);
-            UpdateZOrderOfThisAndOwner();
-        }
+        #endregion
 
-        private static int PressedMouseButtons
-        {
-            get
-            {
-                var num = 0;
-                if (InteropMethods.IsKeyPressed(1)) num |= 1;
-                if (InteropMethods.IsKeyPressed(2)) num |= 2;
-                if (InteropMethods.IsKeyPressed(4)) num |= 16;
-                if (InteropMethods.IsKeyPressed(5)) num |= 32;
-                if (InteropMethods.IsKeyPressed(6)) num |= 64;
-                return num;
-            }
-        }
-
-        private IEnumerable<GlowEdge> LoadedGlowWindows => from w in _glowEdges where w != null select w;
+        #region protected
 
         protected virtual bool ShouldShowGlow
         {
@@ -102,6 +74,114 @@ namespace HandyControl.Controls
                        !InteropMethods.IsZoomed(handle) && ResizeMode != ResizeMode.NoResize;
             }
         }
+
+        protected virtual IntPtr HwndSourceHook(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        {
+            if (msg <= 71)
+            {
+                if (msg == 6)
+                {
+                    return IntPtr.Zero;
+                }
+
+                if (msg != 12)
+                {
+                    switch (msg)
+                    {
+                        case 70:
+                            WmWindowPosChanging(lParam);
+                            return IntPtr.Zero;
+                        case 71:
+                            WmWindowPosChanged(lParam);
+                            return IntPtr.Zero;
+                        default:
+                            return IntPtr.Zero;
+                    }
+                }
+            }
+            else
+            {
+                if (msg <= 166)
+                {
+                    switch (msg)
+                    {
+                        case 128:
+                            break;
+                        case 129:
+                        case 130:
+                            return IntPtr.Zero;
+                        case 134:
+                            handled = true;
+                            return WmNcActivate(hWnd, wParam);
+                        default:
+                            switch (msg)
+                            {
+                                case 164:
+                                case 165:
+                                case 166:
+                                    handled = true;
+                                    return IntPtr.Zero;
+                                default:
+                                    return IntPtr.Zero;
+                            }
+                    }
+                }
+                else
+                {
+                    switch (msg)
+                    {
+                        case 174:
+                        case 175:
+                            handled = true;
+                            return IntPtr.Zero;
+                        default:
+                            if (msg != 274) return IntPtr.Zero;
+                            WmSysCommand(hWnd, wParam);
+                            return IntPtr.Zero;
+                    }
+                }
+            }
+
+            handled = true;
+            return CallDefWindowProcWithoutVisibleStyle(hWnd, msg, wParam, lParam);
+        }
+
+        protected override void OnActivated(EventArgs e)
+        {
+            UpdateGlowActiveState();
+            base.OnActivated(e);
+        }
+
+        protected override void OnDeactivated(EventArgs e)
+        {
+            UpdateGlowActiveState();
+            base.OnDeactivated(e);
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            StopTimer();
+            DestroyGlowWindows();
+            base.OnClosed(e);
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            var hwndSource = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
+            if (hwndSource != null)
+            {
+                hwndSource.AddHook(HwndSourceHook);
+                CreateGlowWindowHandles();
+            }
+
+            base.OnSourceInitialized(e);
+        }
+
+        #endregion
+
+        #region private
+
+        private IEnumerable<GlowEdge> LoadedGlowWindows => from w in _glowEdges where w != null select w;
 
         private bool IsGlowVisible
         {
@@ -135,10 +215,7 @@ namespace HandyControl.Controls
             customChromeWindow.UpdateGlowVisibility(false);
         }
 
-        private static void OnGlowColorChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args)
-        {
-            ((GlowWindow)obj).UpdateGlowColors();
-        }
+        private static void OnGlowColorChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args) => ((GlowWindow)obj).UpdateGlowColors();
 
         private void UpdateGlowColors()
         {
@@ -208,11 +285,6 @@ namespace HandyControl.Controls
 
         private IDisposable DeferGlowChanges() => new ChangeScope(this);
 
-        internal void EndDeferGlowChanges()
-        {
-            foreach (var current in LoadedGlowWindows) current.CommitChanges();
-        }
-
         private void UpdateGlowActiveState()
         {
             using (DeferGlowChanges())
@@ -235,13 +307,7 @@ namespace HandyControl.Controls
             }
         }
 
-        private void WmActivate(IntPtr wParam, IntPtr lParam)
-        {
-            if (_ownerForActivate != IntPtr.Zero)
-                InteropMethods.SendMessage(_ownerForActivate, InteropMethods.NOTIFYOWNERACTIVATE, wParam, lParam);
-        }
-
-        private void WmWindowPosChanging(IntPtr hwnd, IntPtr lParam)
+        private void WmWindowPosChanging(IntPtr lParam)
         {
             var windowpos = (InteropValues.WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
             if ((windowpos.flags & 2u) == 0u && (windowpos.flags & 1u) == 0u && windowpos.cx > 0 && windowpos.cy > 0)
@@ -261,72 +327,6 @@ namespace HandyControl.Controls
                 windowpos.y = (int)logicalRect.Y;
                 Marshal.StructureToPtr(windowpos, lParam, true);
             }
-        }
-
-        private static InteropValues.RECT GetClientRectRelativeToWindowRect(IntPtr hWnd)
-        {
-            InteropMethods.GetWindowRect(hWnd, out var rect);
-            InteropMethods.GetClientRect(hWnd, out var result);
-            var point = new InteropValues.POINT
-            {
-                X = 0,
-                Y = 0
-            };
-            InteropMethods.ClientToScreen(hWnd, ref point);
-            result.Offset(point.X - rect.Left, point.Y - rect.Top);
-            return result;
-        }
-
-        private void UpdateMaximizedClipRegion(IntPtr hWnd)
-        {
-            var clientRectRelativeToWindowRect = GetClientRectRelativeToWindowRect(hWnd);
-            if (_isNonClientStripVisible) clientRectRelativeToWindowRect.Bottom++;
-
-            var hRgn = InteropMethods.CreateRectRgnIndirect(ref clientRectRelativeToWindowRect);
-            InteropMethods.SetWindowRgn(hWnd, hRgn, InteropMethods.IsWindowVisible(hWnd));
-        }
-
-        private IntPtr ComputeRoundRectRegion(int left, int top, int width, int height, int cornerRadius)
-        {
-            var nWidthEllipse = (int)(2 * cornerRadius * DpiHelper.LogicalToDeviceUnitsScalingFactorX);
-            var nHeightEllipse = (int)(2 * cornerRadius * DpiHelper.LogicalToDeviceUnitsScalingFactorY);
-            return InteropMethods.CreateRoundRectRgn(left, top, left + width + 1, top + height + 1, nWidthEllipse,
-                nHeightEllipse);
-        }
-
-        protected void SetRoundRect(IntPtr hWnd, int width, int height)
-        {
-            var hRgn = ComputeRoundRectRegion(0, 0, width, height, 0);
-            InteropMethods.SetWindowRgn(hWnd, hRgn, InteropMethods.IsWindowVisible(hWnd));
-        }
-
-        protected virtual bool UpdateClipRegionCore(IntPtr hWnd, int showCmd, ClipRegionChangeType changeType, Int32Rect currentBounds)
-        {
-            if (showCmd == 3)
-            {
-                UpdateMaximizedClipRegion(hWnd);
-                return true;
-            }
-
-            if (changeType == ClipRegionChangeType.FromSize || changeType == ClipRegionChangeType.FromPropertyChange ||
-                _lastWindowPlacement != showCmd)
-            {
-                SetRoundRect(hWnd, currentBounds.Width, currentBounds.Height);
-                return true;
-            }
-
-            return false;
-        }
-
-        private void UpdateClipRegion(IntPtr hWnd, InteropValues.WINDOWPLACEMENT placement, ClipRegionChangeType changeType,
-            InteropValues.RECT currentBounds)
-        {
-            UpdateClipRegionCore(hWnd, placement.showCmd, changeType, currentBounds.ToInt32Rect());
-            _lastWindowPlacement = placement.showCmd;
-        }
-
-        protected virtual void OnWindowPosChanged(IntPtr hWnd, int showCmd, Int32Rect rcNormalPosition)
-        {
         }
 
         private void UpdateZOrderOfOwner(IntPtr hwndOwner)
@@ -366,34 +366,22 @@ namespace HandyControl.Controls
             }
         }
 
-        private void WmWindowPosChanged(IntPtr hWnd, IntPtr lParam)
+        private void WmWindowPosChanged(IntPtr lParam)
         {
             try
             {
                 var windowpos = (InteropValues.WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
-                var windowPlacement = InteropMethods.GetWindowPlacement(hWnd);
-                var currentBounds = new InteropValues.RECT(windowpos.x, windowpos.y, windowpos.x + windowpos.cx,
-                    windowpos.y + windowpos.cy);
-                if ((windowpos.flags & 1u) != 1u)
-                {
-                    UpdateClipRegion(hWnd, windowPlacement, ClipRegionChangeType.FromSize, currentBounds);
-                }
-                else
-                {
-                    if ((windowpos.flags & 2u) != 2u)
-                        UpdateClipRegion(hWnd, windowPlacement, ClipRegionChangeType.FromPosition, currentBounds);
-                }
 
-                OnWindowPosChanged(hWnd, windowPlacement.showCmd, windowPlacement.rcNormalPosition.ToInt32Rect());
                 UpdateGlowWindowPositions((windowpos.flags & 64u) == 0u);
                 UpdateZOrderOfThisAndOwner();
             }
-            catch (Win32Exception)
+            catch
             {
+                // ignored
             }
         }
 
-        internal Rect GetOnScreenPosition(Rect floatRect)
+        private Rect GetOnScreenPosition(Rect floatRect)
         {
             var result = floatRect;
             floatRect = floatRect.LogicalToDeviceUnits();
@@ -422,90 +410,7 @@ namespace HandyControl.Controls
             return result;
         }
 
-        private InteropValues.WINDOWINFO GetWindowInfo(IntPtr hWnd)
-        {
-            var windowInfo = default(InteropValues.WINDOWINFO);
-            windowInfo.cbSize = Marshal.SizeOf(windowInfo);
-            InteropMethods.GetWindowInfo(hWnd, ref windowInfo);
-            return windowInfo;
-        }
-
-        private IntPtr WmNcCalcSize(IntPtr hWnd, IntPtr wParam, IntPtr lParam, ref bool handled)
-        {
-            _isNonClientStripVisible = false;
-            var windowPlacement = InteropMethods.GetWindowPlacement(hWnd);
-            var flag = windowPlacement.showCmd == 3;
-            if (flag)
-            {
-                var rect = (InteropValues.RECT)Marshal.PtrToStructure(lParam, typeof(InteropValues.RECT));
-                InteropMethods.DefWindowProc(hWnd, 131, wParam, lParam);
-                var rect2 = (InteropValues.RECT)Marshal.PtrToStructure(lParam, typeof(InteropValues.RECT));
-                var monitorinfo = MonitorInfoFromWindow(hWnd);
-                if (monitorinfo.rcMonitor.Height == monitorinfo.rcWork.Height &&
-                    monitorinfo.rcMonitor.Width == monitorinfo.rcWork.Width)
-                {
-                    _isNonClientStripVisible = true;
-                    rect2.Bottom--;
-                }
-
-                rect2.Top = rect.Top + (int)GetWindowInfo(hWnd).cyWindowBorders;
-                Marshal.StructureToPtr(rect2, lParam, true);
-            }
-
-            handled = true;
-            return IntPtr.Zero;
-        }
-
-        private IntPtr WmNcHitTest(IntPtr hWnd, IntPtr lParam, ref bool handled)
-        {
-            if (PresentationSource.FromDependencyObject(this) == null) return new IntPtr(0);
-
-            var point = new Point(InteropMethods.GetXLParam(lParam.ToInt32()),
-                InteropMethods.GetYLParam(lParam.ToInt32()));
-            var point2 = PointFromScreen(point);
-            DependencyObject visualHit = null;
-            VisualHelper.HitTestVisibleElements(this, delegate (HitTestResult target)
-            {
-                visualHit = target.VisualHit;
-                return HitTestResultBehavior.Stop;
-            }, new PointHitTestParameters(point2));
-
-            var num = 0;
-            while (visualHit != null)
-            {
-                //var nonClientArea = visualHit as INonClientArea;
-                //if (nonClientArea != null)
-                //{
-                //    num = nonClientArea.HitTest(point);
-                //    if (num != 0) break;
-                //}
-
-                visualHit = visualHit.GetVisualOrLogicalParent();
-            }
-
-            if (num == 0) num = 1;
-            handled = true;
-            return new IntPtr(num);
-        }
-
-        private IntPtr WmNcActivate(IntPtr hWnd, IntPtr wParam, IntPtr lParam, ref bool handled)
-        {
-            handled = true;
-            return InteropMethods.DefWindowProc(hWnd, 134, wParam, InteropMethods.HRGN_NONE);
-        }
-
-        private static void RaiseNonClientMouseMessageAsClient(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam)
-        {
-            var point = new InteropValues.POINT
-            {
-                X = InteropMethods.GetXLParam(lParam.ToInt32()),
-                Y = InteropMethods.GetYLParam(lParam.ToInt32())
-            };
-
-            InteropMethods.ScreenToClient(hWnd, ref point);
-            InteropMethods.SendMessage(hWnd, msg + 513 - 161, new IntPtr(PressedMouseButtons),
-                InteropMethods.MakeParam(point.X, point.Y));
-        }
+        private IntPtr WmNcActivate(IntPtr hWnd, IntPtr wParam) => InteropMethods.DefWindowProc(hWnd, 134, wParam, InteropMethods.HRGN_NONE);
 
         private bool IsAeroSnappedToMonitor(IntPtr hWnd)
         {
@@ -515,7 +420,7 @@ namespace HandyControl.Controls
             return MathHelper.AreClose(monitorinfo.rcWork.Height, logicalRect.Height) && MathHelper.AreClose(monitorinfo.rcWork.Top, logicalRect.Top);
         }
 
-        private void WmSysCommand(IntPtr hWnd, IntPtr wParam, IntPtr lParam)
+        private void WmSysCommand(IntPtr hWnd, IntPtr wParam)
         {
             var num = InteropMethods.GET_SC_WPARAM(wParam);
             if (num == 61456)
@@ -537,86 +442,12 @@ namespace HandyControl.Controls
             }
         }
 
-        private IntPtr CallDefWindowProcWithoutVisibleStyle(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        private IntPtr CallDefWindowProcWithoutVisibleStyle(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam)
         {
             var flag = VisualHelper.ModifyStyle(hWnd, 268435456, 0);
             var result = InteropMethods.DefWindowProc(hWnd, msg, wParam, lParam);
             if (flag) VisualHelper.ModifyStyle(hWnd, 0, 268435456);
-            handled = true;
             return result;
-        }
-
-        protected virtual IntPtr HwndSourceHook(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
-        {
-            if (msg <= 71)
-            {
-                if (msg == 6)
-                {
-                    WmActivate(wParam, lParam);
-                    goto IL_11C;
-                }
-
-                if (msg != 12)
-                    switch (msg)
-                    {
-                        case 70:
-                            WmWindowPosChanging(hWnd, lParam);
-                            goto IL_11C;
-                        case 71:
-                            WmWindowPosChanged(hWnd, lParam);
-                            goto IL_11C;
-                        default:
-                            goto IL_11C;
-                    }
-            }
-            else
-            {
-                if (msg <= 166)
-                    switch (msg)
-                    {
-                        case 128:
-                            break;
-                        case 129:
-                        case 130:
-                            goto IL_11C;
-                        case 131:
-                            return WmNcCalcSize(hWnd, wParam, lParam, ref handled);
-                        case 132:
-                            return WmNcHitTest(hWnd, lParam, ref handled);
-                        //case 133:
-                        //    return WmNcPaint(hWnd, wParam, lParam, ref handled);
-                        case 134:
-                            return WmNcActivate(hWnd, wParam, lParam, ref handled);
-                        default:
-                            switch (msg)
-                            {
-                                case 164:
-                                case 165:
-                                case 166:
-                                    RaiseNonClientMouseMessageAsClient(hWnd, msg, wParam, lParam);
-                                    handled = true;
-                                    goto IL_11C;
-                                default:
-                                    goto IL_11C;
-                            }
-                    }
-                else
-                    switch (msg)
-                    {
-                        case 174:
-                        case 175:
-                            handled = true;
-                            goto IL_11C;
-                        default:
-                            if (msg != 274) goto IL_11C;
-                            WmSysCommand(hWnd, wParam, lParam);
-                            goto IL_11C;
-                    }
-            }
-
-            return CallDefWindowProcWithoutVisibleStyle(hWnd, msg, wParam, lParam, ref handled);
-        IL_11C:
-            return IntPtr.Zero;
         }
 
         private void CreateGlowWindowHandles()
@@ -624,43 +455,7 @@ namespace HandyControl.Controls
             for (var i = 0; i < _glowEdges.Length; i++) GetOrCreateGlowWindow(i).EnsureHandle();
         }
 
-        protected override void OnActivated(EventArgs e)
-        {
-            UpdateGlowActiveState();
-            base.OnActivated(e);
-        }
+        #endregion
 
-        protected override void OnDeactivated(EventArgs e)
-        {
-            UpdateGlowActiveState();
-            base.OnDeactivated(e);
-        }
-
-        protected override void OnClosed(EventArgs e)
-        {
-            StopTimer();
-            DestroyGlowWindows();
-            base.OnClosed(e);
-        }
-
-        protected override void OnSourceInitialized(EventArgs e)
-        {
-            var hwndSource = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
-            if (hwndSource != null)
-            {
-                hwndSource.AddHook(HwndSourceHook);
-                CreateGlowWindowHandles();
-            }
-
-            base.OnSourceInitialized(e);
-        }
-
-        protected enum ClipRegionChangeType
-        {
-            FromSize,
-            FromPosition,
-            FromPropertyChange,
-            FromUndockSingleTab
-        }
     }
 }

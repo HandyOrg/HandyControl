@@ -10,16 +10,11 @@ namespace HandyControl.Tools.Interop
 {
     internal class InteropMethods
     {
-        private static int vsmNotifyOwnerActivate;
-
-        public static readonly IntPtr HRGN_NONE = new IntPtr(-1);
+        internal static readonly IntPtr HRGN_NONE = new IntPtr(-1);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
         [ResourceExposure(ResourceScope.None)]
         internal static extern int RegisterWindowMessage(string msg);
-
-        [DllImport(InteropValues.ExternDll.User32, SetLastError = true, CharSet = CharSet.Auto)]
-        internal static extern int MapWindowPoints(IntPtr hWndFrom, IntPtr hWndTo, ref InteropValues.RECT lpPoints, uint cPoints);
 
         [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
         internal static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, out InteropValues.TBBUTTON lpBuffer,
@@ -282,18 +277,6 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
         internal static extern IntPtr GetDC(IntPtr ptr);
 
-        internal static int NOTIFYOWNERACTIVATE
-        {
-            get
-            {
-                if (vsmNotifyOwnerActivate == 0)
-                {
-                    vsmNotifyOwnerActivate = RegisterWindowMessage("NOTIFYOWNERACTIVATE{A982313C-756C-4da9-8BD0-0C375A45784B}");
-                }
-                return vsmNotifyOwnerActivate;
-            }
-        }
-
         [DllImport(InteropValues.ExternDll.User32, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
         private static extern bool GetWindowPlacement(IntPtr hwnd, InteropValues.WINDOWPLACEMENT lpwndpl);
@@ -307,23 +290,6 @@ namespace HandyControl.Tools.Interop
             }
             throw new Win32Exception(Marshal.GetLastWin32Error());
         }
-        
-        [DllImport(InteropValues.ExternDll.User32)]
-        internal static extern int GetSystemMetrics(int index);
-        
-        [DllImport(InteropValues.ExternDll.User32)]
-        internal static extern int TrackPopupMenuEx(IntPtr hmenu, uint fuFlags, int x, int y, IntPtr hwnd, IntPtr lptpm);
-        
-        [DllImport(InteropValues.ExternDll.User32)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool EnableMenuItem(IntPtr menu, uint uIDEnableItem, uint uEnable);
-        
-        [DllImport(InteropValues.ExternDll.User32)]
-        internal static extern short GetKeyState(int vKey);
-        
-        internal static bool IsKeyPressed(int vKey) => GetKeyState(vKey) < 0;
-
-        internal static IntPtr MakeParam(int lowWord, int highWord) => new IntPtr((lowWord & 65535) | highWord << 16);
 
         internal static int GetXLParam(int lParam) => LoWord(lParam);
 
@@ -332,28 +298,13 @@ namespace HandyControl.Tools.Interop
         internal static int HiWord(int value) => (short)(value >> 16);
 
         internal static int LoWord(int value) => (short)(value & 65535);
-
-        [DllImport(InteropValues.ExternDll.User32)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool ScreenToClient(IntPtr hWnd, ref InteropValues.POINT point);
         
         [DllImport(InteropValues.ExternDll.User32)]
         internal static extern IntPtr MonitorFromWindow(IntPtr handle, int flags);
         
         [DllImport(InteropValues.ExternDll.User32)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool ClientToScreen(IntPtr hWnd, ref InteropValues.POINT point);
-        
-        [DllImport(InteropValues.ExternDll.User32)]
-        [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool EnumThreadWindows(uint dwThreadId, InteropValues.EnumWindowsProc lpfn, IntPtr lParam);
-        
-        [DllImport(InteropValues.ExternDll.User32, SetLastError = true)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool PostMessage(IntPtr hWnd, int nMsg, IntPtr wParam, IntPtr lParam);
-
-        [DllImport(InteropValues.ExternDll.User32)]
-        internal static extern IntPtr GetDCEx(IntPtr hWnd, IntPtr hrgnClip, int dwFlags);
         
         [DllImport(InteropValues.ExternDll.Gdi32)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -364,24 +315,6 @@ namespace HandyControl.Tools.Interop
 
         [DllImport(InteropValues.ExternDll.Gdi32, ExactSpelling = true, SetLastError = true)]
         internal static extern IntPtr SelectObject(IntPtr hdc, IntPtr hgdiobj);
-        
-        [DllImport(InteropValues.ExternDll.Gdi32, CallingConvention = CallingConvention.StdCall, ExactSpelling = true)]
-        internal static extern IntPtr CreateRoundRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect, int nWidthEllipse, int nHeightEllipse);
-        
-        [DllImport(InteropValues.ExternDll.Gdi32, CallingConvention = CallingConvention.StdCall, ExactSpelling = true)]
-        internal static extern IntPtr CreateRectRgn(int nLeftRect, int nTopRect, int nRightRect, int nBottomRect);
-        
-        [DllImport(InteropValues.ExternDll.Gdi32, CallingConvention = CallingConvention.StdCall, ExactSpelling = true)]
-        internal static extern IntPtr CreateRectRgnIndirect(ref InteropValues.RECT lprc);
-        
-        [DllImport(InteropValues.ExternDll.Gdi32, CallingConvention = CallingConvention.StdCall, ExactSpelling = true)]
-        private static extern int CombineRgn(IntPtr hrngDest, IntPtr hrgnSrc1, IntPtr hrgnSrc2, int fnCombineMode);
-
-        internal static int CombineRgn(IntPtr hrnDest, IntPtr hrgnSrc1, IntPtr hrgnSrc2,
-            InteropValues.CombineMode combineMode) => CombineRgn(hrnDest, hrgnSrc1, hrgnSrc2, (int) combineMode);
-
-        [DllImport(InteropValues.ExternDll.User32, CallingConvention = CallingConvention.StdCall, ExactSpelling = true)]
-        internal static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, [MarshalAs(UnmanagedType.Bool)] bool redraw);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true)]
         internal static extern IntPtr SendMessage(IntPtr hWnd, int nMsg, IntPtr wParam, IntPtr lParam);
@@ -391,10 +324,6 @@ namespace HandyControl.Tools.Interop
         
         [DllImport(InteropValues.ExternDll.User32)]
         internal static extern IntPtr GetWindow(IntPtr hwnd, int nCmd);
-        
-        [DllImport(InteropValues.ExternDll.User32)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool GetWindowInfo(IntPtr hwnd, ref InteropValues.WINDOWINFO pwi);
 
         [DllImport(InteropValues.ExternDll.User32)]
         [return: MarshalAs(UnmanagedType.Bool)]
@@ -427,10 +356,6 @@ namespace HandyControl.Tools.Interop
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
         internal static int GetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex) => GetWindowLong(hWnd, (int)nIndex);
-        
-        [DllImport(InteropValues.ExternDll.User32)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool GetClientRect(IntPtr hwnd, out InteropValues.RECT lpRect);
 
         internal static IntPtr SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong)
         {
@@ -473,9 +398,6 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true)]
         internal static extern IntPtr CreateWindowEx(int dwExStyle, IntPtr classAtom, string lpWindowName, int dwStyle, int x, int y, int nWidth, int nHeight, IntPtr hWndParent, IntPtr hMenu, IntPtr hInstance, IntPtr lpParam);
 
-        [DllImport(InteropValues.ExternDll.Gdi32)]
-        internal static extern IntPtr CreateSolidBrush(int colorref);
-
         [DllImport(InteropValues.ExternDll.User32)]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool DestroyWindow(IntPtr hwnd);
@@ -490,11 +412,7 @@ namespace HandyControl.Tools.Interop
         
         [DllImport(InteropValues.ExternDll.User32)]
         internal static extern bool RedrawWindow(IntPtr hWnd, IntPtr lprcUpdate, IntPtr hrgnUpdate, InteropValues.RedrawWindowFlags flags);
-        
-        [DllImport(InteropValues.ExternDll.User32)]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        internal static extern bool FillRect(IntPtr hDC, ref InteropValues.RECT rect, IntPtr hbrush);
-        
+
         [DllImport(InteropValues.ExternDll.User32)]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool EnumDisplayMonitors(IntPtr hdc, IntPtr lprcClip, InteropValues.EnumMonitorsDelegate lpfnEnum, IntPtr dwData);

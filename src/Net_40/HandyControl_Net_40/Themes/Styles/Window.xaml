@@ -49,7 +49,7 @@
     </Style>
 
     <Style TargetType="Window">
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
     </Style>
@@ -57,7 +57,7 @@
     <Style x:Key="WindowWin10" BasedOn="{x:Null}" TargetType="controls:Window">
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="#262e2f"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}"/>
@@ -179,8 +179,10 @@
         <Setter Property="Background" Value="Transparent"/>
     </Style>
 
-    <Style x:Key="WindowGlow">
-
+    <Style x:Key="WindowGlow" BasedOn="{StaticResource WindowWin10}" TargetType="controls:GlowWindow">
+        <Setter Property="ActiveGlowColor" Value="#262e2f"/>
+        <Setter Property="InactiveGlowColor" Value="{DynamicResource BorderColor}"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
     <Style TargetType="controls:ImageBrowser">

@@ -26,12 +26,7 @@ namespace HandyControl.Tools.Interop
 
         internal delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
-        internal delegate IntPtr SubclassProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, UIntPtr id, IntPtr refData);
-
-        internal delegate IntPtr WindowsHookProc(CbtHookAction code, IntPtr wParam, IntPtr lParam);
-
         internal const int
-            WS_CHILD = 0x40000000,
             BITSPIXEL = 12,
             PLANES = 14,
             BI_RGB = 0,
@@ -40,9 +35,6 @@ namespace HandyControl.Tools.Interop
             NIF_ICON = 0x00000002,
             NIF_TIP = 0x00000004,
             NIF_INFO = 0x00000010,
-            NIN_BALLOONSHOW = WM_USER + 2,
-            NIN_BALLOONHIDE = WM_USER + 3,
-            NIN_BALLOONTIMEOUT = WM_USER + 4,
             NIM_ADD = 0x00000000,
             NIM_MODIFY = 0x00000001,
             NIM_DELETE = 0x00000002,
@@ -50,22 +42,15 @@ namespace HandyControl.Tools.Interop
             NIIF_INFO = 0x00000001,
             NIIF_WARNING = 0x00000002,
             NIIF_ERROR = 0x00000003,
-            NIIF_LARGE_ICON = 0x00000020,
             WM_KEYDOWN = 0x0100,
             WM_KEYUP = 0x0101,
             WM_SYSKEYDOWN = 0x0104,
             WM_SYSKEYUP = 0x0105,
             WM_SYSCOMMAND = 0x112,
             WM_MOUSEMOVE = 0x0200,
-            WM_LBUTTONDOWN = 0x0201,
             WM_LBUTTONUP = 0x0202,
             WM_LBUTTONDBLCLK = 0x0203,
-            WM_RBUTTONDOWN = 0x0204,
             WM_RBUTTONUP = 0x0205,
-            WM_RBUTTONDBLCLK = 0x0206,
-            WM_MBUTTONDOWN = 0x0207,
-            WM_MBUTTONUP = 0x0208,
-            WM_MBUTTONDBLCLK = 0x0209,
             WM_CLIPBOARDUPDATE = 0x031D,
             WM_USER = 0x0400,
             MF_BYPOSITION = 0x400,
@@ -73,22 +58,10 @@ namespace HandyControl.Tools.Interop
             TB_GETBUTTON = WM_USER + 23,
             TB_BUTTONCOUNT = WM_USER + 24,
             TB_GETITEMRECT = WM_USER + 29,
-            STANDARD_RIGHTS_REQUIRED = 0x000F0000,
-            SYNCHRONIZE = 0x00100000,
-            PROCESS_ALL_ACCESS = STANDARD_RIGHTS_REQUIRED | SYNCHRONIZE | 0xFFF,
-            MEM_COMMIT = 0x1000,
-            MEM_RELEASE = 0x8000,
-            PAGE_READWRITE = 0x04,
-            TBSTATE_HIDDEN = 0x08,
             VERTRES = 10,
-            HORZRES = 8,
             DESKTOPVERTRES = 117,
-            DESKTOPHORZRES = 118,
             LOGPIXELSX = 88,
-            LOGPIXELSY = 90,
-            CXFRAME = 32,
-            CXSIZEFRAME = CXFRAME,
-            SW_HIDE = 0;
+            LOGPIXELSY = 90;
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         internal class NOTIFYICONDATA
@@ -220,14 +193,6 @@ namespace HandyControl.Tools.Interop
             public int Right;
             public int Bottom;
 
-            public RECT(int left, int top, int right, int bottom)
-            {
-                Left = left;
-                Top = top;
-                Right = right;
-                Bottom = bottom;
-            }
-
             public RECT(Rect rect)
             {
                 Left = (int)rect.Left;
@@ -250,16 +215,6 @@ namespace HandyControl.Tools.Interop
                 get => Right - Left;
                 set => Right = Left + value;
             }
-
-            public void Offset(int dx, int dy)
-            {
-                Left += dx;
-                Right += dx;
-                Top += dy;
-                Bottom += dy;
-            }
-
-            public Int32Rect ToInt32Rect() => new Int32Rect(Left, Top, Width, Height);
         }
 
         internal struct BLENDFUNCTION
@@ -269,11 +224,13 @@ namespace HandyControl.Tools.Interop
             public byte SourceConstantAlpha;
             public byte AlphaFormat;
         }
+
         internal enum GWL
         {
             STYLE = -16,
             EXSTYLE = -20
         }
+        
         internal enum GWLP
         {
             WNDPROC = -4,
@@ -281,26 +238,6 @@ namespace HandyControl.Tools.Interop
             HWNDPARENT = -8,
             USERDATA = -21,
             ID = -12
-        }
-        internal enum CombineMode
-        {
-            RGN_AND = 1,
-            RGN_OR,
-            RGN_XOR,
-            RGN_DIFF,
-            RGN_COPY,
-            RGN_MIN = 1,
-            RGN_MAX = 5
-        }
-
-        [StructLayout(LayoutKind.Sequential)]
-        internal class BITMAPFILEHEADER
-        {
-            public ushort bfType;
-            public uint bfSize;
-            public ushort bfReserved1;
-            public ushort bfReserved2;
-            public uint bfOffBits;
         }
 
         internal struct BITMAPINFOHEADER
@@ -318,23 +255,6 @@ namespace HandyControl.Tools.Interop
             internal uint biClrImportant;
         }
 
-        internal struct PictDescBitmap
-        {
-            internal int cbSizeOfStruct;
-            internal int pictureType;
-            internal IntPtr hBitmap;
-            internal IntPtr hPalette;
-            internal int unused;
-            internal static PictDescBitmap Default =>
-                new PictDescBitmap
-                {
-                    cbSizeOfStruct = 20,
-                    pictureType = 1,
-                    hBitmap = IntPtr.Zero,
-                    hPalette = IntPtr.Zero
-                };
-        }
-
         [Flags]
         internal enum RedrawWindowFlags : uint
         {
@@ -350,20 +270,6 @@ namespace HandyControl.Tools.Interop
             EraseNow = 512u,
             Frame = 1024u,
             NoFrame = 2048u
-        }
-
-        internal enum CbtHookAction
-        {
-            HCBT_MOVESIZE,
-            HCBT_MINMAX,
-            HCBT_QS,
-            HCBT_CREATEWND,
-            HCBT_DESTROYWND,
-            HCBT_ACTIVATE,
-            HCBT_CLICKSKIPPED,
-            HCBT_KEYSKIPPED,
-            HCBT_SYSCOMMAND,
-            HCBT_SETFOCUS
         }
 
         [StructLayout(LayoutKind.Sequential)]
@@ -387,20 +293,6 @@ namespace HandyControl.Tools.Interop
             public POINT ptMinPosition;
             public POINT ptMaxPosition;
             public RECT rcNormalPosition;
-        }
-
-        internal struct WINDOWINFO
-        {
-            public int cbSize;
-            public RECT rcWindow;
-            public RECT rcClient;
-            public int dwStyle;
-            public int dwExStyle;
-            public uint dwWindowStatus;
-            public uint cxWindowBorders;
-            public uint cyWindowBorders;
-            public ushort atomWindowType;
-            public ushort wCreatorVersion;
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = 4)]
