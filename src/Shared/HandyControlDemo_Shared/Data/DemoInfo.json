@@ -74,7 +74,7 @@
       [ "WaterfallPanel", "WaterfallPanelDemoCtl", "Panel_16x", "" ],
       [ "HoneycombPanel", "HoneycombPanelDemoCtl", "PolygonHexagon_16x", "" ],
       [ "TransitioningContentControl", "TransitioningContentControlDemoCtl", "TransitioningContentControl_16x", "" ],
-      [ "Drawer", "DrawerDemoCtl", "View_Portrait_16x", "1" ],
+      [ "Drawer", "DrawerDemoCtl", "View_Portrait_16x", "" ],
       [ "CoverView", "CoverViewDemoCtl", "DetailDataView_16x", "" ],
       [ "CoverFlow", "CoverFlowDemoCtl", "LinearCarousel_16x", "" ],
       [ "ProgressBar", "ProgressBarDemoCtl", "ProgressBar_16x", "" ],
