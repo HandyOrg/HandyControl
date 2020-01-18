@@ -48,12 +48,9 @@
     </Style>
 
     <Style TargetType="Window">
-        <Setter Property="UseLayoutRounding" Value="True"/>
-    </Style>
-
-    <Style x:Key="WindowDefault" TargetType="Window">
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
     </Style>
 
     <Style x:Key="WindowWin10" TargetType="controls:Window">

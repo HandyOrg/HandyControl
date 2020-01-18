@@ -1,4 +1,5 @@
 ﻿using System.Runtime.InteropServices;
+using System.Windows;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
@@ -7,6 +8,11 @@ namespace HandyControl.Controls
 {
     public class BlurWindow : Window
     {
+        static BlurWindow()
+        {
+            StyleProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(Application.Current.FindResource(ResourceToken.WindowBlur)));
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();

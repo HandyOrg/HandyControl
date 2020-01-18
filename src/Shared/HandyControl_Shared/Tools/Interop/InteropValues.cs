@@ -1,18 +1,36 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 using System.Security;
+using System.Windows;
 
 namespace HandyControl.Tools.Interop
 {
-    public class InteropValues
+    internal class InteropValues
     {
-        #region public
+        internal static class ExternDll
+        {
+            public const string
+                User32 = "user32.dll",
+                Gdi32 = "gdi32.dll",
+                Kernel32 = "kernel32.dll",
+                Shell32 = "shell32.dll",
+                MsImg = "msimg32.dll";
+        }
 
-        public delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
+        internal delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
 
-        public delegate IntPtr WndProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
+        internal delegate IntPtr WndProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 
-        public const int
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal delegate bool EnumMonitorsDelegate(IntPtr hMonitor, IntPtr hdcMonitor, ref RECT lprcMonitor, IntPtr dwData);
+
+        internal delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+
+        internal delegate IntPtr SubclassProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, UIntPtr id, IntPtr refData);
+
+        internal delegate IntPtr WindowsHookProc(CbtHookAction code, IntPtr wParam, IntPtr lParam);
+
+        internal const int
             WS_CHILD = 0x40000000,
             BITSPIXEL = 12,
             PLANES = 14,
@@ -73,7 +91,7 @@ namespace HandyControl.Tools.Interop
             SW_HIDE = 0;
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-        public class NOTIFYICONDATA
+        internal class NOTIFYICONDATA
         {
             public int cbSize = Marshal.SizeOf(typeof(NOTIFYICONDATA));
             public IntPtr hWnd;
@@ -93,40 +111,8 @@ namespace HandyControl.Tools.Interop
             public int dwInfoFlags;
         }
 
-        [Flags]
-        public enum ProcessAccess
-        {
-            AllAccess = CreateThread | DuplicateHandle | QueryInformation | SetInformation | Terminate | VMOperation | VMRead | VMWrite | Synchronize,
-            CreateThread = 0x2,
-            DuplicateHandle = 0x40,
-            QueryInformation = 0x400,
-            SetInformation = 0x200,
-            Terminate = 0x1,
-            VMOperation = 0x8,
-            VMRead = 0x10,
-            VMWrite = 0x20,
-            Synchronize = 0x100000
-        }
-
-        [Serializable, StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-        public struct RECT
-        {
-            public int Left;
-            public int Top;
-            public int Right;
-            public int Bottom;
-
-            public RECT(int left, int top, int right, int bottom)
-            {
-                Left = left;
-                Top = top;
-                Right = right;
-                Bottom = bottom;
-            }
-        }
-
         [StructLayout(LayoutKind.Sequential, Pack = 1)]
-        public struct TBBUTTON
+        internal struct TBBUTTON
         {
             public int iBitmap;
             public int idCommand;
@@ -136,7 +122,7 @@ namespace HandyControl.Tools.Interop
         }
 
         [Flags]
-        public enum AllocationType
+        internal enum AllocationType
         {
             Commit = 0x1000,
             Reserve = 0x2000,
@@ -150,7 +136,7 @@ namespace HandyControl.Tools.Interop
         }
 
         [Flags]
-        public enum MemoryProtection
+        internal enum MemoryProtection
         {
             Execute = 0x10,
             ExecuteRead = 0x20,
@@ -166,7 +152,7 @@ namespace HandyControl.Tools.Interop
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct TRAYDATA
+        internal struct TRAYDATA
         {
             public IntPtr hwnd;
             public uint uID;
@@ -177,14 +163,14 @@ namespace HandyControl.Tools.Interop
         }
 
         [Flags]
-        public enum FreeType
+        internal enum FreeType
         {
             Decommit = 0x4000,
             Release = 0x8000,
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct POINT
+        internal struct POINT
         {
             public int X;
             public int Y;
@@ -196,14 +182,14 @@ namespace HandyControl.Tools.Interop
             }
         }
 
-        public enum HookType
+        internal enum HookType
         {
             WH_KEYBOARD_LL = 13,
             WH_MOUSE_LL = 14
         }
 
         [StructLayout(LayoutKind.Sequential)]
-        public struct MOUSEHOOKSTRUCT
+        internal struct MOUSEHOOKSTRUCT
         {
             public POINT pt;
             public IntPtr hwnd;
@@ -211,17 +197,227 @@ namespace HandyControl.Tools.Interop
             public IntPtr dwExtraInfo;
         }
 
-        #endregion
-
-        #region internal
-
-        internal static class ExternDll
+        [Flags]
+        internal enum ProcessAccess
         {
-            public const string
-                User32 = "user32.dll",
-                Gdi32 = "gdi32.dll",
-                Kernel32 = "kernel32.dll",
-                Shell32 = "shell32.dll";
+            AllAccess = CreateThread | DuplicateHandle | QueryInformation | SetInformation | Terminate | VMOperation | VMRead | VMWrite | Synchronize,
+            CreateThread = 0x2,
+            DuplicateHandle = 0x40,
+            QueryInformation = 0x400,
+            SetInformation = 0x200,
+            Terminate = 0x1,
+            VMOperation = 0x8,
+            VMRead = 0x10,
+            VMWrite = 0x20,
+            Synchronize = 0x100000
+        }
+
+        [Serializable, StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        internal struct RECT
+        {
+            public int Left;
+            public int Top;
+            public int Right;
+            public int Bottom;
+
+            public RECT(int left, int top, int right, int bottom)
+            {
+                Left = left;
+                Top = top;
+                Right = right;
+                Bottom = bottom;
+            }
+
+            public RECT(Rect rect)
+            {
+                Left = (int)rect.Left;
+                Top = (int)rect.Top;
+                Right = (int)rect.Right;
+                Bottom = (int)rect.Bottom;
+            }
+
+            public Point Position => new Point(Left, Top);
+            public Size Size => new Size(Width, Height);
+
+            public int Height
+            {
+                get => Bottom - Top;
+                set => Bottom = Top + value;
+            }
+
+            public int Width
+            {
+                get => Right - Left;
+                set => Right = Left + value;
+            }
+
+            public void Offset(int dx, int dy)
+            {
+                Left += dx;
+                Right += dx;
+                Top += dy;
+                Bottom += dy;
+            }
+
+            public Int32Rect ToInt32Rect() => new Int32Rect(Left, Top, Width, Height);
+        }
+
+        internal struct BLENDFUNCTION
+        {
+            public byte BlendOp;
+            public byte BlendFlags;
+            public byte SourceConstantAlpha;
+            public byte AlphaFormat;
+        }
+        internal enum GWL
+        {
+            STYLE = -16,
+            EXSTYLE = -20
+        }
+        internal enum GWLP
+        {
+            WNDPROC = -4,
+            HINSTANCE = -6,
+            HWNDPARENT = -8,
+            USERDATA = -21,
+            ID = -12
+        }
+        internal enum CombineMode
+        {
+            RGN_AND = 1,
+            RGN_OR,
+            RGN_XOR,
+            RGN_DIFF,
+            RGN_COPY,
+            RGN_MIN = 1,
+            RGN_MAX = 5
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal class BITMAPFILEHEADER
+        {
+            public ushort bfType;
+            public uint bfSize;
+            public ushort bfReserved1;
+            public ushort bfReserved2;
+            public uint bfOffBits;
+        }
+
+        internal struct BITMAPINFOHEADER
+        {
+            internal uint biSize;
+            internal int biWidth;
+            internal int biHeight;
+            internal ushort biPlanes;
+            internal ushort biBitCount;
+            internal uint biCompression;
+            internal uint biSizeImage;
+            internal int biXPelsPerMeter;
+            internal int biYPelsPerMeter;
+            internal uint biClrUsed;
+            internal uint biClrImportant;
+        }
+
+        internal struct PictDescBitmap
+        {
+            internal int cbSizeOfStruct;
+            internal int pictureType;
+            internal IntPtr hBitmap;
+            internal IntPtr hPalette;
+            internal int unused;
+            internal static PictDescBitmap Default =>
+                new PictDescBitmap
+                {
+                    cbSizeOfStruct = 20,
+                    pictureType = 1,
+                    hBitmap = IntPtr.Zero,
+                    hPalette = IntPtr.Zero
+                };
+        }
+
+        [Flags]
+        internal enum RedrawWindowFlags : uint
+        {
+            Invalidate = 1u,
+            InternalPaint = 2u,
+            Erase = 4u,
+            Validate = 8u,
+            NoInternalPaint = 16u,
+            NoErase = 32u,
+            NoChildren = 64u,
+            AllChildren = 128u,
+            UpdateNow = 256u,
+            EraseNow = 512u,
+            Frame = 1024u,
+            NoFrame = 2048u
+        }
+
+        internal enum CbtHookAction
+        {
+            HCBT_MOVESIZE,
+            HCBT_MINMAX,
+            HCBT_QS,
+            HCBT_CREATEWND,
+            HCBT_DESTROYWND,
+            HCBT_ACTIVATE,
+            HCBT_CLICKSKIPPED,
+            HCBT_KEYSKIPPED,
+            HCBT_SYSCOMMAND,
+            HCBT_SETFOCUS
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal class WINDOWPOS
+        {
+            public IntPtr hwnd;
+            public IntPtr hwndInsertAfter;
+            public int x;
+            public int y;
+            public int cx;
+            public int cy;
+            public uint flags;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal class WINDOWPLACEMENT
+        {
+            public int length = Marshal.SizeOf(typeof(WINDOWPLACEMENT));
+            public int flags;
+            public int showCmd;
+            public POINT ptMinPosition;
+            public POINT ptMaxPosition;
+            public RECT rcNormalPosition;
+        }
+
+        internal struct WINDOWINFO
+        {
+            public int cbSize;
+            public RECT rcWindow;
+            public RECT rcClient;
+            public int dwStyle;
+            public int dwExStyle;
+            public uint dwWindowStatus;
+            public uint cxWindowBorders;
+            public uint cyWindowBorders;
+            public ushort atomWindowType;
+            public ushort wCreatorVersion;
+        }
+
+        [StructLayout(LayoutKind.Sequential, Pack = 4)]
+        internal struct SIZE
+        {
+            [ComAliasName("Microsoft.VisualStudio.OLE.Interop.LONG")]
+            public int cx;
+            [ComAliasName("Microsoft.VisualStudio.OLE.Interop.LONG")]
+            public int cy;
+        }
+
+        internal struct MONITORINFO
+        {
+            public uint cbSize;
+            public RECT rcMonitor;
+            public RECT rcWork;
+            public uint dwFlags;
         }
 
         internal enum SM
@@ -455,59 +651,61 @@ namespace HandyControl.Tools.Interop
             internal const int FALSE = 0;
         }
 
-        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
-        internal class WNDCLASS
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+        internal struct WNDCLASS
         {
-            public int style;
-            public WndProc lpfnWndProc;
+            public uint style;
+            public Delegate lpfnWndProc;
             public int cbClsExtra;
             public int cbWndExtra;
             public IntPtr hInstance;
             public IntPtr hIcon;
             public IntPtr hCursor;
             public IntPtr hbrBackground;
+            [MarshalAs(UnmanagedType.LPWStr)]
             public string lpszMenuName;
+            [MarshalAs(UnmanagedType.LPWStr)]
             public string lpszClassName;
         }
 
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
         internal struct BITMAPINFO
         {
-            public int bmiHeader_biSize;
+            public int biSize;
 
-            public int bmiHeader_biWidth;
+            public int biWidth;
 
-            public int bmiHeader_biHeight;
+            public int biHeight;
 
-            public short bmiHeader_biPlanes;
+            public short biPlanes;
 
-            public short bmiHeader_biBitCount;
+            public short biBitCount;
 
-            public int bmiHeader_biCompression;
+            public int biCompression;
 
-            public int bmiHeader_biSizeImage;
+            public int biSizeImage;
 
-            public int bmiHeader_biXPelsPerMeter;
+            public int biXPelsPerMeter;
 
-            public int bmiHeader_biYPelsPerMeter;
+            public int biYPelsPerMeter;
 
-            public int bmiHeader_biClrUsed;
+            public int biClrUsed;
 
-            public int bmiHeader_biClrImportant;
+            public int biClrImportant;
 
             public BITMAPINFO(int width, int height, short bpp)
             {
-                bmiHeader_biSize = SizeOf();
-                bmiHeader_biWidth = width;
-                bmiHeader_biHeight = height;
-                bmiHeader_biPlanes = 1;
-                bmiHeader_biBitCount = bpp;
-                bmiHeader_biCompression = 0;
-                bmiHeader_biSizeImage = 0;
-                bmiHeader_biXPelsPerMeter = 0;
-                bmiHeader_biYPelsPerMeter = 0;
-                bmiHeader_biClrUsed = 0;
-                bmiHeader_biClrImportant = 0;
+                biSize = SizeOf();
+                biWidth = width;
+                biHeight = height;
+                biPlanes = 1;
+                biBitCount = bpp;
+                biCompression = 0;
+                biSizeImage = 0;
+                biXPelsPerMeter = 0;
+                biYPelsPerMeter = 0;
+                biClrUsed = 0;
+                biClrImportant = 0;
             }
 
             [SecuritySafeCritical]
@@ -526,7 +724,5 @@ namespace HandyControl.Tools.Interop
             public BitmapHandle hbmMask = null;
             public BitmapHandle hbmColor = null;
         }
-
-        #endregion
     }
 }

@@ -12,7 +12,6 @@
            NonClientAreaHeight="69"
            Background="{DynamicResource MainContentBackgroundBrush}"
            WindowStartupLocation="CenterScreen"
-           Style="{StaticResource WindowWin10}"
            ShowTitle="False"
            Title="{x:Static langs:Lang.Title}" 
            Height="450" 

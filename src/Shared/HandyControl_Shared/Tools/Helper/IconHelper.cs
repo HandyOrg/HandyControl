@@ -81,7 +81,7 @@ namespace HandyControl.Tools
             {
                 var bi = new InteropValues.BITMAPINFO(width, -height, 32)
                 {
-                    bmiHeader_biCompression = InteropValues.BI_RGB
+                    biCompression = InteropValues.BI_RGB
                 };
 
                 var bits = IntPtr.Zero;

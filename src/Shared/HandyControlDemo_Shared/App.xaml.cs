@@ -56,6 +56,7 @@ namespace HandyControlDemo
                     UpdateSkin(GlobalData.Config.Skin);
                 }
 
+                ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
 
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;

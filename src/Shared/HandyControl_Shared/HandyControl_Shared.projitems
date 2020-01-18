@@ -42,6 +42,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\RunningBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\DisposableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\DrawerShowMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HatchStyle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HitMode.cs" />
@@ -49,6 +50,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\NotifyIconInfoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StrokePosition.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TransitionMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\ChangeScope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowBitmap.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowBitmapPart.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowDrawingContext.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowEdge.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\HwndWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\DiscreteGeometryKeyFrame.cs" />
@@ -71,6 +78,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\RectangleCircularConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ThicknessSplitConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\DependencyObjectExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\FrameworkElementExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ValueExtension.cs" />
@@ -300,6 +308,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\IconHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ResourceHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ScreenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SecurityHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TokenizerHelper.cs" />

@@ -92,6 +92,11 @@ namespace HandyControl.Controls
 
         private ResizeMode _tempResizeMode;
 
+        static Window()
+        {
+            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(Application.Current.FindResource(ResourceToken.WindowWin10)));
+        }
+
         public Window()
         {
 #if netle40
