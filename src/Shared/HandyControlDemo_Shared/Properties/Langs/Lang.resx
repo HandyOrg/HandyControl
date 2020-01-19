@@ -711,4 +711,13 @@
   <data name="Demo" xml:space="preserve">
     <value>示例</value>
   </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PIN码框</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>流文档滚动视图</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>点击打开辉光窗口</value>
+  </data>
 </root>

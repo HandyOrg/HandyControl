@@ -8,7 +8,6 @@
            mc:Ignorable="d"
            Background="{DynamicResource MainContentBackgroundBrush}"
            WindowStartupLocation="CenterScreen"
-           Style="{StaticResource WindowWin10}"
            Title="{x:Static langs:Lang.Title}" 
            Height="450" 
            Width="800" 

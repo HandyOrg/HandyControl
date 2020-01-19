@@ -24,19 +24,19 @@ namespace HandyControl.Tools
             if (HWndSource != null)
             {
                 HWndSource.AddHook(WinProc);
-                NativeMethods.AddClipboardFormatListener(HookId);
+                InteropMethods.AddClipboardFormatListener(HookId);
             }
         }
 
         public static void Stop()
         {
             HWndSource.RemoveHook(WinProc);
-            NativeMethods.RemoveClipboardFormatListener(HookId);
+            InteropMethods.RemoveClipboardFormatListener(HookId);
         }
 
         private static IntPtr WinProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
         {
-            if (msg == NativeMethods.WM_CLIPBOARDUPDATE)
+            if (msg == InteropValues.WM_CLIPBOARDUPDATE)
             {
                 ContentChanged?.Invoke();
             }

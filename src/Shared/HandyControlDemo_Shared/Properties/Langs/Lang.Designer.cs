@@ -628,6 +628,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 流文档滚动视图 的本地化字符串。
+        /// </summary>
+        public static string FlowDocumentScrollViewer {
+            get {
+                return ResourceManager.GetString("FlowDocumentScrollViewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
         public static string GifImage {
@@ -1042,6 +1051,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 点击打开辉光窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenGlowWindow {
+            get {
+                return ResourceManager.GetString("OpenGlowWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 点击打开图片浏览器 的本地化字符串。
         /// </summary>
         public static string OpenImageBrowser {
@@ -1128,6 +1146,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string PasswordBox {
             get {
                 return ResourceManager.GetString("PasswordBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PIN码框 的本地化字符串。
+        /// </summary>
+        public static string PinBox {
+            get {
+                return ResourceManager.GetString("PinBox", resourceCulture);
             }
         }
         

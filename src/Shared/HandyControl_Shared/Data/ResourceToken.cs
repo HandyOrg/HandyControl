@@ -302,6 +302,10 @@
 
         internal const string WindowWin10 = nameof(WindowWin10);
 
+        internal const string WindowBlur = nameof(WindowBlur);
+
+        internal const string WindowGlow = nameof(WindowGlow);
+
         internal const string AddTagButtonStyle = nameof(AddTagButtonStyle);
 
         internal const string RadioGroupItemDefault = nameof(RadioGroupItemDefault);

@@ -79,13 +79,13 @@ namespace HandyControl.Tools
 
             try
             {
-                var bi = new BITMAPINFO(width, -height, 32)
+                var bi = new InteropValues.BITMAPINFO(width, -height, 32)
                 {
-                    bmiHeader_biCompression = NativeMethods.BI_RGB
+                    biCompression = InteropValues.BI_RGB
                 };
 
                 var bits = IntPtr.Zero;
-                colorBitmap = UnsafeNativeMethods.CreateDIBSection(new HandleRef(null, IntPtr.Zero), ref bi, NativeMethods.DIB_RGB_COLORS, ref bits, null, 0);
+                colorBitmap = InteropMethods.CreateDIBSection(new HandleRef(null, IntPtr.Zero), ref bi, InteropValues.DIB_RGB_COLORS, ref bits, null, 0);
 
                 if (colorBitmap.IsInvalid || bits == IntPtr.Zero)
                 {
@@ -95,13 +95,13 @@ namespace HandyControl.Tools
                 Marshal.Copy(colorArray, 0, bits, colorArray.Length);
                 var maskArray = GenerateMaskArray(width, height, colorArray);
 
-                maskBitmap = UnsafeNativeMethods.CreateBitmap(width, height, 1, 1, maskArray);
+                maskBitmap = InteropMethods.CreateBitmap(width, height, 1, 1, maskArray);
                 if (maskBitmap.IsInvalid)
                 {
                     return IconHandle.GetInvalidIcon();
                 }
 
-                var iconInfo = new ICONINFO
+                var iconInfo = new InteropValues.ICONINFO
                 {
                     fIcon = isIcon,
                     xHotspot = xHotspot,
@@ -110,7 +110,7 @@ namespace HandyControl.Tools
                     hbmColor = colorBitmap
                 };
 
-                return UnsafeNativeMethods.CreateIconIndirect(iconInfo);
+                return InteropMethods.CreateIconIndirect(iconInfo);
             }
             finally
             {
@@ -252,21 +252,21 @@ namespace HandyControl.Tools
         {
             if (SystemBitDepth == 0)
             {
-                var hdcDesktop = new HandleRef(null, UnsafeNativeMethods.GetDC(new HandleRef()));
+                var hdcDesktop = new HandleRef(null, InteropMethods.GetDC(new HandleRef()));
                 try
                 {
-                    var sysBitDepth = UnsafeNativeMethods.GetDeviceCaps(hdcDesktop, NativeMethods.BITSPIXEL);
-                    sysBitDepth *= UnsafeNativeMethods.GetDeviceCaps(hdcDesktop, NativeMethods.PLANES);
+                    var sysBitDepth = InteropMethods.GetDeviceCaps(hdcDesktop, InteropValues.BITSPIXEL);
+                    sysBitDepth *= InteropMethods.GetDeviceCaps(hdcDesktop, InteropValues.PLANES);
  
                     if (sysBitDepth == 8)
                     {
                         sysBitDepth = 4;
                     }
 
-                    var cxSmallIcon = UnsafeNativeMethods.GetSystemMetrics(SM.CXSMICON);
-                    var cySmallIcon = UnsafeNativeMethods.GetSystemMetrics(SM.CYSMICON);
-                    var cxIcon = UnsafeNativeMethods.GetSystemMetrics(SM.CXICON);
-                    var cyIcon = UnsafeNativeMethods.GetSystemMetrics(SM.CYICON);
+                    var cxSmallIcon = InteropMethods.GetSystemMetrics(InteropValues.SM.CXSMICON);
+                    var cySmallIcon = InteropMethods.GetSystemMetrics(InteropValues.SM.CYSMICON);
+                    var cxIcon = InteropMethods.GetSystemMetrics(InteropValues.SM.CXICON);
+                    var cyIcon = InteropMethods.GetSystemMetrics(InteropValues.SM.CYICON);
 
                     SmallIconSize = new Size(cxSmallIcon, cySmallIcon);
                     IconSize = new Size(cxIcon, cyIcon);
@@ -274,7 +274,7 @@ namespace HandyControl.Tools
                 }
                 finally
                 {
-                    UnsafeNativeMethods.ReleaseDC(new HandleRef(), hdcDesktop);
+                    InteropMethods.ReleaseDC(new HandleRef(), hdcDesktop);
                 }
             }
         }
@@ -287,8 +287,8 @@ namespace HandyControl.Tools
 
             SecurityHelper.DemandUIWindowPermission();
 
-            var iconModuleFile = UnsafeNativeMethods.GetModuleFileName(new HandleRef());
-            UnsafeNativeMethods.ExtractIconEx(iconModuleFile, 0, out largeIconHandle, out smallIconHandle, 1);
+            var iconModuleFile = InteropMethods.GetModuleFileName(new HandleRef());
+            InteropMethods.ExtractIconEx(iconModuleFile, 0, out largeIconHandle, out smallIconHandle, 1);
         }
     }
 }
