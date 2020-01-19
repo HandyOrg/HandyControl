@@ -4,15 +4,9 @@ title: RadioButton 单选按钮
 
 # RadioButtonBaseStyle
 
-`RadioButton`基础样式，不建议直接使用，常作为其他样式基类样式
+单选按钮默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
 
-## 案例：
-
-```xml
-<Style BasedOn="{StaticResource RadioButtonBaseStyle}" TargetType="RadioButton"/>
-```
-
-`xaml`中：
+案例：
 
 ```xml
 <StackPanel>
@@ -31,7 +25,7 @@ title: RadioButton 单选按钮
 
 带图标样式，可只显示图标也可图文显示
 
-## 案例：
+案例：
 
 ```xml
 <UniformGrid Margin="22,0,0,0" Rows="2" Columns="2">
@@ -50,13 +44,7 @@ title: RadioButton 单选按钮
 
 `ButtonGroup`控件中的子集`RadioButton`样式基类，不建议直接使用，常作为`ButtonGroup`中`Item`样式基类,同时与`ButtonGroup`控件配套使用
 
-## 案例：
-
-```xml
-<Style x:Key="RadioGroupItemDefault" BasedOn="{StaticResource RadioGroupItemBaseStyle}" TargetType="RadioButton"/>
-```
-
-`xaml`中：
+案例：
 
 ```xml
 <!--内部Item样式为ButtonGroup控件自动附加-默认为水平方向item样式-->
@@ -89,7 +77,7 @@ title: RadioButton 单选按钮
 | RadioGroupItemVerticalFirst   | RadioGroupItem垂直头样式（从上至下） | RadioGroupItemBaseStyle |
 | RadioGroupItemVerticalLast    | RadioGroupItem垂直尾样式（从上至下） | RadioGroupItemBaseStyle |
 
-## 案例：
+案例：
 
 单个`RadioButton`样式：
 
