@@ -27,7 +27,7 @@ numericUpDown.Value = 100;
 
 # 设置DecimalPlaces
 
-如果需要改变Value显示的小数位数，可以改变DecimalPlaces。DecimalPlaces是一个**int？**类型，当它为null时不限制显示的小数位数，否则显示的小数位数为DecimalPlaces的Value。
+如果需要改变Value显示的小数位数，可以改变DecimalPlaces。DecimalPlaces是一个 **int？** 类型，当它为null时不限制显示的小数位数，否则显示的小数位数为DecimalPlaces的Value。
 
 ``` XML
 <hc:NumericUpDown DecimalPlaces="2" Value="100.12345"/>
