@@ -196,13 +196,7 @@ namespace HandyControl.Controls
                 ctl.Value = maximum;
             }
 
-            var result = num > maximum ? maximum : num;
-            if (!ctl.DecimalPlaces.HasValue)
-            {
-                result = Math.Floor(result);
-            }
-
-            return result;
+            return num > maximum ? maximum : num;
         }
 
         /// <summary>
