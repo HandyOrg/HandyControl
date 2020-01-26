@@ -24,7 +24,7 @@
         </Style>
     </Border.Resources>
     <DockPanel>
-        <Button Command="{Binding OpenOverviewCmd}" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="4,4,4,0" Content="{x:Static langs:Lang.Overview}"/>
+        <Button Command="{Binding OpenOverviewCmd}" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="4" Content="{x:Static langs:Lang.Overview}"/>
         <TabControl SelectionChanged="TabControl_OnSelectionChanged" ItemsSource="{Binding DemoInfoList}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
             <TabControl.ItemTemplate>
                 <DataTemplate>

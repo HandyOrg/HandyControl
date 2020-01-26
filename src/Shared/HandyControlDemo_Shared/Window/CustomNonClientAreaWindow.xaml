@@ -9,7 +9,7 @@
            OtherButtonForeground="{DynamicResource ReverseTextBrush}"
            CloseButtonForeground="{DynamicResource ReverseTextBrush}"
            NonClientAreaBackground="{DynamicResource ToolBarBackground}"
-           NonClientAreaHeight="69"
+           NonClientAreaHeight="62"
            Background="{DynamicResource MainContentBackgroundBrush}"
            WindowStartupLocation="CenterScreen"
            ShowTitle="False"
