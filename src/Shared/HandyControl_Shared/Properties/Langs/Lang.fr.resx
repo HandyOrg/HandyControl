@@ -210,4 +210,7 @@
   <data name="ZoomOut" xml:space="preserve">
     <value>Zoom out</value>
   </data>
+  <data name="Tag" xml:space="preserve">
+    <value>balises séparées avec; ou l'espace</value>
+  </data>
 </root>

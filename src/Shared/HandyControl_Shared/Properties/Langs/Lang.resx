@@ -190,4 +190,7 @@
   <data name="ZoomOut" xml:space="preserve">
     <value>缩小</value>
   </data>
+  <data name="Tag" xml:space="preserve">
+    <value>用;分隔标签; 或空间</value>
+  </data>
 </root>

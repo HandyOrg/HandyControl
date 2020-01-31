@@ -190,4 +190,7 @@
   <data name="ZoomOut" xml:space="preserve">
     <value>Zoom out</value>
   </data>
+  <data name="Tag" xml:space="preserve">
+    <value>تگ ها را با ; یا فاصله جدا کنید</value>
+  </data>
 </root>

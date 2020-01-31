@@ -82,7 +82,7 @@ namespace HandyControl.Controls
 
             if (Selectable)
             {
-                IsSelected = true;
+                IsSelected = !IsSelected;
             }
         }
     }

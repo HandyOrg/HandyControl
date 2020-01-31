@@ -12,6 +12,8 @@ namespace HandyControl.Controls
     {
         private Button _addTagButton;
 
+        private HandyControl.Controls.TextBox _addTagTextBox;
+
         private bool _isInternalAction;
 
         public TagPanel()
@@ -39,6 +41,14 @@ namespace HandyControl.Controls
             remove => RemoveHandler(AddTagButtonClickEvent, value);
         }
 
+        public static readonly RoutedEvent AddTagTextBoxTextChangedEvent = EventManager.RegisterRoutedEvent("AddTagTextBoxTextChanged", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TagPanel));
+
+        public event EventHandler AddTagTextBoxTextChanged
+        {
+            add => AddHandler(AddTagTextBoxTextChangedEvent, value);
+            remove => RemoveHandler(AddTagTextBoxTextChangedEvent, value);
+        }
+
         public static readonly DependencyProperty ShowAddButtonProperty = DependencyProperty.Register(
             "ShowAddButton", typeof(bool), typeof(TagPanel), new PropertyMetadata(ValueBoxes.FalseBox));
 
@@ -46,6 +56,15 @@ namespace HandyControl.Controls
         {
             get => (bool) GetValue(ShowAddButtonProperty);
             set => SetValue(ShowAddButtonProperty, value);
+        }
+
+        public static readonly DependencyProperty ShowAddTextBoxProperty = DependencyProperty.Register(
+            "ShowAddTextBox", typeof(bool), typeof(TagPanel), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool ShowAddTextBox
+        {
+            get => (bool)GetValue(ShowAddTextBoxProperty);
+            set => SetValue(ShowAddTextBoxProperty, value);
         }
 
         public static readonly DependencyProperty TagMarginProperty = DependencyProperty.Register(
@@ -84,6 +103,47 @@ namespace HandyControl.Controls
                 }
                 _isInternalAction = false;
             }
+
+            if (ShowAddTextBox)
+            {
+                _isInternalAction = true;
+                if (!Children.Contains(_addTagTextBox))
+                {
+                    _addTagTextBox = new HandyControl.Controls.TextBox
+                    {
+                        Width = 180,
+                        Margin = TagMargin
+                    };
+                    _addTagTextBox.TextChanged += AddTagTextBox_TextChanged;
+                    InfoElement.SetPlaceholder(_addTagTextBox, Properties.Langs.Lang.Tag);
+                    Children.Add(_addTagTextBox);
+                }
+                else
+                {
+                    Children.Remove(_addTagTextBox);
+                    Children.Add(_addTagTextBox);
+                }
+                _isInternalAction = false;
+            }
+        }
+
+        private void AddTagTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            if (textBox != null)
+            {
+                if (!string.IsNullOrEmpty(textBox.Text) && textBox.Text.Contains(";") || textBox.Text.Contains(" "))
+                {
+                    this.Children.Add(new Tag
+                    {
+                        Selectable = true,
+                        Content = textBox.Text.Replace(";", "").Replace(" ", "")
+                    });
+                    textBox.Text = string.Empty;
+                }
+
+            }
+            RaiseEvent(new RoutedEventArgs(AddTagTextBoxTextChangedEvent, this));
         }
 
         private void AddTagButton_Click(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(AddTagButtonClickEvent, this));
