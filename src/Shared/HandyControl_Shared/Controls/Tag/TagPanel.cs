@@ -41,9 +41,9 @@ namespace HandyControl.Controls
             remove => RemoveHandler(AddTagButtonClickEvent, value);
         }
 
-        public static readonly RoutedEvent AddTagTextBoxTextChangedEvent = EventManager.RegisterRoutedEvent("AddTagTextBoxTextChanged", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TagPanel));
+        public static readonly RoutedEvent AddTagTextBoxTextChangedEvent = EventManager.RegisterRoutedEvent("AddTagTextBoxTextChanged", RoutingStrategy.Bubble, typeof(EventHandler<FunctionEventArgs<string>>), typeof(TagPanel));
 
-        public event EventHandler AddTagTextBoxTextChanged
+        public event EventHandler<FunctionEventArgs<string>> AddTagTextBoxTextChanged
         {
             add => AddHandler(AddTagTextBoxTextChangedEvent, value);
             remove => RemoveHandler(AddTagTextBoxTextChangedEvent, value);
@@ -143,7 +143,7 @@ namespace HandyControl.Controls
                 }
 
             }
-            RaiseEvent(new RoutedEventArgs(AddTagTextBoxTextChangedEvent, this));
+            RaiseEvent(new FunctionEventArgs<string>(AddTagTextBoxTextChangedEvent, this) { Info = textBox.Text });
         }
 
         private void AddTagButton_Click(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(AddTagButtonClickEvent, this));
