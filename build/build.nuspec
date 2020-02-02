@@ -66,5 +66,6 @@
     <file src="lib\netcoreapp3.0\HandyControl.dll" target="lib\netcoreapp3.0\HandyControl.dll" />
     <file src="lib\netcoreapp3.0\HandyControl.pdb" target="lib\netcoreapp3.0\HandyControl.pdb" />
     <file src="lib\netcoreapp3.0\HandyControl.xml" target="lib\netcoreapp3.0\HandyControl.xml" />
+    <file src="install.ps1" target="tools\install.ps1" />
   </files>
 </package>
