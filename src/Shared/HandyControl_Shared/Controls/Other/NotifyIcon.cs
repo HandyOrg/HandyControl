@@ -530,7 +530,7 @@ namespace HandyControl.Controls
         private void RegisterClass()
         {
             _windowClassName = $"HandyControl.Controls.NotifyIcon{Guid.NewGuid()}";
-            var wndclass = new InteropValues.WNDCLASS
+            var wndclass = new InteropValues.WNDCLASS4ICON
             {
                 style = 0,
                 lpfnWndProc = _callback,

@@ -244,6 +244,11 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true, BestFitMapping = false)]
         internal static extern short RegisterClass(InteropValues.WNDCLASS wc);
 
+        [SecurityCritical]
+        [SuppressUnmanagedCodeSecurity]
+        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true, BestFitMapping = false)]
+        internal static extern short RegisterClass(InteropValues.WNDCLASS4ICON wc);
+
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
         internal static extern IntPtr DefWindowProc(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam);
 

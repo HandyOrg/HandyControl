@@ -579,6 +579,21 @@ namespace HandyControl.Tools.Interop
             public string lpszClassName;
         }
 
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        internal class WNDCLASS4ICON
+        {
+            public int style;
+            public WndProc lpfnWndProc;
+            public int cbClsExtra;
+            public int cbWndExtra;
+            public IntPtr hInstance;
+            public IntPtr hIcon;
+            public IntPtr hCursor;
+            public IntPtr hbrBackground;
+            public string lpszMenuName;
+            public string lpszClassName;
+        }
+
         [StructLayout(LayoutKind.Sequential, Pack = 2)]
         internal struct BITMAPINFO
         {
