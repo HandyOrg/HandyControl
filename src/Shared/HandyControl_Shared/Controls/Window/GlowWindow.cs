@@ -77,21 +77,21 @@ namespace HandyControl.Controls
 
         protected virtual IntPtr HwndSourceHook(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
-            if (msg <= 71)
+            if (msg <= InteropValues.WM_WINDOWPOSCHANGED)
             {
-                if (msg == 6)
+                if (msg == InteropValues.WM_ACTIVATE)
                 {
                     return IntPtr.Zero;
                 }
 
-                if (msg != 12)
+                if (msg != InteropValues.WM_QUIT)
                 {
                     switch (msg)
                     {
-                        case 70:
+                        case InteropValues.WM_WINDOWPOSCHANGING:
                             WmWindowPosChanging(lParam);
                             return IntPtr.Zero;
-                        case 71:
+                        case InteropValues.WM_WINDOWPOSCHANGED:
                             WmWindowPosChanged(lParam);
                             return IntPtr.Zero;
                         default:
@@ -101,24 +101,24 @@ namespace HandyControl.Controls
             }
             else
             {
-                if (msg <= 166)
+                if (msg <= InteropValues.WM_NCRBUTTONDBLCLK)
                 {
                     switch (msg)
                     {
-                        case 128:
+                        case InteropValues.WM_SETICON:
                             break;
-                        case 129:
-                        case 130:
+                        case InteropValues.WM_NCCREATE:
+                        case InteropValues.WM_NCDESTROY:
                             return IntPtr.Zero;
-                        case 134:
+                        case InteropValues.WM_NCACTIVATE:
                             handled = true;
                             return WmNcActivate(hWnd, wParam);
                         default:
                             switch (msg)
                             {
-                                case 164:
-                                case 165:
-                                case 166:
+                                case InteropValues.WM_NCRBUTTONDOWN:
+                                case InteropValues.WM_NCRBUTTONUP:
+                                case InteropValues.WM_NCRBUTTONDBLCLK:
                                     handled = true;
                                     return IntPtr.Zero;
                                 default:
@@ -130,12 +130,12 @@ namespace HandyControl.Controls
                 {
                     switch (msg)
                     {
-                        case 174:
-                        case 175:
+                        case InteropValues.WM_NCUAHDRAWCAPTION:
+                        case InteropValues.WM_NCUAHDRAWFRAME:
                             handled = true;
                             return IntPtr.Zero;
                         default:
-                            if (msg != 274) return IntPtr.Zero;
+                            if (msg != InteropValues.WM_SYSCOMMAND) return IntPtr.Zero;
                             WmSysCommand(hWnd, wParam);
                             return IntPtr.Zero;
                     }
@@ -410,7 +410,7 @@ namespace HandyControl.Controls
             return result;
         }
 
-        private IntPtr WmNcActivate(IntPtr hWnd, IntPtr wParam) => InteropMethods.DefWindowProc(hWnd, 134, wParam, InteropMethods.HRGN_NONE);
+        private IntPtr WmNcActivate(IntPtr hWnd, IntPtr wParam) => InteropMethods.DefWindowProc(hWnd, InteropValues.WM_NCACTIVATE, wParam, InteropMethods.HRGN_NONE);
 
         private bool IsAeroSnappedToMonitor(IntPtr hWnd)
         {
@@ -423,16 +423,27 @@ namespace HandyControl.Controls
         private void WmSysCommand(IntPtr hWnd, IntPtr wParam)
         {
             var num = InteropMethods.GET_SC_WPARAM(wParam);
-            if (num == 61456)
+            
+            if (num == InteropValues.SC_MOVE)
+            {
                 InteropMethods.RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero,
                     InteropValues.RedrawWindowFlags.Invalidate | InteropValues.RedrawWindowFlags.NoChildren |
                     InteropValues.RedrawWindowFlags.UpdateNow | InteropValues.RedrawWindowFlags.Frame);
-            if ((num == 61488 || num == 61472 || num == 61456 || num == 61440) && WindowState == WindowState.Normal &&
-                !IsAeroSnappedToMonitor(hWnd)) _logicalSizeForRestore = new Rect(Left, Top, Width, Height);
-            if (num == 61456 && WindowState == WindowState.Maximized && _logicalSizeForRestore == Rect.Empty)
+            }
+
+            if ((num == InteropValues.SC_MAXIMIZE || num == InteropValues.SC_MINIMIZE || num == InteropValues.SC_MOVE ||
+                 num == InteropValues.SC_SIZE) && WindowState == WindowState.Normal && !IsAeroSnappedToMonitor(hWnd))
+            {
                 _logicalSizeForRestore = new Rect(Left, Top, Width, Height);
-            if (num == 61728 && WindowState != WindowState.Minimized && _logicalSizeForRestore.Width > 0.0 &&
-                _logicalSizeForRestore.Height > 0.0)
+            }
+            
+            if (num == InteropValues.SC_MOVE && WindowState == WindowState.Maximized && _logicalSizeForRestore == Rect.Empty)
+            {
+                _logicalSizeForRestore = new Rect(Left, Top, Width, Height);
+            }
+            
+            if (num == InteropValues.SC_RESTORE && WindowState != WindowState.Minimized && 
+                _logicalSizeForRestore.Width > 0.0 && _logicalSizeForRestore.Height > 0.0)
             {
                 Left = _logicalSizeForRestore.Left;
                 Top = _logicalSizeForRestore.Top;
@@ -444,9 +455,9 @@ namespace HandyControl.Controls
 
         private IntPtr CallDefWindowProcWithoutVisibleStyle(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam)
         {
-            var flag = VisualHelper.ModifyStyle(hWnd, 268435456, 0);
+            var flag = VisualHelper.ModifyStyle(hWnd, InteropValues.WS_VISIBLE, 0);
             var result = InteropMethods.DefWindowProc(hWnd, msg, wParam, lParam);
-            if (flag) VisualHelper.ModifyStyle(hWnd, 0, 268435456);
+            if (flag) VisualHelper.ModifyStyle(hWnd, 0, InteropValues.WS_VISIBLE);
             return result;
         }
 
