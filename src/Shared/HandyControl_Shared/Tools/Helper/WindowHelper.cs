@@ -148,5 +148,7 @@ namespace HandyControl.Tools
         public static IntPtr CreateHandle() => new WindowInteropHelper(new Window()).EnsureHandle();
 
         public static IntPtr GetHandle(this Window window) => new WindowInteropHelper(window).EnsureHandle();
+
+        public static HwndSource GetHwndSource(this Window window) => HwndSource.FromHwnd(window.GetHandle());
     }
 }

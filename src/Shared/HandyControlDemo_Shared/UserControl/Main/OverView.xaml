@@ -7,7 +7,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:userControl="clr-namespace:HandyControlDemo.UserControl">
-    <ScrollViewer HorizontalScrollBarVisibility="Auto">
+    <ScrollViewer HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Visible">
         <Canvas HorizontalAlignment="Center" VerticalAlignment="Center" Name="CanvasMain" Margin="32" Width="1665" Height="1300">
             <Border Visibility="Visible" BorderThickness="0" Padding="16" Style="{StaticResource BorderRegion}" CornerRadius="4">
                 <StackPanel>

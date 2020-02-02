@@ -85,6 +85,7 @@ namespace HandyControl.Data
                 var array = new byte[BytesPerPixelBgra32 * bitmapImage.PixelWidth * bitmapImage.PixelHeight];
                 var stride = BytesPerPixelBgra32 * bitmapImage.PixelWidth;
                 bitmapImage.CopyPixels(array, stride, 0);
+                bitmapImage.Freeze();
 
                 _transparencyMasks[(int)bitmapPart] =
                     new CachedBitmapInfo(

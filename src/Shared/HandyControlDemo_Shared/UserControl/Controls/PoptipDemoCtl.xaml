@@ -8,14 +8,14 @@
     <UserControl.Resources>
         <Style x:Key="Button4PoptipStyle" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
             <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
-            <Setter Property="Height" Value="50"/>
+            <Setter Property="Height" Value="40"/>
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Content" Value="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Int2StringConverter},ConverterParameter={x:Static langs:Lang.PoptipPositionStr}}"/>
         </Style>
         <Style x:Key="ToggleButton4PoptipStyle" BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="ToggleButton">
             <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
-            <Setter Property="Height" Value="50"/>
+            <Setter Property="Height" Value="40"/>
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
             <Setter Property="Content" Value="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Int2StringConverter},ConverterParameter={x:Static langs:Lang.PoptipPositionStr}}"/>

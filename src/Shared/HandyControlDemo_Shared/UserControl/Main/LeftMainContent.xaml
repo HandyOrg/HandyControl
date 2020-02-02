@@ -25,7 +25,7 @@
     </Border.Resources>
     <DockPanel>
         <Button Command="{Binding OpenOverviewCmd}" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="4" Content="{x:Static langs:Lang.Overview}"/>
-        <TabControl SelectionChanged="TabControl_OnSelectionChanged" ItemsSource="{Binding DemoInfoList}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
+        <TabControl SelectionChanged="TabControl_OnSelectionChanged" ItemContainerStyle="{StaticResource TabItemTransparent}" ItemsSource="{Binding DemoInfoList}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{Binding Title}"/>
@@ -44,7 +44,7 @@
                         </Grid.ColumnDefinitions>
                         <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="4" Tag="{Binding ElementName=ListBoxDemo}"/>
                         <ToggleButton Tag="{Binding ElementName=ListBoxDemo}" Name="ButtonStyleAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Margin="0,0,4,0" Style="{StaticResource DemoInfoSortButtonStyle}"/>
-                        <ListBox Name="ListBoxDemo" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
+                        <ListBox Name="ListBoxDemo" VirtualizingStackPanel.IsVirtualizing="True" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
