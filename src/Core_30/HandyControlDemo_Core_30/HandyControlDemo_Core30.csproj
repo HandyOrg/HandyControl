@@ -484,6 +484,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Shared\HandyControlDemo_Shared\Properties\App.config">
+      <Link>Properties\App.config</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="..\..\Shared\HandyControlDemo_Shared\Data\MessageToken.tt">
       <Link>Data\MessageToken.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>

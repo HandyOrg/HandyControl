@@ -8,6 +8,10 @@ namespace HandyControl.Controls
 {
     public class FlipClock : Control
     {
+        private readonly DispatcherTimer _dispatcherTimer;
+
+        private bool _isDisposed;
+
         public static readonly DependencyProperty NumberListProperty = DependencyProperty.Register(
             "NumberList", typeof(List<int>), typeof(FlipClock), new PropertyMetadata(new List<int> {0, 0, 0, 0, 0, 0}));
 
@@ -44,12 +48,39 @@ namespace HandyControl.Controls
 
         public FlipClock()
         {
-            var dispatcherTimer = new DispatcherTimer
+            _dispatcherTimer = new DispatcherTimer(DispatcherPriority.Render)
             {
                 Interval = TimeSpan.FromMilliseconds(200)
             };
-            dispatcherTimer.Tick += DispatcherTimer_Tick;
-            dispatcherTimer.Start();
+
+            IsVisibleChanged += FlipClock_IsVisibleChanged;
+        }
+
+        ~FlipClock() => Dispose();
+
+        public void Dispose()
+        {
+            if (_isDisposed) return;
+
+            IsVisibleChanged -= FlipClock_IsVisibleChanged;
+            _dispatcherTimer.Stop();
+            _isDisposed = true;
+
+            GC.SuppressFinalize(this);
+        }
+
+        private void FlipClock_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (IsVisible)
+            {
+                _dispatcherTimer.Tick += DispatcherTimer_Tick;
+                _dispatcherTimer.Start();
+            }
+            else
+            {
+                _dispatcherTimer.Stop();
+                _dispatcherTimer.Tick -= DispatcherTimer_Tick;
+            }
         }
 
         private void DispatcherTimer_Tick(object sender, EventArgs e) => DisplayTime = DateTime.Now;
