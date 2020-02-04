@@ -6,7 +6,7 @@
         <ResourceDictionary Source="Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
     
-    <DrawingBrush o:Freeze="True" x:Key="MainContentForegroundDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,16,16" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
+    <DrawingBrush o:Freeze="True" x:Key="MainContentForegroundDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,16,16" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
         <DrawingBrush.Drawing>
             <DrawingGroup o:Freeze="True">
                 <GeometryDrawing o:Freeze="True" Brush="{DynamicResource MainContentForegroundBrush}">
@@ -21,7 +21,7 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <DrawingBrush o:Freeze="True" x:Key="GitHubDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,200,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+    <DrawingBrush o:Freeze="True" x:Key="GitHubDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,200,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Transform>
             <TransformGroup o:Freeze="True">
                 <RotateTransform o:Freeze="True" Angle="20"/>
@@ -34,7 +34,7 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <DrawingBrush o:Freeze="True" x:Key="QqDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,100,200" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+    <DrawingBrush o:Freeze="True" x:Key="QqDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,100,200" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Transform>
             <TransformGroup o:Freeze="True">
                 <RotateTransform o:Freeze="True" Angle="20"/>
@@ -47,7 +47,7 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <DrawingBrush o:Freeze="True" x:Key="BlogDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,160,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+    <DrawingBrush o:Freeze="True" x:Key="BlogDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,160,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Transform>
             <TransformGroup o:Freeze="True">
                 <RotateTransform o:Freeze="True" Angle="20"/>
@@ -59,7 +59,7 @@
                     <RectangleGeometry o:Freeze="True" Rect="0,0,160,100"></RectangleGeometry>
                 </GeometryDrawing.Geometry>
                 <GeometryDrawing.Brush>
-                    <VisualBrush o:Freeze="True">
+                    <VisualBrush o:Freeze="True" RenderOptions.CachingHint="Cache" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" >
                         <VisualBrush.Visual>
                             <StackPanel>
                                 <TextBlock Text="Blog" Foreground="{DynamicResource DarkMaskBrush}"/>
@@ -71,7 +71,7 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <DrawingBrush o:Freeze="True" x:Key="WebsiteDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,320,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+    <DrawingBrush o:Freeze="True" x:Key="WebsiteDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,320,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Transform>
             <TransformGroup o:Freeze="True">
                 <RotateTransform o:Freeze="True" Angle="20"/>
@@ -83,7 +83,7 @@
                     <RectangleGeometry o:Freeze="True" Rect="0,0,320,100"></RectangleGeometry>
                 </GeometryDrawing.Geometry>
                 <GeometryDrawing.Brush>
-                    <VisualBrush o:Freeze="True">
+                    <VisualBrush o:Freeze="True" RenderOptions.CachingHint="Cache" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0">
                         <VisualBrush.Visual>
                             <StackPanel>
                                 <TextBlock Text="Website" Foreground="{DynamicResource DarkMaskBrush}"/>
@@ -95,7 +95,7 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <DrawingBrush o:Freeze="True" x:Key="ProjectDrawingBrush" RenderOptions.CachingHint="Cache" Viewport="0,0,240,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+    <DrawingBrush o:Freeze="True" x:Key="ProjectDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,240,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Transform>
             <TransformGroup o:Freeze="True">
                 <RotateTransform o:Freeze="True" Angle="20"/>
@@ -107,7 +107,7 @@
                     <RectangleGeometry o:Freeze="True" Rect="0,0,240,100"></RectangleGeometry>
                 </GeometryDrawing.Geometry>
                 <GeometryDrawing.Brush>
-                    <VisualBrush o:Freeze="True">
+                    <VisualBrush o:Freeze="True" RenderOptions.CachingHint="Cache" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" >
                         <VisualBrush.Visual>
                             <StackPanel>
                                 <TextBlock Text="Project" Foreground="{DynamicResource DarkMaskBrush}"/>

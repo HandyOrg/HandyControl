@@ -2,9 +2,11 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using HandyControl.Data;
 
 namespace HandyControl.Controls
@@ -63,6 +65,7 @@ namespace HandyControl.Controls
         public static void SetAlignLeftWith(DependencyObject element, UIElement value)
             => element.SetValue(AlignLeftWithProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAlignLeftWith(DependencyObject element)
             => (UIElement) element.GetValue(AlignLeftWithProperty);
 
@@ -72,6 +75,7 @@ namespace HandyControl.Controls
         public static void SetAlignTopWith(DependencyObject element, UIElement value)
             => element.SetValue(AlignTopWithProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAlignTopWith(DependencyObject element)
             => (UIElement) element.GetValue(AlignTopWithProperty);
 
@@ -81,6 +85,7 @@ namespace HandyControl.Controls
         public static void SetAlignRightWith(DependencyObject element, UIElement value)
             => element.SetValue(AlignRightWithProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAlignRightWith(DependencyObject element)
             => (UIElement) element.GetValue(AlignRightWithProperty);
 
@@ -90,6 +95,7 @@ namespace HandyControl.Controls
         public static void SetAlignBottomWith(DependencyObject element, UIElement value)
             => element.SetValue(AlignBottomWithProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAlignBottomWith(DependencyObject element)
             => (UIElement) element.GetValue(AlignBottomWithProperty);
 
@@ -103,6 +109,7 @@ namespace HandyControl.Controls
         public static void SetLeftOf(DependencyObject element, UIElement value)
             => element.SetValue(LeftOfProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetLeftOf(DependencyObject element)
             => (UIElement)element.GetValue(LeftOfProperty);
 
@@ -112,6 +119,7 @@ namespace HandyControl.Controls
         public static void SetAbove(DependencyObject element, UIElement value)
             => element.SetValue(AboveProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAbove(DependencyObject element)
             => (UIElement)element.GetValue(AboveProperty);
 
@@ -121,6 +129,7 @@ namespace HandyControl.Controls
         public static void SetRightOf(DependencyObject element, UIElement value)
             => element.SetValue(RightOfProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetRightOf(DependencyObject element)
             => (UIElement)element.GetValue(RightOfProperty);
 
@@ -130,6 +139,7 @@ namespace HandyControl.Controls
         public static void SetBelow(DependencyObject element, UIElement value)
             => element.SetValue(BelowProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetBelow(DependencyObject element)
             => (UIElement) element.GetValue(BelowProperty);
 
@@ -161,6 +171,7 @@ namespace HandyControl.Controls
         public static void SetAlignHorizontalCenterWith(DependencyObject element, UIElement value)
             => element.SetValue(AlignHorizontalCenterWithProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAlignHorizontalCenterWith(DependencyObject element)
             => (UIElement)element.GetValue(AlignHorizontalCenterWithProperty);
 
@@ -170,6 +181,7 @@ namespace HandyControl.Controls
         public static void SetAlignVerticalCenterWith(DependencyObject element, UIElement value)
             => element.SetValue(AlignVerticalCenterWithProperty, value);
 
+        [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAlignVerticalCenterWith(DependencyObject element)
             => (UIElement)element.GetValue(AlignVerticalCenterWithProperty);
 

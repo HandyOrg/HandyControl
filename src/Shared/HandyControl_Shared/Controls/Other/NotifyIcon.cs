@@ -93,10 +93,7 @@ namespace HandyControl.Controls
             if (Application.Current != null) Application.Current.Exit += (s, e) => Dispose();
         }
 
-        ~NotifyIcon()
-        {
-            Dispose(false);
-        }
+        ~NotifyIcon() => Dispose(false);
 
         public void Init()
         {

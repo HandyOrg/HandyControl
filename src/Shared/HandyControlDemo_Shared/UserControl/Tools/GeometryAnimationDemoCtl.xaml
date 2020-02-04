@@ -27,7 +27,10 @@
     </UserControl.Resources>
     <UserControl.Triggers>
         <EventTrigger RoutedEvent="FrameworkElement.Loaded">
-            <BeginStoryboard Storyboard="{StaticResource StoryboardOnLoaded}"/>
+            <BeginStoryboard Name="BeginStoryboard" Storyboard="{StaticResource StoryboardOnLoaded}"/>
+        </EventTrigger>
+        <EventTrigger RoutedEvent="FrameworkElement.Unloaded">
+            <StopStoryboard BeginStoryboardName="BeginStoryboard"/>
         </EventTrigger>
     </UserControl.Triggers>
     <hc:TransitioningContentControl>
