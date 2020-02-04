@@ -158,10 +158,10 @@
     <ControlTemplate x:Key="NumericUpDownPlusTopTemplate" TargetType="controls:NumericUpDown">
         <ControlTemplate.Resources>
             <Storyboard x:Key="StoryboardShow">
-                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,-18" Duration="0:0:.2"/>
+                <ThicknessAnimation Storyboard.TargetName="PART_ErrorTip" Storyboard.TargetProperty="Margin" To="9,0,0,-18" Duration="0:0:.2"/>
             </Storyboard>
             <Storyboard x:Key="StoryboardHidden">
-                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
+                <ThicknessAnimation Storyboard.TargetName="PART_ErrorTip" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
             </Storyboard>
         </ControlTemplate.Resources>
         <Grid>
@@ -169,7 +169,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}"/>
             </Grid.RowDefinitions>
-            <TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1"/>
+            <TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="PART_ErrorTip" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1"/>
             <StackPanel Grid.Row="0" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
                 <TextBlock Foreground="{TemplateBinding Foreground}" Margin="1,0,0,0" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>
@@ -225,10 +225,10 @@
     <ControlTemplate x:Key="NumericUpDownPlusLeftTemplate" TargetType="controls:NumericUpDown">
         <ControlTemplate.Resources>
             <Storyboard x:Key="StoryboardShow">
-                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,-18" Duration="0:0:.2"/>
+                <ThicknessAnimation Storyboard.TargetName="PART_ErrorTip" Storyboard.TargetProperty="Margin" To="9,0,0,-18" Duration="0:0:.2"/>
             </Storyboard>
             <Storyboard x:Key="StoryboardHidden">
-                <ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
+                <ThicknessAnimation Storyboard.TargetName="PART_ErrorTip" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0"/>
             </Storyboard>
         </ControlTemplate.Resources>
         <Grid MinHeight="{Binding Path=(controls:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(controls:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
@@ -236,7 +236,7 @@
                 <ColumnDefinition Width="{Binding Path=(controls:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1"/>
+            <TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="PART_ErrorTip" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1"/>
             <StackPanel Grid.Column="0" Visibility="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,8">
                 <TextBlock Foreground="{TemplateBinding Foreground}" Text="{Binding Path=(controls:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}"/>
                 <ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(controls:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(controls:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}"/>

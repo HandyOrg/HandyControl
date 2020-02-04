@@ -13,17 +13,22 @@ namespace HandyControl.Controls
     ///     数值选择控件
     /// </summary>
     [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
+    [TemplatePart(Name = ElementErrorTip, Type = typeof(UIElement))]
     public class NumericUpDown : Control, IDataInput
     {
         #region Constants
 
         private const string ElementTextBox = "PART_TextBox";
 
+        private const string ElementErrorTip = "PART_ErrorTip";
+
         #endregion Constants
 
         #region Data
 
         private TextBox _textBox;
+
+        private UIElement _errorTip;
 
         private bool _updateText;
 
@@ -77,6 +82,7 @@ namespace HandyControl.Controls
             base.OnApplyTemplate();
 
             _textBox = GetTemplateChild(ElementTextBox) as TextBox;
+            _errorTip = GetTemplateChild(ElementErrorTip) as UIElement;
 
             if (_textBox != null)
             {
@@ -105,7 +111,7 @@ namespace HandyControl.Controls
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (IsError) return;
+            if (IsError && _errorTip != null) return;
             _textBox.Text = CurrentText;
         }
 
