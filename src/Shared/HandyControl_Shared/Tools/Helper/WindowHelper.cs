@@ -19,7 +19,7 @@ namespace HandyControl.Tools
         /// <returns></returns>
         public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
 
-        private static readonly BitArray _cacheValid = new BitArray((int)CacheSlot.NumSlots);
+        private static readonly BitArray _cacheValid = new BitArray((int)InteropValues.CacheSlot.NumSlots);
 
         private static bool _setDpiX = true;
 
@@ -43,7 +43,7 @@ namespace HandyControl.Tools
                             var desktopWnd = new HandleRef(null, IntPtr.Zero);
 
                             // Win32Exception will get the Win32 error code so we don't have to
-                            var dc = UnsafeNativeMethods.GetDC(desktopWnd);
+                            var dc = InteropMethods.GetDC(desktopWnd);
 
                             // Detecting error case from unmanaged call, required by PREsharp to throw a Win32Exception
                             if (dc == IntPtr.Zero)
@@ -53,12 +53,12 @@ namespace HandyControl.Tools
 
                             try
                             {
-                                _dpi = UnsafeNativeMethods.GetDeviceCaps(new HandleRef(null, dc), NativeMethods.LOGPIXELSY);
+                                _dpi = InteropMethods.GetDeviceCaps(new HandleRef(null, dc), InteropValues.LOGPIXELSY);
                                 _dpiInitialized = true;
                             }
                             finally
                             {
-                                UnsafeNativeMethods.ReleaseDC(desktopWnd, new HandleRef(null, dc));
+                                InteropMethods.ReleaseDC(desktopWnd, new HandleRef(null, dc));
                             }
                         }
                     }
@@ -82,19 +82,19 @@ namespace HandyControl.Tools
                         {
                             _setDpiX = false;
                             var desktopWnd = new HandleRef(null, IntPtr.Zero);
-                            var dc = UnsafeNativeMethods.GetDC(desktopWnd);
+                            var dc = InteropMethods.GetDC(desktopWnd);
                             if (dc == IntPtr.Zero)
                             {
                                 throw new Win32Exception();
                             }
                             try
                             {
-                                _dpiX = UnsafeNativeMethods.GetDeviceCaps(new HandleRef(null, dc), NativeMethods.LOGPIXELSX);
-                                _cacheValid[(int)CacheSlot.DpiX] = true;
+                                _dpiX = InteropMethods.GetDeviceCaps(new HandleRef(null, dc), InteropValues.LOGPIXELSX);
+                                _cacheValid[(int)InteropValues.CacheSlot.DpiX] = true;
                             }
                             finally
                             {
-                                UnsafeNativeMethods.ReleaseDC(desktopWnd, new HandleRef(null, dc));
+                                InteropMethods.ReleaseDC(desktopWnd, new HandleRef(null, dc));
                             }
                         }
                     }
@@ -113,11 +113,11 @@ namespace HandyControl.Tools
             {
                 lock (_cacheValid)
                 {
-                    while (!_cacheValid[(int)CacheSlot.WindowResizeBorderThickness])
+                    while (!_cacheValid[(int)InteropValues.CacheSlot.WindowResizeBorderThickness])
                     {
-                        _cacheValid[(int)CacheSlot.WindowResizeBorderThickness] = true;
+                        _cacheValid[(int)InteropValues.CacheSlot.WindowResizeBorderThickness] = true;
 
-                        var frameSize = new Size(NativeMethods.GetSystemMetrics(SM.CXSIZEFRAME), NativeMethods.GetSystemMetrics(SM.CYSIZEFRAME));
+                        var frameSize = new Size(InteropMethods.GetSystemMetrics(InteropValues.SM.CXSIZEFRAME), InteropMethods.GetSystemMetrics(InteropValues.SM.CYSIZEFRAME));
                         var frameSizeInDips = DpiHelper.DeviceSizeToLogical(frameSize, DpiX / 96.0, Dpi / 96.0);
 
                         _windowResizeBorderThickness = new Thickness(frameSizeInDips.Width, frameSizeInDips.Height, frameSizeInDips.Width, frameSizeInDips.Height);
@@ -135,9 +135,9 @@ namespace HandyControl.Tools
 #if netle40
                 return WindowResizeBorderThickness;
 #elif Core
-                var hdc = UnsafeNativeMethods.GetDC(IntPtr.Zero);
-                var scale = UnsafeNativeMethods.GetDeviceCaps(hdc, NativeMethods.DESKTOPVERTRES) / (float)UnsafeNativeMethods.GetDeviceCaps(hdc, NativeMethods.VERTRES);
-                UnsafeNativeMethods.ReleaseDC(IntPtr.Zero, hdc);
+                var hdc = InteropMethods.GetDC(IntPtr.Zero);
+                var scale = InteropMethods.GetDeviceCaps(hdc, InteropValues.DESKTOPVERTRES) / (float)InteropMethods.GetDeviceCaps(hdc, InteropValues.VERTRES);
+                InteropMethods.ReleaseDC(IntPtr.Zero, hdc);
                 return WindowResizeBorderThickness.Add(new Thickness(4 * scale));
 #else
                 return WindowResizeBorderThickness.Add(new Thickness(4));
@@ -148,5 +148,7 @@ namespace HandyControl.Tools
         public static IntPtr CreateHandle() => new WindowInteropHelper(new Window()).EnsureHandle();
 
         public static IntPtr GetHandle(this Window window) => new WindowInteropHelper(window).EnsureHandle();
+
+        public static HwndSource GetHwndSource(this Window window) => HwndSource.FromHwnd(window.GetHandle());
     }
 }

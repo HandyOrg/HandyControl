@@ -7,7 +7,7 @@
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" Orientation="Horizontal">
             <StackPanel>
-                <hc:NumericUpDown/>
+                <hc:NumericUpDown Maximum="100"/>
                 <hc:NumericUpDown Margin="0,32,0,0" IsEnabled="False"/>
                 <hc:NumericUpDown Margin="0,32,0,0" IsReadOnly="True"/>
 

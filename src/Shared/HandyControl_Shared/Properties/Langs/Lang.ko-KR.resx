@@ -204,4 +204,10 @@
   <data name="Yes" xml:space="preserve">
     <value>네</value>
   </data>
+  <data name="ZoomIn" xml:space="preserve">
+    <value>Zoom in</value>
+  </data>
+  <data name="ZoomOut" xml:space="preserve">
+    <value>Zoom out</value>
+  </data>
 </root>

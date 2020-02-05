@@ -457,6 +457,12 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Ellipsis_16x.png">
       <Link>Resources\Img\LeftMainContent\Ellipsis_16x.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\WPFFlowDocument_16x.png">
+      <Link>Resources\Img\LeftMainContent\WPFFlowDocument_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\OutlinedRectangleTool_16x.png">
+      <Link>Resources\Img\LeftMainContent\OutlinedRectangleTool_16x.png</Link>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.en.resx">
@@ -476,6 +482,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Shared\HandyControlDemo_Shared\Properties\App.config">
+      <Link>Properties\App.config</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Content Include="..\..\Shared\HandyControlDemo_Shared\Data\MessageToken.tt">

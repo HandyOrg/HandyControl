@@ -3,9 +3,11 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
+using System.Runtime;
 using System.Security.Authentication; 
 using System.Threading;
 using System.Windows;
+using System.Windows.Media.Animation;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
@@ -19,6 +21,19 @@ namespace HandyControlDemo
         [SuppressMessage("ReSharper", "NotAccessedField.Local")] 
         private static Mutex AppMutex;
 #pragma warning restore IDE0052
+
+        public App()
+        {
+#if !netle40
+            var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
+            if (!Directory.Exists(cachePath))
+            {
+                Directory.CreateDirectory(cachePath);
+            }
+            ProfileOptimization.SetProfileRoot(cachePath);
+            ProfileOptimization.StartProfile("Profile");
+#endif
+        }
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -56,6 +71,7 @@ namespace HandyControlDemo
                     UpdateSkin(GlobalData.Config.Skin);
                 }
 
+                ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
 
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;

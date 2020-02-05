@@ -489,6 +489,11 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="..\..\Shared\HandyControlDemo_Shared\Properties\App.config">
+      <Link>Properties\App.config</Link>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\RepeatButton_16x.png">
       <Link>Resources\Img\LeftMainContent\RepeatButton_16x.png</Link>
     </Resource>
@@ -585,6 +590,12 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Ellipsis_16x.png">
       <Link>Resources\Img\LeftMainContent\Ellipsis_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\WPFFlowDocument_16x.png">
+      <Link>Resources\Img\LeftMainContent\WPFFlowDocument_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\OutlinedRectangleTool_16x.png">
+      <Link>Resources\Img\LeftMainContent\OutlinedRectangleTool_16x.png</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>

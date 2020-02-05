@@ -8,7 +8,6 @@
                mc:Ignorable="d"
                WindowStartupLocation="CenterScreen"
                ShowTitle="True"
-               Style="{StaticResource WindowBlur}"
                Icon="/HandyControlDemo;component/Resources/Img/icon.ico"
                ShowNonClientArea="False"
                Title="NoClientDragableWindow" 

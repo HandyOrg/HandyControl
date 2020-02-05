@@ -1,0 +1,55 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:langs="clr-namespace:HandyControl.Properties.Langs">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Basic/Sizes.xaml"/>
+        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style TargetType="FlowDocumentScrollViewer">
+        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+        <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="FlowDocumentScrollViewer">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Margin="{TemplateBinding Padding}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                            <ScrollViewer x:Name="PART_ContentHost" CanContentScroll="True" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <Border x:Name="PART_ToolBarHost" Grid.Row="1" Margin="0,4">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Border x:Name="PART_FindToolBarHost" Grid.Column="0" HorizontalAlignment="Left" Visibility="Collapsed" VerticalAlignment="Center"/>
+                                <Grid Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <RepeatButton Height="18" Width="18" Padding="4,7" controls:BorderElement.CornerRadius="9" controls:IconElement.Geometry="{StaticResource SubGeometry}" Grid.Column="0" Command="NavigationCommands.DecreaseZoom" IsEnabled="{TemplateBinding CanDecreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomOut}"/>
+                                    <Slider controls:TipElement.Visibility="Visible" controls:TipElement.Placement="Top" Grid.Column="1" HorizontalAlignment="Stretch" LargeChange="{TemplateBinding ZoomIncrement}" Maximum="{TemplateBinding MaxZoom}" Minimum="{TemplateBinding MinZoom}" SmallChange="{TemplateBinding ZoomIncrement}" TickFrequency="{TemplateBinding ZoomIncrement}" Value="{Binding Zoom, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Center" Width="180"/>
+                                    <RepeatButton Height="18" Width="18" Padding="4" controls:BorderElement.CornerRadius="9" controls:IconElement.Geometry="{StaticResource AddGeometry}" Grid.Column="2" Command="NavigationCommands.IncreaseZoom" IsEnabled="{TemplateBinding CanIncreaseZoom}" ToolTip="{x:Static langs:Lang.ZoomIn}"/>
+                                </Grid>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

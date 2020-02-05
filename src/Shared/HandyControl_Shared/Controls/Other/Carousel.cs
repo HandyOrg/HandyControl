@@ -22,7 +22,7 @@ namespace HandyControl.Controls
     [ContentProperty("Items")]
     [TemplatePart(Name = ElementPanelPage, Type = typeof(Panel))]
     [TemplatePart(Name = ElementItemsControl, Type = typeof(ItemsPresenter))]
-    public class Carousel : ListBox
+    public class Carousel : ListBox, IDisposable
     {
         #region Constants
 
@@ -32,6 +32,8 @@ namespace HandyControl.Controls
         #endregion Constants
 
         #region Data
+
+        private bool _isDisposed;
 
         private Panel _panelPage;
 
@@ -119,6 +121,36 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Selected, ButtonPages_OnClick));
 
             Loaded += (s, e) => UpdatePageButtons();
+            IsVisibleChanged += Carousel_IsVisibleChanged;
+        }
+
+        ~Carousel() => Dispose();
+
+        public void Dispose()
+        {
+            if (_isDisposed) return;
+
+            IsVisibleChanged -= Carousel_IsVisibleChanged;
+            _updateTimer.Stop();
+            _isDisposed = true;
+
+            GC.SuppressFinalize(this);
+        }
+
+        private void Carousel_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (_updateTimer == null) return;
+
+            if (IsVisible)
+            {
+                _updateTimer.Tick += UpdateTimer_Tick;
+                _updateTimer.Start();
+            }
+            else
+            {
+                _updateTimer.Stop();
+                _updateTimer.Tick -= UpdateTimer_Tick;
+            }
         }
 
         protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
