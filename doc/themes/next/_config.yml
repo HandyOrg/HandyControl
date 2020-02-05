@@ -874,7 +874,7 @@ needmoreshare2:
 #  localhost_ignored: true
 
 # CNZZ count
-#cnzz_siteid:
+cnzz_siteid: 1278600916
 
 # Application Insights
 # See: https://azure.microsoft.com/en-us/services/application-insights
