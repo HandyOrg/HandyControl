@@ -4,15 +4,9 @@ title: TabControl 选项卡控件
 
 # TabControlBaseStyle
 
-选项卡控件默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用
+选项卡控件默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
 
 案例：
-
-```xml
-<Style BasedOn="{StaticResource TabControlBaseStyle}" TargetType="TabControl"/>
-```
-
-`xaml`中：
 
  ```xml
 <TabControl Margin="10">
@@ -29,14 +23,14 @@ title: TabControl 选项卡控件
 
 ![TabControl.DefaultStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/TabControl.DefaultStyle.png)
 
-# TabControlInLine
+# TabControlInLine : TabControlBaseStyle
 
-行内选中选项卡样式
+单行填充选项卡样式
 
 案例：
 
 ```xml
-<TabControl Margin="10" Style="{DynamicResource TabControlInLine}">
+<TabControl Margin="10" Style="{StaticResource TabControlInLine}">
     <TabItem Header="选项卡1">
     </TabItem>
     <TabItem Header="选项卡2">
@@ -52,12 +46,12 @@ title: TabControl 选项卡控件
 
 # TabControlCapsule
 
-简约选项卡样式
+胶囊状选项卡样式
 
 案例：
 
 ```xml
-<TabControl Margin="10" Style="{DynamicResource TabControlCapsule}">
+<TabControl Margin="10" Style="{StaticResource TabControlCapsule}">
     <TabItem Header="选项卡1">
     </TabItem>
     <TabItem Header="选项卡2">
@@ -71,12 +65,14 @@ title: TabControl 选项卡控件
 
 ![TabControl.CapsuleStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/TabControl.CapsuleStyle.png)
 
-# TabControlCapsuleSolid
+# TabControlCapsuleSolid : TabControlCapsule
+
+胶囊状（实心）选项卡样式
 
 案例：
 
 ```xml
-<TabControl Margin="10" Style="{DynamicResource TabControlCapsuleSolid}">
+<TabControl Margin="10" Style="{StaticResource TabControlCapsuleSolid}">
     <TabItem Header="选项卡1">
     </TabItem>
     <TabItem Header="选项卡2">
@@ -92,6 +88,6 @@ title: TabControl 选项卡控件
 
 # 温馨提示
 
-使用属性`TabStripPlacement`设定头部标题的位置，效果如下：
+可以使用属性`TabStripPlacement`设定头部标题的位置，效果如下：
 
 ![TabControl.TabStripPlacement](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/TabControl.TabStripPlacement.png)
