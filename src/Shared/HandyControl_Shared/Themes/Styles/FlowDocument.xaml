@@ -7,5 +7,7 @@
     <Style BasedOn="{StaticResource FlowDocumentScrollViewerBaseStyle}" TargetType="FlowDocumentScrollViewer"/>
 
     <Style BasedOn="{StaticResource FlowDocumentPageViewerBaseStyle}" TargetType="FlowDocumentPageViewer"/>
+
+    <Style BasedOn="{StaticResource FlowDocumentReaderBaseStyle}" TargetType="FlowDocumentReader"/>
     
 </ResourceDictionary>

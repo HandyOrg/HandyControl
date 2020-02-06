@@ -726,4 +726,7 @@
   <data name="FlowDocumentPageViewer" xml:space="preserve">
     <value>FlowDocumentPageViewer</value>
   </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>FlowDocumentReader</value>
+  </data>
 </root>

@@ -1,5 +1,5 @@
 ---
-title: FlowDocumentScrollViewer 流文档滚动视图
+title: FlowDocument 流文档
 ---
 
 # FlowDocumentScrollViewerBaseStyle
@@ -107,3 +107,11 @@ title: FlowDocumentScrollViewer 流文档滚动视图
 效果：
 
 ![FlowDocumentScrollViewer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FlowDocumentScrollViewer.png)
+
+# FlowDocumentPageViewerBaseStyle
+
+流文档单页视图默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。
+
+# FlowDocumentReaderBaseStyle
+
+流文档查看器默认样式，不推荐直接使用，应该始终被其它样式以BasedOn的方式使用。

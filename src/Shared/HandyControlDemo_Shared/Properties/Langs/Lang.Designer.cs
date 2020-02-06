@@ -646,6 +646,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 流文档查看器 的本地化字符串。
+        /// </summary>
+        public static string FlowDocumentReader {
+            get {
+                return ResourceManager.GetString("FlowDocumentReader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 流文档滚动视图 的本地化字符串。
         /// </summary>
         public static string FlowDocumentScrollViewer {

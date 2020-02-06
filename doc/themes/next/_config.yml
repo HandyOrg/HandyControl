@@ -203,7 +203,7 @@ menu:
       DataGrid 数据表格: /dataGrid/ ||
       DatePicker 日期选择器: /datePicker/ ||
       Expander 展开框: /expander/ ||
-      FlowDocumentScrollViewer 流文档滚动视图: /flowDocumentScrollViewer/ ||
+      FlowDocument 流文档: /flowDocument/ ||
       GroupBox 分组框: /groupBox/ ||
       Image 图片: /image/ ||
       Label 标签: /label/ ||

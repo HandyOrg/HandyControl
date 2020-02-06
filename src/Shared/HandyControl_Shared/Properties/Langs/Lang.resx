@@ -216,4 +216,16 @@
   <data name="PreviousPage" xml:space="preserve">
     <value>上一页</value>
   </data>
+  <data name="PageMode" xml:space="preserve">
+    <value>页面模式</value>
+  </data>
+  <data name="TwoPageMode" xml:space="preserve">
+    <value>双页模式</value>
+  </data>
+  <data name="ScrollMode" xml:space="preserve">
+    <value>滚动模式</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>查找</value>
+  </data>
 </root>

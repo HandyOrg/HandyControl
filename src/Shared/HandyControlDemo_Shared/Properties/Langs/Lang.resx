@@ -726,4 +726,7 @@
   <data name="FlowDocumentPageViewer" xml:space="preserve">
     <value>流文档单页视图</value>
   </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>流文档查看器</value>
+  </data>
 </root>
