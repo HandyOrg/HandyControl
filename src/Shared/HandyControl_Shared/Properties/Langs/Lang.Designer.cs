@@ -241,6 +241,15 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 下一页 的本地化字符串。
+        /// </summary>
+        public static string NextPage {
+            get {
+                return ResourceManager.GetString("NextPage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 否 的本地化字符串。
         /// </summary>
         public static string No {
@@ -273,6 +282,15 @@ namespace HandyControl.Properties.Langs {
         public static string PngImg {
             get {
                 return ResourceManager.GetString("PngImg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 上一页 的本地化字符串。
+        /// </summary>
+        public static string PreviousPage {
+            get {
+                return ResourceManager.GetString("PreviousPage", resourceCulture);
             }
         }
         

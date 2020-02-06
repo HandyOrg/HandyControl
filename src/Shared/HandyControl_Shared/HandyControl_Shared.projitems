@@ -398,11 +398,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\FlowDocumentScrollViewerBaseStyle.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\FlowDocumentBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\FlowDocumentScrollViewer.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\FlowDocument.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

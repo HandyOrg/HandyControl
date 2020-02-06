@@ -720,4 +720,10 @@
   <data name="OpenGlowWindow" xml:space="preserve">
     <value>Open glowWindow</value>
   </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>FlowDocument</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>FlowDocumentPageViewer</value>
+  </data>
 </root>

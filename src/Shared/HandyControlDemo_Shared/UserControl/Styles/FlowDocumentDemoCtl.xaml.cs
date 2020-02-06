@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class FlowDocumentScrollViewerDemoCtl
+    public partial class FlowDocumentDemoCtl
     {
-        public FlowDocumentScrollViewerDemoCtl()
+        public FlowDocumentDemoCtl()
         {
             InitializeComponent();
         }

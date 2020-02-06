@@ -177,6 +177,9 @@
   <data name="IsNecessary" xml:space="preserve">
     <value>이 칸은 비워둘 수 없습니다</value>
   </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next page</value>
+  </data>
   <data name="No" xml:space="preserve">
     <value>아니요</value>
   </data>
@@ -188,6 +191,9 @@
   </data>
   <data name="PngImg" xml:space="preserve">
     <value>PNG 사진</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Previous page</value>
   </data>
   <data name="Tip" xml:space="preserve">
     <value>출력</value>

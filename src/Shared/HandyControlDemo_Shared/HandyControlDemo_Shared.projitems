@@ -293,8 +293,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ExpanderDemoCtl.xaml.cs">
       <DependentUpon>ExpanderDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FlowDocumentScrollViewerDemoCtl.xaml.cs">
-      <DependentUpon>FlowDocumentScrollViewerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FlowDocumentDemoCtl.xaml.cs">
+      <DependentUpon>FlowDocumentDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
@@ -806,7 +806,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FlowDocumentScrollViewerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FlowDocumentDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

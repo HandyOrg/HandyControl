@@ -210,4 +210,10 @@
   <data name="ZoomOut" xml:space="preserve">
     <value>Zoom out</value>
   </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Previous page</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next page</value>
+  </data>
 </root>
