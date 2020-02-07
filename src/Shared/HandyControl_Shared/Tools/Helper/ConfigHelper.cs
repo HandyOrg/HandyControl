@@ -7,6 +7,7 @@ using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
+using System.Windows.Navigation;
 using HandyControl.Controls;
 using HandyControl.Data;
 
@@ -64,6 +65,15 @@ namespace HandyControl.Tools
                 : new FrameworkPropertyMetadata(Application.Current.FindResource(resourceKey));
 
             FrameworkElement.StyleProperty.OverrideMetadata(typeof(System.Windows.Window), metadata);
+        }
+
+        public void SetNavigationWindowDefaultStyle(object resourceKey = null)
+        {
+            var metadata = resourceKey == null
+                ? new FrameworkPropertyMetadata(Application.Current.FindResource(typeof(NavigationWindow)))
+                : new FrameworkPropertyMetadata(Application.Current.FindResource(resourceKey));
+
+            FrameworkElement.StyleProperty.OverrideMetadata(typeof(NavigationWindow), metadata);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

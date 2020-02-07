@@ -332,6 +332,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTextBoxDemoCtl.xaml.cs">
       <DependentUpon>NativeTextBoxDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeWindowDemoCtl.xaml.cs">
+      <DependentUpon>NativeWindowDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RadioButtonDemoCtl.xaml.cs">
       <DependentUpon>RadioButtonDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -412,6 +415,12 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Window\GrowlDemoWindow.xaml.cs">
       <DependentUpon>GrowlDemoWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Window\NativeCommonWindow.xaml.cs">
+      <DependentUpon>NativeCommonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Window\NavigationWindow.xaml.cs">
+      <DependentUpon>NavigationWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)Window\NoNonClientAreaDragableWindow.xaml.cs">
       <DependentUpon>NoNonClientAreaDragableWindow.xaml</DependentUpon>
@@ -858,6 +867,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeWindowDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RadioButtonDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -931,6 +944,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Window\GrowlDemoWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Window\NativeCommonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Window\NavigationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -42,5 +42,9 @@
 
         public static readonly string GlowWindow = nameof(GlowWindow);
 
+        public static readonly string NativeCommonWindow = nameof(NativeCommonWindow);
+
+        public static readonly string NavigationWindow = nameof(NavigationWindow);
+
     }
 }

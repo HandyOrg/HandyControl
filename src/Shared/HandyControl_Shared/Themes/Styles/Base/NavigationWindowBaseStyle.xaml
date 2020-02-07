@@ -1,0 +1,72 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:controls="clr-namespace:HandyControl.Controls">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
+        <ResourceDictionary Source="MenuBaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style x:Key="MenuItem4NavigationWindowStyle" BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="MenuItem">
+        <Setter Property="Header" Value="{Binding (JournalEntry.Name)}"/>
+        <Setter Property="Command" Value="NavigationCommands.NavigateJournal"/>
+        <Setter Property="CommandTarget" Value="{Binding TemplatedParent, RelativeSource={RelativeSource AncestorType=ContextMenu}}"/>
+        <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}}"/>
+    </Style>
+
+    <Style x:Key="NavigationWindowBaseStyle" TargetType="NavigationWindow">
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="NavigationWindow">
+                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                        <DockPanel LastChildFill="True">
+                            <Border DockPanel.Dock="Top" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource DarkDefaultBrush}">
+                                <controls:ButtonGroup x:Name="NavChrome" Width="90" Margin="10,6" HorizontalAlignment="Left">
+                                    <Button Padding="6" controls:IconElement.Geometry="{StaticResource LeftGeometry}" Command="NavigationCommands.BrowseBack">
+                                        <Button.ContextMenu>
+                                            <ContextMenu x:Name="BackNavMenu" ItemContainerStyle="{StaticResource MenuItem4NavigationWindowStyle}" ItemsSource="{Binding Path=(NavigationWindow.BackStack), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </Button.ContextMenu>
+                                    </Button>
+                                    <Button Padding="6" controls:IconElement.Geometry="{StaticResource RightGeometry}" Command="NavigationCommands.BrowseForward">
+                                        <Button.ContextMenu>
+                                            <ContextMenu x:Name="ForwardNavMenu" ItemContainerStyle="{StaticResource MenuItem4NavigationWindowStyle}" ItemsSource="{Binding Path=(NavigationWindow.ForwardStack), RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </Button.ContextMenu>
+                                    </Button>
+                                    <Button Padding="6" controls:IconElement.Geometry="{StaticResource RotateRightGeometry}" Command="NavigationCommands.Refresh"/>
+                                </controls:ButtonGroup>
+                            </Border>
+                            <controls:SimplePanel>
+                                <AdornerDecorator>
+                                    <ContentPresenter x:Name="PART_NavWinCP" ClipToBounds="true"/>
+                                </AdornerDecorator>
+                                <ResizeGrip x:Name="WindowResizeGrip" HorizontalAlignment="Right" IsTabStop="false" Visibility="Collapsed" VerticalAlignment="Bottom"/>
+                            </controls:SimplePanel>
+                        </DockPanel>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="ShowsNavigationUI" Value="False">
+                            <Setter Property="Visibility" TargetName="NavChrome" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="CanGoBack" Value="False">
+                            <Setter Property="IsEnabled" TargetName="BackNavMenu" Value="false"/>
+                        </Trigger>
+                        <Trigger Property="CanGoForward" Value="False">
+                            <Setter Property="IsEnabled" TargetName="ForwardNavMenu" Value="false"/>
+                        </Trigger>
+                        <MultiTrigger>
+                            <MultiTrigger.Conditions>
+                                <Condition Property="ResizeMode" Value="CanResizeWithGrip"/>
+                                <Condition Property="WindowState" Value="Normal"/>
+                            </MultiTrigger.Conditions>
+                            <Setter Property="Visibility" TargetName="WindowResizeGrip" Value="Visible"/>
+                        </MultiTrigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

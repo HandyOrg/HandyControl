@@ -729,4 +729,10 @@
   <data name="FlowDocumentReader" xml:space="preserve">
     <value>FlowDocumentReader</value>
   </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>Open native common window</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>Open navigation window</value>
+  </data>
 </root>
