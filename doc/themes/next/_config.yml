@@ -204,6 +204,7 @@ menu:
       DatePicker 日期选择器: /datePicker/ ||
       Expander 展开框: /expander/ ||
       FlowDocument 流文档: /flowDocument/ ||
+      Frame 导航框架: /frame/ ||
       GroupBox 分组框: /groupBox/ ||
       Image 图片: /image/ ||
       Label 标签: /label/ ||

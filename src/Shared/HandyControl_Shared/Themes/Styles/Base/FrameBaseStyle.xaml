@@ -32,7 +32,7 @@
                         <Button Padding="6" controls:IconElement.Geometry="{StaticResource RotateRightGeometry}" Command="NavigationCommands.Refresh"/>
                     </controls:ButtonGroup>
                 </Border>
-                <ContentPresenter x:Name="PART_NavWinCP" ClipToBounds="true"/>
+                <ContentPresenter SnapsToDevicePixels="True" x:Name="PART_NavWinCP" ClipToBounds="true"/>
             </DockPanel>
         </Border>
     </ControlTemplate>
@@ -45,7 +45,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Frame">
                     <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                        <ContentPresenter x:Name="PART_FrameCP"/>
+                        <ContentPresenter SnapsToDevicePixels="True" x:Name="PART_FrameCP"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
