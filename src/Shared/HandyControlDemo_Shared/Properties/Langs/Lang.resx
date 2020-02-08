@@ -735,4 +735,7 @@
   <data name="OpenNavigationWindow" xml:space="preserve">
     <value>点击打开导航窗口</value>
   </data>
+  <data name="Frame" xml:space="preserve">
+    <value>导航框架</value>
+  </data>
 </root>

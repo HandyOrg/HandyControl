@@ -30,6 +30,7 @@
       [ "ToolBar", "ToolBarDemoCtl", "ToolBar_16x", "" ],
       [ "Border", "BorderDemoCtl", "BorderElement_16x", "" ],
       [ "Label", "LabelDemoCtl", "Label_16x", "" ],
+	  [ "Frame", "FrameDemoCtl", "frame_16xLG", "1" ],
 	  [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "1" ]
     ]
   },

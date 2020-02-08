@@ -664,6 +664,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 导航框架 的本地化字符串。
+        /// </summary>
+        public static string Frame {
+            get {
+                return ResourceManager.GetString("Frame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
         public static string GifImage {

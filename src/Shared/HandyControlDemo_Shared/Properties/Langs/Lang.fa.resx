@@ -735,4 +735,7 @@
   <data name="OpenNavigationWindow" xml:space="preserve">
     <value>Open navigation window</value>
   </data>
+  <data name="Frame" xml:space="preserve">
+    <value>Frame</value>
+  </data>
 </root>
