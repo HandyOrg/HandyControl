@@ -90,7 +90,7 @@ title: ToggleButton 切换按钮
 ## 相关样式
 
 | 名称 | 继承自 |
-| - | - | - |
+| - | - |
 | ToggleButtonSwitch     | ToggleButtonSwitchBaseStyle   |
 
 案例：
