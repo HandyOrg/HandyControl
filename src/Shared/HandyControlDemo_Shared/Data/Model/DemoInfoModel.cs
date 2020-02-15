@@ -5,6 +5,8 @@ namespace HandyControlDemo.Data
 {
     public class DemoInfoModel : ViewModelBase
     {
+        public string Key { get; set; }
+
         private string _title;
 
         public string Title

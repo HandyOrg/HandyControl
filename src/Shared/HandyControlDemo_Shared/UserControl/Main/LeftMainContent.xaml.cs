@@ -5,6 +5,7 @@ using System.Windows.Controls.Primitives;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
+using HandyControlDemo.ViewModel;
 
 
 namespace HandyControlDemo.UserControl
@@ -24,6 +25,7 @@ namespace HandyControlDemo.UserControl
             if (e.AddedItems.Count == 0) return;
             if (e.AddedItems[0] is DemoInfoModel demoInfo)
             {
+                ViewModelLocator.Instance.Main.DemoInfoCurrent = demoInfo;
                 var selectedIndex = demoInfo.SelectedIndex;
                 demoInfo.SelectedIndex = -1;
                 demoInfo.SelectedIndex = selectedIndex;

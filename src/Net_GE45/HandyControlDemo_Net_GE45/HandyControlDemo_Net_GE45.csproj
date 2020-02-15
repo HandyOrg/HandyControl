@@ -127,12 +127,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj">
+      <Project>{d8a4748c-0500-4f63-bc47-3506658c68f7}</Project>
+      <Name>HandyControlDemo_Code</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HandyControl_Net_GE45\HandyControl_Net_GE45.csproj">
       <Project>{dc966e3d-bcff-4652-98cf-070e5494749a}</Project>
       <Name>HandyControl_Net_GE45</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AvalonEdit">
+      <Version>6.0.1</Version>
+    </PackageReference>
     <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1.1</Version>
     </PackageReference>

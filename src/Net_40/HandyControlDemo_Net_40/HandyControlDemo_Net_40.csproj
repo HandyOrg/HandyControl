@@ -57,6 +57,9 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AvalonEdit">
+      <Version>6.0.1</Version>
+    </PackageReference>
     <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1.1</Version>
     </PackageReference>
@@ -395,6 +398,10 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj">
+      <Project>{d8a4748c-0500-4f63-bc47-3506658c68f7}</Project>
+      <Name>HandyControlDemo_Code</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HandyControl_Net_40\HandyControl_Net_40.csproj">
       <Project>{32204503-2ef0-4681-ae13-aa1feb6c658a}</Project>
       <Name>HandyControl_Net_40</Name>

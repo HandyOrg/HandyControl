@@ -117,7 +117,7 @@
                                 </Grid>
                             </Grid>
                             <AdornerDecorator Grid.Row="1">
-                                <ContentPresenter/>
+                                <ContentPresenter ClipToBounds="True"/>
                             </AdornerDecorator>
                             <ResizeGrip Width="10" Height="10" x:Name="ResizeGrip" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" IsTabStop="False" Visibility="Collapsed" WindowChrome.ResizeGripDirection="BottomRight" />
                         </Grid>

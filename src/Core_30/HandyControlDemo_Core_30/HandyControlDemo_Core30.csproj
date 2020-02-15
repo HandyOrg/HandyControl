@@ -21,6 +21,7 @@
     <DefineConstants>TRACE;Core</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="AvalonEdit" Version="6.0.1" />
     <PackageReference Include="CommonServiceLocator" Version="2.0.2" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -46,6 +47,7 @@
     <Compile Remove="Tools\Helper\CommonHelper.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj" />
     <ProjectReference Include="..\HandyControl_Core_30\HandyControl_Core_30.csproj" />
   </ItemGroup>
   <ItemGroup>
