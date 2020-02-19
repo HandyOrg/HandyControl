@@ -250,8 +250,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\ProjectsView.xaml.cs">
       <DependentUpon>ProjectsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\OverView.xaml.cs">
-      <DependentUpon>OverView.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\PracticalDemo.cs">
+      <DependentUpon>PracticalDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\ContributorsView.xaml.cs">
       <DependentUpon>ContributorsView.xaml</DependentUpon>
@@ -761,7 +761,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\OverView.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\PracticalDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

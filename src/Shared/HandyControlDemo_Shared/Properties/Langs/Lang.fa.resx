@@ -576,9 +576,6 @@
   <data name="SideMenu" xml:space="preserve">
     <value>SideMenu</value>
   </data>
-  <data name="Overview" xml:space="preserve">
-    <value>دید کلی</value>
-  </data>
   <data name="Grid" xml:space="preserve">
     <value>Grid</value>
   </data>
@@ -737,5 +734,8 @@
   </data>
   <data name="Frame" xml:space="preserve">
     <value>Frame</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>Practical demos</value>
   </data>
 </root>

@@ -465,9 +465,6 @@
   <data name="OutlineText" xml:space="preserve">
     <value>OutlineText</value>
   </data>
-  <data name="Overview" xml:space="preserve">
-    <value>Overview</value>
-  </data>
   <data name="Pagination" xml:space="preserve">
     <value>Pagination</value>
   </data>
@@ -737,5 +734,8 @@
   </data>
   <data name="Frame" xml:space="preserve">
     <value>Frame</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>Practical demos</value>
   </data>
 </root>

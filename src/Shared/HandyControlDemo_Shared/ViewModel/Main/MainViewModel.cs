@@ -119,11 +119,8 @@ namespace HandyControlDemo.ViewModel
             new Lazy<RelayCommand<SelectionChangedEventArgs>>(() =>
                 new RelayCommand<SelectionChangedEventArgs>(SwitchDemo)).Value;
 
-        /// <summary>
-        ///     打开概览命令
-        /// </summary>
-        public RelayCommand OpenOverviewCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(OpenOverview)).Value;
+        public RelayCommand OpenPracticalDemoCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(OpenPracticalDemo)).Value;
 
         public RelayCommand GlobalShortcutInfoCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(() => Growl.Info("Global Shortcut Info"))).Value;
@@ -154,14 +151,11 @@ namespace HandyControlDemo.ViewModel
             }
         }
 
-        /// <summary>
-        ///     打开概览
-        /// </summary>
-        private void OpenOverview()
+        private void OpenPracticalDemo()
         {
             Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
             Messenger.Default.Send(true, MessageToken.FullSwitch);
-            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.OverView}"), MessageToken.LoadShowContent);
+            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.PracticalDemo}"), MessageToken.LoadShowContent);
         }
 
         #endregion
