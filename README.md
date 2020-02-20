@@ -98,6 +98,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### GooeyEffect
+
+![GooeyEffect](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GooeyEffect.gif)
+
 ### GlowWindow
 
 ![GlowWindow](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GlowWindow.png)
