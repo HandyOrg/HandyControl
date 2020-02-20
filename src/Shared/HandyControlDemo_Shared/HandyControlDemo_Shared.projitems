@@ -271,6 +271,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\WebsitesView.xaml.cs">
       <DependentUpon>WebsitesView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Practical\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\BorderDemoCtl.xaml.cs">
       <DependentUpon>BorderDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -786,6 +789,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\WebsitesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Practical\Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

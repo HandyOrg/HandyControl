@@ -68,7 +68,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\LinearGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\ResolvedKeyFrameEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\SplineGeometryKeyFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BrightnessEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorComplementEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorMatrixEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ContrastEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\EffectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />

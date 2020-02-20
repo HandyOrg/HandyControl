@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Effects;
 using HandyControl.Data;
 
 namespace HandyControl.Media.Effects
 {
-    public class GrayScaleEffect : ShaderEffect
+    public class GrayScaleEffect : EffectBase
     {
-        public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(GrayScaleEffect), 0);
-
         private static readonly PixelShader Shader;
 
         static GrayScaleEffect()
@@ -26,12 +23,6 @@ namespace HandyControl.Media.Effects
 
             UpdateShaderValue(InputProperty);
             UpdateShaderValue(ScaleProperty);
-        }
-
-        public Brush Input
-        {
-            get => (Brush)GetValue(InputProperty);
-            set => SetValue(InputProperty, value);
         }
 
         public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(

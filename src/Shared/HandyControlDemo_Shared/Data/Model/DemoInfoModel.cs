@@ -19,7 +19,7 @@ namespace HandyControlDemo.Data
 #endif
         }
 
-        private int _selectedIndex = -1;
+        private int _selectedIndex;
 
         public int SelectedIndex
         {
