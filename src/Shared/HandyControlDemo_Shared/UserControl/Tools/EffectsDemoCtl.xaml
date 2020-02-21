@@ -25,75 +25,371 @@
         </EventTrigger>
     </UserControl.Triggers>
     <hc:TransitioningContentControl>
-        <StackPanel Margin="20,0,20,32">
-            <UniformGrid Margin="16" Columns="3">
-                <Image Margin="16" Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg"/>
-                <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
-                    <Image.Effect>
-                        <hc:ColorComplementEffect/>
-                    </Image.Effect>
-                </Image>
-                <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
-                    <Image.Effect>
-                        <hc:GrayScaleEffect/>
-                    </Image.Effect>
-                </Image>
-                <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
-                    <Image.Effect>
-                        <hc:GrayScaleEffect Scale=".7"/>
-                    </Image.Effect>
-                </Image>
-                <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
-                    <Image.Effect>
-                        <hc:ColorMatrixEffect M11="-1" M22="-1" M33="-1" M41="1" M42="1" M43="1" M44="1" M51="1"/>
-                    </Image.Effect>
-                </Image>
-                <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
-                    <Image.Effect>
-                        <hc:ColorMatrixEffect M11="1.5" M21="1.5" M31="1.5" M12="1.5" M22="1.5" M32="1.5" M13="1.5" M23="1.5" M33="1.5" M51="-1" M52="-1" M53="-1"/>
-                    </Image.Effect>
-                </Image>
-            </UniformGrid>
-            <Border>
-                <Border.Effect>
-                    <hc:ContrastEffect Contrast="20"/>
-                </Border.Effect>
-                <Border>
-                    <Border.Effect>
-                        <hc:BrightnessEffect Brightness="1"/>
-                    </Border.Effect>
+        <TabControl Style="{StaticResource TabControlInLine}">
+            <TabItem Header="Effect">
+                <StackPanel Margin="20,0,20,32">
+                    <UniformGrid Margin="16" Columns="3">
+                        <Image Margin="16" Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg"/>
+                        <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                            <Image.Effect>
+                                <hc:ColorComplementEffect/>
+                            </Image.Effect>
+                        </Image>
+                        <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                            <Image.Effect>
+                                <hc:GrayScaleEffect/>
+                            </Image.Effect>
+                        </Image>
+                        <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                            <Image.Effect>
+                                <hc:GrayScaleEffect Scale=".7"/>
+                            </Image.Effect>
+                        </Image>
+                        <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                            <Image.Effect>
+                                <hc:ColorMatrixEffect M11="-1" M22="-1" M33="-1" M41="1" M42="1" M43="1" M44="1" M51="1"/>
+                            </Image.Effect>
+                        </Image>
+                        <Image Width="120" Height="120" Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                            <Image.Effect>
+                                <hc:ColorMatrixEffect M11="1.5" M21="1.5" M31="1.5" M12="1.5" M22="1.5" M32="1.5" M13="1.5" M23="1.5" M33="1.5" M51="-1" M52="-1" M53="-1"/>
+                            </Image.Effect>
+                        </Image>
+                    </UniformGrid>
                     <Border>
                         <Border.Effect>
-                            <BlurEffect Radius="30"/>
+                            <hc:ContrastEffect Contrast="20"/>
                         </Border.Effect>
-                        <StackPanel>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <Border Width="100" Height="100" Background="Red" RenderTransformOrigin="0.5,0.5">
-                                    <Border.RenderTransform>
-                                        <TransformGroup>
-                                            <RotateTransform Angle="0" x:Name="TransformRotate1"/>
-                                        </TransformGroup>
-                                    </Border.RenderTransform>
-                                </Border>
-                                <Border Margin="30,0,0,0" Width="100" Height="100" Background="Red" RenderTransformOrigin="0.5,0.5">
-                                    <Border.RenderTransform>
-                                        <TransformGroup>
-                                            <RotateTransform Angle="0" x:Name="TransformRotate2"/>
-                                        </TransformGroup>
-                                    </Border.RenderTransform>
-                                </Border>
-                            </StackPanel>
-                            <Border Width="100" Height="100" Background="Red" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
-                                <Border.RenderTransform>
-                                    <TransformGroup>
-                                        <RotateTransform Angle="0" x:Name="TransformRotate3"/>
-                                    </TransformGroup>
-                                </Border.RenderTransform>
+                        <Border>
+                            <Border.Effect>
+                                <hc:BrightnessEffect Brightness="1"/>
+                            </Border.Effect>
+                            <Border>
+                                <Border.Effect>
+                                    <BlurEffect Radius="30"/>
+                                </Border.Effect>
+                                <StackPanel>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <Border Width="100" Height="100" Background="Red" RenderTransformOrigin="0.5,0.5">
+                                            <Border.RenderTransform>
+                                                <TransformGroup>
+                                                    <RotateTransform Angle="0" x:Name="TransformRotate1"/>
+                                                </TransformGroup>
+                                            </Border.RenderTransform>
+                                        </Border>
+                                        <Border Margin="30,0,0,0" Width="100" Height="100" Background="Red" RenderTransformOrigin="0.5,0.5">
+                                            <Border.RenderTransform>
+                                                <TransformGroup>
+                                                    <RotateTransform Angle="0" x:Name="TransformRotate2"/>
+                                                </TransformGroup>
+                                            </Border.RenderTransform>
+                                        </Border>
+                                    </StackPanel>
+                                    <Border Width="100" Height="100" Background="Red" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                                        <Border.RenderTransform>
+                                            <TransformGroup>
+                                                <RotateTransform Angle="0" x:Name="TransformRotate3"/>
+                                            </TransformGroup>
+                                        </Border.RenderTransform>
+                                    </Border>
+                                </StackPanel>
                             </Border>
-                        </StackPanel>
+                        </Border>
                     </Border>
-                </Border>
-            </Border>
-        </StackPanel>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="BlendEffect">
+                <UniformGrid Columns="6" Rows="4" Margin="8">
+                    <Border Width="67" Height="135" Background="Transparent" Margin="8">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                    <Border Width="67" Height="135" Background="Transparent">
+                        <Border.Effect>
+                            <hc:BlendEffect>
+                                <hc:BlendEffect.Background>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/b.png"/>
+                                </hc:BlendEffect.Background>
+                                <hc:BlendEffect.Foreground>
+                                    <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/f.png"/>
+                                </hc:BlendEffect.Foreground>
+                            </hc:BlendEffect>
+                        </Border.Effect>
+                    </Border>
+                </UniformGrid>
+            </TabItem>
+        </TabControl>
     </hc:TransitioningContentControl>
 </UserControl>

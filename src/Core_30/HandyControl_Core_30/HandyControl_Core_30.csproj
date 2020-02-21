@@ -76,6 +76,9 @@
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\GrayScaleEffect.ps">
       <Link>Resources\Effects\GrayScaleEffect.ps</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\MultiplyBlendEffect.ps">
+      <Link>Resources\Effects\MultiplyBlendEffect.ps</Link>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\bottom.png">

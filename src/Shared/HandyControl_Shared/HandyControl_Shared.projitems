@@ -68,6 +68,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\LinearGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\ResolvedKeyFrameEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\SplineGeometryKeyFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BlendEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BlendEffectMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BrightnessEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorComplementEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorMatrixEffect.cs" />
@@ -972,7 +974,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\BrightnessEffect.fx" />
     <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorComplementEffect.fx" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorMatrixEffect.fx" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ContrastEffect.fx" />
     <None Include="$(MSBuildThisFileDirectory)Resources\Effects\GrayScaleEffect.fx" />
   </ItemGroup>
   <ItemGroup>

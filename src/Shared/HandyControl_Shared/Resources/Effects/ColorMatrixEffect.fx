@@ -46,11 +46,6 @@ float4 main(float2 uv : TEXCOORD) : COLOR
         k, l, m, n,
         p, q, r, s
     };
-
-    float4 matrixA2 =
-    {
-        e, j, o, t
-    };
     
-    return mul(matrixA1, color) + matrixA2;
+    return mul(matrixA1, color) + float4( e, j, o, t );
 }
