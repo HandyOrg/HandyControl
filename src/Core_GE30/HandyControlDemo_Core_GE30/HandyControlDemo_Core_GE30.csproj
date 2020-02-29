@@ -1,7 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemo</AssemblyName>
     <RootNamespace>HandyControlDemo</RootNamespace>
@@ -9,13 +8,14 @@
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
     <Configurations>Debug-Core30;Debug-Core31;Release-Core30;Release-Core31</Configurations>
     <Copyright>Copyright © HandyOrg 2018-2020</Copyright>
-    <FileVersion>2.5.0.0</FileVersion>
-    <AssemblyVersion>2.5.0.0</AssemblyVersion>
+    <FileVersion>2.5.0</FileVersion>
+    <AssemblyVersion>2.5.0</AssemblyVersion>
     <LangVersion>8.0</LangVersion>
     <Authors>HandyOrg</Authors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core30|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core31|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
@@ -23,6 +23,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Core30|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Core31|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
