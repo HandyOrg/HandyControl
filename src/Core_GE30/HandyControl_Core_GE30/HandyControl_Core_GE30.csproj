@@ -1,25 +1,35 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControl</AssemblyName>
     <RootNamespace>HandyControl</RootNamespace>
-    <Version>2.4.0</Version>
-    <AssemblyVersion>2.4.0.0</AssemblyVersion>
+    <Version>2.5.0</Version>
+    <AssemblyVersion>2.5.0</AssemblyVersion>
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <Copyright>Copyright © HandyOrg 2018-2020</Copyright>
     <Description>Contains some commonly used simple WPF controls</Description>
-    <Configurations>Debug;Release</Configurations>
+    <Configurations>Debug-Core30;Debug-Core31;Release-Core30;Release-Core31</Configurations>
     <LangVersion>8.0</LangVersion>
     <Authors>HandyOrg</Authors>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core30|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core31|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
-    <DocumentationFile>C:\Code\GitHub\HandyControl\src\Core_30\HandyControl_Core_30\HandyControl.xml</DocumentationFile>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Core30|AnyCPU'">
+    <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <DocumentationFile>C:\Code\GitHub\HandyControl\src\Core_GE30\HandyControl_Core_GE30\HandyControl.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Core31|AnyCPU'">
+    <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <DocumentationFile>C:\Code\GitHub\HandyControl\src\Core_GE30\HandyControl_Core_GE30\HandyControl.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.Designer.cs">
@@ -47,8 +57,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\CoreAssemblyInfo.cs">
+      <Link>Properties\CoreAssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
@@ -61,8 +71,17 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\BrightnessEffect.ps">
+      <Link>Resources\Effects\BrightnessEffect.ps</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ColorComplementEffect.ps">
       <Link>Resources\Effects\ColorComplementEffect.ps</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ColorMatrixEffect.ps">
+      <Link>Resources\Effects\ColorMatrixEffect.ps</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ContrastEffect.ps">
+      <Link>Resources\Effects\ContrastEffect.ps</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\GrayScaleEffect.ps">
       <Link>Resources\Effects\GrayScaleEffect.ps</Link>

@@ -579,9 +579,6 @@
   <data name="SideMenu" xml:space="preserve">
     <value>侧边菜单</value>
   </data>
-  <data name="Overview" xml:space="preserve">
-    <value>概览</value>
-  </data>
   <data name="Grid" xml:space="preserve">
     <value>栅格</value>
   </data>
@@ -737,5 +734,8 @@
   </data>
   <data name="Frame" xml:space="preserve">
     <value>导航框架</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>实用例子</value>
   </data>
 </root>

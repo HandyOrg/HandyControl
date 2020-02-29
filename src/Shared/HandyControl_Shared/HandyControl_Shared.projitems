@@ -68,7 +68,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\LinearGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\ResolvedKeyFrameEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\SplineGeometryKeyFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BlendEffectBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BrightnessEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorComplementEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorMatrixEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ContrastEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\EffectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
@@ -395,6 +400,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\SkinViolet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\BlendEffectBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -968,7 +977,10 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\BrightnessEffect.fx" />
     <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorComplementEffect.fx" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ColorMatrixEffect.fx" />
+    <None Include="$(MSBuildThisFileDirectory)Resources\Effects\ContrastEffect.fx" />
     <None Include="$(MSBuildThisFileDirectory)Resources\Effects\GrayScaleEffect.fx" />
   </ItemGroup>
   <ItemGroup>

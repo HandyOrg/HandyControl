@@ -1,26 +1,36 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemo</AssemblyName>
     <RootNamespace>HandyControlDemo</RootNamespace>
-    <Version>2.4.0</Version>
+    <Version>2.5.0</Version>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
-    <Configurations>Debug;Release</Configurations>
+    <Configurations>Debug-Core30;Debug-Core31;Release-Core30;Release-Core31</Configurations>
     <Copyright>Copyright © HandyOrg 2018-2020</Copyright>
-    <FileVersion>2.4.0.0</FileVersion>
-    <AssemblyVersion>2.4.0.0</AssemblyVersion>
+    <FileVersion>2.5.0</FileVersion>
+    <AssemblyVersion>2.5.0</AssemblyVersion>
     <LangVersion>8.0</LangVersion>
     <Authors>HandyOrg</Authors>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core30|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core31|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Core30|AnyCPU'">
+    <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Core31|AnyCPU'">
+    <DefineConstants>TRACE;Core</DefineConstants>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="AvalonEdit" Version="6.0.1" />
     <PackageReference Include="CommonServiceLocator" Version="2.0.2" />
     <PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
@@ -46,7 +56,8 @@
     <Compile Remove="Tools\Helper\CommonHelper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\HandyControl_Core_30\HandyControl_Core_30.csproj" />
+    <ProjectReference Include="..\..\Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj" />
+    <ProjectReference Include="..\HandyControl_Core_GE30\HandyControl_Core_GE30.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Data\DemoInfo.json">
@@ -465,6 +476,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\frame_16xLG.png">
       <Link>Resources\Img\LeftMainContent\frame_16xLG.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\cloud.png">
+      <Link>Resources\Img\cloud.png</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>

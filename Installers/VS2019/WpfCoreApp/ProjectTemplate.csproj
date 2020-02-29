@@ -7,7 +7,7 @@
     <RootNamespace>$safeprojectname$</RootNamespace>
     <Version>1.0.0.0</Version>
     <Configurations>Debug;Release</Configurations>
-    <Copyright>Copyright © $username$ 2018-2019</Copyright>
+    <Copyright>Copyright © $username$ 2018-2020</Copyright>
     <FileVersion>1.0.0.0</FileVersion>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
     <LangVersion>latest</LangVersion>
@@ -19,6 +19,6 @@
     <DefineConstants>TRACE;Core</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="HandyControl" Version="2.3.0" />
+    <PackageReference Include="HandyControl" Version="2.4.0" />
   </ItemGroup>
 </Project>

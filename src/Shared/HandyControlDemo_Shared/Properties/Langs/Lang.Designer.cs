@@ -1276,6 +1276,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 实用例子 的本地化字符串。
+        /// </summary>
+        public static string PracticalDemos {
+            get {
+                return ResourceManager.GetString("PracticalDemos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 上一步 的本地化字符串。
         /// </summary>
         public static string Prev {

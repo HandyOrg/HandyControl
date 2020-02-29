@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Windows;
-using System.Windows.Media;
 using System.Windows.Media.Effects;
 
 namespace HandyControl.Media.Effects
 {
-    public class ColorComplementEffect : ShaderEffect
+    public class ColorComplementEffect : EffectBase
     {
-        public static readonly DependencyProperty InputProperty = RegisterPixelShaderSamplerProperty("Input", typeof(ColorComplementEffect), 0);
-
         private static readonly PixelShader Shader;
 
         static ColorComplementEffect()
@@ -24,12 +20,6 @@ namespace HandyControl.Media.Effects
             PixelShader = Shader;
 
             UpdateShaderValue(InputProperty);
-        }
-
-        public Brush Input
-        {
-            get => (Brush)GetValue(InputProperty);
-            set => SetValue(InputProperty, value);
         }
     }
 }

@@ -104,12 +104,12 @@ namespace HandyControlDemo.ViewModel
 
         private void StartRecord()
         {
-            ExternDllHelper.MciSendString("set wave bitpersample 8", "", 0, 0);
-            ExternDllHelper.MciSendString("set wave samplespersec 20000", "", 0, 0);
-            ExternDllHelper.MciSendString("set wave channels 2", "", 0, 0);
-            ExternDllHelper.MciSendString("set wave format tag pcm", "", 0, 0);
-            ExternDllHelper.MciSendString("open new type WAVEAudio alias movie", "", 0, 0);
-            ExternDllHelper.MciSendString("record movie", "", 0, 0);
+            Win32Helper.MciSendString("set wave bitpersample 8", "", 0, 0);
+            Win32Helper.MciSendString("set wave samplespersec 20000", "", 0, 0);
+            Win32Helper.MciSendString("set wave channels 2", "", 0, 0);
+            Win32Helper.MciSendString("set wave format tag pcm", "", 0, 0);
+            Win32Helper.MciSendString("open new type WAVEAudio alias movie", "", 0, 0);
+            Win32Helper.MciSendString("record movie", "", 0, 0);
 
             _stopwatch.Reset();
             _stopwatch.Start();
@@ -135,9 +135,9 @@ namespace HandyControlDemo.ViewModel
 
             var cachePath = $"{AudioCachePath}\\{Guid.NewGuid().ToString()}";
             var cachePathWithQuotes = $"\"{cachePath}\"";
-            ExternDllHelper.MciSendString("stop movie", "", 0, 0);
-            ExternDllHelper.MciSendString($"save movie {cachePathWithQuotes}", "", 0, 0);
-            ExternDllHelper.MciSendString("close movie", "", 0, 0);
+            Win32Helper.MciSendString("stop movie", "", 0, 0);
+            Win32Helper.MciSendString($"save movie {cachePathWithQuotes}", "", 0, 0);
+            Win32Helper.MciSendString("close movie", "", 0, 0);
 
             _stopwatch.Stop();
 

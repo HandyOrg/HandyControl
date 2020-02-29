@@ -12,7 +12,7 @@ var messageList = new List<string>
 	"GrowlDemoPanel",
 	"DialogDemoWindow",
 	"MainWindow",
-	"OverView",
+	"PracticalDemo",
 	"ProjectsView",
 	"BlogsView",
 	"WebsitesView",

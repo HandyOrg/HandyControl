@@ -5,6 +5,8 @@ namespace HandyControlDemo.Data
 {
     public class DemoInfoModel : ViewModelBase
     {
+        public string Key { get; set; }
+
         private string _title;
 
         public string Title
@@ -17,7 +19,7 @@ namespace HandyControlDemo.Data
 #endif
         }
 
-        private int _selectedIndex = -1;
+        private int _selectedIndex;
 
         public int SelectedIndex
         {
