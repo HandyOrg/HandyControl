@@ -9,6 +9,7 @@
     <Import_RootNamespace>HandyControl</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Collections\ManualObservableCollection!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\BorderElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DataGridAttach.cs" />

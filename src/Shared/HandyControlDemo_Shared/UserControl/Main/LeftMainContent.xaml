@@ -1,6 +1,4 @@
 ﻿<Border hc:ScrollViewer.IsInertiaEnabled="True"
-        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-        xmlns:command="http://www.galasoft.ch/mvvmlight"
         x:Class="HandyControlDemo.UserControl.LeftMainContent"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Background="{DynamicResource RegionBrush}"
@@ -61,11 +59,11 @@
                     </Grid>
                 </DataTemplate>
             </TabControl.ContentTemplate>
-            <i:Interaction.Triggers>
-                <i:EventTrigger EventName="SelectionChanged">
-                    <command:EventToCommand Command="{Binding SwitchDemoCmd}" PassEventArgsToCommand="True" />
-                </i:EventTrigger>
-            </i:Interaction.Triggers>
+            <hc:Interaction.Triggers>
+                <hc:EventTrigger EventName="SelectionChanged">
+                    <hc:EventToCommand Command="{Binding SwitchDemoCmd}" PassEventArgsToCommand="True" />
+                </hc:EventTrigger>
+            </hc:Interaction.Triggers>
         </TabControl>
     </DockPanel>
 </Border>
