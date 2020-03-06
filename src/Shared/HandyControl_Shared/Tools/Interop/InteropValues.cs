@@ -80,7 +80,8 @@ namespace HandyControl.Tools.Interop
             SC_MOVE = 0xF010,
             SC_MINIMIZE = 0xF020,
             SC_MAXIMIZE = 0xF030,
-            SC_RESTORE = 0xF120;
+            SC_RESTORE = 0xF120,
+            SRCCOPY = 0x00CC0020;
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         internal class NOTIFYICONDATA
@@ -211,6 +212,14 @@ namespace HandyControl.Tools.Interop
             public int Top;
             public int Right;
             public int Bottom;
+
+            public RECT(int left, int top, int right, int bottom)
+            {
+                Left = left;
+                Top = top;
+                Right = right;
+                Bottom = bottom;
+            }
 
             public RECT(Rect rect)
             {

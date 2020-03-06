@@ -6,32 +6,43 @@ namespace HandyControl.Tools
 {
     public class ClipboardHook
     {
+        public static event Action ContentChanged;
+
         private static HwndSource HWndSource;
 
         private static IntPtr HookId = IntPtr.Zero;
 
-        public static event Action ContentChanged;
+        private static int Count;
 
         public static void Start()
         {
-            if (HookId != IntPtr.Zero)
+            if (HookId == IntPtr.Zero)
             {
-                Stop();
+                HookId = WindowHelper.CreateHandle();
+                HWndSource = HwndSource.FromHwnd(HookId);
+                if (HWndSource != null)
+                {
+                    HWndSource.AddHook(WinProc);
+                    InteropMethods.AddClipboardFormatListener(HookId);
+                }
             }
 
-            HookId = WindowHelper.CreateHandle();
-            HWndSource = HwndSource.FromHwnd(HookId);
-            if (HWndSource != null)
+            if (HookId != IntPtr.Zero)
             {
-                HWndSource.AddHook(WinProc);
-                InteropMethods.AddClipboardFormatListener(HookId);
+                Count++;
             }
         }
 
         public static void Stop()
         {
-            HWndSource.RemoveHook(WinProc);
-            InteropMethods.RemoveClipboardFormatListener(HookId);
+            Count--;
+            if (Count < 1)
+            {
+                HWndSource.RemoveHook(WinProc);
+                InteropMethods.RemoveClipboardFormatListener(HookId);
+
+                HookId = IntPtr.Zero;
+            }
         }
 
         private static IntPtr WinProc(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)

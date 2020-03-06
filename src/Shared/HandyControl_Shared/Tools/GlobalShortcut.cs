@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows;
@@ -18,7 +17,6 @@ namespace HandyControl.Tools
 
         static GlobalShortcut()
         {
-
             KeyboardHook.KeyDown += KeyboardHook_KeyDown;
         }
 
@@ -49,21 +47,6 @@ namespace HandyControl.Tools
         {
             return key == Key.LeftCtrl || key == Key.LeftAlt || key == Key.LeftShift || key == Key.LWin ||
                    key == Key.RightCtrl || key == Key.RightAlt || key == Key.RightShift || key == Key.RWin;
-        }
-
-        [Obsolete("pls use Host attach property instead of Init method")]
-        public static void Init(DependencyObject host)
-        {
-            CommandDic.Clear();
-
-            if (host == null) return;
-
-            KeyBindingCollection = GetKeyBindings(host);
-            if (KeyBindingCollection == null || KeyBindingCollection.Count == 0) return;
-
-            AddKeyBindings(KeyBindingCollection);
-
-            KeyboardHook.Start();
         }
 
         private static void AddKeyBindings(IEnumerable<KeyBinding> keyBindings)

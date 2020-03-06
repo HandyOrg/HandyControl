@@ -36,12 +36,12 @@
             <UniformGrid Grid.Column="1" Columns="3">
                 <Button Margin="8,0" Tag="0" Style="{StaticResource Button4PoptipStyle}">
                     <hc:Poptip.Instance>
-                        <hc:Poptip Content="{x:Static langs:Lang.Text}" Placement="TopLeft"/>
+                        <hc:Poptip Content="{x:Static langs:Lang.Text}" PlacementType="TopLeft"/>
                     </hc:Poptip.Instance>
                 </Button>
                 <Button Margin="8,0" Tag="1" Style="{StaticResource Button4PoptipStyle}">
                     <hc:Poptip.Instance>
-                        <hc:Poptip Placement="Top">
+                        <hc:Poptip PlacementType="Top">
                             <hc:Poptip.Content>
                                 <Path Width="100" Height="100" Fill="#f06632" Data="{StaticResource LogoGeometry}"/>
                             </hc:Poptip.Content>
@@ -54,7 +54,7 @@
                 <ToggleButton hc:Poptip.HitMode="None" hc:Poptip.IsOpen="{Binding IsChecked,RelativeSource={RelativeSource Self}}" hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="RightTop" Margin="8,16" Tag="3" Style="{StaticResource ToggleButton4PoptipStyle}"/>
                 <ToggleButton Margin="8,16" Tag="4" Style="{StaticResource ToggleButton4PoptipStyle}">
                     <hc:Poptip.Instance>
-                        <hc:Poptip Background="Transparent" Padding="0" BorderThickness="0" HitMode="None" Placement="Right" IsOpen="{Binding Target.IsChecked,RelativeSource={RelativeSource Self}}">
+                        <hc:Poptip Background="Transparent" Padding="0" BorderThickness="0" HitMode="None" PlacementType="Right" IsOpen="{Binding Target.IsChecked,RelativeSource={RelativeSource Self}}">
                             <hc:Poptip.Content>
                                 <Path Width="100" Height="100" Fill="#f06632" Data="{StaticResource LogoGeometry}"/>
                             </hc:Poptip.Content>

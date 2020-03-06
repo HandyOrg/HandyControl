@@ -85,6 +85,7 @@
         <ResourceDictionary Source="NavigationWindow.xaml"/>
         <ResourceDictionary Source="Frame.xaml"/>
         <ResourceDictionary Source="BlendEffectBox.xaml"/>
+        <ResourceDictionary Source="Screenshot.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

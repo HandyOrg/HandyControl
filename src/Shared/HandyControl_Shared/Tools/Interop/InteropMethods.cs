@@ -242,11 +242,6 @@ namespace HandyControl.Tools.Interop
         [SecurityCritical]
         [SuppressUnmanagedCodeSecurity]
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true, BestFitMapping = false)]
-        internal static extern short RegisterClass(InteropValues.WNDCLASS wc);
-
-        [SecurityCritical]
-        [SuppressUnmanagedCodeSecurity]
-        [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode, SetLastError = true, BestFitMapping = false)]
         internal static extern short RegisterClass(InteropValues.WNDCLASS4ICON wc);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
@@ -438,5 +433,18 @@ namespace HandyControl.Tools.Interop
         internal static extern bool AlphaBlend(IntPtr hdcDest, int xoriginDest, int yoriginDest, int wDest, int hDest, IntPtr hdcSrc, int xoriginSrc, int yoriginSrc, int wSrc, int hSrc, InteropValues.BLENDFUNCTION pfn);
         
         internal static int GET_SC_WPARAM(IntPtr wParam) => (int)wParam & 65520;
+
+        [DllImport(InteropValues.ExternDll.User32)]
+        internal static extern IntPtr ChildWindowFromPointEx(IntPtr hwndParent, InteropValues.POINT pt, int uFlags);
+
+        [DllImport(InteropValues.ExternDll.Gdi32)]
+        internal static extern IntPtr CreateCompatibleBitmap(IntPtr hDC, int width, int height);
+
+        [DllImport(InteropValues.ExternDll.Gdi32)]
+        internal static extern bool BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
+
+        [DllImport(InteropValues.ExternDll.User32)]
+        [ResourceExposure(ResourceScope.None)]
+        internal static extern bool EnableWindow(IntPtr hWnd, bool enable);
     }
 }
