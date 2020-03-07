@@ -58,6 +58,10 @@ namespace HandyControl.Controls
 
         private Point _mousePointOld;
 
+        private Point _pointFixed;
+
+        private Point _pointFloating;
+
         private bool _saveScreenshot;
 
         #endregion
@@ -203,10 +207,11 @@ namespace HandyControl.Controls
             var newPoint = Mouse.GetPosition(this);
             var offsetX = (int)(newPoint.X - _mousePointOld.X);
             var offsetY = (int)(newPoint.Y - _mousePointOld.Y);
-            var rect = _targetWindowRect;
-
+            
             if (IsDrawing)
             {
+                var rect = _targetWindowRect;
+                
                 if (_canDrag)
                 {
                     rect.Left += offsetX;
@@ -216,72 +221,45 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    var leftAddend = offsetX * _flagArr[0];
-                    var topAddend = offsetY * _flagArr[1];
-                    var rightAddend = offsetX * _flagArr[2];
-                    var bottomAddend = offsetY * _flagArr[3];
-
-                    rect.Left += leftAddend;
-                    rect.Top += topAddend;
-                    rect.Right += rightAddend;
-                    rect.Bottom += bottomAddend;
-
-                    if (rect.Width < 0)
+                    if (_flagArr[0] > 0)
                     {
-                        if (_flagArr[0] > 0)
-                        {
-                            _flagArr[0] = 0;
-                            _flagArr[2] = 1;
-                            rect.Left -= leftAddend;
-                            rightAddend = offsetX * _flagArr[2];
-                            rect.Right += rightAddend;
-                        }
-                        else if (_flagArr[2] > 0)
-                        {
-                            _flagArr[0] = 1;
-                            _flagArr[2] = 0;
-                            rect.Right -= rightAddend;
-                            leftAddend = offsetX * _flagArr[0];
-                            rect.Left += leftAddend;
-                        }
+                        _pointFloating.X += offsetX * _flagArr[0];
+                    }
+                    else if (_flagArr[2] > 0)
+                    {
+                        _pointFloating.X += offsetX * _flagArr[2];
                     }
 
-                    if (rect.Height < 0)
+                    if (_flagArr[1] > 0)
                     {
-                        if (_flagArr[1] > 0)
-                        {
-                            _flagArr[1] = 0;
-                            _flagArr[3] = 1;
-                            rect.Top -= topAddend;
-                            bottomAddend = offsetY * _flagArr[3];
-                            rect.Bottom += bottomAddend;
-                        }
-                        else if (_flagArr[3] > 0)
-                        {
-                            _flagArr[1] = 1;
-                            _flagArr[3] = 0;
-                            rect.Bottom -= bottomAddend;
-                            topAddend = offsetY * _flagArr[1];
-                            rect.Top += topAddend;
-                        }
+                        _pointFloating.Y += offsetY * _flagArr[1];
                     }
+                    else if (_flagArr[3] > 0)
+                    {
+                        _pointFloating.Y += offsetY * _flagArr[3];
+                    }
+
+                    rect.Left = (int)Math.Min(_pointFixed.X, _pointFloating.X);
+                    rect.Top = (int)Math.Min(_pointFixed.Y, _pointFloating.Y);
+                    rect.Right = (int)Math.Max(_pointFixed.X, _pointFloating.X);
+                    rect.Bottom = (int)Math.Max(_pointFixed.Y, _pointFloating.Y);
                 }
 
                 MoveTargetArea(rect);
                 _mousePointOld = newPoint;
             }
-            else
+            else if (IsSelecting)
             {
-                if (!IsSelecting && offsetX > 0 && offsetY > 0)
-                {
-                    rect = new InteropValues.RECT((int)_mousePointOld.X, (int)_mousePointOld.Y, 0, 0);
-                    IsSelecting = true;
-                }
+                var minX = (int)Math.Min(_mousePointOld.X, newPoint.X);
+                var maxX = (int)Math.Max(_mousePointOld.X, newPoint.X);
+                var minY = (int)Math.Min(_mousePointOld.Y, newPoint.Y);
+                var maxY = (int)Math.Max(_mousePointOld.Y, newPoint.Y);
 
-                if (IsSelecting)
-                {
-                    MoveTargetArea(new InteropValues.RECT(rect.Left, rect.Top, rect.Left + offsetX, rect.Top + offsetY));
-                }
+                MoveTargetArea(new InteropValues.RECT(minX, minY, maxX, maxY));
+            }
+            else if (!IsSelecting && offsetX > 0 && offsetY > 0)
+            {
+                IsSelecting = true;
             }
         }
 
@@ -313,8 +291,8 @@ namespace HandyControl.Controls
 
             var leftAbs = Math.Abs(point.X);
             var topAbs = Math.Abs(point.Y);
-            var rightAbs = Math.Abs(point.X - TargetArea.Width);
-            var downAbs = Math.Abs(point.Y - TargetArea.Height);
+            var rightAbs = Math.Abs(point.X - _targetWindowRect.Width);
+            var downAbs = Math.Abs(point.Y - _targetWindowRect.Height);
 
             _canDrag = false;
             _flagArr[0] = 0;
@@ -330,12 +308,16 @@ namespace HandyControl.Controls
                     {
                         // left
                         cursor = Cursors.SizeWE;
+                        _pointFixed = new Point(_targetWindowRect.Right, _targetWindowRect.Top);
+                        _pointFloating = new Point(_targetWindowRect.Left, _targetWindowRect.Bottom);
                         _flagArr[0] = 1;
                     }
                     else
                     {
                         //left bottom
                         cursor = Cursors.SizeNESW;
+                        _pointFixed = new Point(_targetWindowRect.Right, _targetWindowRect.Top);
+                        _pointFloating = new Point(_targetWindowRect.Left, _targetWindowRect.Bottom);
                         _flagArr[0] = 1;
                         _flagArr[3] = 1;
                     }
@@ -344,6 +326,8 @@ namespace HandyControl.Controls
                 {
                     // left top
                     cursor = Cursors.SizeNWSE;
+                    _pointFixed = new Point(_targetWindowRect.Right, _targetWindowRect.Bottom);
+                    _pointFloating = new Point(_targetWindowRect.Left, _targetWindowRect.Top);
                     _flagArr[0] = 1;
                     _flagArr[1] = 1;
                 }
@@ -370,6 +354,8 @@ namespace HandyControl.Controls
                     {
                         //bottom
                         cursor = Cursors.SizeNS;
+                        _pointFixed = new Point(_targetWindowRect.Left, _targetWindowRect.Top);
+                        _pointFloating = new Point(_targetWindowRect.Right, _targetWindowRect.Bottom);
                         _flagArr[3] = 1;
                     }
                 }
@@ -377,6 +363,8 @@ namespace HandyControl.Controls
                 {
                     //top
                     cursor = Cursors.SizeNS;
+                    _pointFixed = new Point(_targetWindowRect.Right, _targetWindowRect.Bottom);
+                    _pointFloating = new Point(_targetWindowRect.Left, _targetWindowRect.Top);
                     _flagArr[1] = 1;
                 }
             }
@@ -388,12 +376,16 @@ namespace HandyControl.Controls
                     {
                         //right
                         cursor = Cursors.SizeWE;
+                        _pointFixed = new Point(_targetWindowRect.Left, _targetWindowRect.Bottom);
+                        _pointFloating = new Point(_targetWindowRect.Right, _targetWindowRect.Top);
                         _flagArr[2] = 1;
                     }
                     else
                     {
                         //right bottom
                         cursor = Cursors.SizeNWSE;
+                        _pointFixed = new Point(_targetWindowRect.Left, _targetWindowRect.Top);
+                        _pointFloating = new Point(_targetWindowRect.Right, _targetWindowRect.Bottom);
                         _flagArr[2] = 1;
                         _flagArr[3] = 1;
                     }
@@ -402,6 +394,8 @@ namespace HandyControl.Controls
                 {
                     // right top
                     cursor = Cursors.SizeNESW;
+                    _pointFixed = new Point(_targetWindowRect.Left, _targetWindowRect.Bottom);
+                    _pointFloating = new Point(_targetWindowRect.Right, _targetWindowRect.Top);
                     _flagArr[1] = 1;
                     _flagArr[2] = 1;
                 }
