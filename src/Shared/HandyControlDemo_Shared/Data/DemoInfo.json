@@ -98,6 +98,7 @@
       [ "Sprite", "SpriteDemoCtl", "HandyControl", "" ],
       [ "Notification", "NotificationDemoCtl", "Procedure_16x", "" ],
       [ "Dialog", "DialogDemoCtl", "Dialog_16x", "" ],
+      [ "Screenshot", "ScreenshotDemoCtl", "WindowScreenshot_16x", "1" ],
       [ "Window", "WindowDemoCtl", "WindowsForm_16x", "1" ]
     ]
   },
@@ -106,7 +107,7 @@
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemoCtl", "DataGenerator_16x", "" ],
       [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "" ],
-      [ "Effects", "EffectsDemoCtl", "Effects_16x", "1" ]
+      [ "Effects", "EffectsDemoCtl", "Effects_16x", "" ]
     ]
   }
 ]

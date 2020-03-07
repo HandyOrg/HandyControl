@@ -61,6 +61,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\HwndWrapper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\StartScreenshotCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\DiscreteGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\EasingGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimation.cs" />

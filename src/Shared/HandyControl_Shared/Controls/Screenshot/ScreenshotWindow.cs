@@ -26,8 +26,6 @@ namespace HandyControl.Controls
 
         #region const
 
-        private const int RectMinLength = 14;
-
         private const int IntervalLength = 1;
 
         private const int IntervalBigLength = 10;
@@ -59,6 +57,8 @@ namespace HandyControl.Controls
         private bool _receiveMoveMsg = true;
 
         private Point _mousePointOld;
+
+        private bool _saveScreenshot;
 
         #endregion
 
@@ -177,7 +177,8 @@ namespace HandyControl.Controls
                         }
                         break;
                     case Key.Enter:
-                        SaveScreenshot();
+                        _saveScreenshot = true;
+                        Close();
                         break;
                 }
             }
@@ -185,7 +186,11 @@ namespace HandyControl.Controls
 
         protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e) => _mousePointOld = e.GetPosition(this);
 
-        protected override void OnPreviewMouseDoubleClick(MouseButtonEventArgs e) => SaveScreenshot();
+        protected override void OnPreviewMouseDoubleClick(MouseButtonEventArgs e)
+        {
+            _saveScreenshot = true;
+            Close();
+        }
 
         protected override void OnPreviewMouseMove(MouseEventArgs e)
         {
@@ -282,6 +287,11 @@ namespace HandyControl.Controls
 
         private void ScreenshotWindow_Closed(object sender, EventArgs e)
         {
+            if (_saveScreenshot)
+            {
+                SaveScreenshot();
+            }
+
             StopHooks();
             IsDrawing = false;
 
@@ -442,10 +452,9 @@ namespace HandyControl.Controls
             if (Canvas.Background is ImageBrush imageBrush && imageBrush.ImageSource is BitmapSource bitmapSource)
             {
                 var cb = new CroppedBitmap(bitmapSource, new Int32Rect(_targetWindowRect.Left, _targetWindowRect.Top, _targetWindowRect.Width, _targetWindowRect.Height));
-                _screenshot.Source = cb;
+                _screenshot.OnSnapped(cb);
             }
 
-            _screenshot.OnSnapped();
             Close();
         }
 
@@ -488,7 +497,21 @@ namespace HandyControl.Controls
             }
         }
 
-        private void RegularRect(ref InteropValues.RECT rect)
+        private static InteropValues.RECT MoveRect(InteropValues.RECT rect, int leftFlag = 0, int topFlag = 0, int rightFlag = 0, int bottomFlag = 0)
+        {
+            var moveLength = Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)
+                ? IntervalBigLength
+                : IntervalLength;
+
+            rect.Left += leftFlag * moveLength;
+            rect.Top += topFlag * moveLength;
+            rect.Right += rightFlag * moveLength;
+            rect.Bottom += bottomFlag * moveLength;
+
+            return rect;
+        }
+
+        private void MoveTargetArea(InteropValues.RECT rect)
         {
             if (rect.Left < 0)
             {
@@ -516,25 +539,6 @@ namespace HandyControl.Controls
 
             rect.Left = Math.Max(0, rect.Left);
             rect.Top = Math.Max(0, rect.Top);
-        }
-
-        private static InteropValues.RECT MoveRect(InteropValues.RECT rect, int leftFlag = 0, int topFlag = 0, int rightFlag = 0, int bottomFlag = 0)
-        {
-            var moveLength = Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)
-                ? IntervalBigLength
-                : IntervalLength;
-
-            rect.Left += leftFlag * moveLength;
-            rect.Top += topFlag * moveLength;
-            rect.Right += rightFlag * moveLength;
-            rect.Bottom += bottomFlag * moveLength;
-
-            return rect;
-        }
-
-        private void MoveTargetArea(InteropValues.RECT rect)
-        {
-            RegularRect(ref rect);
 
             var width = rect.Width;
             var height = rect.Height;

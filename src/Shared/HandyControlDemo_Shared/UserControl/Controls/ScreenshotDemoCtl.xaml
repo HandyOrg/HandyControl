@@ -1,0 +1,10 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ScreenshotDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <Button Content="{x:Static langs:Lang.StartScreenshot}" Command="hc:ControlCommands.StartScreenshot"/>
+    </hc:TransitioningContentControl>
+</UserControl>

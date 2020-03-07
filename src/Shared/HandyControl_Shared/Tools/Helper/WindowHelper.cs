@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
 using System.Windows.Interop;
+using HandyControl.Tools.Extension;
 using HandyControl.Tools.Interop;
 
 namespace HandyControl.Tools

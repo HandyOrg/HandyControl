@@ -190,6 +190,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RunningBlockDemoCtl.xaml.cs">
       <DependentUpon>RunningBlockDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScreenshotDemoCtl.xaml.cs">
+      <DependentUpon>ScreenshotDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
       <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -681,6 +684,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RunningBlockDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScreenshotDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

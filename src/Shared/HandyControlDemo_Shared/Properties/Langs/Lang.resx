@@ -738,4 +738,10 @@
   <data name="PracticalDemos" xml:space="preserve">
     <value>实用例子</value>
   </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>开始截图</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>截图</value>
+  </data>
 </root>

@@ -161,5 +161,10 @@ namespace HandyControl.Interactivity
         ///     关闭窗口
         /// </summary>
         public static CloseWindowCommand CloseWindow { get; } = new CloseWindowCommand();
+
+        /// <summary>
+        ///     开始截图
+        /// </summary>
+        public static StartScreenshotCommand StartScreenshot { get; } = new StartScreenshotCommand();
     }
 }

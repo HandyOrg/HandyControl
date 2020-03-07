@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Windows.Media;
+using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
     public class Screenshot
     {
-        public event EventHandler Snapped;
-
-        public ImageSource Source { get; set; }
+        public static event EventHandler<FunctionEventArgs<ImageSource>> Snapped;
 
         public void Start() => new ScreenshotWindow(this).Show();
 
-        internal void OnSnapped() => Snapped?.Invoke(this, EventArgs.Empty);
+        internal void OnSnapped(ImageSource source) => Snapped?.Invoke(this, new FunctionEventArgs<ImageSource>(source));
     }
 }

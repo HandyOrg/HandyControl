@@ -610,6 +610,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\cloud.png">
       <Link>Resources\Img\cloud.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\WindowScreenshot_16x.png">
+      <Link>Resources\Img\LeftMainContent\WindowScreenshot_16x.png</Link>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\fabric-icons.ttf">
