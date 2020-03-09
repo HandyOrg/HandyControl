@@ -304,7 +304,7 @@ namespace HandyControl.Controls
                 _tempNonClientAreaHeight = NonClientAreaHeight;
                 NonClientAreaHeight += 8;
             }
-            else if (WindowState == WindowState.Normal)
+            else
             {
                 BorderThickness = _actualBorderThickness;
                 NonClientAreaHeight = _tempNonClientAreaHeight;
