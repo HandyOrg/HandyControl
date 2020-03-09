@@ -18,7 +18,7 @@ namespace HandyControl.Interactivity
                 var hwndSource = (HwndSource)PresentationSource.FromDependencyObject(Application.Current.MainWindow);
                 if (hwndSource != null)
                 {
-                    UnsafeNativeMethods.SetForegroundWindow(hwndSource.Handle);
+                    InteropMethods.SetForegroundWindow(hwndSource.Handle);
                 }
             }
         }

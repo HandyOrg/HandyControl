@@ -74,7 +74,7 @@
                                 <ScrollViewer Grid.Column="1" Grid.Row="0">
                                     <TextBlock Margin="10,39,10,10" Text="{TemplateBinding Message}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                                 </ScrollViewer>
-                                <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,10,0,16" Orientation="Horizontal" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Center">
+                                <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,10,0,16" Orientation="Horizontal" HorizontalAlignment="Center">
                                     <Button Visibility="{Binding IsEnabled,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2VisibilityConverter}}" IsCancel="True" MinWidth="88" Command="interactivity:ControlCommands.Cancel" Content="{x:Static langs:Lang.Cancel}" Margin="5,0"/>
                                     <Button Visibility="{Binding IsEnabled,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2VisibilityConverter}}" IsDefault="True" MinWidth="88" Command="interactivity:ControlCommands.Confirm" Content="{x:Static langs:Lang.Confirm}" Margin="5,0" Style="{StaticResource ButtonPrimary}"/>
                                     <Button Visibility="{Binding IsEnabled,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2VisibilityConverter}}" IsCancel="True" MinWidth="88" Command="interactivity:ControlCommands.No" Content="{x:Static langs:Lang.No}" Margin="5,0"/>

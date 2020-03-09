@@ -46,7 +46,13 @@ namespace HandyControl.Controls
 
         public RateItem()
         {
-            Loaded += (s, e) => _isLoaded = true;
+            Loaded += (s, e) =>
+            {
+                if (_isLoaded) return;
+                _isLoaded = true;
+
+                OnApplyTemplate();
+            };
         }
 
         public bool AllowClear
@@ -87,7 +93,7 @@ namespace HandyControl.Controls
                 if (_isHalf == value) return;
                 _isHalf = value;
                 if (_icon == null) return;
-                _icon.Width = value ? ActualWidth / 2 : ActualWidth;
+                _icon.Width = value ? Width / 2 : Width;
             }
         }
 
@@ -134,7 +140,7 @@ namespace HandyControl.Controls
             if (IsReadOnly) return;
             if (!AllowHalf) return;
             var p = e.GetPosition(this);
-            IsHalf = p.X < ActualWidth / 2;
+            IsHalf = p.X < Width / 2;
         }
 
         public override void OnApplyTemplate()
@@ -147,7 +153,7 @@ namespace HandyControl.Controls
             {
                 if (_icon == null) return;
                 _icon.Show(IsSelected);
-                _icon.Width = IsHalf ? ActualWidth / 2 : ActualWidth;
+                _icon.Width = IsHalf ? Width / 2 : Width;
             }
         }
 
@@ -202,7 +208,7 @@ namespace HandyControl.Controls
                         if (AllowHalf)
                         {
                             var p = e.GetPosition(this);
-                            IsHalf = p.X < ActualWidth / 2;
+                            IsHalf = p.X < Width / 2;
                         }
                     }
                 }

@@ -67,15 +67,26 @@ namespace HandyControl.Controls
         /// <summary>
         ///     选中时间
         /// </summary>
-        internal static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
             "SelectedTime", typeof(DateTime), typeof(TimeBar), new PropertyMetadata(default(DateTime), OnSelectedTimeChanged));
 
         private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is TimeBar timeBar && timeBar._textBlockSelected != null)
             {
-                timeBar._textBlockSelected.Text = ((DateTime) e.NewValue).ToString(timeBar.TimeFormat);
+                timeBar.OnSelectedTimeChanged((DateTime)e.NewValue);
             }
+        }
+
+        private void OnSelectedTimeChanged(DateTime time)
+        {
+            _textBlockSelected.Text = time.ToString(TimeFormat);
+            if (!(_isDragging || _borderTopIsMouseLeftButtonDown))
+            {
+                _totalOffsetX = (_starTime - SelectedTime).TotalMilliseconds / _timeSpeList[SpeIndex] * _itemWidth;
+            }
+            UpdateSpeBlock();
+            UpdateMouseFollowBlockPos();
         }
 
         /// <summary>
@@ -157,8 +168,6 @@ namespace HandyControl.Controls
             SelectedTime = new DateTime(_starTime.Year, _starTime.Month, _starTime.Day, 0, 0, 0);
             _starTime = SelectedTime;
             _isLoaded = true;
-            SizeChanged += TimeBar_OnSizeChanged;
-            MouseMove += TimeBar_OnMouseMove;
         }
 
         public override void OnApplyTemplate()
@@ -191,7 +200,7 @@ namespace HandyControl.Controls
 
             if (_isLoaded)
             {
-                TimeBar_OnSizeChanged(null, null);
+                Update();
             }
             _textBlockSelected.Text = SelectedTime.ToString(TimeFormat);
         }
@@ -222,7 +231,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     选中时间
         /// </summary>
-        internal DateTime SelectedTime
+        public DateTime SelectedTime
         {
             get => (DateTime)GetValue(SelectedTimeProperty);
             set => SetValue(SelectedTimeProperty, value);
@@ -300,23 +309,9 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
-        ///     设置显示的时间
+        ///     更新刻度
         /// </summary>
-        /// <param name="time"></param>
-        public void SetShowTime(DateTime time)
-        {
-            if (_isDragging || _borderTopIsMouseLeftButtonDown) return;
-
-            SelectedTime = time;
-            _totalOffsetX = (_starTime - SelectedTime).TotalMilliseconds / _timeSpeList[SpeIndex] * _itemWidth;
-            Update();
-            TimeBar_OnMouseMove(null, null);
-        }
-
-        /// <summary>
-        ///     更新
-        /// </summary>
-        private void Update()
+        private void UpdateSpeBlock()
         {
             var rest = (_totalOffsetX + _tempOffsetX) % _itemWidth;
             for (var i = 0; i < _speCount; i++)
@@ -368,8 +363,8 @@ namespace HandyControl.Controls
             if (Mouse.LeftButton == MouseButtonState.Pressed) return;
             SpeIndex += e.Delta > 0 ? 1 : -1;
             _totalOffsetX = (_starTime - SelectedTime).TotalMilliseconds / _timeSpeList[SpeIndex] * _itemWidth;
-            Update();
-            TimeBar_OnMouseMove(null, null);
+            UpdateSpeBlock();
+            UpdateMouseFollowBlockPos();
             e.Handled = true;
         }
 
@@ -378,9 +373,7 @@ namespace HandyControl.Controls
             _isDragging = true;
             _tempOffsetX = _borderTop.RenderTransform.Value.OffsetX;
 
-            SelectedTime = _mouseDownTime -
-                           TimeSpan.FromMilliseconds(_tempOffsetX / _itemWidth * _timeSpeList[_speIndex]);
-            Update();
+            SelectedTime = _mouseDownTime - TimeSpan.FromMilliseconds(_tempOffsetX / _itemWidth * _timeSpeList[_speIndex]);
             _borderTopIsMouseLeftButtonDown = false;
         }
 
@@ -398,19 +391,30 @@ namespace HandyControl.Controls
 
         private void DragElementBehavior_OnDragBegun(object sender, MouseEventArgs e) => _mouseDownTime = SelectedTime;
 
-        private void TimeBar_OnSizeChanged(object sender, SizeChangedEventArgs e)
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            base.OnRenderSizeChanged(sizeInfo);
+            Update();
+        }
+
+        /// <summary>
+        ///     更新
+        /// </summary>
+        private void Update()
         {
             if (_canvasSpe == null) return;
+            
             _speBlockList.Clear();
             _canvasSpe.Children.Clear();
-
             _speCount = (int)(ActualWidth / 800 * 9) | 1;
 
             var itemWidthOld = _itemWidth;
             _itemWidth = ActualWidth / _speCount;
             _totalOffsetX = _itemWidth / itemWidthOld * _totalOffsetX % ActualWidth;
             if (double.IsNaN(_totalOffsetX))
+            {
                 _totalOffsetX = 0;
+            }
 
             var rest = (_totalOffsetX + _tempOffsetX) % _itemWidth;
             var sub = rest <= 0 || double.IsNaN(rest) ? _speCount / 2 : _speCount / 2 - 1;
@@ -425,8 +429,12 @@ namespace HandyControl.Controls
                 _speBlockList.Add(block);
                 _canvasSpe.Children.Add(block);
             }
+
             if (_speIndex == 6)
+            {
                 SetSpeTimeFormat("HH:mm:ss");
+            }
+            
             ShowSpeStr = ActualWidth > 320;
             for (var i = 0; i < _speCount; i++)
             {
@@ -435,11 +443,20 @@ namespace HandyControl.Controls
                 item.MoveX((_itemWidth - item.Width) / 2);
             }
 
-            Update();
-            TimeBar_OnMouseMove(null, null);
+            UpdateSpeBlock();
+            UpdateMouseFollowBlockPos();
         }
 
-        private void TimeBar_OnMouseMove(object sender, MouseEventArgs e)
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            UpdateMouseFollowBlockPos();
+        }
+
+        /// <summary>
+        ///     更新鼠标跟随块位置
+        /// </summary>
+        private void UpdateMouseFollowBlockPos()
         {
             var p = Mouse.GetPosition(this);
             var mlliseconds = (p.X - ActualWidth / 2) / _itemWidth * _timeSpeList[_speIndex];
@@ -461,10 +478,9 @@ namespace HandyControl.Controls
                 var p = Mouse.GetPosition(this);
                 _tempOffsetX = ActualWidth / 2 - p.X;
                 SelectedTime -= TimeSpan.FromMilliseconds(_tempOffsetX / _itemWidth * _timeSpeList[_speIndex]);
-                Update();
                 _totalOffsetX = (_totalOffsetX + _tempOffsetX) % ActualWidth;
                 _tempOffsetX = 0;
-                TimeBar_OnMouseMove(null, null);
+                UpdateMouseFollowBlockPos();
                 RaiseEvent(new FunctionEventArgs<DateTime>(TimeChangedEvent, this)
                 {
                     Info = SelectedTime

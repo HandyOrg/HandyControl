@@ -8,7 +8,6 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 using System.Windows.Markup;
-using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
@@ -23,7 +22,7 @@ namespace HandyControl.Controls
     [ContentProperty("Items")]
     [TemplatePart(Name = ElementPanelPage, Type = typeof(Panel))]
     [TemplatePart(Name = ElementItemsControl, Type = typeof(ItemsPresenter))]
-    public class Carousel : ListBox
+    public class Carousel : ListBox, IDisposable
     {
         #region Constants
 
@@ -34,6 +33,8 @@ namespace HandyControl.Controls
 
         #region Data
 
+        private bool _isDisposed;
+
         private Panel _panelPage;
 
         private bool _appliedTemplate;
@@ -42,7 +43,7 @@ namespace HandyControl.Controls
 
         private int _pageIndex = -1;
 
-        private Button _selectedButton;
+        private RadioButton _selectedButton;
 
         private DispatcherTimer _updateTimer;
 
@@ -104,6 +105,15 @@ namespace HandyControl.Controls
             set => SetValue(IsCenterProperty, value);
         }
 
+        public static readonly DependencyProperty PageButtonStyleProperty = DependencyProperty.Register(
+            "PageButtonStyle", typeof(Style), typeof(Carousel), new PropertyMetadata(default(Style)));
+
+        public Style PageButtonStyle
+        {
+            get => (Style) GetValue(PageButtonStyleProperty);
+            set => SetValue(PageButtonStyleProperty, value);
+        }
+
         public Carousel()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Prev, ButtonPrev_OnClick));
@@ -111,6 +121,36 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Selected, ButtonPages_OnClick));
 
             Loaded += (s, e) => UpdatePageButtons();
+            IsVisibleChanged += Carousel_IsVisibleChanged;
+        }
+
+        ~Carousel() => Dispose();
+
+        public void Dispose()
+        {
+            if (_isDisposed) return;
+
+            IsVisibleChanged -= Carousel_IsVisibleChanged;
+            _updateTimer.Stop();
+            _isDisposed = true;
+
+            GC.SuppressFinalize(this);
+        }
+
+        private void Carousel_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (_updateTimer == null) return;
+
+            if (IsVisible)
+            {
+                _updateTimer.Tick += UpdateTimer_Tick;
+                _updateTimer.Start();
+            }
+            else
+            {
+                _updateTimer.Stop();
+                _updateTimer.Tick -= UpdateTimer_Tick;
+            }
         }
 
         protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
@@ -210,22 +250,21 @@ namespace HandyControl.Controls
             _panelPage.Children.Clear();
             for (var i = 0; i < count; i++)
             {
-                _panelPage.Children.Add(CreatePateButton());
+                _panelPage.Children.Add(new RadioButton
+                {
+                    Style = PageButtonStyle
+                });
             }
 
-            if (index == -1)
+            if (index == -1 && count > 0) index = 0;
+            if (index >= 0 && index < count)
             {
-                if (count > 0)
+                if (_panelPage.Children[index] is RadioButton button)
                 {
-                    var button = _panelPage.Children[0];
+                    button.IsChecked = true;
                     button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent, button));
+                    UpdateItemsPosition();
                 }
-            }
-            else if (index >= 0 && index < count)
-            {
-                var button = _panelPage.Children[index];
-                button.RaiseEvent(new RoutedEventArgs(ButtonBase.ClickEvent, button));
-                UpdateItemsPosition();
             }
         }
 
@@ -258,40 +297,17 @@ namespace HandyControl.Controls
             UpdateItemsPosition();
         }
 
-        /// <summary>
-        ///     创建页按钮
-        /// </summary>
-        /// <returns></returns>
-        private Button CreatePateButton()
-        {
-            var button = new Button
-            {
-                Style = ResourceHelper.GetResource<Style>(ResourceToken.ButtonCustom),
-                Content = new Border
-                {
-                    Width = 10,
-                    Height = 10,
-                    CornerRadius = new CornerRadius(5),
-                    Background = Brushes.White,
-                    Margin = new Thickness(5, 0, 5, 0),
-                    BorderThickness = new Thickness(1),
-                    BorderBrush = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush)
-                }
-            };
-            return button;
-        }
-
         private void ButtonPages_OnClick(object sender, RoutedEventArgs e)
         {
             if (!CheckNull()) return;
-            if (_selectedButton != null && _selectedButton.Content is Border borderOri)
-                borderOri.Background = Brushes.White;
-            _selectedButton = e.OriginalSource as Button;
-            if (_selectedButton != null && _selectedButton.Content is Border border)
-                border.Background = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush);
+
+            _selectedButton = e.OriginalSource as RadioButton;
+            
             var index = _panelPage.Children.IndexOf(_selectedButton);
             if (index != -1)
+            {
                 PageIndex = index;
+            }
         }
 
         private void ButtonPrev_OnClick(object sender, RoutedEventArgs e) => PageIndex--;

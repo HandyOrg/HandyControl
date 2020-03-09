@@ -49,30 +49,27 @@
     </Style>
 
     <Style TargetType="Window">
-        <Setter Property="UseLayoutRounding" Value="True"/>
-    </Style>
-
-    <Style x:Key="WindowDefault" BasedOn="{x:Null}" TargetType="Window">
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
     </Style>
 
     <Style x:Key="WindowWin10" BasedOn="{x:Null}" TargetType="controls:Window">
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="#262e2f"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="NonClientAreaBackground" Value="White"/>
-        <Setter Property="NonClientAreaForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="NonClientAreaForeground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="CloseButtonBackground" Value="Transparent"/>
-        <Setter Property="CloseButtonForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="CloseButtonForeground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="CloseButtonHoverBackground" Value="#e81123"/>
         <Setter Property="CloseButtonHoverForeground" Value="White"/>
         <Setter Property="OtherButtonBackground" Value="Transparent"/>
-        <Setter Property="OtherButtonForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="OtherButtonForeground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="OtherButtonHoverBackground" Value="{DynamicResource DarkMaskBrush}"/>
-        <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource ReverseTextBrush}"/>
+        <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Window">
@@ -121,7 +118,7 @@
                                 </Grid>
                             </Grid>
                             <AdornerDecorator Grid.Row="1">
-                                <ContentPresenter/>
+                                <ContentPresenter ClipToBounds="True"/>
                             </AdornerDecorator>
                             <ResizeGrip Width="10" Height="10" x:Name="ResizeGrip" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" IsTabStop="False" Visibility="Collapsed"/>
                         </Grid>
@@ -132,7 +129,7 @@
                             <Setter Property="Opacity" Value=".8" TargetName="ButtonPanel"/>
                         </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
-                            <Setter Property="Padding" Value="{x:Static tools:VisualHelper.WindowMaximizedPadding}"/>
+                            <Setter Property="Padding" Value="{x:Static tools:WindowHelper.WindowMaximizedPadding}"/>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
                             <Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore"/>
                         </Trigger>
@@ -180,6 +177,12 @@
 
     <Style x:Key="WindowBlur" BasedOn="{StaticResource WindowWin10}" TargetType="controls:BlurWindow">
         <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="WindowGlow" BasedOn="{StaticResource WindowWin10}" TargetType="controls:GlowWindow">
+        <Setter Property="ActiveGlowColor" Value="#262e2f"/>
+        <Setter Property="InactiveGlowColor" Value="{DynamicResource BorderColor}"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
     <Style TargetType="controls:ImageBrowser">

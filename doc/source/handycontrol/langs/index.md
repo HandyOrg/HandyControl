@@ -4,7 +4,7 @@ title: 国际化
 
 # 使用方式
 
-可通过`ConfigHelper.Instance.SetLang(string lang)`指定需要使用的语言包，默认使用zh-cn。
+可通过`ConfigHelper.Instance.SetLang(string lang)`指定需要使用的语言包，默认使用简体中文（zh-cn）。
 
 控件库自带的语言包一般为控件库内部使用，但用户也可以通过以下两种方式使用：
 
@@ -21,9 +21,15 @@ title: 国际化
 
 # 扩展
 
-控件库自带zh-cn和en两份语言包，默认为zh-cn：
+控件库自带的语言包包括：
 
-![Langs](images/Langs.png)
+* 简体中文（zh-cn）
+* 英文（en）
+* 波斯语（fa）
+* 法语（fr）
+* 韩文 （ko-kr）
+
+默认为简体中文（zh-cn）。
 
 如果需要可自行扩展，这里推荐使用开源插件：[ResXManager](https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager)，来维护所有的语言包。
 

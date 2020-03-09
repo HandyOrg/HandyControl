@@ -13,11 +13,14 @@ namespace HandyControl.Controls
     ///     数值选择控件
     /// </summary>
     [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
+    [TemplatePart(Name = ElementErrorTip, Type = typeof(UIElement))]
     public class NumericUpDown : Control, IDataInput
     {
         #region Constants
 
         private const string ElementTextBox = "PART_TextBox";
+
+        private const string ElementErrorTip = "PART_ErrorTip";
 
         #endregion Constants
 
@@ -25,26 +28,31 @@ namespace HandyControl.Controls
 
         private TextBox _textBox;
 
+        private UIElement _errorTip;
+
+        private bool _updateText;
+
         #endregion Data
 
         public NumericUpDown()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) =>
             {
+                if (IsReadOnly) return;
+
                 Value += Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) =>
             {
+                if (IsReadOnly) return;
+
                 Value -= Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                SetCurrentValue(ValueProperty, 0d);
-                _textBox.Text = string.Empty;
+                if (IsReadOnly) return;
+
+                SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
             }));
 
             Loaded += (s, e) => OnApplyTemplate();
@@ -65,7 +73,8 @@ namespace HandyControl.Controls
         {
             if (_textBox != null)
             {
-                _textBox.TextChanged -= TextBox_TextChanged;
+                TextCompositionManager.RemovePreviewTextInputHandler(_textBox, PreviewTextInputHandler);
+                _textBox.TextChanged -= _textBox_TextChanged;
                 _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
                 _textBox.LostFocus -= TextBox_LostFocus;
             }
@@ -73,42 +82,50 @@ namespace HandyControl.Controls
             base.OnApplyTemplate();
 
             _textBox = GetTemplateChild(ElementTextBox) as TextBox;
+            _errorTip = GetTemplateChild(ElementErrorTip) as UIElement;
 
             if (_textBox != null)
             {
-                _textBox.TextChanged += TextBox_TextChanged;
+                TextCompositionManager.AddPreviewTextInputHandler(_textBox, PreviewTextInputHandler);
+                _textBox.TextChanged += _textBox_TextChanged;
                 _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
                 _textBox.LostFocus += TextBox_LostFocus;
                 _textBox.Text = CurrentText;
             }
         }
 
+        private void _textBox_TextChanged(object sender, TextChangedEventArgs e) => UpdateData();
+
+        private void UpdateData()
+        {
+            if (!VerifyData()) return;
+            if (double.TryParse(_textBox.Text, out var value))
+            {
+                _updateText = false;
+                Value = value;
+                _updateText = true;
+            }
+        }
+
+        private void PreviewTextInputHandler(object sender, TextCompositionEventArgs e) => UpdateData();
+
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (IsError) return;
+            if (IsError && _errorTip != null) return;
             _textBox.Text = CurrentText;
         }
 
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (IsReadOnly) return;
+
             if (e.Key == Key.Up)
             {
                 Value += Increment;
-                _textBox.Text = CurrentText;
             }
             else if (e.Key == Key.Down)
             {
                 Value -= Increment;
-                _textBox.Text = CurrentText;
-            }
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (!VerifyData()) return;
-            if (double.TryParse(_textBox.Text, out var value))
-            {
-                Value = value;
             }
         }
 
@@ -116,11 +133,9 @@ namespace HandyControl.Controls
         {
             base.OnMouseWheel(e);
 
-            if (_textBox.IsFocused)
+            if (_textBox.IsFocused && !IsReadOnly)
             {
                 Value += e.Delta > 0 ? Increment : -Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
                 e.Handled = true;
             }
         }
@@ -159,9 +174,10 @@ namespace HandyControl.Controls
         {
             var ctl = (NumericUpDown) d;
             var v = (double) e.NewValue;
-            if (ctl._textBox != null)
+            if (ctl._updateText && ctl._textBox != null)
             {
-                ctl._textBox.Text = v.ToString();
+                ctl._textBox.Text = ctl.CurrentText;
+                ctl._textBox.Select(ctl._textBox.Text.Length, 0);
             }
 
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
@@ -186,13 +202,7 @@ namespace HandyControl.Controls
                 ctl.Value = maximum;
             }
 
-            var result = num > maximum ? maximum : num;
-            if (!ctl.DecimalPlaces.HasValue)
-            {
-                result = Math.Floor(result);
-            }
-
-            return result;
+            return num > maximum ? maximum : num;
         }
 
         /// <summary>
@@ -353,7 +363,22 @@ namespace HandyControl.Controls
         public bool ShowClearButton
         {
             get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value);
+            set => SetValue(ShowClearButtonProperty, value); 
+        }
+
+        /// <summary>
+        ///     标识 IsReadOnly 依赖属性。
+        /// </summary>
+        public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
+            "IsReadOnly", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        /// <summary>
+        ///     获取或设置一个值，该值指示NumericUpDown是否只读。
+        /// </summary>
+        public bool IsReadOnly
+        {
+            get => (bool) GetValue(IsReadOnlyProperty);
+            set => SetValue(IsReadOnlyProperty, value);
         }
 
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }

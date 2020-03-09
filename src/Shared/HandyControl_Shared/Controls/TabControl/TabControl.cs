@@ -13,8 +13,8 @@ namespace HandyControl.Controls
     [TemplatePart(Name = OverflowButtonKey, Type = typeof(ContextMenuToggleButton))]
     [TemplatePart(Name = HeaderPanelKey, Type = typeof(TabPanel))]
     [TemplatePart(Name = OverflowScrollviewer, Type = typeof(ScrollViewer))]
-    [TemplatePart(Name = ScrollButtonLeft, Type = typeof(Button))]
-    [TemplatePart(Name = ScrollButtonRight, Type = typeof(Button))]
+    [TemplatePart(Name = ScrollButtonLeft, Type = typeof(ButtonBase))]
+    [TemplatePart(Name = ScrollButtonRight, Type = typeof(ButtonBase))]
     [TemplatePart(Name = HeaderBorder, Type = typeof(Border))]
     public class TabControl : System.Windows.Controls.TabControl
     {
@@ -32,13 +32,13 @@ namespace HandyControl.Controls
 
         private ContextMenuToggleButton _buttonOverflow;
 
-        private TabPanel _headerPanel;
+        internal TabPanel HeaderPanel { get; private set; }
 
         private ScrollViewer _scrollViewerOverflow;
 
-        private Button _buttonScrollLeft;
+        private ButtonBase _buttonScrollLeft;
 
-        private Button _buttonScrollRight;
+        private ButtonBase _buttonScrollRight;
 
         private Border _headerBorder;
 
@@ -50,16 +50,16 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否启用动画
         /// </summary>
-        public static readonly DependencyProperty IsEnableAnimationProperty = DependencyProperty.Register(
-            "IsEnableAnimation", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty IsAnimationEnabledProperty = DependencyProperty.Register(
+            "IsAnimationEnabled", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
         /// <summary>
         ///     是否启用动画
         /// </summary>
-        public bool IsEnableAnimation
+        public bool IsAnimationEnabled
         {
-            get => (bool)GetValue(IsEnableAnimationProperty);
-            set => SetValue(IsEnableAnimationProperty, value);
+            get => (bool)GetValue(IsAnimationEnabledProperty);
+            set => SetValue(IsAnimationEnabledProperty, value);
         }
 
         /// <summary>
@@ -80,8 +80,14 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否显示关闭按钮
         /// </summary>
-        public static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
-            "ShowCloseButton", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.RegisterAttached(
+            "ShowCloseButton", typeof(bool), typeof(TabControl), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetShowCloseButton(DependencyObject element, bool value)
+            => element.SetValue(ShowCloseButtonProperty, value);
+
+        public static bool GetShowCloseButton(DependencyObject element)
+            => (bool) element.GetValue(ShowCloseButtonProperty);
 
         /// <summary>
         ///     是否显示关闭按钮
@@ -93,18 +99,39 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
-        ///     是否将标签填充
+        ///     是否显示上下文菜单
         /// </summary>
-        public static readonly DependencyProperty IsEnableTabFillProperty = DependencyProperty.Register(
-            "IsEnableTabFill", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty ShowContextMenuProperty = DependencyProperty.RegisterAttached(
+            "ShowContextMenu", typeof(bool), typeof(TabControl), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetShowContextMenu(DependencyObject element, bool value)
+            => element.SetValue(ShowContextMenuProperty, value);
+
+        public static bool GetShowContextMenu(DependencyObject element)
+            => (bool) element.GetValue(ShowContextMenuProperty);
+
+        /// <summary>
+        ///     是否显示上下文菜单
+        /// </summary>
+        public bool ShowContextMenu
+        {
+            get => (bool)GetValue(ShowContextMenuProperty);
+            set => SetValue(ShowContextMenuProperty, value);
+        }
 
         /// <summary>
         ///     是否将标签填充
         /// </summary>
-        public bool IsEnableTabFill
+        public static readonly DependencyProperty IsTabFillEnabledProperty = DependencyProperty.Register(
+            "IsTabFillEnabled", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        /// <summary>
+        ///     是否将标签填充
+        /// </summary>
+        public bool IsTabFillEnabled
         {
-            get => (bool)GetValue(IsEnableTabFillProperty);
-            set => SetValue(IsEnableTabFillProperty, value);
+            get => (bool)GetValue(IsTabFillEnabledProperty);
+            set => SetValue(IsTabFillEnabledProperty, value);
         }
 
         /// <summary>
@@ -191,38 +218,36 @@ namespace HandyControl.Controls
         {
             base.OnItemsChanged(e);
 
-            if (_headerPanel == null)
+            if (HeaderPanel == null)
             {
                 IsInternalAction = false;
                 return;
             }
 
-            if (!IsEnableTabFill)
-            {
-                _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
-            }
+            UpdateOverflowButton();
 
             if (IsInternalAction)
             {
                 IsInternalAction = false;
                 return;
             }
-            if (IsEnableAnimation)
+
+            if (IsAnimationEnabled)
             {
-                _headerPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
+                HeaderPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
             }
             else
             {
-                _headerPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+                HeaderPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
             }
+
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
-                foreach (TabItem item in e.NewItems)
+                for (var i = 0; i < Items.Count; i++)
                 {
+                    if (!(ItemContainerGenerator.ContainerFromIndex(i) is TabItem item)) return;
                     item.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-                    item.IsSelected = true;
-                    item.TabPanel = _headerPanel;
+                    item.TabPanel = HeaderPanel;
                 }
             }
 
@@ -248,14 +273,14 @@ namespace HandyControl.Controls
             if (_buttonScrollRight != null) _buttonScrollRight.Click -= ButtonScrollRight_Click;
 
             base.OnApplyTemplate();
-            _headerPanel = GetTemplateChild(HeaderPanelKey) as TabPanel;
+            HeaderPanel = GetTemplateChild(HeaderPanelKey) as TabPanel;
 
-            if (IsEnableTabFill) return;
+            if (IsTabFillEnabled) return;
 
             _buttonOverflow = GetTemplateChild(OverflowButtonKey) as ContextMenuToggleButton;
             _scrollViewerOverflow = GetTemplateChild(OverflowScrollviewer) as ScrollViewer;
-            _buttonScrollLeft = GetTemplateChild(ScrollButtonLeft) as Button;
-            _buttonScrollRight = GetTemplateChild(ScrollButtonRight) as Button;
+            _buttonScrollLeft = GetTemplateChild(ScrollButtonLeft) as ButtonBase;
+            _buttonScrollRight = GetTemplateChild(ScrollButtonRight) as ButtonBase;
             _headerBorder = GetTemplateChild(HeaderBorder) as Border;
 
             if (_buttonScrollLeft != null) _buttonScrollLeft.Click += ButtonScrollLeft_Click;
@@ -263,9 +288,6 @@ namespace HandyControl.Controls
 
             if (_buttonOverflow != null)
             {
-                _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
-
                 var menu = new ContextMenu
                 {
                     Placement = PlacementMode.Bottom,
@@ -274,6 +296,21 @@ namespace HandyControl.Controls
                 menu.Closed += Menu_Closed;
                 _buttonOverflow.Menu = menu;
                 _buttonOverflow.Click += ButtonOverflow_Click;
+            }
+        }
+
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            base.OnRenderSizeChanged(sizeInfo);
+            UpdateOverflowButton();
+        }
+
+        private void UpdateOverflowButton()
+        {
+            if (!IsTabFillEnabled)
+            {
+                _itemShowCount = (int)(ActualWidth / TabItemWidth);
+                _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
             }
         }
 
@@ -292,35 +329,50 @@ namespace HandyControl.Controls
             if (_buttonOverflow.IsChecked == true)
             {
                 _buttonOverflow.Menu.Items.Clear();
-                foreach (TabItem item in Items)
+                for (var i = 0; i < Items.Count; i++)
                 {
+                    if(!(ItemContainerGenerator.ContainerFromIndex(i) is TabItem item)) continue;
+
                     var menuItem = new MenuItem
                     {
+                        HeaderStringFormat = ItemStringFormat,
+                        HeaderTemplate = ItemTemplate,
+                        HeaderTemplateSelector = ItemTemplateSelector,
                         Header = item.Header,
                         Width = TabItemWidth,
                         IsChecked = item.IsSelected,
                         IsCheckable = true
                     };
+
                     menuItem.Click += delegate
                     {
                         _buttonOverflow.IsChecked = false;
-                        var index = Items.IndexOf(item);
+
+                        var list = GetActualList();
+                        if (list == null) return;
+
+                        var actualItem = ItemContainerGenerator.ItemFromContainer(item);
+                        if (actualItem == null) return;
+
+                        var index = list.IndexOf(actualItem);
                         if (index >= _itemShowCount)
                         {
-                            Items.Remove(item);
-                            Items.Insert(0, item);
-                            if (IsEnableAnimation)
+                            list.Remove(actualItem);
+                            list.Insert(0, actualItem);
+                            if (IsAnimationEnabled)
                             {
-                                _headerPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
+                                HeaderPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
                             }
                             else
                             {
-                                _headerPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+                                HeaderPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
                             }
-                            _headerPanel.ForceUpdate = true;
-                            _headerPanel.Measure(new Size(_headerPanel.DesiredSize.Width, ActualHeight));
-                            _headerPanel.ForceUpdate = false;
+                            HeaderPanel.ForceUpdate = true;
+                            HeaderPanel.Measure(new Size(HeaderPanel.DesiredSize.Width, ActualHeight));
+                            HeaderPanel.ForceUpdate = false;
+                            SetCurrentValue(SelectedIndexProperty, ValueBoxes.Int0Box);
                         }
+
                         item.IsSelected = true;
                     };
                     _buttonOverflow.Menu.Items.Add(menuItem);
@@ -339,26 +391,52 @@ namespace HandyControl.Controls
 
         internal void CloseOtherItems(TabItem currentItem)
         {
+            var actualItem = currentItem != null ? ItemContainerGenerator.ItemFromContainer(currentItem) : null;
+
+            var list = GetActualList();
+            if (list == null) return;
+
             IsInternalAction = true;
-            var enumerator = ((IEnumerable)Items).GetEnumerator();
-            while (enumerator.MoveNext())
+
+            for (var i = 0; i < Items.Count; i++)
             {
-                var item = enumerator.Current;
-                if (!Equals(item, currentItem) && item != null)
+                var item = list[i];
+                if (!Equals(item, actualItem) && item != null)
                 {
                     var argsClosing = new CancelRoutedEventArgs(TabItem.ClosingEvent, item);
-                    var elment = item as UIElement;
-                    if (elment != null)
-                    {
-                        elment.RaiseEvent(argsClosing);
-                        if (argsClosing.Cancel) return;
-                    }
 
-                    elment?.RaiseEvent(new RoutedEventArgs(TabItem.ClosedEvent, item));
-                    Items.Remove(item);
-                    enumerator = ((IEnumerable)Items).GetEnumerator();
+                    if (!(ItemContainerGenerator.ContainerFromItem(item) is TabItem tabItem)) continue;
+
+                    tabItem.RaiseEvent(argsClosing);
+                    if (argsClosing.Cancel) return;
+
+                    tabItem.RaiseEvent(new RoutedEventArgs(TabItem.ClosedEvent, item));
+                    list.Remove(item);
+
+                    i--;
                 }
             }
+
+            SetCurrentValue(SelectedIndexProperty, Items.Count == 0 ? -1 : 0);
         }
+
+        internal IList GetActualList()
+        {
+            IList list;
+            if (ItemsSource != null)
+            {
+                list = ItemsSource as IList;
+            }
+            else
+            {
+                list = Items;
+            }
+
+            return list;
+        }
+
+        protected override bool IsItemItsOwnContainerOverride(object item) => item is TabItem;
+
+        protected override DependencyObject GetContainerForItemOverride() => new TabItem();
     }
 }

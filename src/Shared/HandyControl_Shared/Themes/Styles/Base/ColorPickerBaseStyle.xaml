@@ -200,25 +200,25 @@
                             <Slider Name="PART_SliderColor" LargeChange="0.01" SmallChange="0.01" Grid.ColumnSpan="2" Value="6" Maximum="6" Background="{StaticResource ColorPickerRainbowBrush}" Margin="2,1,0,0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Top" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"/>
                             <Slider Name="PART_SliderOpacity" Grid.ColumnSpan="2" IsSnapToTickEnabled="True" Value="{Binding ChannelA,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Maximum="255" SmallChange="1" Foreground="{TemplateBinding SelectedBrushWithoutOpacity}" Background="{StaticResource ColorPickerOpacityBrush}" Margin="2,0,0,0" Grid.Row="0" Grid.Column="2" VerticalAlignment="Bottom" Style="{StaticResource ColorPickerSlider}" IsMoveToPointEnabled="True"/>
                             <StackPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,14,0,0" VerticalAlignment="Top" Visibility="{Binding ShowList[0],RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}">
-                                <TextBox Padding="0" HorizontalContentAlignment="Center" Width="176" Text="{Binding SelectedBrush,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay,Converter={StaticResource Color2HexStrConverter},UpdateSourceTrigger=LostFocus}" FontSize="10" MaxLength="10" Height="24" />
-                                <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="HEX" HorizontalAlignment="Center"/>
+                                <TextBox Padding="0" HorizontalContentAlignment="Center" Width="176" Text="{Binding SelectedBrush,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay,Converter={StaticResource Color2HexStringConverter},UpdateSourceTrigger=LostFocus}" FontSize="10" MaxLength="10" Height="24" />
+                                <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,2,0,0" FontSize="10" Text="HEX" HorizontalAlignment="Center"/>
                             </StackPanel>
                             <UniformGrid Name="PART_PanelRgb" Visibility="{Binding ShowList[1],RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Rows="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="-2,14,-2,0" VerticalAlignment="Top">
                                 <StackPanel Margin="2,0">
                                     <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="2,0" Tag="R" Value="{Binding ChannelR,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
-                                    <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="R" HorizontalAlignment="Center"/>
+                                    <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,2,0,0" FontSize="10" Text="R" HorizontalAlignment="Center"/>
                                 </StackPanel>
                                 <StackPanel Margin="2,0">
                                     <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="0" Tag="G" Value="{Binding ChannelG,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
-                                    <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="G" HorizontalAlignment="Center"/>
+                                    <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,2,0,0" FontSize="10" Text="G" HorizontalAlignment="Center"/>
                                 </StackPanel>
                                 <StackPanel Margin="2,0">
                                     <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="0" Tag="B" Value="{Binding ChannelB,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
-                                    <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="B" HorizontalAlignment="Center"/>
+                                    <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,2,0,0" FontSize="10" Text="B" HorizontalAlignment="Center"/>
                                 </StackPanel>
                                 <StackPanel Margin="2,0">
                                     <controls:NumericUpDown HorizontalContentAlignment="Center" Padding="0" Value="{Binding ChannelA,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ShowUpDownButton="False" Maximum="255" Minimum="0" FontSize="10" Height="24" />
-                                    <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,6,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"/>
+                                    <TextBlock Foreground="{DynamicResource ThirdlyTextBrush}" Margin="0,2,0,0" FontSize="10" Text="A" HorizontalAlignment="Center"/>
                                 </StackPanel>
                             </UniformGrid>
                             <Button Command="interactivity:ControlCommands.Switch" Padding="6" FontSize="8" BorderThickness="0" HorizontalAlignment="Right" Height="24" Width="20" Grid.Column="3" Grid.Row="1">

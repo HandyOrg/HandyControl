@@ -1,6 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Base/ProgressBarBaseStyle.xaml"/>
@@ -42,8 +43,8 @@
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
                                     <GradientStop Color="{DynamicResource DarkPrimaryColor}" Offset="0"/>
                                     <GradientStop Color="{DynamicResource DarkPrimaryColor}" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="1"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="0.5"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="1"/>
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
@@ -72,8 +73,8 @@
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
                                     <GradientStop Color="{DynamicResource DarkSuccessColor}" Offset="0"/>
                                     <GradientStop Color="{DynamicResource DarkSuccessColor}" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="1"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="0.5"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="1"/>
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
@@ -102,8 +103,8 @@
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
                                     <GradientStop Color="{DynamicResource DarkInfoColor}" Offset="0"/>
                                     <GradientStop Color="{DynamicResource DarkInfoColor}" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="1"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="0.5"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="1"/>
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
@@ -132,8 +133,8 @@
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
                                     <GradientStop Color="{DynamicResource DarkWarningColor}" Offset="0"/>
                                     <GradientStop Color="{DynamicResource DarkWarningColor}" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="1"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="0.5"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="1"/>
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
@@ -162,8 +163,8 @@
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
                                     <GradientStop Color="{DynamicResource DarkDangerColor}" Offset="0"/>
                                     <GradientStop Color="{DynamicResource DarkDangerColor}" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="0.5"/>
-                                    <GradientStop Color="White" Offset="1"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="0.5"/>
+                                    <GradientStop Color="{DynamicResource BackgroundColor}" Offset="1"/>
                                 </LinearGradientBrush>
                             </GeometryDrawing.Brush>
                             <GeometryDrawing.Geometry>
@@ -223,14 +224,43 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ProgressBar">
-                    <controls:SimplePanel x:Name="TemplateRoot" SnapsToDevicePixels="true">
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="IsIndeterminate" RepeatBehavior="Forever">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Animation">
+                                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25"/>
+                            </DoubleAnimationUsingKeyFrames>
+                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
+                                <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5"/>
+                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
+                                <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5"/>
+                            </PointAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <controls:SimplePanel x:Name="TemplateRoot" SnapsToDevicePixels="true" ClipToBounds="True">
                         <Rectangle x:Name="PART_Track" Fill="{TemplateBinding Background}" StrokeThickness="0" Stroke="{TemplateBinding BorderBrush}"/>
                         <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left">
                             <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}"/>
                         </Decorator>
+                        <Rectangle x:Name="Animation" Visibility="Collapsed" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
+                            <Rectangle.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                </TransformGroup>
+                            </Rectangle.RenderTransform>
+                        </Rectangle>
                     </controls:SimplePanel>
                     <ControlTemplate.Triggers>
+                        <Trigger Property="IsIndeterminate" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard Storyboard="{StaticResource IsIndeterminate}"/>
+                            </Trigger.EnterActions>
+                            <Setter Property="Visibility" TargetName="Indicator" Value="Collapsed"/>
+                            <Setter Property="Visibility" TargetName="Animation" Value="Visible"/>
+                        </Trigger>
                         <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
                             <Setter Property="LayoutTransform" TargetName="TemplateRoot">
                                 <Setter.Value>
                                     <RotateTransform Angle="-90"/>

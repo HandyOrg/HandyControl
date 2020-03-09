@@ -70,6 +70,22 @@
         <ResourceDictionary Source="Rectangle.xaml"/>
         <ResourceDictionary Source="Magnifier.xaml"/>
         <ResourceDictionary Source="ToggleBlock.xaml"/>
+        <ResourceDictionary Source="RunningBlock.xaml"/>
+        <ResourceDictionary Source="Sprite.xaml"/>
+        <ResourceDictionary Source="Notification.xaml"/>
+        <ResourceDictionary Source="FloatingBlock.xaml"/>
+        <ResourceDictionary Source="SplitButton.xaml"/>
+        <ResourceDictionary Source="Divider.xaml"/>
+        <ResourceDictionary Source="Poptip.xaml"/>
+        <ResourceDictionary Source="Drawer.xaml"/>
+        <ResourceDictionary Source="PinBox.xaml"/>
+        <ResourceDictionary Source="Separator.xaml"/>
+        <ResourceDictionary Source="StatusBar.xaml"/>
+        <ResourceDictionary Source="FlowDocument.xaml"/>
+        <ResourceDictionary Source="NavigationWindow.xaml"/>
+        <ResourceDictionary Source="Frame.xaml"/>
+        <ResourceDictionary Source="BlendEffectBox.xaml"/>
+        <ResourceDictionary Source="Screenshot.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

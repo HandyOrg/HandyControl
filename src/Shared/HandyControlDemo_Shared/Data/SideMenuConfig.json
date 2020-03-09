@@ -1,0 +1,120 @@
+[
+  {
+    "Header": "Overview",
+    "IconKey": "/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Overview.png",
+    "Items": [
+      {
+        "Header": "Summary",
+        "IconKey": "&#xf2cb;"
+      },
+      {
+        "Header": "Dashboards",
+        "IconKey": "&#xf246;"
+      },
+      {
+        "Header": "Wiki",
+        "IconKey": "&#xe82d;"
+      }
+    ]
+  },
+  {
+    "Header": "Boards",
+    "IconKey": "/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Boards.png",
+    "Items": [
+      {
+        "Header": "Work Items",
+        "IconKey": "&#xf314;"
+      },
+      {
+        "Header": "Boards",
+        "IconKey": "&#xf444;"
+      },
+      {
+        "Header": "Backlogs",
+        "IconKey": "&#xf6bf;"
+      },
+      {
+        "Header": "Sprints",
+        "IconKey": "&#xf3b0;"
+      },
+      {
+        "Header": "Queries",
+        "IconKey": "&#xf2b8;"
+      }
+    ]
+  },
+  {
+    "Header": "Repos",
+    "IconKey": "/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Repos.png",
+    "Items": [
+      {
+        "Header": "Files",
+        "IconKey": "&#xf30e;"
+      },
+      {
+        "Header": "Commits",
+        "IconKey": "&#xf293;"
+      },
+      {
+        "Header": "Pushes",
+        "IconKey": "&#xf298;"
+      },
+      {
+        "Header": "Branches",
+        "IconKey": "&#xebc2;"
+      },
+      {
+        "Header": "Tags",
+        "IconKey": "&#xe8ec;"
+      },
+      {
+        "Header": "Pull requests",
+        "IconKey": "&#xf296;"
+      }
+    ]
+  },
+  {
+    "Header": "Pipelines",
+    "IconKey": "/HandyControlDemo;component/Resources/Img/DevOps/DevOps-Pipelines.png",
+    "Items": [
+      {
+        "Header": "Builds",
+        "IconKey": "&#xf28f;"
+      },
+      {
+        "Header": "Releases",
+        "IconKey": "&#xf3b3;"
+      },
+      {
+        "Header": "Library",
+        "IconKey": "&#xe8f1;"
+      },
+      {
+        "Header": "Task groups",
+        "IconKey": "&#xf2ae;"
+      },
+      {
+        "Header": "Deployment groups",
+        "IconKey": "&#xf29d;"
+      }
+    ]
+  },
+  {
+    "Header": "Test Plans",
+    "IconKey": "/HandyControlDemo;component/Resources/Img/DevOps/DevOps-TestPlans.png",
+    "Items": [
+      {
+        "Header": "Test Plans",
+        "IconKey": "&#xf3ab;"
+      },
+      {
+        "Header": "Runs",
+        "IconKey": "&#xf3ac;"
+      },
+      {
+        "Header": "Load test",
+        "IconKey": "&#xe8a9;"
+      }
+    ]
+  }
+]

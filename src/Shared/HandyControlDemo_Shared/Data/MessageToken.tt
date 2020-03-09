@@ -2,97 +2,6 @@
 <#@ import namespace="System.Collections.Generic"#>
 <#@ output extension=".cs" #>
 <# 
-var controlList = new List<string>
-{
-	"GrowlDemoCtl",
-	"LoadingDemoCtl",
-	"ImageBrowserDemoCtl",
-	"ColorPickerDemoCtl",
-	"CarouselDemoCtl",
-	"CompareSliderDemoCtl",
-	"TimeBarDemoCtl",
-	"PaginationDemoCtl",
-	"AnimationPathDemoCtl",
-	"StepBarDemoCtl",
-	"ClockDemoCtl",
-	"TimePickerDemoCtl",
-	"CirclePanelDemoCtl",
-	"NumericUpDownDemoCtl",
-	"WindowDemoCtl",
-	"ScrollViewerDemoCtl",
-	"PreviewSliderDemoCtl",
-	"ProgressBarDemoCtl",
-	"TextBoxDemoCtl",
-	"ComboBoxDemoCtl",
-	"PasswordBoxDemoCtl",
-	"DatePickerDemoCtl",
-	"DateTimePickerDemoCtl",
-	"CalendarWithClockDemoCtl",
-	"SearchBarDemoCtl",
-	"TagDemoCtl",
-	"GifImageDemoCtl",
-	"OutlineTextDemoCtl",
-	"FlipClockDemoCtl",
-	"QQGroupView",
-	"BlurWindow",
-	"NoNonClientAreaDragableWindow",
-	"RateDemoCtl",
-	"ShieldDemoCtl",
-	"WaterfallPanelDemoCtl",
-	"CoverViewDemoCtl",
-	"CoverFlowDemoCtl",
-	"ProgressButtonDemoCtl",
-	"TransferDemoCtl",
-	"ChatBubbleDemoCtl",
-	"GotoTopDemoCtl",
-	"NotifyIconDemoCtl",
-	"BadgeDemoCtl",
-	"GravatarDemoCtl",
-	"DialogDemoCtl",
-	"SideMenuDemoCtl",
-	"GridDemoCtl",
-	"RangeSliderDemoCtl",
-	"ButtonGroupDemoCtl",
-	"CardDemoCtl",
-	"MagnifierDemoCtl",
-	"ImageBlockDemoCtl"
-};
-var styleList = new List<string>
-{
-	"ButtonDemoCtl",
-	"RepeatButtonDemoCtl",
-	"ToggleButtonDemoCtl",
-	"ExpanderDemoCtl",
-	"NativeProgressBarDemoCtl",
-	"TabControlDemoCtl",
-	"CalendarDemoCtl",
-	"NativeDatePickerDemoCtl",
-	"NativeTextBoxDemoCtl",
-	"TextBlockDemoCtl",
-	"NativeComboBoxDemoCtl",
-	"NativePasswordBoxDemoCtl",
-	"NativeTabControlDemoCtl",
-	"DataGridDemoCtl",
-	"CheckBoxDemoCtl",
-	"ListBoxDemoCtl",
-	"MenuDemoCtl",
-	"TreeViewDemoCtl",
-	"BorderDemoCtl",
-	"RadioButtonDemoCtl",
-	"NativeScrollViewerDemoCtl",
-	"BrushDemoCtl",
-	"SliderDemoCtl",
-	"GroupBoxDemoCtl",
-	"ListViewDemoCtl",
-	"RichTextBoxDemoCtl",
-	"ToolBarDemoCtl",
-	"LabelDemoCtl"
-};
-var windowList = new List<string>
-{
-	"CommonWindow",
-	"CustomNonClientAreaWindow"
-};
 var messageList = new List<string>
 {
 	"LoadShowContent",
@@ -103,28 +12,27 @@ var messageList = new List<string>
 	"GrowlDemoPanel",
 	"DialogDemoWindow",
 	"MainWindow",
-	"OverView",
+	"PracticalDemo",
 	"ProjectsView",
-	"BlogsView"
+	"BlogsView",
+	"WebsitesView",
+	"NotifyIconDemo",
+	"NotifyIconContextDemo",
+	"CommonWindow",
+	"BlurWindow",
+	"CustomNonClientAreaWindow",
+	"NoNonClientAreaDragableWindow",
+	"QQGroupView",
+	"GlowWindow",
+	"NativeCommonWindow",
+	"NavigationWindow"
 };
 #>
 namespace HandyControlDemo.Data
 {
 	public class MessageToken
     {
-    <#foreach(var item in controlList){#>
-    public static readonly string <#=item#> = nameof(<#=item#>);
-	
-    <#}#>
-<#foreach(var item in styleList){#>
-    public static readonly string <#=item#> = nameof(<#=item#>);
-
-    <#}#>
-<#foreach(var item in windowList){#>
-    public static readonly string <#=item#> = nameof(<#=item#>);
-
-    <#}#>
-<#foreach(var item in messageList){#>
+	<#foreach(var item in messageList){#>
     public static readonly string <#=item#> = nameof(<#=item#>);
 
     <#}#>

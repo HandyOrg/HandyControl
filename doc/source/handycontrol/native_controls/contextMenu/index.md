@@ -18,5 +18,5 @@ title: ContextMenu 上下文菜单
     </ContextMenu.ItemTemplate>
 </ContextMenu>
 {% endcode %}
-![ContextMenu](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/ContextMenu.png)
+![ContextMenu](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ContextMenu.png)
 {% endnote %}

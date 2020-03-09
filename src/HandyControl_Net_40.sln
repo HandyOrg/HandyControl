@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControl_Net_40", "Net_
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo_Net_40", "Net_40\HandyControlDemo_Net_40\HandyControlDemo_Net_40.csproj", "{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo_Code", "Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj", "{D8A4748C-0500-4F63-BC47-3506658C68F7}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 4
@@ -35,6 +37,10 @@ Global
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Debug|Any CPU.ActiveCfg = Debug-Net40|Any CPU
+		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Debug|Any CPU.Build.0 = Debug-Net40|Any CPU
+		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release|Any CPU.ActiveCfg = Release-Net40|Any CPU
+		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release|Any CPU.Build.0 = Release-Net40|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -44,6 +50,7 @@ Global
 		{C4694269-C9B8-45D5-87F8-D0088C532510} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A} = {763DABFC-950A-4965-97CB-15C59A928401}
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231} = {763DABFC-950A-4965-97CB-15C59A928401}
+		{D8A4748C-0500-4F63-BC47-3506658C68F7} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4636382-1A18-4079-A3E7-054DD970F179}

@@ -2,17 +2,11 @@
 title: 欢迎使用HandyControl
 ---
 
-HandyControl是一套WPF控件库，它几乎重写了所有原生样式，同时包含50多款额外的控件（正逐步增加）。
+HandyControl是一套WPF控件库，它几乎重写了所有原生样式，同时包含70余款自定义控件（正逐步增加）。
 
 # 要求
 
-- 使用要求
-.Net >= 4.0
-OS   >= win7
-
-- 编译要求
-IDE  >= vs2019
-C#   >= 7.3
+![dotnet-require](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![os-require](https://img.shields.io/badge/OS-%3E%3Dwin7-brightgreen) ![IDE-require](https://img.shields.io/badge/IDE-vs2019-blue.svg) ![csharp-require](https://img.shields.io/badge/C%23-8.0-blue.svg)
 
 # 下载
 
@@ -39,7 +33,7 @@ Github上一般每天都有更新，相对而言不适合用于生产。
 ## 整体结构
 
 从Github上克隆好源码后，进入src文件夹，该文件夹结构如下：
-![Project_Structure](images/Project_Structure.png)
+![Project_Structure](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/Project_Structure.png)
 
 这里一共有4个解决方案sln文件。
 
@@ -48,14 +42,14 @@ Github上一般每天都有更新，相对而言不适合用于生产。
 `Shared`文件夹用于存放共享项目的代码
 
 图中五个文件夹内部各包含两个子文件夹，例如在Shared中还包含两个子文件夹：
-![Sub_Folder_Structure](images/Sub_Folder_Structure.png)
+![Sub_Folder_Structure](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/Sub_Folder_Structure.png)
 
 它们分别存放控件源码和控件示例源码。
 
 ## 源码结构
 
-我们以HandyControl_Net_GE45.sln为示例进行说明，使用VS2017打开该解决方案：
-![Net_GE45_Structure](images/Net_GE45_Structure.png)
+我们以HandyControl.sln为示例进行说明，使用VS2019打开该解决方案：
+![Net_GE45_Structure](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/Net_GE45_Structure.png)
 
 如果要启动示例，查看控件效果，请将HandyControlDemo_[指定的项目类型]作为启动项。
 
@@ -82,10 +76,8 @@ Controls中的每个控件一般都能在Themes中找到对应的xaml定义。
 # 编译源码
 
 {% note warning %}
-编译前请确认你的开发环境是否符合使用要求。
+编译前请确认你的开发环境是否符合要求。
 {% endnote %}
 
-{% note info %}
 打开HandyControl.sln，在解决方案配置下拉框中选择指定的环境进行编译：
-![Build_Config](images/Build_Config.png)
-{% endnote %}
+![Build_Config](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/Build_Config.png)

@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -11,13 +10,11 @@ using HandyControl.Tools.Extension;
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = ElementVisualBrush, Type = typeof(VisualBrush))]
-    public class Magnifier : Control
+    public class Magnifier : AdornerElement
     {
+        private AdornerContainer _adornerContainer;
+
         private Size _viewboxSize;
-
-        private AdornerContainer _adorner;
-
-        private UIElement _elementTarget;
 
         private const string ElementVisualBrush = "PART_VisualBrush";
 
@@ -43,39 +40,7 @@ namespace HandyControl.Controls
             set => SetValue(VerticalOffsetProperty, value);
         }
 
-        public static readonly DependencyProperty InstanceProperty = DependencyProperty.RegisterAttached(
-            "Instance", typeof(Magnifier), typeof(Magnifier), new PropertyMetadata(default(Magnifier), OnMagnifierChanged));
-
-        private static void OnMagnifierChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (!(d is UIElement target)) return;
-            var magnifier = (Magnifier)e.NewValue;
-            magnifier.Target = target;
-        }
-
-        public static void SetInstance(DependencyObject element, Magnifier value)
-            => element.SetValue(InstanceProperty, value);
-
-        public static Magnifier GetInstance(DependencyObject element)
-            => (Magnifier) element.GetValue(InstanceProperty);
-
         public static Magnifier Default => new Magnifier();
-
-        internal static readonly DependencyProperty TargetProperty = DependencyProperty.Register(
-            "Target", typeof(UIElement), typeof(Magnifier), new PropertyMetadata(default(UIElement), OnTargetChanged));
-
-        private static void OnTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (Magnifier) d;
-            ctl.UpdateTarget(ctl._elementTarget, false);
-            ctl.UpdateTarget((UIElement)e.NewValue, true);
-        }
-
-        internal UIElement Target
-        {
-            get => (UIElement)GetValue(TargetProperty);
-            set => SetValue(TargetProperty, value);
-        }
 
         public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(
             "Scale", typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged), ValidateHelper.IsInRangeOfPosDouble);
@@ -111,8 +76,10 @@ namespace HandyControl.Controls
 
         private void UpdateViewboxSize() => _viewboxSize = new Size(ActualWidth / Scale, ActualHeight / Scale);
 
-        private void UpdateTarget(UIElement element , bool isNew)
+        protected sealed override void OnTargetChanged(FrameworkElement element , bool isNew)
         {
+            base.OnTargetChanged(element, isNew);
+
             if (element == null) return;
 
             if (!isNew)
@@ -120,16 +87,18 @@ namespace HandyControl.Controls
                 element.MouseEnter -= Element_MouseEnter;
                 element.MouseLeave -= Element_MouseLeave;
                 element.MouseMove -= Element_MouseMove;
-                _elementTarget = null;
+                ElementTarget = null;
             }
             else
             {
                 element.MouseEnter += Element_MouseEnter;
                 element.MouseLeave += Element_MouseLeave;
                 element.MouseMove += Element_MouseMove;
-                _elementTarget = element;
+                ElementTarget = element;
             }
         }
+
+        protected override void Dispose() => HideAdornerElement();
 
         private void UpdateLocation()
         {
@@ -140,33 +109,48 @@ namespace HandyControl.Controls
             var targetVector = VisualTreeHelper.GetOffset(Target);
             _visualBrush.Viewbox = new Rect(new Point(subX + targetVector.X, subY + targetVector.Y), _viewboxSize);
 
-            var adornerPoint = Mouse.GetPosition(_adorner);
+            var adornerPoint = Mouse.GetPosition(_adornerContainer);
             _translateTransform.X = adornerPoint.X + HorizontalOffset;
             _translateTransform.Y = adornerPoint.Y + VerticalOffset;
         }
 
         private void Element_MouseMove(object sender, MouseEventArgs e) => UpdateLocation();
 
-        private void Element_MouseLeave(object sender, MouseEventArgs e)
+        private void Element_MouseLeave(object sender, MouseEventArgs e) => HideAdornerElement();
+
+        private void Element_MouseEnter(object sender, MouseEventArgs e) => ShowAdornerElement();
+
+        private void HideAdornerElement()
         {
             var layer = AdornerLayer.GetAdornerLayer(Target);
-            if (layer == null) return;
-            layer.Remove(_adorner);
-            _adorner.Child = null;
-            _adorner = null;
+            if (layer != null)
+            {
+                layer.Remove(_adornerContainer);
+            }
+            else if(_adornerContainer != null && _adornerContainer.Parent is AdornerLayer parent)
+            {
+                parent.Remove(_adornerContainer);
+            }
+
+            if (_adornerContainer != null)
+            {
+                _adornerContainer.Child = null;
+                _adornerContainer = null;
+            }
         }
 
-        private void Element_MouseEnter(object sender, MouseEventArgs e)
+        private void ShowAdornerElement()
         {
-            if (_adorner == null)
+            if (_adornerContainer == null)
             {
                 var layer = AdornerLayer.GetAdornerLayer(Target);
                 if (layer == null) return;
-                _adorner = new AdornerContainer(layer)
+
+                _adornerContainer = new AdornerContainer(layer)
                 {
                     Child = this
                 };
-                layer.Add(_adorner);
+                layer.Add(_adornerContainer);
             }
             this.Show();
         }

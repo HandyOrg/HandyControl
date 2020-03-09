@@ -1,0 +1,13 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Base/FlowDocumentBaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style BasedOn="{StaticResource FlowDocumentScrollViewerBaseStyle}" TargetType="FlowDocumentScrollViewer"/>
+
+    <Style BasedOn="{StaticResource FlowDocumentPageViewerBaseStyle}" TargetType="FlowDocumentPageViewer"/>
+
+    <Style BasedOn="{StaticResource FlowDocumentReaderBaseStyle}" TargetType="FlowDocumentReader"/>
+    
+</ResourceDictionary>

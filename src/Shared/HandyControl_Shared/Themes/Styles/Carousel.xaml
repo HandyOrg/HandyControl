@@ -24,7 +24,36 @@
         <Setter Property="ItemContainerStyle" Value="{StaticResource CarouselListBoxItemStyle}"/>
     </Style>
 
+    <Style x:Key="CarouselPateButton" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
+        <Setter Property="Margin" Value="5,0"/>
+        <Setter Property="Width" Value="10"/>
+        <Setter Property="Height" Value="10"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border CornerRadius="5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value=".9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value=".6"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
     <Style TargetType="controls:Carousel" BasedOn="{StaticResource CarouselListBox}">
+        <Setter Property="PageButtonStyle" Value="{StaticResource CarouselPateButton}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:Carousel">
@@ -46,7 +75,7 @@
                     </ControlTemplate.Triggers>
                     <controls:SimplePanel ClipToBounds="True">
                         <ItemsPresenter x:Name="PART_ItemsControl" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Left"/>
-                        <controls:SimplePanel Name="GridTop" Opacity="0">
+                        <controls:SimplePanel x:Name="GridTop" Opacity="0">
                             <Button Command="interactivity:ControlCommands.Prev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonCustom}">
                                 <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
                                     <Path Margin="16" Fill="White" Style="{StaticResource LeftPathStyle}"/>

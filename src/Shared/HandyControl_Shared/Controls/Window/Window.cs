@@ -63,7 +63,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty NonClientAreaHeightProperty = DependencyProperty.Register(
             "NonClientAreaHeight", typeof(double), typeof(Window),
-            new PropertyMetadata(26.0));
+            new PropertyMetadata(22.0));
 
         public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
             "ShowNonClientArea", typeof(bool), typeof(Window),
@@ -80,8 +80,6 @@ namespace HandyControl.Controls
 
         private Thickness _actualBorderThickness;
 
-        private UIElement _nonClientArea;
-
         private bool _showNonClientArea = true;
 
         private double _tempNonClientAreaHeight;
@@ -91,6 +89,13 @@ namespace HandyControl.Controls
         private WindowStyle _tempWindowStyle;
 
         private ResizeMode _tempResizeMode;
+
+        private UIElement _nonClientArea;
+
+        static Window()
+        {
+            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(Application.Current.FindResource(ResourceToken.WindowWin10)));
+        }
 
         public Window()
         {
@@ -299,7 +304,7 @@ namespace HandyControl.Controls
                 _tempNonClientAreaHeight = NonClientAreaHeight;
                 NonClientAreaHeight += 8;
             }
-            else if (WindowState == WindowState.Normal)
+            else
             {
                 BorderThickness = _actualBorderThickness;
                 NonClientAreaHeight = _tempNonClientAreaHeight;

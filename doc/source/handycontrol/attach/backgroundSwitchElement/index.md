@@ -2,41 +2,43 @@
 title: BackgroundSwitchElement 可切换背景的元素
 ---
 
-# 准备工作
-添加`HandyControl`命名空间
-{% code %}
-xmlns:hc="https://handyorg.github.io/handycontrol"
-{% endcode %}
+# 属性
 
-## MouseHoverBackground `鼠标悬浮背景色`
+| 名称 | 用途 |
+|-|-|
+| MouseHoverBackground | 设置鼠标悬浮背景色 |
+| MouseDownBackground | 设置鼠标按下背景色 |
 
-该附加属性常用于设置控件在鼠标悬浮时的背景色，在控件的样式或者模板中我们添加如下的触发器代码：
+# 使用案例
 
-{% code %}
+## MouseHoverBackground 设置鼠标悬浮背景色
+
+在样式或模板中我们添加如下的触发器代码：
+
+```xml
 <Trigger Property="IsMouseOver" Value="True">
-    <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
+    <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(hc:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
 </Trigger>
-{% endcode %}
+```
 
-随后我们就可以使用该属性了：
+前台使用方式：
 
-{% code %}
-<目标控件  controls:BackgroundSwitchElement.MouseHoverBackground ="Blue"/>
-{% endcode %}
+```xml
+<目标控件  hc:BackgroundSwitchElement.MouseHoverBackground ="Blue"/>
+```
 
-## MouseDownBackground  `鼠标按下背景色`
+## MouseDownBackground  设置鼠标按下背景色
 
-该附加属性常用于设置控件在鼠标按下时的背景色，在控件的样式或者模板中我们添加如下的触发器代码：
+在样式或模板中我们添加如下的触发器代码：
 
-{% code %}
+```xml
 <Trigger Property="IsPressed" Value="True">
-    <Setter Property="Background" TargetName="Chrome" 
-    Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
+    <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(hc:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
 </Trigger>
-{% endcode %}
+```
 
-随后我们就可以使用该属性了：
+前台使用方式：
 
-{% code %}
-<目标控件 controls:BackgroundSwitchElement.MouseDownBackground ="Yellow"/>
-{% endcode %}
+```xml
+<目标控件 hc:BackgroundSwitchElement.MouseDownBackground ="Yellow"/>
+```

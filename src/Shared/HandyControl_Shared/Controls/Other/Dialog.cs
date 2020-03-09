@@ -109,7 +109,7 @@ namespace HandyControl.Controls
 
             if (string.IsNullOrEmpty(token))
             {
-                window = VisualHelper.GetActiveWindow();
+                window = WindowHelper.GetActiveWindow();
             }
             else
             {
@@ -146,7 +146,7 @@ namespace HandyControl.Controls
         {
             if (string.IsNullOrEmpty(_token))
             {
-                Close(VisualHelper.GetActiveWindow());
+                Close(WindowHelper.GetActiveWindow());
             }
             else if (WindowDic.TryGetValue(_token, out var window))
             {

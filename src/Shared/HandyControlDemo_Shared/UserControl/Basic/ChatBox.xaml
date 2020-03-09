@@ -16,7 +16,7 @@
             <RowDefinition/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        <ListBox ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False"  Background="Transparent" hc:ChatBubble.MaxWidth="300" BorderThickness="0" Style="{StaticResource StackPanelVerticalListBox}" ItemsSource="{Binding ChatInfos}">
+        <ListBox Name="ListBoxChat" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False" Background="Transparent" hc:ChatBubble.MaxWidth="300" BorderThickness="0" Style="{StaticResource StackPanelVerticalListBox}" ItemsSource="{Binding ChatInfos}">
             <hc:Interaction.Triggers>
                 <hc:RoutedEventTrigger RoutedEvent="hc:ChatBubble.Selected">
                     <hc:EventToCommand Command="{Binding ReadMessageCmd}" PassEventArgsToCommand="True" />

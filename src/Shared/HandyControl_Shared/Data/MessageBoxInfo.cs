@@ -4,7 +4,7 @@ namespace HandyControl.Data
 {
     public class MessageBoxInfo
     {
-        public string MessageBoxText { get; set; }
+        public string Message { get; set; }
 
         public string Caption { get; set; }
 
@@ -16,6 +16,6 @@ namespace HandyControl.Data
 
         public MessageBoxResult DefaultResult { get; set; } = MessageBoxResult.None;
 
-        public Style Style { get; set; }
+        public string StyleKey { get; set; }
     }
 }

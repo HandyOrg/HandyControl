@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Windows;
-using GalaSoft.MvvmLight;
 using HandyControl.Controls;
 using HandyControl.Data;
+using HandyControlDemo.Data;
+using HandyControlDemo.Service;
 #if netle40
 using GalaSoft.MvvmLight.Command;
 #else
@@ -11,8 +12,10 @@ using GalaSoft.MvvmLight.CommandWpf;
 
 namespace HandyControlDemo.ViewModel
 {
-    public class TabControlDemoViewModel : ViewModelBase
+    public class TabControlDemoViewModel : DemoViewModelBase<TabControlDemoModel>
     {
+        public TabControlDemoViewModel(DataService dataService) => DataList = dataService.GetTabControlDemoDataList();
+
         public RelayCommand<CancelRoutedEventArgs> ClosingCmd => new Lazy<RelayCommand<CancelRoutedEventArgs>>(() =>
             new RelayCommand<CancelRoutedEventArgs>(Closing)).Value;
 

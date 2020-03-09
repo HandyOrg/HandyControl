@@ -390,6 +390,7 @@ namespace HandyControl.Controls
                     var start = Math.Max(Minimum, Math.Min(Maximum, snappedValue));
                     if (start > ValueEnd)
                     {
+                        SetCurrentValue(ValueStartProperty, ValueEnd);
                         SetCurrentValue(ValueEndProperty, start);
                         _track.ThumbStart.CancelDrag();
                         _track.ThumbEnd.StartDrag();
@@ -408,6 +409,7 @@ namespace HandyControl.Controls
                     var end = Math.Max(Minimum, Math.Min(Maximum, snappedValue));
                     if (end < ValueStart)
                     {
+                        SetCurrentValue(ValueEndProperty, ValueStart);
                         SetCurrentValue(ValueStartProperty, end);
                         _track.ThumbEnd.CancelDrag();
                         _track.ThumbStart.StartDrag();
@@ -630,7 +632,6 @@ namespace HandyControl.Controls
         {
             if (_thumbCurrent == null) return;
             if (e.MouseDevice.LeftButton != MouseButtonState.Pressed) return;
-
             if (!_thumbCurrent.IsDragging) return;
 
             var thumbCoordPosition = e.GetPosition(_thumbCurrent);

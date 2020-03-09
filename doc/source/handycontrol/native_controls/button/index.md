@@ -24,7 +24,7 @@ title: Button 按钮
     <Button Content="这是一个按钮" Margin="10,0,0,0" controls:IconElement.Geometry="{StaticResource GithubGeometry}"/>
 </StackPanel>
 {% endcode %}
-![ButtonBaseStyle](../images/ButtonBaseStyle_1.png)
+![ButtonBaseStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ButtonBaseStyle_1.png)
 {% endnote %}
 
 # ButtonPrimary : ButtonBaseStyle
@@ -41,7 +41,7 @@ title: Button 按钮
     <Button Style="{StaticResource ButtonPrimary}" Content="这是一个按钮" Margin="10,0,0,0" controls:IconElement.Geometry="{StaticResource GithubGeometry}"/>
 </StackPanel>
 {% endcode %}
-![ButtonPrimary](../images/ButtonPrimary_1.png)
+![ButtonPrimary](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ButtonPrimary_1.png)
 {% endnote %}
 
 # ButtonSuccess : ButtonBaseStyle
@@ -58,7 +58,7 @@ title: Button 按钮
     <Button Style="{StaticResource ButtonSuccess}" Content="这是一个按钮" Margin="10,0,0,0" controls:IconElement.Geometry="{StaticResource GithubGeometry}"/>
 </StackPanel>
 {% endcode %}
-![ButtonSuccess](../images/ButtonSuccess_1.png)
+![ButtonSuccess](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ButtonSuccess_1.png)
 {% endnote %}
 
 # ButtonInfo : ButtonBaseStyle
@@ -75,7 +75,7 @@ title: Button 按钮
     <Button Style="{StaticResource ButtonInfo}" Content="这是一个按钮" Margin="10,0,0,0" controls:IconElement.Geometry="{StaticResource GithubGeometry}"/>
 </StackPanel>
 {% endcode %}
-![ButtonInfo](../images/ButtonInfo_1.png)
+![ButtonInfo](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ButtonInfo_1.png)
 {% endnote %}
 
 # ButtonWarning : ButtonBaseStyle
@@ -92,7 +92,7 @@ title: Button 按钮
     <Button Style="{StaticResource ButtonWarning}" Content="这是一个按钮" Margin="10,0,0,0" controls:IconElement.Geometry="{StaticResource GithubGeometry}"/>
 </StackPanel>
 {% endcode %}
-![ButtonWarning](../images/ButtonWarning_1.png)
+![ButtonWarning](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ButtonWarning_1.png)
 {% endnote %}
 
 # ButtonDanger : ButtonBaseStyle
@@ -109,7 +109,7 @@ title: Button 按钮
     <Button Style="{StaticResource ButtonDanger}" Content="这是一个按钮" Margin="10,0,0,0" controls:IconElement.Geometry="{StaticResource GithubGeometry}"/>
 </StackPanel>
 {% endcode %}
-![ButtonDanger](../images/ButtonDanger_1.png)
+![ButtonDanger](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ButtonDanger_1.png)
 {% endnote %}
 
 # ButtonIcon : ButtonBaseStyle
@@ -126,7 +126,7 @@ title: Button 按钮
     <Button Style="{StaticResource ButtonIcon}" BorderThickness="1" BorderBrush="Black" Foreground="Black" controls:IconElement.Geometry="{StaticResource UpDownGeometry}" Margin="10,0,0,0"/>
 </StackPanel>
 {% endcode %}
-![ButtonIcon](../images/ButtonIcon_1.png)
+![ButtonIcon](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ButtonIcon_1.png)
 {% endnote %}
 
 # ButtonCustom
@@ -139,5 +139,5 @@ title: Button 按钮
 {% code %}
 <Button Height="30" Padding="10,0" Background="Black" Foreground="White" Content="这是一个按钮" Style="{StaticResource ButtonCustom}" controls:BackgroundSwitchElement.MouseHoverBackground="Red" controls:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
 {% endcode %}
-![ButtonCustom](../images/ButtonCustom_1.gif)
+![ButtonCustom](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ButtonCustom_1.gif)
 {% endnote %}

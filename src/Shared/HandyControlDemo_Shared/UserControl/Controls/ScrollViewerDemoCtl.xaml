@@ -13,7 +13,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Border BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
-                <hc:ScrollViewer Orientation="Horizontal" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" IsEnableInertia="True">
+                <hc:ScrollViewer Orientation="Horizontal" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" IsInertiaEnabled="True">
                     <StackPanel Orientation="Horizontal">
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
@@ -44,7 +44,7 @@
                 </hc:ScrollViewer>
             </Border>
             <Border Grid.Row="1" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,16,0,0">
-                <hc:ScrollViewer IsEnableInertia="True">
+                <hc:ScrollViewer IsInertiaEnabled="True">
                     <WrapPanel Orientation="Horizontal">
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">

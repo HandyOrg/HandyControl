@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
+using HandyControlDemo.Data;
+using HandyControlDemo.ViewModel;
 
 
 namespace HandyControlDemo.UserControl
@@ -16,70 +18,44 @@ namespace HandyControlDemo.UserControl
         public LeftMainContent()
         {
             InitializeComponent();
-
-            /*You have to ask me why I made Border special.
-             What drives me crazy is that if you don't do this, 
-             the content of ListBoxItemBorder will always be 1 ! 
-             How amazing!
-             I wish someone could tell me why. */
-            ListBoxItemBorder.Content = Properties.Langs.Lang.Border;
         }
 
         private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count == 0) return;
-            if (e.AddedItems[0] is TabItem tabItem && tabItem.Content is ListBox listBox)
+            if (e.AddedItems[0] is DemoInfoModel demoInfo)
             {
-                if (listBox.SelectedItem != null)
+                ViewModelLocator.Instance.Main.DemoInfoCurrent = demoInfo;
+                var selectedIndex = demoInfo.SelectedIndex;
+                demoInfo.SelectedIndex = -1;
+                demoInfo.SelectedIndex = selectedIndex;
+            }
+        }
+
+        private void ButtonAscending_OnClick(object sender, RoutedEventArgs e)
+        {
+            if (sender is ToggleButton button && button.Tag is ItemsControl itemsControl)
+            {
+                if (button.IsChecked == true)
                 {
-                    var item = listBox.SelectedItem;
-                    listBox.SelectedIndex = -1;
-                    listBox.SelectedItem = item;
+                    itemsControl.Items.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
+                }
+                else
+                {
+                    itemsControl.Items.SortDescriptions.Clear();
                 }
             }
         }
 
-        private void ButtonStyleAscending_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (ButtonStyleAscending.IsChecked == true)
-            {
-                ListBoxStyle.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
-            }
-            else
-            {
-                ListBoxStyle.Items.SortDescriptions.Clear();
-            }
-        }
-
-        private void ButtonControlAscending_OnClick(object sender, RoutedEventArgs e)
-        {
-            if (ButtonControlAscending.IsChecked == true)
-            {
-                ListBoxControl.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
-            }
-            else
-            {
-                ListBoxControl.Items.SortDescriptions.Clear();
-            }
-        }
-
-        private void SearchBarStyle_OnSearchStarted(object sender, FunctionEventArgs<string> e)
+        private void SearchBar_OnSearchStarted(object sender, FunctionEventArgs<string> e)
         {
             if (e.Info == null) return;
-
-            foreach (var listBoxItem in ListBoxStyle.Items.OfType<ListBoxItem>())
+            if (!(sender is FrameworkElement searchBar && searchBar.Tag is ListBox listBox)) return;
+            foreach (DemoItemModel item in listBox.Items)
             {
-                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
-            }
-        }
-
-        private void SearchBarControl_OnSearchStarted(object sender, FunctionEventArgs<string> e)
-        {
-            if (e.Info == null) return;
-
-            foreach (var listBoxItem in ListBoxControl.Items.OfType<ListBoxItem>())
-            {
-                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()));
+                var listBoxItem = listBox.ItemContainerGenerator.ContainerFromItem(item) as ListBoxItem;
+                listBoxItem?.Show(item.Name.ToLower().Contains(e.Info.ToLower()) ||
+                                  item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(e.Info.ToLower()));
             }
         }
     }

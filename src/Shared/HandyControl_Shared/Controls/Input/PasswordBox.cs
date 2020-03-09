@@ -60,8 +60,6 @@ namespace HandyControl.Controls
 
         private SecureString _password;
 
-        private char _passwordChar;
-
         private System.Windows.Controls.TextBox _textBox;
 
         public PasswordBox()
@@ -222,12 +220,6 @@ namespace HandyControl.Controls
                             _password.Clear();
                         }
                     }
-                }
-
-                if (_passwordChar != default(char))
-                {
-                    ActualPasswordBox.PasswordChar = _passwordChar;
-                    _passwordChar = default(char);
                 }
             }
 
