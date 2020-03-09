@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("HandyControl_VS2019")]
-[assembly: AssemblyCopyright("Copyright © HandyOrg 2018-2019")]
+[assembly: AssemblyCopyright("Copyright © HandyOrg 2018-2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

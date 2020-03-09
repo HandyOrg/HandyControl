@@ -264,7 +264,6 @@
         </Setter>
     </Style>
 
-
     <!--ButtonGroup-->
     <Style x:Key="ToggleButtonGroupItemDefault" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton"/>
 

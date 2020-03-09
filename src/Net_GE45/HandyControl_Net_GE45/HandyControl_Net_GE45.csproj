@@ -112,8 +112,8 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\NetAssemblyInfo.cs">
+      <Link>Properties\NetAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.Designer.cs">
       <Link>Properties\Langs\Lang.Designer.cs</Link>
@@ -184,8 +184,17 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\BrightnessEffect.ps">
+      <Link>Resources\Effects\BrightnessEffect.ps</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ColorComplementEffect.ps">
       <Link>Resources\Effects\ColorComplementEffect.ps</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ColorMatrixEffect.ps">
+      <Link>Resources\Effects\ColorMatrixEffect.ps</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ContrastEffect.ps">
+      <Link>Resources\Effects\ContrastEffect.ps</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\GrayScaleEffect.ps">
       <Link>Resources\Effects\GrayScaleEffect.ps</Link>

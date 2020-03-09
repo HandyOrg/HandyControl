@@ -42,6 +42,19 @@ namespace HandyControl.Tools.Interop
             NIIF_INFO = 0x00000001,
             NIIF_WARNING = 0x00000002,
             NIIF_ERROR = 0x00000003,
+            WM_ACTIVATE = 0x0006,
+            WM_QUIT = 0x0012,
+            WM_WINDOWPOSCHANGING = 0x0046,
+            WM_WINDOWPOSCHANGED = 0x0047,
+            WM_SETICON = 0x0080,
+            WM_NCCREATE = 0x0081,
+            WM_NCDESTROY = 0x0082,
+            WM_NCACTIVATE = 0x0086,
+            WM_NCRBUTTONDOWN = 0x00A4,
+            WM_NCRBUTTONUP = 0x00A5,
+            WM_NCRBUTTONDBLCLK = 0x00A6,
+            WM_NCUAHDRAWCAPTION = 0x00AE,
+            WM_NCUAHDRAWFRAME = 0x00AF,
             WM_KEYDOWN = 0x0100,
             WM_KEYUP = 0x0101,
             WM_SYSKEYDOWN = 0x0104,
@@ -53,6 +66,7 @@ namespace HandyControl.Tools.Interop
             WM_RBUTTONUP = 0x0205,
             WM_CLIPBOARDUPDATE = 0x031D,
             WM_USER = 0x0400,
+            WS_VISIBLE = 0x10000000,
             MF_BYPOSITION = 0x400,
             MF_SEPARATOR = 0x800,
             TB_GETBUTTON = WM_USER + 23,
@@ -61,7 +75,13 @@ namespace HandyControl.Tools.Interop
             VERTRES = 10,
             DESKTOPVERTRES = 117,
             LOGPIXELSX = 88,
-            LOGPIXELSY = 90;
+            LOGPIXELSY = 90,
+            SC_SIZE = 0xF000,
+            SC_MOVE = 0xF010,
+            SC_MINIMIZE = 0xF020,
+            SC_MAXIMIZE = 0xF030,
+            SC_RESTORE = 0xF120,
+            SRCCOPY = 0x00CC0020;
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         internal class NOTIFYICONDATA
@@ -193,6 +213,14 @@ namespace HandyControl.Tools.Interop
             public int Right;
             public int Bottom;
 
+            public RECT(int left, int top, int right, int bottom)
+            {
+                Left = left;
+                Top = top;
+                Right = right;
+                Bottom = bottom;
+            }
+
             public RECT(Rect rect)
             {
                 Left = (int)rect.Left;
@@ -230,7 +258,7 @@ namespace HandyControl.Tools.Interop
             STYLE = -16,
             EXSTYLE = -20
         }
-        
+
         internal enum GWLP
         {
             WNDPROC = -4,
@@ -557,6 +585,21 @@ namespace HandyControl.Tools.Interop
             [MarshalAs(UnmanagedType.LPWStr)]
             public string lpszMenuName;
             [MarshalAs(UnmanagedType.LPWStr)]
+            public string lpszClassName;
+        }
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
+        internal class WNDCLASS4ICON
+        {
+            public int style;
+            public WndProc lpfnWndProc;
+            public int cbClsExtra;
+            public int cbWndExtra;
+            public IntPtr hInstance;
+            public IntPtr hIcon;
+            public IntPtr hCursor;
+            public IntPtr hbrBackground;
+            public string lpszMenuName;
             public string lpszClassName;
         }
 

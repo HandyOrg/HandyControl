@@ -23,13 +23,46 @@ namespace HandyControl.Controls
 
         private int _blockHeight;
 
+        private bool _isDisposed;
+
         public ImageBlock()
         {
             _dispatcherTimer = new DispatcherTimer(DispatcherPriority.Render)
             {
                 Interval = Interval
             };
-            _dispatcherTimer.Tick += DispatcherTimer_Tick;
+
+            IsVisibleChanged += ImageBlock_IsVisibleChanged;
+        }
+
+        ~ImageBlock() => Dispose();
+
+        public void Dispose()
+        {
+            if (_isDisposed) return;
+
+            IsVisibleChanged -= ImageBlock_IsVisibleChanged;
+            _dispatcherTimer.Stop();
+            _isDisposed = true;
+
+            GC.SuppressFinalize(this);
+        }
+
+        private void ImageBlock_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if(IsVisible)
+            {
+                _dispatcherTimer.Tick += DispatcherTimer_Tick;
+                if (IsPlaying)
+                {
+                    _dispatcherTimer.Start();
+                }
+            }
+            else
+            {
+                _dispatcherTimer.Stop();
+                _dispatcherTimer.Tick -= DispatcherTimer_Tick;
+            }
         }
 
         private void UpdateDatas()

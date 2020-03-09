@@ -18,7 +18,7 @@
 
         public static readonly string MainWindow = nameof(MainWindow);
 
-        public static readonly string OverView = nameof(OverView);
+        public static readonly string PracticalDemo = nameof(PracticalDemo);
 
         public static readonly string ProjectsView = nameof(ProjectsView);
 
@@ -41,6 +41,10 @@
         public static readonly string QQGroupView = nameof(QQGroupView);
 
         public static readonly string GlowWindow = nameof(GlowWindow);
+
+        public static readonly string NativeCommonWindow = nameof(NativeCommonWindow);
+
+        public static readonly string NavigationWindow = nameof(NavigationWindow);
 
     }
 }

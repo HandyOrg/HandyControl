@@ -98,6 +98,14 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### Screenshot
+
+![Screenshot](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Screenshot.png)
+
+### GooeyEffect
+
+![GooeyEffect](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GooeyEffect.gif)
+
 ### GlowWindow
 
 ![GlowWindow](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GlowWindow.png)
@@ -110,6 +118,8 @@ Step 4：enjoy coding
 
 ![PinBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PinBox.png)
 
+## History publication
+
 ### Effects
 
 ![Effects](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Effects.png)
@@ -117,8 +127,6 @@ Step 4：enjoy coding
 ### RelativePanel
 
 ![RelativePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/RelativePanel.png)
-
-## History publication
 
 ### Drawer
 

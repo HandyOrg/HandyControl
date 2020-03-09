@@ -26,29 +26,42 @@ namespace HandyControl.Tools
 
         private static readonly IntPtr SyskeyUpIntPtr = (IntPtr)InteropValues.WM_SYSKEYUP;
 
+        private static int Count;
+
         public static void Start()
         {
+            if (HookId == IntPtr.Zero)
+            {
+                HookId = SetHook(Proc);
+            }
+
             if (HookId != IntPtr.Zero)
             {
-                Stop();
+                Count++;
             }
-            HookId = SetHook(Proc);
         }
 
-        public static void Stop() => InteropMethods.UnhookWindowsHookEx(HookId);
+        public static void Stop()
+        {
+            Count--;
+            if (Count < 1)
+            {
+                InteropMethods.UnhookWindowsHookEx(HookId);
+                HookId = IntPtr.Zero;
+            }
+        }
 
         private static IntPtr SetHook(InteropValues.HookProc proc)
         {
-            using (var curProcess = Process.GetCurrentProcess())
-            using (var curModule = curProcess.MainModule)
+            using var curProcess = Process.GetCurrentProcess();
+            using var curModule = curProcess.MainModule;
+            
+            if (curModule != null)
             {
-                if (curModule != null)
-                {
-                    return InteropMethods.SetWindowsHookEx((int)InteropValues.HookType.WH_KEYBOARD_LL, proc,
-                        InteropMethods.GetModuleHandle(curModule.ModuleName), 0);
-                }
-                return IntPtr.Zero;
+                return InteropMethods.SetWindowsHookEx((int)InteropValues.HookType.WH_KEYBOARD_LL, proc,
+                    InteropMethods.GetModuleHandle(curModule.ModuleName), 0);
             }
+            return IntPtr.Zero;
         }
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)

@@ -373,10 +373,12 @@ namespace HandyControlDemo.Service
             var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonStr);
             foreach (var item in jsonObj)
             {
-                var title = Properties.Langs.Lang.ResourceManager.GetString((string)item.title);
+                var titleKey = (string) item.title;
+                var title = Properties.Langs.Lang.ResourceManager.GetString(titleKey);
                 var list = Convert2DemoItemList(item.demoItemList);
                 infoList.Add(new DemoInfoModel
                 {
+                    Key = titleKey,
                     Title = title,
                     DemoItemList = list
                 });

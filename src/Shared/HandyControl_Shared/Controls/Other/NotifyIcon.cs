@@ -93,10 +93,7 @@ namespace HandyControl.Controls
             if (Application.Current != null) Application.Current.Exit += (s, e) => Dispose();
         }
 
-        ~NotifyIcon()
-        {
-            Dispose(false);
-        }
+        ~NotifyIcon() => Dispose(false);
 
         public void Init()
         {
@@ -530,7 +527,7 @@ namespace HandyControl.Controls
         private void RegisterClass()
         {
             _windowClassName = $"HandyControl.Controls.NotifyIcon{Guid.NewGuid()}";
-            var wndclass = new InteropValues.WNDCLASS
+            var wndclass = new InteropValues.WNDCLASS4ICON
             {
                 style = 0,
                 lpfnWndProc = _callback,

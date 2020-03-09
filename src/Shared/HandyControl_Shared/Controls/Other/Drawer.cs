@@ -68,6 +68,26 @@ namespace HandyControl.Controls
             }
         }
 
+        public static readonly RoutedEvent OpenedEvent =
+            EventManager.RegisterRoutedEvent("Opened", RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler), typeof(Drawer));
+
+        public event RoutedEventHandler Opened
+        {
+            add => AddHandler(OpenedEvent, value);
+            remove => RemoveHandler(OpenedEvent, value);
+        }
+
+        public static readonly RoutedEvent ClosedEvent =
+            EventManager.RegisterRoutedEvent("Closed", RoutingStrategy.Bubble,
+                typeof(RoutedEventHandler), typeof(Drawer));
+
+        public event RoutedEventHandler Closed
+        {
+            add => AddHandler(ClosedEvent, value);
+            remove => RemoveHandler(ClosedEvent, value);
+        }
+
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
             "IsOpen", typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsOpenChanged));
 
@@ -217,6 +237,11 @@ namespace HandyControl.Controls
             {
                 _windowContentElement.SetCurrentValue(RenderTransformOriginProperty, _contentRenderTransformOrigin);
                 _layer.Remove(_container);
+                RaiseEvent(new RoutedEventArgs(ClosedEvent, this));
+            }
+            else
+            {
+                RaiseEvent(new RoutedEventArgs(OpenedEvent, this));
             }
         }
 
@@ -284,7 +309,6 @@ namespace HandyControl.Controls
                 Storyboard.SetTargetProperty(drawerAnimation, new PropertyPath(_animationPropertyName));
                 _storyboard.Children.Add(drawerAnimation);
             }
-
             _storyboard.Begin();
         }
 

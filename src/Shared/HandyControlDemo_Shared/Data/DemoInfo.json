@@ -26,10 +26,12 @@
       [ "GroupBox", "GroupBoxDemoCtl", "GroupBox_16x", "" ],
       [ "Menu", "MenuDemoCtl", "ContextMenu_16x", "" ],
       [ "RichTextBox", "RichTextBoxDemoCtl", "RichTextBox_16x", "" ],
-      [ "FlowDocumentScrollViewer", "FlowDocumentScrollViewerDemoCtl", "WPFFlowDocument_16x", "1" ],
+      [ "FlowDocument", "FlowDocumentDemoCtl", "WPFFlowDocument_16x", "1" ],
       [ "ToolBar", "ToolBarDemoCtl", "ToolBar_16x", "" ],
       [ "Border", "BorderDemoCtl", "BorderElement_16x", "" ],
-      [ "Label", "LabelDemoCtl", "Label_16x", "" ]
+      [ "Label", "LabelDemoCtl", "Label_16x", "" ],
+	  [ "Frame", "FrameDemoCtl", "frame_16xLG", "1" ],
+	  [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "1" ]
     ]
   },
   {
@@ -70,7 +72,7 @@
       [ "Divider", "DividerDemoCtl", "DottedSplitter_16x", "" ],
       [ "CirclePanel", "CirclePanelDemoCtl", "ColorWheel_16x", "" ],
       [ "Grid", "GridDemoCtl", "GridPane_16x", "" ],
-      [ "RelativePanel", "RelativePanelDemoCtl", "TransformRelative_16x", "1" ],
+      [ "RelativePanel", "RelativePanelDemoCtl", "TransformRelative_16x", "" ],
       [ "WaterfallPanel", "WaterfallPanelDemoCtl", "Panel_16x", "" ],
       [ "HoneycombPanel", "HoneycombPanelDemoCtl", "PolygonHexagon_16x", "" ],
       [ "TransitioningContentControl", "TransitioningContentControlDemoCtl", "TransitioningContentControl_16x", "" ],
@@ -96,6 +98,7 @@
       [ "Sprite", "SpriteDemoCtl", "HandyControl", "" ],
       [ "Notification", "NotificationDemoCtl", "Procedure_16x", "" ],
       [ "Dialog", "DialogDemoCtl", "Dialog_16x", "" ],
+      [ "Screenshot", "ScreenshotDemoCtl", "WindowScreenshot_16x", "1" ],
       [ "Window", "WindowDemoCtl", "WindowsForm_16x", "1" ]
     ]
   },
@@ -104,7 +107,7 @@
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemoCtl", "DataGenerator_16x", "" ],
       [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "" ],
-      [ "Effects", "EffectsDemoCtl", "Effects_16x", "1" ]
+      [ "Effects", "EffectsDemoCtl", "Effects_16x", "" ]
     ]
   }
 ]

@@ -6,16 +6,16 @@
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center" Width="240">
-            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
+            <Expander Header="{x:Static langs:Lang.Title}">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
-            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
+            <Expander Margin="0,4,0,0" Header="{x:Static langs:Lang.Title}">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
-            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1,1,1,0" BorderBrush="{DynamicResource BorderBrush}">
+            <Expander Margin="0,4,0,0" Header="{x:Static langs:Lang.Title}">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
-            <Expander Header="{x:Static langs:Lang.Title}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
+            <Expander Margin="0,4,0,0" Header="{x:Static langs:Lang.Title}">
                 <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
             </Expander>
         </StackPanel>

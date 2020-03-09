@@ -21,9 +21,15 @@ title: 国际化
 
 # 扩展
 
-控件库自带的语言包包括简体中文（zh-cn）、英文（en）、波斯语（fa）、法语（fr），默认为简体中文（zh-cn）：
+控件库自带的语言包包括：
 
-![Langs](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/langs/Langs.png)
+* 简体中文（zh-cn）
+* 英文（en）
+* 波斯语（fa）
+* 法语（fr）
+* 韩文 （ko-kr）
+
+默认为简体中文（zh-cn）。
 
 如果需要可自行扩展，这里推荐使用开源插件：[ResXManager](https://marketplace.visualstudio.com/items?itemName=TomEnglert.ResXManager)，来维护所有的语言包。
 

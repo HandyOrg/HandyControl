@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.NativeWindowDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:data="clr-namespace:HandyControlDemo.Data"
+             DataContext="{Binding WindowDemo,Source={StaticResource Locator}}"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <UniformGrid Margin="32" Columns="3" Rows="3" Height="200">
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NativeCommonWindow}" Content="{x:Static langs:Lang.OpenNativeCommonWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NavigationWindow}" Content="{x:Static langs:Lang.OpenNavigationWindow}"/>
+        </UniformGrid>
+    </hc:TransitioningContentControl>
+</UserControl>

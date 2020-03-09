@@ -2,7 +2,7 @@
 title: 欢迎使用HandyControl
 ---
 
-HandyControl是一套WPF控件库，它几乎重写了所有原生样式，同时包含60余款自定义控件（正逐步增加）。
+HandyControl是一套WPF控件库，它几乎重写了所有原生样式，同时包含70余款自定义控件（正逐步增加）。
 
 # 要求
 
