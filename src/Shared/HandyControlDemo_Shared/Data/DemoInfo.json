@@ -26,9 +26,12 @@
       [ "GroupBox", "GroupBoxDemoCtl", "GroupBox_16x", "" ],
       [ "Menu", "MenuDemoCtl", "ContextMenu_16x", "" ],
       [ "RichTextBox", "RichTextBoxDemoCtl", "RichTextBox_16x", "" ],
+      [ "FlowDocument", "FlowDocumentDemoCtl", "WPFFlowDocument_16x", "1" ],
       [ "ToolBar", "ToolBarDemoCtl", "ToolBar_16x", "" ],
       [ "Border", "BorderDemoCtl", "BorderElement_16x", "" ],
-      [ "Label", "LabelDemoCtl", "Label_16x", "" ]
+      [ "Label", "LabelDemoCtl", "Label_16x", "" ],
+	  [ "Frame", "FrameDemoCtl", "frame_16xLG", "1" ],
+	  [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "1" ]
     ]
   },
   {
@@ -40,16 +43,17 @@
       [ "Gravatar", "GravatarDemoCtl", "User_16x", "" ],
       [ "Badge", "BadgeDemoCtl", "DotLarge_16x", "" ],
       [ "GotoTop", "GotoTopDemoCtl", "GoToTop_16x", "" ],
-      [ "SplitButton", "SplitButtonDemoCtl", "SplitButton_16x", "1" ],
+      [ "SplitButton", "SplitButtonDemoCtl", "SplitButton_16x", "" ],
       [ "ButtonGroup", "ButtonGroupDemoCtl", "ButtonGroup_16x", "" ],
       [ "ProgressButton", "ProgressButtonDemoCtl", "ProgressButton_16x", "" ],
       [ "ChatBubble", "ChatBubbleDemoCtl", "Bubble_16xLG", "" ],
-      [ "Poptip", "PoptipDemoCtl", "PopupCursor_16x", "1" ],
+      [ "Poptip", "PoptipDemoCtl", "PopupCursor_16x", "" ],
       [ "NotifyIcon", "NotifyIconDemoCtl", "NotificationHub_16x", "" ],
       [ "NumericUpDown", "NumericUpDownDemoCtl", "NumericListBox_16x", "" ],
       [ "TextBox", "TextBoxDemoCtl", "TextBox_16x", "" ],
       [ "ComboBox", "ComboBoxDemoCtl", "ComboBox_16x", "" ],
       [ "PasswordBox", "PasswordBoxDemoCtl", "PasswordBox_16x", "" ],
+      [ "PinBox", "PinBoxDemoCtl", "Ellipsis_16x", "1" ],
       [ "DatePicker", "DatePickerDemoCtl", "DatePicker_16x", "" ],
       [ "Clock", "ClockDemoCtl", "Time_color_16x", "" ],
       [ "TimePicker", "TimePickerDemoCtl", "TimePicker_16x", "" ],
@@ -65,13 +69,14 @@
       [ "OutlineText", "OutlineTextDemoCtl", "TextBlock_16x", "" ],
       [ "RunningBlock", "RunningBlockDemoCtl", "Dynamic_16x", "" ],
       [ "Card", "CardDemoCtl", "VSO_Card_16x", "" ],
-      [ "Divider", "DividerDemoCtl", "DottedSplitter_16x", "1" ],
+      [ "Divider", "DividerDemoCtl", "DottedSplitter_16x", "" ],
       [ "CirclePanel", "CirclePanelDemoCtl", "ColorWheel_16x", "" ],
       [ "Grid", "GridDemoCtl", "GridPane_16x", "" ],
+      [ "RelativePanel", "RelativePanelDemoCtl", "TransformRelative_16x", "" ],
       [ "WaterfallPanel", "WaterfallPanelDemoCtl", "Panel_16x", "" ],
       [ "HoneycombPanel", "HoneycombPanelDemoCtl", "PolygonHexagon_16x", "" ],
       [ "TransitioningContentControl", "TransitioningContentControlDemoCtl", "TransitioningContentControl_16x", "" ],
-      [ "Drawer", "DrawerDemoCtl", "View_Portrait_16x", "1" ],
+      [ "Drawer", "DrawerDemoCtl", "View_Portrait_16x", "" ],
       [ "CoverView", "CoverViewDemoCtl", "DetailDataView_16x", "" ],
       [ "CoverFlow", "CoverFlowDemoCtl", "LinearCarousel_16x", "" ],
       [ "ProgressBar", "ProgressBarDemoCtl", "ProgressBar_16x", "" ],
@@ -93,14 +98,16 @@
       [ "Sprite", "SpriteDemoCtl", "HandyControl", "" ],
       [ "Notification", "NotificationDemoCtl", "Procedure_16x", "" ],
       [ "Dialog", "DialogDemoCtl", "Dialog_16x", "" ],
-      [ "Window", "WindowDemoCtl", "WindowsForm_16x", "" ]
+      [ "Screenshot", "ScreenshotDemoCtl", "WindowScreenshot_16x", "1" ],
+      [ "Window", "WindowDemoCtl", "WindowsForm_16x", "1" ]
     ]
   },
   {
     "title": "Tools",
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemoCtl", "DataGenerator_16x", "" ],
-      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "1" ]
+      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "" ],
+      [ "Effects", "EffectsDemoCtl", "Effects_16x", "" ]
     ]
   }
 ]

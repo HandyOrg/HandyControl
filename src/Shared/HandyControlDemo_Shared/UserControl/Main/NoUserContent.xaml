@@ -23,6 +23,11 @@
                         <Path Data="{StaticResource NugetGeometry}" Fill="#30a5dd"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019" Header="{x:Static langs:Lang.Vsix}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource VisualStudioGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
             <MenuItem Height="29" Header="{x:Static langs:Lang.About}">
                 <MenuItem Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.ContributorsView}" Header="{x:Static langs:Lang.Contributors}">
@@ -50,6 +55,36 @@
                         <Path Data="{StaticResource CnblogsGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem Header="{x:Static langs:Lang.Demo}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource CodeGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                    </MenuItem.Icon>
+                    <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://github.com/AFei19911012/HandyControl" Header="AFei19911012 / HandyControl">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource CodeGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+                <MenuItem Header="{x:Static langs:Lang.Documentation}">
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource DocGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
+                    </MenuItem.Icon>
+                    <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://github.com/ghost1372/HandyControl/wiki/Documentation" Header="Wiki">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource WikiGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://ghost1372.github.io" Header="{x:Static langs:Lang.Doc_en}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource LogoGeometry}" Fill="#ef6c00"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                    <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://handyorg.github.io" Header="{x:Static langs:Lang.Doc_cn}">
+                        <MenuItem.Icon>
+                            <Path Data="{StaticResource LogoGeometry}" Fill="#ef6c00"/>
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
                 <MenuItem Header="{x:Static langs:Lang.About}" Click="MenuAbout_OnClick">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource InfoGeometry}" Fill="{DynamicResource SuccessBrush}"/>
@@ -67,11 +102,16 @@
                         <Path Data="{StaticResource BlogGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
                     </MenuItem.Icon>
                 </MenuItem>
+                <MenuItem Header="{x:Static langs:Lang.Website}" Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.WebsitesView}" >
+                    <MenuItem.Icon>
+                        <Path Data="{StaticResource WebsiteGeometry}" Fill="{DynamicResource WarningBrush}"/>
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
         </Menu>
     </StackPanel>
     <Button Grid.Column="1" Click="ButtonConfig_OnClick" Name="ButtonConfig" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource ConfigGeometry}"/>
-    <Popup AllowsTransparency="True" Grid.Column="1" PlacementTarget="{Binding ElementName=ButtonConfig}" HorizontalOffset="-25" Name="PopupConfig" VerticalOffset="6" StaysOpen="False">
+    <Popup AllowsTransparency="True" Grid.Column="1" PlacementTarget="{Binding ElementName=ButtonConfig}" HorizontalOffset="-28" Name="PopupConfig" VerticalOffset="6" StaysOpen="False">
         <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,10,0,10">

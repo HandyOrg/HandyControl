@@ -208,7 +208,7 @@ namespace HandyControl.Controls
                 menu.SetBinding(VisibilityProperty, new Binding(ShowContextMenuProperty.Name)
                 {
                     Source = this,
-                    Converter = ResourceHelper.GetResource<IValueConverter>("Boolean2VisibilityConverter")
+                    Converter = ResourceHelper.GetResource<IValueConverter>(ResourceToken.Boolean2VisibilityConverter)
                 });
             }
         }
@@ -278,14 +278,14 @@ namespace HandyControl.Controls
             RaiseEvent(argsClosing);
             if (argsClosing.Cancel) return;
 
-            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, parent.IsEnableAnimation
+            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, parent.IsAnimationEnabled
                     ? new Duration(TimeSpan.FromMilliseconds(200))
                     : new Duration(TimeSpan.FromMilliseconds(1)));
             
             parent.IsInternalAction = true;
             RaiseEvent(new RoutedEventArgs(ClosedEvent, item));
 
-            var list = parent.GetActuaList();
+            var list = parent.GetActualList();
             list?.Remove(item);
         }
 
@@ -392,7 +392,7 @@ namespace HandyControl.Controls
                 RenderTransform = new TranslateTransform(resultX, 0);
                 if (index == -1) return;
 
-                var list = parent.GetActuaList();
+                var list = parent.GetActualList();
                 if (list == null) return;
 
                 var item = parent.ItemContainerGenerator.ItemFromContainer(this);
@@ -419,7 +419,7 @@ namespace HandyControl.Controls
             }
 
             TargetOffsetX = resultX;
-            if (!parent.IsEnableAnimation)
+            if (!parent.IsAnimationEnabled)
             {
                 AnimationCompleted();
                 return;

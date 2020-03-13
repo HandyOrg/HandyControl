@@ -475,6 +475,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 示例 的本地化字符串。
+        /// </summary>
+        public static string Demo {
+            get {
+                return ResourceManager.GetString("Demo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 对话框 的本地化字符串。
         /// </summary>
         public static string Dialog {
@@ -502,6 +511,33 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 中文文档 的本地化字符串。
+        /// </summary>
+        public static string Doc_cn {
+            get {
+                return ResourceManager.GetString("Doc_cn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 英文文档 的本地化字符串。
+        /// </summary>
+        public static string Doc_en {
+            get {
+                return ResourceManager.GetString("Doc_en", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文献资料 的本地化字符串。
+        /// </summary>
+        public static string Documentation {
+            get {
+                return ResourceManager.GetString("Documentation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 在这里拖拽 的本地化字符串。
         /// </summary>
         public static string DragHere {
@@ -516,6 +552,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Drawer {
             get {
                 return ResourceManager.GetString("Drawer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 效果 的本地化字符串。
+        /// </summary>
+        public static string Effects {
+            get {
+                return ResourceManager.GetString("Effects", resourceCulture);
             }
         }
         
@@ -579,6 +624,51 @@ namespace HandyControlDemo.Properties.Langs {
         public static string FloatingBlock {
             get {
                 return ResourceManager.GetString("FloatingBlock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 流文档 的本地化字符串。
+        /// </summary>
+        public static string FlowDocument {
+            get {
+                return ResourceManager.GetString("FlowDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 流文档单页视图 的本地化字符串。
+        /// </summary>
+        public static string FlowDocumentPageViewer {
+            get {
+                return ResourceManager.GetString("FlowDocumentPageViewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 流文档查看器 的本地化字符串。
+        /// </summary>
+        public static string FlowDocumentReader {
+            get {
+                return ResourceManager.GetString("FlowDocumentReader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 流文档滚动视图 的本地化字符串。
+        /// </summary>
+        public static string FlowDocumentScrollViewer {
+            get {
+                return ResourceManager.GetString("FlowDocumentScrollViewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 导航框架 的本地化字符串。
+        /// </summary>
+        public static string Frame {
+            get {
+                return ResourceManager.GetString("Frame", resourceCulture);
             }
         }
         
@@ -997,6 +1087,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 点击打开辉光窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenGlowWindow {
+            get {
+                return ResourceManager.GetString("OpenGlowWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 点击打开图片浏览器 的本地化字符串。
         /// </summary>
         public static string OpenImageBrowser {
@@ -1020,6 +1119,24 @@ namespace HandyControlDemo.Properties.Langs {
         public static string OpenMouseFollowWindow {
             get {
                 return ResourceManager.GetString("OpenMouseFollowWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开原生常规窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenNativeCommonWindow {
+            get {
+                return ResourceManager.GetString("OpenNativeCommonWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开导航窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenNavigationWindow {
+            get {
+                return ResourceManager.GetString("OpenNavigationWindow", resourceCulture);
             }
         }
         
@@ -1060,15 +1177,6 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 概览 的本地化字符串。
-        /// </summary>
-        public static string Overview {
-            get {
-                return ResourceManager.GetString("Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 页码条 的本地化字符串。
         /// </summary>
         public static string Pagination {
@@ -1083,6 +1191,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string PasswordBox {
             get {
                 return ResourceManager.GetString("PasswordBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PIN码框 的本地化字符串。
+        /// </summary>
+        public static string PinBox {
+            get {
+                return ResourceManager.GetString("PinBox", resourceCulture);
             }
         }
         
@@ -1146,6 +1263,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string PoptipPositionStr {
             get {
                 return ResourceManager.GetString("PoptipPositionStr", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 实用例子 的本地化字符串。
+        /// </summary>
+        public static string PracticalDemos {
+            get {
+                return ResourceManager.GetString("PracticalDemos", resourceCulture);
             }
         }
         
@@ -1357,6 +1483,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 截图 的本地化字符串。
+        /// </summary>
+        public static string Screenshot {
+            get {
+                return ResourceManager.GetString("Screenshot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 滚动视图 的本地化字符串。
         /// </summary>
         public static string ScrollViewer {
@@ -1470,6 +1605,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Sprite {
             get {
                 return ResourceManager.GetString("Sprite", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 开始截图 的本地化字符串。
+        /// </summary>
+        public static string StartScreenshot {
+            get {
+                return ResourceManager.GetString("StartScreenshot", resourceCulture);
             }
         }
         
@@ -1753,6 +1897,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 VS 插件 的本地化字符串。
+        /// </summary>
+        public static string Vsix {
+            get {
+                return ResourceManager.GetString("Vsix", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 警告 的本地化字符串。
         /// </summary>
         public static string Warning {
@@ -1767,6 +1920,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string WaterfallPanel {
             get {
                 return ResourceManager.GetString("WaterfallPanel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 网站 的本地化字符串。
+        /// </summary>
+        public static string Website {
+            get {
+                return ResourceManager.GetString("Website", resourceCulture);
             }
         }
         

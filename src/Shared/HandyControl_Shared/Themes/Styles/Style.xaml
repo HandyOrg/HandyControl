@@ -78,6 +78,14 @@
         <ResourceDictionary Source="Divider.xaml"/>
         <ResourceDictionary Source="Poptip.xaml"/>
         <ResourceDictionary Source="Drawer.xaml"/>
+        <ResourceDictionary Source="PinBox.xaml"/>
+        <ResourceDictionary Source="Separator.xaml"/>
+        <ResourceDictionary Source="StatusBar.xaml"/>
+        <ResourceDictionary Source="FlowDocument.xaml"/>
+        <ResourceDictionary Source="NavigationWindow.xaml"/>
+        <ResourceDictionary Source="Frame.xaml"/>
+        <ResourceDictionary Source="BlendEffectBox.xaml"/>
+        <ResourceDictionary Source="Screenshot.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

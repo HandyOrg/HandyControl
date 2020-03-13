@@ -55,9 +55,8 @@ namespace HandyControl.Tools.Converter
 
             if (destinationType == null) throw new ArgumentNullException(nameof(destinationType));
 
-            if (!(value is ColLayout)) throw new ArgumentException("UnexpectedParameterType");
+            if (!(value is ColLayout th)) throw new ArgumentException("UnexpectedParameterType");
 
-            var th = (ColLayout)value;
             if (destinationType == typeof(string)) return ToString(th, cultureInfo);
             if (destinationType == typeof(InstanceDescriptor))
             {

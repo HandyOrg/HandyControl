@@ -63,13 +63,7 @@
                                     </Button>
                                     <Border Margin="10,2" Background="White" Style="{StaticResource BorderVerticallySplitter}"/>
                                     <Button Command="interactivity:ControlCommands.RotateLeft" CommandParameter="" Margin="6,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RotateLeftGeometry}" Padding="3"/>
-                                    <Button Command="interactivity:ControlCommands.RotateRight" Margin="6,0,0,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RotateLeftGeometry}" Padding="3" RenderTransformOrigin="0.5,0.5">
-                                        <Button.RenderTransform>
-                                            <TransformGroup>
-                                                <ScaleTransform ScaleY="1" ScaleX="-1"/>
-                                            </TransformGroup>
-                                        </Button.RenderTransform>
-                                    </Button>
+                                    <Button Command="interactivity:ControlCommands.RotateRight" Margin="6,0,0,0" Style="{StaticResource ButtonIcon}" controls:IconElement.Geometry="{StaticResource RotateRightGeometry}" Padding="3"/>
                                     <ToggleButton Visibility="{TemplateBinding ShowFullScreenButton,Converter={StaticResource Boolean2VisibilityConverter}}" Foreground="{DynamicResource TextIconBrush}" IsChecked="{Binding IsFullScreen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Margin="12,0,6,0" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource FullScreenGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource FullScreenReturnGeometry}" Padding="3"/>
 
                                 </StackPanel>

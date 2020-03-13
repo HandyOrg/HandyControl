@@ -1,4 +1,4 @@
-﻿<hc:BlurWindow x:Class="HandyControlDemo.MainWindow"
+﻿<hc:Window x:Class="HandyControlDemo.MainWindow"
                xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,9 +7,9 @@
                xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
                xmlns:data="clr-namespace:HandyControlDemo.Data"
                mc:Ignorable="d"
-               Style="{StaticResource WindowBlur}"
                Title="HandyControlDemo"
                ShowTitle="False"
+               Background="{DynamicResource SecondaryRegionBrush}"
                ResizeMode="CanResizeWithGrip"
                WindowStartupLocation="CenterScreen"
                DataContext="{Binding Main,Source={StaticResource Locator}}"
@@ -26,18 +26,18 @@
     <hc:Window.NonClientAreaContent>
         <userControl:NoUserContent/>
     </hc:Window.NonClientAreaContent>
-    <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
+    <Border BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}" Background="{StaticResource CloudDrawingBrush}">
         <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200" MinWidth="200" MaxWidth="400"/>
+                <ColumnDefinition Width="240" MinWidth="240" MaxWidth="400"/>
                 <ColumnDefinition MinWidth="200"/>
             </Grid.ColumnDefinitions>
             <userControl:LeftMainContent/>
-            <userControl:MainContent Grid.Column="1"/>
-            <GridSplitter Grid.Column="1" HorizontalAlignment="Left" Width="4" Background="Transparent" BorderThickness="1,0,0,0" BorderBrush="{DynamicResource BorderBrush}"/>
-            <hc:ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsEnableInertia="True" IsPenetrating="True">
+            <userControl:MainContent Grid.Column="1" d:IsHidden="true"/>
+            <GridSplitter Margin="0,26,10,26" Grid.Column="0" HorizontalAlignment="Right" Width="4" Background="Transparent"/>
+            <hc:ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsInertiaEnabled="True" IsPenetrating="True">
                 <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10"/>
             </hc:ScrollViewer>
         </Grid>
     </Border>
-</hc:BlurWindow>
+</hc:Window>

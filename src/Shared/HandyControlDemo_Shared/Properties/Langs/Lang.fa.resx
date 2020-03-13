@@ -576,9 +576,6 @@
   <data name="SideMenu" xml:space="preserve">
     <value>SideMenu</value>
   </data>
-  <data name="Overview" xml:space="preserve">
-    <value>دید کلی</value>
-  </data>
   <data name="Grid" xml:space="preserve">
     <value>Grid</value>
   </data>
@@ -689,5 +686,62 @@
   </data>
   <data name="Drawer" xml:space="preserve">
     <value>Drawer</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>مستندات</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>Effects</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Website</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>Vsix</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>English document</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>Chinese document</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PinBox</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>FlowDocumentScrollViewer</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>Open glowWindow</value>
+  </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>FlowDocument</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>FlowDocumentPageViewer</value>
+  </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>FlowDocumentReader</value>
+  </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>Open native common window</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>Open navigation window</value>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>Frame</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>Practical demos</value>
+  </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>Start screenshot</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>Screenshot</value>
   </data>
 </root>

@@ -579,9 +579,6 @@
   <data name="SideMenu" xml:space="preserve">
     <value>侧边菜单</value>
   </data>
-  <data name="Overview" xml:space="preserve">
-    <value>概览</value>
-  </data>
   <data name="Grid" xml:space="preserve">
     <value>栅格</value>
   </data>
@@ -689,5 +686,62 @@
   </data>
   <data name="Drawer" xml:space="preserve">
     <value>抽屉</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>文献资料</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>VS 插件</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>英文文档</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>中文文档</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>示例</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PIN码框</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>流文档滚动视图</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>点击打开辉光窗口</value>
+  </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>流文档</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>流文档单页视图</value>
+  </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>流文档查看器</value>
+  </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>点击打开原生常规窗口</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>点击打开导航窗口</value>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>导航框架</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>实用例子</value>
+  </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>开始截图</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>截图</value>
   </data>
 </root>

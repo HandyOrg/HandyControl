@@ -34,7 +34,12 @@
         </Setter>
     </Style>
 
+    <Style x:Key="TabItemTransparent" BasedOn="{StaticResource TabItemInLine}" TargetType="TabItem">
+        <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
     <Style x:Key="ListBoxItemTransparent" BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
+        <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="Background" Value="Transparent"/>
     </Style>
 

@@ -40,22 +40,22 @@
                     </hc:TabItem>
                 </hc:TabControl>
                 <StackPanel Orientation="Horizontal" Margin="32,32,32,16">
-                    <Label Style="{StaticResource LabelPrimary}" Margin="0" Content="IsEnableTabFill = True"/>
+                    <Label Style="{StaticResource LabelPrimary}" Margin="0" Content="IsTabFillEnabled = True"/>
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="ShowCloseButton = True"/>
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsDraggable = True"/>
-                    <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsEnableAnimation = True"/>
+                    <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsAnimationEnabled = True"/>
                 </StackPanel>
-                <hc:TabControl x:Name="TabControlDemo" IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
-                    <hc:TabItem Header="TabItem1">
+                <hc:TabControl x:Name="TabControlDemo" IsAnimationEnabled="True" ShowCloseButton="True" IsDraggable="True" IsTabFillEnabled="True" Margin="32,0,32,32" Width="800" Height="300">
+                    <hc:TabItem Header="TabItem1" hc:IconElement.Height="16" hc:IconElement.Width="16" hc:IconElement.Geometry="{StaticResource ConfigGeometry}">
                         <hc:SimplePanel Background="{DynamicResource RegionBrush}"/>
                     </hc:TabItem>
-                    <hc:TabItem IsSelected="True" Header="TabItem2">
+                    <hc:TabItem IsSelected="True" Header="TabItem2" hc:IconElement.Height="16" hc:IconElement.Width="16" hc:IconElement.Geometry="{StaticResource CalendarGeometry}">
                         <hc:SimplePanel Tag="123" Background="#FFE8563F"/>
                     </hc:TabItem>
-                    <hc:TabItem Header="TabItem3">
+                    <hc:TabItem Header="TabItem3" hc:IconElement.Height="16" hc:IconElement.Width="16" hc:IconElement.Geometry="{StaticResource WindowsGeometry}">
                         <hc:SimplePanel Background="#FF3F4EE8"/>
                     </hc:TabItem>
-                    <hc:TabItem Header="TabItem4">
+                    <hc:TabItem Header="TabItem4" hc:IconElement.Height="16" hc:IconElement.Width="16" hc:IconElement.Geometry="{StaticResource ClockGeometry}">
                         <hc:SimplePanel Background="#FFE83F6D"/>
                     </hc:TabItem>
                     <hc:TabItem Header="TabItem5">
@@ -68,7 +68,7 @@
                         <hc:SimplePanel Background="#FFE8E03F"/>
                     </hc:TabItem>
                 </hc:TabControl>
-                <hc:TabControl IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" ItemsSource="{Binding DataList}" Width="800" Height="300">
+                <hc:TabControl IsAnimationEnabled="True" ShowCloseButton="True" IsDraggable="True" ItemsSource="{Binding DataList}" Width="800" Height="300">
                     <TabControl.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Header}"/>

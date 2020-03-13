@@ -12,44 +12,57 @@ namespace HandyControl.Tools
 
         private static IntPtr HookId = IntPtr.Zero;
 
-        private static readonly UnsafeNativeMethods.HookProc Proc = HookCallback;
+        private static readonly InteropValues.HookProc Proc = HookCallback;
+
+        private static int Count;
 
         public static void Start()
         {
+            if (HookId == IntPtr.Zero)
+            {
+                HookId = SetHook(Proc);
+            }
+
             if (HookId != IntPtr.Zero)
             {
-                Stop();
+                Count++;
             }
-            HookId = SetHook(Proc);
         }
 
-        public static void Stop() => UnsafeNativeMethods.UnhookWindowsHookEx(HookId);
-
-        private static IntPtr SetHook(UnsafeNativeMethods.HookProc proc)
+        public static void Stop()
         {
-            using (var curProcess = Process.GetCurrentProcess())
-            using (var curModule = curProcess.MainModule)
+            Count--;
+            if (Count < 1)
             {
-                if (curModule != null)
-                {
-                    return UnsafeNativeMethods.SetWindowsHookEx((int) UnsafeNativeMethods.HookType.WH_MOUSE_LL, proc,
-                        UnsafeNativeMethods.GetModuleHandle(curModule.ModuleName), 0);
-                }
-                return IntPtr.Zero;
+                InteropMethods.UnhookWindowsHookEx(HookId);
+                HookId = IntPtr.Zero;
             }
+        }
+
+        private static IntPtr SetHook(InteropValues.HookProc proc)
+        {
+            using var curProcess = Process.GetCurrentProcess();
+            using var curModule = curProcess.MainModule;
+            
+            if (curModule != null)
+            {
+                return InteropMethods.SetWindowsHookEx((int)InteropValues.HookType.WH_MOUSE_LL, proc,
+                    InteropMethods.GetModuleHandle(curModule.ModuleName), 0);
+            }
+            return IntPtr.Zero;
         }
 
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
-            if (nCode < 0) return UnsafeNativeMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
-            var hookStruct = (UnsafeNativeMethods.MOUSEHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(UnsafeNativeMethods.MOUSEHOOKSTRUCT));
+            if (nCode < 0) return InteropMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
+            var hookStruct = (InteropValues.MOUSEHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(InteropValues.MOUSEHOOKSTRUCT));
             StatusChanged?.Invoke(null, new MouseHookEventArgs
             {
-                Message = (MouseHookMessageType)wParam,
-                Point = new NativeMethods.POINT(hookStruct.pt.X, hookStruct.pt.Y)
+                MessageType = (MouseHookMessageType)wParam,
+                Point = new InteropValues.POINT(hookStruct.pt.X, hookStruct.pt.Y)
             });
 
-            return UnsafeNativeMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
+            return InteropMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
         }
     }
 }

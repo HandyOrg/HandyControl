@@ -3,6 +3,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
+using System.Runtime;
 using System.Security.Authentication; 
 using System.Threading;
 using System.Windows;
@@ -15,9 +16,23 @@ namespace HandyControlDemo
 {
     public partial class App
     {
-        // ReSharper disable once NotAccessedField.Local
-        [SuppressMessage("代码质量", "IDE0052:删除未读的私有成员", Justification = "<挂起>")]
+#pragma warning disable IDE0052
+        [SuppressMessage("ReSharper", "NotAccessedField.Local")] 
         private static Mutex AppMutex;
+#pragma warning restore IDE0052
+
+        public App()
+        {
+#if !netle40
+            var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
+            if (!Directory.Exists(cachePath))
+            {
+                Directory.CreateDirectory(cachePath);
+            }
+            ProfileOptimization.SetProfileRoot(cachePath);
+            ProfileOptimization.StartProfile("Profile");
+#endif
+        }
 
         protected override void OnStartup(StartupEventArgs e)
         {

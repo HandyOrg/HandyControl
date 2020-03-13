@@ -19,7 +19,7 @@
                 <Button Command="{Binding FatalCmd}" Content="{x:Static langs:Lang.Fatal}" Margin="5,0"/>
                 <Button Command="{Binding ClearCmd}" Content="{x:Static langs:Lang.Clear}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
             </WrapPanel>
-            <hc:ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsEnableInertia="True" IsPenetrating="True">
+            <hc:ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsInertiaEnabled="True" IsPenetrating="True">
                 <StackPanel hc:Growl.Token="{x:Static data:MessageToken.GrowlDemoPanel}" VerticalAlignment="Top" Margin="0,10,10,10"/>
             </hc:ScrollViewer>
         </hc:SimplePanel>

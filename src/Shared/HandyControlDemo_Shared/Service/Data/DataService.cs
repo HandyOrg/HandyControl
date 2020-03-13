@@ -185,6 +185,19 @@ namespace HandyControlDemo.Service
             };
         }
 
+        internal List<AvatarModel> GetWebsiteDataList()
+        {
+            return new List<AvatarModel>
+            {
+                new AvatarModel
+                {
+                    DisplayName = "Dotnet9",
+                    AvatarUri = "https://pic.cnblogs.com/avatar/1663243/20191124121029.png",
+                    Link = "https://dotnet9.com/"
+                }
+            };
+        }
+
         internal ObservableCollection<CardModel> GetCardDataList()
         {
             return new ObservableCollection<CardModel>
@@ -360,10 +373,12 @@ namespace HandyControlDemo.Service
             var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonStr);
             foreach (var item in jsonObj)
             {
-                var title = Properties.Langs.Lang.ResourceManager.GetString((string)item.title);
+                var titleKey = (string) item.title;
+                var title = Properties.Langs.Lang.ResourceManager.GetString(titleKey);
                 var list = Convert2DemoItemList(item.demoItemList);
                 infoList.Add(new DemoInfoModel
                 {
+                    Key = titleKey,
                     Title = title,
                     DemoItemList = list
                 });

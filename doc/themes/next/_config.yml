@@ -158,7 +158,7 @@ baidu_push: false
 # External url should start with http:// or https://
 menu:
   主页: / || 
-  HandyControl:
+  HandyControl - 2.4.0:
     default: /handycontrol/ ||
     鸣谢: /tnx/ ||
     快速开始: /quick_start/ ||
@@ -184,7 +184,9 @@ menu:
       InfoElement 信息元素: /infoElement/ ||
       PanelElement 面板元素: /panelElement/ ||
       PasswordBoxAttach 密码框专用: /passwordBoxAttach/ ||
+      RectangleAttach Rectangle专用: /rectangleAttach/ ||
       StatusSwitchElement 可切换状态的元素: /statusSwitchElement/ ||
+      TextBlockAttach 文本块专用: /textBlockAttach/ ||
       TipElement 提示元素: /tipElement/ ||
       TitleElement 标题元素: /titleElement/ ||
       VisualElement 可视化元素: /visualElement/ ||
@@ -201,6 +203,8 @@ menu:
       DataGrid 数据表格: /dataGrid/ ||
       DatePicker 日期选择器: /datePicker/ ||
       Expander 展开框: /expander/ ||
+      FlowDocument 流文档: /flowDocument/ ||
+      Frame 导航框架: /frame/ ||
       GroupBox 分组框: /groupBox/ ||
       Image 图片: /image/ ||
       Label 标签: /label/ ||
@@ -212,7 +216,9 @@ menu:
       RadioButton 单选按钮: /radioButton/ ||
       RichTextBox 富文本框: /richTextBox/ ||
       ScrollViewer 滚动视图: /scrollViewer/ ||
+      Seperator 分隔符: /seperator/ ||
       Slider 滑块: /slider/ ||
+      StatusBar 状态栏: /statusBar/ ||
       TabControl 选项卡控件: /tabControl/ ||
       TextBlock 文本块: /textBlock/ ||
       TextBox 文本框: /textBox/ ||
@@ -225,8 +231,10 @@ menu:
       default: /extend_controls/ ||
       AnimationPath 动画路径: /animationPath/ ||
       Badge 标记: /badge/ ||
+      ButtonGroup : /buttonGroup/ ||
       BlurWindow 背景模糊窗口: /blurWindow/ ||
       CalendarWithClock 带有时钟的日历: /calendarWithClock/ ||
+      Card 卡片: /card/ ||
       Carousel 轮播: /carousel/ ||
       ChatBubble 对话气泡: /chatBubble/ ||
       CirclePanel 圆形布局: /circlePanel/ ||
@@ -240,30 +248,46 @@ menu:
       DatePicker 日期选择器: /datePicker/ ||
       DateTimePicker 日期时间选择器: /dateTimePicker/ ||
       Dialog 对话框: /dialog/ ||
+      Divider 分割线: /divider/ ||
+      Drawer 抽屉: /drawer/ ||
       FlipClock 翻页时钟: /flipClock/ ||
+      FloatingBlock 漂浮块: /floatingBlock/ ||
       GifImage Gif图片: /gifImage/ ||
       GotoTop 回到顶部: /gotoTop/ ||
       Gravatar 头像: /gravatar/ ||
+      Grid 栅格: /grid/ ||
       Growl 信息通知: /growl/ ||
+      HoneycombPanel 蜂窝布局: /honeycombPanel/ ||
+      ImageBlock 图片块: /imageBlock/ ||
       ImageBrowser 图片浏览器: /imageBrowser/ ||
       ImageViewer 图片视图: /imageViewer/ ||
       Loading 加载条: /loading/ ||
+      Magnifier 放大镜: /magnifier/ ||
       MessageBox 消息对话框: /messageBox/ ||
+      Notification 桌面通知: /notification/ ||
       NotifyIcon 托盘图标: /notifyIcon/ ||
       NumericUpDown 数值选择控件: /numericUpDown/ ||
       OutlineText 轮廓文本: /outlineText/ ||
       Pagination 页码条: /pagination/ ||
       PasswordBox 密码框: /passwordBox/ ||
+      PinBox PIN码框: /pinBox/ ||
+      PopTip 气泡提示: /popTip/ ||
       PopupWindow 弹出窗口: /popupWindow/ ||
       PreviewSlider 预览滑块: /previewSlider/ ||
       ProgressButton 进度按钮: /progressButton/ ||
+      RangeSlider 范围滑块: /rangeSlider/ ||
       RadioGroup 单选按钮组: /radioGroup/ ||
       Rate 评分: /rate/ ||
+      RelativePanel 相对布局: /relativePanel/ ||
+      RunningBlock 滚动块: /runningBlock/ ||
       ScrollViewer 滚动视图: /scrollViewer/ ||
       SearchBar 搜索栏: /searchBar/ ||
       Shield 徽章: /shield/ ||
+      SideMenu 侧边菜单: /sideMenu/ ||
       SimpleItemsControl 简单项目控件: /simpleItemsControl/ ||
       SimplePanel 简单面板: /simplePanel/ ||
+      SplitButton 分割按钮: /splitButton/ ||
+      Sprite 精灵: /sprite/ ||
       StepBar 步骤条: /stepBar/ ||
       TabControl 选项卡控件: /tabControl/ ||
       Tag 标签: /tag/ ||
@@ -281,6 +305,9 @@ menu:
       InfoType: /InfoType/ ||
     工具和扩展:
       default: /tools/ ||
+      Effect 效果: /effect/ ||
+      HatchBrushGenerator 阴影画笔生成器: /hatchBrushGenerator/ ||
+      MorphingAnimation 变形动画: /morphingAnimation/ ||
     国际化:
       default: /langs/ ||
 
@@ -872,7 +899,7 @@ needmoreshare2:
 #  localhost_ignored: true
 
 # CNZZ count
-#cnzz_siteid:
+cnzz_siteid: 1278600916
 
 # Application Insights
 # See: https://azure.microsoft.com/en-us/services/application-insights

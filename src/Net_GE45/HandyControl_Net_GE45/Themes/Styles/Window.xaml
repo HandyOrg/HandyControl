@@ -48,18 +48,15 @@
     </Style>
 
     <Style TargetType="Window">
-        <Setter Property="UseLayoutRounding" Value="True"/>
-    </Style>
-
-    <Style x:Key="WindowDefault" TargetType="Window">
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="UseLayoutRounding" Value="True"/>
     </Style>
 
     <Style x:Key="WindowWin10" TargetType="controls:Window">
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="BorderBrush" Value="#262e2f"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}"/>
@@ -120,7 +117,7 @@
                                 </Grid>
                             </Grid>
                             <AdornerDecorator Grid.Row="1">
-                                <ContentPresenter/>
+                                <ContentPresenter ClipToBounds="True"/>
                             </AdornerDecorator>
                             <ResizeGrip Width="10" Height="10" x:Name="ResizeGrip" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" IsTabStop="False" Visibility="Collapsed" WindowChrome.ResizeGripDirection="BottomRight" />
                         </Grid>
@@ -179,6 +176,12 @@
 
     <Style x:Key="WindowBlur" BasedOn="{StaticResource WindowWin10}" TargetType="controls:BlurWindow">
         <Setter Property="Background" Value="Transparent"/>
+    </Style>
+
+    <Style x:Key="WindowGlow" BasedOn="{StaticResource WindowWin10}" TargetType="controls:GlowWindow">
+        <Setter Property="ActiveGlowColor" Value="#262e2f"/>
+        <Setter Property="InactiveGlowColor" Value="{DynamicResource BorderColor}"/>
+        <Setter Property="BorderThickness" Value="0"/>
     </Style>
 
     <Style TargetType="controls:ImageBrowser">

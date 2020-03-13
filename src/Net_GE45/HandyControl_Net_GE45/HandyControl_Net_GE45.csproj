@@ -112,8 +112,8 @@
     <LangVersion>8.0</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\AssemblyInfo.cs">
-      <Link>Properties\AssemblyInfo.cs</Link>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\NetAssemblyInfo.cs">
+      <Link>Properties\NetAssemblyInfo.cs</Link>
     </Compile>
     <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.Designer.cs">
       <Link>Properties\Langs\Lang.Designer.cs</Link>
@@ -168,6 +168,9 @@
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fr.resx">
       <Link>Properties\Langs\Lang.fr.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ko-KR.resx">
+      <Link>Properties\Langs\Lang.ko-KR.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.resx">
       <Link>Properties\Langs\Lang.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -178,6 +181,73 @@
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\dropper.cur">
       <Link>Resources\dropper.cur</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\BrightnessEffect.ps">
+      <Link>Resources\Effects\BrightnessEffect.ps</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ColorComplementEffect.ps">
+      <Link>Resources\Effects\ColorComplementEffect.ps</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ColorMatrixEffect.ps">
+      <Link>Resources\Effects\ColorMatrixEffect.ps</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\ContrastEffect.ps">
+      <Link>Resources\Effects\ContrastEffect.ps</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Effects\GrayScaleEffect.ps">
+      <Link>Resources\Effects\GrayScaleEffect.ps</Link>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\bottom.png">
+      <Link>Resources\Images\GlowWindow\bottom.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\bottomleft.png">
+      <Link>Resources\Images\GlowWindow\bottomleft.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\bottomright.png">
+      <Link>Resources\Images\GlowWindow\bottomright.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\cornerbottomleft.png">
+      <Link>Resources\Images\GlowWindow\cornerbottomleft.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\cornerbottomright.png">
+      <Link>Resources\Images\GlowWindow\cornerbottomright.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\cornertopleft.png">
+      <Link>Resources\Images\GlowWindow\cornertopleft.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\cornertopright.png">
+      <Link>Resources\Images\GlowWindow\cornertopright.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\left.png">
+      <Link>Resources\Images\GlowWindow\left.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\leftbottom.png">
+      <Link>Resources\Images\GlowWindow\leftbottom.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\lefttop.png">
+      <Link>Resources\Images\GlowWindow\lefttop.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\right.png">
+      <Link>Resources\Images\GlowWindow\right.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\rightbottom.png">
+      <Link>Resources\Images\GlowWindow\rightbottom.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\righttop.png">
+      <Link>Resources\Images\GlowWindow\righttop.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\top.png">
+      <Link>Resources\Images\GlowWindow\top.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\topleft.png">
+      <Link>Resources\Images\GlowWindow\topleft.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControl_Shared\Resources\Images\GlowWindow\topright.png">
+      <Link>Resources\Images\GlowWindow\topright.png</Link>
     </Resource>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />

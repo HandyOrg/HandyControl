@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
         <ResourceDictionary Source="../../Basic/Converters.xaml"/>
         <ResourceDictionary Source="BaseStyle.xaml"/>
         <ResourceDictionary Source="ScrollViewerBaseStyle.xaml"/>
@@ -47,10 +48,10 @@
                 <ControlTemplate TargetType="TreeViewItem">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition MinHeight="32"/>
+                            <RowDefinition MinHeight="{StaticResource DefaultControlHeight}"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                        <Border x:Name="Bd" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                             <StackPanel Orientation="Horizontal" Margin="{Binding Converter={StaticResource TreeViewItemMarginConverter}, RelativeSource={RelativeSource TemplatedParent}}">
                                 <ToggleButton x:Name="Expander" ClickMode="Press" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ExpandCollapseToggleStyle}"/>
                                 <ContentPresenter VerticalAlignment="Center" x:Name="PART_Header" ContentSource="Header" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
@@ -102,14 +103,14 @@
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
-        <Setter Property="controls:ScrollViewer.IsEnableInertia" Value="False"/>
+        <Setter Property="controls:ScrollViewer.IsInertiaEnabled" Value="False"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TreeView">
                     <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                        <controls:ScrollViewer x:Name="_tv_scrollviewer_" IsEnableInertia="{Binding Path=(controls:ScrollViewer.IsEnableInertia),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                        <controls:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(controls:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
                             <ItemsPresenter/>
                         </controls:ScrollViewer>
                     </Border>

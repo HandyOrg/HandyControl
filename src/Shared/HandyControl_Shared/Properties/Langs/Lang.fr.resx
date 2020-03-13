@@ -204,4 +204,28 @@
   <data name="No" xml:space="preserve">
     <value>Non</value>
   </data>
+  <data name="ZoomIn" xml:space="preserve">
+    <value>Zoom in</value>
+  </data>
+  <data name="ZoomOut" xml:space="preserve">
+    <value>Zoom out</value>
+  </data>
+  <data name="PreviousPage" xml:space="preserve">
+    <value>Previous page</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Next page</value>
+  </data>
+  <data name="PageMode" xml:space="preserve">
+    <value>Page mode</value>
+  </data>
+  <data name="TwoPageMode" xml:space="preserve">
+    <value>Two page mode</value>
+  </data>
+  <data name="ScrollMode" xml:space="preserve">
+    <value>Scroll mode</value>
+  </data>
+  <data name="Find" xml:space="preserve">
+    <value>Find</value>
+  </data>
 </root>

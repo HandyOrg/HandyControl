@@ -127,12 +127,19 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj">
+      <Project>{d8a4748c-0500-4f63-bc47-3506658c68f7}</Project>
+      <Name>HandyControlDemo_Code</Name>
+    </ProjectReference>
     <ProjectReference Include="..\HandyControl_Net_GE45\HandyControl_Net_GE45.csproj">
       <Project>{dc966e3d-bcff-4652-98cf-070e5494749a}</Project>
       <Name>HandyControl_Net_GE45</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="AvalonEdit">
+      <Version>6.0.1</Version>
+    </PackageReference>
     <PackageReference Include="MvvmLightLibs">
       <Version>5.4.1.1</Version>
     </PackageReference>
@@ -478,12 +485,20 @@
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.fr.resx">
       <Link>Properties\Langs\Lang.fr.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.ko-KR.resx">
+      <Link>Properties\Langs\Lang.ko-KR.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.resx">
       <Link>Properties\Langs\Lang.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\Shared\HandyControlDemo_Shared\Properties\App.config">
+      <Link>Properties\App.config</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\RepeatButton_16x.png">
@@ -496,6 +511,12 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
     </Content>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Effects_16x.png">
+      <Link>Resources\Img\LeftMainContent\Effects_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\TransformRelative_16x.png">
+      <Link>Resources\Img\LeftMainContent\TransformRelative_16x.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\View_Portrait_16x.png">
       <Link>Resources\Img\LeftMainContent\View_Portrait_16x.png</Link>
     </Resource>
@@ -573,6 +594,24 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\MainMenuControl_16x.png">
       <Link>Resources\Img\LeftMainContent\MainMenuControl_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Ellipsis_16x.png">
+      <Link>Resources\Img\LeftMainContent\Ellipsis_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\WPFFlowDocument_16x.png">
+      <Link>Resources\Img\LeftMainContent\WPFFlowDocument_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\OutlinedRectangleTool_16x.png">
+      <Link>Resources\Img\LeftMainContent\OutlinedRectangleTool_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\frame_16xLG.png">
+      <Link>Resources\Img\LeftMainContent\frame_16xLG.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\cloud.png">
+      <Link>Resources\Img\cloud.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\WindowScreenshot_16x.png">
+      <Link>Resources\Img\LeftMainContent\WindowScreenshot_16x.png</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>
