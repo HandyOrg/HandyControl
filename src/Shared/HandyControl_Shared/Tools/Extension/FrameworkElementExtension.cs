@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace HandyControl.Tools.Extension
 {
@@ -53,6 +54,12 @@ namespace HandyControl.Tools.Extension
             }
 
             return 0;
+        }
+
+        public static bool IsDataContextDataBound(this FrameworkElement element)
+        {
+            if (element == null) throw new ArgumentNullException(nameof(element));
+            return element.GetBindingExpression(FrameworkElement.DataContextProperty) != null;
         }
     }
 }
