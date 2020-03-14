@@ -16,14 +16,14 @@ namespace HandyControl.Controls
 
         private Adorner _container;
 
-        private static readonly Dictionary<string, System.Windows.Window> WindowDic = new Dictionary<string, System.Windows.Window>();
+        private static readonly Dictionary<string, System.Windows.FrameworkElement> WindowDic = new Dictionary<string, System.Windows.FrameworkElement>();
 
         public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
             "IsClosed", typeof(bool), typeof(Dialog), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsClosed
         {
-            get => (bool) GetValue(IsClosedProperty);
+            get => (bool)GetValue(IsClosedProperty);
             internal set => SetValue(IsClosedProperty, value);
         }
 
@@ -32,7 +32,7 @@ namespace HandyControl.Controls
 
         private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is System.Windows.Window window)
+            if (d is System.Windows.FrameworkElement window)
             {
                 if (e.NewValue == null)
                 {
@@ -49,20 +49,20 @@ namespace HandyControl.Controls
             => element.SetValue(TokenProperty, value);
 
         public static string GetToken(DependencyObject element)
-            => (string) element.GetValue(TokenProperty);
+            => (string)element.GetValue(TokenProperty);
 
         public Dialog()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => Close()));
         }
 
-        public static void Register(string token, System.Windows.Window window)
+        public static void Register(string token, System.Windows.FrameworkElement window)
         {
             if (string.IsNullOrEmpty(token) || window == null) return;
             WindowDic[token] = window;
         }
 
-        public static void Unregister(string token, System.Windows.Window window)
+        public static void Unregister(string token, System.Windows.FrameworkElement window)
         {
             if (string.IsNullOrEmpty(token) || window == null) return;
 
@@ -75,7 +75,7 @@ namespace HandyControl.Controls
             }
         }
 
-        public static void Unregister(System.Windows.Window window)
+        public static void Unregister(System.Windows.FrameworkElement window)
         {
             if (window == null) return;
             var first = WindowDic.FirstOrDefault(item => ReferenceEquals(window, item.Value));
@@ -105,7 +105,7 @@ namespace HandyControl.Controls
                 Content = content
             };
 
-            System.Windows.Window window;
+            System.Windows.FrameworkElement window;
 
             if (string.IsNullOrEmpty(token))
             {
@@ -154,7 +154,7 @@ namespace HandyControl.Controls
             }
         }
 
-        private void Close(System.Windows.Window window)
+        private void Close(System.Windows.FrameworkElement window)
         {
             if (window != null)
             {
