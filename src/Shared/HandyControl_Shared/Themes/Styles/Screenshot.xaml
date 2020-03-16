@@ -88,10 +88,12 @@
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="WindowState" Value="Maximized"/>
-        <!--<Setter Property="Topmost" Value="True"/>-->
+        <Setter Property="Topmost" Value="True"/>
         <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
         <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="controls:WindowAttach.IgnoreAltF4" Value="True"/>
+        <Setter Property="controls:WindowAttach.ShowInTaskManager" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:ScreenshotWindow">
@@ -112,7 +114,24 @@
                                     <Rectangle controls:TipElement.Placement="Bottom" Style="{StaticResource SnapRect4ScreenshotStyle}"/>
                                     <Rectangle controls:TipElement.Placement="LeftBottom" Style="{StaticResource SnapRect4ScreenshotStyle}"/>
                                     <Rectangle controls:TipElement.Placement="Left" Style="{StaticResource SnapRect4ScreenshotStyle}"/>
-                                    <TextBlock Name="PART_TextSize"  Background="#CC212121" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="10,2"/>
+                                    <TextBlock Text="{TemplateBinding SizeStr}" Background="#CC212121" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" Padding="8,2"/>
+                                </controls:SimplePanel>
+                            </Border>
+                            <Border x:Name="PART_Magnifier" IsHitTestVisible="False" Visibility="Collapsed" HorizontalAlignment="Left" VerticalAlignment="Top" Width="122" Height="122" BorderThickness="1" BorderBrush="#FF333333" CornerRadius="1">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="2" Opacity=".2" Direction="-45" RenderingBias="Performance" ShadowDepth="3"/>
+                                </Border.Effect>
+                                <controls:SimplePanel>
+                                    <Border Margin="0,0,0,32" Background="{TemplateBinding PreviewBrush}" BorderThickness="2" BorderBrush="White">
+                                        <controls:SimplePanel>
+                                            <Path Data="M56,0 L60,0 60,40 116,40 116,44 60,44 60,84 56,84 56,44 0,44 0,40 56,40 z" Fill="#CC4CC6FF"/>
+                                        </controls:SimplePanel>
+                                    </Border>
+                                    <Border Height="32" VerticalAlignment="Bottom" Background="#CC000000">
+                                        <StackPanel VerticalAlignment="Center" Margin="5,0,0,0">
+                                            <TextBlock Foreground="White" Text="{TemplateBinding SizeStr}"/>
+                                        </StackPanel>
+                                    </Border>
                                 </controls:SimplePanel>
                             </Border>
                         </controls:SimplePanel>
