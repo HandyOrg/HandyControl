@@ -60,7 +60,7 @@ namespace HandyControl.Controls
             if (!_colorPicker.IsMouseOver && window.IsMouseOver)
             {
                 UpdateCursor(true);
-                if (e.Message == MouseHookMessageType.LeftButtonDown)
+                if (e.MessageType == MouseHookMessageType.LeftButtonDown)
                 {
                     var brush = new SolidColorBrush(GetColorAt(e.Point.X, e.Point.Y));
                     _colorPicker.SelectedBrush = brush;

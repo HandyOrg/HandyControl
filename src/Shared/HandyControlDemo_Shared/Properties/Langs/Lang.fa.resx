@@ -738,4 +738,10 @@
   <data name="PracticalDemos" xml:space="preserve">
     <value>Practical demos</value>
   </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>Start screenshot</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>Screenshot</value>
+  </data>
 </root>

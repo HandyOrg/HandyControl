@@ -306,6 +306,8 @@
 
         internal const string WindowGlow = nameof(WindowGlow);
 
+        internal const string Window4ScreenshotStyle = nameof(Window4ScreenshotStyle);
+
         internal const string AddTagButtonStyle = nameof(AddTagButtonStyle);
 
         internal const string RadioGroupItemDefault = nameof(RadioGroupItemDefault);
@@ -355,7 +357,7 @@
         internal const string TabItemCapsuleVerticalFirst = nameof(TabItemCapsuleVerticalFirst);
 
         internal const string TabItemCapsuleVerticalLast = nameof(TabItemCapsuleVerticalLast);
-        
+
         #endregion
     }
 }

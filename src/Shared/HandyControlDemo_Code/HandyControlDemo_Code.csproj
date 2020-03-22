@@ -317,6 +317,9 @@
     <Resource Include="..\HandyControlDemo_Shared\UserControl\Controls\RunningBlockDemoCtl.xaml">
       <Link>UserControl\Controls\RunningBlockDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\HandyControlDemo_Shared\UserControl\Controls\ScreenshotDemoCtl.xaml">
+      <Link>UserControl\Controls\ScreenshotDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\HandyControlDemo_Shared\UserControl\Controls\ScrollViewerDemoCtl.xaml">
       <Link>UserControl\Controls\ScrollViewerDemoCtl.xaml</Link>
     </Resource>
@@ -712,6 +715,10 @@
     <Resource Include="..\HandyControlDemo_Shared\UserControl\Controls\RunningBlockDemoCtl.xaml.cs">
       <Link>UserControl\Controls\RunningBlockDemoCtl.xaml.cs</Link>
       <DependentUpon>RunningBlockDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\HandyControlDemo_Shared\UserControl\Controls\ScreenshotDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\ScreenshotDemoCtl.xaml.cs</Link>
+      <DependentUpon>ScreenshotDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\HandyControlDemo_Shared\UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
       <Link>UserControl\Controls\ScrollViewerDemoCtl.xaml.cs</Link>

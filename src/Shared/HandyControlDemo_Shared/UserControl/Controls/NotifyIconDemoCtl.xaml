@@ -3,8 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
-             xmlns:command="http://www.galasoft.ch/mvvmlight"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              DataContext="{Binding NotifyIconDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
@@ -47,14 +45,14 @@
                         <MenuItem Command="hc:ControlCommands.ShutdownApp" Header="{x:Static langs:Lang.Exit}"/>
                     </ContextMenu>
                 </hc:NotifyIcon.ContextMenu>
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="Click">
-                        <command:EventToCommand Command="hc:ControlCommands.PushMainWindow2Top"/>
-                    </i:EventTrigger>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <command:EventToCommand Command="{Binding MouseCmd}" CommandParameter="MouseDoubleClick"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+                <hc:Interaction.Triggers>
+                    <hc:EventTrigger EventName="Click">
+                        <hc:EventToCommand Command="hc:ControlCommands.PushMainWindow2Top"/>
+                    </hc:EventTrigger>
+                    <hc:EventTrigger EventName="MouseDoubleClick">
+                        <hc:EventToCommand Command="{Binding MouseCmd}" CommandParameter="MouseDoubleClick"/>
+                    </hc:EventTrigger>
+                </hc:Interaction.Triggers>
             </hc:NotifyIcon>
             <hc:NotifyIcon Token="{x:Static data:MessageToken.NotifyIconContextDemo}" x:Name="NotifyIconContextContent" Text="HandyControl" IsBlink="{Binding ContextContentIsBlink}" Visibility="{Binding ContextContentIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Icon="/HandyControlDemo;component/Resources/Img/icon-white.ico">
                 <hc:NotifyIcon.ContextContent>
@@ -68,14 +66,14 @@
                         </StackPanel>
                     </Border>
                 </hc:NotifyIcon.ContextContent>
-                <i:Interaction.Triggers>
-                    <i:EventTrigger EventName="Click">
-                        <command:EventToCommand Command="hc:ControlCommands.PushMainWindow2Top"/>
-                    </i:EventTrigger>
-                    <i:EventTrigger EventName="MouseDoubleClick">
-                        <command:EventToCommand Command="{Binding MouseCmd}" CommandParameter="MouseDoubleClick"/>
-                    </i:EventTrigger>
-                </i:Interaction.Triggers>
+                <hc:Interaction.Triggers>
+                    <hc:EventTrigger EventName="Click">
+                        <hc:EventToCommand Command="hc:ControlCommands.PushMainWindow2Top"/>
+                    </hc:EventTrigger>
+                    <hc:EventTrigger EventName="MouseDoubleClick">
+                        <hc:EventToCommand Command="{Binding MouseCmd}" CommandParameter="MouseDoubleClick"/>
+                    </hc:EventTrigger>
+                </hc:Interaction.Triggers>
             </hc:NotifyIcon>
         </hc:SimplePanel>
     </hc:TransitioningContentControl>

@@ -13,11 +13,11 @@ namespace HandyControl.Controls
         public static Visibility GetVisibility(DependencyObject element) => (Visibility) element.GetValue(VisibilityProperty);
 
         public static readonly DependencyProperty PlacementProperty = DependencyProperty.RegisterAttached(
-            "Placement", typeof(TipPlacement), typeof(TipElement), new PropertyMetadata(default(TipPlacement)));
+            "Placement", typeof(PlacementType), typeof(TipElement), new PropertyMetadata(default(PlacementType)));
 
-        public static void SetPlacement(DependencyObject element, TipPlacement value) => element.SetValue(PlacementProperty, value);
+        public static void SetPlacement(DependencyObject element, PlacementType value) => element.SetValue(PlacementProperty, value);
 
-        public static TipPlacement GetPlacement(DependencyObject element) => (TipPlacement) element.GetValue(PlacementProperty);
+        public static PlacementType GetPlacement(DependencyObject element) => (PlacementType) element.GetValue(PlacementProperty);
 
         public static readonly DependencyProperty StringFormatProperty = DependencyProperty.RegisterAttached(
             "StringFormat", typeof(string), typeof(TipElement), new PropertyMetadata("#0.0"));

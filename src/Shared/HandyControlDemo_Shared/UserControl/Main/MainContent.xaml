@@ -3,7 +3,7 @@
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         x:Class="HandyControlDemo.UserControl.MainContent">
-    <Grid Name="GridMain" MinHeight="300" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="16">
+    <Grid Name="GridMain" MinHeight="300" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="16">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition/>
