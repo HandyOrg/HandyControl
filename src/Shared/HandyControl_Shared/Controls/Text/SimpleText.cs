@@ -10,23 +10,12 @@ namespace HandyControl.Controls
 {
     public class SimpleText : FrameworkElement
     {
-        private Pen _pen;
-
         private FormattedText _formattedText;
 
         static SimpleText()
         {
             SnapsToDevicePixelsProperty.OverrideMetadata(typeof(SimpleText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
             UseLayoutRoundingProperty.OverrideMetadata(typeof(SimpleText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
-        }
-
-        public static readonly DependencyProperty StrokePositionProperty = DependencyProperty.Register(
-            "StrokePosition", typeof(StrokePosition), typeof(SimpleText), new PropertyMetadata(default(StrokePosition)));
-
-        public StrokePosition StrokePosition
-        {
-            get => (StrokePosition)GetValue(StrokePositionProperty);
-            set => SetValue(StrokePositionProperty, value);
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
@@ -71,31 +60,13 @@ namespace HandyControl.Controls
             set => SetValue(TextWrappingProperty, value);
         }
 
-        public static readonly DependencyProperty FillProperty = DependencyProperty.Register(
-            "Fill", typeof(Brush), typeof(SimpleText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
+        public static readonly DependencyProperty ForegroundProperty = DependencyProperty.Register(
+            "Foreground", typeof(Brush), typeof(SimpleText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
 
-        public Brush Fill
+        public Brush Foreground
         {
-            get => (Brush)GetValue(FillProperty);
-            set => SetValue(FillProperty, value);
-        }
-
-        public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(
-            "Stroke", typeof(Brush), typeof(SimpleText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
-
-        public Brush Stroke
-        {
-            get => (Brush)GetValue(StrokeProperty);
-            set => SetValue(StrokeProperty, value);
-        }
-
-        public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
-            "StrokeThickness", typeof(double), typeof(SimpleText), new PropertyMetadata(ValueBoxes.Double0Box, OnFormattedTextUpdated));
-
-        public double StrokeThickness
-        {
-            get => (double)GetValue(StrokeThicknessProperty);
-            set => SetValue(StrokeThicknessProperty, value);
+            get => (Brush) GetValue(ForegroundProperty);
+            set => SetValue(ForegroundProperty, value);
         }
 
         public static readonly DependencyProperty FontFamilyProperty = TextElement.FontFamilyProperty.AddOwner(
@@ -151,16 +122,6 @@ namespace HandyControl.Controls
 
         protected override void OnRender(DrawingContext drawingContext) => drawingContext.DrawText(_formattedText, new Point());
 
-        private void UpdatePen()
-        {
-            _pen = new Pen(Stroke, StrokeThickness);
-
-            if (StrokePosition == StrokePosition.Outside || StrokePosition == StrokePosition.Inside)
-            {
-                _pen.Thickness = StrokeThickness * 2;
-            }
-        }
-
         private void EnsureFormattedText()
         {
             if (_formattedText != null || Text == null)
@@ -174,7 +135,7 @@ namespace HandyControl.Controls
                 CultureInfo.CurrentUICulture,
                 FlowDirection,
                 new Typeface(FontFamily, FontStyle, FontWeight, FontStretch),
-                FontSize, Fill);
+                FontSize, Foreground);
 #else
             var source = PresentationSource.FromVisual(this);
             var dpi = 1.0;
@@ -187,7 +148,7 @@ namespace HandyControl.Controls
                 CultureInfo.CurrentUICulture,
                 FlowDirection,
                 new Typeface(FontFamily, FontStyle, FontWeight, FontStretch),
-                FontSize, Fill, dpi);
+                FontSize, Foreground, dpi);
 #endif
 
             UpdateFormattedText();
@@ -233,15 +194,9 @@ namespace HandyControl.Controls
         {
             EnsureFormattedText();
 
-            // constrain the formatted text according to the available size
-            // the Math.Min call is important - without this constraint (which seems arbitrary, but is the maximum allowable text width), things blow up when availableSize is infinite in both directions
-            // the Math.Max call is to ensure we don't hit zero, which will cause MaxTextHeight to throw
             _formattedText.MaxTextWidth = Math.Min(3579139, availableSize.Width);
             _formattedText.MaxTextHeight = Math.Max(0.0001d, availableSize.Height);
 
-            UpdatePen();
-
-            // return the desired size
             return new Size(_formattedText.Width, _formattedText.Height);
         }
     }
