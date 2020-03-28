@@ -18,7 +18,7 @@
 [https://handyorg.github.io/handycontrol/](https://handyorg.github.io/handycontrol/)
 
 ### 赞助
-如果您觉得HandyControl还不错，并且刚好有些闲钱，那么可以选择以下两种方式来赞助：
+如果您觉得HandyControl还不错，并且刚好有些闲钱，那么可以选择以下两种方式来赞助（记得入群联系我们呀~~）：
 
 * [以HandyControl的名义为慈善事业做贡献](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
 
@@ -54,6 +54,7 @@
 <a href="https://github.com/MrZhangYuan" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
 <a href="https://github.com/YC946586" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/49895722?s=64&v=4"></a>
 <a href="https://github.com/wihalo" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/26402999?s=64&v=4"></a>
+<a href="https://github.com/startewho" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/898009?s=64&v=4"></a>
 
 ## Special thanks to
 
