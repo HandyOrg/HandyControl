@@ -251,6 +251,8 @@ namespace HandyControl.Controls
         protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseRightButtonDown(e);
+
+            if (VisualTreeHelper.HitTest(this, e.GetPosition(this)) == null) return;
             IsSelected = true;
             Focus();
         }
@@ -293,6 +295,7 @@ namespace HandyControl.Controls
         {
             base.OnMouseLeftButtonDown(e);
 
+            if (VisualTreeHelper.HitTest(this, e.GetPosition(this)) == null) return;
             var parent = TabControlParent;
             if (parent == null) return;
 

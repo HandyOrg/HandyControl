@@ -18,7 +18,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <hc:StepBar Grid.ColumnSpan="2">
+            <hc:StepBar Grid.ColumnSpan="2" StepIndex="{Binding StepIndex}">
                 <hc:StepBarItem Content="{x:Static langs:Lang.Register}"/>
                 <hc:StepBarItem Content="{x:Static langs:Lang.BasicInfo}"/>
                 <hc:StepBarItem Content="{x:Static langs:Lang.UploadFile}"/>
