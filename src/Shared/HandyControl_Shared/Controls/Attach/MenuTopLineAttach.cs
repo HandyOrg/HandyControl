@@ -21,8 +21,19 @@ namespace HandyControl.Controls
                 if (popup.TemplatedParent is MenuItem menuItem)
                 {
                     SetTopLine(menuItem, topLine);
-                    menuItem.Unloaded += MenuItem_Unloaded;
-                } 
+                    menuItem.Loaded += MenuItem_Loaded;
+                }
+            }
+        }
+
+        private static void MenuItem_Loaded(object sender, RoutedEventArgs e)
+        {
+            var menuItem = (FrameworkElement)sender;
+            menuItem.Unloaded += MenuItem_Unloaded;
+            var topLine = GetTopLine(menuItem);
+            var popup = GetPopup(topLine);
+            if (popup != null)
+            {
                 popup.Opened += Popup_Opened;
             }
         }
