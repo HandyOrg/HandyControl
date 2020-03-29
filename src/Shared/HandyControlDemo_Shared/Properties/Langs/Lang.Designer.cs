@@ -1726,6 +1726,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 文本对话框（控件中） 的本地化字符串。
+        /// </summary>
+        public static string TextDialogInControl {
+            get {
+                return ResourceManager.GetString("TextDialogInControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 文本对话框，带计时器 的本地化字符串。
         /// </summary>
         public static string TextDialogWithTimer {
