@@ -55,6 +55,7 @@
 <a href="https://github.com/YC946586" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/49895722?s=64&v=4"></a>
 <a href="https://github.com/wihalo" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/26402999?s=64&v=4"></a>
 <a href="https://github.com/startewho" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/898009?s=64&v=4"></a>
+<a href="https://github.com/5653325" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/3361135?s=64&v=4"></a>
 
 ## Special thanks to
 
