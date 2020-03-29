@@ -29,12 +29,19 @@ namespace HandyControlDemo.ViewModel
 #endif
         }
 
-        public RelayCommand ShowTextCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(ShowText)).Value;
+        public RelayCommand<FrameworkElement> ShowTextCmd => new Lazy<RelayCommand<FrameworkElement>>(() =>
+            new RelayCommand<FrameworkElement>(ShowText)).Value;
 
-        private void ShowText()
+        private void ShowText(FrameworkElement element)
         {
-            Dialog.Show(new TextDialog());
+            if (element == null)
+            {
+                Dialog.Show(new TextDialog());
+            }
+            else
+            {
+                Dialog.Show(new TextDialog(), MessageToken.DialogContainer);
+            }
         }
 
 #if netle40

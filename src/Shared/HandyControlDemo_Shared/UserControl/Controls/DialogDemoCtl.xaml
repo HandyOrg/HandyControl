@@ -3,16 +3,23 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:data="clr-namespace:HandyControlDemo.Data"
+             hc:Dialog.Token="{x:Static data:MessageToken.DialogContainer}"
              Background="{DynamicResource RegionBrush}"
-             MinWidth="300"
+             MinWidth="500"
              DataContext="{Binding DialogDemo,Source={StaticResource Locator}}">
-    <hc:TransitioningContentControl>
-        <StackPanel Margin="32" VerticalAlignment="Center">
-            <Button Content="{x:Static langs:Lang.TextDialog}" Command="{Binding ShowTextCmd}" />
-            <Button Margin="0,32,0,0" Content="{x:Static langs:Lang.TextDialogWithTimer}" Command="{Binding ShowInteractiveDialogCmd}" CommandParameter="True"/>
-            <TextBox Margin="0,32,0,0" Text="{Binding DialogResult,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxExtend}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PleaseInput}"/>
-            <Button Margin="0,10,0,0" Content="{x:Static langs:Lang.InteractiveDialog}" Command="{Binding ShowInteractiveDialogCmd}"/>
-            <Button Margin="0,32,0,0" Content="{x:Static langs:Lang.NewWindow}" Command="{Binding NewWindowCmd}"/>
-        </StackPanel>
-    </hc:TransitioningContentControl>
+    <AdornerDecorator>
+        <hc:TransitioningContentControl>
+            <hc:SimplePanel>
+                <StackPanel Margin="32" VerticalAlignment="Center">
+                    <Button Content="{x:Static langs:Lang.TextDialog}" Command="{Binding ShowTextCmd}" />
+                    <Button Margin="0,32,0,0" Content="{x:Static langs:Lang.TextDialogInControl}" Command="{Binding ShowTextCmd}" CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor,AncestorType=UserControl}}"/>
+                    <Button Margin="0,32,0,0" Content="{x:Static langs:Lang.TextDialogWithTimer}" Command="{Binding ShowInteractiveDialogCmd}" CommandParameter="True"/>
+                    <TextBox Margin="0,32,0,0" Text="{Binding DialogResult,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource TextBoxExtend}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PleaseInput}"/>
+                    <Button Margin="0,10,0,0" Content="{x:Static langs:Lang.InteractiveDialog}" Command="{Binding ShowInteractiveDialogCmd}"/>
+                    <Button Margin="0,32,0,0" Content="{x:Static langs:Lang.NewWindow}" Command="{Binding NewWindowCmd}"/>
+                </StackPanel>
+            </hc:SimplePanel>
+        </hc:TransitioningContentControl>
+    </AdornerDecorator>
 </UserControl>

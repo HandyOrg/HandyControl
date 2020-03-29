@@ -16,14 +16,14 @@ namespace HandyControl.Controls
 
         private Adorner _container;
 
-        private static readonly Dictionary<string, System.Windows.Window> WindowDic = new Dictionary<string, System.Windows.Window>();
+        private static readonly Dictionary<string, FrameworkElement> ContainerDic = new Dictionary<string, FrameworkElement>();
 
         public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
             "IsClosed", typeof(bool), typeof(Dialog), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsClosed
         {
-            get => (bool) GetValue(IsClosedProperty);
+            get => (bool)GetValue(IsClosedProperty);
             internal set => SetValue(IsClosedProperty, value);
         }
 
@@ -32,15 +32,15 @@ namespace HandyControl.Controls
 
         private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is System.Windows.Window window)
+            if (d is FrameworkElement element)
             {
                 if (e.NewValue == null)
                 {
-                    Unregister(window);
+                    Unregister(element);
                 }
                 else
                 {
-                    Register(e.NewValue.ToString(), window);
+                    Register(e.NewValue.ToString(), element);
                 }
             }
         }
@@ -49,39 +49,39 @@ namespace HandyControl.Controls
             => element.SetValue(TokenProperty, value);
 
         public static string GetToken(DependencyObject element)
-            => (string) element.GetValue(TokenProperty);
+            => (string)element.GetValue(TokenProperty);
 
         public Dialog()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => Close()));
         }
 
-        public static void Register(string token, System.Windows.Window window)
+        public static void Register(string token, FrameworkElement element)
         {
-            if (string.IsNullOrEmpty(token) || window == null) return;
-            WindowDic[token] = window;
+            if (string.IsNullOrEmpty(token) || element == null) return;
+            ContainerDic[token] = element;
         }
 
-        public static void Unregister(string token, System.Windows.Window window)
+        public static void Unregister(string token, FrameworkElement element)
         {
-            if (string.IsNullOrEmpty(token) || window == null) return;
+            if (string.IsNullOrEmpty(token) || element == null) return;
 
-            if (WindowDic.ContainsKey(token))
+            if (ContainerDic.ContainsKey(token))
             {
-                if (ReferenceEquals(WindowDic[token], window))
+                if (ReferenceEquals(ContainerDic[token], element))
                 {
-                    WindowDic.Remove(token);
+                    ContainerDic.Remove(token);
                 }
             }
         }
 
-        public static void Unregister(System.Windows.Window window)
+        public static void Unregister(FrameworkElement element)
         {
-            if (window == null) return;
-            var first = WindowDic.FirstOrDefault(item => ReferenceEquals(window, item.Value));
+            if (element == null) return;
+            var first = ContainerDic.FirstOrDefault(item => ReferenceEquals(element, item.Value));
             if (!string.IsNullOrEmpty(first.Key))
             {
-                WindowDic.Remove(first.Key);
+                ContainerDic.Remove(first.Key);
             }
         }
 
@@ -89,9 +89,9 @@ namespace HandyControl.Controls
         {
             if (string.IsNullOrEmpty(token)) return;
 
-            if (WindowDic.ContainsKey(token))
+            if (ContainerDic.ContainsKey(token))
             {
-                WindowDic.Remove(token);
+                ContainerDic.Remove(token);
             }
         }
 
@@ -105,20 +105,20 @@ namespace HandyControl.Controls
                 Content = content
             };
 
-            System.Windows.Window window;
+            FrameworkElement element;
 
             if (string.IsNullOrEmpty(token))
             {
-                window = WindowHelper.GetActiveWindow();
+                element = WindowHelper.GetActiveWindow();
             }
             else
             {
-                WindowDic.TryGetValue(token, out window);
+                ContainerDic.TryGetValue(token, out element);
             }
 
-            if (window != null)
+            if (element != null)
             {
-                var decorator = VisualHelper.GetChild<AdornerDecorator>(window);
+                var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
                 if (decorator != null)
                 {
                     if (decorator.Child != null)
@@ -148,17 +148,17 @@ namespace HandyControl.Controls
             {
                 Close(WindowHelper.GetActiveWindow());
             }
-            else if (WindowDic.TryGetValue(_token, out var window))
+            else if (ContainerDic.TryGetValue(_token, out var element))
             {
-                Close(window);
+                Close(element);
             }
         }
 
-        private void Close(System.Windows.Window window)
+        private void Close(DependencyObject element)
         {
-            if (window != null)
+            if (element != null)
             {
-                var decorator = VisualHelper.GetChild<AdornerDecorator>(window);
+                var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
                 if (decorator != null)
                 {
                     if (decorator.Child != null)
