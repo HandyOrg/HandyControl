@@ -2,55 +2,48 @@
 title: Clock
 ---
 
-Clock 控件允许用户通过在文本框中键入日期或使用下拉的日历控件来选择日期。
+Clock 控件展示一个虚拟的时钟，允许用户在这个时钟上选择时间。
 
 ``` CS
-[TemplatePart(Name = ElementTextBox, Type = typeof(DatePickerTextBox))]
-public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
+[TemplatePart(Name = ElementButtonAm, Type = typeof(RadioButton))]
+[TemplatePart(Name = ElementButtonPm, Type = typeof(RadioButton))]
+[TemplatePart(Name = ElementCanvas, Type = typeof(Canvas))]
+[TemplatePart(Name = ElementBorderTitle, Type = typeof(Border))]
+[TemplatePart(Name = ElementBorderClock, Type = typeof(Border))]
+[TemplatePart(Name = ElementPanelNum, Type = typeof(CirclePanel))]
+[TemplatePart(Name = ElementTimeStr, Type = typeof(TextBlock))]
+public class Clock : ClockBase
 ```
 
-# 创建DatePicker
+# 创建Clock
 
 ``` XML
-<hc:DatePicker />
-```
-
-``` CS
-var datePicker = new DatePicker();
-```
-
-生成的DatePicker如下图所示：
-
-![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/DatePicker_1.png)
-
-
-
-# 选择日期
-
-可以通过文本框输入日期，或者点击文本框右边的按钮打开下拉的日历控件选择日期。
-
-![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/DatePicker_2.png)
-
-也可以在XAML钟或代码中这样设置日期。
-
-``` XML
-<hc:DatePicker SelectedDate="{x:Static system:DateTime.Now}"/>
+<hc:Clock />
 ```
 
 ``` CS
-datePicker.SelectedDate = DateTime.Now;
+var clock = new Clock();
 ```
 
-# 设置标题和占位符文本
+生成的Clock如下图所示：
 
-你可以将 Header（标题）和 Placeholder（占位符）添加到DatePicker，以向用户指示其用途。
+![Clock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/Clock_1.png)
+
+
+
+# 选择s时间
+
+可以通过点击左边的时钟，或者点击右边的时分秒列表选择时间。也可以在XAML钟或代码中这样设置日期。
 
 ``` XML
-<hc:DatePicker hc:InfoElement.TitleWidth="140"
-               hc:InfoElement.TitleAlignment="Left"
-               hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}"
-               hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" />
+<hc:Clock SelectedTime="{x:Static system:DateTime.Now}"/>
 ```
+
+``` CS
+clock.SelectedTime = DateTime.Now;
+```
+
+
 
 
 
@@ -59,16 +52,13 @@ datePicker.SelectedDate = DateTime.Now;
 
 | 属性             |  描述             |
 | ---------------- | ------------------ |
-| SelectedDate      | 获取或设置当前选中的日期 |
-| VerifyFunc        | 获取或设置数据验证委托           |
-| IsError           | 获取或设置数据是否错误           |
-| ErrorStr    | 获取或设置错误提示           |
-| TextType | 获取或设置文本类型       |
-| ShowClearButton | 获取或设置是否显示清除按钮       |
+| SelectedTime      | 获取或设置当前选中的时间。 |
+| DisplayTime        | 获取或设置当前的显示时间。           |
+| TimeFormat      | 获取或设置用于显示选定的时间的格式 |
+| ClockRadioButtonStyle    | 获取或设置Clock控件中RadioButton的样式           |
 
-# 方法
+# 事件
 
-| 方法             |   描述             |
+| 事件             |   描述             |
 | ---------------- | ------------------ |
-| VerifyData()      | 验证数据 |
-
+| DisplayTimeChanged      | 当显示的时间改变时发生。 |
