@@ -744,4 +744,7 @@
   <data name="Screenshot" xml:space="preserve">
     <value>截图</value>
   </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>文本对话框（控件中）</value>
+  </data>
 </root>

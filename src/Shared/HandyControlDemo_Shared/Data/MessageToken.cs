@@ -46,5 +46,7 @@
 
         public static readonly string NavigationWindow = nameof(NavigationWindow);
 
+        public static readonly string DialogContainer = nameof(DialogContainer);
+
     }
 }

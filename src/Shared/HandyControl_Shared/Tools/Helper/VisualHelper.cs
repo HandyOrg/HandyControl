@@ -20,12 +20,10 @@ namespace HandyControl.Tools
                 .FirstOrDefault(group => string.CompareOrdinal(groupName, group.Name) == 0);
         }
 
-        internal static FrameworkElement GetImplementationRoot(DependencyObject d)
-        {
-            return 1 == VisualTreeHelper.GetChildrenCount(d)
+        internal static FrameworkElement GetImplementationRoot(DependencyObject d) =>
+            1 == VisualTreeHelper.GetChildrenCount(d)
                 ? VisualTreeHelper.GetChild(d, 0) as FrameworkElement
                 : null;
-        }
 
         public static T GetChild<T>(DependencyObject d) where T : DependencyObject
         {
@@ -42,16 +40,19 @@ namespace HandyControl.Tools
             return default;
         }
 
-        public static IntPtr GetHandle(this Visual visual)
-        {
-            return (PresentationSource.FromVisual(visual) as HwndSource)?.Handle ?? IntPtr.Zero;
-        }
+        public static T GetParent<T>(DependencyObject d) where T : DependencyObject =>
+            d switch
+            {
+                null => default,
+                T t => t,
+                Window _ => null,
+                _ => GetParent<T>(VisualTreeHelper.GetParent(d))
+            };
 
-        internal static void HitTestVisibleElements(Visual visual, HitTestResultCallback resultCallback,
-            HitTestParameters parameters)
-        {
+        public static IntPtr GetHandle(this Visual visual) => (PresentationSource.FromVisual(visual) as HwndSource)?.Handle ?? IntPtr.Zero;
+
+        internal static void HitTestVisibleElements(Visual visual, HitTestResultCallback resultCallback, HitTestParameters parameters) =>
             VisualTreeHelper.HitTest(visual, ExcludeNonVisualElements, resultCallback, parameters);
-        }
 
         private static HitTestFilterBehavior ExcludeNonVisualElements(DependencyObject potentialHitTestTarget)
         {

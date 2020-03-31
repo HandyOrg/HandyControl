@@ -3,6 +3,7 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../../Basic/Effects.xaml"/>
         <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
         <ResourceDictionary Source="../ScrollViewer.xaml"/>
     </ResourceDictionary.MergedDictionaries>
@@ -64,13 +65,13 @@
                                     </Border>
                                     <ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                     <Popup Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=templateRoot}" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom">
-                                        <controls:SimplePanel>
+                                        <controls:SimplePanel Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8">
                                             <Border CornerRadius="0,0,2,2" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
                                                 <ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="0,6">
                                                     <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle"/>
                                                 </ScrollViewer>
                                             </Border>
-                                            <Border Height="1" Background="{DynamicResource RegionBrush}" VerticalAlignment="Top" BorderThickness="1,0" BorderBrush="{DynamicResource BorderBrush}" HorizontalAlignment="Left" Width="{Binding ActualWidth,ElementName=templateRoot}"/>
+                                            <Border controls:MenuTopLineAttach.Popup="{Binding ElementName=PART_Popup}" Height="1" Background="{DynamicResource RegionBrush}" VerticalAlignment="Top" BorderThickness="1,0" BorderBrush="{DynamicResource BorderBrush}" HorizontalAlignment="Left"/>
                                         </controls:SimplePanel>
                                     </Popup>
                                 </Grid>
@@ -166,7 +167,7 @@
                                     <ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,3" x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                     <Path x:Name="Path" Grid.Column="4" Width="10" Height="10" HorizontalAlignment="Left" Data="{StaticResource RightGeometry}" Stretch="Uniform" Fill="{TemplateBinding Foreground}" VerticalAlignment="Center"/>
                                     <Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="-13" HorizontalOffset="10">
-                                        <Border CornerRadius="2" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
+                                        <Border Effect="{StaticResource EffectShadow2}" Margin="8" CornerRadius="2" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
                                             <ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="0,6">
                                                 <ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle"/>
                                             </ScrollViewer>
@@ -184,7 +185,7 @@
                 </Setter>
             </Trigger>
             <Trigger Property="IsHighlighted" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value=".4"/>

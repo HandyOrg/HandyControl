@@ -744,4 +744,7 @@
   <data name="Screenshot" xml:space="preserve">
     <value>Screenshot</value>
   </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>TextDialog(In control)</value>
+  </data>
 </root>

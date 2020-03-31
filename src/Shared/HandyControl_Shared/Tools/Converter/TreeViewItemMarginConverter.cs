@@ -8,7 +8,6 @@ namespace HandyControl.Tools.Converter
 {
     public class TreeViewItemMarginConverter: IValueConverter
     {
-
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             var left = 0.0;
