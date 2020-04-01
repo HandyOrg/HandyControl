@@ -8,7 +8,6 @@ title: PasswordBox
 [TemplatePart(Name = ElementPasswordBox, Type = typeof(System.Windows.Controls.PasswordBox))]
 [TemplatePart(Name = ElementTextBox, Type = typeof(System.Windows.Controls.TextBox))]
 public class PasswordBox : Control, IDataInput
-
 ```
 
 # PasswordBox
@@ -50,7 +49,7 @@ PasswordBox控件可以主动显示已输入的密码。将`ShowEyeButton`设置
 
 # 设置标题和占位符文本
 
-你可以将 Header（标题）和 Placeholder（占位符）添加到PasswordBox，以向用户指示其用途。要使用这两个属性，首先需要应用 **TimePickerExtend** 或 **TimePickerPlus** 样式。
+你可以将 Header（标题）和 Placeholder（占位符）添加到PasswordBox，以向用户指示其用途。
 
 ``` XML
 <hc:PasswordBox hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}"
