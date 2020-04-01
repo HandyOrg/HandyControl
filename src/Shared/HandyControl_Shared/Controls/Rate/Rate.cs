@@ -40,7 +40,11 @@ namespace HandyControl.Controls
                 Info = (double)e.NewValue
             });
 
-        protected virtual void OnValueChanged(FunctionEventArgs<double> e) => RaiseEvent(e);
+        protected virtual void OnValueChanged(FunctionEventArgs<double> e)
+        {
+            RaiseEvent(e);
+            UpdateItems();
+        }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
             "Text", typeof(string), typeof(Rate), new PropertyMetadata(default(string)));
