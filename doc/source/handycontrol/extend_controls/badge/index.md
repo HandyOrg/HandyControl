@@ -19,7 +19,7 @@ public class Badge : ContentControl
 | BadgeMargin | 获取或设置标记相对于被修饰控件的外边距                       |
 | ShowBadge   | 获取或设置是否显示标记，默认为True                           |
 
-`xaml`中，记得引入`handycontrol`的命名空间
+`xaml`中，记得引入`handycontrol`的命名空间。
 
 ```xml
 xmlns:hc="https://handyorg.github.io/handycontrol"
@@ -27,7 +27,7 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
 
 ##  `Text`和`Value`
 
-可能看到属性解释，会比较疑惑，`Text`和`Value`在现实效果和数据填写时，是一样的，这有什么区别？在标记控件中，将文本和数值类型进行区分，数值类型能够进行动态的变更以及数据统计显示效果，当两者同时存在时，默认显示`Text`，由于标记的`Status`默认为文本
+可能看到属性解释，会比较疑惑，`Text`和`Value`在效果和数值上是一样的，这有什么区别？在标记控件中，将文本和数值类型进行区分，数值类型能够进行动态的变更以及数据统计显示效果，当两者同时存在时，默认显示`Text`。
 
 ### 案例
 
@@ -148,7 +148,7 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
 
 ![Badge-Styles](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/Badge-Styles.png)
 
-# 常见问题
+# FAQ
 
 ## 坐标偏移问题[版本 小于等于 2.4]
 
@@ -183,23 +183,3 @@ xmlns:hc="https://handyorg.github.io/handycontrol"
 ```
 
 ![Badge-ErrorCorrection01](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/Badge-ErrorCorrection01.png)
-
-## 标记适用范围
-
-标记派生至`ContentControl`，不支持多子集，仅仅能够包含一个子集，支持`ContentControl`支持的所有控件作为被标记控件
-
-```xml
-    <hc:Badge Height="30" BadgeMargin="0,-14,-20,0" Value="11">
-        <Button Width="60" Content="Button"></Button>
-    </hc:Badge>
-    <hc:Badge Height="30" BadgeMargin="0,-14,-20,0" Value="11">
-        <hc:ComboBox Width="60"></hc:ComboBox>
-    </hc:Badge>
-```
-
-![Badge-Attention01](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/Badge-Attention01.png)
-
-
-
-
-
