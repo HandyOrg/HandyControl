@@ -8,7 +8,7 @@ title: TextBox
 public class TextBox : System.Windows.Controls.TextBox, IDataInput
 ```
 
-# TextBox
+# 创建TextBox
 
 ``` XML
 <hc:TextBox />

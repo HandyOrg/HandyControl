@@ -10,7 +10,7 @@ title: PasswordBox
 public class PasswordBox : Control, IDataInput
 ```
 
-# PasswordBox
+# 创建PasswordBox
 
 ``` XML
 <hc:PasswordBox />
