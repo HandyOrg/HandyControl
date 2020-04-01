@@ -2,7 +2,7 @@
 title: Card 卡片
 ---
 
-`Card`卡片作为同类型信息展示块，主要有内容头部以及尾部组成，常用于做集合类控件的子级模板使用，展示相同外观不同内容的卡片式风格数据，为`ContentControl`的派生类
+用于卡片化展示数据，为`ContentControl`的派生类
 
 ```c#
 public class Card : ContentControl
