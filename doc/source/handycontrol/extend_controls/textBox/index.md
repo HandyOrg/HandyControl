@@ -57,23 +57,16 @@ textBox.Text = "这是内容";
 
 | 属性             |   描述             |
 | ---------------- | ------------------ |
-| Password      | 获取或设置 PasswordBox 当前保留的密码。 |
-| PasswordChar      | 获取或设置 PasswordBox 的掩码字符。 |
-| ShowEyeButton      | 获取或设置是否显示一个“眼睛”的按钮，点击可以显示密码。 |
-| ShowPassword      | 获取或设置是否显示密码。 |
-| Text      |  	获取由 **TimePicker** 显示的文本，或设置选定的时间 |
-| VerifyFunc        | 获取或设置数据验证委托           |
-| IsError           | 获取或设置数据是否错误           |
-| ErrorStr    | 获取或设置错误提示           |
-| TextType | 获取或设置文本类型       |
-| ShowClearButton | 获取或设置是否显示清除按钮       |
+| Text      |  	获取或设置文本框的文本内容。 |
+| VerifyFunc        | 获取或设置数据验证委托。           |
+| IsError           | 获取或设置数据是否错误。           |
+| ErrorStr    | 获取或设置错误提示。           |
+| TextType | 获取或设置文本类型。       |
+| ShowClearButton | 获取或设置是否显示清除按钮。       |
 
 # 方法
 
 | 方法             |  描述              |
 | ---------------- | ------------------ |
-| Clear()    | 清除 Password 属性的值。 |
-| Paste()      | 用剪贴板中的内容替换 PasswordBox 中的当前选定内容。 |
-| SelectAll()     | 选择 PasswordBox 中的全部内容。 |
 | VerifyData()      | 验证数据。 |
 
