@@ -27,16 +27,19 @@
 
 ## Contributors
 
-<a href="https://github.com/ghost1372" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/9213496?s=64&amp;v=4"></a>
-<a href="https://github.com/DingpingZhang" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/8541016?s=64&v=4"></a>
-<a href="https://github.com/M0n7y5" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/17201053?s=64&v=4"></a>
-<a href="https://github.com/guanguanchuangyu" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/25916858?s=64&v=4"></a>
-<a href="https://github.com/yanchao891012" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/16846702?s=64&v=4"></a>
-<a href="https://github.com/noctwolf" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/21022467?s=64&v=4"></a>
-<a href="https://github.com/xianyun666" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/22339210?s=64&v=4"></a>
-<a href="https://github.com/afunc233" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/19919631?s=64&v=4"></a>
-<a href="https://github.com/DinoChan" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/6076257?s=64&v=4"></a>
-<a href="https://github.com/MrZhangYuan" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
+<a href="https://github.com/ghost1372" target="_blank"><img width="64px" alt="ghost1372" src="https://avatars0.githubusercontent.com/u/9213496?s=64&amp;v=4"></a>
+<a href="https://github.com/DingpingZhang" target="_blank"><img width="64px" alt="DingpingZhang" src="https://avatars0.githubusercontent.com/u/8541016?s=64&v=4"></a>
+<a href="https://github.com/M0n7y5" target="_blank"><img width="64px" alt="M0n7y5" src="https://avatars0.githubusercontent.com/u/17201053?s=64&v=4"></a>
+<a href="https://github.com/guanguanchuangyu" target="_blank"><img width="64px" alt="guanguanchuangyu" src="https://avatars1.githubusercontent.com/u/25916858?s=64&v=4"></a>
+<a href="https://github.com/yanchao891012" target="_blank"><img width="64px" alt="yanchao891012" src="https://avatars0.githubusercontent.com/u/16846702?s=64&v=4"></a>
+<a href="https://github.com/noctwolf" target="_blank"><img width="64px" alt="noctwolf" src="https://avatars3.githubusercontent.com/u/21022467?s=64&v=4"></a>
+<a href="https://github.com/xianyun666" target="_blank"><img width="64px" alt="xianyun666" src="https://avatars1.githubusercontent.com/u/22339210?s=64&v=4"></a>
+<a href="https://github.com/afunc233" target="_blank"><img width="64px" alt="afunc233" src="https://avatars1.githubusercontent.com/u/19919631?s=64&v=4"></a>
+<a href="https://github.com/DinoChan" target="_blank"><img width="64px" alt="DinoChan" src="https://avatars1.githubusercontent.com/u/6076257?s=64&v=4"></a>
+<a href="https://github.com/MrZhangYuan" target="_blank"><img width="64px" alt="MrZhangYuan" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
+<a href="https://github.com/JinhuaChen-OMEC" target="_blank"><img width="64px" alt="JinhuaChen-OMEC" src="https://avatars0.githubusercontent.com/u/47024703?s=64&v=4"></a>
+<a href="https://github.com/seedtyx" target="_blank"><img width="64px" alt="seedtyx" src="https://avatars2.githubusercontent.com/u/5851975?s=64&v=4"></a>
+<a href="https://github.com/KleinPan" target="_blank"><img width="64px" alt="KleinPan" src="https://avatars2.githubusercontent.com/u/34428802?s=64&v=4"></a>
 
 ## Backers
 
