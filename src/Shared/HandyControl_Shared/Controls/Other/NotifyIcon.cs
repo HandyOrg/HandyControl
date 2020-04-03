@@ -6,12 +6,12 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Tools;
-using HandyControl.Tools.Extension;
 using HandyControl.Tools.Interop;
 
 namespace HandyControl.Controls
@@ -85,30 +85,24 @@ namespace HandyControl.Controls
                 ctl.UpdateIcon(false);
             }
         }
-        private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            NotifyIcon owner = (NotifyIcon)d;
-            owner.OnDataContextPropertyChanged(e);
-        }
+
+        private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
+            ((NotifyIcon) d).OnDataContextPropertyChanged(e);
 
         private void OnDataContextPropertyChanged(DependencyPropertyChangedEventArgs e)
         {
-            object newValue = e.NewValue;
-            object oldValue = e.OldValue;
-            UpdateDataContext(_contextContent, oldValue, newValue);
-            UpdateDataContext(ContextMenu, oldValue, newValue);
+            UpdateDataContext(_contextContent, e.OldValue, e.NewValue);
+            UpdateDataContext(ContextMenu, e.OldValue, e.NewValue);
         }
 
         private static void ContextMenuPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            NotifyIcon owner = (NotifyIcon)d;
-            owner.OnContextMenuPropertyChanged(e);
+            var ctl = (NotifyIcon)d;
+            ctl.OnContextMenuPropertyChanged(e);
         }
 
-        private void OnContextMenuPropertyChanged(DependencyPropertyChangedEventArgs e)
-        {
-            UpdateDataContext((ContextMenu)e.NewValue, null, DataContext);
-        }
+        private void OnContextMenuPropertyChanged(DependencyPropertyChangedEventArgs e) =>
+            UpdateDataContext((ContextMenu) e.NewValue, null, DataContext);
 
         public NotifyIcon()
         {
@@ -703,12 +697,12 @@ namespace HandyControl.Controls
             remove => RemoveHandler(MouseDoubleClickEvent, value);
         }
 
-        private void UpdateDataContext(FrameworkElement target, object oldDataContextValue, object newDataContextValue)
+        private void UpdateDataContext(FrameworkElement target, object oldValue, object newValue)
         {
-            if (target == null || target.IsDataContextDataBound()) return;
-            if (ReferenceEquals(this, target.DataContext) || Equals(oldDataContextValue, target.DataContext))
+            if (target == null || BindingOperations.GetBindingExpression(target, DataContextProperty) != null) return;
+            if (ReferenceEquals(this, target.DataContext) || Equals(oldValue, target.DataContext))
             {
-                target.DataContext = newDataContextValue ?? this;
+                target.DataContext = newValue ?? this;
             }
         }
 
