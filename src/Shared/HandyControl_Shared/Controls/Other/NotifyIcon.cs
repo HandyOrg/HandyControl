@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -62,11 +63,13 @@ namespace HandyControl.Controls
         static NotifyIcon()
         {
             VisibilityProperty.OverrideMetadata(typeof(NotifyIcon), new PropertyMetadata(Visibility.Visible, OnVisibilityChanged));
+            DataContextProperty.OverrideMetadata(typeof(NotifyIcon), new FrameworkPropertyMetadata(DataContextPropertyChanged));
+            ContextMenuProperty.OverrideMetadata(typeof(NotifyIcon), new FrameworkPropertyMetadata(ContextMenuPropertyChanged));
         }
 
         private static void OnVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NotifyIcon) d;
+            var ctl = (NotifyIcon)d;
             var v = (Visibility)e.NewValue;
 
             if (v == Visibility.Visible)
@@ -77,11 +80,29 @@ namespace HandyControl.Controls
                 }
                 ctl.UpdateIcon(true);
             }
-            else if(ctl._iconCurrentHandle != IntPtr.Zero)
+            else if (ctl._iconCurrentHandle != IntPtr.Zero)
             {
                 ctl.UpdateIcon(false);
             }
         }
+
+        private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
+            ((NotifyIcon) d).OnDataContextPropertyChanged(e);
+
+        private void OnDataContextPropertyChanged(DependencyPropertyChangedEventArgs e)
+        {
+            UpdateDataContext(_contextContent, e.OldValue, e.NewValue);
+            UpdateDataContext(ContextMenu, e.OldValue, e.NewValue);
+        }
+
+        private static void ContextMenuPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (NotifyIcon)d;
+            ctl.OnContextMenuPropertyChanged(e);
+        }
+
+        private void OnContextMenuPropertyChanged(DependencyPropertyChangedEventArgs e) =>
+            UpdateDataContext((ContextMenu) e.NewValue, null, DataContext);
 
         public NotifyIcon()
         {
@@ -228,7 +249,7 @@ namespace HandyControl.Controls
 
         public string Token
         {
-            get => (string) GetValue(TokenProperty);
+            get => (string)GetValue(TokenProperty);
             set => SetValue(TokenProperty, value);
         }
 
@@ -237,7 +258,7 @@ namespace HandyControl.Controls
 
         public string Text
         {
-            get => (string) GetValue(TextProperty);
+            get => (string)GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
 
@@ -274,13 +295,13 @@ namespace HandyControl.Controls
             var ctl = (NotifyIcon)d;
             if (ctl._dispatcherTimerBlink != null)
             {
-                ctl._dispatcherTimerBlink.Interval = (TimeSpan) e.NewValue;
+                ctl._dispatcherTimerBlink.Interval = (TimeSpan)e.NewValue;
             }
         }
 
         public TimeSpan BlinkInterval
         {
-            get => (TimeSpan) GetValue(BlinkIntervalProperty);
+            get => (TimeSpan)GetValue(BlinkIntervalProperty);
             set => SetValue(BlinkIntervalProperty, value);
         }
 
@@ -291,7 +312,7 @@ namespace HandyControl.Controls
         {
             var ctl = (NotifyIcon)d;
             if (ctl.Visibility != Visibility.Visible) return;
-            if ((bool) e.NewValue)
+            if ((bool)e.NewValue)
             {
                 if (ctl._dispatcherTimerBlink == null)
                 {
@@ -465,7 +486,7 @@ namespace HandyControl.Controls
                 InteropMethods.VirtualFreeEx(hProcess, address, 0, InteropValues.FreeType.Release);
                 InteropMethods.CloseHandle(hProcess);
             }
-            return isFind;            
+            return isFind;
         }
 
         private void OnIconChanged()
@@ -674,7 +695,16 @@ namespace HandyControl.Controls
         {
             add => AddHandler(MouseDoubleClickEvent, value);
             remove => RemoveHandler(MouseDoubleClickEvent, value);
-        }       
+        }
+
+        private void UpdateDataContext(FrameworkElement target, object oldValue, object newValue)
+        {
+            if (target == null || BindingOperations.GetBindingExpression(target, DataContextProperty) != null) return;
+            if (ReferenceEquals(this, target.DataContext) || Equals(oldValue, target.DataContext))
+            {
+                target.DataContext = newValue ?? this;
+            }
+        }
 
         private void Dispose(bool disposing)
         {

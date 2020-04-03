@@ -41,6 +41,7 @@
             <hc:NotifyIcon Token="{x:Static data:MessageToken.NotifyIconDemo}" Text="HandyControl" IsBlink="{Binding ContextMenuIsBlink}" Visibility="{Binding ContextMenuIsShow,Converter={StaticResource Boolean2VisibilityConverter}}">
                 <hc:NotifyIcon.ContextMenu>
                     <ContextMenu>
+                        <MenuItem Command="{Binding SendNotificationCmd}" Header="{x:Static langs:Lang.SendNotification}"/>
                         <MenuItem Command="hc:ControlCommands.PushMainWindow2Top" Header="{x:Static langs:Lang.OpenPanel}"/>
                         <MenuItem Command="hc:ControlCommands.ShutdownApp" Header="{x:Static langs:Lang.Exit}"/>
                     </ContextMenu>
