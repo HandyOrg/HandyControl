@@ -20,11 +20,6 @@ public class PasswordBox : Control, IDataInput
 var passwordBox = new PasswordBox();
 ```
 
-生成的PasswordBox如下图所示：
-
-![PasswordBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/PasswordBox_1.png)
-
-
 
 # 输入密码
 
