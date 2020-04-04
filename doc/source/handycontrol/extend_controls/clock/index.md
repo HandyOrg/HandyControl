@@ -1,5 +1,5 @@
 ---
-title: Clock
+title: Clock 时钟
 ---
 
 Clock 控件展示一个虚拟的时钟，允许用户在这个时钟上选择时间。
@@ -29,9 +29,7 @@ var clock = new Clock();
 
 ![Clock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/Clock_1.png)
 
-
-
-# 选择s时间
+# 选择时间
 
 可以通过点击左边的时钟，或者点击右边的时分秒列表选择时间。也可以在XAML钟或代码中这样设置日期。
 
@@ -42,11 +40,6 @@ var clock = new Clock();
 ``` CS
 clock.SelectedTime = DateTime.Now;
 ```
-
-
-
-
-
 
 # 属性
 

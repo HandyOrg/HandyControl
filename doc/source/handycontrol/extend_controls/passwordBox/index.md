@@ -1,5 +1,5 @@
 ---
-title: PasswordBox
+title: PasswordBox 密码框
 ---
 
 表示用于输入和处理密码的控件。
@@ -20,7 +20,6 @@ public class PasswordBox : Control, IDataInput
 var passwordBox = new PasswordBox();
 ```
 
-
 # 输入密码
 
 可以通过文本框输入密码，也可以在XAML钟或代码中这样设置日期。
@@ -37,7 +36,9 @@ passwordBox.Password = "123456";
 
 PasswordBox控件可以主动显示已输入的密码。将`ShowEyeButton`设置为`true`，PasswordBox将显示一个“眼睛”的按钮，点击这个按钮即可显示已输入的密码。
 
+``` XML
 <hc:PasswordBox ShowClearButton="True"/>
+```
 
 ![PasswordBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/PasswordBox_2.gif)
 
@@ -50,9 +51,6 @@ PasswordBox控件可以主动显示已输入的密码。将`ShowEyeButton`设置
 <hc:PasswordBox hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}"
                hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr2}"
 ```
-
-
-
 
 # 属性
 
@@ -77,4 +75,3 @@ PasswordBox控件可以主动显示已输入的密码。将`ShowEyeButton`设置
 | Paste()      | 用剪贴板中的内容替换 PasswordBox 中的当前选定内容。 |
 | SelectAll()     | 选择 PasswordBox 中的全部内容。 |
 | VerifyData()      | 验证数据。 |
-

@@ -1,5 +1,5 @@
 ---
-title: TextBox
+title: TextBox 文本框
 ---
 
 表示一个控件，该控件可用于显示或编辑无格式文本。
@@ -17,9 +17,6 @@ public class TextBox : System.Windows.Controls.TextBox, IDataInput
 ``` CS
 var textBox = new TextBox();
 ```
-
-
-
 
 # 输入文本
 
@@ -49,9 +46,6 @@ textBox.Text = "这是内容";
 <hc:TextBox hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}"
                hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr2}"
 ```
-
-
-
 
 # 属性
 

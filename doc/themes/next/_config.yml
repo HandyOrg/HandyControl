@@ -231,8 +231,7 @@ menu:
       default: /extend_controls/ ||
       AnimationPath 动画路径: /animationPath/ ||
       Badge 标记: /badge/ ||
-      ButtonGroup : /buttonGroup/ ||
-      BlurWindow 背景模糊窗口: /blurWindow/ ||
+      ButtonGroup 按钮组: /buttonGroup/ ||
       CalendarWithClock 带有时钟的日历: /calendarWithClock/ ||
       Card 卡片: /card/ ||
       Carousel 轮播: /carousel/ ||
@@ -276,7 +275,6 @@ menu:
       PreviewSlider 预览滑块: /previewSlider/ ||
       ProgressButton 进度按钮: /progressButton/ ||
       RangeSlider 范围滑块: /rangeSlider/ ||
-      RadioGroup 单选按钮组: /radioGroup/ ||
       Rate 评分: /rate/ ||
       RelativePanel 相对布局: /relativePanel/ ||
       RunningBlock 滚动块: /runningBlock/ ||
