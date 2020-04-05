@@ -24,6 +24,9 @@ jobs:
       
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@master
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@master
       
       - name: Build Net_40
         run: msbuild src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release
@@ -39,3 +42,9 @@ jobs:
 
       - name: Build Net_48
         run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net48
+
+      - name: Build Core_30
+        run: dotnet build src/Core_GE30/HandyControl_Core_GE30/HandyControl_Core_GE30.csproj --configuration Release-Core30
+
+      - name: Build Core_31
+        run: dotnet build src/Core_GE30/HandyControl_Core_GE30/HandyControl_Core_GE30.csproj --configuration Release-Core31
