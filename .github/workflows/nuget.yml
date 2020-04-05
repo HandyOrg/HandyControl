@@ -31,11 +31,11 @@ jobs:
       - name: Build Net_45
         run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net45
 
-        - name: Build Net_462
+      - name: Build Net_462
         run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net462
 
-        - name: Build Net_47
+      - name: Build Net_47
         run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net47
 
-        - name: Build Net_48
+      - name: Build Net_48
         run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net48
