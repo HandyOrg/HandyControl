@@ -25,5 +25,8 @@ jobs:
       - name: Setup MSBuild.exe
         uses: microsoft/setup-msbuild@master
       
-      - name: Build net_40
+      - name: Build Net_40
         run: msbuild src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release
+
+      - name: Build Net_GE45
+        run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
