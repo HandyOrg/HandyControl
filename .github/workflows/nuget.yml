@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - master
+  
   pull_request:
     branches:
       - master
@@ -14,11 +15,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
+      
       - name: Setup Nuget.exe
-        uses: warrenbuckley/Setup-Nuget@master
+        uses: nuget/setup-nuget@master
+      
       - name: Restore Nuget packages
         run: nuget restore src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj
+      
       - name: Setup MSBuild.exe
         uses: warrenbuckley/Setup-MSBuild@master
+      
       - name: Build net_40
         run: msbuild src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release
