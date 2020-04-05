@@ -45,7 +45,7 @@
                         </Border>
                         <Path x:Name="PathMain" Margin="10,0,0,0" Grid.Column="0" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
                         <ContentPresenter Grid.Column="1" x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Stretch" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
-                        <Border Name="BorderMask" Grid.Column="1" HorizontalAlignment="Right" Width="20" Background="{TemplateBinding Background}">
+                        <Border Name="BorderMask" Grid.Column="1" HorizontalAlignment="Right" Width="20" Background="{TemplateBinding Background}" Margin="0,0,1,1">
                             <Border.OpacityMask>
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
                                     <GradientStop Color="White" Offset="1"/>
@@ -65,6 +65,9 @@
                         </Trigger>
                         <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
+                        </Trigger>
+                        <Trigger Property="ShowCloseButton" Value="True">
+                            <Setter Property="Margin" Value="0,0,0,1" TargetName="BorderMask"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
