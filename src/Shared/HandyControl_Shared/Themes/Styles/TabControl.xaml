@@ -31,13 +31,6 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Menu" Value="{StaticResource TabItemMenu}"/>
-        <Setter Property="HeaderTemplate">
-            <Setter.Value>
-                <DataTemplate>
-                    <TextBlock Background="Transparent" Text="{Binding Header,RelativeSource={RelativeSource AncestorType=controls:TabItem}}"/>
-                </DataTemplate>
-            </Setter.Value>
-        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:TabItem">
