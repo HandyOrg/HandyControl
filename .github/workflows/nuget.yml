@@ -23,7 +23,7 @@ jobs:
         run: nuget restore src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj
       
       - name: Setup MSBuild.exe
-        uses: warrenbuckley/Setup-MSBuild@master
+        uses: microsoft/setup-msbuild@master
       
       - name: Build net_40
         run: msbuild src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release
