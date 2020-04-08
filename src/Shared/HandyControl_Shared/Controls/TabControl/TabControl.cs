@@ -299,6 +299,8 @@ namespace HandyControl.Controls
         {
             base.OnRenderSizeChanged(sizeInfo);
             UpdateOverflowButton();
+            HeaderPanel?.ForceMeasureUpdate();
+            ScrollToTabIndex(this.SelectedIndex);
         }
 
         private void UpdateOverflowButton()
@@ -363,9 +365,7 @@ namespace HandyControl.Controls
                             {
                                 HeaderPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(0)));
                             }
-                            HeaderPanel.ForceUpdate = true;
-                            HeaderPanel.Measure(new Size(HeaderPanel.DesiredSize.Width, ActualHeight));
-                            HeaderPanel.ForceUpdate = false;
+                            HeaderPanel.ForceMeasureUpdate();
                             SetCurrentValue(SelectedIndexProperty, ValueBoxes.Int0Box);
                         }
 

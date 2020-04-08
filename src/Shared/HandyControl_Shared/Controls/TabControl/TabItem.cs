@@ -407,11 +407,9 @@ namespace HandyControl.Controls
                 list.Remove(item);
                 parent.IsInternalAction = true;
                 list.Insert(index, item);
-                _tabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(0)));
+                TabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(0)));
                 TabPanel.CanUpdate = true;
-                TabPanel.ForceUpdate = true;
-                TabPanel.Measure(new Size(TabPanel.DesiredSize.Width, ActualHeight));
-                TabPanel.ForceUpdate = false;
+                TabPanel.ForceMeasureUpdate();
                 
                 Focus();
                 IsSelected = true;

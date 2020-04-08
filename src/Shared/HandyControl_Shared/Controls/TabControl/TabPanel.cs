@@ -160,14 +160,19 @@ namespace HandyControl.Controls
             return _oldSize;
         }
 
+        public void ForceMeasureUpdate()
+        {
+            ForceUpdate = true;
+            Measure(new Size(DesiredSize.Width, ActualHeight));
+            ForceUpdate = false;
+        }
+
         public TabPanel()
         {
             Loaded += (s, e) =>
             {
                 if (_isLoaded) return;
-                ForceUpdate = true;
-                Measure(new Size(DesiredSize.Width, ActualHeight));
-                ForceUpdate = false;
+                ForceMeasureUpdate();
                 foreach (var item in ItemDic.Values)
                 {
                     item.TabPanel = this;
