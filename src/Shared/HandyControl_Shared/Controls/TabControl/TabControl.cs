@@ -229,6 +229,7 @@ namespace HandyControl.Controls
             if (IsInternalAction)
             {
                 IsInternalAction = false;
+                _headerBorder?.InvalidateMeasure();
                 return;
             }
 
