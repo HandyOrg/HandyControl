@@ -300,7 +300,7 @@ namespace HandyControl.Controls
             if (!IsTabFillEnabled)
             {
                 _itemShowCount = (int)(ActualWidth / TabItemWidth);
-                _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
+                _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count > _itemShowCount);
             }
         }
 
@@ -347,8 +347,7 @@ namespace HandyControl.Controls
                         var index = list.IndexOf(actualItem);
                         if (index >= _itemShowCount)
                         {
-                            list.Remove(actualItem);
-                            list.Insert(0, actualItem);
+                            ScrollToTabIndex(index);
                             if (IsAnimationEnabled)
                             {
                                 HeaderPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(200)));
@@ -371,6 +370,12 @@ namespace HandyControl.Controls
         }
 
         internal double GetHorizontalOffset() => _scrollViewerOverflow?.CurrentHorizontalOffset ?? 0;
+
+        internal void ScrollToTabIndex(int index)
+        {
+            System.Diagnostics.Debug.WriteLine($"Move to {(index - this.SelectedIndex) * TabItemWidth}");
+            _scrollViewerOverflow?.ScrollToHorizontalOffset((index - this.SelectedIndex) * TabItemWidth);
+        }
 
         internal void UpdateScroll() => _scrollViewerOverflow?.RaiseEvent(new MouseWheelEventArgs(Mouse.PrimaryDevice, Environment.TickCount, 0)
         {
