@@ -379,8 +379,7 @@ namespace HandyControl.Controls
 
         internal void ScrollToTabIndex(int index)
         {
-            System.Diagnostics.Debug.WriteLine($"Move to {(index - this.SelectedIndex) * TabItemWidth}");
-            _scrollViewerOverflow?.ScrollToHorizontalOffset((index - this.SelectedIndex) * TabItemWidth);
+            _scrollViewerOverflow?.ScrollToHorizontalOffset(index * TabItemWidth);
         }
 
         internal void UpdateScroll() => _scrollViewerOverflow?.RaiseEvent(new MouseWheelEventArgs(Mouse.PrimaryDevice, Environment.TickCount, 0)
