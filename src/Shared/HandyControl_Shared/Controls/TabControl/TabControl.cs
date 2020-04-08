@@ -239,6 +239,11 @@ namespace HandyControl.Controls
                     if (!(ItemContainerGenerator.ContainerFromIndex(i) is TabItem item)) return;
                     item.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                     item.TabPanel = HeaderPanel;
+                    if (Items[i].Equals(e.NewItems[e.NewItems.Count - 1]))
+                    {
+                        item.IsSelected = true;
+                        ScrollToTabIndex(i);
+                    }
                 }
             }
 
@@ -348,6 +353,7 @@ namespace HandyControl.Controls
                         if (index >= _itemShowCount)
                         {
                             ScrollToTabIndex(index);
+
                             if (IsAnimationEnabled)
                             {
                                 HeaderPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(200)));
