@@ -299,7 +299,7 @@ namespace HandyControl.Controls
         {
             base.OnRenderSizeChanged(sizeInfo);
             UpdateOverflowButton();
-            HeaderPanel?.ForceMeasureUpdate();
+            HeaderPanel.ForceMeasureUpdate();
             ScrollToTabIndex(this.SelectedIndex);
         }
 
@@ -307,7 +307,7 @@ namespace HandyControl.Controls
         {
             if (!IsTabFillEnabled)
             {
-                _itemShowCount = (int)(ActualWidth / TabItemWidth);
+                _itemShowCount = (int)(_headerBorder.ActualWidth / TabItemWidth);
                 _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count > _itemShowCount);
             }
         }
