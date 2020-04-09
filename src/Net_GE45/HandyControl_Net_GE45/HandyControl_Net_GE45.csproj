@@ -74,6 +74,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <netVersion>netgt40</netVersion>
     <LangVersion>8.0</LangVersion>
+    <NoWarn>0067;0649;1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net462|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

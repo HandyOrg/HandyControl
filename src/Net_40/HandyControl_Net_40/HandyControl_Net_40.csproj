@@ -35,6 +35,7 @@
     <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <LangVersion>8.0</LangVersion>
+    <NoWarn>0067;0649;1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\..\Shared\HandyControl_Shared\Properties\NetAssemblyInfo.cs">
@@ -182,11 +183,11 @@
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\ComboBoxBaseStyle.xaml"/>
-    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\TreeViewBaseStyle.xaml"/>
-    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\DataGrid.xaml"/>
-    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\ListView.xaml"/>
-    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\MessageBox.xaml"/>
-    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Window.xaml"/>
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\ComboBoxBaseStyle.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\TreeViewBaseStyle.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\DataGrid.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\ListView.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\MessageBox.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Window.xaml" />
   </ItemGroup>
 </Project>

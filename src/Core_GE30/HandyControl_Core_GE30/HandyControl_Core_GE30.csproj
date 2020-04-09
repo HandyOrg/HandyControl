@@ -16,6 +16,9 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core30|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <NoWarn>0067;0649</NoWarn>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningsAsErrors></WarningsAsErrors>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core31|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
@@ -30,6 +33,7 @@
     <DefineConstants>TRACE;Core</DefineConstants>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DocumentationFile>C:\Code\GitHub\HandyControl\src\Core_GE30\HandyControl_Core_GE30\HandyControl.xml</DocumentationFile>
+    <NoWarn>0067;0649;1591</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.Designer.cs">

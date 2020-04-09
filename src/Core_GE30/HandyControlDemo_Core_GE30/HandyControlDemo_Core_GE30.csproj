@@ -16,6 +16,8 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core30|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <NoWarn>NU1701;0108</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core31|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
@@ -28,6 +30,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release-Core31|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <NoWarn>0108;NU1701</NoWarn>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="AvalonEdit" Version="6.0.1" />

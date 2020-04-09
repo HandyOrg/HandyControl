@@ -75,6 +75,7 @@
     <WarningLevel>4</WarningLevel>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <LangVersion>8.0</LangVersion>
+    <NoWarn>0108</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net462|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
