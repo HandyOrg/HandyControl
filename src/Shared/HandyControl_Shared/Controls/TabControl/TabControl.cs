@@ -307,7 +307,8 @@ namespace HandyControl.Controls
         {
             if (!IsTabFillEnabled)
             {
-                _itemShowCount = (int)(_headerBorder.ActualWidth / TabItemWidth);
+                var actualWidth = _headerBorder?.ActualWidth ?? this.ActualWidth;
+                _itemShowCount = (int)(actualWidth / TabItemWidth);
                 _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count > _itemShowCount);
             }
         }
