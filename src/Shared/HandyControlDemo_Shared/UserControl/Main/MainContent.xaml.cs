@@ -56,10 +56,13 @@ namespace HandyControlDemo.UserControl
 
             if (ViewModelLocator.Instance.Main.SubContent is FrameworkElement demoCtl)
             {
-                var xamlPath = $"UserControl/{typeKey}/{demoCtl.GetType().Name}.xaml";
+                var demoCtlTypeName = demoCtl.GetType().Name;
+                var xamlPath = $"UserControl/{typeKey}/{demoCtlTypeName}.xaml";
                 var dc = demoCtl.DataContext;
                 var dcTypeName = dc.GetType().Name;
-                var vmPath = $"ViewModel/{dcTypeName}";
+                var vmPath = !Equals(dcTypeName, demoCtlTypeName)
+                    ? $"ViewModel/{dcTypeName}"
+                    : xamlPath;
 
                 EditorXaml.Text = DemoHelper.GetCode(xamlPath);
                 EditorCs.Text = DemoHelper.GetCode($"{xamlPath}.cs");

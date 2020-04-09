@@ -141,4 +141,18 @@
     <SolidColorBrush o:Freeze="True" x:Key="MainContentForegroundBrush" Color="{DynamicResource MainContentForegroundColor}"/>
     <SolidColorBrush o:Freeze="True" x:Key="MainContentBackgroundBrush" Color="{DynamicResource MainContentBackgroundColor}"/>
 
+    <!--region AvalonEdit-->
+
+    <SolidColorBrush o:Freeze="True" x:Key="ControlAccentBrushKey" Color="{DynamicResource ControlAccentColorKey}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorBackground" Color="{DynamicResource EditorBackgroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorForeground" Color="{DynamicResource EditorForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLineNumbersForeground" Color="{DynamicResource EditorLineNumbersForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorSelectionBrush" Color="{DynamicResource ControlAccentColorKey}" Opacity="0.75"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorSelectionBorder" Color="{DynamicResource ControlAccentColorKey}" Opacity="0.75"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorNonPrintableCharacterBrush" Color="{DynamicResource EditorNonPrintableCharacterColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLinkTextForegroundBrush" Color="{DynamicResource EditorLinkTextForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLinkTextBackgroundBrush" Color="{DynamicResource EditorLinkTextBackgroundColor}"/>
+
+    <!--endregion-->
+
 </ResourceDictionary>

@@ -17,13 +17,13 @@
                     <Border Style="{StaticResource BorderClip}" Margin="32,32,0,32" CornerRadius="10,0,0,10" Background="{DynamicResource RegionBrush}" Width="800">
                         <TabControl Grid.Row="1" Style="{StaticResource TabControlInLine}">
                             <TabItem Header="XAML">
-                                <avalonedit:TextEditor IsReadOnly="True" FontFamily="Consolas" Background="{DynamicResource RegionBrush}" SyntaxHighlighting="XML" Name="EditorXaml" Margin="4" ShowLineNumbers="True"/>
+                                <avalonedit:TextEditor Style="{StaticResource TextEditorCustom}" SyntaxHighlighting="XML" Name="EditorXaml"/>
                             </TabItem>
                             <TabItem Header="C#">
-                                <avalonedit:TextEditor IsReadOnly="True" FontFamily="Consolas" Background="{DynamicResource RegionBrush}" SyntaxHighlighting="C#" Name="EditorCs" Margin="4" ShowLineNumbers="True"/>
+                                <avalonedit:TextEditor Style="{StaticResource TextEditorCustom}" SyntaxHighlighting="C#" Name="EditorCs"/>
                             </TabItem>
                             <TabItem Header="VM">
-                                <avalonedit:TextEditor IsReadOnly="True" FontFamily="Consolas" Background="{DynamicResource RegionBrush}" SyntaxHighlighting="C#" Name="EditorVm" Margin="4" ShowLineNumbers="True"/>
+                                <avalonedit:TextEditor Style="{StaticResource TextEditorCustom}" SyntaxHighlighting="C#" Name="EditorVm"/>
                             </TabItem>
                         </TabControl>
                     </Border>
