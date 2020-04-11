@@ -144,7 +144,7 @@
                     </Border.CacheMode>
                     <StackPanel Orientation="Horizontal">
                         <RepeatButton Focusable="False" Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource RepeatButtonIcon}" BorderBrush="{DynamicResource BorderBrush}" Padding="8" controls:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight"/>
-                        <Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Width="1" Background="{DynamicResource BorderBrush}"/>
+                        <Border x:Name="SeparatorBorder" Visibility="Collapsed" Width="1" Background="{DynamicResource BorderBrush}"/>
                         <controls:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Style="{StaticResource ToggleButtonIconTransparent}" controls:IconSwitchElement.Geometry="{StaticResource DownGeometry}" controls:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}"/>
                     </StackPanel>
                 </Border>
@@ -153,6 +153,15 @@
                 </Border>
             </Grid>
         </Border>
+        <ControlTemplate.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition SourceName="PART_ScrollButtonRight" Property="Visibility" Value="Visible"/>
+                    <Condition SourceName="PART_OverflowButton" Property="Visibility" Value="Visible"/>
+                </MultiTrigger.Conditions>
+                <Setter TargetName="SeparatorBorder" Property="Visibility" Value="Visible"/>
+            </MultiTrigger>
+        </ControlTemplate.Triggers>
     </ControlTemplate>
 
     <Style TargetType="controls:TabControl">
