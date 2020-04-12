@@ -16,16 +16,16 @@
             <hc:RunningBlock Orientation="Vertical" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=10}" FontSize="20" FontWeight="Bold" Foreground="OrangeRed" Duration="0:0:4" Margin="0,16,0,0"/>
             <hc:RunningBlock Margin="0,16,0,0" Duration="0:0:20" IsRunning="{Binding IsMouseOver,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2BooleanReConverter}}">
                 <StackPanel Orientation="Horizontal">
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/1.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/2.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/3.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/4.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/5.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/6.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/7.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/8.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/9.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/10.gif" Margin="10,0"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/1.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/2.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/3.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/4.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/5.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/6.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/7.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/8.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/9.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/10.gif" Margin="10,0" Width="30" Height="30"/>
                 </StackPanel>
             </hc:RunningBlock>
         </StackPanel>

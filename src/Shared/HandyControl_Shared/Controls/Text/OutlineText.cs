@@ -179,6 +179,7 @@ namespace HandyControl.Controls
             }
             else
             {
+                UpdateFormattedText();
                 drawingContext.DrawText(_formattedText, new Point());
             }
         }
@@ -258,6 +259,7 @@ namespace HandyControl.Controls
             _formattedText.SetFontWeight(FontWeight);
             _formattedText.SetFontFamily(FontFamily);
             _formattedText.SetFontStretch(FontStretch);
+            _formattedText.SetForegroundBrush(Fill);
         }
 
         private static void OnFormattedTextUpdated(DependencyObject d, DependencyPropertyChangedEventArgs e)

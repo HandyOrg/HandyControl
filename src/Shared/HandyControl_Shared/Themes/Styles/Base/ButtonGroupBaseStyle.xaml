@@ -15,9 +15,9 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupHorizontalItemsPanelTemplate}"/>
-        <Setter Property="controls:TitleElement.BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="controls:TitleElement.Foreground" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="controls:VisualElement.HighlightBorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="controls:VisualElement.HighlightBackground" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="controls:VisualElement.HighlightForeground" Value="{DynamicResource PrimaryBrush}"/>
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
                 <Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupVerticalItemsPanelTemplate}"/>
