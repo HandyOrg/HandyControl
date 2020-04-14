@@ -15,9 +15,9 @@ namespace HandyControl.Controls
     [TemplatePart(Name = ElementButtonLeft, Type = typeof(Button))]
     [TemplatePart(Name = ElementButtonRight, Type = typeof(Button))]
     [TemplatePart(Name = ElementButtonFirst, Type = typeof(RadioButton))]
-    [TemplatePart(Name = ElementTextBlockLeft, Type = typeof(TextBlock))]
+    [TemplatePart(Name = ElementMoreLeft, Type = typeof(FrameworkElement))]
     [TemplatePart(Name = ElementPanelMain, Type = typeof(Panel))]
-    [TemplatePart(Name = ElementTextBlockRight, Type = typeof(TextBlock))]
+    [TemplatePart(Name = ElementMoreRight, Type = typeof(FrameworkElement))]
     [TemplatePart(Name = ElementButtonLast, Type = typeof(RadioButton))]
     public class Pagination : Control
     {
@@ -26,9 +26,9 @@ namespace HandyControl.Controls
         private const string ElementButtonLeft = "PART_ButtonLeft";
         private const string ElementButtonRight = "PART_ButtonRight";
         private const string ElementButtonFirst = "PART_ButtonFirst";
-        private const string ElementTextBlockLeft = "PART_TextBlockLeft";
+        private const string ElementMoreLeft = "PART_MoreLeft";
         private const string ElementPanelMain = "PART_PanelMain";
-        private const string ElementTextBlockRight = "PART_TextBlockRight";
+        private const string ElementMoreRight = "PART_MoreRight";
         private const string ElementButtonLast = "PART_ButtonLast";
 
         #endregion Constants
@@ -38,9 +38,9 @@ namespace HandyControl.Controls
         private Button _buttonLeft;
         private Button _buttonRight;
         private RadioButton _buttonFirst;
-        private TextBlock _textBlockLeft;
+        private FrameworkElement _moreLeft;
         private Panel _panelMain;
-        private TextBlock _textBlockRight;
+        private FrameworkElement _moreRight;
         private RadioButton _buttonLast;
 
         private bool _appliedTemplate;
@@ -231,9 +231,9 @@ namespace HandyControl.Controls
             _buttonLeft = GetTemplateChild(ElementButtonLeft) as Button;
             _buttonRight = GetTemplateChild(ElementButtonRight) as Button;
             _buttonFirst = GetTemplateChild(ElementButtonFirst) as RadioButton;
-            _textBlockLeft = GetTemplateChild(ElementTextBlockLeft) as TextBlock;
+            _moreLeft = GetTemplateChild(ElementMoreLeft) as FrameworkElement;
             _panelMain = GetTemplateChild(ElementPanelMain) as Panel;
-            _textBlockRight = GetTemplateChild(ElementTextBlockRight) as TextBlock;
+            _moreRight = GetTemplateChild(ElementMoreRight) as FrameworkElement;
             _buttonLast = GetTemplateChild(ElementButtonLast) as RadioButton;
 
             CheckNull();
@@ -249,7 +249,7 @@ namespace HandyControl.Controls
         private void CheckNull()
         {
             if (_buttonLeft == null || _buttonRight == null || _buttonFirst == null ||
-                _textBlockLeft == null || _panelMain == null || _textBlockRight == null ||
+                _moreLeft == null || _panelMain == null || _moreRight == null ||
                 _buttonLast == null) throw new Exception();
         }
 
@@ -265,8 +265,8 @@ namespace HandyControl.Controls
             {
                 _buttonFirst.Collapse();
                 _buttonLast.Collapse();
-                _textBlockLeft.Collapse();
-                _textBlockRight.Collapse();
+                _moreLeft.Collapse();
+                _moreRight.Collapse();
                 _panelMain.Children.Clear();
                 var selectButton = CreateButton(PageIndex);
                 _panelMain.Children.Add(selectButton);
@@ -275,8 +275,8 @@ namespace HandyControl.Controls
             }
             _buttonFirst.Show();
             _buttonLast.Show();
-            _textBlockLeft.Show();
-            _textBlockRight.Show();
+            _moreLeft.Show();
+            _moreRight.Show();
 
             //更新最后一页
             if (MaxPageCount == 1)
@@ -286,14 +286,14 @@ namespace HandyControl.Controls
             else
             {
                 _buttonLast.Show();
-                _buttonLast.Tag = MaxPageCount.ToString();
+                _buttonLast.Content = MaxPageCount.ToString();
             }
 
             //更新省略号
             var right = MaxPageCount - PageIndex;
             var left = PageIndex - 1;
-            _textBlockRight.Show(right > MaxPageInterval);
-            _textBlockLeft.Show(left > MaxPageInterval);
+            _moreRight.Show(right > MaxPageInterval);
+            _moreLeft.Show(left > MaxPageInterval);
 
             //更新中间部分
             _panelMain.Children.Clear();
@@ -347,7 +347,7 @@ namespace HandyControl.Controls
             return new RadioButton
             {
                 Style = ResourceHelper.GetResource<Style>(ResourceToken.PaginationButtonStyle),
-                Tag = page.ToString()
+                Content = page.ToString()
             };
         }
 
@@ -355,7 +355,7 @@ namespace HandyControl.Controls
         {
             if (!(e.OriginalSource is RadioButton button)) return;
             if (button.IsChecked == false) return;
-            PageIndex = int.Parse(button.Tag.ToString());
+            PageIndex = int.Parse(button.Content.ToString());
         }
 
         #endregion Private Methods       

@@ -80,10 +80,10 @@
     </ItemsPanelTemplate>
 
     <ControlTemplate x:Key="StepBarHorizontalTopControlTemplate" TargetType="controls:StepBar">
-        <Grid>
+        <controls:SimplePanel>
             <ProgressBar HorizontalAlignment="Center" Name="PART_ProgressBarBack" VerticalAlignment="Top" Margin="0,10,0,0" Style="{StaticResource ProgressBarFlat}" Background="{DynamicResource ThirdlyTextBrush}"/>
             <ItemsPresenter/>
-        </Grid>
+        </controls:SimplePanel>
     </ControlTemplate>
 
     <ControlTemplate x:Key="StepBarHorizontalBottomControlTemplate" TargetType="controls:StepBar">

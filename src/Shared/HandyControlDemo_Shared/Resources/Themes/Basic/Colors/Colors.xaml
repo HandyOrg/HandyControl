@@ -5,4 +5,16 @@
     <Color x:Key="MainContentForegroundColor">#FFF0F0F0</Color>
     <Color x:Key="MainContentBackgroundColor">#FFF5F5F5</Color>
 
+    <!--region AvalonEdit-->
+
+    <Color x:Key="ControlAccentColorKey">#1ba1e2</Color>
+    <Color x:Key="EditorBackgroundColor">White</Color>
+    <Color x:Key="EditorForegroundColor">Black</Color>
+    <Color x:Key="EditorLineNumbersForegroundColor">Black</Color>
+    <Color x:Key="EditorNonPrintableCharacterColor">#3F8080FF</Color>
+    <Color x:Key="EditorLinkTextForegroundColor">#FF4040FF</Color>
+    <Color x:Key="EditorLinkTextBackgroundColor">#00000000</Color>
+
+    <!--endregion-->
+
 </ResourceDictionary>

@@ -9,9 +9,9 @@
     <Style BasedOn="{StaticResource ButtonGroupBaseStyle}" TargetType="controls:ButtonGroup"/>
 
     <Style x:Key="ButtonGroupSolid" BasedOn="{StaticResource ButtonGroupBaseStyle}" TargetType="controls:ButtonGroup">
-        <Setter Property="controls:TitleElement.BorderBrush" Value="{DynamicResource TitleBrush}"/>
-        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
-        <Setter Property="controls:TitleElement.Foreground" Value="{DynamicResource TextIconBrush}"/>
+        <Setter Property="controls:VisualElement.HighlightBorderBrush" Value="{DynamicResource TitleBrush}"/>
+        <Setter Property="controls:VisualElement.HighlightBackground" Value="{DynamicResource TitleBrush}"/>
+        <Setter Property="controls:VisualElement.HighlightForeground" Value="{DynamicResource TextIconBrush}"/>
     </Style>
 
 </ResourceDictionary>

@@ -66,7 +66,7 @@
                 </Style>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -186,7 +186,7 @@
         <Setter Property="controls:IconSwitchElement.Geometry" Value="{x:Null}"/>
         <Setter Property="controls:IconSwitchElement.GeometrySelected" Value="{x:Null}"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource DarkMaskBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -246,9 +246,9 @@
                             <Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="true">
-                            <Setter Property="BorderBrush" Value="{Binding Path=(controls:TitleElement.BorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
-                            <Setter Property="Background" Value="{Binding Path=(controls:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
-                            <Setter Property="TextElement.Foreground" Value="{Binding Path=(controls:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter"/>
+                            <Setter Property="BorderBrush" Value="{Binding Path=(controls:VisualElement.HighlightBorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
+                            <Setter Property="Background" Value="{Binding Path=(controls:VisualElement.HighlightBackground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
+                            <Setter Property="TextElement.Foreground" Value="{Binding Path=(controls:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter"/>
                         </Trigger>
                         <Trigger Property="Content" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="contentPresenter"/>
@@ -272,7 +272,7 @@
                 <Setter Property="Margin" Value="0,-1,0,0"/>
             </DataTrigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>

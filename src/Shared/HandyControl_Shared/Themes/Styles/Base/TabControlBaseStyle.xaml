@@ -150,6 +150,7 @@
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" TargetName="BorderRoot"/>
                             <Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>
                         </Trigger>
                         <Trigger Property="IsSelected" Value="true">
