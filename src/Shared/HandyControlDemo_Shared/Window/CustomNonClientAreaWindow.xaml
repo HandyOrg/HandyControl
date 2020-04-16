@@ -4,6 +4,7 @@
            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
            xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+           xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
            xmlns:hc="https://handyorg.github.io/handycontrol"
            mc:Ignorable="d"
            OtherButtonForeground="{DynamicResource ReverseTextBrush}"
@@ -13,7 +14,7 @@
            Background="{DynamicResource MainContentBackgroundBrush}"
            WindowStartupLocation="CenterScreen"
            ShowTitle="False"
-           Title="{x:Static langs:Lang.Title}" 
+           Title="{ex:Lang Key={x:Static langs:LangKeys.Title}}" 
            Height="450" 
            Width="800">
     <hc:Window.NonClientAreaContent>

@@ -7,6 +7,7 @@
              xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              d1P1:Ignorable="d" 
              StartupUri="MainWindow.xaml">
     <Application.Resources>
@@ -25,10 +26,10 @@
                         <ResourceDictionary Source="Resources/Themes/Theme.xaml"/>
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
-                <ResourceDictionary>
-                    <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True"/>
-                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+
+            <langs:LangDecorator x:Key="DemoLangs"/>
+            <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True"/>
 
             <ObjectDataProvider x:Key="DemoTypes" MethodName="GetValues" ObjectType="sys:Enum">
                 <ObjectDataProvider.MethodParameters>

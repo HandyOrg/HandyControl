@@ -1,9 +1,11 @@
 ﻿using System.Diagnostics;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Window;
 
 namespace HandyControlDemo.UserControl
@@ -26,10 +28,12 @@ namespace HandyControlDemo.UserControl
                     if (!b) return true;
                     GlobalData.Config.Lang = tag;
                     GlobalData.Save();
-                    var processModule = Process.GetCurrentProcess().MainModule;
-                    if (processModule != null)
-                        Process.Start(processModule.FileName);
-                    Application.Current.Shutdown();
+
+                    LangDecorator.Culture = new CultureInfo(tag);
+                    //var processModule = Process.GetCurrentProcess().MainModule;
+                    //if (processModule != null)
+                    //    Process.Start(processModule.FileName);
+                    //Application.Current.Shutdown();
                     return true;
                 });
             }

@@ -5,6 +5,7 @@
                xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                xmlns:hc="https://handyorg.github.io/handycontrol"
                xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+               xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
                mc:Ignorable="d"
                WindowStartupLocation="CenterScreen"
                ShowTitle="True"
@@ -16,7 +17,7 @@
     <hc:SimplePanel>
         <Rectangle VerticalAlignment="Top" Margin="10" Height="30" RadiusX="4" RadiusY="4" Stroke="{DynamicResource BorderBrush}" StrokeDashArray="2,2"/>
         <Border hc:WindowAttach.IsDragElement="True" VerticalAlignment="Top" Margin="11" Height="28" Background="{DynamicResource DarkDefaultBrush}" CornerRadius="4">
-            <TextBlock Text="{x:Static langs:Lang.DragHere}" Style="{StaticResource TextBlockDefault}"/>
+            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.DragHere}}" Style="{StaticResource TextBlockDefault}"/>
         </Border>
         <Button Click="ButtonClose_OnClick" HorizontalAlignment="Right" Margin="0,15,15,0" VerticalAlignment="Top" Padding="0" Height="20" Width="20" Style="{StaticResource ButtonPrimary}" hc:IconElement.Geometry="{StaticResource CloseGeometry}" hc:BorderElement.CornerRadius="15"/>
     </hc:SimplePanel>

@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              mc:Ignorable="d" 
              Height="486"
              Effect="{StaticResource EffectShadow5}"
@@ -44,7 +45,7 @@
                         </hc:EventTrigger>
                     </hc:Interaction.Triggers>
                 </TextBox>
-                <Button Grid.Column="1" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudio,Converter={StaticResource Boolean2VisibilityConverter}}" Content="{x:Static langs:Lang.PushToTalk}" HorizontalAlignment="Stretch">
+                <Button Grid.Column="1" Visibility="{Binding IsChecked,ElementName=ToggleButtonAudio,Converter={StaticResource Boolean2VisibilityConverter}}" Content="{ex:Lang Key={x:Static langs:LangKeys.PushToTalk}}" HorizontalAlignment="Stretch">
                     <hc:Interaction.Triggers>
                         <hc:EventTrigger EventName="PreviewMouseLeftButtonDown">
                             <hc:EventToCommand Command="{Binding StartRecordCmd}"/>
