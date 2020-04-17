@@ -4,12 +4,12 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              DataContext="{Binding WindowDemo,Source={StaticResource Locator}}"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" hc:DynamicLanguage.ResourceManager="{x:Static langs:Lang.ResourceManager}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <UniformGrid Margin="32" Columns="3" Rows="3" Height="200">
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NativeCommonWindow}" Content="{x:Static langs:Lang.OpenNativeCommonWindow}"/>
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NavigationWindow}" Content="{x:Static langs:Lang.OpenNavigationWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NativeCommonWindow}" Content="{hc:Loc OpenNativeCommonWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NavigationWindow}" Content="{hc:Loc OpenNavigationWindow}"/>
         </UniformGrid>
     </hc:TransitioningContentControl>
 </UserControl>

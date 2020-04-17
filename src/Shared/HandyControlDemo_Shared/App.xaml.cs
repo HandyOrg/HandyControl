@@ -63,7 +63,8 @@ namespace HandyControlDemo
 
                 ShutdownMode = ShutdownMode.OnMainWindowClose;
                 GlobalData.Init();
-                ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
+                //ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
+                DynamicLanguageSource.Instance.Language = GlobalData.Config.Lang;
 
                 if (GlobalData.Config.Skin != SkinType.Default)
                 {

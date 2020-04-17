@@ -3,39 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs">
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" hc:DynamicLanguage.ResourceManager="{x:Static langs:Lang.ResourceManager}">
     <hc:TransitioningContentControl>
         <WrapPanel Margin="16">
             <StackPanel Margin="16" Width="300">
                 <hc:Divider/>
-                <hc:Divider Content="{x:Static langs:Lang.Title}"/>
-                <hc:Divider Content="{x:Static langs:Lang.Title}" Padding="10,0"/>
+                <hc:Divider Content="{hc:Loc Title}"/>
+                <hc:Divider Content="{hc:Loc Title}" Padding="10,0"/>
                 <hc:Divider LineStrokeThickness="2" LineStroke="{DynamicResource DarkPrimaryBrush}"/>
                 <hc:Divider LineStrokeDashArray="2,2"/>
             </StackPanel>
             <StackPanel Margin="16" Width="300">
-                <hc:Divider Content="{x:Static langs:Lang.Title}" HorizontalContentAlignment="Left"/>
-                <hc:Divider Content="{x:Static langs:Lang.Title}" Padding="10,0"  HorizontalContentAlignment="Right"/>
+                <hc:Divider Content="{hc:Loc Title}" HorizontalContentAlignment="Left"/>
+                <hc:Divider Content="{hc:Loc Title}" Padding="10,0"  HorizontalContentAlignment="Right"/>
                 <StackPanel Orientation="Horizontal">
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                     <hc:Divider Orientation="Vertical" MaxHeight="16"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                     <hc:Divider Orientation="Vertical" MaxHeight="16"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,16,0,0">
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                     <hc:Divider LineStrokeThickness="2" Orientation="Vertical" MaxHeight="16"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                     <hc:Divider LineStrokeThickness="2" Orientation="Vertical" MaxHeight="16"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,16,0,0">
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                     <hc:Divider LineStrokeThickness="2" LineStroke="{DynamicResource DarkPrimaryBrush}" Orientation="Vertical" MaxHeight="16"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                     <hc:Divider LineStrokeThickness="2" LineStroke="{DynamicResource DarkPrimaryBrush}" Orientation="Vertical" MaxHeight="16"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{hc:Loc Button}"/>
                 </StackPanel>
             </StackPanel>
         </WrapPanel>

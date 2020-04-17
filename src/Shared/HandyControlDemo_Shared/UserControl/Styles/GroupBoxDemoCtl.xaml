@@ -2,7 +2,7 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" hc:DynamicLanguage.ResourceManager="{x:Static langs:Lang.ResourceManager}"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
         <ScrollViewer>
@@ -17,30 +17,30 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <GroupBox Grid.Row="0" Grid.Column="0" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16">
+                <GroupBox Grid.Row="0" Grid.Column="0" Width="300" Height="200" Header="{hc:Loc TitleDemoStr1}" Padding="10" Margin="16">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
-                        <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                        <TextBlock Text="{hc:Loc ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="0" Grid.Column="1" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16" hc:TitleElement.TitleAlignment="Left">
+                <GroupBox Grid.Row="0" Grid.Column="1" Width="300" Height="200" Header="{hc:Loc TitleDemoStr1}" Padding="10" Margin="16" hc:TitleElement.TitleAlignment="Left">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
-                        <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                        <TextBlock Text="{hc:Loc ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="1" Grid.Column="0" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}">
+                <GroupBox Grid.Row="1" Grid.Column="0" Width="300" Height="200" Header="{hc:Loc TitleDemoStr1}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
-                        <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                        <TextBlock Text="{hc:Loc ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="1" Grid.Column="1" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}" hc:TitleElement.TitleAlignment="Left">
+                <GroupBox Grid.Row="1" Grid.Column="1" Width="300" Height="200" Header="{hc:Loc TitleDemoStr1}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}" hc:TitleElement.TitleAlignment="Left">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
-                        <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                        <TextBlock Text="{hc:Loc ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="2" Grid.Column="0" Width="300" Header="{x:Static langs:Lang.TitleDemoStr1}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left">
+                <GroupBox Grid.Row="2" Grid.Column="0" Width="300" Header="{hc:Loc TitleDemoStr1}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left">
                     <TextBox/>
                 </GroupBox>
-                <GroupBox Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="300" hc:TitleElement.TitleWidth="100" Header="{x:Static langs:Lang.TitleDemoStr1}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left" hc:TitleElement.TitleAlignment="Left">
+                <GroupBox Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="300" hc:TitleElement.TitleWidth="100" Header="{hc:Loc TitleDemoStr1}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left" hc:TitleElement.TitleAlignment="Left">
                     <ComboBox DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}" ItemsSource="{Binding DataList}"/>
                 </GroupBox>
             </Grid>

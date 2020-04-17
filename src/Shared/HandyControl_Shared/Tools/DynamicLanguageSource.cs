@@ -10,9 +10,9 @@ using System.Windows.Markup;
 using System.Xaml;
 namespace HandyControl.Tools
 {
-    public class TranslationSource : INotifyPropertyChanged
+    public class DynamicLanguageSource : INotifyPropertyChanged
     {
-        public static TranslationSource Instance { get; } = new TranslationSource();
+        public static DynamicLanguageSource Instance { get; } = new DynamicLanguageSource();
 
         private readonly Dictionary<string, ResourceManager> resourceManagerDictionary = new Dictionary<string, ResourceManager>();
 
@@ -104,7 +104,7 @@ namespace HandyControl.Tools
                 {
                     if (localValue is ResourceManager resourceManager)
                     {
-                        TranslationSource.Instance.AddResourceManager(resourceManager);
+                        DynamicLanguageSource.Instance.AddResourceManager(resourceManager);
 
                         return resourceManager;
                     }
@@ -145,7 +145,7 @@ namespace HandyControl.Tools
             {
                 Mode = BindingMode.OneWay,
                 Path = new PropertyPath($"[{baseName}.{StringName}]"),
-                Source = TranslationSource.Instance,
+                Source = DynamicLanguageSource.Instance,
                 FallbackValue = StringName
             };
 

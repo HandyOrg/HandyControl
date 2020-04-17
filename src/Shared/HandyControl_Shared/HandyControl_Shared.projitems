@@ -347,6 +347,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularPatterns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ButtonGroupItemStyleSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\TabItemCapsuleStyleSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\DynamicLanguageSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Basic.xaml">

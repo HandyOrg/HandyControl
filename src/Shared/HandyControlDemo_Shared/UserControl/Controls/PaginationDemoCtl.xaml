@@ -4,7 +4,7 @@
              Background="{DynamicResource RegionBrush}"
              DataContext="{Binding PaginationDemo,Source={StaticResource Locator}}"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs">
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" hc:DynamicLanguage.ResourceManager="{x:Static langs:Lang.ResourceManager}">
     <hc:TransitioningContentControl>
         <Grid Margin="32">
             <Grid.RowDefinitions>
@@ -25,7 +25,7 @@
                     </DataTemplate>
                 </DataGrid.RowHeaderTemplate>
                 <DataGrid.Columns>
-                    <DataGridTextColumn IsReadOnly="True" Width="80" CanUserResize="False" Binding="{Binding Index}" Header="{x:Static langs:Lang.Index}"/>
+                    <DataGridTextColumn IsReadOnly="True" Width="80" CanUserResize="False" Binding="{Binding Index}" Header="{hc:Loc Index}"/>
                     <DataGridTemplateColumn Width="60" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -33,10 +33,10 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
-                    <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{x:Static langs:Lang.Selected}"/>
-                    <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{x:Static langs:Lang.Type}"/>
-                    <DataGridTextColumn Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="{hc:Loc Name}"/>
+                    <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{hc:Loc Selected}"/>
+                    <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{hc:Loc Type}"/>
+                    <DataGridTextColumn Binding="{Binding Remark}" Header="{hc:Loc Remark}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

@@ -2,35 +2,35 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" hc:DynamicLanguage.ResourceManager="{x:Static langs:Lang.ResourceManager}"
              xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
              DataContext="{Binding SplitButtonDemo,Source={StaticResource Locator}}">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center">
-            <hc:SplitButton Margin="0,0,0,10" Content="{x:Static langs:Lang.Default}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
+            <hc:SplitButton Margin="0,0,0,10" Content="{hc:Loc Default}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
                 <hc:SplitButton.DropDownContent>
                     <StackPanel>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
                     </StackPanel>
                 </hc:SplitButton.DropDownContent>
             </hc:SplitButton>
-            <hc:SplitButton Style="{StaticResource SplitButtonPrimary}" Margin="0,0,0,10" Content="{x:Static langs:Lang.Primary}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
+            <hc:SplitButton Style="{StaticResource SplitButtonPrimary}" Margin="0,0,0,10" Content="{hc:Loc Primary}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
                 <hc:SplitButton.DropDownContent>
                     <StackPanel>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
                     </StackPanel>
                 </hc:SplitButton.DropDownContent>
             </hc:SplitButton>
-            <hc:SplitButton Style="{StaticResource SplitButtonWarning}" Margin="0,0,0,10" Content="{x:Static langs:Lang.Warning}" HitMode="Hover" HorizontalAlignment="Stretch">
+            <hc:SplitButton Style="{StaticResource SplitButtonWarning}" Margin="0,0,0,10" Content="{hc:Loc Warning}" HitMode="Hover" HorizontalAlignment="Stretch">
                 <hc:SplitButton.DropDownContent>
                     <StackPanel>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
-                        <MenuItem Header="{x:Static langs:Lang.Title}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
+                        <MenuItem Header="{hc:Loc Title}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
                     </StackPanel>
                 </hc:SplitButton.DropDownContent>
             </hc:SplitButton>

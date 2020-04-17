@@ -3,11 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
              MaxWidth="800"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" hc:DynamicLanguage.ResourceManager="{x:Static langs:Lang.ResourceManager}"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
         <TabControl Style="{StaticResource TabControlInLine}">
-            <TabItem Header="{x:Static langs:Lang.Common}">
+            <TabItem Header="{hc:Loc Common}">
                 <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
                     <DataGrid.RowHeaderTemplate>
                         <DataTemplate>
@@ -15,7 +15,7 @@
                         </DataTemplate>
                     </DataGrid.RowHeaderTemplate>
                     <DataGrid.Columns>
-                        <DataGridTextColumn IsReadOnly="True" Width="80" CanUserResize="False" Binding="{Binding Index}" Header="{x:Static langs:Lang.Index}"/>
+                        <DataGridTextColumn IsReadOnly="True" Width="80" CanUserResize="False" Binding="{Binding Index}" Header="{hc:Loc Index}"/>
                         <DataGridTemplateColumn Width="60" CanUserResize="False">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
@@ -23,14 +23,14 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
-                        <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{x:Static langs:Lang.Selected}"/>
-                        <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{x:Static langs:Lang.Type}"/>
-                        <DataGridTextColumn Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="{hc:Loc Name}"/>
+                        <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{hc:Loc Selected}"/>
+                        <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{hc:Loc Type}"/>
+                        <DataGridTextColumn Binding="{Binding Remark}" Header="{hc:Loc Remark}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>
-            <TabItem Header="{x:Static langs:Lang.ShowRowNumber}">
+            <TabItem Header="{hc:Loc ShowRowNumber}">
                 <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}" hc:DataGridAttach.ShowRowNumber="True">
                     <DataGrid.Columns>
                         <DataGridTemplateColumn Width="60" CanUserResize="False">
@@ -40,10 +40,10 @@
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
-                        <DataGridTextColumn Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
-                        <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{x:Static langs:Lang.Selected}"/>
-                        <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{x:Static langs:Lang.Type}"/>
-                        <DataGridTextColumn Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
+                        <DataGridTextColumn Binding="{Binding Name}" Header="{hc:Loc Name}"/>
+                        <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{hc:Loc Selected}"/>
+                        <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{hc:Loc Type}"/>
+                        <DataGridTextColumn Binding="{Binding Remark}" Header="{hc:Loc Remark}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </TabItem>

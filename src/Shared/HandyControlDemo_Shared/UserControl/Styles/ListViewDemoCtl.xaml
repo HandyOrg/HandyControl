@@ -2,15 +2,15 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" hc:DynamicLanguage.ResourceManager="{x:Static langs:Lang.ResourceManager}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <ListView ItemsSource="{Binding DataList}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="80" Header="{x:Static langs:Lang.Index}" DisplayMemberBinding="{Binding Index}"/>
-                    <GridViewColumn Width="100" Header="{x:Static langs:Lang.Name}" DisplayMemberBinding="{Binding Name}"/>
-                    <GridViewColumn Width="200" Header="{x:Static langs:Lang.Remark}" DisplayMemberBinding="{Binding Remark}"/>
+                    <GridViewColumn Width="80" Header="{hc:Loc Index}" DisplayMemberBinding="{Binding Index}"/>
+                    <GridViewColumn Width="100" Header="{hc:Loc Name}" DisplayMemberBinding="{Binding Name}"/>
+                    <GridViewColumn Width="200" Header="{hc:Loc Remark}" DisplayMemberBinding="{Binding Remark}"/>
                 </GridView>
             </ListView.View>
         </ListView>

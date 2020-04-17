@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Controls;
 using HandyControl.Data;
+using HandyControl.Tools;
 using HandyControlDemo.Data;
 using HandyControlDemo.Window;
 
@@ -26,10 +27,7 @@ namespace HandyControlDemo.UserControl
                     if (!b) return true;
                     GlobalData.Config.Lang = tag;
                     GlobalData.Save();
-                    var processModule = Process.GetCurrentProcess().MainModule;
-                    if (processModule != null)
-                        Process.Start(processModule.FileName);
-                    Application.Current.Shutdown();
+                    DynamicLanguageSource.Instance.Language = tag;
                     return true;
                 });
             }
