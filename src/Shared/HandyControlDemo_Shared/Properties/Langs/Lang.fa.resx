@@ -747,4 +747,7 @@
   <data name="TextDialogInControl" xml:space="preserve">
     <value>TextDialog(In control)</value>
   </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>Looks up a localized string similar to "{0}".</value>
+  </data>
 </root>

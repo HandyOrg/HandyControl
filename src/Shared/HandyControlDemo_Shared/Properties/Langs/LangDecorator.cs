@@ -26,6 +26,8 @@ namespace HandyControlDemo.Properties.Langs
             }
         }
 
+        public static string GetLang(string key) => Lang.ResourceManager.GetString(key, Culture);
+
         public static void SetLang(DependencyObject dependencyObject, DependencyProperty dependencyProperty, string key) =>
             BindingOperations.SetBinding(dependencyObject, dependencyProperty, new Binding(key)
             {
@@ -128,6 +130,7 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(InteractiveDialog));
 			OnPropertyChanged(nameof(IsNotPhone));
 			OnPropertyChanged(nameof(Label));
+			OnPropertyChanged(nameof(LangComment));
 			OnPropertyChanged(nameof(ListBox));
 			OnPropertyChanged(nameof(ListView));
 			OnPropertyChanged(nameof(Loading));
@@ -711,6 +714,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 标签 的本地化字符串。
         /// </summary>
 		public string Label => Lang.Label;
+
+        /// <summary>
+        ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
+        /// </summary>
+		public string LangComment => Lang.LangComment;
 
         /// <summary>
         ///   查找类似 列表框 的本地化字符串。
@@ -1770,6 +1778,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 标签 的本地化字符串。
         /// </summary>
 		public static string Label = nameof(Label);
+
+        /// <summary>
+        ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
+        /// </summary>
+		public static string LangComment = nameof(LangComment);
 
         /// <summary>
         ///   查找类似 列表框 的本地化字符串。

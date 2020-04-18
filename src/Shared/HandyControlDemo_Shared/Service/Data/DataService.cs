@@ -381,7 +381,8 @@ namespace HandyControlDemo.Service
                 {
                     Key = titleKey,
                     Title = title,
-                    DemoItemList = list
+                    DemoItemList = list,
+                    SelectedIndex = (int) item.selectedIndex
                 });
             }
 

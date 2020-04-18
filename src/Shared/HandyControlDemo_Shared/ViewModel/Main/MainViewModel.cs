@@ -9,6 +9,7 @@ using GalaSoft.MvvmLight.CommandWpf;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Service;
 using HandyControlDemo.Tools;
 using HandyControlDemo.UserControl;
@@ -54,6 +55,11 @@ namespace HandyControlDemo.ViewModel
                 {
                     item.SelectedIndex = -1;
                 }
+            });
+
+            Messenger.Default.Register<object>(this, MessageToken.LangUpdated, obj =>
+            {
+                ContentTitle = LangDecorator.GetLang(DemoItemCurrent.Name);
             });
 
             DataList = dataService.GetDemoDataList();
@@ -141,14 +147,18 @@ namespace HandyControlDemo.ViewModel
             if (e.AddedItems[0] is DemoItemModel item)
             {
                 if (Equals(DemoItemCurrent, item)) return;
-
-                DemoItemCurrent = item;
-                ContentTitle = item.Name;
-                var obj = AssemblyHelper.ResolveByKey(item.TargetCtlName);
-                var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
-                Messenger.Default.Send(ctl is IFull, MessageToken.FullSwitch);
-                Messenger.Default.Send(ctl, MessageToken.LoadShowContent);
+                SwitchDemo(item);
             }
+        }
+
+        private void SwitchDemo(DemoItemModel item)
+        {
+            DemoItemCurrent = item;
+            ContentTitle = LangDecorator.GetLang(item.Name);
+            var obj = AssemblyHelper.ResolveByKey(item.TargetCtlName);
+            var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
+            Messenger.Default.Send(ctl is IFull, MessageToken.FullSwitch);
+            Messenger.Default.Send(ctl, MessageToken.LoadShowContent);
         }
 
         private void OpenPracticalDemo()

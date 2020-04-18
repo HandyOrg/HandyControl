@@ -13,7 +13,7 @@
     {
         langDic[item] = 
         @$"/// <summary>
-        ///   查找类似 {Lang.ResourceManager.GetString(item, Lang.Culture)} 的本地化字符串。
+        ///   {string.Format(Lang.LangComment, Lang.ResourceManager.GetString(item, Lang.Culture))}
         /// </summary>";
     }
 #>
@@ -44,6 +44,8 @@ namespace HandyControl.Properties.Langs
                 Instance.UpdateLangs();
             }
         }
+
+        public static string GetLang(string key) => Lang.ResourceManager.GetString(key, Culture);
 
         public static void SetLang(DependencyObject dependencyObject, DependencyProperty dependencyProperty, string key) =>
             BindingOperations.SetBinding(dependencyObject, dependencyProperty, new Binding(key)

@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
+using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
@@ -24,6 +25,7 @@ namespace HandyControlDemo.UserControl
                 if (tag.Equals(GlobalData.Config.Lang)) return;
                 ConfigHelper.Instance.SetLang(tag);
                 LangDecorator.Culture = new CultureInfo(tag);
+                Messenger.Default.Send<object>(null, "LangUpdated");
 
                 GlobalData.Config.Lang = tag;
                 GlobalData.Save();
