@@ -30,7 +30,7 @@
         <TabControl SelectionChanged="TabControl_OnSelectionChanged" ItemContainerStyle="{StaticResource TabItemTransparent}" ItemsSource="{Binding DemoInfoList}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Title}"/>
+                    <TextBlock Text="{ex:Lang Key={Binding Title}}"/>
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
@@ -51,7 +51,7 @@
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <Image Width="16" Height="16" Source="{Binding ImageName}"/>
-                                        <TextBlock Margin="6,0,0,0" Text="{Binding Name}"/>
+                                        <TextBlock Margin="6,0,0,0" Text="{ex:Lang Key={Binding Name}}"/>
                                         <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}"/>
                                     </StackPanel>
                                 </DataTemplate>

@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+using HandyControl.Properties.Langs;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
@@ -297,10 +298,9 @@ namespace HandyControl.Controls
         {
             if (panel == null) return;
 
-            var menuItem = new MenuItem
-            {
-                Header = Properties.Langs.Lang.Clear
-            };
+            var menuItem = new MenuItem();
+            LangDecorator.SetLang(menuItem, HeaderedItemsControl.HeaderProperty, LangKeys.Clear);
+
             menuItem.Click += (s, e) =>
             {
                 foreach (var item in panel.Children.OfType<Growl>())

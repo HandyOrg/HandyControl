@@ -1,5 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Globalization;
+using System.Windows;
+using System.Windows.Data;
 using HandyControl.Tools;
 
 namespace HandyControlDemo.Properties.Langs
@@ -23,6 +25,13 @@ namespace HandyControlDemo.Properties.Langs
                 Instance.UpdateLangs();
             }
         }
+
+        public static void SetLang(DependencyObject dependencyObject, DependencyProperty dependencyProperty, string key) =>
+            BindingOperations.SetBinding(dependencyObject, dependencyProperty, new Binding(key)
+            {
+                Source = Instance,
+                Mode = BindingMode.OneWay
+            });
 
 		private void UpdateLangs()
         {

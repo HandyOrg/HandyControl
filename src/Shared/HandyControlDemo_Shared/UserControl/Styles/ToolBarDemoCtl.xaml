@@ -21,7 +21,7 @@
             </ToolBar>
             <ToolBar Band="1" Padding="6">
                 <ComboBox ItemsSource="{Binding DataList}" SelectedIndex="0" Width="230"/>
-                <TextBox Text="{Binding Source={ex:Lang Key={x:Static langs:LangKeys.Text}},Converter={StaticResource StringRepeatConverter},ConverterParameter=4,Mode=OneWay}" Margin="10,0,0,0" Width="230"/>
+                <TextBox Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=4,Mode=OneWay}" Margin="10,0,0,0" Width="230"/>
             </ToolBar>
             <ToolBar Band="0" Padding="6">
                 <Menu Background="Transparent" VerticalAlignment="Center">
