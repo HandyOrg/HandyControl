@@ -3,12 +3,12 @@ using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Security.Permissions;
-using HandyControl.Tools;
+using HandyControl.Tools.Interop;
 
 namespace HandyControl.Data
 {
     // ReSharper disable once InconsistentNaming
-    internal class GPStream : ExternDllHelper.IStream
+    internal class GPStream : InteropValues.IStream
     {
         protected Stream DataStream;
 
@@ -55,7 +55,7 @@ namespace HandyControl.Data
             _virtualPosition = -1;
         }
 
-        public virtual ExternDllHelper.IStream Clone()
+        public virtual InteropValues.IStream Clone()
         {
             NotImplemented();
             return null;
@@ -72,7 +72,7 @@ namespace HandyControl.Data
             UIPermission(SecurityAction.Demand, Window = UIPermissionWindow.AllWindows),
             SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode)
         ]
-        public virtual long CopyTo(ExternDllHelper.IStream pstm, long cb, long[] pcbRead)
+        public virtual long CopyTo(InteropValues.IStream pstm, long cb, long[] pcbRead)
         {
 
             const int bufsize = 4096;
@@ -117,7 +117,7 @@ namespace HandyControl.Data
 
         protected static ExternalException EFail(string msg)
         {
-            throw new ExternalException(msg, ExternDllHelper.E_FAIL);
+            throw new ExternalException(msg, InteropMethods.E_FAIL);
         }
 
         protected static void NotImplemented()
@@ -154,7 +154,7 @@ namespace HandyControl.Data
             var len = DataStream.Length;
             switch (origin)
             {
-                case ExternDllHelper.StreamConsts.STREAM_SEEK_SET:
+                case InteropValues.StreamConsts.STREAM_SEEK_SET:
                     if (offset <= len)
                     {
                         DataStream.Position = offset;
@@ -165,7 +165,7 @@ namespace HandyControl.Data
                         _virtualPosition = offset;
                     }
                     break;
-                case ExternDllHelper.StreamConsts.STREAM_SEEK_END:
+                case InteropValues.StreamConsts.STREAM_SEEK_END:
                     if (offset <= 0)
                     {
                         DataStream.Position = len + offset;
@@ -176,7 +176,7 @@ namespace HandyControl.Data
                         _virtualPosition = len + offset;
                     }
                     break;
-                case ExternDllHelper.StreamConsts.STREAM_SEEK_CUR:
+                case InteropValues.StreamConsts.STREAM_SEEK_CUR:
                     if (offset + pos <= len)
                     {
                         DataStream.Position = pos + offset;

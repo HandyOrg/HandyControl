@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using HandyControl.Data;
@@ -30,6 +32,8 @@ namespace HandyControl.Controls
         private Size _viewboxSize;
 
         private BitmapSource _imageSource;
+
+        private static readonly Guid BmpGuid = new Guid("{b96b3cab-0728-11d3-9d7b-0000f81ef32e}");
 
         #region const
 
@@ -554,13 +558,63 @@ namespace HandyControl.Controls
             var desktopWindowWidth = _desktopWindowRect.Right - _desktopWindowRect.Left;
             var desktopWindowHeight = _desktopWindowRect.Bottom - _desktopWindowRect.Top;
 
-            var bitmap = InteropMethods.CreateCompatibleBitmap(hdcSrc, desktopWindowWidth, desktopWindowHeight);
-            var hOld = InteropMethods.SelectObject(hdcDest, bitmap);
+            var hbitmap = InteropMethods.CreateCompatibleBitmap(hdcSrc, desktopWindowWidth, desktopWindowHeight);
+            var hOld = InteropMethods.SelectObject(hdcDest, hbitmap);
             InteropMethods.BitBlt(hdcDest, 0, 0, desktopWindowWidth, desktopWindowHeight, hdcSrc, 0, 0, InteropValues.SRCCOPY);
             InteropMethods.SelectObject(hdcDest, hOld);
             InteropMethods.DeleteDC(hdcDest);
             InteropMethods.ReleaseDC(_desktopWindowHandle, hdcSrc);
-            return Imaging.CreateBitmapSourceFromHBitmap(bitmap, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+
+            var status = InteropMethods.Gdip.GdipCreateBitmapFromHBITMAP(new HandleRef(null, hbitmap), new HandleRef(null, IntPtr.Zero), out var bitmap);
+            if (status != InteropMethods.Gdip.Ok) throw InteropMethods.Gdip.StatusException(status);
+
+            using var ms = new MemoryStream();
+            status = InteropMethods.Gdip.GdipGetImageEncodersSize(out var numEncoders, out var size);
+            if (status != InteropMethods.Gdip.Ok) throw InteropMethods.Gdip.StatusException(status);
+
+            var memory = Marshal.AllocHGlobal(size);
+            try
+            {
+                status = InteropMethods.Gdip.GdipGetImageEncoders(numEncoders, size, memory);
+                if (status != InteropMethods.Gdip.Ok) throw InteropMethods.Gdip.StatusException(status);
+
+                var codecInfo = ImageCodecInfo.ConvertFromMemory(memory, numEncoders).FirstOrDefault(item => item.FormatID.Equals(BmpGuid));
+                if (codecInfo == null) throw new Exception("ImageCodecInfo is null");
+
+                var encoderParamsMemory = IntPtr.Zero;
+
+                try
+                {
+                    var g = codecInfo.Clsid;
+                    status = InteropMethods.Gdip.GdipSaveImageToStream(new HandleRef(this, bitmap),
+                        new InteropValues.ComStreamFromDataStream(ms), ref g,
+                        new HandleRef(null, encoderParamsMemory));
+                }
+                finally
+                {
+                    if (encoderParamsMemory != IntPtr.Zero)
+                    {
+                        Marshal.FreeHGlobal(encoderParamsMemory);
+                    }
+                }
+
+                if (status != InteropMethods.Gdip.Ok)
+                {
+                    throw InteropMethods.Gdip.StatusException(status);
+                }
+            }
+            finally
+            {
+                Marshal.FreeHGlobal(memory);
+            }
+
+            var bitmapImage = new BitmapImage();
+            bitmapImage.BeginInit();
+            bitmapImage.CacheOption = BitmapCacheOption.OnLoad;
+            bitmapImage.StreamSource = ms;
+            bitmapImage.EndInit();
+            bitmapImage.Freeze();
+            return bitmapImage;
         }
 
         private void MoveElement(InteropValues.POINT point)
