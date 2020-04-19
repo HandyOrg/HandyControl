@@ -29,6 +29,7 @@
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Resources\DemoTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Data\DataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\HatchBrushConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\String2BrushConverter.cs" />
