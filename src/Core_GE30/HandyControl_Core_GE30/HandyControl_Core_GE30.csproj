@@ -42,6 +42,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\LangDecorator.cs">
+      <Link>Properties\Langs\LangDecorator.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangDecorator.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.en.resx">
@@ -64,6 +70,13 @@
     <Compile Include="..\..\Shared\HandyControl_Shared\Properties\CoreAssemblyInfo.cs">
       <Link>Properties\CoreAssemblyInfo.cs</Link>
     </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Shared\HandyControl_Shared\Properties\Langs\LangDecorator.tt">
+      <Link>Properties\Langs\LangDecorator.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LangDecorator.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
   <ItemGroup>

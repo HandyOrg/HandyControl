@@ -47,6 +47,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Lang.resx</DependentUpon>
     </Compile>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\LangDecorator.cs">
+      <Link>Properties\Langs\LangDecorator.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangDecorator.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -107,6 +113,11 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="..\..\Shared\HandyControl_Shared\Properties\Langs\LangDecorator.tt">
+      <Link>Properties\Langs\LangDecorator.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LangDecorator.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\dropper.cur">

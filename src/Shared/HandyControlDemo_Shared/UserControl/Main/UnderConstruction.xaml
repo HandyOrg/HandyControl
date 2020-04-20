@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
        <StackPanel Margin="32">
@@ -11,7 +12,7 @@
                     <BitmapImage UriSource="/HandyControlDemo;component/Resources/Img/under_construction.gif"/>
                 </hc:GifImage.Source>
             </hc:GifImage>
-           <TextBlock Margin="0,16,0,0" HorizontalAlignment="Center" Text="{x:Static langs:Lang.ComingSoon}" Style="{StaticResource TextBlockLargeBold}"/>
+           <TextBlock Margin="0,16,0,0" HorizontalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.ComingSoon}}" Style="{StaticResource TextBlockLargeBold}"/>
         </StackPanel>
     </hc:TransitioningContentControl>
 </UserControl>

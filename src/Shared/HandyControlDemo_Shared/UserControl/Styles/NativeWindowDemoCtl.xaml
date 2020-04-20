@@ -5,11 +5,12 @@
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              DataContext="{Binding WindowDemo,Source={StaticResource Locator}}"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <UniformGrid Margin="32" Columns="3" Rows="3" Height="200">
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NativeCommonWindow}" Content="{x:Static langs:Lang.OpenNativeCommonWindow}"/>
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NavigationWindow}" Content="{x:Static langs:Lang.OpenNavigationWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NativeCommonWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenNativeCommonWindow}}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NavigationWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenNavigationWindow}}"/>
         </UniformGrid>
     </hc:TransitioningContentControl>
 </UserControl>

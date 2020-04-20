@@ -26,7 +26,8 @@ var messageList = new List<string>
 	"GlowWindow",
 	"NativeCommonWindow",
 	"NavigationWindow",
-	"DialogContainer"
+	"DialogContainer",
+	"LangUpdated"
 };
 #>
 namespace HandyControlDemo.Data

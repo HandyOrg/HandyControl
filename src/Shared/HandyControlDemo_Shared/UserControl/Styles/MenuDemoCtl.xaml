@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <hc:SimplePanel Margin="32">
-             <TextBlock Text="{x:Static langs:Lang.RightClickHere}" Foreground="{DynamicResource BorderBrush}" Style="{StaticResource TextBlockTitle}"/>
+             <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.RightClickHere}}" Foreground="{DynamicResource BorderBrush}" Style="{StaticResource TextBlockTitle}"/>
              <Rectangle Width="200" Height="112" RadiusX="4" RadiusY="4" Stroke="{DynamicResource BorderBrush}" StrokeDashArray="2,2"/>
              <Border Width="200" Height="112" Background="Transparent">
                  <Border.ContextMenu>

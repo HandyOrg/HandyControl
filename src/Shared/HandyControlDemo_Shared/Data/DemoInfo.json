@@ -1,6 +1,7 @@
 [
   {
     "title": "Styles",
+    "selectedIndex": -1,
     "demoItemList": [
       [ "Brush", "BrushDemoCtl", "Brush_16x", "" ],
       [ "Button", "ButtonDemoCtl", "ButtonClick_16x", "" ],
@@ -30,12 +31,13 @@
       [ "ToolBar", "ToolBarDemoCtl", "ToolBar_16x", "" ],
       [ "Border", "BorderDemoCtl", "BorderElement_16x", "" ],
       [ "Label", "LabelDemoCtl", "Label_16x", "" ],
-	  [ "Frame", "FrameDemoCtl", "frame_16xLG", "1" ],
-	  [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "1" ]
+      [ "Frame", "FrameDemoCtl", "frame_16xLG", "1" ],
+      [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "1" ]
     ]
   },
   {
     "title": "Controls",
+    "selectedIndex": 0,
     "demoItemList": [
       [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "" ],
       [ "ImageBlock", "ImageBlockDemoCtl", "ImageStack_16x", "" ],
@@ -104,9 +106,10 @@
   },
   {
     "title": "Tools",
+    "selectedIndex": 0,
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemoCtl", "DataGenerator_16x", "" ],
-      [ "Morphing Animation", "GeometryAnimationDemoCtl", "Animation_16x", "" ],
+      [ "Morphing_Animation", "GeometryAnimationDemoCtl", "Animation_16x", "" ],
       [ "Effects", "EffectsDemoCtl", "Effects_16x", "" ]
     ]
   }

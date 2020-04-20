@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              DataContext="{Binding StepBarDemo,Source={StaticResource Locator}}"
              FocusManager.FocusedElement="{Binding RelativeSource={x:Static RelativeSource.Self}, Mode=OneTime}"
              Background="{DynamicResource RegionBrush}">
@@ -19,27 +20,30 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <hc:StepBar Grid.ColumnSpan="2" StepIndex="{Binding StepIndex}">
-                <hc:StepBarItem Content="{x:Static langs:Lang.Register}"/>
-                <hc:StepBarItem Content="{x:Static langs:Lang.BasicInfo}"/>
-                <hc:StepBarItem Content="{x:Static langs:Lang.UploadFile}"/>
-                <hc:StepBarItem Content="{x:Static langs:Lang.Complete}"/>
+                <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Register}}"/>
+                <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.BasicInfo}}"/>
+                <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.UploadFile}}"/>
+                <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Complete}}"/>
             </hc:StepBar>
             <StackPanel Margin="0,32" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Center">
-                <Button Command="{Binding PrevCmd}" CommandParameter="{Binding ElementName=PanelMain}" Width="180" Content="{x:Static langs:Lang.Prev}" Style="{StaticResource ButtonPrimary}"/>
-                <Button Command="{Binding NextCmd}" CommandParameter="{Binding ElementName=PanelMain}" Width="180" Margin="0,16,0,0" Content="{x:Static langs:Lang.Next}" Style="{StaticResource ButtonPrimary}"/>
+                <Button Command="{Binding PrevCmd}" CommandParameter="{Binding ElementName=PanelMain}" Width="180" Content="{ex:Lang Key={x:Static langs:LangKeys.Prev}}" Style="{StaticResource ButtonPrimary}"/>
+                <Button Command="{Binding NextCmd}" CommandParameter="{Binding ElementName=PanelMain}" Width="180" Margin="0,16,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.Next}}" Style="{StaticResource ButtonPrimary}"/>
             </StackPanel>
             <hc:StepBar Margin="0,0,0,32" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Dock="Bottom">
-                <hc:StepBarItem Content="{x:Static langs:Lang.Register}"/>
-                <hc:StepBarItem Content="{x:Static langs:Lang.BasicInfo}"/>
-                <hc:StepBarItem Content="{x:Static langs:Lang.UploadFile}"/>
-                <hc:StepBarItem Content="{x:Static langs:Lang.Complete}"/>
+                <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Register}}"/>
+                <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.BasicInfo}}"/>
+                <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.UploadFile}}"/>
+                <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Complete}}"/>
             </hc:StepBar>
             <hc:StepBar Grid.Column="0" Grid.Row="3" ItemsSource="{Binding DataList}" Dock="Left">
                 <hc:StepBar.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Header}" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"/>
-                            <TextBlock Margin="0,4,0,0" Text="{Binding Content}"/>
+                            <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left">
+                                <Run Text="{ex:Lang Key={Binding Header}}"/>
+                                <Run Text="{Binding Index,RelativeSource={RelativeSource AncestorType=hc:StepBarItem}}"/>
+                            </TextBlock>
+                            <TextBlock Margin="0,4,0,0" Text="{ex:Lang Key={Binding Content}}"/>
                         </StackPanel>
                     </DataTemplate>
                 </hc:StepBar.ItemTemplate>
@@ -48,8 +52,11 @@
                 <hc:StepBar.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
-                            <TextBlock Text="{Binding Header}" FontSize="16" FontWeight="Bold" HorizontalAlignment="Left"/>
-                            <TextBlock Margin="0,4,0,0" Text="{Binding Content}"/>
+                            <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left">
+                                <Run Text="{ex:Lang Key={Binding Header}}"/>
+                                <Run Text="{Binding Index,RelativeSource={RelativeSource AncestorType=hc:StepBarItem}}"/>
+                            </TextBlock>
+                            <TextBlock Margin="0,4,0,0" Text="{ex:Lang Key={Binding Content}}"/>
                         </StackPanel>
                     </DataTemplate>
                 </hc:StepBar.ItemTemplate>

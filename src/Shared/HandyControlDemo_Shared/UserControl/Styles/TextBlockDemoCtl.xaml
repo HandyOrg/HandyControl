@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" Orientation="Horizontal">
@@ -26,23 +27,23 @@
                 <TextBlock HorizontalAlignment="Left" Margin="5" Text="TextBlockDefaultSuccess" Style="{StaticResource TextBlockDefaultSuccess}"/>
             </StackPanel>
             <StackPanel Margin="10,0,0,0">
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource TextBlockLargeBold}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource TextBlockLarge}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=12}" Style="{StaticResource TextBlockTitleBold}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=12}" Style="{StaticResource TextBlockTitle}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.SubTitle},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource TextBlockSubTitleBold}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.SubTitle},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource TextBlockSubTitle}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource TextBlockLargeBold}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource TextBlockLarge}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=12}" Style="{StaticResource TextBlockTitleBold}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=12}" Style="{StaticResource TextBlockTitle}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.SubTitle},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource TextBlockSubTitleBold}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.SubTitle},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}" Style="{StaticResource TextBlockSubTitle}"/>
 
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultBold}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefault}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultAccent}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultSecLight}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultThiLight}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultPrimary}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultDanger}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultWarning}"/>
-                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultInfo}"/>
-                <TextBlock hc:TextBlockAttach.AutoTooltip="True" Width="300" HorizontalAlignment="Left" Margin="5" Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultSuccess}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultBold}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefault}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultAccent}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultSecLight}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultThiLight}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultPrimary}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultDanger}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultWarning}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultInfo}"/>
+                <TextBlock hc:TextBlockAttach.AutoTooltip="True" Width="300" HorizontalAlignment="Left" Margin="5" Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=20}" Style="{StaticResource TextBlockDefaultSuccess}"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

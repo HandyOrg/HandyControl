@@ -4,6 +4,7 @@
         Background="{DynamicResource RegionBrush}"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         Margin="16"
         CornerRadius="10"
@@ -25,11 +26,11 @@
         </Style>
     </Border.Resources>
     <DockPanel>
-        <Button Command="{Binding OpenPracticalDemoCmd}" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="10,10,10,4" Content="{x:Static langs:Lang.PracticalDemos}" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}"/>
+        <Button Command="{Binding OpenPracticalDemoCmd}" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="10,10,10,4" Content="{ex:Lang Key={x:Static langs:LangKeys.PracticalDemos}}" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}"/>
         <TabControl SelectionChanged="TabControl_OnSelectionChanged" ItemContainerStyle="{StaticResource TabItemTransparent}" ItemsSource="{Binding DemoInfoList}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
             <TabControl.ItemTemplate>
                 <DataTemplate>
-                    <TextBlock Text="{Binding Title}"/>
+                    <TextBlock Text="{ex:Lang Key={Binding Title}}"/>
                 </DataTemplate>
             </TabControl.ItemTemplate>
             <TabControl.ContentTemplate>
@@ -43,14 +44,14 @@
                             <ColumnDefinition/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterKey}" Margin="0,4,4,4" Tag="{Binding ElementName=ListBoxDemo}"/>
+                        <hc:SearchBar SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterKey}}" Margin="0,4,4,4" Tag="{Binding ElementName=ListBoxDemo}"/>
                         <ToggleButton Tag="{Binding ElementName=ListBoxDemo}" Name="ButtonStyleAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Style="{StaticResource DemoInfoSortButtonStyle}"/>
                         <ListBox Name="ListBoxDemo" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <Image Width="16" Height="16" Source="{Binding ImageName}"/>
-                                        <TextBlock Margin="6,0,0,0" Text="{Binding Name}"/>
+                                        <TextBlock Margin="6,0,0,0" Text="{ex:Lang Key={Binding Name}}"/>
                                         <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}"/>
                                     </StackPanel>
                                 </DataTemplate>

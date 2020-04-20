@@ -3,7 +3,9 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
+#if !netle40
 using System.Runtime;
+#endif
 using System.Security.Authentication; 
 using System.Threading;
 using System.Windows;
@@ -86,21 +88,9 @@ namespace HandyControlDemo
 
         internal void UpdateSkin(SkinType skin)
         {
-            var skins0 = Resources.MergedDictionaries[0];
-            skins0.MergedDictionaries.Clear();
-            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));
-            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));
+            ResourceHelper.GetTheme("HandyTheme", Resources).Skin = skin;
+            ResourceHelper.GetTheme("DemoTheme", Resources).Skin = skin;
 
-            var skins1 = Resources.MergedDictionaries[1];
-            skins1.MergedDictionaries.Clear();
-            skins1.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-            });
-            skins1.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
-            });
             Current.MainWindow?.OnApplyTemplate();
         }
 

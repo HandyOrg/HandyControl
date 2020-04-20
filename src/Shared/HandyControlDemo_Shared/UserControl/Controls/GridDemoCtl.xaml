@@ -4,10 +4,11 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:extension="clr-namespace:HandyControl.Tools.Extension;assembly=HandyControl"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <ScrollViewer>
         <StackPanel Margin="32">
-            <TextBlock Text="{x:Static langs:Lang.BasicLayout}" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
+            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.BasicLayout}}" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
             <hc:Row Margin="0,20,0,0">
                 <hc:Col Span="24">
                     <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4"/>
@@ -66,7 +67,7 @@
                     <Border Background="{DynamicResource SecondaryBorderBrush}" Height="36" CornerRadius="4"/>
                 </hc:Col>
             </hc:Row>
-            <TextBlock Text="{x:Static langs:Lang.ColumnSpacing}" Margin="0,32,0,0" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
+            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ColumnSpacing}}" Margin="0,32,0,0" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
             <hc:Row Margin="0,20,0,0" Gutter="20">
                 <hc:Col Span="6">
                     <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4"/>
@@ -81,7 +82,7 @@
                     <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4"/>
                 </hc:Col>
             </hc:Row>
-            <TextBlock Text="{x:Static langs:Lang.HybridLayout}" Margin="0,32,0,0" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
+            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.HybridLayout}}" Margin="0,32,0,0" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
             <hc:Row Margin="0,20,0,0" Gutter="20">
                 <hc:Col Span="16">
                     <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4"/>
@@ -115,7 +116,7 @@
                     <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4"/>
                 </hc:Col>
             </hc:Row>
-            <TextBlock Text="{x:Static langs:Lang.ColumnOffset}" Margin="0,32,0,0" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
+            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ColumnOffset}}" Margin="0,32,0,0" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
             <hc:Row Margin="0,20,0,0" Gutter="20">
                 <hc:Col Span="6">
                     <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4"/>
@@ -137,7 +138,7 @@
                     <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4"/>
                 </hc:Col>
             </hc:Row>
-            <TextBlock Text="{x:Static langs:Lang.ResponsiveLayout}" Margin="0,32,0,0" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
+            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ResponsiveLayout}}" Margin="0,32,0,0" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
             <hc:Row Margin="0,20,0,0" Gutter="10">
                 <hc:Col Layout="8,6,4,3,1">
                     <Border Background="{DynamicResource BorderBrush}" Height="36" CornerRadius="4"/>

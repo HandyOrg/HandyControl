@@ -3,67 +3,68 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs">
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension">
     <hc:TransitioningContentControl>
         <WrapPanel Margin="16" VerticalAlignment="Center">
             <StackPanel Margin="16">
                 <hc:ButtonGroup>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsChecked="True"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
                 </hc:ButtonGroup>
                 <hc:ButtonGroup Margin="0,32,0,0">
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
                 </hc:ButtonGroup>
                 <hc:ButtonGroup Margin="0,32,0,0" Style="{StaticResource ButtonGroupSolid}">
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}" IsChecked="True"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}" IsChecked="True"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
                 </hc:ButtonGroup>
                 <hc:ButtonGroup Margin="0,32,0,0">
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}" IsChecked="True"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsChecked="True"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}" IsChecked="True"/>
                 </hc:ButtonGroup>
             </StackPanel>
             <StackPanel Margin="16" Orientation="Horizontal">
                 <hc:ButtonGroup Orientation="Vertical">
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsChecked="True"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
                 </hc:ButtonGroup>
                 <hc:ButtonGroup Margin="32,0,0,0" Orientation="Vertical">
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
                 </hc:ButtonGroup>
                 <hc:ButtonGroup Margin="32,0,0,0" Style="{StaticResource ButtonGroupSolid}" Orientation="Vertical">
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}" IsChecked="True"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}" IsChecked="True"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
                 </hc:ButtonGroup>
                 <hc:ButtonGroup Margin="32,0,0,0" Orientation="Vertical">
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}" IsChecked="True"/>
-                    <RadioButton Content="{x:Static langs:Lang.RadioButton}"/>
-                    <Button Content="{x:Static langs:Lang.Button}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}"/>
-                    <ToggleButton Content="{x:Static langs:Lang.ToggleButton}" IsChecked="True"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsChecked="True"/>
+                    <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+                    <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}" IsChecked="True"/>
                 </hc:ButtonGroup>
             </StackPanel>
         </WrapPanel>

@@ -1,9 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using HandyControl.Controls;
+using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Data;
+using HandyControl.Tools;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Window;
 
 namespace HandyControlDemo.UserControl
@@ -21,17 +23,12 @@ namespace HandyControlDemo.UserControl
             {
                 PopupConfig.IsOpen = false;
                 if (tag.Equals(GlobalData.Config.Lang)) return;
-                Growl.Ask(Properties.Langs.Lang.ChangeLangAsk, b =>
-                {
-                    if (!b) return true;
-                    GlobalData.Config.Lang = tag;
-                    GlobalData.Save();
-                    var processModule = Process.GetCurrentProcess().MainModule;
-                    if (processModule != null)
-                        Process.Start(processModule.FileName);
-                    Application.Current.Shutdown();
-                    return true;
-                });
+                ConfigHelper.Instance.SetLang(tag);
+                LangDecorator.Culture = new CultureInfo(tag);
+                Messenger.Default.Send<object>(null, "LangUpdated");
+
+                GlobalData.Config.Lang = tag;
+                GlobalData.Save();
             }
         }
 

@@ -46,6 +46,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageToken.tt</DependentUpon>
     </Compile>
+    <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\LangDecorator.cs">
+      <Link>Properties\Langs\LangDecorator.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangDecorator.tt</DependentUpon>
+    </Compile>
     <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.Designer.cs">
       <Link>Properties\Langs\Lang.Designer.cs</Link>
       <AutoGen>True</AutoGen>
@@ -516,6 +522,11 @@
       <Link>Data\MessageToken.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>MessageToken.cs</LastGenOutput>
+    </Content>
+    <Content Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\LangDecorator.tt">
+      <Link>Properties\Langs\LangDecorator.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LangDecorator.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
