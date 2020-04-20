@@ -16,7 +16,7 @@ namespace HandyControlDemo.UserControl
             if (sender is TagPanel panel)
             {
                 var tag = new Tag();
-                LangDecorator.SetLang(tag, ContentProperty, LangKeys.SubTitle);
+                LangProvider.SetLang(tag, ContentProperty, LangKeys.SubTitle);
                 panel.Children.Add(tag);
             }
         }

@@ -4,7 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary>
-            <langs:LangDecorator x:Key="Langs"/>
+            <langs:LangProvider x:Key="Langs"/>
         </ResourceDictionary>
         <ResourceDictionary Source="Basic/Basic.xaml"/>
         <ResourceDictionary Source="Styles/Style.xaml"/>

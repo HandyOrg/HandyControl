@@ -6,7 +6,7 @@ namespace HandyControlDemo.Tools.Extension
     {
         public LangExtension()
         {
-            Source = LangDecorator.Instance;
+            Source = LangProvider.Instance;
         }
     }
 }

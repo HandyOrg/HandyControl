@@ -15,7 +15,7 @@ namespace HandyControl.Tools.Extension
         public LangExtension()
         {
             _proxy = new DependencyObject();
-            Source = LangDecorator.Instance;
+            Source = LangProvider.Instance;
         }
 
         public LangExtension(string key) : this()

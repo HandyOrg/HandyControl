@@ -89,7 +89,6 @@
         <Setter Property="WindowStyle" Value="None"/>
         <Setter Property="WindowState" Value="Maximized"/>
         <Setter Property="Topmost" Value="True"/>
-        <Setter Property="AllowsTransparency" Value="True"/>
         <Setter Property="ResizeMode" Value="NoResize"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="controls:WindowAttach.IgnoreAltF4" Value="True"/>

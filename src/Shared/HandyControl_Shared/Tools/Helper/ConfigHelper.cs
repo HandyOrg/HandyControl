@@ -42,7 +42,7 @@ namespace HandyControl.Tools
 
         public void SetLang(string lang)
         {
-            LangDecorator.Culture = new CultureInfo(lang);
+            LangProvider.Culture = new CultureInfo(lang);
             Application.Current.Dispatcher.Thread.CurrentUICulture = new CultureInfo(lang);
             Lang = XmlLanguage.GetLanguage(lang);
         }

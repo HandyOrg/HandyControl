@@ -155,11 +155,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>MessageToken.tt</DependentUpon>
     </Compile>
-    <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\LangDecorator.cs">
-      <Link>Properties\Langs\LangDecorator.cs</Link>
+    <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\LangProvider.cs">
+      <Link>Properties\Langs\LangProvider.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LangDecorator.tt</DependentUpon>
+      <DependentUpon>LangProvider.tt</DependentUpon>
     </Compile>
     <Compile Include="..\..\Shared\HandyControlDemo_Shared\Properties\AssemblyInfo.cs">
       <Link>Properties\AssemblyInfo.cs</Link>
@@ -513,10 +513,10 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\LangDecorator.tt">
-      <Link>Properties\Langs\LangDecorator.tt</Link>
+    <Content Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\LangProvider.tt">
+      <Link>Properties\Langs\LangProvider.tt</Link>
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LangDecorator.cs</LastGenOutput>
+      <LastGenOutput>LangProvider.cs</LastGenOutput>
     </Content>
     <Content Include="..\..\Shared\HandyControlDemo_Shared\Data\MessageToken.tt">
       <Link>Data\MessageToken.tt</Link>

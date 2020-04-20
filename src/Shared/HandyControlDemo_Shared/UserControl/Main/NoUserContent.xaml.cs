@@ -24,7 +24,7 @@ namespace HandyControlDemo.UserControl
                 PopupConfig.IsOpen = false;
                 if (tag.Equals(GlobalData.Config.Lang)) return;
                 ConfigHelper.Instance.SetLang(tag);
-                LangDecorator.Culture = new CultureInfo(tag);
+                LangProvider.Culture = new CultureInfo(tag);
                 Messenger.Default.Send<object>(null, "LangUpdated");
 
                 GlobalData.Config.Lang = tag;

@@ -25,9 +25,9 @@ using HandyControl.Tools;
 
 namespace HandyControlDemo.Properties.Langs
 {
-    public class LangDecorator : INotifyPropertyChanged
+    public class LangProvider : INotifyPropertyChanged
     {
-        internal static LangDecorator Instance => ResourceHelper.GetResource<LangDecorator>("DemoLangs");
+        internal static LangProvider Instance => ResourceHelper.GetResource<LangProvider>("DemoLangs");
 
         private static string CultureInfoStr;
 

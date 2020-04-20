@@ -60,7 +60,7 @@ namespace HandyControlDemo.ViewModel
             Messenger.Default.Register<object>(this, MessageToken.LangUpdated, obj =>
             {
                 if (DemoItemCurrent == null) return;
-                ContentTitle = LangDecorator.GetLang(DemoItemCurrent.Name);
+                ContentTitle = LangProvider.GetLang(DemoItemCurrent.Name);
             });
 
             DataList = dataService.GetDemoDataList();
@@ -155,7 +155,7 @@ namespace HandyControlDemo.ViewModel
         private void SwitchDemo(DemoItemModel item)
         {
             DemoItemCurrent = item;
-            ContentTitle = LangDecorator.GetLang(item.Name);
+            ContentTitle = LangProvider.GetLang(item.Name);
             var obj = AssemblyHelper.ResolveByKey(item.TargetCtlName);
             var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
             Messenger.Default.Send(ctl is IFull, MessageToken.FullSwitch);

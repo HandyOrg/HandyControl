@@ -299,7 +299,7 @@ namespace HandyControl.Controls
             if (panel == null) return;
 
             var menuItem = new MenuItem();
-            LangDecorator.SetLang(menuItem, HeaderedItemsControl.HeaderProperty, LangKeys.Clear);
+            LangProvider.SetLang(menuItem, HeaderedItemsControl.HeaderProperty, LangKeys.Clear);
 
             menuItem.Click += (s, e) =>
             {
