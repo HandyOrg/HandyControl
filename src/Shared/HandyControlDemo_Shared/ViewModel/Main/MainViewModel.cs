@@ -59,6 +59,7 @@ namespace HandyControlDemo.ViewModel
 
             Messenger.Default.Register<object>(this, MessageToken.LangUpdated, obj =>
             {
+                if (DemoItemCurrent == null) return;
                 ContentTitle = LangDecorator.GetLang(DemoItemCurrent.Name);
             });
 
