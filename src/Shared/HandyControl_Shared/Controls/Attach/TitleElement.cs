@@ -63,5 +63,28 @@ namespace HandyControl.Controls
         public static void SetTitleWidth(DependencyObject element, GridLength value) => element.SetValue(TitleWidthProperty, value);
 
         public static GridLength GetTitleWidth(DependencyObject element) => (GridLength)element.GetValue(TitleWidthProperty);
+
+
+        /// <summary>
+        ///     内容宽度
+        /// </summary>
+        public static readonly DependencyProperty ContentWidthProperty = DependencyProperty.RegisterAttached(
+            "ContentWidth", typeof(GridLength), typeof(TitleElement), new FrameworkPropertyMetadata(new GridLength(120.0), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetContentWidth(DependencyObject element, GridLength value) => element.SetValue(ContentWidthProperty, value);
+
+        public static GridLength GetContentWidth(DependencyObject element) => (GridLength)element.GetValue(ContentWidthProperty);
+
+        /// <summary>
+        ///     标题水平对齐方式
+        /// </summary>
+        public static readonly DependencyProperty TitleHorizontalAlignmentProperty = DependencyProperty.RegisterAttached(
+            "TitleHorizontalAlignment", typeof(HorizontalAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(HorizontalAlignment.Stretch, FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetTitleHorizontalAlignment(DependencyObject element, HorizontalAlignment value)
+            => element.SetValue(TitleHorizontalAlignmentProperty, value);
+
+        public static HorizontalAlignment GetTitleHorizontalAlignment(DependencyObject element)
+            => (HorizontalAlignment)element.GetValue(TitleHorizontalAlignmentProperty);
     }
 }
