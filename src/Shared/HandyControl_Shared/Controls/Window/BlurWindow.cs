@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
+using HandyControl.Tools.Interop;
 
 namespace HandyControl.Controls
 {
@@ -33,12 +34,12 @@ namespace HandyControl.Controls
                 return;
             }
 
-            var accentPolicy = new ExternDllHelper.ACCENTPOLICY();
+            var accentPolicy = new InteropValues.ACCENTPOLICY();
             var accentPolicySize = Marshal.SizeOf(accentPolicy);
 
             accentPolicy.AccentState = SystemVersionInfo < SystemVersionInfo.Windows10_1809
-                ? ExternDllHelper.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND
-                : ExternDllHelper.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
+                ? InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND
+                : InteropValues.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
 
             accentPolicy.AccentFlags = 2;
             accentPolicy.GradientColor = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
@@ -46,14 +47,14 @@ namespace HandyControl.Controls
             var accentPtr = Marshal.AllocHGlobal(accentPolicySize);
             Marshal.StructureToPtr(accentPolicy, accentPtr, false);
 
-            var data = new ExternDllHelper.WINCOMPATTRDATA
+            var data = new InteropValues.WINCOMPATTRDATA
             {
-                Attribute = ExternDllHelper.WINDOWCOMPOSITIONATTRIB.WCA_ACCENT_POLICY,
+                Attribute = InteropValues.WINDOWCOMPOSITIONATTRIB.WCA_ACCENT_POLICY,
                 DataSize = accentPolicySize,
                 Data = accentPtr
             };
 
-            ExternDllHelper.SetWindowCompositionAttribute(window.GetHandle(), ref data);
+            InteropMethods.Gdip.SetWindowCompositionAttribute(window.GetHandle(), ref data);
 
             Marshal.FreeHGlobal(accentPtr);
         }

@@ -747,4 +747,7 @@
   <data name="TextDialogInControl" xml:space="preserve">
     <value>文本对话框（控件中）</value>
   </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>查找类似 {0} 的本地化字符串。</value>
+  </data>
 </root>

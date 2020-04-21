@@ -10,6 +10,7 @@ using System.Windows.Media.Animation;
 using System.Windows.Navigation;
 using HandyControl.Controls;
 using HandyControl.Data;
+using HandyControl.Properties.Langs;
 
 namespace HandyControl.Tools
 {
@@ -37,13 +38,11 @@ namespace HandyControl.Tools
             }
         }
 
-        public void SetSystemVersionInfo(SystemVersionInfo info)
-        {
-            BlurWindow.SystemVersionInfo = info;           
-        }
+        public void SetSystemVersionInfo(SystemVersionInfo info) => BlurWindow.SystemVersionInfo = info;
 
         public void SetLang(string lang)
         {
+            LangProvider.Culture = new CultureInfo(lang);
             Application.Current.Dispatcher.Thread.CurrentUICulture = new CultureInfo(lang);
             Lang = XmlLanguage.GetLanguage(lang);
         }

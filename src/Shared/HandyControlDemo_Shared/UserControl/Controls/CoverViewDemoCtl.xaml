@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              DataContext="{Binding CoverView,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
@@ -15,7 +16,7 @@
             <hc:CoverView.ItemTemplate>
                 <DataTemplate>
                     <Border Margin="10" Height="300" Background="{Binding BackgroundToken,Converter={StaticResource String2BrushConverter}}">
-                        <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </DataTemplate>
             </hc:CoverView.ItemTemplate>

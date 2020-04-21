@@ -23,4 +23,5 @@ using System.Runtime.InteropServices;
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Media.Effects")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Data")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Properties.Langs")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Themes")]
 [assembly: XmlnsPrefix("https://handyorg.github.io/handycontrol", "hc")]

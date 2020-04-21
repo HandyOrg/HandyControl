@@ -3,19 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
         <hc:TagPanel AddTagButtonClick="TagPanel_OnAddTagButtonClick" Margin="32" Orientation="Horizontal" MaxWidth="400" VerticalAlignment="Center" ShowAddButton="True">
-            <hc:Tag ShowCloseButton="False" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
-            <hc:Tag Selectable="True" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
-            <hc:Tag ShowCloseButton="False" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
-            <hc:Tag Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
-            <hc:Tag IsSelected="True" Selectable="True" ShowCloseButton="False" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
-            <hc:Tag Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
-            <hc:Tag ShowCloseButton="False" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
-            <hc:Tag IsSelected="True" Selectable="True" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
-            <hc:Tag ShowCloseButton="False" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
-            <hc:Tag Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+            <hc:Tag ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+            <hc:Tag Selectable="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
+            <hc:Tag ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+            <hc:Tag Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+            <hc:Tag IsSelected="True" Selectable="True" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+            <hc:Tag Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
+            <hc:Tag ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+            <hc:Tag IsSelected="True" Selectable="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
+            <hc:Tag ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+            <hc:Tag Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
         </hc:TagPanel>   
     </hc:TransitioningContentControl>
 </UserControl>

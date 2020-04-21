@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <ToolBarTray Margin="32" VerticalAlignment="Center">
-            <ToolBar Padding="6" Header="{x:Static langs:Lang.Title}">
+            <ToolBar Padding="6" Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}">
                 <CheckBox IsChecked="True" Margin="10,0,0,0"/>
                 <Separator Margin="10,0,0,0"/>
                 <RadioButton Margin="10,0,0,0"/>
@@ -15,16 +16,16 @@
                     <RadioButton IsChecked="True" Margin="10,0,0,0"/>
                     <RadioButton Margin="10,0,0,0"/>
                 </StackPanel>
-                <Button Content="{x:Static langs:Lang.Button}" Margin="10,0,0,0"/>
-                <Button Content="{x:Static langs:Lang.Button}" Margin="10,0,0,0" Style="{StaticResource ButtonPrimary}"/>
+                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}" Margin="10,0,0,0"/>
+                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}" Margin="10,0,0,0" Style="{StaticResource ButtonPrimary}"/>
             </ToolBar>
             <ToolBar Band="1" Padding="6">
                 <ComboBox ItemsSource="{Binding DataList}" SelectedIndex="0" Width="230"/>
-                <TextBox Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=4,Mode=OneWay}" Margin="10,0,0,0" Width="230"/>
+                <TextBox Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=4,Mode=OneWay}" Margin="10,0,0,0" Width="230"/>
             </ToolBar>
             <ToolBar Band="0" Padding="6">
                 <Menu Background="Transparent" VerticalAlignment="Center">
-                    <MenuItem Header="{x:Static langs:Lang.Repository}">
+                    <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Repository}}">
                         <MenuItem Header="GitHub">
                             <MenuItem.Icon>
                                 <Path Data="{StaticResource GithubGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
@@ -36,24 +37,24 @@
                             </MenuItem.Icon>
                         </MenuItem>
                     </MenuItem>
-                    <MenuItem Header="{x:Static langs:Lang.About}">
-                        <MenuItem Header="{x:Static langs:Lang.Email}">
+                    <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.About}}">
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Email}}">
                             <MenuItem.Icon>
                                 <Path Data="{StaticResource EmailGeometry}" Fill="{DynamicResource PrimaryBrush}"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="{x:Static langs:Lang.Chatroom}">
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Chatroom}}">
                             <MenuItem.Icon>
                                 <Path Data="{StaticResource GitterGeometry}" Fill="#e52e64"/>
                             </MenuItem.Icon>
                         </MenuItem>
-                        <MenuItem Header="{x:Static langs:Lang.Blog}">
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Blog}}">
                             <MenuItem.Icon>
                                 <Path Data="{StaticResource CnblogsGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
                             </MenuItem.Icon>
                         </MenuItem>
                     </MenuItem>
-                    <MenuItem Header="{x:Static langs:Lang.Contributors}"/>
+                    <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Contributors}}"/>
                 </Menu>
             </ToolBar>
         </ToolBarTray>

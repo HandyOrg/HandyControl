@@ -13,6 +13,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\BorderElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DataGridAttach.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DropDownElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\EdgeElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconSwitchElement.cs" />
@@ -48,9 +49,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\SimpleText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DisposableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\EnumDataProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\DrawerShowMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HatchStyle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HitMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ImageCodecFlags.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ShowAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\NotifyIconInfoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StrokePosition.cs" />
@@ -61,6 +64,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowDrawingContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowEdge.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\HwndWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ImageCodecInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\StartScreenshotCommand.cs" />
@@ -81,6 +85,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ContrastEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\EffectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Themes\Theme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />
@@ -91,6 +96,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ThicknessSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\DependencyObjectExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\FrameworkElementExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\LangExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ValueExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\GlobalShortcut.cs" />
@@ -316,7 +322,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ConfigHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DesignerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DpiHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\IconHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ResourceHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ScreenHelper.cs" />

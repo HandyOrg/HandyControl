@@ -40,6 +40,7 @@
 <a href="https://github.com/JinhuaChen-OMEC" target="_blank"><img width="64px" alt="JinhuaChen-OMEC" src="https://avatars0.githubusercontent.com/u/47024703?s=64&v=4"></a>
 <a href="https://github.com/seedtyx" target="_blank"><img width="64px" alt="seedtyx" src="https://avatars2.githubusercontent.com/u/5851975?s=64&v=4"></a>
 <a href="https://github.com/KleinPan" target="_blank"><img width="64px" alt="KleinPan" src="https://avatars2.githubusercontent.com/u/34428802?s=64&v=4"></a>
+<a href="https://github.com/yxhq" target="_blank"><img width="64px" alt="yxhq" src="https://avatars3.githubusercontent.com/u/10378954?s=400&v=4"></a>
 
 ## Backers
 

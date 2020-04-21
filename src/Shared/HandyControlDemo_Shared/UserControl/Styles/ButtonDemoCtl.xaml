@@ -3,38 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <hc:ScrollViewer IsInertiaEnabled="True">
             <StackPanel Margin="32">
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
-                        <Button Content="{x:Static langs:Lang.Default}" Margin="5"/>
-                        <Button IsEnabled="False" Content="{x:Static langs:Lang.Default}" Margin="5"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Content="{x:Static langs:Lang.Primary}" Margin="5" Style="{StaticResource ButtonPrimary}"/>
-                        <Button IsEnabled="False" Content="{x:Static langs:Lang.Primary}" Margin="5" Style="{StaticResource ButtonPrimary}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ButtonPrimary}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ButtonPrimary}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonPrimary"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
-                        <Button IsEnabled="False" Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonSuccess"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Content="{x:Static langs:Lang.Info}" Margin="5" Style="{StaticResource ButtonInfo}"/>
-                        <Button IsEnabled="False" Content="{x:Static langs:Lang.Info}" Margin="5" Style="{StaticResource ButtonInfo}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ButtonInfo}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ButtonInfo}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonInfo"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ButtonWarning}"/>
-                        <Button IsEnabled="False" Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ButtonWarning}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ButtonWarning}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ButtonWarning}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonWarning"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Content="{x:Static langs:Lang.Danger}" Margin="5" Style="{StaticResource ButtonDanger}"/>
-                        <Button IsEnabled="False" Content="{x:Static langs:Lang.Danger}" Margin="5" Style="{StaticResource ButtonDanger}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ButtonDanger}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ButtonDanger}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonDanger"/>
                     </StackPanel>
                 </WrapPanel>
@@ -45,13 +46,13 @@
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="Default（DeleteGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Content="{x:Static langs:Lang.Clock}" Margin="5" Style="{StaticResource ButtonPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
-                        <Button Content="{x:Static langs:Lang.Clock}" IsEnabled="False" Margin="5" Style="{StaticResource ButtonPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" Margin="5" Style="{StaticResource ButtonPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" IsEnabled="False" Margin="5" Style="{StaticResource ButtonPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonPrimary（ClockGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Content="{x:Static langs:Lang.Calendar}" Margin="5" Style="{StaticResource ButtonSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
-                        <Button Content="{x:Static langs:Lang.Calendar}" IsEnabled="False" Margin="5" Style="{StaticResource ButtonSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" Margin="5" Style="{StaticResource ButtonSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" IsEnabled="False" Margin="5" Style="{StaticResource ButtonSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonSuccess（CalendarGeometry）"/>
                     </StackPanel>
                     <StackPanel>
@@ -72,8 +73,8 @@
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
-                        <Button Margin="5" Height="28" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonCustom}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
-                        <Button Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{x:Static langs:Lang.ButtonCustom}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
+                        <Button Margin="5" Height="28" Padding="10,0" Background="#24292e" Foreground="White" Content="{ex:Lang Key={x:Static langs:LangKeys.ButtonCustom}}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
+                        <Button Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{ex:Lang Key={x:Static langs:LangKeys.ButtonCustom}}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
                         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonCustom"/>
                     </StackPanel>
                     <StackPanel>
