@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:langs="clr-namespace:HandyControl.Properties.Langs">
+                    xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="Button.xaml"/>
@@ -49,8 +50,8 @@
                                 <StackPanel>
                                     <TextBlock Text="{TemplateBinding ContentStr}" MinHeight="110" Name="MyTextBlock" TextAlignment="Center" Padding="32" Foreground="{DynamicResource PrimaryTextBrush}" MaxWidth="300" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" Background="{TemplateBinding Background}"/>
                                     <StackPanel Margin="0,0,0,32" Orientation="Horizontal" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Center">
-                                        <Button IsCancel="True" MinWidth="80" Command="interactivity:ControlCommands.Cancel" Content="{x:Static langs:Lang.Cancel}" Visibility="{TemplateBinding ShowCancel,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0,0,16,0"/>
-                                        <Button IsDefault="True" MinWidth="80" Command="interactivity:ControlCommands.Confirm" Content="{x:Static langs:Lang.Confirm}" Style="{StaticResource ButtonPrimary}"/>
+                                        <Button IsCancel="True" MinWidth="80" Command="interactivity:ControlCommands.Cancel" Content="{ex:Lang Key={x:Static langs:LangKeys.Cancel}}" Visibility="{TemplateBinding ShowCancel,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0,0,16,0"/>
+                                        <Button IsDefault="True" MinWidth="80" Command="interactivity:ControlCommands.Confirm" Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" Style="{StaticResource ButtonPrimary}"/>
                                     </StackPanel>
                                 </StackPanel>
                             </Border>

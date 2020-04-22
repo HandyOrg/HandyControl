@@ -2,7 +2,8 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../../Basic/Paths.xaml"/>
@@ -232,8 +233,8 @@
                         </Border>
                         <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button Command="interactivity:ControlCommands.Cancel" Content="{x:Static langs:Lang.Cancel}" Width="80" Margin="0,0,16,0"/>
-                                <Button Command="interactivity:ControlCommands.Confirm" Content="{x:Static langs:Lang.Confirm}" Width="80" Style="{StaticResource ButtonPrimary}"/>
+                                <Button Command="interactivity:ControlCommands.Cancel" Content="{ex:Lang Key={x:Static langs:LangKeys.Cancel}}" Width="80" Margin="0,0,16,0"/>
+                                <Button Command="interactivity:ControlCommands.Confirm" Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" Width="80" Style="{StaticResource ButtonPrimary}"/>
                             </StackPanel>
                         </Border>
                     </Grid>

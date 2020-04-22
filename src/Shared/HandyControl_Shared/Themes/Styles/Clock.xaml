@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Converters.xaml"/>
@@ -93,9 +94,9 @@
                                         <Border Focusable="False" Name="PART_BorderClock"  Background="{DynamicResource PrimaryBrush}" RenderTransformOrigin="0.5,1" Height="63" Width="2" Canvas.Left="88" Canvas.Top="26"/>
                                         <Ellipse Fill="White" Width="8" Height="8" StrokeThickness="2" Stroke="{DynamicResource PrimaryBrush}" Canvas.Top="85" Canvas.Left="85"/>
                                     </Canvas>
-                                    <controls:ClockRadioButton Background="{DynamicResource PrimaryBrush}" Grid.Column="0" x:Name="PART_ButtonAm" IsChecked="True" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,16" Content="{x:Static langs:Lang.Am}" Style="{StaticResource ClockRadioButtonStyle}"/>
-                                    <controls:ClockRadioButton Background="{DynamicResource PrimaryBrush}" Grid.Column="2" x:Name="PART_ButtonPm" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,16,16" Content="{x:Static langs:Lang.Pm}" Style="{StaticResource ClockRadioButtonStyle}"/>
-                                    <Button Grid.Column="1" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm" Content="{x:Static langs:Lang.Confirm}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" Margin="0,0,0,19" Height="24" Width="60" VerticalAlignment="Bottom" Background="Transparent" Style="{StaticResource ButtonCustom}"/>
+                                    <controls:ClockRadioButton Background="{DynamicResource PrimaryBrush}" Grid.Column="0" x:Name="PART_ButtonAm" IsChecked="True" Height="30" Width="30" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="16,0,0,16" Content="{ex:Lang Key={x:Static langs:LangKeys.Am}}" Style="{StaticResource ClockRadioButtonStyle}"/>
+                                    <controls:ClockRadioButton Background="{DynamicResource PrimaryBrush}" Grid.Column="2" x:Name="PART_ButtonPm" Height="30" Width="30" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,16,16" Content="{ex:Lang Key={x:Static langs:LangKeys.Pm}}" Style="{StaticResource ClockRadioButtonStyle}"/>
+                                    <Button Grid.Column="1" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm" Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" Margin="0,0,0,19" Height="24" Width="60" VerticalAlignment="Bottom" Background="Transparent" Style="{StaticResource ButtonCustom}"/>
                                 </Grid>
                             </Border>
                         </Grid>
@@ -168,7 +169,7 @@
                             <ListBox Grid.Row="0" Grid.Column="1" x:Name="PART_MinuteList" Style="{StaticResource ClockListBoxStyle}" BorderThickness="1,0"/>
                             <ListBox Grid.Row="0" Grid.Column="2" x:Name="PART_SecondList" Style="{StaticResource ClockListBoxStyle}"/>
                             <Border VerticalAlignment="Bottom" Visibility="{Binding Visibility,ElementName=PART_ButtonConfirm}" Height="1" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="{DynamicResource BorderBrush}"/>
-                            <Button Margin="0,10" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm" Content="{x:Static langs:Lang.Confirm}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" Background="Transparent" Style="{StaticResource ButtonCustom}"/>
+                            <Button Margin="0,10" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm" Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" Background="Transparent" Style="{StaticResource ButtonCustom}"/>
                         </Grid>
                     </Border>
                 </ControlTemplate>

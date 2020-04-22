@@ -204,17 +204,11 @@
   <data name="No" xml:space="preserve">
     <value>Нет</value>
   </data>
-  <data name="BusyIndicatorLoading" xml:space="preserve">
-    <value>Пожалуйста подождите...</value>
-  </data>
   <data name="ZoomIn" xml:space="preserve">
     <value>Увеличить</value>
   </data>
   <data name="ZoomOut" xml:space="preserve">
     <value>Уменьшить</value>
-  </data>
-  <data name="TagPlaceHolder" xml:space="preserve">
-    <value>Отдельные теги с ; или пробелом</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
     <value>Предыдущая страница</value>
