@@ -214,6 +214,12 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\fr.png">
       <Link>Resources\Img\Flag\fr.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\ko-KR.png">
+      <Link>Resources\Img\Flag\ko-KR.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\ru.png">
+      <Link>Resources\Img\Flag\ru.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon-white.ico">
       <Link>Resources\Img\icon-white.ico</Link>
     </Resource>
@@ -426,6 +432,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.ko-KR.resx">
       <Link>Properties\Langs\Lang.ko-KR.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.ru.resx">
+      <Link>Properties\Langs\Lang.ru.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.resx">
       <Link>Properties\Langs\Lang.resx</Link>
