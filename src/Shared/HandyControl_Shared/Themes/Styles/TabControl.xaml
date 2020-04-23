@@ -138,7 +138,7 @@
                         </controls:TabPanel>
                     </Border>
                 </controls:ScrollViewer>
-                <Border Margin="0,-1,0,0" Grid.Row="0" Grid.Column="2" BorderThickness="1,0,0,1" BorderBrush="Transparent" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Right">
+                <Border Margin="0,-1,0,0" Grid.Row="0" Grid.Column="2" BorderThickness="1,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Right">
                     <Border.CacheMode>
                         <BitmapCache SnapsToDevicePixels="True"/>
                     </Border.CacheMode>
