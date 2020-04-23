@@ -157,7 +157,7 @@
     <value>Atlıkarınca</value>
   </data>
   <data name="CompareSlider" xml:space="preserve">
-    <value>KaydırıcıyıKarşılaştır</value>
+    <value>KaydırıcıKarşılaştırıcı</value>
   </data>
   <data name="TimeBar" xml:space="preserve">
     <value>ZamanÇubuğu</value>
@@ -226,16 +226,16 @@
     <value>Sonraki</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>Kayıt ol</value>
+    <value>Kayıt olma</value>
   </data>
   <data name="BasicInfo" xml:space="preserve">
-    <value>Temel bilgileri doldurun</value>
+    <value>Temel bilgileri doldurma</value>
   </data>
   <data name="UploadFile" xml:space="preserve">
     <value>Dosya yükleme</value>
   </data>
   <data name="Complete" xml:space="preserve">
-    <value>Tamamlayınız</value>
+    <value>Tamamlama</value>
   </data>
   <data name="Clock" xml:space="preserve">
     <value>Saat</value>
@@ -376,7 +376,7 @@
     <value>Fırça</value>
   </data>
   <data name="PreviewSlider" xml:space="preserve">
-    <value>ÖnizlemeKaydırıcısı</value>
+    <value>KaydırıcıÖnizlemesi</value>
   </data>
   <data name="Contributors" xml:space="preserve">
     <value>Katılımcılar</value>
@@ -574,7 +574,7 @@
     <value>Ana pencerede göster</value>
   </data>
   <data name="SideMenu" xml:space="preserve">
-    <value>YanMenü</value>
+    <value>KayanMenü</value>
   </data>
   <data name="Grid" xml:space="preserve">
     <value>Kafes</value>
@@ -634,7 +634,7 @@
     <value>GörüntüBloğu</value>
   </data>
   <data name="RunningBlock" xml:space="preserve">
-    <value>KoşuBloğu</value>
+    <value>KayanYazı</value>
   </data>
   <data name="HoneycombPanel" xml:space="preserve">
     <value>PetekPanel</value>
@@ -670,7 +670,7 @@
     <value>Araçlar</value>
   </data>
   <data name="HatchBrushGenerator" xml:space="preserve">
-    <value>AmbarFırçasıJeneratörü</value>
+    <value>ÇizimFırçasıJeneratörü</value>
   </data>
   <data name="Morphing Animation" xml:space="preserve">
     <value>Morphing Animasyonu</value>
@@ -736,10 +736,10 @@
     <value>Çerçeve</value>
   </data>
   <data name="PracticalDemos" xml:space="preserve">
-    <value>Pratik demolar</value>
+    <value>Pratik Demolar</value>
   </data>
   <data name="StartScreenshot" xml:space="preserve">
-    <value>Ekran görüntüsünü başlat</value>
+    <value>Ekran görüntüsünü al</value>
   </data>
   <data name="Screenshot" xml:space="preserve">
     <value>EkranGörüntüsü</value>
