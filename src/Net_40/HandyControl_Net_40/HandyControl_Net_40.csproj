@@ -96,6 +96,9 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+  <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.tr.resx">
+      <Link>Properties\Langs\Lang.tr.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>
     </EmbeddedResource>

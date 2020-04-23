@@ -118,631 +118,631 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Controls" xml:space="preserve">
-    <value>کنترل ها</value>
+    <value>Kontroller</value>
   </data>
   <data name="Styles" xml:space="preserve">
-    <value>استایل ها</value>
+    <value>Stiller</value>
   </data>
   <data name="Growl" xml:space="preserve">
-    <value>Growl</value>
+    <value>Homurtu</value>
   </data>
   <data name="GrowlInfo" xml:space="preserve">
-    <value>امروز روز خوبی است ~~~</value>
+    <value>Bugün güzel bir gün~~~</value>
   </data>
   <data name="GrowlSuccess" xml:space="preserve">
-    <value>پرونده با موفقیت ذخیره شد!</value>
+    <value>Dosya başarıyla kaydedildi!</value>
   </data>
   <data name="GrowlWarning" xml:space="preserve">
-    <value>فضای دیسک در حال اتمام است!</value>
+    <value>Disk alanı azalıyor!</value>
   </data>
   <data name="GrowlError" xml:space="preserve">
-    <value>ارتباط ناموفق بود. لطفا شبکه خود را بررسی کنید!</value>
+    <value>Bağlantı başarısız. Lütfen ağınızı kontrol edin!</value>
   </data>
   <data name="GrowlFatal" xml:space="preserve">
-    <value>برنامه خراب شد~~~</value>
+    <value>Program çöktü ~~~</value>
   </data>
   <data name="GrowlAsk" xml:space="preserve">
-    <value>نسخه جدیدی کشف شد! آیا می خواهید بروزرسانی کنید؟</value>
+    <value>Yeni bir sürüm algılandı! Güncellemek istiyor musunuz?</value>
   </data>
   <data name="Loading" xml:space="preserve">
-    <value>Loading</value>
+    <value>Yükleniyor</value>
   </data>
   <data name="ImageBrowser" xml:space="preserve">
-    <value>ImageBrowser</value>
+    <value>GörüntüTarayıcı</value>
   </data>
   <data name="ColorPicker" xml:space="preserve">
-    <value>ColorPicker</value>
+    <value>RenkSeçici</value>
   </data>
   <data name="Carousel" xml:space="preserve">
-    <value>Carousel</value>
+    <value>Atlıkarınca</value>
   </data>
   <data name="CompareSlider" xml:space="preserve">
-    <value>CompareSlider</value>
+    <value>KaydırıcıKarşılaştırıcı</value>
   </data>
   <data name="TimeBar" xml:space="preserve">
-    <value>TimeBar</value>
+    <value>ZamanÇubuğu</value>
   </data>
   <data name="Expander" xml:space="preserve">
-    <value>Expander</value>
+    <value>Genişletme</value>
   </data>
   <data name="Pagination" xml:space="preserve">
-    <value>Pagination</value>
+    <value>Sayfalama</value>
   </data>
   <data name="OpenImageBrowser" xml:space="preserve">
-    <value>برای باز کردن مرورگر تصویر کلیک کنید</value>
+    <value>Görüntü tarayıcısını açmak için tıklayın</value>
   </data>
   <data name="ProgressBar" xml:space="preserve">
-    <value>ProgressBar</value>
+    <value>İlerlemeÇubuğu</value>
   </data>
   <data name="AnimationPath" xml:space="preserve">
-    <value>AnimationPath</value>
+    <value>AnimasyonYolu</value>
   </data>
   <data name="Button" xml:space="preserve">
-    <value>Button</value>
+    <value>Düğme</value>
   </data>
   <data name="ToggleButton" xml:space="preserve">
-    <value>ToggleButton</value>
+    <value>Geçiş Düğmesi</value>
   </data>
   <data name="TabControl" xml:space="preserve">
-    <value>TabControl</value>
+    <value>SekmeDenetimi</value>
   </data>
   <data name="CheckBox" xml:space="preserve">
-    <value>CheckBox</value>
+    <value>OnayKutusu</value>
   </data>
   <data name="TextBlock" xml:space="preserve">
-    <value>TextBlock</value>
+    <value>MetinBloğu</value>
   </data>
   <data name="Default" xml:space="preserve">
-    <value>Default</value>
+    <value>Varsayılan</value>
   </data>
   <data name="Primary" xml:space="preserve">
-    <value>Primary</value>
+    <value>Birincil</value>
   </data>
   <data name="Success" xml:space="preserve">
-    <value>Success</value>
+    <value>Başarı</value>
   </data>
   <data name="Info" xml:space="preserve">
-    <value>Info</value>
+    <value>Bilgi</value>
   </data>
   <data name="Warning" xml:space="preserve">
-    <value>Warning</value>
+    <value>Uyarı</value>
   </data>
   <data name="Danger" xml:space="preserve">
-    <value>Danger</value>
+    <value>Tehlike</value>
   </data>
   <data name="ButtonCustom" xml:space="preserve">
-    <value>Custom button</value>
+    <value>Özel düğme</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>عنوان</value>
+    <value>Başlık</value>
   </data>
   <data name="StepBar" xml:space="preserve">
-    <value>StepBar</value>
+    <value>AdımÇubuğu</value>
   </data>
   <data name="Prev" xml:space="preserve">
-    <value>قبلی</value>
+    <value>Önceki</value>
   </data>
   <data name="Next" xml:space="preserve">
-    <value>بعدی</value>
+    <value>Sonraki</value>
   </data>
   <data name="Register" xml:space="preserve">
-    <value>ثبت نام</value>
+    <value>Kayıt olma</value>
   </data>
   <data name="BasicInfo" xml:space="preserve">
-    <value>اطلاعات اصلی را پر کنید</value>
+    <value>Temel bilgileri doldurma</value>
   </data>
   <data name="UploadFile" xml:space="preserve">
-    <value>آپلود فایل</value>
+    <value>Dosya yükleme</value>
   </data>
   <data name="Complete" xml:space="preserve">
-    <value>تکمیل</value>
+    <value>Tamamlama</value>
   </data>
   <data name="Clock" xml:space="preserve">
-    <value>Clock</value>
+    <value>Saat</value>
   </data>
   <data name="Calendar" xml:space="preserve">
-    <value>Calendar</value>
+    <value>Takvim</value>
   </data>
   <data name="DatePicker" xml:space="preserve">
-    <value>DatePicker</value>
+    <value>TarihSeçici</value>
   </data>
   <data name="TimePicker" xml:space="preserve">
-    <value>TimePicker</value>
+    <value>ZamanSeçici</value>
   </data>
   <data name="TextBox" xml:space="preserve">
-    <value>TextBox</value>
+    <value>MetinKutusu</value>
   </data>
   <data name="ContentDemoStr" xml:space="preserve">
-    <value>این محتوا است</value>
+    <value>Bu içerik</value>
   </data>
   <data name="TitleDemoStr1" xml:space="preserve">
-    <value>این عنوان است</value>
+    <value>Bu başlık</value>
   </data>
   <data name="TitleDemoStr2" xml:space="preserve">
-    <value>این مورد باید پر شود</value>
+    <value>Bu öğe doldurulmalıdır</value>
   </data>
   <data name="PlsEnterContent" xml:space="preserve">
-    <value>لطفاً محتوا را وارد کنید</value>
+    <value>Lütfen içerik girin</value>
   </data>
   <data name="TitleDemoStr3" xml:space="preserve">
-    <value>عنوان در سمت چپ است</value>
+    <value>Başlık solda</value>
   </data>
   <data name="Text" xml:space="preserve">
-    <value>متن</value>
+    <value>Metin</value>
   </data>
   <data name="SubTitle" xml:space="preserve">
-    <value>عنوان فرعی</value>
+    <value>Altyazı</value>
   </data>
   <data name="PasswordBox" xml:space="preserve">
-    <value>PasswordBox</value>
+    <value>ŞifreKutusu</value>
   </data>
   <data name="CirclePanel" xml:space="preserve">
-    <value>CirclePanel</value>
+    <value>DairePanel</value>
   </data>
   <data name="ComboBox" xml:space="preserve">
-    <value>ComboBox</value>
+    <value>AçılanKutu</value>
   </data>
   <data name="NumericUpDown" xml:space="preserve">
-    <value>NumericUpDown</value>
+    <value>SayısalYukarıAşağı</value>
   </data>
   <data name="DataGrid" xml:space="preserve">
-    <value>DataGrid</value>
+    <value>VeriŞebekesi</value>
   </data>
   <data name="Index" xml:space="preserve">
-    <value>ایندکس</value>
+    <value>Dizin</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>نام</value>
+    <value>Adı</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>تایپ کنید</value>
+    <value>Türü</value>
   </data>
   <data name="Remark" xml:space="preserve">
-    <value>تذکر</value>
+    <value>Açıklama</value>
   </data>
   <data name="Selected" xml:space="preserve">
-    <value>انتخاب شد</value>
+    <value>Seçilmiş</value>
   </data>
   <data name="ListBox" xml:space="preserve">
-    <value>ListBox</value>
+    <value>ListeKutusu</value>
   </data>
   <data name="TreeView" xml:space="preserve">
-    <value>TreeView</value>
+    <value>AğaçGörünümü</value>
   </data>
   <data name="ScrollViewer" xml:space="preserve">
-    <value>ScrollViewer</value>
+    <value>KaydırmaGörüntüleyicisi</value>
   </data>
   <data name="Window" xml:space="preserve">
-    <value>Window</value>
+    <value>Pencere</value>
   </data>
   <data name="Menu" xml:space="preserve">
-    <value>Menu</value>
+    <value>Menü</value>
   </data>
   <data name="RightClickHere" xml:space="preserve">
-    <value>اینجا کلیک راست کنید</value>
+    <value>Buraya sağ tıklayın</value>
   </data>
   <data name="RadioButton" xml:space="preserve">
-    <value>RadioButton</value>
+    <value>RadyoDüğmesi</value>
   </data>
   <data name="OpenMessageWindow" xml:space="preserve">
-    <value>پنجره پیام باز شود</value>
+    <value>mesaj penceresini aç</value>
   </data>
   <data name="OpenCommonWindow" xml:space="preserve">
-    <value>باز کردن پنجره عادی</value>
+    <value>ortak pencereyi aç</value>
   </data>
   <data name="OpenCustomNonClientAreaWindow" xml:space="preserve">
-    <value>پنجره منطقه سفارشی تایتل بار باز شود</value>
+    <value>özel istemci olmayan alan penceresini aç</value>
   </data>
   <data name="OpenMouseFollowWindow" xml:space="preserve">
-    <value>پنجره ماوس باز شود</value>
+    <value>fare takip penceresini aç</value>
   </data>
   <data name="OpenCustomContentWindow" xml:space="preserve">
-    <value>باز کردن پنجره با محتوای شخصی</value>
+    <value>özel içerik penceresini aç</value>
   </data>
   <data name="Ignore" xml:space="preserve">
-    <value>چشم پوشی</value>
+    <value>Yoksay</value>
   </data>
   <data name="Error" xml:space="preserve">
-    <value>Error</value>
+    <value>Hata</value>
   </data>
   <data name="Ask" xml:space="preserve">
-    <value>Ask</value>
+    <value>Sor</value>
   </data>
   <data name="Fatal" xml:space="preserve">
-    <value>Fatal</value>
+    <value>Ölümcül</value>
   </data>
   <data name="Clear" xml:space="preserve">
-    <value>پاک کردن</value>
+    <value>Temizle</value>
   </data>
   <data name="ChangeLangAsk" xml:space="preserve">
-    <value>آیا برای تغییر زبان، برنامه مجدداً راه اندازی شود؟</value>
+    <value>Dilin değişmesi için yeniden başlatılsın mı?</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>درباره</value>
+    <value>Hakkında</value>
   </data>
   <data name="Repository" xml:space="preserve">
-    <value>مخزن</value>
+    <value>Depo</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>ایمیل</value>
+    <value>E-posta</value>
   </data>
   <data name="Chatroom" xml:space="preserve">
-    <value>اتاق چت</value>
+    <value>Sohbet odası</value>
   </data>
   <data name="Blog" xml:space="preserve">
-    <value>بلاگ</value>
+    <value>Blog</value>
   </data>
   <data name="Brush" xml:space="preserve">
-    <value>Brush</value>
+    <value>Fırça</value>
   </data>
   <data name="PreviewSlider" xml:space="preserve">
-    <value>PreviewSlider</value>
+    <value>KaydırıcıÖnizlemesi</value>
   </data>
   <data name="Contributors" xml:space="preserve">
-    <value>مشارکت کنندگان</value>
+    <value>Katılımcılar</value>
   </data>
   <data name="Slider" xml:space="preserve">
-    <value>Slider</value>
+    <value>Kaydırıcı</value>
   </data>
   <data name="IsNotPhone" xml:space="preserve">
-    <value>شماره تلفن نیست</value>
+    <value>Bu bir telefon numarası değil</value>
   </data>
   <data name="PlsEnterEmail" xml:space="preserve">
-    <value>لطفا ایمیل را وارد کنید</value>
+    <value>lütfen e-posta giriniz</value>
   </data>
   <data name="Step" xml:space="preserve">
-    <value>گام</value>
+    <value>Adım</value>
   </data>
   <data name="CalendarWithClock" xml:space="preserve">
-    <value>CalendarWithClock</value>
+    <value>SaatliTakvim</value>
   </data>
   <data name="DateTimePicker" xml:space="preserve">
-    <value>DateTimePicker</value>
+    <value>TarihZamanSeçici</value>
   </data>
   <data name="GroupBox" xml:space="preserve">
-    <value>GroupBox</value>
+    <value>GrupKutusu</value>
   </data>
   <data name="ListView" xml:space="preserve">
-    <value>ListView</value>
+    <value>ListeGörünümü</value>
   </data>
   <data name="RichTextBox" xml:space="preserve">
-    <value>RichTextBox</value>
+    <value>ZenginMetinKutusu</value>
   </data>
   <data name="ToolBar" xml:space="preserve">
-    <value>ToolBar</value>
+    <value>AraçÇubuğu</value>
   </data>
   <data name="Common" xml:space="preserve">
-    <value>عادی</value>
+    <value>Yaygın</value>
   </data>
   <data name="ShowRowNumber" xml:space="preserve">
-    <value>نمایش تعداد ردیف</value>
+    <value>SatırNumarasınıGöster</value>
   </data>
   <data name="SearchBar" xml:space="preserve">
-    <value>SearchBar</value>
+    <value>AramaÇubuğu</value>
   </data>
   <data name="Tag" xml:space="preserve">
-    <value>Tag</value>
+    <value>Etiket</value>
   </data>
   <data name="GifImage" xml:space="preserve">
-    <value>GifImage</value>
+    <value>GifResmi</value>
   </data>
   <data name="OutlineText" xml:space="preserve">
-    <value>OutlineText</value>
+    <value>AnahatMetni</value>
   </data>
   <data name="QQGroup" xml:space="preserve">
-    <value>گروه QQ</value>
+    <value>QQ Grubu</value>
   </data>
   <data name="FlipClock" xml:space="preserve">
-    <value>FlipClock</value>
+    <value>DeğişenSaat</value>
   </data>
   <data name="OpenBlurWindow" xml:space="preserve">
-    <value>باز کردن پنجره بلور</value>
+    <value>bulanıklık penceresini aç</value>
   </data>
   <data name="Rate" xml:space="preserve">
-    <value>Rate</value>
+    <value>Derece</value>
   </data>
   <data name="Shield" xml:space="preserve">
-    <value>Shield</value>
+    <value>Kalkan</value>
   </data>
   <data name="WaterfallPanel" xml:space="preserve">
-    <value>WaterfallPanel</value>
+    <value>ŞelalePaneli</value>
   </data>
   <data name="Groups" xml:space="preserve">
-    <value>Groups</value>
+    <value>Gruplar</value>
   </data>
   <data name="CoverView" xml:space="preserve">
-    <value>CoverView</value>
+    <value>KapakGörünümü</value>
   </data>
   <data name="CoverFlow" xml:space="preserve">
-    <value>CoverFlow</value>
+    <value>KapakAkışı</value>
   </data>
   <data name="PlsEnterKey" xml:space="preserve">
-    <value>لطفاً یک کلمه کلیدی را وارد کنید</value>
+    <value>Lütfen bir anahtar kelime girin</value>
   </data>
   <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
-    <value>پنجره قابل کشش ناحیه بدون تایتل بار باز شود</value>
+    <value>istemci olmayan sürüklenebilir alan penceresini aç</value>
   </data>
   <data name="DragHere" xml:space="preserve">
-    <value>اینجا بکش</value>
+    <value>Buradan sürükle</value>
   </data>
   <data name="MessageBox" xml:space="preserve">
-    <value>MessageBox</value>
+    <value>MesajKutusu</value>
   </data>
   <data name="ProgressButton" xml:space="preserve">
-    <value>ProgressButton</value>
+    <value>İlerlemeDüğmesi</value>
   </data>
   <data name="UploadStr" xml:space="preserve">
-    <value>Upload;Uploading</value>
+    <value>Yükle;Yükleniyor</value>
   </data>
   <data name="OpenCustomMessageWindow" xml:space="preserve">
-    <value>باز کردن پنجره پیغام شخصی</value>
+    <value>özel mesaj penceresini aç</value>
   </data>
   <data name="Transfer" xml:space="preserve">
-    <value>Transfer</value>
+    <value>Aktarma</value>
   </data>
   <data name="ChatBubble" xml:space="preserve">
-    <value>ChatBubble</value>
+    <value>SohbetBalonu</value>
   </data>
   <data name="PushToTalk" xml:space="preserve">
-    <value>فشار دهید تا صحبت کنید</value>
+    <value>Konuşmak için bas</value>
   </data>
   <data name="Second" xml:space="preserve">
-    <value>ثانیه</value>
+    <value>San</value>
   </data>
   <data name="Label" xml:space="preserve">
-    <value>Label</value>
+    <value>Etiket</value>
   </data>
   <data name="GotoTop" xml:space="preserve">
-    <value>GotoTop</value>
+    <value>ÜsteDön</value>
   </data>
   <data name="NotifyIcon" xml:space="preserve">
-    <value>NotifyIcon</value>
+    <value>BildirimSimgesi</value>
   </data>
   <data name="Badge" xml:space="preserve">
-    <value>Badge</value>
+    <value>Rozet</value>
   </data>
   <data name="Gravatar" xml:space="preserve">
     <value>Gravatar</value>
   </data>
   <data name="ComingSoon" xml:space="preserve">
-    <value>به زودی</value>
+    <value>Çok Yakında</value>
   </data>
   <data name="Comment" xml:space="preserve">
-    <value>Comment</value>
+    <value>Yorum Yap</value>
   </data>
   <data name="Reply" xml:space="preserve">
-    <value>Reply</value>
+    <value>Yanıt</value>
   </data>
   <data name="Dialog" xml:space="preserve">
-    <value>Dialog</value>
+    <value>İletişim</value>
   </data>
   <data name="TextDialog" xml:space="preserve">
-    <value>متن Dialog</value>
+    <value>Metinİletişimi</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
-    <value>لطفا صبر کنید...</value>
+    <value>Lütfen bekleyin...</value>
   </data>
   <data name="GrowlDemo" xml:space="preserve">
-    <value>نسخه ی نمایشی Growl</value>
+    <value>Homurtu demosu</value>
   </data>
   <data name="NewWindow" xml:space="preserve">
-    <value>پنجره جدید</value>
+    <value>Yeni pencere</value>
   </data>
   <data name="Visibility" xml:space="preserve">
-    <value>قابلیت دیدن</value>
+    <value>Görünürlük</value>
   </data>
   <data name="Blink" xml:space="preserve">
-    <value>چشمک زدن</value>
+    <value>Kırpmak</value>
   </data>
   <data name="Exit" xml:space="preserve">
-    <value>خروج</value>
+    <value>Çıkış</value>
   </data>
   <data name="OpenPanel" xml:space="preserve">
-    <value>پنل را باز کنید</value>
+    <value>Paneli Aç</value>
   </data>
   <data name="AppClosingTip" xml:space="preserve">
-    <value>نماد سینی باز است و به جای بستن برنامه ، پنجره را پنهان می کند</value>
+    <value>Tepsi simgesi açık ve programı kapatmak yerine pencereyi gizleyecek</value>
   </data>
   <data name="Tip" xml:space="preserve">
-    <value>بی درنگ</value>
+    <value>Komut istemi</value>
   </data>
   <data name="Try2CloseApp" xml:space="preserve">
-    <value>سعی کنید برنامه را ببندید؟</value>
+    <value>Uygulamayı kapatmaya mı çalışıyorsunuz?</value>
   </data>
   <data name="InteractiveDialog" xml:space="preserve">
-    <value>گفتگوی تعاملی</value>
+    <value>Etkileşimli İletişim Kutusu</value>
   </data>
   <data name="Ok" xml:space="preserve">
-    <value>اوکی</value>
+    <value>Tamam</value>
   </data>
   <data name="PleaseInput" xml:space="preserve">
-    <value>لطفاً وارد کنید ...</value>
+    <value>Lütfen girin...</value>
   </data>
   <data name="Click2Count" xml:space="preserve">
-    <value>Click to count</value>
+    <value>Saymak için tıklayın</value>
   </data>
   <data name="RepeatButton" xml:space="preserve">
-    <value>RepeatButton</value>
+    <value>TekrarlaDüğmesi</value>
   </data>
   <data name="DialogDemo" xml:space="preserve">
-    <value>نسخه ی نمایشی Dialog</value>
+    <value>İletişim demosu</value>
   </data>
   <data name="ShowInCurrentWindow" xml:space="preserve">
-    <value>نمایش در پنجره فعلی</value>
+    <value>Geçerli pencerede göster</value>
   </data>
   <data name="ShowInMainWindow" xml:space="preserve">
-    <value>نمایش در پنجره اصلی</value>
+    <value>Ana pencerede göster</value>
   </data>
   <data name="SideMenu" xml:space="preserve">
-    <value>SideMenu</value>
+    <value>KayanMenü</value>
   </data>
   <data name="Grid" xml:space="preserve">
-    <value>Grid</value>
+    <value>Kafes</value>
   </data>
   <data name="BasicLayout" xml:space="preserve">
-    <value>طرح اولیه</value>
+    <value>Temel düzen</value>
   </data>
   <data name="ColumnSpacing" xml:space="preserve">
-    <value>فاصله ستون</value>
+    <value>Sütun aralığı</value>
   </data>
   <data name="HybridLayout" xml:space="preserve">
-    <value>طرح ترکیبی</value>
+    <value>Hibrit yerleşim</value>
   </data>
   <data name="ColumnOffset" xml:space="preserve">
-    <value>انحراف ستون</value>
+    <value>Sütun uzaklığı</value>
   </data>
   <data name="ResponsiveLayout" xml:space="preserve">
-    <value>طرح ریسپانسیو</value>
+    <value>Duyarlı düzen</value>
   </data>
   <data name="Border" xml:space="preserve">
-    <value>Border</value>
-  </data>
-  <data name="Recommendation" xml:space="preserve">
-    <value>توصیه</value>
-  </data>
-  <data name="Project" xml:space="preserve">
-    <value>پروژه</value>
-  </data>
-  <data name="RangeSlider" xml:space="preserve">
-    <value>RangeSlider</value>
-  </data>
-  <data name="RelativePanel" xml:space="preserve">
-    <value>RelativePanel</value>
-  </data>
-  <data name="On" xml:space="preserve">
-    <value>On</value>
-  </data>
-  <data name="Off" xml:space="preserve">
-    <value>Off</value>
-  </data>
-  <data name="ButtonGroup" xml:space="preserve">
-    <value>ButtonGroup</value>
-  </data>
-  <data name="Card" xml:space="preserve">
-    <value>Card</value>
-  </data>
-  <data name="TextDialogWithTimer" xml:space="preserve">
-    <value>متن Dialog با تایمر</value>
-  </data>
-  <data name="Magnifier" xml:space="preserve">
-    <value>Magnifier</value>
-  </data>
-  <data name="ImageBlock" xml:space="preserve">
-    <value>ImageBlock</value>
-  </data>
-  <data name="RunningBlock" xml:space="preserve">
-    <value>RunningBlock</value>
-  </data>
-  <data name="HoneycombPanel" xml:space="preserve">
-    <value>HoneycombPanel</value>
-  </data>
-  <data name="AddItem" xml:space="preserve">
-    <value>یک مورد اضافه کنید</value>
-  </data>
-  <data name="RemoveItem" xml:space="preserve">
-    <value>یک مورد را حذف کنید</value>
-  </data>
-  <data name="Sprite" xml:space="preserve">
-    <value>Sprite</value>
-  </data>
-  <data name="OpenSprite" xml:space="preserve">
-    <value>اسپرایت را باز کنید</value>
-  </data>
-  <data name="Notification" xml:space="preserve">
-    <value>Notification</value>
-  </data>
-  <data name="SendNotification" xml:space="preserve">
-    <value>اعلان را ارسال کنید</value>
-  </data>
-  <data name="StaysOpen" xml:space="preserve">
-    <value>باز می ماند</value>
-  </data>
-  <data name="FloatingBlock" xml:space="preserve">
-    <value>FloatingBlock</value>
-  </data>
-  <data name="SplitButton" xml:space="preserve">
-    <value>SplitButton</value>
-  </data>
-  <data name="Tools" xml:space="preserve">
-    <value>ابزار</value>
-  </data>
-  <data name="HatchBrushGenerator" xml:space="preserve">
-    <value>HatchBrushGenerator</value>
-  </data>
-  <data name="Morphing Animation" xml:space="preserve">
-    <value>Morphing Animation</value>
-  </data>
-  <data name="Divider" xml:space="preserve">
-    <value>Divider</value>
+    <value>Kenar</value>
   </data>
   <data name="Poptip" xml:space="preserve">
-    <value>Poptip</value>
+    <value>İpucu</value>
+  </data>
+  <data name="Recommendation" xml:space="preserve">
+    <value>Öneri</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Proje</value>
+  </data>
+  <data name="RangeSlider" xml:space="preserve">
+    <value>MenzilKaydırıcı</value>
+  </data>
+  <data name="RelativePanel" xml:space="preserve">
+    <value>BağılPanel</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>DüğmeGrubu</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>Kart</value>
+  </data>
+  <data name="TextDialogWithTimer" xml:space="preserve">
+    <value>Zamanlayıcılı Metin İletişim Kutusu</value>
+  </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>Büyüteç</value>
+  </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>GörüntüBloğu</value>
+  </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>KayanYazı</value>
+  </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>PetekPanel</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Öğe ekle</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>Öğe sil</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>Peri</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>Periyi aç</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Bildirim</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>Bildirim gönder</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>Açık kalır</value>
+  </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>KayanBlok</value>
+  </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>BölmeDüğmesi</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Araçlar</value>
+  </data>
+  <data name="HatchBrushGenerator" xml:space="preserve">
+    <value>ÇizimFırçasıJeneratörü</value>
+  </data>
+  <data name="Morphing Animation" xml:space="preserve">
+    <value>Morphing Animasyonu</value>
+  </data>
+  <data name="Divider" xml:space="preserve">
+    <value>Bölücü</value>
   </data>
   <data name="PoptipPositionStr" xml:space="preserve">
-    <value>top-start;top;top-end;right-start;right;right-end;bottom-end;bottom;bottom-start;left-end;left;left-start</value>
+    <value>yukarı-başlangıç;yukarı;yukarı-bitiş;sağ-başlangıç;sağ;sağ-bitiş;alt-bitiş;alt;alt-başlangıç;sol-bitiş;sol;sol-başlangıç</value>
   </data>
   <data name="TransitioningContentControl" xml:space="preserve">
-    <value>TransitioningContentControl</value>
+    <value>GeçişİçerikKontrolü</value>
   </data>
   <data name="Drawer" xml:space="preserve">
-    <value>Drawer</value>
+    <value>Çekmece</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>مستندات</value>
+    <value>Döküman</value>
   </data>
   <data name="Effects" xml:space="preserve">
-    <value>Effects</value>
+    <value>Efektler</value>
   </data>
   <data name="Website" xml:space="preserve">
-    <value>سایت</value>
+    <value>İnternet sitesi</value>
   </data>
   <data name="Vsix" xml:space="preserve">
     <value>Vsix</value>
   </data>
   <data name="Doc_en" xml:space="preserve">
-    <value>مستندات انگلیسی</value>
+    <value>İngilizce döküman</value>
   </data>
   <data name="Doc_cn" xml:space="preserve">
-    <value>مستندات چینی</value>
+    <value>Çince döküman</value>
   </data>
   <data name="Demo" xml:space="preserve">
-    <value>دمو</value>
+    <value>Demo</value>
   </data>
   <data name="PinBox" xml:space="preserve">
-    <value>PinBox</value>
+    <value>PinKutusu</value>
   </data>
   <data name="FlowDocumentScrollViewer" xml:space="preserve">
-    <value>FlowDocumentScrollViewer</value>
+    <value>AkışBelgesiKaydırmaGörüntüleyicisi</value>
   </data>
   <data name="OpenGlowWindow" xml:space="preserve">
-    <value>Open glowWindow</value>
+    <value>IşımaPenceresini Aç</value>
   </data>
   <data name="FlowDocument" xml:space="preserve">
-    <value>FlowDocument</value>
+    <value>AkışBelgesi</value>
   </data>
   <data name="FlowDocumentPageViewer" xml:space="preserve">
-    <value>FlowDocumentPageViewer</value>
+    <value>AkışBelgesiSayfaGörüntüleyicisi</value>
   </data>
   <data name="FlowDocumentReader" xml:space="preserve">
-    <value>FlowDocumentReader</value>
+    <value>AkışBelgesiOkuyucu</value>
   </data>
   <data name="OpenNativeCommonWindow" xml:space="preserve">
-    <value>Open native common window</value>
+    <value>Yerel ortak pencereyi aç</value>
   </data>
   <data name="OpenNavigationWindow" xml:space="preserve">
-    <value>Open navigation window</value>
+    <value>Gezinme penceresini aç</value>
   </data>
   <data name="Frame" xml:space="preserve">
-    <value>Frame</value>
+    <value>Çerçeve</value>
   </data>
   <data name="PracticalDemos" xml:space="preserve">
-    <value>دموی عملی</value>
+    <value>Pratik Demolar</value>
   </data>
   <data name="StartScreenshot" xml:space="preserve">
-    <value>Start screenshot</value>
+    <value>Ekran görüntüsünü al</value>
   </data>
   <data name="Screenshot" xml:space="preserve">
-    <value>Screenshot</value>
+    <value>EkranGörüntüsü</value>
   </data>
   <data name="TextDialogInControl" xml:space="preserve">
     <value>TextDialog(In control)</value>

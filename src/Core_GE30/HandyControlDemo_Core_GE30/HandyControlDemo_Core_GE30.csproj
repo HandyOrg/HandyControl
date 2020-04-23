@@ -201,6 +201,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\ru.png">
       <Link>Resources\Img\Flag\ru.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\tr.png">
+      <Link>Resources\Img\Flag\tr.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon-white.ico">
       <Link>Resources\Img\icon-white.ico</Link>
     </Resource>
@@ -500,6 +503,9 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+  <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.tr.resx">
+      <Link>Properties\Langs\Lang.tr.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>
     </EmbeddedResource>
