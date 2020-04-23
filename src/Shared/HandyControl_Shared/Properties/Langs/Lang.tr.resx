@@ -118,115 +118,115 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Confirm" xml:space="preserve">
-    <value>تایید</value>
+    <value>Onayla</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>انصراف</value>
+    <value>İptal</value>
   </data>
   <data name="PngImg" xml:space="preserve">
-    <value>تصویر PNG</value>
+    <value>PNG resmi</value>
   </data>
   <data name="ErrorImgPath" xml:space="preserve">
-    <value>مسیر عکس اشتباه است</value>
+    <value>Hatalı resim yolu</value>
   </data>
   <data name="ErrorImgSize" xml:space="preserve">
-    <value>اندازه تصویر اشتباه است</value>
+    <value>Hatalı resim boyutu</value>
   </data>
   <data name="UnknownSize" xml:space="preserve">
-    <value>اندازه ناشناخته</value>
+    <value>Bilinmeyen boyut</value>
   </data>
   <data name="TooLarge" xml:space="preserve">
-    <value>خیلی بزرگ</value>
+    <value>Çok uzun</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>ناشناس</value>
+    <value>Bilinmiyor</value>
   </data>
   <data name="Interval30s" xml:space="preserve">
-    <value>فاصله 30 ثانیه ای</value>
+    <value>30 saniye aralık</value>
   </data>
   <data name="Interval1m" xml:space="preserve">
-    <value>فاصله 1 دقیقه ای</value>
+    <value>1 dakika aralık</value>
   </data>
   <data name="Interval5m" xml:space="preserve">
-    <value>فاصله 5 دقیقه ای</value>
+    <value>5 dakika aralık</value>
   </data>
   <data name="Interval10m" xml:space="preserve">
-    <value>فاصله 10 دقیقه ای</value>
+    <value>10 dakika aralık</value>
   </data>
   <data name="Interval30m" xml:space="preserve">
-    <value>فاصله 30 دقیقه ای</value>
+    <value>30 dakika aralık</value>
   </data>
   <data name="Interval1h" xml:space="preserve">
-    <value>فاصله 1 ساعته</value>
+    <value>1 saat aralık</value>
   </data>
   <data name="Interval2h" xml:space="preserve">
-    <value>فاصله 2 ساعته</value>
+    <value>2 saat aralık</value>
   </data>
   <data name="Clear" xml:space="preserve">
-    <value>پاک کردن</value>
+    <value>Temizle</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>بستن</value>
+    <value>Kapat</value>
   </data>
   <data name="CloseAll" xml:space="preserve">
-    <value>بستن همه</value>
+    <value>Hepsini kapat</value>
   </data>
   <data name="CloseOther" xml:space="preserve">
-    <value>بستن بقیه</value>
+    <value>Diğerlerini kapat</value>
   </data>
   <data name="Am" xml:space="preserve">
-    <value>صبح</value>
+    <value>ÖÖ</value>
   </data>
   <data name="Pm" xml:space="preserve">
-    <value>عصر</value>
+    <value>ÖS</value>
   </data>
   <data name="Tip" xml:space="preserve">
-    <value>بی درنک</value>
+    <value>Komut İstemi</value>
   </data>
   <data name="IsNecessary" xml:space="preserve">
-    <value>نمی تواند خالی باشد</value>
+    <value>boş olamaz</value>
   </data>
   <data name="OutOfRange" xml:space="preserve">
-    <value>خارج از محدوده</value>
+    <value>kapsama alanı dışında</value>
   </data>
   <data name="FormatError" xml:space="preserve">
-    <value>فرمت ورودی اشتباه است</value>
+    <value>format hatası</value>
   </data>
   <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
-    <value>نمی توان فرمان کامپوزیت را در خود ثبت کرد</value>
+    <value>Kompozit Komut Kendi Kendine Kaydedilemiyor</value>
   </data>
   <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
-    <value>نمی توان همان فرمان را دو بار ثبت کرد</value>
+    <value>Aynı Komut İki Kez Kaydedilemiyor</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>بله</value>
+    <value>Evet</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>خیر</value>
+    <value>Hayır</value>
   </data>
   <data name="ZoomIn" xml:space="preserve">
-    <value>بزرگنمایی</value>
+    <value>Yakınlaştır</value>
   </data>
   <data name="ZoomOut" xml:space="preserve">
-    <value>کوچکنمایی</value>
+    <value>Uzaklaştır</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
-    <value>صفحه قبلی</value>
+    <value>Önceki sayfa</value>
   </data>
   <data name="NextPage" xml:space="preserve">
-    <value>صفحه بعدی</value>
+    <value>Sonraki sayfa</value>
   </data>
   <data name="PageMode" xml:space="preserve">
-    <value>حالت صفحه</value>
+    <value>Sayfa modu</value>
   </data>
   <data name="TwoPageMode" xml:space="preserve">
-    <value>حالت دو صفحه ای</value>
+    <value>2 sayfa modu</value>
   </data>
   <data name="ScrollMode" xml:space="preserve">
-    <value>حالت اسکرول</value>
+    <value>Kaydırma modu</value>
   </data>
   <data name="Find" xml:space="preserve">
-    <value>پیدا کردن</value>
+    <value>Bul</value>
   </data>
   <data name="LangComment" xml:space="preserve">
     <value>Looks up a localized string similar to "{0}".</value>

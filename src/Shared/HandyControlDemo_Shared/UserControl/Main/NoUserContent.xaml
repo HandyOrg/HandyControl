@@ -115,25 +115,32 @@
     <Popup AllowsTransparency="True" Grid.Column="1" PlacementTarget="{Binding ElementName=ButtonConfig}" HorizontalOffset="-28" Name="PopupConfig" VerticalOffset="6" StaysOpen="False">
         <Border Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="4" Margin="16" Effect="{StaticResource EffectShadow2}">
             <StackPanel Orientation="Horizontal">
-                <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,10,0,10">
-                    <Button Tag="zh-cn" Style="{StaticResource ButtonCustom}">
-                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/cn.png"/>
-                    </Button>
-                    <Button Tag="en" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
-                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/en.png"/>
-                    </Button>
-                    <Button Tag="fa" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
-                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/fa.png"/>
-                    </Button>
-                    <Button Tag="fr" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
-                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/fr.png"/>
-                    </Button>
-                    <Button Tag="ko-KR" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
-                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ko-KR.png"/>
-                    </Button>
-                    <Button Tag="ru" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
-                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ru.png"/>
-                    </Button>
+                <StackPanel Orientation="Horizontal" Margin="10">
+                    <StackPanel Button.Click="ButtonLangs_OnClick">
+                        <Button Tag="zh-cn" Style="{StaticResource ButtonCustom}">
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/cn.png"/>
+                        </Button>
+                        <Button Tag="en" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/en.png"/>
+                        </Button>
+                        <Button Tag="fa" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/fa.png"/>
+                        </Button>
+                        <Button Tag="fr" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/fr.png"/>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,0">
+                        <Button Tag="ko-KR" Style="{StaticResource ButtonCustom}">
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ko-KR.png"/>
+                        </Button>
+                        <Button Tag="ru" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ru.png"/>
+                        </Button>
+                        <Button Tag="tr" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/tr.png"/>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel Button.Click="ButtonSkins_OnClick"  Margin="10,10,10,10">
                     <Button Tag="{x:Static hc:SkinType.Default}" Style="{StaticResource ButtonCustom}">
