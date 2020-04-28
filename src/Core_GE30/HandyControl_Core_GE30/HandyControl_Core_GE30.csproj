@@ -12,6 +12,7 @@
     <Configurations>Debug-Core30;Debug-Core31;Release-Core30;Release-Core31</Configurations>
     <LangVersion>8.0</LangVersion>
     <Authors>HandyOrg</Authors>
+    <PackageId>HandyControl</PackageId>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug-Core30|AnyCPU'">
     <DefineConstants>TRACE;Core</DefineConstants>
