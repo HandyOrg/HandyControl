@@ -85,7 +85,7 @@
                                     <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
                                 </Trigger>
                                 <Trigger Property="IsHighlighted" Value="True">
-                                    <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource DarkDefaultBrush}"/>
+                                    <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource SecondaryRegionBrush}"/>
                                     <Setter Property="TextElement.Foreground" TargetName="menuHeaderContainer" Value="{DynamicResource PrimaryTextBrush}"/>
                                 </Trigger>
                                 <Trigger Property="IsSubmenuOpen" Value="True">
@@ -125,7 +125,7 @@
                                     <Setter Property="Visibility" TargetName="Icon" Value="Collapsed"/>
                                 </Trigger>
                                 <Trigger Property="IsHighlighted" Value="True">
-                                    <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource DarkDefaultBrush}"/>
+                                    <Setter Property="Background" TargetName="templateRoot" Value="{DynamicResource SecondaryRegionBrush}"/>
                                     <Setter Property="TextElement.Foreground" TargetName="menuHeaderContainer" Value="{DynamicResource PrimaryTextBrush}"/>
                                 </Trigger>
                                 <Trigger Property="IsSubmenuOpen" Value="True">

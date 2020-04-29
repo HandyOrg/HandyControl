@@ -27,7 +27,7 @@
             </ResourceDictionary.MergedDictionaries>
             <langs:LangProvider x:Key="DemoLangs"/>
             <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True"/>
-            <hc:EnumDataProvider x:Key="DemoTypes" Type="data:DemoType" MethodName=""/>
+            <hc:EnumDataProvider x:Key="DemoTypes" Type="data:DemoType"/>
             <hc:EnumDataProvider x:Key="ShowAnimations" Type="hc:ShowAnimation"/>
             <hc:EnumDataProvider x:Key="HatchStyles" Type="hc:HatchStyle"/>
         </ResourceDictionary>

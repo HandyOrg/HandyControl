@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Controls;
-#if netle40
 using GalaSoft.MvvmLight.Command;
-#else
-using GalaSoft.MvvmLight.CommandWpf;
-#endif
 using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
 using HandyControlDemo.Data;

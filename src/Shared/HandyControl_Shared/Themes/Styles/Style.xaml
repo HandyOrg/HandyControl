@@ -86,6 +86,7 @@
         <ResourceDictionary Source="Frame.xaml"/>
         <ResourceDictionary Source="BlendEffectBox.xaml"/>
         <ResourceDictionary Source="Screenshot.xaml"/>
+        <ResourceDictionary Source="Watermark.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

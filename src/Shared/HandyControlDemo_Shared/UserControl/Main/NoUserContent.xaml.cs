@@ -19,15 +19,15 @@ namespace HandyControlDemo.UserControl
 
         private void ButtonLangs_OnClick(object sender, RoutedEventArgs e)
         {
-            if (e.OriginalSource is Button button && button.Tag is string tag)
+            if (e.OriginalSource is Button button && button.Tag is string langName)
             {
                 PopupConfig.IsOpen = false;
-                if (tag.Equals(GlobalData.Config.Lang)) return;
-                ConfigHelper.Instance.SetLang(tag);
-                LangProvider.Culture = new CultureInfo(tag);
+                if (langName.Equals(GlobalData.Config.Lang)) return;
+                ConfigHelper.Instance.SetLang(langName);
+                LangProvider.Culture = new CultureInfo(langName);
                 Messenger.Default.Send<object>(null, "LangUpdated");
 
-                GlobalData.Config.Lang = tag;
+                GlobalData.Config.Lang = langName;
                 GlobalData.Save();
             }
         }
