@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -75,6 +76,16 @@ namespace HandyControl.Controls
             set => SetValue(ShowClearButtonProperty, value);
         }
 
+        public static readonly DependencyProperty TextTypeCustomRegexPatternProperty = DependencyProperty.Register(
+            "TextTypeCustomRegexPattern", typeof(string), typeof(TextBox), new PropertyMetadata(null));
+
+        public string TextTypeCustomRegexPattern
+        {
+            get => (string)GetValue(TextTypeCustomRegexPatternProperty);
+            set => SetValue(TextTypeCustomRegexPatternProperty, value);
+        }
+
+
         public virtual bool VerifyData()
         {
             OperationResult<bool> result;
@@ -89,7 +100,10 @@ namespace HandyControl.Controls
                 {
                     if (TextType != TextType.Common)
                     {
-                        result = Text.IsKindOf(TextType) ? OperationResult.Success() : OperationResult.Failed(Properties.Langs.Lang.FormatError);
+                        if (TextType == TextType.Custom && !string.IsNullOrEmpty(TextTypeCustomRegexPattern))
+                            result = Regex.IsMatch(Text, TextTypeCustomRegexPattern) ? OperationResult.Success() : OperationResult.Failed(Properties.Langs.Lang.FormatError);
+                        else
+                            result = Text.IsKindOf(TextType) ? OperationResult.Success() : OperationResult.Failed(Properties.Langs.Lang.FormatError);
                     }
                     else
                     {
