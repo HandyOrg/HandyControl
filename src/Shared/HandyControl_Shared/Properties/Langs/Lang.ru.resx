@@ -118,117 +118,117 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Confirm" xml:space="preserve">
-    <value>تایید</value>
+    <value>Подтвердить</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>انصراف</value>
+    <value>Отмена</value>
   </data>
   <data name="PngImg" xml:space="preserve">
-    <value>تصویر PNG</value>
+    <value>PNG изображение</value>
   </data>
   <data name="ErrorImgPath" xml:space="preserve">
-    <value>مسیر عکس اشتباه است</value>
+    <value>Неправильный путь к изображению</value>
   </data>
   <data name="ErrorImgSize" xml:space="preserve">
-    <value>اندازه تصویر اشتباه است</value>
+    <value>Неправильный размер изображения</value>
   </data>
   <data name="UnknownSize" xml:space="preserve">
-    <value>اندازه ناشناخته</value>
+    <value>Неизвестный размер</value>
   </data>
   <data name="TooLarge" xml:space="preserve">
-    <value>خیلی بزرگ</value>
+    <value>Слишком большой</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>ناشناس</value>
+    <value>Неизвестный</value>
   </data>
   <data name="Interval30s" xml:space="preserve">
-    <value>فاصله 30 ثانیه ای</value>
+    <value>Интервал 30 секунд</value>
   </data>
   <data name="Interval1m" xml:space="preserve">
-    <value>فاصله 1 دقیقه ای</value>
+    <value>Интервал 1 минута</value>
   </data>
   <data name="Interval5m" xml:space="preserve">
-    <value>فاصله 5 دقیقه ای</value>
+    <value>Интервал 5 минут</value>
   </data>
   <data name="Interval10m" xml:space="preserve">
-    <value>فاصله 10 دقیقه ای</value>
+    <value>Интервал 10 минут</value>
   </data>
   <data name="Interval30m" xml:space="preserve">
-    <value>فاصله 30 دقیقه ای</value>
+    <value>Интервал 30 минут</value>
   </data>
   <data name="Interval1h" xml:space="preserve">
-    <value>فاصله 1 ساعته</value>
+    <value>Интервал 1 час</value>
   </data>
   <data name="Interval2h" xml:space="preserve">
-    <value>فاصله 2 ساعته</value>
+    <value>Интервал 2 часа</value>
   </data>
   <data name="Clear" xml:space="preserve">
-    <value>پاک کردن</value>
+    <value>Очистить</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>بستن</value>
+    <value>Закрыть</value>
   </data>
   <data name="CloseAll" xml:space="preserve">
-    <value>بستن همه</value>
+    <value>Закрыть все</value>
   </data>
   <data name="CloseOther" xml:space="preserve">
-    <value>بستن بقیه</value>
+    <value>Закрыть другие</value>
   </data>
   <data name="Am" xml:space="preserve">
-    <value>صبح</value>
+    <value>Am</value>
   </data>
   <data name="Pm" xml:space="preserve">
-    <value>عصر</value>
+    <value>Pm</value>
   </data>
   <data name="Tip" xml:space="preserve">
-    <value>بی درنک</value>
+    <value>Незамедлительно</value>
   </data>
   <data name="IsNecessary" xml:space="preserve">
-    <value>نمی تواند خالی باشد</value>
+    <value>не может быть пустым</value>
   </data>
   <data name="OutOfRange" xml:space="preserve">
-    <value>خارج از محدوده</value>
+    <value>вне диапазона</value>
   </data>
   <data name="FormatError" xml:space="preserve">
-    <value>فرمت ورودی اشتباه است</value>
+    <value>некорректный формат</value>
   </data>
   <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
-    <value>نمی توان فرمان کامپوزیت را در خود ثبت کرد</value>
+    <value>Невозможно зарегистировать составную команду самостоятельно</value>
   </data>
   <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
-    <value>نمی توان همان فرمان را دو بار ثبت کرد</value>
+    <value>Невозможно зарегистировать составную команду дважды</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>بله</value>
+    <value>Да</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>خیر</value>
+    <value>Нет</value>
   </data>
   <data name="ZoomIn" xml:space="preserve">
-    <value>بزرگنمایی</value>
+    <value>Увеличить</value>
   </data>
   <data name="ZoomOut" xml:space="preserve">
-    <value>کوچکنمایی</value>
+    <value>Уменьшить</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
-    <value>صفحه قبلی</value>
+    <value>Предыдущая страница</value>
   </data>
   <data name="NextPage" xml:space="preserve">
-    <value>صفحه بعدی</value>
+    <value>Следующая страница</value>
   </data>
   <data name="PageMode" xml:space="preserve">
-    <value>حالت صفحه</value>
+    <value>Страничный режим</value>
   </data>
   <data name="TwoPageMode" xml:space="preserve">
-    <value>حالت دو صفحه ای</value>
+    <value>Двухстраничный режим</value>
   </data>
   <data name="ScrollMode" xml:space="preserve">
-    <value>حالت اسکرول</value>
+    <value>Режим прокрутки</value>
   </data>
   <data name="Find" xml:space="preserve">
-    <value>پیدا کردن</value>
+    <value>Поиск</value>
   </data>
   <data name="LangComment" xml:space="preserve">
-    <value>Looks up a localized string similar to "{0}".</value>
+    <value>Ищет локализованную строку, похожую на "{0}".</value>
   </data>
 </root>

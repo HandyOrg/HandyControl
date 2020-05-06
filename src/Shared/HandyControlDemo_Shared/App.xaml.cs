@@ -92,8 +92,7 @@ namespace HandyControlDemo
             skins0.MergedDictionaries.Clear();
             skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));	
             skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));	
-
-
+            
             var skins1 = Resources.MergedDictionaries[1];	
             skins1.MergedDictionaries.Clear();	
             skins1.MergedDictionaries.Add(new ResourceDictionary	

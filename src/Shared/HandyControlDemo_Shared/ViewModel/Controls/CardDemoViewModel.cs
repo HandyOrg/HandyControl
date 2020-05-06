@@ -1,9 +1,5 @@
 ﻿using System;
-#if netle40
 using GalaSoft.MvvmLight.Command;
-#else
-using GalaSoft.MvvmLight.CommandWpf;
-#endif
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 

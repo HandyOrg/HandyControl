@@ -1,8 +1,4 @@
-﻿#if netle40
-using GalaSoft.MvvmLight.Command;
-#else
-using GalaSoft.MvvmLight.CommandWpf;
-# endif
+﻿using GalaSoft.MvvmLight.Command;
 using System;
 using GalaSoft.MvvmLight;
 using HandyControl.Controls;

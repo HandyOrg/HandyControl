@@ -2,11 +2,7 @@
 using GalaSoft.MvvmLight;
 using HandyControl.Controls;
 using HandyControl.Data;
-#if netle40
 using GalaSoft.MvvmLight.Command;
-#else
-using GalaSoft.MvvmLight.CommandWpf;
-# endif
 
 namespace HandyControlDemo.ViewModel
 {

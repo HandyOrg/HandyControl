@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource SecondaryRegionBrush}">
-    <Border Background="{DynamicResource QqDrawingBrush}">
+    <hc:Watermark Mark="{StaticResource QqGeometry}" MarkWidth="200" MarkHeight="200" MarkMargin="30">
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}">
             <Border Margin="16" Height="274" Effect="{StaticResource EffectShadow5}" Width="200" CornerRadius="10">
                 <Border.Background>
@@ -16,5 +16,5 @@
                 </Border.Background>
             </Border>
         </WrapPanel>
-    </Border>
+    </hc:Watermark>
 </UserControl>

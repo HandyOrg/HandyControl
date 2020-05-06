@@ -49,6 +49,18 @@ namespace HandyControl.Tools
                    key == Key.RightCtrl || key == Key.RightAlt || key == Key.RightShift || key == Key.RWin;
         }
 
+        public static void Init(List<KeyBinding> list)
+        {
+            CommandDic.Clear();
+
+            if (list == null) return;
+            KeyBindingCollection = new ObservableCollection<KeyBinding>(list);
+            if (KeyBindingCollection.Count == 0) return;
+            
+            AddKeyBindings(KeyBindingCollection);
+            KeyboardHook.Start();
+        }
+
         private static void AddKeyBindings(IEnumerable<KeyBinding> keyBindings)
         {
             foreach (var item in keyBindings)

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Windows;
 using GalaSoft.MvvmLight;
-#if netle40
 using GalaSoft.MvvmLight.Command;
-#else
+#if !netle40
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.CommandWpf;
 #endif
 using HandyControl.Controls;
 using HandyControl.Tools.Extension;
