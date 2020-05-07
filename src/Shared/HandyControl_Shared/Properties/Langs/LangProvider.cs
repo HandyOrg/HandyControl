@@ -58,6 +58,7 @@ namespace HandyControl.Properties.Langs
 			OnPropertyChanged(nameof(Interval30s));
 			OnPropertyChanged(nameof(Interval5m));
 			OnPropertyChanged(nameof(IsNecessary));
+			OnPropertyChanged(nameof(Jump));
 			OnPropertyChanged(nameof(LangComment));
 			OnPropertyChanged(nameof(NextPage));
 			OnPropertyChanged(nameof(No));
@@ -181,6 +182,11 @@ namespace HandyControl.Properties.Langs
         ///   查找类似 不能为空 的本地化字符串。
         /// </summary>
 		public string IsNecessary => Lang.IsNecessary;
+
+        /// <summary>
+        ///   查找类似 跳转 的本地化字符串。
+        /// </summary>
+		public string Jump => Lang.Jump;
 
         /// <summary>
         ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
@@ -380,6 +386,11 @@ namespace HandyControl.Properties.Langs
         ///   查找类似 不能为空 的本地化字符串。
         /// </summary>
 		public static string IsNecessary = nameof(IsNecessary);
+
+        /// <summary>
+        ///   查找类似 跳转 的本地化字符串。
+        /// </summary>
+		public static string Jump = nameof(Jump);
 
         /// <summary>
         ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。

@@ -108,6 +108,11 @@ namespace HandyControl.Interactivity
         public static RoutedCommand Next { get; } = new RoutedCommand(nameof(Next), typeof(ControlCommands));
 
         /// <summary>
+        ///     跳转
+        /// </summary>
+        public static RoutedCommand Jump { get; } = new RoutedCommand(nameof(Jump), typeof(ControlCommands));
+
+        /// <summary>
         ///     上午
         /// </summary>
         public static RoutedCommand Am { get; } = new RoutedCommand(nameof(Am), typeof(ControlCommands));

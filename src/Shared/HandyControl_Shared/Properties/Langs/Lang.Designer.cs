@@ -250,6 +250,15 @@ namespace HandyControl.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 跳转 的本地化字符串。
+        /// </summary>
+        public static string Jump {
+            get {
+                return ResourceManager.GetString("Jump", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
         /// </summary>
         public static string LangComment {

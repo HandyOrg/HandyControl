@@ -2,7 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:lang="clr-namespace:HandyControl.Properties.Langs"
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
@@ -95,6 +97,8 @@
                             <RadioButton Name="PART_ButtonLast" Content="10" Style="{StaticResource PaginationButtonStyle}"/>
                         </StackPanel>
                         <Button x:Name="PART_ButtonRight" MinWidth="30" Padding="10,8" controls:IconElement.Geometry="{StaticResource RightGeometry}" controls:BorderElement.CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,1,1,0'}" Margin="-1,0,0,0" Command="interactivity:ControlCommands.Next"/>
+                        <controls:NumericUpDown x:Name="PART_Jump" IsEnabled="{TemplateBinding IsJumpEnabled}" Visibility="{TemplateBinding IsJumpEnabled,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="6,0,0,0" Maximum="{Binding MaxPageCount,RelativeSource={RelativeSource TemplatedParent}}" Minimum="1"/>
+                        <Button IsEnabled="{TemplateBinding IsJumpEnabled}" Visibility="{TemplateBinding IsJumpEnabled,Converter={StaticResource Boolean2VisibilityConverter}}" Content="{ex:Lang {x:Static lang:LangKeys.Jump}}" Margin="6,0,0,0" Command="interactivity:ControlCommands.Jump"/>
                     </StackPanel>
                 </ControlTemplate>
             </Setter.Value>
