@@ -74,7 +74,7 @@ namespace HandyControl.Controls
             if (_textBox != null)
             {
                 TextCompositionManager.RemovePreviewTextInputHandler(_textBox, PreviewTextInputHandler);
-                _textBox.TextChanged -= _textBox_TextChanged;
+                _textBox.TextChanged -= TextBox_TextChanged;
                 _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
                 _textBox.LostFocus -= TextBox_LostFocus;
             }
@@ -87,18 +87,22 @@ namespace HandyControl.Controls
             if (_textBox != null)
             {
                 TextCompositionManager.AddPreviewTextInputHandler(_textBox, PreviewTextInputHandler);
-                _textBox.TextChanged += _textBox_TextChanged;
+                _textBox.TextChanged += TextBox_TextChanged;
                 _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
                 _textBox.LostFocus += TextBox_LostFocus;
                 _textBox.Text = CurrentText;
             }
         }
 
-        private void _textBox_TextChanged(object sender, TextChangedEventArgs e) => UpdateData();
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) => UpdateData();
 
         private void UpdateData()
         {
-            if (!VerifyData()) return;
+            if (!VerifyData())
+            {
+                _updateText = true;
+                return;
+            }
             if (double.TryParse(_textBox.Text, out var value))
             {
                 _updateText = false;
