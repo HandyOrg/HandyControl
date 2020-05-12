@@ -128,7 +128,6 @@
                             <Setter Property="Opacity" Value=".8" TargetName="ButtonPanel"/>
                         </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
-                            <Setter Property="Padding" Value="{x:Static tools:WindowHelper.WindowMaximizedPadding}"/>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
                             <Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore"/>
                         </Trigger>
