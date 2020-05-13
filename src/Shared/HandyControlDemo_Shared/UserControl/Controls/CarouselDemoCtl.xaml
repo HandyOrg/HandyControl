@@ -9,7 +9,7 @@
             <Image Width="300" Stretch="UniformToFill" Source="/HandyControlDemo;component/Resources/Img/2.jpg"/>
             <hc:SimplePanel Width="600">
                 <Image Stretch="UniformToFill" Source="/HandyControlDemo;component/Resources/Img/3.jpg"/>
-                <TextBlock Text="示例文本" Style="{StaticResource TextBlockDefault}" FontSize="100" FontWeight="Bold" Foreground="White"/>
+                <TextBlock Text="Demo Text" Style="{StaticResource TextBlockDefault}" FontSize="100" FontWeight="Bold" Foreground="White"/>
             </hc:SimplePanel>
             <Image Width="600" Stretch="UniformToFill" Source="/HandyControlDemo;component/Resources/Img/4.jpg"/>
             <Image Width="600" Stretch="UniformToFill" Source="/HandyControlDemo;component/Resources/Img/5.jpg"/>

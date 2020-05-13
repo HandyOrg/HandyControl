@@ -53,7 +53,7 @@
                 <Ellipse.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>
-                            <Storyboard RepeatBehavior="Forever">
+                            <Storyboard RepeatBehavior="Forever" DesiredFrameRate="20">
                                 <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" BeginTime="0" Duration="0:0:1" From="1" To="2" EasingFunction="{StaticResource SineEaseOut}" />
                                 <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" BeginTime="0" Duration="0:0:1" From="1" To="2" EasingFunction="{StaticResource SineEaseOut}" />
                                 <DoubleAnimation Storyboard.TargetProperty="Opacity" BeginTime="0" Duration="0:0:1" From="1" To="0" EasingFunction="{StaticResource SineEaseOut}" />

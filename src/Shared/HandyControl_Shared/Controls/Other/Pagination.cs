@@ -19,6 +19,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = ElementPanelMain, Type = typeof(Panel))]
     [TemplatePart(Name = ElementMoreRight, Type = typeof(FrameworkElement))]
     [TemplatePart(Name = ElementButtonLast, Type = typeof(RadioButton))]
+    [TemplatePart(Name = ElementButtonLast, Type = typeof(NumericUpDown))]
     public class Pagination : Control
     {
         #region Constants
@@ -30,6 +31,7 @@ namespace HandyControl.Controls
         private const string ElementPanelMain = "PART_PanelMain";
         private const string ElementMoreRight = "PART_MoreRight";
         private const string ElementButtonLast = "PART_ButtonLast";
+        private const string ElementJump = "PART_Jump";
 
         #endregion Constants
 
@@ -42,6 +44,7 @@ namespace HandyControl.Controls
         private Panel _panelMain;
         private FrameworkElement _moreRight;
         private RadioButton _buttonLast;
+        private NumericUpDown _jumpNumericUpDown;
 
         private bool _appliedTemplate;
 
@@ -72,6 +75,7 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Prev, ButtonPrev_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Next, ButtonNext_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Selected, ToggleButton_OnChecked));
+            CommandBindings.Add(new CommandBinding(ControlCommands.Jump, (s, e) => PageIndex = (int) _jumpNumericUpDown.Value));
             this.Show(MaxPageCount > 1);
         }
 
@@ -219,6 +223,19 @@ namespace HandyControl.Controls
 
         #endregion MaxPageInterval
 
+        #region IsJumpEnabled
+
+        public static readonly DependencyProperty IsJumpEnabledProperty = DependencyProperty.Register(
+            "IsJumpEnabled", typeof(bool), typeof(Pagination), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool IsJumpEnabled
+        {
+            get => (bool) GetValue(IsJumpEnabledProperty);
+            set => SetValue(IsJumpEnabledProperty, value);
+        }
+
+        #endregion
+
         #endregion
 
         #region Public Methods
@@ -235,6 +252,7 @@ namespace HandyControl.Controls
             _panelMain = GetTemplateChild(ElementPanelMain) as Panel;
             _moreRight = GetTemplateChild(ElementMoreRight) as FrameworkElement;
             _buttonLast = GetTemplateChild(ElementButtonLast) as RadioButton;
+            _jumpNumericUpDown = GetTemplateChild(ElementJump) as NumericUpDown;
 
             CheckNull();
 

@@ -7,6 +7,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="PinBoxBaseStyle" TargetType="controls:PinBox">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="ItemMargin" Value="4,0"/>
         <Setter Property="ItemWidth" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="ItemHeight" Value="{StaticResource DefaultControlHeight}"/>

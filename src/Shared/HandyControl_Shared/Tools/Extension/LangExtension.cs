@@ -10,8 +10,6 @@ namespace HandyControl.Tools.Extension
     {
         private readonly DependencyObject _proxy;
 
-        private bool _isInternalAction;
-
         public LangExtension()
         {
             _proxy = new DependencyObject();
@@ -51,7 +49,6 @@ namespace HandyControl.Tools.Extension
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
-            if (_isInternalAction) return this;
             if (!(serviceProvider.GetService(typeof(IProvideValueTarget)) is IProvideValueTarget provideValueTarget)) return this;
             if (provideValueTarget.TargetObject.GetType().FullName == "System.Windows.SharedDp") return this;
             if (!(provideValueTarget.TargetObject is DependencyObject targetObject)) return this;
@@ -61,14 +58,7 @@ namespace HandyControl.Tools.Extension
             {
                 case string key:
                     {
-                        var binding = new Binding(key)
-                        {
-                            Converter = Converter,
-                            ConverterParameter = ConverterParameter,
-                            UpdateSourceTrigger = UpdateSourceTrigger.Explicit,
-                            Source = Source,
-                            Mode = BindingMode.OneWay
-                        };
+                        var binding = CreateLangBinding(key);
                         BindingOperations.SetBinding(targetObject, targetProperty, binding);
                         return binding.ProvideValue(serviceProvider);
                     }
@@ -76,10 +66,8 @@ namespace HandyControl.Tools.Extension
                     {
                         if (element.DataContext != null)
                         {
-                            _isInternalAction = true;
-                            SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                            _isInternalAction = false;
-                            return element.GetValue(targetProperty);
+                            var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                            return binding.ProvideValue(serviceProvider);
                         }
 
                         SetTargetProperty(element, targetProperty);
@@ -91,10 +79,8 @@ namespace HandyControl.Tools.Extension
                     {
                         if (element.DataContext != null)
                         {
-                            _isInternalAction = true;
-                            SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                            _isInternalAction = false;
-                            return element.GetValue(targetProperty);
+                            var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                            return binding.ProvideValue(serviceProvider);
                         }
 
                         SetTargetProperty(element, targetProperty);
@@ -134,9 +120,9 @@ namespace HandyControl.Tools.Extension
             }
         }
 
-        private void SetLangBinding(DependencyObject targetObject, DependencyProperty targetProperty, PropertyPath path, object dataContext)
+        private BindingBase SetLangBinding(DependencyObject targetObject, DependencyProperty targetProperty, PropertyPath path, object dataContext)
         {
-            if (targetProperty == null) return;
+            if (targetProperty == null) return null;
 
             BindingOperations.SetBinding(targetObject, targetProperty, new Binding
             {
@@ -146,16 +132,20 @@ namespace HandyControl.Tools.Extension
             });
 
             var key = targetObject.GetValue(targetProperty) as string;
-            if (string.IsNullOrEmpty(key)) return;
+            if (string.IsNullOrEmpty(key)) return null;
 
-            BindingOperations.SetBinding(targetObject, targetProperty, new Binding(key)
-            {
-                Converter = Converter,
-                ConverterParameter = ConverterParameter,
-                UpdateSourceTrigger = UpdateSourceTrigger.Explicit,
-                Source = Source,
-                Mode = BindingMode.OneWay
-            });
+            var binding = CreateLangBinding(key);
+            BindingOperations.SetBinding(targetObject, targetProperty, binding);
+            return binding;
         }
+
+        private BindingBase CreateLangBinding(string key) => new Binding(key)
+        {
+            Converter = Converter,
+            ConverterParameter = ConverterParameter,
+            UpdateSourceTrigger = UpdateSourceTrigger.Explicit,
+            Source = Source,
+            Mode = BindingMode.OneWay
+        };
     }
 }
