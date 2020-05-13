@@ -76,10 +76,7 @@ namespace HandyControl.Controls
         {
             base.OnApplyTemplate();
 
-            if (_viewContent.Style == null)
-            {
-                _viewContent.Style = CoverViewContentStyle;
-            }
+            _viewContent.Style ??= CoverViewContentStyle;
 
             if (_selectedItem != null)
             {
@@ -181,9 +178,7 @@ namespace HandyControl.Controls
             }
 
             _isRefresh = false;
-
             GenerateIndex();
-
             UpdateCoverViewContent(_viewContent.IsOpen);
         }
 
@@ -338,10 +333,7 @@ namespace HandyControl.Controls
                 {
                     SetBindingForItem(element);
                     element.Style = ItemContainerStyle;
-                    if (element.Header == null)
-                    {
-                        element.Header = item;
-                    }
+                    element.Header ??= item;
                     _entryDic[item] = element;
                     ItemsHost.Children.Insert(index, element);
 

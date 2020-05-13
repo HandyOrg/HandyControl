@@ -6,10 +6,94 @@
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Paths.xaml"/>
         <ResourceDictionary Source="Button.xaml"/>
-        <ResourceDictionary Source="ListBox.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="CarouselListBoxItemStyle" BasedOn="{StaticResource ListBoxItemCustom}" TargetType="ListBoxItem">
+    <Style x:Key="CarouselItemBaseStyle" TargetType="controls:CarouselItem">
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:CarouselItem">
+                    <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter Margin="{TemplateBinding Padding}" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=controls:Carousel}}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="CarouselPateButton" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
+        <Setter Property="Margin" Value="5,0"/>
+        <Setter Property="Width" Value="10"/>
+        <Setter Property="Height" Value="10"/>
+        <Setter Property="Background" Value="White"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ToggleButton">
+                    <Border CornerRadius="5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value=".9"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Opacity" Value=".6"/>
+                        </Trigger>
+                        <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="controls:Carousel">
+        <Setter Property="PageButtonStyle" Value="{StaticResource CarouselPateButton}"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource CarouselItemBaseStyle}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="controls:Carousel">
+                    <ControlTemplate.Triggers>
+                        <EventTrigger RoutedEvent="FrameworkElement.MouseEnter">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="GridTop" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                        <EventTrigger RoutedEvent="FrameworkElement.MouseLeave">
+                            <BeginStoryboard>
+                                <Storyboard>
+                                    <DoubleAnimation Storyboard.TargetName="GridTop" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:.1"/>
+                                </Storyboard>
+                            </BeginStoryboard>
+                        </EventTrigger>
+                    </ControlTemplate.Triggers>
+                    <controls:SimplePanel ClipToBounds="True">
+                        <StackPanel x:Name="PART_Panel" Orientation="Horizontal"/>
+                        <!--<ItemsPresenter x:Name="PART_ItemsControl" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Left"/>-->
+                        <controls:SimplePanel x:Name="GridTop" Opacity="0">
+                            <Button Command="interactivity:ControlCommands.Prev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonCustom}">
+                                <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
+                                    <Path Margin="16" Fill="White" Style="{StaticResource LeftPathStyle}"/>
+                                </Border>
+                            </Button>
+                            <Button Command="interactivity:ControlCommands.Next" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0" Style="{StaticResource ButtonCustom}">
+                                <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
+                                    <Path Margin="16" Fill="White" Style="{StaticResource RightPathStyle}"/>
+                                </Border>
+                            </Button>
+                        </controls:SimplePanel>
+                        <StackPanel Name="PART_PanelPage" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+                    </controls:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--<Style x:Key="CarouselListBoxItemStyle" BasedOn="{StaticResource ListBoxItemCustom}" TargetType="ListBoxItem">
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
@@ -92,6 +176,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
+    </Style>-->
 
 </ResourceDictionary>

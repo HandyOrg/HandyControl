@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
@@ -21,13 +22,11 @@ namespace HandyControl.Controls
     [DefaultProperty("Items")]
     [ContentProperty("Items")]
     [TemplatePart(Name = ElementPanelPage, Type = typeof(Panel))]
-    [TemplatePart(Name = ElementItemsControl, Type = typeof(ItemsPresenter))]
-    public class Carousel : ListBox, IDisposable
+    public class Carousel : SimpleItemsControl, IDisposable
     {
         #region Constants
 
         private const string ElementPanelPage = "PART_PanelPage";
-        private const string ElementItemsControl = "PART_ItemsControl";
 
         #endregion Constants
 
@@ -39,8 +38,6 @@ namespace HandyControl.Controls
 
         private bool _appliedTemplate;
 
-        private ItemsPresenter _itemsControl;
-
         private int _pageIndex = -1;
 
         private RadioButton _selectedButton;
@@ -48,6 +45,12 @@ namespace HandyControl.Controls
         private DispatcherTimer _updateTimer;
 
         private readonly List<double> _widthList = new List<double>();
+
+        private readonly Dictionary<object, CarouselItem> _entryDic = new Dictionary<object, CarouselItem>();
+
+        private bool _isRefresh;
+
+        private IEnumerable _itemsSourceInternal;
 
         #endregion Data
 
@@ -59,7 +62,6 @@ namespace HandyControl.Controls
 
             base.OnApplyTemplate();
 
-            _itemsControl = GetTemplateChild(ElementItemsControl) as ItemsPresenter;
             _panelPage = GetTemplateChild(ElementPanelPage) as Panel;
 
             if (!CheckNull()) return;
@@ -75,7 +77,7 @@ namespace HandyControl.Controls
             UpdatePageButtons(_pageIndex);
         }
 
-        private bool CheckNull() => !(_itemsControl == null || _panelPage == null);
+        private bool CheckNull() => _panelPage != null;
 
         public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
             "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
@@ -151,13 +153,6 @@ namespace HandyControl.Controls
                 _updateTimer.Stop();
                 _updateTimer.Tick -= UpdateTimer_Tick;
             }
-        }
-
-        protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
-        {
-            base.OnItemsChanged(e);
-
-            UpdatePageButtons();
         }
 
         /// <summary>
@@ -239,14 +234,14 @@ namespace HandyControl.Controls
             _widthList.Clear();
             _widthList.Add(0);
             var width = .0;
-            foreach (FrameworkElement item in Items)
+            foreach (FrameworkElement item in ItemsHost.Children)
             {
                 item.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                 width += item.DesiredSize.Width;
                 _widthList.Add(width);
             }
 
-            _itemsControl.Width = _widthList.Last() + ExtendWidth;
+            ItemsHost.Width = _widthList.Last() + ExtendWidth;
             _panelPage.Children.Clear();
             for (var i = 0; i < count; i++)
             {
@@ -278,14 +273,14 @@ namespace HandyControl.Controls
             if (Items.Count == 0) return;
             if (!IsCenter)
             {
-                _itemsControl.BeginAnimation(MarginProperty,
+                ItemsHost.BeginAnimation(MarginProperty,
                     AnimationHelper.CreateAnimation(new Thickness(-_widthList[PageIndex], 0, 0, 0)));
             }
             else
             {
-                var ctl = (FrameworkElement)Items[PageIndex];
+                var ctl = (FrameworkElement)ItemsHost.Children[PageIndex];
                 var ctlWidth = ctl.DesiredSize.Width;
-                _itemsControl.BeginAnimation(MarginProperty,
+                ItemsHost.BeginAnimation(MarginProperty,
                     AnimationHelper.CreateAnimation(
                         new Thickness(-_widthList[PageIndex] + (ActualWidth - ctlWidth) / 2, 0, 0, 0)));
             }
@@ -313,5 +308,149 @@ namespace HandyControl.Controls
         private void ButtonPrev_OnClick(object sender, RoutedEventArgs e) => PageIndex--;
 
         private void ButtonNext_OnClick(object sender, RoutedEventArgs e) => PageIndex++;
+
+        protected override DependencyObject GetContainerForItemOverride() => new CarouselItem();
+
+        protected override bool IsItemItsOwnContainerOverride(object item) => item is CarouselItem;
+
+        private void ClearItems()
+        {
+            ItemsHost?.Children.Clear();
+            _entryDic.Clear();
+        }
+
+        private void RemoveItem(object item)
+        {
+            if (_entryDic.TryGetValue(item, out var entry))
+            {
+                ItemsHost.Children.Remove(entry);
+                Items.Remove(item);
+                _entryDic.Remove(item);
+            }
+        }
+
+        protected override void Refresh()
+        {
+            if (ItemsHost == null) return;
+
+            _entryDic.Clear();
+            _isRefresh = true;
+
+            foreach (var item in Items)
+            {
+                AddItem(item);
+            }
+
+            _isRefresh = false;
+        }
+
+        private void AddItem(object item) => InsertItem(_entryDic.Count, item);
+
+        private void InsertItem(int index, object item)
+        {
+            if (ItemsHost == null)
+            {
+                Items.Insert(index, item);
+                _entryDic.Add(item, null);
+            }
+            else
+            {
+                DependencyObject container;
+                if (IsItemItsOwnContainerOverride(item))
+                {
+                    container = item as DependencyObject;
+                }
+                else
+                {
+                    container = GetContainerForItemOverride();
+                    PrepareContainerForItemOverride(container, item);
+                }
+
+                if (container is CarouselItem element)
+                {
+                    element.Style = ItemContainerStyle;
+                    _entryDic[item] = element;
+                    ItemsHost.Children.Insert(index, element);
+
+                    if (IsLoaded && !_isRefresh && _itemsSourceInternal != null)
+                    {
+                        Items.Insert(index, item);
+                    }
+                }
+            }
+        }
+
+        protected override void OnItemsSourceChanged(IEnumerable oldValue, IEnumerable newValue)
+        {
+            if (_itemsSourceInternal != null)
+            {
+                if (_itemsSourceInternal is INotifyCollectionChanged s)
+                {
+                    s.CollectionChanged -= InternalCollectionChanged;
+                }
+
+                Items.Clear();
+                ClearItems();
+            }
+            _itemsSourceInternal = newValue;
+            if (_itemsSourceInternal != null)
+            {
+                if (_itemsSourceInternal is INotifyCollectionChanged s)
+                {
+                    s.CollectionChanged += InternalCollectionChanged;
+                }
+                foreach (var item in _itemsSourceInternal)
+                {
+                    AddItem(item);
+                }
+            }
+        }
+
+        private void InternalCollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (ItemsHost == null) return;
+
+            if (e.Action == NotifyCollectionChangedAction.Reset)
+            {
+                if (_entryDic.Count == 0) return;
+                ClearItems();
+                Items.Clear();
+                return;
+            }
+
+            if (e.OldItems != null)
+            {
+                foreach (var item in e.OldItems)
+                {
+                    RemoveItem(item);
+                }
+            }
+            if (e.NewItems != null)
+            {
+                var count = 0;
+                foreach (var item in e.NewItems)
+                {
+                    var index = e.NewStartingIndex + count++;
+                    InsertItem(index, item);
+                }
+            }
+        }
+
+        protected override void OnItemsChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (_itemsSourceInternal != null) return;
+
+            InternalCollectionChanged(sender, e);
+        }
+
+        protected override void OnItemTemplateChanged(DependencyPropertyChangedEventArgs e)
+        {
+
+        }
+
+        protected override void OnItemContainerStyleChanged(DependencyPropertyChangedEventArgs e)
+        {
+
+        }
     }
 }
