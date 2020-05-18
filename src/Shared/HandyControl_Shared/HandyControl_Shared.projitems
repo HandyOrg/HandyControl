@@ -27,6 +27,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\FloatingBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Carousel\CarouselItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Dialog\DialogContainer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\GrowlWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\PinBox.cs" />
@@ -147,7 +148,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Carousel\Carousel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ChatBubble.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ColorPicker\ColorPicker.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Dialog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Dialog\Dialog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\GotoTop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Gravatar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\Growl.cs" />
