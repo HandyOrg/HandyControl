@@ -14,7 +14,7 @@ namespace HandyControl.Controls
     {
         private string _token;
 
-        private Adorner _container;
+        private AdornerContainer _container;
 
         private static readonly Dictionary<string, FrameworkElement> ContainerDic = new Dictionary<string, FrameworkElement>();
 
@@ -107,35 +107,36 @@ namespace HandyControl.Controls
 
             FrameworkElement element;
 
+            AdornerDecorator decorator;
             if (string.IsNullOrEmpty(token))
             {
                 element = WindowHelper.GetActiveWindow();
+                decorator = VisualHelper.GetChild<AdornerDecorator>(element);
             }
             else
             {
                 ContainerDic.TryGetValue(token, out element);
+                decorator = element is System.Windows.Window ? 
+                    VisualHelper.GetChild<AdornerDecorator>(element) : 
+                    VisualHelper.GetChild<DialogContainer>(element);
             }
 
-            if (element != null)
+            if (decorator != null)
             {
-                var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
-                if (decorator != null)
+                if (decorator.Child != null)
                 {
-                    if (decorator.Child != null)
+                    decorator.Child.IsEnabled = false;
+                }
+                var layer = decorator.AdornerLayer;
+                if (layer != null)
+                {
+                    var container = new AdornerContainer(layer)
                     {
-                        decorator.Child.IsEnabled = false;
-                    }
-                    var layer = decorator.AdornerLayer;
-                    if (layer != null)
-                    {
-                        var container = new AdornerContainer(layer)
-                        {
-                            Child = dialog
-                        };
-                        dialog._container = container;
-                        dialog.IsClosed = false;
-                        layer.Add(container);
-                    }
+                        Child = dialog
+                    };
+                    dialog._container = container;
+                    dialog.IsClosed = false;
+                    layer.Add(container);
                 }
             }
 
@@ -156,7 +157,7 @@ namespace HandyControl.Controls
 
         private void Close(DependencyObject element)
         {
-            if (element != null)
+            if (element != null && _container != null)
             {
                 var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
                 if (decorator != null)

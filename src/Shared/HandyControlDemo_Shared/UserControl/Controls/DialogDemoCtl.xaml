@@ -9,7 +9,7 @@
              Background="{DynamicResource RegionBrush}"
              MinWidth="500"
              DataContext="{Binding DialogDemo,Source={StaticResource Locator}}">
-    <AdornerDecorator>
+    <hc:DialogContainer>
         <hc:TransitioningContentControl>
             <hc:SimplePanel>
                 <StackPanel Margin="32" VerticalAlignment="Center">
@@ -22,5 +22,5 @@
                 </StackPanel>
             </hc:SimplePanel>
         </hc:TransitioningContentControl>
-    </AdornerDecorator>
+    </hc:DialogContainer>
 </UserControl>
