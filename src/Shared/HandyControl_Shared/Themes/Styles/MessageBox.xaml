@@ -3,10 +3,11 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension">
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Window.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Window.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="controls:MessageBox" BasedOn="{StaticResource WindowWin10}">
