@@ -574,6 +574,7 @@ namespace HandyControl.Controls
             {
                 if (msg == _wmTaskbarCreated)
                 {
+                    _added = false;
                     UpdateIcon(true);
                 }
                 else
