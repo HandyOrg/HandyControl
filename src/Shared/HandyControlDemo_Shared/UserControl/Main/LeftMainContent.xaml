@@ -27,7 +27,7 @@
     </Border.Resources>
     <DockPanel>
         <Button Command="{Binding OpenPracticalDemoCmd}" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="10,10,10,4" Content="{ex:Lang Key={x:Static langs:LangKeys.PracticalDemos}}" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}"/>
-        <TabControl SelectionChanged="TabControl_OnSelectionChanged" ItemContainerStyle="{StaticResource TabItemTransparent}" ItemsSource="{Binding DemoInfoList}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
+        <TabControl SelectionChanged="TabControl_OnSelectionChanged" ItemContainerStyle="{StaticResource TabItemTransparent}" ItemsSource="{Binding DemoInfoCollection}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <TextBlock Text="{ex:Lang Key={Binding Title}}"/>

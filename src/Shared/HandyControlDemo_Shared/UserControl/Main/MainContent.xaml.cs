@@ -1,8 +1,13 @@
-﻿using System.Windows;
+﻿using System.Collections.Generic;
+using System.Windows;
+using System.Windows.Controls;
 using GalaSoft.MvvmLight.Messaging;
+using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
 using HandyControlDemo.ViewModel;
+using ICSharpCode.AvalonEdit;
+using ICSharpCode.AvalonEdit.Highlighting;
 
 
 namespace HandyControlDemo.UserControl
@@ -15,6 +20,10 @@ namespace HandyControlDemo.UserControl
         private bool _isFull;
 
         private string _currentDemoKey;
+
+        private bool _drawerCodeUsed;
+
+        private Dictionary<string, TextEditor> _textEditor;
 
         public MainContent()
         {
@@ -49,6 +58,53 @@ namespace HandyControlDemo.UserControl
 
         private void DrawerCode_OnOpened(object sender, RoutedEventArgs e)
         {
+            if (!_drawerCodeUsed)
+            {
+                var textEditorCustomStyle = ResourceHelper.GetResource<Style>("TextEditorCustom");
+                _textEditor = new Dictionary<string, TextEditor>
+                {
+                    ["XAML"] = new TextEditor
+                    {
+                        Style = textEditorCustomStyle,
+                        SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("XML")
+                    },
+                    ["C#"] = new TextEditor
+                    {
+                        Style = textEditorCustomStyle,
+                        SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#")
+                    },
+                    ["VM"] = new TextEditor
+                    {
+                        Style = textEditorCustomStyle,
+                        SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#")
+                    }
+                };
+                BorderCode.Child = new TabControl
+                {
+                    Style = ResourceHelper.GetResource<Style>("TabControlInLine"),
+                    Items =
+                    {
+                        new TabItem
+                        {
+                            Header = "XAML",
+                            Content = _textEditor["XAML"]
+                        },
+                        new TabItem
+                        {
+                            Header = "C#",
+                            Content = _textEditor["C#"]
+                        },
+                        new TabItem
+                        {
+                            Header = "VM",
+                            Content = _textEditor["VM"]
+                        }
+                    }
+                };
+
+                _drawerCodeUsed = true;
+            }
+
             var typeKey = ViewModelLocator.Instance.Main.DemoInfoCurrent.Key;
             var demoKey = ViewModelLocator.Instance.Main.DemoItemCurrent.TargetCtlName;
             if (Equals(_currentDemoKey, demoKey)) return;
@@ -64,9 +120,9 @@ namespace HandyControlDemo.UserControl
                     ? $"ViewModel/{dcTypeName}"
                     : xamlPath;
 
-                EditorXaml.Text = DemoHelper.GetCode(xamlPath);
-                EditorCs.Text = DemoHelper.GetCode($"{xamlPath}.cs");
-                EditorVm.Text = DemoHelper.GetCode($"{vmPath}.cs");
+                _textEditor["XAML"].Text = DemoHelper.GetCode(xamlPath);
+                _textEditor["C#"].Text = DemoHelper.GetCode($"{xamlPath}.cs");
+                _textEditor["VM"].Text = DemoHelper.GetCode($"{vmPath}.cs");
             }
         }
     }

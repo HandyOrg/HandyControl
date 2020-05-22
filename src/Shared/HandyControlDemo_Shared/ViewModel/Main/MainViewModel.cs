@@ -1,6 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Threading;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
@@ -26,11 +29,6 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private object _subContent;
 
-        /// <summary>
-        ///     demo信息
-        /// </summary>
-        private List<DemoInfoModel> _demoInfoList;
-
         #endregion
 
         public MainViewModel(DataService dataService)
@@ -42,12 +40,12 @@ namespace HandyControlDemo.ViewModel
                     disposable.Dispose();
                 }
                 SubContent = obj;
-            });
+            }, true);
 
             Messenger.Default.Register<object>(this, MessageToken.ClearLeftSelected, obj =>
             {
                 DemoItemCurrent = null;
-                foreach (var item in DemoInfoList)
+                foreach (var item in DemoInfoCollection)
                 {
                     item.SelectedIndex = -1;
                 }
@@ -60,7 +58,31 @@ namespace HandyControlDemo.ViewModel
             });
 
             DataList = dataService.GetDemoDataList();
-            DemoInfoList = dataService.GetDemoInfo();
+            DemoInfoCollection = new ObservableCollection<DemoInfoModel>();
+
+#if netle40
+            Task.Factory.StartNew(() =>
+            {
+                foreach (var item in dataService.GetDemoInfo())
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        DemoInfoCollection.Add(item);
+                    }), DispatcherPriority.ApplicationIdle);
+                }
+            });
+#else
+            Task.Run(() =>
+            {
+                foreach (var item in dataService.GetDemoInfo())
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        DemoInfoCollection.Add(item);
+                    }), DispatcherPriority.ApplicationIdle);
+                }
+            });
+#endif
         }
 
         #region 属性
@@ -101,15 +123,7 @@ namespace HandyControlDemo.ViewModel
         /// <summary>
         ///     demo信息
         /// </summary>
-        public List<DemoInfoModel> DemoInfoList
-        {
-            get => _demoInfoList;
-#if netle40
-            set => Set(nameof(DemoInfoList), ref _demoInfoList, value);
-#else
-            set => Set(ref _demoInfoList, value);
-#endif
-        }
+        public ObservableCollection<DemoInfoModel> DemoInfoCollection { get; set; }
 
         #endregion
 

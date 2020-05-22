@@ -1,7 +1,6 @@
 ﻿<Border xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
-        xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
         x:Class="HandyControlDemo.UserControl.MainContent">
     <Grid Name="GridMain" MinHeight="300" MinWidth="200" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="16">
         <Grid.RowDefinitions>
@@ -14,19 +13,7 @@
                 <TextBlock Style="{StaticResource TextBlockDefault}" Foreground="White" Text="{Binding ContentTitle}"/>
                 <ToggleButton Margin="0,0,6,0" IsChecked="{Binding IsOpen,ElementName=DrawerCode}" Padding="5" Foreground="{DynamicResource TextIconBrush}" Style="{StaticResource ToggleButtonIconTransparent}" HorizontalAlignment="Right" hc:IconElement.Geometry="{StaticResource CodeGeometry}"/>
                 <hc:Drawer Name="DrawerCode" Opened="DrawerCode_OnOpened">
-                    <Border Style="{StaticResource BorderClip}" Margin="32,32,0,32" CornerRadius="10,0,0,10" Background="{DynamicResource RegionBrush}" Width="800">
-                        <TabControl Grid.Row="1" Style="{StaticResource TabControlInLine}">
-                            <TabItem Header="XAML">
-                                <avalonedit:TextEditor Style="{StaticResource TextEditorCustom}" SyntaxHighlighting="XML" Name="EditorXaml"/>
-                            </TabItem>
-                            <TabItem Header="C#">
-                                <avalonedit:TextEditor Style="{StaticResource TextEditorCustom}" SyntaxHighlighting="C#" Name="EditorCs"/>
-                            </TabItem>
-                            <TabItem Header="VM">
-                                <avalonedit:TextEditor Style="{StaticResource TextEditorCustom}" SyntaxHighlighting="C#" Name="EditorVm"/>
-                            </TabItem>
-                        </TabControl>
-                    </Border>
+                    <Border Style="{StaticResource BorderClip}" Margin="32,32,0,32" CornerRadius="10,0,0,10" Background="{DynamicResource RegionBrush}" Width="800" Name="BorderCode"/>
                 </hc:Drawer>
             </hc:SimplePanel>
         </Border>
