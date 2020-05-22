@@ -3,15 +3,16 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:tools="clr-namespace:HandyControl.Tools">
+                    xmlns:tools="clr-namespace:HandyControl.Tools"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Paths.xaml"/>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="Button.xaml"/>
-        <ResourceDictionary Source="RepeatButton.xaml"/>
-        <ResourceDictionary Source="ToggleButton.xaml"/>
-        <ResourceDictionary Source="Base/TabControlBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Paths.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/RepeatButton.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ToggleButton.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/TabControlBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <ContextMenu x:Key="TabItemMenu" x:Shared="False">

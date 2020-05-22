@@ -3,14 +3,15 @@
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension">
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Paths.xaml"/>
-        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="../Slider.xaml"/>
-        <ResourceDictionary Source="../Button.xaml"/>
-        <ResourceDictionary Source="../ToggleButton.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Paths.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Slider.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ColorPickerSliderRepeatButtonBaseStyle" TargetType="RepeatButton">

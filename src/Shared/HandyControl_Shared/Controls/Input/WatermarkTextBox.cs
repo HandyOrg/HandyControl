@@ -2,7 +2,7 @@
 
 namespace HandyControl.Controls
 {
-    internal class WatermarkTextBox : TextBox
+    public class WatermarkTextBox : TextBox
     {
         #region Public Properties
 

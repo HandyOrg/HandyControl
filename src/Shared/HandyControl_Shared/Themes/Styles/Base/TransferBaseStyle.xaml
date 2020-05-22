@@ -1,13 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
-        <ResourceDictionary Source="../../Basic/Behaviors.xaml"/>
-        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
-        <ResourceDictionary Source="../Base/BaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Behaviors.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Sizes.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/BaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="TransferItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:TransferItem">

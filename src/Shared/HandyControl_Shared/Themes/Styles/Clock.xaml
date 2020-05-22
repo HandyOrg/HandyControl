@@ -2,12 +2,13 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension">
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="Button.xaml"/>
-        <ResourceDictionary Source="Base/ListBoxBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/ListBoxBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ClockRadioButtonStyle" TargetType="controls:ClockRadioButton">

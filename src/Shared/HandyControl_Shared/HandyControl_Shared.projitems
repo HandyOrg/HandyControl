@@ -88,6 +88,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ContrastEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\EffectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Themes\SharedResourceDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Themes\Theme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />

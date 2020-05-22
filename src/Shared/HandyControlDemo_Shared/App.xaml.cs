@@ -10,6 +10,7 @@ using System.Security.Authentication;
 using System.Threading;
 using System.Windows;
 using HandyControl.Data;
+using HandyControl.Themes;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools;
@@ -72,7 +73,6 @@ namespace HandyControlDemo
                     UpdateSkin(GlobalData.Config.Skin);
                 }
 
-                ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
                 ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
 
@@ -88,6 +88,7 @@ namespace HandyControlDemo
 
         internal void UpdateSkin(SkinType skin)
         {
+            SharedResourceDictionary.SharedDictionaries.Clear();
             var skins0 = Resources.MergedDictionaries[0];
             skins0.MergedDictionaries.Clear();
             skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));	
