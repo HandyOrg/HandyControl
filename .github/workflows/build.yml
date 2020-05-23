@@ -16,31 +16,28 @@ jobs:
         uses: nuget/setup-nuget@master
       
       - name: Restore Nuget packages
-        run: nuget restore src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj
-      
-      - name: Setup MSBuild.exe
-        uses: microsoft/setup-msbuild@master
+        run: nuget restore src/HandyControl.sln
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@master
       
       - name: Build Net_40
-        run: msbuild src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release
+        run: dotnet build src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release
 
       - name: Build Net_45
-        run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net45
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
 
       - name: Build Net_462
-        run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net462
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
 
       - name: Build Net_47
-        run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net47
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
 
       - name: Build Net_48
-        run: msbuild src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release-Net48
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
 
       - name: Build Core_30
-        run: dotnet build src/Core_GE30/HandyControl_Core_GE30/HandyControl_Core_GE30.csproj --configuration Release-Core30
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj --configuration Release
 
       - name: Build Core_31
-        run: dotnet build src/Core_GE30/HandyControl_Core_GE30/HandyControl_Core_GE30.csproj --configuration Release-Core31
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj --configuration Release
