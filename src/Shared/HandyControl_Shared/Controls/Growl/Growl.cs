@@ -348,7 +348,7 @@ namespace HandyControl.Controls
 
             GrowlWindow.Show(true);
 
-#if netle40
+#if NET40
             Application.Current.Dispatcher?.Invoke(new Action(() =>
             {
                 var ctl = new Growl
@@ -397,7 +397,7 @@ namespace HandyControl.Controls
         /// <param name="growlInfo"></param>
         private static void Show(GrowlInfo growlInfo)
         {
-#if netle40
+#if NET40
             Application.Current.Dispatcher?.Invoke(new Action(() =>
             {
                 var ctl = new Growl

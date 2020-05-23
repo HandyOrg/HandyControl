@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
-#if !netle40
+#if !NET40
 using System.Runtime.CompilerServices;
 #endif
 using System.Windows;
@@ -76,7 +76,7 @@ namespace HandyControl.Tools
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-#if netle40
+#if NET40
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

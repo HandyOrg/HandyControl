@@ -17,7 +17,7 @@ namespace HandyControlDemo.ViewModel
         public ShowAnimation ShowAnimation
         {
             get => _showAnimation;
-#if netle40
+#if NET40
             set => Set(nameof(ShowAnimation) ,ref _showAnimation, value);
 #else
             set => Set(ref _showAnimation, value);
@@ -29,7 +29,7 @@ namespace HandyControlDemo.ViewModel
         public bool StaysOpen
         {
             get => _staysOpen;
-#if netle40
+#if NET40
             set => Set(nameof(StaysOpen) ,ref _staysOpen, value);
 #else
             set => Set(ref _staysOpen, value);

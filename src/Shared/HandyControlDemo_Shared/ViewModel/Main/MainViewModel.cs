@@ -59,7 +59,7 @@ namespace HandyControlDemo.ViewModel
 
             DemoInfoCollection = new ObservableCollection<DemoInfoModel>();
 
-#if netle40
+#if NET40
             Task.Factory.StartNew(() =>
             {
                 DataList = dataService.GetDemoDataList();
@@ -101,7 +101,7 @@ namespace HandyControlDemo.ViewModel
         public object SubContent
         {
             get => _subContent;
-#if netle40
+#if NET40
             set => Set(nameof(SubContent), ref _subContent, value);
 #else
             set => Set(ref _subContent, value);
@@ -114,7 +114,7 @@ namespace HandyControlDemo.ViewModel
         public object ContentTitle
         {
             get => _contentTitle;
-#if netle40
+#if NET40
             set => Set(nameof(ContentTitle), ref _contentTitle, value);
 #else
             set => Set(ref _contentTitle, value);

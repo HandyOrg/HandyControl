@@ -8,7 +8,7 @@ using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 using HandyControl.Tools.Interop;
-#if netle40
+#if NET40
 using Microsoft.Windows.Shell;
 #else
 using System.Windows.Shell;
@@ -104,7 +104,7 @@ namespace HandyControl.Controls
 
         public Window()
         {
-#if netle40
+#if NET40
             var chrome = new WindowChrome
             {
                 CornerRadius = new CornerRadius(),

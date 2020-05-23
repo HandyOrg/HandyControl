@@ -1,0 +1,11 @@
+<Project>
+    <PropertyGroup>
+        <UseWPF>true</UseWPF>
+        <Version>2.5.0.1</Version>
+        <FileVersion>2.5.0.1</FileVersion>
+        <AssemblyVersion>2.5.0.1</AssemblyVersion>
+        <LangVersion>8.0</LangVersion>
+        <Copyright>Copyright © HandyOrg 2018-2020</Copyright>
+        <Authors>HandyOrg</Authors>
+    </PropertyGroup>
+</Project>
