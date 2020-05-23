@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.ObjectModel;
 using System.Windows;
 using HandyControl.Data;
 using HandyControl.Tools;
@@ -8,7 +7,32 @@ namespace HandyControl.Themes
 {
     public class Theme : ResourceDictionary
     {
-        public Theme() => UpdateResource();
+        public Theme()
+        {
+            if (DesignerHelper.IsInDesignMode)
+            {
+                MergedDictionaries.Add(new ResourceDictionary
+                {
+                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml")
+                });
+                MergedDictionaries.Add(new ResourceDictionary
+                {
+                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+                });
+            }
+            else
+            {
+                UpdateResource();
+            }
+        }
+
+        private Uri _source;
+
+        public new Uri Source
+        {
+            get => DesignerHelper.IsInDesignMode ? null : _source;
+            set => _source = value;
+        }
 
         private SkinType _skin;
 
@@ -26,20 +50,19 @@ namespace HandyControl.Themes
 
         public string Name { get; set; }
 
-        public virtual Uri ThemeUri => new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml");
-
         public virtual ResourceDictionary GetSkin(SkinType skinType) => ResourceHelper.GetSkin(skinType);
+
+        public virtual ResourceDictionary GetTheme() => new ResourceDictionary
+        {
+            Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+        };
 
         private void UpdateResource()
         {
-            base.MergedDictionaries.Clear();
-            base.MergedDictionaries.Add(GetSkin(Skin));
-            base.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = ThemeUri
-            });
+            if (DesignerHelper.IsInDesignMode) return;
+            MergedDictionaries.Clear();
+            MergedDictionaries.Add(GetSkin(Skin));
+            MergedDictionaries.Add(GetTheme());
         }
-
-        public new Collection<ResourceDictionary> MergedDictionaries => throw new NotSupportedException();
     }
 }

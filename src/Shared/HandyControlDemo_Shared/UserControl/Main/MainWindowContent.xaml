@@ -1,0 +1,21 @@
+﻿<Border xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        BorderThickness="0,1,0,0" 
+        BorderBrush="{DynamicResource BorderBrush}" 
+        Background="{StaticResource CloudDrawingBrush}"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
+        x:Class="HandyControlDemo.UserControl.MainWindowContent">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240" MinWidth="240" MaxWidth="400"/>
+            <ColumnDefinition MinWidth="200"/>
+        </Grid.ColumnDefinitions>
+        <userControl:LeftMainContent/>
+        <userControl:MainContent Grid.Column="1"/>
+        <GridSplitter Margin="0,26,10,26" Grid.Column="0" HorizontalAlignment="Right" Width="4" Background="Transparent"/>
+        <hc:ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsInertiaEnabled="True" IsPenetrating="True">
+            <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10"/>
+        </hc:ScrollViewer>
+    </Grid>
+</Border>

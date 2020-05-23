@@ -57,12 +57,12 @@ namespace HandyControlDemo.ViewModel
                 ContentTitle = LangProvider.GetLang(DemoItemCurrent.Name);
             });
 
-            DataList = dataService.GetDemoDataList();
             DemoInfoCollection = new ObservableCollection<DemoInfoModel>();
 
 #if netle40
             Task.Factory.StartNew(() =>
             {
+                DataList = dataService.GetDemoDataList();
                 foreach (var item in dataService.GetDemoInfo())
                 {
                     Application.Current.Dispatcher.BeginInvoke(new Action(() =>
@@ -74,6 +74,7 @@ namespace HandyControlDemo.ViewModel
 #else
             Task.Run(() =>
             {
+                DataList = dataService.GetDemoDataList();
                 foreach (var item in dataService.GetDemoInfo())
                 {
                     Application.Current.Dispatcher.BeginInvoke(new Action(() =>
