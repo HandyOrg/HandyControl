@@ -81,8 +81,8 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\CoreAssemblyInfo.cs">
-      <Link>Properties\CoreAssemblyInfo.cs</Link>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
     </Compile>
   </ItemGroup>
   <ItemGroup>

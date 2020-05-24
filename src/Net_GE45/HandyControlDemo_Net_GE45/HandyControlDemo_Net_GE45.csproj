@@ -527,7 +527,7 @@
     </None>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems" Label="Shared" />
-  <PropertyGroup>
+  <PropertyGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <PostBuildEvent>if not exist Langs md Langs
 rd /s /q Langs\en
 rd /s /q Langs\fa
