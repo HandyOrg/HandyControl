@@ -12,7 +12,7 @@ namespace HandyControlDemo.Data
         public string Title
         {
             get => _title;
-#if netle40
+#if NET40
             set => Set(nameof(Title), ref _title, value);
 #else
             set => Set(ref _title, value);
@@ -24,7 +24,7 @@ namespace HandyControlDemo.Data
         public int SelectedIndex
         {
             get => _selectedIndex;
-#if netle40
+#if NET40
             set => Set(nameof(SelectedIndex), ref _selectedIndex, value);
 #else
             set => Set(ref _selectedIndex, value);

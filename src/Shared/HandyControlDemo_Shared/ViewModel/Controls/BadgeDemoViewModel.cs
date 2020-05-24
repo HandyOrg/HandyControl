@@ -11,7 +11,7 @@ namespace HandyControlDemo.ViewModel
         public int Count
         {
             get => _count;
-#if netle40
+#if NET40
             set => Set(nameof(Count), ref _count, value);
 #else
             set => Set(ref _count, value);

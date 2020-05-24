@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
-#if !netle40
+#if !NET40
 using System.Runtime;
 #endif
 using System.Security.Authentication; 
@@ -26,7 +26,7 @@ namespace HandyControlDemo
 
         public App()
         {
-#if !netle40
+#if !NET40
             var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
             if (!Directory.Exists(cachePath))
             {
@@ -73,6 +73,7 @@ namespace HandyControlDemo
                     UpdateSkin(GlobalData.Config.Skin);
                 }
 
+                ConfigHelper.Instance.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
                 ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
 

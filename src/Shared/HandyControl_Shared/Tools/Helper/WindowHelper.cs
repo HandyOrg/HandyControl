@@ -134,7 +134,7 @@ namespace HandyControl.Tools
             {
                 InteropValues.APPBARDATA appBarData = default;
                 var autoHide = InteropMethods.SHAppBarMessage(4, ref appBarData) != 0;
-#if netle40
+#if NET40
                 return WindowResizeBorderThickness.Add(new Thickness(autoHide ? -8 : 0));
 #elif Core
                 var hdc = InteropMethods.GetDC(IntPtr.Zero);

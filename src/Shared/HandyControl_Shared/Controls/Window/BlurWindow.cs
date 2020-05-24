@@ -20,12 +20,12 @@ namespace HandyControl.Controls
             EnableBlur(this);
         }
 
-        public static SystemVersionInfo SystemVersionInfo { get; set; }
-
         internal static void EnableBlur(Window window)
         {
-            if (SystemVersionInfo < SystemVersionInfo.Windows10 ||
-                SystemVersionInfo >= SystemVersionInfo.Windows10_1903)
+            var versionInfo = ConfigHelper.Instance.SystemVersionInfo;
+
+            if (versionInfo < SystemVersionInfo.Windows10 ||
+                versionInfo >= SystemVersionInfo.Windows10_1903)
             {
                 var colorValue = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
                 var color = ColorHelper.ToColor(colorValue);
@@ -37,7 +37,7 @@ namespace HandyControl.Controls
             var accentPolicy = new InteropValues.ACCENTPOLICY();
             var accentPolicySize = Marshal.SizeOf(accentPolicy);
 
-            accentPolicy.AccentState = SystemVersionInfo < SystemVersionInfo.Windows10_1809
+            accentPolicy.AccentState = versionInfo < SystemVersionInfo.Windows10_1809
                 ? InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND
                 : InteropValues.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
 
