@@ -81,18 +81,18 @@
                 <ControlTemplate TargetType="controls:Pagination">
                     <StackPanel Orientation="Horizontal">
                         <Button x:Name="PART_ButtonLeft" MinWidth="30" Padding="10,8" controls:IconElement.Geometry="{StaticResource LeftGeometry}" controls:BorderElement.CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='1,0,0,1'}" Command="interactivity:ControlCommands.Prev"/>
-                            <StackPanel ZIndex="999" HorizontalAlignment="Center" Orientation="Horizontal">
+                        <StackPanel ZIndex="999" HorizontalAlignment="Center" Orientation="Horizontal">
                             <interactivity:Interaction.Triggers>
                                 <interactivity:RoutedEventTrigger RoutedEvent="RadioButton.Checked">
                                     <interactivity:EventToCommand Command="interactivity:ControlCommands.Selected" PassEventArgsToCommand="True" />
                                 </interactivity:RoutedEventTrigger>
                             </interactivity:Interaction.Triggers>
                             <RadioButton Name="PART_ButtonFirst" Content="1" IsChecked="True" Style="{StaticResource PaginationButtonStyle}"/>
-                            <Border Name="PART_MoreLeft" Cursor="No" Margin="-1,0,0,0" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" Padding="10,0">
+                            <Border Name="PART_MoreLeft" VerticalAlignment="Center" Cursor="No" Margin="-1,0,0,0" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" Padding="10,0">
                                 <controls:SimpleText FontWeight="Bold" Foreground="{DynamicResource SecondaryTextBrush}" Text="..." VerticalAlignment="Center"/>
                             </Border>
                             <StackPanel Name="PART_PanelMain" Orientation="Horizontal"/>
-                            <Border Name="PART_MoreRight" Cursor="No" Margin="-1,0,0,0" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" Padding="10,0">
+                            <Border Name="PART_MoreRight" VerticalAlignment="Center" Cursor="No" Margin="-1,0,0,0" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" Padding="10,0">
                                 <controls:SimpleText FontWeight="Bold" Foreground="{DynamicResource SecondaryTextBrush}" Text="..." VerticalAlignment="Center"/>
                             </Border>
                             <RadioButton Name="PART_ButtonLast" Content="10" Style="{StaticResource PaginationButtonStyle}"/>
