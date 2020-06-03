@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using HandyControl.Data;
+using HandyControl.Expression.Drawing;
 
 namespace HandyControl.Controls
 {
@@ -63,6 +64,15 @@ namespace HandyControl.Controls
         {
             get => (Duration) GetValue(DurationProperty);
             set => SetValue(DurationProperty, value);
+        }
+
+        public static readonly DependencyProperty SpeedProperty = DependencyProperty.Register(
+            "Speed", typeof(double), typeof(RunningBlock), new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public double Speed
+        {
+            get => (double) GetValue(SpeedProperty);
+            set => SetValue(SpeedProperty, value);
         }
 
         public static readonly DependencyProperty IsRunningProperty = DependencyProperty.Register(
@@ -150,11 +160,18 @@ namespace HandyControl.Controls
                 propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)");
             }
 
-            var animation = new DoubleAnimation(from, to, Duration)
+            var duration = double.IsNaN(Speed)
+                ? Duration
+                : !MathHelper.IsVerySmall(Speed)
+                    ? TimeSpan.FromSeconds((to - from) / Speed)
+                    : Duration;
+
+            var animation = new DoubleAnimation(from, to, duration)
             {
                 RepeatBehavior = RepeatBehavior.Forever,
                 AutoReverse = AutoReverse
             };
+
             Storyboard.SetTargetProperty(animation, propertyPath);
             Storyboard.SetTarget(animation, _elementContent);
 
@@ -163,10 +180,6 @@ namespace HandyControl.Controls
             _storyboard.Begin();
         }
 
-        protected override void OnRender(DrawingContext drawingContext)
-        {
-            base.OnRender(drawingContext);
-            UpdateContent();
-        }
+        protected override void OnRender(DrawingContext drawingContext) => UpdateContent();
     }
 }
