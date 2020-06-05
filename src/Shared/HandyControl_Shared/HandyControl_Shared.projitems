@@ -214,7 +214,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StepStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TextType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\PlacementType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitleAlignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitlePlacementType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifFrameDimension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifImageInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItem.cs" />

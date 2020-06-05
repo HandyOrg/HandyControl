@@ -149,7 +149,7 @@
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Template" Value="{StaticResource NumericUpDownExtendTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:InfoElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource NumericUpDownExtendLeftTemplate}"/>
                 <Setter Property="Width" Value="Auto"/>
             </Trigger>
@@ -293,7 +293,7 @@
     <Style x:Key="NumericUpDownPlusBaseStyle" BasedOn="{StaticResource NumericUpDownExtendBaseStyle}" TargetType="controls:NumericUpDown">
         <Setter Property="Template" Value="{StaticResource NumericUpDownPlusTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:InfoElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource NumericUpDownPlusLeftTemplate}"/>
                 <Setter Property="Width" Value="Auto"/>
             </Trigger>

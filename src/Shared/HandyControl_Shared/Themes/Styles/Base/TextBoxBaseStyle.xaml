@@ -135,7 +135,7 @@
         <Setter Property="Height" Value="Auto"/>
         <Setter Property="Template" Value="{StaticResource TextBoxExtendTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:InfoElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource TextBoxExtendLeftTemplate}"/>
                 <Setter Property="Width" Value="Auto"/>
             </Trigger>
@@ -265,7 +265,7 @@
     <Style x:Key="TextBoxPlusBaseStyle" BasedOn="{StaticResource TextBoxExtendBaseStyle}" TargetType="controls:TextBox">
         <Setter Property="Template" Value="{StaticResource TextBoxPlusTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:InfoElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource TextBoxPlusLeftTemplate}"/>
                 <Setter Property="Width" Value="Auto"/>
             </Trigger>

@@ -14,8 +14,8 @@
 
                 <hc:SearchBar hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Style="{StaticResource SearchBarExtend}"/>
                 <hc:SearchBar hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource SearchBarExtend}"/>
-                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarExtend}" Margin="0,32,0,0"/>
-                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarExtend}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
+                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarExtend}" Margin="0,32,0,0"/>
+                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarExtend}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
             </StackPanel>
             <StackPanel Margin="32,0,0,0">
                 <hc:SearchBar Name="SearchBarCustomVerify" ShowClearButton="True" Style="{StaticResource SearchBarPlus}"/>
@@ -23,8 +23,8 @@
 
                 <hc:SearchBar ShowClearButton="True" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Style="{StaticResource SearchBarPlus}"/>
                 <hc:SearchBar TextType="Mail" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterEmail}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource SearchBarPlus}"/>
-                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" Margin="0,32,0,0"/>
-                <hc:SearchBar ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
+                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" Margin="0,32,0,0"/>
+                <hc:SearchBar ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

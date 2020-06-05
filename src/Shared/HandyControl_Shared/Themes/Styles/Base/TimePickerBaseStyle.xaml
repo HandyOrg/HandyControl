@@ -169,7 +169,7 @@
         <Setter Property="controls:InfoElement.MinContentHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Template" Value="{StaticResource TimePickerExtendTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:InfoElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource TimePickerExtendLeftTemplate}"/>
                 <Setter Property="Width" Value="Auto"/>
             </Trigger>
@@ -331,7 +331,7 @@
     <Style x:Key="TimePickerPlusBaseStyle" BasedOn="{StaticResource TimePickerExtendBaseStyle}" TargetType="controls:TimePicker">
         <Setter Property="Template" Value="{StaticResource TimePickerPlusTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:InfoElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource TimePickerPlusLeftTemplate}"/>
                 <Setter Property="Width" Value="Auto"/>
             </Trigger>

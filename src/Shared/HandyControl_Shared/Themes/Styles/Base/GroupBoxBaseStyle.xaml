@@ -49,7 +49,7 @@
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="controls:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
-        <Setter Property="controls:TitleElement.TitleAlignment" Value="Top"/>
+        <Setter Property="controls:TitleElement.TitlePlacement" Value="Top"/>
         <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -57,7 +57,7 @@
         <Setter Property="Padding" Value="4"/>
         <Setter Property="Template" Value="{StaticResource GroupBoxBaseTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:TitleElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:TitleElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource GroupBoxBaseLeftTemplate}"/>
             </Trigger>
         </Style.Triggers>
@@ -103,7 +103,7 @@
         <Setter Property="Padding" Value="0"/>
         <Setter Property="Template" Value="{StaticResource GroupBoxOriginalTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:TitleElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:TitleElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource GroupBoxOriginalLeftTemplate}"/>
             </Trigger>
         </Style.Triggers>
@@ -148,7 +148,7 @@
     <Style x:Key="GroupBoxTabBaseStyle" BasedOn="{StaticResource GroupBoxBaseStyle}" TargetType="GroupBox">
         <Setter Property="Template" Value="{StaticResource GroupBoxTabTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:TitleElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:TitleElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource GroupBoxTabLeftTemplate}"/>
             </Trigger>
         </Style.Triggers>

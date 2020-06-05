@@ -11,7 +11,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <hc:NumericUpDown x:Name="UpDownGroups" HorizontalAlignment="Center" Value="2" Minimum="1" Maximum="3" Width="200" Style="{StaticResource NumericUpDownExtend}" hc:TitleElement.Title="{ex:Lang Key={x:Static langs:LangKeys.Groups}}" hc:TitleElement.TitleWidth="50" hc:TitleElement.TitleAlignment="Left"/>
+            <hc:NumericUpDown x:Name="UpDownGroups" HorizontalAlignment="Center" Value="2" Minimum="1" Maximum="3" Width="200" Style="{StaticResource NumericUpDownExtend}" hc:TitleElement.Title="{ex:Lang Key={x:Static langs:LangKeys.Groups}}" hc:TitleElement.TitleWidth="50" hc:TitleElement.TitlePlacement="Left"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,16,0,0">
                 <hc:ScrollViewer MaxHeight="300">
                     <hc:WaterfallPanel VerticalAlignment="Center" Width="300" Groups="{Binding Value,ElementName=UpDownGroups}" hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}">
