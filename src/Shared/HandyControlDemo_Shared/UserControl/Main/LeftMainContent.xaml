@@ -6,7 +6,7 @@
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
         xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        Margin="16"
+        Margin="16,16,0,16"
         CornerRadius="10"
         Effect="{StaticResource EffectShadow4}">
     <Border.Resources>

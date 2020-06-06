@@ -176,8 +176,8 @@ namespace HandyControlDemo.ViewModel
         private void OpenPracticalDemo()
         {
             Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
-            Messenger.Default.Send(true, MessageToken.FullSwitch);
             Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.PracticalDemo}"), MessageToken.LoadShowContent);
+            Messenger.Default.Send(true, MessageToken.FullSwitch);
         }
 
         #endregion

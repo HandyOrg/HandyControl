@@ -129,10 +129,11 @@ namespace HandyControlDemo.Service
                     Link = item.html_url
                 }));
             }
-            catch
+            catch(Exception e)
             {
-                // ignored
+                HandyControl.Controls.MessageBox.Error(e.Message, Lang.Error);
             }
+
             return list;
         }
 
@@ -180,7 +181,7 @@ namespace HandyControlDemo.Service
                 new AvatarModel
                 {
                     DisplayName = "AutumnBox",
-                    AvatarUri = "https://www.atmb.top/images/leaves.png",
+                    AvatarUri = "https://raw.githubusercontent.com/zsh2401/AutumnBox/master/src/AutumnBox.GUI/Resources/Images/icon.png",
                     Link = "https://github.com/zsh2401/AutumnBox"
                 }
             };
