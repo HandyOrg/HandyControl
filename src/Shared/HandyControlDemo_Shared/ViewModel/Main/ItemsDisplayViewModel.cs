@@ -9,7 +9,7 @@ namespace HandyControlDemo.ViewModel
     {
         public ItemsDisplayViewModel(Func<List<AvatarModel>> getDataAction)
         {
-#if !NET40
+#if NET40
             Task.Factory.StartNew(() => DataList = getDataAction?.Invoke()).ContinueWith(obj => DataGot = true);
 #else
             Task.Run(() => DataList = getDataAction?.Invoke()).ContinueWith(obj => DataGot = true);
