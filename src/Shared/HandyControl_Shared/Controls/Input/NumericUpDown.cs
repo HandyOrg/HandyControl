@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -178,16 +178,21 @@ namespace HandyControl.Controls
         {
             var ctl = (NumericUpDown) d;
             var v = (double) e.NewValue;
-            if (ctl._updateText && ctl._textBox != null)
-            {
-                ctl._textBox.Text = ctl.CurrentText;
-                ctl._textBox.Select(ctl._textBox.Text.Length, 0);
-            }
+            ctl.SetText();
 
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
             {
                 Info = v
             });
+        }
+
+        private void SetText()
+        {
+            if (_updateText && _textBox != null)
+            {
+                _textBox.Text = CurrentText;
+                _textBox.Select(_textBox.Text.Length, 0);
+            }
         }
 
         private static object CoerceValue(DependencyObject d, object basevalue)
@@ -214,8 +219,12 @@ namespace HandyControl.Controls
         /// </summary>
         public double Value
         {
-            get => (double) GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
+            get => (double)GetValue(ValueProperty);
+            set
+            {
+                SetValue(ValueProperty, value);
+                SetText();
+            }
         }
 
         /// <summary>
