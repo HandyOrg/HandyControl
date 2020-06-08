@@ -210,7 +210,7 @@ namespace HandyControl.Controls
             {
                 ctl.Value = maximum;
             }
-
+            ctl.SetText();
             return num > maximum ? maximum : num;
         }
 
@@ -220,11 +220,7 @@ namespace HandyControl.Controls
         public double Value
         {
             get => (double)GetValue(ValueProperty);
-            set
-            {
-                SetValue(ValueProperty, value);
-                SetText();
-            }
+            set => SetValue(ValueProperty, value);
         }
 
         /// <summary>
