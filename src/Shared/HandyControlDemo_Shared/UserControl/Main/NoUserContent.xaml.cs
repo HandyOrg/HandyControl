@@ -1,9 +1,11 @@
-﻿using System.Diagnostics;
+﻿using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
-using HandyControl.Controls;
+using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Data;
+using HandyControl.Tools;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Window;
 
 namespace HandyControlDemo.UserControl
@@ -17,21 +19,16 @@ namespace HandyControlDemo.UserControl
 
         private void ButtonLangs_OnClick(object sender, RoutedEventArgs e)
         {
-            if (e.OriginalSource is Button button && button.Tag is string tag)
+            if (e.OriginalSource is Button button && button.Tag is string langName)
             {
                 PopupConfig.IsOpen = false;
-                if (tag.Equals(GlobalData.Config.Lang)) return;
-                Growl.Ask(Properties.Langs.Lang.ChangeLangAsk, b =>
-                {
-                    if (!b) return true;
-                    GlobalData.Config.Lang = tag;
-                    GlobalData.Save();
-                    var processModule = Process.GetCurrentProcess().MainModule;
-                    if (processModule != null)
-                        Process.Start(processModule.FileName);
-                    Application.Current.Shutdown();
-                    return true;
-                });
+                if (langName.Equals(GlobalData.Config.Lang)) return;
+                ConfigHelper.Instance.SetLang(langName);
+                LangProvider.Culture = new CultureInfo(langName);
+                Messenger.Default.Send<object>(null, "LangUpdated");
+
+                GlobalData.Config.Lang = langName;
+                GlobalData.Save();
             }
         }
 

@@ -15,8 +15,8 @@
                     <RowDefinition/>
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
-                <Image Source="{Binding Source,RelativeSource={RelativeSource AncestorType=UserControl}}" Height="120" Width="120" Stretch="Uniform" Margin="10"/>
-                <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Margin="0,0,0,10" Grid.Row="1" Style="{StaticResource TextBlockDefault}" Text="{Binding DisplayName,RelativeSource={RelativeSource AncestorType=UserControl}}"></TextBlock>
+                <Image hc:ImageAttach.SourceFailed="/Resources/Img/chrome_dragon.png" Source="{Binding Source,RelativeSource={RelativeSource AncestorType=UserControl}}" Height="120" Width="120" Stretch="Uniform" Margin="10"/>
+                <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="NoWrap" Margin="0,0,0,10" Grid.Row="1" Style="{StaticResource TextBlockDefault}" Text="{Binding DisplayName,RelativeSource={RelativeSource AncestorType=UserControl}}"/>
             </Grid>
         </Border>
     </Button>

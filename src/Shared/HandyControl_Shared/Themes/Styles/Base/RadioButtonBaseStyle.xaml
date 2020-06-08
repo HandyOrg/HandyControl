@@ -1,11 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="BaseStyle.xaml"/>
-        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/BaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="RadioButtonBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
@@ -22,7 +23,7 @@
                 </Style>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
@@ -109,7 +110,7 @@
     <Style x:Key="RadioButtonIconBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
         <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0}"/>
-        <Setter Property="Background" Value="{DynamicResource DefaultBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
@@ -184,9 +185,9 @@
                             <Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="true">
-                            <Setter Property="BorderBrush" Value="{Binding Path=(controls:TitleElement.BorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
-                            <Setter Property="Background" Value="{Binding Path=(controls:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
-                            <Setter Property="TextElement.Foreground" Value="{Binding Path=(controls:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter"/>
+                            <Setter Property="BorderBrush" Value="{Binding Path=(controls:VisualElement.HighlightBorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
+                            <Setter Property="Background" Value="{Binding Path=(controls:VisualElement.HighlightBackground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
+                            <Setter Property="TextElement.Foreground" Value="{Binding Path=(controls:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter"/>
                         </Trigger>
                         <Trigger Property="Content" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="contentPresenter"/>
@@ -210,7 +211,7 @@
                 <Setter Property="Margin" Value="0,-1,0,0"/>
             </DataTrigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>

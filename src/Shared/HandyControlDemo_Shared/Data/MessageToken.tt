@@ -25,7 +25,9 @@ var messageList = new List<string>
 	"QQGroupView",
 	"GlowWindow",
 	"NativeCommonWindow",
-	"NavigationWindow"
+	"NavigationWindow",
+	"DialogContainer",
+	"LangUpdated"
 };
 #>
 namespace HandyControlDemo.Data

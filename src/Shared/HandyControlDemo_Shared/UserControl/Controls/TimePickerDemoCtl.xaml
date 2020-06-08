@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" Orientation="Horizontal">
@@ -10,11 +11,11 @@
                 <hc:TimePicker ShowClearButton="True"/>
                 <hc:TimePicker Margin="0,16,0,0" IsEnabled="False"/>
 
-                <hc:TimePicker ShowClearButton="True" Style="{StaticResource TimePickerExtend}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0"/>
-                <hc:TimePicker hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr2}" Style="{StaticResource TimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                <hc:TimePicker ShowClearButton="True" Style="{StaticResource TimePickerExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0"/>
+                <hc:TimePicker hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource TimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
 
-                <hc:TimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" Style="{StaticResource TimePickerExtend}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Margin="0,32,0,0"/>
-                <hc:TimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource TimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                <hc:TimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource TimePickerExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0"/>
+                <hc:TimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource TimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
             </StackPanel>
             <StackPanel Margin="32,0,0,0">
                 <hc:TimePicker ShowClearButton="True" Style="{StaticResource TimePickerPlus}">
@@ -24,11 +25,11 @@
                 </hc:TimePicker>
                 <hc:TimePicker Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource TimePickerPlus}"/>
 
-                <hc:TimePicker ShowClearButton="True" Style="{StaticResource TimePickerPlus}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0"/>
-                <hc:TimePicker hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr2}" Style="{StaticResource TimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                <hc:TimePicker ShowClearButton="True" Style="{StaticResource TimePickerPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0"/>
+                <hc:TimePicker hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource TimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
 
-                <hc:TimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" Style="{StaticResource TimePickerPlus}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Margin="0,32,0,0"/>
-                <hc:TimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource TimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                <hc:TimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource TimePickerPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0"/>
+                <hc:TimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource TimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

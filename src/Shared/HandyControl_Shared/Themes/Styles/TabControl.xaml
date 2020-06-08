@@ -3,15 +3,16 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:tools="clr-namespace:HandyControl.Tools">
+                    xmlns:tools="clr-namespace:HandyControl.Tools"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Paths.xaml"/>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="Button.xaml"/>
-        <ResourceDictionary Source="RepeatButton.xaml"/>
-        <ResourceDictionary Source="ToggleButton.xaml"/>
-        <ResourceDictionary Source="Base/TabControlBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Paths.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/RepeatButton.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ToggleButton.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/TabControlBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <ContextMenu x:Key="TabItemMenu" x:Shared="False">
@@ -31,13 +32,6 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="VerticalContentAlignment" Value="Stretch"/>
         <Setter Property="Menu" Value="{StaticResource TabItemMenu}"/>
-        <Setter Property="HeaderTemplate">
-            <Setter.Value>
-                <DataTemplate>
-                    <TextBlock Background="Transparent" Text="{Binding Header,RelativeSource={RelativeSource AncestorType=controls:TabItem}}"/>
-                </DataTemplate>
-            </Setter.Value>
-        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="controls:TabItem">
@@ -52,7 +46,7 @@
                         </Border>
                         <Path x:Name="PathMain" Margin="10,0,0,0" Grid.Column="0" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
                         <ContentPresenter Grid.Column="1" x:Name="contentPresenter" ContentSource="Header" Focusable="False" HorizontalAlignment="Stretch" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
-                        <Border Name="BorderMask" Grid.Column="1" HorizontalAlignment="Right" Width="20" Background="{TemplateBinding Background}">
+                        <Border Name="BorderMask" Grid.Column="1" HorizontalAlignment="Right" Width="20" Background="{TemplateBinding Background}" Margin="0,0,1,1">
                             <Border.OpacityMask>
                                 <LinearGradientBrush EndPoint="1,0" StartPoint="0,0">
                                     <GradientStop Color="White" Offset="1"/>
@@ -72,6 +66,9 @@
                         </Trigger>
                         <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
+                        </Trigger>
+                        <Trigger Property="ShowCloseButton" Value="True">
+                            <Setter Property="Margin" Value="0,0,0,1" TargetName="BorderMask"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -161,7 +158,7 @@
 
     <Style TargetType="controls:TabControl">
         <Setter Property="Padding" Value="0"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>

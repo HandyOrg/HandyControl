@@ -3,8 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <Button Content="{x:Static langs:Lang.StartScreenshot}" Command="hc:ControlCommands.StartScreenshot"/>
+        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.StartScreenshot}}" Command="hc:ControlCommands.StartScreenshot"/>
     </hc:TransitioningContentControl>
 </UserControl>

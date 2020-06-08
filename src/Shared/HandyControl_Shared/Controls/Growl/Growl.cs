@@ -8,6 +8,7 @@ using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+using HandyControl.Properties.Langs;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
@@ -206,7 +207,7 @@ namespace HandyControl.Controls
             => element.SetValue(TokenProperty, value);
 
         public static string GetToken(DependencyObject element)
-            => (string) element.GetValue(TokenProperty);
+            => (string)element.GetValue(TokenProperty);
 
         public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, value);
 
@@ -297,10 +298,9 @@ namespace HandyControl.Controls
         {
             if (panel == null) return;
 
-            var menuItem = new MenuItem
-            {
-                Header = Properties.Langs.Lang.Clear
-            };
+            var menuItem = new MenuItem();
+            LangProvider.SetLang(menuItem, HeaderedItemsControl.HeaderProperty, LangKeys.Clear);
+
             menuItem.Click += (s, e) =>
             {
                 foreach (var item in panel.Children.OfType<Growl>())
@@ -348,47 +348,33 @@ namespace HandyControl.Controls
 
             GrowlWindow.Show(true);
 
-#if netle40
-            Application.Current.Dispatcher?.Invoke(new Action(() =>
-            {
-                var ctl = new Growl
-                {
-                    Message = growlInfo.Message,
-                    Time = DateTime.Now,
-                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
-                    _showCloseButton = growlInfo.ShowCloseButton,
-                    ActionBeforeClose = growlInfo.ActionBeforeClose,
-                    _staysOpen = growlInfo.StaysOpen,
-                    ShowDateTime = growlInfo.ShowDateTime,
-                    ConfirmStr = growlInfo.ConfirmStr,
-                    CancelStr = growlInfo.CancelStr,
-                    Type = growlInfo.Type,
-                    _waitTime = Math.Max(growlInfo.WaitTime, 2)
-                };
-                GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
-            }));
-#else
-            Application.Current.Dispatcher?.Invoke(() =>
-            {
-                var ctl = new Growl
-                {
-                    Message = growlInfo.Message,
-                    Time = DateTime.Now,
-                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
-                    _showCloseButton = growlInfo.ShowCloseButton,
-                    ActionBeforeClose = growlInfo.ActionBeforeClose,
-                    _staysOpen = growlInfo.StaysOpen,
-                    ShowDateTime = growlInfo.ShowDateTime,
-                    ConfirmStr = growlInfo.ConfirmStr,
-                    CancelStr = growlInfo.CancelStr,
-                    Type = growlInfo.Type,
-                    _waitTime = Math.Max(growlInfo.WaitTime, 2)
-                };
-                GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
-            });
-#endif 
+            Application.Current.Dispatcher?.Invoke(
+#if NET40
+                new Action(
+#endif
+                    () =>
+                        {
+                            var ctl = new Growl
+                            {
+                                Message = growlInfo.Message,
+                                Time = DateTime.Now,
+                                Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
+                                IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                                _showCloseButton = growlInfo.ShowCloseButton,
+                                ActionBeforeClose = growlInfo.ActionBeforeClose,
+                                _staysOpen = growlInfo.StaysOpen,
+                                ShowDateTime = growlInfo.ShowDateTime,
+                                ConfirmStr = growlInfo.ConfirmStr,
+                                CancelStr = growlInfo.CancelStr,
+                                Type = growlInfo.Type,
+                                _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                            };
+                            GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
+                        }
+#if NET40
+                    )
+#endif
+                );
         }
 
         /// <summary>
@@ -397,67 +383,43 @@ namespace HandyControl.Controls
         /// <param name="growlInfo"></param>
         private static void Show(GrowlInfo growlInfo)
         {
-#if netle40
-            Application.Current.Dispatcher?.Invoke(new Action(() =>
-            {
-                var ctl = new Growl
-                {
-                    Message = growlInfo.Message,
-                    Time = DateTime.Now,
-                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
-                    _showCloseButton = growlInfo.ShowCloseButton,
-                    ActionBeforeClose = growlInfo.ActionBeforeClose,
-                    _staysOpen = growlInfo.StaysOpen,
-                    ShowDateTime = growlInfo.ShowDateTime,
-                    ConfirmStr = growlInfo.ConfirmStr,
-                    CancelStr = growlInfo.CancelStr,
-                    Type = growlInfo.Type,
-                    _waitTime = Math.Max(growlInfo.WaitTime, 2)
-                };
-                if (!string.IsNullOrEmpty(growlInfo.Token))
-                {
-                    if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
-                    {
-                        panel?.Children.Insert(0, ctl);
-                    }
-                }
-                else
-                {
-                    GrowlPanel.Children.Insert(0, ctl);
-                }
-            }));
-#else
-            Application.Current.Dispatcher?.Invoke(() =>
-            {
-                var ctl = new Growl
-                {
-                    Message = growlInfo.Message,
-                    Time = DateTime.Now,
-                    Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                    IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
-                    _showCloseButton = growlInfo.ShowCloseButton,
-                    ActionBeforeClose = growlInfo.ActionBeforeClose,
-                    _staysOpen = growlInfo.StaysOpen,
-                    ShowDateTime = growlInfo.ShowDateTime,
-                    ConfirmStr = growlInfo.ConfirmStr,
-                    CancelStr = growlInfo.CancelStr,
-                    Type = growlInfo.Type,
-                    _waitTime = Math.Max(growlInfo.WaitTime, 2)
-                };
-                if (!string.IsNullOrEmpty(growlInfo.Token))
-                {
-                    if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
-                    {
-                        panel?.Children.Insert(0, ctl);
-                    }
-                }
-                else
-                {
-                    GrowlPanel.Children.Insert(0, ctl);
-                }
-            });
-#endif           
+            Application.Current.Dispatcher?.Invoke(
+#if NET40
+                new Action(
+#endif                    
+                    () =>
+                        {
+                            var ctl = new Growl
+                            {
+                                Message = growlInfo.Message,
+                                Time = DateTime.Now,
+                                Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
+                                IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                                _showCloseButton = growlInfo.ShowCloseButton,
+                                ActionBeforeClose = growlInfo.ActionBeforeClose,
+                                _staysOpen = growlInfo.StaysOpen,
+                                ShowDateTime = growlInfo.ShowDateTime,
+                                ConfirmStr = growlInfo.ConfirmStr,
+                                CancelStr = growlInfo.CancelStr,
+                                Type = growlInfo.Type,
+                                _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                            };
+                            if (!string.IsNullOrEmpty(growlInfo.Token))
+                            {
+                                if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
+                                {
+                                    panel?.Children.Insert(0, ctl);
+                                }
+                            }
+                            else
+                            {
+                                GrowlPanel?.Children.Insert(0, ctl);
+                            }
+                        }
+#if NET40
+                    )
+#endif
+                );
         }
 
         private static void InitGrowlInfo(ref GrowlInfo growlInfo, InfoType infoType)

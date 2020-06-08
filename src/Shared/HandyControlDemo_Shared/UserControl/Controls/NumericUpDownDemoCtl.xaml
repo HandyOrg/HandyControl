@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" Orientation="Horizontal">
@@ -11,20 +12,20 @@
                 <hc:NumericUpDown Margin="0,32,0,0" IsEnabled="False"/>
                 <hc:NumericUpDown Margin="0,32,0,0" IsReadOnly="True"/>
 
-                <hc:NumericUpDown hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" Style="{StaticResource NumericUpDownExtend}"/>
-                <hc:NumericUpDown hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource NumericUpDownExtend}"/>
-                <hc:NumericUpDown Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource NumericUpDownExtend}" Margin="0,32,0,0"/>
-                <hc:NumericUpDown Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource NumericUpDownExtend}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
+                <hc:NumericUpDown hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Style="{StaticResource NumericUpDownExtend}"/>
+                <hc:NumericUpDown hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource NumericUpDownExtend}"/>
+                <hc:NumericUpDown Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource NumericUpDownExtend}" Margin="0,32,0,0"/>
+                <hc:NumericUpDown Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource NumericUpDownExtend}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
             </StackPanel>
             <StackPanel Margin="32,0,0,0">
                 <hc:NumericUpDown Name="NumericUpDownCustomVerify" ShowClearButton="True" Style="{StaticResource NumericUpDownPlus}"/>
                 <hc:NumericUpDown Margin="0,32,0,0" IsEnabled="False" Style="{StaticResource NumericUpDownPlus}"/>
                 <hc:NumericUpDown Margin="0,32,0,0" IsReadOnly="True" Style="{StaticResource NumericUpDownPlus}"/>
 
-                <hc:NumericUpDown ShowClearButton="True" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" Style="{StaticResource NumericUpDownPlus}"/>
-                <hc:NumericUpDown hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource NumericUpDownPlus}"/>
-                <hc:NumericUpDown Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource NumericUpDownPlus}" Margin="0,32,0,0"/>
-                <hc:NumericUpDown DecimalPlaces="2" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource NumericUpDownPlus}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
+                <hc:NumericUpDown ShowClearButton="True" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Style="{StaticResource NumericUpDownPlus}"/>
+                <hc:NumericUpDown hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource NumericUpDownPlus}"/>
+                <hc:NumericUpDown Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource NumericUpDownPlus}" Margin="0,32,0,0"/>
+                <hc:NumericUpDown DecimalPlaces="2" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource NumericUpDownPlus}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

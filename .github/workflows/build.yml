@@ -1,0 +1,43 @@
+name: build
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      
+      - name: Setup Nuget.exe
+        uses: nuget/setup-nuget@master
+      
+      - name: Restore Nuget packages
+        run: nuget restore src/HandyControl.sln
+
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@master
+      
+      - name: Build Net_40
+        run: dotnet build src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release
+
+      - name: Build Net_45
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
+
+      - name: Build Net_462
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
+
+      - name: Build Net_47
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
+
+      - name: Build Net_48
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
+
+      - name: Build Core_30
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj --configuration Release
+
+      - name: Build Core_31
+        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj --configuration Release

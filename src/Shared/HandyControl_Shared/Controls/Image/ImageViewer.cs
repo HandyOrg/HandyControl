@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Properties.Langs;
@@ -156,6 +157,8 @@ namespace HandyControl.Controls
         ///     底部BorderBottom（包含一些图片操作）是否显示中
         /// </summary>
         private bool _showBorderBottom;
+
+        private DispatcherTimer _dispatcher;
 
         #endregion Data
 
@@ -444,6 +447,18 @@ namespace HandyControl.Controls
         {
             if (ImageSource == null || !IsLoaded) return;
 
+            if (ImageSource.IsDownloading)
+            {
+                _dispatcher = new DispatcherTimer(DispatcherPriority.ApplicationIdle)
+                {
+                    Interval = TimeSpan.FromSeconds(1)
+                };
+                _dispatcher.Tick += Dispatcher_Tick;
+                _dispatcher.Start();
+
+                return;
+            }
+
             double width;
             double height;
 
@@ -493,6 +508,25 @@ namespace HandyControl.Controls
             _imgActualMargin = ImageMargin;
 
             InitBorderSmall();
+        }
+
+        private void Dispatcher_Tick(object sender, EventArgs e)
+        {
+            if (ImageSource == null || !IsLoaded)
+            {
+                _dispatcher.Stop();
+                _dispatcher.Tick -= Dispatcher_Tick;
+                _dispatcher = null;
+                return;
+            }
+
+            if (!ImageSource.IsDownloading)
+            {
+                _dispatcher.Stop();
+                _dispatcher.Tick -= Dispatcher_Tick;
+                _dispatcher = null;
+                Init();
+            }
         }
 
         private void ButtonActual_OnClick(object sender, RoutedEventArgs e)

@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
-#if netle40
+#if NET40
 using System.Windows.Threading;
 #endif
 using HandyControl.Data;
@@ -18,7 +18,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = AutoPopupAutoComplete, Type = typeof(Popup))]
     public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     {
-#if netle40
+#if NET40
 
         private string _searchText;
 
@@ -71,7 +71,7 @@ namespace HandyControl.Controls
 
                     if (AutoComplete)
                     {
-#if netle40
+#if NET40
                         _autoCompleteTimer = new DispatcherTimer
                         {
                             Interval = TimeSpan.FromMilliseconds(500)
@@ -84,7 +84,7 @@ namespace HandyControl.Controls
                         {
                             UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
                             Mode = BindingMode.OneWayToSource,
-#if !netle40
+#if !NET40
                             Delay = 500,
 #endif
                             Source = this
@@ -96,7 +96,7 @@ namespace HandyControl.Controls
             }
         }
 
-#if netle40
+#if NET40
 
         private void AutoCompleteTimer_Tick(object sender, EventArgs e)
         {
@@ -119,7 +119,7 @@ namespace HandyControl.Controls
             }
         }
 
-#if !netle40
+#if !NET40
         protected override void OnDropDownClosed(EventArgs e)
         {
             base.OnDropDownClosed(e);
@@ -142,7 +142,7 @@ namespace HandyControl.Controls
             _isAutoCompleteAction = false;
             base.OnSelectionChanged(e);
             VerifyData();
-#if netle40
+#if NET40
             _isAutoCompleteAction = true;
 #endif
         }
@@ -312,7 +312,7 @@ namespace HandyControl.Controls
             var ctl = (ComboBox)d;
             if (ctl._isAutoCompleteAction)
             {
-#if netle40
+#if NET40
                 ctl._searchText = e.NewValue as string;
                 ctl._autoCompleteTimer.Stop();
                 ctl._autoCompleteTimer.Start();

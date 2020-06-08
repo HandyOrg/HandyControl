@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
+using HandyControl.Tools;
 using HandyControl.Tools.Extension;
-#if netle40
+using HandyControl.Tools.Interop;
+#if NET40
 using Microsoft.Windows.Shell;
 #else
 using System.Windows.Shell;
@@ -80,6 +83,8 @@ namespace HandyControl.Controls
 
         private Thickness _actualBorderThickness;
 
+        private readonly Thickness _commonPadding;
+
         private bool _showNonClientArea = true;
 
         private double _tempNonClientAreaHeight;
@@ -94,12 +99,12 @@ namespace HandyControl.Controls
 
         static Window()
         {
-            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(Application.Current.FindResource(ResourceToken.WindowWin10)));
+            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>(ResourceToken.WindowWin10)));
         }
 
         public Window()
         {
-#if netle40
+#if NET40
             var chrome = new WindowChrome
             {
                 CornerRadius = new CornerRadius(),
@@ -114,45 +119,96 @@ namespace HandyControl.Controls
             };
 #endif
             BindingOperations.SetBinding(chrome, WindowChrome.CaptionHeightProperty,
-                new Binding(NonClientAreaHeightProperty.Name) {Source = this});
+                new Binding(NonClientAreaHeightProperty.Name) { Source = this });
             WindowChrome.SetWindowChrome(this, chrome);
+            _commonPadding = Padding;
 
-            Loaded += (s, e) => OnLoaded(e);            
+            Loaded += (s, e) => OnLoaded(e);
         }
+
+        private void WmGetMinMaxInfo(IntPtr hwnd, IntPtr lParam)
+        {
+            var mmi = (InteropValues.MINMAXINFO)Marshal.PtrToStructure(lParam, typeof(InteropValues.MINMAXINFO));
+            var monitor = InteropMethods.MonitorFromWindow(hwnd, InteropValues.MONITOR_DEFAULTTONEAREST);
+
+            if (monitor != IntPtr.Zero && mmi != null)
+            {
+                InteropValues.APPBARDATA appBarData = default;
+                var autoHide = InteropMethods.SHAppBarMessage(4, ref appBarData) != 0;
+                if (autoHide)
+                {
+                    var monitorInfo = default(InteropValues.MONITORINFO);
+                    monitorInfo.cbSize = (uint)Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
+                    InteropMethods.GetMonitorInfo(monitor, ref monitorInfo);
+                    var rcWorkArea = monitorInfo.rcWork;
+                    var rcMonitorArea = monitorInfo.rcMonitor;
+                    mmi.ptMaxPosition.X = Math.Abs(rcWorkArea.Left - rcMonitorArea.Left);
+                    mmi.ptMaxPosition.Y = Math.Abs(rcWorkArea.Top - rcMonitorArea.Top);
+                    mmi.ptMaxSize.X = Math.Abs(rcWorkArea.Right - rcWorkArea.Left);
+                    mmi.ptMaxSize.Y = Math.Abs(rcWorkArea.Bottom - rcWorkArea.Top - 1);
+                }
+            }
+
+            Marshal.StructureToPtr(mmi, lParam, true);
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            this.GetHwndSource()?.AddHook(HwndSourceHook);
+            base.OnSourceInitialized(e);
+        }
+
+        private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
+        {
+            switch (msg)
+            {
+                case InteropValues.WM_WINDOWPOSCHANGED:
+                    Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
+                    break;
+                case InteropValues.WM_GETMINMAXINFO:
+                    WmGetMinMaxInfo(hwnd, lparam);
+                    Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
+                    handled = true;
+                    break;
+            }
+
+            return IntPtr.Zero;
+        }
+
 
         public Brush CloseButtonBackground
         {
-            get => (Brush) GetValue(CloseButtonBackgroundProperty);
+            get => (Brush)GetValue(CloseButtonBackgroundProperty);
             set => SetValue(CloseButtonBackgroundProperty, value);
         }
 
         public Brush CloseButtonForeground
         {
-            get => (Brush) GetValue(CloseButtonForegroundProperty);
+            get => (Brush)GetValue(CloseButtonForegroundProperty);
             set => SetValue(CloseButtonForegroundProperty, value);
         }
 
         public Brush OtherButtonBackground
         {
-            get => (Brush) GetValue(OtherButtonBackgroundProperty);
+            get => (Brush)GetValue(OtherButtonBackgroundProperty);
             set => SetValue(OtherButtonBackgroundProperty, value);
         }
 
         public Brush OtherButtonForeground
         {
-            get => (Brush) GetValue(OtherButtonForegroundProperty);
+            get => (Brush)GetValue(OtherButtonForegroundProperty);
             set => SetValue(OtherButtonForegroundProperty, value);
         }
 
         public double NonClientAreaHeight
         {
-            get => (double) GetValue(NonClientAreaHeightProperty);
+            get => (double)GetValue(NonClientAreaHeightProperty);
             set => SetValue(NonClientAreaHeightProperty, value);
         }
 
         public bool IsFullScreen
         {
-            get => (bool) GetValue(IsFullScreenProperty);
+            get => (bool)GetValue(IsFullScreenProperty);
             set => SetValue(IsFullScreenProperty, value);
         }
 
@@ -164,56 +220,56 @@ namespace HandyControl.Controls
 
         public Brush CloseButtonHoverBackground
         {
-            get => (Brush) GetValue(CloseButtonHoverBackgroundProperty);
+            get => (Brush)GetValue(CloseButtonHoverBackgroundProperty);
             set => SetValue(CloseButtonHoverBackgroundProperty, value);
         }
 
         public Brush CloseButtonHoverForeground
         {
-            get => (Brush) GetValue(CloseButtonHoverForegroundProperty);
+            get => (Brush)GetValue(CloseButtonHoverForegroundProperty);
             set => SetValue(CloseButtonHoverForegroundProperty, value);
         }
 
         public Brush OtherButtonHoverBackground
         {
-            get => (Brush) GetValue(OtherButtonHoverBackgroundProperty);
+            get => (Brush)GetValue(OtherButtonHoverBackgroundProperty);
             set => SetValue(OtherButtonHoverBackgroundProperty, value);
         }
 
         public Brush OtherButtonHoverForeground
         {
-            get => (Brush) GetValue(OtherButtonHoverForegroundProperty);
+            get => (Brush)GetValue(OtherButtonHoverForegroundProperty);
             set => SetValue(OtherButtonHoverForegroundProperty, value);
         }
 
         public Brush NonClientAreaBackground
         {
-            get => (Brush) GetValue(NonClientAreaBackgroundProperty);
+            get => (Brush)GetValue(NonClientAreaBackgroundProperty);
             set => SetValue(NonClientAreaBackgroundProperty, value);
         }
 
         public Brush NonClientAreaForeground
         {
-            get => (Brush) GetValue(NonClientAreaForegroundProperty);
+            get => (Brush)GetValue(NonClientAreaForegroundProperty);
             set => SetValue(NonClientAreaForegroundProperty, value);
         }
 
         public bool ShowNonClientArea
         {
-            get => (bool) GetValue(ShowNonClientAreaProperty);
+            get => (bool)GetValue(ShowNonClientAreaProperty);
             set => SetValue(ShowNonClientAreaProperty, value);
         }
 
         public bool ShowTitle
         {
-            get => (bool) GetValue(ShowTitleProperty);
+            get => (bool)GetValue(ShowTitleProperty);
             set => SetValue(ShowTitleProperty, value);
         }
 
         private static void OnShowNonClientAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (Window) d;
-            ctl.SwitchShowNonClientArea((bool) e.NewValue);
+            var ctl = (Window)d;
+            ctl.SwitchShowNonClientArea((bool)e.NewValue);
         }
 
         private void SwitchShowNonClientArea(bool showNonClientArea)
@@ -248,8 +304,8 @@ namespace HandyControl.Controls
 
         private static void OnIsFullScreenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (Window) d;
-            ctl.SwitchIsFullScreen((bool) e.NewValue);
+            var ctl = (Window)d;
+            ctl.SwitchIsFullScreen((bool)e.NewValue);
         }
 
         private void SwitchIsFullScreen(bool isFullScreen)

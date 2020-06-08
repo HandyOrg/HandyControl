@@ -1,6 +1,0 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.ColorPickerDemoCtl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl">
-    <controls:ColorPicker Name="ColorPicker" Margin="32"/>
-</UserControl>

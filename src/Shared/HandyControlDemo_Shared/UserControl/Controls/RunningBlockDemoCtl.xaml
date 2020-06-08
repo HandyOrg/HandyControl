@@ -3,29 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs">
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center">
-            <hc:RunningBlock Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
-            <hc:RunningBlock Runaway="False" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
-            <hc:RunningBlock HorizontalAlignment="Left" AutoRun="True" Width="100" Runaway="False" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Duration="0:0:2" Margin="0,16,0,0"/>
-            <hc:RunningBlock HorizontalAlignment="Left" AutoReverse="True" AutoRun="True" Width="100" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
-            <hc:RunningBlock HorizontalAlignment="Left" AutoRun="True" Width="200" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
-            <hc:RunningBlock Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=10}" FontSize="20" FontWeight="Bold" Foreground="OrangeRed" Duration="0:0:10" Margin="0,16,0,0"/>
-            <hc:RunningBlock AutoReverse="True" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=10}" FontSize="20" FontWeight="Bold" Foreground="OrangeRed" Duration="0:0:10" Margin="0,16,0,0"/>
-            <hc:RunningBlock Orientation="Vertical" Content="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=10}" FontSize="20" FontWeight="Bold" Foreground="OrangeRed" Duration="0:0:4" Margin="0,16,0,0"/>
+            <hc:RunningBlock Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+            <hc:RunningBlock Runaway="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
+            <hc:RunningBlock HorizontalAlignment="Left" Width="500" Speed="50" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
+            <hc:RunningBlock HorizontalAlignment="Left" Width="300" FontSize="30" Speed="50" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
+            <hc:RunningBlock HorizontalAlignment="Left" AutoRun="True" Width="100" Runaway="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Duration="0:0:2" Margin="0,16,0,0"/>
+            <hc:RunningBlock HorizontalAlignment="Left" AutoReverse="True" AutoRun="True" Width="100" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
+            <hc:RunningBlock HorizontalAlignment="Left" AutoRun="True" Width="200" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
+            <hc:RunningBlock Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=10}" FontSize="20" FontWeight="Bold" Foreground="OrangeRed" Duration="0:0:10" Margin="0,16,0,0"/>
+            <hc:RunningBlock AutoReverse="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=10}" FontSize="20" FontWeight="Bold" Foreground="OrangeRed" Duration="0:0:10" Margin="0,16,0,0"/>
+            <hc:RunningBlock Orientation="Vertical" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=10}" FontSize="20" FontWeight="Bold" Foreground="OrangeRed" Duration="0:0:4" Margin="0,16,0,0"/>
             <hc:RunningBlock Margin="0,16,0,0" Duration="0:0:20" IsRunning="{Binding IsMouseOver,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2BooleanReConverter}}">
                 <StackPanel Orientation="Horizontal">
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/1.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/2.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/3.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/4.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/5.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/6.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/7.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/8.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/9.gif" Margin="10,0"/>
-                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/10.gif" Margin="10,0"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/1.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/2.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/3.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/4.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/5.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/6.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/7.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/8.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/9.gif" Margin="10,0" Width="30" Height="30"/>
+                    <hc:GifImage Uri="/HandyControlDemo;component/Resources/Img/QQ/10.gif" Margin="10,0" Width="30" Height="30"/>
                 </StackPanel>
             </hc:RunningBlock>
         </StackPanel>

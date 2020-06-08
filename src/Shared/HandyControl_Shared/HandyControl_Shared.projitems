@@ -13,10 +13,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\BackgroundSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\BorderElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DataGridAttach.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DropDownElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\EdgeElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconSwitchElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ImageAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\InfoElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\MenuTopLineAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\RectangleAttach.cs" />
@@ -24,6 +27,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\AdornerElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\FloatingBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Carousel\CarouselItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Dialog\DialogContainer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\GrowlWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\PinBox.cs" />
@@ -34,6 +39,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Card.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Notification.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Poptip.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Watermark.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Screenshot\Screenshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\ToggleBlock.cs" />
@@ -44,11 +50,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeThumb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\RunningBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\SimpleText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DisposableObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\EnumDataProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\DrawerShowMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HatchStyle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HitMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ImageCodecFlags.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ShowAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\NotifyIconInfoType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StrokePosition.cs" />
@@ -59,6 +68,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowDrawingContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowEdge.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\HwndWrapper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\ImageCodecInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\StartScreenshotCommand.cs" />
@@ -79,6 +89,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ContrastEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\EffectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Themes\SharedResourceDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Themes\Theme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />
@@ -89,6 +101,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ThicknessSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\DependencyObjectExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\FrameworkElementExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\LangExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ValueExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\GlobalShortcut.cs" />
@@ -134,10 +147,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Loading\LoadingLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\AnimationPath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Badge.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Carousel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Carousel\Carousel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ChatBubble.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ColorPicker\ColorPicker.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Dialog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Dialog\Dialog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\GotoTop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Gravatar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\Growl.cs" />
@@ -202,7 +215,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StepStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TextType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\PlacementType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitleAlignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitlePlacementType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifFrameDimension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifImageInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItem.cs" />
@@ -314,7 +327,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ConfigHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DesignerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DpiHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ExternDllHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\IconHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ResourceHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ScreenHelper.cs" />
@@ -404,6 +416,34 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\SkinViolet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Watermark.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\WatermarkBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\ComboBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\MessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -976,6 +1016,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\TreeView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Window.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

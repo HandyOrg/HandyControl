@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         WindowStartupLocation="CenterScreen"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-        Title="{x:Static langs:Lang.Title}" 
+        xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+        Title="{ex:Lang Key={x:Static langs:LangKeys.Title}}" 
         Height="450" 
         Width="800" 
         Icon="/HandyControlDemo;component/Resources/Img/icon.ico">

@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Border.xaml" />
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Border.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <SineEase x:Key="SineEaseOut" EasingMode="EaseOut" />
@@ -53,7 +54,7 @@
                 <Ellipse.Triggers>
                     <EventTrigger RoutedEvent="Loaded">
                         <BeginStoryboard>
-                            <Storyboard RepeatBehavior="Forever">
+                            <Storyboard RepeatBehavior="Forever" DesiredFrameRate="20">
                                 <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleX)" BeginTime="0" Duration="0:0:1" From="1" To="2" EasingFunction="{StaticResource SineEaseOut}" />
                                 <DoubleAnimation Storyboard.TargetProperty="(UIElement.RenderTransform).(ScaleTransform.ScaleY)" BeginTime="0" Duration="0:0:1" From="1" To="2" EasingFunction="{StaticResource SineEaseOut}" />
                                 <DoubleAnimation Storyboard.TargetProperty="Opacity" BeginTime="0" Duration="0:0:1" From="1" To="0" EasingFunction="{StaticResource SineEaseOut}" />

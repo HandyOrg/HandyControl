@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <Grid Margin="32">
@@ -10,43 +11,43 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <hc:NumericUpDown x:Name="UpDownGroups" HorizontalAlignment="Center" Value="2" Minimum="1" Maximum="3" Width="200" Style="{StaticResource NumericUpDownExtend}" hc:TitleElement.Title="{x:Static langs:Lang.Groups}" hc:TitleElement.TitleWidth="50" hc:TitleElement.TitleAlignment="Left"/>
+            <hc:NumericUpDown x:Name="UpDownGroups" HorizontalAlignment="Center" Value="2" Minimum="1" Maximum="3" Width="200" Style="{StaticResource NumericUpDownExtend}" hc:TitleElement.Title="{ex:Lang Key={x:Static langs:LangKeys.Groups}}" hc:TitleElement.TitleWidth="50" hc:TitleElement.TitlePlacement="Left"/>
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,16,0,0">
                 <hc:ScrollViewer MaxHeight="300">
                     <hc:WaterfallPanel VerticalAlignment="Center" Width="300" Groups="{Binding Value,ElementName=UpDownGroups}" hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}">
                         <Border Height="100" Background="{DynamicResource PrimaryBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                         <Border Height="140" Background="{DynamicResource DangerBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                         <Border Height="100" Background="{DynamicResource SuccessBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                         <Border Height="170" Background="{DynamicResource InfoBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                         <Border Height="100" Background="{DynamicResource WarningBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                     </hc:WaterfallPanel>
                 </hc:ScrollViewer>
                 <hc:ScrollViewer Margin="32,0,0,0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" Orientation="Horizontal" MaxWidth="300">
                     <hc:WaterfallPanel VerticalAlignment="Center" Height="300" Orientation="Vertical" Groups="{Binding Value,ElementName=UpDownGroups}" hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}">
                         <Border Width="100" Background="{DynamicResource PrimaryBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                         <Border Width="140" Background="{DynamicResource DangerBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                         <Border Width="100" Background="{DynamicResource SuccessBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                         <Border Width="170" Background="{DynamicResource InfoBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                         <Border Width="100" Background="{DynamicResource WarningBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
-                            <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         </Border>
                     </hc:WaterfallPanel>
                 </hc:ScrollViewer>

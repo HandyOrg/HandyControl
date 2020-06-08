@@ -4,9 +4,11 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
 using HandyControl.Data;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -27,7 +29,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     最大显示数量的一半
         /// </summary>
-        private const int MaxShowCountHalf = 7;
+        private const int MaxShowCountHalf = 3;
 
         /// <summary>
         ///     页码
@@ -55,7 +57,7 @@ namespace HandyControl.Controls
         private static void OnPageIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (CoverFlow)d;
-            ctl.UpdateIndex((int)e.NewValue, (int)e.OldValue);
+            ctl.UpdateIndex((int)e.NewValue);
         }
 
         /// <summary>
@@ -72,12 +74,14 @@ namespace HandyControl.Controls
         /// <summary>
         ///     当前在显示范围内的项
         /// </summary>
-        private readonly Dictionary<int, CoverFlowItem> _itemShowList = new Dictionary<int, CoverFlowItem>();
+        private readonly Dictionary<int, CoverFlowItem> _itemShowDic = new Dictionary<int, CoverFlowItem>();
 
         /// <summary>
         ///     相机
         /// </summary>
         private ProjectionCamera _camera;
+
+        private Point3DAnimation _point3DAnimation;
 
         /// <summary>
         ///     3d画布
@@ -127,7 +131,7 @@ namespace HandyControl.Controls
             if (_viewport3D != null)
             {
                 _viewport3D.Children.Clear();
-                _itemShowList.Clear();
+                _itemShowDic.Clear();
                 _viewport3D.MouseLeftButtonDown -= Viewport3D_MouseLeftButtonDown;
             }
 
@@ -148,7 +152,9 @@ namespace HandyControl.Controls
                 PageIndex = _jumpToIndex;
                 _jumpToIndex = -1;
             }
-            _camera.Position = new Point3D(CoverFlowItem.Interval * PageIndex, _camera.Position.Y, _camera.Position.Z);
+
+            _point3DAnimation = new Point3DAnimation(new Point3D(CoverFlowItem.Interval * PageIndex, _camera.Position.Y, _camera.Position.Z), new Duration(TimeSpan.FromMilliseconds(200)));
+            _camera.BeginAnimation(ProjectionCamera.PositionProperty, _point3DAnimation);
         }
 
         /// <summary>
@@ -204,24 +210,17 @@ namespace HandyControl.Controls
         /// <param name="pos"></param>
         private void Remove(int pos)
         {
-            if (!_itemShowList.TryGetValue(pos, out var item)) return;
+            if (!_itemShowDic.TryGetValue(pos, out var item)) return;
             _visualParent.Children.Remove(item);
-            _itemShowList.Remove(pos);
+            _itemShowDic.Remove(pos);
         }
-
-        /// <summary>
-        ///     移动项到指定的位置
-        /// </summary>
-        /// <param name="index"></param>
-        /// <param name="animated"></param>
-        private void Move(int index, bool animated) => _itemShowList[index].Move(PageIndex, animated);
 
         private void Viewport3D_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var result = (RayMeshGeometry3DHitTestResult)VisualTreeHelper.HitTest(_viewport3D, e.GetPosition(_viewport3D));
             if (result != null)
             {
-                foreach (var item in _itemShowList.Values)
+                foreach (var item in _itemShowDic.Values)
                 {
                     if (item.HitTest(result.MeshHit))
                     {
@@ -236,35 +235,25 @@ namespace HandyControl.Controls
         ///     更新项的位置
         /// </summary>
         /// <param name="newIndex"></param>
-        /// <param name="oldIndex"></param>
-        private void UpdateIndex(int newIndex, int oldIndex)
+        private void UpdateIndex(int newIndex)
         {
-            var animate = Math.Abs(newIndex - oldIndex) < MaxShowCountHalf;
             UpdateShowRange();
-            if (newIndex > oldIndex)
+            _itemShowDic.Do(item =>
             {
-                if (oldIndex < _firstShowIndex)
+                if (item.Value.Index < _firstShowIndex || item.Value.Index > _lastShowIndex)
                 {
-                    oldIndex = _firstShowIndex;
+                    Remove(item.Value.Index);
                 }
-                for (var i = oldIndex; i <= newIndex; i++)
+                else
                 {
-                    Move(i, animate);
+                    item.Value.Move(PageIndex);
                 }
-            }
-            else
-            {
-                if (oldIndex > _lastShowIndex)
-                {
-                    oldIndex = _lastShowIndex;
-                }
-                for (var i = oldIndex; i >= newIndex; i--)
-                {
-                    Move(i, animate);
-                }
-            }
-            _camera.Position = new Point3D(CoverFlowItem.Interval * newIndex, _camera.Position.Y,
-                _camera.Position.Z);
+            });
+
+            _point3DAnimation = new Point3DAnimation(new Point3D(CoverFlowItem.Interval * newIndex, _camera.Position.Y,
+                _camera.Position.Z), new Duration(TimeSpan.FromMilliseconds(200)));
+
+            _camera.BeginAnimation(ProjectionCamera.PositionProperty, _point3DAnimation);
         }
 
         /// <summary>
@@ -275,27 +264,12 @@ namespace HandyControl.Controls
             var newFirstShowIndex = Math.Max(PageIndex - MaxShowCountHalf, 0);
             var newLastShowIndex = Math.Min(PageIndex + MaxShowCountHalf, _contentDic.Count - 1);
 
-            if (_firstShowIndex < newFirstShowIndex)
-            {
-                for (var i = _firstShowIndex; i < newFirstShowIndex; i++)
-                {
-                    Remove(i);
-                }
-            }
-            else if (newLastShowIndex < _lastShowIndex)
-            {
-                for (var i = newLastShowIndex; i < _lastShowIndex; i++)
-                {
-                    Remove(i);
-                }
-            }
-
             for (var i = newFirstShowIndex; i <= newLastShowIndex; i++)
             {
-                if (!_itemShowList.ContainsKey(i))
+                if (!_itemShowDic.ContainsKey(i))
                 {
                     var cover = CreateCoverFlowItem(i, _contentDic[i]);
-                    _itemShowList[i] = cover;
+                    _itemShowDic[i] = cover;
                     _visualParent.Children.Add(cover);
                 }
             }

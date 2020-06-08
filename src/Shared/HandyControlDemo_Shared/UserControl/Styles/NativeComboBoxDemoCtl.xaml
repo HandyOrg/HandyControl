@@ -3,24 +3,25 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <ScrollViewer>
             <StackPanel Margin="32">
-                <ComboBox ItemsSource="{Binding DataList}" SelectedIndex="0"/>
+                <ComboBox hc:DropDownElement.ConsistentWidth="False" ItemsSource="{Binding DataList}" SelectedIndex="0"/>
                 <ComboBox ItemsSource="{Binding DataList}" Margin="0,16,0,0" SelectedIndex="0" IsEnabled="False"/>
                 <ComboBox ItemsSource="{Binding DataList}" SelectedIndex="0" Margin="0,16,0,0" IsEditable="True"/>
 
-                <ComboBox ItemsSource="{Binding DataList}" SelectedIndex="0" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Style="{StaticResource ComboBoxExtend}" Margin="0,32,0,0" Text="{x:Static langs:Lang.ContentDemoStr}"/>
-                <ComboBox ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr2}" Style="{StaticResource ComboBoxExtend}" hc:InfoElement.Necessary="True" hc:InfoElement.Symbol="*" Margin="0,16,0,0"/>
-                <ComboBox ItemsSource="{Binding DataList}" IsEditable="True" SelectedIndex="0" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Style="{StaticResource ComboBoxExtend}" Margin="0,16,0,0" Text="{x:Static langs:Lang.ContentDemoStr}"/>
-                <ComboBox ItemsSource="{Binding DataList}" IsEditable="True" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr2}" Style="{StaticResource ComboBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                <ComboBox hc:DropDownElement.ConsistentWidth="False" ItemsSource="{Binding DataList}" SelectedIndex="0" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource ComboBoxExtend}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                <ComboBox ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource ComboBoxExtend}" hc:InfoElement.Necessary="True" hc:InfoElement.Symbol="*" Margin="0,16,0,0"/>
+                <ComboBox ItemsSource="{Binding DataList}" IsEditable="True" SelectedIndex="0" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource ComboBoxExtend}" Margin="0,16,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                <ComboBox ItemsSource="{Binding DataList}" IsEditable="True" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource ComboBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
 
-                <ComboBox ItemsSource="{Binding DataList}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource ComboBoxExtend}" Margin="0,32,0,0" Text="{x:Static langs:Lang.ContentDemoStr}"/>
-                <ComboBox ItemsSource="{Binding DataList}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" hc:InfoElement.Necessary="True" Style="{StaticResource ComboBoxExtend}" Margin="0,16,0,0"/>
-                <ComboBox ItemsSource="{Binding DataList}" IsEditable="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource ComboBoxExtend}" Margin="0,16,0,0" Text="{x:Static langs:Lang.ContentDemoStr}"/>
-                <ComboBox ItemsSource="{Binding DataList}" IsEditable="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" hc:InfoElement.Necessary="True" Style="{StaticResource ComboBoxExtend}" Margin="0,16,0,0"/>
+                <ComboBox ItemsSource="{Binding DataList}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource ComboBoxExtend}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                <ComboBox ItemsSource="{Binding DataList}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Style="{StaticResource ComboBoxExtend}" Margin="0,16,0,0"/>
+                <ComboBox ItemsSource="{Binding DataList}" IsEditable="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource ComboBoxExtend}" Margin="0,16,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                <ComboBox ItemsSource="{Binding DataList}" IsEditable="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Style="{StaticResource ComboBoxExtend}" Margin="0,16,0,0"/>
             </StackPanel>
         </ScrollViewer>
     </hc:TransitioningContentControl>

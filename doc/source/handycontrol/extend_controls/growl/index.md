@@ -95,26 +95,45 @@ title: Growl 信息通知
 | Success(string) | 显示一则成功通知 |
 | Success(string, string) | 使用指定的消息标记显示一则成功通知 |
 | Success(GrowlInfo) | 使用完整的消息初始化模型显示一则成功通知 |
+| SuccessGlobal(string) | 显示一则全局成功通知 |
+| SuccessGlobal(GrowlInfo) | 使用完整的消息初始化模型显示一则全局成功通知 |
 | Info(string) | 显示一则消息通知 |
 | Info(string, string) | 使用指定的消息标记显示一则消息通知 |
 | Info(GrowlInfo) | 使用完整的消息初始化模型显示一则消息通知 |
+| InfoGlobal(string) | 显示一则全局消息通知 |
+| InfoGlobal(GrowlInfo) | 使用完整的消息初始化模型显示一则全局消息通知 |
 | Warning(string) | 显示一则警告通知 |
 | Warning(string, string) | 使用指定的消息标记显示一则警告通知 |
 | Warning(GrowlInfo) | 使用完整的消息初始化模型显示一则警告通知 |
+| WarningGlobal(string) | 显示一则全局警告通知 |
+| WarningGlobal(GrowlInfo) | 使用完整的消息初始化模型显示一则全局警告通知 |
 | Error(string) | 显示一则错误通知 |
 | Error(string, string) | 使用指定的消息标记显示一则错误通知 |
 | Error(GrowlInfo) | 使用完整的消息初始化模型显示一则错误通知 |
+| ErrorGlobal(string) | 显示一则全局错误通知 |
+| ErrorGlobal(GrowlInfo) | 使用完整的消息初始化模型显示一则全局错误通知 |
 | Fatal(string) | 显示一则严重通知 |
 | Fatal(string, string) | 使用指定的消息标记显示一则严重通知 |
 | Fatal(GrowlInfo) | 使用完整的消息初始化模型显示一则严重通知 |
+| FatalGlobal(string) | 显示一则全局严重通知 |
+| FatalGlobal(GrowlInfo) | 使用完整的消息初始化模型显示一则全局严重通知 |
 | Ask(string, Func<bool, bool>) | 显示一则询问通知 |
 | Ask(string, Func<bool, bool>, string) | 使用指定的消息标记显示一则询问通知 |
 | Ask(GrowlInfo) | 使用完整的消息初始化模型显示一则询问通知 |
+| AskGlobal(string, Func<bool, bool>) | 显示一则全局询问通知 |
+| AskGlobal(GrowlInfo) | 使用完整的消息初始化模型显示一则全局询问通知 |
 | Register(string, Panel) | 为指定的容器注册消息标记 |
 | Unregister(string, Panel) | 为指定的容器取消消息标记的注册 |
 | Unregister(Panel) | 如果该容器注册了消息标记则取消注册 |
+| Unregister(string) | 如果该消息标记有对应的容器则取消注册 |
 | Clear( ) | 清空当前使用的消息容器中的消息 |
 | Clear(string) | 清空含有指定消息标记的消息容器中的消息 |
+| Clear(Panel) | 清空指定容器中的消息 |
+| ClearGlobal( ) | 清空全局容器中的消息 |
+
+# 注意
+
+`Error` 和 `Fatal`模式不会自动关闭。
 
 # FAQ
 

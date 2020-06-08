@@ -3,16 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
         xmlns:data="clr-namespace:HandyControlDemo.Data"
         hc:Dialog.Token="{x:Static data:MessageToken.DialogDemoWindow}"
         DataContext="{Binding DialogDemo,Source={StaticResource Locator}}"
-        Title="{x:Static langs:Lang.DialogDemo}"
+        Title="{ex:Lang Key={x:Static langs:LangKeys.DialogDemo}}"
         Width="800"
         Height="500">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center">
-            <Button Content="{x:Static langs:Lang.ShowInCurrentWindow}" Command="{Binding ShowWithTokenCmd}" CommandParameter="{x:Static data:MessageToken.DialogDemoWindow}"/>
-            <Button Margin="0,10,0,0" Content="{x:Static langs:Lang.ShowInMainWindow}" Command="{Binding ShowWithTokenCmd}" CommandParameter="{x:Static data:MessageToken.MainWindow}"/>
+            <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ShowInCurrentWindow}}" Command="{Binding ShowWithTokenCmd}" CommandParameter="{x:Static data:MessageToken.DialogDemoWindow}"/>
+            <Button Margin="0,10,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.ShowInMainWindow}}" Command="{Binding ShowWithTokenCmd}" CommandParameter="{x:Static data:MessageToken.MainWindow}"/>
         </StackPanel>
     </hc:TransitioningContentControl>
 </Window>

@@ -1,8 +1,14 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Basic/Basic.xaml"/>
-        <ResourceDictionary Source="Styles/Style.xaml"/>
+        <ResourceDictionary>
+            <langs:LangProvider x:Key="Langs"/>
+        </ResourceDictionary>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Basic.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Style.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
 </ResourceDictionary>

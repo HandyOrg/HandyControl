@@ -18,6 +18,8 @@ namespace HandyControl.Controls
     {
         private ProgressBar _progressBarBack;
 
+        private int _oriStepIndex = -1;
+
         #region Constants
 
         private const string ElementProgressBarBack = "PART_ProgressBarBack";
@@ -46,19 +48,14 @@ namespace HandyControl.Controls
                     }
                 }
 
-                if (StepIndex < count)
+                if (_oriStepIndex > 0)
                 {
-                    for (var i = 0; i < StepIndex; i++)
-                    {
-                        if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepBarItem)
-                        {
-                            stepBarItem.Status = StepStatus.Complete;
-                        }
-                    }
-                    if (ItemContainerGenerator.ContainerFromIndex(StepIndex) is StepBarItem item)
-                    {
-                        item.Status = StepStatus.UnderWay;
-                    }
+                    StepIndex = _oriStepIndex;
+                    _oriStepIndex = -1;
+                }
+                else
+                {
+                    OnStepIndexChanged(StepIndex);
                 }
             }
         }
@@ -85,12 +82,64 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty StepIndexProperty = DependencyProperty.Register(
-            "StepIndex", typeof(int), typeof(StepBar), new PropertyMetadata(ValueBoxes.Int0Box));
+            "StepIndex", typeof(int), typeof(StepBar), new FrameworkPropertyMetadata(ValueBoxes.Int0Box, 
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnStepIndexChanged, CoerceStepIndex));
+
+        private static object CoerceStepIndex(DependencyObject d, object basevalue)
+        {
+            var ctl = (StepBar)d;
+            var stepIndex = (int) basevalue;
+            if (ctl.Items.Count == 0 && stepIndex > 0)
+            {
+                ctl._oriStepIndex = stepIndex;
+                return ValueBoxes.Int0Box;
+            }
+
+            return stepIndex < 0
+                ? ValueBoxes.Int0Box
+                : stepIndex >= ctl.Items.Count
+                    ? ctl.Items.Count == 0 ? 0 : ctl.Items.Count - 1
+                    : basevalue;
+        }
+
+        private static void OnStepIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (StepBar) d;
+            ctl.OnStepIndexChanged((int)e.NewValue);
+        }
+
+        private void OnStepIndexChanged(int stepIndex)
+        {
+            for (var i = 0; i < stepIndex; i++)
+            {
+                if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepItemFinished)
+                {
+                    stepItemFinished.Status = StepStatus.Complete;
+                }
+            }
+
+            for (var i = stepIndex + 1; i < Items.Count; i++)
+            {
+                if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepItemFinished)
+                {
+                    stepItemFinished.Status = StepStatus.Waiting;
+                }
+            }
+
+            if (ItemContainerGenerator.ContainerFromIndex(stepIndex) is StepBarItem stepItemSelected)
+                stepItemSelected.Status = StepStatus.UnderWay;
+            _progressBarBack?.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(stepIndex));
+            
+            RaiseEvent(new FunctionEventArgs<int>(StepChangedEvent, this)
+            {
+                Info = stepIndex
+            });
+        }
 
         public int StepIndex
         {
-            get => (int)GetValue(StepIndexProperty);
-            protected set => SetValue(StepIndexProperty, value);
+            get => (int)GetValue(StepIndexProperty); 
+            set => SetValue(StepIndexProperty, value);
         }
 
         public static readonly DependencyProperty DockProperty = DependencyProperty.Register(
@@ -128,42 +177,8 @@ namespace HandyControl.Controls
             }
         }
 
-        public void Next()
-        {
-            StepIndex++;
-            if (StepIndex >= Items.Count)
-            {
-                StepIndex = Items.Count - 1;
-                return;
-            }
-            RaiseEvent(new FunctionEventArgs<int>(StepChangedEvent, this)
-            {
-                Info = StepIndex
-            });
-            if (ItemContainerGenerator.ContainerFromIndex(StepIndex - 1) is StepBarItem stepItemFinished)
-                stepItemFinished.Status = StepStatus.Complete;
-            if (ItemContainerGenerator.ContainerFromIndex(StepIndex) is StepBarItem stepItemSelected)
-                stepItemSelected.Status = StepStatus.UnderWay;
-            _progressBarBack?.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(StepIndex));
-        }
+        public void Next() => StepIndex++;
 
-        public void Prev()
-        {
-            StepIndex--;
-            if (StepIndex < 0)
-            {
-                StepIndex = 0;
-                return;
-            }
-            RaiseEvent(new FunctionEventArgs<int>(StepChangedEvent, this)
-            {
-                Info = StepIndex
-            });
-            if (ItemContainerGenerator.ContainerFromIndex(StepIndex + 1) is StepBarItem stepItemWaiting)
-                stepItemWaiting.Status = StepStatus.Waiting;
-            if (ItemContainerGenerator.ContainerFromIndex(StepIndex) is StepBarItem stepItemSelected)
-                stepItemSelected.Status = StepStatus.UnderWay;
-            _progressBarBack?.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(StepIndex));
-        }
+        public void Prev() => StepIndex--;
     }
 }

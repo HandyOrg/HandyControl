@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Windows;
 using GalaSoft.MvvmLight;
-#if netle40
 using GalaSoft.MvvmLight.Command;
-#else
+#if !NET40
 using System.Threading.Tasks;
-using GalaSoft.MvvmLight.CommandWpf;
 #endif
 using HandyControl.Controls;
 using HandyControl.Tools.Extension;
@@ -22,22 +20,29 @@ namespace HandyControlDemo.ViewModel
         public string DialogResult
         {
             get => _dialogResult;
-#if netle40
+#if NET40
             set => Set(nameof(DialogResult), ref _dialogResult, value);
 #else
             set => Set(ref _dialogResult, value);
 #endif
         }
 
-        public RelayCommand ShowTextCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(ShowText)).Value;
+        public RelayCommand<FrameworkElement> ShowTextCmd => new Lazy<RelayCommand<FrameworkElement>>(() =>
+            new RelayCommand<FrameworkElement>(ShowText)).Value;
 
-        private void ShowText()
+        private void ShowText(FrameworkElement element)
         {
-            Dialog.Show(new TextDialog());
+            if (element == null)
+            {
+                Dialog.Show(new TextDialog());
+            }
+            else
+            {
+                Dialog.Show(new TextDialog(), MessageToken.DialogContainer);
+            }
         }
 
-#if netle40
+#if NET40
         public RelayCommand<bool> ShowInteractiveDialogCmd => new Lazy<RelayCommand<bool>>(() =>
             new RelayCommand<bool>(ShowInteractiveDialog)).Value;
 

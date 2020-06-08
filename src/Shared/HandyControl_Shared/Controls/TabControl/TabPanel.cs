@@ -22,11 +22,15 @@ namespace HandyControl.Controls
         /// </summary>
         internal Dictionary<int, TabItem> ItemDic = new Dictionary<int, TabItem>();
 
+        public static readonly DependencyPropertyKey FluidMoveDurationPropertyKey =
+            DependencyProperty.RegisterReadOnly("FluidMoveDuration", typeof(Duration), typeof(TabPanel),
+                new PropertyMetadata(new Duration(TimeSpan.FromMilliseconds(0))));
+
         /// <summary>
         ///     流式行为持续时间
         /// </summary>
-        public static readonly DependencyProperty FluidMoveDurationProperty = DependencyProperty.Register(
-            "FluidMoveDuration", typeof(Duration), typeof(TabPanel), new PropertyMetadata(new Duration(TimeSpan.FromMilliseconds(200))));
+        public static readonly DependencyProperty FluidMoveDurationProperty =
+            FluidMoveDurationPropertyKey.DependencyProperty;
 
         /// <summary>
         ///     流式行为持续时间
@@ -96,7 +100,7 @@ namespace HandyControl.Controls
 
         protected override Size MeasureOverride(Size constraint)
         {
-            if ((_itemCount == InternalChildren.Count || !CanUpdate) && !ForceUpdate) return _oldSize;
+            if ((_itemCount == InternalChildren.Count || !CanUpdate) && !ForceUpdate && !IsTabFillEnabled) return _oldSize;
             constraint.Height = TabItemHeight;
             _itemCount = InternalChildren.Count;
 

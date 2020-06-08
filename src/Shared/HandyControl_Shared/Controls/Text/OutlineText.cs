@@ -155,24 +155,32 @@ namespace HandyControl.Controls
 
         protected override void OnRender(DrawingContext drawingContext)
         {
-            EnsureGeometry();
-
-            drawingContext.DrawGeometry(Fill, null, _textGeometry);
-
-            if (StrokePosition == StrokePosition.Outside)
+            if (StrokeThickness > 0)
             {
-                drawingContext.PushClip(_clipGeometry);
+                EnsureGeometry();
+
+                drawingContext.DrawGeometry(Fill, null, _textGeometry);
+
+                if (StrokePosition == StrokePosition.Outside)
+                {
+                    drawingContext.PushClip(_clipGeometry);
+                }
+                else if (StrokePosition == StrokePosition.Inside)
+                {
+                    drawingContext.PushClip(_textGeometry);
+                }
+
+                drawingContext.DrawGeometry(null, _pen, _textGeometry);
+
+                if (StrokePosition == StrokePosition.Outside || StrokePosition == StrokePosition.Inside)
+                {
+                    drawingContext.Pop();
+                }
             }
-            else if (StrokePosition == StrokePosition.Inside)
+            else
             {
-                drawingContext.PushClip(_textGeometry);
-            }
-
-            drawingContext.DrawGeometry(null, _pen, _textGeometry);
-
-            if (StrokePosition == StrokePosition.Outside || StrokePosition == StrokePosition.Inside)
-            {
-                drawingContext.Pop();
+                UpdateFormattedText();
+                drawingContext.DrawText(_formattedText, new Point());
             }
         }
 
@@ -193,7 +201,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-#if netle45
+#if NET40 || NET45
             _formattedText = new FormattedText(
                 Text,
                 CultureInfo.CurrentUICulture,
@@ -251,6 +259,7 @@ namespace HandyControl.Controls
             _formattedText.SetFontWeight(FontWeight);
             _formattedText.SetFontFamily(FontFamily);
             _formattedText.SetFontStretch(FontStretch);
+            _formattedText.SetForegroundBrush(Fill);
         }
 
         private static void OnFormattedTextUpdated(DependencyObject d, DependencyPropertyChangedEventArgs e)

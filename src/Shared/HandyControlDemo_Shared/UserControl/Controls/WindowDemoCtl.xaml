@@ -3,21 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              DataContext="{Binding WindowDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <UniformGrid Margin="32" Columns="3" Rows="3" Height="200">
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CommonWindow}" Content="{x:Static langs:Lang.OpenCommonWindow}"/>
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.BlurWindow}" Content="{x:Static langs:Lang.OpenBlurWindow}"/>
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CustomNonClientAreaWindow}" Content="{x:Static langs:Lang.OpenCustomNonClientAreaWindow}"/>
-            <Button Click="ButtonMessage_OnClick" Content="{x:Static langs:Lang.OpenMessageWindow}"/>
-            <Button Click="ButtonCustomMessage_OnClick" Content="{x:Static langs:Lang.OpenCustomMessageWindow}"/>
-            <Button Click="ButtonCustomContent_OnClick" Content="{x:Static langs:Lang.OpenCustomContentWindow}"/>
-            <Button Name="ButtonMouseFollow" Click="ButtonMouseFollow_OnClick" Content="{x:Static langs:Lang.OpenMouseFollowWindow}"/>
-            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NoNonClientAreaDragableWindow}" Content="{x:Static langs:Lang.OpenNoNonClientAreaDragableWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CommonWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCommonWindow}}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.BlurWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenBlurWindow}}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CustomNonClientAreaWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCustomNonClientAreaWindow}}"/>
+            <Button Click="ButtonMessage_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenMessageWindow}}"/>
+            <Button Click="ButtonCustomMessage_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCustomMessageWindow}}"/>
+            <Button Click="ButtonCustomContent_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCustomContentWindow}}"/>
+            <Button Name="ButtonMouseFollow" Click="ButtonMouseFollow_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenMouseFollowWindow}}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NoNonClientAreaDragableWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenNoNonClientAreaDragableWindow}}"/>
             <hc:Badge Text="New" Style="{StaticResource BadgeDanger}" VerticalAlignment="Center" HorizontalAlignment="Center" BadgeMargin="0,-10,-20,0">
-                <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.GlowWindow}" Content="{x:Static langs:Lang.OpenGlowWindow}"/>
+                <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.GlowWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenGlowWindow}}"/>
             </hc:Badge>
         </UniformGrid>
     </hc:TransitioningContentControl>

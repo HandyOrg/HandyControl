@@ -1,14 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
-#if netle40
+using System.Windows.Threading;
 using GalaSoft.MvvmLight.Command;
-#else
-using GalaSoft.MvvmLight.CommandWpf;
-#endif
 using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Service;
 using HandyControlDemo.Tools;
 using HandyControlDemo.UserControl;
@@ -29,11 +29,6 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private object _subContent;
 
-        /// <summary>
-        ///     demo信息
-        /// </summary>
-        private List<DemoInfoModel> _demoInfoList;
-
         #endregion
 
         public MainViewModel(DataService dataService)
@@ -45,19 +40,50 @@ namespace HandyControlDemo.ViewModel
                     disposable.Dispose();
                 }
                 SubContent = obj;
-            });
+            }, true);
 
             Messenger.Default.Register<object>(this, MessageToken.ClearLeftSelected, obj =>
             {
                 DemoItemCurrent = null;
-                foreach (var item in DemoInfoList)
+                foreach (var item in DemoInfoCollection)
                 {
                     item.SelectedIndex = -1;
                 }
             });
 
-            DataList = dataService.GetDemoDataList();
-            DemoInfoList = dataService.GetDemoInfo();
+            Messenger.Default.Register<object>(this, MessageToken.LangUpdated, obj =>
+            {
+                if (DemoItemCurrent == null) return;
+                ContentTitle = LangProvider.GetLang(DemoItemCurrent.Name);
+            });
+
+            DemoInfoCollection = new ObservableCollection<DemoInfoModel>();
+
+#if NET40
+            Task.Factory.StartNew(() =>
+            {
+                DataList = dataService.GetDemoDataList();
+                foreach (var item in dataService.GetDemoInfo())
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        DemoInfoCollection.Add(item);
+                    }), DispatcherPriority.ApplicationIdle);
+                }
+            });
+#else
+            Task.Run(() =>
+            {
+                DataList = dataService.GetDemoDataList();
+                foreach (var item in dataService.GetDemoInfo())
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        DemoInfoCollection.Add(item);
+                    }), DispatcherPriority.ApplicationIdle);
+                }
+            });
+#endif
         }
 
         #region 属性
@@ -75,7 +101,7 @@ namespace HandyControlDemo.ViewModel
         public object SubContent
         {
             get => _subContent;
-#if netle40
+#if NET40
             set => Set(nameof(SubContent), ref _subContent, value);
 #else
             set => Set(ref _subContent, value);
@@ -88,7 +114,7 @@ namespace HandyControlDemo.ViewModel
         public object ContentTitle
         {
             get => _contentTitle;
-#if netle40
+#if NET40
             set => Set(nameof(ContentTitle), ref _contentTitle, value);
 #else
             set => Set(ref _contentTitle, value);
@@ -98,15 +124,7 @@ namespace HandyControlDemo.ViewModel
         /// <summary>
         ///     demo信息
         /// </summary>
-        public List<DemoInfoModel> DemoInfoList
-        {
-            get => _demoInfoList;
-#if netle40
-            set => Set(nameof(DemoInfoList), ref _demoInfoList, value);
-#else
-            set => Set(ref _demoInfoList, value);
-#endif
-        }
+        public ObservableCollection<DemoInfoModel> DemoInfoCollection { get; set; }
 
         #endregion
 
@@ -141,21 +159,25 @@ namespace HandyControlDemo.ViewModel
             if (e.AddedItems[0] is DemoItemModel item)
             {
                 if (Equals(DemoItemCurrent, item)) return;
-
-                DemoItemCurrent = item;
-                ContentTitle = item.Name;
-                var obj = AssemblyHelper.ResolveByKey(item.TargetCtlName);
-                var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
-                Messenger.Default.Send(ctl is IFull, MessageToken.FullSwitch);
-                Messenger.Default.Send(ctl, MessageToken.LoadShowContent);
+                SwitchDemo(item);
             }
+        }
+
+        private void SwitchDemo(DemoItemModel item)
+        {
+            DemoItemCurrent = item;
+            ContentTitle = LangProvider.GetLang(item.Name);
+            var obj = AssemblyHelper.ResolveByKey(item.TargetCtlName);
+            var ctl = obj ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
+            Messenger.Default.Send(ctl is IFull, MessageToken.FullSwitch);
+            Messenger.Default.Send(ctl, MessageToken.LoadShowContent);
         }
 
         private void OpenPracticalDemo()
         {
             Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
-            Messenger.Default.Send(true, MessageToken.FullSwitch);
             Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.PracticalDemo}"), MessageToken.LoadShowContent);
+            Messenger.Default.Send(true, MessageToken.FullSwitch);
         }
 
         #endregion

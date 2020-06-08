@@ -3,11 +3,14 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
+#if !NET40
 using System.Runtime;
+#endif
 using System.Security.Authentication; 
 using System.Threading;
 using System.Windows;
 using HandyControl.Data;
+using HandyControl.Themes;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools;
@@ -23,7 +26,7 @@ namespace HandyControlDemo
 
         public App()
         {
-#if !netle40
+#if !NET40
             var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
             if (!Directory.Exists(cachePath))
             {
@@ -70,7 +73,9 @@ namespace HandyControlDemo
                     UpdateSkin(GlobalData.Config.Skin);
                 }
 
-                ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
+                ConfigHelper.Instance.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
+                ConfigHelper.Instance.SetWindowDefaultStyle();
+                ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
 
                 ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
             }
@@ -84,21 +89,23 @@ namespace HandyControlDemo
 
         internal void UpdateSkin(SkinType skin)
         {
+            SharedResourceDictionary.SharedDictionaries.Clear();
             var skins0 = Resources.MergedDictionaries[0];
             skins0.MergedDictionaries.Clear();
-            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));
-            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));
+            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));	
+            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));	
+            
+            var skins1 = Resources.MergedDictionaries[1];	
+            skins1.MergedDictionaries.Clear();	
+            skins1.MergedDictionaries.Add(new ResourceDictionary	
+            {	
+                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")	
+            });	
+            skins1.MergedDictionaries.Add(new ResourceDictionary	
+            {	
+                Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")	
+            });
 
-            var skins1 = Resources.MergedDictionaries[1];
-            skins1.MergedDictionaries.Clear();
-            skins1.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-            });
-            skins1.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
-            });
             Current.MainWindow?.OnApplyTemplate();
         }
 

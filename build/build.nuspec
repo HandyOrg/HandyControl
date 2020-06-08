@@ -2,19 +2,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HandyControl</id>
-    <version>2.4.0</version>
+    <version>2.5.0.2</version>
     <title>HandyOrg</title>
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">LICENSE</license>
+    <icon>icon.png</icon>
     <projectUrl>https://github.com/NaBian/HandyControl</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/icon.png</iconUrl>
     <description>Contains some commonly used simple WPF controls</description>
     <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
     <copyright>Copyright © HandyOrg 2018-2020</copyright>
-    <language></language>
     <tags>WPF C# Control</tags>
-    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="1af8ac90f497e6c65e4d596604f89f54e21cbcc6" />
+    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="be21771a17c46074df1b1a8a6da88dea8d548392" />
     <dependencies>
       <group targetFramework=".NETFramework4.0">
         <dependency id="Microsoft.Windows.Shell" version="3.0.1" />
@@ -24,47 +24,77 @@
       <group targetFramework=".NETFramework4.7" />
       <group targetFramework=".NETFramework4.8" />
       <group targetFramework=".NETCoreApp3.0" />
+      <group targetFramework=".NETCoreApp3.1" />
     </dependencies>
   </metadata>
   <files>
     <file src="lib\net40\en\HandyControl.resources.dll" target="lib\net40\en\HandyControl.resources.dll" />
     <file src="lib\net40\fa\HandyControl.resources.dll" target="lib\net40\fa\HandyControl.resources.dll" />
     <file src="lib\net40\fr\HandyControl.resources.dll" target="lib\net40\fr\HandyControl.resources.dll" />
+    <file src="lib\net40\ko-KR\HandyControl.resources.dll" target="lib\net40\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net40\ru\HandyControl.resources.dll" target="lib\net40\ru\HandyControl.resources.dll" />
+    <file src="lib\net40\tr\HandyControl.resources.dll" target="lib\net40\tr\HandyControl.resources.dll" />
     <file src="lib\net40\HandyControl.dll" target="lib\net40\HandyControl.dll" />
     <file src="lib\net40\HandyControl.pdb" target="lib\net40\HandyControl.pdb" />
     <file src="lib\net40\HandyControl.xml" target="lib\net40\HandyControl.xml" />
     <file src="lib\net40\Microsoft.Windows.Shell.dll" target="lib\net40\Microsoft.Windows.Shell.dll" />
-    <file src="lib\net40\Microsoft.Windows.Shell.pdb" target="lib\net40\Microsoft.Windows.Shell.pdb" />
     <file src="lib\net45\en\HandyControl.resources.dll" target="lib\net45\en\HandyControl.resources.dll" />
     <file src="lib\net45\fa\HandyControl.resources.dll" target="lib\net45\fa\HandyControl.resources.dll" />
     <file src="lib\net45\fr\HandyControl.resources.dll" target="lib\net45\fr\HandyControl.resources.dll" />
+    <file src="lib\net45\ko-KR\HandyControl.resources.dll" target="lib\net45\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net45\ru\HandyControl.resources.dll" target="lib\net45\ru\HandyControl.resources.dll" />
+    <file src="lib\net45\tr\HandyControl.resources.dll" target="lib\net45\tr\HandyControl.resources.dll" />
     <file src="lib\net45\HandyControl.dll" target="lib\net45\HandyControl.dll" />
     <file src="lib\net45\HandyControl.pdb" target="lib\net45\HandyControl.pdb" />
     <file src="lib\net45\HandyControl.xml" target="lib\net45\HandyControl.xml" />
     <file src="lib\net462\en\HandyControl.resources.dll" target="lib\net462\en\HandyControl.resources.dll" />
     <file src="lib\net462\fa\HandyControl.resources.dll" target="lib\net462\fa\HandyControl.resources.dll" />
     <file src="lib\net462\fr\HandyControl.resources.dll" target="lib\net462\fr\HandyControl.resources.dll" />
+    <file src="lib\net462\ko-KR\HandyControl.resources.dll" target="lib\net462\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net462\ru\HandyControl.resources.dll" target="lib\net462\ru\HandyControl.resources.dll" />
+    <file src="lib\net462\tr\HandyControl.resources.dll" target="lib\net462\tr\HandyControl.resources.dll" />
     <file src="lib\net462\HandyControl.dll" target="lib\net462\HandyControl.dll" />
     <file src="lib\net462\HandyControl.pdb" target="lib\net462\HandyControl.pdb" />
     <file src="lib\net462\HandyControl.xml" target="lib\net462\HandyControl.xml" />
     <file src="lib\net47\en\HandyControl.resources.dll" target="lib\net47\en\HandyControl.resources.dll" />
     <file src="lib\net47\fa\HandyControl.resources.dll" target="lib\net47\fa\HandyControl.resources.dll" />
     <file src="lib\net47\fr\HandyControl.resources.dll" target="lib\net47\fr\HandyControl.resources.dll" />
+    <file src="lib\net47\ko-KR\HandyControl.resources.dll" target="lib\net47\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net47\ru\HandyControl.resources.dll" target="lib\net47\ru\HandyControl.resources.dll" />
+    <file src="lib\net47\tr\HandyControl.resources.dll" target="lib\net47\tr\HandyControl.resources.dll" />
     <file src="lib\net47\HandyControl.dll" target="lib\net47\HandyControl.dll" />
     <file src="lib\net47\HandyControl.pdb" target="lib\net47\HandyControl.pdb" />
     <file src="lib\net47\HandyControl.xml" target="lib\net47\HandyControl.xml" />
     <file src="lib\net48\en\HandyControl.resources.dll" target="lib\net48\en\HandyControl.resources.dll" />
     <file src="lib\net48\fa\HandyControl.resources.dll" target="lib\net48\fa\HandyControl.resources.dll" />
     <file src="lib\net48\fr\HandyControl.resources.dll" target="lib\net48\fr\HandyControl.resources.dll" />
+    <file src="lib\net48\ko-KR\HandyControl.resources.dll" target="lib\net48\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net48\ru\HandyControl.resources.dll" target="lib\net48\ru\HandyControl.resources.dll" />
+    <file src="lib\net48\tr\HandyControl.resources.dll" target="lib\net48\tr\HandyControl.resources.dll" />
     <file src="lib\net48\HandyControl.dll" target="lib\net48\HandyControl.dll" />
     <file src="lib\net48\HandyControl.pdb" target="lib\net48\HandyControl.pdb" />
     <file src="lib\net48\HandyControl.xml" target="lib\net48\HandyControl.xml" />
     <file src="lib\netcoreapp3.0\en\HandyControl.resources.dll" target="lib\netcoreapp3.0\en\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\fa\HandyControl.resources.dll" target="lib\netcoreapp3.0\fa\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\fr\HandyControl.resources.dll" target="lib\netcoreapp3.0\fr\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.0\ko-KR\HandyControl.resources.dll" target="lib\netcoreapp3.0\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.0\ru\HandyControl.resources.dll" target="lib\netcoreapp3.0\ru\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.0\tr\HandyControl.resources.dll" target="lib\netcoreapp3.0\tr\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\HandyControl.deps.json" target="lib\netcoreapp3.0\HandyControl.deps.json" />
     <file src="lib\netcoreapp3.0\HandyControl.dll" target="lib\netcoreapp3.0\HandyControl.dll" />
     <file src="lib\netcoreapp3.0\HandyControl.pdb" target="lib\netcoreapp3.0\HandyControl.pdb" />
     <file src="lib\netcoreapp3.0\HandyControl.xml" target="lib\netcoreapp3.0\HandyControl.xml" />
+    <file src="lib\netcoreapp3.1\en\HandyControl.resources.dll" target="lib\netcoreapp3.1\en\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.1\fa\HandyControl.resources.dll" target="lib\netcoreapp3.1\fa\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.1\fr\HandyControl.resources.dll" target="lib\netcoreapp3.1\fr\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.1\ko-KR\HandyControl.resources.dll" target="lib\netcoreapp3.1\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.1\ru\HandyControl.resources.dll" target="lib\netcoreapp3.1\ru\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.1\tr\HandyControl.resources.dll" target="lib\netcoreapp3.1\tr\HandyControl.resources.dll" />
+    <file src="lib\netcoreapp3.1\HandyControl.deps.json" target="lib\netcoreapp3.1\HandyControl.deps.json" />
+    <file src="lib\netcoreapp3.1\HandyControl.dll" target="lib\netcoreapp3.1\HandyControl.dll" />
+    <file src="lib\netcoreapp3.1\HandyControl.pdb" target="lib\netcoreapp3.1\HandyControl.pdb" />
+    <file src="lib\netcoreapp3.1\HandyControl.xml" target="lib\netcoreapp3.1\HandyControl.xml" />
+    <file src="icon.png" target="icon.png" />
+    <file src="LICENSE" target="LICENSE" />
   </files>
 </package>

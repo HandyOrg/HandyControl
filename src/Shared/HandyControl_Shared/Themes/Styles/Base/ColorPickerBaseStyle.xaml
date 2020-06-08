@@ -2,14 +2,16 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Paths.xaml"/>
-        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="../Slider.xaml"/>
-        <ResourceDictionary Source="../Button.xaml"/>
-        <ResourceDictionary Source="../ToggleButton.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Paths.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Slider.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ToggleButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ColorPickerSliderRepeatButtonBaseStyle" TargetType="RepeatButton">
@@ -232,8 +234,8 @@
                         </Border>
                         <Border Grid.Row="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                                <Button Command="interactivity:ControlCommands.Cancel" Content="{x:Static langs:Lang.Cancel}" Width="80" Margin="0,0,16,0"/>
-                                <Button Command="interactivity:ControlCommands.Confirm" Content="{x:Static langs:Lang.Confirm}" Width="80" Style="{StaticResource ButtonPrimary}"/>
+                                <Button Command="interactivity:ControlCommands.Cancel" Content="{ex:Lang Key={x:Static langs:LangKeys.Cancel}}" Width="80" Margin="0,0,16,0"/>
+                                <Button Command="interactivity:ControlCommands.Confirm" Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" Width="80" Style="{StaticResource ButtonPrimary}"/>
                             </StackPanel>
                         </Border>
                     </Grid>

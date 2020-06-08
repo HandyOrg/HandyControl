@@ -1,5 +1,6 @@
 ﻿using System;
 using HandyControl.Controls;
+using HandyControlDemo.Properties.Langs;
 
 namespace HandyControlDemo.UserControl
 {
@@ -14,10 +15,9 @@ namespace HandyControlDemo.UserControl
         {
             if (sender is TagPanel panel)
             {
-                panel.Children.Add(new Tag
-                {
-                    Content = Properties.Langs.Lang.SubTitle
-                });
+                var tag = new Tag();
+                LangProvider.SetLang(tag, ContentProperty, LangKeys.SubTitle);
+                panel.Children.Add(tag);
             }
         }
     }

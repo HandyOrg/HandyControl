@@ -3,38 +3,39 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
         <hc:ScrollViewer IsInertiaEnabled="True">
             <StackPanel Margin="32">
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
-                        <ToggleButton IsChecked="True" Content="{x:Static langs:Lang.Default}" Margin="5"/>
-                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{x:Static langs:Lang.Default}" Margin="5"/>
+                        <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5"/>
+                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5"/>
                     </StackPanel>
                     <StackPanel>
-                        <ToggleButton IsChecked="True" Content="{x:Static langs:Lang.Primary}" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource ToggleButtonPrimary}"/>
-                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{x:Static langs:Lang.Primary}" Margin="5" Style="{StaticResource ToggleButtonPrimary}"/>
+                        <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource ToggleButtonPrimary}"/>
+                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ToggleButtonPrimary}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonPrimary"/>
                     </StackPanel>
                     <StackPanel>
-                        <ToggleButton IsChecked="True" Content="{x:Static langs:Lang.Success}" Margin="5" hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource ToggleButtonSuccess}"/>
-                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ToggleButtonSuccess}"/>
+                        <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource ToggleButtonSuccess}"/>
+                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ToggleButtonSuccess}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSuccess"/>
                     </StackPanel>
                     <StackPanel>
-                        <ToggleButton Content="{x:Static langs:Lang.Info}" Margin="5" Style="{StaticResource ToggleButtonInfo}"/>
-                        <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Info}" Margin="5" Style="{StaticResource ToggleButtonInfo}"/>
+                        <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ToggleButtonInfo}"/>
+                        <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ToggleButtonInfo}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonInfo"/>
                     </StackPanel>
                     <StackPanel>
-                        <ToggleButton Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ToggleButtonWarning}"/>
-                        <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ToggleButtonWarning}"/>
+                        <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ToggleButtonWarning}"/>
+                        <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ToggleButtonWarning}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonWarning"/>
                     </StackPanel>
                     <StackPanel>
-                        <ToggleButton Content="{x:Static langs:Lang.Danger}" Margin="5" Style="{StaticResource ToggleButtonDanger}"/>
-                        <ToggleButton IsEnabled="False" Content="{x:Static langs:Lang.Danger}" Margin="5" Style="{StaticResource ToggleButtonDanger}"/>
+                        <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger}"/>
+                        <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger}"/>
                         <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonDanger"/>
                     </StackPanel>
                 </WrapPanel>
@@ -108,21 +109,21 @@
                         <ToggleButton BorderThickness="0" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
                             <hc:StatusSwitchElement.CheckedElement>
                                 <Border Background="{DynamicResource PrimaryBrush}">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static langs:Lang.Off}" Foreground="{DynamicResource TextIconBrush}"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.Off}}" Foreground="{DynamicResource TextIconBrush}"/>
                                 </Border>
                             </hc:StatusSwitchElement.CheckedElement>
                             <Border Background="{DynamicResource DangerBrush}">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static langs:Lang.On}" Foreground="{DynamicResource TextIconBrush}"/>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.On}}" Foreground="{DynamicResource TextIconBrush}"/>
                             </Border>
                         </ToggleButton>
                         <ToggleButton BorderThickness="0" IsEnabled="False" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
                             <hc:StatusSwitchElement.CheckedElement>
                                 <Border Background="{DynamicResource PrimaryBrush}">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static langs:Lang.Off}" Foreground="{DynamicResource TextIconBrush}"/>
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.Off}}" Foreground="{DynamicResource TextIconBrush}"/>
                                 </Border>
                             </hc:StatusSwitchElement.CheckedElement>
                             <Border Background="{DynamicResource DangerBrush}">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{x:Static langs:Lang.On}" Foreground="{DynamicResource TextIconBrush}"/>
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.On}}" Foreground="{DynamicResource TextIconBrush}"/>
                             </Border>
                         </ToggleButton>
                         <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonFlip"/>

@@ -190,7 +190,7 @@
     <value>خارج از محدوده</value>
   </data>
   <data name="FormatError" xml:space="preserve">
-    <value>خطای قالب</value>
+    <value>فرمت ورودی اشتباه است</value>
   </data>
   <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
     <value>نمی توان فرمان کامپوزیت را در خود ثبت کرد</value>
@@ -205,27 +205,33 @@
     <value>خیر</value>
   </data>
   <data name="ZoomIn" xml:space="preserve">
-    <value>Zoom in</value>
+    <value>بزرگنمایی</value>
   </data>
   <data name="ZoomOut" xml:space="preserve">
-    <value>Zoom out</value>
+    <value>کوچکنمایی</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
-    <value>Previous page</value>
+    <value>صفحه قبلی</value>
   </data>
   <data name="NextPage" xml:space="preserve">
-    <value>Next page</value>
+    <value>صفحه بعدی</value>
   </data>
   <data name="PageMode" xml:space="preserve">
-    <value>Page mode</value>
+    <value>حالت صفحه</value>
   </data>
   <data name="TwoPageMode" xml:space="preserve">
-    <value>Two page mode</value>
+    <value>حالت دو صفحه ای</value>
   </data>
   <data name="ScrollMode" xml:space="preserve">
-    <value>Scroll mode</value>
+    <value>حالت اسکرول</value>
   </data>
   <data name="Find" xml:space="preserve">
-    <value>Find</value>
+    <value>پیدا کردن</value>
+  </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>Looks up a localized string similar to "{0}".</value>
+  </data>
+  <data name="Jump" xml:space="preserve">
+    <value>Jump</value>
   </data>
 </root>

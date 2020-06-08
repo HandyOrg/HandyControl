@@ -1,5 +1,0 @@
-1. Font Blurry
-2. ImageBrowser
-3. NumericIcon & Background
-4. Input Icon
-5. Tag Icon

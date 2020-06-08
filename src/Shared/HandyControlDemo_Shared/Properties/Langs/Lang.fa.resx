@@ -664,7 +664,7 @@
     <value>SplitButton</value>
   </data>
   <data name="Tools" xml:space="preserve">
-    <value>Tools</value>
+    <value>ابزار</value>
   </data>
   <data name="HatchBrushGenerator" xml:space="preserve">
     <value>HatchBrushGenerator</value>
@@ -694,19 +694,19 @@
     <value>Effects</value>
   </data>
   <data name="Website" xml:space="preserve">
-    <value>Website</value>
+    <value>سایت</value>
   </data>
   <data name="Vsix" xml:space="preserve">
     <value>Vsix</value>
   </data>
   <data name="Doc_en" xml:space="preserve">
-    <value>English document</value>
+    <value>مستندات انگلیسی</value>
   </data>
   <data name="Doc_cn" xml:space="preserve">
-    <value>Chinese document</value>
+    <value>مستندات چینی</value>
   </data>
   <data name="Demo" xml:space="preserve">
-    <value>Demo</value>
+    <value>دمو</value>
   </data>
   <data name="PinBox" xml:space="preserve">
     <value>PinBox</value>
@@ -736,12 +736,18 @@
     <value>Frame</value>
   </data>
   <data name="PracticalDemos" xml:space="preserve">
-    <value>Practical demos</value>
+    <value>دموی عملی</value>
   </data>
   <data name="StartScreenshot" xml:space="preserve">
     <value>Start screenshot</value>
   </data>
   <data name="Screenshot" xml:space="preserve">
     <value>Screenshot</value>
+  </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>TextDialog(In control)</value>
+  </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>Looks up a localized string similar to "{0}".</value>
   </data>
 </root>

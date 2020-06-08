@@ -8,121 +8,19 @@
 
     <DrawingBrush o:Freeze="True" Opacity=".1" x:Key="CloudDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,314,157" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Drawing>
-            <DrawingGroup o:Freeze="True">
-                <ImageDrawing ImageSource="/HandyControlDemo;component/Resources/Img/cloud.png" Rect="0,0,314,157"/>
-            </DrawingGroup>
+            <ImageDrawing o:Freeze="True" ImageSource="/HandyControlDemo;component/Resources/Img/cloud.png" Rect="0,0,314,157"/>
         </DrawingBrush.Drawing>
     </DrawingBrush>
     
     <DrawingBrush o:Freeze="True" x:Key="MainContentForegroundDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,16,16" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
         <DrawingBrush.Drawing>
-            <DrawingGroup o:Freeze="True">
-                <GeometryDrawing o:Freeze="True" Brush="{DynamicResource MainContentForegroundBrush}">
-                    <GeometryDrawing.Geometry>
-                        <GeometryGroup o:Freeze="True">
-                            <RectangleGeometry o:Freeze="True" Rect="0,0,8,8" />
-                            <RectangleGeometry o:Freeze="True" Rect="8,8,8,8" />
-                        </GeometryGroup>
-                    </GeometryDrawing.Geometry>
-                </GeometryDrawing>
-            </DrawingGroup>
-        </DrawingBrush.Drawing>
-    </DrawingBrush>
-
-    <DrawingBrush o:Freeze="True" x:Key="GitHubDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,200,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
-        <DrawingBrush.Transform>
-            <TransformGroup o:Freeze="True">
-                <RotateTransform o:Freeze="True" Angle="20"/>
-            </TransformGroup>
-        </DrawingBrush.Transform>
-        <DrawingBrush.Drawing>
-            <DrawingGroup o:Freeze="True">
-                <GeometryDrawing o:Freeze="True" Brush="{DynamicResource DarkMaskBrush}" Geometry="{StaticResource GitHubStrGeometry}"/>
-            </DrawingGroup>
-        </DrawingBrush.Drawing>
-    </DrawingBrush>
-
-    <DrawingBrush o:Freeze="True" x:Key="QqDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,100,200" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
-        <DrawingBrush.Transform>
-            <TransformGroup o:Freeze="True">
-                <RotateTransform o:Freeze="True" Angle="20"/>
-            </TransformGroup>
-        </DrawingBrush.Transform>
-        <DrawingBrush.Drawing>
-            <DrawingGroup o:Freeze="True">
-                <GeometryDrawing o:Freeze="True" Brush="{DynamicResource DarkMaskBrush}" Geometry="{StaticResource QqGeometry}"/>
-            </DrawingGroup>
-        </DrawingBrush.Drawing>
-    </DrawingBrush>
-
-    <DrawingBrush o:Freeze="True" x:Key="BlogDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,160,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
-        <DrawingBrush.Transform>
-            <TransformGroup o:Freeze="True">
-                <RotateTransform o:Freeze="True" Angle="20"/>
-            </TransformGroup>
-        </DrawingBrush.Transform>
-        <DrawingBrush.Drawing>
-            <GeometryDrawing o:Freeze="True">
+            <GeometryDrawing o:Freeze="True" Brush="{DynamicResource MainContentForegroundBrush}">
                 <GeometryDrawing.Geometry>
-                    <RectangleGeometry o:Freeze="True" Rect="0,0,160,100"></RectangleGeometry>
+                    <GeometryGroup o:Freeze="True">
+                        <RectangleGeometry o:Freeze="True" Rect="0,0,8,8" />
+                        <RectangleGeometry o:Freeze="True" Rect="8,8,8,8" />
+                    </GeometryGroup>
                 </GeometryDrawing.Geometry>
-                <GeometryDrawing.Brush>
-                    <VisualBrush o:Freeze="True" RenderOptions.CachingHint="Cache" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" >
-                        <VisualBrush.Visual>
-                            <StackPanel>
-                                <TextBlock Text="Blog" Foreground="{DynamicResource DarkMaskBrush}"/>
-                            </StackPanel>
-                        </VisualBrush.Visual>
-                    </VisualBrush>
-                </GeometryDrawing.Brush>
-            </GeometryDrawing>
-        </DrawingBrush.Drawing>
-    </DrawingBrush>
-
-    <DrawingBrush o:Freeze="True" x:Key="WebsiteDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,320,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
-        <DrawingBrush.Transform>
-            <TransformGroup o:Freeze="True">
-                <RotateTransform o:Freeze="True" Angle="20"/>
-            </TransformGroup>
-        </DrawingBrush.Transform>
-        <DrawingBrush.Drawing>
-            <GeometryDrawing o:Freeze="True">
-                <GeometryDrawing.Geometry>
-                    <RectangleGeometry o:Freeze="True" Rect="0,0,320,100"></RectangleGeometry>
-                </GeometryDrawing.Geometry>
-                <GeometryDrawing.Brush>
-                    <VisualBrush o:Freeze="True" RenderOptions.CachingHint="Cache" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0">
-                        <VisualBrush.Visual>
-                            <StackPanel>
-                                <TextBlock Text="Website" Foreground="{DynamicResource DarkMaskBrush}"/>
-                            </StackPanel>
-                        </VisualBrush.Visual>
-                    </VisualBrush>
-                </GeometryDrawing.Brush>
-            </GeometryDrawing>
-        </DrawingBrush.Drawing>
-    </DrawingBrush>
-
-    <DrawingBrush o:Freeze="True" x:Key="ProjectDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,240,100" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
-        <DrawingBrush.Transform>
-            <TransformGroup o:Freeze="True">
-                <RotateTransform o:Freeze="True" Angle="20"/>
-            </TransformGroup>
-        </DrawingBrush.Transform>
-        <DrawingBrush.Drawing>
-            <GeometryDrawing o:Freeze="True">
-                <GeometryDrawing.Geometry>
-                    <RectangleGeometry o:Freeze="True" Rect="0,0,240,100"></RectangleGeometry>
-                </GeometryDrawing.Geometry>
-                <GeometryDrawing.Brush>
-                    <VisualBrush o:Freeze="True" RenderOptions.CachingHint="Cache" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" >
-                        <VisualBrush.Visual>
-                            <StackPanel>
-                                <TextBlock Text="Project" Foreground="{DynamicResource DarkMaskBrush}"/>
-                            </StackPanel>
-                        </VisualBrush.Visual>
-                    </VisualBrush>
-                </GeometryDrawing.Brush>
             </GeometryDrawing>
         </DrawingBrush.Drawing>
     </DrawingBrush>
@@ -140,5 +38,19 @@
     <SolidColorBrush o:Freeze="True" x:Key="MainBackgroundBrush" Color="{DynamicResource MainBackgroundColor}"/>
     <SolidColorBrush o:Freeze="True" x:Key="MainContentForegroundBrush" Color="{DynamicResource MainContentForegroundColor}"/>
     <SolidColorBrush o:Freeze="True" x:Key="MainContentBackgroundBrush" Color="{DynamicResource MainContentBackgroundColor}"/>
+
+    <!--region AvalonEdit-->
+
+    <SolidColorBrush o:Freeze="True" x:Key="ControlAccentBrushKey" Color="{DynamicResource ControlAccentColorKey}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorBackground" Color="{DynamicResource EditorBackgroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorForeground" Color="{DynamicResource EditorForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLineNumbersForeground" Color="{DynamicResource EditorLineNumbersForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorSelectionBrush" Color="{DynamicResource ControlAccentColorKey}" Opacity="0.75"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorSelectionBorder" Color="{DynamicResource ControlAccentColorKey}" Opacity="0.75"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorNonPrintableCharacterBrush" Color="{DynamicResource EditorNonPrintableCharacterColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLinkTextForegroundBrush" Color="{DynamicResource EditorLinkTextForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLinkTextBackgroundBrush" Color="{DynamicResource EditorLinkTextBackgroundColor}"/>
+
+    <!--endregion-->
 
 </ResourceDictionary>

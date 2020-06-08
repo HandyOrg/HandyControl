@@ -228,4 +228,10 @@
   <data name="Find" xml:space="preserve">
     <value>查找</value>
   </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>查找类似 {0} 的本地化字符串。</value>
+  </data>
+  <data name="Jump" xml:space="preserve">
+    <value>跳转</value>
+  </data>
 </root>

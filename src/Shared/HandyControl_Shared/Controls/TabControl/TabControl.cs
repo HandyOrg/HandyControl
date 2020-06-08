@@ -232,15 +232,6 @@ namespace HandyControl.Controls
                 return;
             }
 
-            if (IsAnimationEnabled)
-            {
-                HeaderPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
-            }
-            else
-            {
-                HeaderPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
-            }
-
             if (e.Action == NotifyCollectionChangedAction.Add)
             {
                 for (var i = 0; i < Items.Count; i++)
@@ -252,7 +243,6 @@ namespace HandyControl.Controls
             }
 
             _headerBorder?.InvalidateMeasure();
-
             IsInternalAction = false;
         }
 
@@ -361,11 +351,11 @@ namespace HandyControl.Controls
                             list.Insert(0, actualItem);
                             if (IsAnimationEnabled)
                             {
-                                HeaderPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, new Duration(TimeSpan.FromMilliseconds(200)));
+                                HeaderPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(200)));
                             }
                             else
                             {
-                                HeaderPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+                                HeaderPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(0)));
                             }
                             HeaderPanel.ForceUpdate = true;
                             HeaderPanel.Measure(new Size(HeaderPanel.DesiredSize.Width, ActualHeight));

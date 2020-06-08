@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" ?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="5949c79d-eb43-4033-8b7b-9349d34512c6" Version="2.4.0" Language="en-US" Publisher="HandyOrg" />
+        <Identity Id="5949c79d-eb43-4033-8b7b-9349d34512c6" Version="2.5.0" Language="en-US" Publisher="HandyOrg" />
         <DisplayName>HandyControl for VS2019</DisplayName>
         <Description xml:space="preserve">This VSIX Project will help people initialize a HandyControl project.</Description>
         <MoreInfo>https://handyorg.github.io/handycontrol</MoreInfo>

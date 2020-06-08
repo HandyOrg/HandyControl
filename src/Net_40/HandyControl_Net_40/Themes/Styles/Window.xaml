@@ -3,12 +3,12 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
                     xmlns:shell="http://schemas.microsoft.com/winfx/2006/xaml/presentation/shell"
-                    xmlns:tools="clr-namespace:HandyControl.Tools">
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Button.xaml"/>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <LinearGradientBrush x:Key="ResizeGripperForeground" EndPoint="1,0.75" StartPoint="0,0.25">
@@ -129,7 +129,6 @@
                             <Setter Property="Opacity" Value=".8" TargetName="ButtonPanel"/>
                         </Trigger>
                         <Trigger Property="WindowState" Value="Maximized">
-                            <Setter Property="Padding" Value="{x:Static tools:WindowHelper.WindowMaximizedPadding}"/>
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax"/>
                             <Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore"/>
                         </Trigger>

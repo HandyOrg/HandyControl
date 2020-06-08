@@ -3,6 +3,7 @@
              Background="{DynamicResource RegionBrush}"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:system="clr-namespace:System;assembly=mscorlib">
     <UserControl.Resources>
@@ -11,14 +12,14 @@
             <Setter Property="Height" Value="40"/>
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="Content" Value="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Int2StringConverter},ConverterParameter={x:Static langs:Lang.PoptipPositionStr}}"/>
+            <Setter Property="Content" Value="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Int2StringConverter},ConverterParameter={ex:Lang Key={x:Static langs:LangKeys.PoptipPositionStr}}}"/>
         </Style>
         <Style x:Key="ToggleButton4PoptipStyle" BasedOn="{StaticResource {x:Type ToggleButton}}" TargetType="ToggleButton">
             <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>
             <Setter Property="Height" Value="40"/>
             <Setter Property="MinWidth" Value="100"/>
             <Setter Property="HorizontalAlignment" Value="Stretch"/>
-            <Setter Property="Content" Value="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Int2StringConverter},ConverterParameter={x:Static langs:Lang.PoptipPositionStr}}"/>
+            <Setter Property="Content" Value="{Binding Tag,RelativeSource={RelativeSource Self},Converter={StaticResource Int2StringConverter},ConverterParameter={ex:Lang Key={x:Static langs:LangKeys.PoptipPositionStr}}}"/>
         </Style>
     </UserControl.Resources>
     <hc:TransitioningContentControl>
@@ -36,7 +37,7 @@
             <UniformGrid Grid.Column="1" Columns="3">
                 <Button Margin="8,0" Tag="0" Style="{StaticResource Button4PoptipStyle}">
                     <hc:Poptip.Instance>
-                        <hc:Poptip Content="{x:Static langs:Lang.Text}" PlacementType="TopLeft"/>
+                        <hc:Poptip Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" PlacementType="TopLeft"/>
                     </hc:Poptip.Instance>
                 </Button>
                 <Button Margin="8,0" Tag="1" Style="{StaticResource Button4PoptipStyle}">
@@ -48,10 +49,10 @@
                         </hc:Poptip>
                     </hc:Poptip.Instance>
                 </Button>
-                <Button hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="TopRight" Margin="8,0" Tag="2" Style="{StaticResource Button4PoptipStyle}"/>
+                <Button hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="TopRight" Margin="8,0" Tag="2" Style="{StaticResource Button4PoptipStyle}"/>
             </UniformGrid>
             <UniformGrid Grid.Row="1" Grid.Column="2" Rows="3">
-                <ToggleButton hc:Poptip.HitMode="None" hc:Poptip.IsOpen="{Binding IsChecked,RelativeSource={RelativeSource Self}}" hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="RightTop" Margin="8,16" Tag="3" Style="{StaticResource ToggleButton4PoptipStyle}"/>
+                <ToggleButton hc:Poptip.HitMode="None" hc:Poptip.IsOpen="{Binding IsChecked,RelativeSource={RelativeSource Self}}" hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="RightTop" Margin="8,16" Tag="3" Style="{StaticResource ToggleButton4PoptipStyle}"/>
                 <ToggleButton Margin="8,16" Tag="4" Style="{StaticResource ToggleButton4PoptipStyle}">
                     <hc:Poptip.Instance>
                         <hc:Poptip Background="Transparent" Padding="0" BorderThickness="0" HitMode="None" PlacementType="Right" IsOpen="{Binding Target.IsChecked,RelativeSource={RelativeSource Self}}">
@@ -61,17 +62,17 @@
                         </hc:Poptip>
                     </hc:Poptip.Instance>
                 </ToggleButton>
-                <ToggleButton hc:Poptip.HitMode="None" hc:Poptip.IsOpen="{Binding IsChecked,RelativeSource={RelativeSource Self}}" hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="RightBottom" Margin="8,16" Tag="5" Style="{StaticResource ToggleButton4PoptipStyle}"/>
+                <ToggleButton hc:Poptip.HitMode="None" hc:Poptip.IsOpen="{Binding IsChecked,RelativeSource={RelativeSource Self}}" hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="RightBottom" Margin="8,16" Tag="5" Style="{StaticResource ToggleButton4PoptipStyle}"/>
             </UniformGrid>
             <UniformGrid Grid.Column="1" Grid.Row="2" Columns="3">
-                <Button hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="BottomLeft" Margin="8,0" Tag="8" Style="{StaticResource Button4PoptipStyle}"/>
-                <Button hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="Bottom" Margin="8,0" Tag="7" Style="{StaticResource Button4PoptipStyle}"/>
-                <Button hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="BottomRight" Margin="8,0" Tag="6" Style="{StaticResource Button4PoptipStyle}"/>
+                <Button hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="BottomLeft" Margin="8,0" Tag="8" Style="{StaticResource Button4PoptipStyle}"/>
+                <Button hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="Bottom" Margin="8,0" Tag="7" Style="{StaticResource Button4PoptipStyle}"/>
+                <Button hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="BottomRight" Margin="8,0" Tag="6" Style="{StaticResource Button4PoptipStyle}"/>
             </UniformGrid>
             <UniformGrid Grid.Row="1" Grid.Column="0" Rows="3">
-                <Button hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="LeftTop" hc:Poptip.HitMode="Focus" Margin="8,16" Tag="11" Style="{StaticResource Button4PoptipStyle}"/>
-                <Button hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="Left" hc:Poptip.HitMode="Focus" Margin="8,16" Tag="10" Style="{StaticResource Button4PoptipStyle}"/>
-                <Button hc:Poptip.Content="{x:Static langs:Lang.Text}" hc:Poptip.Placement="LeftBottom" hc:Poptip.HitMode="Focus" Margin="8,16" Tag="9" Style="{StaticResource Button4PoptipStyle}"/>
+                <Button hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="LeftTop" hc:Poptip.HitMode="Focus" Margin="8,16" Tag="11" Style="{StaticResource Button4PoptipStyle}"/>
+                <Button hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="Left" hc:Poptip.HitMode="Focus" Margin="8,16" Tag="10" Style="{StaticResource Button4PoptipStyle}"/>
+                <Button hc:Poptip.Content="{ex:Lang Key={x:Static langs:LangKeys.Text}}" hc:Poptip.Placement="LeftBottom" hc:Poptip.HitMode="Focus" Margin="8,16" Tag="9" Style="{StaticResource Button4PoptipStyle}"/>
             </UniformGrid>
         </Grid>
     </hc:TransitioningContentControl>

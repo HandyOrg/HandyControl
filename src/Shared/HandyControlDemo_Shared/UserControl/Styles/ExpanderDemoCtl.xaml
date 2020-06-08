@@ -3,20 +3,21 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" VerticalAlignment="Center" Width="240">
-            <Expander Header="{x:Static langs:Lang.Title}">
-                <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
+            <Expander Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}">
+                <Border Height="100" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="0,0,4,4"/>
             </Expander>
-            <Expander Margin="0,4,0,0" Header="{x:Static langs:Lang.Title}">
-                <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
+            <Expander Margin="0,4,0,0" Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}">
+                <Border Height="100" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="0,0,4,4"/>
             </Expander>
-            <Expander Margin="0,4,0,0" Header="{x:Static langs:Lang.Title}">
-                <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
+            <Expander Margin="0,4,0,0" Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}">
+                <Border Height="100" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="0,0,4,4"/>
             </Expander>
-            <Expander Margin="0,4,0,0" Header="{x:Static langs:Lang.Title}">
-                <Border Height="100" Background="{DynamicResource SecondaryRegionBrush}"/>
+            <Expander Margin="0,4,0,0" Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}">
+                <Border Height="100" BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="0,0,4,4"/>
             </Expander>
         </StackPanel>
     </hc:TransitioningContentControl>

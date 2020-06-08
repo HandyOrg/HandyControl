@@ -1,112 +1,98 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{32204503-2EF0-4681-AE13-AA1FEB6C658A}</ProjectGuid>
-    <OutputType>library</OutputType>
-    <RootNamespace>HandyControl</RootNamespace>
     <AssemblyName>HandyControl</AssemblyName>
-    <FileAlignment>512</FileAlignment>
-    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
-    <WarningLevel>4</WarningLevel>
-    <TargetFrameworkProfile />
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;netle45;netle40</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <LangVersion>8.0</LangVersion>
+    <RootNamespace>HandyControl</RootNamespace>
+    <TargetFramework>net40</TargetFramework>
+    <Description>Contains some commonly used simple WPF controls</Description>
+    <PackageId>HandyControl</PackageId>
+    <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <NoWarn>0067;0649;1591</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE;netle45;netle40</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\HandyControl.xml</DocumentationFile>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
-    <LangVersion>8.0</LangVersion>
+    <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\HandyControl.xml</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\NetAssemblyInfo.cs">
-      <Link>Properties\NetAssemblyInfo.cs</Link>
-    </Compile>
-    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.Designer.cs">
-      <Link>Properties\Langs\Lang.Designer.cs</Link>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Lang.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="System" />
-    <Reference Include="System.Xaml" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="Themes\Styles\Base\ComboBoxBaseStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Themes\Styles\DataGrid.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="Themes\Styles\ListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="Themes\Styles\MessageBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Include="Themes\Styles\Window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.Windows.Shell">
       <Version>3.0.1</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Themes\Styles\Base\ComboBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Update="Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\Styles\DataGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Update="Themes\Styles\ListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Update="Themes\Styles\MessageBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Update="Themes\Styles\Window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.Designer.cs">
+      <Link>Properties\Langs\Lang.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\LangProvider.cs">
+      <Link>Properties\Langs\LangProvider.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LangProvider.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.tr.resx">
+      <Link>Properties\Langs\Lang.tr.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fa.resx">
+      <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fa.resx">
       <Link>Properties\Langs\Lang.fa.resx</Link>
     </EmbeddedResource>
-    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fr.resx">
+      <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fr.resx">
       <Link>Properties\Langs\Lang.fr.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ko-KR.resx">
       <Link>Properties\Langs\Lang.ko-KR.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ru.resx">
+      <Link>Properties\Langs\Lang.ru.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.resx">
       <Link>Properties\Langs\Lang.resx</Link>
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Compile Include="..\..\Shared\HandyControl_Shared\Properties\AssemblyInfo.cs">
+      <Link>Properties\AssemblyInfo.cs</Link>
+    </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\..\Shared\HandyControl_Shared\Properties\Langs\LangProvider.tt">
+      <Link>Properties\Langs\LangProvider.tt</Link>
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LangProvider.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\dropper.cur">
       <Link>Resources\dropper.cur</Link>
@@ -179,6 +165,12 @@
       <Link>Resources\Images\GlowWindow\topright.png</Link>
     </Resource>
   </ItemGroup>
-  <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\ComboBoxBaseStyle.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\TreeViewBaseStyle.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\DataGrid.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\ListView.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\MessageBox.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Window.xaml" />
+  </ItemGroup>
 </Project>

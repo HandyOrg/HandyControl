@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Windows;
 using HandyControl.Data;
+using HandyControl.Themes;
 
 namespace HandyControl.Tools
 {
@@ -84,6 +85,13 @@ namespace HandyControl.Tools
                     Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{SkinType.Default.ToString()}.xaml")
                 };
             }        
+        }
+
+        public static Theme GetTheme(string name, ResourceDictionary resourceDictionary)
+        {
+            if (string.IsNullOrEmpty(name) || resourceDictionary == null) return null;
+            return resourceDictionary.MergedDictionaries.OfType<Theme>()
+                .FirstOrDefault(item => Equals(item.Name, name));
         }
     }
 }

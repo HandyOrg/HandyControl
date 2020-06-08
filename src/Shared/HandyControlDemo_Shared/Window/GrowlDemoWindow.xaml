@@ -3,21 +3,22 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
         xmlns:data="clr-namespace:HandyControlDemo.Data"
         DataContext="{Binding GrowlDemoWithToken,Source={StaticResource Locator}}"
-        Title="{x:Static langs:Lang.GrowlDemo}"
+        Title="{ex:Lang Key={x:Static langs:LangKeys.GrowlDemo}}"
         Width="800"
         Height="500">
     <hc:TransitioningContentControl>
         <hc:SimplePanel Margin="32">
             <WrapPanel>
-                <Button Command="{Binding InfoCmd}" Content="{x:Static langs:Lang.Info}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
-                <Button Command="{Binding SuccessCmd}" Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
-                <Button Command="{Binding WarningCmd}" Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ButtonWarning}"/>
-                <Button Command="{Binding ErrorCmd}" Content="{x:Static langs:Lang.Error}" Margin="5" Style="{StaticResource ButtonDanger}"/>
-                <Button Command="{Binding AskCmd}" Content="{x:Static langs:Lang.Ask}" Margin="5" Background="BlueViolet" Foreground="White" BorderThickness="0"/>
-                <Button Command="{Binding FatalCmd}" Content="{x:Static langs:Lang.Fatal}" Margin="5,0"/>
-                <Button Command="{Binding ClearCmd}" Content="{x:Static langs:Lang.Clear}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
+                <Button Command="{Binding InfoCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
+                <Button Command="{Binding SuccessCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
+                <Button Command="{Binding WarningCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ButtonWarning}"/>
+                <Button Command="{Binding ErrorCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Error}}" Margin="5" Style="{StaticResource ButtonDanger}"/>
+                <Button Command="{Binding AskCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Ask}}" Margin="5" Background="BlueViolet" Foreground="White" BorderThickness="0"/>
+                <Button Command="{Binding FatalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Fatal}}" Margin="5,0"/>
+                <Button Command="{Binding ClearCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Clear}}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
             </WrapPanel>
             <hc:ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsInertiaEnabled="True" IsPenetrating="True">
                 <StackPanel hc:Growl.Token="{x:Static data:MessageToken.GrowlDemoPanel}" VerticalAlignment="Top" Margin="0,10,10,10"/>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              DataContext="{Binding SearchBarDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
@@ -11,19 +12,19 @@
                 <hc:SearchBar Command="{Binding SearchCmd}" CommandParameter="{Binding Text,RelativeSource={RelativeSource Self}}"/>
                 <hc:SearchBar Margin="0,32,0,0" IsEnabled="False"/>
 
-                <hc:SearchBar hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" Style="{StaticResource SearchBarExtend}"/>
-                <hc:SearchBar hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource SearchBarExtend}"/>
-                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource SearchBarExtend}" Margin="0,32,0,0"/>
-                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource SearchBarExtend}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
+                <hc:SearchBar hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Style="{StaticResource SearchBarExtend}"/>
+                <hc:SearchBar hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource SearchBarExtend}"/>
+                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarExtend}" Margin="0,32,0,0"/>
+                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarExtend}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
             </StackPanel>
             <StackPanel Margin="32,0,0,0">
                 <hc:SearchBar Name="SearchBarCustomVerify" ShowClearButton="True" Style="{StaticResource SearchBarPlus}"/>
                 <hc:SearchBar Margin="0,32,0,0" IsEnabled="False" Style="{StaticResource SearchBarPlus}"/>
 
-                <hc:SearchBar ShowClearButton="True" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" Style="{StaticResource SearchBarPlus}"/>
-                <hc:SearchBar TextType="Mail" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterEmail}" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr1}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource SearchBarPlus}"/>
-                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource SearchBarPlus}" Margin="0,32,0,0"/>
-                <hc:SearchBar ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
+                <hc:SearchBar ShowClearButton="True" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Style="{StaticResource SearchBarPlus}"/>
+                <hc:SearchBar TextType="Mail" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterEmail}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource SearchBarPlus}"/>
+                <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" Margin="0,32,0,0"/>
+                <hc:SearchBar ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

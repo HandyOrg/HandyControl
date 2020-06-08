@@ -4,14 +4,15 @@
              Background="{DynamicResource RegionBrush}"
              DataContext="{Binding PaginationDemo,Source={StaticResource Locator}}"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs">
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension">
     <hc:TransitioningContentControl>
         <Grid Margin="32">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <hc:Pagination MaxPageCount="10" PageIndex="{Binding PageIndex}">
+            <hc:Pagination MaxPageCount="10" PageIndex="{Binding PageIndex}" IsJumpEnabled="True">
                 <hc:Interaction.Triggers>
                     <hc:EventTrigger EventName="PageUpdated">
                         <hc:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />
@@ -25,7 +26,7 @@
                     </DataTemplate>
                 </DataGrid.RowHeaderTemplate>
                 <DataGrid.Columns>
-                    <DataGridTextColumn IsReadOnly="True" Width="80" CanUserResize="False" Binding="{Binding Index}" Header="{x:Static langs:Lang.Index}"/>
+                    <DataGridTextColumn IsReadOnly="True" Width="80" CanUserResize="False" Binding="{Binding Index}" Header="{ex:Lang Key={x:Static langs:LangKeys.Index}}"/>
                     <DataGridTemplateColumn Width="60" CanUserResize="False">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -33,10 +34,10 @@
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-                    <DataGridTextColumn Binding="{Binding Name}" Header="{x:Static langs:Lang.Name}"/>
-                    <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{x:Static langs:Lang.Selected}"/>
-                    <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{x:Static langs:Lang.Type}"/>
-                    <DataGridTextColumn Binding="{Binding Remark}" Header="{x:Static langs:Lang.Remark}"/>
+                    <DataGridTextColumn Binding="{Binding Name}" Header="{ex:Lang Key={x:Static langs:LangKeys.Name}}"/>
+                    <DataGridCheckBoxColumn Width="100" CanUserResize="False" Binding="{Binding IsSelected}" Header="{ex:Lang Key={x:Static langs:LangKeys.Selected}}"/>
+                    <DataGridComboBoxColumn ItemsSource="{Binding Source={StaticResource DemoTypes}}" Width="100" CanUserResize="False" SelectedValueBinding="{Binding Type}" Header="{ex:Lang Key={x:Static langs:LangKeys.Type}}"/>
+                    <DataGridTextColumn Binding="{Binding Remark}" Header="{ex:Lang Key={x:Static langs:LangKeys.Remark}}"/>
                 </DataGrid.Columns>
             </DataGrid>
         </Grid>

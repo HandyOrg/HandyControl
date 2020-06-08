@@ -3,15 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <RichTextBox Margin="32" Width="400" Height="300" ScrollViewer.VerticalScrollBarVisibility="Auto">
             <FlowDocument>
                 <Paragraph>
-                    <Run FontSize="20" Text="{Binding Source={x:Static langs:Lang.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=20,Mode=OneWay}"/>
+                    <Run FontSize="20" Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=20,Mode=OneWay}"/>
                 </Paragraph>
                 <Paragraph>
-                    <Run Text="{Binding Source={x:Static langs:Lang.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=1000,Mode=OneWay}"/>
+                    <Run Text="{ex:Lang Key={x:Static langs:LangKeys.Text},Converter={StaticResource StringRepeatConverter},ConverterParameter=1000,Mode=OneWay}"/>
                 </Paragraph>
                 <Paragraph>
                     <Hyperlink>https://github.com/NaBian/HandyControl</Hyperlink>

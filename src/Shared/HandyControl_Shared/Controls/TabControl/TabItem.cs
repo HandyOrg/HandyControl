@@ -251,6 +251,8 @@ namespace HandyControl.Controls
         protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseRightButtonDown(e);
+
+            if (VisualTreeHelper.HitTest(this, e.GetPosition(this)) == null) return;
             IsSelected = true;
             Focus();
         }
@@ -278,7 +280,7 @@ namespace HandyControl.Controls
             RaiseEvent(argsClosing);
             if (argsClosing.Cancel) return;
 
-            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, parent.IsAnimationEnabled
+            TabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, parent.IsAnimationEnabled
                     ? new Duration(TimeSpan.FromMilliseconds(200))
                     : new Duration(TimeSpan.FromMilliseconds(1)));
             
@@ -293,13 +295,14 @@ namespace HandyControl.Controls
         {
             base.OnMouseLeftButtonDown(e);
 
+            if (VisualTreeHelper.HitTest(this, e.GetPosition(this)) == null) return;
             var parent = TabControlParent;
             if (parent == null) return;
 
             if (parent.IsDraggable && !ItemIsDragging && !_isDragging)
             {
                 parent.UpdateScroll();
-                TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+                TabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromSeconds(0)));
                 _mouseDownOffsetX = RenderTransform.Value.OffsetX;
                 _scrollHorizontalOffset = parent.GetHorizontalOffset();
                 var mx = TranslatePoint(new Point(), parent).X + _scrollHorizontalOffset;
@@ -404,6 +407,7 @@ namespace HandyControl.Controls
                 list.Remove(item);
                 parent.IsInternalAction = true;
                 list.Insert(index, item);
+                _tabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(0)));
                 TabPanel.CanUpdate = true;
                 TabPanel.ForceUpdate = true;
                 TabPanel.Measure(new Size(TabPanel.DesiredSize.Width, ActualHeight));

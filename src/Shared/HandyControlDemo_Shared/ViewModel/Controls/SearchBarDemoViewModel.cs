@@ -1,10 +1,6 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
-#if netle40
 using GalaSoft.MvvmLight.Command;
-#else
-using GalaSoft.MvvmLight.CommandWpf;
-# endif
 using HandyControl.Controls;
 
 namespace HandyControlDemo.ViewModel

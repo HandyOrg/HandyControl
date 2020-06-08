@@ -1,10 +1,6 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
-#if netle40
 using GalaSoft.MvvmLight.Command;
-#else
-using GalaSoft.MvvmLight.CommandWpf;
-# endif
 using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Data;
@@ -22,7 +18,7 @@ namespace HandyControlDemo.ViewModel
         public string Content
         {
             get => _content;
-#if netle40
+#if NET40
             set => Set(nameof(Content), ref _content, value);
 #else
             set => Set(ref _content, value);
@@ -36,7 +32,7 @@ namespace HandyControlDemo.ViewModel
             get => _contextMenuIsShow;
             set
             {
-#if netle40
+#if NET40
                 Set(nameof(ContextMenuIsShow), ref _contextMenuIsShow, value);
 #else
                 Set(ref _contextMenuIsShow, value);
@@ -56,7 +52,7 @@ namespace HandyControlDemo.ViewModel
         public bool ContextMenuIsBlink
         {
             get => _contextMenuIsBlink;
-#if netle40
+#if NET40
             set => Set(nameof(ContextMenuIsBlink), ref _contextMenuIsBlink, value);
 #else
             set => Set(ref _contextMenuIsBlink, value);
@@ -70,7 +66,7 @@ namespace HandyControlDemo.ViewModel
             get => _contextContentIsShow;
             set
             {
-#if netle40
+#if NET40
                 Set(nameof(ContextContentIsShow), ref _contextContentIsShow, value);
 #else
                 Set(ref _contextContentIsShow, value);
@@ -90,7 +86,7 @@ namespace HandyControlDemo.ViewModel
         public bool ContextContentIsBlink
         {
             get => _contextContentIsBlink;
-#if netle40
+#if NET40
             set => Set(nameof(ContextContentIsBlink), ref _contextContentIsBlink, value);
 #else
             set => Set(ref _contextContentIsBlink, value);

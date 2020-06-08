@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Resources;
 using HandyControl.Data;
 using HandyControl.Tools;
+using HandyControl.Tools.Interop;
 
 namespace HandyControl.Controls
 {
@@ -123,7 +124,7 @@ namespace HandyControl.Controls
             try
             {
                 StopAnimate();
-                ExternDllHelper.Gdip.GdipDisposeImage(new HandleRef(this, NativeImage));
+                InteropMethods.Gdip.GdipDisposeImage(new HandleRef(this, NativeImage));
             }
             catch
             {
@@ -139,17 +140,17 @@ namespace HandyControl.Controls
         {
             filename = Path.GetFullPath(filename);
 
-            var status = ExternDllHelper.Gdip.GdipCreateBitmapFromFile(filename, out var bitmap);
+            var status = InteropMethods.Gdip.GdipCreateBitmapFromFile(filename, out var bitmap);
 
-            if (status != ExternDllHelper.Gdip.Ok)
-                throw ExternDllHelper.Gdip.StatusException(status);
+            if (status != InteropMethods.Gdip.Ok)
+                throw InteropMethods.Gdip.StatusException(status);
 
-            status = ExternDllHelper.Gdip.GdipImageForceValidation(new HandleRef(null, bitmap));
+            status = InteropMethods.Gdip.GdipImageForceValidation(new HandleRef(null, bitmap));
 
-            if (status != ExternDllHelper.Gdip.Ok)
+            if (status != InteropMethods.Gdip.Ok)
             {
-                ExternDllHelper.Gdip.GdipDisposeImage(new HandleRef(null, bitmap));
-                throw ExternDllHelper.Gdip.StatusException(status);
+                InteropMethods.Gdip.GdipDisposeImage(new HandleRef(null, bitmap));
+                throw InteropMethods.Gdip.StatusException(status);
             }
 
             SetNativeImage(bitmap);
@@ -162,17 +163,17 @@ namespace HandyControl.Controls
             if (stream == null)
                 throw new ArgumentException("stream null");
 
-            var status = ExternDllHelper.Gdip.GdipCreateBitmapFromStream(new GPStream(stream), out var bitmap);
+            var status = InteropMethods.Gdip.GdipCreateBitmapFromStream(new GPStream(stream), out var bitmap);
 
-            if (status != ExternDllHelper.Gdip.Ok)
-                throw ExternDllHelper.Gdip.StatusException(status);
+            if (status != InteropMethods.Gdip.Ok)
+                throw InteropMethods.Gdip.StatusException(status);
 
-            status = ExternDllHelper.Gdip.GdipImageForceValidation(new HandleRef(null, bitmap));
+            status = InteropMethods.Gdip.GdipImageForceValidation(new HandleRef(null, bitmap));
 
-            if (status != ExternDllHelper.Gdip.Ok)
+            if (status != InteropMethods.Gdip.Ok)
             {
-                ExternDllHelper.Gdip.GdipDisposeImage(new HandleRef(null, bitmap));
-                throw ExternDllHelper.Gdip.StatusException(status);
+                InteropMethods.Gdip.GdipDisposeImage(new HandleRef(null, bitmap));
+                throw InteropMethods.Gdip.StatusException(status);
             }
 
             SetNativeImage(bitmap);
@@ -296,10 +297,10 @@ namespace HandyControl.Controls
             {
                 var guid = new Guid();
 
-                var status = ExternDllHelper.Gdip.GdipGetImageRawFormat(new HandleRef(this, NativeImage), ref guid);
+                var status = InteropMethods.Gdip.GdipGetImageRawFormat(new HandleRef(this, NativeImage), ref guid);
 
-                if (status != ExternDllHelper.Gdip.Ok)
-                    throw ExternDllHelper.Gdip.StatusException(status);
+                if (status != InteropMethods.Gdip.Ok)
+                    throw InteropMethods.Gdip.StatusException(status);
 
                 return guid;
             }
@@ -321,11 +322,11 @@ namespace HandyControl.Controls
         {
             get
             {
-                var status = ExternDllHelper.Gdip.GdipImageGetFrameDimensionsCount(new HandleRef(this, NativeImage), out var count);
+                var status = InteropMethods.Gdip.GdipImageGetFrameDimensionsCount(new HandleRef(this, NativeImage), out var count);
 
-                if (status != ExternDllHelper.Gdip.Ok)
+                if (status != InteropMethods.Gdip.Ok)
                 {
-                    throw ExternDllHelper.Gdip.StatusException(status);
+                    throw InteropMethods.Gdip.StatusException(status);
                 }
 
                 if (count <= 0)
@@ -338,15 +339,15 @@ namespace HandyControl.Controls
                 var buffer = Marshal.AllocHGlobal(checked(size * count));
                 if (buffer == IntPtr.Zero)
                 {
-                    throw ExternDllHelper.Gdip.StatusException(ExternDllHelper.Gdip.OutOfMemory);
+                    throw InteropMethods.Gdip.StatusException(InteropMethods.Gdip.OutOfMemory);
                 }
 
-                status = ExternDllHelper.Gdip.GdipImageGetFrameDimensionsList(new HandleRef(this, NativeImage), buffer, count);
+                status = InteropMethods.Gdip.GdipImageGetFrameDimensionsList(new HandleRef(this, NativeImage), buffer, count);
 
-                if (status != ExternDllHelper.Gdip.Ok)
+                if (status != InteropMethods.Gdip.Ok)
                 {
                     Marshal.FreeHGlobal(buffer);
-                    throw ExternDllHelper.Gdip.StatusException(status);
+                    throw InteropMethods.Gdip.StatusException(status);
                 }
 
                 var guids = new Guid[count];
@@ -355,7 +356,7 @@ namespace HandyControl.Controls
                 {
                     for (var i = 0; i < count; i++)
                     {
-                        guids[i] = (Guid)ExternDllHelper.PtrToStructure((IntPtr)((long)buffer + size * i), typeof(Guid));
+                        guids[i] = (Guid)InteropMethods.PtrToStructure((IntPtr)((long)buffer + size * i), typeof(Guid));
                     }
                 }
                 finally
@@ -372,10 +373,10 @@ namespace HandyControl.Controls
             var count = new[] { 0 };
 
             var dimensionId = dimension.Guid;
-            var status = ExternDllHelper.Gdip.GdipImageGetFrameCount(new HandleRef(this, NativeImage), ref dimensionId, count);
+            var status = InteropMethods.Gdip.GdipImageGetFrameCount(new HandleRef(this, NativeImage), ref dimensionId, count);
 
-            if (status != ExternDllHelper.Gdip.Ok)
-                throw ExternDllHelper.Gdip.StatusException(status);
+            if (status != InteropMethods.Gdip.Ok)
+                throw InteropMethods.Gdip.StatusException(status);
 
             return count[0];
         }
@@ -384,10 +385,10 @@ namespace HandyControl.Controls
         {
             GifPropertyItem propitem;
 
-            var status = ExternDllHelper.Gdip.GdipGetPropertyItemSize(new HandleRef(this, NativeImage), propid, out var size);
+            var status = InteropMethods.Gdip.GdipGetPropertyItemSize(new HandleRef(this, NativeImage), propid, out var size);
 
-            if (status != ExternDllHelper.Gdip.Ok)
-                throw ExternDllHelper.Gdip.StatusException(status);
+            if (status != InteropMethods.Gdip.Ok)
+                throw InteropMethods.Gdip.StatusException(status);
 
             if (size == 0)
                 return null;
@@ -395,15 +396,15 @@ namespace HandyControl.Controls
             var propdata = Marshal.AllocHGlobal(size);
 
             if (propdata == IntPtr.Zero)
-                throw ExternDllHelper.Gdip.StatusException(ExternDllHelper.Gdip.OutOfMemory);
+                throw InteropMethods.Gdip.StatusException(InteropMethods.Gdip.OutOfMemory);
 
-            status = ExternDllHelper.Gdip.GdipGetPropertyItem(new HandleRef(this, NativeImage), propid, size, propdata);
+            status = InteropMethods.Gdip.GdipGetPropertyItem(new HandleRef(this, NativeImage), propid, size, propdata);
 
             try
             {
-                if (status != ExternDllHelper.Gdip.Ok)
+                if (status != InteropMethods.Gdip.Ok)
                 {
-                    throw ExternDllHelper.Gdip.StatusException(status);
+                    throw InteropMethods.Gdip.StatusException(status);
                 }
 
                 propitem = GifPropertyItemInternal.ConvertFromMemory(propdata, 1)[0];
@@ -421,10 +422,10 @@ namespace HandyControl.Controls
             var count = new[] { 0 };
 
             var dimensionId = dimension.Guid;
-            var status = ExternDllHelper.Gdip.GdipImageSelectActiveFrame(new HandleRef(this, NativeImage), ref dimensionId, frameIndex);
+            var status = InteropMethods.Gdip.GdipImageSelectActiveFrame(new HandleRef(this, NativeImage), ref dimensionId, frameIndex);
 
-            if (status != ExternDllHelper.Gdip.Ok)
-                throw ExternDllHelper.Gdip.StatusException(status);
+            if (status != InteropMethods.Gdip.Ok)
+                throw InteropMethods.Gdip.StatusException(status);
 
             return count[0];
         }
@@ -441,16 +442,16 @@ namespace HandyControl.Controls
         [ResourceConsumption(ResourceScope.Machine)]
         internal IntPtr GetHbitmap(Color background)
         {
-            var status = ExternDllHelper.Gdip.GdipCreateHBITMAPFromBitmap(new HandleRef(this, NativeImage), out var hBitmap,
+            var status = InteropMethods.Gdip.GdipCreateHBITMAPFromBitmap(new HandleRef(this, NativeImage), out var hBitmap,
                 ColorHelper.ToWin32(background));
             if (status == 2 && (Width >= short.MaxValue || Height >= short.MaxValue))
             {
                 throw new ArgumentException("GdiplusInvalidSize");
             }
 
-            if (status != ExternDllHelper.Gdip.Ok && NativeImage != IntPtr.Zero)
+            if (status != InteropMethods.Gdip.Ok && NativeImage != IntPtr.Zero)
             {
-                throw ExternDllHelper.Gdip.StatusException(status);
+                throw InteropMethods.Gdip.StatusException(status);
             }
 
             return hBitmap;
@@ -474,7 +475,7 @@ namespace HandyControl.Controls
             {
                 if (handle != IntPtr.Zero)
                 {
-                    ExternDllHelper.DeleteObject(handle);
+                    InteropMethods.DeleteObject(handle);
                 }
             }
         }

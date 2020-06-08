@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <UserControl.Resources>
         <FlowDocument x:Key="FlowDocumentDemo" x:Shared="False" ColumnWidth="400" IsOptimalParagraphEnabled="True" IsHyphenationEnabled="True">
@@ -99,13 +100,13 @@
     </UserControl.Resources>
     <hc:TransitioningContentControl>
         <TabControl Style="{StaticResource TabControlInLine}">
-            <TabItem Header="{x:Static langs:Lang.FlowDocumentScrollViewer}">
+            <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.FlowDocumentScrollViewer}}">
                 <FlowDocumentScrollViewer Document="{StaticResource FlowDocumentDemo}" IsToolBarVisible="True" Width="640" Height="400" Margin="32"/>
             </TabItem>
-            <TabItem Header="{x:Static langs:Lang.FlowDocumentPageViewer}">
+            <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.FlowDocumentPageViewer}}">
                 <FlowDocumentPageViewer Document="{StaticResource FlowDocumentDemo}" Width="640" Height="400" Margin="32"/>
             </TabItem>
-            <TabItem Header="{x:Static langs:Lang.FlowDocumentReader}">
+            <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.FlowDocumentReader}}">
                 <FlowDocumentReader Document="{StaticResource FlowDocumentDemo}" Width="640" Height="400" Margin="32"/>
             </TabItem>
         </TabControl>

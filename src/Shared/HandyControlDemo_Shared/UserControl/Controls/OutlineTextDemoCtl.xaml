@@ -3,16 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" Width="400">
-            <hc:OutlineText TextWrapping="Wrap" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=20}"/>
-            <hc:OutlineText Margin="0,10,0,0" FontSize="30" Fill="{DynamicResource SuccessBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=8}"/>
-            <hc:OutlineText Margin="0,10,0,0" FontSize="30" FontStyle="Italic" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=8}"/>
-            <hc:OutlineText Margin="0,10,0,0" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontSize="50" StrokeThickness="2" Fill="{DynamicResource DangerBrush}" Stroke="{DynamicResource PrimaryBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
-            <hc:OutlineText Margin="0,10,0,0" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
-            <hc:OutlineText Margin="0,10,0,0" StrokePosition="Outside" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
-            <hc:OutlineText Margin="0,10,0,0" StrokePosition="InSide" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{Binding Source={x:Static langs:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+            <hc:OutlineText TextWrapping="Wrap" Fill="{DynamicResource PrimaryTextBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=20}"/>
+            <hc:OutlineText Margin="0,10,0,0" FontSize="30" Fill="{DynamicResource SuccessBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=8}"/>
+            <hc:OutlineText Margin="0,10,0,0" Fill="{DynamicResource PrimaryTextBrush}" FontSize="30" FontStyle="Italic" Text="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=8}"/>
+            <hc:OutlineText Margin="0,10,0,0" TextWrapping="Wrap" TextTrimming="CharacterEllipsis" FontSize="50" StrokeThickness="2" Fill="{DynamicResource DangerBrush}" Stroke="{DynamicResource PrimaryBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+            <hc:OutlineText Margin="0,10,0,0" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+            <hc:OutlineText Margin="0,10,0,0" StrokePosition="Outside" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+            <hc:OutlineText Margin="0,10,0,0" StrokePosition="InSide" FontSize="80" FontWeight="Bold" StrokeThickness="4" Fill="{DynamicResource PrimaryBrush}" Stroke="{DynamicResource DangerBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
         </StackPanel>
     </hc:TransitioningContentControl>
 </UserControl>

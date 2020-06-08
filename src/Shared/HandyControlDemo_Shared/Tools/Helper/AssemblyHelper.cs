@@ -25,7 +25,6 @@ namespace HandyControlDemo.Tools
         {
             try
             {
-
                 var type = Type.GetType($"{NameSpaceStr}.{className}");
                 return type == null ? null : Activator.CreateInstance(type);
             }

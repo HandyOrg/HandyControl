@@ -8,6 +8,7 @@ using System.Net;
 using System.Windows;
 using HandyControl.Data;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Tools.Converter;
 using Newtonsoft.Json;
 
@@ -106,7 +107,7 @@ namespace HandyControlDemo.Service
             var list = new List<string>();
             for (var i = 1; i <= 9; i++)
             {
-                list.Add($"{converter.Convert(Properties.Langs.Lang.Text, null, i, CultureInfo.CurrentCulture)}{i}");
+                list.Add($"{converter.Convert(Lang.Text, null, i, CultureInfo.CurrentCulture)}{i}");
             }
 
             return list;
@@ -128,10 +129,11 @@ namespace HandyControlDemo.Service
                     Link = item.html_url
                 }));
             }
-            catch
+            catch(Exception e)
             {
-                // ignored
+                HandyControl.Controls.MessageBox.Error(e.Message, Lang.Error);
             }
+
             return list;
         }
 
@@ -179,7 +181,7 @@ namespace HandyControlDemo.Service
                 new AvatarModel
                 {
                     DisplayName = "AutumnBox",
-                    AvatarUri = "https://www.atmb.top/images/leaves.png",
+                    AvatarUri = "https://raw.githubusercontent.com/zsh2401/AutumnBox/master/src/AutumnBox.GUI/Resources/Images/icon.png",
                     Link = "https://github.com/zsh2401/AutumnBox"
                 }
             };
@@ -279,23 +281,23 @@ namespace HandyControlDemo.Service
             {
                 new StepBarDemoModel
                 {
-                    Header = $"{Properties.Langs.Lang.Step}1",
-                    Content = Properties.Langs.Lang.Register
+                    Header = LangKeys.Step,
+                    Content = LangKeys.Register
                 },
                 new StepBarDemoModel
                 {
-                    Header = $"{Properties.Langs.Lang.Step}2",
-                    Content = Properties.Langs.Lang.BasicInfo
+                    Header = LangKeys.Step,
+                    Content = LangKeys.BasicInfo
                 },
                 new StepBarDemoModel
                 {
-                    Header = $"{Properties.Langs.Lang.Step}3",
-                    Content = Properties.Langs.Lang.UploadFile
+                    Header = LangKeys.Step,
+                    Content = LangKeys.UploadFile
                 },
                 new StepBarDemoModel
                 {
-                    Header = $"{Properties.Langs.Lang.Step}4",
-                    Content = Properties.Langs.Lang.Complete
+                    Header = LangKeys.Step,
+                    Content = LangKeys.Complete
                 }
             };
         }
@@ -374,13 +376,14 @@ namespace HandyControlDemo.Service
             foreach (var item in jsonObj)
             {
                 var titleKey = (string) item.title;
-                var title = Properties.Langs.Lang.ResourceManager.GetString(titleKey);
+                var title = titleKey;
                 var list = Convert2DemoItemList(item.demoItemList);
                 infoList.Add(new DemoInfoModel
                 {
                     Key = titleKey,
                     Title = title,
-                    DemoItemList = list
+                    DemoItemList = list,
+                    SelectedIndex = (int) item.selectedIndex
                 });
             }
 
@@ -393,7 +396,7 @@ namespace HandyControlDemo.Service
 
             foreach (var item in list)
             {
-                var name = Properties.Langs.Lang.ResourceManager.GetString((string)item[0]);
+                var name = (string)item[0];
                 string targetCtlName = item[1];
                 string imageName = item[2];
                 var isNew = !string.IsNullOrEmpty((string)item[3]);
