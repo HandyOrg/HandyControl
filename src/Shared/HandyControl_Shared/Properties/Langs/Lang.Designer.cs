@@ -266,7 +266,18 @@ namespace HandyControl.Properties.Langs {
                 return ResourceManager.GetString("LangComment", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 杂项 的本地化字符串。
+        /// </summary>
+        public static string Miscellaneous
+        {
+            get
+            {
+                return ResourceManager.GetString("Miscellaneous", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 下一页 的本地化字符串。
         /// </summary>

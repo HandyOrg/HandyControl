@@ -313,6 +313,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\RadioButton_16x.png">
       <Link>Resources\Img\LeftMainContent\RadioButton_16x.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\PropertyGridEditorPart_16x.png">
+      <Link>Resources\Img\LeftMainContent\PropertyGridEditorPart_16x.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\RepeatButton_16x.png">
       <Link>Resources\Img\LeftMainContent\RepeatButton_16x.png</Link>
     </Resource>
