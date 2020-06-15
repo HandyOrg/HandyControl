@@ -17,6 +17,37 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
     </Style>
 
+    <Style x:Key="BorderTipBaseStyle" TargetType="Border">
+        <Setter Property="CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="Padding" Value="10"/>
+        <Setter Property="BorderThickness" Value="5,0,0,0"/>
+    </Style>
+
+    <Style x:Key="BorderTipPrimary" BasedOn="{StaticResource BorderTipBaseStyle}" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource LightPrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="BorderTipDanger" BasedOn="{StaticResource BorderTipBaseStyle}" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource LightDangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
+    <Style x:Key="BorderTipWarning" BasedOn="{StaticResource BorderTipBaseStyle}" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource LightWarningBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
+    </Style>
+
+    <Style x:Key="BorderTipInfo" BasedOn="{StaticResource BorderTipBaseStyle}" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource LightInfoBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="BorderTipSuccess" BasedOn="{StaticResource BorderTipBaseStyle}" TargetType="Border">
+        <Setter Property="Background" Value="{DynamicResource LightSuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
+    </Style>
+
     <Style x:Key="BorderVerticallySplitter" TargetType="Border">
         <Setter Property="Width" Value="1"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>

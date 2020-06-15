@@ -3,7 +3,6 @@
                     xmlns:controls="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="ToggleBlockBaseStyle" TargetType="controls:ToggleBlock">
-        <Setter Property="IsHitTestVisible" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="Template">
@@ -19,11 +18,17 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="ContentPresenterIndeterminate" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ContentPresenterIndeterminate" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="ContentPresenterIndeterminate" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

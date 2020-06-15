@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\EdgeElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconSwitchElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ImageAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\InfoElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\MenuTopLineAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
@@ -214,7 +215,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StepStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TextType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\PlacementType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitleAlignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitlePlacementType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifFrameDimension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifImageInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItem.cs" />

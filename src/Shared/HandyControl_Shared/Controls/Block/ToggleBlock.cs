@@ -8,9 +8,6 @@ namespace HandyControl.Controls
     /// <summary>
     ///     切换块
     /// </summary>
-    /// <remarks>
-    ///     在不需要命中测试的情况下可代替ToggleButton或CheckBox，以减少内存用量。
-    /// </remarks>
     public class ToggleBlock : Control
     {
         public static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register(

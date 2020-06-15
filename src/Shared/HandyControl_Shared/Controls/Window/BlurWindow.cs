@@ -11,7 +11,7 @@ namespace HandyControl.Controls
     {
         static BlurWindow()
         {
-            StyleProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(Application.Current.FindResource(ResourceToken.WindowBlur)));
+            StyleProperty.OverrideMetadata(typeof(BlurWindow), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>(ResourceToken.WindowBlur)));
         }
 
         public override void OnApplyTemplate()

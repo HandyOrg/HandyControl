@@ -188,7 +188,7 @@
         <Setter Property="controls:InfoElement.MinContentHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Template" Value="{StaticResource DatePickerExtendTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:InfoElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource DatePickerExtendLeftTemplate}"/>
                 <Setter Property="Width" Value="Auto"/>
             </Trigger>
@@ -350,7 +350,7 @@
     <Style x:Key="DatePickerPlusBaseStyle" BasedOn="{StaticResource DatePickerExtendBaseStyle}" TargetType="controls:DatePicker">
         <Setter Property="Template" Value="{StaticResource DatePickerPlusTopTemplate}"/>
         <Style.Triggers>
-            <Trigger Property="controls:InfoElement.TitleAlignment" Value="Left">
+            <Trigger Property="controls:InfoElement.TitlePlacement" Value="Left">
                 <Setter Property="Template" Value="{StaticResource DatePickerPlusLeftTemplate}"/>
                 <Setter Property="Width" Value="Auto"/>
             </Trigger>

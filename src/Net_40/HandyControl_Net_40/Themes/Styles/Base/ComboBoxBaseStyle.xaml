@@ -529,21 +529,21 @@
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEditable" Value="False"/>
-                    <Condition Property="controls:InfoElement.TitleAlignment" Value="Left"/>
+                    <Condition Property="controls:InfoElement.TitlePlacement" Value="Left"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource ComboBoxLeftTemplate}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEditable" Value="True"/>
-                    <Condition Property="controls:InfoElement.TitleAlignment" Value="Top"/>
+                    <Condition Property="controls:InfoElement.TitlePlacement" Value="Top"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource ComboBoxEditableTopTemplate}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEditable" Value="True"/>
-                    <Condition Property="controls:InfoElement.TitleAlignment" Value="Left"/>
+                    <Condition Property="controls:InfoElement.TitlePlacement" Value="Left"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource ComboBoxEditableLeftTemplate}"/>
             </MultiTrigger>
@@ -1280,21 +1280,21 @@
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEditable" Value="False"/>
-                    <Condition Property="controls:InfoElement.TitleAlignment" Value="Left"/>
+                    <Condition Property="controls:InfoElement.TitlePlacement" Value="Left"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource ComboBoxPlusLeftTemplate}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEditable" Value="True"/>
-                    <Condition Property="controls:InfoElement.TitleAlignment" Value="Top"/>
+                    <Condition Property="controls:InfoElement.TitlePlacement" Value="Top"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource ComboBoxPlusEditableTopTemplate}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEditable" Value="True"/>
-                    <Condition Property="controls:InfoElement.TitleAlignment" Value="Top"/>
+                    <Condition Property="controls:InfoElement.TitlePlacement" Value="Top"/>
                     <Condition Property="AutoComplete" Value="True"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource ComboBoxPlusEditableTopAutoCompleteTemplate}"/>
@@ -1302,14 +1302,14 @@
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEditable" Value="True"/>
-                    <Condition Property="controls:InfoElement.TitleAlignment" Value="Left"/>
+                    <Condition Property="controls:InfoElement.TitlePlacement" Value="Left"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource ComboBoxPlusEditableLeftTemplate}"/>
             </MultiTrigger>
             <MultiTrigger>
                 <MultiTrigger.Conditions>
                     <Condition Property="IsEditable" Value="True"/>
-                    <Condition Property="controls:InfoElement.TitleAlignment" Value="Left"/>
+                    <Condition Property="controls:InfoElement.TitlePlacement" Value="Left"/>
                     <Condition Property="AutoComplete" Value="True"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Template" Value="{StaticResource ComboBoxPlusEditableLeftAutoCompleteTemplate}"/>

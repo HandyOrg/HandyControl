@@ -72,7 +72,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty AutoSizeEnabledProperty = DependencyProperty.Register(
-            "AutoSizeEnabled", typeof(bool), typeof(Watermark), new PropertyMetadata(ValueBoxes.TrueBox));
+            "AutoSizeEnabled", typeof(bool), typeof(Watermark), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
         public bool AutoSizeEnabled
         {
@@ -81,7 +81,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty MarkMarginProperty = DependencyProperty.Register(
-            "MarkMargin", typeof(Thickness), typeof(Watermark), new PropertyMetadata(default(Thickness)));
+            "MarkMargin", typeof(Thickness), typeof(Watermark), new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.AffectsRender));
 
         public Thickness MarkMargin
         {

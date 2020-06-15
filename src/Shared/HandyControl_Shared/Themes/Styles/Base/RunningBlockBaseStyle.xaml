@@ -17,14 +17,16 @@
             <Setter.Value>
                 <ControlTemplate TargetType="controls:RunningBlock">
                     <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Padding="{TemplateBinding Padding}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
-                        <controls:SimplePanel HorizontalAlignment="Left" x:Name="PART_Panel" ClipToBounds="True">
-                            <ContentPresenter x:Name="PART_ContentElement" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
-                                <ContentPresenter.RenderTransform>
-                                    <TransformGroup>
-                                        <TranslateTransform/>
-                                    </TransformGroup>
-                                </ContentPresenter.RenderTransform>
-                            </ContentPresenter>
+                        <controls:SimplePanel ClipToBounds="True">
+                            <controls:SimplePanel HorizontalAlignment="Left" x:Name="PART_Panel">
+                                <ContentPresenter x:Name="PART_ContentElement" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
+                                    <ContentPresenter.RenderTransform>
+                                        <TransformGroup>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </ContentPresenter.RenderTransform>
+                                </ContentPresenter>
+                            </controls:SimplePanel>
                         </controls:SimplePanel>
                     </Border>
                 </ControlTemplate>

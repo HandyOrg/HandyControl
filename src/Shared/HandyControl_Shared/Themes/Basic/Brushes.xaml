@@ -2,6 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
 
+    <SolidColorBrush o:Freeze="True" x:Key="LightPrimaryBrush" Color="{DynamicResource LightPrimaryColor}"/>
     <LinearGradientBrush o:Freeze="True" x:Key="PrimaryBrush" EndPoint="1,0" StartPoint="0,0">
         <GradientStop o:Freeze="True" Color="{DynamicResource PrimaryColor}" Offset="0"/>
         <GradientStop o:Freeze="True" Color="{DynamicResource DarkPrimaryColor}" Offset="1"/>
@@ -28,24 +29,28 @@
     <SolidColorBrush o:Freeze="True" x:Key="DefaultBrush" Color="{DynamicResource DefaultColor}"/>
     <SolidColorBrush o:Freeze="True" x:Key="DarkDefaultBrush" Color="{DynamicResource DarkDefaultColor}"/>
 
+    <SolidColorBrush o:Freeze="True" x:Key="LightDangerBrush" Color="{DynamicResource LightDangerColor}"/>
     <LinearGradientBrush o:Freeze="True" x:Key="DangerBrush" EndPoint="1,0" StartPoint="0,0">
         <GradientStop o:Freeze="True" Color="{DynamicResource DangerColor}" Offset="0"/>
         <GradientStop o:Freeze="True" Color="{DynamicResource DarkDangerColor}" Offset="1"/>
     </LinearGradientBrush>
     <SolidColorBrush o:Freeze="True" x:Key="DarkDangerBrush" Color="{DynamicResource DarkDangerColor}"/>
 
+    <SolidColorBrush o:Freeze="True" x:Key="LightWarningBrush" Color="{DynamicResource LightWarningColor}"/>
     <LinearGradientBrush o:Freeze="True" x:Key="WarningBrush" EndPoint="1,0" StartPoint="0,0">
         <GradientStop o:Freeze="True" Color="{DynamicResource WarningColor}" Offset="0"/>
         <GradientStop o:Freeze="True" Color="{DynamicResource DarkWarningColor}" Offset="1"/>
     </LinearGradientBrush>
     <SolidColorBrush o:Freeze="True" x:Key="DarkWarningBrush" Color="{DynamicResource DarkWarningColor}"/>
 
+    <SolidColorBrush o:Freeze="True" x:Key="LightInfoBrush" Color="{DynamicResource LightInfoColor}"/>
     <LinearGradientBrush o:Freeze="True" x:Key="InfoBrush" EndPoint="1,0" StartPoint="0,0">
         <GradientStop o:Freeze="True" Color="{DynamicResource InfoColor}" Offset="0"/>
         <GradientStop o:Freeze="True" Color="{DynamicResource DarkInfoColor}" Offset="1"/>
     </LinearGradientBrush>
     <SolidColorBrush o:Freeze="True" x:Key="DarkInfoBrush" Color="{DynamicResource DarkInfoColor}"/>
 
+    <SolidColorBrush o:Freeze="True" x:Key="LightSuccessBrush" Color="{DynamicResource LightSuccessColor}"/>
     <LinearGradientBrush o:Freeze="True" x:Key="SuccessBrush" EndPoint="1,0" StartPoint="0,0">
         <GradientStop o:Freeze="True" Color="{DynamicResource SuccessColor}" Offset="0"/>
         <GradientStop o:Freeze="True" Color="{DynamicResource DarkSuccessColor}" Offset="1"/>

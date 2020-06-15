@@ -13,22 +13,22 @@
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
                     <GroupBox Header="ContextMenu" Padding="10">
                         <StackPanel>
-                            <GroupBox hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Visibility}}">
+                            <GroupBox hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Visibility}}">
                                 <ToggleButton IsChecked="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
                             </GroupBox>
                             <TextBlock Foreground="{DynamicResource InfoBrush}" Visibility="{Binding ContextMenuIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{ex:Lang Key={x:Static langs:LangKeys.Try2CloseApp}}" Margin="0,6,0,0"/>
-                            <GroupBox Margin="0,10,0,0" hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Blink}}">
+                            <GroupBox Margin="0,10,0,0" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Blink}}">
                                 <ToggleButton IsChecked="{Binding ContextMenuIsBlink}" IsEnabled="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
                             </GroupBox>
                         </StackPanel>
                     </GroupBox>
                     <GroupBox Header="ContextContent" Margin="16,0,0,0" Padding="10">
                         <StackPanel>
-                            <GroupBox hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Visibility}}">
+                            <GroupBox hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Visibility}}">
                                 <ToggleButton IsChecked="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
                             </GroupBox>
                             <TextBlock Foreground="{DynamicResource InfoBrush}" Visibility="{Binding ContextContentIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{ex:Lang Key={x:Static langs:LangKeys.Try2CloseApp}}" Margin="0,6,0,0"/>
-                            <GroupBox Margin="0,10,0,0" hc:TitleElement.TitleAlignment="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Blink}}">
+                            <GroupBox Margin="0,10,0,0" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Blink}}">
                                 <ToggleButton IsChecked="{Binding ContextContentIsBlink}" IsEnabled="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
                             </GroupBox>
                         </StackPanel>

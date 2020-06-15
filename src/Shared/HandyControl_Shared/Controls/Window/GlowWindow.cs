@@ -50,7 +50,7 @@ namespace HandyControl.Controls
 
         static GlowWindow()
         {
-            StyleProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(Application.Current.FindResource(ResourceToken.WindowGlow)));
+            StyleProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>(ResourceToken.WindowGlow)));
             ResizeModeProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(OnResizeModeChanged));
         }
 

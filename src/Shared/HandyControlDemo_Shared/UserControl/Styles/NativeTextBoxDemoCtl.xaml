@@ -12,8 +12,8 @@
 
             <TextBox hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
             <TextBox hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource TextBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
-            <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-            <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Style="{StaticResource TextBoxExtend}" Margin="0,16,0,0"/>
+            <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+            <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Style="{StaticResource TextBoxExtend}" Margin="0,16,0,0"/>
         </StackPanel>
     </hc:TransitioningContentControl>
 </UserControl>

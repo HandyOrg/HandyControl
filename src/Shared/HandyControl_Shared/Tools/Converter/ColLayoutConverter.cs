@@ -37,15 +37,12 @@ namespace HandyControl.Tools.Converter
         {
             if (source == null) throw GetConvertFromException(null);
 
-            switch (source)
+            return source switch
             {
-                case string s:
-                    return FromString(s, cultureInfo);
-                case double d:
-                    return new ColLayout((int)d);
-                default:
-                    return new ColLayout(Convert.ToInt32(source, cultureInfo));
-            }
+                string s => FromString(s, cultureInfo),
+                double d => new ColLayout((int) d),
+                _ => new ColLayout(Convert.ToInt32(source, cultureInfo))
+            };
         }
 
         [SecurityCritical]
@@ -108,53 +105,31 @@ namespace HandyControl.Tools.Converter
                 i++;
             }
 
-            switch (i)
+            return i switch
             {
-                case 1:
-                    return new ColLayout(lengths[0]);
-                case 2:
-                    return new ColLayout
-                    {
-                        Xs = lengths[0],
-                        Sm = lengths[1]
-                    };
-                case 3:
-                    return new ColLayout
-                    {
-                        Xs = lengths[0],
-                        Sm = lengths[1],
-                        Md = lengths[2]
-                    };
-                case 4:
-                    return new ColLayout
-                    {
-                        Xs = lengths[0],
-                        Sm = lengths[1],
-                        Md = lengths[2],
-                        Lg = lengths[3]
-                    };
-                case 5:
-                    return new ColLayout
-                    {
-                        Xs = lengths[0],
-                        Sm = lengths[1],
-                        Md = lengths[2],
-                        Lg = lengths[3],
-                        Xl = lengths[4]
-                    };
-                case 6:
-                    return new ColLayout
-                    {
-                        Xs = lengths[0],
-                        Sm = lengths[1],
-                        Md = lengths[2],
-                        Lg = lengths[3],
-                        Xl = lengths[4],
-                        Xxl = lengths[5]
-                    };
-            }
-
-            throw new FormatException("InvalidStringColLayout");
+                1 => new ColLayout(lengths[0]),
+                2 => new ColLayout {Xs = lengths[0], Sm = lengths[1]},
+                3 => new ColLayout {Xs = lengths[0], Sm = lengths[1], Md = lengths[2]},
+                4 => new ColLayout {Xs = lengths[0], Sm = lengths[1], Md = lengths[2], Lg = lengths[3]},
+                5 => new ColLayout
+                {
+                    Xs = lengths[0],
+                    Sm = lengths[1],
+                    Md = lengths[2],
+                    Lg = lengths[3],
+                    Xl = lengths[4]
+                },
+                6 => new ColLayout
+                {
+                    Xs = lengths[0],
+                    Sm = lengths[1],
+                    Md = lengths[2],
+                    Lg = lengths[3],
+                    Xl = lengths[4],
+                    Xxl = lengths[5]
+                },
+                _ => throw new FormatException("InvalidStringColLayout")
+            };
         }
     }
 }
