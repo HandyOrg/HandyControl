@@ -14,8 +14,8 @@
                 <hc:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0"/>
                 <hc:DateTimePicker hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
 
-                <hc:DateTimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0"/>
-                <hc:DateTimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                <hc:DateTimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0"/>
+                <hc:DateTimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
             </StackPanel>
             <StackPanel Margin="32,0,0,0">
                 <hc:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerPlus}"/>
@@ -24,8 +24,8 @@
                 <hc:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0"/>
                 <hc:DateTimePicker hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
 
-                <hc:DateTimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0"/>
-                <hc:DateTimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                <hc:DateTimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0"/>
+                <hc:DateTimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

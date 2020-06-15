@@ -19,7 +19,6 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<ImageBrowserDemoViewModel>();
             SimpleIoc.Default.Register<ComboBoxDemoViewModel>();
             SimpleIoc.Default.Register<WindowDemoViewModel>();
-            SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetContributorDataList), "Contributors");
             SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetBlogDataList), "Blogs");
             SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetProjectDataList), "Projects");
             SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetWebsiteDataList), "Websites");
@@ -58,7 +57,7 @@ namespace HandyControlDemo.ViewModel
 
         public WindowDemoViewModel WindowDemo => SimpleIoc.Default.GetInstance<WindowDemoViewModel>();
 
-        public ItemsDisplayViewModel ContributorsView => SimpleIoc.Default.GetInstance<ItemsDisplayViewModel>("Contributors");
+        public ItemsDisplayViewModel ContributorsView => new ItemsDisplayViewModel(SimpleIoc.Default.GetInstance<DataService>().GetContributorDataList);
 
         public ItemsDisplayViewModel BlogsView => SimpleIoc.Default.GetInstance<ItemsDisplayViewModel>("Blogs");
 

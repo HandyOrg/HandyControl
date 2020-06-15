@@ -5,7 +5,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              DataContext="{Binding BlogsView,Source={StaticResource Locator}}"
              Background="{DynamicResource SecondaryRegionBrush}">
-    <hc:Watermark Mark="Blog" FontSize="80" MarkMargin="30,0">
+    <hc:Watermark Mark="Blog" FontSize="80" FontWeight="Bold" MarkMargin="30,0">
         <ListBox Background="Transparent" ItemContainerStyle="{StaticResource ListBoxItemCustom}" BorderThickness="0" ItemsSource="{Binding DataList}" ItemsPanel="{StaticResource FluidMoveBehaviorWrapPanelItemsPanelTemplate}">
             <ListBox.ItemTemplate>
                 <DataTemplate>

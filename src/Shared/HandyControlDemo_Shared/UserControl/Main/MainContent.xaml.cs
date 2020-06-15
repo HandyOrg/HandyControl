@@ -38,21 +38,25 @@ namespace HandyControlDemo.UserControl
             _isFull = isFull;
             if (_isFull)
             {
+                BorderRootEffect.Show();
                 BorderEffect.Collapse();
                 BorderTitle.Collapse();
                 GridMain.HorizontalAlignment = HorizontalAlignment.Stretch;
                 GridMain.VerticalAlignment = VerticalAlignment.Stretch;
-                GridMain.Margin = new Thickness();
                 PresenterMain.Margin = new Thickness();
+                BorderRoot.CornerRadius = new CornerRadius(10);
+                BorderRoot.Style = ResourceHelper.GetResource<Style>("BorderClip");
             }
             else
             {
+                BorderRootEffect.Collapse();
                 BorderEffect.Show();
                 BorderTitle.Show();
                 GridMain.HorizontalAlignment = HorizontalAlignment.Center;
                 GridMain.VerticalAlignment = VerticalAlignment.Center;
-                GridMain.Margin = new Thickness(16);
                 PresenterMain.Margin = new Thickness(0, 0, 0, 10);
+                BorderRoot.CornerRadius = new CornerRadius();
+                BorderRoot.Style = null;
             }
         }
 

@@ -45,14 +45,14 @@ namespace HandyControl.Controls
         /// <summary>
         ///     标题对齐方式
         /// </summary>
-        public static readonly DependencyProperty TitleAlignmentProperty = DependencyProperty.RegisterAttached(
-            "TitleAlignment", typeof(TitleAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(TitleAlignment.Top, FrameworkPropertyMetadataOptions.Inherits));
+        public static readonly DependencyProperty TitlePlacementProperty = DependencyProperty.RegisterAttached(
+            "TitlePlacement", typeof(TitlePlacementType), typeof(TitleElement), new FrameworkPropertyMetadata(TitlePlacementType.Top, FrameworkPropertyMetadataOptions.Inherits));
 
-        public static void SetTitleAlignment(DependencyObject element, TitleAlignment value)
-            => element.SetValue(TitleAlignmentProperty, value);
+        public static void SetTitlePlacement(DependencyObject element, TitlePlacementType value)
+            => element.SetValue(TitlePlacementProperty, value);
 
-        public static TitleAlignment GetTitleAlignment(DependencyObject element)
-            => (TitleAlignment) element.GetValue(TitleAlignmentProperty);
+        public static TitlePlacementType GetTitlePlacement(DependencyObject element)
+            => (TitlePlacementType) element.GetValue(TitlePlacementProperty);
 
         /// <summary>
         ///     标题宽度
