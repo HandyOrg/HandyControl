@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 
@@ -31,6 +32,15 @@ namespace HandyControl.Controls
         {
             get => (string)GetValue(PropertyNameProperty);
             set => SetValue(PropertyNameProperty, value);
+        }
+
+        public static readonly DependencyProperty PropertyTypeProperty = DependencyProperty.Register(
+            "PropertyType", typeof(Type), typeof(PropertyItem), new PropertyMetadata(default(Type)));
+
+        public Type PropertyType
+        {
+            get => (Type) GetValue(PropertyTypeProperty);
+            set => SetValue(PropertyTypeProperty, value);
         }
 
         public static readonly DependencyProperty PropertyTypeNameProperty = DependencyProperty.Register(
@@ -112,15 +122,6 @@ namespace HandyControl.Controls
         {
             get => (bool)GetValue(IsExpandedEnabledProperty);
             set => SetValue(IsExpandedEnabledProperty, value);
-        }
-
-        public static readonly DependencyProperty ConverterProperty = DependencyProperty.Register(
-            "Converter", typeof(IValueConverter), typeof(PropertyItem), new PropertyMetadata(default(IValueConverter)));
-
-        public IValueConverter Converter
-        {
-            get => (IValueConverter) GetValue(ConverterProperty);
-            set => SetValue(ConverterProperty, value);
         }
 
         public virtual void InitElement()

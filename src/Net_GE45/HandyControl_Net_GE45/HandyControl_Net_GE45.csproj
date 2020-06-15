@@ -134,7 +134,4 @@
       <Link>Resources\Images\GlowWindow\topright.png</Link>
     </Resource>
   </ItemGroup>
-  <ItemGroup>
-    <None Remove="..\..\Shared\HandyControl_Shared\Tools\Extension\CustomAttributeExtension.cs" />
-  </ItemGroup>
 </Project>

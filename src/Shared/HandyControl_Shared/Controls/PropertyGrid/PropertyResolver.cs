@@ -1,12 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Reflection;
-using System.Windows.Data;
+using System.Linq;
 using HandyControl.Properties.Langs;
-#if NET40
-using HandyControl.Tools.Extension;
-#endif
 
 namespace HandyControl.Controls
 {
@@ -29,15 +25,10 @@ namespace HandyControl.Controls
             [typeof(DateTime)] = EditorTypeCode.DateTime
         };
 
-        public string ResolveCategory(PropertyInfo propertyInfo)
+        public string ResolveCategory(PropertyDescriptor propertyDescriptor)
         {
-            var categoryAttribute = propertyInfo.GetCustomAttribute<CategoryAttribute>();
-            string category;
-            if (categoryAttribute != null && !string.IsNullOrEmpty(categoryAttribute.Category))
-            {
-                category = categoryAttribute.Category;
-            }
-            else
+            var category = propertyDescriptor.Category;
+            if (string.IsNullOrEmpty(category))
             {
                 category = Lang.Miscellaneous;
             }
@@ -45,74 +36,34 @@ namespace HandyControl.Controls
             return category;
         }
 
-        public string ResolveDisplayName(PropertyInfo propertyInfo)
+        public string ResolveDisplayName(PropertyDescriptor propertyDescriptor)
         {
-            var displayNameAttribute = propertyInfo.GetCustomAttribute<DisplayNameAttribute>();
-            string displayName;
-            if (displayNameAttribute != null && !string.IsNullOrEmpty(displayNameAttribute.DisplayName))
+            var displayName = propertyDescriptor.DisplayName;
+            if (string.IsNullOrEmpty(displayName))
             {
-                displayName = displayNameAttribute.DisplayName;
-            }
-            else
-            {
-                displayName = propertyInfo.Name;
+                displayName = propertyDescriptor.Name;
             }
 
             return displayName;
         }
 
-        public string ResolveDescription(PropertyInfo propertyInfo)
-        {
-            var descriptionAttribute = propertyInfo.GetCustomAttribute<DescriptionAttribute>();
-            string description;
-            if (descriptionAttribute != null && !string.IsNullOrEmpty(descriptionAttribute.Description))
-            {
-                description = descriptionAttribute.Description;
-            }
-            else
-            {
-                description = string.Empty;
-            }
+        public string ResolveDescription(PropertyDescriptor propertyDescriptor) => propertyDescriptor.Description;
 
-            return description;
-        }
+        public bool ResolveIsBrowsable(PropertyDescriptor propertyDescriptor) => propertyDescriptor.IsBrowsable;
 
-        public bool ResolveBrowsable(PropertyInfo propertyInfo)
-        {
-            var browsableAttribute = propertyInfo.GetCustomAttribute<BrowsableAttribute>();
-            return browsableAttribute == null || browsableAttribute.Browsable;
-        }
+        public bool ResolveIsReadOnly(PropertyDescriptor propertyDescriptor) => propertyDescriptor.IsReadOnly;
 
-        public bool ResolveIsReadOnly(PropertyInfo propertyInfo)
+        public object ResolveDefaultValue(PropertyDescriptor propertyDescriptor)
         {
-            var isReadOnlyAttribute = propertyInfo.GetCustomAttribute<ReadOnlyAttribute>();
-            return isReadOnlyAttribute != null && isReadOnlyAttribute.IsReadOnly;
-        }
-
-        public object ResolveDefaultValue(PropertyInfo propertyInfo)
-        {
-            var defaultValueAttribute = propertyInfo.GetCustomAttribute<DefaultValueAttribute>();
+            var defaultValueAttribute = propertyDescriptor.Attributes.OfType<DefaultValueAttribute>().FirstOrDefault();
             return defaultValueAttribute?.Value;
         }
 
-        public IValueConverter ResolveConverter(PropertyInfo propertyInfo)
+        public PropertyEditorBase ResolveEditor(PropertyDescriptor propertyDescriptor)
         {
-            var typeConverterAttribute = propertyInfo.GetCustomAttribute<TypeConverterAttribute>();
-            if (typeConverterAttribute != null && !string.IsNullOrEmpty(typeConverterAttribute.ConverterTypeName))
-            {
-                return CreateTypeConverter(Type.GetType(typeConverterAttribute.ConverterTypeName));
-            }
-
-            return null;
-        }
-
-        public virtual IValueConverter CreateTypeConverter(Type type) => Activator.CreateInstance(type) as IValueConverter;
-
-        public PropertyEditorBase ResolveEditor(PropertyInfo propertyInfo)
-        {
-            var editorAttribute = propertyInfo.GetCustomAttribute<EditorAttribute>();
+            var editorAttribute = propertyDescriptor.Attributes.OfType<EditorAttribute>().FirstOrDefault();
             var editor = editorAttribute == null || string.IsNullOrEmpty(editorAttribute.EditorTypeName)
-                ? CreateDefaultEditor(propertyInfo.PropertyType)
+                ? CreateDefaultEditor(propertyDescriptor.PropertyType)
                 : CreateEditor(Type.GetType(editorAttribute.EditorTypeName));
 
             return editor;
@@ -120,7 +71,7 @@ namespace HandyControl.Controls
 
         public virtual PropertyEditorBase CreateDefaultEditor(Type type) =>
             TypeCodeDic.TryGetValue(type, out var editorType)
-                ? (PropertyEditorBase) (editorType switch
+                ? editorType switch
                 {
                     EditorTypeCode.PlainText => new PlainTextPropertyEditor(),
                     EditorTypeCode.SByteNumber => new NumberPropertyEditor(sbyte.MinValue, sbyte.MaxValue),
@@ -136,8 +87,10 @@ namespace HandyControl.Controls
                     EditorTypeCode.Switch => new SwitchPropertyEditor(),
                     EditorTypeCode.DateTime => new DateTimePropertyEditor(),
                     _ => new PlainTextPropertyEditor()
-                })
-                : new PlainTextPropertyEditor();
+                }
+                : type.IsSubclassOf(typeof(Enum))
+                    ? (PropertyEditorBase) new EnumPropertyEditor()
+                    : new PlainTextPropertyEditor();
 
         public virtual PropertyEditorBase CreateEditor(Type type) => new PlainTextPropertyEditor();
 

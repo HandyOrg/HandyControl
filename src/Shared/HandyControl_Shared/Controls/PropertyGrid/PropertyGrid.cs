@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Linq;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -118,8 +117,8 @@ namespace HandyControl.Controls
         {
             if (obj == null || _itemsControl == null) return;
 
-            _dataView = CollectionViewSource.GetDefaultView(obj.GetType().GetProperties()
-                .Where(item => PropertyResolver.ResolveBrowsable(item)).Select(CreatePropertyItem)
+            _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj).OfType<PropertyDescriptor>()
+                .Where(item => PropertyResolver.ResolveIsBrowsable(item)).Select(CreatePropertyItem)
                 .Do(item => item.InitElement()));
 
             SortByCategory(null, null);
@@ -167,18 +166,18 @@ namespace HandyControl.Controls
             }
         }
 
-        protected virtual PropertyItem CreatePropertyItem(PropertyInfo propertyInfo) => new PropertyItem
+        protected virtual PropertyItem CreatePropertyItem(PropertyDescriptor propertyDescriptor) => new PropertyItem
         {
-            Category = PropertyResolver.ResolveCategory(propertyInfo),
-            DisplayName = PropertyResolver.ResolveDisplayName(propertyInfo),
-            Description = PropertyResolver.ResolveDescription(propertyInfo),
-            IsReadOnly = PropertyResolver.ResolveIsReadOnly(propertyInfo),
-            DefaultValue = PropertyResolver.ResolveDefaultValue(propertyInfo),
-            Editor = PropertyResolver.ResolveEditor(propertyInfo),
-            Converter = PropertyResolver.ResolveConverter(propertyInfo),
+            Category = PropertyResolver.ResolveCategory(propertyDescriptor),
+            DisplayName = PropertyResolver.ResolveDisplayName(propertyDescriptor),
+            Description = PropertyResolver.ResolveDescription(propertyDescriptor),
+            IsReadOnly = PropertyResolver.ResolveIsReadOnly(propertyDescriptor),
+            DefaultValue = PropertyResolver.ResolveDefaultValue(propertyDescriptor),
+            Editor = PropertyResolver.ResolveEditor(propertyDescriptor),
             Value = SelectedObject,
-            PropertyName = propertyInfo.Name,
-            PropertyTypeName = propertyInfo.PropertyType.FullName
+            PropertyName = propertyDescriptor.Name,
+            PropertyType = propertyDescriptor.PropertyType,
+            PropertyTypeName = $"{propertyDescriptor.PropertyType.Namespace}.{propertyDescriptor.PropertyType.Name}"
         };
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)

@@ -11,12 +11,12 @@ namespace HandyControl.Controls
             new Binding(propertyItem.PropertyName)
             {
                 Source = propertyItem.Value,
-                Mode = GetBindingMode(),
-                UpdateSourceTrigger = GetUpdateSourceTrigger()
+                Mode = GetBindingMode(propertyItem),
+                UpdateSourceTrigger = GetUpdateSourceTrigger(propertyItem)
             };
 
-        public virtual BindingMode GetBindingMode() => BindingMode.OneWay;
+        public virtual BindingMode GetBindingMode(PropertyItem propertyItem) => propertyItem.IsReadOnly ? BindingMode.OneWay : BindingMode.TwoWay;
 
-        public virtual UpdateSourceTrigger GetUpdateSourceTrigger() => UpdateSourceTrigger.Default;
+        public virtual UpdateSourceTrigger GetUpdateSourceTrigger(PropertyItem propertyItem) => UpdateSourceTrigger.PropertyChanged;
     }
 }
