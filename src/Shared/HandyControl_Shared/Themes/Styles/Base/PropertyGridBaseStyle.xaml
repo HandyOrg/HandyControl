@@ -2,10 +2,14 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
                     xmlns:hc="clr-namespace:HandyControl.Controls"
-                    xmlns:themes="clr-namespace:HandyControl.Themes">
+                    xmlns:themes="clr-namespace:HandyControl.Themes"
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <ResourceDictionary.MergedDictionaries>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Effects.xaml"/>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/GroupBox.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/SearchBar.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ButtonGroup.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <DrawingBrush x:Key="SortByCategoryDrawingBrush" o:Freeze="True">
@@ -20,7 +24,7 @@
         </DrawingBrush.Drawing>
     </DrawingBrush>
 
-    <DrawingBrush x:Key="SortAscendingDrawingBrush" o:Freeze="True">
+    <DrawingBrush x:Key="SortByNameDrawingBrush" o:Freeze="True">
         <DrawingBrush.Drawing>
             <DrawingGroup o:Freeze="True">
                 <GeometryDrawing o:Freeze="True" Brush="#00FFFFFF" Geometry="F1M16,16L0,16 0,0 16,0z" />
@@ -34,10 +38,11 @@
 
     <Style x:Key="PropertyItemToolTipBaseStyle" BasedOn="{StaticResource {x:Type ToolTip}}" TargetType="ToolTip">
         <Setter Property="Padding" Value="10"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToolTip">
-                    <Border Background="{DynamicResource RegionBrush}" Padding="{TemplateBinding Padding}" BorderThickness="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}">
+                    <Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{DynamicResource RegionBrush}" Padding="{TemplateBinding Padding}" BorderThickness="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}">
                         <Grid>
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
@@ -71,7 +76,7 @@
                 <ControlTemplate TargetType="hc:PropertyItem">
                     <GroupBox Style="{StaticResource GroupBoxOriginal}" hc:TitleElement.TitlePlacement="Left">
                         <GroupBox.Header>
-                            <TextBlock Text="{TemplateBinding DisplayName}">
+                            <TextBlock Padding="0,0,10,0" Width="{Binding Path=(hc:TitleElement.TitleWidth).Value,RelativeSource={RelativeSource TemplatedParent}}" Text="{TemplateBinding DisplayName}" TextTrimming="CharacterEllipsis">
                                 <TextBlock.ToolTip>
                                     <ToolTip Style="{StaticResource PropertyItemToolTipBaseStyle}" Content="{TemplateBinding Description}"/>
                                 </TextBlock.ToolTip>
@@ -86,7 +91,7 @@
 
     <Style x:Key="PropertyGroupItemBaseStyle" TargetType="GroupItem">
         <Setter Property="Margin" Value="0,0,0,6"/>
-        <Setter Property="Padding" Value="10,10,6,4"/>
+        <Setter Property="Padding" Value="10,6,6,0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="GroupItem">
@@ -100,7 +105,19 @@
         </Setter>
     </Style>
 
+    <ItemsPanelTemplate x:Key="PropertyItemsControlItemsPanelTemplate">
+        <VirtualizingStackPanel FocusVisualStyle="{x:Null}" VirtualizationMode="Recycling"/>
+    </ItemsPanelTemplate>
+
+    <Style x:Key="PropertyItemsControlBaseStyle" TargetType="hc:PropertyItemsControl">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource PropertyItemBaseStyle}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource PropertyItemsControlItemsPanelTemplate}"/>
+        <Setter Property="Focusable" Value="False"/>
+    </Style>
+
     <Style TargetType="hc:PropertyGrid">
+        <Setter Property="MaxTitleWidth" Value="200"/>
+        <Setter Property="MinTitleWidth" Value="120"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Template">
@@ -112,23 +129,19 @@
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
-                            <DockPanel LastChildFill="True">
-                                <hc:ButtonGroup>
-                                    <RadioButton>
-                                        <Viewbox Width="16" Height="16">
-                                            <Rectangle Width="16" Height="16" Fill="{StaticResource SortByCategoryDrawingBrush}"/>
-                                        </Viewbox>
+                            <DockPanel LastChildFill="True" Margin="0,0,0,6">
+                                <hc:ButtonGroup Style="{StaticResource ButtonGroupSolid}">
+                                    <RadioButton Command="interactivity:ControlCommands.SortByCategory" IsChecked="True">
+                                        <Rectangle Width="16" Height="16" Fill="{StaticResource SortByCategoryDrawingBrush}"/>
                                     </RadioButton>
-                                    <RadioButton>
-                                        <Viewbox Width="16" Height="16">
-                                            <Rectangle Width="16" Height="16" Fill="{StaticResource SortAscendingDrawingBrush}"/>
-                                        </Viewbox>
+                                    <RadioButton Command="interactivity:ControlCommands.SortByName">
+                                        <Rectangle Width="16" Height="16" Fill="{StaticResource SortByNameDrawingBrush}"/>
                                     </RadioButton>
                                 </hc:ButtonGroup>
-                                <hc:SearchBar Margin="6,0,0,6"/>
+                                <hc:SearchBar x:Name="PART_SearchBar" IsRealTime="True" Margin="6,0,0,0" ShowClearButton="True" Style="{StaticResource SearchBarPlus}"/>
                             </DockPanel>
                             <ScrollViewer Grid.Row="1">
-                                <hc:PropertyItemsControl x:Name="PART_ItemsControl" Focusable="False" ItemContainerStyle="{StaticResource PropertyItemBaseStyle}">
+                                <hc:PropertyItemsControl x:Name="PART_ItemsControl" Style="{StaticResource PropertyItemsControlBaseStyle}">
                                     <hc:PropertyItemsControl.GroupStyle>
                                         <GroupStyle ContainerStyle="{StaticResource PropertyGroupItemBaseStyle}"/>
                                     </hc:PropertyItemsControl.GroupStyle>

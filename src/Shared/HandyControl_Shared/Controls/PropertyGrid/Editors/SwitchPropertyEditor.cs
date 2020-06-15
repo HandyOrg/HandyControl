@@ -4,7 +4,7 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    public class BooleanPropertyEditor : PropertyEditorBase
+    public class SwitchPropertyEditor : PropertyEditorBase
     {
         public override FrameworkElement CreateElement(PropertyItem propertyItem)
         {

@@ -51,15 +51,6 @@ namespace HandyControl.Controls
             set => SetValue(DescriptionProperty, value);
         }
 
-        public static readonly DependencyProperty BrowsableProperty = DependencyProperty.Register(
-            "Browsable", typeof(bool), typeof(PropertyItem), new PropertyMetadata(default(bool)));
-
-        public bool Browsable
-        {
-            get => (bool)GetValue(BrowsableProperty);
-            set => SetValue(BrowsableProperty, value);
-        }
-
         public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
             "IsReadOnly", typeof(bool), typeof(PropertyItem), new PropertyMetadata(default(bool)));
 

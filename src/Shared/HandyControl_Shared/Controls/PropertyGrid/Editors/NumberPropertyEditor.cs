@@ -4,6 +4,11 @@ namespace HandyControl.Controls
 {
     public class NumberPropertyEditor : PropertyEditorBase
     {
+        public NumberPropertyEditor()
+        {
+            
+        }
+
         public NumberPropertyEditor(double minimum, double maximum)
         {
             Minimum = minimum;

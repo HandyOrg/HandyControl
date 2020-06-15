@@ -25,7 +25,8 @@ namespace HandyControl.Controls
             [typeof(ulong)] = EditorTypeCode.UInt64Number,
             [typeof(float)] = EditorTypeCode.SingleNumber,
             [typeof(double)] = EditorTypeCode.DoubleNumber,
-            [typeof(bool)] = EditorTypeCode.Switch
+            [typeof(bool)] = EditorTypeCode.Switch,
+            [typeof(DateTime)] = EditorTypeCode.DateTime
         };
 
         public string ResolveCategory(PropertyInfo propertyInfo)
@@ -121,24 +122,24 @@ namespace HandyControl.Controls
             TypeCodeDic.TryGetValue(type, out var editorType)
                 ? (PropertyEditorBase) (editorType switch
                 {
-                    EditorTypeCode.PlainText => new StringPropertyEditor(),
-                    EditorTypeCode.SByteNumber => new IntegerPropertyEditor(sbyte.MinValue, sbyte.MaxValue),
-                    EditorTypeCode.ByteNumber => new IntegerPropertyEditor(byte.MinValue, byte.MaxValue),
-                    EditorTypeCode.Int16Number => new IntegerPropertyEditor(short.MinValue, short.MaxValue),
-                    EditorTypeCode.UInt16Number => new IntegerPropertyEditor(ushort.MinValue, ushort.MaxValue),
-                    EditorTypeCode.Int32Number => new IntegerPropertyEditor(int.MinValue, int.MaxValue),
-                    EditorTypeCode.UInt32Number => new IntegerPropertyEditor(uint.MinValue, uint.MaxValue),
-                    EditorTypeCode.Int64Number => new IntegerPropertyEditor(long.MinValue, long.MaxValue),
-                    EditorTypeCode.UInt64Number => new IntegerPropertyEditor(ulong.MinValue, ulong.MaxValue),
-                    EditorTypeCode.SingleNumber => new IntegerPropertyEditor(float.MinValue, float.MaxValue),
-                    EditorTypeCode.DoubleNumber => new IntegerPropertyEditor(double.MinValue, double.MaxValue),
-                    EditorTypeCode.Switch => new BooleanPropertyEditor(),
+                    EditorTypeCode.PlainText => new PlainTextPropertyEditor(),
+                    EditorTypeCode.SByteNumber => new NumberPropertyEditor(sbyte.MinValue, sbyte.MaxValue),
+                    EditorTypeCode.ByteNumber => new NumberPropertyEditor(byte.MinValue, byte.MaxValue),
+                    EditorTypeCode.Int16Number => new NumberPropertyEditor(short.MinValue, short.MaxValue),
+                    EditorTypeCode.UInt16Number => new NumberPropertyEditor(ushort.MinValue, ushort.MaxValue),
+                    EditorTypeCode.Int32Number => new NumberPropertyEditor(int.MinValue, int.MaxValue),
+                    EditorTypeCode.UInt32Number => new NumberPropertyEditor(uint.MinValue, uint.MaxValue),
+                    EditorTypeCode.Int64Number => new NumberPropertyEditor(long.MinValue, long.MaxValue),
+                    EditorTypeCode.UInt64Number => new NumberPropertyEditor(ulong.MinValue, ulong.MaxValue),
+                    EditorTypeCode.SingleNumber => new NumberPropertyEditor(float.MinValue, float.MaxValue),
+                    EditorTypeCode.DoubleNumber => new NumberPropertyEditor(double.MinValue, double.MaxValue),
+                    EditorTypeCode.Switch => new SwitchPropertyEditor(),
                     EditorTypeCode.DateTime => new DateTimePropertyEditor(),
-                    _ => new StringPropertyEditor()
+                    _ => new PlainTextPropertyEditor()
                 })
-                : new StringPropertyEditor();
+                : new PlainTextPropertyEditor();
 
-        public virtual PropertyEditorBase CreateEditor(Type type) => new StringPropertyEditor();
+        public virtual PropertyEditorBase CreateEditor(Type type) => new PlainTextPropertyEditor();
 
         private enum EditorTypeCode
         {
