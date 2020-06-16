@@ -4,16 +4,11 @@ namespace HandyControl.Controls
 {
     public class DateTimePropertyEditor : PropertyEditorBase
     {
-        public override FrameworkElement CreateElement(PropertyItem propertyItem)
+        public override FrameworkElement CreateElement(PropertyItem propertyItem) => new DateTimePicker
         {
-            var picker = new DateTimePicker
-            {
-                IsEnabled = !propertyItem.IsReadOnly
-            };
+            IsEnabled = !propertyItem.IsReadOnly
+        };
 
-            picker.SetBinding(DateTimePicker.SelectedDateTimeProperty, CreateBinding(propertyItem));
-
-            return picker;
-        }
+        public override DependencyProperty GetDependencyProperty() => DateTimePicker.SelectedDateTimeProperty;
     }
 }

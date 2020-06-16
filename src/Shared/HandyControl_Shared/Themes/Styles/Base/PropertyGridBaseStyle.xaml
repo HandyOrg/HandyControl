@@ -95,8 +95,8 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="GroupItem">
-                    <Expander BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Header="{Binding Name}" IsExpanded="True" Background="{DynamicResource ThirdlyRegionBrush}" Foreground="{DynamicResource PrimaryTextBrush}">
-                        <Border BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" CornerRadius="0,0,4,4">
+                    <Expander BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Header="{Binding Name}" IsExpanded="True" Background="{DynamicResource SecondaryRegionBrush}" Foreground="{DynamicResource PrimaryTextBrush}">
+                        <Border BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" CornerRadius="0,0,4,4">
                             <ItemsPresenter Margin="{TemplateBinding Padding}"/>
                         </Border>
                     </Expander>
@@ -120,6 +120,8 @@
         <Setter Property="MinTitleWidth" Value="120"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Padding" Value="10"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:PropertyGrid">

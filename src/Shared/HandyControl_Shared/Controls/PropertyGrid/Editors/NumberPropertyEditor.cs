@@ -19,18 +19,13 @@ namespace HandyControl.Controls
 
         public double Maximum { get; set; }
 
-        public override FrameworkElement CreateElement(PropertyItem propertyItem)
+        public override FrameworkElement CreateElement(PropertyItem propertyItem) => new NumericUpDown
         {
-            var numericUpDown = new NumericUpDown
-            {
-                IsReadOnly = propertyItem.IsReadOnly,
-                Minimum = Minimum,
-                Maximum = Maximum
-            };
+            IsReadOnly = propertyItem.IsReadOnly,
+            Minimum = Minimum,
+            Maximum = Maximum
+        };
 
-            numericUpDown.SetBinding(NumericUpDown.ValueProperty, CreateBinding(propertyItem));
-
-            return numericUpDown;
-        }
+        public override DependencyProperty GetDependencyProperty() => NumericUpDown.ValueProperty;
     }
 }

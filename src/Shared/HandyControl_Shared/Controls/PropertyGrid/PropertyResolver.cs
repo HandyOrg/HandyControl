@@ -51,6 +51,8 @@ namespace HandyControl.Controls
 
         public bool ResolveIsBrowsable(PropertyDescriptor propertyDescriptor) => propertyDescriptor.IsBrowsable;
 
+        public bool ResolveIsDisplay(PropertyDescriptor propertyDescriptor) => propertyDescriptor.IsLocalizable;
+
         public bool ResolveIsReadOnly(PropertyDescriptor propertyDescriptor) => propertyDescriptor.IsReadOnly;
 
         public object ResolveDefaultValue(PropertyDescriptor propertyDescriptor)
@@ -86,13 +88,13 @@ namespace HandyControl.Controls
                     EditorTypeCode.DoubleNumber => new NumberPropertyEditor(double.MinValue, double.MaxValue),
                     EditorTypeCode.Switch => new SwitchPropertyEditor(),
                     EditorTypeCode.DateTime => new DateTimePropertyEditor(),
-                    _ => new PlainTextPropertyEditor()
+                    _ => new ReadOnlyTextPropertyEditor()
                 }
                 : type.IsSubclassOf(typeof(Enum))
                     ? (PropertyEditorBase) new EnumPropertyEditor()
-                    : new PlainTextPropertyEditor();
+                    : new ReadOnlyTextPropertyEditor();
 
-        public virtual PropertyEditorBase CreateEditor(Type type) => new PlainTextPropertyEditor();
+        public virtual PropertyEditorBase CreateEditor(Type type) => new ReadOnlyTextPropertyEditor();
 
         private enum EditorTypeCode
         {

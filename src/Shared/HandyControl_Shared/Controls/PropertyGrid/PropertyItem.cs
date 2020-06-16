@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
 
 namespace HandyControl.Controls
 {
@@ -128,6 +127,7 @@ namespace HandyControl.Controls
         {
             if (Editor == null) return;
             EditorElement = Editor.CreateElement(this);
+            Editor.CreateBinding(this, EditorElement);
         }
     }
 }

@@ -41,6 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Poptip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Watermark.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\EnumPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\ReadOnlyTextPropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\TimePropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\DatePropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\SwitchPropertyEditor.cs" />

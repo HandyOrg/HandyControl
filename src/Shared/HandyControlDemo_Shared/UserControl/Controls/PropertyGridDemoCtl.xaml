@@ -2,8 +2,6 @@
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:extension="clr-namespace:HandyControlDemo.Tools.Extension"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <Grid>
@@ -11,10 +9,10 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <hc:PropertyGrid Width="500" SelectedObject="{Binding ElementName=ButtonDemo}"/>
+            <hc:PropertyGrid Width="500" SelectedObject="{Binding ElementName=PathDemo}"/>
             <Border Margin="10" Background="{DynamicResource SecondaryRegionBrush}" Style="{StaticResource BorderRegion}" Grid.Column="1" Width="300">
                 <hc:SimplePanel>
-                    <Button Name="ButtonDemo" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10" Width="200" Content="{extension:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                    <Path Name="PathDemo" Data="{StaticResource LogoGeometry}" Stretch="Fill" MaxWidth="256" MaxHeight="256" Width="200" Height="200" Fill="#f06632" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10"/>
                 </hc:SimplePanel>
             </Border>
             <hc:Divider Margin="0,20" Orientation="Vertical" LineStrokeDashArray="2,2" Grid.Column="0" HorizontalAlignment="Right"/>

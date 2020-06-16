@@ -6,17 +6,12 @@ namespace HandyControl.Controls
 {
     public class EnumPropertyEditor : PropertyEditorBase
     {
-        public override FrameworkElement CreateElement(PropertyItem propertyItem)
+        public override FrameworkElement CreateElement(PropertyItem propertyItem) => new System.Windows.Controls.ComboBox
         {
-            var picker = new System.Windows.Controls.ComboBox
-            {
-                IsEnabled = !propertyItem.IsReadOnly,
-                ItemsSource = Enum.GetValues(propertyItem.PropertyType)
-            };
+            IsEnabled = !propertyItem.IsReadOnly,
+            ItemsSource = Enum.GetValues(propertyItem.PropertyType)
+        };
 
-            picker.SetBinding(Selector.SelectedValueProperty, CreateBinding(propertyItem));
-
-            return picker;
-        }
+        public override DependencyProperty GetDependencyProperty() => Selector.SelectedValueProperty;
     }
 }

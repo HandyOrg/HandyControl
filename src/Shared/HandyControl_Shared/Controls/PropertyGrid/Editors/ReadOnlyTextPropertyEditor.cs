@@ -3,11 +3,11 @@ using System.Windows.Data;
 
 namespace HandyControl.Controls
 {
-    public class PlainTextPropertyEditor : PropertyEditorBase
+    public class ReadOnlyTextPropertyEditor : PropertyEditorBase
     {
         public override FrameworkElement CreateElement(PropertyItem propertyItem) => new System.Windows.Controls.TextBox
         {
-            IsReadOnly = propertyItem.IsReadOnly
+            IsReadOnly = true
         };
 
         public override DependencyProperty GetDependencyProperty() => System.Windows.Controls.TextBox.TextProperty;
