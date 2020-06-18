@@ -1337,7 +1337,18 @@ namespace HandyControlDemo.Properties.Langs {
                 return ResourceManager.GetString("Project", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 属性编辑器 的本地化字符串。
+        /// </summary>
+        public static string PropertyGrid
+        {
+            get
+            {
+                return ResourceManager.GetString("PropertyGrid", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 按住说话 的本地化字符串。
         /// </summary>

@@ -23,6 +23,7 @@
     <converter:ThicknessSplitConverter x:Key="ThicknessSplitConverter"/>
     <converter:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter"/>
     <MenuScrollingVisibilityConverter x:Key="MenuScrollingVisibilityConverter"/>
-    <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter" />
-    <converter:DoubleMinConverter x:Key="DoubleMinConverter" />
+    <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter"/>
+    <converter:DoubleMinConverter x:Key="DoubleMinConverter"/>
+    <converter:Object2StringConverter x:Key="Object2StringConverter"/>
 </ResourceDictionary>

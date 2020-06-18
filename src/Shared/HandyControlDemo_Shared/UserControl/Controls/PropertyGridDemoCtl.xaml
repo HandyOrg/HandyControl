@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.PropertyGridDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}"
+             DataContext="{Binding RelativeSource={RelativeSource Self}}">
+    <hc:TransitioningContentControl>
+        <Grid Margin="22">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <hc:PropertyGrid Width="500" SelectedObject="{Binding DemoModel}"/>
+            <StackPanel Grid.Row="1" Margin="10,16,10,10">
+                <TextBox hc:TitleElement.Title="Name" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.Name,Mode=OneWay}" IsReadOnly="True"/>
+                <TextBox hc:TitleElement.Title="Gender" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.Gender,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+                <TextBox hc:TitleElement.Title="Score" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.Score,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+                <TextBox hc:TitleElement.Title="IsPassed" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.IsPassed,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+            </StackPanel>
+        </Grid>
+    </hc:TransitioningContentControl>
+</UserControl>
