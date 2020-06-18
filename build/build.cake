@@ -14,7 +14,7 @@ Task("Build")
     
     var settingsNet40 = new DotNetCoreBuildSettings
     {
-        Configuration = "Release",
+        Configuration = "Release-Net40",
         OutputDirectory = "lib/net40"
     };
 
@@ -60,6 +60,13 @@ Task("Build")
         OutputDirectory = "lib/netcoreapp3.1"
     };
 
+    var settingsNet50 = new DotNetCoreBuildSettings
+    {
+        Configuration = "Release",
+        Framework = "net5.0",
+        OutputDirectory = "lib/net50"
+    };
+
     DotNetCoreBuild("../src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj", settingsNet40);
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsNet45);
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsNet462);
@@ -67,6 +74,7 @@ Task("Build")
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsNet48);
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsCore30);
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsCore31);
+    DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsNet50);
 });
 
 RunTarget(target);
