@@ -39,8 +39,8 @@
     "title": "Controls",
     "selectedIndex": 0,
     "demoItemList": [
-      [ "PropertyGrid", "PropertyGridDemoCtl", "PropertyGridEditorPart_16x", "1" ],
       [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "" ],
+      [ "PropertyGrid", "PropertyGridDemoCtl", "PropertyGridEditorPart_16x", "1" ],
       [ "ImageBlock", "ImageBlockDemoCtl", "ImageStack_16x", "" ],
       [ "Magnifier", "MagnifierDemoCtl", "Search_16x", "" ],
       [ "Gravatar", "GravatarDemoCtl", "User_16x", "" ],

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -122,6 +123,8 @@ namespace HandyControl.Controls
             get => (bool)GetValue(IsExpandedEnabledProperty);
             set => SetValue(IsExpandedEnabledProperty, value);
         }
+
+        public PropertyDescriptor PropertyDescriptor { get; set; }
 
         public virtual void InitElement()
         {

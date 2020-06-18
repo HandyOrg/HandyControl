@@ -14,7 +14,7 @@ namespace HandyControl.Controls
                     Source = propertyItem.Value,
                     Mode = GetBindingMode(propertyItem),
                     UpdateSourceTrigger = GetUpdateSourceTrigger(propertyItem),
-                    Converter = GetConverter()
+                    Converter = GetConverter(propertyItem)
                 });
 
         public abstract DependencyProperty GetDependencyProperty();
@@ -23,6 +23,6 @@ namespace HandyControl.Controls
 
         public virtual UpdateSourceTrigger GetUpdateSourceTrigger(PropertyItem propertyItem) => UpdateSourceTrigger.PropertyChanged;
 
-        protected virtual IValueConverter GetConverter() => null;
+        protected virtual IValueConverter GetConverter(PropertyItem propertyItem) => null;
     }
 }
