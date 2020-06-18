@@ -176,8 +176,8 @@ namespace HandyControl.Controls
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NumericUpDown) d;
-            var v = (double) e.NewValue;
+            var ctl = (NumericUpDown)d;
+            var v = (double)e.NewValue;
             ctl.SetText();
 
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
@@ -247,7 +247,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double Maximum
         {
-            get => (double) GetValue(MaximumProperty);
+            get => (double)GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
 
@@ -275,7 +275,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double Minimum
         {
-            get => (double) GetValue(MinimumProperty);
+            get => (double)GetValue(MinimumProperty);
             set => SetValue(MinimumProperty, value);
         }
 
@@ -290,7 +290,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double Increment
         {
-            get => (double) GetValue(IncrementProperty);
+            get => (double)GetValue(IncrementProperty);
             set => SetValue(IncrementProperty, value);
         }
 
@@ -305,7 +305,7 @@ namespace HandyControl.Controls
         /// </summary>
         public int? DecimalPlaces
         {
-            get => (int?) GetValue(DecimalPlacesProperty);
+            get => (int?)GetValue(DecimalPlacesProperty);
             set => SetValue(DecimalPlacesProperty, value);
         }
 
@@ -320,7 +320,7 @@ namespace HandyControl.Controls
         /// </summary>
         internal bool ShowUpDownButton
         {
-            get => (bool) GetValue(ShowUpDownButtonProperty);
+            get => (bool)GetValue(ShowUpDownButtonProperty);
             set => SetValue(ShowUpDownButtonProperty, value);
         }
 
@@ -332,7 +332,7 @@ namespace HandyControl.Controls
 
         public bool IsError
         {
-            get => (bool) GetValue(IsErrorProperty);
+            get => (bool)GetValue(IsErrorProperty);
             set => SetValue(IsErrorProperty, value);
         }
 
@@ -344,7 +344,7 @@ namespace HandyControl.Controls
 
         public string ErrorStr
         {
-            get => (string) GetValue(ErrorStrProperty);
+            get => (string)GetValue(ErrorStrProperty);
             set => SetValue(ErrorStrProperty, value);
         }
 
@@ -359,7 +359,7 @@ namespace HandyControl.Controls
 
         public TextType TextType
         {
-            get => (TextType) GetValue(TextTypeProperty);
+            get => (TextType)GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 
@@ -371,8 +371,8 @@ namespace HandyControl.Controls
 
         public bool ShowClearButton
         {
-            get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value); 
+            get => (bool)GetValue(ShowClearButtonProperty);
+            set => SetValue(ShowClearButtonProperty, value);
         }
 
         /// <summary>
@@ -386,7 +386,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsReadOnly
         {
-            get => (bool) GetValue(IsReadOnlyProperty);
+            get => (bool)GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, value);
         }
 
