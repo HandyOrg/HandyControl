@@ -20,24 +20,11 @@ jobs:
 
       - name: Setup .NET Core
         uses: actions/setup-dotnet@master
+        with:
+          dotnet-version: '5.0.100-preview.5.20279.10'
       
       - name: Build Net_40
-        run: dotnet build src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release
+        run: dotnet build src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release-Net40
 
       - name: Build Net_45
         run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
-
-      - name: Build Net_462
-        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
-
-      - name: Build Net_47
-        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
-
-      - name: Build Net_48
-        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
-
-      - name: Build Core_30
-        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj --configuration Release
-
-      - name: Build Core_31
-        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj --configuration Release
