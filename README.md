@@ -108,6 +108,10 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### PropertyGrid
+
+![PropertyGrid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PropertyGrid.png)
+
 ### Screenshot
 
 ![Screenshot](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Screenshot.png)
@@ -124,11 +128,11 @@ Step 4：enjoy coding
 
 ![FlowDocumentScrollViewerStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FlowDocumentScrollViewer.png)
 
+## History publication
+
 ### PinBox
 
 ![PinBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PinBox.png)
-
-## History publication
 
 ### Effects
 
