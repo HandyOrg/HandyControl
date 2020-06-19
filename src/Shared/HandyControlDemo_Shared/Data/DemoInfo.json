@@ -40,6 +40,7 @@
     "selectedIndex": 0,
     "demoItemList": [
       [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "" ],
+      [ "PropertyGrid", "PropertyGridDemoCtl", "PropertyGridEditorPart_16x", "1" ],
       [ "ImageBlock", "ImageBlockDemoCtl", "ImageStack_16x", "" ],
       [ "Magnifier", "MagnifierDemoCtl", "Search_16x", "" ],
       [ "Gravatar", "GravatarDemoCtl", "User_16x", "" ],
@@ -55,7 +56,7 @@
       [ "TextBox", "TextBoxDemoCtl", "TextBox_16x", "" ],
       [ "ComboBox", "ComboBoxDemoCtl", "ComboBox_16x", "" ],
       [ "PasswordBox", "PasswordBoxDemoCtl", "PasswordBox_16x", "" ],
-      [ "PinBox", "PinBoxDemoCtl", "Ellipsis_16x", "1" ],
+      [ "PinBox", "PinBoxDemoCtl", "Ellipsis_16x", "" ],
       [ "DatePicker", "DatePickerDemoCtl", "DatePicker_16x", "" ],
       [ "Clock", "ClockDemoCtl", "Time_color_16x", "" ],
       [ "TimePicker", "TimePickerDemoCtl", "TimePicker_16x", "" ],

@@ -3,7 +3,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemoCode</AssemblyName>
     <RootNamespace>HandyControlDemoCode</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net50</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Window\AboutWindow.xaml">
@@ -176,6 +176,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressButtonDemoCtl.xaml">
       <Link>UserControl\Controls\ProgressButtonDemoCtl.xaml</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PropertyGridDemoCtl.xaml">
+      <Link>UserControl\Controls\PropertyGridDemoCtl.xaml</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RangeSliderDemoCtl.xaml">
       <Link>UserControl\Controls\RangeSliderDemoCtl.xaml</Link>
@@ -571,6 +574,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressButtonDemoCtl.xaml.cs">
       <Link>UserControl\Controls\ProgressButtonDemoCtl.xaml.cs</Link>
       <DependentUpon>ProgressButtonDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PropertyGridDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\PropertyGridDemoCtl.xaml.cs</Link>
+      <DependentUpon>PropertyGridDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
       <Link>UserControl\Controls\RangeSliderDemoCtl.xaml.cs</Link>

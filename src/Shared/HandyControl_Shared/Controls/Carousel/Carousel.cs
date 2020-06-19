@@ -133,7 +133,7 @@ namespace HandyControl.Controls
             if (_isDisposed) return;
 
             IsVisibleChanged -= Carousel_IsVisibleChanged;
-            _updateTimer.Stop();
+            _updateTimer?.Stop();
             _isDisposed = true;
 
             GC.SuppressFinalize(this);

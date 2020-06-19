@@ -179,7 +179,8 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(ProgressBar));
 			OnPropertyChanged(nameof(ProgressButton));
 			OnPropertyChanged(nameof(Project));
-			OnPropertyChanged(nameof(PushToTalk));
+            OnPropertyChanged(nameof(PropertyGrid));
+            OnPropertyChanged(nameof(PushToTalk));
 			OnPropertyChanged(nameof(QQGroup));
 			OnPropertyChanged(nameof(RadioButton));
 			OnPropertyChanged(nameof(RangeSlider));
@@ -959,6 +960,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 项目 的本地化字符串。
         /// </summary>
 		public string Project => Lang.Project;
+
+        /// <summary>
+        ///   查找类似 属性编辑器 的本地化字符串。
+        /// </summary>
+        public string PropertyGrid => Lang.PropertyGrid;
 
         /// <summary>
         ///   查找类似 按住说话 的本地化字符串。
@@ -2023,6 +2029,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 项目 的本地化字符串。
         /// </summary>
 		public static string Project = nameof(Project);
+
+        /// <summary>
+        ///   查找类似 属性编辑器 的本地化字符串。
+        /// </summary>
+        public static string PropertyGrid = nameof(PropertyGrid);
 
         /// <summary>
         ///   查找类似 按住说话 的本地化字符串。

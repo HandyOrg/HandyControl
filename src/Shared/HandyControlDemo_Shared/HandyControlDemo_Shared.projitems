@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CardModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\ChatInfoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\AvatarModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\PropertyGridDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CoverViewDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoDataModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoInfoModel.cs" />
@@ -83,6 +84,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PinBoxDemoCtl.xaml.cs">
       <DependentUpon>PinBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PropertyGridDemoCtl.xaml.cs">
+      <DependentUpon>PropertyGridDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
       <DependentUpon>RangeSliderDemoCtl.xaml</DependentUpon>
@@ -545,6 +549,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PinBoxDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PropertyGridDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
