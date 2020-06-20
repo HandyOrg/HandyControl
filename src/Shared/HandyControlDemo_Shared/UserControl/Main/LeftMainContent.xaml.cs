@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.ViewModel;
@@ -83,21 +82,6 @@ namespace HandyControlDemo.UserControl
                         {
                             item.IsVisible = false;
                         }
-                    }
-                }
-            }
-        }
-
-        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (e.OriginalSource is SearchBar searchBar)
-            {
-                _searchKey = searchBar.Text;
-                if (string.IsNullOrEmpty(_searchKey))
-                {
-                    foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
-                    {
-                        item.IsVisible = true;
                     }
                 }
             }
