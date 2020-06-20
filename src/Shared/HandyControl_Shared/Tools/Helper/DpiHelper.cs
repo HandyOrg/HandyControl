@@ -17,8 +17,12 @@ namespace HandyControl.Tools
             var dC = InteropMethods.GetDC(IntPtr.Zero);
             if (dC != IntPtr.Zero)
             {
-                DeviceDpiX = InteropMethods.GetDeviceCaps(dC, 88);
-                DeviceDpiY = InteropMethods.GetDeviceCaps(dC, 90);
+                // 沿着屏幕宽度每逻辑英寸的像素数。在具有多个显示器的系统中，这个值对所有显示器都是相同的
+                const int logicPixelsX = 88;
+                // 沿着屏幕高度每逻辑英寸的像素数
+                const int logicPixelsY = 90;
+                DeviceDpiX = InteropMethods.GetDeviceCaps(dC, logicPixelsX);
+                DeviceDpiY = InteropMethods.GetDeviceCaps(dC, logicPixelsY);
                 InteropMethods.ReleaseDC(IntPtr.Zero, dC);
             }
             else
