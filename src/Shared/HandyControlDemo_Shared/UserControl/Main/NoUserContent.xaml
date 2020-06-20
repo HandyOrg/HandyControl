@@ -130,7 +130,7 @@
                             <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/fr.png"/>
                         </Button>
                     </StackPanel>
-                    <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,0">
+                    <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,0,0,0">
                         <Button Tag="ko-KR" Style="{StaticResource ButtonCustom}">
                             <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ko-KR.png"/>
                         </Button>
@@ -142,6 +142,7 @@
                         </Button>
                     </StackPanel>
                 </StackPanel>
+                <hc:Divider LineStrokeDashArray="2,2" Orientation="Vertical" Margin="0,20" LineStrokeThickness="2"/>
                 <StackPanel Button.Click="ButtonSkins_OnClick"  Margin="10,10,10,10">
                     <Button Tag="{x:Static hc:SkinType.Default}" Style="{StaticResource ButtonCustom}">
                         <Border Background="White" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>

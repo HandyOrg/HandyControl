@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
@@ -9,24 +9,24 @@
 
     <Style x:Key="ButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <controls:SimplePanel>
-                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
-                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                    <hc:SimplePanel>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
-                                <Path x:Name="PathMain" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
+                                <Path x:Name="PathMain" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}"/>
                                 <ContentPresenter x:Name="ContentPresenterMain" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                             </StackPanel>
                         </Border>
-                    </controls:SimplePanel>
+                    </hc:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Content" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="ContentPresenterMain"/>
                         </Trigger>
-                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
+                        <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
                             <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain"/>
                         </Trigger>
@@ -54,16 +54,16 @@
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="0"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
         <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Padding" Value="10,0"/>
         <Setter Property="Margin" Value="-1,0,0,0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border x:Name="BorderRoot" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                    <Border x:Name="BorderRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
-                            <Path x:Name="PathMain" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding controls:IconElement.Geometry}"/>
+                            <Path x:Name="PathMain" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}"/>
                             <ContentPresenter x:Name="contentPresenter" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                         </StackPanel>
                     </Border>
@@ -74,7 +74,7 @@
                         <Trigger Property="Content" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="contentPresenter"/>
                         </Trigger>
-                        <Trigger Property="controls:IconElement.Geometry" Value="{x:Null}">
+                        <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
                             <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
                             <Setter Property="Margin" Value="0" TargetName="contentPresenter"/>
                         </Trigger>
@@ -86,7 +86,7 @@
             <Trigger Property="IsEnabled" Value="False">
                 <Setter Property="Opacity" Value="0.4"/>
             </Trigger>
-            <DataTrigger Binding="{Binding Orientation,RelativeSource={RelativeSource  AncestorType=controls:ButtonGroup}}" Value="Vertical">
+            <DataTrigger Binding="{Binding Orientation,RelativeSource={RelativeSource  AncestorType=hc:ButtonGroup}}" Value="Vertical">
                 <Setter Property="Margin" Value="0,-1,0,0"/>
             </DataTrigger>
             <Trigger Property="IsMouseOver" Value="True">

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Windows;
 using HandyControl.Properties.Langs;
 
 namespace HandyControl.Controls
@@ -22,18 +23,20 @@ namespace HandyControl.Controls
             [typeof(float)] = EditorTypeCode.SingleNumber,
             [typeof(double)] = EditorTypeCode.DoubleNumber,
             [typeof(bool)] = EditorTypeCode.Switch,
-            [typeof(DateTime)] = EditorTypeCode.DateTime
+            [typeof(DateTime)] = EditorTypeCode.DateTime,
+            [typeof(HorizontalAlignment)] = EditorTypeCode.HorizontalAlignment,
+            [typeof(VerticalAlignment)] = EditorTypeCode.VerticalAlignment
         };
 
         public string ResolveCategory(PropertyDescriptor propertyDescriptor)
         {
-            var category = propertyDescriptor.Category;
-            if (string.IsNullOrEmpty(category))
-            {
-                category = Lang.Miscellaneous;
-            }
+            var categoryAttribute = propertyDescriptor.Attributes.OfType<CategoryAttribute>().FirstOrDefault();
 
-            return category;
+            return categoryAttribute == null ? 
+                Lang.Miscellaneous :
+                string.IsNullOrEmpty(categoryAttribute.Category) ? 
+                    Lang.Miscellaneous : 
+                    categoryAttribute.Category;
         }
 
         public string ResolveDisplayName(PropertyDescriptor propertyDescriptor)
@@ -88,6 +91,8 @@ namespace HandyControl.Controls
                     EditorTypeCode.DoubleNumber => new NumberPropertyEditor(double.MinValue, double.MaxValue),
                     EditorTypeCode.Switch => new SwitchPropertyEditor(),
                     EditorTypeCode.DateTime => new DateTimePropertyEditor(),
+                    EditorTypeCode.HorizontalAlignment => new HorizontalAlignmentPropertyEditor(),
+                    EditorTypeCode.VerticalAlignment => new VerticalAlignmentPropertyEditor(),
                     _ => new ReadOnlyTextPropertyEditor()
                 }
                 : type.IsSubclassOf(typeof(Enum))
@@ -110,7 +115,9 @@ namespace HandyControl.Controls
             SingleNumber,
             DoubleNumber,
             Switch,
-            DateTime
+            DateTime,
+            HorizontalAlignment,
+            VerticalAlignment
         }
     }
 }

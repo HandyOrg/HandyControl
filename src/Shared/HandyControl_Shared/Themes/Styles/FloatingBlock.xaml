@@ -1,12 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style TargetType="controls:FloatingBlock">
+    <Style TargetType="hc:FloatingBlock">
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:FloatingBlock">
+                <ControlTemplate TargetType="hc:FloatingBlock">
                     <ContentPresenter ContentTemplate="{TemplateBinding ContentTemplate}"/>
                 </ControlTemplate>
             </Setter.Value>

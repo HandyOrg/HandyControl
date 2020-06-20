@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
     <Storyboard x:Key="Right2LeftTransition" x:Shared="False">
         <DoubleAnimation From="50" To="0" Duration="0:0:0.4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)">
@@ -74,7 +74,7 @@
         <DoubleAnimation From="0" To="1" Duration="0:0:0.4" Storyboard.TargetProperty="(UIElement.Opacity)"/>
     </Storyboard>
 
-    <Style TargetType="controls:TransitioningContentControl">
+    <Style TargetType="hc:TransitioningContentControl">
         <Setter Property="Focusable" Value="False"/>
     </Style>
 

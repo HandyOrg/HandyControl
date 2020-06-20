@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
@@ -38,13 +38,13 @@
     <Style x:Key="RepeatButtonIcon" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="0"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
-                    <Border CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                    <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-                            <Path Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Width="{TemplateBinding controls:IconElement.Width}" Height="{TemplateBinding controls:IconElement.Height}" Data="{TemplateBinding controls:IconElement.Geometry}"/>
+                            <Path Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Data="{TemplateBinding hc:IconElement.Geometry}"/>
                         </ContentControl>
                     </Border>
                 </ControlTemplate>
@@ -67,11 +67,11 @@
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
                             <Setter Property="Opacity" Value=".9"/>
-                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(hc:BackgroundSwitchElement.MouseHoverBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Opacity" Value=".6"/>
-                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(controls:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Setter Property="Background" TargetName="Chrome" Value="{Binding Path=(hc:BackgroundSwitchElement.MouseDownBackground),RelativeSource={RelativeSource TemplatedParent}}"/>
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
                             <Setter Property="Opacity" Value="0.4"/>

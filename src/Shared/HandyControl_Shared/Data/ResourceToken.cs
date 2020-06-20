@@ -358,6 +358,18 @@
 
         internal const string TabItemCapsuleVerticalLast = nameof(TabItemCapsuleVerticalLast);
 
+        internal const string ComboBoxItemCapsuleDefault = nameof(ComboBoxItemCapsuleDefault);
+
+        internal const string ComboBoxItemCapsuleSingle = nameof(ComboBoxItemCapsuleSingle);
+
+        internal const string ComboBoxItemCapsuleHorizontalFirst = nameof(ComboBoxItemCapsuleHorizontalFirst);
+
+        internal const string ComboBoxItemCapsuleHorizontalLast = nameof(ComboBoxItemCapsuleHorizontalLast);
+
+        internal const string ComboBoxItemCapsuleVerticalFirst = nameof(ComboBoxItemCapsuleVerticalFirst);
+
+        internal const string ComboBoxItemCapsuleVerticalLast = nameof(ComboBoxItemCapsuleVerticalLast);
+
         #endregion
     }
 }

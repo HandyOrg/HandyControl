@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
                     xmlns:themes="clr-namespace:HandyControl.Themes">
 
@@ -9,13 +9,13 @@
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="CarouselItemBaseStyle" TargetType="controls:CarouselItem">
+    <Style x:Key="CarouselItemBaseStyle" TargetType="hc:CarouselItem">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:CarouselItem">
+                <ControlTemplate TargetType="hc:CarouselItem">
                     <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <ContentPresenter Margin="{TemplateBinding Padding}" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=controls:Carousel}}"/>
+                        <ContentPresenter Margin="{TemplateBinding Padding}" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=hc:Carousel}}"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
@@ -50,12 +50,12 @@
         </Setter>
     </Style>
 
-    <Style TargetType="controls:Carousel">
+    <Style TargetType="hc:Carousel">
         <Setter Property="PageButtonStyle" Value="{StaticResource CarouselPateButton}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource CarouselItemBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:Carousel">
+                <ControlTemplate TargetType="hc:Carousel">
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="FrameworkElement.MouseEnter">
                             <BeginStoryboard>
@@ -72,10 +72,10 @@
                             </BeginStoryboard>
                         </EventTrigger>
                     </ControlTemplate.Triggers>
-                    <controls:SimplePanel ClipToBounds="True">
+                    <hc:SimplePanel ClipToBounds="True">
                         <StackPanel x:Name="PART_Panel" Orientation="Horizontal"/>
                         <!--<ItemsPresenter x:Name="PART_ItemsControl" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Left"/>-->
-                        <controls:SimplePanel x:Name="GridTop" Opacity="0">
+                        <hc:SimplePanel x:Name="GridTop" Opacity="0">
                             <Button Command="interactivity:ControlCommands.Prev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonCustom}">
                                 <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
                                     <Path Margin="16" Fill="White" Style="{StaticResource LeftPathStyle}"/>
@@ -86,9 +86,9 @@
                                     <Path Margin="16" Fill="White" Style="{StaticResource RightPathStyle}"/>
                                 </Border>
                             </Button>
-                        </controls:SimplePanel>
+                        </hc:SimplePanel>
                         <StackPanel Name="PART_PanelPage" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                    </controls:SimplePanel>
+                    </hc:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -137,11 +137,11 @@
         </Setter>
     </Style>
 
-    <Style TargetType="controls:Carousel" BasedOn="{StaticResource CarouselListBox}">
+    <Style TargetType="hc:Carousel" BasedOn="{StaticResource CarouselListBox}">
         <Setter Property="PageButtonStyle" Value="{StaticResource CarouselPateButton}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:Carousel">
+                <ControlTemplate TargetType="hc:Carousel">
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="FrameworkElement.MouseEnter">
                             <BeginStoryboard>
@@ -158,9 +158,9 @@
                             </BeginStoryboard>
                         </EventTrigger>
                     </ControlTemplate.Triggers>
-                    <controls:SimplePanel ClipToBounds="True">
+                    <hc:SimplePanel ClipToBounds="True">
                         <ItemsPresenter x:Name="PART_ItemsControl" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Left"/>
-                        <controls:SimplePanel x:Name="GridTop" Opacity="0">
+                        <hc:SimplePanel x:Name="GridTop" Opacity="0">
                             <Button Command="interactivity:ControlCommands.Prev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonCustom}">
                                 <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
                                     <Path Margin="16" Fill="White" Style="{StaticResource LeftPathStyle}"/>
@@ -171,9 +171,9 @@
                                     <Path Margin="16" Fill="White" Style="{StaticResource RightPathStyle}"/>
                                 </Border>
                             </Button>
-                        </controls:SimplePanel>
+                        </hc:SimplePanel>
                         <StackPanel Name="PART_PanelPage" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                    </controls:SimplePanel>
+                    </hc:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

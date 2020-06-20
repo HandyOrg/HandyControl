@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
                     xmlns:themes="clr-namespace:HandyControl.Themes">
 
@@ -12,7 +12,7 @@
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Rectangle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="TagBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:Tag">
+    <Style x:Key="TagBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:Tag">
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
@@ -36,7 +36,7 @@
         </Setter>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:Tag">
+                <ControlTemplate TargetType="hc:Tag">
                     <Border Style="{StaticResource BorderCircular}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <Grid>
                             <Grid.ColumnDefinitions>
@@ -44,12 +44,12 @@
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Button Focusable="False" Name="ButtonClose" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="10,0,0,0" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,11" controls:IconElement.Geometry="{StaticResource DeleteGeometry}" Foreground="{TemplateBinding Foreground}"/>
+                            <Button Focusable="False" Name="ButtonClose" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="10,0,0,0" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,11" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Foreground="{TemplateBinding Foreground}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonClose">
-                            <Setter Property="controls:IconElement.Geometry" Value="{StaticResource DeleteFillCircleGeometry}" TargetName="ButtonClose"/>
+                            <Setter Property="hc:IconElement.Geometry" Value="{StaticResource DeleteFillCircleGeometry}" TargetName="ButtonClose"/>
                             <Setter Property="Padding" Value="0,6" TargetName="ButtonClose"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -72,7 +72,7 @@
 
     <Style x:Key="AddTagButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonIconCircular}">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="controls:IconElement.Geometry" Value="{StaticResource AddGeometry}"/>
+        <Setter Property="hc:IconElement.Geometry" Value="{StaticResource AddGeometry}"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="FocusVisualStyle">
