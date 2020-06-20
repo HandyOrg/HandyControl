@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="LoadingBaseStyle" TargetType="controls:LoadingBase">
+    <Style x:Key="LoadingBaseStyle" TargetType="hc:LoadingBase">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="DotDiameter" Value="10"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
