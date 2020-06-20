@@ -48,12 +48,6 @@ namespace HandyControl.Controls
             set => SetValue(InactiveGlowColorProperty, value);
         }
 
-        static GlowWindow()
-        {
-            StyleProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>(ResourceToken.WindowGlow)));
-            ResizeModeProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(OnResizeModeChanged));
-        }
-
         #region internal
 
         internal void EndDeferGlowChanges()

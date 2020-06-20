@@ -115,7 +115,7 @@
         <Setter Property="Focusable" Value="False"/>
     </Style>
 
-    <Style TargetType="hc:PropertyGrid">
+    <Style x:Key="PropertyGridBaseStyle" TargetType="hc:PropertyGrid">
         <Setter Property="MaxTitleWidth" Value="200"/>
         <Setter Property="MinTitleWidth" Value="120"/>
         <Setter Property="Focusable" Value="False"/>

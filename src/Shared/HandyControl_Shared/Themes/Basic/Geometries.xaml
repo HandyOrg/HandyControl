@@ -26,6 +26,14 @@
     <Geometry o:Freeze="True" x:Key="WindowRestoreGeometry">M1,3 L1,9 L7,9 L7,3 z M3,1 L3,2 L8,2 L8,7 L9,7 L9,1 z M2,0 L10,0 L10,8 L8,8 L8,10 L0,10 L0,2 L2,2 z</Geometry>
     <Geometry o:Freeze="True" x:Key="WindowMaxGeometry">M1,1 L1,9 L9,9 L9,1 z M0,0 L10,0 L10,10 L0,10 z</Geometry>
     <Geometry o:Freeze="True" x:Key="CheckedGeometry">M 0,2 3,5 8,0</Geometry>
+    <Geometry o:Freeze="True" x:Key="AlignLeftGeometry">M0,8 L4,8 4,10 0,10 z M0,4 L8,4 8,6 0,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
+    <Geometry o:Freeze="True" x:Key="AlignRightGeometry">M8,8 L12,8 12,10 8,10 z M4,4 L12,4 12,6 4,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
+    <Geometry o:Freeze="True" x:Key="AlignHCenterGeometry">M4,8 L8,8 8,10 4,10 z M2,4 L10,4 10,6 2,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
+    <Geometry o:Freeze="True" x:Key="AlignHStretchGeometry">M0,8 L12,8 12,10 0,10 z M0,4 L12,4 12,6 0,6 z M0,0 L12,0 12,2 0,2 z</Geometry>
+    <Geometry o:Freeze="True" x:Key="AlignTopGeometry">M8,0 L10,0 10,4 8,4 z M4,0 L6,0 6,8 4,8 z M0,0 L2,0 2,12 0,12 z</Geometry>
+    <Geometry o:Freeze="True" x:Key="AlignBottomGeometry">M8,8 L10,8 10,12 8,12 z M4,4 L6,4 6,12 4,12 z M0,0 L2,0 2,12 0,12 z</Geometry>
+    <Geometry o:Freeze="True" x:Key="AlignVCenterGeometry">M8,4 L10,4 10,8 8,8 z M4,2 L6,2 6,10 4,10 z M0,0 L2,0 2,12 0,12 z</Geometry>
+    <Geometry o:Freeze="True" x:Key="AlignVStretchGeometry">M8,0 L10,0 10,12 8,12 z M4,0 L6,0 6,12 4,12 z M0,0 L2,0 2,12 0,12 z</Geometry>
     <Geometry o:Freeze="True" x:Key="PageModeGeometry">M1.0000002,12 L1.0000002,13 11,13 11,12 z M1.0000002,10 L1.0000002,11 11,11 11,10 z M1.0000002,8 L1.0000002,9 11,9 11,8 z M1.0000002,6 L1.0000002,7 11,7 11,6 z M1.0000002,4 L1.0000002,5 11,5 11,4 z M1.0000002,2 L1.0000002,3 11,3 11,2 z M0,0 L12,0 12,14 0,14 z</Geometry>
     <Geometry o:Freeze="True" x:Key="TwoPageModeGeometry">M8.99999988079071,12L8.99999988079071,13 13,13 13,12z M1,12L1,13 5,13 5,12z M9.00000011920929,10L9.00000011920929,11 13,11 13,10z M1,10L1,11 5,11 5,10z M9.00000011920929,8L9.00000011920929,9 13,9 13,8z M1,8L1,9 5,9 5,8z M9.00000011920929,6L9.00000011920929,7 13,7 13,6z M1,6L1,7 5,7 5,6z M9.00000011920929,4L9.00000011920929,5 13,5 13,4z M1,4L1,5 5,5 5,4z M8.99999988079071,2L8.99999988079071,3 13,3 13,2z M1,2L1,3 5,3 5,2z M7.99999994039536,0L14,0 14,14 7.99999994039536,14z M0,0L6,0 6,14 0,14z</Geometry>
     <Geometry o:Freeze="True" x:Key="ScrollModeGeometry">M1,12L1,13 8,13 8,12z M1,10L1,11 8,11 8,10z M1,8L1,9 8,9 8,8z M1,6L1,7 8,7 8,6z M11.0000002384186,5L11.0000002384186,9 13,9 13,5z M1,4L1,5 8,5 8,4z M1,2L1,3 8,3 8,2z M10.0000000298023,0L14,0 14,14 10.0000000298023,14z M0,0L9.00000011920929,0 9.00000011920929,14 0,14z</Geometry>

@@ -1,20 +1,25 @@
 ﻿using System.ComponentModel;
+using System.Windows;
 
 namespace HandyControlDemo.Data
 {
     public class PropertyGridDemoModel
     {
-        [Category("Info")]
-        public string Name { get; set; }
+        [Category("Category1")]
+        public string String { get; set; }
 
-        [Category("Achievement")]
-        public int Score { get; set; }
+        [Category("Category2")]
+        public int Integer { get; set; }
 
-        [Category("Achievement")]
-        public bool IsPassed { get; set; }
+        [Category("Category2")]
+        public bool Boolean { get; set; }
 
-        [Category("Info")]
-        public Gender Gender { get; set; }
+        [Category("Category1")]
+        public Gender Enum { get; set; }
+
+        public HorizontalAlignment HorizontalAlignment { get; set; }
+
+        public VerticalAlignment VerticalAlignment { get; set; }
     }
 
     public enum Gender
