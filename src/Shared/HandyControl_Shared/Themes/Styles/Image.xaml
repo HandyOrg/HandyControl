@@ -2,7 +2,7 @@
 
     <Style TargetType="Image">
         <Setter Property="Stretch" Value="Uniform" />
-        <Setter Property="RenderOptions.BitmapScalingMode" Value="LowQuality" />
+        <Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
     </Style>
 
 </ResourceDictionary>

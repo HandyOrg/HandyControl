@@ -76,7 +76,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty MaxTitleWidthProperty = DependencyProperty.Register(
-            "MaxTitleWidth", typeof(double), typeof(PropertyGrid), new PropertyMetadata(default(double)));
+            "MaxTitleWidth", typeof(double), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.Double0Box));
 
         public double MaxTitleWidth
         {
@@ -85,7 +85,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty MinTitleWidthProperty = DependencyProperty.Register(
-            "MinTitleWidth", typeof(double), typeof(PropertyGrid), new PropertyMetadata(default(double)));
+            "MinTitleWidth", typeof(double), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.Double0Box));
 
         public double MinTitleWidth
         {

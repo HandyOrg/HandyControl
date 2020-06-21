@@ -138,6 +138,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBrowserDemoCtl.xaml">
       <Link>UserControl\Controls\ImageBrowserDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageSelectorDemoCtl.xaml">
+      <Link>UserControl\Controls\ImageSelectorDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\LoadingDemoCtl.xaml">
       <Link>UserControl\Controls\LoadingDemoCtl.xaml</Link>
     </Resource>
@@ -522,6 +525,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBrowserDemoCtl.xaml.cs">
       <Link>UserControl\Controls\ImageBrowserDemoCtl.xaml.cs</Link>
       <DependentUpon>ImageBrowserDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageSelectorDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\ImageSelectorDemoCtl.xaml.cs</Link>
+      <DependentUpon>ImageSelectorDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\LoadingDemoCtl.xaml.cs">
       <Link>UserControl\Controls\LoadingDemoCtl.xaml.cs</Link>
