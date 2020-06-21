@@ -113,6 +113,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### ImageSelector
+
+![ImageSelector](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ImageSelector.png)
+
 ### PropertyGrid
 
 ![PropertyGrid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PropertyGrid.png)
@@ -129,11 +133,11 @@ Step 4: Enjoy coding
 
 ![GlowWindow](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GlowWindow.png)
 
+## History publication
+
 ### FlowDocumentScrollViewerStyle
 
 ![FlowDocumentScrollViewerStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FlowDocumentScrollViewer.png)
-
-## History publication
 
 ### PinBox
 
