@@ -12,7 +12,7 @@ namespace HandyControl.Controls
     /// </remarks>
     public class SimplePanel : Panel
     {
-        protected override Size MeasureOverride(Size availableSize)
+        protected override Size MeasureOverride(Size constraint)
         {
             var maxSize = new Size();
 
@@ -20,7 +20,7 @@ namespace HandyControl.Controls
             {
                 if (child != null)
                 {
-                    child.Measure(availableSize);
+                    child.Measure(constraint);
                     maxSize.Width = Math.Max(maxSize.Width, child.DesiredSize.Width);
                     maxSize.Height = Math.Max(maxSize.Height, child.DesiredSize.Height);
                 }

@@ -92,10 +92,7 @@ namespace HandyControl.Tools
                 {
                     // Construct the image array
                     //                               
-                    if (ImageInfoList == null)
-                    {
-                        ImageInfoList = new List<GifImageInfo>();
-                    }
+                    ImageInfoList ??= new List<GifImageInfo>();
 
                     // Add the new image
                     //
@@ -108,7 +105,7 @@ namespace HandyControl.Tools
                     {
                         AnimationThread = new Thread(AnimateImages50Ms)
                         {
-                            Name = typeof(ImageAnimator).Name,
+                            Name = nameof(ImageAnimator),
                             IsBackground = true
                         };
                         AnimationThread.Start();
@@ -168,12 +165,17 @@ namespace HandyControl.Tools
 
                     if (Equals(image, imageInfo.Image))
                     {
-                        if ((onFrameChangedHandler == imageInfo.FrameChangedHandler) || (onFrameChangedHandler != null && onFrameChangedHandler.Equals(imageInfo.FrameChangedHandler)))
+                        if (onFrameChangedHandler == imageInfo.FrameChangedHandler || onFrameChangedHandler != null && onFrameChangedHandler.Equals(imageInfo.FrameChangedHandler))
                         {
                             ImageInfoList.Remove(imageInfo);
                         }
                         break;
                     }
+                }
+
+                if (!ImageInfoList.Any())
+                {
+                    AnimationThread = null;
                 }
             }
             finally
@@ -224,7 +226,7 @@ namespace HandyControl.Tools
         [SuppressMessage("Microsoft.Performance", "CA1804:RemoveUnusedLocals")]
         private static void AnimateImages50Ms()
         {
-            while (true)
+            while (ImageInfoList.Any())
             {
                 // Acquire reader-lock to access imageInfoList, elemens in the list can be modified w/o needing a writer-lock.
                 // Observe that we don't need to check if the thread is waiting or a writer lock here since the thread this 

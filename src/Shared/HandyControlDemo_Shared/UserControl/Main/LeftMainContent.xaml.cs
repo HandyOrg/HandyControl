@@ -30,6 +30,7 @@ namespace HandyControlDemo.UserControl
                 var selectedIndex = demoInfo.SelectedIndex;
                 demoInfo.SelectedIndex = -1;
                 demoInfo.SelectedIndex = selectedIndex;
+                FilterItems();
             }
         }
 
@@ -51,6 +52,11 @@ namespace HandyControlDemo.UserControl
         private void SearchBar_OnSearchStarted(object sender, FunctionEventArgs<string> e)
         {
             _searchKey = e.Info;
+            FilterItems();
+        }
+
+        private void FilterItems()
+        {
             if (string.IsNullOrEmpty(_searchKey))
             {
                 foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
@@ -67,7 +73,7 @@ namespace HandyControlDemo.UserControl
                     {
                         item.IsVisible = true;
                     }
-                    else if(item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(key))
+                    else if (item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(key))
                     {
                         item.IsVisible = true;
                     }
