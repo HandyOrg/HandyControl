@@ -851,7 +851,18 @@ namespace HandyControlDemo.Properties.Langs {
                 return ResourceManager.GetString("ImageBrowser", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 图片选择器 的本地化字符串。
+        /// </summary>
+        public static string ImageSelector
+        {
+            get
+            {
+                return ResourceManager.GetString("ImageSelector", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 索引 的本地化字符串。
         /// </summary>

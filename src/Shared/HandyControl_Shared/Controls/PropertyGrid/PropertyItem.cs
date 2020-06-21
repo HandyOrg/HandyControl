@@ -2,6 +2,7 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
@@ -62,7 +63,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
-            "IsReadOnly", typeof(bool), typeof(PropertyItem), new PropertyMetadata(default(bool)));
+            "IsReadOnly", typeof(bool), typeof(PropertyItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsReadOnly
         {
@@ -107,7 +108,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-            "IsSelected", typeof(bool), typeof(PropertyItem), new PropertyMetadata(default(bool)));
+            "IsSelected", typeof(bool), typeof(PropertyItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsSelected
         {
@@ -116,7 +117,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsExpandedEnabledProperty = DependencyProperty.Register(
-            "IsExpandedEnabled", typeof(bool), typeof(PropertyItem), new PropertyMetadata(default(bool)));
+            "IsExpandedEnabled", typeof(bool), typeof(PropertyItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsExpandedEnabled
         {
