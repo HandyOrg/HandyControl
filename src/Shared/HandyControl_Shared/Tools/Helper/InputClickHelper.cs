@@ -2,15 +2,22 @@
 using System.Windows;
 using System.Windows.Input;
 
-namespace HandyControl.Tools.Input
+namespace HandyControl.Tools
 {
     /// <summary>
-    /// 输入层点击帮助类
+    ///     输入层点击帮助类
     /// </summary>
     public static class InputClickHelper
     {
+        private static readonly DependencyProperty InputInfoProperty = DependencyProperty.RegisterAttached(
+            "InputInfo", typeof(InputInfo), typeof(InputClickHelper), new PropertyMetadata(default(InputInfo)));
+
+        private static void SetInputInfo(DependencyObject element, InputInfo value) => element.SetValue(InputInfoProperty, value);
+
+        private static InputInfo GetInputInfo(DependencyObject element) => (InputInfo)element.GetValue(InputInfoProperty);
+
         /// <summary>
-        /// 将 MouseDown MouseMove MouseUp 封装为点击事件
+        ///     将 MouseDown MouseMove MouseUp 封装为点击事件
         /// </summary>
         /// <param name="element">要被附加的元素</param>
         /// <param name="clickEventHandler">点击的事件</param>
@@ -34,7 +41,7 @@ namespace HandyControl.Tools.Input
         }
 
         /// <summary>
-        /// 去掉对 <paramref name="element"/> 的点击时间的监听
+        ///     去掉对 <paramref name="element" /> 的点击时间的监听
         /// </summary>
         /// <param name="element"></param>
         /// <param name="clickEventHandler">点击的事件</param>
@@ -43,10 +50,7 @@ namespace HandyControl.Tools.Input
             EventHandler dragStarted = null)
         {
             var inputInfo = GetInputInfo(element);
-            if (inputInfo == null)
-            {
-                return;
-            }
+            if (inputInfo == null) return;
 
             inputInfo.ClickEventHandler -= clickEventHandler;
             inputInfo.DragStarted -= dragStarted;
@@ -63,33 +67,27 @@ namespace HandyControl.Tools.Input
 
         private static void Element_LostMouseCapture(object sender, MouseEventArgs e)
         {
-            var element = (UIElement) sender;
+            var element = (UIElement)sender;
             GetInputInfo(element)?.LostCapture();
         }
 
         private static void Element_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            var element = (UIElement) sender;
-
+            var element = (UIElement)sender;
             GetInputInfo(element)?.Up(e.GetPosition(element));
         }
 
         private static void Element_MouseMove(object sender, MouseEventArgs e)
         {
-            var element = (UIElement) sender;
-
+            var element = (UIElement)sender;
             GetInputInfo(element)?.Move(e.GetPosition(element));
         }
 
         private static void Element_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            var element = (UIElement) sender;
-
+            var element = (UIElement)sender;
             GetInputInfo(element)?.Down(e.GetPosition(element));
         }
-
-        private static readonly DependencyProperty InputInfoProperty = DependencyProperty.RegisterAttached(
-            "InputInfo", typeof(InputInfo), typeof(InputClickHelper), new PropertyMetadata(default(InputInfo)));
 
         private static InputInfo GetOrCreateInputInfo(UIElement element)
         {
@@ -103,18 +101,18 @@ namespace HandyControl.Tools.Input
             return inputInfo;
         }
 
-        private static void SetInputInfo(DependencyObject element, InputInfo value)
-        {
-            element.SetValue(InputInfoProperty, value);
-        }
-
-        private static InputInfo GetInputInfo(DependencyObject element)
-        {
-            return (InputInfo) element.GetValue(InputInfoProperty);
-        }
-
         private class InputInfo
         {
+            private const double ToleranceSquared = 0.01;
+
+            private Point _downedPosition;
+
+            private bool _isClick;
+
+            public event EventHandler ClickEventHandler;
+
+            public event EventHandler DragStarted;
+
             public void Down(Point position)
             {
                 _downedPosition = position;
@@ -134,8 +132,7 @@ namespace HandyControl.Tools.Input
 
             public void Up(Point position)
             {
-                _isClick = _isClick
-                           && (position - _downedPosition).LengthSquared <= ToleranceSquared;
+                _isClick = _isClick && (position - _downedPosition).LengthSquared <= ToleranceSquared;
 
                 if (!_isClick) return;
 
@@ -144,20 +141,9 @@ namespace HandyControl.Tools.Input
                 _isClick = false;
             }
 
-            public void LostCapture()
-            {
-                _isClick = false;
-            }
-
-            public double ToleranceSquared { set; get; } = 0.01;
-
-            public event EventHandler ClickEventHandler;
-            public event EventHandler DragStarted;
+            public void LostCapture() => _isClick = false;
 
             public bool IsEmpty() => ClickEventHandler is null && DragStarted is null;
-
-            private Point _downedPosition;
-            private bool _isClick;
         }
     }
 }
