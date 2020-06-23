@@ -5,12 +5,12 @@
              Background="{DynamicResource SecondaryRegionBrush}">
     <hc:Watermark Mark="{StaticResource QqGeometry}" MarkWidth="200" MarkHeight="200" MarkMargin="30">
         <WrapPanel HorizontalAlignment="Center" VerticalAlignment="Center" hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}">
-            <Border Margin="16" Height="274" Effect="{StaticResource EffectShadow5}" Width="200" CornerRadius="10">
+            <Border Margin="16" Height="273" Effect="{StaticResource EffectShadow5}" Width="200" CornerRadius="10">
                 <Border.Background>
                     <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/qq_group_1.jpg"/>
                 </Border.Background>
             </Border>
-            <Border Margin="16" Height="274" Effect="{StaticResource EffectShadow5}" Width="200" CornerRadius="10">
+            <Border Margin="16" Height="273" Effect="{StaticResource EffectShadow5}" Width="200" CornerRadius="10">
                 <Border.Background>
                     <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/qq_group_2.jpg"/>
                 </Border.Background>
