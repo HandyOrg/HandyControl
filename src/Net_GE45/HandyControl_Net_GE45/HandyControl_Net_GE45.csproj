@@ -42,6 +42,9 @@
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ko-KR.resx">
       <Link>Properties\Langs\Lang.ko-KR.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.pt-BR.resx">
+      <Link>Properties\Langs\Lang.pt-BR.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ru.resx">
       <Link>Properties\Langs\Lang.ru.resx</Link>
     </EmbeddedResource>

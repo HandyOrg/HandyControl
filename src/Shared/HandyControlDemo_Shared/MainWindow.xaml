@@ -9,7 +9,7 @@
            ShowTitle="False"
            Style="{StaticResource WindowGlow}"
            Background="{DynamicResource SecondaryRegionBrush}"
-           ActiveGlowColor="#f06632"
+           ActiveGlowColor="{DynamicResource PrimaryColor}"
            ResizeMode="CanResizeWithGrip"
            WindowStartupLocation="CenterScreen"
            d:DesignHeight="800" 
