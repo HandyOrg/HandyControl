@@ -209,7 +209,7 @@ namespace HandyControl.Controls
         public static string GetToken(DependencyObject element)
             => (string)element.GetValue(TokenProperty);
 
-        public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, value);
+        public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetGrowlParent(DependencyObject element) => (bool)element.GetValue(GrowlParentProperty);
 

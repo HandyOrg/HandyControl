@@ -178,6 +178,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\ko-KR.png">
       <Link>Resources\Img\Flag\ko-KR.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\pt-BR.png">
+      <Link>Resources\Img\Flag\pt-BR.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\ru.png">
       <Link>Resources\Img\Flag\ru.png</Link>
     </Resource>
@@ -264,6 +267,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\HoverMenu_16x.png">
       <Link>Resources\Img\LeftMainContent\HoverMenu_16x.png</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Image_16x.png">
+      <Link>Resources\Img\LeftMainContent\Image_16x.png</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\ImageBrowser_16x.png">
       <Link>Resources\Img\LeftMainContent\ImageBrowser_16x.png</Link>
@@ -501,6 +507,9 @@
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.ko-KR.resx">
       <Link>Properties\Langs\Lang.ko-KR.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.pt-BR.resx">
+      <Link>Properties\Langs\Lang.pt-BR.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.ru.resx">
       <Link>Properties\Langs\Lang.ru.resx</Link>
     </EmbeddedResource>
@@ -539,12 +548,14 @@ rd /s /q Langs\en
 rd /s /q Langs\fa
 rd /s /q Langs\fr
 rd /s /q Langs\ko-KR
+rd /s /q Langs\pt-BR
 rd /s /q Langs\ru
 rd /s /q Langs\tr
 move en Langs
 move fa Langs
 move fr Langs
 move ko-KR Langs
+move pt-BR Langs
 move ru Langs
 move tr Langs</PostBuildEvent>
   </PropertyGroup>

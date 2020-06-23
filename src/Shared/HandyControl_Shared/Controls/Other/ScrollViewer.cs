@@ -145,15 +145,9 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty IsInertiaEnabledProperty = DependencyProperty.RegisterAttached(
             "IsInertiaEnabled", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
-        public static void SetIsInertiaEnabled(DependencyObject element, bool value)
-        {
-            element.SetValue(IsInertiaEnabledProperty, value);
-        }
+        public static void SetIsInertiaEnabled(DependencyObject element, bool value) => element.SetValue(IsInertiaEnabledProperty, ValueBoxes.BooleanBox(value));
 
-        public static bool GetIsInertiaEnabled(DependencyObject element)
-        {
-            return (bool)element.GetValue(IsInertiaEnabledProperty);
-        }
+        public static bool GetIsInertiaEnabled(DependencyObject element) => (bool)element.GetValue(IsInertiaEnabledProperty);
 
         /// <summary>
         ///     是否支持惯性
@@ -179,15 +173,9 @@ namespace HandyControl.Controls
             set => SetValue(IsPenetratingProperty, value);
         }
 
-        public static void SetIsPenetrating(DependencyObject element, bool value)
-        {
-            element.SetValue(IsPenetratingProperty, value);
-        }
+        public static void SetIsPenetrating(DependencyObject element, bool value) => element.SetValue(IsPenetratingProperty, ValueBoxes.BooleanBox(value));
 
-        public static bool GetIsPenetrating(DependencyObject element)
-        {
-            return (bool) element.GetValue(IsPenetratingProperty);
-        }
+        public static bool GetIsPenetrating(DependencyObject element) => (bool) element.GetValue(IsPenetratingProperty);
 
         /// <summary>
         ///     当前垂直滚动偏移

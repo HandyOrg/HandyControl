@@ -753,4 +753,7 @@
   <data name="PropertyGrid" xml:space="preserve">
     <value>属性编辑器</value>
   </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>图片选择器</value>
+  </data>
 </root>

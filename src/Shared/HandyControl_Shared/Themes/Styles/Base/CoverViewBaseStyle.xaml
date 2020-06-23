@@ -1,12 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="CoverViewItemBaseStyle" TargetType="controls:CoverViewItem">
+    <Style x:Key="CoverViewItemBaseStyle" TargetType="hc:CoverViewItem">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:CoverViewItem">
+                <ControlTemplate TargetType="hc:CoverViewItem">
                     <Border BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}">
                         <ContentPresenter ContentSource="Header" ContentTemplate="{TemplateBinding HeaderTemplate}" Margin="{TemplateBinding Padding}"/>
                     </Border>
@@ -15,7 +15,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CoverViewContentBaseStyle" TargetType="controls:CoverViewContent">
+    <Style x:Key="CoverViewContentBaseStyle" TargetType="hc:CoverViewContent">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -23,7 +23,7 @@
         <Setter Property="Margin" Value="0,0,0,8"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:CoverViewContent">
+                <ControlTemplate TargetType="hc:CoverViewContent">
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="16"/>
@@ -53,14 +53,14 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CoverViewBaseStyle" TargetType="controls:CoverView">
+    <Style x:Key="CoverViewBaseStyle" TargetType="hc:CoverView">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource CoverViewItemBaseStyle}"/>
         <Setter Property="CoverViewContentStyle" Value="{StaticResource CoverViewContentBaseStyle}"/>
         <Setter Property="ItemMargin" Value="8"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:CoverView">
+                <ControlTemplate TargetType="hc:CoverView">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <ScrollViewer>
                             <WrapPanel x:Name="PART_Panel"/>

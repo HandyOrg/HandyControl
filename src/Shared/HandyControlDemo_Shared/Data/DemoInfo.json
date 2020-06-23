@@ -27,7 +27,7 @@
       [ "GroupBox", "GroupBoxDemoCtl", "GroupBox_16x", "" ],
       [ "Menu", "MenuDemoCtl", "ContextMenu_16x", "" ],
       [ "RichTextBox", "RichTextBoxDemoCtl", "RichTextBox_16x", "" ],
-      [ "FlowDocument", "FlowDocumentDemoCtl", "WPFFlowDocument_16x", "1" ],
+      [ "FlowDocument", "FlowDocumentDemoCtl", "WPFFlowDocument_16x", "" ],
       [ "ToolBar", "ToolBarDemoCtl", "ToolBar_16x", "" ],
       [ "Border", "BorderDemoCtl", "BorderElement_16x", "" ],
       [ "Label", "LabelDemoCtl", "Label_16x", "" ],
@@ -41,6 +41,7 @@
     "demoItemList": [
       [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "" ],
       [ "PropertyGrid", "PropertyGridDemoCtl", "PropertyGridEditorPart_16x", "1" ],
+      [ "ImageSelector", "ImageSelectorDemoCtl", "Image_16x", "1" ],
       [ "ImageBlock", "ImageBlockDemoCtl", "ImageStack_16x", "" ],
       [ "Magnifier", "MagnifierDemoCtl", "Search_16x", "" ],
       [ "Gravatar", "GravatarDemoCtl", "User_16x", "" ],

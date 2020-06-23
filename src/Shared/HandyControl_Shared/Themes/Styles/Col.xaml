@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style TargetType="controls:Col">
+    <Style TargetType="hc:Col">
         <Setter Property="Focusable" Value="False"/>
     </Style>
 

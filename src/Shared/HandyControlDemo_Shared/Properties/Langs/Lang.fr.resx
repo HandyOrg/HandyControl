@@ -753,4 +753,7 @@
   <data name="PropertyGrid" xml:space="preserve">
     <value>PropertyGrid</value>
   </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>ImageSelector</value>
+  </data>
 </root>

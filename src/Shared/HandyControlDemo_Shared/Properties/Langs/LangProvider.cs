@@ -125,7 +125,8 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(Ignore));
 			OnPropertyChanged(nameof(ImageBlock));
 			OnPropertyChanged(nameof(ImageBrowser));
-			OnPropertyChanged(nameof(Index));
+            OnPropertyChanged(nameof(ImageSelector));
+            OnPropertyChanged(nameof(Index));
 			OnPropertyChanged(nameof(Info));
 			OnPropertyChanged(nameof(InteractiveDialog));
 			OnPropertyChanged(nameof(IsNotPhone));
@@ -690,6 +691,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 图片浏览器 的本地化字符串。
         /// </summary>
 		public string ImageBrowser => Lang.ImageBrowser;
+
+        /// <summary>
+        ///   查找类似 图片选择器 的本地化字符串。
+        /// </summary>
+        public string ImageSelector => Lang.ImageSelector;
 
         /// <summary>
         ///   查找类似 索引 的本地化字符串。
@@ -1759,6 +1765,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 图片浏览器 的本地化字符串。
         /// </summary>
 		public static string ImageBrowser = nameof(ImageBrowser);
+
+        /// <summary>
+        ///   查找类似 图片选择器 的本地化字符串。
+        /// </summary>
+        public static string ImageSelector = nameof(ImageSelector);
 
         /// <summary>
         ///   查找类似 索引 的本地化字符串。

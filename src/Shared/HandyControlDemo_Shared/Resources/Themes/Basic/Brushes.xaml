@@ -6,9 +6,9 @@
         <ResourceDictionary Source="Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <DrawingBrush o:Freeze="True" Opacity=".1" x:Key="CloudDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,314,157" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+    <DrawingBrush o:Freeze="True" Opacity=".1" x:Key="CloudDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,157,157" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
         <DrawingBrush.Drawing>
-            <ImageDrawing o:Freeze="True" ImageSource="/HandyControlDemo;component/Resources/Img/cloud.png" Rect="0,0,314,157"/>
+            <ImageDrawing o:Freeze="True" ImageSource="/HandyControlDemo;component/Resources/Img/cloud.png" Rect="0,0,157,157"/>
         </DrawingBrush.Drawing>
     </DrawingBrush>
     

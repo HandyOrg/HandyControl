@@ -7,6 +7,7 @@
                xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
                xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
                mc:Ignorable="d"
+               Style="{StaticResource WindowBlur}"
                WindowStartupLocation="CenterScreen"
                Title="{ex:Lang Key={x:Static langs:LangKeys.Title}}"
                Height="450" 

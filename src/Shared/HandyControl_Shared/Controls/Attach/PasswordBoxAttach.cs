@@ -39,7 +39,7 @@ namespace HandyControl.Controls
             }
         }
 
-        public static void SetIsMonitoring(DependencyObject element, bool value) => element.SetValue(IsMonitoringProperty, value);
+        public static void SetIsMonitoring(DependencyObject element, bool value) => element.SetValue(IsMonitoringProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetIsMonitoring(DependencyObject element) => (bool)element.GetValue(IsMonitoringProperty);
 

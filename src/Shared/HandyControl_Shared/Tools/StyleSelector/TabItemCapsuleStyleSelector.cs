@@ -8,7 +8,7 @@ namespace HandyControl.Tools
     {
         public override Style SelectStyle(object item, DependencyObject container)
         {
-            if (item is TabItem tabItem && tabItem.Parent is TabControl tabControl)
+            if (container is TabItem tabItem && VisualHelper.GetParent<TabControl>(tabItem) is { } tabControl)
             {
                 var count = tabControl.Items.Count;
                 if (count == 1)
@@ -16,7 +16,7 @@ namespace HandyControl.Tools
                     return ResourceHelper.GetResource<Style>(ResourceToken.TabItemCapsuleSingle);
                 }
 
-                var index = tabControl.Items.IndexOf(tabItem);
+                var index = tabControl.ItemContainerGenerator.IndexFromContainer(tabItem);
                 return index == 0
                     ? ResourceHelper.GetResource<Style>(
                         tabControl.TabStripPlacement == Dock.Top || tabControl.TabStripPlacement == Dock.Bottom

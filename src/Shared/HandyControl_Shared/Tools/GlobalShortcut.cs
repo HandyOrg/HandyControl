@@ -104,7 +104,7 @@ namespace HandyControl.Tools
         }
 
         public static void SetHost(DependencyObject element, bool value)
-            => element.SetValue(HostProperty, value);
+            => element.SetValue(HostProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetHost(DependencyObject element)
             => (bool) element.GetValue(HostProperty);

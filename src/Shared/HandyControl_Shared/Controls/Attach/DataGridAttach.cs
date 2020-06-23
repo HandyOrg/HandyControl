@@ -41,7 +41,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetApplyDefaultStyle(DependencyObject element, bool value)
-            => element.SetValue(ApplyDefaultStyleProperty, value);
+            => element.SetValue(ApplyDefaultStyleProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetApplyDefaultStyle(DependencyObject element)
             => (bool) element.GetValue(ApplyDefaultStyleProperty);
@@ -253,7 +253,7 @@ namespace HandyControl.Controls
 
         public static bool GetShowRowNumber(DependencyObject target) => (bool)target.GetValue(ShowRowNumberProperty);
 
-        public static void SetShowRowNumber(DependencyObject target, bool value) => target.SetValue(ShowRowNumberProperty, value);
+        public static void SetShowRowNumber(DependencyObject target, bool value) => target.SetValue(ShowRowNumberProperty, ValueBoxes.BooleanBox(value));
 
         private static void OnShowRowNumberChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {

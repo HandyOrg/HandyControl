@@ -77,7 +77,7 @@ namespace HandyControl.Controls
             "ReadyToFloat", typeof(bool), typeof(FloatingBlock), new PropertyMetadata(ValueBoxes.FalseBox));
 
         private static void SetReadyToFloat(DependencyObject element, bool value)
-            => element.SetValue(ReadyToFloatProperty, value);
+            => element.SetValue(ReadyToFloatProperty, ValueBoxes.BooleanBox(value));
 
         private static bool GetReadyToFloat(DependencyObject element)
             => (bool)element.GetValue(ReadyToFloatProperty);

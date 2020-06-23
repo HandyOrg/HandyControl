@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.ViewModel;
@@ -31,6 +30,7 @@ namespace HandyControlDemo.UserControl
                 var selectedIndex = demoInfo.SelectedIndex;
                 demoInfo.SelectedIndex = -1;
                 demoInfo.SelectedIndex = selectedIndex;
+                FilterItems();
             }
         }
 
@@ -52,6 +52,11 @@ namespace HandyControlDemo.UserControl
         private void SearchBar_OnSearchStarted(object sender, FunctionEventArgs<string> e)
         {
             _searchKey = e.Info;
+            FilterItems();
+        }
+
+        private void FilterItems()
+        {
             if (string.IsNullOrEmpty(_searchKey))
             {
                 foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
@@ -68,7 +73,7 @@ namespace HandyControlDemo.UserControl
                     {
                         item.IsVisible = true;
                     }
-                    else if(item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(key))
+                    else if (item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(key))
                     {
                         item.IsVisible = true;
                     }
@@ -83,21 +88,6 @@ namespace HandyControlDemo.UserControl
                         {
                             item.IsVisible = false;
                         }
-                    }
-                }
-            }
-        }
-
-        private void SearchBar_OnTextChanged(object sender, TextChangedEventArgs e)
-        {
-            if (e.OriginalSource is SearchBar searchBar)
-            {
-                _searchKey = searchBar.Text;
-                if (string.IsNullOrEmpty(_searchKey))
-                {
-                    foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
-                    {
-                        item.IsVisible = true;
                     }
                 }
             }

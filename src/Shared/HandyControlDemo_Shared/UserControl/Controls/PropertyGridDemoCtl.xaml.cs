@@ -11,10 +11,11 @@ namespace HandyControlDemo.UserControl
 
             DemoModel = new PropertyGridDemoModel
             {
-                Name = "TestName",
-                Gender = Gender.Female,
-                IsPassed = true,
-                Score = 98
+                String = "TestString",
+                Enum = Gender.Female,
+                Boolean = true,
+                Integer = 98,
+                VerticalAlignment = VerticalAlignment.Stretch
             };
         }
 

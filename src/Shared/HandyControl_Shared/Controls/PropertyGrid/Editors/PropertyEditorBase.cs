@@ -3,11 +3,11 @@ using System.Windows.Data;
 
 namespace HandyControl.Controls
 {
-    public abstract class PropertyEditorBase : FrameworkElement
+    public abstract class PropertyEditorBase : DependencyObject
     {
         public abstract FrameworkElement CreateElement(PropertyItem propertyItem);
 
-        public virtual void CreateBinding(PropertyItem propertyItem, FrameworkElement element) =>
+        public virtual void CreateBinding(PropertyItem propertyItem, DependencyObject element) =>
             BindingOperations.SetBinding(element, GetDependencyProperty(),
                 new Binding($"({propertyItem.PropertyName})")
                 {

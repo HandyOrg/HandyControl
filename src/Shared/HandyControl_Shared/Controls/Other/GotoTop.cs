@@ -73,7 +73,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty HidingHeightProperty = DependencyProperty.Register(
-            "HidingHeight", typeof(double), typeof(GotoTop), new PropertyMetadata(default(double)));
+            "HidingHeight", typeof(double), typeof(GotoTop), new PropertyMetadata(ValueBoxes.Double0Box));
 
         public double HidingHeight
         {
