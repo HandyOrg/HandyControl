@@ -168,7 +168,6 @@ namespace HandyControl.Controls
                 case InteropValues.WM_GETMINMAXINFO:
                     WmGetMinMaxInfo(hwnd, lparam);
                     Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
-                    handled = true;
                     break;
             }
 
