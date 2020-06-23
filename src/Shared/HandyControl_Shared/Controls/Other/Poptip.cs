@@ -137,7 +137,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetIsOpen(DependencyObject element, bool value)
-            => element.SetValue(IsOpenProperty, value);
+            => element.SetValue(IsOpenProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetIsOpen(DependencyObject element)
             => (bool) element.GetValue(IsOpenProperty);

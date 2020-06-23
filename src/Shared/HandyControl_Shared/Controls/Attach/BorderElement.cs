@@ -42,7 +42,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetCircular(DependencyObject element, bool value)
-            => element.SetValue(CircularProperty, value);
+            => element.SetValue(CircularProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetCircular(DependencyObject element)
             => (bool) element.GetValue(CircularProperty);

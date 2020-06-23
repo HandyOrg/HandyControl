@@ -10,7 +10,7 @@ namespace HandyControl.Controls
             new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetConsistentWidth(DependencyObject element, bool value)
-            => element.SetValue(ConsistentWidthProperty, value);
+            => element.SetValue(ConsistentWidthProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetConsistentWidth(DependencyObject element)
             => (bool) element.GetValue(ConsistentWidthProperty);
