@@ -316,6 +316,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemoCtl.xaml.cs">
       <DependentUpon>FrameDemoCtl.xaml</DependentUpon>
     </Compile>
+     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemoCtl.xaml.cs">
+      <DependentUpon>GeometryDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -860,6 +863,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
