@@ -8,7 +8,6 @@ using HandyControl.Interactivity;
 
 namespace HandyControl.Controls
 {
-    /// <inheritdoc cref="IDataInput" />
     [TemplatePart(Name = ElementTextBox, Type = typeof(DatePickerTextBox))]
     public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
     {

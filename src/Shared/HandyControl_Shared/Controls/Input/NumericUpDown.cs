@@ -8,7 +8,6 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    /// <inheritdoc cref="IDataInput" />
     /// <summary>
     ///     数值选择控件
     /// </summary>

@@ -8,7 +8,6 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    /// <inheritdoc cref="IDataInput" />
     public class TextBox : System.Windows.Controls.TextBox, IDataInput
     {
         public TextBox()
