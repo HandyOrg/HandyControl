@@ -77,7 +77,7 @@ namespace HandyControl.Controls
         public bool AutoSizeEnabled
         {
             get => (bool) GetValue(AutoSizeEnabledProperty);
-            set => SetValue(AutoSizeEnabledProperty, value);
+            set => SetValue(AutoSizeEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty MarkMarginProperty = DependencyProperty.Register(

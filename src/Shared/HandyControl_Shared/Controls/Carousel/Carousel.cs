@@ -104,7 +104,7 @@ namespace HandyControl.Controls
         public bool IsCenter
         {
             get => (bool)GetValue(IsCenterProperty);
-            set => SetValue(IsCenterProperty, value);
+            set => SetValue(IsCenterProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty PageButtonStyleProperty = DependencyProperty.Register(
@@ -161,7 +161,7 @@ namespace HandyControl.Controls
         public bool AutoRun
         {
             get => (bool)GetValue(AutoRunProperty);
-            set => SetValue(AutoRunProperty, value);
+            set => SetValue(AutoRunProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>

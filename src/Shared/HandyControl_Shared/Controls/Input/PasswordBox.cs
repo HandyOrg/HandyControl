@@ -20,6 +20,11 @@ namespace HandyControl.Controls
 
         private const string ElementTextBox = "PART_TextBox";
 
+        private SecureString _password;
+
+        private System.Windows.Controls.TextBox _textBox;
+
+
         /// <summary>
         ///     掩码字符
         /// </summary>
@@ -27,11 +32,23 @@ namespace HandyControl.Controls
             System.Windows.Controls.PasswordBox.PasswordCharProperty.AddOwner(typeof(PasswordBox),
                 new FrameworkPropertyMetadata('●'));
 
+        public char PasswordChar
+        {
+            get => (char)GetValue(PasswordCharProperty);
+            set => SetValue(PasswordCharProperty, value);
+        }
+
         /// <summary>
         ///     数据是否错误
         /// </summary>
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
             "IsError", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool IsError
+        {
+            get => (bool)GetValue(IsErrorProperty);
+            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
+        }
 
         /// <summary>
         ///     错误提示
@@ -39,11 +56,23 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
             "ErrorStr", typeof(string), typeof(PasswordBox), new PropertyMetadata(default(string)));
 
+        public string ErrorStr
+        {
+            get => (string)GetValue(ErrorStrProperty);
+            set => SetValue(ErrorStrProperty, value);
+        }
+
         /// <summary>
         ///     文本类型
         /// </summary>
         public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
             "TextType", typeof(TextType), typeof(PasswordBox), new PropertyMetadata(default(TextType)));
+
+        public TextType TextType
+        {
+            get => (TextType)GetValue(TextTypeProperty);
+            set => SetValue(TextTypeProperty, value);
+        }
 
         /// <summary>
         ///     是否显示清除按钮
@@ -51,21 +80,32 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
             "ShowClearButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
+        public bool ShowClearButton
+        {
+            get => (bool)GetValue(ShowClearButtonProperty);
+            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
+        }
+
         public static readonly DependencyProperty ShowEyeButtonProperty = DependencyProperty.Register(
             "ShowEyeButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool ShowEyeButton
+        {
+            get => (bool)GetValue(ShowEyeButtonProperty);
+            set => SetValue(ShowEyeButtonProperty, ValueBoxes.BooleanBox(value));
+        }
 
         public static readonly DependencyProperty ShowPasswordProperty = DependencyProperty.Register(
             "ShowPassword", typeof(bool), typeof(PasswordBox),
             new PropertyMetadata(ValueBoxes.FalseBox, OnShowPasswordChanged));
 
-        private SecureString _password;
-
-        private System.Windows.Controls.TextBox _textBox;
-
-        public PasswordBox()
+        public bool ShowPassword
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => Clear()));
+            get => (bool)GetValue(ShowPasswordProperty);
+            set => SetValue(ShowPasswordProperty, ValueBoxes.BooleanBox(value));
         }
+
+        public PasswordBox() => CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => Clear()));
 
         public System.Windows.Controls.PasswordBox ActualPasswordBox { get; set; }
 
@@ -101,49 +141,7 @@ namespace HandyControl.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public SecureString SecurePassword => ActualPasswordBox?.SecurePassword;
 
-        public char PasswordChar
-        {
-            get => (char) GetValue(PasswordCharProperty);
-            set => SetValue(PasswordCharProperty, value);
-        }
-
-        public bool ShowEyeButton
-        {
-            get => (bool) GetValue(ShowEyeButtonProperty);
-            set => SetValue(ShowEyeButtonProperty, value);
-        }
-
-        public bool ShowPassword
-        {
-            get => (bool) GetValue(ShowPasswordProperty);
-            set => SetValue(ShowPasswordProperty, value);
-        }
-
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-        public bool IsError
-        {
-            get => (bool) GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, value);
-        }
-
-        public string ErrorStr
-        {
-            get => (string) GetValue(ErrorStrProperty);
-            set => SetValue(ErrorStrProperty, value);
-        }
-
-        public TextType TextType
-        {
-            get => (TextType) GetValue(TextTypeProperty);
-            set => SetValue(TextTypeProperty, value);
-        }
-
-        public bool ShowClearButton
-        {
-            get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value);
-        }
 
         public virtual bool VerifyData()
         {

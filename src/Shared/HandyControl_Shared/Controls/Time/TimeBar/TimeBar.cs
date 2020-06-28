@@ -216,7 +216,7 @@ namespace HandyControl.Controls
         public bool ShowSpeStr
         {
             get => (bool)GetValue(ShowSpeStrProperty);
-            set => SetValue(ShowSpeStrProperty, value);
+            set => SetValue(ShowSpeStrProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>

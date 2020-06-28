@@ -231,7 +231,7 @@ namespace HandyControl.Controls
         public bool IsJumpEnabled
         {
             get => (bool) GetValue(IsJumpEnabledProperty);
-            set => SetValue(IsJumpEnabledProperty, value);
+            set => SetValue(IsJumpEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         #endregion

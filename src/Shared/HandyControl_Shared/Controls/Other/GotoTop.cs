@@ -60,7 +60,7 @@ namespace HandyControl.Controls
         public bool Animated
         {
             get => (bool) GetValue(AnimatedProperty);
-            set => SetValue(AnimatedProperty, value);
+            set => SetValue(AnimatedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty AnimationTimeProperty = DependencyProperty.Register(
@@ -87,7 +87,7 @@ namespace HandyControl.Controls
         public bool AutoHiding
         {
             get => (bool) GetValue(AutoHidingProperty);
-            set => SetValue(AutoHidingProperty, value);
+            set => SetValue(AutoHidingProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected override void OnClick()

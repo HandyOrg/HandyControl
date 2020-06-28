@@ -123,7 +123,7 @@ namespace HandyControl.Controls
         public bool Loop
         {
             get => (bool)GetValue(LoopProperty);
-            set => SetValue(LoopProperty, value);
+            set => SetValue(LoopProperty, ValueBoxes.BooleanBox(value));
         }
 
         public override void OnApplyTemplate()

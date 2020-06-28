@@ -234,7 +234,7 @@ namespace HandyControl.Controls
         public bool ShowDateTime
         {
             get => (bool)GetValue(ShowDateTimeProperty);
-            set => SetValue(ShowDateTimeProperty, value);
+            set => SetValue(ShowDateTimeProperty, ValueBoxes.BooleanBox(value));
         }
 
         public string Message

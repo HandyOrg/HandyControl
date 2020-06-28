@@ -36,7 +36,7 @@ namespace HandyControl.Controls
         public bool Runaway
         {
             get => (bool) GetValue(RunawayProperty);
-            set => SetValue(RunawayProperty, value);
+            set => SetValue(RunawayProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
@@ -45,7 +45,7 @@ namespace HandyControl.Controls
         public bool AutoRun
         {
             get => (bool) GetValue(AutoRunProperty);
-            set => SetValue(AutoRunProperty, value);
+            set => SetValue(AutoRunProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
@@ -93,7 +93,7 @@ namespace HandyControl.Controls
         public bool IsRunning
         {
             get => (bool) GetValue(IsRunningProperty);
-            set => SetValue(IsRunningProperty, value);
+            set => SetValue(IsRunningProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty AutoReverseProperty = DependencyProperty.Register(
@@ -102,7 +102,7 @@ namespace HandyControl.Controls
         public bool AutoReverse
         {
             get => (bool) GetValue(AutoReverseProperty);
-            set => SetValue(AutoReverseProperty, value);
+            set => SetValue(AutoReverseProperty, ValueBoxes.BooleanBox(value));
         }
 
         private void UpdateContent()

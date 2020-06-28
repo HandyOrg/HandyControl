@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Animation;
+using HandyControl.Data;
 
 namespace HandyControl.Interactivity
 {
@@ -43,9 +44,8 @@ namespace HandyControl.Interactivity
 
         public bool IsEnabled
         {
-            get =>
-                (bool) GetValue(IsEnabledProperty);
-            set => SetValue(IsEnabledProperty, value);
+            get => (bool) GetValue(IsEnabledProperty);
+            set => SetValue(IsEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal bool IsHosted

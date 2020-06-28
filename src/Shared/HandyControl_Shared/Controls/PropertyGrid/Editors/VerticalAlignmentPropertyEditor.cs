@@ -5,6 +5,7 @@ using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Shapes;
+using HandyControl.Data;
 using HandyControl.Tools;
 
 namespace HandyControl.Controls
@@ -34,7 +35,7 @@ namespace HandyControl.Controls
                 };
 
                 var factory = new FrameworkElementFactory(typeof(Path));
-                factory.SetValue(FrameworkElement.WidthProperty, 10.0);
+                factory.SetValue(FrameworkElement.WidthProperty, ValueBoxes.Double10Box);
                 factory.SetValue(FrameworkElement.HeightProperty, 12.0);
                 factory.SetBinding(Shape.FillProperty, new Binding(Control.ForegroundProperty.Name)
                 {

@@ -68,7 +68,7 @@ namespace HandyControl.Controls
         public bool IsReadOnly
         {
             get => (bool)GetValue(IsReadOnlyProperty);
-            set => SetValue(IsReadOnlyProperty, value);
+            set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty DefaultValueProperty = DependencyProperty.Register(
@@ -113,7 +113,7 @@ namespace HandyControl.Controls
         public bool IsSelected
         {
             get => (bool)GetValue(IsSelectedProperty);
-            set => SetValue(IsSelectedProperty, value);
+            set => SetValue(IsSelectedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty IsExpandedEnabledProperty = DependencyProperty.Register(
@@ -122,7 +122,7 @@ namespace HandyControl.Controls
         public bool IsExpandedEnabled
         {
             get => (bool)GetValue(IsExpandedEnabledProperty);
-            set => SetValue(IsExpandedEnabledProperty, value);
+            set => SetValue(IsExpandedEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         public PropertyDescriptor PropertyDescriptor { get; set; }

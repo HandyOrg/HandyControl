@@ -82,7 +82,7 @@ namespace HandyControl.Controls
         internal bool ShowConfirmButton
         {
             get => (bool) GetValue(ShowConfirmButtonProperty);
-            set => SetValue(ShowConfirmButtonProperty, value);
+            set => SetValue(ShowConfirmButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected virtual void OnSelectedTimeChanged(FunctionEventArgs<DateTime?> e) => RaiseEvent(e);

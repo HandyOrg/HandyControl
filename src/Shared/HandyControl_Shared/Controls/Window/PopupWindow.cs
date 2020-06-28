@@ -109,7 +109,7 @@ namespace HandyControl.Controls
         public bool ShowTitle
         {
             get => (bool) GetValue(ShowTitleProperty);
-            set => SetValue(ShowTitleProperty, value);
+            set => SetValue(ShowTitleProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ShowCancelProperty = DependencyProperty.Register(
@@ -118,7 +118,7 @@ namespace HandyControl.Controls
         public bool ShowCancel
         {
             get => (bool)GetValue(ShowCancelProperty);
-            set => SetValue(ShowCancelProperty, value);
+            set => SetValue(ShowCancelProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ShowBorderProperty = DependencyProperty.Register(
@@ -127,7 +127,7 @@ namespace HandyControl.Controls
         public bool ShowBorder
         {
             get => (bool) GetValue(ShowBorderProperty);
-            set => SetValue(ShowBorderProperty, value);
+            set => SetValue(ShowBorderProperty, ValueBoxes.BooleanBox(value));
         }
 
         private void TitleBlock_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)

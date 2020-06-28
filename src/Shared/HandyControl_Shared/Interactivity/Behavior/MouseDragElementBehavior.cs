@@ -27,9 +27,8 @@ namespace HandyControl.Interactivity
 
         public bool ConstrainToParentBounds
         {
-            get =>
-                (bool) GetValue(ConstrainToParentBoundsProperty);
-            set => SetValue(ConstrainToParentBoundsProperty, value);
+            get => (bool) GetValue(ConstrainToParentBoundsProperty);
+            set => SetValue(ConstrainToParentBoundsProperty, ValueBoxes.BooleanBox(value));
         }
 
         private Rect ElementBounds

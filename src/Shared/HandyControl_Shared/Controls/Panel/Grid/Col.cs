@@ -47,7 +47,7 @@ namespace HandyControl.Controls
         public bool IsFixed
         {
             get => (bool) GetValue(IsFixedProperty);
-            set => SetValue(IsFixedProperty, value);
+            set => SetValue(IsFixedProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal int GetLayoutCellCount(ColLayoutStatus status)

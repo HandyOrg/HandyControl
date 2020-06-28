@@ -44,7 +44,7 @@ namespace HandyControl.Controls
         public bool CanMouseWheel
         {
             get => (bool) GetValue(CanMouseWheelProperty);
-            set => SetValue(CanMouseWheelProperty, value);
+            set => SetValue(CanMouseWheelProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
@@ -155,7 +155,7 @@ namespace HandyControl.Controls
         public bool IsInertiaEnabled
         {
             get => (bool) GetValue(IsInertiaEnabledProperty);
-            set => SetValue(IsInertiaEnabledProperty, value);
+            set => SetValue(IsInertiaEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -170,7 +170,7 @@ namespace HandyControl.Controls
         public bool IsPenetrating
         {
             get => (bool) GetValue(IsPenetratingProperty);
-            set => SetValue(IsPenetratingProperty, value);
+            set => SetValue(IsPenetratingProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static void SetIsPenetrating(DependencyObject element, bool value) => element.SetValue(IsPenetratingProperty, ValueBoxes.BooleanBox(value));

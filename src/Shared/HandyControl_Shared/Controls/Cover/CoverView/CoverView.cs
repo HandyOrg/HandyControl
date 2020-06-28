@@ -146,7 +146,7 @@ namespace HandyControl.Controls
         public bool ItemContentHeightFixed
         {
             get => (bool)GetValue(ItemContentHeightFixedProperty);
-            set => SetValue(ItemContentHeightFixedProperty, value);
+            set => SetValue(ItemContentHeightFixedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ItemHeaderTemplateProperty = DependencyProperty.Register(

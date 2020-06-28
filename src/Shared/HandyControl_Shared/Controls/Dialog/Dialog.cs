@@ -24,7 +24,7 @@ namespace HandyControl.Controls
         public bool IsClosed
         {
             get => (bool)GetValue(IsClosedProperty);
-            internal set => SetValue(IsClosedProperty, value);
+            internal set => SetValue(IsClosedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(

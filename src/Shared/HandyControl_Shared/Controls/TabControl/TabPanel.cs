@@ -53,7 +53,7 @@ namespace HandyControl.Controls
         public bool IsTabFillEnabled
         {
             get => (bool)GetValue(IsTabFillEnabledProperty);
-            set => SetValue(IsTabFillEnabledProperty, value);
+            set => SetValue(IsTabFillEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>

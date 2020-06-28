@@ -31,7 +31,7 @@ namespace HandyControl.Controls
         public bool IsRunning
         {
             get => (bool) GetValue(IsRunningProperty);
-            set => SetValue(IsRunningProperty, value);
+            set => SetValue(IsRunningProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty DotCountProperty = DependencyProperty.Register(
