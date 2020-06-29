@@ -593,7 +593,11 @@ namespace HandyControlDemo.Properties.Langs
         /// </summary>
 		public string Frame => Lang.Frame;
 
+        /// <summary>
+        ///   查找类似 几何形状 的本地化字符串。
+        /// </summary>
         public string Geometry => Lang.Geometry;
+
         /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
@@ -1668,6 +1672,9 @@ namespace HandyControlDemo.Properties.Langs
         /// </summary>
 		public static string Frame = nameof(Frame);
 
+        /// <summary>
+        ///   查找类似 几何形状 的本地化字符串。
+        /// </summary>
         public static string Geometry = nameof(Geometry);
 
         /// <summary>

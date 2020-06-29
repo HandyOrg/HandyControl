@@ -273,6 +273,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FrameDemoCtl.xaml">
       <Link>UserControl\Styles\FrameDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GeometryDemoCtl.xaml">
+      <Link>UserControl\Styles\GeometryDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GroupBoxDemoCtl.xaml">
       <Link>UserControl\Styles\GroupBoxDemoCtl.xaml</Link>
     </Resource>
@@ -705,6 +708,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FrameDemoCtl.xaml.cs">
       <Link>UserControl\Styles\FrameDemoCtl.xaml.cs</Link>
       <DependentUpon>FrameDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GeometryDemoCtl.xaml.cs">
+      <Link>UserControl\Styles\GeometryDemoCtl.xaml.cs</Link>
+      <DependentUpon>GeometryDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <Link>UserControl\Styles\GroupBoxDemoCtl.xaml.cs</Link>

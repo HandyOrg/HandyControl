@@ -33,7 +33,7 @@
       [ "Label", "LabelDemoCtl", "Label_16x", "" ],
       [ "Frame", "FrameDemoCtl", "frame_16xLG", "1" ],
       [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "1" ],
-      [ "Geometry", "GeometryDemoCtl", "Geometry_16x", "1" ]
+      [ "Geometry", "GeometryDemoCtl", "Path_16x", "1" ]
     ]
   },
   {

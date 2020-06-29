@@ -412,9 +412,6 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\MainMenuControl_16x.png">
       <Link>Resources\Img\LeftMainContent\MainMenuControl_16x.png</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Geometry_16x.png">
-      <Link>Resources\Img\LeftMainContent\Geometry_16x.png</Link>
-    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\fabric-icons.ttf">
       <Link>Resources\fabric-icons.ttf</Link>
     </Resource>
