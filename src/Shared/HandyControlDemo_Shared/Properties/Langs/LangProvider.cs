@@ -105,6 +105,7 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(FlowDocumentReader));
 			OnPropertyChanged(nameof(FlowDocumentScrollViewer));
 			OnPropertyChanged(nameof(Frame));
+			OnPropertyChanged(nameof(Geometry));
 			OnPropertyChanged(nameof(GifImage));
 			OnPropertyChanged(nameof(GotoTop));
 			OnPropertyChanged(nameof(Gravatar));
@@ -593,9 +594,14 @@ namespace HandyControlDemo.Properties.Langs
 		public string Frame => Lang.Frame;
 
         /// <summary>
+        ///   查找类似 几何形状 的本地化字符串。
+        /// </summary>
+        public string Geometry => Lang.Geometry;
+
+        /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
-		public string GifImage => Lang.GifImage;
+        public string GifImage => Lang.GifImage;
 
         /// <summary>
         ///   查找类似 回到顶部 的本地化字符串。
@@ -1665,6 +1671,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 导航框架 的本地化字符串。
         /// </summary>
 		public static string Frame = nameof(Frame);
+
+        /// <summary>
+        ///   查找类似 几何形状 的本地化字符串。
+        /// </summary>
+        public static string Geometry = nameof(Geometry);
 
         /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。

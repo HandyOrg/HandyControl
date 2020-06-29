@@ -187,4 +187,20 @@
         </Setter>
     </Style>
 
+    <Style x:Key="Path4GeometryItem" BasedOn="{StaticResource {x:Type Path}}" TargetType="Path">
+        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Data" Value="{Binding Info.Data,RelativeSource={RelativeSource AncestorType=Border}}"/>
+        <Setter Property="Fill" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Info.Line,RelativeSource={RelativeSource AncestorType=Border}}" Value="True">
+                <Setter Property="Fill" Value="{x:Null}"/>
+                <Setter Property="Stroke" Value="{DynamicResource PrimaryBrush}"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
 </ResourceDictionary>

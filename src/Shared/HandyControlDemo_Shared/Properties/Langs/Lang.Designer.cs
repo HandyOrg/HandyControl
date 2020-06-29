@@ -671,7 +671,15 @@ namespace HandyControlDemo.Properties.Langs {
                 return ResourceManager.GetString("Frame", resourceCulture);
             }
         }
-        
+
+        public static string Geometry
+        {
+            get
+            {
+                return ResourceManager.GetString("Geometry", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>

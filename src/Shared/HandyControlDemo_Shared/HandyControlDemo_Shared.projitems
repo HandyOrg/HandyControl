@@ -19,6 +19,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CardModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\ChatInfoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\AvatarModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\GeometryItemModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\PropertyGridDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CoverViewDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoDataModel.cs" />
@@ -44,6 +45,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\ChatBox.xaml.cs">
       <DependentUpon>ChatBox.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\GeometryItem.xaml.cs">
+      <DependentUpon>GeometryItem.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\IFull.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\InteractiveDialog.xaml.cs">
@@ -316,6 +320,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemoCtl.xaml.cs">
       <DependentUpon>FrameDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemoCtl.xaml.cs">
+      <DependentUpon>GeometryDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -500,6 +507,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Basic\ChatBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Basic\GeometryItem.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -860,6 +871,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
