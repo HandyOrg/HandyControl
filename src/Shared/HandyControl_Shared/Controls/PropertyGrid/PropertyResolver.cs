@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
+using System.Windows.Media;
 using HandyControl.Properties.Langs;
 
 namespace HandyControl.Controls
@@ -25,7 +26,8 @@ namespace HandyControl.Controls
             [typeof(bool)] = EditorTypeCode.Switch,
             [typeof(DateTime)] = EditorTypeCode.DateTime,
             [typeof(HorizontalAlignment)] = EditorTypeCode.HorizontalAlignment,
-            [typeof(VerticalAlignment)] = EditorTypeCode.VerticalAlignment
+            [typeof(VerticalAlignment)] = EditorTypeCode.VerticalAlignment,
+            [typeof(ImageSource)] = EditorTypeCode.ImageSource
         };
 
         public string ResolveCategory(PropertyDescriptor propertyDescriptor)
@@ -93,6 +95,7 @@ namespace HandyControl.Controls
                     EditorTypeCode.DateTime => new DateTimePropertyEditor(),
                     EditorTypeCode.HorizontalAlignment => new HorizontalAlignmentPropertyEditor(),
                     EditorTypeCode.VerticalAlignment => new VerticalAlignmentPropertyEditor(),
+                    EditorTypeCode.ImageSource => new ImagePropertyEditor(),
                     _ => new ReadOnlyTextPropertyEditor()
                 }
                 : type.IsSubclassOf(typeof(Enum))
@@ -117,7 +120,8 @@ namespace HandyControl.Controls
             Switch,
             DateTime,
             HorizontalAlignment,
-            VerticalAlignment
+            VerticalAlignment,
+            ImageSource
         }
     }
 }
