@@ -113,6 +113,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ChatBubbleDemoCtl.xaml.cs">
       <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs">
+      <DependentUpon>CheckComboBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -595,6 +598,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ChatBubbleDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CheckComboBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

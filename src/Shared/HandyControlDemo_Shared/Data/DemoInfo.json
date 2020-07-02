@@ -31,8 +31,8 @@
       [ "ToolBar", "ToolBarDemoCtl", "ToolBar_16x", "" ],
       [ "Border", "BorderDemoCtl", "BorderElement_16x", "" ],
       [ "Label", "LabelDemoCtl", "Label_16x", "" ],
-      [ "Frame", "FrameDemoCtl", "frame_16xLG", "1" ],
-      [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "1" ],
+      [ "Frame", "FrameDemoCtl", "frame_16xLG", "" ],
+      [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "" ],
       [ "Geometry", "GeometryDemoCtl", "Path_16x", "1" ]
     ]
   },
@@ -57,6 +57,7 @@
       [ "NumericUpDown", "NumericUpDownDemoCtl", "NumericListBox_16x", "" ],
       [ "TextBox", "TextBoxDemoCtl", "TextBox_16x", "" ],
       [ "ComboBox", "ComboBoxDemoCtl", "ComboBox_16x", "" ],
+      [ "CheckComboBox", "CheckComboBoxDemoCtl", "CheckBoxList_16x", "1" ],
       [ "PasswordBox", "PasswordBoxDemoCtl", "PasswordBox_16x", "" ],
       [ "PinBox", "PinBoxDemoCtl", "Ellipsis_16x", "" ],
       [ "DatePicker", "DatePickerDemoCtl", "DatePicker_16x", "" ],
@@ -104,7 +105,7 @@
       [ "Notification", "NotificationDemoCtl", "Procedure_16x", "" ],
       [ "Dialog", "DialogDemoCtl", "Dialog_16x", "" ],
       [ "Screenshot", "ScreenshotDemoCtl", "WindowScreenshot_16x", "1" ],
-      [ "Window", "WindowDemoCtl", "WindowsForm_16x", "1" ]
+      [ "Window", "WindowDemoCtl", "WindowsForm_16x", "" ]
     ]
   },
   {

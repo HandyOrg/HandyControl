@@ -31,6 +31,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Dialog\DialogContainer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\GrowlWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\CheckComboBox\CheckComboBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\CheckComboBox\CheckComboBoxItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\ImageSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\PinBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\DashBorder.cs" />
@@ -437,6 +439,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\SkinViolet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\CheckComboBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\CheckComboBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
