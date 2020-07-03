@@ -145,7 +145,7 @@ namespace HandyControl.Controls
         public bool IsOpen
         {
             get => (bool) GetValue(IsOpenProperty);
-            set => SetValue(IsOpenProperty, value);
+            set => SetValue(IsOpenProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static Poptip Default => new Poptip();

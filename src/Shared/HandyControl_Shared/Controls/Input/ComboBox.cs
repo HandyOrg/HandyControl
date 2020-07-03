@@ -169,7 +169,7 @@ namespace HandyControl.Controls
         public bool IsError
         {
             get => (bool)GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, value);
+            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -220,7 +220,7 @@ namespace HandyControl.Controls
         public bool ShowClearButton
         {
             get => (bool)GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value);
+            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -339,7 +339,7 @@ namespace HandyControl.Controls
         public bool AutoComplete
         {
             get => (bool)GetValue(AutoCompleteProperty);
-            set => SetValue(AutoCompleteProperty, value);
+            set => SetValue(AutoCompleteProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>

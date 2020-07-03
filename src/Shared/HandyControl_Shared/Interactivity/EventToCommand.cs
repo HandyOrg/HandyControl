@@ -96,7 +96,7 @@ namespace HandyControl.Interactivity
         public bool MustToggleIsEnabled
         {
             get => (bool) GetValue(MustToggleIsEnabledProperty);
-            set => SetValue(MustToggleIsEnabledProperty, value);
+            set => SetValue(MustToggleIsEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool MustToggleIsEnabledValue
@@ -127,7 +127,7 @@ namespace HandyControl.Interactivity
         public bool AlwaysInvokeCommand
         {
             get => (bool) GetValue(AlwaysInvokeCommandProperty);
-            set => SetValue(AlwaysInvokeCommandProperty, value);
+            set => SetValue(AlwaysInvokeCommandProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected override void OnAttached()

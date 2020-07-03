@@ -173,7 +173,7 @@ namespace HandyControl.Controls
         public bool ShowContextMenu
         {
             get => (bool) GetValue(ShowContextMenuProperty);
-            set => SetValue(ShowContextMenuProperty, value);
+            set => SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static void SetShowContextMenu(DependencyObject element, bool value)

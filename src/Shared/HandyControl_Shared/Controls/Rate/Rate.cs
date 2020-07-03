@@ -108,13 +108,13 @@ namespace HandyControl.Controls
         public bool AllowHalf
         {
             get => (bool) GetValue(AllowHalfProperty);
-            set => SetValue(AllowHalfProperty, value);
+            set => SetValue(AllowHalfProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool AllowClear
         {
             get => (bool) GetValue(AllowClearProperty);
-            set => SetValue(AllowClearProperty, value);
+            set => SetValue(AllowClearProperty, ValueBoxes.BooleanBox(value));
         }
 
         public Geometry Icon
@@ -150,13 +150,13 @@ namespace HandyControl.Controls
         public bool ShowText
         {
             get => (bool) GetValue(ShowTextProperty);
-            set => SetValue(ShowTextProperty, value);
+            set => SetValue(ShowTextProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool IsReadOnly
         {
             get => (bool)GetValue(IsReadOnlyProperty);
-            set => SetValue(IsReadOnlyProperty, value);
+            set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
         private void RateItemValueChanged(object sender, RoutedEventArgs e) =>

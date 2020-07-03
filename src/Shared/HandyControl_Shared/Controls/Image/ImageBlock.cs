@@ -143,7 +143,7 @@ namespace HandyControl.Controls
         public bool IsPlaying
         {
             get => (bool) GetValue(IsPlayingProperty);
-            set => SetValue(IsPlayingProperty, value);
+            set => SetValue(IsPlayingProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ColumnsProperty = DependencyProperty.Register(

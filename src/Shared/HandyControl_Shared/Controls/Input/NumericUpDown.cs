@@ -8,7 +8,6 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    /// <inheritdoc cref="IDataInput" />
     /// <summary>
     ///     数值选择控件
     /// </summary>
@@ -321,7 +320,7 @@ namespace HandyControl.Controls
         internal bool ShowUpDownButton
         {
             get => (bool)GetValue(ShowUpDownButtonProperty);
-            set => SetValue(ShowUpDownButtonProperty, value);
+            set => SetValue(ShowUpDownButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -333,7 +332,7 @@ namespace HandyControl.Controls
         public bool IsError
         {
             get => (bool)GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, value);
+            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -372,7 +371,7 @@ namespace HandyControl.Controls
         public bool ShowClearButton
         {
             get => (bool)GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value);
+            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -387,7 +386,7 @@ namespace HandyControl.Controls
         public bool IsReadOnly
         {
             get => (bool)GetValue(IsReadOnlyProperty);
-            set => SetValue(IsReadOnlyProperty, value);
+            set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }

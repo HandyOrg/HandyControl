@@ -27,7 +27,7 @@ namespace HandyControl.Controls
         public bool ShowCloseButton
         {
             get => (bool) GetValue(ShowCloseButtonProperty);
-            set => SetValue(ShowCloseButtonProperty, value);
+            set => SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty SelectableProperty = DependencyProperty.Register(
@@ -36,7 +36,7 @@ namespace HandyControl.Controls
         public bool Selectable
         {
             get => (bool) GetValue(SelectableProperty);
-            set => SetValue(SelectableProperty, value);
+            set => SetValue(SelectableProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
@@ -49,7 +49,7 @@ namespace HandyControl.Controls
         public bool IsSelected
         {
             get => (bool) GetValue(IsSelectedProperty);
-            set => SetValue(IsSelectedProperty, value);
+            set => SetValue(IsSelectedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly RoutedEvent SelectedEvent = EventManager.RegisterRoutedEvent("Selected", RoutingStrategy.Bubble, typeof(EventHandler), typeof(Tag));

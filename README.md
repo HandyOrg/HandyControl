@@ -1,3 +1,5 @@
+[中文](https://github.com/HandyOrg/HandyControl/blob/master/README-cn.md) - [English](https://github.com/HandyOrg/HandyControl/blob/master/README.md)
+
 ![logo](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/icon.png)
 
 ![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg) ![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl) ![Github-build-status](https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![wiki](https://img.shields.io/badge/wiki-Complete-brightgreen.svg)](https://github.com/ghost1372/HandyControl/wiki) [![Nuget](https://img.shields.io/nuget/dt/handycontrol)](https://www.nuget.org/packages/HandyControl)

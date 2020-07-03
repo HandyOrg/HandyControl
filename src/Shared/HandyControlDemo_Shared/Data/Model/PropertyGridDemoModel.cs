@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
+using System.Windows.Media;
 
 namespace HandyControlDemo.Data
 {
@@ -20,6 +21,8 @@ namespace HandyControlDemo.Data
         public HorizontalAlignment HorizontalAlignment { get; set; }
 
         public VerticalAlignment VerticalAlignment { get; set; }
+
+        public ImageSource ImageSource { get; set; }
     }
 
     public enum Gender

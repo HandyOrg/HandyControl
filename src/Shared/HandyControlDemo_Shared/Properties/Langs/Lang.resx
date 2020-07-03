@@ -756,4 +756,7 @@
   <data name="ImageSelector" xml:space="preserve">
     <value>图片选择器</value>
   </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>几何形状</value>
+  </data>
 </root>

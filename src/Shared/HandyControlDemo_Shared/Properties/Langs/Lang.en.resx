@@ -756,4 +756,7 @@
   <data name="ImageSelector" xml:space="preserve">
     <value>ImageSelector</value>
   </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>Geometry</value>
+  </data>
 </root>

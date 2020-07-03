@@ -109,7 +109,7 @@ namespace HandyControl.Controls
         public bool IsOpen
         {
             get => (bool) GetValue(IsOpenProperty);
-            set => SetValue(IsOpenProperty, value);
+            set => SetValue(IsOpenProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty MaskCanCloseProperty = DependencyProperty.Register(
@@ -118,7 +118,7 @@ namespace HandyControl.Controls
         public bool MaskCanClose
         {
             get => (bool) GetValue(MaskCanCloseProperty);
-            set => SetValue(MaskCanCloseProperty, value);
+            set => SetValue(MaskCanCloseProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ShowMaskProperty = DependencyProperty.Register(
@@ -127,7 +127,7 @@ namespace HandyControl.Controls
         public bool ShowMask
         {
             get => (bool) GetValue(ShowMaskProperty);
-            set => SetValue(ShowMaskProperty, value);
+            set => SetValue(ShowMaskProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty DockProperty = DependencyProperty.Register(

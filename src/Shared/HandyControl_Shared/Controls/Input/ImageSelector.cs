@@ -120,7 +120,7 @@ namespace HandyControl.Controls
         public bool HasValue
         {
             get => (bool) GetValue(HasValueProperty);
-            set => SetValue(HasValueProperty, value);
+            set => SetValue(HasValueProperty, ValueBoxes.BooleanBox(value));
         }
     }
 }

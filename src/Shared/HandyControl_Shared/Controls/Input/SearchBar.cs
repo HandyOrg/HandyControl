@@ -77,7 +77,7 @@ namespace HandyControl.Controls
         public bool IsRealTime
         {
             get => (bool)GetValue(IsRealTimeProperty);
-            set => SetValue(IsRealTimeProperty, value);
+            set => SetValue(IsRealTimeProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(

@@ -18,6 +18,9 @@
                 <TextBox hc:TitleElement.Title="Boolean" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.Boolean,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
                 <TextBox hc:TitleElement.Title="HorizontalAlignment" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.HorizontalAlignment,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
                 <TextBox hc:TitleElement.Title="VerticalAlignment" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource TextBoxExtend}" Text="{Binding DemoModel.VerticalAlignment,Mode=OneWay}" IsReadOnly="True" Margin="0,6,0,0"/>
+                <GroupBox Style="{StaticResource GroupBoxOriginal}" Header="ImageSource" hc:TitleElement.TitlePlacement="Left" Margin="0,6,0,0">
+                    <hc:Gravatar HorizontalAlignment="Left" Source="{Binding DemoModel.ImageSource}"/>
+                </GroupBox>
             </StackPanel>
         </Grid>
     </hc:TransitioningContentControl>

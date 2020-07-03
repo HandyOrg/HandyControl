@@ -79,7 +79,7 @@ namespace HandyControl.Interactivity
         {
             get =>
                 (bool) GetValue(FloatAboveProperty);
-            set => SetValue(FloatAboveProperty, value);
+            set => SetValue(FloatAboveProperty, ValueBoxes.BooleanBox(value));
         }
 
         public TagType InitialTag
@@ -283,7 +283,7 @@ namespace HandyControl.Interactivity
 
         private static void SetHasTransformWrapper(DependencyObject obj, bool value)
         {
-            obj.SetValue(HasTransformWrapperProperty, value);
+            obj.SetValue(HasTransformWrapperProperty, ValueBoxes.BooleanBox(value));
         }
 
         private static void SetOverlay(DependencyObject obj, object value)

@@ -170,7 +170,7 @@ namespace HandyControl.Controls
         public bool IsDirectionReversed
         {
             get => (bool) GetValue(IsDirectionReversedProperty);
-            set => SetValue(IsDirectionReversedProperty, value);
+            set => SetValue(IsDirectionReversedProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected override Visual GetVisualChild(int index)

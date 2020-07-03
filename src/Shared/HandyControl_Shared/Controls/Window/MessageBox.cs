@@ -61,7 +61,7 @@ namespace HandyControl.Controls
         public bool ShowImage
         {
             get => (bool)GetValue(ShowImageProperty);
-            set => SetValue(ShowImageProperty, value);
+            set => SetValue(ShowImageProperty, ValueBoxes.BooleanBox(value));
         }
 
         private MessageBox()

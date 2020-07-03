@@ -46,7 +46,7 @@ namespace HandyControl.Interactivity
         {
             get =>
                 (bool) GetValue(IsActiveProperty);
-            set => SetValue(IsActiveProperty, value);
+            set => SetValue(IsActiveProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected virtual bool ShouldSkipInitialLayout =>

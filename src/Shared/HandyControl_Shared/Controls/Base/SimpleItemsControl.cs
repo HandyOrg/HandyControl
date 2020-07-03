@@ -38,7 +38,7 @@ namespace HandyControl.Controls
             {
                 if (e.NewItems != null && e.NewItems.Count > 0)
                 {
-                    SetValue(HasItemsPropertyKey, true);
+                    SetValue(HasItemsPropertyKey, ValueBoxes.TrueBox);
                 }
                 OnItemsChanged(s, e);
             };
