@@ -166,7 +166,7 @@ namespace HandyControl.Controls
             if (_isInternalAction) return;
             _isInternalAction = true;
 
-            foreach (var item in ItemContainerGenerator.Items)
+            foreach (var item in Items)
             {
                 if (ItemContainerGenerator.ContainerFromItem(item) is CheckComboBoxItem checkComboBoxItem)
                 {

@@ -169,6 +169,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\CheckComboBoxBaseStyle.xaml" />
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\ComboBoxBaseStyle.xaml" />
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\TreeViewBaseStyle.xaml" />
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\DataGrid.xaml" />
