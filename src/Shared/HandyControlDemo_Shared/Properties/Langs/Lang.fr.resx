@@ -759,4 +759,7 @@
   <data name="Geometry" xml:space="preserve">
     <value>Geometry</value>
   </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>CheckComboBox</value>
+  </data>
 </root>

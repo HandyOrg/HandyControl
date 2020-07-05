@@ -119,6 +119,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### CheckComboBox
+
+![CheckComboBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CheckComboBox.png)
+
 ### ImageSelector
 
 ![ImageSelector](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ImageSelector.png)
@@ -135,11 +139,11 @@ Step 4: Enjoy coding
 
 ![GooeyEffect](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/GooeyEffect.gif)
 
+## History publication
+
 ### GlowWindow
 
 ![GlowWindow](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/GlowWindow.png)
-
-## History publication
 
 ### FlowDocumentScrollViewerStyle
 

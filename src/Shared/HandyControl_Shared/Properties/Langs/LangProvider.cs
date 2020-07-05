@@ -37,7 +37,8 @@ namespace HandyControl.Properties.Langs
 
 		private void UpdateLangs()
         {
-			OnPropertyChanged(nameof(Am));
+            OnPropertyChanged(nameof(All));
+            OnPropertyChanged(nameof(Am));
 			OnPropertyChanged(nameof(Cancel));
 			OnPropertyChanged(nameof(CannotRegisterCompositeCommandInItself));
 			OnPropertyChanged(nameof(CannotRegisterSameCommandTwice));
@@ -77,6 +78,11 @@ namespace HandyControl.Properties.Langs
 			OnPropertyChanged(nameof(ZoomIn));
 			OnPropertyChanged(nameof(ZoomOut));
         }
+
+        /// <summary>
+        ///   查找类似 所有 的本地化字符串。
+        /// </summary>
+        public string All => Lang.All;
 
         /// <summary>
         ///   查找类似 上午 的本地化字符串。
@@ -282,6 +288,11 @@ namespace HandyControl.Properties.Langs
 
     public class LangKeys
     {
+        /// <summary>
+        ///   查找类似 所有 的本地化字符串。
+        /// </summary>
+        public static string All = nameof(All);
+
         /// <summary>
         ///   查找类似 上午 的本地化字符串。
         /// </summary>

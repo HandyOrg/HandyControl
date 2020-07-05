@@ -17,9 +17,7 @@
             <Button Click="ButtonCustomContent_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCustomContentWindow}}"/>
             <Button Name="ButtonMouseFollow" Click="ButtonMouseFollow_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenMouseFollowWindow}}"/>
             <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NoNonClientAreaDragableWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenNoNonClientAreaDragableWindow}}"/>
-            <hc:Badge Text="New" Style="{StaticResource BadgeDanger}" VerticalAlignment="Center" HorizontalAlignment="Center" BadgeMargin="0,-10,-20,0">
-                <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.GlowWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenGlowWindow}}"/>
-            </hc:Badge>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.GlowWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenGlowWindow}}"/>
         </UniformGrid>
     </hc:TransitioningContentControl>
 </UserControl>

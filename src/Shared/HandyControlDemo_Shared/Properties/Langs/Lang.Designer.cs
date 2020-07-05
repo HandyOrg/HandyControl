@@ -266,7 +266,18 @@ namespace HandyControlDemo.Properties.Langs {
                 return ResourceManager.GetString("CheckBox", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 多选组合框 的本地化字符串。
+        /// </summary>
+        public static string CheckComboBox
+        {
+            get
+            {
+                return ResourceManager.GetString("CheckComboBox", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 圆形布局 的本地化字符串。
         /// </summary>
