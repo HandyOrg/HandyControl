@@ -1,4 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:themes="clr-namespace:HandyControl.Themes">
 
@@ -7,5 +8,9 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource CheckComboBoxBaseStyle}" TargetType="hc:CheckComboBox"/>
+
+    <Style x:Key="CheckComboBoxExtend" BasedOn="{StaticResource CheckComboBoxExtendBaseStyle}" TargetType="hc:CheckComboBox"/>
+
+    <Style x:Key="CheckComboBoxPlus" BasedOn="{StaticResource CheckComboBoxPlusBaseStyle}" TargetType="hc:CheckComboBox"/>
 
 </ResourceDictionary>

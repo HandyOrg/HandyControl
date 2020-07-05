@@ -118,6 +118,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\DoubleMinConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Object2StringConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Object2VisibilityReConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\RectangleCircularConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ThicknessSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\DependencyObjectExtension.cs" />

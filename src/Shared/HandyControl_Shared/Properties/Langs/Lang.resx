@@ -237,4 +237,7 @@
   <data name="Miscellaneous" xml:space="preserve">
     <value>杂项</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
+  </data>
 </root>

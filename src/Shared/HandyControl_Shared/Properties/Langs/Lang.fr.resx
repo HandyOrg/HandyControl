@@ -237,4 +237,7 @@
   <data name="Miscellaneous" xml:space="preserve">
     <value>Miscellaneous</value>
   </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
 </root>

@@ -18,6 +18,7 @@
     <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter"/>
     <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>
     <converter:Object2VisibilityConverter x:Key="Object2VisibilityConverter"/>
+    <converter:Object2VisibilityReConverter x:Key="Object2VisibilityReConverter"/>
     <converter:Number2PercentageConverter x:Key="Number2PercentageConverter"/>
     <converter:RectangleCircularConverter x:Key="RectangleCircularConverter"/>
     <converter:ThicknessSplitConverter x:Key="ThicknessSplitConverter"/>

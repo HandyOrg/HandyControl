@@ -59,7 +59,18 @@ namespace HandyControl.Properties.Langs {
                 resourceCulture = value;
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 所有 的本地化字符串。
+        /// </summary>
+        public static string All
+        {
+            get
+            {
+                return ResourceManager.GetString("All", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 上午 的本地化字符串。
         /// </summary>
