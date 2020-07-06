@@ -11,8 +11,9 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Border Name="BorderEffect" Grid.RowSpan="2" Background="{DynamicResource RegionBrush}" CornerRadius="10" Effect="{StaticResource EffectShadow4}"/>
-                <Border Height="32" Name="BorderTitle" Grid.Row="0" CornerRadius="10,10,0,0" Background="{DynamicResource TitleBrush}">
+                <Border Height="32" Name="BorderTitle" Grid.Row="0" CornerRadius="10,10,0,0" Background="{DynamicResource TitleBrush}" Style="{StaticResource BorderClip}">
                     <hc:SimplePanel>
+                        <hc:Watermark Mark="{Binding ContentTitle}" MarkMargin="3,0"/>
                         <TextBlock Style="{StaticResource TextBlockDefault}" Foreground="White" Text="{Binding ContentTitle}"/>
                         <ToggleButton Margin="0,0,6,0" IsChecked="{Binding IsOpen,ElementName=DrawerCode}" Padding="5" Foreground="{DynamicResource TextIconBrush}" Style="{StaticResource ToggleButtonIconTransparent}" HorizontalAlignment="Right" hc:IconElement.Geometry="{StaticResource CodeGeometry}"/>
                         <hc:Drawer Name="DrawerCode" Opened="DrawerCode_OnOpened">

@@ -9,7 +9,7 @@ using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
-    public class DashBorder : Decorator
+    public class DashedBorder : Decorator
     {
         private bool _useComplexRenderCodePath;
 
@@ -29,7 +29,7 @@ namespace HandyControl.Controls
 
         private static void OnClearPenCache(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var border = (DashBorder)d;
+            var border = (DashedBorder)d;
             border.LeftPenCache = null;
             border.RightPenCache = null;
             border.TopPenCache = null;
@@ -38,7 +38,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty BorderThicknessProperty = DependencyProperty.Register(
-            "BorderThickness", typeof(Thickness), typeof(DashBorder), new FrameworkPropertyMetadata(default(Thickness),
+            "BorderThickness", typeof(Thickness), typeof(DashedBorder), new FrameworkPropertyMetadata(default(Thickness),
                 FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
                 OnClearPenCache));
 
@@ -49,7 +49,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty BorderDashThicknessProperty = DependencyProperty.Register(
-            "BorderDashThickness", typeof(double), typeof(DashBorder), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
+            "BorderDashThickness", typeof(double), typeof(DashedBorder), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
                 FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
                 OnClearPenCache));
 
@@ -60,7 +60,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty PaddingProperty = DependencyProperty.Register(
-            "Padding", typeof(Thickness), typeof(DashBorder), new FrameworkPropertyMetadata(default(Thickness),
+            "Padding", typeof(Thickness), typeof(DashedBorder), new FrameworkPropertyMetadata(default(Thickness),
                 FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender));
 
         public Thickness Padding
@@ -70,7 +70,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(
-            "CornerRadius", typeof(CornerRadius), typeof(DashBorder), new FrameworkPropertyMetadata(default(CornerRadius),
+            "CornerRadius", typeof(CornerRadius), typeof(DashedBorder), new FrameworkPropertyMetadata(default(CornerRadius),
                 FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender));
 
         public CornerRadius CornerRadius
@@ -80,7 +80,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty BorderBrushProperty = DependencyProperty.Register(
-            "BorderBrush", typeof(Brush), typeof(DashBorder), new FrameworkPropertyMetadata(default(Brush),
+            "BorderBrush", typeof(Brush), typeof(DashedBorder), new FrameworkPropertyMetadata(default(Brush),
                 FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.SubPropertiesDoNotAffectRender,
                 OnClearPenCache));
 
@@ -91,7 +91,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty BackgroundProperty = DependencyProperty.Register(
-            "Background", typeof(Brush), typeof(DashBorder), new FrameworkPropertyMetadata(default(Brush),
+            "Background", typeof(Brush), typeof(DashedBorder), new FrameworkPropertyMetadata(default(Brush),
                 FrameworkPropertyMetadataOptions.AffectsRender | FrameworkPropertyMetadataOptions.SubPropertiesDoNotAffectRender,
                 OnClearPenCache));
 
@@ -102,7 +102,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty BorderDashArrayProperty = DependencyProperty.Register(
-            "BorderDashArray", typeof(DoubleCollection), typeof(DashBorder), new FrameworkPropertyMetadata(default(DoubleCollection),
+            "BorderDashArray", typeof(DoubleCollection), typeof(DashedBorder), new FrameworkPropertyMetadata(default(DoubleCollection),
                 FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
                 OnClearPenCache));
 
@@ -113,7 +113,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty BorderDashCapProperty = DependencyProperty.Register(
-            "BorderDashCap", typeof(PenLineCap), typeof(DashBorder), new FrameworkPropertyMetadata(default(PenLineCap),
+            "BorderDashCap", typeof(PenLineCap), typeof(DashedBorder), new FrameworkPropertyMetadata(default(PenLineCap),
                 FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
                 OnClearPenCache));
 
@@ -124,7 +124,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty BorderDashOffsetProperty = DependencyProperty.Register(
-            "BorderDashOffset", typeof(double), typeof(DashBorder), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
+            "BorderDashOffset", typeof(double), typeof(DashedBorder), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
                 FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender,
                 OnClearPenCache));
 

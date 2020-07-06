@@ -27,7 +27,7 @@
                 <ControlTemplate TargetType="hc:ImageSelector">
                     <Button Command="interactivity:ControlCommands.Switch" Style="{StaticResource ButtonCustom}" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch">
                         <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
-                            <hc:DashBorder BorderDashArray="{TemplateBinding StrokeDashArray}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" BorderDashThickness="{TemplateBinding StrokeThickness}" Background="{TemplateBinding PreviewBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                            <hc:DashedBorder BorderDashArray="{TemplateBinding StrokeDashArray}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" BorderDashThickness="{TemplateBinding StrokeThickness}" Background="{TemplateBinding PreviewBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                                 <Border Width="30" Height="30" Background="{TemplateBinding Background}" Style="{StaticResource BorderCircular}">
                                     <hc:ToggleBlock IsChecked="{TemplateBinding HasValue}">
                                         <hc:ToggleBlock.CheckedContent>
@@ -38,7 +38,7 @@
                                         </hc:ToggleBlock.UnCheckedContent>
                                     </hc:ToggleBlock>
                                 </Border>
-                            </hc:DashBorder>
+                            </hc:DashedBorder>
                         </Border>
                     </Button>
                 </ControlTemplate>

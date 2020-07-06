@@ -111,7 +111,8 @@ namespace HandyControl.Controls
                 presenter.Content = new TextBlock
                 {
                     Text = str,
-                    FontSize = FontSize
+                    FontSize = FontSize,
+                    Foreground = MarkBrush
                 };
             }
             else

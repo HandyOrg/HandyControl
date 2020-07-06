@@ -8,6 +8,8 @@
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Border.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
+    <!--region Button-->
+
     <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -20,21 +22,30 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
     <Style x:Key="ButtonPrimary" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
+
     <Style x:Key="ButtonSuccess" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
     </Style>
+
     <Style x:Key="ButtonInfo" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
     </Style>
+
     <Style x:Key="ButtonWarning" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
     </Style>
+
     <Style x:Key="ButtonDanger" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
     </Style>
+
+    <!--endregion-->
+
+    <!--region ButtonIcon-->
 
     <Style x:Key="ButtonIcon" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
@@ -67,6 +78,47 @@
         </Setter>
     </Style>
 
+    <!--endregion-->
+
+    <!--region ButtonDashed-->
+
+    <Style x:Key="ButtonDashed" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ButtonDashedPrimary" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="ButtonDashedSuccess" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
+    </Style>
+
+    <Style x:Key="ButtonDashedInfo" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource InfoBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="ButtonDashedWarning" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource WarningBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
+    </Style>
+
+    <Style x:Key="ButtonDashedDanger" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
+        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
+    <!--endregion-->
+
     <Style x:Key="ButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{x:Null}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -97,6 +149,8 @@
         </Setter>
     </Style>
 
+    <!--region ButtonGroup-->
+
     <Style x:Key="ButtonGroupItemDefault" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button"/>
 
     <Style x:Key="ButtonGroupItemHorizontalFirst" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
@@ -120,5 +174,7 @@
     <Style x:Key="ButtonGroupItemVerticalLast" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
         <Setter Property="hc:BorderElement.CornerRadius" Value="0,0,4,4"/>
     </Style>
+
+    <!--endregion-->
 
 </ResourceDictionary>
