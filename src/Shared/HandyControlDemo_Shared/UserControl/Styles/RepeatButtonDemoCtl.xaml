@@ -41,6 +41,38 @@
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource RepeatButtonDashed}"/>
+                        <RepeatButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource RepeatButtonDashed}"/>
+                        <TextBlock TextTrimming="CharacterEllipsis" TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashed"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource RepeatButtonDashedPrimary}"/>
+                        <RepeatButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource RepeatButtonDashedPrimary}"/>
+                        <TextBlock TextTrimming="CharacterEllipsis" TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedPrimary"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource RepeatButtonDashedSuccess}"/>
+                        <RepeatButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource RepeatButtonDashedSuccess}"/>
+                        <TextBlock TextTrimming="CharacterEllipsis" TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedSuccess"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource RepeatButtonDashedInfo}"/>
+                        <RepeatButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource RepeatButtonDashedInfo}"/>
+                        <TextBlock TextTrimming="CharacterEllipsis" TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedInfo"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource RepeatButtonDashedWarning}"/>
+                        <RepeatButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource RepeatButtonDashedWarning}"/>
+                        <TextBlock TextTrimming="CharacterEllipsis" TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedWarning"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource RepeatButtonDashedDanger}"/>
+                        <RepeatButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource RepeatButtonDashedDanger}"/>
+                        <TextBlock TextTrimming="CharacterEllipsis" TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedDanger"/>
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel ItemWidth="160" ItemHeight="130">
+                    <StackPanel>
                         <RepeatButton Width="50" Padding="16,8" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
                         <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="Default（DeleteGeometry）"/>
@@ -69,6 +101,38 @@
                         <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonDanger}" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
                         <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonDanger}" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDanger（DeleteGeometry）"/>
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel ItemWidth="160" ItemHeight="130">
+                    <StackPanel>
+                        <RepeatButton Width="50" Padding="16,8" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource RepeatButtonDashed}"/>
+                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource RepeatButtonDashed}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="DashedDefault（DeleteGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" Margin="5" Style="{StaticResource RepeatButtonDashedPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonDashedPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedPrimary（ClockGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" Margin="5" Style="{StaticResource RepeatButtonDashedSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        <RepeatButton Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonDashedSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedSuccess（CalendarGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Width="50" Padding="15,7" Margin="5" Style="{StaticResource RepeatButtonDashedInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                        <RepeatButton Width="50" Padding="15,7" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonDashedInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedInfo（DownGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Width="50" Margin="5" Style="{StaticResource RepeatButtonDashedWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        <RepeatButton Width="50" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonDashedWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedWarning（LeftGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonDashedDanger}" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonDashedDanger}" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonDashedDanger（DeleteGeometry）"/>
                     </StackPanel>
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">

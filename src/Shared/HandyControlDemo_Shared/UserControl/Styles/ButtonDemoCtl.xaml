@@ -120,8 +120,8 @@
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedSuccess（CalendarGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Width="50" Padding="16,8" Margin="5" Style="{StaticResource ButtonDashedInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
-                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource ButtonDashedInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                        <Button Width="50" Padding="15,7" Margin="5" Style="{StaticResource ButtonDashedInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                        <Button Width="50" Padding="15,7" IsEnabled="False" Margin="5" Style="{StaticResource ButtonDashedInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedInfo（DownGeometry）"/>
                     </StackPanel>
                     <StackPanel>

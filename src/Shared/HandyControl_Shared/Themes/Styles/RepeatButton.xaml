@@ -5,7 +5,10 @@
 
     <ResourceDictionary.MergedDictionaries>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/RepeatButtonBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Border.xaml"/>
     </ResourceDictionary.MergedDictionaries>
+
+    <!--region RepeatButton-->
 
     <Style BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
@@ -35,6 +38,10 @@
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
+    <!--endregion-->
+
+    <!--region RepeatButtonIcon-->
+
     <Style x:Key="RepeatButtonIcon" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
@@ -51,6 +58,61 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style x:Key="RepeatButtonIconCircular" BasedOn="{StaticResource RepeatButtonIcon}" TargetType="RepeatButton">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <Border Style="{StaticResource BorderCircular}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+                            <Path Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Data="{TemplateBinding hc:IconElement.Geometry}"/>
+                        </ContentControl>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!--endregion-->
+
+    <!--region ButtonDashed-->
+
+    <Style x:Key="RepeatButtonDashed" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RepeatButtonDashedPrimary" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonDashedSuccess" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource SuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonDashedInfo" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource InfoBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonDashedWarning" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource WarningBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonDashedDanger" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
+        <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
+    <!--endregion-->
 
     <Style x:Key="RepeatButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{x:Null}"/>
