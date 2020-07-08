@@ -220,7 +220,7 @@
     <value>Sayfa modu</value>
   </data>
   <data name="TwoPageMode" xml:space="preserve">
-    <value>2 sayfa modu</value>
+    <value>İki sayfa modu</value>
   </data>
   <data name="ScrollMode" xml:space="preserve">
     <value>Kaydırma modu</value>
@@ -229,15 +229,21 @@
     <value>Bul</value>
   </data>
   <data name="LangComment" xml:space="preserve">
-    <value>Looks up a localized string similar to "{0}".</value>
+    <value>"{0}" benzeri yerelleştirilmiş bir dize arar.</value>
+  </data>
+  <data name="BusyIndicatorLoading" xml:space="preserve">
+    <value>Lütfen bekle...</value>
+  </data>
+  <data name="TagPlaceHolder" xml:space="preserve">
+    <value>Etiketleri ; veya Boşluk ile ayır</value>
   </data>
   <data name="Jump" xml:space="preserve">
-    <value>Jump</value>
+    <value>Atlama</value>
   </data>
   <data name="Miscellaneous" xml:space="preserve">
-    <value>Miscellaneous</value>
+    <value>Çeşitli</value>
   </data>
   <data name="All" xml:space="preserve">
-    <value>All</value>
+    <value>Hepsi</value>
   </data>
 </root>
