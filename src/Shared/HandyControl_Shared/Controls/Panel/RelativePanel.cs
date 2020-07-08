@@ -498,7 +498,7 @@ namespace HandyControl.Controls
                     }
                     else
                     {
-                        childPos.Y = (_arrangeSize.Height + node.AlignLeftWithNode.Position.Y - childSize.Height) / 2;
+                        childPos.Y = (_arrangeSize.Height + node.AlignTopWithNode.Position.Y - childSize.Height) / 2;
                     }
                 }
 
