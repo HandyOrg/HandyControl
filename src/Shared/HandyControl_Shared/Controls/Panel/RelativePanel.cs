@@ -189,12 +189,19 @@ namespace HandyControl.Controls
 
         protected override Size MeasureOverride(Size availableSize)
         {
+            var maxSize = new Size();
+
             foreach (UIElement child in InternalChildren)
             {
-                child?.Measure(availableSize);
+                if (child != null)
+                {
+                    child.Measure(availableSize);
+                    maxSize.Width = Math.Max(maxSize.Width, child.DesiredSize.Width);
+                    maxSize.Height = Math.Max(maxSize.Height, child.DesiredSize.Height);
+                }
             }
 
-            return base.MeasureOverride(availableSize);
+            return maxSize;
         }
 
         protected override Size ArrangeOverride(Size arrangeSize)
@@ -314,9 +321,9 @@ namespace HandyControl.Controls
                 _nodeDic.Clear();
             }
 
-            public bool CheckCyclic() => CheckCyclic(_nodeDic.Values, null);
+            public bool CheckCyclic() => CheckCyclic(_nodeDic.Values, null, null);
 
-            private bool CheckCyclic(IEnumerable<GraphNode> nodes, HashSet<DependencyObject> set)
+            private bool CheckCyclic(IEnumerable<GraphNode> nodes, GraphNode waitNode, HashSet<DependencyObject> set)
             {
                 if (set == null)
                 {
@@ -346,9 +353,13 @@ namespace HandyControl.Controls
                     if (!set.Add(node.Element)) return true;
 
                     //  没有循环，且有依赖，则继续往下
-                    return CheckCyclic(node.OutgoingNodes, set);
+                    return CheckCyclic(node.OutgoingNodes, node.Arranged ? null : node, set);
                 }
 
+                if (waitNode != null)
+                {
+                    ArrangeChild(waitNode);
+                }
                 return false;
             }
 
