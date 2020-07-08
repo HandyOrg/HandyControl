@@ -51,6 +51,7 @@
 <a href="https://github.com/walterlv" target="_blank"><img style="border-radius:50%!important" width="64px" alt="walterlv" src="https://avatars3.githubusercontent.com/u/9959623?s=64&v=4"></a>
 <a href="https://github.com/Luoyingliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Luoyingliang" src="https://avatars2.githubusercontent.com/u/29297262?s=64&v=4"></a>
 <a href="https://github.com/lindexi" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lindexi" src="https://avatars3.githubusercontent.com/u/16054566?s=64&v=4"></a>
+<a href="https://github.com/Taiizor" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Taiizor" src="https://avatars1.githubusercontent.com/u/41683699?s=64&v=4"></a>
 
 ## Backers
 
