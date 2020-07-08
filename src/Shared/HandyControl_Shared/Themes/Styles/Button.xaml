@@ -64,7 +64,24 @@
         </Setter>
     </Style>
 
-    <Style x:Key="ButtonIconCircular" BasedOn="{StaticResource ButtonIcon}" TargetType="Button">
+    <Style x:Key="ButtonIconCircular" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
+        <Setter Property="Width" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
+        <Setter Property="FocusVisualStyle">
+            <Setter.Value>
+                <Style>
+                    <Setter Property="Control.Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Rectangle Style="{StaticResource RectangleFocusVisualCircular}"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Setter.Value>
+        </Setter>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
