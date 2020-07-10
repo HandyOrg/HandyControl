@@ -1,15 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Shapes;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
 
 namespace HandyControl.Controls
 {
+    /// <summary>
+    /// 时间轴对象
+    /// </summary>
+    public class VideoStateItem : INotifyPropertyChanged
+    {
+        public long beginsecond = 0;
+        public long endsecond = 0;
+        public long totalsecond = 0;//endsecond - beginsecond
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        private void OnPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+
     /// <summary>
     ///     时间条
     /// </summary>
@@ -29,6 +54,8 @@ namespace HandyControl.Controls
 
         private const string ElementCanvasSpe = "PART_CanvasSpe";
 
+        private const string Parid_videoHistoryPanel = "Z_videoHistoryPanel";
+
         #endregion Constants
         
         #region Data
@@ -41,12 +68,35 @@ namespace HandyControl.Controls
 
         private Canvas _canvasSpe;
 
+        private StackPanel _videoHistoryPanel;           //历史时间轴容器
+
         #endregion Data
 
+        private List<VideoStateItem> RealVideoSources = new List<VideoStateItem>();
         /// <summary>
-        ///     是否显示刻度字符串
+        /// 历史视频来源列表
         /// </summary>
-        public static readonly DependencyProperty ShowSpeStrProperty = DependencyProperty.Register(
+        public ObservableCollection<VideoStateItem> HisVideoSources
+        {
+            get { return (ObservableCollection<VideoStateItem>)GetValue(HistoryVideoSourceProperty); }
+            set { SetValue(HistoryVideoSourceProperty, value); }
+        }
+
+        public static readonly DependencyProperty HistoryVideoSourceProperty = DependencyProperty.Register(
+            "HisVideoSources",
+            typeof(ObservableCollection<VideoStateItem>),
+            typeof(TimeBar),
+            new PropertyMetadata(new ObservableCollection<VideoStateItem>(), OnHistoryVideoSourcesChanged));
+
+        private static void OnHistoryVideoSourcesChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+
+            }
+
+            /// <summary>
+            ///     是否显示刻度字符串
+            /// </summary>
+            public static readonly DependencyProperty ShowSpeStrProperty = DependencyProperty.Register(
             "ShowSpeStr", typeof(bool), typeof(TimeBar), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
@@ -179,6 +229,8 @@ namespace HandyControl.Controls
             }
 
             base.OnApplyTemplate();
+
+            _videoHistoryPanel = GetTemplateChild(Parid_videoHistoryPanel) as StackPanel;
 
             _borderTop = GetTemplateChild(ElementBorderTop) as Border;
             _textBlockMove = GetTemplateChild(ElementTextBlockMove) as TextBlock;
@@ -323,6 +375,61 @@ namespace HandyControl.Controls
 
             for (var i = 0; i < _speCount; i++)
                 _speBlockList[i].Time = TimeConvert(SelectedTime).AddMilliseconds((i - sub) * _timeSpeList[_speIndex]);
+
+            AddRectangle();
+        }
+
+        public long GetTotalSecond(DateTime time)
+        {
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1)); // 当地时区
+            long timeStamp = (long)(time - startTime).TotalSeconds; // 相差秒数
+
+            return timeStamp;
+        }
+
+        private void AddRectangle()
+        {
+
+            if (_itemWidth == 0)
+                return;
+
+            double singleOffset = _totalOffsetX % _itemWidth;
+
+            double offset2second = (singleOffset + _itemWidth / 2) / _itemWidth * _timeSpeList[_speIndex];
+            DateTime start = _speBlockList[0].Time - TimeSpan.FromMilliseconds(offset2second);
+            DateTime end = _speBlockList[_speBlockList.Count - 1].Time + TimeSpan.FromMilliseconds(offset2second);
+
+            long beginsecond = GetTotalSecond(start);
+            long endsecond = GetTotalSecond(end);
+
+            double everyWidth = ActualWidth / (endsecond - beginsecond);
+
+            RealVideoSources.Clear();
+            foreach (var item in HisVideoSources)
+            {
+                if ((item.endsecond < beginsecond) || (item.beginsecond > endsecond))
+                    continue;
+
+                RealVideoSources.Add(item);
+            }
+
+            _videoHistoryPanel.Children.Clear();
+            Canvas TimeCanvas = new Canvas() { Width = ActualWidth };
+            for (int i = 0; i < RealVideoSources.Count; i++)
+            {
+                double leftOffset = (RealVideoSources[i].beginsecond - beginsecond) * everyWidth;
+
+                RealVideoSources[i].totalsecond = RealVideoSources[i].endsecond - RealVideoSources[i].beginsecond;
+                Rectangle r = new Rectangle()
+                {
+                    Width = RealVideoSources[i].totalsecond * everyWidth,
+                    Height = 30, 
+                    Margin = new Thickness(leftOffset, 0, 0, 0),
+                };
+                TimeCanvas.Children.Add(r);
+            }
+            _videoHistoryPanel.Children.Add(TimeCanvas);
+
         }
 
         /// <summary>
@@ -403,7 +510,23 @@ namespace HandyControl.Controls
         private void Update()
         {
             if (_canvasSpe == null) return;
-            
+
+            #region 热区例子
+            DateTime tempTime = DateTime.Now.AddMinutes(-365);
+            DateTime nexttempTime = DateTime.Now.AddMinutes(-360);
+            for (int i = 1; i < 288; i++)
+            {
+                HisVideoSources.Add(new VideoStateItem()
+                {
+                    beginsecond = GetTotalSecond(tempTime),
+                    endsecond = GetTotalSecond(nexttempTime),
+                });
+
+                tempTime = tempTime.AddMinutes(i * 5);
+                nexttempTime = nexttempTime.AddMinutes(i * 5);
+            }
+            #endregion
+
             _speBlockList.Clear();
             _canvasSpe.Children.Clear();
             _speCount = (int)(ActualWidth / 800 * 9) | 1;

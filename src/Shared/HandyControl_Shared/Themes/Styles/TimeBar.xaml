@@ -49,6 +49,22 @@
                             <Border Width="1" Background="{DynamicResource DangerBrush}"/>
                             <Canvas Name="PART_CanvasSpe" VerticalAlignment="Bottom" Height="28"/>
                             <Border Name="PART_BorderTop" Background="Transparent" Cursor="Hand"/>
+                            <StackPanel   Margin="0 50 0 0"
+                                                x:Name="Z_videoHistoryPanel"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Bottom"
+                                                Orientation="Horizontal">
+                                <StackPanel.Resources>
+                                    <Style TargetType="{x:Type Rectangle}">
+                                        <Setter Property="Fill" Value="#569BFF" />
+                                    </Style>
+                                    <Style TargetType="{x:Type Canvas}">
+                                        <Setter Property="Background" Value="White" />
+                                        <Setter Property="Height" Value="32" />
+                                        <Setter Property="Margin" Value="0,4,0,4" />
+                                    </Style>
+                                </StackPanel.Resources>
+                            </StackPanel>
                         </hc:SimplePanel>
                     </Border>
                 </ControlTemplate>
