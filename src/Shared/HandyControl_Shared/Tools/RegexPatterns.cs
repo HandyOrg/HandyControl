@@ -3,7 +3,7 @@
     /// <summary>
     ///     包含一些正则验证所需要的字符串
     /// </summary>
-    public sealed class RegularPatterns
+    public sealed class RegexPatterns
     {
         /// <summary>
         ///     邮件正则匹配表达式

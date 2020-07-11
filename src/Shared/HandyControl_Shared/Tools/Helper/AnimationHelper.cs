@@ -43,7 +43,7 @@ namespace HandyControl.Tools
 
         internal static void DecomposeGeometryStr(string geometryStr, out double[] arr)
         {
-            var collection = Regex.Matches(geometryStr, RegularPatterns.DigitsPattern);
+            var collection = Regex.Matches(geometryStr, RegexPatterns.DigitsPattern);
             arr = new double[collection.Count];
             for (var i = 0; i < collection.Count; i++)
             {
