@@ -238,11 +238,11 @@ namespace HandyControl.Controls
 
             public UIElement Element { get; }
 
-            public bool HorizontalOffsetFlag { get; set; }
+            private bool HorizontalOffsetFlag { get; set; }
 
-            public bool VerticalOffsetFlag { get; set; }
+            private bool VerticalOffsetFlag { get; set; }
 
-            public Size BoundingSize { get; set; }
+            private Size BoundingSize { get; set; }
 
             public Size OriginDesiredSize { get; set; }
 
@@ -436,9 +436,7 @@ namespace HandyControl.Controls
                     }
 
                     //  判断是否有循环
-                    if (!set.Add(node.Element))
-                        throw new Exception(
-                            "RelativePanel error: Circular dependency detected. Layout could not complete.");
+                    if (!set.Add(node.Element)) throw new Exception("RelativePanel error: Circular dependency detected. Layout could not complete.");
 
                     //  没有循环，且有依赖，则继续往下
                     Measure(node.OutgoingNodes, set);
