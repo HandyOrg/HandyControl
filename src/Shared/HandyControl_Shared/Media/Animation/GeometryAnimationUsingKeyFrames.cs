@@ -27,7 +27,7 @@ namespace HandyControl.Media.Animation
                     return null;
                 }
 
-                return _strings ??= Regex.Split(_keyFrames[0].Value.ToString(CultureInfo.InvariantCulture), RegularPatterns.DigitsPattern);
+                return _strings ??= Regex.Split(_keyFrames[0].Value.ToString(CultureInfo.InvariantCulture), RegexPatterns.DigitsPattern);
             }
         }
 

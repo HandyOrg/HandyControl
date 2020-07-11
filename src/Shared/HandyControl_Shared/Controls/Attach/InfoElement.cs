@@ -68,5 +68,17 @@ namespace HandyControl.Controls
 
         public static double GetMaxContentHeight(DependencyObject element)
             => (double) element.GetValue(MaxContentHeightProperty);
+
+        /// <summary>
+        ///     正则表达式
+        /// </summary>
+        public static readonly DependencyProperty RegexPatternProperty = DependencyProperty.RegisterAttached(
+            "RegexPattern", typeof(string), typeof(InfoElement), new PropertyMetadata(default(string)));
+
+        public static void SetRegexPattern(DependencyObject element, string value)
+            => element.SetValue(RegexPatternProperty, value);
+
+        public static string GetRegexPattern(DependencyObject element)
+            => (string) element.GetValue(RegexPatternProperty);
     }
 }

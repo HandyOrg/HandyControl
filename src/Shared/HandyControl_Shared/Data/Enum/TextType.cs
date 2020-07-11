@@ -22,7 +22,6 @@ namespace HandyControl.Data
         NDouble,
         Double,
         NnDouble,
-        NpDouble,
-        Custom
+        NpDouble
     }
 }

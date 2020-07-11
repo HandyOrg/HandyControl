@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -36,7 +35,7 @@ namespace HandyControl.Controls
 
         public bool IsError
         {
-            get => (bool) GetValue(IsErrorProperty);
+            get => (bool)GetValue(IsErrorProperty);
             set => SetValue(IsErrorProperty, value);
         }
 
@@ -48,7 +47,7 @@ namespace HandyControl.Controls
 
         public string ErrorStr
         {
-            get => (string) GetValue(ErrorStrProperty);
+            get => (string)GetValue(ErrorStrProperty);
             set => SetValue(ErrorStrProperty, value);
         }
 
@@ -60,7 +59,7 @@ namespace HandyControl.Controls
 
         public TextType TextType
         {
-            get => (TextType) GetValue(TextTypeProperty);
+            get => (TextType)GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 
@@ -72,19 +71,9 @@ namespace HandyControl.Controls
 
         public bool ShowClearButton
         {
-            get => (bool) GetValue(ShowClearButtonProperty);
+            get => (bool)GetValue(ShowClearButtonProperty);
             set => SetValue(ShowClearButtonProperty, value);
         }
-
-        public static readonly DependencyProperty TextTypeCustomRegexPatternProperty = DependencyProperty.Register(
-            "TextTypeCustomRegexPattern", typeof(string), typeof(TextBox), new PropertyMetadata(null));
-
-        public string TextTypeCustomRegexPattern
-        {
-            get => (string)GetValue(TextTypeCustomRegexPatternProperty);
-            set => SetValue(TextTypeCustomRegexPatternProperty, value);
-        }
-
 
         public virtual bool VerifyData()
         {
@@ -100,10 +89,14 @@ namespace HandyControl.Controls
                 {
                     if (TextType != TextType.Common)
                     {
-                        if (TextType == TextType.Custom && !string.IsNullOrEmpty(TextTypeCustomRegexPattern))
-                            result = Regex.IsMatch(Text, TextTypeCustomRegexPattern) ? OperationResult.Success() : OperationResult.Failed(Properties.Langs.Lang.FormatError);
-                        else
-                            result = Text.IsKindOf(TextType) ? OperationResult.Success() : OperationResult.Failed(Properties.Langs.Lang.FormatError);
+                        var regexPattern = InfoElement.GetRegexPattern(this);
+                        result = string.IsNullOrEmpty(regexPattern)
+                            ? Text.IsKindOf(TextType)
+                                ? OperationResult.Success()
+                                : OperationResult.Failed(Properties.Langs.Lang.FormatError)
+                            : Text.IsKindOf(regexPattern)
+                                ? OperationResult.Success()
+                                : OperationResult.Failed(Properties.Langs.Lang.FormatError);
                     }
                     else
                     {
