@@ -75,19 +75,6 @@
         <Setter Property="hc:IconElement.Geometry" Value="{StaticResource AddGeometry}"/>
         <Setter Property="Padding" Value="10"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
-        <Setter Property="FocusVisualStyle">
-            <Setter.Value>
-                <Style>
-                    <Setter Property="Control.Template">
-                        <Setter.Value>
-                            <ControlTemplate>
-                                <Rectangle Style="{StaticResource RectangleFocusVisualCircular}"/>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Setter.Value>
-        </Setter>
     </Style>
 
 </ResourceDictionary>

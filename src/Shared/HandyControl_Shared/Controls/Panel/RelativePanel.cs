@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
 using HandyControl.Data;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -17,7 +18,7 @@ namespace HandyControl.Controls
 
         public RelativePanel() => _childGraph = new Graph();
 
-        #region 容器对齐方式
+        #region Panel alignment
 
         public static readonly DependencyProperty AlignLeftWithPanelProperty = DependencyProperty.RegisterAttached(
             "AlignLeftWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
@@ -57,7 +58,7 @@ namespace HandyControl.Controls
 
         #endregion
 
-        #region 元素间对齐方式
+        #region Sibling alignment
 
         public static readonly DependencyProperty AlignLeftWithProperty = DependencyProperty.RegisterAttached(
             "AlignLeftWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -101,7 +102,7 @@ namespace HandyControl.Controls
 
         #endregion
 
-        #region 元素间位置关系
+        #region Sibling positional
 
         public static readonly DependencyProperty LeftOfProperty = DependencyProperty.RegisterAttached(
             "LeftOf", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -145,7 +146,7 @@ namespace HandyControl.Controls
 
         #endregion
 
-        #region 居中对齐方式
+        #region Center alignment
 
         public static readonly DependencyProperty AlignHorizontalCenterWithPanelProperty = DependencyProperty.RegisterAttached(
             "AlignHorizontalCenterWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
@@ -189,22 +190,12 @@ namespace HandyControl.Controls
 
         protected override Size MeasureOverride(Size availableSize)
         {
-            foreach (UIElement child in InternalChildren)
-            {
-                child?.Measure(availableSize);
-            }
+            #region Calc DesiredSize
 
-            return base.MeasureOverride(availableSize);
-        }
-
-        protected override Size ArrangeOverride(Size arrangeSize)
-        {
-            _childGraph.Reset(arrangeSize);
-
+            _childGraph.Clear();
             foreach (UIElement child in InternalChildren)
             {
                 if (child == null) continue;
-
                 var node = _childGraph.AddNode(child);
 
                 node.AlignLeftWithNode = _childGraph.AddLink(node, GetAlignLeftWith(child));
@@ -220,22 +211,48 @@ namespace HandyControl.Controls
                 node.AlignHorizontalCenterWith = _childGraph.AddLink(node, GetAlignHorizontalCenterWith(child));
                 node.AlignVerticalCenterWith = _childGraph.AddLink(node, GetAlignVerticalCenterWith(child));
             }
+            _childGraph.Measure(availableSize);
 
-            if (_childGraph.CheckCyclic())
-            {
-                throw new Exception("RelativePanel error: Circular dependency detected. Layout could not complete.");
-            }
+            #endregion
 
+            #region Calc AvailableSize
+
+            _childGraph.Reset();
+            var boundingSize = _childGraph.GetBoundingSize(Width.IsNaN(), Height.IsNaN());
+            _childGraph.Reset();
+            _childGraph.Measure(boundingSize);
+            return boundingSize;
+
+            #endregion
+        }
+
+        protected override Size ArrangeOverride(Size arrangeSize)
+        {
+            _childGraph.GetNodes().Do(node => node.Arrange(arrangeSize));
             return arrangeSize;
         }
 
         private class GraphNode
         {
-            public Point Position { get; set; }
-
-            public bool Arranged { get; set; }
+            public bool Measured { get; set; }
 
             public UIElement Element { get; }
+
+            private bool HorizontalOffsetFlag { get; set; }
+
+            private bool VerticalOffsetFlag { get; set; }
+
+            private Size BoundingSize { get; set; }
+
+            public Size OriginDesiredSize { get; set; }
+
+            public double Left { get; set; } = double.NaN;
+
+            public double Top { get; set; } = double.NaN;
+
+            public double Right { get; set; } = double.NaN;
+
+            public double Bottom { get; set; } = double.NaN;
 
             public HashSet<GraphNode> OutgoingNodes { get; }
 
@@ -264,18 +281,99 @@ namespace HandyControl.Controls
                 OutgoingNodes = new HashSet<GraphNode>();
                 Element = element;
             }
+
+            public void Arrange(Size arrangeSize) => Element.Arrange(new Rect(Left, Top, Math.Max(arrangeSize.Width - Left - Right, 0), Math.Max(arrangeSize.Height - Top - Bottom, 0)));
+
+            public void Reset()
+            {
+                Left = double.NaN;
+                Top = double.NaN;
+                Right = double.NaN;
+                Bottom = double.NaN;
+                Measured = false;
+            }
+
+            public Size GetBoundingSize()
+            {
+                if (Measured) return BoundingSize;
+
+                if (!OutgoingNodes.Any())
+                {
+                    BoundingSize = Element.DesiredSize;
+                    Measured = true;
+                }
+                else
+                {
+                    BoundingSize = GetBoundingSize(this, Element.DesiredSize, OutgoingNodes);
+                    Measured = true;
+                }
+
+                return BoundingSize;
+            }
+
+            private static Size GetBoundingSize(GraphNode prevNode, Size prevSize, IEnumerable<GraphNode> nodes)
+            {
+                foreach (var node in nodes)
+                {
+                    if (node.Measured || !node.OutgoingNodes.Any())
+                    {
+                        if (prevNode.LeftOfNode != null && prevNode.LeftOfNode == node || 
+                            prevNode.RightOfNode != null && prevNode.RightOfNode == node)
+                        {
+                            prevSize.Width += node.BoundingSize.Width;
+                            if (GetAlignHorizontalCenterWithPanel(node.Element) || node.HorizontalOffsetFlag)
+                            {
+                                prevSize.Width += prevNode.OriginDesiredSize.Width;
+                                prevNode.HorizontalOffsetFlag = true;
+                            }
+                            if (node.VerticalOffsetFlag)
+                            {
+                                prevNode.VerticalOffsetFlag = true;
+                            }
+                        }
+
+                        if (prevNode.AboveNode != null && prevNode.AboveNode == node ||
+                            prevNode.BelowNode != null && prevNode.BelowNode == node)
+                        {
+                            prevSize.Height += node.BoundingSize.Height;
+                            if (GetAlignVerticalCenterWithPanel(node.Element) || node.VerticalOffsetFlag)
+                            {
+                                prevSize.Height += prevNode.OriginDesiredSize.Height;
+                                prevNode.VerticalOffsetFlag = true;
+                            }
+                            if (node.HorizontalOffsetFlag)
+                            {
+                                prevNode.HorizontalOffsetFlag = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return GetBoundingSize(node, prevSize, node.OutgoingNodes);
+                    }
+                }
+
+                return prevSize;
+            }
         }
 
         private class Graph
         {
             private readonly Dictionary<DependencyObject, GraphNode> _nodeDic;
 
-            private Size _arrangeSize;
+            private Size AvailableSize { get; set; }
 
-            public Graph()
+            public Graph() => _nodeDic = new Dictionary<DependencyObject, GraphNode>();
+
+            public IEnumerable<GraphNode> GetNodes() => _nodeDic.Values;
+
+            public void Clear()
             {
-                _nodeDic = new Dictionary<DependencyObject, GraphNode>();
+                AvailableSize = new Size();
+                _nodeDic.Clear();
             }
+
+            public void Reset() => _nodeDic.Values.Do(node => node.Reset());
 
             public GraphNode AddLink(GraphNode from, UIElement to)
             {
@@ -308,20 +406,15 @@ namespace HandyControl.Controls
                 return _nodeDic[value];
             }
 
-            public void Reset(Size arrangeSize)
+            public void Measure(Size availableSize)
             {
-                _arrangeSize = arrangeSize;
-                _nodeDic.Clear();
+                AvailableSize = availableSize;
+                Measure(_nodeDic.Values, null);
             }
 
-            public bool CheckCyclic() => CheckCyclic(_nodeDic.Values, null);
-
-            private bool CheckCyclic(IEnumerable<GraphNode> nodes, HashSet<DependencyObject> set)
+            private void Measure(IEnumerable<GraphNode> nodes, HashSet<DependencyObject> set)
             {
-                if (set == null)
-                {
-                    set = new HashSet<DependencyObject>();
-                }
+                set ??= new HashSet<DependencyObject>();
 
                 foreach (var node in nodes)
                 {
@@ -329,184 +422,258 @@ namespace HandyControl.Controls
                      * 该节点无任何依赖，所以从这里开始计算元素位置。
                      * 因为无任何依赖，所以忽略同级元素
                      */
-                    if (!node.Arranged && node.OutgoingNodes.Count == 0)
+                    if (!node.Measured && !node.OutgoingNodes.Any())
                     {
-                        ArrangeChild(node, true);
+                        MeasureChild(node);
                         continue;
                     }
 
                     //  判断依赖元素是否全部排列完毕
-                    if (node.OutgoingNodes.All(item => item.Arranged))
+                    if (node.OutgoingNodes.All(item => item.Measured))
                     {
-                        ArrangeChild(node);
+                        MeasureChild(node);
                         continue;
                     }
 
                     //  判断是否有循环
-                    if (!set.Add(node.Element)) return true;
+                    if (!set.Add(node.Element)) throw new Exception("RelativePanel error: Circular dependency detected. Layout could not complete.");
 
                     //  没有循环，且有依赖，则继续往下
-                    return CheckCyclic(node.OutgoingNodes, set);
-                }
+                    Measure(node.OutgoingNodes, set);
 
-                return false;
+                    if (!node.Measured)
+                    {
+                        MeasureChild(node);
+                    }
+                }
             }
 
-            private void ArrangeChild(GraphNode node, bool ignoneSibling = false)
+            private void MeasureChild(GraphNode node)
             {
                 var child = node.Element;
-                var childSize = child.DesiredSize;
-                var childPos = new Point();
-
-                #region 容器居中对齐
-
-                if (GetAlignHorizontalCenterWithPanel(child))
-                {
-                    childPos.X = (_arrangeSize.Width - childSize.Width) / 2;
-                }
-
-                if (GetAlignVerticalCenterWithPanel(child))
-                {
-                    childPos.Y = (_arrangeSize.Height - childSize.Height) / 2;
-                }
-
-                #endregion
+                child.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                node.OriginDesiredSize = child.DesiredSize;
 
                 var alignLeftWithPanel = GetAlignLeftWithPanel(child);
                 var alignTopWithPanel = GetAlignTopWithPanel(child);
                 var alignRightWithPanel = GetAlignRightWithPanel(child);
                 var alignBottomWithPanel = GetAlignBottomWithPanel(child);
 
-                if (!ignoneSibling)
+                #region Panel alignment
+
+                if (alignLeftWithPanel) node.Left = 0;
+                if (alignTopWithPanel) node.Top = 0;
+                if (alignRightWithPanel) node.Right = 0;
+                if (alignBottomWithPanel) node.Bottom = 0;
+
+                #endregion
+
+                #region Sibling alignment
+
+                if (node.AlignLeftWithNode != null)
                 {
-                    #region 元素间位置
-
-                    if (node.LeftOfNode != null)
-                    {
-                        childPos.X = node.LeftOfNode.Position.X - childSize.Width;
-                    }
-
-                    if (node.AboveNode != null)
-                    {
-                        childPos.Y = node.AboveNode.Position.Y - childSize.Height;
-                    }
-
-                    if (node.RightOfNode != null)
-                    {
-                        childPos.X = node.RightOfNode.Position.X + node.RightOfNode.Element.DesiredSize.Width;
-                    }
-
-                    if (node.BelowNode != null)
-                    {
-                        childPos.Y = node.BelowNode.Position.Y + node.BelowNode.Element.DesiredSize.Height;
-                    }
-
-                    #endregion
-
-                    #region 元素居中对齐
-
-                    if (node.AlignHorizontalCenterWith != null)
-                    {
-                        childPos.X = node.AlignHorizontalCenterWith.Position.X +
-                                     (node.AlignHorizontalCenterWith.Element.DesiredSize.Width - childSize.Width) / 2;
-                    }
-
-                    if (node.AlignVerticalCenterWith != null)
-                    {
-                        childPos.Y = node.AlignVerticalCenterWith.Position.Y +
-                                     (node.AlignVerticalCenterWith.Element.DesiredSize.Height - childSize.Height) / 2;
-                    }
-
-                    #endregion
-
-                    #region 元素间对齐
-
-                    if (node.AlignLeftWithNode != null)
-                    {
-                        childPos.X = node.AlignLeftWithNode.Position.X;
-                    }
-
-                    if (node.AlignTopWithNode != null)
-                    {
-                        childPos.Y = node.AlignTopWithNode.Position.Y;
-                    }
-
-                    if (node.AlignRightWithNode != null)
-                    {
-                        childPos.X = node.AlignRightWithNode.Element.DesiredSize.Width + node.AlignRightWithNode.Position.X - childSize.Width;
-                    }
-
-                    if (node.AlignBottomWithNode != null)
-                    {
-                        childPos.Y = node.AlignBottomWithNode.Element.DesiredSize.Height + node.AlignBottomWithNode.Position.Y - childSize.Height;
-                    }
-
-                    #endregion
+                    node.Left = node.Left.IsNaN() ? node.AlignLeftWithNode.Left : node.AlignLeftWithNode.Left * 0.5;
                 }
-                
-                #region 容器对齐
 
-                if (alignLeftWithPanel)
+                if (node.AlignTopWithNode != null)
                 {
-                    if (node.AlignRightWithNode != null)
+                    node.Top = node.Top.IsNaN() ? node.AlignTopWithNode.Top : node.AlignTopWithNode.Top * 0.5;
+                }
+
+                if (node.AlignRightWithNode != null)
+                {
+                    node.Right = node.Right.IsNaN()
+                        ? node.AlignRightWithNode.Right
+                        : node.AlignRightWithNode.Right * 0.5;
+                }
+
+                if (node.AlignBottomWithNode != null)
+                {
+                    node.Bottom = node.Bottom.IsNaN()
+                        ? node.AlignBottomWithNode.Bottom
+                        : node.AlignBottomWithNode.Bottom * 0.5;
+                }
+
+                #endregion
+
+                #region Measure
+
+                var availableHeight = AvailableSize.Height - node.Top - node.Bottom;
+                if (availableHeight.IsNaN())
+                {
+                    availableHeight = AvailableSize.Height;
+
+                    if (!node.Top.IsNaN() && node.Bottom.IsNaN())
                     {
-                        childPos.X = (node.AlignRightWithNode.Element.DesiredSize.Width + node.AlignRightWithNode.Position.X - childSize.Width) / 2;
+                        availableHeight -= node.Top;
                     }
-                    else
+                    else if (node.Top.IsNaN() && !node.Bottom.IsNaN())
                     {
-                        childPos.X = 0;
+                        availableHeight -= node.Bottom;
                     }
                 }
 
-                if (alignTopWithPanel)
+                var availableWidth = AvailableSize.Width - node.Left - node.Right;
+                if (availableWidth.IsNaN())
                 {
-                    if (node.AlignBottomWithNode != null)
+                    availableWidth = AvailableSize.Width;
+
+                    if (!node.Left.IsNaN() && node.Right.IsNaN())
                     {
-                        childPos.Y = (node.AlignBottomWithNode.Element.DesiredSize.Height + node.AlignBottomWithNode.Position.Y - childSize.Height) / 2;
+                        availableWidth -= node.Left;
                     }
-                    else
+                    else if (node.Left.IsNaN() && !node.Right.IsNaN())
                     {
-                        childPos.Y = 0;
+                        availableWidth -= node.Right;
                     }
                 }
 
-                if (alignRightWithPanel)
+                child.Measure(new Size(Math.Max(availableWidth, 0), Math.Max(availableHeight, 0)));
+                var childSize = child.DesiredSize;
+
+                #endregion
+
+                #region Sibling positional
+
+                if (node.LeftOfNode != null && node.Left.IsNaN())
                 {
-                    if (alignLeftWithPanel)
+                    node.Left = node.LeftOfNode.Left - childSize.Width;
+                }
+
+                if (node.AboveNode != null && node.Top.IsNaN())
+                {
+                    node.Top = node.AboveNode.Top - childSize.Height;
+                }
+
+                if (node.RightOfNode != null)
+                {
+                    if (node.Right.IsNaN())
                     {
-                        childPos.X = (_arrangeSize.Width - childSize.Width) / 2;
+                        node.Right = node.RightOfNode.Right - childSize.Width;
                     }
-                    else if(node.AlignLeftWithNode == null)
+
+                    if (node.Left.IsNaN())
                     {
-                        childPos.X = _arrangeSize.Width - childSize.Width;
-                    }
-                    else
-                    {
-                        childPos.X = (_arrangeSize.Width + node.AlignLeftWithNode.Position.X - childSize.Width) / 2;
+                        node.Left = AvailableSize.Width - node.RightOfNode.Right;
                     }
                 }
 
-                if (alignBottomWithPanel)
+                if (node.BelowNode != null)
                 {
-                    if (alignTopWithPanel)
+                    if (node.Bottom.IsNaN())
                     {
-                        childPos.Y = (_arrangeSize.Height - childSize.Height) / 2;
+                        node.Bottom = node.BelowNode.Bottom - childSize.Height;
                     }
-                    else if (node.AlignTopWithNode == null)
+
+                    if (node.Top.IsNaN())
                     {
-                        childPos.Y = _arrangeSize.Height - childSize.Height;
-                    }
-                    else
-                    {
-                        childPos.Y = (_arrangeSize.Height + node.AlignLeftWithNode.Position.Y - childSize.Height) / 2;
+                        node.Top = AvailableSize.Height - node.BelowNode.Bottom;
                     }
                 }
 
                 #endregion
 
-                child.Arrange(new Rect(childPos.X, childPos.Y, childSize.Width, childSize.Height));
-                node.Position = childPos;
-                node.Arranged = true;
+                #region Sibling-center alignment
+
+                if (node.AlignHorizontalCenterWith != null)
+                {
+                    var halfWidthLeft = (AvailableSize.Width + node.AlignHorizontalCenterWith.Left - node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
+                    var halfWidthRight = (AvailableSize.Width - node.AlignHorizontalCenterWith.Left + node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
+
+                    if (node.Left.IsNaN()) node.Left = halfWidthLeft;
+                    else node.Left = (node.Left + halfWidthLeft) * 0.5;
+
+                    if (node.Right.IsNaN()) node.Right = halfWidthRight;
+                    else node.Right = (node.Right + halfWidthRight) * 0.5;
+                }
+
+                if (node.AlignVerticalCenterWith != null)
+                {
+                    var halfHeightTop = (AvailableSize.Height + node.AlignVerticalCenterWith.Top - node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
+                    var halfHeightBottom = (AvailableSize.Height - node.AlignVerticalCenterWith.Top + node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
+
+                    if (node.Top.IsNaN()) node.Top = halfHeightTop;
+                    else node.Top = (node.Top + halfHeightTop) * 0.5;
+
+                    if (node.Bottom.IsNaN()) node.Bottom = halfHeightBottom;
+                    else node.Bottom = (node.Bottom + halfHeightBottom) * 0.5;
+                }
+
+                #endregion
+
+                #region Panel-center alignment
+
+                if (GetAlignHorizontalCenterWithPanel(child))
+                {
+                    var halfSubWidth = (AvailableSize.Width - childSize.Width) * 0.5;
+
+                    if (node.Left.IsNaN()) node.Left = halfSubWidth;
+                    else node.Left = (node.Left + halfSubWidth) * 0.5;
+
+                    if (node.Right.IsNaN()) node.Right = halfSubWidth;
+                    else node.Right = (node.Right + halfSubWidth) * 0.5;
+                }
+
+                if (GetAlignVerticalCenterWithPanel(child))
+                {
+                    var halfSubHeight = (AvailableSize.Height - childSize.Height) * 0.5;
+
+                    if (node.Top.IsNaN()) node.Top = halfSubHeight;
+                    else node.Top = (node.Top + halfSubHeight) * 0.5;
+
+                    if (node.Bottom.IsNaN()) node.Bottom = halfSubHeight;
+                    else node.Bottom = (node.Bottom + halfSubHeight) * 0.5;
+                }
+
+                #endregion
+
+                if (node.Left.IsNaN())
+                {
+                    if (!node.Right.IsNaN())
+                        node.Left = AvailableSize.Width - node.Right - childSize.Width;
+                    else
+                    {
+                        node.Left = 0;
+                        node.Right = AvailableSize.Width - childSize.Width;
+                    }
+                }
+                else if (!node.Left.IsNaN() && node.Right.IsNaN())
+                {
+                    node.Right = AvailableSize.Width - node.Left - childSize.Width;
+                }
+
+                if (node.Top.IsNaN())
+                {
+                    if (!node.Bottom.IsNaN())
+                        node.Top = AvailableSize.Height - node.Bottom - childSize.Height;
+                    else
+                    {
+                        node.Top = 0;
+                        node.Bottom = AvailableSize.Height - childSize.Height;
+                    }
+                }
+                else if (!node.Top.IsNaN() && node.Bottom.IsNaN())
+                {
+                    node.Bottom = AvailableSize.Height - node.Top - childSize.Height;
+                }
+
+                node.Measured = true;
+            }
+
+            public Size GetBoundingSize(bool calcWidth, bool calcHeight)
+            {
+                var boundingSize = new Size();
+
+                foreach (var node in _nodeDic.Values)
+                {
+                    var size = node.GetBoundingSize();
+                    boundingSize.Width = Math.Max(boundingSize.Width, size.Width);
+                    boundingSize.Height = Math.Max(boundingSize.Height, size.Height);
+                }
+
+                boundingSize.Width = calcWidth ? boundingSize.Width : AvailableSize.Width;
+                boundingSize.Height = calcHeight ? boundingSize.Height : AvailableSize.Height;
+                return boundingSize;
             }
         }
     }

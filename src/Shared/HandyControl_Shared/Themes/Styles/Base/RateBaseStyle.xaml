@@ -71,7 +71,7 @@
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="Icon" Value="{StaticResource StarGeometry}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource BackgroundBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource RateRateItemBaseStyle}"/>
         <Setter Property="Text" Value="{Binding Value,RelativeSource={RelativeSource Self},StringFormat={}{0:0.0}}"/>
         <Setter Property="Template">

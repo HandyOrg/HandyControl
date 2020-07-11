@@ -376,8 +376,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\SimplePool!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Pool\SynchronizedPool!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Queue\Deque!1.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularJudgment.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\RegularPatterns.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\RegexJudgment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\RegexPatterns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ButtonGroupItemStyleSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ComboBoxItemCapsuleStyleSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\TabItemCapsuleStyleSelector.cs" />

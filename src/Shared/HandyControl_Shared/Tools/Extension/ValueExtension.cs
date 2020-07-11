@@ -17,5 +17,7 @@ namespace HandyControl.Tools.Extension
             MathHelper.AreClose(thickness.Left, thickness.Top)
             && MathHelper.AreClose(thickness.Left, thickness.Right)
             && MathHelper.AreClose(thickness.Left, thickness.Bottom);
+
+        public static bool IsNaN(this double value) => double.IsNaN(value);
     }
 }

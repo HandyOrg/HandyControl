@@ -46,7 +46,7 @@ namespace HandyControl.Controls
 
         public string ErrorStr
         {
-            get => (string) GetValue(ErrorStrProperty);
+            get => (string)GetValue(ErrorStrProperty);
             set => SetValue(ErrorStrProperty, value);
         }
 
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         public TextType TextType
         {
-            get => (TextType) GetValue(TextTypeProperty);
+            get => (TextType)GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 
@@ -88,7 +88,14 @@ namespace HandyControl.Controls
                 {
                     if (TextType != TextType.Common)
                     {
-                        result = Text.IsKindOf(TextType) ? OperationResult.Success() : OperationResult.Failed(Properties.Langs.Lang.FormatError);
+                        var regexPattern = InfoElement.GetRegexPattern(this);
+                        result = string.IsNullOrEmpty(regexPattern)
+                            ? Text.IsKindOf(TextType)
+                                ? OperationResult.Success()
+                                : OperationResult.Failed(Properties.Langs.Lang.FormatError)
+                            : Text.IsKindOf(regexPattern)
+                                ? OperationResult.Success()
+                                : OperationResult.Failed(Properties.Langs.Lang.FormatError);
                     }
                     else
                     {

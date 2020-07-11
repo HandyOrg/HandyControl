@@ -95,7 +95,6 @@ namespace HandyControl.Controls
                     if (DefaultValue > 0)
                     {
                         Value = DefaultValue;
-                        UpdateItems();
                     }
                 }
                 else
@@ -221,7 +220,6 @@ namespace HandyControl.Controls
         protected override void OnMouseLeave(MouseEventArgs e)
         {
             base.OnMouseLeave(e);
-
             UpdateItems();
         }
 
