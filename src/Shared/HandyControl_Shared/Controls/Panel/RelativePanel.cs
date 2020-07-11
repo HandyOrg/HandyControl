@@ -18,7 +18,7 @@ namespace HandyControl.Controls
 
         public RelativePanel() => _childGraph = new Graph();
 
-        #region 容器对齐方式
+        #region Panel alignment
 
         public static readonly DependencyProperty AlignLeftWithPanelProperty = DependencyProperty.RegisterAttached(
             "AlignLeftWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         #endregion
 
-        #region 元素间对齐方式
+        #region Sibling alignment
 
         public static readonly DependencyProperty AlignLeftWithProperty = DependencyProperty.RegisterAttached(
             "AlignLeftWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -102,7 +102,7 @@ namespace HandyControl.Controls
 
         #endregion
 
-        #region 元素间位置关系
+        #region Sibling positional
 
         public static readonly DependencyProperty LeftOfProperty = DependencyProperty.RegisterAttached(
             "LeftOf", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -146,7 +146,7 @@ namespace HandyControl.Controls
 
         #endregion
 
-        #region 居中对齐方式
+        #region Center alignment
 
         public static readonly DependencyProperty AlignHorizontalCenterWithPanelProperty = DependencyProperty.RegisterAttached(
             "AlignHorizontalCenterWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
@@ -190,8 +190,9 @@ namespace HandyControl.Controls
 
         protected override Size MeasureOverride(Size availableSize)
         {
-            _childGraph.Clear();
+            #region Calc DesiredSize
 
+            _childGraph.Clear();
             foreach (UIElement child in InternalChildren)
             {
                 if (child == null) continue;
@@ -210,9 +211,19 @@ namespace HandyControl.Controls
                 node.AlignHorizontalCenterWith = _childGraph.AddLink(node, GetAlignHorizontalCenterWith(child));
                 node.AlignVerticalCenterWith = _childGraph.AddLink(node, GetAlignVerticalCenterWith(child));
             }
-
             _childGraph.Measure(availableSize);
-            return availableSize;
+
+            #endregion
+
+            #region Calc AvailableSize
+
+            _childGraph.Reset();
+            var boundingSize = _childGraph.GetBoundingSize(Width.IsNaN(), Height.IsNaN());
+            _childGraph.Reset();
+            _childGraph.Measure(boundingSize);
+            return boundingSize;
+
+            #endregion
         }
 
         protected override Size ArrangeOverride(Size arrangeSize)
@@ -226,6 +237,14 @@ namespace HandyControl.Controls
             public bool Measured { get; set; }
 
             public UIElement Element { get; }
+
+            public bool HorizontalOffsetFlag { get; set; }
+
+            public bool VerticalOffsetFlag { get; set; }
+
+            public Size BoundingSize { get; set; }
+
+            public Size OriginDesiredSize { get; set; }
 
             public double Left { get; set; } = double.NaN;
 
@@ -264,6 +283,78 @@ namespace HandyControl.Controls
             }
 
             public void Arrange(Size arrangeSize) => Element.Arrange(new Rect(Left, Top, Math.Max(arrangeSize.Width - Left - Right, 0), Math.Max(arrangeSize.Height - Top - Bottom, 0)));
+
+            public void Reset()
+            {
+                Left = double.NaN;
+                Top = double.NaN;
+                Right = double.NaN;
+                Bottom = double.NaN;
+                Measured = false;
+            }
+
+            public Size GetBoundingSize()
+            {
+                if (Measured) return BoundingSize;
+
+                if (!OutgoingNodes.Any())
+                {
+                    BoundingSize = Element.DesiredSize;
+                    Measured = true;
+                }
+                else
+                {
+                    BoundingSize = GetBoundingSize(this, Element.DesiredSize, OutgoingNodes);
+                    Measured = true;
+                }
+
+                return BoundingSize;
+            }
+
+            private static Size GetBoundingSize(GraphNode prevNode, Size prevSize, IEnumerable<GraphNode> nodes)
+            {
+                foreach (var node in nodes)
+                {
+                    if (node.Measured || !node.OutgoingNodes.Any())
+                    {
+                        if (prevNode.LeftOfNode != null && prevNode.LeftOfNode == node || 
+                            prevNode.RightOfNode != null && prevNode.RightOfNode == node)
+                        {
+                            prevSize.Width += node.BoundingSize.Width;
+                            if (GetAlignHorizontalCenterWithPanel(node.Element) || node.HorizontalOffsetFlag)
+                            {
+                                prevSize.Width += prevNode.OriginDesiredSize.Width;
+                                prevNode.HorizontalOffsetFlag = true;
+                            }
+                            if (node.VerticalOffsetFlag)
+                            {
+                                prevNode.VerticalOffsetFlag = true;
+                            }
+                        }
+
+                        if (prevNode.AboveNode != null && prevNode.AboveNode == node ||
+                            prevNode.BelowNode != null && prevNode.BelowNode == node)
+                        {
+                            prevSize.Height += node.BoundingSize.Height;
+                            if (GetAlignVerticalCenterWithPanel(node.Element) || node.VerticalOffsetFlag)
+                            {
+                                prevSize.Height += prevNode.OriginDesiredSize.Height;
+                                prevNode.VerticalOffsetFlag = true;
+                            }
+                            if (node.HorizontalOffsetFlag)
+                            {
+                                prevNode.HorizontalOffsetFlag = true;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        return GetBoundingSize(node, prevSize, node.OutgoingNodes);
+                    }
+                }
+
+                return prevSize;
+            }
         }
 
         private class Graph
@@ -281,6 +372,8 @@ namespace HandyControl.Controls
                 AvailableSize = new Size();
                 _nodeDic.Clear();
             }
+
+            public void Reset() => _nodeDic.Values.Do(node => node.Reset());
 
             public GraphNode AddLink(GraphNode from, UIElement to)
             {
@@ -329,7 +422,7 @@ namespace HandyControl.Controls
                      * 该节点无任何依赖，所以从这里开始计算元素位置。
                      * 因为无任何依赖，所以忽略同级元素
                      */
-                    if (!node.Measured && node.OutgoingNodes.Count == 0)
+                    if (!node.Measured && !node.OutgoingNodes.Any())
                     {
                         MeasureChild(node);
                         continue;
@@ -360,6 +453,8 @@ namespace HandyControl.Controls
             private void MeasureChild(GraphNode node)
             {
                 var child = node.Element;
+                child.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
+                node.OriginDesiredSize = child.DesiredSize;
 
                 var alignLeftWithPanel = GetAlignLeftWithPanel(child);
                 var alignTopWithPanel = GetAlignTopWithPanel(child);
@@ -435,8 +530,8 @@ namespace HandyControl.Controls
                     }
                 }
 
-                node.Element.Measure(new Size(Math.Max(availableWidth, 0), Math.Max(availableHeight, 0)));
-                var childSize = node.Element.DesiredSize;
+                child.Measure(new Size(Math.Max(availableWidth, 0), Math.Max(availableHeight, 0)));
+                var childSize = child.DesiredSize;
 
                 #endregion
 
@@ -565,6 +660,22 @@ namespace HandyControl.Controls
                 }
 
                 node.Measured = true;
+            }
+
+            public Size GetBoundingSize(bool calcWidth, bool calcHeight)
+            {
+                var boundingSize = new Size();
+
+                foreach (var node in _nodeDic.Values)
+                {
+                    var size = node.GetBoundingSize();
+                    boundingSize.Width = Math.Max(boundingSize.Width, size.Width);
+                    boundingSize.Height = Math.Max(boundingSize.Height, size.Height);
+                }
+
+                boundingSize.Width = calcWidth ? boundingSize.Width : AvailableSize.Width;
+                boundingSize.Height = calcHeight ? boundingSize.Height : AvailableSize.Height;
+                return boundingSize;
             }
         }
     }
