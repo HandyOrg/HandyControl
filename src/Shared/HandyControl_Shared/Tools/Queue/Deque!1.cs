@@ -65,8 +65,7 @@ namespace HandyControl.Tools
 
         public Deque(IEnumerable<T> backCollection, IEnumerable<T> frontCollection)
         {
-            if (backCollection == null && frontCollection == null)
-                throw new ArgumentException("Collections cannot both be null");
+            if (backCollection == null && frontCollection == null) throw new ArgumentException("Collections cannot both be null");
 
             _front = frontCollection != null ? new List<T>(frontCollection) : new List<T>();
             _back = backCollection != null ? new List<T>(backCollection) : new List<T>();
