@@ -28,6 +28,7 @@ namespace HandyControl.Controls
 
             _elementContent = GetTemplateChild(ElementContent) as FrameworkElement;
             _elementPanel = GetTemplateChild(ElementPanel) as Panel;
+            UpdateContent();
         }
 
         public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
