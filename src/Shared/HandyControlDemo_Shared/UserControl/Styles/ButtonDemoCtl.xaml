@@ -41,6 +41,38 @@
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource ButtonDashed}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource ButtonDashed}"/>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonDashed"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ButtonDashedPrimary}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ButtonDashedPrimary}"/>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedPrimary"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ButtonDashedSuccess}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ButtonDashedSuccess}"/>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedSuccess"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ButtonDashedInfo}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ButtonDashedInfo}"/>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedInfo"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ButtonDashedWarning}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ButtonDashedWarning}"/>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedWarning"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ButtonDashedDanger}"/>
+                        <Button IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ButtonDashedDanger}"/>
+                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedDanger"/>
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel ItemWidth="160" ItemHeight="130">
+                    <StackPanel>
                         <Button Width="50" Padding="16,8" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
                         <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="Default（DeleteGeometry）"/>
@@ -73,14 +105,51 @@
                 </WrapPanel>
                 <WrapPanel ItemWidth="160" ItemHeight="130">
                     <StackPanel>
+                        <Button Width="50" Padding="16,8" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonDashed}"/>
+                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonDashed}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="DashedDefault（DeleteGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" Margin="5" Style="{StaticResource ButtonDashedPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" IsEnabled="False" Margin="5" Style="{StaticResource ButtonDashedPrimary}" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedPrimary（ClockGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" Margin="5" Style="{StaticResource ButtonDashedSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" IsEnabled="False" Margin="5" Style="{StaticResource ButtonDashedSuccess}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedSuccess（CalendarGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Width="50" Padding="15,7" Margin="5" Style="{StaticResource ButtonDashedInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                        <Button Width="50" Padding="15,7" IsEnabled="False" Margin="5" Style="{StaticResource ButtonDashedInfo}" hc:IconElement.Geometry="{StaticResource DownGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedInfo（DownGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Width="50" Margin="5" Style="{StaticResource ButtonDashedWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        <Button Width="50" IsEnabled="False" Margin="5" Style="{StaticResource ButtonDashedWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedWarning（LeftGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Width="50" Padding="16,8" Margin="5" Style="{StaticResource ButtonDashedDanger}" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource ButtonDashedDanger}" hc:IconElement.Geometry="{StaticResource DeleteGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonDashedDanger（DeleteGeometry）"/>
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel ItemWidth="160" ItemHeight="130">
+                    <StackPanel>
                         <Button Margin="5" Height="28" Padding="10,0" Background="#24292e" Foreground="White" Content="{ex:Lang Key={x:Static langs:LangKeys.ButtonCustom}}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
                         <Button Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{ex:Lang Key={x:Static langs:LangKeys.ButtonCustom}}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
                         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonCustom"/>
                     </StackPanel>
                     <StackPanel>
                         <Button Width="50" Padding="16,8" Margin="5" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
-                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}"  hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIcon（UpDownGeometry）"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Padding="7" Margin="5" Style="{StaticResource ButtonIconCircular}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <Button Padding="7" IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconCircular}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconCircular（UpDownGeometry）"/>
                     </StackPanel>
                 </WrapPanel>
             </StackPanel>

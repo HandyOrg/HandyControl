@@ -146,7 +146,7 @@ namespace HandyControl.Controls
         public bool IsDirectionReversed
         {
             get => (bool)GetValue(IsDirectionReversedProperty);
-            set => SetValue(IsDirectionReversedProperty, value);
+            set => SetValue(IsDirectionReversedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty DelayProperty = RepeatButton.DelayProperty.AddOwner(typeof(RangeSlider), new FrameworkPropertyMetadata(GetKeyboardDelay()));
@@ -206,7 +206,7 @@ namespace HandyControl.Controls
         public bool IsSnapToTickEnabled
         {
             get => (bool)GetValue(IsSnapToTickEnabledProperty);
-            set => SetValue(IsSnapToTickEnabledProperty, value);
+            set => SetValue(IsSnapToTickEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty TickPlacementProperty = DependencyProperty.Register(
@@ -243,7 +243,7 @@ namespace HandyControl.Controls
         public bool IsMoveToPointEnabled
         {
             get => (bool)GetValue(IsMoveToPointEnabledProperty);
-            set => SetValue(IsMoveToPointEnabledProperty, value);
+            set => SetValue(IsMoveToPointEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)

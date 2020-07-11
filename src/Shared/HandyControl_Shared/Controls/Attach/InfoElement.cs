@@ -21,7 +21,7 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty NecessaryProperty = DependencyProperty.RegisterAttached(
             "Necessary", typeof(bool), typeof(InfoElement), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
-        public static void SetNecessary(DependencyObject element, bool value) => element.SetValue(NecessaryProperty, value);
+        public static void SetNecessary(DependencyObject element, bool value) => element.SetValue(NecessaryProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetNecessary(DependencyObject element) => (bool)element.GetValue(NecessaryProperty);
 

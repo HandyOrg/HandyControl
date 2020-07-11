@@ -231,4 +231,13 @@
   <data name="LangComment" xml:space="preserve">
     <value>查找类似 {0} 的本地化字符串。</value>
   </data>
+  <data name="Jump" xml:space="preserve">
+    <value>跳转</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>杂项</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>全部</value>
+  </data>
 </root>

@@ -1,18 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ScrollViewerBaseStyle.xaml"/>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="../Basic/Geometries.xaml"/>
-        <ResourceDictionary Source="RepeatButton.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/ScrollViewerBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/RepeatButton.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!--default style-->
     <Style BasedOn="{StaticResource ScrollViewerNativeBaseStyle}" TargetType="ScrollViewer"/>
 
-    <Style BasedOn="{StaticResource ScrollViewerBaseStyle}" TargetType="controls:ScrollViewer"/>
+    <Style BasedOn="{StaticResource ScrollViewerBaseStyle}" TargetType="hc:ScrollViewer"/>
 
     <Style x:Key="ScrollViewerUpDownRepeatButtonStyle" BasedOn="{StaticResource RepeatButtonIcon}" TargetType="RepeatButton">
         <Setter Property="HorizontalAlignment" Value="Stretch"/>
@@ -38,9 +39,9 @@
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
-            <RepeatButton Style="{StaticResource ScrollViewerUpDownRepeatButtonStyle}" controls:IconElement.Geometry="{StaticResource UpGeometry}" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{x:Static ScrollBar.LineUpCommand}"/>
+            <RepeatButton Style="{StaticResource ScrollViewerUpDownRepeatButtonStyle}" hc:IconElement.Geometry="{StaticResource UpGeometry}" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Command="{x:Static ScrollBar.LineUpCommand}"/>
             <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="1"/>
-            <RepeatButton Style="{StaticResource ScrollViewerUpDownRepeatButtonStyle}" controls:IconElement.Geometry="{StaticResource DownGeometry}" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="2" Command="{x:Static ScrollBar.LineDownCommand}"/>
+            <RepeatButton Style="{StaticResource ScrollViewerUpDownRepeatButtonStyle}" hc:IconElement.Geometry="{StaticResource DownGeometry}" CommandTarget="{Binding RelativeSource={RelativeSource TemplatedParent}}" Grid.Row="2" Command="{x:Static ScrollBar.LineDownCommand}"/>
         </Grid>
     </ControlTemplate>
     

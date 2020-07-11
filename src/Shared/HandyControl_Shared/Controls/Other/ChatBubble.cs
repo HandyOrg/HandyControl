@@ -30,7 +30,7 @@ namespace HandyControl.Controls
         public bool IsRead
         {
             get => (bool) GetValue(IsReadProperty);
-            set => SetValue(IsReadProperty, value);
+            set => SetValue(IsReadProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static void SetMaxWidth(DependencyObject element, double value)

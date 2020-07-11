@@ -1,13 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="Button.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="controls:TimeBar">
+    <Style TargetType="hc:TimeBar">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="BorderThickness" Value="0,1,0,0"/>
@@ -17,7 +18,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:TimeBar">
+                <ControlTemplate TargetType="hc:TimeBar">
                     <ControlTemplate.Triggers>
                         <EventTrigger RoutedEvent="FrameworkElement.MouseEnter">
                             <BeginStoryboard>
@@ -39,7 +40,7 @@
                         </EventTrigger>
                     </ControlTemplate.Triggers>
                     <Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <controls:SimplePanel ClipToBounds="True">
+                        <hc:SimplePanel ClipToBounds="True">
                             <Border BorderThickness="0,0,0,4" BorderBrush="White" VerticalAlignment="Top" Height="52">
                                 <TextBlock FontSize="16" Name="PART_TextBlockSelected" VerticalAlignment="Top" Margin="0,14,0,0" HorizontalAlignment="Center"/>
                             </Border>
@@ -48,7 +49,7 @@
                             <Border Width="1" Background="{DynamicResource DangerBrush}"/>
                             <Canvas Name="PART_CanvasSpe" VerticalAlignment="Bottom" Height="28"/>
                             <Border Name="PART_BorderTop" Background="Transparent" Cursor="Hand"/>
-                        </controls:SimplePanel>
+                        </hc:SimplePanel>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

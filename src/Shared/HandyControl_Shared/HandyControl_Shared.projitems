@@ -17,6 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\EdgeElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconSwitchElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ImageAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\InfoElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\MenuTopLineAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
@@ -26,17 +27,39 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\AdornerElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\FloatingBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\SplitButton.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Carousel\CarouselItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Dialog\DialogContainer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\GrowlWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\CheckComboBox\CheckComboBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\CheckComboBox\CheckComboBoxItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\ImageSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\PinBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\DashedBorder.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Divider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Drawer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Magnifier.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ButtonGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Button\ButtonGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Card.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Notification.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Poptip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Watermark.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\ImagePropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\VerticalAlignmentPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\HorizontalAlignmentPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\EnumPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\ReadOnlyTextPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\TimePropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\DatePropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\SwitchPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\DateTimePropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\PropertyEditorBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\NumberPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\PlainTextPropertyEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyGrid.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyItemsControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyResolver.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Screenshot\Screenshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\ToggleBlock.cs" />
@@ -86,6 +109,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ContrastEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\EffectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Themes\SharedResourceDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Themes\Theme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
@@ -93,6 +117,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\DoubleMinConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Number2PercentageConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Object2StringConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Object2VisibilityReConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\RectangleCircularConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ThicknessSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\DependencyObjectExtension.cs" />
@@ -143,10 +169,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Loading\LoadingLine.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\AnimationPath.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Badge.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Carousel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Carousel\Carousel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\ChatBubble.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\ColorPicker\ColorPicker.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Dialog.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Dialog\Dialog.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\GotoTop.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Gravatar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Growl\Growl.cs" />
@@ -211,7 +237,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StepStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TextType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\PlacementType.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitleAlignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TitlePlacementType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifFrameDimension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifImageInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItem.cs" />
@@ -324,6 +350,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DesignerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\DpiHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\IconHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\InputClickHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ResourceHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ScreenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SecurityHelper.cs" />
@@ -352,6 +379,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegexJudgment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\RegexPatterns.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ButtonGroupItemStyleSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ComboBoxItemCapsuleStyleSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\TabItemCapsuleStyleSelector.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +440,30 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\SkinViolet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\CheckComboBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\CheckComboBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\ImageSelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\ImageSelectorBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\PropertyGrid.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\PropertyGridBaseStyle.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

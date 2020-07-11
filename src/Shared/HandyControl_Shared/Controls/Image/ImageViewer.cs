@@ -271,13 +271,13 @@ namespace HandyControl.Controls
         public bool IsFullScreen
         {
             get => (bool)GetValue(IsFullScreenProperty);
-            set => SetValue(IsFullScreenProperty, value);
+            set => SetValue(IsFullScreenProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool ShowImgMap
         {
             get => (bool)GetValue(ShowImgMapProperty);
-            set => SetValue(ShowImgMapProperty, value);
+            set => SetValue(ShowImgMapProperty, ValueBoxes.BooleanBox(value));
         }
 
         public BitmapFrame ImageSource
@@ -310,7 +310,7 @@ namespace HandyControl.Controls
         internal bool ShowFullScreenButton
         {
             get => (bool)GetValue(ShowFullScreenButtonProperty);
-            set => SetValue(ShowFullScreenButtonProperty, value);
+            set => SetValue(ShowFullScreenButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal Thickness ImageMargin
@@ -352,7 +352,7 @@ namespace HandyControl.Controls
         internal bool ShowSmallImgInternal
         {
             get => (bool)GetValue(ShowSmallImgInternalProperty);
-            set => SetValue(ShowSmallImgInternalProperty, value);
+            set => SetValue(ShowSmallImgInternalProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -371,7 +371,7 @@ namespace HandyControl.Controls
         internal bool ShowCloseButton
         {
             get => (bool)GetValue(ShowCloseButtonProperty);
-            set => SetValue(ShowCloseButtonProperty, value);
+            set => SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>

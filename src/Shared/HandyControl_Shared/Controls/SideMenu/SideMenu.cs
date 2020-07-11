@@ -127,7 +127,7 @@ namespace HandyControl.Controls
         public bool AutoSelect
         {
             get => (bool) GetValue(AutoSelectProperty);
-            set => SetValue(AutoSelectProperty, value);
+            set => SetValue(AutoSelectProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ExpandModeProperty = DependencyProperty.Register(
@@ -170,6 +170,16 @@ namespace HandyControl.Controls
                     }
                     else if (sideMenuItem.IsSelected)
                     {
+                        switch (sideMenuItem.Role)
+                        {
+                            case SideMenuItemRole.Header:
+                                _selectedHeader = sideMenuItem;
+                                break;
+                            case SideMenuItemRole.Item:
+                                _selectedItem = sideMenuItem;
+                                break;
+                        }
+
                         ShowSelectedOne(sideMenuItem);
                         sideMenuItemSelected = sideMenuItem;
 

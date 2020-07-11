@@ -2,7 +2,7 @@
 using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-#if !netle40
+#if !NET40
 using System.Threading.Tasks;
 #endif
 using HandyControl.Controls;
@@ -20,7 +20,7 @@ namespace HandyControlDemo.ViewModel
         public string DialogResult
         {
             get => _dialogResult;
-#if netle40
+#if NET40
             set => Set(nameof(DialogResult), ref _dialogResult, value);
 #else
             set => Set(ref _dialogResult, value);
@@ -42,7 +42,7 @@ namespace HandyControlDemo.ViewModel
             }
         }
 
-#if netle40
+#if NET40
         public RelayCommand<bool> ShowInteractiveDialogCmd => new Lazy<RelayCommand<bool>>(() =>
             new RelayCommand<bool>(ShowInteractiveDialog)).Value;
 

@@ -1,10 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="BaseStyle.xaml"/>
-        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/BaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <!--默认ListBoxItem样式-->
@@ -21,7 +22,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
-                    <Border x:Name="Bd" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                    <Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
                 </ControlTemplate>
@@ -46,13 +47,13 @@
             <Trigger Property="IsEnabled" Value="false">
                 <Setter Property="Opacity" Value=".4"/>
             </Trigger>
-            <Trigger Property="controls:EdgeElement.ShowEdgeContent" Value="true">
+            <Trigger Property="hc:EdgeElement.ShowEdgeContent" Value="true">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="ListBoxItem">
                             <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                                 <StackPanel Orientation="Horizontal">
-                                    <ContentControl Width="16" Height="16" Content="{Binding Path=(controls:EdgeElement.LeftContent),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <ContentControl Width="16" Height="16" Content="{Binding Path=(hc:EdgeElement.LeftContent),RelativeSource={RelativeSource TemplatedParent}}"/>
                                     <ContentPresenter Margin="6,0,0,0" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                 </StackPanel>
                             </Border>
@@ -68,10 +69,10 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="controls:ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
-        <Setter Property="controls:ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="controls:ScrollViewer.CanContentScroll" Value="true"/>
-        <Setter Property="controls:ScrollViewer.PanningMode" Value="Both"/>
+        <Setter Property="hc:ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="hc:ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="hc:ScrollViewer.CanContentScroll" Value="true"/>
+        <Setter Property="hc:ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle}"/>
@@ -79,9 +80,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
                     <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                        <controls:ScrollViewer Focusable="false">
+                        <hc:ScrollViewer Focusable="false">
                             <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        </controls:ScrollViewer>
+                        </hc:ScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

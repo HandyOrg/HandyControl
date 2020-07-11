@@ -12,7 +12,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <hc:Pagination MaxPageCount="10" PageIndex="{Binding PageIndex}">
+            <hc:Pagination MaxPageCount="10" PageIndex="{Binding PageIndex}" IsJumpEnabled="True">
                 <hc:Interaction.Triggers>
                     <hc:EventTrigger EventName="PageUpdated">
                         <hc:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />

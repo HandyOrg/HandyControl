@@ -59,7 +59,7 @@ namespace HandyControl.Controls
         public bool IsAnimationEnabled
         {
             get => (bool)GetValue(IsAnimationEnabledProperty);
-            set => SetValue(IsAnimationEnabledProperty, value);
+            set => SetValue(IsAnimationEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace HandyControl.Controls
         public bool IsDraggable
         {
             get => (bool)GetValue(IsDraggableProperty);
-            set => SetValue(IsDraggableProperty, value);
+            set => SetValue(IsDraggableProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -84,7 +84,7 @@ namespace HandyControl.Controls
             "ShowCloseButton", typeof(bool), typeof(TabControl), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetShowCloseButton(DependencyObject element, bool value)
-            => element.SetValue(ShowCloseButtonProperty, value);
+            => element.SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowCloseButton(DependencyObject element)
             => (bool) element.GetValue(ShowCloseButtonProperty);
@@ -105,7 +105,7 @@ namespace HandyControl.Controls
             "ShowContextMenu", typeof(bool), typeof(TabControl), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetShowContextMenu(DependencyObject element, bool value)
-            => element.SetValue(ShowContextMenuProperty, value);
+            => element.SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowContextMenu(DependencyObject element)
             => (bool) element.GetValue(ShowContextMenuProperty);
@@ -131,7 +131,7 @@ namespace HandyControl.Controls
         public bool IsTabFillEnabled
         {
             get => (bool)GetValue(IsTabFillEnabledProperty);
-            set => SetValue(IsTabFillEnabledProperty, value);
+            set => SetValue(IsTabFillEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -176,7 +176,7 @@ namespace HandyControl.Controls
         public bool IsScrollable
         {
             get => (bool) GetValue(IsScrollableProperty);
-            set => SetValue(IsScrollableProperty, value);
+            set => SetValue(IsScrollableProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -191,7 +191,7 @@ namespace HandyControl.Controls
         public bool ShowOverflowButton
         {
             get => (bool) GetValue(ShowOverflowButtonProperty);
-            set => SetValue(ShowOverflowButtonProperty, value);
+            set => SetValue(ShowOverflowButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -206,7 +206,7 @@ namespace HandyControl.Controls
         public bool ShowScrollButton
         {
             get => (bool) GetValue(ShowScrollButtonProperty);
-            set => SetValue(ShowScrollButtonProperty, value);
+            set => SetValue(ShowScrollButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>

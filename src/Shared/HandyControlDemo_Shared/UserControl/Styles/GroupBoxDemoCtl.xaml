@@ -23,7 +23,7 @@
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="0" Grid.Column="1" Width="300" Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Margin="16" hc:TitleElement.TitleAlignment="Left">
+                <GroupBox Grid.Row="0" Grid.Column="1" Width="300" Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Margin="16" hc:TitleElement.TitlePlacement="Left">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
@@ -33,7 +33,7 @@
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="1" Grid.Column="1" Width="300" Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}" hc:TitleElement.TitleAlignment="Left">
+                <GroupBox Grid.Row="1" Grid.Column="1" Width="300" Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}" hc:TitleElement.TitlePlacement="Left">
                     <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                     </Border>
@@ -41,7 +41,7 @@
                 <GroupBox Grid.Row="2" Grid.Column="0" Width="300" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left">
                     <TextBox/>
                 </GroupBox>
-                <GroupBox Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="300" hc:TitleElement.TitleWidth="100" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left" hc:TitleElement.TitleAlignment="Left">
+                <GroupBox Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="300" hc:TitleElement.TitleWidth="100" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left">
                     <ComboBox DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}" ItemsSource="{Binding DataList}"/>
                 </GroupBox>
             </Grid>

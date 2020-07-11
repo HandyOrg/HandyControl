@@ -17,7 +17,7 @@ namespace HandyControlDemo.ViewModel
         public int StepIndex
         {
             get => _stepIndex;
-#if netle40
+#if NET40
             set => Set(nameof(StepIndex), ref _stepIndex, value);
 #else
             set => Set(ref _stepIndex, value);

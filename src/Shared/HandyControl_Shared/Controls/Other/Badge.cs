@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using HandyControl.Data;
 
 namespace HandyControl.Controls
@@ -85,7 +86,9 @@ namespace HandyControl.Controls
         public bool ShowBadge
         {
             get => (bool) GetValue(ShowBadgeProperty);
-            set => SetValue(ShowBadgeProperty, value);
+            set => SetValue(ShowBadgeProperty, ValueBoxes.BooleanBox(value));
         }
+
+        protected override Geometry GetLayoutClip(Size layoutSlotSize) => null;
     }
 }

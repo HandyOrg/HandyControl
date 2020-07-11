@@ -145,7 +145,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetShowCloseButton(DependencyObject element, bool value)
-            => element.SetValue(ShowCloseButtonProperty, value);
+            => element.SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowCloseButton(DependencyObject element)
             => (bool)element.GetValue(ShowCloseButtonProperty);
@@ -173,11 +173,11 @@ namespace HandyControl.Controls
         public bool ShowContextMenu
         {
             get => (bool) GetValue(ShowContextMenuProperty);
-            set => SetValue(ShowContextMenuProperty, value);
+            set => SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static void SetShowContextMenu(DependencyObject element, bool value)
-            => element.SetValue(ShowContextMenuProperty, value);
+            => element.SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowContextMenu(DependencyObject element)
             => (bool)element.GetValue(ShowContextMenuProperty);

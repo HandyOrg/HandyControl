@@ -9,6 +9,8 @@
         <StackPanel Margin="32" VerticalAlignment="Center">
             <hc:RunningBlock Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
             <hc:RunningBlock Runaway="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
+            <hc:RunningBlock HorizontalAlignment="Left" Width="500" Speed="50" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
+            <hc:RunningBlock HorizontalAlignment="Left" Width="300" FontSize="30" Speed="50" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
             <hc:RunningBlock HorizontalAlignment="Left" AutoRun="True" Width="100" Runaway="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Duration="0:0:2" Margin="0,16,0,0"/>
             <hc:RunningBlock HorizontalAlignment="Left" AutoReverse="True" AutoRun="True" Width="100" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>
             <hc:RunningBlock HorizontalAlignment="Left" AutoRun="True" Width="200" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}" Margin="0,16,0,0"/>

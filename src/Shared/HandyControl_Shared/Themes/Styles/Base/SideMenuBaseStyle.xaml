@@ -1,12 +1,13 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="BaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/BaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="SideMenuItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:SideMenuItem">
+    <Style x:Key="SideMenuItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:SideMenuItem">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0Margin0}"/>
         <Setter Property="Role" Value="Item"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
@@ -14,9 +15,9 @@
         <Setter Property="MinHeight" Value="40"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:SideMenuItem">
+                <ControlTemplate TargetType="hc:SideMenuItem">
                     <Border Name="BorderRoot" Background="{TemplateBinding Background}">
-                        <controls:SimplePanel>
+                        <hc:SimplePanel>
                             <Rectangle Width="4" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Left"/>
                             <ContentControl Margin="4,0,0,0">
                                 <DockPanel Margin="{TemplateBinding Padding}">
@@ -26,13 +27,13 @@
                                     <ContentPresenter Name="PresenterHeader"  ContentSource="Header" Margin="6,0,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                                 </DockPanel>
                             </ContentControl>
-                        </controls:SimplePanel>
+                        </hc:SimplePanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Icon" Value="{x:Null}">
                             <Setter TargetName="PresenterIcon" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
-                        <DataTrigger Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=controls:SideMenuItem}}" Value="True">
+                        <DataTrigger Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=hc:SideMenuItem}}" Value="True">
                             <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
                         </DataTrigger>
                         <Trigger Property="IsSelected" Value="True">
@@ -49,12 +50,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SideMenuItemAccordionBaseStyle" BasedOn="{StaticResource SideMenuItemBaseStyle}" TargetType="controls:SideMenuItem">
+    <Style x:Key="SideMenuItemAccordionBaseStyle" BasedOn="{StaticResource SideMenuItemBaseStyle}" TargetType="hc:SideMenuItem">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:SideMenuItem">
+                <ControlTemplate TargetType="hc:SideMenuItem">
                     <Border Name="BorderRoot" Background="{TemplateBinding Background}">
-                        <controls:SimplePanel>
+                        <hc:SimplePanel>
                             <Rectangle Width="4" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Left"/>
                             <ContentControl Margin="4,0,0,0">
                                 <DockPanel Margin="{TemplateBinding Padding}">
@@ -64,13 +65,13 @@
                                     <ContentPresenter Name="PresenterHeader"  ContentSource="Header" Margin="6,0,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                                 </DockPanel>
                             </ContentControl>
-                        </controls:SimplePanel>
+                        </hc:SimplePanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Icon" Value="{x:Null}">
                             <Setter TargetName="PresenterIcon" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
-                        <DataTrigger Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=controls:SideMenuItem}}" Value="True">
+                        <DataTrigger Binding="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=hc:SideMenuItem}}" Value="True">
                             <Setter Property="BorderBrush" Value="Transparent"/>
                         </DataTrigger>
                         <Trigger Property="IsSelected" Value="True">
@@ -87,14 +88,14 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SideMenuItemHeaderBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:SideMenuItem">
+    <Style x:Key="SideMenuItemHeaderBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:SideMenuItem">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0Margin0}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource SideMenuItemBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:SideMenuItem">
+                <ControlTemplate TargetType="hc:SideMenuItem">
                     <Border Name="BorderRoot" Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -110,7 +111,7 @@
                                     <ContentPresenter Name="PresenterHeader" ContentSource="Header" Margin="6,0,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                                 </DockPanel>
                             </ContentControl>
-                            <StackPanel Grid.Row="1" x:Name="PART_Panel" Visibility="Collapsed" Height="{Binding PanelAreaLength,RelativeSource={RelativeSource AncestorType=controls:SideMenu}}"/>
+                            <StackPanel Grid.Row="1" x:Name="PART_Panel" Visibility="Collapsed" Height="{Binding PanelAreaLength,RelativeSource={RelativeSource AncestorType=hc:SideMenu}}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -131,11 +132,11 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SideMenuItemHeaderAccordionBaseStyle" BasedOn="{StaticResource SideMenuItemHeaderBaseStyle}" TargetType="controls:SideMenuItem">
+    <Style x:Key="SideMenuItemHeaderAccordionBaseStyle" BasedOn="{StaticResource SideMenuItemHeaderBaseStyle}" TargetType="hc:SideMenuItem">
         <Setter Property="ItemContainerStyle" Value="{StaticResource SideMenuItemAccordionBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:SideMenuItem">
+                <ControlTemplate TargetType="hc:SideMenuItem">
                     <Border Name="BorderRoot" Background="{TemplateBinding Background}">
                         <Grid>
                             <Grid.RowDefinitions>
@@ -151,7 +152,7 @@
                                     <ContentPresenter Name="PresenterHeader" ContentSource="Header" Margin="6,0,0,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
                                 </DockPanel>
                             </ContentControl>
-                            <ScrollViewer Visibility="{Binding Visibility,ElementName=PART_Panel}" Grid.Row="1" Height="{Binding PanelAreaLength,RelativeSource={RelativeSource AncestorType=controls:SideMenu}}">
+                            <ScrollViewer Visibility="{Binding Visibility,ElementName=PART_Panel}" Grid.Row="1" Height="{Binding PanelAreaLength,RelativeSource={RelativeSource AncestorType=hc:SideMenu}}">
                                 <StackPanel x:Name="PART_Panel" Visibility="Collapsed"/>
                             </ScrollViewer>
                         </Grid>
@@ -174,7 +175,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="SideMenuBaseStyle" TargetType="controls:SideMenu">
+    <Style x:Key="SideMenuBaseStyle" TargetType="hc:SideMenu">
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
@@ -182,7 +183,7 @@
         <Setter Property="ItemContainerStyle" Value="{StaticResource SideMenuItemHeaderBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:SideMenu">
+                <ControlTemplate TargetType="hc:SideMenu">
                     <Border Name="BorderRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <ScrollViewer>
                             <StackPanel x:Name="PART_Panel"/>

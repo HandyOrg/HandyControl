@@ -58,13 +58,13 @@ namespace HandyControl.Controls
         public bool AllowClear
         {
             get => (bool) GetValue(AllowClearProperty);
-            set => SetValue(AllowClearProperty, value);
+            set => SetValue(AllowClearProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool AllowHalf
         {
             get => (bool) GetValue(AllowHalfProperty);
-            set => SetValue(AllowHalfProperty, value);
+            set => SetValue(AllowHalfProperty, ValueBoxes.BooleanBox(value));
         }
 
         public Geometry Icon
@@ -76,13 +76,13 @@ namespace HandyControl.Controls
         internal bool IsSelected
         {
             get => (bool) GetValue(IsSelectedProperty);
-            set => SetValue(IsSelectedProperty, value);
+            set => SetValue(IsSelectedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool IsReadOnly
         {
             get => (bool)GetValue(IsReadOnlyProperty);
-            set => SetValue(IsReadOnlyProperty, value);
+            set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal bool IsHalf

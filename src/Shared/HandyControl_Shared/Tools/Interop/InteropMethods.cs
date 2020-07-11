@@ -17,7 +17,7 @@ namespace HandyControl.Tools.Interop
     {
         #region common
 
-        public const int E_FAIL = unchecked((int)0x80004005);
+        internal const int E_FAIL = unchecked((int)0x80004005);
 
         internal static readonly IntPtr HRGN_NONE = new IntPtr(-1);
 
@@ -461,7 +461,10 @@ namespace HandyControl.Tools.Interop
 
         [ReflectionPermission(SecurityAction.Assert, Unrestricted = true),
          SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode)]
-        public static void PtrToStructure(IntPtr lparam, object data) => Marshal.PtrToStructure(lparam, data);
+        internal static void PtrToStructure(IntPtr lparam, object data) => Marshal.PtrToStructure(lparam, data);
+
+        [DllImport(InteropValues.ExternDll.Shell32, CallingConvention = CallingConvention.StdCall)]
+        internal static extern uint SHAppBarMessage(int dwMessage, ref InteropValues.APPBARDATA pData);
 
         #endregion
 

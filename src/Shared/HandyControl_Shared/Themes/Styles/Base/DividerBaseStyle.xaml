@@ -1,8 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="DividerBaseStyle" TargetType="controls:Divider">
+    <Style x:Key="DividerBaseStyle" TargetType="hc:Divider">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Margin" Value="0,24"/>
         <Setter Property="Padding" Value="24,0"/>
@@ -11,18 +11,18 @@
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:Divider">
-                    <controls:Row>
-                        <controls:Col Layout="12" x:Name="ColStart">
+                <ControlTemplate TargetType="hc:Divider">
+                    <hc:Row>
+                        <hc:Col Layout="12" x:Name="ColStart">
                             <Line VerticalAlignment="Center" StrokeDashArray="{TemplateBinding LineStrokeDashArray}" Stroke="{TemplateBinding LineStroke}" X2="1" StrokeThickness="{TemplateBinding LineStrokeThickness}" Stretch="Fill" StrokeEndLineCap="Square" StrokeStartLineCap="Square"/>
-                        </controls:Col>
-                        <controls:Col Layout="0">
+                        </hc:Col>
+                        <hc:Col Layout="0">
                             <ContentPresenter Margin="{TemplateBinding Padding}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
-                        </controls:Col>
-                        <controls:Col Layout="12" x:Name="ColEnd">
+                        </hc:Col>
+                        <hc:Col Layout="12" x:Name="ColEnd">
                             <Line VerticalAlignment="Center" StrokeDashArray="{TemplateBinding LineStrokeDashArray}" Stroke="{TemplateBinding LineStroke}" X2="1" StrokeThickness="{TemplateBinding LineStrokeThickness}" Stretch="Fill" StrokeEndLineCap="Square" StrokeStartLineCap="Square"/>
-                        </controls:Col>
-                    </controls:Row>
+                        </hc:Col>
+                    </hc:Row>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Content" Value="{x:Null}">
                             <Setter Property="Padding" Value="0"/>
@@ -51,7 +51,7 @@
                 <Setter Property="Margin" Value="6,0"/>
                 <Setter Property="Template">
                     <Setter.Value>
-                        <ControlTemplate TargetType="controls:Divider">
+                        <ControlTemplate TargetType="hc:Divider">
                             <Line HorizontalAlignment="Center" StrokeDashArray="{TemplateBinding LineStrokeDashArray}" Stroke="{TemplateBinding LineStroke}" Y2="1" StrokeThickness="{TemplateBinding LineStrokeThickness}" Stretch="Fill" StrokeEndLineCap="Square" StrokeStartLineCap="Square"/>
                         </ControlTemplate>
                     </Setter.Value>

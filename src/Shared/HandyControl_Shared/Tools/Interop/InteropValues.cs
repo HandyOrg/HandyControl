@@ -48,6 +48,7 @@ namespace HandyControl.Tools.Interop
             NIIF_ERROR = 0x00000003,
             WM_ACTIVATE = 0x0006,
             WM_QUIT = 0x0012,
+            WM_GETMINMAXINFO = 0x0024,
             WM_WINDOWPOSCHANGING = 0x0046,
             WM_WINDOWPOSCHANGED = 0x0047,
             WM_SETICON = 0x0080,
@@ -85,7 +86,8 @@ namespace HandyControl.Tools.Interop
             SC_MINIMIZE = 0xF020,
             SC_MAXIMIZE = 0xF030,
             SC_RESTORE = 0xF120,
-            SRCCOPY = 0x00CC0020;
+            SRCCOPY = 0x00CC0020,
+            MONITOR_DEFAULTTONEAREST = 0x00000002;
 
         [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto)]
         internal class NOTIFYICONDATA
@@ -932,6 +934,27 @@ namespace HandyControl.Tools.Interop
                 DataStream.Write(buffer, 0, length);
                 return length;
             }
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal class MINMAXINFO
+        {
+            public POINT ptReserved;
+            public POINT ptMaxSize;
+            public POINT ptMaxPosition;
+            public POINT ptMinTrackSize;
+            public POINT ptMaxTrackSize;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct APPBARDATA
+        {
+            public int cbSize;
+            public IntPtr hWnd;
+            public uint uCallbackMessage;
+            public uint uEdge;
+            public RECT rc;
+            public int lParam;
         }
     }
 }

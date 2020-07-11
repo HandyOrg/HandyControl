@@ -43,7 +43,7 @@ namespace HandyControlDemo.ViewModel
         public string ChatString
         {
             get => _chatString;
-#if netle40
+#if NET40
             set => Set(nameof(ChatString), ref _chatString, value);
 #else
             set => Set(ref _chatString, value);

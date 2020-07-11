@@ -231,4 +231,13 @@
   <data name="LangComment" xml:space="preserve">
     <value>Ищет локализованную строку, похожую на "{0}".</value>
   </data>
+  <data name="Jump" xml:space="preserve">
+    <value>Jump</value>
+  </data>
+  <data name="Miscellaneous" xml:space="preserve">
+    <value>Miscellaneous</value>
+  </data>
+  <data name="All" xml:space="preserve">
+    <value>All</value>
+  </data>
 </root>

@@ -1,17 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/TextBoxBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/TextBoxBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource WatermarkTextBoxBaseStyle}" TargetType="controls:WatermarkTextBox"/>
+    <Style BasedOn="{StaticResource WatermarkTextBoxBaseStyle}" TargetType="hc:WatermarkTextBox"/>
 
     <Style BasedOn="{StaticResource TextBoxBaseStyle}" TargetType="TextBox"/>
 
     <Style x:Key="TextBoxExtend" BasedOn="{StaticResource TextBoxExtendBaseStyle}" TargetType="TextBox"/>
 
-    <Style BasedOn="{StaticResource TextBoxPlusBaseStyle}" TargetType="controls:TextBox"/>
+    <Style BasedOn="{StaticResource TextBoxPlusBaseStyle}" TargetType="hc:TextBox"/>
 
 </ResourceDictionary>

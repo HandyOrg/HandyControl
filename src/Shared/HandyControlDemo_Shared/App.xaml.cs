@@ -3,13 +3,14 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
-#if !netle40
+#if !NET40
 using System.Runtime;
 #endif
 using System.Security.Authentication; 
 using System.Threading;
 using System.Windows;
 using HandyControl.Data;
+using HandyControl.Themes;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools;
@@ -25,7 +26,7 @@ namespace HandyControlDemo
 
         public App()
         {
-#if !netle40
+#if !NET40
             var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
             if (!Directory.Exists(cachePath))
             {
@@ -72,7 +73,7 @@ namespace HandyControlDemo
                     UpdateSkin(GlobalData.Config.Skin);
                 }
 
-                ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
+                ConfigHelper.Instance.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
                 ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
 
@@ -88,6 +89,7 @@ namespace HandyControlDemo
 
         internal void UpdateSkin(SkinType skin)
         {
+            SharedResourceDictionary.SharedDictionaries.Clear();
             var skins0 = Resources.MergedDictionaries[0];
             skins0.MergedDictionaries.Clear();
             skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));	

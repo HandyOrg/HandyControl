@@ -4,14 +4,16 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Properties.Langs;
 
 namespace HandyControl.Controls
 {
-    /// <inheritdoc cref="IDataInput" />
     [TemplatePart(Name = ElementPasswordBox, Type = typeof(System.Windows.Controls.PasswordBox))]
     [TemplatePart(Name = ElementTextBox, Type = typeof(System.Windows.Controls.TextBox))]
     public class PasswordBox : Control, IDataInput
@@ -20,6 +22,11 @@ namespace HandyControl.Controls
 
         private const string ElementTextBox = "PART_TextBox";
 
+        private SecureString _password;
+
+        private System.Windows.Controls.TextBox _textBox;
+
+
         /// <summary>
         ///     掩码字符
         /// </summary>
@@ -27,11 +34,23 @@ namespace HandyControl.Controls
             System.Windows.Controls.PasswordBox.PasswordCharProperty.AddOwner(typeof(PasswordBox),
                 new FrameworkPropertyMetadata('●'));
 
+        public char PasswordChar
+        {
+            get => (char)GetValue(PasswordCharProperty);
+            set => SetValue(PasswordCharProperty, value);
+        }
+
         /// <summary>
         ///     数据是否错误
         /// </summary>
         public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
             "IsError", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool IsError
+        {
+            get => (bool)GetValue(IsErrorProperty);
+            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
+        }
 
         /// <summary>
         ///     错误提示
@@ -39,11 +58,23 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
             "ErrorStr", typeof(string), typeof(PasswordBox), new PropertyMetadata(default(string)));
 
+        public string ErrorStr
+        {
+            get => (string)GetValue(ErrorStrProperty);
+            set => SetValue(ErrorStrProperty, value);
+        }
+
         /// <summary>
         ///     文本类型
         /// </summary>
         public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
             "TextType", typeof(TextType), typeof(PasswordBox), new PropertyMetadata(default(TextType)));
+
+        public TextType TextType
+        {
+            get => (TextType)GetValue(TextTypeProperty);
+            set => SetValue(TextTypeProperty, value);
+        }
 
         /// <summary>
         ///     是否显示清除按钮
@@ -51,21 +82,90 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
             "ShowClearButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
+        public bool ShowClearButton
+        {
+            get => (bool)GetValue(ShowClearButtonProperty);
+            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
+        }
+
         public static readonly DependencyProperty ShowEyeButtonProperty = DependencyProperty.Register(
             "ShowEyeButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool ShowEyeButton
+        {
+            get => (bool)GetValue(ShowEyeButtonProperty);
+            set => SetValue(ShowEyeButtonProperty, ValueBoxes.BooleanBox(value));
+        }
 
         public static readonly DependencyProperty ShowPasswordProperty = DependencyProperty.Register(
             "ShowPassword", typeof(bool), typeof(PasswordBox),
             new PropertyMetadata(ValueBoxes.FalseBox, OnShowPasswordChanged));
 
-        private SecureString _password;
-
-        private System.Windows.Controls.TextBox _textBox;
-
-        public PasswordBox()
+        public bool ShowPassword
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => Clear()));
+            get => (bool)GetValue(ShowPasswordProperty);
+            set => SetValue(ShowPasswordProperty, ValueBoxes.BooleanBox(value));
         }
+
+        public static readonly DependencyProperty MaxLengthProperty =
+            System.Windows.Controls.TextBox.MaxLengthProperty.AddOwner(typeof(PasswordBox));
+
+        public int MaxLength
+        {
+            get => (int)GetValue(MaxLengthProperty);
+            set => SetValue(MaxLengthProperty, value);
+        }
+
+        public static readonly DependencyProperty SelectionBrushProperty =
+            TextBoxBase.SelectionBrushProperty.AddOwner(typeof(PasswordBox));
+
+        public Brush SelectionBrush
+        {
+            get => (Brush)GetValue(SelectionBrushProperty);
+            set => SetValue(SelectionBrushProperty, value);
+        }
+
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+
+        public static readonly DependencyProperty SelectionTextBrushProperty =
+            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(PasswordBox));
+
+        public Brush SelectionTextBrush
+        {
+            get => (Brush)GetValue(SelectionTextBrushProperty);
+            set => SetValue(SelectionTextBrushProperty, value);
+        }
+
+#endif
+
+        public static readonly DependencyProperty SelectionOpacityProperty =
+            TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(PasswordBox));
+
+        public double SelectionOpacity
+        {
+            get => (double)GetValue(SelectionOpacityProperty);
+            set => SetValue(SelectionOpacityProperty, value);
+        }
+
+        public static readonly DependencyProperty CaretBrushProperty =
+            TextBoxBase.CaretBrushProperty.AddOwner(typeof(PasswordBox));
+
+        public Brush CaretBrush
+        {
+            get => (Brush)GetValue(CaretBrushProperty);
+            set => SetValue(CaretBrushProperty, value);
+        }
+
+#if !NET40
+
+        public static readonly DependencyProperty IsSelectionActiveProperty =
+            TextBoxBase.IsSelectionActiveProperty.AddOwner(typeof(PasswordBox));
+
+        public bool IsSelectionActive => ActualPasswordBox != null && (bool) ActualPasswordBox.GetValue(IsSelectionActiveProperty);
+
+#endif
+
+        public PasswordBox() => CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => Clear()));
 
         public System.Windows.Controls.PasswordBox ActualPasswordBox { get; set; }
 
@@ -86,8 +186,7 @@ namespace HandyControl.Controls
                 if (ActualPasswordBox == null)
                 {
                     _password = new SecureString();
-                    if (value == null)
-                        value = string.Empty;
+                    value ??= string.Empty;
                     foreach (var item in value)
                         _password.AppendChar(item);
 
@@ -101,49 +200,7 @@ namespace HandyControl.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public SecureString SecurePassword => ActualPasswordBox?.SecurePassword;
 
-        public char PasswordChar
-        {
-            get => (char) GetValue(PasswordCharProperty);
-            set => SetValue(PasswordCharProperty, value);
-        }
-
-        public bool ShowEyeButton
-        {
-            get => (bool) GetValue(ShowEyeButtonProperty);
-            set => SetValue(ShowEyeButtonProperty, value);
-        }
-
-        public bool ShowPassword
-        {
-            get => (bool) GetValue(ShowPasswordProperty);
-            set => SetValue(ShowPasswordProperty, value);
-        }
-
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-        public bool IsError
-        {
-            get => (bool) GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, value);
-        }
-
-        public string ErrorStr
-        {
-            get => (string) GetValue(ErrorStrProperty);
-            set => SetValue(ErrorStrProperty, value);
-        }
-
-        public TextType TextType
-        {
-            get => (TextType) GetValue(TextTypeProperty);
-            set => SetValue(TextTypeProperty, value);
-        }
-
-        public bool ShowClearButton
-        {
-            get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value);
-        }
 
         public virtual bool VerifyData()
         {
@@ -174,9 +231,9 @@ namespace HandyControl.Controls
 
         private static void OnShowPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (PasswordBox) d;
+            var ctl = (PasswordBox)d;
             if (!ctl.ShowEyeButton) return;
-            if ((bool) e.NewValue)
+            if ((bool)e.NewValue)
             {
                 ctl._textBox.Text = ctl.ActualPasswordBox.Password;
                 ctl._textBox.Select(string.IsNullOrEmpty(ctl._textBox.Text) ? 0 : ctl._textBox.Text.Length, 0);
@@ -203,6 +260,13 @@ namespace HandyControl.Controls
             if (ActualPasswordBox != null)
             {
                 ActualPasswordBox.PasswordChanged += PasswordBox_PasswordChanged;
+                ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.MaxLengthProperty, new Binding(MaxLengthProperty.Name) { Source = this });
+                ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+                ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+#endif
+                ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
+                ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
 
                 if (_password != null)
                 {

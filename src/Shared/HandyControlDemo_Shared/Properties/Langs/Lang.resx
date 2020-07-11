@@ -750,4 +750,16 @@
   <data name="LangComment" xml:space="preserve">
     <value>查找类似 {0} 的本地化字符串。</value>
   </data>
+  <data name="PropertyGrid" xml:space="preserve">
+    <value>属性编辑器</value>
+  </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>图片选择器</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>几何形状</value>
+  </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>多选组合框</value>
+  </data>
 </root>

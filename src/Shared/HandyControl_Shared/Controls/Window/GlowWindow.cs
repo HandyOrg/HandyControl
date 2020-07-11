@@ -48,12 +48,6 @@ namespace HandyControl.Controls
             set => SetValue(InactiveGlowColorProperty, value);
         }
 
-        static GlowWindow()
-        {
-            StyleProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(Application.Current.FindResource(ResourceToken.WindowGlow)));
-            ResizeModeProperty.OverrideMetadata(typeof(GlowWindow), new FrameworkPropertyMetadata(OnResizeModeChanged));
-        }
-
         #region internal
 
         internal void EndDeferGlowChanges()
@@ -75,7 +69,7 @@ namespace HandyControl.Controls
             }
         }
 
-        protected virtual IntPtr HwndSourceHook(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        private IntPtr HwndSourceHook(IntPtr hWnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
         {
             if (msg <= InteropValues.WM_WINDOWPOSCHANGED)
             {
@@ -167,7 +161,7 @@ namespace HandyControl.Controls
 
         protected override void OnSourceInitialized(EventArgs e)
         {
-            var hwndSource = HwndSource.FromHwnd(new WindowInteropHelper(this).Handle);
+            var hwndSource = this.GetHwndSource();
             if (hwndSource != null)
             {
                 hwndSource.AddHook(HwndSourceHook);

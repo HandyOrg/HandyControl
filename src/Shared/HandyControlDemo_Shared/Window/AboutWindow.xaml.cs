@@ -14,7 +14,24 @@ namespace HandyControlDemo.Window
 
             var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
             CopyRight = versionInfo.LegalCopyright;
-            Version = $"v {versionInfo.FileVersion}";
+#if NET40
+            var netVersion = "NET 40";
+#elif NET45
+            var netVersion = "NET 45";
+#elif NET462
+            var netVersion = "NET 462";
+#elif NET47
+            var netVersion = "NET 47";
+#elif NET48
+            var netVersion = "NET 48";
+#elif NETCOREAPP3_0
+            var netVersion = "CORE 30";
+#elif NETCOREAPP3_1
+            var netVersion = "CORE 31";
+#else
+            var netVersion = "NET 50";
+#endif
+            Version = $"v {versionInfo.FileVersion} {netVersion}";
         }
 
         public static readonly DependencyProperty CopyRightProperty = DependencyProperty.Register(

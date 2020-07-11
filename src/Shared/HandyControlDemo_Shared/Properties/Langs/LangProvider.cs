@@ -60,7 +60,8 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(ChatBubble));
 			OnPropertyChanged(nameof(Chatroom));
 			OnPropertyChanged(nameof(CheckBox));
-			OnPropertyChanged(nameof(CirclePanel));
+            OnPropertyChanged(nameof(CheckComboBox));
+            OnPropertyChanged(nameof(CirclePanel));
 			OnPropertyChanged(nameof(Clear));
 			OnPropertyChanged(nameof(Click2Count));
 			OnPropertyChanged(nameof(Clock));
@@ -105,6 +106,7 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(FlowDocumentReader));
 			OnPropertyChanged(nameof(FlowDocumentScrollViewer));
 			OnPropertyChanged(nameof(Frame));
+			OnPropertyChanged(nameof(Geometry));
 			OnPropertyChanged(nameof(GifImage));
 			OnPropertyChanged(nameof(GotoTop));
 			OnPropertyChanged(nameof(Gravatar));
@@ -125,7 +127,8 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(Ignore));
 			OnPropertyChanged(nameof(ImageBlock));
 			OnPropertyChanged(nameof(ImageBrowser));
-			OnPropertyChanged(nameof(Index));
+            OnPropertyChanged(nameof(ImageSelector));
+            OnPropertyChanged(nameof(Index));
 			OnPropertyChanged(nameof(Info));
 			OnPropertyChanged(nameof(InteractiveDialog));
 			OnPropertyChanged(nameof(IsNotPhone));
@@ -179,7 +182,8 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(ProgressBar));
 			OnPropertyChanged(nameof(ProgressButton));
 			OnPropertyChanged(nameof(Project));
-			OnPropertyChanged(nameof(PushToTalk));
+            OnPropertyChanged(nameof(PropertyGrid));
+            OnPropertyChanged(nameof(PushToTalk));
 			OnPropertyChanged(nameof(QQGroup));
 			OnPropertyChanged(nameof(RadioButton));
 			OnPropertyChanged(nameof(RangeSlider));
@@ -364,6 +368,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 复选框 的本地化字符串。
         /// </summary>
 		public string CheckBox => Lang.CheckBox;
+
+        /// <summary>
+        ///   查找类似 多选组合框 的本地化字符串。
+        /// </summary>
+        public string CheckComboBox => Lang.CheckComboBox;
 
         /// <summary>
         ///   查找类似 圆形布局 的本地化字符串。
@@ -591,9 +600,14 @@ namespace HandyControlDemo.Properties.Langs
 		public string Frame => Lang.Frame;
 
         /// <summary>
+        ///   查找类似 几何形状 的本地化字符串。
+        /// </summary>
+        public string Geometry => Lang.Geometry;
+
+        /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
-		public string GifImage => Lang.GifImage;
+        public string GifImage => Lang.GifImage;
 
         /// <summary>
         ///   查找类似 回到顶部 的本地化字符串。
@@ -689,6 +703,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 图片浏览器 的本地化字符串。
         /// </summary>
 		public string ImageBrowser => Lang.ImageBrowser;
+
+        /// <summary>
+        ///   查找类似 图片选择器 的本地化字符串。
+        /// </summary>
+        public string ImageSelector => Lang.ImageSelector;
 
         /// <summary>
         ///   查找类似 索引 的本地化字符串。
@@ -959,6 +978,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 项目 的本地化字符串。
         /// </summary>
 		public string Project => Lang.Project;
+
+        /// <summary>
+        ///   查找类似 属性编辑器 的本地化字符串。
+        /// </summary>
+        public string PropertyGrid => Lang.PropertyGrid;
 
         /// <summary>
         ///   查找类似 按住说话 的本地化字符串。
@@ -1430,6 +1454,11 @@ namespace HandyControlDemo.Properties.Langs
 		public static string CheckBox = nameof(CheckBox);
 
         /// <summary>
+        ///   查找类似 多选组合框 的本地化字符串。
+        /// </summary>
+        public static string CheckComboBox = nameof(CheckComboBox);
+
+        /// <summary>
         ///   查找类似 圆形布局 的本地化字符串。
         /// </summary>
 		public static string CirclePanel = nameof(CirclePanel);
@@ -1655,6 +1684,11 @@ namespace HandyControlDemo.Properties.Langs
 		public static string Frame = nameof(Frame);
 
         /// <summary>
+        ///   查找类似 几何形状 的本地化字符串。
+        /// </summary>
+        public static string Geometry = nameof(Geometry);
+
+        /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
 		public static string GifImage = nameof(GifImage);
@@ -1753,6 +1787,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 图片浏览器 的本地化字符串。
         /// </summary>
 		public static string ImageBrowser = nameof(ImageBrowser);
+
+        /// <summary>
+        ///   查找类似 图片选择器 的本地化字符串。
+        /// </summary>
+        public static string ImageSelector = nameof(ImageSelector);
 
         /// <summary>
         ///   查找类似 索引 的本地化字符串。
@@ -2023,6 +2062,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 项目 的本地化字符串。
         /// </summary>
 		public static string Project = nameof(Project);
+
+        /// <summary>
+        ///   查找类似 属性编辑器 的本地化字符串。
+        /// </summary>
+        public static string PropertyGrid = nameof(PropertyGrid);
 
         /// <summary>
         ///   查找类似 按住说话 的本地化字符串。

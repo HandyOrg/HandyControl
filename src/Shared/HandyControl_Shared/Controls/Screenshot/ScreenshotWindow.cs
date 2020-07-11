@@ -125,7 +125,7 @@ namespace HandyControl.Controls
         public bool IsDrawing
         {
             get => (bool)GetValue(IsDrawingProperty);
-            internal set => SetValue(IsDrawingProperty, value);
+            internal set => SetValue(IsDrawingProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty IsSelectingProperty = DependencyProperty.Register(
@@ -134,7 +134,7 @@ namespace HandyControl.Controls
         public bool IsSelecting
         {
             get => (bool)GetValue(IsSelectingProperty);
-            internal set => SetValue(IsSelectingProperty, value);
+            internal set => SetValue(IsSelectingProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty SizeProperty = DependencyProperty.Register(

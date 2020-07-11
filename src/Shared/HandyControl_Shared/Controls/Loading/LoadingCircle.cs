@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using HandyControl.Data;
 
 
 namespace HandyControl.Controls
@@ -27,7 +28,7 @@ namespace HandyControl.Controls
         public bool NeedHidden
         {
             get => (bool) GetValue(NeedHiddenProperty);
-            set => SetValue(NeedHiddenProperty, value);
+            set => SetValue(NeedHiddenProperty, ValueBoxes.BooleanBox(value));
         }
 
         static LoadingCircle()

@@ -19,6 +19,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CardModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\ChatInfoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\AvatarModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\GeometryItemModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Model\PropertyGridDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\CoverViewDemoModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoDataModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Model\DemoInfoModel.cs" />
@@ -44,6 +46,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\ChatBox.xaml.cs">
       <DependentUpon>ChatBox.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\GeometryItem.xaml.cs">
+      <DependentUpon>GeometryItem.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\IFull.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\InteractiveDialog.xaml.cs">
       <DependentUpon>InteractiveDialog.xaml</DependentUpon>
@@ -53,6 +58,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml.cs">
       <DependentUpon>TextDialogWithTimer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageSelectorDemoCtl.xaml.cs">
+      <DependentUpon>ImageSelectorDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
@@ -84,6 +92,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PinBoxDemoCtl.xaml.cs">
       <DependentUpon>PinBoxDemoCtl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PropertyGridDemoCtl.xaml.cs">
+      <DependentUpon>PropertyGridDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
       <DependentUpon>RangeSliderDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -101,6 +112,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ChatBubbleDemoCtl.xaml.cs">
       <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs">
+      <DependentUpon>CheckComboBoxDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
@@ -249,6 +263,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\BlogsView.xaml.cs">
       <DependentUpon>BlogsView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\MainWindowContent.xaml.cs">
+      <DependentUpon>MainWindowContent.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\NoUserContent.xaml.cs">
       <DependentUpon>NoUserContent.xaml</DependentUpon>
     </Compile>
@@ -305,6 +322,9 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemoCtl.xaml.cs">
       <DependentUpon>FrameDemoCtl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemoCtl.xaml.cs">
+      <DependentUpon>GeometryDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
@@ -493,6 +513,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Basic\GeometryItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Basic\InteractiveDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -502,6 +526,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageSelectorDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -545,6 +573,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PropertyGridDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -566,6 +598,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ChatBubbleDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CheckComboBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -765,6 +801,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\MainWindowContent.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\NoUserContent.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -838,6 +878,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemoCtl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

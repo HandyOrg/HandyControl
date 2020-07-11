@@ -50,7 +50,7 @@ namespace HandyControl.Interactivity
         public bool ConstrainToParentBounds
         {
             get => (bool)GetValue(MouseDragElementBehavior.ConstrainToParentBoundsProperty);
-            set => SetValue(MouseDragElementBehavior.ConstrainToParentBoundsProperty, value);
+            set => SetValue(MouseDragElementBehavior.ConstrainToParentBoundsProperty, ValueBoxes.BooleanBox(value));
         }
 
         private Rect ElementBounds

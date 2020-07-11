@@ -335,7 +335,7 @@ namespace HandyControl.Controls
         public bool IsBlink
         {
             get => (bool)GetValue(IsBlinkProperty);
-            set => SetValue(IsBlinkProperty, value);
+            set => SetValue(IsBlinkProperty, ValueBoxes.BooleanBox(value));
         }
 
         private void DispatcherTimerBlinkTick(object sender, EventArgs e)
@@ -574,6 +574,7 @@ namespace HandyControl.Controls
             {
                 if (msg == _wmTaskbarCreated)
                 {
+                    _added = false;
                     UpdateIcon(true);
                 }
                 else

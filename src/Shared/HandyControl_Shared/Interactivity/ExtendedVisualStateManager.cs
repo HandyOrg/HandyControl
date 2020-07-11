@@ -879,7 +879,7 @@ namespace HandyControl.Interactivity
 
         internal static void SetDidCacheBackground(DependencyObject obj, bool value)
         {
-            obj.SetValue(DidCacheBackgroundProperty, value);
+            obj.SetValue(DidCacheBackgroundProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal static void SetLayoutStoryboard(DependencyObject obj, Storyboard value)
@@ -937,7 +937,7 @@ namespace HandyControl.Interactivity
 
         public static void SetUseFluidLayout(DependencyObject obj, bool value)
         {
-            obj.SetValue(UseFluidLayoutProperty, value);
+            obj.SetValue(UseFluidLayoutProperty, ValueBoxes.BooleanBox(value));
         }
 
         private static void StopAnimations()

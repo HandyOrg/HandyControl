@@ -1,13 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="RectangleCircular" TargetType="Rectangle">
-        <Setter Property="controls:RectangleAttach.Circular" Value="True"/>
+        <Setter Property="hc:RectangleAttach.Circular" Value="True"/>
     </Style>
 
     <Style x:Key="RectangleFocusVisual" TargetType="Rectangle">
@@ -20,7 +21,7 @@
     </Style>
 
     <Style x:Key="RectangleFocusVisualCircular" BasedOn="{StaticResource RectangleFocusVisual}" TargetType="Rectangle">
-        <Setter Property="controls:RectangleAttach.Circular" Value="True"/>
+        <Setter Property="hc:RectangleAttach.Circular" Value="True"/>
     </Style>
 
 </ResourceDictionary>

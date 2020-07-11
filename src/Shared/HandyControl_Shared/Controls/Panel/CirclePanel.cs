@@ -23,7 +23,7 @@ namespace HandyControl.Controls
         public bool KeepVertical
         {
             get => (bool) GetValue(KeepVerticalProperty);
-            set => SetValue(KeepVerticalProperty, value);
+            set => SetValue(KeepVerticalProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty OffsetAngleProperty = DependencyProperty.Register(

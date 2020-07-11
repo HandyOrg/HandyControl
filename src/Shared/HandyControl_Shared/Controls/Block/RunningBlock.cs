@@ -4,6 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using HandyControl.Data;
+using HandyControl.Expression.Drawing;
 
 namespace HandyControl.Controls
 {
@@ -27,6 +28,7 @@ namespace HandyControl.Controls
 
             _elementContent = GetTemplateChild(ElementContent) as FrameworkElement;
             _elementPanel = GetTemplateChild(ElementPanel) as Panel;
+            UpdateContent();
         }
 
         public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
@@ -35,7 +37,7 @@ namespace HandyControl.Controls
         public bool Runaway
         {
             get => (bool) GetValue(RunawayProperty);
-            set => SetValue(RunawayProperty, value);
+            set => SetValue(RunawayProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
@@ -44,7 +46,7 @@ namespace HandyControl.Controls
         public bool AutoRun
         {
             get => (bool) GetValue(AutoRunProperty);
-            set => SetValue(AutoRunProperty, value);
+            set => SetValue(AutoRunProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
@@ -65,6 +67,15 @@ namespace HandyControl.Controls
             set => SetValue(DurationProperty, value);
         }
 
+        public static readonly DependencyProperty SpeedProperty = DependencyProperty.Register(
+            "Speed", typeof(double), typeof(RunningBlock), new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsRender));
+
+        public double Speed
+        {
+            get => (double) GetValue(SpeedProperty);
+            set => SetValue(SpeedProperty, value);
+        }
+
         public static readonly DependencyProperty IsRunningProperty = DependencyProperty.Register(
             "IsRunning", typeof(bool), typeof(RunningBlock), new PropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
             {
@@ -83,7 +94,7 @@ namespace HandyControl.Controls
         public bool IsRunning
         {
             get => (bool) GetValue(IsRunningProperty);
-            set => SetValue(IsRunningProperty, value);
+            set => SetValue(IsRunningProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty AutoReverseProperty = DependencyProperty.Register(
@@ -92,7 +103,7 @@ namespace HandyControl.Controls
         public bool AutoReverse
         {
             get => (bool) GetValue(AutoReverseProperty);
-            set => SetValue(AutoReverseProperty, value);
+            set => SetValue(AutoReverseProperty, ValueBoxes.BooleanBox(value));
         }
 
         private void UpdateContent()
@@ -150,11 +161,18 @@ namespace HandyControl.Controls
                 propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)");
             }
 
-            var animation = new DoubleAnimation(from, to, Duration)
+            var duration = double.IsNaN(Speed)
+                ? Duration
+                : !MathHelper.IsVerySmall(Speed)
+                    ? TimeSpan.FromSeconds((to - from) / Speed)
+                    : Duration;
+
+            var animation = new DoubleAnimation(from, to, duration)
             {
                 RepeatBehavior = RepeatBehavior.Forever,
                 AutoReverse = AutoReverse
             };
+
             Storyboard.SetTargetProperty(animation, propertyPath);
             Storyboard.SetTarget(animation, _elementContent);
 
@@ -163,10 +181,6 @@ namespace HandyControl.Controls
             _storyboard.Begin();
         }
 
-        protected override void OnRender(DrawingContext drawingContext)
-        {
-            base.OnRender(drawingContext);
-            UpdateContent();
-        }
+        protected override void OnRender(DrawingContext drawingContext) => UpdateContent();
     }
 }

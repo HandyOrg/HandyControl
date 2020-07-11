@@ -38,7 +38,7 @@ namespace HandyControl.Controls
         public bool ShowText
         {
             get => (bool) GetValue(ShowTextProperty);
-            set => SetValue(ShowTextProperty, value);
+            set => SetValue(ShowTextProperty, ValueBoxes.BooleanBox(value));
         }
 
         public double ArcThickness

@@ -32,14 +32,20 @@ namespace HandyControl.Controls
             set => SetValue(IdProperty, value);
         }
 
-
         public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(
             "Source", typeof(ImageSource), typeof(Gravatar), new PropertyMetadata(default(ImageSource), OnSourceChanged));
 
         private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (Gravatar)d;
-            ctl.Background = new ImageBrush((ImageSource)e.NewValue);
+            var v = (ImageSource) e.NewValue;
+
+            ctl.Background = v != null
+                ? new ImageBrush(v)
+                {
+                    Stretch = Stretch.UniformToFill
+                }
+                : ResourceHelper.GetResource<Brush>("SecondaryRegionBrush");
         }
 
         public ImageSource Source

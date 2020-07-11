@@ -87,7 +87,7 @@ namespace HandyControl.Controls
         public bool ShowConfirmButton
         {
             get => (bool)GetValue(ShowConfirmButtonProperty);
-            set => SetValue(ShowConfirmButtonProperty, value);
+            set => SetValue(ShowConfirmButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(

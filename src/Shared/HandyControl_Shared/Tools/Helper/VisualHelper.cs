@@ -27,6 +27,7 @@ namespace HandyControl.Tools
 
         public static T GetChild<T>(DependencyObject d) where T : DependencyObject
         {
+            if (d == null) return default;
             if (d is T t) return t;
 
             for (var i = 0; i < VisualTreeHelper.GetChildrenCount(d); i++)

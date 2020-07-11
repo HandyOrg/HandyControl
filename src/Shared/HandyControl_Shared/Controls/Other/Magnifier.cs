@@ -122,7 +122,9 @@ namespace HandyControl.Controls
 
         private void HideAdornerElement()
         {
+            if (_adornerContainer == null) return;
             var layer = AdornerLayer.GetAdornerLayer(Target);
+
             if (layer != null)
             {
                 layer.Remove(_adornerContainer);

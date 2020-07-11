@@ -37,7 +37,8 @@ namespace HandyControl.Properties.Langs
 
 		private void UpdateLangs()
         {
-			OnPropertyChanged(nameof(Am));
+            OnPropertyChanged(nameof(All));
+            OnPropertyChanged(nameof(Am));
 			OnPropertyChanged(nameof(Cancel));
 			OnPropertyChanged(nameof(CannotRegisterCompositeCommandInItself));
 			OnPropertyChanged(nameof(CannotRegisterSameCommandTwice));
@@ -58,6 +59,7 @@ namespace HandyControl.Properties.Langs
 			OnPropertyChanged(nameof(Interval30s));
 			OnPropertyChanged(nameof(Interval5m));
 			OnPropertyChanged(nameof(IsNecessary));
+			OnPropertyChanged(nameof(Jump));
 			OnPropertyChanged(nameof(LangComment));
 			OnPropertyChanged(nameof(NextPage));
 			OnPropertyChanged(nameof(No));
@@ -76,6 +78,11 @@ namespace HandyControl.Properties.Langs
 			OnPropertyChanged(nameof(ZoomIn));
 			OnPropertyChanged(nameof(ZoomOut));
         }
+
+        /// <summary>
+        ///   查找类似 所有 的本地化字符串。
+        /// </summary>
+        public string All => Lang.All;
 
         /// <summary>
         ///   查找类似 上午 的本地化字符串。
@@ -183,6 +190,11 @@ namespace HandyControl.Properties.Langs
 		public string IsNecessary => Lang.IsNecessary;
 
         /// <summary>
+        ///   查找类似 跳转 的本地化字符串。
+        /// </summary>
+		public string Jump => Lang.Jump;
+
+        /// <summary>
         ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
         /// </summary>
 		public string LangComment => Lang.LangComment;
@@ -276,6 +288,11 @@ namespace HandyControl.Properties.Langs
 
     public class LangKeys
     {
+        /// <summary>
+        ///   查找类似 所有 的本地化字符串。
+        /// </summary>
+        public static string All = nameof(All);
+
         /// <summary>
         ///   查找类似 上午 的本地化字符串。
         /// </summary>
@@ -380,6 +397,11 @@ namespace HandyControl.Properties.Langs
         ///   查找类似 不能为空 的本地化字符串。
         /// </summary>
 		public static string IsNecessary = nameof(IsNecessary);
+
+        /// <summary>
+        ///   查找类似 跳转 的本地化字符串。
+        /// </summary>
+		public static string Jump = nameof(Jump);
 
         /// <summary>
         ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。

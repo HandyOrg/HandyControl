@@ -1,20 +1,21 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Converters.xaml"/>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
-        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <ControlTemplate x:Key="ChatBubbleStringBaseTemplate" TargetType="controls:ChatBubble">
-        <controls:SimplePanel>
+    <ControlTemplate x:Key="ChatBubbleStringBaseTemplate" TargetType="hc:ChatBubble">
+        <hc:SimplePanel>
             <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
             <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
                 <TextBlock TextWrapping="Wrap" Text="{TemplateBinding Content}" VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
             </Border>
-        </controls:SimplePanel>
+        </hc:SimplePanel>
         <ControlTemplate.Triggers>
             <Trigger Property="Role" Value="Receiver">
                 <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
@@ -30,16 +31,16 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ChatBubbleImageBaseTemplate" TargetType="controls:ChatBubble">
-        <controls:SimplePanel>
+    <ControlTemplate x:Key="ChatBubbleImageBaseTemplate" TargetType="hc:ChatBubble">
+        <hc:SimplePanel>
             <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
             <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
-                <controls:SimplePanel>
+                <hc:SimplePanel>
                     <Image Margin="{TemplateBinding Padding}" VerticalAlignment="Center" Source="{TemplateBinding Content}"/>
                     <Border BorderThickness="{TemplateBinding Padding}" BorderBrush="{TemplateBinding Background}" Background="{x:Null}" CornerRadius="15"/>
-                </controls:SimplePanel>
+                </hc:SimplePanel>
             </Border>
-        </controls:SimplePanel>
+        </hc:SimplePanel>
         <ControlTemplate.Triggers>
             <Trigger Property="Role" Value="Receiver">
                 <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
@@ -55,7 +56,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ChatBubbleAudioBaseTemplate" TargetType="controls:ChatBubble">
+    <ControlTemplate x:Key="ChatBubbleAudioBaseTemplate" TargetType="hc:ChatBubble">
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="12" Name="Definition1"/>
@@ -111,13 +112,13 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="ChatBubbleCustomBaseTemplate" TargetType="controls:ChatBubble">
-        <controls:SimplePanel>
+    <ControlTemplate x:Key="ChatBubbleCustomBaseTemplate" TargetType="hc:ChatBubble">
+        <hc:SimplePanel>
             <Path Name="Tail"  Data="{StaticResource BubbleTailGeometry}" Fill="{TemplateBinding Background}" HorizontalAlignment="Right" Stretch="Uniform" VerticalAlignment="Bottom" Width="15" Height="15" RenderTransformOrigin="0.5,0.5"/>
             <Border Name="Body" Background="{TemplateBinding Background}" CornerRadius="15" Margin="0,0,3,0">
                 <ContentPresenter VerticalAlignment="Center" Margin="{TemplateBinding Padding}"/>
             </Border>
-        </controls:SimplePanel>
+        </hc:SimplePanel>
         <ControlTemplate.Triggers>
             <Trigger Property="Role" Value="Receiver">
                 <Setter TargetName="Tail" Property="HorizontalAlignment" Value="Left"/>
@@ -133,7 +134,7 @@
         </ControlTemplate.Triggers>
     </ControlTemplate>
 
-    <Style x:Key="ChatBubbleBaseStyle" TargetType="controls:ChatBubble">
+    <Style x:Key="ChatBubbleBaseStyle" TargetType="hc:ChatBubble">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
         <Setter Property="Background" Value="{DynamicResource DarkPrimaryBrush}"/>

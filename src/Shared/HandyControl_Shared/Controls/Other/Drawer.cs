@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Markup;
@@ -37,12 +38,15 @@ namespace HandyControl.Controls
 
         private Point _contentRenderTransformOrigin;
 
+        static Drawer()
+        {
+            DataContextProperty.OverrideMetadata(typeof(Drawer), new FrameworkPropertyMetadata(DataContextPropertyChanged));
+        }
+
         public Drawer()
         {
             Loaded += Drawer_Loaded;
             Unloaded += Drawer_Unloaded;
-
-            CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => SetCurrentValue(IsOpenProperty, ValueBoxes.FalseBox)));
         }
 
         private void Drawer_Loaded(object sender, RoutedEventArgs e)
@@ -67,6 +71,11 @@ namespace HandyControl.Controls
                 _storyboard.Completed -= Storyboard_Completed;
             }
         }
+
+        private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
+            ((Drawer)d).OnDataContextPropertyChanged(e);
+
+        private void OnDataContextPropertyChanged(DependencyPropertyChangedEventArgs e) => UpdateDataContext(_animationControl, e.OldValue, e.NewValue);
 
         public static readonly RoutedEvent OpenedEvent =
             EventManager.RegisterRoutedEvent("Opened", RoutingStrategy.Bubble,
@@ -100,7 +109,7 @@ namespace HandyControl.Controls
         public bool IsOpen
         {
             get => (bool) GetValue(IsOpenProperty);
-            set => SetValue(IsOpenProperty, value);
+            set => SetValue(IsOpenProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty MaskCanCloseProperty = DependencyProperty.Register(
@@ -109,7 +118,7 @@ namespace HandyControl.Controls
         public bool MaskCanClose
         {
             get => (bool) GetValue(MaskCanCloseProperty);
-            set => SetValue(MaskCanCloseProperty, value);
+            set => SetValue(MaskCanCloseProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ShowMaskProperty = DependencyProperty.Register(
@@ -118,7 +127,7 @@ namespace HandyControl.Controls
         public bool ShowMask
         {
             get => (bool) GetValue(ShowMaskProperty);
-            set => SetValue(ShowMaskProperty, value);
+            set => SetValue(ShowMaskProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty DockProperty = DependencyProperty.Register(
@@ -223,6 +232,9 @@ namespace HandyControl.Controls
                     throw new ArgumentOutOfRangeException();
             }
 
+            _animationControl.DataContext = DataContext;
+            _animationControl.CommandBindings.Clear();
+            _animationControl.CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => SetCurrentValue(IsOpenProperty, ValueBoxes.FalseBox)));
             panel.Children.Add(_animationControl);
             _container = new AdornerContainer(_layer)
             {
@@ -379,6 +391,15 @@ namespace HandyControl.Controls
             if (MaskCanClose)
             {
                 SetCurrentValue(IsOpenProperty, ValueBoxes.FalseBox);
+            }
+        }
+
+        private void UpdateDataContext(FrameworkElement target, object oldValue, object newValue)
+        {
+            if (target == null || BindingOperations.GetBindingExpression(target, DataContextProperty) != null) return;
+            if (ReferenceEquals(this, target.DataContext) || Equals(oldValue, target.DataContext))
+            {
+                target.DataContext = newValue ?? this;
             }
         }
     }

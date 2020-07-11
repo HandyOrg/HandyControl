@@ -28,7 +28,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetAutoTooltip(DependencyObject element, bool value)
-            => element.SetValue(AutoTooltipProperty, value);
+            => element.SetValue(AutoTooltipProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetAutoTooltip(DependencyObject element)
             => (bool) element.GetValue(AutoTooltipProperty);

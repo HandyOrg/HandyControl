@@ -1,14 +1,13 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Globalization;
-#if !netle40
+#if !NET40
 using System.Runtime.CompilerServices;
 #endif
 using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
-using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControl.Properties.Langs;
 
@@ -38,7 +37,7 @@ namespace HandyControl.Tools
             }
         }
 
-        public void SetSystemVersionInfo(SystemVersionInfo info) => BlurWindow.SystemVersionInfo = info;
+        public SystemVersionInfo SystemVersionInfo { get; set; }
 
         public void SetLang(string lang)
         {
@@ -49,7 +48,7 @@ namespace HandyControl.Tools
 
         public void SetConfig(HandyControlConfig config)
         {
-            SetSystemVersionInfo(config.SystemVersionInfo);
+            SystemVersionInfo = config.SystemVersionInfo;
             SetLang(config.Lang);
             SetTimelineFrameRate(config.TimelineFrameRate);
         }
@@ -60,10 +59,10 @@ namespace HandyControl.Tools
         public void SetWindowDefaultStyle(object resourceKey = null)
         {
             var metadata = resourceKey == null
-                ? new FrameworkPropertyMetadata(Application.Current.FindResource(typeof(System.Windows.Window)))
+                ? new FrameworkPropertyMetadata(Application.Current.FindResource(typeof(Window)))
                 : new FrameworkPropertyMetadata(Application.Current.FindResource(resourceKey));
 
-            FrameworkElement.StyleProperty.OverrideMetadata(typeof(System.Windows.Window), metadata);
+            FrameworkElement.StyleProperty.OverrideMetadata(typeof(Window), metadata);
         }
 
         public void SetNavigationWindowDefaultStyle(object resourceKey = null)
@@ -77,7 +76,7 @@ namespace HandyControl.Tools
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-#if netle40
+#if NET40
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

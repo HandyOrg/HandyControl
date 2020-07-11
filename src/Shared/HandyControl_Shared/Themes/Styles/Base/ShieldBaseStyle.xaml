@@ -1,21 +1,22 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../Base/BaseStyle.xaml" />
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/BaseStyle.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="ShieldBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:Shield">
+    <Style x:Key="ShieldBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:Shield">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="3"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="3"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Color" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:Shield">
+                <ControlTemplate TargetType="hc:Shield">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="Auto"/>
@@ -24,7 +25,7 @@
                         <Grid.OpacityMask>
                             <VisualBrush Stretch="None">
                                 <VisualBrush.Visual>
-                                    <Border x:Name="clipMask" Background="White" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <Border x:Name="clipMask" Background="White" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
                                 </VisualBrush.Visual>
                             </VisualBrush>
                         </Grid.OpacityMask>

@@ -1,6 +1,8 @@
+[中文](https://github.com/HandyOrg/HandyControl/blob/master/README-cn.md) - [English](https://github.com/HandyOrg/HandyControl/blob/master/README.md)
+
 ![logo](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/icon.png)
 
-![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg) ![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl) [![appveyor-build-status](https://ci.appveyor.com/api/projects/status/github/handyorg/handycontrol?svg=true)](https://ci.appveyor.com/project/handyorg/handycontrol) ![Github-build-status](https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![wiki](https://img.shields.io/badge/wiki-Complete-brightgreen.svg)](https://github.com/ghost1372/HandyControl/wiki) [![Nuget](https://img.shields.io/nuget/dt/handycontrol)](https://www.nuget.org/packages/HandyControl)
+![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg) ![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl) ![Github-build-status](https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![wiki](https://img.shields.io/badge/wiki-Complete-brightgreen.svg)](https://github.com/ghost1372/HandyControl/wiki) [![Nuget](https://img.shields.io/nuget/dt/handycontrol)](https://www.nuget.org/packages/HandyControl)
 
 # Welcome to HandyControl
 
@@ -8,10 +10,14 @@
 
 ### 加入讨论
 
-| | 1群 (已满) | 2群 |
-|-|:-:|:-:|
-| 群号码 | [![qq-group](https://img.shields.io/badge/qq-714704041-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1) | [![qq-group](https://img.shields.io/badge/qq-858784803-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=5c18622a0f6ee07a6f33afa8cdb85b1f72ea50e878271dfcec919c76b55afee7) |
-| 二维码 | ![qq-group](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/qq_group_1.png) | ![qq-group](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/qq_group_2.png) |
+| | 西江月群 | 定风波群 | 广寒秋群 |
+|-|:-:|:-:|:-:|
+| 群号码 | [![qq-group](https://img.shields.io/badge/qq-714704041-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1) | [![qq-group](https://img.shields.io/badge/qq-858784803-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=5c18622a0f6ee07a6f33afa8cdb85b1f72ea50e878271dfcec919c76b55afee7) | 微信群 |
+| 二维码 | ![qq-group](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/qq_group_1.png) | ![qq-group](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/qq_group_2.png) | ![wechat-group](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/wechat_group.png) |
+
+### 码云
+
+[https://gitee.com/handyorg/HandyControl/](https://gitee.com/handyorg/HandyControl/)
 
 ### 中文文档
 
@@ -27,55 +33,59 @@
 
 ## Contributors
 
-<a href="https://github.com/ghost1372" target="_blank"><img width="64px" alt="ghost1372" src="https://avatars0.githubusercontent.com/u/9213496?s=64&amp;v=4"></a>
-<a href="https://github.com/DingpingZhang" target="_blank"><img width="64px" alt="DingpingZhang" src="https://avatars0.githubusercontent.com/u/8541016?s=64&v=4"></a>
-<a href="https://github.com/M0n7y5" target="_blank"><img width="64px" alt="M0n7y5" src="https://avatars0.githubusercontent.com/u/17201053?s=64&v=4"></a>
-<a href="https://github.com/guanguanchuangyu" target="_blank"><img width="64px" alt="guanguanchuangyu" src="https://avatars1.githubusercontent.com/u/25916858?s=64&v=4"></a>
-<a href="https://github.com/yanchao891012" target="_blank"><img width="64px" alt="yanchao891012" src="https://avatars0.githubusercontent.com/u/16846702?s=64&v=4"></a>
-<a href="https://github.com/noctwolf" target="_blank"><img width="64px" alt="noctwolf" src="https://avatars3.githubusercontent.com/u/21022467?s=64&v=4"></a>
-<a href="https://github.com/xianyun666" target="_blank"><img width="64px" alt="xianyun666" src="https://avatars1.githubusercontent.com/u/22339210?s=64&v=4"></a>
-<a href="https://github.com/afunc233" target="_blank"><img width="64px" alt="afunc233" src="https://avatars1.githubusercontent.com/u/19919631?s=64&v=4"></a>
-<a href="https://github.com/DinoChan" target="_blank"><img width="64px" alt="DinoChan" src="https://avatars1.githubusercontent.com/u/6076257?s=64&v=4"></a>
-<a href="https://github.com/MrZhangYuan" target="_blank"><img width="64px" alt="MrZhangYuan" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
-<a href="https://github.com/JinhuaChen-OMEC" target="_blank"><img width="64px" alt="JinhuaChen-OMEC" src="https://avatars0.githubusercontent.com/u/47024703?s=64&v=4"></a>
-<a href="https://github.com/seedtyx" target="_blank"><img width="64px" alt="seedtyx" src="https://avatars2.githubusercontent.com/u/5851975?s=64&v=4"></a>
-<a href="https://github.com/KleinPan" target="_blank"><img width="64px" alt="KleinPan" src="https://avatars2.githubusercontent.com/u/34428802?s=64&v=4"></a>
-<a href="https://github.com/yxhq" target="_blank"><img width="64px" alt="yxhq" src="https://avatars3.githubusercontent.com/u/10378954?s=400&v=4"></a>
+<a href="https://github.com/ghost1372" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ghost1372" src="https://avatars0.githubusercontent.com/u/9213496?s=64&amp;v=4"></a>
+<a href="https://github.com/DingpingZhang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="DingpingZhang" src="https://avatars0.githubusercontent.com/u/8541016?s=64&v=4"></a>
+<a href="https://github.com/M0n7y5" target="_blank"><img style="border-radius:50%!important" width="64px" alt="M0n7y5" src="https://avatars0.githubusercontent.com/u/17201053?s=64&v=4"></a>
+<a href="https://github.com/guanguanchuangyu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="guanguanchuangyu" src="https://avatars1.githubusercontent.com/u/25916858?s=64&v=4"></a>
+<a href="https://github.com/yanchao891012" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yanchao891012" src="https://avatars0.githubusercontent.com/u/16846702?s=64&v=4"></a>
+<a href="https://github.com/noctwolf" target="_blank"><img style="border-radius:50%!important" width="64px" alt="noctwolf" src="https://avatars3.githubusercontent.com/u/21022467?s=64&v=4"></a>
+<a href="https://github.com/xianyun666" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xianyun666" src="https://avatars1.githubusercontent.com/u/22339210?s=64&v=4"></a>
+<a href="https://github.com/afunc233" target="_blank"><img style="border-radius:50%!important" width="64px" alt="afunc233" src="https://avatars1.githubusercontent.com/u/19919631?s=64&v=4"></a>
+<a href="https://github.com/DinoChan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="DinoChan" src="https://avatars1.githubusercontent.com/u/6076257?s=64&v=4"></a>
+<a href="https://github.com/MrZhangYuan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="MrZhangYuan" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
+<a href="https://github.com/JinhuaChen-OMEC" target="_blank"><img style="border-radius:50%!important" width="64px" alt="JinhuaChen-OMEC" src="https://avatars0.githubusercontent.com/u/47024703?s=64&v=4"></a>
+<a href="https://github.com/seedtyx" target="_blank"><img style="border-radius:50%!important" width="64px" alt="seedtyx" src="https://avatars2.githubusercontent.com/u/5851975?s=64&v=4"></a>
+<a href="https://github.com/KleinPan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="KleinPan" src="https://avatars2.githubusercontent.com/u/34428802?s=64&v=4"></a>
+<a href="https://github.com/yxhq" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yxhq" src="https://avatars3.githubusercontent.com/u/10378954?s=64&v=4"></a>
+<a href="https://github.com/AiHaibara" target="_blank"><img style="border-radius:50%!important" width="64px" alt="AiHaibara" src="https://avatars3.githubusercontent.com/u/5195234?s=64&v=4"></a>
+<a href="https://github.com/walterlv" target="_blank"><img style="border-radius:50%!important" width="64px" alt="walterlv" src="https://avatars3.githubusercontent.com/u/9959623?s=64&v=4"></a>
+<a href="https://github.com/Luoyingliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Luoyingliang" src="https://avatars2.githubusercontent.com/u/29297262?s=64&v=4"></a>
+<a href="https://github.com/lindexi" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lindexi" src="https://avatars3.githubusercontent.com/u/16054566?s=64&v=4"></a>
+<a href="https://github.com/danwalmsley" target="_blank"><img style="border-radius:50%!important" width="64px" alt="danwalmsley" src="https://avatars1.githubusercontent.com/u/4672627?s=64&v=4"></a>
 
 ## Backers
 
-<a href="https://github.com/bigorange1900" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/49062011?s=64&v=4"></a>
-<a href="https://github.com/14632791" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/27358331?s=64&v=4"></a>
-<a href="https://github.com/IUpdatable" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/51181716?s=64&v=4"></a>
-<a href="https://github.com/maplewei" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/13778095?s=64&v=4"></a>
-<a href="https://github.com/sunshang-hl" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/34593206?s=64&v=4"></a>
-<a href="https://github.com/yangkang326" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/51224259?s=64&v=4"></a>	
-<a href="https://github.com/zmrbak" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/7257543?s=64&v=4"></a>	
-<a href="https://github.com/AFei19911012" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/31465314?s=64&v=4"></a>
-<a href="https://github.com/wayne2006" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/21210915?s=64&v=4"></a>
-<a href="https://github.com/towerDLH" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/53053537?s=64&v=4"></a>
-<a href="https://github.com/BluceBosen" target="_blank"><img width="64px" src="https://avatars3.githubusercontent.com/u/24750822?s=64&v=4"></a>
-<a href="https://github.com/MrZhangYuan" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
-<a href="https://github.com/YC946586" target="_blank"><img width="64px" src="https://avatars2.githubusercontent.com/u/49895722?s=64&v=4"></a>
-<a href="https://github.com/wihalo" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/26402999?s=64&v=4"></a>
-<a href="https://github.com/startewho" target="_blank"><img width="64px" src="https://avatars0.githubusercontent.com/u/898009?s=64&v=4"></a>
-<a href="https://github.com/5653325" target="_blank"><img width="64px" src="https://avatars1.githubusercontent.com/u/3361135?s=64&v=4"></a>
+<a href="https://github.com/bigorange1900" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars1.githubusercontent.com/u/49062011?s=64&v=4"></a>
+<a href="https://github.com/14632791" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars3.githubusercontent.com/u/27358331?s=64&v=4"></a>
+<a href="https://github.com/IUpdatable" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars2.githubusercontent.com/u/51181716?s=64&v=4"></a>
+<a href="https://github.com/maplewei" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars1.githubusercontent.com/u/13778095?s=64&v=4"></a>
+<a href="https://github.com/sunshang-hl" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars1.githubusercontent.com/u/34593206?s=64&v=4"></a>
+<a href="https://github.com/yangkang326" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars1.githubusercontent.com/u/51224259?s=64&v=4"></a>	
+<a href="https://github.com/zmrbak" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars3.githubusercontent.com/u/7257543?s=64&v=4"></a>	
+<a href="https://github.com/AFei19911012" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars0.githubusercontent.com/u/31465314?s=64&v=4"></a>
+<a href="https://github.com/wayne2006" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars0.githubusercontent.com/u/21210915?s=64&v=4"></a>
+<a href="https://github.com/towerDLH" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars1.githubusercontent.com/u/53053537?s=64&v=4"></a>
+<a href="https://github.com/BluceBosen" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars3.githubusercontent.com/u/24750822?s=64&v=4"></a>
+<a href="https://github.com/MrZhangYuan" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
+<a href="https://github.com/YC946586" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars2.githubusercontent.com/u/49895722?s=64&v=4"></a>
+<a href="https://github.com/wihalo" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars0.githubusercontent.com/u/26402999?s=64&v=4"></a>
+<a href="https://github.com/startewho" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars0.githubusercontent.com/u/898009?s=64&v=4"></a>
+<a href="https://github.com/5653325" target="_blank"><img style="border-radius:50%!important" width="64px" src="https://avatars1.githubusercontent.com/u/3361135?s=64&v=4"></a>
 
 ## Special thanks to
 
 [![Visual Studio Community 2019](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/vs2019_logo.png)](https://visualstudio.microsoft.com/free-developer-offers/)
 [![JetBrains](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
 [![Cake](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/cake_logo.png)](https://cakebuild.net/)
-[![AppVeyor](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/appveyor_logo.png)](https://www.appveyor.com/)
 [![Gitter](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/gitter_logo.png)](https://gitter.im/)
 
 ## Usage
 
-Step 1：Add a reference to HandyControl or search for HandyControl on the nuget; 
+Step 1: Add a reference to HandyControl or search for HandyControl on the nuget; 
 
 ```Install-Package HandyControl```
 
-Step 2：Add code in App.xaml as follows:
+Step 2: Add code in App.xaml as follows:
 ```XML
 <Application.Resources>
     <ResourceDictionary>
@@ -90,12 +100,16 @@ Step 2：Add code in App.xaml as follows:
 Step 3: Add NameSpace:
 `xmlns:hc="https://handyorg.github.io/handycontrol"`
 
-Step 4：enjoy coding
+Step 4: Enjoy coding
 
 ## VSIX packages for Visual Studio
 
 | [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019) |
 | ------------- |
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/HandyOrg/HandyControl.svg)](https://starchart.cc/HandyOrg/HandyControl)
 
 ## Overview
 
@@ -105,6 +119,18 @@ Step 4：enjoy coding
 
 ## Latest examples
 
+### CheckComboBox
+
+![CheckComboBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CheckComboBox.png)
+
+### ImageSelector
+
+![ImageSelector](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ImageSelector.png)
+
+### PropertyGrid
+
+![PropertyGrid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PropertyGrid.png)
+
 ### Screenshot
 
 ![Screenshot](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Screenshot.png)
@@ -112,6 +138,8 @@ Step 4：enjoy coding
 ### GooeyEffect
 
 ![GooeyEffect](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GooeyEffect.gif)
+
+## History publication
 
 ### GlowWindow
 
@@ -124,8 +152,6 @@ Step 4：enjoy coding
 ### PinBox
 
 ![PinBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PinBox.png)
-
-## History publication
 
 ### Effects
 

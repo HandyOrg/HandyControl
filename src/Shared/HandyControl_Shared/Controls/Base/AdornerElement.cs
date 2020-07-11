@@ -50,7 +50,7 @@ namespace HandyControl.Controls
             "IsInstance", typeof(bool), typeof(AdornerElement), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public static void SetIsInstance(DependencyObject element, bool value)
-            => element.SetValue(IsInstanceProperty, value);
+            => element.SetValue(IsInstanceProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetIsInstance(DependencyObject element)
             => (bool) element.GetValue(IsInstanceProperty);

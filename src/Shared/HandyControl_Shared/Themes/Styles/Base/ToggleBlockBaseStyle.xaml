@@ -1,29 +1,34 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="ToggleBlockBaseStyle" TargetType="controls:ToggleBlock">
-        <Setter Property="IsHitTestVisible" Value="False"/>
+    <Style x:Key="ToggleBlockBaseStyle" TargetType="hc:ToggleBlock">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:ToggleBlock">
+                <ControlTemplate TargetType="hc:ToggleBlock">
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <controls:SimplePanel Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
+                        <hc:SimplePanel Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}">
                             <ContentPresenter Name="ContentPresenterChecked" ContentSource="CheckedContent" Visibility="Collapsed"/>
                             <ContentPresenter Name="ContentPresenterUnChecked" ContentSource="UnCheckedContent"/>
                             <ContentPresenter Name="ContentPresenterIndeterminate" ContentSource="IndeterminateContent" Visibility="Collapsed"/>
-                        </controls:SimplePanel>
+                        </hc:SimplePanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
                             <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="ContentPresenterIndeterminate" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="False">
+                            <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="ContentPresenterIndeterminate" Property="Visibility" Value="Collapsed"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="{x:Null}">
+                            <Setter TargetName="ContentPresenterChecked" Property="Visibility" Value="Collapsed"/>
+                            <Setter TargetName="ContentPresenterUnChecked" Property="Visibility" Value="Collapsed"/>
                             <Setter TargetName="ContentPresenterIndeterminate" Property="Visibility" Value="Visible"/>
                         </Trigger>
                     </ControlTemplate.Triggers>

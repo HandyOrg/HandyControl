@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using HandyControl.Data;
-using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
 using HandyControlDemo.ViewModel;
 
@@ -15,6 +14,8 @@ namespace HandyControlDemo.UserControl
     /// </summary>
     public partial class LeftMainContent
     {
+        private string _searchKey;
+
         public LeftMainContent()
         {
             InitializeComponent();
@@ -29,6 +30,7 @@ namespace HandyControlDemo.UserControl
                 var selectedIndex = demoInfo.SelectedIndex;
                 demoInfo.SelectedIndex = -1;
                 demoInfo.SelectedIndex = selectedIndex;
+                FilterItems();
             }
         }
 
@@ -49,13 +51,45 @@ namespace HandyControlDemo.UserControl
 
         private void SearchBar_OnSearchStarted(object sender, FunctionEventArgs<string> e)
         {
-            if (e.Info == null) return;
-            if (!(sender is FrameworkElement searchBar && searchBar.Tag is ListBox listBox)) return;
-            foreach (DemoItemModel item in listBox.Items)
+            _searchKey = e.Info;
+            FilterItems();
+        }
+
+        private void FilterItems()
+        {
+            if (string.IsNullOrEmpty(_searchKey))
             {
-                var listBoxItem = listBox.ItemContainerGenerator.ContainerFromItem(item) as ListBoxItem;
-                listBoxItem?.Show(item.Name.ToLower().Contains(e.Info.ToLower()) ||
-                                  item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(e.Info.ToLower()));
+                foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
+                {
+                    item.IsVisible = true;
+                }
+            }
+            else
+            {
+                var key = _searchKey.ToLower();
+                foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
+                {
+                    if (item.Name.ToLower().Contains(key))
+                    {
+                        item.IsVisible = true;
+                    }
+                    else if (item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(key))
+                    {
+                        item.IsVisible = true;
+                    }
+                    else
+                    {
+                        var name = Properties.Langs.LangProvider.GetLang(item.Name);
+                        if (!string.IsNullOrEmpty(name) && name.ToLower().Contains(key))
+                        {
+                            item.IsVisible = true;
+                        }
+                        else
+                        {
+                            item.IsVisible = false;
+                        }
+                    }
+                }
             }
         }
     }

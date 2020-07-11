@@ -130,7 +130,7 @@ namespace HandyControl.Controls
         public bool IsDropDownOpen
         {
             get => (bool)GetValue(IsDropDownOpenProperty);
-            set => SetValue(IsDropDownOpenProperty, value);
+            set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty IsDropDownOpenProperty =
@@ -262,7 +262,7 @@ namespace HandyControl.Controls
         public bool IsError
         {
             get => (bool)GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, value);
+            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
@@ -289,7 +289,7 @@ namespace HandyControl.Controls
         public bool ShowClearButton
         {
             get => (bool)GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value);
+            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ClockProperty = DependencyProperty.Register(
