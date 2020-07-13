@@ -26,7 +26,6 @@ namespace HandyControl.Controls
 
         private System.Windows.Controls.TextBox _textBox;
 
-
         /// <summary>
         ///     掩码字符
         /// </summary>
@@ -105,6 +104,40 @@ namespace HandyControl.Controls
         {
             get => (bool)GetValue(ShowPasswordProperty);
             set => SetValue(ShowPasswordProperty, ValueBoxes.BooleanBox(value));
+        }
+
+        public static readonly DependencyProperty IsSafeEnabledProperty = DependencyProperty.Register(
+            "IsSafeEnabled", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.TrueBox, OnIsSafeEnabledChanged));
+
+        private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var p = (PasswordBox)d;
+            p.SetCurrentValue(UnsafePasswordProperty, !(bool)e.NewValue ? p.Password : string.Empty);
+        }
+
+        public bool IsSafeEnabled
+        {
+            get => (bool) GetValue(IsSafeEnabledProperty);
+            set => SetValue(IsSafeEnabledProperty, ValueBoxes.BooleanBox(value));
+        }
+
+        public static readonly DependencyProperty UnsafePasswordProperty = DependencyProperty.Register(
+            "UnsafePassword", typeof(string), typeof(PasswordBox), new FrameworkPropertyMetadata(default(string), 
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
+
+        private static void OnUnsafePasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var p = (PasswordBox) d;
+            if (!p.IsSafeEnabled)
+            {
+                p.Password = e.NewValue != null ? e.NewValue.ToString() : string.Empty;
+            }
+        }
+
+        public string UnsafePassword
+        {
+            get => (string) GetValue(UnsafePasswordProperty);
+            set => SetValue(UnsafePasswordProperty, value);
         }
 
         public static readonly DependencyProperty MaxLengthProperty =
@@ -193,6 +226,7 @@ namespace HandyControl.Controls
                     return;
                 }
 
+                if (Equals(ActualPasswordBox.Password, value)) return;
                 ActualPasswordBox.Password = value;
             }
         }
@@ -317,7 +351,13 @@ namespace HandyControl.Controls
             _textBox.Clear();
         }
 
-        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e) => VerifyData();
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
+        {
+            if (VerifyData() && !IsSafeEnabled)
+            {
+                SetCurrentValue(UnsafePasswordProperty, ActualPasswordBox.Password);
+            }
+        }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e) => VerifyData();
     }
