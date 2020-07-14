@@ -8,6 +8,7 @@ using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 using HandyControl.Tools.Interop;
+using System.Windows.Controls.Primitives;
 #if NET40
 using Microsoft.Windows.Shell;
 #else
@@ -17,9 +18,11 @@ using System.Windows.Shell;
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = ElementNonClientArea, Type = typeof(UIElement))]
+    [TemplatePart(Name = FullScreenButton, Type = typeof(ToggleButton))]
     public class Window : System.Windows.Window
     {
         private const string ElementNonClientArea = "PART_NonClientArea";
+        private const string FullScreenButton = "PART_ButtonFull";
 
         public static readonly DependencyProperty NonClientAreaContentProperty = DependencyProperty.Register(
             "NonClientAreaContent", typeof(object), typeof(Window), new PropertyMetadata(default(object)));
@@ -79,6 +82,10 @@ namespace HandyControl.Controls
             "IsFullScreen", typeof(bool), typeof(Window),
             new PropertyMetadata(ValueBoxes.FalseBox, OnIsFullScreenChanged));
 
+        public static readonly DependencyProperty ShowFullScreenButtonProperty = DependencyProperty.Register(
+            "ShowFullScreenButton", typeof(bool), typeof(Window),
+            new PropertyMetadata(ValueBoxes.FalseBox));
+
         private bool _isFullScreen;
 
         private Thickness _actualBorderThickness;
@@ -96,6 +103,8 @@ namespace HandyControl.Controls
         private ResizeMode _tempResizeMode;
 
         private UIElement _nonClientArea;
+
+        private ToggleButton _fullScreenButton;
 
         static Window()
         {
@@ -203,6 +212,12 @@ namespace HandyControl.Controls
         {
             get => (double)GetValue(NonClientAreaHeightProperty);
             set => SetValue(NonClientAreaHeightProperty, value);
+        }
+
+        public bool ShowFullScreenButton
+        {
+            get => (bool)GetValue(ShowFullScreenButtonProperty);
+            set => SetValue(ShowFullScreenButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool IsFullScreen
@@ -410,6 +425,32 @@ namespace HandyControl.Controls
             base.OnApplyTemplate();
 
             _nonClientArea = GetTemplateChild(ElementNonClientArea) as UIElement;
+            _fullScreenButton = GetTemplateChild(FullScreenButton) as ToggleButton;
+
+            _fullScreenButton.Checked += OnFullScreenChange;
+            _fullScreenButton.Unchecked += OnFullScreenChange;
+        }
+
+        private void OnFullScreenChange(object sender, RoutedEventArgs e)
+        {
+            var tg = sender as ToggleButton;
+            if (tg.IsChecked.Value)
+            {
+                _tempWindowState = WindowState;
+                _tempWindowStyle = WindowStyle;
+                _tempResizeMode = ResizeMode;
+                WindowStyle = WindowStyle.None;
+                //下面三行不能改变，就是故意的
+                WindowState = WindowState.Maximized;
+                WindowState = WindowState.Minimized;
+                WindowState = WindowState.Maximized;
+            }
+            else
+            {
+                WindowState = _tempWindowState;
+                WindowStyle = _tempWindowStyle;
+                ResizeMode = _tempResizeMode;
+            }
         }
 
         private void ShowSystemMenu(object sender, ExecutedRoutedEventArgs e)

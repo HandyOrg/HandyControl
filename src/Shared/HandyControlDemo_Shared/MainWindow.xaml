@@ -11,6 +11,7 @@
            Background="{DynamicResource SecondaryRegionBrush}"
            ActiveGlowColor="{DynamicResource PrimaryColor}"
            ResizeMode="CanResizeWithGrip"
+           ShowFullScreenButton="True"
            WindowStartupLocation="CenterScreen"
            d:DesignHeight="800" 
            d:DesignWidth="1400" 
