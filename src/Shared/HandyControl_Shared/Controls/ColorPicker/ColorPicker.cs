@@ -131,33 +131,33 @@ namespace HandyControl.Controls
         {
             new ColorRange
             {
-                Color1 = Color.FromRgb(255, 0, 0),
-                Color2 = Color.FromRgb(255, 0, 255)
+                Start = Color.FromRgb(255, 0, 0),
+                End = Color.FromRgb(255, 0, 255)
             },
             new ColorRange
             {
-                Color1 = Color.FromRgb(255, 0, 255),
-                Color2 = Color.FromRgb(0, 0, 255)
+                Start = Color.FromRgb(255, 0, 255),
+                End = Color.FromRgb(0, 0, 255)
             },
             new ColorRange
             {
-                Color1 = Color.FromRgb(0, 0, 255),
-                Color2 = Color.FromRgb(0, 255, 255)
+                Start = Color.FromRgb(0, 0, 255),
+                End = Color.FromRgb(0, 255, 255)
             },
             new ColorRange
             {
-                Color1 = Color.FromRgb(0, 255, 255),
-                Color2 = Color.FromRgb(0, 255, 0)
+                Start = Color.FromRgb(0, 255, 255),
+                End = Color.FromRgb(0, 255, 0)
             },
             new ColorRange
             {
-                Color1 = Color.FromRgb(0, 255, 0),
-                Color2 = Color.FromRgb(255, 255, 0)
+                Start = Color.FromRgb(0, 255, 0),
+                End = Color.FromRgb(255, 255, 0)
             },
             new ColorRange
             {
-                Color1 = Color.FromRgb(255, 255, 0),
-                Color2 = Color.FromRgb(255, 0, 0)
+                Start = Color.FromRgb(255, 255, 0),
+                End = Color.FromRgb(255, 0, 0)
             }
         };
 

@@ -9,6 +9,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style TargetType="hc:TimeBar">
+        <Setter Property="HotspotsBrush" Value="{DynamicResource AccentBrush}"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="BorderThickness" Value="0,1,0,0"/>
@@ -46,8 +47,9 @@
                             </Border>
                             <TextBlock Visibility="{TemplateBinding ShowSpeStr,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{TemplateBinding SpeStr}" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,10,0"/>
                             <TextBlock Visibility="Collapsed" Name="PART_TextBlockMove" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,2,0,0"/>
-                            <Border Width="1" Background="{DynamicResource DangerBrush}"/>
                             <Canvas Name="PART_CanvasSpe" VerticalAlignment="Bottom" Height="28"/>
+                            <hc:SimplePanel x:Name="PART_Hotspots" Margin="0,48,0,0" VerticalAlignment="Top" Visibility="{Binding Hotspots,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Object2VisibilityConverter}}"/>
+                            <Border Width="1" Background="{DynamicResource DangerBrush}"/>
                             <Border Name="PART_BorderTop" Background="Transparent" Cursor="Hand"/>
                         </hc:SimplePanel>
                     </Border>

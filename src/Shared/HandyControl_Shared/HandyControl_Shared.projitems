@@ -72,8 +72,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\RunningBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\SimpleText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Collections\DateTimeRangeComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Range\DateTimeRange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DisposableObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\EnumDataProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\EnumDataProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\DrawerShowMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HatchStyle.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\HitMode.cs" />
@@ -88,7 +90,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowDrawingContext.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\GlowWindow\GlowEdge.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\HwndWrapper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\ImageCodecInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Info\ImageCodecInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Range\DoubleRange.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Range\IValueRange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\CloseWindowCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\OpenLinkCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\StartScreenshotCommand.cs" />
@@ -126,6 +130,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\LangExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\StringExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\ValueExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Generator\ComparerGenerator.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\GlobalShortcut.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\StatusSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TipElement.cs" />
@@ -223,7 +228,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\FunctionEventArgs!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\KeyboardHookEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Args\MouseHookEventArgs.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\ColorRange.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Range\ColorRange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\BadgeStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatMessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ChatRoleType.cs" />
@@ -243,14 +248,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GifPropertyItemInternal.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Gif\GPStream.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\GrowlInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Info\GrowlInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\HandyControlConfig.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\MessageBoxInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Info\MessageBoxInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\MouseHookMessageType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Operation\OperationResult!1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Operation\OperationResult.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ResourceToken.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\SystemVersionInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Info\SystemVersionInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\ValueBoxes.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Expression\Drawing\BezierCurveFlattener.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Expression\Drawing\CommonExtensions.cs" />
@@ -1084,6 +1089,7 @@
     <None Include="$(MSBuildThisFileDirectory)Resources\Effects\GrayScaleEffect.fx" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Data\Info\" />
     <Folder Include="$(MSBuildThisFileDirectory)Tools\Interop\Handle\" />
   </ItemGroup>
 </Project>

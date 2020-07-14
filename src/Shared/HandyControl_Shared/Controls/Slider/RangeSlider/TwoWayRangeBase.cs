@@ -77,19 +77,19 @@ namespace HandyControl.Controls
         private static void OnValueStartChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctrl = (TwoWayRangeBase)d;
-            ctrl.OnValueChanged(new TwoWayRange
+            ctrl.OnValueChanged(new DoubleRange
             {
-                ValueStart = (double)e.OldValue,
-                ValueEnd = ctrl.ValueEnd
-            }, new TwoWayRange
+                Start = (double)e.OldValue,
+                End = ctrl.ValueEnd
+            }, new DoubleRange
             {
-                ValueStart = (double)e.NewValue,
-                ValueEnd = ctrl.ValueEnd
+                Start = (double)e.NewValue,
+                End = ctrl.ValueEnd
             });
         }
 
-        protected virtual void OnValueChanged(TwoWayRange oldValue, TwoWayRange newValue) => RaiseEvent(
-            new RoutedPropertyChangedEventArgs<TwoWayRange>(oldValue, newValue) {RoutedEvent = ValueChangedEvent});
+        protected virtual void OnValueChanged(DoubleRange oldValue, DoubleRange newValue) => RaiseEvent(
+            new RoutedPropertyChangedEventArgs<DoubleRange>(oldValue, newValue) {RoutedEvent = ValueChangedEvent});
 
         public double ValueStart
         {
@@ -106,14 +106,14 @@ namespace HandyControl.Controls
         private static void OnValueEndChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctrl = (TwoWayRangeBase)d;
-            ctrl.OnValueChanged(new TwoWayRange
+            ctrl.OnValueChanged(new DoubleRange
             {
-                ValueStart = ctrl.ValueStart,
-                ValueEnd = (double)e.OldValue
-            }, new TwoWayRange
+                Start = ctrl.ValueStart,
+                End = (double)e.OldValue
+            }, new DoubleRange
             {
-                ValueStart = ctrl.ValueStart,
-                ValueEnd = (double)e.NewValue
+                Start = ctrl.ValueStart,
+                End = (double)e.NewValue
             });
         }
 
@@ -163,19 +163,12 @@ namespace HandyControl.Controls
         }
 
         public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent("ValueChanged",
-            RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<TwoWayRange>), typeof(TwoWayRangeBase));
+            RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<DoubleRange>), typeof(TwoWayRangeBase));
 
-        public event RoutedPropertyChangedEventHandler<TwoWayRange> ValueChanged
+        public event RoutedPropertyChangedEventHandler<DoubleRange> ValueChanged
         {
             add => AddHandler(ValueChangedEvent, value);
             remove => RemoveHandler(ValueChangedEvent, value);
         }
-    }
-
-    public struct TwoWayRange
-    {
-        public double ValueStart { get; set; }
-
-        public double ValueEnd { get; set; }
     }
 }

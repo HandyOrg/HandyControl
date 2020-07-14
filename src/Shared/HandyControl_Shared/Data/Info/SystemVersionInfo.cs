@@ -5,7 +5,7 @@ using System;
 
 namespace HandyControl.Data
 {
-    public struct SystemVersionInfo
+    public readonly struct SystemVersionInfo
     {
         public static SystemVersionInfo Windows10 => new SystemVersionInfo(10, 0, 10240);
 
