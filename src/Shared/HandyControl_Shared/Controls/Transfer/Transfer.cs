@@ -57,7 +57,7 @@ namespace HandyControl.Controls
 
         public IList SelectedItems
         {
-            get => (IList) GetValue(SelectedItemsProperty);
+            get => (IList)GetValue(SelectedItemsProperty);
             set => SetValue(SelectedItemsProperty, value);
         }
 
@@ -98,16 +98,18 @@ namespace HandyControl.Controls
             }
         }
 
-        private void AddItem(object item)
+        private void InsertItem(int index, object item, bool isTransferred = false)
         {
             var origin = new TransferItem
             {
-                Content = item
+                Content = item,
+                IsTransferred = isTransferred
             };
             var selected = new TransferItem
             {
                 Content = item,
-                IsOrigin = false
+                IsOrigin = false,
+                IsTransferred = isTransferred
             };
             var entry = new TransferEntry
             {
@@ -115,10 +117,12 @@ namespace HandyControl.Controls
                 SelectedItem = selected
             };
             _entryDic.Add(item, entry);
-            _entryList.Add(entry);
-            _itemsOrigin.Items.Add(origin);
-            _itemsSelected.Items.Add(selected);
+            _entryList.Insert(index, entry);
+            _itemsOrigin.Items.Insert(index, origin);
+            _itemsSelected.Items.Insert(index, selected);
         }
+
+        private void AddItem(object item) => InsertItem(_entryDic.Count, item);
 
         private void RemoveItem(object item)
         {
@@ -178,19 +182,42 @@ namespace HandyControl.Controls
                 return;
             }
 
-            if (e.OldItems != null)
+            switch (e.Action)
             {
-                foreach (var item in e.OldItems)
-                {
-                    RemoveItem(item);
-                }
-            }
-            if (e.NewItems != null)
-            {
-                foreach (var item in e.NewItems)
-                {
-                    AddItem(item);
-                }
+                case NotifyCollectionChangedAction.Add:
+                    if (e.NewItems != null)
+                    {
+                        foreach (var item in e.NewItems)
+                        {
+                            AddItem(item);
+                        }
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Remove:
+                    if (e.OldItems != null)
+                    {
+                        foreach (var item in e.OldItems)
+                        {
+                            RemoveItem(item);
+                        }
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Replace:
+                case NotifyCollectionChangedAction.Move:
+                    if (e.OldItems != null && e.NewItems != null)
+                    {
+                        var oldItem = e.OldItems[0];
+                        if (_entryDic.TryGetValue(oldItem, out var entry))
+                        {
+                            var isTransferred = entry.SelectedItem.IsTransferred;
+                            RemoveItem(oldItem);
+                            InsertItem(e.NewStartingIndex, e.NewItems[0], isTransferred);
+                        }
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Reset:
+                    ClearItems();
+                    break;
             }
         }
 
@@ -219,12 +246,12 @@ namespace HandyControl.Controls
 
         protected override void OnItemTemplateChanged(DependencyPropertyChangedEventArgs e)
         {
-            
+
         }
 
         protected override void OnItemContainerStyleChanged(DependencyPropertyChangedEventArgs e)
         {
-            
+
         }
 
         protected override void Refresh()

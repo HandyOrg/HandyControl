@@ -43,10 +43,10 @@ namespace HandyControl.Controls
             }
             if (e.NewItems != null)
             {
-                foreach (FrameworkElement item in e.NewItems)
+                if (e.NewItems[0] is FrameworkElement item)
                 {
                     item.Style = ItemContainerStyle;
-                    ItemsHost.Children.Add(item);
+                    ItemsHost.Children.Insert(e.NewStartingIndex, item);
                 }
             }
         }
