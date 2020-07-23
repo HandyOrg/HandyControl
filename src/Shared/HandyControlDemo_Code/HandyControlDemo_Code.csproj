@@ -72,6 +72,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ChatBubbleDemoCtl.xaml">
       <Link>UserControl\Controls\ChatBubbleDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CheckComboBoxDemoCtl.xaml">
+      <Link>UserControl\Controls\CheckComboBoxDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CirclePanelDemoCtl.xaml">
       <Link>UserControl\Controls\CirclePanelDemoCtl.xaml</Link>
     </Resource>
@@ -440,6 +443,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ChatBubbleDemoCtl.xaml.cs">
       <Link>UserControl\Controls\ChatBubbleDemoCtl.xaml.cs</Link>
       <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs</Link>
+      <DependentUpon>CheckComboBoxDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\CirclePanelDemoCtl.xaml.cs</Link>
