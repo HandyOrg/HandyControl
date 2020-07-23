@@ -10,17 +10,12 @@ namespace HandyControlDemo.UserControl
         public ChatBox()
         {
             InitializeComponent();
-
             ListBoxChat.ItemContainerGenerator.ItemsChanged += ItemContainerGenerator_ItemsChanged;
         }
 
         private void ItemContainerGenerator_ItemsChanged(object sender, System.Windows.Controls.Primitives.ItemsChangedEventArgs e)
         {
-            if (_scrollViewer == null)
-            {
-                _scrollViewer = VisualHelper.GetChild<ScrollViewer>(ListBoxChat);
-            }
-
+            _scrollViewer ??= VisualHelper.GetChild<ScrollViewer>(ListBoxChat);
             _scrollViewer?.ScrollToBottom();
         }
     }

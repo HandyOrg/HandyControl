@@ -49,7 +49,7 @@ public class AnimationPath : Shape
 
 设置动画重复行为，默认为`Forever`，可根据需要设置重复行为。
 
-## 继承至Shape常用属性
+## 继承自Shape常用属性
 
 | 属性名称        | 用途     |
 | --------------- | -------- |
