@@ -4,7 +4,7 @@ title: CirclePanel 圆形布局
 
 圆形布局常用作方向按钮、功能按钮的容器。
 
-```c#
+```cs
 public class CirclePanel : Panel
 ```
 

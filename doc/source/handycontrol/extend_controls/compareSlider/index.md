@@ -1,5 +1,4 @@
 ---
-title: 建设中
+title: CompareSlider 对比滑块
 ---
 
-建设中

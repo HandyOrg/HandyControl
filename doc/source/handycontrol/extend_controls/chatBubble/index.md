@@ -4,7 +4,7 @@ title: ChatBubble 对话气泡
 
 对话气泡常出现于通讯类软件中，相对于纯文本形式的上下文对话，使用对话气泡可以让聊天界面更加生动有趣。通过扩展，还可以做出气泡皮肤，可使软件个性化功能更加丰富。
 
-```c#
+```cs
 public class ChatBubble : SelectableItem
 ```
 

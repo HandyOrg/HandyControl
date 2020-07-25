@@ -4,7 +4,7 @@ title: AnimationPath 动画路径
 
 `AnimationPath`动画路径，设定`Geometry `派生类型几何图形的数据，例如`PathGeometry `、`LineGeometry `等，实现固定的路径动画效果。
 
-```xml
+```cs
 public class AnimationPath : Shape
 ```
 

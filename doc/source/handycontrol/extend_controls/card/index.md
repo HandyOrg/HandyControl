@@ -4,7 +4,7 @@ title: Card 卡片
 
 用于卡片化展示数据，为`ContentControl`的派生类
 
-```c#
+```cs
 public class Card : ContentControl
 ```
 

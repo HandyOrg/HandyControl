@@ -4,7 +4,7 @@ title: Carousel 轮播
 
 可以在固定时间内循环切换项目。
 
-```c#
+```cs
 public class Carousel : SimpleItemsControl, IDisposable
 ```
 
