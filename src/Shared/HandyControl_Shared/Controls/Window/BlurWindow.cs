@@ -13,10 +13,18 @@ namespace HandyControl.Controls
             base.OnApplyTemplate();
             EnableBlur(this);
         }
+       
+        private static SystemVersionInfo GetSystemVersionInfo()
+        {
+            var osv = new InteropValues.RTL_OSVERSIONINFOEX();
+            osv.dwOSVersionInfoSize = (uint)Marshal.SizeOf(osv);
+            InteropMethods.Gdip.RtlGetVersion(out osv);
+            return new SystemVersionInfo((int)osv.dwMajorVersion, (int)osv.dwMinorVersion, (int)osv.dwBuildNumber);
+        }
 
         internal static void EnableBlur(Window window)
         {
-            var versionInfo = ConfigHelper.Instance.SystemVersionInfo;
+            var versionInfo = GetSystemVersionInfo();
 
             if (versionInfo < SystemVersionInfo.Windows10 ||
                 versionInfo >= SystemVersionInfo.Windows10_1903)

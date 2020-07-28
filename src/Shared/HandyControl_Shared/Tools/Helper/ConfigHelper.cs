@@ -37,8 +37,6 @@ namespace HandyControl.Tools
             }
         }
 
-        public SystemVersionInfo SystemVersionInfo { get; set; }
-
         public void SetLang(string lang)
         {
             LangProvider.Culture = new CultureInfo(lang);
@@ -48,7 +46,6 @@ namespace HandyControl.Tools
 
         public void SetConfig(HandyControlConfig config)
         {
-            SystemVersionInfo = config.SystemVersionInfo;
             SetLang(config.Lang);
             SetTimelineFrameRate(config.TimelineFrameRate);
         }

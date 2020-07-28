@@ -73,7 +73,6 @@ namespace HandyControlDemo
                     UpdateSkin(GlobalData.Config.Skin);
                 }
 
-                ConfigHelper.Instance.SystemVersionInfo = CommonHelper.GetSystemVersionInfo();
                 ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
 
