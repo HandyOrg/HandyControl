@@ -7,6 +7,7 @@ title: ComboBox 组合框
 ```cs
 public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
 ```
+
 # 属性
 
 |属性|描述|默认值|备注|
@@ -65,4 +66,4 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
 </StackPanel>
 ```
 
-![ColorPicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/ComboBox_1.png)
+![ComboBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/ComboBox_1.png)
