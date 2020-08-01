@@ -38,7 +38,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\StringRepeatConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Extension\LangExtension.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\AssemblyHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\CommonHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\Win32Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>

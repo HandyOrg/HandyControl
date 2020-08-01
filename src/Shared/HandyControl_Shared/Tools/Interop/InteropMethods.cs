@@ -703,6 +703,10 @@ namespace HandyControl.Tools.Interop
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]
             [ResourceExposure(ResourceScope.None)]
             internal static extern int GdipSaveImageToStream(HandleRef image, InteropValues.IStream stream, ref Guid classId, HandleRef encoderParams);
+
+            [DllImport(InteropValues.ExternDll.NTdll)]
+            internal static extern int RtlGetVersion(out InteropValues.RTL_OSVERSIONINFOEX lpVersionInformation);
+
         }
     }
 }
