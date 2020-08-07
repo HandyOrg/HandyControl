@@ -2,7 +2,7 @@
   <PropertyGroup>
     <AssemblyName>HandyControl</AssemblyName>
     <RootNamespace>HandyControl</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net45;net462;net47;net48;net50</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net45;net462;net47;net48;net5.0</TargetFrameworks>
     <Description>Contains some commonly used simple WPF controls</Description>
     <PackageId>HandyControl</PackageId>
     <IncludeSymbols>true</IncludeSymbols>

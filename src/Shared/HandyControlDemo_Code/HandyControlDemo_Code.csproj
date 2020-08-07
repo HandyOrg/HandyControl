@@ -3,7 +3,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemoCode</AssemblyName>
     <RootNamespace>HandyControlDemoCode</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net50</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net5.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Window\AboutWindow.xaml">
