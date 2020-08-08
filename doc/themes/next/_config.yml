@@ -252,6 +252,7 @@ menu:
       FlipClock 翻页时钟: /flipClock/ ||
       FloatingBlock 漂浮块: /floatingBlock/ ||
       GifImage Gif图片: /gifImage/ ||
+      GlowWindow 辉光窗口: /glowWindow/ ||
       GotoTop 回到顶部: /gotoTop/ ||
       Gravatar 头像: /gravatar/ ||
       Grid 栅格: /grid/ ||
