@@ -22,7 +22,6 @@ public class GifImage : Image, IDisposable
 
 ![GifImage](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GifImage.gif)
 
-
 {% note warning %}
 不再使用 `GifImage` 时记得调用 `Dispose` 方法清理资源。
 {% endnote %}
