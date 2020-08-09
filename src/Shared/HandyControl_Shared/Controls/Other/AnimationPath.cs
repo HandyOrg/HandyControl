@@ -80,7 +80,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsPlayingProperty = DependencyProperty.Register(
-            "IsPlaying", typeof(bool), typeof(AnimationPath), new FrameworkPropertyMetadata(true, (o, args) =>
+            "IsPlaying", typeof(bool), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
             {
                 var ctl = (AnimationPath)o;
                 var v = (bool)args.NewValue;

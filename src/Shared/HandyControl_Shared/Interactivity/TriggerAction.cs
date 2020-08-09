@@ -12,7 +12,7 @@ namespace HandyControl.Interactivity
     public abstract class TriggerAction : Animatable, IAttachedObject
     {
         public static readonly DependencyProperty IsEnabledProperty = DependencyProperty.Register("IsEnabled",
-            typeof(bool), typeof(TriggerAction), new FrameworkPropertyMetadata(true));
+            typeof(bool), typeof(TriggerAction), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
 
         private readonly Type _associatedObjectTypeConstraint;
 

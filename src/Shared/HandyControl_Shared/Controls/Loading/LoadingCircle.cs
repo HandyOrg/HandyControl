@@ -23,7 +23,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty NeedHiddenProperty = DependencyProperty.Register(
             "NeedHidden", typeof(bool), typeof(LoadingCircle),
-            new FrameworkPropertyMetadata(true, FrameworkPropertyMetadataOptions.AffectsRender));
+            new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
         public bool NeedHidden
         {
