@@ -4,7 +4,6 @@ using HandyControl.Data;
 using HandyControl.Tools;
 using MessageBox = HandyControl.Controls.MessageBox;
 
-
 namespace HandyControlDemo.UserControl
 {
     public partial class WindowDemoCtl
