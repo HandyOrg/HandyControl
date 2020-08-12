@@ -175,10 +175,7 @@ namespace HandyControl.Controls
                 {
                     _passwordList = new List<SecureString>();
 
-                    if (value == null)
-                    {
-                        value = string.Empty;
-                    }
+                    value ??= string.Empty;
 
                     foreach (var item in value)
                     {
