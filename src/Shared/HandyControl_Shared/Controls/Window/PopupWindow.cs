@@ -192,7 +192,7 @@ namespace HandyControl.Controls
             window.Show();
         }
 
-        public static bool? ShowDialog(string message, string title = default(string), bool showCancel = false)
+        public static bool? ShowDialog(string message, string title = default, bool showCancel = false)
         {
             var window = new PopupWindow
             {
