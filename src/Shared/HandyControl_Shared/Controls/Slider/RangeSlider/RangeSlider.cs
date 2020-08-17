@@ -78,15 +78,15 @@ namespace HandyControl.Controls
 
         protected virtual void OnIncreaseLarge() => MoveToNextTick(LargeChange, false);
 
-        protected virtual void OnIncreaseSmall() => MoveToNextTick(LargeChange, false);
+        protected virtual void OnIncreaseSmall() => MoveToNextTick(SmallChange, false);
 
         protected virtual void OnDecreaseLarge() => MoveToNextTick(-LargeChange, true);
 
-        protected virtual void OnDecreaseSmall() => MoveToNextTick(-LargeChange, true);
+        protected virtual void OnDecreaseSmall() => MoveToNextTick(-SmallChange, true);
 
         protected virtual void OnCenterLarge(object parameter) => MoveToNextTick(LargeChange, false, true);
 
-        protected virtual void OnCenterSmall(object parameter) => MoveToNextTick(LargeChange, false, true);
+        protected virtual void OnCenterSmall(object parameter) => MoveToNextTick(SmallChange, false, true);
 
         public static RoutedCommand IncreaseLarge { get; private set; }
 
@@ -452,15 +452,12 @@ namespace HandyControl.Controls
 
         private void OnThumbDragStarted(ToolTip toolTip, bool isStart)
         {
-            if (toolTip == null)
+            toolTip ??= new ToolTip
             {
-                toolTip = new ToolTip
-                {
-                    Placement = PlacementMode.Custom,
-                    PlacementTarget = isStart ? _track.ThumbStart : _track.ThumbEnd,
-                    CustomPopupPlacementCallback = AutoToolTipCustomPlacementCallback
-                };
-            }
+                Placement = PlacementMode.Custom,
+                PlacementTarget = isStart ? _track.ThumbStart : _track.ThumbEnd,
+                CustomPopupPlacementCallback = AutoToolTipCustomPlacementCallback
+            };
 
             if (isStart)
             {

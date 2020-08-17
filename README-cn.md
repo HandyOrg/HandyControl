@@ -311,6 +311,10 @@ Step 4: Enjoy coding
 
 ![Slider](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Slider.png)
 
+### RangeSlider
+
+![RangeSlider](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/RangeSlider.png)
+
 ### CircleProgressBar
 
 ![CircleProgressBar](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CircleProgressBar.png)
