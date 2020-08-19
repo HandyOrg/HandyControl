@@ -26,10 +26,10 @@ namespace HandyControl.Controls
             var collection = Interaction.GetBehaviors(this);
             collection.Add(behavior);
 
-            AddHandler(Controls.Tag.ClosedEvent, new RoutedEventHandler(Tag_OnClosed));
+            // remove this instructure
+            // 
+            // AddHandler(Controls.Tag.ClosedEvent, new RoutedEventHandler(Tag_OnClosed));            
         }
-
-        private void Tag_OnClosed(object sender, RoutedEventArgs e) => Children.Remove(e.OriginalSource as Tag);
 
         public static readonly RoutedEvent AddTagButtonClickEvent = EventManager.RegisterRoutedEvent("AddTagButtonClick", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TagPanel));
 
