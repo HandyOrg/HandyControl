@@ -158,7 +158,7 @@ baidu_push: false
 # External url should start with http:// or https://
 menu:
   主页: / || 
-  HandyControl - 2.4.0:
+  HandyControl - 3.0.0:
     default: /handycontrol/ ||
     鸣谢: /tnx/ ||
     快速开始: /quick_start/ ||
@@ -294,7 +294,7 @@ menu:
       TimeBar 时间条: /timeBar/ ||
       TimePicker 时间选择器: /timePicker/ ||
       Transfer 穿梭框: /transfer/ ||
-      TransitioningContentControl 内容过度控件: /transitioningContentControl/ ||
+      TransitioningContentControl 内容过渡控件: /transitioningContentControl/ ||
       WaterfallPanel 瀑布流: /waterfallPanel/ ||
       WaveProgressBar 波形进度条: /waveProgressBar/ ||
       Window 窗口: /window/ ||
