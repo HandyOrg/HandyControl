@@ -16,7 +16,6 @@
 
 <html class="{{ html_class | lower }}" lang="{{ config.language }}">
 <head>
-  <script data-ad-client="ca-pub-8129276259146154" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
   {{ partial('_partials/head/head.swig', {}, {cache: theme.cache.enable}) }}
   {% include '_partials/head/head-unique.swig' %}
   <title>{% block title %}{% endblock %}</title>

@@ -1,5 +1,5 @@
 ---
-title: TimePicker
+title: TimePicker 时间选择器
 ---
 
 TimePicker 控件允许用户通过在文本框中键入时间或使用下拉的日历控件来选择时间。
