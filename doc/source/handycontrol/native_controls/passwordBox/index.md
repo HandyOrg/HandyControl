@@ -35,7 +35,7 @@ title: PasswordBox 密码框
                  Width="120"></PasswordBox>
     <PasswordBox Style="{DynamicResource PasswordBoxExtend}" PasswordChar="*" 
                  hc:TitleElement.Title="用户密码："
-                 hc:TitleElement.TitleAlignment="Top"
+                 hc:TitleElement.TitlePlacement="Top"
                  VerticalAlignment="Center"
                  Width="120"></PasswordBox>
 {% endcode %}

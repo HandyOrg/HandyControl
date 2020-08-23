@@ -90,4 +90,4 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
 </Grid>
 ```
 
-![ScrollViewer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ScrollViewer.gif)
+![ScrollViewer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/ScrollViewer.gif)

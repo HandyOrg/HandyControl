@@ -8,6 +8,7 @@ title: TipElement 提示元素
 | ---------- | -------- |
 | Placement | 提示元素显示位置 |
 | Visibility | 是否可见 |
+| StringFormat | 文本格式 |
 
 
 # 使用案例

@@ -7,6 +7,9 @@ title: VisualElement 可视化元素
 | 名称           | 用途             |
 | -------------- | ---------------- |
 | HighlightBrush | 设置控件高亮颜色 |
+| HighlightBackground | 设置控件高亮背景颜色 |
+| HighlightBorderBrush | 设置控件高亮边框颜色 |
+| HighlightForeground | 设置控件高亮前景颜色 |
 | Text           | 设置文本内容     |
 
 # 使用案例

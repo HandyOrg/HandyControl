@@ -178,9 +178,11 @@ menu:
       BackgroundSwitchElement 可切换背景的元素: /backgroundSwitchElement/ ||
       BorderElement 具有边框的元素: /borderElement/ ||
       DataGridAttach DataGrid专用: /dataGridAttach/ ||
+      DropDownElement 可下拉内容的元素: /dropDownElement/ ||
       EdgeElement 具有边界内容的元素: /edgeElement/ ||
       IconElement 具有图标的元素: /iconElement/ ||
       IconSwitchElement 可切换图标的元素: /iconSwitchElement/ ||
+      ImageAttach Image专用: /imageAttach/ ||
       InfoElement 信息元素: /infoElement/ ||
       PanelElement 面板元素: /panelElement/ ||
       PasswordBoxAttach 密码框专用: /passwordBoxAttach/ ||
@@ -231,19 +233,23 @@ menu:
       default: /extend_controls/ ||
       AnimationPath 动画路径: /animationPath/ ||
       Badge 标记: /badge/ ||
+      BlurWindow 背景模糊窗口: /blurWindow/ ||
       ButtonGroup 按钮组: /buttonGroup/ ||
       CalendarWithClock 带有时钟的日历: /calendarWithClock/ ||
       Card 卡片: /card/ ||
       Carousel 轮播: /carousel/ ||
       ChatBubble 对话气泡: /chatBubble/ ||
+      CheckComboBox 复选组合框: /checkComboBox/ ||
       CirclePanel 圆形布局: /circlePanel/ ||
       CircleProgressBar 圆形进度条: /circleProgressBar/ ||
       Clock 时钟: /clock/ ||
       ColorPicker 颜色拾取器: /colorPicker/ ||
       ComboBox 组合框: /comboBox/ ||
       CompareSlider 对比滑块: /compareSlider/ ||
+      ContextMenuButton 上下文菜单按钮: /contextMenuButton/ ||
       CoverFlow 封面流: /coverFlow/ ||
       CoverView 封面视图: /coverView/ ||
+      DashedBorder 虚线边框: /dashedBorder/ ||
       DatePicker 日期选择器: /datePicker/ ||
       DateTimePicker 日期时间选择器: /dateTimePicker/ ||
       Dialog 对话框: /dialog/ ||
@@ -260,6 +266,7 @@ menu:
       HoneycombPanel 蜂窝布局: /honeycombPanel/ ||
       ImageBlock 图片块: /imageBlock/ ||
       ImageBrowser 图片浏览器: /imageBrowser/ ||
+      ImageSelector 图片选择器: /imageSelector/ ||
       ImageViewer 图片视图: /imageViewer/ ||
       Loading 加载条: /loading/ ||
       Magnifier 放大镜: /magnifier/ ||
@@ -275,16 +282,19 @@ menu:
       PopupWindow 弹出窗口: /popupWindow/ ||
       PreviewSlider 预览滑块: /previewSlider/ ||
       ProgressButton 进度按钮: /progressButton/ ||
+      PropertyGrid 属性编辑器: /propertyGrid/ ||
       RangeSlider 范围滑块: /rangeSlider/ ||
       Rate 评分: /rate/ ||
       RelativePanel 相对布局: /relativePanel/ ||
       RunningBlock 滚动块: /runningBlock/ ||
+      Screenshot 截图: /screenshot/ ||
       ScrollViewer 滚动视图: /scrollViewer/ ||
       SearchBar 搜索栏: /searchBar/ ||
       Shield 徽章: /shield/ ||
       SideMenu 侧边菜单: /sideMenu/ ||
       SimpleItemsControl 简单项目控件: /simpleItemsControl/ ||
       SimplePanel 简单面板: /simplePanel/ ||
+      SimpleText 简单文本: /simpleText/ ||
       SplitButton 分割按钮: /splitButton/ ||
       Sprite 精灵: /sprite/ ||
       StepBar 步骤条: /stepBar/ ||
@@ -293,9 +303,11 @@ menu:
       TextBox 文本框: /textBox/ ||
       TimeBar 时间条: /timeBar/ ||
       TimePicker 时间选择器: /timePicker/ ||
+      ToggleBlock 切换块: /toggleBlock/ ||
       Transfer 穿梭框: /transfer/ ||
       TransitioningContentControl 内容过渡控件: /transitioningContentControl/ ||
       WaterfallPanel 瀑布流: /waterfallPanel/ ||
+      Watermark 水印: /watermark/ ||
       WaveProgressBar 波形进度条: /waveProgressBar/ ||
       Window 窗口: /window/ ||
     数据:

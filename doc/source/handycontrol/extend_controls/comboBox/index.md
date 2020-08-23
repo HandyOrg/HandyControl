@@ -30,7 +30,8 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
 |InfoElement.MinContentHeight|最小内容高度|30|标题在上时可用|
 |TitleElement.Title|标题|||
 |TitleElement.TitlePlacement|标题对齐方式|TitlePlacementType.Top||
-|TitleElement.TitleWidth|标题宽度|120|||
+|TitleElement.TitleWidth|标题宽度|120||
+|DropDownElement.ConsistentWidth|下拉内容是否和下拉框宽度一致|false|||
 
 # 方法
 

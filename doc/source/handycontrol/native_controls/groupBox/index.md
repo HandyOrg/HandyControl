@@ -25,12 +25,12 @@ GroupBox 分组框 默认样式，不推荐直接使用，应该始终被其它�
 {% note info no-icon %}
 只需要添加扩展属性即可
 {% code %}
-hc:TitleElement.TitleAlignment="Left"
+hc:TitleElement.TitlePlacement="Left"
 {% endcode %}
 用例：
 {% code %}
     <GroupBox Grid.Row="0" Grid.Column="1" Width="300" Height="200" Header="{x:Static langs:Lang.TitleDemoStr1}" Padding="10" 
-        Margin="16"  hc:TitleElement.TitleAlignment="Left">
+        Margin="16"  hc:TitleElement.TitlePlacement="Left">
         <Border Background="{DynamicResource PrimaryBrush}" CornerRadius="4">
             <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" 
             Foreground="White"/>
@@ -57,7 +57,7 @@ GroupBox 分组框 的另一种样式  GroupBoxTabBaseStyle 不推荐直接使�
     </GroupBox>
 {% endcode %}
 
-- 同样可以 使用扩展属性  {% code %} hc:TitleElement.TitleAlignment="Left" {% endcode %}
+- 同样可以 使用扩展属性  {% code %} hc:TitleElement.TitlePlacement="Left" {% endcode %}
 
 ![GroupBox_Tab](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/GroupBox_Tab.png) ![GroupBox_Tab_left](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/GroupBox_Tab_left.png)
 {% endnote %}
@@ -75,7 +75,7 @@ GroupBox 分组框 的另一种样式 GroupBoxOriginalBaseStyle 不推荐直接�
     </GroupBox>
     <GroupBox Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="300" hc:TitleElement.TitleWidth="100"
         Header="{x:Static langs:Lang.TitleDemoStr1}" Margin="16" Style="{StaticResource GroupBoxOriginal}"
-        HorizontalContentAlignment="Left" hc:TitleElement.TitleAlignment="Left">
+        HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left">
         <ComboBox DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}" ItemsSource="{Binding DataList}"/>
     </GroupBox>
 {% endcode %}

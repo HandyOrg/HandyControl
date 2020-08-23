@@ -23,7 +23,7 @@ title: ComboBox 组合框
 ![ComboBoxExtend_1](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ComboBoxExtend_1.png)
 
 - 标题在左
-`<ComboBox ItemsSource="{Binding DataList}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="标题在左侧" Style="{StaticResource ComboBoxExtend}" Text="正文1"/>`
+`<ComboBox ItemsSource="{Binding DataList}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="标题在左侧" Style="{StaticResource ComboBoxExtend}" Text="正文1"/>`
 ![ComboBoxExtend_2](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/ComboBoxExtend_2.png)
 
 {% note warning %}

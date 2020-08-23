@@ -51,4 +51,4 @@ public class Window : System.Windows.Window
 </hc:Window>
 ```
 
-![Window](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/Window.png)
+![Window](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/Window.png)

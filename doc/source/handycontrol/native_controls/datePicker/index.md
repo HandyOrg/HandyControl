@@ -21,7 +21,7 @@ title: DatePicker 日期选择器
 ![DatePickerExtend_1](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/DatePickerExtend_1.png)
 
 - 标题在左
-`<DatePicker SelectedDate="{x:Static system:DateTime.Now}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitleAlignment="Left" Style="{StaticResource DatePickerExtend}" hc:InfoElement.Title="标题在左侧"/>`
+`<DatePicker SelectedDate="{x:Static system:DateTime.Now}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource DatePickerExtend}" hc:InfoElement.Title="标题在左侧"/>`
 ![DatePickerExtend_2](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/DatePickerExtend_2.png)
 
 {% note warning %}

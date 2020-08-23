@@ -23,7 +23,7 @@ title: TextBox 文本框
 ![TextBoxExtend_1](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/TextBoxExtend_1.png)
 
 - 标题在左
-`<TextBox Style="{StaticResource TextBoxExtend}" hc:InfoElement.TitleAlignment="Left" hc:InfoElement.Title="这是标题" Width="300" VerticalAlignment="Center"/>`
+`<TextBox Style="{StaticResource TextBoxExtend}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="这是标题" Width="300" VerticalAlignment="Center"/>`
 ![TextBoxExtend_2](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/TextBoxExtend_2.png)
 
 {% note warning %}

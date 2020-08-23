@@ -47,7 +47,7 @@ datePicker.SelectedDate = DateTime.Now;
 
 ``` XML
 <hc:DatePicker hc:InfoElement.TitleWidth="140"
-               hc:InfoElement.TitleAlignment="Left"
+               hc:InfoElement.TitlePlacement="Left"
                hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}"
                hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" />
 ```

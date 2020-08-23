@@ -38,7 +38,7 @@ public class Pagination : Control
 <hc:Pagination MaxPageCount="10" PageIndex="5" IsJumpEnabled="True"/>
 ```
 
-![Pagination](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/Pagination.png)
+![Pagination](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/extend_controls/Pagination.png)
 
 {% note warning %}
 当页码为1时，页码条整体不会显示。
