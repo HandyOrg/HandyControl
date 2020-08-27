@@ -157,15 +157,13 @@ namespace HandyControl.Tools
         /// 让窗口激活作为前台最上层窗口
         /// </summary>
         /// <param name="window"></param>
-        public static void SetWindowToForegroundWithAttachThreadInput(Window window)
+        public static void SetWindowToForeground(Window window)
         {
             // [WPF 让窗口激活作为前台最上层窗口的方法 - lindexi - 博客园](https://www.cnblogs.com/lindexi/p/12749671.html)
             var interopHelper = new WindowInteropHelper(window);
-            // 以下 Win32 方法可以在 https://github.com/kkwpsv/lsjutil/tree/master/Src/Lsj.Util.Win32 找到
             var thisWindowThreadId = InteropMethods.GetWindowThreadProcessId(interopHelper.Handle, out _);
             var currentForegroundWindow = InteropMethods.GetForegroundWindow();
-            var currentForegroundWindowThreadId =
-                InteropMethods.GetWindowThreadProcessId(currentForegroundWindow, out _);
+            var currentForegroundWindowThreadId = InteropMethods.GetWindowThreadProcessId(currentForegroundWindow, out _);
 
             // [c# - Bring a window to the front in WPF - Stack Overflow](https://stackoverflow.com/questions/257587/bring-a-window-to-the-front-in-wpf )
             // [SetForegroundWindow的正确用法 - 子坞 - 博客园](https://www.cnblogs.com/ziwuge/archive/2012/01/06/2315342.html )
