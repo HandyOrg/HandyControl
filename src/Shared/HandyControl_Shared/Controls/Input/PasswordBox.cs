@@ -359,6 +359,15 @@ namespace HandyControl.Controls
             }
         }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) => VerifyData();
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            VerifyData();
+
+            if (!IsSafeEnabled && ShowPassword)
+            {
+                Password = _textBox.Text;
+                SetCurrentValue(UnsafePasswordProperty, Password);
+            }
+        }
     }
 }
