@@ -43,6 +43,13 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.User32, SetLastError = true, CharSet = CharSet.Auto)]
         internal static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint lpdwProcessId);
 
+        [DllImport(InteropValues.ExternDll.User32, SetLastError = true, CharSet = CharSet.Auto)]
+        internal static extern bool AttachThreadInput(in uint currentForegroundWindowThreadId,
+            in uint thisWindowThreadId, bool isAttach);
+
+        [DllImport(InteropValues.ExternDll.User32, SetLastError = true, CharSet = CharSet.Auto)]
+        internal static extern IntPtr GetForegroundWindow();
+
         [DllImport(InteropValues.ExternDll.Kernel32, SetLastError = true, CharSet = CharSet.Auto)]
         internal static extern IntPtr OpenProcess(InteropValues.ProcessAccess dwDesiredAccess,
             [MarshalAs(UnmanagedType.Bool)] bool bInheritHandle, uint dwProcessId);
