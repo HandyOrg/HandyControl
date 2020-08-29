@@ -1,6 +1,5 @@
 ---
 title: GrowlInfo
-date: 2019-04-02 22:16:16
 ---
 
 {% note info no-icon %}

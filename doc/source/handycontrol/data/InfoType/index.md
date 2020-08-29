@@ -1,6 +1,5 @@
 ---
 title: InfoType
-date: 2019-04-02 22:27:13
 ---
 
 {% note info no-icon %}
