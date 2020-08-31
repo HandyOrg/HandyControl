@@ -16,7 +16,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:RunningBlock">
-                    <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Padding="{TemplateBinding Padding}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                    <hc:RunningBorder CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Padding="{TemplateBinding Padding}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <hc:SimplePanel ClipToBounds="True">
                             <hc:SimplePanel HorizontalAlignment="Left" x:Name="PART_Panel">
                                 <ContentPresenter x:Name="PART_ContentElement" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left">
@@ -28,7 +28,7 @@
                                 </ContentPresenter>
                             </hc:SimplePanel>
                         </hc:SimplePanel>
-                    </Border>
+                    </hc:RunningBorder>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

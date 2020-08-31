@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media;
 using System.Windows.Media.Animation;
 using HandyControl.Data;
 using HandyControl.Expression.Drawing;
@@ -24,19 +23,32 @@ namespace HandyControl.Controls
 
         public override void OnApplyTemplate()
         {
+            if (_elementPanel != null)
+            {
+                _elementPanel.SizeChanged -= ElementPanel_SizeChanged;
+            }
+
             base.OnApplyTemplate();
 
             _elementContent = GetTemplateChild(ElementContent) as FrameworkElement;
             _elementPanel = GetTemplateChild(ElementPanel) as Panel;
+
+            if (_elementPanel != null)
+            {
+                _elementPanel.SizeChanged += ElementPanel_SizeChanged;
+            }
+
             UpdateContent();
         }
+
+        private void ElementPanel_SizeChanged(object sender, SizeChangedEventArgs e) => UpdateContent();
 
         public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
             "Runaway", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
         public bool Runaway
         {
-            get => (bool) GetValue(RunawayProperty);
+            get => (bool)GetValue(RunawayProperty);
             set => SetValue(RunawayProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -45,7 +57,7 @@ namespace HandyControl.Controls
 
         public bool AutoRun
         {
-            get => (bool) GetValue(AutoRunProperty);
+            get => (bool)GetValue(AutoRunProperty);
             set => SetValue(AutoRunProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -54,7 +66,7 @@ namespace HandyControl.Controls
 
         public Orientation Orientation
         {
-            get => (Orientation) GetValue(OrientationProperty);
+            get => (Orientation)GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
 
@@ -63,7 +75,7 @@ namespace HandyControl.Controls
 
         public Duration Duration
         {
-            get => (Duration) GetValue(DurationProperty);
+            get => (Duration)GetValue(DurationProperty);
             set => SetValue(DurationProperty, value);
         }
 
@@ -72,7 +84,7 @@ namespace HandyControl.Controls
 
         public double Speed
         {
-            get => (double) GetValue(SpeedProperty);
+            get => (double)GetValue(SpeedProperty);
             set => SetValue(SpeedProperty, value);
         }
 
@@ -93,7 +105,7 @@ namespace HandyControl.Controls
 
         public bool IsRunning
         {
-            get => (bool) GetValue(IsRunningProperty);
+            get => (bool)GetValue(IsRunningProperty);
             set => SetValue(IsRunningProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -102,19 +114,16 @@ namespace HandyControl.Controls
 
         public bool AutoReverse
         {
-            get => (bool) GetValue(AutoReverseProperty);
+            get => (bool)GetValue(AutoReverseProperty);
             set => SetValue(AutoReverseProperty, ValueBoxes.BooleanBox(value));
         }
 
         private void UpdateContent()
         {
             if (_elementContent == null || _elementPanel == null) return;
+            if (MathHelper.IsZero(_elementPanel.ActualWidth) || MathHelper.IsZero(_elementPanel.ActualHeight)) return;
 
             _storyboard?.Stop();
-
-            _elementPanel.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
-            _elementPanel.Width = _elementPanel.DesiredSize.Width;
-            _elementPanel.Height = _elementPanel.DesiredSize.Height;
 
             double from;
             double to;
@@ -122,40 +131,40 @@ namespace HandyControl.Controls
 
             if (Orientation == Orientation.Horizontal)
             {
-                if (AutoRun && _elementPanel.Width < ActualWidth)
+                if (AutoRun && _elementPanel.ActualWidth < ActualWidth)
                 {
                     return;
                 }
 
                 if (Runaway)
                 {
-                    from = -_elementPanel.Width;
+                    from = -_elementPanel.ActualWidth;
                     to = ActualWidth;
                 }
                 else
                 {
                     from = 0;
-                    to = ActualWidth - _elementPanel.Width;
+                    to = ActualWidth - _elementPanel.ActualWidth;
                     SetCurrentValue(AutoReverseProperty, ValueBoxes.TrueBox);
                 }
                 propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)");
             }
             else
             {
-                if (AutoRun && _elementPanel.Height < ActualHeight)
+                if (AutoRun && _elementPanel.ActualHeight < ActualHeight)
                 {
                     return;
                 }
 
                 if (Runaway)
                 {
-                    from = -_elementPanel.Height;
+                    from = -_elementPanel.ActualHeight;
                     to = ActualHeight;
                 }
                 else
                 {
                     from = 0;
-                    to = ActualHeight - _elementPanel.Height;
+                    to = ActualHeight - _elementPanel.ActualHeight;
                     SetCurrentValue(AutoReverseProperty, ValueBoxes.TrueBox);
                 }
                 propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)");
@@ -180,7 +189,5 @@ namespace HandyControl.Controls
             _storyboard.Children.Add(animation);
             _storyboard.Begin();
         }
-
-        protected override void OnRender(DrawingContext drawingContext) => UpdateContent();
     }
 }
