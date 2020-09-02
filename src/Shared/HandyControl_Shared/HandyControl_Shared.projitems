@@ -78,8 +78,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexContentAlignment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexItemAlignment.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexItemsAlignment.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexOrientation.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexWrapping.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexWrap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Range\DateTimeRange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DisposableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\EnumDataProvider.cs" />

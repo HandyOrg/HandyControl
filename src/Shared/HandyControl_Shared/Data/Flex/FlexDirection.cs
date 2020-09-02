@@ -1,6 +1,6 @@
 ﻿namespace HandyControl.Data
 {
-    public enum FlexOrientation
+    public enum FlexDirection
     {
         Row,
         RowReverse,

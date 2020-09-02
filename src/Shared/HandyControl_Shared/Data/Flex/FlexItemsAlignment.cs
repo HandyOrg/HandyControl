@@ -2,10 +2,10 @@
 {
     public enum FlexItemsAlignment
     {
+        Stretch,
         FlexStart,
         FlexEnd,
         Center,
-        Baseline,
-        Stretch
+        Baseline
     }
 }
