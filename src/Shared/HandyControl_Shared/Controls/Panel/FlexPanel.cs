@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Expression.Drawing;
 
@@ -12,10 +14,12 @@ namespace HandyControl.Controls
 
         private int _lineCount;
 
+        private readonly List<FlexItemInfo> _orderList = new List<FlexItemInfo>();
+
         #region Item
 
         public static readonly DependencyProperty OrderProperty = DependencyProperty.RegisterAttached(
-            "Order", typeof(int), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Int0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "Order", typeof(int), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Int0Box, OnItemPropertyChanged));
 
         public static void SetOrder(DependencyObject element, int value)
             => element.SetValue(OrderProperty, value);
@@ -24,7 +28,7 @@ namespace HandyControl.Controls
             => (int)element.GetValue(OrderProperty);
 
         public static readonly DependencyProperty FlexGrowProperty = DependencyProperty.RegisterAttached(
-            "FlexGrow", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "FlexGrow", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnItemPropertyChanged));
 
         public static void SetFlexGrow(DependencyObject element, double value)
             => element.SetValue(FlexGrowProperty, value);
@@ -33,7 +37,7 @@ namespace HandyControl.Controls
             => (double)element.GetValue(FlexGrowProperty);
 
         public static readonly DependencyProperty FlexShrinkProperty = DependencyProperty.RegisterAttached(
-            "FlexShrink", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "FlexShrink", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, OnItemPropertyChanged));
 
         public static void SetFlexShrink(DependencyObject element, double value)
             => element.SetValue(FlexShrinkProperty, value);
@@ -42,7 +46,7 @@ namespace HandyControl.Controls
             => (double)element.GetValue(FlexShrinkProperty);
 
         public static readonly DependencyProperty FlexBasisProperty = DependencyProperty.RegisterAttached(
-            "FlexBasis", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "FlexBasis", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(double.NaN, OnItemPropertyChanged));
 
         public static void SetFlexBasis(DependencyObject element, double value)
             => element.SetValue(FlexBasisProperty, value);
@@ -51,7 +55,7 @@ namespace HandyControl.Controls
             => (double)element.GetValue(FlexBasisProperty);
 
         public static readonly DependencyProperty AlignSelfProperty = DependencyProperty.RegisterAttached(
-            "AlignSelf", typeof(FlexItemAlignment), typeof(FlexPanel), new FrameworkPropertyMetadata(default(FlexItemAlignment), FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "AlignSelf", typeof(FlexItemAlignment), typeof(FlexPanel), new FrameworkPropertyMetadata(default(FlexItemAlignment), OnItemPropertyChanged));
 
         public static void SetAlignSelf(DependencyObject element, FlexItemAlignment value)
             => element.SetValue(AlignSelfProperty, value);
@@ -110,17 +114,33 @@ namespace HandyControl.Controls
 
         #endregion
 
+        private static void OnItemPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is UIElement element)
+            {
+                if (VisualTreeHelper.GetParent(element) is FlexPanel p)
+                {
+                    p.InvalidateMeasure();
+                }
+            }
+        }
+
         protected override Size MeasureOverride(Size constraint)
         {
+            _orderList.Clear();
             var curLineSize = new UVSize(FlexDirection);
             var panelSize = new UVSize(FlexDirection);
             _uvConstraint = new UVSize(FlexDirection, constraint);
             var childConstraint = new Size(constraint.Width, constraint.Height);
             _lineCount = 1;
+            var children = InternalChildren;
 
-            foreach (UIElement child in InternalChildren)
+            for (var i = 0; i < children.Count; i++)
             {
+                var child = children[i];
                 if (child == null) continue;
+
+                _orderList.Add(new FlexItemInfo(i, GetOrder(child)));
                 child.Measure(childConstraint);
 
                 var sz = new UVSize(FlexDirection, child.DesiredSize);
@@ -155,6 +175,8 @@ namespace HandyControl.Controls
                 }
             }
 
+            _orderList.Sort();
+
             //the last line size, if any should be added
             panelSize.U = Math.Max(curLineSize.U, panelSize.U);
             panelSize.V += curLineSize.V;
@@ -184,7 +206,7 @@ namespace HandyControl.Controls
             // calculate line max U space
             for (var i = 0; i < children.Count; i++)
             {
-                var child = children[i];
+                var child = children[_orderList[i].Index];
                 if (child == null) continue;
 
                 var sz = new UVSize(FlexDirection, child.DesiredSize);
@@ -341,7 +363,7 @@ namespace HandyControl.Controls
             // arrange line
             for (var i = 0; i < children.Count; i++)
             {
-                var child = children[i];
+                var child = children[_orderList[i].Index];
                 if (child == null) continue;
 
                 var sz = new UVSize(FlexDirection, child.DesiredSize);
@@ -465,7 +487,7 @@ namespace HandyControl.Controls
             var children = InternalChildren;
             for (int i = lineInfo.ItemStartIndex, j = 0; i < lineInfo.ItemEndIndex; i++, j++)
             {
-                var child = children[i];
+                var child = children[_orderList[i].Index];
                 if (child == null) continue;
 
                 var childSize = new UVSize(FlexDirection, isHorizontal ?
@@ -510,6 +532,21 @@ namespace HandyControl.Controls
                     u += childSize.U;
                 }
             }
+        }
+
+        private readonly struct FlexItemInfo : IComparable<FlexItemInfo>
+        {
+            public FlexItemInfo(int index, int order)
+            {
+                Index = index;
+                Order = order;
+            }
+
+            private int Order { get; }
+
+            public int Index { get; }
+
+            public int CompareTo(FlexItemInfo other) => Order.CompareTo(other.Order);
         }
 
         private struct FlexLineInfo
