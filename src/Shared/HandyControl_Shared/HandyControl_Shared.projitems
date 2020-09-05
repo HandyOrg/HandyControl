@@ -45,6 +45,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Notification.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Poptip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Watermark.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\FlexPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\ImagePropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\VerticalAlignmentPropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\HorizontalAlignmentPropertyEditor.cs" />
@@ -74,6 +75,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\SimpleText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\DateTimeRangeComparer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexContentJustify.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexContentAlignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexItemAlignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexItemsAlignment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexDirection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexWrap.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Range\DateTimeRange.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\DisposableObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\EnumDataProvider.cs" />
