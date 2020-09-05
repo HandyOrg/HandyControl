@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Expression.Drawing;
+using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
@@ -28,7 +29,7 @@ namespace HandyControl.Controls
             => (int)element.GetValue(OrderProperty);
 
         public static readonly DependencyProperty FlexGrowProperty = DependencyProperty.RegisterAttached(
-            "FlexGrow", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnItemPropertyChanged));
+            "FlexGrow", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnItemPropertyChanged), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
         public static void SetFlexGrow(DependencyObject element, double value)
             => element.SetValue(FlexGrowProperty, value);
@@ -127,7 +128,6 @@ namespace HandyControl.Controls
 
         protected override Size MeasureOverride(Size constraint)
         {
-            _orderList.Clear();
             var curLineSize = new UVSize(FlexDirection);
             var panelSize = new UVSize(FlexDirection);
             _uvConstraint = new UVSize(FlexDirection, constraint);
@@ -135,12 +135,21 @@ namespace HandyControl.Controls
             _lineCount = 1;
             var children = InternalChildren;
 
+            _orderList.Clear();
             for (var i = 0; i < children.Count; i++)
             {
                 var child = children[i];
                 if (child == null) continue;
 
                 _orderList.Add(new FlexItemInfo(i, GetOrder(child)));
+            }
+            _orderList.Sort();
+
+            for (var i = 0; i < children.Count; i++)
+            {
+                var child = children[_orderList[i].Index];
+                if (child == null) continue;
+
                 child.Measure(childConstraint);
 
                 var sz = new UVSize(FlexDirection, child.DesiredSize);
@@ -174,8 +183,6 @@ namespace HandyControl.Controls
                     }
                 }
             }
-
-            _orderList.Sort();
 
             //the last line size, if any should be added
             panelSize.U = Math.Max(curLineSize.U, panelSize.U);
@@ -248,33 +255,27 @@ namespace HandyControl.Controls
             var accumulatedFlag = FlexWrap == FlexWrap.WrapReverse ? 1 : 0;
             var itemsU = .0;
             var accumulatedV = .0;
-            var freeItemV = .0;
             var freeV = uvFinalSize.V;
             foreach (var flexSize in curLineSizeArr)
             {
                 freeV -= flexSize.V;
             }
+            var freeItemV = freeV;
 
             // calculate status
             var lineFreeVArr = new double[_lineCount];
             switch (AlignContent)
             {
                 case FlexContentAlignment.Stretch:
+                    if (_lineCount > 1)
                     {
-                        if (_lineCount > 1)
+                        freeItemV = freeV / _lineCount;
+                        for (var i = 0; i < _lineCount; i++)
                         {
-                            freeItemV = freeV / _lineCount;
-                            for (var i = 0; i < _lineCount; i++)
-                            {
-                                lineFreeVArr[i] = freeItemV;
-                            }
+                            lineFreeVArr[i] = freeItemV;
+                        }
 
-                            accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - lineFreeVArr[0] : 0;
-                        }
-                        else
-                        {
-                            freeItemV = freeV;
-                        }
+                        accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - lineFreeVArr[0] : 0;
                     }
                     break;
                 case FlexContentAlignment.FlexStart:
@@ -290,7 +291,6 @@ namespace HandyControl.Controls
                     else
                     {
                         wrapReverseAdd = 0;
-                        freeItemV = freeV;
                     }
                     break;
                 case FlexContentAlignment.FlexEnd:
@@ -306,7 +306,6 @@ namespace HandyControl.Controls
                     else
                     {
                         wrapReverseAdd = 0;
-                        freeItemV = freeV;
                     }
                     break;
                 case FlexContentAlignment.Center:
@@ -314,45 +313,29 @@ namespace HandyControl.Controls
                     {
                         accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeV * 0.5 : freeV * 0.5;
                     }
-                    else
-                    {
-                        freeItemV = freeV;
-                    }
                     break;
                 case FlexContentAlignment.SpaceBetween:
+                    if (_lineCount > 1)
                     {
-                        if (_lineCount > 1)
+                        freeItemV = freeV / (_lineCount - 1);
+                        for (var i = 0; i < _lineCount - 1; i++)
                         {
-                            freeItemV = freeV / (_lineCount - 1);
-                            for (var i = 0; i < _lineCount - 1; i++)
-                            {
-                                lineFreeVArr[i] = freeItemV;
-                            }
+                            lineFreeVArr[i] = freeItemV;
+                        }
 
-                            accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V : 0;
-                        }
-                        else
-                        {
-                            freeItemV = freeV;
-                        }
+                        accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V : 0;
                     }
                     break;
                 case FlexContentAlignment.SpaceAround:
+                    if (_lineCount > 1)
                     {
-                        if (_lineCount > 1)
+                        freeItemV = freeV / _lineCount * 0.5;
+                        for (var i = 0; i < _lineCount - 1; i++)
                         {
-                            freeItemV = freeV / _lineCount * 0.5;
-                            for (var i = 0; i < _lineCount - 1; i++)
-                            {
-                                lineFreeVArr[i] = freeItemV * 2;
-                            }
+                            lineFreeVArr[i] = freeItemV * 2;
+                        }
 
-                            accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeItemV : freeItemV;
-                        }
-                        else
-                        {
-                            freeItemV = freeV;
-                        }
+                        accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeItemV : freeItemV;
                     }
                     break;
             }
@@ -505,7 +488,18 @@ namespace HandyControl.Controls
                 }
 
                 var v = lineInfo.OffsetV;
-                switch (AlignItems)
+                var alignSelf = GetAlignSelf(child);
+                FlexItemsAlignment alignment;
+                if (alignSelf == FlexItemAlignment.Auto)
+                {
+                    alignment = AlignItems;
+                }
+                else
+                {
+                    alignment = (FlexItemsAlignment)alignSelf;
+                }
+
+                switch (alignment)
                 {
                     case FlexItemsAlignment.Stretch:
                         if (_lineCount == 1 && FlexWrap == FlexWrap.NoWrap)
