@@ -762,4 +762,7 @@
   <data name="CheckComboBox" xml:space="preserve">
     <value>多选组合框</value>
   </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>弹性盒子</value>
+  </data>
 </root>

@@ -99,7 +99,8 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(Exit));
 			OnPropertyChanged(nameof(Expander));
 			OnPropertyChanged(nameof(Fatal));
-			OnPropertyChanged(nameof(FlipClock));
+            OnPropertyChanged(nameof(FlexPanel));
+            OnPropertyChanged(nameof(FlipClock));
 			OnPropertyChanged(nameof(FloatingBlock));
 			OnPropertyChanged(nameof(FlowDocument));
 			OnPropertyChanged(nameof(FlowDocumentPageViewer));
@@ -563,6 +564,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 严重 的本地化字符串。
         /// </summary>
 		public string Fatal => Lang.Fatal;
+
+        /// <summary>
+        ///   查找类似 弹性盒子 的本地化字符串。
+        /// </summary>
+        public string FlexPanel => Lang.FlexPanel;
 
         /// <summary>
         ///   查找类似 翻页时钟 的本地化字符串。
@@ -1647,6 +1653,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 严重 的本地化字符串。
         /// </summary>
 		public static string Fatal = nameof(Fatal);
+
+        /// <summary>
+        ///   查找类似 弹性盒子 的本地化字符串。
+        /// </summary>
+        public static string FlexPanel = nameof(FlexPanel);
 
         /// <summary>
         ///   查找类似 翻页时钟 的本地化字符串。

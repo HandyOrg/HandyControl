@@ -130,10 +130,10 @@
     <value>C'est une belle journée aujourd'hui</value>
   </data>
   <data name="GrowlSuccess" xml:space="preserve">
-    <value>Fichier enregistré</value>
+    <value>Fichier enregistré!</value>
   </data>
   <data name="GrowlWarning" xml:space="preserve">
-    <value>Espace disque bientôt epuisé</value>
+    <value>Espace disque bientôt epuisé!</value>
   </data>
   <data name="GrowlError" xml:space="preserve">
     <value>Erreur de connexion. Veuillez vérifier votre réseau !</value>
@@ -761,5 +761,8 @@
   </data>
   <data name="CheckComboBox" xml:space="preserve">
     <value>CheckComboBox</value>
+  </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>FlexPanel</value>
   </data>
 </root>

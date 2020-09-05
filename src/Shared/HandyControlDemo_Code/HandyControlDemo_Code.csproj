@@ -496,6 +496,10 @@
       <Link>UserControl\Controls\DrawerDemoCtl.xaml.cs</Link>
       <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\FlexPanelDemoCtl.xaml.cs</Link>
+      <DependentUpon>FlexPanelDemoCtl.xaml</DependentUpon>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlipClockDemoCtl.xaml.cs">
       <Link>UserControl\Controls\FlipClockDemoCtl.xaml.cs</Link>
       <DependentUpon>FlipClockDemoCtl.xaml</DependentUpon>

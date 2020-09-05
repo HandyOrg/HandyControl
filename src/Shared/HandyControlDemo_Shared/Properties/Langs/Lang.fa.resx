@@ -762,4 +762,7 @@
   <data name="CheckComboBox" xml:space="preserve">
     <value>CheckComboBox</value>
   </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>FlexPanel</value>
+  </data>
 </root>

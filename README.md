@@ -76,6 +76,7 @@
 <a href="https://github.com/sanshiliuxiao" target="_blank"><img style="border-radius:50%!important" width="64px" alt="sanshiliuxiao" src="https://avatars3.githubusercontent.com/u/25658690?s=64&v=4"></a>
 <a href="https://github.com/QJJMSK" target="_blank"><img style="border-radius:50%!important" width="64px" alt="QJJMSK" src="https://avatars2.githubusercontent.com/u/28100716?s=64&v=4"></a>
 <a href="https://github.com/dspcjy" target="_blank"><img style="border-radius:50%!important" width="64px" alt="dspcjy" src="https://avatars3.githubusercontent.com/u/17764711?s=64&v=4"></a>
+<a href="https://github.com/yaronzz" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yaronzz" src="https://avatars0.githubusercontent.com/u/15530958?s=64&v=4"></a>
 
 ## Special thanks to
 
@@ -124,6 +125,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### FlexPanel
+
+![FlexPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FlexPanel.gif)
+
 ### CheckComboBox
 
 ![CheckComboBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CheckComboBox.png)
@@ -140,11 +145,11 @@ Step 4: Enjoy coding
 
 ![Screenshot](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Screenshot.png)
 
+## History publication
+
 ### GooeyEffect
 
 ![GooeyEffect](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/GooeyEffect.gif)
-
-## History publication
 
 ### GlowWindow
 
