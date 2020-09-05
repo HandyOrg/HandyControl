@@ -6,6 +6,7 @@ using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Expression.Drawing;
 using HandyControl.Tools;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -20,7 +21,8 @@ namespace HandyControl.Controls
         #region Item
 
         public static readonly DependencyProperty OrderProperty = DependencyProperty.RegisterAttached(
-            "Order", typeof(int), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Int0Box, OnItemPropertyChanged));
+            "Order", typeof(int), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(ValueBoxes.Int0Box, OnItemPropertyChanged));
 
         public static void SetOrder(DependencyObject element, int value)
             => element.SetValue(OrderProperty, value);
@@ -29,7 +31,9 @@ namespace HandyControl.Controls
             => (int)element.GetValue(OrderProperty);
 
         public static readonly DependencyProperty FlexGrowProperty = DependencyProperty.RegisterAttached(
-            "FlexGrow", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnItemPropertyChanged), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+            "FlexGrow", typeof(double), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnItemPropertyChanged),
+            ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
         public static void SetFlexGrow(DependencyObject element, double value)
             => element.SetValue(FlexGrowProperty, value);
@@ -38,7 +42,9 @@ namespace HandyControl.Controls
             => (double)element.GetValue(FlexGrowProperty);
 
         public static readonly DependencyProperty FlexShrinkProperty = DependencyProperty.RegisterAttached(
-            "FlexShrink", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, OnItemPropertyChanged));
+            "FlexShrink", typeof(double), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(ValueBoxes.Double1Box, OnItemPropertyChanged),
+            ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
         public static void SetFlexShrink(DependencyObject element, double value)
             => element.SetValue(FlexShrinkProperty, value);
@@ -47,7 +53,8 @@ namespace HandyControl.Controls
             => (double)element.GetValue(FlexShrinkProperty);
 
         public static readonly DependencyProperty FlexBasisProperty = DependencyProperty.RegisterAttached(
-            "FlexBasis", typeof(double), typeof(FlexPanel), new FrameworkPropertyMetadata(double.NaN, OnItemPropertyChanged));
+            "FlexBasis", typeof(double), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(double.NaN, OnItemPropertyChanged));
 
         public static void SetFlexBasis(DependencyObject element, double value)
             => element.SetValue(FlexBasisProperty, value);
@@ -56,7 +63,8 @@ namespace HandyControl.Controls
             => (double)element.GetValue(FlexBasisProperty);
 
         public static readonly DependencyProperty AlignSelfProperty = DependencyProperty.RegisterAttached(
-            "AlignSelf", typeof(FlexItemAlignment), typeof(FlexPanel), new FrameworkPropertyMetadata(default(FlexItemAlignment), OnItemPropertyChanged));
+            "AlignSelf", typeof(FlexItemAlignment), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(default(FlexItemAlignment), OnItemPropertyChanged));
 
         public static void SetAlignSelf(DependencyObject element, FlexItemAlignment value)
             => element.SetValue(AlignSelfProperty, value);
@@ -69,7 +77,8 @@ namespace HandyControl.Controls
             => (FlexItemAlignment)element.GetValue(AlignSelfProperty);
 
         public static readonly DependencyProperty FlexDirectionProperty = DependencyProperty.Register(
-            "FlexDirection", typeof(FlexDirection), typeof(FlexPanel), new FrameworkPropertyMetadata(default(FlexDirection), FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "FlexDirection", typeof(FlexDirection), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(default(FlexDirection), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public FlexDirection FlexDirection
         {
@@ -78,7 +87,8 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty FlexWrapProperty = DependencyProperty.Register(
-            "FlexWrap", typeof(FlexWrap), typeof(FlexPanel), new FrameworkPropertyMetadata(default(FlexWrap), FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "FlexWrap", typeof(FlexWrap), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(default(FlexWrap), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public FlexWrap FlexWrap
         {
@@ -87,7 +97,9 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty JustifyContentProperty = DependencyProperty.Register(
-            "JustifyContent", typeof(FlexContentJustify), typeof(FlexPanel), new FrameworkPropertyMetadata(default(FlexContentJustify), FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "JustifyContent", typeof(FlexContentJustify), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(default(FlexContentJustify),
+                FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public FlexContentJustify JustifyContent
         {
@@ -96,7 +108,9 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty AlignItemsProperty = DependencyProperty.Register(
-            "AlignItems", typeof(FlexItemsAlignment), typeof(FlexPanel), new FrameworkPropertyMetadata(default(FlexItemsAlignment), FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "AlignItems", typeof(FlexItemsAlignment), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(default(FlexItemsAlignment),
+                FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public FlexItemsAlignment AlignItems
         {
@@ -105,7 +119,9 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty AlignContentProperty = DependencyProperty.Register(
-            "AlignContent", typeof(FlexContentAlignment), typeof(FlexPanel), new FrameworkPropertyMetadata(default(FlexContentAlignment), FrameworkPropertyMetadataOptions.AffectsMeasure));
+            "AlignContent", typeof(FlexContentAlignment), typeof(FlexPanel),
+            new FrameworkPropertyMetadata(default(FlexContentAlignment),
+                FrameworkPropertyMetadataOptions.AffectsMeasure));
 
         public FlexContentAlignment AlignContent
         {
@@ -143,6 +159,7 @@ namespace HandyControl.Controls
 
                 _orderList.Add(new FlexItemInfo(i, GetOrder(child)));
             }
+
             _orderList.Sort();
 
             for (var i = 0; i < children.Count; i++)
@@ -150,6 +167,11 @@ namespace HandyControl.Controls
                 var child = children[_orderList[i].Index];
                 if (child == null) continue;
 
+                var flexBasis = GetFlexBasis(child);
+                if (!flexBasis.IsNaN())
+                {
+                    child.SetCurrentValue(WidthProperty, flexBasis);
+                }
                 child.Measure(childConstraint);
 
                 var sz = new UVSize(FlexDirection, child.DesiredSize);
@@ -260,6 +282,7 @@ namespace HandyControl.Controls
             {
                 freeV -= flexSize.V;
             }
+
             var freeItemV = freeV;
 
             // calculate status
@@ -277,13 +300,10 @@ namespace HandyControl.Controls
 
                         accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - lineFreeVArr[0] : 0;
                     }
+
                     break;
                 case FlexContentAlignment.FlexStart:
-                    if (FlexWrap == FlexWrap.WrapReverse)
-                    {
-                        wrapReverseAdd = 1;
-                    }
-
+                    wrapReverseAdd = FlexWrap == FlexWrap.WrapReverse ? 0 : 1;
                     if (_lineCount > 1)
                     {
                         accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V : 0;
@@ -292,13 +312,10 @@ namespace HandyControl.Controls
                     {
                         wrapReverseAdd = 0;
                     }
+
                     break;
                 case FlexContentAlignment.FlexEnd:
-                    if (FlexWrap != FlexWrap.WrapReverse)
-                    {
-                        wrapReverseAdd = 1;
-                    }
-
+                    wrapReverseAdd = FlexWrap == FlexWrap.WrapReverse ? 1 : 0;
                     if (_lineCount > 1)
                     {
                         accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeV : freeV;
@@ -307,12 +324,14 @@ namespace HandyControl.Controls
                     {
                         wrapReverseAdd = 0;
                     }
+
                     break;
                 case FlexContentAlignment.Center:
                     if (_lineCount > 1)
                     {
                         accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeV * 0.5 : freeV * 0.5;
                     }
+
                     break;
                 case FlexContentAlignment.SpaceBetween:
                     if (_lineCount > 1)
@@ -325,6 +344,7 @@ namespace HandyControl.Controls
 
                         accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V : 0;
                     }
+
                     break;
                 case FlexContentAlignment.SpaceAround:
                     if (_lineCount > 1)
@@ -337,6 +357,7 @@ namespace HandyControl.Controls
 
                         accumulatedV = FlexWrap == FlexWrap.WrapReverse ? uvFinalSize.V - curLineSizeArr[0].V - freeItemV : freeItemV;
                     }
+
                     break;
             }
 
@@ -371,7 +392,8 @@ namespace HandyControl.Controls
                         lineIndex++;
                         itemsU = 0;
 
-                        if (i >= lastInLineArr[lineIndex]) //the element is wider then the constraint - give it a separate line                    
+                        if (i >= lastInLineArr[lineIndex]
+                        ) //the element is wider then the constraint - give it a separate line                    
                         {
                             //switch to next line which only contain one element
                             ArrangeLine(new FlexLineInfo
@@ -390,6 +412,7 @@ namespace HandyControl.Controls
                             lineIndex++;
                             itemsU = 0;
                         }
+
                         firstInLine = i;
                     }
                 }
@@ -420,6 +443,10 @@ namespace HandyControl.Controls
         {
             var isHorizontal = FlexDirection == FlexDirection.Row || FlexDirection == FlexDirection.RowReverse;
             var isReverse = FlexDirection == FlexDirection.RowReverse || FlexDirection == FlexDirection.ColumnReverse;
+            var itemCount = lineInfo.ItemEndIndex - lineInfo.ItemStartIndex;
+            var children = InternalChildren;
+            var lineFreeU = lineInfo.LineU - lineInfo.ItemsU;
+            var constraintFreeU = _uvConstraint.U - lineInfo.ItemsU;
 
             // calculate initial u
             var u = .0;
@@ -439,43 +466,120 @@ namespace HandyControl.Controls
             {
                 u = JustifyContent switch
                 {
-                    FlexContentJustify.FlexEnd => lineInfo.LineU - lineInfo.ItemsU,
-                    FlexContentJustify.Center => (lineInfo.LineU - lineInfo.ItemsU) * 0.5,
+                    FlexContentJustify.FlexEnd => lineFreeU,
+                    FlexContentJustify.Center => lineFreeU * 0.5,
                     _ => u
                 };
             }
+
             u *= lineInfo.ScaleU;
 
-            // calculate offset u
-            var itemCount = lineInfo.ItemEndIndex - lineInfo.ItemStartIndex;
-            var offsetUArr = new double[itemCount];
-            if (JustifyContent == FlexContentJustify.SpaceBetween)
+            // apply FlexGrow
+            var flexGrowUArr = new double[itemCount];
+            if (constraintFreeU > 0)
             {
-                var freeItemU = (lineInfo.LineU - lineInfo.ItemsU) / (itemCount - 1);
-                for (var i = 1; i < itemCount; i++)
+                var ignoreFlexGrow = true;
+                var flexGrowSum = .0;
+
+                for (var i = 0; i < itemCount; i++)
                 {
-                    offsetUArr[i] = freeItemU;
+                    var flexGrow = GetFlexGrow(children[_orderList[i].Index]);
+                    ignoreFlexGrow &= MathHelper.IsVerySmall(flexGrow);
+                    flexGrowUArr[i] = flexGrow;
+                    flexGrowSum += flexGrow;
                 }
-            }
-            else if (JustifyContent == FlexContentJustify.SpaceAround)
-            {
-                var freeItemU = (lineInfo.LineU - lineInfo.ItemsU) / itemCount * 0.5;
-                offsetUArr[0] = freeItemU;
-                for (var i = 1; i < itemCount; i++)
+
+                if (!ignoreFlexGrow)
                 {
-                    offsetUArr[i] = freeItemU * 2;
+                    var flexGrowItem = .0;
+                    if (flexGrowSum > 0)
+                    {
+                        flexGrowItem = constraintFreeU / flexGrowSum;
+                        lineInfo.ScaleU = 1;
+                        lineFreeU = 0; //line free U was used up 
+                    }
+
+                    for (var i = 0; i < itemCount; i++)
+                    {
+                        flexGrowUArr[i] *= flexGrowItem;
+                    }
+                }
+                else
+                {
+                    flexGrowUArr = new double[itemCount];
                 }
             }
 
-            var children = InternalChildren;
+            // apply FlexShrink
+            var flexShrinkUArr = new double[itemCount];
+            if (constraintFreeU < 0)
+            {
+                var ignoreFlexShrink = true;
+                var flexShrinkSum = .0;
+
+                for (var i = 0; i < itemCount; i++)
+                {
+                    var flexShrink = GetFlexShrink(children[_orderList[i].Index]);
+                    ignoreFlexShrink &= MathHelper.IsVerySmall(flexShrink - 1);
+                    flexShrinkUArr[i] = flexShrink;
+                    flexShrinkSum += flexShrink;
+                }
+
+                if (!ignoreFlexShrink)
+                {
+                    var flexShrinkItem = .0;
+                    if (flexShrinkSum > 0)
+                    {
+                        flexShrinkItem = constraintFreeU / flexShrinkSum;
+                        lineInfo.ScaleU = 1;
+                        lineFreeU = 0; //line free U was used up 
+                    }
+
+                    for (var i = 0; i < itemCount; i++)
+                    {
+                        flexShrinkUArr[i] *= flexShrinkItem;
+                    }
+                }
+                else
+                {
+                    flexShrinkUArr = new double[itemCount];
+                }
+            }
+
+            // calculate offset u
+            var offsetUArr = new double[itemCount];
+            if (lineFreeU > 0)
+            {
+                if (JustifyContent == FlexContentJustify.SpaceBetween)
+                {
+                    var freeItemU = lineFreeU / (itemCount - 1);
+                    for (var i = 1; i < itemCount; i++)
+                    {
+                        offsetUArr[i] = freeItemU;
+                    }
+                }
+                else if (JustifyContent == FlexContentJustify.SpaceAround)
+                {
+                    var freeItemU = lineFreeU / itemCount * 0.5;
+                    offsetUArr[0] = freeItemU;
+                    for (var i = 1; i < itemCount; i++)
+                    {
+                        offsetUArr[i] = freeItemU * 2;
+                    }
+                }
+            }
+
+            // arrange item
             for (int i = lineInfo.ItemStartIndex, j = 0; i < lineInfo.ItemEndIndex; i++, j++)
             {
                 var child = children[_orderList[i].Index];
                 if (child == null) continue;
 
-                var childSize = new UVSize(FlexDirection, isHorizontal ?
-                    new Size(child.DesiredSize.Width * lineInfo.ScaleU, child.DesiredSize.Height) :
-                    new Size(child.DesiredSize.Width, child.DesiredSize.Height * lineInfo.ScaleU));
+                var childSize = new UVSize(FlexDirection, isHorizontal
+                    ? new Size(child.DesiredSize.Width * lineInfo.ScaleU, child.DesiredSize.Height)
+                    : new Size(child.DesiredSize.Width, child.DesiredSize.Height * lineInfo.ScaleU));
+
+                childSize.U += flexGrowUArr[j] + flexShrinkUArr[j];
 
                 if (isReverse)
                 {
@@ -489,15 +593,7 @@ namespace HandyControl.Controls
 
                 var v = lineInfo.OffsetV;
                 var alignSelf = GetAlignSelf(child);
-                FlexItemsAlignment alignment;
-                if (alignSelf == FlexItemAlignment.Auto)
-                {
-                    alignment = AlignItems;
-                }
-                else
-                {
-                    alignment = (FlexItemsAlignment)alignSelf;
-                }
+                var alignment = alignSelf == FlexItemAlignment.Auto ? AlignItems : (FlexItemsAlignment)alignSelf;
 
                 switch (alignment)
                 {
@@ -510,6 +606,7 @@ namespace HandyControl.Controls
                         {
                             childSize.V = lineInfo.LineV;
                         }
+
                         break;
                     case FlexItemsAlignment.FlexEnd:
                         v += lineInfo.LineV - childSize.V;
