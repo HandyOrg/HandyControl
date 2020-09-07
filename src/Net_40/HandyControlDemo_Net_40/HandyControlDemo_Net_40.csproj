@@ -6,6 +6,7 @@
     <TargetFramework>net40</TargetFramework>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
     <NoWarn>0108</NoWarn>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />

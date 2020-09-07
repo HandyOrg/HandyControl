@@ -6,6 +6,7 @@
     <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net45;net462;net47;net48;net5.0</TargetFrameworks>
     <ApplicationIcon>..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico</ApplicationIcon>
     <NoWarn>0108</NoWarn>
+    <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <Reference Include="Microsoft.CSharp" />

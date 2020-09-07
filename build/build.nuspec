@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HandyControl</id>
-    <version>2.5.0.2</version>
+    <version>3.0.0-rc.1</version>
     <title>HandyOrg</title>
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
@@ -25,6 +25,7 @@
       <group targetFramework=".NETFramework4.8" />
       <group targetFramework=".NETCoreApp3.0" />
       <group targetFramework=".NETCoreApp3.1" />
+      <group targetFramework=".NETCoreApp5.0" />
     </dependencies>
   </metadata>
   <files>
@@ -74,6 +75,17 @@
     <file src="lib\net48\HandyControl.dll" target="lib\net48\HandyControl.dll" />
     <file src="lib\net48\HandyControl.pdb" target="lib\net48\HandyControl.pdb" />
     <file src="lib\net48\HandyControl.xml" target="lib\net48\HandyControl.xml" />
+    <file src="lib\net5.0\en\HandyControl.resources.dll" target="lib\net5.0\en\HandyControl.resources.dll" />
+    <file src="lib\net5.0\fa\HandyControl.resources.dll" target="lib\net5.0\fa\HandyControl.resources.dll" />
+    <file src="lib\net5.0\fr\HandyControl.resources.dll" target="lib\net5.0\fr\HandyControl.resources.dll" />
+    <file src="lib\net5.0\ko-KR\HandyControl.resources.dll" target="lib\net5.0\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net5.0\pt-BR\HandyControl.resources.dll" target="lib\net5.0\pt-BR\HandyControl.resources.dll" />
+    <file src="lib\net5.0\ru\HandyControl.resources.dll" target="lib\net5.0\ru\HandyControl.resources.dll" />
+    <file src="lib\net5.0\tr\HandyControl.resources.dll" target="lib\net5.0\tr\HandyControl.resources.dll" />
+    <file src="lib\net5.0\HandyControl.deps.json" target="lib\net5.0\HandyControl.deps.json" />
+    <file src="lib\net5.0\HandyControl.dll" target="lib\net5.0\HandyControl.dll" />
+    <file src="lib\net5.0\HandyControl.pdb" target="lib\net5.0\HandyControl.pdb" />
+    <file src="lib\net5.0\HandyControl.xml" target="lib\net5.0\HandyControl.xml" />
     <file src="lib\netcoreapp3.0\en\HandyControl.resources.dll" target="lib\netcoreapp3.0\en\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\fa\HandyControl.resources.dll" target="lib\netcoreapp3.0\fa\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\fr\HandyControl.resources.dll" target="lib\netcoreapp3.0\fr\HandyControl.resources.dll" />
