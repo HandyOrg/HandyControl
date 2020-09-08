@@ -24,6 +24,7 @@
       <Item Type="HandyControl.Controls.Dialog" />
       <Item Type="HandyControl.Controls.Divider" />
       <Item Type="HandyControl.Controls.Drawer" />
+      <Item Type="HandyControl.Controls.FlexPanel" />
       <Item Type="HandyControl.Controls.FlipClock" />
       <Item Type="HandyControl.Controls.FloatingBlock" />
       <Item Type="HandyControl.Controls.GifImage" />
