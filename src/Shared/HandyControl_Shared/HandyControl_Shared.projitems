@@ -114,7 +114,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\LinearGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\ResolvedKeyFrameEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\SplineGeometryKeyFrame.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BlendEffectBox.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\BlendEffectBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\BrightnessEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorComplementEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ColorMatrixEffect.cs" />
@@ -1102,7 +1102,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.AnimationPath.icon.bmp" />
-    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Arc.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Expression.Shapes.Arc.icon.bmp" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Badge.icon.bmp" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.BlendEffectBox.icon.bmp" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.ButtonGroup.icon.bmp" />
@@ -1139,5 +1139,35 @@
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.LoadingCircle.icon.bmp" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.LoadingLine.icon.bmp" />
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Magnifier.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.NotifyIcon.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.NumericUpDown.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.OutlineText.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Pagination.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.PinBox.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Poptip.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.PreviewSlider.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.ProgressButton.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.PropertyGrid.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.RangeSlider.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.RelativePanel.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Row.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.RunningBlock.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.SearchBar.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Shield.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.SideMenu.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.SimplePanel.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.SimpleText.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.SplitButton.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.StepBar.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Tag.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.TimeBar.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.TimePicker.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.ToggleBlock.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Transfer.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.TransitioningContentControl.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.WaterfallPanel.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.Watermark.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.WatermarkTextBox.icon.bmp" />
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.WaveProgressBar.icon.bmp" />
   </ItemGroup>
 </Project>
