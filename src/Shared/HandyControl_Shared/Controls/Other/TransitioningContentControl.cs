@@ -49,7 +49,14 @@ namespace HandyControl.Controls
         {
             if (Visibility != Visibility.Visible || _contentPresenter == null) return;
 
-            (TransitionStoryboard ?? ResourceHelper.GetResource<Storyboard>($"{TransitionMode.ToString()}Transition"))?.Begin(_contentPresenter);
+            if (TransitionStoryboard != null)
+            {
+                TransitionStoryboard.Begin(_contentPresenter);
+            }
+            else if (Application.Current != null)
+            {
+                ResourceHelper.GetResource<Storyboard>($"{TransitionMode.ToString()}Transition")?.Begin(_contentPresenter);
+            }
         }
 
         public override void OnApplyTemplate()
