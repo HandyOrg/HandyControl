@@ -108,5 +108,6 @@
     <file src="lib\netcoreapp3.1\HandyControl.xml" target="lib\netcoreapp3.1\HandyControl.xml" />
     <file src="icon.png" target="icon.png" />
     <file src="LICENSE" target="LICENSE" />
+    <file src="tools\VisualStudioToolsManifest.xml" target="tools\VisualStudioToolsManifest.xml" />
   </files>
 </package>
