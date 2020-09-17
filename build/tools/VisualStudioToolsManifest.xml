@@ -1,10 +1,11 @@
 <FileList>
-  <File Reference = "HandyControl.dll">
-    <ToolboxItems VSCategory="HandyControl" BlendCategory="HandyControl">
+  <File Reference="HandyControl.dll">
+    <ToolboxItems UIFramework="WPF" VSCategory="HandyControl" BlendCategory="HandyControl">
       <Item Type="HandyControl.Controls.AnimationPath" />
+      <Item Type="HandyControl.Expression.Shapes.Arc" />
       <Item Type="HandyControl.Controls.Badge" />
+      <Item Type="HandyControl.Controls.BlendEffectBox" />
       <Item Type="HandyControl.Controls.ButtonGroup" />
-      <Item Type="HandyControl.Controls.BlurWindow" />
       <Item Type="HandyControl.Controls.CalendarWithClock" />
       <Item Type="HandyControl.Controls.Card" />
       <Item Type="HandyControl.Controls.Carousel" />
@@ -13,15 +14,18 @@
       <Item Type="HandyControl.Controls.CirclePanel" />
       <Item Type="HandyControl.Controls.CircleProgressBar" />
       <Item Type="HandyControl.Controls.Clock" />
+      <Item Type="HandyControl.Controls.Col" />
       <Item Type="HandyControl.Controls.ColorPicker" />
       <Item Type="HandyControl.Controls.ComboBox" />
       <Item Type="HandyControl.Controls.CompareSlider" />
+      <Item Type="HandyControl.Controls.ContextMenuButton" />
+      <Item Type="HandyControl.Controls.ContextMenuToggleButton" />
       <Item Type="HandyControl.Controls.CoverFlow" />
       <Item Type="HandyControl.Controls.CoverView" />
+      <Item Type="HandyControl.Controls.DashedBorder" />
       <Item Type="HandyControl.Controls.DatePicker" />
       <Item Type="HandyControl.Controls.DateTimePicker" />
-      <Item Type="HandyControl.Controls.DashBorder" />
-      <Item Type="HandyControl.Controls.Dialog" />
+      <Item Type="HandyControl.Controls.DialogContainer" />
       <Item Type="HandyControl.Controls.Divider" />
       <Item Type="HandyControl.Controls.Drawer" />
       <Item Type="HandyControl.Controls.FlexPanel" />
@@ -29,45 +33,37 @@
       <Item Type="HandyControl.Controls.FloatingBlock" />
       <Item Type="HandyControl.Controls.GifImage" />
       <Item Type="HandyControl.Controls.GotoTop" />
-      <Item Type="HandyControl.Controls.GlowWindow" />
       <Item Type="HandyControl.Controls.Gravatar" />
-      <Item Type="HandyControl.Controls.Grid" />
-      <Item Type="HandyControl.Controls.Growl" />
       <Item Type="HandyControl.Controls.HoneycombPanel" />
       <Item Type="HandyControl.Controls.ImageBlock" />
-      <Item Type="HandyControl.Controls.ImageBrowser" />
-      <Item Type="HandyControl.Controls.ImageViewer" />
       <Item Type="HandyControl.Controls.ImageSelector" />
-      <Item Type="HandyControl.Controls.Loading" />
+      <Item Type="HandyControl.Controls.ImageViewer" />
+      <Item Type="HandyControl.Controls.ListClock" />
+      <Item Type="HandyControl.Controls.LoadingCircle" />
+      <Item Type="HandyControl.Controls.LoadingLine" />
       <Item Type="HandyControl.Controls.Magnifier" />
-      <Item Type="HandyControl.Controls.MessageBox" />
-      <Item Type="HandyControl.Controls.Notification" />
       <Item Type="HandyControl.Controls.NotifyIcon" />
       <Item Type="HandyControl.Controls.NumericUpDown" />
       <Item Type="HandyControl.Controls.OutlineText" />
       <Item Type="HandyControl.Controls.Pagination" />
       <Item Type="HandyControl.Controls.PasswordBox" />
       <Item Type="HandyControl.Controls.PinBox" />
-      <Item Type="HandyControl.Controls.PopTip" />
-      <Item Type="HandyControl.Controls.PopupWindow" />
+      <Item Type="HandyControl.Controls.Poptip" />
       <Item Type="HandyControl.Controls.PreviewSlider" />
       <Item Type="HandyControl.Controls.ProgressButton" />
       <Item Type="HandyControl.Controls.PropertyGrid" />
       <Item Type="HandyControl.Controls.RangeSlider" />
-      <Item Type="HandyControl.Controls.RadioGroup" />
       <Item Type="HandyControl.Controls.Rate" />
       <Item Type="HandyControl.Controls.RelativePanel" />
+      <Item Type="HandyControl.Controls.Row" />
       <Item Type="HandyControl.Controls.RunningBlock" />
-      <Item Type="HandyControl.Controls.ScreenShot" />
       <Item Type="HandyControl.Controls.ScrollViewer" />
       <Item Type="HandyControl.Controls.SearchBar" />
       <Item Type="HandyControl.Controls.Shield" />
       <Item Type="HandyControl.Controls.SideMenu" />
-      <Item Type="HandyControl.Controls.SimpleItemsControl" />
       <Item Type="HandyControl.Controls.SimplePanel" />
       <Item Type="HandyControl.Controls.SimpleText" />
       <Item Type="HandyControl.Controls.SplitButton" />
-      <Item Type="HandyControl.Controls.Sprite" />
       <Item Type="HandyControl.Controls.StepBar" />
       <Item Type="HandyControl.Controls.TabControl" />
       <Item Type="HandyControl.Controls.Tag" />
@@ -80,7 +76,6 @@
       <Item Type="HandyControl.Controls.WaterfallPanel" />
       <Item Type="HandyControl.Controls.Watermark" />
       <Item Type="HandyControl.Controls.WaveProgressBar" />
-      <Item Type="HandyControl.Controls.Window" />
     </ToolboxItems>
   </File>
 </FileList>
