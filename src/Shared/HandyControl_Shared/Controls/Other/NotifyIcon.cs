@@ -270,6 +270,11 @@ namespace HandyControl.Controls
             var ctl = (NotifyIcon)d;
             ctl._icon = (ImageSource)e.NewValue;
             ctl.OnIconChanged();
+
+            if (!string.IsNullOrEmpty(ctl._windowClassName) && !ctl.IsBlink && ctl.Visibility == Visibility.Visible)
+            {
+                ctl.UpdateIcon(true);
+            }
         }
 
         public ImageSource Icon
@@ -491,6 +496,8 @@ namespace HandyControl.Controls
 
         private void OnIconChanged()
         {
+            if (_windowClassName == null) return;
+
             if (_icon != null)
             {
                 IconHelper.GetIconHandlesFromImageSource(_icon, out _, out _iconHandle);
