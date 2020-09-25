@@ -362,6 +362,7 @@
   </data>
   <data name="About" xml:space="preserve">
     <value>关于</value>
+    
   </data>
   <data name="Repository" xml:space="preserve">
     <value>代码仓库</value>
