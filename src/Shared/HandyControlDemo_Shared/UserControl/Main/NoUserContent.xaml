@@ -130,7 +130,7 @@
                             <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/fr.png"/>
                         </Button>
                         <Button Tag="ca-ES" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
-                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ca.png"/>
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ca-Es.png"/>
                         </Button>
                     </StackPanel>
                     <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,0,0,0">
