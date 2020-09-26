@@ -76,7 +76,7 @@ namespace HandyControl.Controls
                     CurrentVerticalOffset = VerticalOffset;
                 }
                 _totalVerticalOffset = Math.Min(Math.Max(0, _totalVerticalOffset - e.Delta), ScrollableHeight);
-                ScrollToVerticalOffsetInternal(_totalVerticalOffset);
+                ScrollToVerticalOffsetWithAnimation(_totalVerticalOffset);
             }
             else
             {
@@ -86,7 +86,7 @@ namespace HandyControl.Controls
                     CurrentHorizontalOffset = HorizontalOffset;
                 }
                 _totalHorizontalOffset = Math.Min(Math.Max(0, _totalHorizontalOffset - e.Delta), ScrollableWidth);
-                ScrollToHorizontalOffsetInternal(_totalHorizontalOffset);
+                ScrollToHorizontalOffsetWithAnimation(_totalHorizontalOffset);
             }
         }
 
@@ -97,10 +97,10 @@ namespace HandyControl.Controls
                 _totalVerticalOffset = VerticalOffset;
                 CurrentVerticalOffset = VerticalOffset;
             }
-            ScrollToVerticalOffsetInternal(0, milliseconds);
+            ScrollToVerticalOffsetWithAnimation(0, milliseconds);
         }
 
-        internal void ScrollToVerticalOffsetInternal(double offset, double milliseconds = 500)
+        public void ScrollToVerticalOffsetWithAnimation(double offset, double milliseconds = 500)
         {
             var animation = AnimationHelper.CreateAnimation(offset, milliseconds);
             animation.EasingFunction = new CubicEase
@@ -118,7 +118,7 @@ namespace HandyControl.Controls
             BeginAnimation(CurrentVerticalOffsetProperty, animation, HandoffBehavior.Compose);
         }
 
-        internal void ScrollToHorizontalOffsetInternal(double offset, double milliseconds = 500)
+        public void ScrollToHorizontalOffsetWithAnimation(double offset, double milliseconds = 500)
         {
             var animation = AnimationHelper.CreateAnimation(offset, milliseconds);
             animation.EasingFunction = new CubicEase
