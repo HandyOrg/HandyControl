@@ -5,6 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 #if NET40
 using System.Windows.Threading;
 #endif
@@ -68,6 +69,13 @@ namespace HandyControl.Controls
                 if (_editableTextBox != null)
                 {
                     _editableTextBox.TextChanged += EditableTextBox_TextChanged;
+
+                    _editableTextBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+                    _editableTextBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+#endif
+                    _editableTextBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
+                    _editableTextBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
 
                     if (AutoComplete)
                     {
@@ -239,6 +247,122 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     是否自动完成输入
+        /// </summary>
+        public bool AutoComplete
+        {
+            get => (bool)GetValue(AutoCompleteProperty);
+            set => SetValue(AutoCompleteProperty, ValueBoxes.BooleanBox(value));
+        }
+
+        /// <summary>
+        ///     搜索文本
+        /// </summary>
+        internal static readonly DependencyProperty SearchTextProperty = DependencyProperty.Register(
+            "SearchText", typeof(string), typeof(ComboBox), new PropertyMetadata(default(string), OnSearchTextChanged));
+
+        private static void OnSearchTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (ComboBox)d;
+            if (ctl._isAutoCompleteAction)
+            {
+#if NET40
+                ctl._searchText = e.NewValue as string;
+                ctl._autoCompleteTimer.Stop();
+                ctl._autoCompleteTimer.Start();
+#else
+                ctl.UpdateSearchItems(e.NewValue as string);
+#endif
+            }
+
+            ctl._isAutoCompleteAction = true;
+        }
+
+        /// <summary>
+        ///     搜索文本
+        /// </summary>
+        internal string SearchText
+        {
+            get => (string)GetValue(SearchTextProperty);
+            set => SetValue(SearchTextProperty, value);
+        }
+
+        public static readonly DependencyProperty SelectionBrushProperty =
+            TextBoxBase.SelectionBrushProperty.AddOwner(typeof(ComboBox));
+
+        public Brush SelectionBrush
+        {
+            get => (Brush) GetValue(SelectionBrushProperty);
+            set => SetValue(SelectionBrushProperty, value);
+        }
+
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+
+        public static readonly DependencyProperty SelectionTextBrushProperty =
+            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(ComboBox));
+
+        public Brush SelectionTextBrush
+        {
+            get => (Brush)GetValue(SelectionTextBrushProperty);
+            set => SetValue(SelectionTextBrushProperty, value);
+        }
+
+#endif
+
+        public static readonly DependencyProperty SelectionOpacityProperty =
+            TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(ComboBox));
+
+        public double SelectionOpacity
+        {
+            get => (double)GetValue(SelectionOpacityProperty);
+            set => SetValue(SelectionOpacityProperty, value);
+        }
+
+        public static readonly DependencyProperty CaretBrushProperty =
+            TextBoxBase.CaretBrushProperty.AddOwner(typeof(ComboBox));
+
+        public Brush CaretBrush
+        {
+            get => (Brush)GetValue(CaretBrushProperty);
+            set => SetValue(CaretBrushProperty, value);
+        }
+
+        /// <summary>
+        ///     验证数据
+        /// </summary>
+        /// <returns></returns>
+        public virtual bool VerifyData()
+        {
+            OperationResult<bool> result;
+
+            var value = _editableTextBox == null ? Text : _editableTextBox.Text;
+
+            if (VerifyFunc != null)
+            {
+                result = VerifyFunc.Invoke(value);
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(value))
+                {
+                    result = OperationResult.Success();
+                }
+                else if (InfoElement.GetNecessary(this))
+                {
+                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
+                }
+                else
+                {
+                    result = OperationResult.Success();
+                }
+            }
+
+            IsError = !result.Data;
+            ErrorStr = result.Message;
+            return result.Data;
+        }
+
+        /// <summary>
         ///     更新搜索的项目
         /// </summary>
         /// <param name="key"></param>
@@ -299,82 +423,6 @@ namespace HandyControl.Controls
                 _isAutoCompleteAction = false;
                 SelectedValue = comboBoxItem.Content;
             }
-        }
-
-        /// <summary>
-        ///     搜索文本
-        /// </summary>
-        internal static readonly DependencyProperty SearchTextProperty = DependencyProperty.Register(
-            "SearchText", typeof(string), typeof(ComboBox), new PropertyMetadata(default(string), OnSearchTextChanged));
-
-        private static void OnSearchTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (ComboBox)d;
-            if (ctl._isAutoCompleteAction)
-            {
-#if NET40
-                ctl._searchText = e.NewValue as string;
-                ctl._autoCompleteTimer.Stop();
-                ctl._autoCompleteTimer.Start();
-#else
-                ctl.UpdateSearchItems(e.NewValue as string);
-#endif
-            }
-
-            ctl._isAutoCompleteAction = true;
-        }
-
-        /// <summary>
-        ///     搜索文本
-        /// </summary>
-        internal string SearchText
-        {
-            get => (string)GetValue(SearchTextProperty);
-            set => SetValue(SearchTextProperty, value);
-        }
-
-        /// <summary>
-        ///     是否自动完成输入
-        /// </summary>
-        public bool AutoComplete
-        {
-            get => (bool)GetValue(AutoCompleteProperty);
-            set => SetValue(AutoCompleteProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        /// <summary>
-        ///     验证数据
-        /// </summary>
-        /// <returns></returns>
-        public virtual bool VerifyData()
-        {
-            OperationResult<bool> result;
-
-            var value = _editableTextBox == null ? Text : _editableTextBox.Text;
-
-            if (VerifyFunc != null)
-            {
-                result = VerifyFunc.Invoke(value);
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(value))
-                {
-                    result = OperationResult.Success();
-                }
-                else if (InfoElement.GetNecessary(this))
-                {
-                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-                }
-                else
-                {
-                    result = OperationResult.Success();
-                }
-            }
-
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
         }
     }
 }

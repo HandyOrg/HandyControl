@@ -5,7 +5,10 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
@@ -256,6 +259,46 @@ namespace HandyControl.Controls
             set => SetValue(ItemHeightProperty, value);
         }
 
+        public static readonly DependencyProperty SelectionBrushProperty =
+            TextBoxBase.SelectionBrushProperty.AddOwner(typeof(PinBox));
+
+        public Brush SelectionBrush
+        {
+            get => (Brush)GetValue(SelectionBrushProperty);
+            set => SetValue(SelectionBrushProperty, value);
+        }
+
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+
+        public static readonly DependencyProperty SelectionTextBrushProperty =
+            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(PinBox));
+
+        public Brush SelectionTextBrush
+        {
+            get => (Brush)GetValue(SelectionTextBrushProperty);
+            set => SetValue(SelectionTextBrushProperty, value);
+        }
+
+#endif
+
+        public static readonly DependencyProperty SelectionOpacityProperty =
+            TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(PinBox));
+
+        public double SelectionOpacity
+        {
+            get => (double)GetValue(SelectionOpacityProperty);
+            set => SetValue(SelectionOpacityProperty, value);
+        }
+
+        public static readonly DependencyProperty CaretBrushProperty =
+            TextBoxBase.CaretBrushProperty.AddOwner(typeof(PinBox));
+
+        public Brush CaretBrush
+        {
+            get => (Brush)GetValue(CaretBrushProperty);
+            set => SetValue(CaretBrushProperty, value);
+        }
+
         public static readonly RoutedEvent CompletedEvent =
             EventManager.RegisterRoutedEvent("Completed", RoutingStrategy.Bubble,
                 typeof(RoutedEventHandler), typeof(PinBox));
@@ -281,7 +324,7 @@ namespace HandyControl.Controls
 
         private System.Windows.Controls.PasswordBox CreatePasswordBox()
         {
-            return new System.Windows.Controls.PasswordBox
+            var passwordBox = new System.Windows.Controls.PasswordBox
             {
                 MaxLength = 1,
                 HorizontalContentAlignment = HorizontalAlignment.Center,
@@ -290,8 +333,18 @@ namespace HandyControl.Controls
                 Width = ItemWidth,
                 Height = ItemHeight,
                 Padding = default,
-                PasswordChar = PasswordChar
+                PasswordChar = PasswordChar,
+                Foreground = Foreground
             };
+
+            passwordBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+            passwordBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+#endif
+            passwordBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
+            passwordBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+
+            return passwordBox;
         }
 
         public override void OnApplyTemplate()
