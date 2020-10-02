@@ -307,11 +307,11 @@ namespace HandyControl.Controls
         private void Menu_Closed(object sender, RoutedEventArgs e) => _buttonOverflow.IsChecked = false;
 
         private void ButtonScrollRight_Click(object sender, RoutedEventArgs e) =>
-            _scrollViewerOverflow.ScrollToHorizontalOffsetInternal(Math.Min(
+            _scrollViewerOverflow.ScrollToHorizontalOffsetWithAnimation(Math.Min(
                 _scrollViewerOverflow.CurrentHorizontalOffset + TabItemWidth, _scrollViewerOverflow.ScrollableWidth));
 
         private void ButtonScrollLeft_Click(object sender, RoutedEventArgs e) =>
-            _scrollViewerOverflow.ScrollToHorizontalOffsetInternal(Math.Max(
+            _scrollViewerOverflow.ScrollToHorizontalOffsetWithAnimation(Math.Max(
                 _scrollViewerOverflow.CurrentHorizontalOffset - TabItemWidth, 0));
 
         private void ButtonOverflow_Click(object sender, RoutedEventArgs e)

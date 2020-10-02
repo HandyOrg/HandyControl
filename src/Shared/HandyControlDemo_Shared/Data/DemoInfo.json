@@ -78,6 +78,7 @@
       [ "Divider", "DividerDemoCtl", "DottedSplitter_16x", "" ],
       [ "CirclePanel", "CirclePanelDemoCtl", "ColorWheel_16x", "" ],
       [ "Grid", "GridDemoCtl", "GridPane_16x", "" ],
+      [ "FlexPanel", "FlexPanelDemoCtl", "layout-FlexLayout-16", "1" ],
       [ "RelativePanel", "RelativePanelDemoCtl", "TransformRelative_16x", "" ],
       [ "WaterfallPanel", "WaterfallPanelDemoCtl", "Panel_16x", "" ],
       [ "HoneycombPanel", "HoneycombPanelDemoCtl", "PolygonHexagon_16x", "" ],

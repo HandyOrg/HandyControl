@@ -512,6 +512,8 @@ namespace HandyControl.Controls
 
         private void Dispatcher_Tick(object sender, EventArgs e)
         {
+            if (_dispatcher == null) return;
+
             if (ImageSource == null || !IsLoaded)
             {
                 _dispatcher.Stop();

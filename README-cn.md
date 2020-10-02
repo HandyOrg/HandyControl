@@ -33,7 +33,7 @@
 
 ## Contributors
 
-<a href="https://github.com/ghost1372" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ghost1372" src="https://avatars0.githubusercontent.com/u/9213496?s=64&amp;v=4"></a>
+<a href="https://github.com/ghost1372" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ghost1372" src="https://avatars0.githubusercontent.com/u/9213496?s=64&v=4"></a>
 <a href="https://github.com/DingpingZhang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="DingpingZhang" src="https://avatars0.githubusercontent.com/u/8541016?s=64&v=4"></a>
 <a href="https://github.com/M0n7y5" target="_blank"><img style="border-radius:50%!important" width="64px" alt="M0n7y5" src="https://avatars0.githubusercontent.com/u/17201053?s=64&v=4"></a>
 <a href="https://github.com/guanguanchuangyu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="guanguanchuangyu" src="https://avatars1.githubusercontent.com/u/25916858?s=64&v=4"></a>
@@ -53,6 +53,8 @@
 <a href="https://github.com/lindexi" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lindexi" src="https://avatars3.githubusercontent.com/u/16054566?s=64&v=4"></a>
 <a href="https://github.com/danwalmsley" target="_blank"><img style="border-radius:50%!important" width="64px" alt="danwalmsley" src="https://avatars1.githubusercontent.com/u/4672627?s=64&v=4"></a>
 <a href="https://github.com/varKeytrap" target="_blank"><img style="border-radius:50%!important" width="64px" alt="varKeytrap" src="https://avatars0.githubusercontent.com/u/17864005?s=64&v=4"></a>
+<a href="https://github.com/xsnakes" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xsnakes" src="https://avatars1.githubusercontent.com/u/4363683?s=64&v=4"></a>
+<a href="https://github.com/mmasdivins" target="_blank"><img style="border-radius:50%!important" width="64px" alt="mmasdivins" src="https://avatars1.githubusercontent.com/u/63245359?s=64&v=4"></a>
 
 ## Backers
 
@@ -76,6 +78,7 @@
 <a href="https://github.com/sanshiliuxiao" target="_blank"><img style="border-radius:50%!important" width="64px" alt="sanshiliuxiao" src="https://avatars3.githubusercontent.com/u/25658690?s=64&v=4"></a>
 <a href="https://github.com/QJJMSK" target="_blank"><img style="border-radius:50%!important" width="64px" alt="QJJMSK" src="https://avatars2.githubusercontent.com/u/28100716?s=64&v=4"></a>
 <a href="https://github.com/dspcjy" target="_blank"><img style="border-radius:50%!important" width="64px" alt="dspcjy" src="https://avatars3.githubusercontent.com/u/17764711?s=64&v=4"></a>
+<a href="https://github.com/yaronzz" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yaronzz" src="https://avatars0.githubusercontent.com/u/15530958?s=64&v=4"></a>
 
 ## Special thanks to
 
@@ -124,6 +127,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### FlexPanel
+
+![FlexPanel](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/FlexPanel.gif)
+
 ### CheckComboBox
 
 ![CheckComboBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CheckComboBox.png)
@@ -140,11 +147,11 @@ Step 4: Enjoy coding
 
 ![Screenshot](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Screenshot.png)
 
+## History publication
+
 ### GooeyEffect
 
 ![GooeyEffect](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/GooeyEffect.gif)
-
-## History publication
 
 ### GlowWindow
 

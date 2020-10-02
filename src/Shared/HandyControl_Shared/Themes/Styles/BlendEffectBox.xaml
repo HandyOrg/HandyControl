@@ -1,10 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:effects="clr-namespace:HandyControl.Media.Effects">
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style TargetType="effects:BlendEffectBox">
+    <Style TargetType="hc:BlendEffectBox">
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="effects:BlendEffectBox">
+                <ControlTemplate TargetType="hc:BlendEffectBox">
                     <ContentPresenter ContentSource="ActualContent"/>
                 </ControlTemplate>
             </Setter.Value>

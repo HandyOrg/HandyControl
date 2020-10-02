@@ -7,7 +7,7 @@ using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media.Effects;
 
-namespace HandyControl.Media.Effects
+namespace HandyControl.Controls
 {
     [DefaultProperty("Content")]
     [ContentProperty("Content")]

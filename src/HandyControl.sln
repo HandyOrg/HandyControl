@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControl_Net_GE45", "Net_GE45\HandyControl_Net_GE45\HandyControl_Net_GE45.csproj", "{DC966E3D-BCFF-4652-98CF-070E5494749A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControl_Net_GE45", "Net_GE45\HandyControl_Net_GE45\HandyControl_Net_GE45.csproj", "{DC966E3D-BCFF-4652-98CF-070E5494749A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo_Net_GE45", "Net_GE45\HandyControlDemo_Net_GE45\HandyControlDemo_Net_GE45.csproj", "{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Net_GE45", "Net_GE45\HandyControlDemo_Net_GE45\HandyControlDemo_Net_GE45.csproj", "{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net_GE45", "Net_GE45", "{2F551C62-77F7-4FA5-8AD7-FCF53E92AE08}"
 EndProject
@@ -17,11 +17,11 @@ Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "HandyControlDemo_Shared", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net_40", "Net_40", "{35E3F9C0-8924-4536-BE09-F3761FDBF066}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControl_Net_40", "Net_40\HandyControl_Net_40\HandyControl_Net_40.csproj", "{32204503-2EF0-4681-AE13-AA1FEB6C658A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControl_Net_40", "Net_40\HandyControl_Net_40\HandyControl_Net_40.csproj", "{32204503-2EF0-4681-AE13-AA1FEB6C658A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo_Net_40", "Net_40\HandyControlDemo_Net_40\HandyControlDemo_Net_40.csproj", "{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Net_40", "Net_40\HandyControlDemo_Net_40\HandyControlDemo_Net_40.csproj", "{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo_Code", "Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj", "{D8A4748C-0500-4F63-BC47-3506658C68F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Code", "Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj", "{D8A4748C-0500-4F63-BC47-3506658C68F7}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
