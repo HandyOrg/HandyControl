@@ -92,6 +92,9 @@ namespace HandyControl.Tools.Interop
         internal static extern IntPtr GetSystemMenu(IntPtr hWnd, bool bRevert);
 
         [DllImport(InteropValues.ExternDll.User32)]
+        internal static extern bool EnableMenuItem(IntPtr hMenu, int UIDEnabledItem, int uEnable);
+
+        [DllImport(InteropValues.ExternDll.User32)]
         internal static extern bool InsertMenu(IntPtr hMenu, int wPosition, int wFlags, int wIDNewItem, string lpNewItem);
 
         [SecurityCritical]
