@@ -132,7 +132,7 @@
                                 <RowDefinition/>
                             </Grid.RowDefinitions>
                             <DockPanel LastChildFill="True" Margin="0,0,0,6">
-                                <hc:ButtonGroup Style="{StaticResource ButtonGroupSolid}">
+                                <hc:ButtonGroup Margin="0,0,6,0" Visibility="{Binding ShowSortButton,RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource ButtonGroupSolid}">
                                     <RadioButton Command="interactivity:ControlCommands.SortByCategory" IsChecked="True">
                                         <Rectangle Width="16" Height="16" Fill="{StaticResource SortByCategoryDrawingBrush}"/>
                                     </RadioButton>
@@ -140,7 +140,7 @@
                                         <Rectangle Width="16" Height="16" Fill="{StaticResource SortByNameDrawingBrush}"/>
                                     </RadioButton>
                                 </hc:ButtonGroup>
-                                <hc:SearchBar x:Name="PART_SearchBar" IsRealTime="True" Margin="6,0,0,0" ShowClearButton="True" Style="{StaticResource SearchBarPlus}"/>
+                                <hc:SearchBar x:Name="PART_SearchBar" IsRealTime="True" ShowClearButton="True" Style="{StaticResource SearchBarPlus}"/>
                             </DockPanel>
                             <ScrollViewer Grid.Row="1">
                                 <hc:PropertyItemsControl x:Name="PART_ItemsControl" Style="{StaticResource PropertyItemsControlBaseStyle}">

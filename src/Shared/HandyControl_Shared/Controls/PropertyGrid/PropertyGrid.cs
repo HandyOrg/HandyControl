@@ -29,8 +29,8 @@ namespace HandyControl.Controls
 
         public PropertyGrid()
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategory, SortByCategory));
-            CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName));
+            CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategory, SortByCategory, (s, e) => e.CanExecute = ShowSortButton));
+            CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName, (s, e)=> e.CanExecute = ShowSortButton));
         }
 
         public virtual PropertyResolver PropertyResolver { get; } = new PropertyResolver();
@@ -91,6 +91,15 @@ namespace HandyControl.Controls
         {
             get => (double) GetValue(MinTitleWidthProperty);
             set => SetValue(MinTitleWidthProperty, value);
+        }
+
+        public static readonly DependencyProperty ShowSortButtonProperty = DependencyProperty.Register(
+            "ShowSortButton", typeof(bool), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool ShowSortButton
+        {
+            get => (bool) GetValue(ShowSortButtonProperty);
+            set => SetValue(ShowSortButtonProperty, value);
         }
 
         public override void OnApplyTemplate()
