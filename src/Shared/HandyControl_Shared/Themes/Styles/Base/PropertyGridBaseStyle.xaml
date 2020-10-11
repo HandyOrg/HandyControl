@@ -89,13 +89,32 @@
         </Setter>
     </Style>
 
+    <Style x:Key="PropertyItemsControlBaseStyle" TargetType="hc:PropertyItemsControl">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource PropertyItemBaseStyle}"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="hc:PropertyItemsControl">
+                    <hc:ScrollViewer Focusable="false" HorizontalScrollBarVisibility="Disabled">
+                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                    </hc:ScrollViewer>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="IsGrouping" Value="False">
+                <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
     <Style x:Key="PropertyGroupItemBaseStyle" TargetType="GroupItem">
         <Setter Property="Margin" Value="0,0,0,6"/>
         <Setter Property="Padding" Value="10,6,6,0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="GroupItem">
-                    <Expander BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Header="{Binding Name}" IsExpanded="True" Background="{DynamicResource SecondaryRegionBrush}" Foreground="{DynamicResource PrimaryTextBrush}">
+                    <Expander Name="exp" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Header="{Binding Name}" IsExpanded="True" Background="{DynamicResource SecondaryRegionBrush}" Foreground="{DynamicResource PrimaryTextBrush}">
                         <Border BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" CornerRadius="0,0,4,4">
                             <ItemsPresenter Margin="{TemplateBinding Padding}"/>
                         </Border>
@@ -103,16 +122,6 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
-    </Style>
-
-    <ItemsPanelTemplate x:Key="PropertyItemsControlItemsPanelTemplate">
-        <VirtualizingStackPanel FocusVisualStyle="{x:Null}" VirtualizationMode="Recycling"/>
-    </ItemsPanelTemplate>
-
-    <Style x:Key="PropertyItemsControlBaseStyle" TargetType="hc:PropertyItemsControl">
-        <Setter Property="ItemContainerStyle" Value="{StaticResource PropertyItemBaseStyle}"/>
-        <Setter Property="ItemsPanel" Value="{StaticResource PropertyItemsControlItemsPanelTemplate}"/>
-        <Setter Property="Focusable" Value="False"/>
     </Style>
 
     <Style x:Key="PropertyGridBaseStyle" TargetType="hc:PropertyGrid">
@@ -142,13 +151,11 @@
                                 </hc:ButtonGroup>
                                 <hc:SearchBar x:Name="PART_SearchBar" IsRealTime="True" ShowClearButton="True" Style="{StaticResource SearchBarPlus}"/>
                             </DockPanel>
-                            <ScrollViewer Grid.Row="1">
-                                <hc:PropertyItemsControl x:Name="PART_ItemsControl" Style="{StaticResource PropertyItemsControlBaseStyle}">
-                                    <hc:PropertyItemsControl.GroupStyle>
-                                        <GroupStyle ContainerStyle="{StaticResource PropertyGroupItemBaseStyle}"/>
-                                    </hc:PropertyItemsControl.GroupStyle>
-                                </hc:PropertyItemsControl>
-                            </ScrollViewer>
+                            <hc:PropertyItemsControl Grid.Row="1" x:Name="PART_ItemsControl" Style="{StaticResource PropertyItemsControlBaseStyle}">
+                                <hc:PropertyItemsControl.GroupStyle>
+                                    <GroupStyle ContainerStyle="{StaticResource PropertyGroupItemBaseStyle}"/>
+                                </hc:PropertyItemsControl.GroupStyle>
+                            </hc:PropertyItemsControl>
                         </Grid>
                     </Border>
                 </ControlTemplate>

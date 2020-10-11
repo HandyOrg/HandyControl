@@ -6,7 +6,7 @@ using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
-    public class PropertyItem : Control
+    public class PropertyItem : ListBoxItem
     {
         public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
             "Value", typeof(object), typeof(PropertyItem), new PropertyMetadata(default(object)));
@@ -105,15 +105,6 @@ namespace HandyControl.Controls
         {
             get => (FrameworkElement)GetValue(EditorElementProperty);
             set => SetValue(EditorElementProperty, value);
-        }
-
-        public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-            "IsSelected", typeof(bool), typeof(PropertyItem), new PropertyMetadata(ValueBoxes.FalseBox));
-
-        public bool IsSelected
-        {
-            get => (bool)GetValue(IsSelectedProperty);
-            set => SetValue(IsSelectedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty IsExpandedEnabledProperty = DependencyProperty.Register(

@@ -126,7 +126,7 @@ namespace HandyControl.Controls
         {
             if (obj == null || _itemsControl == null) return;
 
-            _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj).OfType<PropertyDescriptor>()
+            _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj.GetType()).OfType<PropertyDescriptor>()
                 .Where(item => PropertyResolver.ResolveIsBrowsable(item)).Select(CreatePropertyItem)
                 .Do(item => item.InitElement()));
 
