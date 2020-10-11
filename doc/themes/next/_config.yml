@@ -316,7 +316,7 @@ menu:
       InfoType: /InfoType/ ||
     工具和扩展:
       default: /tools/ ||
-      Effect 效果: /effect/ ||
+      Effect 特效: /effect/ ||
       HatchBrushGenerator 阴影画笔生成器: /hatchBrushGenerator/ ||
       MorphingAnimation 变形动画: /morphingAnimation/ ||
     国际化:
