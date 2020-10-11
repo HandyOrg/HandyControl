@@ -9,7 +9,7 @@ namespace HandyControl.Controls
 
         public virtual void CreateBinding(PropertyItem propertyItem, DependencyObject element) =>
             BindingOperations.SetBinding(element, GetDependencyProperty(),
-                new Binding($"({propertyItem.PropertyName})")
+                new Binding($"{propertyItem.PropertyName}")
                 {
                     Source = propertyItem.Value,
                     Mode = GetBindingMode(propertyItem),
