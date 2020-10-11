@@ -2,8 +2,10 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
@@ -102,6 +104,15 @@ namespace HandyControl.Controls
         {
             AddHandler(Controls.Tag.ClosedEvent, new RoutedEventHandler(Tags_OnClosed));
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => SelectedItems.Clear()));
+            ItemContainerGenerator.StatusChanged += ItemContainerGenerator_StatusChanged;
+        }
+
+        private void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
+        {
+            if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+            {
+                UpdateTags();
+            }
         }
 
         public override void OnApplyTemplate()
@@ -121,6 +132,12 @@ namespace HandyControl.Controls
                 _selectAllItem.Selected += SelectAllItem_Selected;
                 _selectAllItem.Unselected += SelectAllItem_Unselected;
             }
+
+            Dispatcher.BeginInvoke(new Action(() =>
+            {
+                IsDropDownOpen = true;
+                IsDropDownOpen = false;
+            }), DispatcherPriority.DataBind);
         }
 
         public bool VerifyData()
