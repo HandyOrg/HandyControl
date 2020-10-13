@@ -555,20 +555,24 @@
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems" Label="Shared" />
   <PropertyGroup>
-    <PostBuildEvent>if not exist Langs md Langs
-rd /s /q Langs\en
-rd /s /q Langs\fa
-rd /s /q Langs\fr
-rd /s /q Langs\ko-KR
-rd /s /q Langs\pt-BR
-rd /s /q Langs\ru
-rd /s /q Langs\tr
-move en Langs
-move fa Langs
-move fr Langs
-move ko-KR Langs
-move pt-BR Langs
-move ru Langs
-move tr Langs</PostBuildEvent>
+    <PostBuildEvent>
+      if not exist Langs md Langs
+      rd /s /q Langs\en
+      rd /s /q Langs\fa
+      rd /s /q Langs\fr
+      rd /s /q Langs\ko-KR
+      rd /s /q Langs\pt-BR
+      rd /s /q Langs\ru
+      rd /s /q Langs\tr
+      rd /s /q Langs\ca-Es
+      move en Langs
+      move fa Langs
+      move fr Langs
+      move ko-KR Langs
+      move pt-BR Langs
+      move ru Langs
+      move tr Langs
+      move ca-Es Langs
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>
