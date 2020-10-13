@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HandyControl</id>
-    <version>3.0.0-rc.1</version>
+    <version>3.0.0-rc.2</version>
     <title>HandyOrg</title>
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
@@ -25,7 +25,7 @@
       <group targetFramework=".NETFramework4.8" />
       <group targetFramework=".NETCoreApp3.0" />
       <group targetFramework=".NETCoreApp3.1" />
-      <group targetFramework=".NETCoreApp5.0" />
+      <group targetFramework="net5.0" />
     </dependencies>
   </metadata>
   <files>
@@ -106,8 +106,8 @@
     <file src="lib\netcoreapp3.1\HandyControl.dll" target="lib\netcoreapp3.1\HandyControl.dll" />
     <file src="lib\netcoreapp3.1\HandyControl.pdb" target="lib\netcoreapp3.1\HandyControl.pdb" />
     <file src="lib\netcoreapp3.1\HandyControl.xml" target="lib\netcoreapp3.1\HandyControl.xml" />
+    <file src="tools\VisualStudioToolsManifest.xml" target="tools\VisualStudioToolsManifest.xml" />
     <file src="icon.png" target="icon.png" />
     <file src="LICENSE" target="LICENSE" />
-    <file src="tools\VisualStudioToolsManifest.xml" target="tools\VisualStudioToolsManifest.xml" />
   </files>
 </package>
