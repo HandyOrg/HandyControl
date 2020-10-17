@@ -14,7 +14,9 @@ namespace HandyControlDemo.Window
 
             var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
             CopyRight = versionInfo.LegalCopyright;
-#if NET40
+#if NET35
+            var netVersion = "NET 35";
+#elif NET40
             var netVersion = "NET 40";
 #elif NET45
             var netVersion = "NET 45";

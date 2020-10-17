@@ -9,6 +9,12 @@ namespace HandyControl.Controls
 {
     public class SplitButton : ButtonBase
     {
+#if NET35
+        private bool _canCoerce;
+
+        private object _isDropDownOpen;
+#endif
+
         public static readonly DependencyProperty HitModeProperty = DependencyProperty.Register(
             "HitMode", typeof(HitMode), typeof(SplitButton), new PropertyMetadata(default(HitMode)));
 
@@ -28,7 +34,26 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-            "IsDropDownOpen", typeof(bool), typeof(SplitButton), new PropertyMetadata(ValueBoxes.FalseBox));
+            "IsDropDownOpen", typeof(bool), typeof(SplitButton), new PropertyMetadata(ValueBoxes.FalseBox
+#if NET35
+                , null, CoerceIsDropDownOpen
+#endif
+                ));
+
+#if NET35
+        private static object CoerceIsDropDownOpen(DependencyObject d, object baseValue)
+            => d is SplitButton splitButton ? splitButton.CoerceIsDropDownOpen(baseValue) : baseValue;
+
+        private object CoerceIsDropDownOpen(object baseValue) => _canCoerce ? _isDropDownOpen : baseValue;
+
+        private void SetIsDropDownOpen(object isDropDownOpen)
+        {
+            _isDropDownOpen = isDropDownOpen;
+            _canCoerce = true;
+            CoerceValue(IsDropDownOpenProperty);
+            _canCoerce = false;
+        }
+#endif
 
         public bool IsDropDownOpen
         {
@@ -54,7 +79,11 @@ namespace HandyControl.Controls
         {
             if (e.OriginalSource is MenuItem)
             {
+#if NET35
+                SetIsDropDownOpen(ValueBoxes.FalseBox);
+#else
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
+#endif
             }
         }
 
@@ -74,7 +103,11 @@ namespace HandyControl.Controls
 
             if (HitMode == HitMode.Hover)
             {
+#if NET35
+                SetIsDropDownOpen(ValueBoxes.TrueBox);
+#else
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+#endif
             }
         }
     }

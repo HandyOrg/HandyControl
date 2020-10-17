@@ -40,10 +40,10 @@
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left">
-                                <Run Text="{ex:Lang Key={Binding Header}}"/>
+                                <Run Text="{Binding Header}"/>
                                 <Run Text="{Binding Index,RelativeSource={RelativeSource AncestorType=hc:StepBarItem}}"/>
                             </TextBlock>
-                            <TextBlock Margin="0,4,0,0" Text="{ex:Lang Key={Binding Content}}"/>
+                            <TextBlock Margin="0,4,0,0" Text="{Binding Content}"/>
                         </StackPanel>
                     </DataTemplate>
                 </hc:StepBar.ItemTemplate>
@@ -53,10 +53,10 @@
                     <DataTemplate>
                         <StackPanel>
                             <TextBlock FontSize="16" FontWeight="Bold" HorizontalAlignment="Left">
-                                <Run Text="{ex:Lang Key={Binding Header}}"/>
+                                <Run/>
                                 <Run Text="{Binding Index,RelativeSource={RelativeSource AncestorType=hc:StepBarItem}}"/>
                             </TextBlock>
-                            <TextBlock Margin="0,4,0,0" Text="{ex:Lang Key={Binding Content}}"/>
+                            <TextBlock Margin="0,4,0,0" Text="{Binding Content}"/>
                         </StackPanel>
                     </DataTemplate>
                 </hc:StepBar.ItemTemplate>

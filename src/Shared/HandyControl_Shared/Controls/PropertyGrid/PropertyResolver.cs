@@ -92,7 +92,9 @@ namespace HandyControl.Controls
                     EditorTypeCode.SingleNumber => new NumberPropertyEditor(float.MinValue, float.MaxValue),
                     EditorTypeCode.DoubleNumber => new NumberPropertyEditor(double.MinValue, double.MaxValue),
                     EditorTypeCode.Switch => new SwitchPropertyEditor(),
+#if !NET35
                     EditorTypeCode.DateTime => new DateTimePropertyEditor(),
+#endif
                     EditorTypeCode.HorizontalAlignment => new HorizontalAlignmentPropertyEditor(),
                     EditorTypeCode.VerticalAlignment => new VerticalAlignmentPropertyEditor(),
                     EditorTypeCode.ImageSource => new ImagePropertyEditor(),

@@ -1,14 +1,17 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using HandyControl.Tools.Interop;
+#if !NET35
+using System.Linq;
+#endif
 
 namespace HandyControl.Tools
 {
     public static class VisualHelper
     {
+#if !NET35
         internal static VisualStateGroup TryGetVisualStateGroup(DependencyObject d, string groupName)
         {
             var root = GetImplementationRoot(d);
@@ -19,7 +22,7 @@ namespace HandyControl.Tools
                 .OfType<VisualStateGroup>()
                 .FirstOrDefault(group => string.CompareOrdinal(groupName, group.Name) == 0);
         }
-
+#endif
         internal static FrameworkElement GetImplementationRoot(DependencyObject d) =>
             1 == VisualTreeHelper.GetChildrenCount(d)
                 ? VisualTreeHelper.GetChild(d, 0) as FrameworkElement

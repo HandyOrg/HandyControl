@@ -134,7 +134,7 @@ namespace HandyControl.Tools
             {
                 InteropValues.APPBARDATA appBarData = default;
                 var autoHide = InteropMethods.SHAppBarMessage(4, ref appBarData) != 0;
-#if NET40
+#if NET35 || NET40
                 return WindowResizeBorderThickness.Add(new Thickness(autoHide ? -8 : 0));
 #elif Core
                 var hdc = InteropMethods.GetDC(IntPtr.Zero);
@@ -147,9 +147,15 @@ namespace HandyControl.Tools
             }
         }
 
+#if !NET35
         public static IntPtr CreateHandle() => new WindowInteropHelper(new Window()).EnsureHandle();
 
         public static IntPtr GetHandle(this Window window) => new WindowInteropHelper(window).EnsureHandle();
+#else
+        public static IntPtr CreateHandle() => new WindowInteropHelper(new Window()).Handle;
+
+        public static IntPtr GetHandle(this Window window) => new WindowInteropHelper(window).Handle;
+#endif
 
         public static HwndSource GetHwndSource(this Window window) => HwndSource.FromHwnd(window.GetHandle());
 

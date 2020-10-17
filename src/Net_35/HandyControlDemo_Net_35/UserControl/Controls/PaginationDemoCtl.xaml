@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.PaginationDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{DynamicResource RegionBrush}"
+             DataContext="{Binding PaginationDemo,Source={StaticResource Locator}}"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl Margin="32">
+        <hc:Pagination VerticalAlignment="Top" MaxPageCount="10" PageIndex="{Binding PageIndex}" IsJumpEnabled="True">
+                <hc:Interaction.Triggers>
+                    <hc:EventTrigger EventName="PageUpdated">
+                        <hc:EventToCommand Command="{Binding PageUpdatedCmd}" PassEventArgsToCommand="True" />
+                    </hc:EventTrigger>
+                </hc:Interaction.Triggers>
+            </hc:Pagination>
+    </hc:TransitioningContentControl>
+</UserControl>

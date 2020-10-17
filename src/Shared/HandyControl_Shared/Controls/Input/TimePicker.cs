@@ -4,12 +4,14 @@ using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+#if !NET35
+using System.Windows.Data;
+using System.Windows.Media;
+#endif
 
 namespace HandyControl.Controls
 {
@@ -50,6 +52,18 @@ namespace HandyControl.Controls
 
         private DateTime? _originalSelectedTime;
 
+#if NET35
+        private bool _canCoerce;
+
+        private DateTime? _selectedTime;
+
+        private DateTime _displayTime;
+
+        private string _text;
+
+        private object _isDropDownOpen;
+#endif
+
         #endregion Data
 
         #region Public Events
@@ -82,8 +96,8 @@ namespace HandyControl.Controls
             Clock = new Clock();
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                SetCurrentValue(SelectedTimeProperty, null);
-                SetCurrentValue(TextProperty, "");
+                InvalidateProperty(SelectedTimeProperty);
+                InvalidateProperty(TextProperty);
                 _textBox.Text = string.Empty;
             }));
         }
@@ -118,12 +132,30 @@ namespace HandyControl.Controls
                 typeof(TimePicker),
                 new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayTime));
 
-        private static object CoerceDisplayTime(DependencyObject d, object value)
+        private static object CoerceDisplayTime(DependencyObject d, object basevalue) => d is TimePicker timePicker ? timePicker.CoerceDisplayTime(basevalue) : basevalue;
+
+        private object CoerceDisplayTime(object basevalue)
         {
-            var dp = (TimePicker)d;
-            dp.Clock.DisplayTime = (DateTime)value;
-            return dp.Clock.DisplayTime;
+#if NET35
+            if (_canCoerce)
+            {
+                Clock.DisplayTime = _displayTime;
+                return Clock.DisplayTime;
+            }
+#endif
+            Clock.DisplayTime = (DateTime)basevalue;
+            return Clock.DisplayTime;
         }
+
+#if NET35
+        private void SetDisplayTime(DateTime? displayTime)
+        {
+            _displayTime = displayTime ?? DateTime.Now;
+            _canCoerce = true;
+            CoerceValue(DisplayTimeProperty);
+            _canCoerce = false;
+        }
+#endif
 
         #endregion DisplayTime
 
@@ -140,9 +172,7 @@ namespace HandyControl.Controls
             "IsDropDownOpen",
             typeof(bool),
             typeof(TimePicker),
-            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
-
-        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) => d is TimePicker dp && !dp.IsEnabled ? false : baseValue;
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, CoerceIsDropDownOpen));
 
         private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -163,6 +193,31 @@ namespace HandyControl.Controls
                 }
             }
         }
+
+        private static object CoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
+            d is TimePicker timePicker ? timePicker.CoerceIsDropDownOpen(baseValue) : baseValue;
+
+        private object CoerceIsDropDownOpen(object baseValue)
+        {
+#if NET35
+            if (_canCoerce)
+            {
+                if (!IsEnabled) return false;
+                return _isDropDownOpen;
+            }
+#endif
+            return !IsEnabled ? false : baseValue;
+        }
+
+#if NET35
+        private void SetIsDropDownOpen(object isDropDownOpen)
+        {
+            _isDropDownOpen = isDropDownOpen;
+            _canCoerce = true;
+            CoerceValue(IsDropDownOpenProperty);
+            _canCoerce = false;
+        }
+#endif
 
         #endregion IsDropDownOpen
 
@@ -188,7 +243,11 @@ namespace HandyControl.Controls
             if (dp.SelectedTime.HasValue)
             {
                 var time = dp.SelectedTime.Value;
-                dp.SetTextInternal(dp.DateTimeToString(time));
+#if NET35
+                dp.SetText(dp.DateTimeToString(time));
+#else
+                dp.SetCurrentValue(TextProperty, dp.DateTimeToString(time));
+#endif
             }
 
             dp.RaiseEvent(new FunctionEventArgs<DateTime?>(SelectedTimeChangedEvent, dp)
@@ -197,13 +256,30 @@ namespace HandyControl.Controls
             });
         }
 
-        private static object CoerceSelectedTime(DependencyObject d, object value)
+        private static object CoerceSelectedTime(DependencyObject d, object baseValue) => d is TimePicker timePicker ? timePicker.CoerceSelectedTime(baseValue) : baseValue;
+
+        private object CoerceSelectedTime(object baseValue)
         {
-            var dp = (TimePicker)d;
-            dp.Clock.SelectedTime = (DateTime?)value;
-            return dp.Clock.SelectedTime;
+#if NET35
+            if (_canCoerce)
+            {
+                Clock.SelectedTime = _selectedTime;
+                return Clock.SelectedTime;
+            }
+#endif
+            Clock.SelectedTime = (DateTime?)baseValue;
+            return Clock.SelectedTime;
         }
 
+#if NET35
+        private void SetSelectedTime(DateTime? selectedTime)
+        {
+            _selectedTime = selectedTime;
+            _canCoerce = true;
+            CoerceValue(SelectedTimeProperty);
+            _canCoerce = false;
+        }
+#endif
         #endregion SelectedDate
 
         #region Text
@@ -219,7 +295,11 @@ namespace HandyControl.Controls
             "Text",
             typeof(string),
             typeof(TimePicker),
-            new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
+            new FrameworkPropertyMetadata(string.Empty, OnTextChanged
+#if NET35
+                , CoerceText
+#endif
+                ));
 
         private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -240,19 +320,36 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    dp.SetValueNoCallback(SelectedTimeProperty, null);
+                    dp.SetIsHandlerSuspended(SelectedTimeProperty, true);
+                    try
+                    {
+#if NET35
+                        dp.SetSelectedTime(null);
+#else
+                        dp.SetCurrentValue(SelectedTimeProperty, null);
+#endif
+                    }
+                    finally
+                    {
+                        dp.SetIsHandlerSuspended(SelectedTimeProperty, false);
+                    }
                 }
             }
         }
 
-        /// <summary>
-        /// Sets the local Text property without breaking bindings
-        /// </summary>
-        /// <param name="value"></param>
-        private void SetTextInternal(string value)
+#if NET35
+        private static object CoerceText(DependencyObject d, object basevalue) => d is TimePicker timePicker ? timePicker.CoerceText(basevalue) : basevalue;
+
+        private object CoerceText(object basevalue) => _canCoerce ? _text : basevalue;
+
+        private void SetText(string text)
         {
-            SetCurrentValue(TextProperty, value);
+            _text = text;
+            _canCoerce = true;
+            CoerceValue(TextProperty);
+            _canCoerce = false;
         }
+#endif
 
         #endregion Text
 
@@ -294,6 +391,7 @@ namespace HandyControl.Controls
             set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
+#if !NET35
         public static readonly DependencyProperty SelectionBrushProperty =
             TextBoxBase.SelectionBrushProperty.AddOwner(typeof(TimePicker));
 
@@ -333,6 +431,7 @@ namespace HandyControl.Controls
             get => (Brush)GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
+#endif
 
         public static readonly DependencyProperty ClockProperty = DependencyProperty.Register(
             "Clock", typeof(ClockBase), typeof(TimePicker), new FrameworkPropertyMetadata(default(Clock), FrameworkPropertyMetadataOptions.NotDataBindable, OnClockChanged));
@@ -363,9 +462,9 @@ namespace HandyControl.Controls
             set => SetValue(ClockProperty, value);
         }
 
-        #endregion Public Properties
+#endregion Public Properties
 
-        #region Public Methods
+#region Public Methods
 
         public virtual bool VerifyData()
         {
@@ -448,12 +547,14 @@ namespace HandyControl.Controls
                     _textBox.Text = DateTime.Now.ToString(TimeFormat);
                 }
 
+#if !NET35
                 _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
                 _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
                 _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
                 _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+#endif
 
                 _textBox.KeyDown += TextBox_KeyDown;
                 _textBox.TextChanged += TextBox_TextChanged;
@@ -474,14 +575,19 @@ namespace HandyControl.Controls
             }
 
             _originalSelectedTime ??= DateTime.Now;
+
+#if NET35
+            SetDisplayTime((DateTime)_originalSelectedTime);
+#else
             SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+#endif
         }
 
         public override string ToString() => SelectedTime?.ToString(TimeFormat) ?? string.Empty;
 
-        #endregion
+#endregion
 
-        #region Protected Methods
+#region Protected Methods
 
         protected virtual void OnClockClosed(RoutedEventArgs e)
         {
@@ -495,9 +601,9 @@ namespace HandyControl.Controls
             handler?.Invoke(this, e);
         }
 
-        #endregion Protected Methods
+#endregion Protected Methods
 
-        #region Private Methods
+#region Private Methods
 
         private void CheckNull()
         {
@@ -520,22 +626,22 @@ namespace HandyControl.Controls
             }
         }
 
-        private void SetValueNoCallback(DependencyProperty property, object value)
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            SetIsHandlerSuspended(property, true);
+            SetIsHandlerSuspended(TextProperty, true);
             try
             {
-                SetCurrentValue(property, value);
+#if NET35
+                SetText(_textBox.Text);
+#else
+                SetCurrentValue(TextProperty, _textBox.Text);
+#endif
             }
             finally
             {
-                SetIsHandlerSuspended(property, false);
+                SetIsHandlerSuspended(TextProperty, false);
             }
-        }
 
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            SetValueNoCallback(TextProperty, _textBox.Text);
             VerifyData();
         }
 
@@ -606,7 +712,11 @@ namespace HandyControl.Controls
         {
             if (!IsDropDownOpen)
             {
+#if NET35
+                SetIsDropDownOpen(ValueBoxes.TrueBox);
+#else
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+#endif
             }
 
             Clock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
@@ -618,7 +728,11 @@ namespace HandyControl.Controls
         {
             if (IsDropDownOpen)
             {
+#if NET35
+                SetIsDropDownOpen(ValueBoxes.TrueBox);
+#else
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
+#endif
             }
 
             if (Clock.IsKeyboardFocusWithin)
@@ -635,7 +749,11 @@ namespace HandyControl.Controls
         {
             if (IsDropDownOpen)
             {
+#if NET35
+                SetIsDropDownOpen(ValueBoxes.TrueBox);
+#else
                 SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
+#endif
             }
             else
             {
@@ -646,7 +764,11 @@ namespace HandyControl.Controls
                 else
                 {
                     SetSelectedTime();
-                    SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+#if NET35
+                    SetIsDropDownOpen(ValueBoxes.TrueBox);
+#else
+                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+#endif
                 }
             }
         }
@@ -655,7 +777,11 @@ namespace HandyControl.Controls
         {
             if (string.Compare(Text, s, StringComparison.Ordinal) != 0)
             {
+#if NET35
+                SetText(s);
+#else
                 SetCurrentValue(TextProperty, s);
+#endif
             }
         }
 
@@ -720,15 +846,24 @@ namespace HandyControl.Controls
                     var d = SetTextBoxValue(s);
                     if (!SelectedTime.Equals(d))
                     {
+#if NET35
+                        SetSelectedTime(d);
+                        SetDisplayTime(d);
+#else
                         SetCurrentValue(SelectedTimeProperty, d);
                         SetCurrentValue(DisplayTimeProperty, d);
+#endif
                     }
                 }
                 else
                 {
                     if (SelectedTime.HasValue)
                     {
+#if NET35
+                        SetSelectedTime(null);
+#else
                         SetCurrentValue(SelectedTimeProperty, null);
+#endif
                     }
                 }
             }
@@ -737,7 +872,11 @@ namespace HandyControl.Controls
                 var d = SetTextBoxValue(_defaultText);
                 if (!SelectedTime.Equals(d))
                 {
+#if NET35
+                    SetSelectedTime(d);
+#else
                     SetCurrentValue(SelectedTimeProperty, d);
+#endif
                 }
             }
         }
@@ -762,6 +901,6 @@ namespace HandyControl.Controls
             }
         }
 
-        #endregion Private Methods
+#endregion Private Methods
     }
 }

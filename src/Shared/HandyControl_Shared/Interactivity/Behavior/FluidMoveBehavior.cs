@@ -21,11 +21,13 @@ namespace HandyControl.Interactivity
             typeof(Duration), typeof(FluidMoveBehavior),
             new PropertyMetadata(new Duration(TimeSpan.FromSeconds(1.0))));
 
+#if !NET35
         public static readonly DependencyProperty EaseXProperty = DependencyProperty.Register("EaseX",
             typeof(IEasingFunction), typeof(FluidMoveBehavior), new PropertyMetadata(null));
 
         public static readonly DependencyProperty EaseYProperty = DependencyProperty.Register("EaseY",
-            typeof(IEasingFunction), typeof(FluidMoveBehavior), new PropertyMetadata(null));
+            typeof(IEasingFunction), typeof(FluidMoveBehavior), new PropertyMetadata(null));  
+#endif
 
         public static readonly DependencyProperty FloatAboveProperty =
             DependencyProperty.Register("FloatAbove", typeof(bool), typeof(FluidMoveBehavior),
@@ -61,6 +63,7 @@ namespace HandyControl.Interactivity
             set => SetValue(DurationProperty, value);
         }
 
+#if !NET35
         public IEasingFunction EaseX
         {
             get =>
@@ -74,6 +77,7 @@ namespace HandyControl.Interactivity
                 (IEasingFunction) GetValue(EaseYProperty);
             set => SetValue(EaseYProperty, value);
         }
+#endif
 
         public bool FloatAbove
         {
@@ -171,7 +175,9 @@ namespace HandyControl.Interactivity
                     Storyboard.SetTarget(element, child);
                     Storyboard.SetTargetProperty(element,
                         new PropertyPath(str + "(TransformGroup.Children)[0].(ScaleTransform.ScaleX)"));
+#if !NET35
                     element.EasingFunction = EaseX;
+#endif
                     storyboard.Children.Add(element);
                 }
 
@@ -186,7 +192,9 @@ namespace HandyControl.Interactivity
                     Storyboard.SetTarget(animation3, child);
                     Storyboard.SetTargetProperty(animation3,
                         new PropertyPath(str + "(TransformGroup.Children)[0].(ScaleTransform.ScaleY)"));
+#if !NET35
                     animation3.EasingFunction = EaseY;
+#endif
                     storyboard.Children.Add(animation3);
                 }
             }
@@ -202,7 +210,9 @@ namespace HandyControl.Interactivity
                 Storyboard.SetTarget(animation5, child);
                 Storyboard.SetTargetProperty(animation5,
                     new PropertyPath(str + "(TransformGroup.Children)[1].(TranslateTransform.X)"));
+#if !NET35
                 animation5.EasingFunction = EaseX;
+#endif
                 storyboard.Children.Add(animation5);
             }
 
@@ -217,7 +227,9 @@ namespace HandyControl.Interactivity
                 Storyboard.SetTarget(animation7, child);
                 Storyboard.SetTargetProperty(animation7,
                     new PropertyPath(str + "(TransformGroup.Children)[1].(TranslateTransform.Y)"));
+#if !NET35
                 animation7.EasingFunction = EaseY;
+#endif
                 storyboard.Children.Add(animation7);
             }
 

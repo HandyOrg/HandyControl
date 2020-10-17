@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using GalaSoft.MvvmLight.Ioc;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
@@ -40,8 +39,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<SplitButtonDemoViewModel>();
         }
 
-        public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
-            Application.Current.TryFindResource("Locator") as ViewModelLocator).Value;
+        public static ViewModelLocator Instance => Application.Current.TryFindResource("Locator") as ViewModelLocator;
 
         #region Vm
 

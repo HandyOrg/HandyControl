@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using HandyControlDemo.Data;
+#if !NET35
+using System.Threading.Tasks;
+#else
+using System.ComponentModel;
+#endif
 
 namespace HandyControlDemo.ViewModel
 {
@@ -9,7 +13,12 @@ namespace HandyControlDemo.ViewModel
     {
         public ItemsDisplayViewModel(Func<List<AvatarModel>> getDataAction)
         {
-#if NET40
+#if NET35
+            var worker = new BackgroundWorker();
+            worker.DoWork += (s, e) => DataList = getDataAction?.Invoke();
+            worker.RunWorkerCompleted += (s, e) => DataGot = true;
+            worker.RunWorkerAsync();
+#elif NET40
             Task.Factory.StartNew(() => DataList = getDataAction?.Invoke()).ContinueWith(obj => DataGot = true);
 #else
             Task.Run(() => DataList = getDataAction?.Invoke()).ContinueWith(obj => DataGot = true);
@@ -21,7 +30,7 @@ namespace HandyControlDemo.ViewModel
         public bool DataGot
         {
             get => _dataGot;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(DataGot), ref _dataGot, value);
 #else
             set => Set(ref _dataGot, value);

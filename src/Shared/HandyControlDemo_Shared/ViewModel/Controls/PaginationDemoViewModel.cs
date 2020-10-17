@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Data;
@@ -26,7 +25,7 @@ namespace HandyControlDemo.ViewModel
         public int PageIndex
         {
             get => _pageIndex;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(PageIndex), ref _pageIndex, value);
 #else
             set => Set(ref _pageIndex, value);
@@ -43,8 +42,7 @@ namespace HandyControlDemo.ViewModel
         ///     页码改变命令
         /// </summary>
         public RelayCommand<FunctionEventArgs<int>> PageUpdatedCmd =>
-            new Lazy<RelayCommand<FunctionEventArgs<int>>>(() =>
-                new RelayCommand<FunctionEventArgs<int>>(PageUpdated)).Value;
+            new RelayCommand<FunctionEventArgs<int>>(PageUpdated);
 
         /// <summary>
         ///     页码改变

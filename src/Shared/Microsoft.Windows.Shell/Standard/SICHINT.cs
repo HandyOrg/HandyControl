@@ -1,0 +1,17 @@
+﻿using System;
+
+namespace Standard
+{
+	// Token: 0x02000081 RID: 129
+	internal enum SICHINT : uint
+	{
+		// Token: 0x04000573 RID: 1395
+		DISPLAY,
+		// Token: 0x04000574 RID: 1396
+		ALLFIELDS = 2147483648U,
+		// Token: 0x04000575 RID: 1397
+		CANONICAL = 268435456U,
+		// Token: 0x04000576 RID: 1398
+		TEST_FILESYSPATH_IF_NOT_EQUAL = 536870912U
+	}
+}

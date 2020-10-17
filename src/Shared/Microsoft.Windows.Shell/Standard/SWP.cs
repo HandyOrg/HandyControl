@@ -1,0 +1,40 @@
+﻿using System;
+
+namespace Standard
+{
+	// Token: 0x02000037 RID: 55
+	[Flags]
+	internal enum SWP
+	{
+		// Token: 0x04000385 RID: 901
+		ASYNCWINDOWPOS = 16384,
+		// Token: 0x04000386 RID: 902
+		DEFERERASE = 8192,
+		// Token: 0x04000387 RID: 903
+		DRAWFRAME = 32,
+		// Token: 0x04000388 RID: 904
+		FRAMECHANGED = 32,
+		// Token: 0x04000389 RID: 905
+		HIDEWINDOW = 128,
+		// Token: 0x0400038A RID: 906
+		NOACTIVATE = 16,
+		// Token: 0x0400038B RID: 907
+		NOCOPYBITS = 256,
+		// Token: 0x0400038C RID: 908
+		NOMOVE = 2,
+		// Token: 0x0400038D RID: 909
+		NOOWNERZORDER = 512,
+		// Token: 0x0400038E RID: 910
+		NOREDRAW = 8,
+		// Token: 0x0400038F RID: 911
+		NOREPOSITION = 512,
+		// Token: 0x04000390 RID: 912
+		NOSENDCHANGING = 1024,
+		// Token: 0x04000391 RID: 913
+		NOSIZE = 1,
+		// Token: 0x04000392 RID: 914
+		NOZORDER = 4,
+		// Token: 0x04000393 RID: 915
+		SHOWWINDOW = 64
+	}
+}

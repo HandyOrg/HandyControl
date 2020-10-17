@@ -69,13 +69,11 @@ namespace HandyControl.Controls
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero)
                 };
 
+                // {"ease-in":".42,0,1,1","ease-out":"0,0,.58,1","ease-in-out":".42,0,.58,1"}
                 //开始位置到第一次匀速开始
-                var frame1 = new EasingDoubleKeyFrame
+                var frame1 = new SplineDoubleKeyFrame
                 {
-                    EasingFunction = new PowerEase
-                    {
-                        EasingMode = EasingMode.EaseOut
-                    },
+                    KeySpline = new KeySpline(0, 0, .58, 1),
                     Value = 180 + subAngle,
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (0.75 / 7)))
                 };
@@ -88,23 +86,17 @@ namespace HandyControl.Controls
                 };
 
                 //第一次匀速结束到匀加速结束
-                var frame3 = new EasingDoubleKeyFrame
+                var frame3 = new SplineDoubleKeyFrame
                 {
-                    EasingFunction = new PowerEase
-                    {
-                        EasingMode = EasingMode.EaseIn
-                    },
+                    KeySpline = new KeySpline(.42, 0, 1, 1),
                     Value = 360 + subAngle,
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (3.5 / 7)))
                 };
 
                 //匀加速结束到匀减速结束
-                var frame4 = new EasingDoubleKeyFrame
+                var frame4 = new SplineDoubleKeyFrame
                 {
-                    EasingFunction = new PowerEase
-                    {
-                        EasingMode = EasingMode.EaseOut
-                    },
+                    KeySpline = new KeySpline(0, 0, .58, 1),
                     Value = 540 + subAngle,
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (4.25 / 7)))
                 };
@@ -117,12 +109,9 @@ namespace HandyControl.Controls
                 };
 
                 //第二次匀速结束到匀加速结束
-                var frame6 = new EasingDoubleKeyFrame
+                var frame6 = new SplineDoubleKeyFrame
                 {
-                    EasingFunction = new PowerEase
-                    {
-                        EasingMode = EasingMode.EaseIn
-                    },
+                    KeySpline = new KeySpline(.42, 0, 1, 1),
                     Value = 720 + subAngle,
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed))
                 };

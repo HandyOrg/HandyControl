@@ -1,5 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HandyControl.Data;
@@ -18,7 +17,7 @@ namespace HandyControlDemo.ViewModel
         public string Content
         {
             get => _content;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(Content), ref _content, value);
 #else
             set => Set(ref _content, value);
@@ -32,7 +31,7 @@ namespace HandyControlDemo.ViewModel
             get => _contextMenuIsShow;
             set
             {
-#if NET40
+#if NET35 || NET40
                 Set(nameof(ContextMenuIsShow), ref _contextMenuIsShow, value);
 #else
                 Set(ref _contextMenuIsShow, value);
@@ -52,7 +51,7 @@ namespace HandyControlDemo.ViewModel
         public bool ContextMenuIsBlink
         {
             get => _contextMenuIsBlink;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(ContextMenuIsBlink), ref _contextMenuIsBlink, value);
 #else
             set => Set(ref _contextMenuIsBlink, value);
@@ -66,7 +65,7 @@ namespace HandyControlDemo.ViewModel
             get => _contextContentIsShow;
             set
             {
-#if NET40
+#if NET35 || NET40
                 Set(nameof(ContextContentIsShow), ref _contextContentIsShow, value);
 #else
                 Set(ref _contextContentIsShow, value);
@@ -86,18 +85,16 @@ namespace HandyControlDemo.ViewModel
         public bool ContextContentIsBlink
         {
             get => _contextContentIsBlink;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(ContextContentIsBlink), ref _contextContentIsBlink, value);
 #else
             set => Set(ref _contextContentIsBlink, value);
 #endif
         }
 
-        public RelayCommand<object> MouseCmd => new Lazy<RelayCommand<object>>(() =>
-            new RelayCommand<object>(str=> Growl.Info(str.ToString()))).Value;
+        public RelayCommand<object> MouseCmd => new RelayCommand<object>(str => Growl.Info(str.ToString()));
 
-        public RelayCommand SendNotificationCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(SendNotification)).Value;
+        public RelayCommand SendNotificationCmd => new RelayCommand(SendNotification);
 
         private void SendNotification()
         {

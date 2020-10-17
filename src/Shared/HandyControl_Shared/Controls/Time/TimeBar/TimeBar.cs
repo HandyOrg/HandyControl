@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Shapes;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+#if !NET35
+using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
+using System.Linq;
+using System.Windows.Shapes;
 using HandyControl.Tools;
+#endif
 
 
 namespace HandyControl.Controls
@@ -23,7 +25,9 @@ namespace HandyControl.Controls
     [TemplatePart(Name = ElementTextBlockMove, Type = typeof(TextBlock))]
     [TemplatePart(Name = ElementTextBlockSelected, Type = typeof(TextBlock))]
     [TemplatePart(Name = ElementCanvasSpe, Type = typeof(Canvas))]
+#if !NET35
     [TemplatePart(Name = ElementHotspots, Type = typeof(Panel))]
+#endif
     public class TimeBar : Control
     {
         #region Constants
@@ -36,7 +40,9 @@ namespace HandyControl.Controls
 
         private const string ElementCanvasSpe = "PART_CanvasSpe";
 
+#if !NET35
         private const string ElementHotspots = "PART_Hotspots";
+#endif
 
         #endregion Constants
 
@@ -50,10 +56,13 @@ namespace HandyControl.Controls
 
         private Canvas _canvasSpe;
 
+#if !NET35
         private Panel _panelHotspots;
+#endif
 
         #endregion Data
 
+#if !NET35
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Content)]
         [Bindable(true)]
         public Collection<DateTimeRange> Hotspots { get; }
@@ -65,7 +74,8 @@ namespace HandyControl.Controls
         {
             get => (Brush) GetValue(HotspotsBrushProperty);
             set => SetValue(HotspotsBrushProperty, value);
-        }
+        }       
+#endif
 
         /// <summary>
         ///     是否显示刻度字符串
@@ -213,7 +223,9 @@ namespace HandyControl.Controls
 
         private readonly bool _isLoaded;
 
+#if !NET35
         private readonly SortedSet<DateTimeRange> _dateTimeRanges;
+#endif
 
         public TimeBar()
         {
@@ -222,12 +234,15 @@ namespace HandyControl.Controls
             _starTime = SelectedTime;
             _isLoaded = true;
 
+#if !NET35
             var hotspots = new ObservableCollection<DateTimeRange>();
             _dateTimeRanges = new SortedSet<DateTimeRange>(ComparerGenerator.GetComparer<DateTimeRange>());
             hotspots.CollectionChanged += Items_CollectionChanged;
             Hotspots = hotspots;
+#endif
         }
 
+#if !NET35
         private void Items_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (e.Action == NotifyCollectionChangedAction.Add)
@@ -261,6 +276,7 @@ namespace HandyControl.Controls
                 _dateTimeRanges.Clear();
             }
         }
+#endif
 
         public override void OnApplyTemplate()
         {
@@ -276,7 +292,9 @@ namespace HandyControl.Controls
             _textBlockMove = GetTemplateChild(ElementTextBlockMove) as TextBlock;
             _textBlockSelected = GetTemplateChild(ElementTextBlockSelected) as TextBlock;
             _canvasSpe = GetTemplateChild(ElementCanvasSpe) as Canvas;
+#if !NET35
             _panelHotspots = GetTemplateChild(ElementHotspots) as Panel;
+#endif
 
             CheckNull();
             _borderTop.MouseLeftButtonDown += BorderTop_OnMouseLeftButtonDown;
@@ -390,10 +408,12 @@ namespace HandyControl.Controls
             for (var i = 0; i < _speCount; i++)
                 _speBlockList[i].Time = TimeConvert(SelectedTime).AddMilliseconds((i - sub) * _timeSpeList[_speIndex]);
 
+#if !NET35
             if (_panelHotspots != null && _dateTimeRanges.Any())
             {
                 UpdateHotspots();
-            }
+            }      
+#endif
         }
 
         /// <summary>
@@ -538,6 +558,7 @@ namespace HandyControl.Controls
             _textBlockMove.Margin = new Thickness(p.X - _textBlockMove.ActualWidth / 2, 2, 0, 0);
         }
 
+#if !NET35
         private void UpdateHotspots()
         {
             var mlliseconds = ActualWidth * 0.5 / _itemWidth * _timeSpeList[_speIndex];
@@ -548,7 +569,8 @@ namespace HandyControl.Controls
             {
                 _panelHotspots.Children.Add(rect);
             }
-        }
+        }  
+#endif
 
         private void BorderTop_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e) => _borderTopIsMouseLeftButtonDown = true;
 
@@ -571,6 +593,7 @@ namespace HandyControl.Controls
             }
         }
 
+#if !NET35
         private IEnumerable<Rectangle> GetHotspotsRectangle(double mlliseconds)
         {
             var timeSpan = TimeSpan.FromMilliseconds(mlliseconds);
@@ -595,6 +618,7 @@ namespace HandyControl.Controls
                     HorizontalAlignment = HorizontalAlignment.Left
                 };
             }
-        }
+        }       
+#endif
     }
 }

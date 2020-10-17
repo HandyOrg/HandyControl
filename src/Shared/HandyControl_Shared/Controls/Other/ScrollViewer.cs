@@ -103,10 +103,12 @@ namespace HandyControl.Controls
         public void ScrollToVerticalOffsetWithAnimation(double offset, double milliseconds = 500)
         {
             var animation = AnimationHelper.CreateAnimation(offset, milliseconds);
+#if !NET35
             animation.EasingFunction = new CubicEase
             {
                 EasingMode = EasingMode.EaseOut
             };
+#endif
             animation.FillBehavior = FillBehavior.Stop;
             animation.Completed += (s, e1) =>
             {
@@ -121,10 +123,12 @@ namespace HandyControl.Controls
         public void ScrollToHorizontalOffsetWithAnimation(double offset, double milliseconds = 500)
         {
             var animation = AnimationHelper.CreateAnimation(offset, milliseconds);
+#if !NET35
             animation.EasingFunction = new CubicEase
             {
                 EasingMode = EasingMode.EaseOut
             };
+#endif
             animation.FillBehavior = FillBehavior.Stop;
             animation.Completed += (s, e1) =>
             {

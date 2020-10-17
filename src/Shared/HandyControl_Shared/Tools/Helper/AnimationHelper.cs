@@ -21,10 +21,14 @@ namespace HandyControl.Tools
         /// <returns></returns>
         public static ThicknessAnimation CreateAnimation(Thickness thickness = default, double milliseconds = 200)
         {
+#if !NET35
             return new ThicknessAnimation(thickness, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
             {
                 EasingFunction = new PowerEase { EasingMode = EasingMode.EaseInOut }
-            };
+            };      
+#else
+            return new ThicknessAnimation(thickness, new Duration(TimeSpan.FromMilliseconds(milliseconds)));
+#endif
         }
 
         /// <summary>
@@ -35,10 +39,14 @@ namespace HandyControl.Tools
         /// <returns></returns>
         public static DoubleAnimation CreateAnimation(double toValue, double milliseconds = 200)
         {
+#if !NET35
             return new DoubleAnimation(toValue, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
             {
                 EasingFunction = new PowerEase { EasingMode = EasingMode.EaseInOut }
             };
+#else
+            return new DoubleAnimation(toValue, new Duration(TimeSpan.FromMilliseconds(milliseconds)));
+#endif
         }
 
         internal static void DecomposeGeometryStr(string geometryStr, out double[] arr)

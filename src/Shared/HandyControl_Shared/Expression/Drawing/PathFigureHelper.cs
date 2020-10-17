@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Media;
+using HandyControl.Data;
 
 namespace HandyControl.Expression.Drawing
 {
@@ -74,19 +75,19 @@ namespace HandyControl.Expression.Drawing
                 pointArray[1] = new Point(point.X, bounds.Bottom);
             }
 
-            flag |= figure.SetIfDifferent(PathFigure.IsClosedProperty, true);
+            flag |= figure.SetIfDifferent(PathFigure.IsClosedProperty, ValueBoxes.TrueBox);
             flag |= figure.SetIfDifferent(PathFigure.IsFilledProperty, isFilled);
             flag |= figure.SetIfDifferent(PathFigure.StartPointProperty, pointArray[0]);
             flag |= figure.Segments.EnsureListCount(2, () => new ArcSegment());
             flag |= GeometryHelper.EnsureSegmentType(out var segment, figure.Segments, 0, () => new ArcSegment());
             flag |= segment.SetIfDifferent(ArcSegment.PointProperty, pointArray[1]);
             flag |= segment.SetIfDifferent(ArcSegment.SizeProperty, size);
-            flag |= segment.SetIfDifferent(ArcSegment.IsLargeArcProperty, false);
+            flag |= segment.SetIfDifferent(ArcSegment.IsLargeArcProperty, ValueBoxes.FalseBox);
             flag |= segment.SetIfDifferent(ArcSegment.SweepDirectionProperty, sweepDirection);
             flag |= GeometryHelper.EnsureSegmentType(out segment, figure.Segments, 1, () => new ArcSegment());
             flag |= segment.SetIfDifferent(ArcSegment.PointProperty, pointArray[0]);
             flag |= segment.SetIfDifferent(ArcSegment.SizeProperty, size);
-            flag |= segment.SetIfDifferent(ArcSegment.IsLargeArcProperty, false);
+            flag |= segment.SetIfDifferent(ArcSegment.IsLargeArcProperty, ValueBoxes.FalseBox);
             return flag | segment.SetIfDifferent(ArcSegment.SweepDirectionProperty, sweepDirection);
         }
 

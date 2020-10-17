@@ -50,13 +50,11 @@ namespace HandyControl.Controls
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero)
                 };
 
+                // {"ease-in":".42,0,1,1","ease-out":"0,0,.58,1","ease-in-out":".42,0,.58,1"}
                 //开始位置到匀速开始
-                var frame1 = new EasingThicknessKeyFrame
+                var frame1 = new SplineThicknessKeyFrame
                 {
-                    EasingFunction = new PowerEase
-                    {
-                        EasingMode = EasingMode.EaseOut
-                    },
+                    KeySpline = new KeySpline(0, 0, .58, 1),
                     Value = new Thickness(speedDownLength + ellipse.Margin.Left, 0, 0, 0),
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (1 - UniformScale)/2))
                 };
@@ -69,12 +67,9 @@ namespace HandyControl.Controls
                 };
 
                 //匀速结束到匀加速结束
-                var frame3 = new EasingThicknessKeyFrame
+                var frame3 = new SplineThicknessKeyFrame
                 {
-                    EasingFunction = new PowerEase
-                    {
-                        EasingMode = EasingMode.EaseIn
-                    },
+                    KeySpline = new KeySpline(.42, 0, 1, 1),
                     Value = new Thickness(ActualWidth + ellipse.Margin.Left + speedUniformLength, 0, 0, 0),
                     KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed))
                 };

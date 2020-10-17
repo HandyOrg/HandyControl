@@ -118,8 +118,13 @@ namespace HandyControlDemo.Service
             var client = new WebClient();
             client.Headers.Add("User-Agent", "request");
             var list = new List<AvatarModel>();
+
             try
             {
+#if NET35
+                var json = client.DownloadString(new Uri("https://api.github.com/repos/nabian/handycontrol/contributors"));
+                list = JsonConvert.DeserializeObject<List<AvatarModel>>(json);
+#else
                 var json = client.DownloadString(new Uri("https://api.github.com/repos/nabian/handycontrol/contributors"));
                 var objList = JsonConvert.DeserializeObject<List<dynamic>>(json);
                 list.AddRange(objList.Select(item => new AvatarModel
@@ -128,8 +133,9 @@ namespace HandyControlDemo.Service
                     AvatarUri = item.avatar_url,
                     Link = item.html_url
                 }));
+#endif
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 HandyControl.Controls.MessageBox.Error(e.Message, Lang.Error);
             }
@@ -363,7 +369,11 @@ namespace HandyControlDemo.Service
         {
             var infoList = new List<DemoInfoModel>();
 
+#if NET35
+            var stream = Application.GetResourceStream(new Uri("Data/DemoInfo_Net_35.json", UriKind.Relative))?.Stream;
+#else
             var stream = Application.GetResourceStream(new Uri("Data/DemoInfo.json", UriKind.Relative))?.Stream;
+#endif
             if (stream == null) return infoList;
 
             string jsonStr;
@@ -372,45 +382,22 @@ namespace HandyControlDemo.Service
                 jsonStr = reader.ReadToEnd();
             }
 
-            var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonStr);
-            foreach (var item in jsonObj)
+            infoList = JsonConvert.DeserializeObject<List<DemoInfoModel>>(jsonStr);
+            foreach (var demoInfo in infoList)
             {
-                var titleKey = (string) item.title;
-                var title = titleKey;
-                var list = Convert2DemoItemList(item.demoItemList);
-                infoList.Add(new DemoInfoModel
-                {
-                    Key = titleKey,
-                    Title = title,
-                    DemoItemList = list,
-                    SelectedIndex = (int) item.selectedIndex
-                });
+                demoInfo.DemoItemList = Convert2DemoItemList(demoInfo.DemoItemStrList);
             }
 
             return infoList;
         }
 
-        private List<DemoItemModel> Convert2DemoItemList(dynamic list)
-        {
-            var resultList = new List<DemoItemModel>();
-
-            foreach (var item in list)
+        private static List<DemoItemModel> Convert2DemoItemList(IEnumerable<List<string>> list)
+            => list.Select(item => new DemoItemModel
             {
-                var name = (string)item[0];
-                string targetCtlName = item[1];
-                string imageName = item[2];
-                var isNew = !string.IsNullOrEmpty((string)item[3]);
-
-                resultList.Add(new DemoItemModel
-                {
-                    Name = name,
-                    TargetCtlName = targetCtlName,
-                    ImageName = $"../../Resources/Img/LeftMainContent/{imageName}.png",
-                    IsNew = isNew
-                });
-            }
-
-            return resultList;
-        }
+                Name = item[0],
+                TargetCtlName = item[1],
+                ImageName = $"../../Resources/Img/LeftMainContent/{item[2]}.png",
+                IsNew = !string.IsNullOrEmpty(item[3])
+            }).ToList();
     }
 }

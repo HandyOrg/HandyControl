@@ -56,11 +56,11 @@ namespace HandyControl.Controls
 
             if (ReferenceEquals(_effectBottomPresenter, presenter))
             {
-                _effectBottomPresenter.SetCurrentValue(EffectProperty, null);
+                _effectBottomPresenter.InvalidateProperty(EffectProperty);
                 return;
             }
 
-            presenter.SetCurrentValue(EffectProperty, null);
+            presenter.InvalidateProperty(EffectProperty);
             ClearEffect(presenter.Content as ContentPresenter);
         }
 

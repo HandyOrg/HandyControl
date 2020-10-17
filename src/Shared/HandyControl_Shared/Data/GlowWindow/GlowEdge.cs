@@ -5,6 +5,9 @@ using System.Windows.Interop;
 using System.Windows.Media;
 using HandyControl.Controls;
 using HandyControl.Tools.Interop;
+#if NET35
+using HandyControl.Tools.Extension;
+#endif
 
 namespace HandyControl.Data
 {
@@ -256,6 +259,10 @@ namespace HandyControl.Data
 
         private void InvalidateCachedBitmaps()
         {
+#if NET35
+            if (_invalidatedValues.HasFlag(FieldInvalidationTypes.ActiveColor)) ClearCache(_activeGlowBitmaps);
+            if (_invalidatedValues.HasFlag(FieldInvalidationTypes.InactiveColor)) ClearCache(_inactiveGlowBitmaps);
+#endif
             if (_invalidatedValues.HasFlag(FieldInvalidationTypes.ActiveColor)) ClearCache(_activeGlowBitmaps);
             if (_invalidatedValues.HasFlag(FieldInvalidationTypes.InactiveColor)) ClearCache(_inactiveGlowBitmaps);
         }

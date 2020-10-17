@@ -4,6 +4,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Expression.Drawing;
 
 namespace HandyControl.Expression.Media
@@ -279,7 +280,7 @@ namespace HandyControl.Expression.Media
                 () => new PathGeometry());
             flag |= geometry.Figures.EnsureListCount(1, () => new PathFigure());
             var dependencyObject = geometry.Figures[0];
-            flag |= dependencyObject.SetIfDifferent(PathFigure.IsClosedProperty, true);
+            flag |= dependencyObject.SetIfDifferent(PathFigure.IsClosedProperty, ValueBoxes.TrueBox);
             flag |= dependencyObject.SetIfDifferent(PathFigure.IsFilledProperty, isFilled);
             flag |= dependencyObject.Segments.EnsureListCount(2, () => new ArcSegment());
             flag |= dependencyObject.SetIfDifferent(PathFigure.StartPointProperty, point);
@@ -288,11 +289,11 @@ namespace HandyControl.Expression.Media
             flag |= GeometryHelper.EnsureSegmentType(out var segment2, dependencyObject.Segments, 1,
                 () => new ArcSegment());
             var size = new Size(LogicalBounds.Width / 2.0, LogicalBounds.Height / 2.0);
-            flag |= segment.SetIfDifferent(ArcSegment.IsLargeArcProperty, false);
+            flag |= segment.SetIfDifferent(ArcSegment.IsLargeArcProperty, ValueBoxes.FalseBox);
             flag |= segment.SetIfDifferent(ArcSegment.SizeProperty, size);
             flag |= segment.SetIfDifferent(ArcSegment.SweepDirectionProperty, SweepDirection.Clockwise);
             flag |= segment.SetIfDifferent(ArcSegment.PointProperty, point2);
-            flag |= segment2.SetIfDifferent(ArcSegment.IsLargeArcProperty, false);
+            flag |= segment2.SetIfDifferent(ArcSegment.IsLargeArcProperty, ValueBoxes.FalseBox);
             flag |= segment2.SetIfDifferent(ArcSegment.SizeProperty, size);
             flag |= segment2.SetIfDifferent(ArcSegment.SweepDirectionProperty, SweepDirection.Clockwise);
             return flag | segment2.SetIfDifferent(ArcSegment.PointProperty, point);
@@ -317,8 +318,8 @@ namespace HandyControl.Expression.Media
                            SweepDirection.Counterclockwise);
             }
 
-            flag |= geometry.Figures[1].SetIfDifferent(PathFigure.IsClosedProperty, true);
-            flag |= geometry.Figures[1].SetIfDifferent(PathFigure.IsFilledProperty, true);
+            flag |= geometry.Figures[1].SetIfDifferent(PathFigure.IsClosedProperty, ValueBoxes.TrueBox);
+            flag |= geometry.Figures[1].SetIfDifferent(PathFigure.IsFilledProperty, ValueBoxes.TrueBox);
             var firstPoint = new Point();
             var intersect = InnerCurveSelfIntersect(num, num2, _absoluteThickness);
             var angles = ComputeAngleRanges(num, num2, intersect, 360.0, 0.0);
@@ -349,7 +350,7 @@ namespace HandyControl.Expression.Media
 
             flag |= figure.SetIfDifferent(PathFigure.StartPointProperty,
                 GeometryHelper.GetArcPoint(start, LogicalBounds));
-            flag |= figure.SetIfDifferent(PathFigure.IsFilledProperty, false);
+            flag |= figure.SetIfDifferent(PathFigure.IsFilledProperty, ValueBoxes.FalseBox);
             flag |= segment.SetIfDifferent(ArcSegment.PointProperty,
                 GeometryHelper.GetArcPoint(end, LogicalBounds));
             flag |= segment.SetIfDifferent(ArcSegment.SizeProperty, GetArcSize(LogicalBounds));
@@ -397,8 +398,8 @@ namespace HandyControl.Expression.Media
             flag |= geometry.SetIfDifferent(PathGeometry.FillRuleProperty, FillRule.Nonzero);
             flag |= geometry.Figures.EnsureListCount(1, () => new PathFigure());
             var dependencyObject = geometry.Figures[0];
-            flag |= dependencyObject.SetIfDifferent(PathFigure.IsClosedProperty, true);
-            flag |= dependencyObject.SetIfDifferent(PathFigure.IsFilledProperty, true);
+            flag |= dependencyObject.SetIfDifferent(PathFigure.IsClosedProperty, ValueBoxes.TrueBox);
+            flag |= dependencyObject.SetIfDifferent(PathFigure.IsFilledProperty, ValueBoxes.TrueBox);
             flag |= dependencyObject.SetIfDifferent(PathFigure.StartPointProperty,
                 GeometryHelper.GetArcPoint(start, LogicalBounds));
             flag |= dependencyObject.Segments.EnsureListCountAtLeast(3, () => new ArcSegment());

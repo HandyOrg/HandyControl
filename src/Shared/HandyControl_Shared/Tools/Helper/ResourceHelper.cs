@@ -27,7 +27,7 @@ namespace HandyControl.Tools
         /// <param name="keyArr"></param>
         /// <returns></returns>
         public static string GetString(string separator = ";", params string[] keyArr) =>
-            string.Join(separator, keyArr.Select(key => Application.Current.TryFindResource(key) as string).ToList());
+            string.Join(separator, keyArr.Select(key => Application.Current.TryFindResource(key) as string).ToArray());
 
         /// <summary>
         ///     获取字符串

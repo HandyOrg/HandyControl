@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Media.Animation;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
+#if !NET35
+using System.Windows.Media.Animation;
+#endif
 
 namespace HandyControl.Controls
 {
@@ -20,8 +22,10 @@ namespace HandyControl.Controls
             {
                 AppliesTo = FluidMoveScope.Children,
                 Duration = new Duration(TimeSpan.FromMilliseconds(200)),
+#if !NET35
                 EaseY = new PowerEase(),
                 EaseX = new PowerEase()
+#endif
             };
             var collection = Interaction.GetBehaviors(this);
             collection.Add(behavior);

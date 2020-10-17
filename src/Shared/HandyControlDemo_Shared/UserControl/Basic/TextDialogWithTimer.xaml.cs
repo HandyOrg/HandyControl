@@ -11,7 +11,9 @@ namespace HandyControlDemo.UserControl
             InitializeComponent();
 
             var animation = AnimationHelper.CreateAnimation(100, 5000);
+#if !NET35
             animation.EasingFunction = null;
+#endif
             animation.Completed += Animation_Completed;
             ProgressBarTimer.BeginAnimation(RangeBase.ValueProperty, animation);
         }

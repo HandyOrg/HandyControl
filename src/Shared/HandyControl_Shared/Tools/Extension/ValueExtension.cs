@@ -1,5 +1,8 @@
 ﻿using System.Windows;
 using HandyControl.Expression.Drawing;
+#if NET35
+using System;
+#endif
 
 namespace HandyControl.Tools.Extension
 {
@@ -19,5 +22,25 @@ namespace HandyControl.Tools.Extension
             && MathHelper.AreClose(thickness.Left, thickness.Bottom);
 
         public static bool IsNaN(this double value) => double.IsNaN(value);
+
+#if NET35
+        public static bool HasFlag(this Enum value, Enum flag)
+        {
+            if (flag == null)
+            {
+                throw new ArgumentNullException(nameof(flag));
+            }
+
+            if (value.GetType() != flag.GetType())
+            {
+                throw new ArgumentException("Argument_EnumTypeDoesNotMatch");
+            }
+
+            var flagNum = Convert.ToUInt64(flag);
+            var valueNum = Convert.ToUInt64(value);
+
+            return (valueNum & flagNum) == flagNum;
+        }
+#endif
     }
 }

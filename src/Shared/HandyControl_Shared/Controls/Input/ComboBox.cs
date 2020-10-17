@@ -5,7 +5,12 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
+#if NET35
+using System.Windows.Threading;
+#endif
+#if !NET35
 using System.Windows.Media;
+#endif
 #if NET40
 using System.Windows.Threading;
 #endif
@@ -19,7 +24,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = AutoPopupAutoComplete, Type = typeof(Popup))]
     public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     {
-#if NET40
+#if NET35 || NET40
 
         private string _searchText;
 
@@ -44,10 +49,10 @@ namespace HandyControl.Controls
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                SetCurrentValue(SelectedValueProperty, null);
-                SetCurrentValue(SelectedItemProperty, null);
-                SetCurrentValue(SelectedIndexProperty, -1);
-                SetCurrentValue(TextProperty, "");
+                InvalidateProperty(SelectedValueProperty);
+                InvalidateProperty(SelectedItemProperty);
+                InvalidateProperty(SelectedIndexProperty);
+                InvalidateProperty(TextProperty);
             }));
         }
 
@@ -70,16 +75,18 @@ namespace HandyControl.Controls
                 {
                     _editableTextBox.TextChanged += EditableTextBox_TextChanged;
 
+#if !NET35
                     _editableTextBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
                     _editableTextBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
                     _editableTextBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
                     _editableTextBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+#endif
 
                     if (AutoComplete)
                     {
-#if NET40
+#if NET35 || NET40
                         _autoCompleteTimer = new DispatcherTimer
                         {
                             Interval = TimeSpan.FromMilliseconds(500)
@@ -92,7 +99,7 @@ namespace HandyControl.Controls
                         {
                             UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
                             Mode = BindingMode.OneWayToSource,
-#if !NET40
+#if !NET35 && !NET40
                             Delay = 500,
 #endif
                             Source = this
@@ -104,7 +111,7 @@ namespace HandyControl.Controls
             }
         }
 
-#if NET40
+#if NET35 || NET40
 
         private void AutoCompleteTimer_Tick(object sender, EventArgs e)
         {
@@ -114,10 +121,7 @@ namespace HandyControl.Controls
 
 #endif
 
-        private void EditableTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            VerifyData();
-        }
+        private void EditableTextBox_TextChanged(object sender, TextChangedEventArgs e) => VerifyData();
 
         private void EditableTextBox_LostFocus(object sender, RoutedEventArgs e)
         {
@@ -127,7 +131,7 @@ namespace HandyControl.Controls
             }
         }
 
-#if !NET40
+#if !NET35 && !NET40
         protected override void OnDropDownClosed(EventArgs e)
         {
             base.OnDropDownClosed(e);
@@ -150,7 +154,7 @@ namespace HandyControl.Controls
             _isAutoCompleteAction = false;
             base.OnSelectionChanged(e);
             VerifyData();
-#if NET40
+#if NET35 || NET40
             _isAutoCompleteAction = true;
 #endif
         }
@@ -266,7 +270,7 @@ namespace HandyControl.Controls
             var ctl = (ComboBox)d;
             if (ctl._isAutoCompleteAction)
             {
-#if NET40
+#if NET35 || NET40
                 ctl._searchText = e.NewValue as string;
                 ctl._autoCompleteTimer.Stop();
                 ctl._autoCompleteTimer.Start();
@@ -287,6 +291,7 @@ namespace HandyControl.Controls
             set => SetValue(SearchTextProperty, value);
         }
 
+#if !NET35
         public static readonly DependencyProperty SelectionBrushProperty =
             TextBoxBase.SelectionBrushProperty.AddOwner(typeof(ComboBox));
 
@@ -326,6 +331,7 @@ namespace HandyControl.Controls
             get => (Brush)GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
+#endif
 
         /// <summary>
         ///     验证数据

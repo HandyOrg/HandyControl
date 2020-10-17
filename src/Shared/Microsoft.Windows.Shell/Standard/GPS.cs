@@ -1,0 +1,29 @@
+﻿using System;
+
+namespace Standard
+{
+	// Token: 0x0200007C RID: 124
+	internal enum GPS
+	{
+		// Token: 0x0400052F RID: 1327
+		DEFAULT,
+		// Token: 0x04000530 RID: 1328
+		HANDLERPROPERTIESONLY,
+		// Token: 0x04000531 RID: 1329
+		READWRITE,
+		// Token: 0x04000532 RID: 1330
+		TEMPORARY = 4,
+		// Token: 0x04000533 RID: 1331
+		FASTPROPERTIESONLY = 8,
+		// Token: 0x04000534 RID: 1332
+		OPENSLOWITEM = 16,
+		// Token: 0x04000535 RID: 1333
+		DELAYCREATION = 32,
+		// Token: 0x04000536 RID: 1334
+		BESTEFFORT = 64,
+		// Token: 0x04000537 RID: 1335
+		NO_OPLOCK = 128,
+		// Token: 0x04000538 RID: 1336
+		MASK_VALID = 255
+	}
+}

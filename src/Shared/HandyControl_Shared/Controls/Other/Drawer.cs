@@ -38,10 +38,37 @@ namespace HandyControl.Controls
 
         private Point _contentRenderTransformOrigin;
 
+#if NET35
+        private static Point RenderTransformOriginGlobal { get; set; }
+
+        private static bool CanCoerceGlobal { get; set; }
+
+        private bool _canCoerce;
+
+        private object _isOpen;
+#endif
+
         static Drawer()
         {
             DataContextProperty.OverrideMetadata(typeof(Drawer), new FrameworkPropertyMetadata(DataContextPropertyChanged));
+
+#if NET35
+            //RenderTransformOriginProperty.DefaultMetadata.CoerceValueCallback = CoerceRenderTransformOrigin;
+#endif
         }
+
+#if NET35
+        private static object CoerceRenderTransformOrigin(DependencyObject d, object basevalue) 
+            => d is UIElement ? CanCoerceGlobal ? RenderTransformOriginGlobal : basevalue : basevalue;
+
+        private void SetRenderTransformOrigin(Point point)
+        {
+            RenderTransformOriginGlobal = point;
+            CanCoerceGlobal = true;
+            CoerceValue(RenderTransformOriginProperty);
+            CanCoerceGlobal = false;
+        }
+#endif
 
         public Drawer()
         {
@@ -98,7 +125,27 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
-            "IsOpen", typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsOpenChanged));
+            "IsOpen", typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, 
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsOpenChanged
+#if NET35
+                , CoerceIsOpen
+#endif
+                ));
+
+#if NET35
+        private static object CoerceIsOpen(DependencyObject d, object basevalue)
+            => d is Drawer drawer ? drawer.CoerceIsOpen(basevalue) : basevalue;
+
+        private object CoerceIsOpen(object basevalue) => _canCoerce ? _isOpen : basevalue;
+
+        private void SetIsOpen(object isOpen)
+        {
+            _isOpen = isOpen;
+            _canCoerce = true;
+            CoerceValue(RenderTransformOriginProperty);
+            _canCoerce = false;
+        }
+#endif
 
         private static void OnIsOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -234,7 +281,14 @@ namespace HandyControl.Controls
 
             _animationControl.DataContext = DataContext;
             _animationControl.CommandBindings.Clear();
-            _animationControl.CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => SetCurrentValue(IsOpenProperty, ValueBoxes.FalseBox)));
+            _animationControl.CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) =>
+            {
+#if NET35
+                SetIsOpen(ValueBoxes.FalseBox);
+#else
+                SetCurrentValue(IsOpenProperty, ValueBoxes.FalseBox);
+#endif
+            }));
             panel.Children.Add(_animationControl);
             _container = new AdornerContainer(_layer)
             {
@@ -247,7 +301,11 @@ namespace HandyControl.Controls
         {
             if (!IsOpen)
             {
+#if NET35
+                SetRenderTransformOrigin(_contentRenderTransformOrigin);
+#else
                 _windowContentElement.SetCurrentValue(RenderTransformOriginProperty, _contentRenderTransformOrigin);
+#endif
                 _layer.Remove(_container);
                 RaiseEvent(new RoutedEventArgs(ClosedEvent, this));
             }
@@ -284,7 +342,11 @@ namespace HandyControl.Controls
                     ShowByPush(isOpen);
                     break;
                 case DrawerShowMode.Press:
+#if NET35
+                    SetRenderTransformOrigin(new Point(0.5, 0.5));
+#else
                     _windowContentElement.SetCurrentValue(RenderTransformOriginProperty, new Point(0.5, 0.5));
+#endif
                     ShowByPress(isOpen);
                     break;
             }
@@ -390,7 +452,11 @@ namespace HandyControl.Controls
         {
             if (MaskCanClose)
             {
+#if NET35
+                SetIsOpen(ValueBoxes.FalseBox);
+#else
                 SetCurrentValue(IsOpenProperty, ValueBoxes.FalseBox);
+#endif
             }
         }
 

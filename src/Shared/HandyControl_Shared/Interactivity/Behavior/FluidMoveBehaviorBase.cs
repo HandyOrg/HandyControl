@@ -76,7 +76,7 @@ namespace HandyControl.Interactivity
                     foreach (var pair in TagDictionary)
                         if (pair.Value.Timestamp < NextToLastPurgeTick)
                         {
-                            if (list == null) list = new List<object>();
+                            list ??= new List<object>();
                             list.Add(pair.Key);
                         }
 

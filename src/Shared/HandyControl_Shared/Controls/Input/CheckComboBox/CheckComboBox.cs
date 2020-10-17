@@ -189,7 +189,11 @@ namespace HandyControl.Controls
         {
             if (e.OriginalSource is Tag tag && tag.Tag is CheckComboBoxItem checkComboBoxItem)
             {
-                checkComboBoxItem.SetCurrentValue(IsSelectedProperty, false);
+#if NET35
+                checkComboBoxItem.SetIsSelected(ValueBoxes.FalseBox);
+#else
+                checkComboBoxItem.SetCurrentValue(IsSelectedProperty, ValueBoxes.FalseBox);
+#endif
             }
         }
 
@@ -202,7 +206,11 @@ namespace HandyControl.Controls
             {
                 if (ItemContainerGenerator.ContainerFromItem(item) is CheckComboBoxItem checkComboBoxItem)
                 {
-                    checkComboBoxItem.SetCurrentValue(ListBoxItem.IsSelectedProperty, selected);
+#if NET35
+                    checkComboBoxItem.SetIsSelected(ValueBoxes.BooleanBox(selected));
+#else
+                    checkComboBoxItem.SetCurrentValue(ListBoxItem.IsSelectedProperty, ValueBoxes.BooleanBox(selected));
+#endif
                 }
             }
 
@@ -221,7 +229,11 @@ namespace HandyControl.Controls
             if (_selectAllItem != null)
             {
                 _isInternalAction = true;
-                _selectAllItem.SetCurrentValue(IsSelectedProperty, SelectedItems.Count == Items.Count);
+#if NET35
+                _selectAllItem.SetIsSelected(ValueBoxes.BooleanBox(SelectedItems.Count == Items.Count));
+#else
+                _selectAllItem.SetCurrentValue(IsSelectedProperty, ValueBoxes.BooleanBox(SelectedItems.Count == Items.Count));
+#endif
                 _isInternalAction = false;
             }
 

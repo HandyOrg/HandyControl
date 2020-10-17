@@ -89,12 +89,13 @@ namespace HandyControl.Media.Animation
 
             var progress = animationClock.CurrentProgress.Value;
 
+#if !NET35
             var easingFunction = EasingFunction;
             if (easingFunction != null)
             {
                 progress = easingFunction.Ease(progress);
             }
-
+#endif
             var accumulated = new double[_numbersAccumulator.Length];
             
             if (IsCumulative)
@@ -161,6 +162,7 @@ namespace HandyControl.Media.Animation
             set => SetValue(ToProperty, value);
         }
 
+#if !NET35
         public static readonly DependencyProperty EasingFunctionProperty = DependencyProperty.Register(
             "EasingFunction", typeof(IEasingFunction), typeof(GeometryAnimation), new PropertyMetadata(default(IEasingFunction)));
 
@@ -169,6 +171,7 @@ namespace HandyControl.Media.Animation
             get => (IEasingFunction)GetValue(EasingFunctionProperty);
             set => SetValue(EasingFunctionProperty, value);
         }
+#endif
 
         public bool IsCumulative
         {

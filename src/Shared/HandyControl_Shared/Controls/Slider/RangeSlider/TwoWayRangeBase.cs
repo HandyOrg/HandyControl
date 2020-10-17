@@ -9,6 +9,12 @@ namespace HandyControl.Controls
 {
     public class TwoWayRangeBase : Control
     {
+#if NET35
+        private bool _canCoerce;
+
+        private double _value;
+#endif
+
         public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
             "Minimum", typeof(double), typeof(TwoWayRangeBase),
             new PropertyMetadata(ValueBoxes.Double0Box, OnMinimumChanged), ValidateHelper.IsInRangeOfDouble);
@@ -127,20 +133,53 @@ namespace HandyControl.Controls
         {
             var ctrl = (TwoWayRangeBase)d;
             var min = ctrl.Minimum;
-            var v = (double)value;
-            if (v < min)
-            {
-                return min;
-            }
 
-            var max = ctrl.Maximum;
-            if (v > max)
+#if NET35
+            if (ctrl._canCoerce)
             {
-                return max;
-            }
+                if (ctrl._value < min)
+                {
+                    return min;
+                }
 
-            return value;
+                var max = ctrl.Maximum;
+                if (ctrl._value > max)
+                {
+                    return max;
+                }
+
+                return value;
+            }
+            else
+            {
+#endif
+                var v = (double)value;
+                if (v < min)
+                {
+                    return min;
+                }
+
+                var max = ctrl.Maximum;
+                if (v > max)
+                {
+                    return max;
+                }
+
+                return value;
+#if NET35
+            }
+#endif
         }
+
+#if NET35
+        internal void SetCurrentValue(DependencyProperty property, double value)
+        {
+            _value = value;
+            _canCoerce = true;
+            CoerceValue(property);
+            _canCoerce = false;
+        }
+#endif
 
         public static readonly DependencyProperty LargeChangeProperty = DependencyProperty.Register(
             "LargeChange", typeof(double), typeof(TwoWayRangeBase), new PropertyMetadata(ValueBoxes.Double1Box),

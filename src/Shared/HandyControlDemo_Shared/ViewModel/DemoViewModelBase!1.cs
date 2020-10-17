@@ -16,7 +16,7 @@ namespace HandyControlDemo.ViewModel
         public IList<T> DataList
         {
             get => _dataList;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(DataList), ref _dataList, value);
 #else
             set => Set(ref _dataList, value);

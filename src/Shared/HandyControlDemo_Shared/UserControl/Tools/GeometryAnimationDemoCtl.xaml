@@ -8,20 +8,12 @@
         <Storyboard x:Key="StoryboardOnLoaded" RepeatBehavior="Forever" AutoReverse="True">
             <hc:GeometryAnimationUsingKeyFrames Storyboard.TargetProperty="Data" Storyboard.TargetName="PathDemo">
                 <hc:DiscreteGeometryKeyFrame KeyTime="0:0:0.7" Value="{StaticResource FaceBookGeometry}"/>
-                <hc:EasingGeometryKeyFrame KeyTime="0:0:1.2" Value="{StaticResource TwitterGeometry}">
-                    <hc:EasingGeometryKeyFrame.EasingFunction>
-                        <QuarticEase EasingMode="EaseInOut"/>
-                    </hc:EasingGeometryKeyFrame.EasingFunction>
-                </hc:EasingGeometryKeyFrame>
+                <hc:SplineGeometryKeyFrame KeyTime="0:0:1.2" Value="{StaticResource TwitterGeometry}" KeySpline=".42,0,.58,1"/>
             </hc:GeometryAnimationUsingKeyFrames>
             <ColorAnimationUsingKeyFrames Storyboard.TargetProperty="Fill.(SolidColorBrush.Color)" Storyboard.TargetName="PathDemo">
                 <DiscreteColorKeyFrame KeyTime="0:0:0.7" Value="#3b5998"/>
-                <EasingColorKeyFrame KeyTime="0:0:1.2" Value="#4099ff">
-                    <EasingColorKeyFrame.EasingFunction>
-                        <QuarticEase EasingMode="EaseInOut"/>
-                    </EasingColorKeyFrame.EasingFunction>
-                </EasingColorKeyFrame>
-                <EasingColorKeyFrame KeyTime="0:0:1.9" Value="#4099ff"/>
+                <SplineColorKeyFrame KeyTime="0:0:1.2" Value="#4099ff" KeySpline=".42,0,.58,1"/>
+                <SplineColorKeyFrame KeyTime="0:0:1.9" Value="#4099ff"/>
             </ColorAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>

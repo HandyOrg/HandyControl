@@ -5,13 +5,15 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
+#if !NET35
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Media;
+#endif
 
 namespace HandyControl.Controls
 {
@@ -76,7 +78,7 @@ namespace HandyControl.Controls
                             .All(item => item.Password.Any()))
                         {
                             FocusManager.SetFocusedElement(this, null);
-                            Keyboard.ClearFocus();
+                            Keyboard.Focus(null);
                             RaiseEvent(new RoutedEventArgs(CompletedEvent, this));
                         }
                         return;
@@ -170,7 +172,11 @@ namespace HandyControl.Controls
         {
             get
             {
+#if !NET35
                 return string.Join("", _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Select(item => item.Password));
+#else
+                return string.Join("", _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Select(item => item.Password).ToArray());
+#endif
             }
             set
             {
@@ -259,6 +265,7 @@ namespace HandyControl.Controls
             set => SetValue(ItemHeightProperty, value);
         }
 
+#if !NET35
         public static readonly DependencyProperty SelectionBrushProperty =
             TextBoxBase.SelectionBrushProperty.AddOwner(typeof(PinBox));
 
@@ -298,6 +305,7 @@ namespace HandyControl.Controls
             get => (Brush)GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
+#endif
 
         public static readonly RoutedEvent CompletedEvent =
             EventManager.RegisterRoutedEvent("Completed", RoutingStrategy.Bubble,
@@ -337,12 +345,14 @@ namespace HandyControl.Controls
                 Foreground = Foreground
             };
 
+#if !NET35
             passwordBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
             passwordBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
             passwordBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
             passwordBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+#endif
 
             return passwordBox;
         }

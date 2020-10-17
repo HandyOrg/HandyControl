@@ -80,10 +80,7 @@ namespace HandyControl.Controls
         {
             if (d is System.Windows.Window window)
             {
-                var v = (bool) e.NewValue;
-                window.SetCurrentValue(System.Windows.Window.ShowInTaskbarProperty, v);
-
-                if (v)
+                if ((bool)e.NewValue)
                 {
                     window.SourceInitialized -= Window_SourceInitialized;
                 }

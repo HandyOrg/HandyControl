@@ -257,6 +257,7 @@ namespace HandyControl.Controls
             var borderThickness = BorderThickness;
             var padding = Padding;
 
+#if !NET35
             if (UseLayoutRounding)
             {
                 var dpiScaleX = DpiHelper.DeviceDpiX;
@@ -267,7 +268,8 @@ namespace HandyControl.Controls
                     DpiHelper.RoundLayoutValue(borderThickness.Top, dpiScaleY),
                     DpiHelper.RoundLayoutValue(borderThickness.Right, dpiScaleX),
                     DpiHelper.RoundLayoutValue(borderThickness.Bottom, dpiScaleY));
-            }
+            }      
+#endif
 
             var borderSize = ConvertThickness2Size(borderThickness);
             var paddingSize = ConvertThickness2Size(padding);
@@ -296,6 +298,7 @@ namespace HandyControl.Controls
         {
             var borderThickness = BorderThickness;
 
+#if !NET35
             if (UseLayoutRounding)
             {
                 var dpiScaleX = DpiHelper.DeviceDpiX;
@@ -306,7 +309,8 @@ namespace HandyControl.Controls
                     DpiHelper.RoundLayoutValue(borderThickness.Top, dpiScaleY),
                     DpiHelper.RoundLayoutValue(borderThickness.Right, dpiScaleX), 
                     DpiHelper.RoundLayoutValue(borderThickness.Bottom, dpiScaleY));
-            }
+            }      
+#endif
 
             var boundRect = new Rect(arrangeSize);
             var innerRect = DeflateRect(boundRect, borderThickness);
@@ -387,7 +391,12 @@ namespace HandyControl.Controls
         {
             var background = Background;
             var borderBrush = BorderBrush;
+
+#if NET35
+            var useLayoutRounding = false;
+#else
             var useLayoutRounding = UseLayoutRounding;
+#endif
 
             if (_useComplexRenderCodePath)
             {

@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
-using HandyControl.Controls;
 using HandyControlDemo.Data;
 using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Service;
 using HandyControlDemo.Tools;
 using HandyControlDemo.UserControl;
+using HandyControl.Controls;
+#if !NET35
+using System.Threading.Tasks;
+#else
+using System.ComponentModel;
+#endif
 
 namespace HandyControlDemo.ViewModel
 {
     public class MainViewModel : DemoViewModelBase<DemoDataModel>
     {
-        #region 字段
+#region 字段
 
         /// <summary>
         ///     内容标题
@@ -29,7 +33,7 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private object _subContent;
 
-        #endregion
+#endregion
 
         public MainViewModel(DataService dataService)
         {
@@ -59,7 +63,21 @@ namespace HandyControlDemo.ViewModel
 
             DemoInfoCollection = new ObservableCollection<DemoInfoModel>();
 
-#if NET40
+#if NET35
+            var worker = new BackgroundWorker();
+            worker.DoWork += (s, e) =>
+            {
+                DataList = dataService.GetDemoDataList();
+                foreach (var item in dataService.GetDemoInfo())
+                {
+                    Application.Current.Dispatcher.BeginInvoke(new Action(() =>
+                    {
+                        DemoInfoCollection.Add(item);
+                    }), DispatcherPriority.ApplicationIdle);
+                }
+            };
+            worker.RunWorkerAsync();
+#elif NET40
             Task.Factory.StartNew(() =>
             {
                 DataList = dataService.GetDemoDataList();
@@ -86,7 +104,7 @@ namespace HandyControlDemo.ViewModel
 #endif
         }
 
-        #region 属性
+#region 属性
 
         /// <summary>
         ///     当前选中的demo项
@@ -101,7 +119,7 @@ namespace HandyControlDemo.ViewModel
         public object SubContent
         {
             get => _subContent;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(SubContent), ref _subContent, value);
 #else
             set => Set(ref _subContent, value);
@@ -114,7 +132,7 @@ namespace HandyControlDemo.ViewModel
         public object ContentTitle
         {
             get => _contentTitle;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(ContentTitle), ref _contentTitle, value);
 #else
             set => Set(ref _contentTitle, value);
@@ -126,29 +144,25 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         public ObservableCollection<DemoInfoModel> DemoInfoCollection { get; set; }
 
-        #endregion
+#endregion
 
-        #region 命令
+#region 命令
 
         /// <summary>
         ///     切换例子命令
         /// </summary>
         public RelayCommand<SelectionChangedEventArgs> SwitchDemoCmd =>
-            new Lazy<RelayCommand<SelectionChangedEventArgs>>(() =>
-                new RelayCommand<SelectionChangedEventArgs>(SwitchDemo)).Value;
+            new RelayCommand<SelectionChangedEventArgs>(SwitchDemo);
 
-        public RelayCommand OpenPracticalDemoCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(OpenPracticalDemo)).Value;
+        public RelayCommand OpenPracticalDemoCmd => new RelayCommand(OpenPracticalDemo);
 
-        public RelayCommand GlobalShortcutInfoCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => Growl.Info("Global Shortcut Info"))).Value;
+        public RelayCommand GlobalShortcutInfoCmd => new RelayCommand(() => Growl.Info("Global Shortcut Info"));
 
-        public RelayCommand GlobalShortcutWarningCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => Growl.Warning("Global Shortcut Warning"))).Value;
+        public RelayCommand GlobalShortcutWarningCmd => new RelayCommand(() => Growl.Warning("Global Shortcut Warning"));
 
-        #endregion
+#endregion
 
-        #region 方法
+#region 方法
 
         /// <summary>
         ///     切换例子
@@ -180,6 +194,6 @@ namespace HandyControlDemo.ViewModel
             Messenger.Default.Send(true, MessageToken.FullSwitch);
         }
 
-        #endregion
+#endregion
     }
 }

@@ -84,7 +84,7 @@ namespace HandyControl.Controls
                 {
                     PanelDic.Remove(token);
                     panel.ContextMenu = null;
-                    panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
+                    panel.InvalidateProperty(PanelElement.FluidMoveBehaviorProperty);
                 }
             }
         }
@@ -97,7 +97,7 @@ namespace HandyControl.Controls
             {
                 PanelDic.Remove(first.Key);
                 panel.ContextMenu = null;
-                panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
+                panel.InvalidateProperty(PanelElement.FluidMoveBehaviorProperty);
             }
         }
 
@@ -110,7 +110,7 @@ namespace HandyControl.Controls
                 var panel = PanelDic[token];
                 PanelDic.Remove(token);
                 panel.ContextMenu = null;
-                panel.SetCurrentValue(PanelElement.FluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
+                panel.InvalidateProperty(PanelElement.FluidMoveBehaviorProperty);
             }
         }
 
@@ -349,7 +349,7 @@ namespace HandyControl.Controls
             GrowlWindow.Show(true);
 
             Application.Current.Dispatcher?.Invoke(
-#if NET40
+#if NET35 || NET40
                 new Action(
 #endif
                     () =>
@@ -371,7 +371,7 @@ namespace HandyControl.Controls
                             };
                             GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
                         }
-#if NET40
+#if NET35 || NET40
                     )
 #endif
                 );
@@ -384,7 +384,7 @@ namespace HandyControl.Controls
         private static void Show(GrowlInfo growlInfo)
         {
             Application.Current.Dispatcher?.Invoke(
-#if NET40
+#if NET35 || NET40
                 new Action(
 #endif                    
                     () =>
@@ -416,7 +416,7 @@ namespace HandyControl.Controls
                                 GrowlPanel?.Children.Insert(0, ctl);
                             }
                         }
-#if NET40
+#if NET35 || NET40
                     )
 #endif
                 );

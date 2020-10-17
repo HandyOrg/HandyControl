@@ -16,7 +16,7 @@ namespace HandyControl.Controls
                 var collection = Interaction.GetBehaviors(panel);
                 var oldBehavior = GetTempFluidMoveBehavior(panel);
                 collection.ItemRemoved(oldBehavior);
-                panel.SetCurrentValue(TempFluidMoveBehaviorProperty, DependencyProperty.UnsetValue);
+                panel.InvalidateProperty(TempFluidMoveBehaviorProperty);
 
                 if (e.NewValue is FluidMoveBehavior behavior)
                 {

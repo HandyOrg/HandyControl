@@ -17,7 +17,7 @@ namespace HandyControlDemo.Data
         public bool IsVisible
         {
             get => _isVisible;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(IsVisible), ref _isVisible, value);
 #else
             set => Set(ref _isVisible, value);

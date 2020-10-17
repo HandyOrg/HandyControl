@@ -34,6 +34,11 @@ namespace HandyControl.Controls
 
         internal TabPanel HeaderPanel { get; private set; }
 
+        /// <summary>
+        ///     是否为内部操作
+        /// </summary>
+        internal bool IsInternalAction;
+
         private ScrollViewer _scrollViewerOverflow;
 
         private ButtonBase _buttonScrollLeft;
@@ -42,10 +47,28 @@ namespace HandyControl.Controls
 
         private Border _headerBorder;
 
-        /// <summary>
-        ///     是否为内部操作
-        /// </summary>
-        internal bool IsInternalAction;
+#if NET35
+        private object _selectedIndex;
+
+        private bool _canCoerce;
+
+        static TabControl()
+        {
+            SelectedIndexProperty.DefaultMetadata.CoerceValueCallback = CoerceSelectedIndex;
+        }
+
+        private static object CoerceSelectedIndex(DependencyObject d, object basevalue)
+            => d is TabControl tabControl ? tabControl.CoerceSelectedIndex(basevalue) : basevalue;
+        private object CoerceSelectedIndex(object basevalue) => _canCoerce ? _selectedIndex : basevalue;
+
+        internal void SetSelectedIndex(object selectedIndex)
+        {
+            _selectedIndex = selectedIndex;
+            _canCoerce = true;
+            CoerceValue(IsSelectedProperty);
+            _canCoerce = false;
+        }
+#endif
 
         /// <summary>
         ///     是否启用动画
@@ -349,18 +372,20 @@ namespace HandyControl.Controls
                         {
                             list.Remove(actualItem);
                             list.Insert(0, actualItem);
-                            if (IsAnimationEnabled)
-                            {
-                                HeaderPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(200)));
-                            }
-                            else
-                            {
-                                HeaderPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(0)));
-                            }
+                            
+                            HeaderPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey,
+                                IsAnimationEnabled
+                                    ? new Duration(TimeSpan.FromMilliseconds(200))
+                                    : new Duration(TimeSpan.FromMilliseconds(0)));
                             HeaderPanel.ForceUpdate = true;
                             HeaderPanel.Measure(new Size(HeaderPanel.DesiredSize.Width, ActualHeight));
                             HeaderPanel.ForceUpdate = false;
+
+#if NET35
+                            SetSelectedIndex(ValueBoxes.Int0Box);
+#else
                             SetCurrentValue(SelectedIndexProperty, ValueBoxes.Int0Box);
+#endif
                         }
 
                         item.IsSelected = true;
@@ -407,7 +432,11 @@ namespace HandyControl.Controls
                 }
             }
 
+#if NET35
+            SetSelectedIndex(Items.Count == 0 ? -1 : ValueBoxes.Int0Box);
+#else
             SetCurrentValue(SelectedIndexProperty, Items.Count == 0 ? -1 : 0);
+#endif
         }
 
         internal IList GetActualList()

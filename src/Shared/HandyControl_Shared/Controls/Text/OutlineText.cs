@@ -21,7 +21,9 @@ namespace HandyControl.Controls
         static OutlineText()
         {
             SnapsToDevicePixelsProperty.OverrideMetadata(typeof(OutlineText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+#if !NET35
             UseLayoutRoundingProperty.OverrideMetadata(typeof(OutlineText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+#endif
         }
 
         public static readonly DependencyProperty StrokePositionProperty = DependencyProperty.Register(
@@ -201,7 +203,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-#if NET40 || NET45
+#if NET35 || NET40 || NET45
             _formattedText = new FormattedText(
                 Text,
                 CultureInfo.CurrentUICulture,

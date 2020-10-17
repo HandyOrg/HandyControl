@@ -162,8 +162,7 @@ namespace HandyControl.Tools.Interop
         internal static BitmapHandle CreateDIBSection(HandleRef hdc, ref InteropValues.BITMAPINFO bitmapInfo, int iUsage,
             ref IntPtr ppvBits, SafeFileMappingHandle hSection, int dwOffset)
         {
-            if (hSection == null) hSection = new SafeFileMappingHandle(IntPtr.Zero);
-
+            hSection ??= new SafeFileMappingHandle(IntPtr.Zero);
             var hBitmap = PrivateCreateDIBSection(hdc, ref bitmapInfo, iUsage, ref ppvBits, hSection, dwOffset);
             return hBitmap;
         }
@@ -539,7 +538,7 @@ namespace HandyControl.Tools.Interop
             }
 
             [StructLayout(LayoutKind.Sequential)]
-            private struct StartupOutput
+            private readonly struct StartupOutput
             {
                 private readonly IntPtr hook;
 

@@ -21,6 +21,10 @@ namespace HandyControl.Controls
 
         private FrameworkElement _elementPanel;
 
+#if NET35
+        private bool _canCoerce;
+#endif
+
         public override void OnApplyTemplate()
         {
             if (_elementPanel != null)
@@ -109,8 +113,26 @@ namespace HandyControl.Controls
             set => SetValue(IsRunningProperty, ValueBoxes.BooleanBox(value));
         }
 
+#if NET35
+        private object _autoReverse;
+#endif
+
         public static readonly DependencyProperty AutoReverseProperty = DependencyProperty.Register(
-            "AutoReverse", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+            "AutoReverse", typeof(bool), typeof(RunningBlock),
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender
+#if NET35
+                , null, CoerceAutoReverse
+#endif
+                ));
+
+#if NET35
+        private static object CoerceAutoReverse(DependencyObject d, object basevalue)
+            => d is RunningBlock runningBlock
+                ? runningBlock.CoerceAutoReverse(basevalue)
+                : basevalue;
+
+        private object CoerceAutoReverse(object basevalue) => _canCoerce ? _autoReverse : basevalue;
+#endif
 
         public bool AutoReverse
         {
@@ -145,7 +167,15 @@ namespace HandyControl.Controls
                 {
                     from = 0;
                     to = ActualWidth - _elementPanel.ActualWidth;
+
+#if NET35
+                    _autoReverse = ValueBoxes.TrueBox;
+                    _canCoerce = true;
+                    CoerceValue(AutoReverseProperty);
+                    _canCoerce = false;
+#else
                     SetCurrentValue(AutoReverseProperty, ValueBoxes.TrueBox);
+#endif
                 }
                 propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)");
             }
@@ -165,7 +195,14 @@ namespace HandyControl.Controls
                 {
                     from = 0;
                     to = ActualHeight - _elementPanel.ActualHeight;
+#if NET35
+                    _autoReverse = ValueBoxes.TrueBox;
+                    _canCoerce = true;
+                    CoerceValue(AutoReverseProperty);
+                    _canCoerce = false;
+#else
                     SetCurrentValue(AutoReverseProperty, ValueBoxes.TrueBox);
+#endif
                 }
                 propertyPath = new PropertyPath("(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.Y)");
             }

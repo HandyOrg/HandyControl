@@ -1,0 +1,36 @@
+﻿using System;
+
+namespace Standard
+{
+	// Token: 0x0200002A RID: 42
+	[Flags]
+	internal enum CS : uint
+	{
+		// Token: 0x0400027D RID: 637
+		VREDRAW = 1U,
+		// Token: 0x0400027E RID: 638
+		HREDRAW = 2U,
+		// Token: 0x0400027F RID: 639
+		DBLCLKS = 8U,
+		// Token: 0x04000280 RID: 640
+		OWNDC = 32U,
+		// Token: 0x04000281 RID: 641
+		CLASSDC = 64U,
+		// Token: 0x04000282 RID: 642
+		PARENTDC = 128U,
+		// Token: 0x04000283 RID: 643
+		NOCLOSE = 512U,
+		// Token: 0x04000284 RID: 644
+		SAVEBITS = 2048U,
+		// Token: 0x04000285 RID: 645
+		BYTEALIGNCLIENT = 4096U,
+		// Token: 0x04000286 RID: 646
+		BYTEALIGNWINDOW = 8192U,
+		// Token: 0x04000287 RID: 647
+		GLOBALCLASS = 16384U,
+		// Token: 0x04000288 RID: 648
+		IME = 65536U,
+		// Token: 0x04000289 RID: 649
+		DROPSHADOW = 131072U
+	}
+}

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
@@ -17,7 +16,7 @@ namespace HandyControlDemo.ViewModel
         public int StepIndex
         {
             get => _stepIndex;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(StepIndex), ref _stepIndex, value);
 #else
             set => Set(ref _stepIndex, value);
@@ -27,12 +26,12 @@ namespace HandyControlDemo.ViewModel
         /// <summary>
         ///     下一步
         /// </summary>
-        public RelayCommand<Panel> NextCmd => new Lazy<RelayCommand<Panel>>(() => new RelayCommand<Panel>(Next)).Value;
+        public RelayCommand<Panel> NextCmd => new RelayCommand<Panel>(Next);
 
         /// <summary>
         ///     上一步
         /// </summary>
-        public RelayCommand<Panel> PrevCmd => new Lazy<RelayCommand<Panel>>(() => new RelayCommand<Panel>(Prev)).Value;
+        public RelayCommand<Panel> PrevCmd => new RelayCommand<Panel>(Prev);
 
         private void Next(Panel panel)
         {

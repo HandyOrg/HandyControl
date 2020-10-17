@@ -1,13 +1,15 @@
-﻿using System.Collections.Generic;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
+#if !NET35
+using System.Collections.Generic;
+using System.Windows.Controls;
 using HandyControlDemo.ViewModel;
 using ICSharpCode.AvalonEdit;
 using ICSharpCode.AvalonEdit.Highlighting;
+#endif
 
 
 namespace HandyControlDemo.UserControl
@@ -19,11 +21,13 @@ namespace HandyControlDemo.UserControl
     {
         private bool _isFull;
 
+#if !NET35
         private string _currentDemoKey;
 
         private bool _drawerCodeUsed;
 
         private Dictionary<string, TextEditor> _textEditor;
+#endif
 
         public MainContent()
         {
@@ -62,6 +66,7 @@ namespace HandyControlDemo.UserControl
 
         private void DrawerCode_OnOpened(object sender, RoutedEventArgs e)
         {
+#if !NET35
             if (!_drawerCodeUsed)
             {
                 var textEditorCustomStyle = ResourceHelper.GetResource<Style>("TextEditorCustom");
@@ -128,6 +133,9 @@ namespace HandyControlDemo.UserControl
                 _textEditor["C#"].Text = DemoHelper.GetCode($"{xamlPath}.cs");
                 _textEditor["VM"].Text = DemoHelper.GetCode($"{vmPath}.cs");
             }
+#else
+            HandyControl.Controls.MessageBox.Show("not supported!");
+#endif
         }
     }
 }

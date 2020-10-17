@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -10,6 +9,9 @@ using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
+#if !NET35
+using System.Windows.Controls.Primitives;
+#endif
 
 namespace HandyControl.Controls
 {
@@ -418,7 +420,11 @@ namespace HandyControl.Controls
 
                 if (!IsMouseCaptured)
                 {
+#if NET35
+                    parent.SetSelectedIndex(_currentIndex);
+#else
                     parent.SetCurrentValue(Selector.SelectedIndexProperty, _currentIndex);
+#endif
                 }
             }
 

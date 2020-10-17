@@ -24,7 +24,7 @@ namespace HandyControlDemo.ViewModel
 
         private readonly string _id = Guid.NewGuid().ToString();
 
-        private readonly Stopwatch _stopwatch = new Lazy<Stopwatch>(() => new Stopwatch()).Value;
+        private readonly Stopwatch _stopwatch = new Stopwatch();
 
         public ChatBoxViewModel()
         {
@@ -43,7 +43,7 @@ namespace HandyControlDemo.ViewModel
         public string ChatString
         {
             get => _chatString;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(ChatString), ref _chatString, value);
 #else
             set => Set(ref _chatString, value);
@@ -52,8 +52,7 @@ namespace HandyControlDemo.ViewModel
 
         public ObservableCollection<ChatInfoModel> ChatInfos { get; set; } = new ObservableCollection<ChatInfoModel>();
 
-        public RelayCommand<KeyEventArgs> SendStringCmd => new Lazy<RelayCommand<KeyEventArgs>>(() =>
-            new RelayCommand<KeyEventArgs>(SendString)).Value;
+        public RelayCommand<KeyEventArgs> SendStringCmd => new RelayCommand<KeyEventArgs>(SendString);
 
         private void SendString(KeyEventArgs e)
         {
@@ -73,8 +72,7 @@ namespace HandyControlDemo.ViewModel
             }
         }
 
-        public RelayCommand<RoutedEventArgs> ReadMessageCmd => new Lazy<RelayCommand<RoutedEventArgs>>(() =>
-            new RelayCommand<RoutedEventArgs>(ReadMessage)).Value;
+        public RelayCommand<RoutedEventArgs> ReadMessageCmd => new RelayCommand<RoutedEventArgs>(ReadMessage);
 
         private void ReadMessage(RoutedEventArgs e)
         {
@@ -95,8 +93,7 @@ namespace HandyControlDemo.ViewModel
             }
         }
 
-        public RelayCommand StartRecordCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(StartRecord)).Value;
+        public RelayCommand StartRecordCmd => new RelayCommand(StartRecord);
 
         private void StartRecord()
         {
@@ -111,8 +108,7 @@ namespace HandyControlDemo.ViewModel
             _stopwatch.Start();
         }
 
-        public RelayCommand StopRecordCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(StopRecord)).Value;
+        public RelayCommand StopRecordCmd => new RelayCommand(StopRecord);
 
         private void StopRecord()
         {
@@ -149,8 +145,7 @@ namespace HandyControlDemo.ViewModel
             Messenger.Default.Send(info, MessageToken.SendChatMessage);
         }
 
-        public RelayCommand OpenImageCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(OpenImage)).Value;
+        public RelayCommand OpenImageCmd => new RelayCommand(OpenImage);
 
         private void OpenImage()
         {

@@ -12,6 +12,30 @@ namespace HandyControl.Controls
 {
     public class ImageSelector : Control
     {
+#if NET35
+        private object _toolTip;
+
+        private bool _canCoerce;
+
+        static ImageSelector()
+        {
+            ToolTipProperty.DefaultMetadata.CoerceValueCallback = CoerceToolTip;
+        }
+
+        private static object CoerceToolTip(DependencyObject d, object basevalue)
+            => d is ImageSelector imageSelector ? imageSelector.CoerceToolTip(basevalue) : basevalue;
+
+        private object CoerceToolTip(object basevalue) => _canCoerce ? _toolTip : basevalue;
+
+        private void SetToolTip(object toolTip)
+        {
+            _toolTip = toolTip;
+            _canCoerce = true;
+            CoerceValue(ToolTipProperty);
+            _canCoerce = false;
+        }
+#endif
+
         public ImageSelector() => CommandBindings.Add(new CommandBinding(ControlCommands.Switch, SwitchImage));
 
         private void SwitchImage(object sender, ExecutedRoutedEventArgs e)
@@ -32,8 +56,13 @@ namespace HandyControl.Controls
                     {
                         Stretch = Stretch
                     });
-                    SetValue(HasValuePropertyKey, ValueBoxes.TrueBox); 
+                    SetValue(HasValuePropertyKey, ValueBoxes.TrueBox);
+
+#if NET35
+                    SetToolTip(dialog.FileName);
+#else
                     SetCurrentValue(ToolTipProperty, dialog.FileName);
+#endif
                 }
             }
             else
@@ -41,7 +70,11 @@ namespace HandyControl.Controls
                 SetValue(UriPropertyKey, default(Uri));
                 SetValue(PreviewBrushPropertyKey, default(Brush));
                 SetValue(HasValuePropertyKey, ValueBoxes.FalseBox);
+#if NET35
+                SetToolTip(default);
+#else
                 SetCurrentValue(ToolTipProperty, default);
+#endif            
             }
         }
 

@@ -8,7 +8,7 @@ namespace HandyControl.Controls
 
         public PropertyItemsControl()
         {
-#if !NET40
+#if !NET35 && !NET40
             VirtualizingPanel.SetIsVirtualizingWhenGrouping(this, true);
             VirtualizingPanel.SetScrollUnit(this, ScrollUnit.Pixel);
 #endif

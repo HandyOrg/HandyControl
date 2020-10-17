@@ -1,11 +1,16 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
+#if !NET35
 using HandyControl.Tools.Extension;
+#endif
 
 namespace HandyControlDemo.ViewModel
 {
-    public class InteractiveDialogViewModel : ViewModelBase, IDialogResultable<string>
+    public class InteractiveDialogViewModel : ViewModelBase
+#if !NET35
+        , IDialogResultable<string>
+#endif
     {
         public Action CloseAction { get; set; }
 
@@ -14,7 +19,7 @@ namespace HandyControlDemo.ViewModel
         public string Result
         {
             get => _result;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(Result), ref _result, value);
 #else
             set => Set(ref _result, value);  
@@ -26,13 +31,13 @@ namespace HandyControlDemo.ViewModel
         public string Message
         {
             get => _message;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(Message), ref _message, value);
 #else
             set => Set(ref _message, value);
 #endif
         }
 
-        public RelayCommand CloseCmd => new Lazy<RelayCommand>(() => new RelayCommand(() => CloseAction?.Invoke())).Value;
+        public RelayCommand CloseCmd => new RelayCommand(() => CloseAction?.Invoke());
     }
 }

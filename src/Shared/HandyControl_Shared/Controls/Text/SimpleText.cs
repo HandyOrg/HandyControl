@@ -15,7 +15,9 @@ namespace HandyControl.Controls
         static SimpleText()
         {
             SnapsToDevicePixelsProperty.OverrideMetadata(typeof(SimpleText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+#if !NET35
             UseLayoutRoundingProperty.OverrideMetadata(typeof(SimpleText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+#endif
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
@@ -129,7 +131,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-#if NET40 || NET45
+#if NET35 || NET40 || NET45
             _formattedText = new FormattedText(
                 Text,
                 CultureInfo.CurrentUICulture,

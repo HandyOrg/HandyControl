@@ -170,7 +170,11 @@ namespace HandyControl.Controls
                 var flexBasis = GetFlexBasis(child);
                 if (!flexBasis.IsNaN())
                 {
+#if NET35
+                    child.SetValue(WidthProperty, flexBasis);
+#else
                     child.SetCurrentValue(WidthProperty, flexBasis);
+#endif
                 }
                 child.Measure(childConstraint);
 

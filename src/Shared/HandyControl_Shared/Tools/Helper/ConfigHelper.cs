@@ -1,8 +1,10 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Globalization;
-#if !NET40
+#if !NET35 && !NET40
 using System.Runtime.CompilerServices;
+#endif
+#if !NET35
+using System;
 #endif
 using System.Windows;
 using System.Windows.Markup;
@@ -20,7 +22,13 @@ namespace HandyControl.Tools
 
         }
 
+#if NET35
+        private static ConfigHelper _configHelper;
+
+        public static ConfigHelper Instance => _configHelper ??= new ConfigHelper();
+#else
         public static ConfigHelper Instance = new Lazy<ConfigHelper>(() => new ConfigHelper()).Value; 
+#endif
 
         private XmlLanguage _lang = XmlLanguage.GetLanguage("zh-cn");
 
@@ -73,7 +81,7 @@ namespace HandyControl.Tools
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-#if NET40
+#if NET35 || NET40
         protected virtual void OnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

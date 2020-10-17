@@ -1,15 +1,16 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-#if !NET40
-using System.Threading.Tasks;
-#endif
 using HandyControl.Controls;
-using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
 using HandyControlDemo.UserControl;
 using HandyControlDemo.Window;
+#if !NET35 && !NET40
+using System.Threading.Tasks;
+#endif
+#if !NET35
+using HandyControl.Tools.Extension;
+#endif
 
 namespace HandyControlDemo.ViewModel
 {
@@ -20,15 +21,14 @@ namespace HandyControlDemo.ViewModel
         public string DialogResult
         {
             get => _dialogResult;
-#if NET40
+#if NET35 || NET40
             set => Set(nameof(DialogResult), ref _dialogResult, value);
 #else
             set => Set(ref _dialogResult, value);
 #endif
         }
 
-        public RelayCommand<FrameworkElement> ShowTextCmd => new Lazy<RelayCommand<FrameworkElement>>(() =>
-            new RelayCommand<FrameworkElement>(ShowText)).Value;
+        public RelayCommand<FrameworkElement> ShowTextCmd => new RelayCommand<FrameworkElement>(ShowText);
 
         private void ShowText(FrameworkElement element)
         {
@@ -42,12 +42,12 @@ namespace HandyControlDemo.ViewModel
             }
         }
 
-#if NET40
-        public RelayCommand<bool> ShowInteractiveDialogCmd => new Lazy<RelayCommand<bool>>(() =>
-            new RelayCommand<bool>(ShowInteractiveDialog)).Value;
+#if NET35 || NET40
+        public RelayCommand<bool> ShowInteractiveDialogCmd => new RelayCommand<bool>(ShowInteractiveDialog);
 
         private void ShowInteractiveDialog(bool withTimer)
         {
+#if NET40
             if (!withTimer)
             {
                 Dialog.Show<InteractiveDialog>()
@@ -57,11 +57,11 @@ namespace HandyControlDemo.ViewModel
             else
             {
                 Dialog.Show<TextDialogWithTimer>(MessageToken.MainWindow).GetResultAsync<string>();
-            }
+            }      
+#endif
         }
 #else
-        public RelayCommand<bool> ShowInteractiveDialogCmd => new Lazy<RelayCommand<bool>>(() =>
-            new RelayCommand<bool>(async withTimer => await ShowInteractiveDialog(withTimer))).Value;
+        public RelayCommand<bool> ShowInteractiveDialogCmd => new RelayCommand<bool>(async withTimer => await ShowInteractiveDialog(withTimer));
 
         private async Task ShowInteractiveDialog(bool withTimer)
         {
@@ -78,13 +78,11 @@ namespace HandyControlDemo.ViewModel
         }
 #endif
 
-        public RelayCommand NewWindowCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => new DialogDemoWindow
-            {
-                Owner = Application.Current.MainWindow
-            }.Show())).Value;
+        public RelayCommand NewWindowCmd => new RelayCommand(() => new DialogDemoWindow
+        {
+            Owner = Application.Current.MainWindow
+        }.Show());
 
-        public RelayCommand<string> ShowWithTokenCmd => new Lazy<RelayCommand<string>>(() =>
-            new RelayCommand<string>(token => Dialog.Show(new TextDialog(), token))).Value;
+        public RelayCommand<string> ShowWithTokenCmd => new RelayCommand<string>(token => Dialog.Show(new TextDialog(), token));
     }
 }

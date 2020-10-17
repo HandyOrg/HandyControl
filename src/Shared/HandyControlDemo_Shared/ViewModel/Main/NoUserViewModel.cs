@@ -1,5 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControlDemo.Data;
@@ -9,8 +8,7 @@ namespace HandyControlDemo.ViewModel
 {
     public class NoUserViewModel : ViewModelBase
     {
-        public RelayCommand<string> OpenViewCmd => new Lazy<RelayCommand<string>>(() =>
-            new RelayCommand<string>(OpenView)).Value;
+        public RelayCommand<string> OpenViewCmd => new RelayCommand<string>(OpenView);
 
         private void OpenView(string viewName)
         {

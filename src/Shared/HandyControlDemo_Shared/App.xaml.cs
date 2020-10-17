@@ -3,7 +3,7 @@ using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
 using System.IO;
 using System.Net;
-#if !NET40
+#if !NET35 && !NET40
 using System.Runtime;
 #endif
 using System.Security.Authentication; 
@@ -26,7 +26,7 @@ namespace HandyControlDemo
 
         public App()
         {
-#if !NET40
+#if !NET35 && !NET40
             var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
             if (!Directory.Exists(cachePath))
             {

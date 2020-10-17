@@ -6,16 +6,13 @@
     <UserControl.Resources>
         <Storyboard x:Key="StoryboardLoaded" RepeatBehavior="Forever">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(RotateTransform.Angle)" Storyboard.TargetName="TransformRotate1">
-                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="90">
-                </EasingDoubleKeyFrame>
+                <SplineDoubleKeyFrame KeyTime="0:0:3" Value="90"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(RotateTransform.Angle)" Storyboard.TargetName="TransformRotate2">
-                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="90">
-                </EasingDoubleKeyFrame>
+                <SplineDoubleKeyFrame KeyTime="0:0:3" Value="90"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(RotateTransform.Angle)" Storyboard.TargetName="TransformRotate3">
-                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-90">
-                </EasingDoubleKeyFrame>
+                <SplineDoubleKeyFrame KeyTime="0:0:3" Value="-90"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </UserControl.Resources>

@@ -1,13 +1,15 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
-using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
+#if !NET35
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Media;
+#endif
 
 namespace HandyControl.Controls
 {
@@ -53,8 +55,7 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
                 if (IsReadOnly) return;
-
-                SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
+                InvalidateProperty(ValueProperty);
             }));
 
             Loaded += (s, e) => OnApplyTemplate();
@@ -88,12 +89,14 @@ namespace HandyControl.Controls
 
             if (_textBox != null)
             {
+#if !NET35
                 _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
                 _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
                 _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
                 _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+#endif
 
                 TextCompositionManager.AddPreviewTextInputHandler(_textBox, PreviewTextInputHandler);
                 _textBox.TextChanged += TextBox_TextChanged;
@@ -399,6 +402,7 @@ namespace HandyControl.Controls
             set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
+#if !NET35
         public static readonly DependencyProperty SelectionBrushProperty =
             TextBoxBase.SelectionBrushProperty.AddOwner(typeof(NumericUpDown));
 
@@ -438,6 +442,7 @@ namespace HandyControl.Controls
             get => (Brush)GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
+#endif
 
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
 

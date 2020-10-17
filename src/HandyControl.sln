@@ -23,54 +23,97 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Net_40", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Code", "Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj", "{D8A4748C-0500-4F63-BC47-3506658C68F7}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net_35", "Net_35", "{2BA46994-CD4E-4C49-8A8A-982EFB39CE78}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControl_Net_35", "Net_35\HandyControl_Net_35\HandyControl_Net_35.csproj", "{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Windows.Shell", "Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.shproj", "{EFCBB492-4AD7-4CB6-9556-52C327EF2A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo_Net_35", "Net_35\HandyControlDemo_Net_35\HandyControlDemo_Net_35.csproj", "{709E332D-635E-44B1-B6D1-1F49468F48CF}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
+		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
+		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{51c0089a-2a3c-4cb1-bec1-bc4634f2e66b}*SharedItemsImports = 5
+		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{51c0089a-2a3c-4cb1-bec1-bc4634f2e66b}*SharedItemsImports = 5
+		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{709e332d-635e-44b1-b6d1-1f49468f48cf}*SharedItemsImports = 5
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{9a7b52e6-94bb-4e7e-bb6a-7cf6761b79a7}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{aac11083-faca-405d-9197-5c1212d65656}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{c4694269-c9b8-45d5-87f8-d0088c532510}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{d8ae88f8-c36b-4d10-a7f9-22ffcfba5231}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{dc966e3d-bcff-4652-98cf-070e5494749a}*SharedItemsImports = 5
+		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{efcbb492-4ad7-4cb6-9556-52c327ef2a19}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug-Net35|Any CPU = Debug-Net35|Any CPU
 		Debug-Net40|Any CPU = Debug-Net40|Any CPU
 		Release|Any CPU = Release|Any CPU
+		Release-Net35|Any CPU = Release-Net35|Any CPU
 		Release-Net40|Any CPU = Release-Net40|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Debug-Net35|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release-Net35|Any CPU.ActiveCfg = Release|Any CPU
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
 		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug-Net35|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
 		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release-Net35|Any CPU.ActiveCfg = Release|Any CPU
 		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Debug-Net35|Any CPU.ActiveCfg = Debug|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Debug-Net40|Any CPU.Build.0 = Debug|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Release-Net35|Any CPU.ActiveCfg = Release|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Release-Net40|Any CPU.Build.0 = Release|Any CPU
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Debug-Net35|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Debug-Net40|Any CPU.Build.0 = Debug|Any CPU
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Release-Net35|Any CPU.ActiveCfg = Release|Any CPU
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231}.Release-Net40|Any CPU.Build.0 = Release|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Debug-Net35|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Debug-Net35|Any CPU.Build.0 = Debug|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Debug-Net40|Any CPU.Build.0 = Debug|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release-Net35|Any CPU.ActiveCfg = Release|Any CPU
+		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release-Net35|Any CPU.Build.0 = Release|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release-Net40|Any CPU.Build.0 = Release|Any CPU
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}.Debug-Net35|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}.Debug-Net35|Any CPU.Build.0 = Debug|Any CPU
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}.Release-Net35|Any CPU.ActiveCfg = Release|Any CPU
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}.Release-Net35|Any CPU.Build.0 = Release|Any CPU
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
+		{709E332D-635E-44B1-B6D1-1F49468F48CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{709E332D-635E-44B1-B6D1-1F49468F48CF}.Debug-Net35|Any CPU.ActiveCfg = Debug|Any CPU
+		{709E332D-635E-44B1-B6D1-1F49468F48CF}.Debug-Net35|Any CPU.Build.0 = Debug|Any CPU
+		{709E332D-635E-44B1-B6D1-1F49468F48CF}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
+		{709E332D-635E-44B1-B6D1-1F49468F48CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{709E332D-635E-44B1-B6D1-1F49468F48CF}.Release-Net35|Any CPU.ActiveCfg = Release|Any CPU
+		{709E332D-635E-44B1-B6D1-1F49468F48CF}.Release-Net35|Any CPU.Build.0 = Release|Any CPU
+		{709E332D-635E-44B1-B6D1-1F49468F48CF}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -83,6 +126,9 @@ Global
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A} = {35E3F9C0-8924-4536-BE09-F3761FDBF066}
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231} = {35E3F9C0-8924-4536-BE09-F3761FDBF066}
 		{D8A4748C-0500-4F63-BC47-3506658C68F7} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
+		{51C0089A-2A3C-4CB1-BEC1-BC4634F2E66B} = {2BA46994-CD4E-4C49-8A8A-982EFB39CE78}
+		{EFCBB492-4AD7-4CB6-9556-52C327EF2A19} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
+		{709E332D-635E-44B1-B6D1-1F49468F48CF} = {2BA46994-CD4E-4C49-8A8A-982EFB39CE78}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4636382-1A18-4079-A3E7-054DD970F179}

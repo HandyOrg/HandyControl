@@ -4,13 +4,15 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
-using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Properties.Langs;
+#if !NET35
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
+#endif
 
 namespace HandyControl.Controls
 {
@@ -25,6 +27,12 @@ namespace HandyControl.Controls
         private SecureString _password;
 
         private System.Windows.Controls.TextBox _textBox;
+
+#if NET35
+        private bool _canCoerce;
+
+        private string _unsafePassword;
+#endif
 
         /// <summary>
         ///     掩码字符
@@ -112,7 +120,12 @@ namespace HandyControl.Controls
         private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var p = (PasswordBox)d;
+
+#if NET35
+            p.SetCoerceUnsafePassword(!(bool)e.NewValue ? p.Password : string.Empty);
+#else
             p.SetCurrentValue(UnsafePasswordProperty, !(bool)e.NewValue ? p.Password : string.Empty);
+#endif
         }
 
         public bool IsSafeEnabled
@@ -123,7 +136,28 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty UnsafePasswordProperty = DependencyProperty.Register(
             "UnsafePassword", typeof(string), typeof(PasswordBox), new FrameworkPropertyMetadata(default(string), 
-                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
+                FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged
+#if NET35
+                , CoerceUnsafePassword
+#endif
+                ));
+
+#if NET35
+        private static object CoerceUnsafePassword(DependencyObject d, object basevalue)
+            => d is PasswordBox passwordBox
+                ? passwordBox.CoerceUnsafePassword(basevalue)
+                : basevalue;
+
+        private object CoerceUnsafePassword(object basevalue) => _canCoerce ? _unsafePassword : basevalue;
+
+        private void SetCoerceUnsafePassword(string password)
+        {
+            _unsafePassword = password;
+            _canCoerce = true;
+            CoerceValue(UnsafePasswordProperty);
+            _canCoerce = false;
+        }
+#endif
 
         private static void OnUnsafePasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -149,6 +183,7 @@ namespace HandyControl.Controls
             set => SetValue(MaxLengthProperty, value);
         }
 
+#if !NET35
         public static readonly DependencyProperty SelectionBrushProperty =
             TextBoxBase.SelectionBrushProperty.AddOwner(typeof(PasswordBox));
 
@@ -187,9 +222,10 @@ namespace HandyControl.Controls
         {
             get => (Brush)GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
-        }
+        }  
+#endif
 
-#if !NET40
+#if !NET35 && !NET40
 
         public static readonly DependencyProperty IsSelectionActiveProperty =
             TextBoxBase.IsSelectionActiveProperty.AddOwner(typeof(PasswordBox));
@@ -295,12 +331,15 @@ namespace HandyControl.Controls
             {
                 ActualPasswordBox.PasswordChanged += PasswordBox_PasswordChanged;
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.MaxLengthProperty, new Binding(MaxLengthProperty.Name) { Source = this });
+
+#if !NET35
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+#endif
 
                 if (_password != null)
                 {
@@ -355,7 +394,11 @@ namespace HandyControl.Controls
         {
             if (VerifyData() && !IsSafeEnabled)
             {
+#if NET35
+                SetCoerceUnsafePassword(ActualPasswordBox.Password);
+#else
                 SetCurrentValue(UnsafePasswordProperty, ActualPasswordBox.Password);
+#endif
             }
         }
 
@@ -366,7 +409,12 @@ namespace HandyControl.Controls
             if (!IsSafeEnabled && ShowPassword)
             {
                 Password = _textBox.Text;
+
+#if NET35
+                SetCoerceUnsafePassword(Password);
+#else
                 SetCurrentValue(UnsafePasswordProperty, Password);
+#endif
             }
         }
     }

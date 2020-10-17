@@ -13,6 +13,24 @@ namespace HandyControl.Controls
     {
         private readonly Popup _popup;
 
+#if NET35
+        private bool _canCoerce;
+
+        private object _content;
+
+        private PlacementType _placementType;
+
+        private HitMode _hitMode;
+
+        private double _offSet;
+
+        private object _isOpen;
+
+        internal static bool CanCoerceGlobal { get; set; }
+
+        internal static object IsOpenGlobal { get; set; }
+#endif
+
         public Poptip()
         {
             _popup = new Popup
@@ -25,7 +43,26 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty HitModeProperty = DependencyProperty.RegisterAttached(
-            "HitMode", typeof(HitMode), typeof(Poptip), new PropertyMetadata(HitMode.Hover));
+            "HitMode", typeof(HitMode), typeof(Poptip), new PropertyMetadata(HitMode.Hover
+#if NET35
+                , null, CoerceHitMode
+#endif
+                ));
+
+#if NET35
+        private static object CoerceHitMode(DependencyObject d, object basevalue)
+            => d is Poptip poptip ? poptip.CoerceHitMode(basevalue) : basevalue;
+
+        private object CoerceHitMode(object basevalue) => _canCoerce ? _hitMode : basevalue;
+
+        private void SetHitMode(HitMode hitMode)
+        {
+            _hitMode = hitMode;
+            _canCoerce = true;
+            CoerceValue(HitModeProperty);
+            _canCoerce = false;
+        }
+#endif
 
         public static void SetHitMode(DependencyObject element, HitMode value)
             => element.SetValue(HitModeProperty, value);
@@ -40,7 +77,26 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ContentProperty = DependencyProperty.RegisterAttached(
-            "Content", typeof(object), typeof(Poptip), new PropertyMetadata(default, OnContentChanged));
+            "Content", typeof(object), typeof(Poptip), new PropertyMetadata(default, OnContentChanged
+#if NET35
+                , CoerceContent
+#endif
+                ));
+
+#if NET35
+        private static object CoerceContent(DependencyObject d, object basevalue) 
+            => d is Poptip poptip ? poptip.CoerceContent(basevalue) : basevalue;
+
+        private object CoerceContent(object basevalue) => _canCoerce ? _content : basevalue;
+
+        private void SetContent(object content)
+        {
+            _content = content;
+            _canCoerce = true;
+            CoerceValue(ContentProperty);
+            _canCoerce = false;
+        }
+#endif
 
         private static void OnContentChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -92,7 +148,26 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty OffsetProperty = DependencyProperty.RegisterAttached(
-            "Offset", typeof(double), typeof(Poptip), new PropertyMetadata(6.0));
+            "Offset", typeof(double), typeof(Poptip), new PropertyMetadata(6.0
+#if NET35
+                , null, CoerceOffset
+#endif
+                ));
+
+#if NET35
+        private static object CoerceOffset(DependencyObject d, object basevalue)
+            => d is Poptip poptip ? poptip.CoerceOffset(basevalue) : basevalue;
+
+        private object CoerceOffset(object basevalue) => _canCoerce ? _offSet : basevalue;
+
+        private void SetOffset(double offset)
+        {
+            _offSet = offset;
+            _canCoerce = true;
+            CoerceValue(OffsetProperty);
+            _canCoerce = false;
+        }
+#endif
 
         public static void SetOffset(DependencyObject element, double value)
             => element.SetValue(OffsetProperty, value);
@@ -107,7 +182,26 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty PlacementTypeProperty = DependencyProperty.RegisterAttached(
-            "PlacementType", typeof(PlacementType), typeof(Poptip), new PropertyMetadata(PlacementType.Top));
+            "PlacementType", typeof(PlacementType), typeof(Poptip), new PropertyMetadata(PlacementType.Top
+#if NET35
+                , null, CoercePlacementType
+#endif
+                ));
+
+#if NET35
+        private static object CoercePlacementType(DependencyObject d, object basevalue)
+            => d is Poptip poptip ? poptip.CoercePlacementType(basevalue) : basevalue;
+
+        private object CoercePlacementType(object basevalue) => _canCoerce ? _placementType : basevalue;
+
+        private void SetPlacementType(PlacementType placementType)
+        {
+            _placementType = placementType;
+            _canCoerce = true;
+            CoerceValue(PlacementTypeProperty);
+            _canCoerce = false;
+        }
+#endif
 
         public static void SetPlacement(DependencyObject element, PlacementType value)
             => element.SetValue(PlacementTypeProperty, value);
@@ -122,7 +216,11 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsOpenProperty = DependencyProperty.RegisterAttached(
-            "IsOpen", typeof(bool), typeof(Poptip), new PropertyMetadata(ValueBoxes.FalseBox, OnIsOpenChanged));
+            "IsOpen", typeof(bool), typeof(Poptip), new PropertyMetadata(ValueBoxes.FalseBox, OnIsOpenChanged
+#if NET35
+                , CoerceIsOpen
+#endif
+                ));
 
         private static void OnIsOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -135,6 +233,26 @@ namespace HandyControl.Controls
                 ((Poptip)GetInstance(d))?.SwitchPoptip((bool)e.NewValue);
             }
         }
+
+#if NET35
+        private static object CoerceIsOpen(DependencyObject d, object basevalue) =>
+            d switch
+            {
+                Poptip poptip => poptip.CoerceIsOpen(basevalue),
+                FrameworkElement _ => CanCoerceGlobal ? IsOpenGlobal : basevalue,
+                _ => basevalue
+            };
+
+        private object CoerceIsOpen(object basevalue) => _canCoerce ? _isOpen : basevalue;
+
+        private void SetIsOpen(object isOpen)
+        {
+            _isOpen = isOpen;
+            _canCoerce = true;
+            CoerceValue(IsOpenProperty);
+            _canCoerce = false;
+        }
+#endif
 
         public static void SetIsOpen(DependencyObject element, bool value)
             => element.SetValue(IsOpenProperty, ValueBoxes.BooleanBox(value));
@@ -270,18 +388,34 @@ namespace HandyControl.Controls
             {
                 if (!GetIsInstance(Target))
                 {
+#if NET35
+                    SetContent(GetContent(Target));
+                    SetPlacementType(GetPlacement(Target));
+                    SetHitMode(GetHitMode(Target));
+                    SetOffset(GetOffset(Target));
+                    SetIsOpen(ValueBoxes.BooleanBox(GetIsOpen(Target)));
+#else
                     SetCurrentValue(ContentProperty, GetContent(Target));
                     SetCurrentValue(PlacementTypeProperty, GetPlacement(Target));
                     SetCurrentValue(HitModeProperty, GetHitMode(Target));
                     SetCurrentValue(OffsetProperty, GetOffset(Target));
-                    SetCurrentValue(IsOpenProperty, GetIsOpen(Target));
+                    SetCurrentValue(IsOpenProperty, ValueBoxes.BooleanBox(GetIsOpen(Target)));
+#endif
                 }
 
                 _popup.PlacementTarget = Target;
                 UpdateLocation();
             }
             _popup.IsOpen = isShow;
-            Target.SetCurrentValue(IsOpenProperty, isShow);
+
+#if NET35
+            IsOpenGlobal = ValueBoxes.BooleanBox(isShow);
+            CanCoerceGlobal = true;
+            Target.CoerceValue(IsOpenProperty);
+            CanCoerceGlobal = false;
+#else
+            Target.SetCurrentValue(IsOpenProperty, ValueBoxes.BooleanBox(isShow));
+#endif
         }
 
         private void Element_MouseEnter(object sender, MouseEventArgs e)
