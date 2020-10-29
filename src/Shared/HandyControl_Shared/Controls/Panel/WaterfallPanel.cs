@@ -8,7 +8,8 @@ namespace HandyControl.Controls
     public class WaterfallPanel : Panel
     {
         public static readonly DependencyProperty GroupsProperty = DependencyProperty.Register(
-            "Groups", typeof(int), typeof(WaterfallPanel), new FrameworkPropertyMetadata(ValueBoxes.Int2Box, FrameworkPropertyMetadataOptions.AffectsMeasure), IsGroupsValid);
+            "Groups", typeof(int), typeof(WaterfallPanel), new FrameworkPropertyMetadata(
+                ValueBoxes.Int2Box, FrameworkPropertyMetadataOptions.AffectsMeasure), IsGroupsValid);
 
         public int Groups
         {
@@ -16,11 +17,7 @@ namespace HandyControl.Controls
             set => SetValue(GroupsProperty, value);
         }
 
-        private static bool IsGroupsValid(object value)
-        {
-            var v = (int)value;
-            return v >= 1;
-        }
+        private static bool IsGroupsValid(object value) => (int)value >= 1;
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
             "Orientation", typeof(Orientation), typeof(WaterfallPanel), new FrameworkPropertyMetadata(
@@ -34,14 +31,16 @@ namespace HandyControl.Controls
 
         protected override Size MeasureOverride(Size constraint)
         {
-            if (Groups < 1) return constraint;
+            var groups = Groups;
+
+            if (groups < 1) return constraint;
             var children = InternalChildren;
             Size panelSize;
 
             if (Orientation == Orientation.Horizontal)
             {
-                var heightArr = new double[Groups].ToList();
-                var itemWidth = constraint.Width / Groups;
+                var heightArr = new double[groups].ToList();
+                var itemWidth = constraint.Width / groups;
                 if (double.IsNaN(itemWidth) || double.IsInfinity(itemWidth)) return constraint;
 
                 for (int i = 0, count = children.Count; i < count; i++)
@@ -60,8 +59,8 @@ namespace HandyControl.Controls
             }
             else
             {
-                var widthArr = new double[Groups].ToList();
-                var itemHeight = constraint.Height / Groups;
+                var widthArr = new double[groups].ToList();
+                var itemHeight = constraint.Height / groups;
                 if (double.IsNaN(itemHeight) || double.IsInfinity(itemHeight)) return constraint;
 
                 for (int i = 0, count = children.Count; i < count; i++)

@@ -20,11 +20,17 @@ namespace HandyControl.Controls
 
         protected sealed override void UpdateDots()
         {
-            if (DotCount < 1) return;
+            var dotCount = DotCount;
+            var dotInterval = DotInterval;
+            var dotDiameter = DotDiameter;
+            var dotSpeed = DotSpeed;
+            var dotDelayTime = DotDelayTime;
+
+            if (dotCount < 1) return;
             PrivateCanvas.Children.Clear();
 
             //计算相关尺寸
-            var centerWidth = DotDiameter * DotCount + DotInterval * (DotCount - 1) + MoveLength;
+            var centerWidth = dotDiameter * dotCount + dotInterval * (dotCount - 1) + MoveLength;
             var speedDownLength = (ActualWidth - MoveLength) / 2;
             var speedUniformLength = centerWidth / 2;
 
@@ -35,13 +41,13 @@ namespace HandyControl.Controls
             };
 
             //创建圆点
-            for (var i = 0; i < DotCount; i++)
+            for (var i = 0; i < dotCount; i++)
             {
-                var ellipse = CreateEllipse(i);
+                var ellipse = CreateEllipse(i, dotInterval, dotDiameter);
 
                 var frames = new ThicknessAnimationUsingKeyFrames
                 {
-                    BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i)
+                    BeginTime = TimeSpan.FromMilliseconds(dotDelayTime * i)
                 };
                 //开始位置
                 var frame0 = new LinearThicknessKeyFrame
@@ -58,14 +64,14 @@ namespace HandyControl.Controls
                         EasingMode = EasingMode.EaseOut
                     },
                     Value = new Thickness(speedDownLength + ellipse.Margin.Left, 0, 0, 0),
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (1 - UniformScale)/2))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (1 - UniformScale)/2))
                 };
 
                 //匀速开始到匀速结束
                 var frame2 = new LinearThicknessKeyFrame
                 {
                     Value = new Thickness(speedDownLength + speedUniformLength + ellipse.Margin.Left, 0, 0, 0),
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (1 + UniformScale) / 2))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (1 + UniformScale) / 2))
                 };
 
                 //匀速结束到匀加速结束
@@ -76,7 +82,7 @@ namespace HandyControl.Controls
                         EasingMode = EasingMode.EaseIn
                     },
                     Value = new Thickness(ActualWidth + ellipse.Margin.Left + speedUniformLength, 0, 0, 0),
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed))
                 };
 
                 frames.KeyFrames.Add(frame0);
@@ -94,12 +100,12 @@ namespace HandyControl.Controls
             Storyboard.Begin();
         }
 
-        private new Ellipse CreateEllipse(int index)
+        private Ellipse CreateEllipse(int index, double dotInterval, double dotDiameter)
         {
             var ellipse = base.CreateEllipse(index);
             ellipse.HorizontalAlignment = HorizontalAlignment.Left;
             ellipse.VerticalAlignment = VerticalAlignment.Top;
-            ellipse.Margin = new Thickness(-(DotInterval + DotDiameter) * index, 0, 0, 0);
+            ellipse.Margin = new Thickness(-(dotInterval + dotDiameter) * index, 0, 0, 0);
             return ellipse;
         }
     }

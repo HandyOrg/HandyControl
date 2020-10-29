@@ -32,7 +32,7 @@ namespace HandyControl.Controls
         private static bool OnSpanValidate(object value)
         {
             var v = (int)value;
-            return v >= 1 || v <= 24;
+            return v >= 1 && v <= 24;
         }
 
         public int Span

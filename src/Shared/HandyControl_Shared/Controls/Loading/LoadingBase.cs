@@ -122,7 +122,7 @@ namespace HandyControl.Controls
             UpdateDots();
         }
 
-        protected Ellipse CreateEllipse(int index)
+        protected virtual Ellipse CreateEllipse(int index)
         {
             var ellipse = new Ellipse();
             ellipse.SetBinding(WidthProperty, new Binding(DotDiameterProperty.Name) {Source = this});

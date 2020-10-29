@@ -25,6 +25,8 @@ namespace HandyControl.Controls
 
         private bool _isDisposed;
 
+        private int _columns = 1;
+
         public ImageBlock()
         {
             _dispatcherTimer = new DispatcherTimer(DispatcherPriority.Render)
@@ -68,16 +70,23 @@ namespace HandyControl.Controls
         private void UpdateDatas()
         {
             if (_source == null) return;
-            _indexMin = StartRow * Columns + StartColumn;
-            _indexMax = EndRow * Columns + EndColumn;
+
+            _indexMin = StartRow * _columns + StartColumn;
+            _indexMax = EndRow * _columns + EndColumn;
             _currentIndex = _indexMin;
-            _blockWidth = _source.PixelWidth / Columns;
+            _blockWidth = _source.PixelWidth / _columns;
             _blockHeight = _source.PixelHeight / Rows;
         }
 
         private static void OnPositionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (ImageBlock)d;
+
+            if (e.Property == ColumnsProperty)
+            {
+                ctl._columns = (int)e.NewValue;
+            }
+
             ctl.UpdateDatas();
         }
 
@@ -212,8 +221,8 @@ namespace HandyControl.Controls
                 _currentIndex = _indexMin;
             }
 
-            var x = _currentIndex % Columns * _blockWidth;
-            var y = _currentIndex / Columns * _blockHeight;
+            var x = _currentIndex % _columns * _blockWidth;
+            var y = _currentIndex / _columns * _blockHeight;
 
             var rect = new Int32Rect(x, y, _blockWidth, _blockHeight);
             _currentIndex++;

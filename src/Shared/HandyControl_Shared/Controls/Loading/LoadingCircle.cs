@@ -41,7 +41,13 @@ namespace HandyControl.Controls
 
         protected sealed override void UpdateDots()
         {
-            if (DotCount < 1) return;
+            var dotCount = DotCount;
+            var dotInterval = DotInterval;
+            var dotSpeed = DotSpeed;
+            var dotDelayTime = DotDelayTime;
+            var needHidden = NeedHidden;
+
+            if (dotCount < 1) return;
             PrivateCanvas.Children.Clear();
 
             //定义动画
@@ -51,16 +57,16 @@ namespace HandyControl.Controls
             };
 
             //创建圆点
-            for (var i = 0; i < DotCount; i++)
+            for (var i = 0; i < dotCount; i++)
             {
-                var border = CreateBorder(i);
+                var border = CreateBorder(i, dotInterval, needHidden);
 
                 var framesMove = new DoubleAnimationUsingKeyFrames
                 {
-                    BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i)
+                    BeginTime = TimeSpan.FromMilliseconds(dotDelayTime * i)
                 };
 
-                var subAngle = -DotInterval * i;
+                var subAngle = -dotInterval * i;
 
                 //开始位置
                 var frame0 = new LinearDoubleKeyFrame
@@ -77,14 +83,14 @@ namespace HandyControl.Controls
                         EasingMode = EasingMode.EaseOut
                     },
                     Value = 180 + subAngle,
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (0.75 / 7)))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (0.75 / 7)))
                 };
 
                 //第一次匀速开始到第一次匀速结束
                 var frame2 = new LinearDoubleKeyFrame
                 {
                     Value = 180 + DotOffSet + subAngle,
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (2.75 / 7)))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (2.75 / 7)))
                 };
 
                 //第一次匀速结束到匀加速结束
@@ -95,7 +101,7 @@ namespace HandyControl.Controls
                         EasingMode = EasingMode.EaseIn
                     },
                     Value = 360 + subAngle,
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (3.5 / 7)))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (3.5 / 7)))
                 };
 
                 //匀加速结束到匀减速结束
@@ -106,14 +112,14 @@ namespace HandyControl.Controls
                         EasingMode = EasingMode.EaseOut
                     },
                     Value = 540 + subAngle,
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (4.25 / 7)))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (4.25 / 7)))
                 };
 
                 //匀减速结束到第二次匀速结束
                 var frame5 = new LinearDoubleKeyFrame
                 {
                     Value = 540 + DotOffSet + subAngle,
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed * (6.25 / 7)))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (6.25 / 7)))
                 };
 
                 //第二次匀速结束到匀加速结束
@@ -124,7 +130,7 @@ namespace HandyControl.Controls
                         EasingMode = EasingMode.EaseIn
                     },
                     Value = 720 + subAngle,
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed))
                 };
 
                 framesMove.KeyFrames.Add(frame0);
@@ -145,13 +151,13 @@ namespace HandyControl.Controls
                     var frame7 = new DiscreteObjectKeyFrame
                     {
                         Value = Visibility.Collapsed,
-                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed))
+                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed))
                     };
 
                     var frame8 = new DiscreteObjectKeyFrame
                     {
                         Value = Visibility.Collapsed,
-                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(DotSpeed + 0.4))
+                        KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed + 0.4))
                     };
 
                     var frame9 = new DiscreteObjectKeyFrame
@@ -161,7 +167,7 @@ namespace HandyControl.Controls
                     };
                     var framesVisibility = new ObjectAnimationUsingKeyFrames
                     {
-                        BeginTime = TimeSpan.FromMilliseconds(DotDelayTime * i)
+                        BeginTime = TimeSpan.FromMilliseconds(dotDelayTime * i)
                     };
                     framesVisibility.KeyFrames.Add(frame9);
                     framesVisibility.KeyFrames.Add(frame7);
@@ -176,14 +182,14 @@ namespace HandyControl.Controls
             Storyboard.Begin();
         }
 
-        private Border CreateBorder(int index)
+        private Border CreateBorder(int index, double dotInterval, bool needHidden)
         {
             var ellipse = CreateEllipse(index);
             ellipse.HorizontalAlignment = HorizontalAlignment.Center;
             ellipse.VerticalAlignment = VerticalAlignment.Bottom;
             var rt = new RotateTransform
             {
-                Angle = -DotInterval * index
+                Angle = -dotInterval * index
             };
             var myTransGroup = new TransformGroup();
             myTransGroup.Children.Add(rt);
@@ -192,7 +198,7 @@ namespace HandyControl.Controls
                 RenderTransformOrigin = new Point(0.5, 0.5),
                 RenderTransform = myTransGroup,
                 Child = ellipse,
-                Visibility = NeedHidden ? Visibility.Collapsed : Visibility.Visible
+                Visibility = needHidden ? Visibility.Collapsed : Visibility.Visible
             };
             border.SetBinding(WidthProperty, new Binding("Width") { Source = this });
             border.SetBinding(HeightProperty, new Binding("Height") { Source = this });
