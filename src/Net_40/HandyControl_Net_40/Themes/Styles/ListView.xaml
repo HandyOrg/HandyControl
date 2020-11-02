@@ -68,18 +68,25 @@
                     <Border CornerRadius="4" x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <GridViewRowPresenter Content="{TemplateBinding Content}" Columns="{TemplateBinding GridView.ColumnCollection}"/>
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Foreground" Value="White"/>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
             </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+                <Setter Property="TextElement.Foreground" Value="{DynamicResource TextIconBrush}"/>
+            </Trigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsSelected" Value="true"/>
+                    <Condition Property="Selector.IsSelectionActive" Value="false"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+                <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+            </MultiTrigger>
         </Style.Triggers>
     </Style>
 

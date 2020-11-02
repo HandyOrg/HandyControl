@@ -135,6 +135,9 @@
             </Setter.Value>
         </Setter>
         <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+            </Trigger>
             <Trigger Property="IsSelected" Value="True">
                 <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
                 <Setter Property="TextElement.Foreground" Value="{DynamicResource TextIconBrush}"/>
