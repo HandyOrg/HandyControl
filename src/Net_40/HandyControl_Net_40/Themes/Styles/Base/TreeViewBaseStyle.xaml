@@ -61,13 +61,9 @@
                         <ItemsPresenter x:Name="ItemsHost" Grid.Row="1"/>
                     </Grid>
                     <ControlTemplate.Triggers>
-                        <MultiTrigger>
-                            <MultiTrigger.Conditions>
-                                <Condition Property="IsMouseOver" Value="true"/>
-                                <Condition Property="HasItems" Value="false"/>
-                            </MultiTrigger.Conditions>
+                        <Trigger Property="IsMouseOver" Value="true" SourceName="Bd">
                             <Setter Property="Background" TargetName="Bd" Value="{DynamicResource SecondaryRegionBrush}"/>
-                        </MultiTrigger>
+                        </Trigger>
                         <Trigger Property="IsExpanded" Value="false">
                             <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>
                         </Trigger>
