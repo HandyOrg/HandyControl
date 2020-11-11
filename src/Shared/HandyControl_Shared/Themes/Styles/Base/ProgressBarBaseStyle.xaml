@@ -134,6 +134,67 @@
         </Setter>
     </Style>
 
+    <ControlTemplate x:Key="CircleProgressBarIndeterminateTemplate" TargetType="hc:CircleProgressBar">
+        <ControlTemplate.Resources>
+            <Storyboard x:Key="IsIndeterminate" RepeatBehavior="Forever">
+                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)" Storyboard.TargetName="TemplateRoot">
+                    <LinearDoubleKeyFrame KeyTime="0:0:1.568" Value="360"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(RotateTransform.Angle)" Storyboard.TargetName="arc">
+                    <SplineDoubleKeyFrame KeyTime="0" Value="0"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:0.666" Value="135"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:1.333" Value="270"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:1.999" Value="405"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:2.666" Value="540"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:3.333" Value="675"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:3.999" Value="810"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:4.666" Value="945"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:5.332" Value="1080"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="(shapes:Arc.StartAngle)" Storyboard.TargetName="arc">
+                    <SplineDoubleKeyFrame KeyTime="0" Value="-5"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:0.666" Value="-130"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:1.333" Value="-5"/>
+                </DoubleAnimationUsingKeyFrames>
+                <DoubleAnimationUsingKeyFrames RepeatBehavior="Forever" Storyboard.TargetProperty="(shapes:Arc.EndAngle)" Storyboard.TargetName="arc">
+                    <SplineDoubleKeyFrame KeyTime="0" Value="5"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:0.666" Value="130"/>
+                    <SplineDoubleKeyFrame KeySpline="0.4,0.0,0.2,1" KeyTime="0:0:1.333" Value="5"/>
+                </DoubleAnimationUsingKeyFrames>
+            </Storyboard>
+        </ControlTemplate.Resources>
+        <hc:SimplePanel x:Name="TemplateRoot" RenderTransformOrigin="0.5,0.5">
+            <hc:SimplePanel.RenderTransform>
+                <TransformGroup>
+                    <RotateTransform/>
+                </TransformGroup>
+            </hc:SimplePanel.RenderTransform>
+            <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" EndAngle="360" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" StrokeThickness="0"/>
+            <shapes:Arc RenderTransformOrigin="0.5,0.5" StartAngle="-5" EndAngle="5" ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" Width="{TemplateBinding ActualWidth}" StrokeThickness="0" Height="{TemplateBinding ActualHeight}" x:Name="arc" Fill="{TemplateBinding Foreground}">
+                <shapes:Arc.RenderTransform>
+                    <TransformGroup>
+                        <RotateTransform/>
+                    </TransformGroup>
+                </shapes:Arc.RenderTransform>
+            </shapes:Arc>
+        </hc:SimplePanel>
+        <ControlTemplate.Triggers>
+            <Trigger Property="IsIndeterminate" Value="true">
+                <Trigger.EnterActions>
+                    <BeginStoryboard Storyboard="{StaticResource IsIndeterminate}"/>
+                </Trigger.EnterActions>
+            </Trigger>
+        </ControlTemplate.Triggers>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="CircleProgressBarTemplate" TargetType="hc:CircleProgressBar">
+        <hc:SimplePanel x:Name="TemplateRoot">
+            <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" EndAngle="360" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" StrokeThickness="0"/>
+            <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" Width="{TemplateBinding ActualWidth}" StrokeThickness="0" Height="{TemplateBinding ActualHeight}" x:Name="PART_Indicator" Fill="{TemplateBinding Foreground}"/>
+            <TextBlock Visibility="{Binding ShowText,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Text}"/>
+        </hc:SimplePanel>
+    </ControlTemplate>
+
     <Style x:Key="ProgressBarCircleBaseStyle" TargetType="hc:CircleProgressBar">
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
@@ -141,17 +202,12 @@
         <Setter Property="Width" Value="100"/>
         <Setter Property="ArcThickness" Value="4"/>
         <Setter Property="Text" Value="{Binding Value,RelativeSource={RelativeSource Self},StringFormat={}{0:F0} %}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="hc:CircleProgressBar">
-                    <hc:SimplePanel x:Name="TemplateRoot">
-                        <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" EndAngle="360" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" Stroke="{TemplateBinding BorderBrush}" Fill="{TemplateBinding Background}" StrokeThickness="0"/>
-                        <shapes:Arc ArcThickness="{TemplateBinding ArcThickness}" Stretch="None" Width="{TemplateBinding ActualWidth}" StrokeThickness="0" Height="{TemplateBinding ActualHeight}" x:Name="PART_Indicator" Fill="{TemplateBinding Foreground}"/>
-                        <TextBlock Visibility="{Binding ShowText,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{TemplateBinding Text}"/>
-                    </hc:SimplePanel>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
+        <Setter Property="Template" Value="{StaticResource CircleProgressBarTemplate}"/>
+        <Style.Triggers>
+            <Trigger Property="IsIndeterminate" Value="True">
+                <Setter Property="Template" Value="{StaticResource CircleProgressBarIndeterminateTemplate}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
     <Style x:Key="ProgressBarWaveBaseStyle" TargetType="hc:WaveProgressBar">

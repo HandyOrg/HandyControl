@@ -15,6 +15,14 @@
                 <hc:CircleProgressBar Value="{Binding Value,ElementName=SliderDemo}" Margin="16,0,0,0" Width="50" Height="50" Style="{StaticResource ProgressBarDangerCircle}"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="0,32,0,0">
+                <hc:CircleProgressBar IsIndeterminate="True"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Background="Transparent"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Width="20" Height="20" ArcThickness="2" Style="{StaticResource ProgressBarSuccessCircle}"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Width="30" Height="30" ArcThickness="6" Style="{StaticResource ProgressBarInfoCircle}"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Width="40" Height="40" ArcThickness="10" Style="{StaticResource ProgressBarWarningCircle}"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Width="50" Height="50" Style="{StaticResource ProgressBarDangerCircle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,32,0,0">
                 <hc:WaveProgressBar Value="{Binding Value,ElementName=SliderDemo}"/>
                 <hc:WaveProgressBar Value="{Binding Value,ElementName=SliderDemo}" FontSize="20" Margin="16,0,0,0" WaveThickness="4" WaveStroke="#FFFF0080">
                     <hc:WaveProgressBar.WaveFill>
