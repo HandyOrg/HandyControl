@@ -3,7 +3,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemoCode</AssemblyName>
     <RootNamespace>HandyControlDemoCode</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net5.0</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net5.0-windows</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Window\AboutWindow.xaml">
@@ -888,7 +888,7 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Main\MainViewModel.cs">
       <Link>ViewModel\MainViewModel.cs</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Main\NoUserViewModel.cs">
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Main\NonClientAreaViewModel.cs">
       <Link>ViewModel\NoUserViewModel.cs</Link>
     </Resource>
   </ItemGroup>

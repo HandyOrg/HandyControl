@@ -21,7 +21,7 @@ namespace HandyControlDemo
             base.OnContentRendered(e);
 
             DataContext = ViewModelLocator.Instance.Main;
-            NonClientAreaContent = new NoUserContent();
+            NonClientAreaContent = new NonClientAreaContent();
             ControlMain.Content = new MainWindowContent();
 
             GlobalShortcut.Init(new List<KeyBinding>

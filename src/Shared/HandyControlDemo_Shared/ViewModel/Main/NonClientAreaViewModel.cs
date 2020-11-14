@@ -7,8 +7,13 @@ using HandyControlDemo.Tools;
 
 namespace HandyControlDemo.ViewModel
 {
-    public class NoUserViewModel : ViewModelBase
+    public class NonClientAreaViewModel : ViewModelBase
     {
+        public NonClientAreaViewModel()
+        {
+            VersionInfo = VersionHelper.GetVersion();
+        }
+
         public RelayCommand<string> OpenViewCmd => new Lazy<RelayCommand<string>>(() =>
             new RelayCommand<string>(OpenView)).Value;
 
@@ -17,6 +22,18 @@ namespace HandyControlDemo.ViewModel
             Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
             Messenger.Default.Send(true, MessageToken.FullSwitch);
             Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{viewName}"), MessageToken.LoadShowContent);
+        }
+
+        private string _versionInfo;
+
+        public string VersionInfo
+        {
+            get => _versionInfo;
+#if NET40
+            set => Set(nameof(VersionInfo), ref _versionInfo, value);
+#else
+            set => Set(ref _versionInfo, value);
+#endif
         }
     }
 }

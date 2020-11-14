@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Messaging;
@@ -10,9 +11,9 @@ using HandyControlDemo.Window;
 
 namespace HandyControlDemo.UserControl
 {
-    public partial class NoUserContent
+    public partial class NonClientAreaContent
     {
-        public NoUserContent()
+        public NonClientAreaContent()
         {
             InitializeComponent();
         }
