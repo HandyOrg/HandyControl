@@ -13,7 +13,7 @@ jobs:
         uses: actions/checkout@master
       
       - name: Setup Nuget.exe
-        uses: nuget/setup-nuget@master
+        uses: nuget/setup-nuget@main
       
       - name: Restore Nuget packages
         run: nuget restore src/HandyControl.sln
