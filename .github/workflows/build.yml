@@ -21,7 +21,7 @@ jobs:
       - name: Setup .NET Core
         uses: actions/setup-dotnet@master
         with:
-          dotnet-version: '5.0.100-preview.5.20279.10'
+          dotnet-version: '5.0.100'
       
       - name: Build Net_40
         run: dotnet build src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release-Net40
