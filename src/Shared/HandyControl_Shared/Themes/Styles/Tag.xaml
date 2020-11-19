@@ -8,4 +8,6 @@
     
     <Style BasedOn="{StaticResource TagBaseStyle}" TargetType="hc:Tag"/>
 
+    <Style BasedOn="{StaticResource TagContainerBaseStyle}" TargetType="hc:TagContainer"/>
+
 </ResourceDictionary>
