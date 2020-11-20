@@ -1,9 +1,0 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.CalendarDemoCtl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:hc="https://handyorg.github.io/handycontrol"
-             Background="{DynamicResource RegionBrush}">
-    <hc:TransitioningContentControl>
-        <Calendar Margin="32" SelectionMode="MultipleRange"/>
-    </hc:TransitioningContentControl>
-</UserControl>
