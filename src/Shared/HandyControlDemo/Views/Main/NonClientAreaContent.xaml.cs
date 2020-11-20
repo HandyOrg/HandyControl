@@ -27,10 +27,8 @@ namespace HandyControlDemo.Views
                 {
                     return;
                 }
-
-                ConfigHelper.Instance.SetLang(langName);
                 LocalizationManager.Instance.CurrentCulture = new System.Globalization.CultureInfo(langName);
-
+                ConfigHelper.Instance.SetLang(langName);
                 GlobalData.Config.Lang = langName;
                 GlobalData.Save();
             }
