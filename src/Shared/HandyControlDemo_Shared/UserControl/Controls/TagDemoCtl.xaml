@@ -4,19 +4,30 @@
              Background="{DynamicResource RegionBrush}"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
-             xmlns:hc="https://handyorg.github.io/handycontrol">
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             DataContext="{Binding TagDemo,Source={StaticResource Locator}}">
+    <UserControl.Resources>
+        <Style x:Key="TagCustomStyle" BasedOn="{StaticResource TagBaseStyle}" TargetType="hc:Tag">
+            <Setter Property="Content" Value="{Binding Name}"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+        </Style>
+    </UserControl.Resources>
     <hc:TransitioningContentControl>
-        <hc:TagContainer Margin="22" Width="400" Padding="5">
-            <hc:Tag Margin="5" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
-            <hc:Tag Margin="5" Selectable="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
-            <hc:Tag Margin="5" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
-            <hc:Tag Margin="5" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
-            <hc:Tag Margin="5" IsSelected="True" Selectable="True" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
-            <hc:Tag Margin="5" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
-            <hc:Tag Margin="5" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
-            <hc:Tag Margin="5" IsSelected="True" Selectable="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
-            <hc:Tag Margin="5" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
-            <hc:Tag Margin="5" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
-        </hc:TagContainer>
+        <StackPanel Margin="11">
+            <hc:TagContainer Name="Container1" Margin="11" Width="420" Padding="5">
+                <hc:Tag Margin="5" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+                <hc:Tag Margin="5" Selectable="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
+                <hc:Tag Margin="5" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+                <hc:Tag Margin="5" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+                <hc:Tag Margin="5" IsSelected="True" Selectable="True" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+                <hc:Tag Margin="5" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
+                <hc:Tag Margin="5" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+                <hc:Tag Margin="5" IsSelected="True" Selectable="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
+                <hc:Tag Margin="5" ShowCloseButton="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+                <hc:Tag Margin="5" Content="{ex:Lang Key={x:Static langs:LangKeys.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+            </hc:TagContainer>
+            <hc:TagContainer ItemContainerStyle="{StaticResource TagCustomStyle}" Margin="11" Width="420" Padding="5" ItemsSource="{Binding DataList}"/>
+        </StackPanel>
     </hc:TransitioningContentControl>
 </UserControl>

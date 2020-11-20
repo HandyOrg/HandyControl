@@ -215,7 +215,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\TabControl\TabPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\OutlineText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Tag\Tag.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Tag\TagPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\CalendarWithClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\Clock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ListClock.cs" />

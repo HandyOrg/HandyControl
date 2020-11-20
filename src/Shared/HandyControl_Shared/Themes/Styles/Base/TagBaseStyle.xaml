@@ -40,11 +40,15 @@
                     <Border Style="{StaticResource BorderCircular}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <Grid>
                             <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Button Focusable="False" Name="ButtonClose" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="10,0,0,0" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,11" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Foreground="{TemplateBinding Foreground}"/>
+                            <Border Style="{StaticResource BorderCircular}" BorderBrush="{Binding Path=(hc:TitleElement.BorderBrush),RelativeSource={RelativeSource TemplatedParent}}" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}">
+                                <ContentPresenter ContentSource="Header" Margin="0,0,6,0" Visibility="{Binding HasHeader,RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            </Border>
+                            <ContentPresenter Grid.Column="1" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Button Focusable="False" Name="ButtonClose" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="10,0,0,0" Width="16" Grid.Column="2" Style="{StaticResource ButtonIcon}" Padding="0,11" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Foreground="{TemplateBinding Foreground}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -70,13 +74,6 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="AddTagButtonStyle" TargetType="Button" BasedOn="{StaticResource ButtonIconCircular}">
-        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="hc:IconElement.Geometry" Value="{StaticResource AddGeometry}"/>
-        <Setter Property="Padding" Value="10"/>
-        <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}"/>
-    </Style>
-
     <Style x:Key="TagContainerBaseStyle" TargetType="hc:TagContainer" BasedOn="{StaticResource BaseStyle}">
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource TagBaseStyle}"/>
@@ -100,6 +97,7 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+        
     </Style>
 
 </ResourceDictionary>
