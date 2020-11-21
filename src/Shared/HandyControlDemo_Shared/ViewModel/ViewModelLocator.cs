@@ -98,7 +98,7 @@ namespace HandyControlDemo.ViewModel
 
         public SplitButtonDemoViewModel SplitButtonDemo => SimpleIoc.Default.GetInstance<SplitButtonDemoViewModel>();
 
-        public TagDemoViewModel TagDemo => SimpleIoc.Default.GetInstance<TagDemoViewModel>();
+        public TagDemoViewModel TagDemo => new TagDemoViewModel(SimpleIoc.Default.GetInstance<DataService>());
 
         #endregion
     }

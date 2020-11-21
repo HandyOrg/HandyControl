@@ -7,6 +7,7 @@
     <ResourceDictionary.MergedDictionaries>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Behaviors.xaml"/>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Border.xaml"/>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Rectangle.xaml"/>
@@ -21,6 +22,7 @@
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="hc:TitleElement.Foreground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="FocusVisualStyle">
             <Setter.Value>
                 <Style>
@@ -37,18 +39,18 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:Tag">
-                    <Border Style="{StaticResource BorderCircular}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                    <Border Style="{StaticResource BorderCircular}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <Border Style="{StaticResource BorderCircular}" BorderBrush="{Binding Path=(hc:TitleElement.BorderBrush),RelativeSource={RelativeSource TemplatedParent}}" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}">
-                                <ContentPresenter ContentSource="Header" Margin="0,0,6,0" Visibility="{Binding HasHeader,RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Border Visibility="{Binding HasHeader,RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" Width="{Binding ActualHeight,RelativeSource={RelativeSource Self}}" Style="{StaticResource BorderCircularClip}" BorderBrush="{Binding Path=(hc:TitleElement.BorderBrush),RelativeSource={RelativeSource TemplatedParent}}" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}">
+                                <ContentPresenter TextElement.Foreground="{Binding Path=(hc:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}" ContentSource="Header" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentTemplateSelector="{TemplateBinding HeaderTemplateSelector}" ContentStringFormat="{TemplateBinding HeaderStringFormat}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </Border>
-                            <ContentPresenter Grid.Column="1" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                            <Button Focusable="False" Name="ButtonClose" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="10,0,0,0" Width="16" Grid.Column="2" Style="{StaticResource ButtonIcon}" Padding="0,11" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Foreground="{TemplateBinding Foreground}"/>
+                            <ContentPresenter Margin="{TemplateBinding Padding}" Grid.Column="1" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                            <Button Focusable="False" Name="ButtonClose" Visibility="{TemplateBinding ShowCloseButton,Converter={StaticResource Boolean2VisibilityConverter}}" Command="interactivity:ControlCommands.Close" Margin="0,0,6,0" Width="16" Grid.Column="2" Style="{StaticResource ButtonIcon}" Padding="0,11" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Foreground="{TemplateBinding Foreground}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -82,7 +84,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <WrapPanel/>
+                    <WrapPanel hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}"/>
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
