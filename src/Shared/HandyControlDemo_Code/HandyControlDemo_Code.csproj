@@ -876,6 +876,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\TabControlDemoViewModel.cs">
       <Link>ViewModel\TabControlDemoViewModel.cs</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\TagDemoViewModel.cs">
+      <Link>ViewModel\TagDemoViewModel.cs</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\WindowDemoViewModel.cs">
       <Link>ViewModel\WindowDemoViewModel.cs</Link>
     </Resource>

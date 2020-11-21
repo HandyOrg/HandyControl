@@ -72,6 +72,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\RangeThumb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Slider\RangeSlider\TwoWayRangeBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\RunningBlock\RunningBlock.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Tag\TagContainer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\SimpleText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\DateTimeRangeComparer.cs" />
@@ -214,7 +215,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\TabControl\TabPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\OutlineText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Tag\Tag.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Tag\TagPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\CalendarWithClock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\Clock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\Clock\ListClock.cs" />

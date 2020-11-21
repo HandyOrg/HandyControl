@@ -80,7 +80,7 @@ namespace HandyControlDemo.Service
             return list;
         }
 
-        public List<DemoDataModel> GetDemoDataList(int count)
+        internal List<DemoDataModel> GetDemoDataList(int count)
         {
             var list = new List<DemoDataModel>();
             for (var i = 1; i <= count; i++)

@@ -38,6 +38,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<SpriteDemoViewModel>();
             SimpleIoc.Default.Register<NotificationDemoViewModel>();
             SimpleIoc.Default.Register<SplitButtonDemoViewModel>();
+            SimpleIoc.Default.Register<TagDemoViewModel>();
         }
 
         public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
@@ -96,6 +97,8 @@ namespace HandyControlDemo.ViewModel
         public NotificationDemoViewModel NotificationDemo => SimpleIoc.Default.GetInstance<NotificationDemoViewModel>();
 
         public SplitButtonDemoViewModel SplitButtonDemo => SimpleIoc.Default.GetInstance<SplitButtonDemoViewModel>();
+
+        public TagDemoViewModel TagDemo => new TagDemoViewModel(SimpleIoc.Default.GetInstance<DataService>());
 
         #endregion
     }
