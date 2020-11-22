@@ -185,6 +185,7 @@
     <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />  </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj" />
     <ProjectReference Include="..\HandyControl_Net_GE45\HandyControl_Net_GE45.csproj" />
   </ItemGroup>
 

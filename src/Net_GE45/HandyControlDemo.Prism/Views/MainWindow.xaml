@@ -41,13 +41,13 @@
                                 <hc:Watermark Mark="{Binding ElementName=left, Path=DataContext.Name}" MarkMargin="3,0" FontSize="20" FontWeight="Bold" MarkBrush="#0F000000"/>
                                 <TextBlock Style="{StaticResource TextBlockDefault}" Foreground="White" Text="{Binding ElementName=left, Path=DataContext.Name}"/>
                                 <ToggleButton Margin="0,0,6,0" IsChecked="{Binding IsOpen,ElementName=DrawerCode}" Padding="5" Foreground="{DynamicResource TextIconBrush}" Style="{StaticResource ToggleButtonIconTransparent}" HorizontalAlignment="Right" hc:IconElement.Geometry="{StaticResource CodeGeometry}"/>
-                                <hc:Drawer Name="DrawerCode">
+                                <hc:Drawer Opened="DrawerCode_OnOpened" Name="DrawerCode">
                                     <Border Style="{StaticResource BorderClip}" Margin="32,32,0,32" CornerRadius="10,0,0,10" Background="{DynamicResource RegionBrush}" Width="800" Name="BorderCode"/>
                                 </hc:Drawer>
                             </hc:SimplePanel>
                         </Border>
                         <Border Grid.Row="1" ClipToBounds="True">
-                            <ContentControl Margin="0,0,0,10" prism:RegionManager.RegionName="ContentRegion"/>
+                            <ContentControl Name="ContentRegion" Margin="0,0,0,10" prism:RegionManager.RegionName="ContentRegion"/>
                         </Border>
                     </Grid>
                 </Border>
