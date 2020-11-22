@@ -1,0 +1,82 @@
+﻿<Border hc:ScrollViewer.IsInertiaEnabled="True"
+        x:Class="HandyControlDemo.Views.LeftMainContent"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Background="{DynamicResource RegionBrush}"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        Margin="16,16,0,16"
+        CornerRadius="10"
+        Effect="{StaticResource EffectShadow4}">
+    <Border.Resources>
+        <Style x:Key="DemoInfoSortButtonStyle" BasedOn="{StaticResource ToggleButtonCustom}" TargetType="ToggleButton" x:Shared="False">
+            <Setter Property="Content">
+                <Setter.Value>
+                    <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
+                        <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
+                    </Border>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="hc:StatusSwitchElement.CheckedElement">
+                <Setter.Value>
+                    <Border CornerRadius="4" Height="30" Width="30" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Border.Resources>
+    <DockPanel>
+        <Button DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="10,10,10,4" Content="{x:Static ex:Lang.PracticalDemos}" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}"/>
+        <TabControl ItemContainerStyle="{StaticResource TabItemTransparent}" ItemsSource="{Binding DemoInfoCollection}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
+            <TabControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Title}"/>
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate>
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <hc:SearchBar ShowClearButton="True" IsRealTime="True" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{x:Static ex:Lang.PlsEnterKey}" Margin="0,4,4,4" Tag="{Binding ElementName=ListBoxDemo}">
+                            <hc:Interaction.Triggers>
+                                <hc:EventTrigger EventName="SearchStarted">
+                                    <hc:EventToCommand Command="{Binding DataContext.OnSearchStartedCmd, RelativeSource={RelativeSource AncestorType=TabControl}}" PassEventArgsToCommand="True" />
+                                </hc:EventTrigger>
+                            </hc:Interaction.Triggers>
+                        </hc:SearchBar>
+                        <ToggleButton Click="ButtonAscending_OnClick" Tag="{Binding ElementName=ListBoxDemo}" Name="ButtonStyleAscending" Grid.Row="0" Grid.Column="1" Style="{StaticResource DemoInfoSortButtonStyle}"/>
+                        <ListBox Name="ListBoxDemo" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Width="16" Height="16" Source="{Binding ImageName}"/>
+                                        <TextBlock Margin="6,0,0,0" Text="{Binding Name}"/>
+                                        <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                            <hc:Interaction.Triggers>
+                                <hc:EventTrigger EventName="SelectionChanged">
+                                    <hc:EventToCommand Command="{Binding DataContext.SwitchCmd, RelativeSource={RelativeSource AncestorType=TabControl}}" PassEventArgsToCommand="True" />
+                                </hc:EventTrigger>
+                            </hc:Interaction.Triggers>
+                        </ListBox>
+                    </Grid>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+            <hc:Interaction.Triggers>
+                <hc:EventTrigger EventName="SelectionChanged">
+                    <hc:EventToCommand Command="{Binding TabItemChangedCmd}" PassEventArgsToCommand="True" />
+                </hc:EventTrigger>
+            </hc:Interaction.Triggers>
+        </TabControl>
+    </DockPanel>
+</Border>

@@ -1,0 +1,336 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net5.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>HandyControlDemo</RootNamespace>
+    <AssemblyName>HandyControlDemo</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Langs\Lang.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Lang.resx</DependentUpon>
+    </Compile>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Update="Properties\Langs\Lang.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Lang.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Remove="Data\SideMenuConfig.json" />
+    <None Remove="Resources\DemoInfo.json" />
+    <None Remove="Resources\fabric-icons.ttf" />
+    <None Remove="Resources\Img\1.jpg" />
+    <None Remove="Resources\Img\2.jpg" />
+    <None Remove="Resources\Img\3.jpg" />
+    <None Remove="Resources\Img\4.jpg" />
+    <None Remove="Resources\Img\5.jpg" />
+    <None Remove="Resources\Img\Album\1.jpg" />
+    <None Remove="Resources\Img\Album\10.jpg" />
+    <None Remove="Resources\Img\Album\2.jpg" />
+    <None Remove="Resources\Img\Album\3.jpg" />
+    <None Remove="Resources\Img\Album\4.jpg" />
+    <None Remove="Resources\Img\Album\5.jpg" />
+    <None Remove="Resources\Img\Album\6.jpg" />
+    <None Remove="Resources\Img\Album\7.jpg" />
+    <None Remove="Resources\Img\Album\8.jpg" />
+    <None Remove="Resources\Img\Album\9.jpg" />
+    <None Remove="Resources\Img\Avatar\avatar1.png" />
+    <None Remove="Resources\Img\Avatar\avatar2.png" />
+    <None Remove="Resources\Img\Avatar\avatar3.png" />
+    <None Remove="Resources\Img\Avatar\avatar4.png" />
+    <None Remove="Resources\Img\Avatar\avatar5.png" />
+    <None Remove="Resources\Img\Avatar\avatar6.png" />
+    <None Remove="Resources\Img\b1.jpg" />
+    <None Remove="Resources\Img\b2.jpg" />
+    <None Remove="Resources\Img\car_chase.gif" />
+    <None Remove="Resources\Img\Chat\chat_back1.jpg" />
+    <None Remove="Resources\Img\Chat\chat_back2.jpg" />
+    <None Remove="Resources\Img\chrome_dragon.png" />
+    <None Remove="Resources\Img\cloud.png" />
+    <None Remove="Resources\Img\Cover.png" />
+    <None Remove="Resources\Img\Dance.png" />
+    <None Remove="Resources\Img\DevOps\DevOps-Boards.png" />
+    <None Remove="Resources\Img\DevOps\DevOps-Overview.png" />
+    <None Remove="Resources\Img\DevOps\DevOps-Pipelines.png" />
+    <None Remove="Resources\Img\DevOps\DevOps-Repos.png" />
+    <None Remove="Resources\Img\DevOps\DevOps-TestPlans.png" />
+    <None Remove="Resources\Img\icon-white.ico" />
+    <None Remove="Resources\Img\icon.ico" />
+    <None Remove="Resources\Img\LeftMainContent\Animation_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\BorderElement_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\brackets_Square_16xLG.png" />
+    <None Remove="Resources\Img\LeftMainContent\Brush_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Bubble_16xLG.png" />
+    <None Remove="Resources\Img\LeftMainContent\ButtonClick_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ButtonGroup_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Calendar_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Carousel_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\CheckboxList_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\CheckBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ColorPalette_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ColorWheel_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ComboBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ContextMenu_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\DataGenerator_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\DataGrid_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\DatePicker_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\DetailDataView_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Dialog_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\DotLarge_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\DottedSplitter_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Dynamic_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Effects_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Ellipsis_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Expander_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\FlipVertical_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Flow_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\frame_16xLG.png" />
+    <None Remove="Resources\Img\LeftMainContent\GoToTop_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\GridPane_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\GroupBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\HandyControl.png" />
+    <None Remove="Resources\Img\LeftMainContent\HoverMenu_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ImageBrowser_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ImageStack_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Image_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Label_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\layout-FlexLayout-16.png" />
+    <None Remove="Resources\Img\LeftMainContent\LinearCarousel_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ListBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ListView_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Loading_Blue_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\MainMenuControl_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Message_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\NotificationHub_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\NumericListBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\OutlinedRectangleTool_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Paginator_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Panel_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\PasswordBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Path_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\PolygonHexagon_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\PopupCursor_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Procedure_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ProgressBar_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ProgressButton_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\PropertyGridEditorPart_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\RadioButton_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\RepeatButton_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\RichTextBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ScrollBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Search_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Shield_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Slider_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\SortAscending_grey_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\SplitButton_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\SplitterControl_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Star.png" />
+    <None Remove="Resources\Img\LeftMainContent\TabPage_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Tag_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\TextBlock_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\TextBox_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\thumbs_up.png" />
+    <None Remove="Resources\Img\LeftMainContent\Timeline_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\TimePicker_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Time_color_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Toggle_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\ToolBar_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\Transfer_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\TransformRelative_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\TransitioningContentControl_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\TreeView_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\User_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\View_Portrait_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\VSO_Card_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\WindowScreenshot_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\WindowsForm_16x.png" />
+    <None Remove="Resources\Img\LeftMainContent\WPFFlowDocument_16x.png" />
+    <None Remove="Resources\Img\QQ\1.gif" />
+    <None Remove="Resources\Img\QQ\10.gif" />
+    <None Remove="Resources\Img\QQ\2.gif" />
+    <None Remove="Resources\Img\QQ\3.gif" />
+    <None Remove="Resources\Img\QQ\4.gif" />
+    <None Remove="Resources\Img\QQ\5.gif" />
+    <None Remove="Resources\Img\QQ\6.gif" />
+    <None Remove="Resources\Img\QQ\7.gif" />
+    <None Remove="Resources\Img\QQ\8.gif" />
+    <None Remove="Resources\Img\QQ\9.gif" />
+    <None Remove="Resources\Img\qq_group_1.jpg" />
+    <None Remove="Resources\Img\qq_group_2.jpg" />
+    <None Remove="Resources\Img\under_construction.gif" />
+    <None Remove="Resources\Registry.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\Registry.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AvalonEdit" Version="6.0.1" />
+    <PackageReference Include="Prism.DryIoc" Version="8.0.0.1909" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HandyControl_Net_GE45\HandyControl_Net_GE45.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Data\SideMenuConfig.json" />
+    <Content Include="Resources\DemoInfo.json" />
+    <Resource Include="Resources\fabric-icons.ttf" />
+    <Resource Include="Resources\Img\1.jpg" />
+    <Resource Include="Resources\Img\2.jpg" />
+    <Resource Include="Resources\Img\3.jpg" />
+    <Resource Include="Resources\Img\4.jpg" />
+    <Resource Include="Resources\Img\5.jpg" />
+    <Resource Include="Resources\Img\Album\1.jpg" />
+    <Resource Include="Resources\Img\Album\10.jpg" />
+    <Resource Include="Resources\Img\Album\2.jpg" />
+    <Resource Include="Resources\Img\Album\3.jpg" />
+    <Resource Include="Resources\Img\Album\4.jpg" />
+    <Resource Include="Resources\Img\Album\5.jpg" />
+    <Resource Include="Resources\Img\Album\6.jpg" />
+    <Resource Include="Resources\Img\Album\7.jpg" />
+    <Resource Include="Resources\Img\Album\8.jpg" />
+    <Resource Include="Resources\Img\Album\9.jpg" />
+    <Resource Include="Resources\Img\Avatar\avatar1.png" />
+    <Resource Include="Resources\Img\Avatar\avatar2.png" />
+    <Resource Include="Resources\Img\Avatar\avatar3.png" />
+    <Resource Include="Resources\Img\Avatar\avatar4.png" />
+    <Resource Include="Resources\Img\Avatar\avatar5.png" />
+    <Resource Include="Resources\Img\Avatar\avatar6.png" />
+    <Resource Include="Resources\Img\b1.jpg" />
+    <Resource Include="Resources\Img\b2.jpg" />
+    <Resource Include="Resources\Img\car_chase.gif" />
+    <Resource Include="Resources\Img\Chat\chat_back1.jpg" />
+    <Resource Include="Resources\Img\Chat\chat_back2.jpg" />
+    <Resource Include="Resources\Img\chrome_dragon.png" />
+    <Resource Include="Resources\Img\cloud.png" />
+    <Resource Include="Resources\Img\Cover.png" />
+    <Resource Include="Resources\Img\Dance.png" />
+    <Resource Include="Resources\Img\DevOps\DevOps-Boards.png" />
+    <Resource Include="Resources\Img\DevOps\DevOps-Overview.png" />
+    <Resource Include="Resources\Img\DevOps\DevOps-Pipelines.png" />
+    <Resource Include="Resources\Img\DevOps\DevOps-Repos.png" />
+    <Resource Include="Resources\Img\DevOps\DevOps-TestPlans.png" />
+    <Resource Include="Resources\Img\icon-white.ico" />
+    <Resource Include="Resources\Img\icon.ico" />
+    <Resource Include="Resources\Img\LeftMainContent\Animation_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\BorderElement_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\brackets_Square_16xLG.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Brush_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Bubble_16xLG.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ButtonClick_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ButtonGroup_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Calendar_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Carousel_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\CheckboxList_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\CheckBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ColorPalette_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ColorWheel_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ComboBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ContextMenu_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DataGenerator_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DataGrid_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DatePicker_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DetailDataView_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Dialog_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DotLarge_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\DottedSplitter_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Dynamic_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Effects_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Ellipsis_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Expander_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\FlipVertical_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Flow_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\frame_16xLG.png" />
+    <Resource Include="Resources\Img\LeftMainContent\GoToTop_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\GridPane_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\GroupBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\HandyControl.png" />
+    <Resource Include="Resources\Img\LeftMainContent\HoverMenu_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ImageBrowser_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ImageStack_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Image_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Label_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\layout-FlexLayout-16.png" />
+    <Resource Include="Resources\Img\LeftMainContent\LinearCarousel_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ListBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ListView_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Loading_Blue_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\MainMenuControl_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Message_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\NotificationHub_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\NumericListBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\OutlinedRectangleTool_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Paginator_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Panel_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\PasswordBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Path_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\PolygonHexagon_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\PopupCursor_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Procedure_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ProgressBar_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ProgressButton_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\PropertyGridEditorPart_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\RadioButton_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\RepeatButton_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\RichTextBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ScrollBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Search_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Shield_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Slider_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\SortAscending_grey_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\SplitButton_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\SplitterControl_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Star.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TabPage_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Tag_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TextBlock_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TextBox_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\thumbs_up.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Timeline_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TimePicker_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Time_color_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Toggle_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\ToolBar_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\Transfer_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TransformRelative_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TransitioningContentControl_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\TreeView_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\User_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\View_Portrait_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\VSO_Card_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\WindowScreenshot_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\WindowsForm_16x.png" />
+    <Resource Include="Resources\Img\LeftMainContent\WPFFlowDocument_16x.png" />
+    <Resource Include="Resources\Img\QQ\1.gif" />
+    <Resource Include="Resources\Img\QQ\10.gif" />
+    <Resource Include="Resources\Img\QQ\2.gif" />
+    <Resource Include="Resources\Img\QQ\3.gif" />
+    <Resource Include="Resources\Img\QQ\4.gif" />
+    <Resource Include="Resources\Img\QQ\5.gif" />
+    <Resource Include="Resources\Img\QQ\6.gif" />
+    <Resource Include="Resources\Img\QQ\7.gif" />
+    <Resource Include="Resources\Img\QQ\8.gif" />
+    <Resource Include="Resources\Img\QQ\9.gif" />
+    <Resource Include="Resources\Img\qq_group_1.jpg" />
+    <Resource Include="Resources\Img\qq_group_2.jpg" />
+    <Resource Include="Resources\Img\under_construction.gif" />
+  </ItemGroup>
+
+</Project>

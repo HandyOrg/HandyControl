@@ -5,8 +5,6 @@ VisualStudioVersion = 16.0.28729.10
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControl_Net_GE45", "Net_GE45\HandyControl_Net_GE45\HandyControl_Net_GE45.csproj", "{DC966E3D-BCFF-4652-98CF-070E5494749A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Net_GE45", "Net_GE45\HandyControlDemo_Net_GE45\HandyControlDemo_Net_GE45.csproj", "{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Net_GE45", "Net_GE45", "{2F551C62-77F7-4FA5-8AD7-FCF53E92AE08}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{0938270D-E9F0-489B-AF9E-5C5AD7C69897}"
@@ -23,13 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Net_40", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Code", "Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj", "{D8A4748C-0500-4F63-BC47-3506658C68F7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HandyControlDemo.Prism", "Net_GE45\HandyControlDemo.Prism\HandyControlDemo.Prism.csproj", "{D0A82E20-2886-4900-8DE4-60376263B389}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
-		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{9a7b52e6-94bb-4e7e-bb6a-7cf6761b79a7}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{aac11083-faca-405d-9197-5c1212d65656}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{c4694269-c9b8-45d5-87f8-d0088c532510}*SharedItemsImports = 13
-		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{d8ae88f8-c36b-4d10-a7f9-22ffcfba5231}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{dc966e3d-bcff-4652-98cf-070e5494749a}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,12 +42,6 @@ Global
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DC966E3D-BCFF-4652-98CF-070E5494749A}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
-		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A}.Debug-Net40|Any CPU.Build.0 = Debug|Any CPU
@@ -71,18 +62,26 @@ Global
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A4748C-0500-4F63-BC47-3506658C68F7}.Release-Net40|Any CPU.Build.0 = Release|Any CPU
+		{D0A82E20-2886-4900-8DE4-60376263B389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A82E20-2886-4900-8DE4-60376263B389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0A82E20-2886-4900-8DE4-60376263B389}.Debug-Net40|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0A82E20-2886-4900-8DE4-60376263B389}.Debug-Net40|Any CPU.Build.0 = Debug|Any CPU
+		{D0A82E20-2886-4900-8DE4-60376263B389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A82E20-2886-4900-8DE4-60376263B389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0A82E20-2886-4900-8DE4-60376263B389}.Release-Net40|Any CPU.ActiveCfg = Release|Any CPU
+		{D0A82E20-2886-4900-8DE4-60376263B389}.Release-Net40|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DC966E3D-BCFF-4652-98CF-070E5494749A} = {2F551C62-77F7-4FA5-8AD7-FCF53E92AE08}
-		{9A7B52E6-94BB-4E7E-BB6A-7CF6761B79A7} = {2F551C62-77F7-4FA5-8AD7-FCF53E92AE08}
 		{AAC11083-FACA-405D-9197-5C1212D65656} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
 		{C4694269-C9B8-45D5-87F8-D0088C532510} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A} = {35E3F9C0-8924-4536-BE09-F3761FDBF066}
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231} = {35E3F9C0-8924-4536-BE09-F3761FDBF066}
 		{D8A4748C-0500-4F63-BC47-3506658C68F7} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
+		{D0A82E20-2886-4900-8DE4-60376263B389} = {2F551C62-77F7-4FA5-8AD7-FCF53E92AE08}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4636382-1A18-4079-A3E7-054DD970F179}

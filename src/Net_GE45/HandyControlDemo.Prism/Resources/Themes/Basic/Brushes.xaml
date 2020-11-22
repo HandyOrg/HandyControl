@@ -1,0 +1,56 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="Geometries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <DrawingBrush o:Freeze="True" Opacity=".1" x:Key="CloudDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,157,157" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+        <DrawingBrush.Drawing>
+            <ImageDrawing o:Freeze="True" ImageSource="/HandyControlDemo;component/Resources/Img/cloud.png" Rect="0,0,157,157"/>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+    
+    <DrawingBrush o:Freeze="True" x:Key="MainContentForegroundDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,16,16" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing o:Freeze="True" Brush="{DynamicResource MainContentForegroundBrush}">
+                <GeometryDrawing.Geometry>
+                    <GeometryGroup o:Freeze="True">
+                        <RectangleGeometry o:Freeze="True" Rect="0,0,8,8" />
+                        <RectangleGeometry o:Freeze="True" Rect="8,8,8,8" />
+                    </GeometryGroup>
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <LinearGradientBrush o:Freeze="True" x:Key="MenuButtonBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop o:Freeze="True" Color="White" Offset="0"/>
+        <GradientStop o:Freeze="True" Color="#F2F2F2" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush o:Freeze="True" x:Key="ToolBarBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop o:Freeze="True" Color="#F5F4F5" Offset="0"/>
+        <GradientStop o:Freeze="True" Color="#D1CFD1" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush o:Freeze="True" x:Key="MainBackgroundBrush" Color="{DynamicResource MainBackgroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="MainContentForegroundBrush" Color="{DynamicResource MainContentForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="MainContentBackgroundBrush" Color="{DynamicResource MainContentBackgroundColor}"/>
+
+    <!--region AvalonEdit-->
+
+    <SolidColorBrush o:Freeze="True" x:Key="ControlAccentBrushKey" Color="{DynamicResource ControlAccentColorKey}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorBackground" Color="{DynamicResource EditorBackgroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorForeground" Color="{DynamicResource EditorForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLineNumbersForeground" Color="{DynamicResource EditorLineNumbersForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorSelectionBrush" Color="{DynamicResource ControlAccentColorKey}" Opacity="0.75"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorSelectionBorder" Color="{DynamicResource ControlAccentColorKey}" Opacity="0.75"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorNonPrintableCharacterBrush" Color="{DynamicResource EditorNonPrintableCharacterColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLinkTextForegroundBrush" Color="{DynamicResource EditorLinkTextForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLinkTextBackgroundBrush" Color="{DynamicResource EditorLinkTextBackgroundColor}"/>
+
+    <!--endregion-->
+
+</ResourceDictionary>
