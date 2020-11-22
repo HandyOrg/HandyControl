@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="HandyControlDemo.Views.NativeTextBoxDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32">
+            <TextBox Text="{x:Static ex:Lang.ContentDemoStr}"/>
+            <TextBox Text="{x:Static ex:Lang.ContentDemoStr}" Margin="0,16,0,0" IsEnabled="False"/>
+
+            <TextBox hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr1}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{x:Static ex:Lang.ContentDemoStr}"/>
+            <TextBox hc:InfoElement.Placeholder="{x:Static ex:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr2}" Style="{StaticResource TextBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+            <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr3}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{x:Static ex:Lang.ContentDemoStr}"/>
+            <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{x:Static ex:Lang.PlsEnterContent}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr3}" hc:InfoElement.Necessary="True" Style="{StaticResource TextBoxExtend}" Margin="0,16,0,0"/>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</UserControl>
