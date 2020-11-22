@@ -18,15 +18,6 @@ namespace HandyControlDemo.ViewModels
                 window.Owner = Application.Current.MainWindow;
                 window.ShowDialog();
             }
-
-            //if (param.Equals("NativeCommonWindow"))
-            //{
-
-            //}
-            //else if (param.Equals("NavigationWindow"))
-            //{
-
-            //}
         }
     }
 }

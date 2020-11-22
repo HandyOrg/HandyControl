@@ -66,7 +66,6 @@ namespace HandyControlDemo
             containerRegistry.RegisterForNavigation<ToggleButtonDemoCtl>();
             containerRegistry.RegisterForNavigation<ToolBarDemoCtl>();
             containerRegistry.RegisterForNavigation<TreeViewDemoCtl>();
-
         }
     }
 }
