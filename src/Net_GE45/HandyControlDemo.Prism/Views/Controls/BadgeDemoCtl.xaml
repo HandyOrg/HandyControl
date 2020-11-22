@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="HandyControlDemo.Views.BadgeDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32" Orientation="Horizontal">
+            <hc:Badge Text="New" BadgeMargin="0,-14,-20,0" Height="30">
+                <Button Content="{x:Static ex:Lang.Comment}"/>
+            </hc:Badge>
+            <hc:Badge Text="New" BadgeMargin="0,-14,-20,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
+                <Button Content="{x:Static ex:Lang.Comment}"/>
+            </hc:Badge>
+            <hc:Badge Value="{Binding Count}" BadgeMargin="0,-14,-10,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgePrimary}">
+                <Button Content="{x:Static ex:Lang.Click2Count}" Command="{Binding CountCmd}"/>
+            </hc:Badge>
+            <hc:Badge Value="100" BadgeMargin="0,-14,-20,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
+                <Button Content="{x:Static ex:Lang.Comment}"/>
+            </hc:Badge>
+            <hc:Badge Status="Dot" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
+                <Button Content="{x:Static ex:Lang.Reply}"/>
+            </hc:Badge>
+            <hc:Badge Status="Processing" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
+                <Button Content="{x:Static ex:Lang.Reply}" />
+            </hc:Badge>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</UserControl>

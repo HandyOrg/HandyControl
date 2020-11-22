@@ -1,6 +1,8 @@
-﻿using HandyControlDemo.Views;
+﻿using HandyControlDemo.ViewModels;
+using HandyControlDemo.Views;
 using Prism.DryIoc;
 using Prism.Ioc;
+using Prism.Mvvm;
 using Prism.Regions;
 using System.Windows;
 
@@ -15,6 +17,7 @@ namespace HandyControlDemo
             // Default View
             Container.Resolve<IRegionManager>().RegisterViewWithRegion("ContentRegion", typeof(UnderConstruction));
         }
+
         protected override DependencyObject CreateShell()
         {
             return Container.Resolve<MainWindow>();
@@ -66,6 +69,41 @@ namespace HandyControlDemo
             containerRegistry.RegisterForNavigation<ToggleButtonDemoCtl>();
             containerRegistry.RegisterForNavigation<ToolBarDemoCtl>();
             containerRegistry.RegisterForNavigation<TreeViewDemoCtl>();
+
+            // Controls
+            containerRegistry.RegisterForNavigation<AnimationPathDemoCtl>();
+            containerRegistry.RegisterForNavigation<BadgeDemoCtl>();
+            containerRegistry.RegisterForNavigation<ButtonGroupDemoCtl>();
+            containerRegistry.RegisterForNavigation<CalendarWithClockDemoCtl>();
+            containerRegistry.RegisterForNavigation<CardDemoCtl>();
+            containerRegistry.RegisterForNavigation<CarouselDemoCtl>();
+            containerRegistry.RegisterForNavigation<ChatBubbleDemoCtl>();
+            containerRegistry.RegisterForNavigation<CheckComboBoxDemoCtl>();
+            containerRegistry.RegisterForNavigation<CirclePanelDemoCtl>();
+            containerRegistry.RegisterForNavigation<ClockDemoCtl>();
+            containerRegistry.RegisterForNavigation<ColorPickerDemoCtl>();
+            containerRegistry.RegisterForNavigation<ComboBoxDemoCtl>();
+            containerRegistry.RegisterForNavigation<CompareSliderDemoCtl>();
+            containerRegistry.RegisterForNavigation<CoverFlowDemoCtl>();
+            containerRegistry.RegisterForNavigation<CoverViewDemoCtl>();
+            containerRegistry.RegisterForNavigation<DatePickerDemoCtl>();
+            containerRegistry.RegisterForNavigation<DateTimePickerDemoCtl>();
+            containerRegistry.RegisterForNavigation<DialogDemoCtl>();
+            containerRegistry.RegisterForNavigation<DividerDemoCtl>();
+            containerRegistry.RegisterForNavigation<DrawerDemoCtl>();
+            containerRegistry.RegisterForNavigation<FlexPanelDemoCtl>();
+        }
+
+        protected override void ConfigureViewModelLocator()
+        {
+            base.ConfigureViewModelLocator();
+
+            // Due to the duplication of the code, we can use one ViewModel for several Views
+            ViewModelLocationProvider.Register<NativeComboBoxDemoCtl, NativeComboBoxDemoCtlViewModel>();
+            ViewModelLocationProvider.Register<ComboBoxDemoCtl, NativeComboBoxDemoCtlViewModel>();
+            ViewModelLocationProvider.Register<CheckComboBoxDemoCtl, NativeComboBoxDemoCtlViewModel>();
+            ViewModelLocationProvider.Register<GroupBoxDemoCtl, NativeComboBoxDemoCtlViewModel>();
+
         }
     }
 }

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="HandyControlDemo.Views.DateTimePickerDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32" Orientation="Horizontal">
+            <StackPanel>
+                <hc:DateTimePicker ShowClearButton="True"/>
+                <hc:DateTimePicker Margin="0,16,0,0" IsEnabled="False"/>
+
+                <hc:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr1}" Margin="0,32,0,0"/>
+                <hc:DateTimePicker hc:InfoElement.Placeholder="{x:Static ex:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr2}" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
+                <hc:DateTimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr3}" Margin="0,32,0,0"/>
+                <hc:DateTimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{x:Static ex:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr3}" Style="{StaticResource DateTimePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+            </StackPanel>
+            <StackPanel Margin="32,0,0,0">
+                <hc:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerPlus}"/>
+                <hc:DateTimePicker Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource DateTimePickerPlus}"/>
+
+                <hc:DateTimePicker ShowClearButton="True" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr1}" Margin="0,32,0,0"/>
+                <hc:DateTimePicker hc:InfoElement.Placeholder="{x:Static ex:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr2}" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
+                <hc:DateTimePicker ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr3}" Margin="0,32,0,0"/>
+                <hc:DateTimePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{x:Static ex:Lang.PlsEnterContent}" hc:InfoElement.Title="{x:Static ex:Lang.TitleDemoStr3}" Style="{StaticResource DateTimePickerPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+            </StackPanel>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</UserControl>

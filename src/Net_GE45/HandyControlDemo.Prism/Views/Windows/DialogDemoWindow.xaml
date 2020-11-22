@@ -1,0 +1,17 @@
+﻿<Window x:Class="HandyControlDemo.Window.DialogDemoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns:data="clr-namespace:HandyControlDemo.Data"
+        hc:Dialog.Token="DialogDemoWindow"
+        Title="{x:Static ex:Lang.DialogDemo}"
+        Width="800"
+        Height="500">
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32" VerticalAlignment="Center">
+            <Button Content="{x:Static ex:Lang.ShowInCurrentWindow}" Command="{Binding ShowWithTokenCmd}" CommandParameter="DialogDemoWindow"/>
+            <Button Margin="0,10,0,0" Content="{x:Static ex:Lang.ShowInMainWindow}" Command="{Binding ShowWithTokenCmd}" CommandParameter="MainWindow"/>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</Window>

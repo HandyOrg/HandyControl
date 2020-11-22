@@ -1,0 +1,17 @@
+﻿<Border x:Class="HandyControlDemo.Views.InteractiveDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        CornerRadius="10"
+        Width="400"
+        Height="247"
+        Background="{DynamicResource RegionBrush}">
+    <StackPanel VerticalAlignment="Center" Margin="32">
+        <TextBlock Style="{StaticResource TextBlockLargeBold}" Text="{Binding Message}"/>
+        <TextBox Margin="0,32,0,0" Style="{StaticResource TextBoxExtend}" Text="{Binding Result,UpdateSourceTrigger=PropertyChanged}" hc:InfoElement.Placeholder="{x:Static ex:Lang.PleaseInput}"/>
+        <Button Width="120" Margin="0,32,0,0" Command="{Binding CloseCmd}" Style="{StaticResource ButtonPrimary}" Content="{x:Static ex:Lang.Ok}"/>
+    </StackPanel>
+</Border>
