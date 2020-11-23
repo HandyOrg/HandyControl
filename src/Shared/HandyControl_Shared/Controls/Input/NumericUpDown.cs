@@ -153,9 +153,21 @@ namespace HandyControl.Controls
             }
         }
 
-        private string CurrentText => DecimalPlaces.HasValue
-            ? Value.ToString($"#0.{new string('0', DecimalPlaces.Value)}")
-            : Value.ToString("#0");
+        private string CurrentText
+        {
+            get
+            {
+                if (string.IsNullOrWhiteSpace(StringFormat))
+                {
+                    return DecimalPlaces.HasValue ? Value.ToString($"#0.{new string('0', DecimalPlaces.Value)}") : 
+                                                    Value.ToString("#0");
+                }
+                else
+                {
+                    return Value.ToString(StringFormat);
+                }
+            }
+        }
 
         protected virtual void OnValueChanged(FunctionEventArgs<double> e) => RaiseEvent(e);
 
@@ -316,6 +328,21 @@ namespace HandyControl.Controls
         {
             get => (int?)GetValue(DecimalPlacesProperty);
             set => SetValue(DecimalPlacesProperty, value);
+        }
+
+        /// <summary>
+        ///     指示要显示的数字的格式
+        /// </summary>
+        public static readonly DependencyProperty StringFormatProperty =
+            DependencyProperty.Register("StringFormat", typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
+
+        /// <summary>
+        ///     指示要显示的数字的格式，这将会覆盖 <see cref="DecimalPlaces"/> 属性
+        /// </summary>
+        public string StringFormat
+        {
+            get { return (string)GetValue(StringFormatProperty); }
+            set { SetValue(StringFormatProperty, value); }
         }
 
         /// <summary>
