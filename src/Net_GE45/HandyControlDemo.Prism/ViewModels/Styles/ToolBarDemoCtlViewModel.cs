@@ -5,9 +5,9 @@ namespace HandyControlDemo.ViewModels
 {
     public class ToolBarDemoCtlViewModel : DemoViewModelBase<string>
     {
-        public ToolBarDemoCtlViewModel()
+        public ToolBarDemoCtlViewModel(DataService dataService)
         {
-            Task.Run(() => DataList = new DataService().GetComboBoxDemoDataList());
+            Task.Run(() => DataList = dataService.GetComboBoxDemoDataList());
         }
     }
 }

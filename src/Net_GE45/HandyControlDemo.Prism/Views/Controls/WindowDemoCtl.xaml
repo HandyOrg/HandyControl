@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="HandyControlDemo.Views.WindowDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <UniformGrid Margin="32" Columns="3" Rows="3" Height="200">
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="CommonWindow" Content="{x:Static ex:Lang.OpenCommonWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="BlurWindow" Content="{x:Static ex:Lang.OpenBlurWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="CustomNonClientAreaWindow" Content="{x:Static ex:Lang.OpenCustomNonClientAreaWindow}"/>
+            <Button Click="ButtonMessage_OnClick" Content="{x:Static ex:Lang.OpenMessageWindow}"/>
+            <Button Click="ButtonCustomMessage_OnClick" Content="{x:Static ex:Lang.OpenCustomMessageWindow}"/>
+            <Button Click="ButtonCustomContent_OnClick" Content="{x:Static ex:Lang.OpenCustomContentWindow}"/>
+            <Button Name="ButtonMouseFollow" Click="ButtonMouseFollow_OnClick" Content="{x:Static ex:Lang.OpenMouseFollowWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="NoNonClientAreaDragableWindow" Content="{x:Static ex:Lang.OpenNoNonClientAreaDragableWindow}"/>
+            <Button Command="{Binding OpenWindowCmd}" CommandParameter="GlowWindow" Content="{x:Static ex:Lang.OpenGlowWindow}"/>
+        </UniformGrid>
+    </hc:TransitioningContentControl>
+</UserControl>

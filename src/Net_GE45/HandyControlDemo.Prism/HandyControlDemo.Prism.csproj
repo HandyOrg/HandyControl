@@ -334,4 +334,8 @@
     <Resource Include="Resources\Img\under_construction.gif" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="rd /s /q $(TargetDir)\ca-ES&#xD;&#xA;rd /s /q $(TargetDir)\fa&#xD;&#xA;rd /s /q $(TargetDir)\tr&#xD;&#xA;rd /s /q $(TargetDir)\fr&#xD;&#xA;rd /s /q $(TargetDir)\ru&#xD;&#xA;rd /s /q $(TargetDir)\ko-KR&#xD;&#xA;rd /s /q $(TargetDir)\pt-BR&quot;" />
+  </Target>
+
 </Project>

@@ -6,9 +6,9 @@ namespace HandyControlDemo.ViewModels
 {
     public class TreeViewDemoCtlViewModel : DemoViewModelBase<DemoDataModel>
     {
-        public TreeViewDemoCtlViewModel()
+        public TreeViewDemoCtlViewModel(DataService dataService)
         {
-            Task.Run(() => DataList = new DataService().GetDemoDataList());
+            Task.Run(() => DataList = dataService.GetDemoDataList());
         }
     }
 }

@@ -5,9 +5,9 @@ namespace HandyControlDemo.ViewModels
 {
     public class NativeComboBoxDemoCtlViewModel : DemoViewModelBase<string>
     {
-        public NativeComboBoxDemoCtlViewModel()
+        public NativeComboBoxDemoCtlViewModel(DataService dataService)
         {
-            Task.Run(() => DataList = new DataService().GetComboBoxDemoDataList());
+            Task.Run(() => DataList = dataService.GetComboBoxDemoDataList());
         }
     }
 }

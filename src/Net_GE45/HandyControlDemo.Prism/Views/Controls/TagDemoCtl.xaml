@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="HandyControlDemo.Views.TagDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <UserControl.Resources>
+        <Style x:Key="TagCustomStyle" BasedOn="{StaticResource TagBaseStyle}" TargetType="hc:Tag">
+            <Setter Property="Content" Value="{Binding Name}"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="IsSelected" Value="{Binding IsSelected}"/>
+        </Style>
+    </UserControl.Resources>
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="11">
+            <hc:TagContainer Name="Container1" Margin="11" Width="420" Padding="5">
+                <hc:Tag Header="H" hc:TitleElement.Background="{DynamicResource PrimaryBrush}" Margin="5" ShowCloseButton="False" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}"/>
+                <hc:Tag Margin="5" Selectable="True" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
+                <hc:Tag Margin="5" ShowCloseButton="False" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+                <hc:Tag Margin="5" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+                <hc:Tag Margin="5" IsSelected="True" Selectable="True" ShowCloseButton="False" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+                <hc:Tag Margin="5" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}"/>
+                <hc:Tag Margin="5" ShowCloseButton="False" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=2}">
+                    <hc:Tag.Header>
+                        <Image Source="/Resources/Img/Album/1.jpg"/>
+                    </hc:Tag.Header>
+                </hc:Tag>
+                <hc:Tag Margin="5" IsSelected="True" Selectable="True" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=3}">
+                    <hc:Tag.Header>
+                        <Image Source="/Resources/Img/Avatar/avatar2.png"/>
+                    </hc:Tag.Header>
+                </hc:Tag>
+                <hc:Tag Margin="5" ShowCloseButton="False" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=4}"/>
+                <hc:Tag Margin="5" Content="{Binding Source={x:Static ex:Lang.Text}, Converter={StaticResource StringRepeatConverter}, ConverterParameter=5}"/>
+            </hc:TagContainer>
+            <hc:TagContainer ItemContainerStyle="{StaticResource TagCustomStyle}" Margin="11" Width="420" Padding="5" ItemsSource="{Binding DataList}"/>
+            <DockPanel LastChildFill="True" Margin="11,0,11,11">
+                <Button Command="{Binding AddItemCmd}" Margin="10,0,0,0" DockPanel.Dock="Right" Content="{x:Static ex:Lang.AddItem}"/>
+                <TextBox Text="{Binding TagName}"/>
+            </DockPanel>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</UserControl>

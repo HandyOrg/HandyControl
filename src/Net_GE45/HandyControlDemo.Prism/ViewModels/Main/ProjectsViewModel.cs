@@ -6,9 +6,9 @@ namespace HandyControlDemo.ViewModels
 {
     public class ProjectsViewModel : DemoViewModelBase<AvatarModel>
     {
-        public ProjectsViewModel()
+        public ProjectsViewModel(DataService dataService)
         {
-            Task.Run(() => DataList = new DataService().GetProjectDataList());
+            Task.Run(() => DataList = dataService.GetProjectDataList());
         }
     }
 }

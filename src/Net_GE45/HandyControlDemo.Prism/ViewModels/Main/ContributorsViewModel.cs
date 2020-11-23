@@ -8,9 +8,9 @@ namespace HandyControlDemo.ViewModels
     {
 
 
-        public ContributorsViewModel()
+        public ContributorsViewModel(DataService dataService)
         {
-            Task.Run(() => DataList = new DataService().GetContributorDataList()).ContinueWith(obj => DataGot = true);
+            Task.Run(() => DataList = dataService.GetContributorDataList()).ContinueWith(obj => DataGot = true);
         }
     }
 }

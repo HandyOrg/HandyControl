@@ -6,9 +6,9 @@ namespace HandyControlDemo.ViewModels
 {
     public class DataGridDemoCtlViewModel : DemoViewModelBase<DemoDataModel>
     {
-        public DataGridDemoCtlViewModel()
+        public DataGridDemoCtlViewModel(DataService dataService)
         {
-            Task.Run(() => DataList = new DataService().GetDemoDataList());
+            Task.Run(() => DataList = dataService.GetDemoDataList());
         }
     }
 }

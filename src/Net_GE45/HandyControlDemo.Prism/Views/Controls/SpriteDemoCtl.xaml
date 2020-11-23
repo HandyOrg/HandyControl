@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="HandyControlDemo.Views.SpriteDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+             Width="300"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <Button Margin="32" Command="{Binding OpenCmd}" Content="{x:Static ex:Lang.OpenSprite}"/>
+    </hc:TransitioningContentControl>
+</UserControl>

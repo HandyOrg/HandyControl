@@ -6,9 +6,9 @@ namespace HandyControlDemo.ViewModels
 {
     public class CoverViewDemoCtlViewModel : DemoViewModelBase<CoverViewDemoModel>
     {
-        public CoverViewDemoCtlViewModel()
+        public CoverViewDemoCtlViewModel(DataService dataService)
         {
-            Task.Run(() => DataList = new DataService().GetCoverViewDemoDataList());
+            Task.Run(() => DataList = dataService.GetCoverViewDemoDataList());
         }
     }
 }

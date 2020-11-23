@@ -7,6 +7,8 @@ namespace HandyControlDemo.ViewModels
 {
     public class CardDemoCtlViewModel : DemoViewModelBase<CardModel>
     {
+        DataService dataService;
+
         private DelegateCommand _AddItemCmd;
         public DelegateCommand AddItemCmd =>
             _AddItemCmd ?? (_AddItemCmd = new DelegateCommand(AddItem));
@@ -15,9 +17,10 @@ namespace HandyControlDemo.ViewModels
         public DelegateCommand RemoveItemCmd =>
             _RemoveItemCmd ?? (_RemoveItemCmd = new DelegateCommand(RemoveItem));
 
-        public CardDemoCtlViewModel()
+        public CardDemoCtlViewModel(DataService _dataService)
         {
-            Task.Run(() => DataList = new DataService().GetCardDataList());
+            dataService = _dataService;
+            Task.Run(() => DataList = dataService.GetCardDataList());
         }
 
         void RemoveItem()
@@ -29,7 +32,7 @@ namespace HandyControlDemo.ViewModels
         }
         void AddItem()
         {
-            DataList.Insert(0, new DataService().GetCardData());
+            DataList.Insert(0, dataService.GetCardData());
         }
     }
 }

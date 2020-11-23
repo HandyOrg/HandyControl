@@ -8,7 +8,6 @@ using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Input;
 using MessageBox = HandyControl.Controls.MessageBox;
@@ -30,7 +29,7 @@ namespace HandyControlDemo.Views
 
         private DelegateCommand _GlobalShortcutWarningCmd;
         public DelegateCommand GlobalShortcutWarningCmd =>
-            _GlobalShortcutWarningCmd ?? (_GlobalShortcutWarningCmd = new DelegateCommand(() => { Growl.Warning("Global Shortcut Warning");}));
+            _GlobalShortcutWarningCmd ?? (_GlobalShortcutWarningCmd = new DelegateCommand(() => { Growl.Warning("Global Shortcut Warning"); }));
 
         public MainWindow()
         {
@@ -115,7 +114,11 @@ namespace HandyControlDemo.Views
 
             var typeKey = LeftMainContentViewModel.Instance.DemoInfoCurrent.Key;
             var demoKey = LeftMainContentViewModel.Instance.DemoItemCurrent.TargetCtlName;
-            if (Equals(_currentDemoKey, demoKey)) return;
+            if (Equals(_currentDemoKey, demoKey))
+            {
+                return;
+            }
+
             _currentDemoKey = demoKey;
 
             if (ContentRegion.Content is FrameworkElement demoCtl)

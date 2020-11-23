@@ -6,9 +6,9 @@ namespace HandyControlDemo.ViewModels
 {
     public class MenuDemoCtlViewModel : DemoViewModelBase<DemoDataModel>
     {
-        public MenuDemoCtlViewModel()
+        public MenuDemoCtlViewModel(DataService dataService)
         {
-            Task.Run(() => DataList = new DataService().GetDemoDataList());
+            Task.Run(() => DataList = dataService.GetDemoDataList());
         }
     }
 }

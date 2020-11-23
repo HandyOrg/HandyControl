@@ -1,0 +1,27 @@
+﻿<Window x:Class="HandyControlDemo.Window.GrowlDemoWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+        Title="{x:Static ex:Lang.GrowlDemo}"
+        Width="800"
+        Height="500">
+    <hc:TransitioningContentControl>
+        <hc:SimplePanel Margin="32">
+            <WrapPanel>
+                <Button Command="{Binding InfoCmd}" Content="{x:Static ex:Lang.Info}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
+                <Button Command="{Binding SuccessCmd}" Content="{x:Static ex:Lang.Success}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
+                <Button Command="{Binding WarningCmd}" Content="{x:Static ex:Lang.Warning}" Margin="5" Style="{StaticResource ButtonWarning}"/>
+                <Button Command="{Binding ErrorCmd}" Content="{x:Static ex:Lang.Error}" Margin="5" Style="{StaticResource ButtonDanger}"/>
+                <Button Command="{Binding AskCmd}" Content="{x:Static ex:Lang.Ask}" Margin="5" Background="BlueViolet" Foreground="White" BorderThickness="0"/>
+                <Button Command="{Binding FatalCmd}" Content="{x:Static ex:Lang.Fatal}" Margin="5,0"/>
+                <Button Command="{Binding ClearCmd}" Content="{x:Static ex:Lang.Clear}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
+            </WrapPanel>
+            <hc:ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsInertiaEnabled="True" IsPenetrating="True">
+                <StackPanel hc:Growl.Token="GrowlDemoPanel" VerticalAlignment="Top" Margin="0,10,10,10"/>
+            </hc:ScrollViewer>
+        </hc:SimplePanel>
+    </hc:TransitioningContentControl>
+</Window>
