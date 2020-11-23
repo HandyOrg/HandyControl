@@ -167,6 +167,11 @@ namespace HandyControlDemo
 
             ViewModelLocationProvider.Register<NativeWindowDemoCtl, NativeWindowDemoCtlViewModel>();
             ViewModelLocationProvider.Register<WindowDemoCtl, NativeWindowDemoCtlViewModel>();
+            
+            // Attach Correct ViewModel for View
+            ViewModelLocationProvider.Register<TextDialogWithTimer, InteractiveDialogViewModel>();
+
+            ViewModelLocationProvider.Register<DialogDemoWindow, DialogDemoCtlViewModel>();
         }
     }
 }

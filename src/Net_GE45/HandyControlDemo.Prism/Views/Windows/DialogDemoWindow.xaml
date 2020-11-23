@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:hc="https://handyorg.github.io/handycontrol"
         xmlns:ex="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         hc:Dialog.Token="DialogDemoWindow"
         Title="{x:Static ex:Lang.DialogDemo}"
         Width="800"
