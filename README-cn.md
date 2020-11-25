@@ -55,6 +55,7 @@
 <a href="https://github.com/varKeytrap" target="_blank"><img style="border-radius:50%!important" width="64px" alt="varKeytrap" src="https://avatars0.githubusercontent.com/u/17864005?s=64&v=4"></a>
 <a href="https://github.com/xsnakes" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xsnakes" src="https://avatars1.githubusercontent.com/u/4363683?s=64&v=4"></a>
 <a href="https://github.com/mmasdivins" target="_blank"><img style="border-radius:50%!important" width="64px" alt="mmasdivins" src="https://avatars1.githubusercontent.com/u/63245359?s=64&v=4"></a>
+<a href="https://github.com/GF-Huang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="GF-Huang" src="https://avatars1.githubusercontent.com/u/4510984?s=64v=4"></a>
 
 ## Backers
 
