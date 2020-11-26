@@ -485,7 +485,19 @@ namespace HandyControl.Controls
                         growlInfo.IconBrushKey = ResourceToken.PrimaryTextBrush;
                         growlInfo.StaysOpen = true;
                         growlInfo.ShowCloseButton = false;
-                        if (GrowlPanel.ContextMenu != null) GrowlPanel.ContextMenu.Opacity = 0;
+                        Application.Current.Dispatcher?.Invoke(
+#if NET40
+                            new Action(
+#endif
+                                () =>
+                                {
+                                        if (GrowlPanel.ContextMenu != null) GrowlPanel.ContextMenu.Opacity = 0;
+                                }
+
+#if NET40
+                                )
+#endif
+                                );
                     }
                     else
                     {
