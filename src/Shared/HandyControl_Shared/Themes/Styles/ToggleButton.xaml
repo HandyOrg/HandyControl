@@ -9,7 +9,7 @@
     </ResourceDictionary.MergedDictionaries>
 
     <!--普通-->
-    <Style BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
+    <Style x:Key="ToggleButtonDefault" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -22,6 +22,8 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton"/>
 
     <Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
