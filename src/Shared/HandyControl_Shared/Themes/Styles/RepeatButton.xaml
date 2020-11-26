@@ -10,7 +10,7 @@
 
     <!--region RepeatButton-->
 
-    <Style BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
+    <Style x:Key="RepeatButtonDefault" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>
@@ -22,18 +22,25 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style BasedOn="{StaticResource RepeatButtonDefault}" TargetType="RepeatButton"/>
+    
     <Style x:Key="RepeatButtonPrimary" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
+    
     <Style x:Key="RepeatButtonSuccess" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
     </Style>
+    
     <Style x:Key="RepeatButtonInfo" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
     </Style>
+    
     <Style x:Key="RepeatButtonWarning" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
     </Style>
+    
     <Style x:Key="RepeatButtonDanger" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
     </Style>
