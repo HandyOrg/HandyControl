@@ -13,7 +13,7 @@
         </Grid.ColumnDefinitions>
         <userControl:LeftMainContent/>
         <userControl:MainContent Grid.Column="1"/>
-        <GridSplitter Margin="0,26,10,26" Grid.Column="0" HorizontalAlignment="Right" Width="4" Background="Transparent"/>
+        <GridSplitter Margin="0,26,0,26" Grid.Column="0" HorizontalAlignment="Right" Width="4" Background="Transparent"/>
         <hc:ScrollViewer Grid.Column="1" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Right" IsInertiaEnabled="True" IsPenetrating="True">
             <StackPanel hc:Growl.GrowlParent="True" VerticalAlignment="Top" Margin="0,10,10,10"/>
         </hc:ScrollViewer>
