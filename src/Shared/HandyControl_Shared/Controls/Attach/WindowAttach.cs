@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -111,34 +112,26 @@ namespace HandyControl.Controls
         public static bool GetShowInTaskManager(DependencyObject element)
             => (bool)element.GetValue(ShowInTaskManagerProperty);
 
-        /// <summary>
-        /// 隐藏窗口而不是关闭，在使用 <see cref="NotifyIcon"/> 时很有用，这时点击主窗口的关闭按钮通常是隐藏窗口而不是退出程序
-        /// </summary>
-        public static readonly DependencyProperty HiddenInsteadCloseProperty =
-            DependencyProperty.RegisterAttached("HiddenInsteadClose", typeof(bool), typeof(WindowAttach), new PropertyMetadata(false, HiddenInsteadClosePropertyChanged));
+        public static readonly DependencyProperty HideWhenClosingProperty = DependencyProperty.RegisterAttached(
+            "HideWhenClosing", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnHideWhenClosingChanged));
 
-        public static bool GetHiddenInsteadClose(DependencyObject obj)
+        private static void OnHideWhenClosingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            return (bool)obj.GetValue(HiddenInsteadCloseProperty);
-        }
-
-        public static void SetHiddenInsteadClose(DependencyObject obj, bool value)
-        {
-            obj.SetValue(HiddenInsteadCloseProperty, value);
-        }
-
-        private static void HiddenInsteadClosePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is System.Windows.Window window && e.NewValue is bool enabled)
+            if (d is System.Windows.Window window)
             {
-                if (enabled)
+                var v = (bool)e.NewValue;
+                if (v)
+                {
                     window.Closing += Window_Closing;
+                }
                 else
+                {
                     window.Closing -= Window_Closing;
+                }
             }
         }
 
-        private static void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        private static void Window_Closing(object sender, CancelEventArgs e)
         {
             if (sender is System.Windows.Window window)
             {
@@ -146,5 +139,11 @@ namespace HandyControl.Controls
                 e.Cancel = true;
             }
         }
+
+        public static void SetHideWhenClosing(DependencyObject element, bool value)
+            => element.SetValue(HideWhenClosingProperty, value);
+
+        public static bool GetHideWhenClosing(DependencyObject element)
+            => (bool) element.GetValue(HideWhenClosingProperty);
     }
 }
