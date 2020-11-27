@@ -313,7 +313,7 @@ namespace HandyControl.Controls
         /// 在 <see cref="DataGrid"/> 中点击空白地方取消选择所有 Row 和 Cell
         /// </summary>
         public static readonly DependencyProperty ClickBlankUnselectProperty =
-            DependencyProperty.RegisterAttached("ClickBlankUnselect", typeof(bool), typeof(DataGrid), new PropertyMetadata(false, ClickBlankUnselectPropertyChanged));
+            DependencyProperty.RegisterAttached("ClickBlankUnselect", typeof(bool), typeof(DataGridAttach), new PropertyMetadata(false, ClickBlankUnselectPropertyChanged));
 
         public static bool GetClickBlankUnselect(DependencyObject obj)
         {
