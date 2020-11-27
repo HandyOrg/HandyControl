@@ -49,9 +49,9 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Border Height="18" Width="18" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" x:Name="checkBoxBorder" Background="{TemplateBinding Background}" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                        <hc:SimplePanel Grid.Column="0" Height="18" Width="18" x:Name="markGrid" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <Path UseLayoutRounding="True" x:Name="path" StrokeDashOffset="8" StrokeDashArray="8,8" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
+                        <Border Height="18" Width="18" x:Name="checkBoxBorder" Background="{TemplateBinding Background}" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <hc:SimplePanel Grid.Column="0" Height="18" Width="18" x:Name="markGrid">
+                            <Path FlowDirection="LeftToRight" UseLayoutRounding="True" x:Name="path" StrokeDashOffset="8" StrokeDashArray="8,8" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
                             <Rectangle x:Name="indeterminateMark" RadiusX="2" RadiusY="2" Fill="{DynamicResource PrimaryBrush}" Margin="2" Opacity="0"/>
                         </hc:SimplePanel>
                         <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
