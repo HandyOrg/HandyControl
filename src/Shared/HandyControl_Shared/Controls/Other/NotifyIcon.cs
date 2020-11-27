@@ -387,6 +387,38 @@ namespace HandyControl.Controls
             }
         }
 
+        public static readonly DependencyProperty ShowMainWindowOnClickProperty =
+            DependencyProperty.RegisterAttached("ShowMainWindowOnClick", typeof(bool), typeof(NotifyIcon),
+                                                new PropertyMetadata(false, OnShowMainWindowOnClickChanged));
+
+        private static void OnShowMainWindowOnClickChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is NotifyIcon notifyIcon && e.NewValue is bool enabled)
+            {
+                if (enabled)
+                    notifyIcon.Click += NotifyIcon_Click;
+                else
+                    notifyIcon.Click -= NotifyIcon_Click;
+            }
+        }
+
+        private static void NotifyIcon_Click(object sender, RoutedEventArgs e)
+        {
+            if (sender is NotifyIcon)
+            {
+                Application.Current.MainWindow.Show();
+                Application.Current.MainWindow.Activate();
+            }
+        }
+
+        /// <summary>
+        /// 设置或获取点击托盘图标时是否显示主窗口
+        /// </summary>
+        public bool ShowMainWindowOnClick {
+            get => (bool)GetValue(ShowMainWindowOnClickProperty);
+            set => SetValue(ShowMainWindowOnClickProperty, value);
+        }
+
         //referenced from http://www.cnblogs.com/sczmzx/p/5158127.html
         private IntPtr FindTrayToolbarWindow()
         {

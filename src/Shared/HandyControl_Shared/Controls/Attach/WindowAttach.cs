@@ -109,6 +109,42 @@ namespace HandyControl.Controls
             => element.SetValue(ShowInTaskManagerProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowInTaskManager(DependencyObject element)
-            => (bool) element.GetValue(ShowInTaskManagerProperty);
+            => (bool)element.GetValue(ShowInTaskManagerProperty);
+
+        /// <summary>
+        /// 隐藏窗口而不是关闭，在使用 <see cref="NotifyIcon"/> 时很有用，这时点击主窗口的关闭按钮通常是隐藏窗口而不是退出程序
+        /// </summary>
+        public static readonly DependencyProperty HiddenInsteadCloseProperty =
+            DependencyProperty.RegisterAttached("HiddenInsteadClose", typeof(bool), typeof(WindowAttach), new PropertyMetadata(false, HiddenInsteadClosePropertyChanged));
+
+        public static bool GetHiddenInsteadClose(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(HiddenInsteadCloseProperty);
+        }
+
+        public static void SetHiddenInsteadClose(DependencyObject obj, bool value)
+        {
+            obj.SetValue(HiddenInsteadCloseProperty, value);
+        }
+
+        private static void HiddenInsteadClosePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is System.Windows.Window window && e.NewValue is bool enabled)
+            {
+                if (enabled)
+                    window.Closing += Window_Closing;
+                else
+                    window.Closing -= Window_Closing;
+            }
+        }
+
+        private static void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (sender is System.Windows.Window window)
+            {
+                window.Hide();
+                e.Cancel = true;
+            }
+        }
     }
 }
