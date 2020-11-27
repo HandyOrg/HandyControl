@@ -353,28 +353,28 @@ namespace HandyControl.Controls
                 new Action(
 #endif
                     () =>
+                    {
+                        var ctl = new Growl
                         {
-                            var ctl = new Growl
-                            {
-                                Message = growlInfo.Message,
-                                Time = DateTime.Now,
-                                Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                                IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
-                                _showCloseButton = growlInfo.ShowCloseButton,
-                                ActionBeforeClose = growlInfo.ActionBeforeClose,
-                                _staysOpen = growlInfo.StaysOpen,
-                                ShowDateTime = growlInfo.ShowDateTime,
-                                ConfirmStr = growlInfo.ConfirmStr,
-                                CancelStr = growlInfo.CancelStr,
-                                Type = growlInfo.Type,
-                                _waitTime = Math.Max(growlInfo.WaitTime, 2)
-                            };
-                            GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
-                        }
+                            Message = growlInfo.Message,
+                            Time = DateTime.Now,
+                            Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
+                            IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                            _showCloseButton = growlInfo.ShowCloseButton,
+                            ActionBeforeClose = growlInfo.ActionBeforeClose,
+                            _staysOpen = growlInfo.StaysOpen,
+                            ShowDateTime = growlInfo.ShowDateTime,
+                            ConfirmStr = growlInfo.ConfirmStr,
+                            CancelStr = growlInfo.CancelStr,
+                            Type = growlInfo.Type,
+                            _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                        };
+                        GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
+                    }
 #if NET40
-                    )
+                )
 #endif
-                );
+            );
         }
 
         /// <summary>
@@ -386,40 +386,40 @@ namespace HandyControl.Controls
             Application.Current.Dispatcher?.Invoke(
 #if NET40
                 new Action(
-#endif                    
+#endif
                     () =>
+                    {
+                        var ctl = new Growl
                         {
-                            var ctl = new Growl
+                            Message = growlInfo.Message,
+                            Time = DateTime.Now,
+                            Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
+                            IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                            _showCloseButton = growlInfo.ShowCloseButton,
+                            ActionBeforeClose = growlInfo.ActionBeforeClose,
+                            _staysOpen = growlInfo.StaysOpen,
+                            ShowDateTime = growlInfo.ShowDateTime,
+                            ConfirmStr = growlInfo.ConfirmStr,
+                            CancelStr = growlInfo.CancelStr,
+                            Type = growlInfo.Type,
+                            _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                        };
+                        if (!string.IsNullOrEmpty(growlInfo.Token))
+                        {
+                            if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
                             {
-                                Message = growlInfo.Message,
-                                Time = DateTime.Now,
-                                Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                                IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
-                                _showCloseButton = growlInfo.ShowCloseButton,
-                                ActionBeforeClose = growlInfo.ActionBeforeClose,
-                                _staysOpen = growlInfo.StaysOpen,
-                                ShowDateTime = growlInfo.ShowDateTime,
-                                ConfirmStr = growlInfo.ConfirmStr,
-                                CancelStr = growlInfo.CancelStr,
-                                Type = growlInfo.Type,
-                                _waitTime = Math.Max(growlInfo.WaitTime, 2)
-                            };
-                            if (!string.IsNullOrEmpty(growlInfo.Token))
-                            {
-                                if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
-                                {
-                                    panel?.Children.Insert(0, ctl);
-                                }
-                            }
-                            else
-                            {
-                                GrowlPanel?.Children.Insert(0, ctl);
+                                panel?.Children.Insert(0, ctl);
                             }
                         }
+                        else
+                        {
+                            GrowlPanel?.Children.Insert(0, ctl);
+                        }
+                    }
 #if NET40
-                    )
+                )
 #endif
-                );
+            );
         }
 
         private static void InitGrowlInfo(ref GrowlInfo growlInfo, InfoType infoType)
@@ -485,7 +485,18 @@ namespace HandyControl.Controls
                         growlInfo.IconBrushKey = ResourceToken.PrimaryTextBrush;
                         growlInfo.StaysOpen = true;
                         growlInfo.ShowCloseButton = false;
-                        if (GrowlPanel.ContextMenu != null) GrowlPanel.ContextMenu.Opacity = 0;
+                        Application.Current.Dispatcher?.Invoke(
+#if NET40
+                            new Action(
+#endif
+                                () =>
+                                {
+                                    if (GrowlPanel.ContextMenu != null) GrowlPanel.ContextMenu.Opacity = 0;
+                                }
+#if NET40
+                            )
+#endif
+                        );
                     }
                     else
                     {
