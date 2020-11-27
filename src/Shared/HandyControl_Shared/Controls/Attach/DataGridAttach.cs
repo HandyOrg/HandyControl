@@ -2,6 +2,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 using HandyControl.Data;
 
 namespace HandyControl.Controls
@@ -307,5 +308,50 @@ namespace HandyControl.Controls
         }
 
         private static void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
+
+        /// <summary>
+        /// 在 <see cref="DataGrid"/> 中点击空白地方取消选择所有 Row 和 Cell
+        /// </summary>
+        public static readonly DependencyProperty ClickBlankUnselectProperty =
+            DependencyProperty.RegisterAttached("ClickBlankUnselect", typeof(bool), typeof(DataGrid), new PropertyMetadata(false, ClickBlankUnselectPropertyChanged));
+
+        public static bool GetClickBlankUnselect(DependencyObject obj)
+        {
+            return (bool)obj.GetValue(ClickBlankUnselectProperty);
+        }
+
+        public static void SetClickBlankUnselect(DependencyObject obj, bool value)
+        {
+            obj.SetValue(ClickBlankUnselectProperty, value);
+        }
+
+        public static void ClickBlankUnselectPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is DataGrid dataGrid && e.NewValue is bool enabled)
+            {
+                if (enabled)
+                    dataGrid.PreviewMouseDown += DataGrid_PreviewMouseDown;
+                else
+                    dataGrid.PreviewMouseDown -= DataGrid_PreviewMouseDown;
+            }
+        }
+
+        private static void DataGrid_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            if (sender is DataGrid dataGrid)
+            {
+                var dependencyObject = e.OriginalSource as DependencyObject;
+                while (dependencyObject != null && !(dependencyObject is DataGridRow))
+                {
+                    dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
+                }
+
+                if (dependencyObject == null)
+                {
+                    dataGrid.CommitEdit();
+                    dataGrid.UnselectAll();
+                }
+            }
+        }
     }
 }
