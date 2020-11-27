@@ -312,20 +312,21 @@ namespace HandyControl.Controls
         /// <summary>
         /// 在 <see cref="DataGrid"/> 中点击空白地方取消选择所有 Row 和 Cell
         /// </summary>
-        public static readonly DependencyProperty ClickBlankUnselectProperty =
-            DependencyProperty.RegisterAttached("ClickBlankUnselect", typeof(bool), typeof(DataGridAttach), new PropertyMetadata(false, ClickBlankUnselectPropertyChanged));
+        public static readonly DependencyProperty CanUnselectRowsWithBlankAreaProperty =
+            DependencyProperty.RegisterAttached("CanUnselectRowsWithBlankArea", typeof(bool), typeof(DataGridAttach),
+                                                new PropertyMetadata(false, OnCanUnselectRowsWithBlankAreaChanged));
 
-        public static bool GetClickBlankUnselect(DependencyObject obj)
+        public static bool GetCanUnselectRowsWithBlankArea(DependencyObject obj)
         {
-            return (bool)obj.GetValue(ClickBlankUnselectProperty);
+            return (bool)obj.GetValue(CanUnselectRowsWithBlankAreaProperty);
         }
 
-        public static void SetClickBlankUnselect(DependencyObject obj, bool value)
+        public static void SetCanUnselectRowsWithBlankArea(DependencyObject obj, bool value)
         {
-            obj.SetValue(ClickBlankUnselectProperty, value);
+            obj.SetValue(CanUnselectRowsWithBlankAreaProperty, value);
         }
 
-        public static void ClickBlankUnselectPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        public static void OnCanUnselectRowsWithBlankAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is DataGrid dataGrid && e.NewValue is bool enabled)
             {
@@ -338,19 +339,10 @@ namespace HandyControl.Controls
 
         private static void DataGrid_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            if (sender is DataGrid dataGrid)
+            if (sender is DataGrid dataGrid && e.OriginalSource is System.Windows.Controls.ScrollViewer)
             {
-                var dependencyObject = e.OriginalSource as DependencyObject;
-                while (dependencyObject != null && !(dependencyObject is DataGridRow))
-                {
-                    dependencyObject = VisualTreeHelper.GetParent(dependencyObject);
-                }
-
-                if (dependencyObject == null)
-                {
-                    dataGrid.CommitEdit();
-                    dataGrid.UnselectAll();
-                }
+                dataGrid.CommitEdit();
+                dataGrid.UnselectAll();
             }
         }
     }

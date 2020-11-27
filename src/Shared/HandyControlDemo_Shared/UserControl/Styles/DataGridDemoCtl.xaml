@@ -9,7 +9,7 @@
     <hc:TransitioningContentControl>
         <TabControl Style="{StaticResource TabControlInLine}">
             <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Common}}">
-                <DataGrid HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
+                <DataGrid hc:DataGridAttach.CanUnselectRowsWithBlankArea="True" HeadersVisibility="All" RowHeaderWidth="60" AutoGenerateColumns="False" ItemsSource="{Binding DataList}">
                     <DataGrid.RowHeaderTemplate>
                         <DataTemplate>
                             <CheckBox IsChecked="{Binding IsSelected,RelativeSource={RelativeSource AncestorType=DataGridRow}}"/>
