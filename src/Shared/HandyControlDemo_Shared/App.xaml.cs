@@ -75,7 +75,11 @@ namespace HandyControlDemo
                 ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
 
+#if NET40
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+#else
                 ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+#endif
             }
         }
 
