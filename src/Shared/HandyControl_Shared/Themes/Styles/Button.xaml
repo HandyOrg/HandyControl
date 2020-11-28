@@ -10,9 +10,9 @@
 
     <!--region Button-->
 
-    <Style BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
+    <Style x:Key="ButtonDefault" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="1" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
@@ -22,6 +22,8 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+
+    <Style BasedOn="{StaticResource ButtonDefault}" TargetType="Button"/>
 
     <Style x:Key="ButtonPrimary" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>

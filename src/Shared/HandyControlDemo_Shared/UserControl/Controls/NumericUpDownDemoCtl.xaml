@@ -15,7 +15,7 @@
                 <hc:NumericUpDown hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Style="{StaticResource NumericUpDownExtend}"/>
                 <hc:NumericUpDown hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" hc:InfoElement.Necessary="True" Style="{StaticResource NumericUpDownExtend}"/>
                 <hc:NumericUpDown Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource NumericUpDownExtend}" Margin="0,32,0,0"/>
-                <hc:NumericUpDown Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource NumericUpDownExtend}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
+                <hc:NumericUpDown ValueFormat="N2" Maximum="100000" Value="10000" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource NumericUpDownExtend}" hc:InfoElement.Necessary="True" Margin="0,32,0,0"/>
             </StackPanel>
             <StackPanel Margin="32,0,0,0">
                 <hc:NumericUpDown Name="NumericUpDownCustomVerify" ShowClearButton="True" Style="{StaticResource NumericUpDownPlus}"/>

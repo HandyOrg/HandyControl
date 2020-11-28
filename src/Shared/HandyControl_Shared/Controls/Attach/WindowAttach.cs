@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -109,6 +110,40 @@ namespace HandyControl.Controls
             => element.SetValue(ShowInTaskManagerProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowInTaskManager(DependencyObject element)
-            => (bool) element.GetValue(ShowInTaskManagerProperty);
+            => (bool)element.GetValue(ShowInTaskManagerProperty);
+
+        public static readonly DependencyProperty HideWhenClosingProperty = DependencyProperty.RegisterAttached(
+            "HideWhenClosing", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnHideWhenClosingChanged));
+
+        private static void OnHideWhenClosingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is System.Windows.Window window)
+            {
+                var v = (bool)e.NewValue;
+                if (v)
+                {
+                    window.Closing += Window_Closing;
+                }
+                else
+                {
+                    window.Closing -= Window_Closing;
+                }
+            }
+        }
+
+        private static void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (sender is System.Windows.Window window)
+            {
+                window.Hide();
+                e.Cancel = true;
+            }
+        }
+
+        public static void SetHideWhenClosing(DependencyObject element, bool value)
+            => element.SetValue(HideWhenClosingProperty, value);
+
+        public static bool GetHideWhenClosing(DependencyObject element)
+            => (bool) element.GetValue(HideWhenClosingProperty);
     }
 }
