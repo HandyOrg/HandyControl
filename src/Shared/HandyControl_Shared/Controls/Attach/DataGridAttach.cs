@@ -2,7 +2,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Media;
+using System.Windows.Input;
 using HandyControl.Data;
 
 namespace HandyControl.Controls
@@ -309,35 +309,25 @@ namespace HandyControl.Controls
 
         private static void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
 
-        /// <summary>
-        /// 在 <see cref="DataGrid"/> 中点击空白地方取消选择所有 Row 和 Cell
-        /// </summary>
-        public static readonly DependencyProperty CanUnselectRowsWithBlankAreaProperty =
-            DependencyProperty.RegisterAttached("CanUnselectRowsWithBlankArea", typeof(bool), typeof(DataGridAttach),
-                                                new PropertyMetadata(false, OnCanUnselectRowsWithBlankAreaChanged));
+        public static readonly DependencyProperty CanUnselectAllWithBlankAreaProperty = DependencyProperty.RegisterAttached(
+            "CanUnselectAllWithBlankArea", typeof(bool), typeof(DataGridAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnCanUnselectAllWithBlankAreaChanged));
 
-        public static bool GetCanUnselectRowsWithBlankArea(DependencyObject obj)
+        private static void OnCanUnselectAllWithBlankAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            return (bool)obj.GetValue(CanUnselectRowsWithBlankAreaProperty);
-        }
-
-        public static void SetCanUnselectRowsWithBlankArea(DependencyObject obj, bool value)
-        {
-            obj.SetValue(CanUnselectRowsWithBlankAreaProperty, value);
-        }
-
-        public static void OnCanUnselectRowsWithBlankAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is DataGrid dataGrid && e.NewValue is bool enabled)
+            if (d is DataGrid dataGrid)
             {
-                if (enabled)
+                if ((bool)e.NewValue)
+                {
                     dataGrid.PreviewMouseDown += DataGrid_PreviewMouseDown;
+                }
                 else
+                {
                     dataGrid.PreviewMouseDown -= DataGrid_PreviewMouseDown;
+                }
             }
         }
 
-        private static void DataGrid_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private static void DataGrid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
             if (sender is DataGrid dataGrid && e.OriginalSource is System.Windows.Controls.ScrollViewer)
             {
@@ -345,5 +335,11 @@ namespace HandyControl.Controls
                 dataGrid.UnselectAll();
             }
         }
+
+        public static void SetCanUnselectAllWithBlankArea(DependencyObject element, bool value)
+            => element.SetValue(CanUnselectAllWithBlankAreaProperty, value);
+
+        public static bool GetCanUnselectAllWithBlankArea(DependencyObject element)
+            => (bool) element.GetValue(CanUnselectAllWithBlankAreaProperty);
     }
 }
