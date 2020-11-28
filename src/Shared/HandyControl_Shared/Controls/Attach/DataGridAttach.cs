@@ -2,6 +2,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 using HandyControl.Data;
 
 namespace HandyControl.Controls
@@ -307,5 +308,38 @@ namespace HandyControl.Controls
         }
 
         private static void DataGrid_LoadingRow(object sender, DataGridRowEventArgs e) => e.Row.Header = (e.Row.GetIndex() + 1).ToString();
+
+        public static readonly DependencyProperty CanUnselectAllWithBlankAreaProperty = DependencyProperty.RegisterAttached(
+            "CanUnselectAllWithBlankArea", typeof(bool), typeof(DataGridAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnCanUnselectAllWithBlankAreaChanged));
+
+        private static void OnCanUnselectAllWithBlankAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is DataGrid dataGrid)
+            {
+                if ((bool)e.NewValue)
+                {
+                    dataGrid.PreviewMouseDown += DataGrid_PreviewMouseDown;
+                }
+                else
+                {
+                    dataGrid.PreviewMouseDown -= DataGrid_PreviewMouseDown;
+                }
+            }
+        }
+
+        private static void DataGrid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (sender is DataGrid dataGrid && e.OriginalSource is System.Windows.Controls.ScrollViewer)
+            {
+                dataGrid.CommitEdit();
+                dataGrid.UnselectAll();
+            }
+        }
+
+        public static void SetCanUnselectAllWithBlankArea(DependencyObject element, bool value)
+            => element.SetValue(CanUnselectAllWithBlankAreaProperty, value);
+
+        public static bool GetCanUnselectAllWithBlankArea(DependencyObject element)
+            => (bool) element.GetValue(CanUnselectAllWithBlankAreaProperty);
     }
 }
