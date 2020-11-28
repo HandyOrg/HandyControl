@@ -63,7 +63,7 @@ Task("Build")
     var settingsNet50 = new DotNetCoreBuildSettings
     {
         Configuration = "Release",
-        Framework = "net5.0",
+        Framework = "net5.0-windows",
         OutputDirectory = "lib/net5.0"
     };
 
