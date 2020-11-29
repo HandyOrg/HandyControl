@@ -362,7 +362,6 @@
   </data>
   <data name="About" xml:space="preserve">
     <value>关于</value>
-    
   </data>
   <data name="Repository" xml:space="preserve">
     <value>代码仓库</value>
@@ -765,5 +764,8 @@
   </data>
   <data name="FlexPanel" xml:space="preserve">
     <value>弹性盒子</value>
+  </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>点击打开触摸拖动窗口</value>
   </data>
 </root>

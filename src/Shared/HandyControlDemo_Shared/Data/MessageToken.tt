@@ -26,6 +26,7 @@ var messageList = new List<string>
 	"GlowWindow",
 	"NativeCommonWindow",
 	"NavigationWindow",
+	"TouchDragMoveWindow",
 	"DialogContainer",
 	"LangUpdated"
 };
