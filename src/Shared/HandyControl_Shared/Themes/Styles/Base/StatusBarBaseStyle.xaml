@@ -14,4 +14,8 @@
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
     </Style>
 
+    <Style x:Key="StatusBarItemBaseStyle" TargetType="StatusBarItem">
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+    </Style>
+
 </ResourceDictionary>
