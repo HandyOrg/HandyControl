@@ -10,8 +10,6 @@ Task("Build")
     .IsDependentOn("Clean")
     .Does(() =>
 {
-    NuGetRestore("../src/HandyControl.sln");
-    
     var settingsNet40 = new DotNetCoreBuildSettings
     {
         Configuration = "Release-Net40",
