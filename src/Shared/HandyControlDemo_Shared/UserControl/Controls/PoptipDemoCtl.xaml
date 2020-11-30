@@ -5,7 +5,7 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:system="clr-namespace:System;assembly=mscorlib">
+             xmlns:system="clr-namespace:System;assembly=System.Runtime">
     <UserControl.Resources>
         <Style x:Key="Button4PoptipStyle" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
             <Setter Property="Width" Value="{x:Static system:Double.NaN}"/>

@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
 
     <system:Double x:Key="DefaultControlHeight">30</system:Double>
     <Thickness x:Key="DefaultControlPadding">10,6</Thickness>
