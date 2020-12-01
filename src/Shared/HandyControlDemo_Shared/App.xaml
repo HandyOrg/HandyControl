@@ -20,9 +20,7 @@
                 </ResourceDictionary>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
-                        <!--<ResourceDictionary Source="pack://application:,,,/../../Shared/HandyControlDemo_Shared/Resources/Themes/Theme.xaml"/>-->
-
-                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.All.xaml"/>
+                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
                         <ResourceDictionary Source="Resources/Themes/Theme.xaml"/>
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
