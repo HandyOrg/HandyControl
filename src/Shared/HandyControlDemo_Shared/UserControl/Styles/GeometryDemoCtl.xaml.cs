@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Windows;
 using System.Windows.Media;
-using HandyControl.Themes;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
 
@@ -27,17 +26,13 @@ namespace HandyControlDemo.UserControl
 
         public void GenerateGeometries()
         {
-            var uri = new Uri("pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml", UriKind.Absolute);
-            var dic = SharedResourceDictionary.SharedDictionaries[uri];
-            var keys = dic.Keys.OfType<string>().OrderBy(item => item);
-
-            foreach (var key in keys)
+            foreach (var key in Application.Current.Resources.MergedDictionaries[1].MergedDictionaries[0].Keys.OfType<string>().OrderBy(item => item))
             {
-                var data = ResourceHelper.GetResource<Geometry>(key);
+                if (!key.EndsWith("Geometry")) continue;
                 GeometryItems.Add(new GeometryItemModel
                 {
                     Key = key,
-                    Data = data,
+                    Data = ResourceHelper.GetResource<Geometry>(key),
                     Line = _lineSet.Contains(key)
                 });
             }

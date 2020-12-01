@@ -8,7 +8,7 @@
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Window.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="MessageBoxButtonStyle" BasedOn="{StaticResource {x:Type Button}}" TargetType="Button">
+    <Style x:Key="MessageBoxButtonStyle" BasedOn="{StaticResource ButtonDefault}" TargetType="Button">
         <Setter Property="MinWidth" Value="88"/>
         <Setter Property="Visibility" Value="{Binding IsEnabled,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2VisibilityConverter}}"/>
         <Setter Property="Margin" Value="5,0"/>

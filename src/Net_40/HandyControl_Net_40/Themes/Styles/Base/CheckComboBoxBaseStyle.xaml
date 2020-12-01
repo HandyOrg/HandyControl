@@ -3,7 +3,7 @@
                     xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
                     xmlns:themes="clr-namespace:HandyControl.Themes"
-                    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs">
 
