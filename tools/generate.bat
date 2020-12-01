@@ -1,0 +1,1 @@
+D:\Github\HandyControl\src\..\tools\XamlMerge\bin\Release\XamlMerge.exe D:\Github\HandyControl\src\..\tools\Theme.xaml.template  D:\Github\HandyControl\src\..\tools\Theme.xaml.assemblies.txt -out  D:\Github\HandyControl\src\..\tools\Styles.All.xaml > log.txt
