@@ -1,2 +1,0 @@
-﻿@root=..\src\Shared\HandyControl_Shared
-HandyControl=.
