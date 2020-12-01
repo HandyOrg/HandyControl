@@ -1,5 +1,4 @@
 Lang.xaml
-Basic\Colors\Colors.xaml
 Basic\Behaviors.xaml
 Basic\Brushes.xaml
 Basic\Converters.xaml
