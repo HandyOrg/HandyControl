@@ -344,7 +344,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否显示上下调值按钮
         /// </summary>
-        internal bool ShowUpDownButton
+        public bool ShowUpDownButton
         {
             get => (bool)GetValue(ShowUpDownButtonProperty);
             set => SetValue(ShowUpDownButtonProperty, ValueBoxes.BooleanBox(value));

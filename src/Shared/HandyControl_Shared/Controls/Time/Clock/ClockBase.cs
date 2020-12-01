@@ -76,13 +76,13 @@ namespace HandyControl.Controls
             set => SetValue(DisplayTimeProperty, value);
         }
 
-        internal static readonly DependencyProperty ShowConfirmButtonProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty ShowConfirmButtonProperty = DependencyProperty.Register(
             "ShowConfirmButton", typeof(bool), typeof(ClockBase), new PropertyMetadata(ValueBoxes.FalseBox));
 
-        internal bool ShowConfirmButton
+        public bool ShowConfirmButton
         {
             get => (bool) GetValue(ShowConfirmButtonProperty);
-            set => SetValue(ShowConfirmButtonProperty, ValueBoxes.BooleanBox(value));
+            internal set => SetValue(ShowConfirmButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected virtual void OnSelectedTimeChanged(FunctionEventArgs<DateTime?> e) => RaiseEvent(e);

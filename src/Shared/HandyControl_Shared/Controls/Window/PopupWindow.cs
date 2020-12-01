@@ -55,13 +55,13 @@ namespace HandyControl.Controls
             }
         }
 
-        internal static readonly DependencyProperty ContentStrProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty ContentStrProperty = DependencyProperty.Register(
             "ContentStr", typeof(string), typeof(PopupWindow), new PropertyMetadata(default(string)));
 
-        internal string ContentStr
+        public string ContentStr
         {
             get => (string) GetValue(ContentStrProperty);
-            set => SetValue(ContentStrProperty, value);
+            internal set => SetValue(ContentStrProperty, value);
         }
 
         private bool IsDialog { get; set; }

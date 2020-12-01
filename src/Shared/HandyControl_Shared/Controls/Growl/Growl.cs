@@ -152,7 +152,7 @@ namespace HandyControl.Controls
         /// </summary>
         public static Panel GrowlPanel { get; set; }
 
-        internal static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
             "CancelStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
 
         internal static readonly DependencyProperty ConfirmStrProperty = DependencyProperty.Register(
@@ -219,16 +219,16 @@ namespace HandyControl.Controls
             set => SetValue(TypeProperty, value);
         }
 
-        internal string CancelStr
+        public string CancelStr
         {
             get => (string)GetValue(CancelStrProperty);
-            set => SetValue(CancelStrProperty, value);
+            internal set => SetValue(CancelStrProperty, value);
         }
 
-        internal string ConfirmStr
+        public string ConfirmStr
         {
             get => (string)GetValue(ConfirmStrProperty);
-            set => SetValue(ConfirmStrProperty, value);
+            internal set => SetValue(ConfirmStrProperty, value);
         }
 
         public bool ShowDateTime

@@ -217,37 +217,37 @@ namespace HandyControl.Controls
         internal static readonly DependencyProperty ChannelAProperty = DependencyProperty.Register(
             "ChannelA", typeof(int), typeof(ColorPicker), new PropertyMetadata(255));
 
-        internal int ChannelA
+        public int ChannelA
         {
             get => (int)GetValue(ChannelAProperty);
-            set => SetValue(ChannelAProperty, value);
+            internal set => SetValue(ChannelAProperty, value);
         }
 
         internal static readonly DependencyProperty ChannelRProperty = DependencyProperty.Register(
             "ChannelR", typeof(int), typeof(ColorPicker), new PropertyMetadata(255));
 
-        internal int ChannelR
+        public int ChannelR
         {
             get => (int)GetValue(ChannelRProperty);
-            set => SetValue(ChannelRProperty, value);
+            internal set => SetValue(ChannelRProperty, value);
         }
 
         internal static readonly DependencyProperty ChannelGProperty = DependencyProperty.Register(
             "ChannelG", typeof(int), typeof(ColorPicker), new PropertyMetadata(255));
 
-        internal int ChannelG
+        public int ChannelG
         {
             get => (int)GetValue(ChannelGProperty);
-            set => SetValue(ChannelGProperty, value);
+            internal set => SetValue(ChannelGProperty, value);
         }
 
         internal static readonly DependencyProperty ChannelBProperty = DependencyProperty.Register(
             "ChannelB", typeof(int), typeof(ColorPicker), new PropertyMetadata(255));
 
-        internal int ChannelB
+        public int ChannelB
         {
             get => (int)GetValue(ChannelBProperty);
-            set => SetValue(ChannelBProperty, value);
+            internal set => SetValue(ChannelBProperty, value);
         }
 
         public static readonly DependencyProperty SelectedBrushProperty = DependencyProperty.Register(
@@ -279,22 +279,22 @@ namespace HandyControl.Controls
             set => SetValue(SelectedBrushProperty, value);
         }
 
-        internal static readonly DependencyProperty SelectedBrushWithoutOpacityProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty SelectedBrushWithoutOpacityProperty = DependencyProperty.Register(
             "SelectedBrushWithoutOpacity", typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White));
 
-        internal SolidColorBrush SelectedBrushWithoutOpacity
+        public SolidColorBrush SelectedBrushWithoutOpacity
         {
             get => (SolidColorBrush)GetValue(SelectedBrushWithoutOpacityProperty);
-            set => SetValue(SelectedBrushWithoutOpacityProperty, value);
+            internal set => SetValue(SelectedBrushWithoutOpacityProperty, value);
         }
 
-        internal static readonly DependencyProperty BackColorProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty BackColorProperty = DependencyProperty.Register(
             "BackColor", typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.Red));
 
-        internal SolidColorBrush BackColor
+        public SolidColorBrush BackColor
         {
             get => (SolidColorBrush)GetValue(BackColorProperty);
-            set => SetValue(BackColorProperty, value);
+            internal set => SetValue(BackColorProperty, value);
         }
 
         internal static readonly DependencyProperty ShowListProperty = DependencyProperty.Register(
@@ -303,10 +303,10 @@ namespace HandyControl.Controls
                 true, false, false
             }));
 
-        internal List<bool> ShowList
+        public List<bool> ShowList
         {
             get => (List<bool>)GetValue(ShowListProperty);
-            set => SetValue(ShowListProperty, value);
+            internal set => SetValue(ShowListProperty, value);
         }
 
         #endregion Properties

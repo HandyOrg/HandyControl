@@ -3,12 +3,12 @@ using System.Windows.Controls;
 
 namespace HandyControl.Controls
 {
-    internal class InternalCanvas : Canvas
+    public class InternalCanvas : Canvas
     {
         internal static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
             "Orientation", typeof(Orientation), typeof(InternalCanvas), new PropertyMetadata(default(Orientation)));
 
-        internal Orientation Orientation
+        public Orientation Orientation
         {
             get => (Orientation) GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);

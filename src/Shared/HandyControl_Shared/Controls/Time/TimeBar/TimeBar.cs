@@ -94,16 +94,16 @@ namespace HandyControl.Controls
         /// <summary>
         ///     刻度字符串
         /// </summary>
-        internal static readonly DependencyProperty SpeStrProperty = DependencyProperty.Register(
+        public static readonly DependencyProperty SpeStrProperty = DependencyProperty.Register(
             "SpeStr", typeof(string), typeof(TimeBar), new PropertyMetadata(Properties.Langs.Lang.Interval1h));
 
         /// <summary>
         ///     刻度字符串
         /// </summary>
-        internal string SpeStr
+        public string SpeStr
         {
             get => (string)GetValue(SpeStrProperty);
-            set => SetValue(SpeStrProperty, value);
+            internal set => SetValue(SpeStrProperty, value);
         }
 
         /// <summary>
