@@ -4,6 +4,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/SeparatorBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Sizes.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="{x:Static StatusBar.SeparatorStyleKey}" BasedOn="{StaticResource SeparatorBaseStyle}" TargetType="Separator"/>
@@ -16,6 +17,12 @@
 
     <Style x:Key="StatusBarItemBaseStyle" TargetType="StatusBarItem">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" Value="False">
+                <Setter Property="Opacity" Value="0.4"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 
 </ResourceDictionary>
