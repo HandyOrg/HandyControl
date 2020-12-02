@@ -235,6 +235,37 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     允许负数，设置此属性为 <see cref="true"/> 将覆盖 <see cref="Minimum"/> 为 <see cref="double.MinValue"/>。
+        /// </summary>
+        public static readonly DependencyProperty AllowNegativeProperty =
+            DependencyProperty.Register("AllowNegative", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(false, OnAllowNegativeChanged));
+
+        private static void OnAllowNegativeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (NumericUpDown)d;
+            if (e.NewValue is bool enabled)
+            {
+                if (enabled)
+                {
+                    ctl.Minimum = double.MinValue;
+                }
+                else
+                {
+                    ctl.Minimum = .0;
+                }
+            }
+        }
+
+        /// <summary>
+        ///     允许负数，设置此属性为 <see cref="true"/> 将覆盖 <see cref="Minimum"/> 为 <see cref="double.MinValue"/>。
+        /// </summary>
+        public bool AllowNegative
+        {
+            get { return (bool)GetValue(AllowNegativeProperty); }
+            set { SetValue(AllowNegativeProperty, value); }
+        }
+
+        /// <summary>
         ///     最大值
         /// </summary>
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
@@ -331,7 +362,7 @@ namespace HandyControl.Controls
         /// </summary>
         public string ValueFormat
         {
-            get => (string) GetValue(ValueFormatProperty);
+            get => (string)GetValue(ValueFormatProperty);
             set => SetValue(ValueFormatProperty, value);
         }
 
