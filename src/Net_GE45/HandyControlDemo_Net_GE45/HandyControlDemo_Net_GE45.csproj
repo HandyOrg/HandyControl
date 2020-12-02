@@ -575,4 +575,7 @@
       move ca-Es Langs
     </PostBuildEvent>
   </PropertyGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="$(SolutionDir)Shared\HandyControl_Shared\Themes\XamlCombine.exe $(SolutionDir)Shared\HandyControl_Shared\Themes\Theme_GE45.txt $(SolutionDir)Shared\HandyControl_Shared\Themes\Theme.xaml" />
+  </Target>
 </Project>
