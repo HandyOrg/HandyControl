@@ -7,6 +7,7 @@ using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Media.Media3D;
+using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
 
@@ -30,7 +31,7 @@ namespace HandyControl.Controls
         ///     最大显示数量的一半
         /// </summary>
         private const int MaxShowCountHalf = 3;
-
+        private DispatcherTimer _updateTimer;
         /// <summary>
         ///     页码
         /// </summary>
@@ -59,12 +60,40 @@ namespace HandyControl.Controls
             var ctl = (CoverFlow)d;
             ctl.UpdateIndex((int)e.NewValue);
         }
-
+        public static readonly DependencyProperty IntervalProperty = DependencyProperty.Register(
+          "Interval", typeof(TimeSpan), typeof(Carousel), new PropertyMetadata(TimeSpan.FromSeconds(2)));
         /// <summary>
         ///     是否循环
         /// </summary>
         public static readonly DependencyProperty LoopProperty = DependencyProperty.Register(
-            "Loop", typeof(bool), typeof(CoverFlow), new PropertyMetadata(ValueBoxes.FalseBox));
+            "Loop", typeof(bool), typeof(CoverFlow), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
+            {
+                var ctl = (CoverFlow)o;
+                ctl.TimerSwitch((bool)args.NewValue);
+
+            }));
+        private void TimerSwitch(bool run)
+        {
+            if (_updateTimer != null)
+            {
+                _updateTimer.Tick -= UpdateTimer_Tick;
+                _updateTimer.Stop();
+                _updateTimer = null;
+            }
+
+            if (!run) return;
+            _updateTimer = new DispatcherTimer
+            {
+                Interval = Interval
+            };
+            _updateTimer.Tick += UpdateTimer_Tick;
+            _updateTimer.Start();
+        }
+        private void UpdateTimer_Tick(object sender, EventArgs e)
+        {
+            if (IsLoaded) return;
+            PageIndex = this._contentDic.Count - 1 > PageIndex ? PageIndex + 1 : 0;
+        }
 
         /// <summary>
         ///     存储所有的内容
@@ -125,7 +154,14 @@ namespace HandyControl.Controls
             get => (bool)GetValue(LoopProperty);
             set => SetValue(LoopProperty, ValueBoxes.BooleanBox(value));
         }
-
+        /// <summary>
+        ///     跳转时间间隔
+        /// </summary>
+        public TimeSpan Interval
+        {
+            get => (TimeSpan)GetValue(IntervalProperty);
+            set => SetValue(IntervalProperty, value);
+        }
         public override void OnApplyTemplate()
         {
             if (_viewport3D != null)
