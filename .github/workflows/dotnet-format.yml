@@ -26,7 +26,7 @@ jobs:
         run: dotnet tool install -g dotnet-format
 
       - name: Run dotnet format
-        run: dotnet format
+        run: dotnet format src\HandyControl.sln
 
       - name: Commit files
         # 下面将使用机器人的账号，你可以替换为你自己的账号
