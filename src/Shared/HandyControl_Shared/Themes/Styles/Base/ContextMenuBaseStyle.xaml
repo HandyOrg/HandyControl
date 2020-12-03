@@ -10,10 +10,12 @@
     <Style x:Key="ContextMenuBaseStyle" TargetType="ContextMenu">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="HorizontalOffset" Value="-8" />
+        <Setter Property="VerticalOffset" Value="-8" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContextMenu">
-                    <Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="2" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
+                    <Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="2" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="0" BorderBrush="{DynamicResource BorderBrush}">
                         <ScrollViewer Style="{StaticResource ScrollViewerUpDown}"  Margin="0,6">
                             <ItemsPresenter/>
                         </ScrollViewer>
