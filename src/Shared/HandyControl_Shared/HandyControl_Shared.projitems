@@ -432,10 +432,9 @@
     <None Include="$(MSBuildThisFileDirectory)Themes\Basic\Sizes.xaml">
       <SubType>Designer</SubType>
     </None>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Lang.xaml">
+    <None Include="$(MSBuildThisFileDirectory)Themes\Lang.xaml">
       <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
+    </None>
     <Page Include="$(MSBuildThisFileDirectory)Themes\SkinDark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
