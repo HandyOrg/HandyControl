@@ -29,6 +29,9 @@
                         <Trigger Property="IsSelected" Value="False">
                             <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,0,0,0"/>
                         </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4" TargetName="contentPresenter"/>
+                        </Trigger>
                         <MultiDataTrigger>
                             <MultiDataTrigger.Conditions>
                                 <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true"/>
@@ -158,6 +161,9 @@
                             <Setter Property="BorderBrush" Value="{Binding Path=(hc:TitleElement.BorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
                             <Setter Property="Background" Value="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
                             <Setter Property="TextElement.Foreground" Value="{Binding Path=(hc:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4" TargetName="contentPresenter"/>
                         </Trigger>
                         <DataTrigger Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Left">
                             <Setter Property="Margin" Value="0,-1,0,0"/>
