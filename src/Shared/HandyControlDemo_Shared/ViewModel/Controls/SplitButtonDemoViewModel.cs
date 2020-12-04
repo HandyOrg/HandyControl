@@ -1,7 +1,7 @@
 ﻿using System;
 using GalaSoft.MvvmLight;
-using HandyControl.Controls;
 using GalaSoft.MvvmLight.Command;
+using HandyControl.Controls;
 
 namespace HandyControlDemo.ViewModel
 {

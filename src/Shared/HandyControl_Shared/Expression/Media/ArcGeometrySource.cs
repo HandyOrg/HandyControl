@@ -339,7 +339,7 @@ namespace HandyControl.Expression.Media
                 figure = new PathFigure();
                 CachedGeometry = new PathGeometry
                 {
-                    Figures = {figure}
+                    Figures = { figure }
                 };
                 figure.Segments.Add(segment = new ArcSegment());
                 figure.IsClosed = false;
@@ -371,7 +371,7 @@ namespace HandyControl.Expression.Media
                 figure = new PathFigure();
                 CachedGeometry = new PathGeometry
                 {
-                    Figures = {figure}
+                    Figures = { figure }
                 };
                 figure.Segments.Add(segment = new ArcSegment());
                 figure.Segments.Add(segment2 = new LineSegment());

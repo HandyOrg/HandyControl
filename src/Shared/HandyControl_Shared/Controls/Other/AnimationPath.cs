@@ -42,7 +42,7 @@ namespace HandyControl.Controls
         /// </summary>
         public Geometry Data
         {
-            get => (Geometry)GetValue(DataProperty);
+            get => (Geometry) GetValue(DataProperty);
             set => SetValue(DataProperty, value);
         }
 
@@ -59,7 +59,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double PathLength
         {
-            get => (double)GetValue(PathLengthProperty);
+            get => (double) GetValue(PathLengthProperty);
             set => SetValue(PathLengthProperty, value);
         }
 
@@ -75,15 +75,15 @@ namespace HandyControl.Controls
         /// </summary>
         public Duration Duration
         {
-            get => (Duration)GetValue(DurationProperty);
+            get => (Duration) GetValue(DurationProperty);
             set => SetValue(DurationProperty, value);
         }
 
         public static readonly DependencyProperty IsPlayingProperty = DependencyProperty.Register(
             "IsPlaying", typeof(bool), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
             {
-                var ctl = (AnimationPath)o;
-                var v = (bool)args.NewValue;
+                var ctl = (AnimationPath) o;
+                var v = (bool) args.NewValue;
                 if (v)
                 {
                     ctl.UpdatePath();
@@ -99,7 +99,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsPlaying
         {
-            get => (bool)GetValue(IsPlayingProperty);
+            get => (bool) GetValue(IsPlayingProperty);
             set => SetValue(IsPlayingProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -111,7 +111,7 @@ namespace HandyControl.Controls
         /// </summary>
         public RepeatBehavior RepeatBehavior
         {
-            get => (RepeatBehavior)GetValue(RepeatBehaviorProperty);
+            get => (RepeatBehavior) GetValue(RepeatBehaviorProperty);
             set => SetValue(RepeatBehaviorProperty, value);
         }
 

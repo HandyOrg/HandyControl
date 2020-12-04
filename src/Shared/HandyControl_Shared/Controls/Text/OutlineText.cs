@@ -108,7 +108,7 @@ namespace HandyControl.Controls
 
         public FontFamily FontFamily
         {
-            get => (FontFamily)GetValue(FontFamilyProperty);
+            get => (FontFamily) GetValue(FontFamilyProperty);
             set => SetValue(FontFamilyProperty, value);
         }
 
@@ -119,7 +119,7 @@ namespace HandyControl.Controls
         [TypeConverter(typeof(FontSizeConverter))]
         public double FontSize
         {
-            get => (double)GetValue(FontSizeProperty);
+            get => (double) GetValue(FontSizeProperty);
             set => SetValue(FontSizeProperty, value);
         }
 
@@ -129,7 +129,7 @@ namespace HandyControl.Controls
 
         public FontStretch FontStretch
         {
-            get => (FontStretch)GetValue(FontStretchProperty);
+            get => (FontStretch) GetValue(FontStretchProperty);
             set => SetValue(FontStretchProperty, value);
         }
 
@@ -139,7 +139,7 @@ namespace HandyControl.Controls
 
         public FontStyle FontStyle
         {
-            get => (FontStyle)GetValue(FontStyleProperty);
+            get => (FontStyle) GetValue(FontStyleProperty);
             set => SetValue(FontStyleProperty, value);
         }
 
@@ -149,7 +149,7 @@ namespace HandyControl.Controls
 
         public FontWeight FontWeight
         {
-            get => (FontWeight)GetValue(FontWeightProperty);
+            get => (FontWeight) GetValue(FontWeightProperty);
             set => SetValue(FontWeightProperty, value);
         }
 
@@ -219,7 +219,7 @@ namespace HandyControl.Controls
                 Text,
                 CultureInfo.CurrentUICulture,
                 FlowDirection,
-                new Typeface(FontFamily, FontStyle, FontWeight, FontStretch), 
+                new Typeface(FontFamily, FontStyle, FontWeight, FontStretch),
                 FontSize, Fill, dpi);
 #endif
 
@@ -264,7 +264,7 @@ namespace HandyControl.Controls
 
         private static void OnFormattedTextUpdated(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var outlinedTextBlock = (OutlineText)d;
+            var outlinedTextBlock = (OutlineText) d;
             outlinedTextBlock.UpdateFormattedText();
             outlinedTextBlock._textGeometry = null;
 
@@ -274,7 +274,7 @@ namespace HandyControl.Controls
 
         private static void OnFormattedTextInvalidated(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var outlinedTextBlock = (OutlineText)d;
+            var outlinedTextBlock = (OutlineText) d;
             outlinedTextBlock._formattedText = null;
             outlinedTextBlock._textGeometry = null;
 

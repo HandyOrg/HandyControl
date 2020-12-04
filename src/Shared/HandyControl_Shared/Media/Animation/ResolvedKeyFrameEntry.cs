@@ -5,12 +5,12 @@ namespace HandyControl.Media.Animation
     internal struct ResolvedKeyFrameEntry : IComparable
     {
         internal int _originalKeyFrameIndex;
-        
+
         internal TimeSpan _resolvedKeyTime;
 
         public int CompareTo(object other)
         {
-            var otherEntry = (ResolvedKeyFrameEntry)other;
+            var otherEntry = (ResolvedKeyFrameEntry) other;
 
             if (otherEntry._resolvedKeyTime > _resolvedKeyTime)
             {

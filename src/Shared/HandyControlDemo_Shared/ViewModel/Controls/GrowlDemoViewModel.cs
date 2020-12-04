@@ -13,7 +13,7 @@ namespace HandyControlDemo.ViewModel
 
         public GrowlDemoViewModel()
         {
-            
+
         }
 
         public GrowlDemoViewModel(string token)

@@ -100,7 +100,7 @@ namespace HandyControl.Controls
 
         public FrameworkElement Content
         {
-            get => (FrameworkElement)GetValue(ContentProperty);
+            get => (FrameworkElement) GetValue(ContentProperty);
             set => SetValue(ContentProperty, value);
         }
 

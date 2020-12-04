@@ -56,7 +56,7 @@ namespace HandyControl.Tools
             if (list == null) return;
             KeyBindingCollection = new ObservableCollection<KeyBinding>(list);
             if (KeyBindingCollection.Count == 0) return;
-            
+
             AddKeyBindings(KeyBindingCollection);
             KeyboardHook.Start();
         }

@@ -30,7 +30,7 @@ namespace HandyControl.Media.Effects
 
         public double Brightness
         {
-            get => (double)GetValue(BrightnessProperty);
+            get => (double) GetValue(BrightnessProperty);
             set => SetValue(BrightnessProperty, value);
         }
     }

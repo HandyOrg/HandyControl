@@ -91,7 +91,7 @@ namespace HandyControl.Controls
                     {
                         _isItemSelected = false;
                     }
-                    else if(_selectedHeader != null)
+                    else if (_selectedHeader != null)
                     {
                         if (AutoSelect)
                         {
@@ -196,7 +196,7 @@ namespace HandyControl.Controls
                                     _selectedItem = sideMenuSubItem;
                                 }
                             }
-                        }                          
+                        }
                     }
                 }
             }

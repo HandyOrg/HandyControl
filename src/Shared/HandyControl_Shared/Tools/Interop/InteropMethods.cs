@@ -17,7 +17,7 @@ namespace HandyControl.Tools.Interop
     {
         #region common
 
-        internal const int E_FAIL = unchecked((int)0x80004005);
+        internal const int E_FAIL = unchecked((int) 0x80004005);
 
         internal static readonly IntPtr HRGN_NONE = new IntPtr(-1);
 
@@ -120,7 +120,7 @@ namespace HandyControl.Tools.Interop
         [SecurityCritical]
         internal static int ReleaseDC(HandleRef hWnd, HandleRef hDC)
         {
-            HandleCollector.Remove((IntPtr)hDC, CommonHandles.HDC);
+            HandleCollector.Remove((IntPtr) hDC, CommonHandles.HDC);
             return IntReleaseDC(hWnd, hDC);
         }
 
@@ -314,9 +314,9 @@ namespace HandyControl.Tools.Interop
 
         internal static int GetYLParam(int lParam) => HiWord(lParam);
 
-        internal static int HiWord(int value) => (short)(value >> 16);
+        internal static int HiWord(int value) => (short) (value >> 16);
 
-        internal static int LoWord(int value) => (short)(value & 65535);
+        internal static int LoWord(int value) => (short) (value & 65535);
 
         [DllImport(InteropValues.ExternDll.User32)]
         internal static extern IntPtr MonitorFromWindow(IntPtr handle, int flags);
@@ -374,7 +374,7 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.User32)]
         private static extern int GetWindowLong(IntPtr hWnd, int nIndex);
 
-        internal static int GetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex) => GetWindowLong(hWnd, (int)nIndex);
+        internal static int GetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex) => GetWindowLong(hWnd, (int) nIndex);
 
         internal static IntPtr SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong)
         {
@@ -401,12 +401,12 @@ namespace HandyControl.Tools.Interop
         {
             if (IntPtr.Size == 8)
             {
-                return SetWindowLongPtr(hWnd, (int)nIndex, dwNewLong);
+                return SetWindowLongPtr(hWnd, (int) nIndex, dwNewLong);
             }
-            return new IntPtr(SetWindowLong(hWnd, (int)nIndex, dwNewLong.ToInt32()));
+            return new IntPtr(SetWindowLong(hWnd, (int) nIndex, dwNewLong.ToInt32()));
         }
 
-        internal static int SetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex, int dwNewLong) => SetWindowLong(hWnd, (int)nIndex, dwNewLong);
+        internal static int SetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex, int dwNewLong) => SetWindowLong(hWnd, (int) nIndex, dwNewLong);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Unicode)]
         internal static extern ushort RegisterClass(ref InteropValues.WNDCLASS lpWndClass);
@@ -451,7 +451,7 @@ namespace HandyControl.Tools.Interop
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool AlphaBlend(IntPtr hdcDest, int xoriginDest, int yoriginDest, int wDest, int hDest, IntPtr hdcSrc, int xoriginSrc, int yoriginSrc, int wSrc, int hSrc, InteropValues.BLENDFUNCTION pfn);
 
-        internal static int GET_SC_WPARAM(IntPtr wParam) => (int)wParam & 65520;
+        internal static int GET_SC_WPARAM(IntPtr wParam) => (int) wParam & 65520;
 
         [DllImport(InteropValues.ExternDll.User32)]
         internal static extern IntPtr ChildWindowFromPointEx(IntPtr hwndParent, InteropValues.POINT pt, int uFlags);
@@ -486,7 +486,7 @@ namespace HandyControl.Tools.Interop
 
             private static bool Initialized => InitToken != IntPtr.Zero;
 
-            internal const int 
+            internal const int
                 Ok = 0,
                 GenericError = 1,
                 InvalidParameter = 2,
@@ -508,7 +508,7 @@ namespace HandyControl.Tools.Interop
                 GdiplusNotInitialized = 18,
                 PropertyNotFound = 19,
                 PropertyNotSupported = 20,
-                E_UNEXPECTED = unchecked((int)0x8000FFFF);
+                E_UNEXPECTED = unchecked((int) 0x8000FFFF);
 
             static Gdip()
             {

@@ -52,7 +52,7 @@ namespace HandyControl.Controls
 
         private void ImageBlock_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
         {
-            if(IsVisible)
+            if (IsVisible)
             {
                 _dispatcherTimer.Tick += DispatcherTimer_Tick;
                 if (IsPlaying)
@@ -80,11 +80,11 @@ namespace HandyControl.Controls
 
         private static void OnPositionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ImageBlock)d;
+            var ctl = (ImageBlock) d;
 
             if (e.Property == ColumnsProperty)
             {
-                ctl._columns = (int)e.NewValue;
+                ctl._columns = (int) e.NewValue;
             }
 
             ctl.UpdateDatas();
@@ -138,7 +138,7 @@ namespace HandyControl.Controls
 
         private static void OnIsPlayingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ImageBlock)d;
+            var ctl = (ImageBlock) d;
             if ((bool) e.NewValue)
             {
                 ctl._dispatcherTimer.Start();
@@ -157,7 +157,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty ColumnsProperty = DependencyProperty.Register(
             "Columns", typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int1Box,
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int)obj >= 1);
+                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int) obj >= 1);
 
         public int Columns
         {
@@ -167,7 +167,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty RowsProperty = DependencyProperty.Register(
             "Rows", typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int1Box,
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int)obj >= 1);
+                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int) obj >= 1);
 
         public int Rows
         {
@@ -196,14 +196,14 @@ namespace HandyControl.Controls
 
         private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ImageBlock)d;
+            var ctl = (ImageBlock) d;
             ctl._source = e.NewValue as BitmapSource;
             ctl.UpdateDatas();
         }
 
         public ImageSource Source
         {
-            get => (ImageSource)GetValue(SourceProperty);
+            get => (ImageSource) GetValue(SourceProperty);
             set => SetValue(SourceProperty, value);
         }
 

@@ -84,7 +84,7 @@ namespace HandyControl.Data
                 while (written < cb)
                 {
                     var toRead = bufsize;
-                    if (written + toRead > cb) toRead = (int)(cb - written);
+                    if (written + toRead > cb) toRead = (int) (cb - written);
                     var read = Read(buffer, toRead);
                     if (read == 0) break;
                     if (pstm.Write(buffer, read) != read)
@@ -198,7 +198,7 @@ namespace HandyControl.Data
 
         public void Stat(IntPtr pstatstg, int grfStatFlag)
         {
-            var stats = new STATSTG {cbSize = DataStream.Length};
+            var stats = new STATSTG { cbSize = DataStream.Length };
             Marshal.StructureToPtr(stats, pstatstg, true);
         }
 

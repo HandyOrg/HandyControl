@@ -12,7 +12,7 @@ namespace HandyControl.Controls
         private static void OnFluidMoveBehaviorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is Panel panel)
-            {                
+            {
                 var collection = Interaction.GetBehaviors(panel);
                 var oldBehavior = GetTempFluidMoveBehavior(panel);
                 collection.ItemRemoved(oldBehavior);

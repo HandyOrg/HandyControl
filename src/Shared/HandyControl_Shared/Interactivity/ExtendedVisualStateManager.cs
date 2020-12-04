@@ -111,7 +111,7 @@ namespace HandyControl.Interactivity
             var sb = new Storyboard
             {
                 Duration = transition.GeneratedDuration,
-                Children = {element}
+                Children = { element }
             };
             Storyboard.SetTarget(element, stateGroupsRoot);
             Storyboard.SetTargetProperty(element,

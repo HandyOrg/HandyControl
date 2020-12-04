@@ -117,7 +117,7 @@ namespace HandyControl.Controls
 
         public bool ShowCancel
         {
-            get => (bool)GetValue(ShowCancelProperty);
+            get => (bool) GetValue(ShowCancelProperty);
             set => SetValue(ShowCancelProperty, ValueBoxes.BooleanBox(value));
         }
 

@@ -123,7 +123,7 @@ namespace HandyControl.Data
 
             for (index = 0; index < numCodecs; index++)
             {
-                var curcodec = (IntPtr)((long)memoryStart + Marshal.SizeOf(typeof(InteropValues.ImageCodecInfoPrivate)) * index);
+                var curcodec = (IntPtr) ((long) memoryStart + Marshal.SizeOf(typeof(InteropValues.ImageCodecInfoPrivate)) * index);
                 var codecp = new InteropValues.ImageCodecInfoPrivate();
                 InteropMethods.PtrToStructure(curcodec, codecp);
 
@@ -147,8 +147,8 @@ namespace HandyControl.Data
                     codecs[index].SignaturePatterns[j] = new byte[codecp.SigSize];
                     codecs[index].SignatureMasks[j] = new byte[codecp.SigSize];
 
-                    Marshal.Copy((IntPtr)((long)codecp.SigMask + j * codecp.SigSize), codecs[index].SignatureMasks[j], 0, codecp.SigSize);
-                    Marshal.Copy((IntPtr)((long)codecp.SigPattern + j * codecp.SigSize), codecs[index].SignaturePatterns[j], 0, codecp.SigSize);
+                    Marshal.Copy((IntPtr) ((long) codecp.SigMask + j * codecp.SigSize), codecs[index].SignatureMasks[j], 0, codecp.SigSize);
+                    Marshal.Copy((IntPtr) ((long) codecp.SigPattern + j * codecp.SigSize), codecs[index].SignaturePatterns[j], 0, codecp.SigSize);
                 }
             }
 

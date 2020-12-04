@@ -29,7 +29,7 @@ namespace HandyControl.Controls
             => element.SetValue(ToYProperty, value);
 
         public static double GetToY(DependencyObject element)
-            => (double)element.GetValue(ToYProperty);
+            => (double) element.GetValue(ToYProperty);
 
         public static readonly DependencyProperty DurationProperty = DependencyProperty.RegisterAttached(
             "Duration", typeof(Duration), typeof(FloatingBlock), new PropertyMetadata(new Duration(TimeSpan.FromSeconds(2))));
@@ -57,7 +57,7 @@ namespace HandyControl.Controls
 
         public static double GetVerticalOffset(DependencyObject element)
             => (double) element.GetValue(VerticalOffsetProperty);
-        
+
         public static readonly DependencyProperty ContentTemplateProperty = DependencyProperty.RegisterAttached(
             "ContentTemplate", typeof(DataTemplate), typeof(FloatingBlock), new PropertyMetadata(default(DataTemplate), OnDataChanged));
 
@@ -69,7 +69,7 @@ namespace HandyControl.Controls
 
         public DataTemplate ContentTemplate
         {
-            get => (DataTemplate)GetValue(ContentTemplateProperty);
+            get => (DataTemplate) GetValue(ContentTemplateProperty);
             set => SetValue(ContentTemplateProperty, value);
         }
 
@@ -80,7 +80,7 @@ namespace HandyControl.Controls
             => element.SetValue(ReadyToFloatProperty, ValueBoxes.BooleanBox(value));
 
         private static bool GetReadyToFloat(DependencyObject element)
-            => (bool)element.GetValue(ReadyToFloatProperty);
+            => (bool) element.GetValue(ReadyToFloatProperty);
 
         public static readonly DependencyProperty ContentProperty = DependencyProperty.RegisterAttached(
             "Content", typeof(object), typeof(FloatingBlock), new PropertyMetadata(default, OnDataChanged));

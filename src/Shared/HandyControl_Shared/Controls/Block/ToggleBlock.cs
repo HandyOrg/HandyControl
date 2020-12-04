@@ -24,7 +24,7 @@ namespace HandyControl.Controls
                 // Because Nullable<bool> unboxing is very slow (uses reflection) first we cast to bool
                 var value = GetValue(IsCheckedProperty);
                 // ReSharper disable once RedundantExplicitNullableCreation
-                return value == null ? new bool?() : new bool?((bool)value);
+                return value == null ? new bool?() : new bool?((bool) value);
             }
             set => SetValue(IsCheckedProperty, value.HasValue ? ValueBoxes.BooleanBox(value.Value) : null);
         }

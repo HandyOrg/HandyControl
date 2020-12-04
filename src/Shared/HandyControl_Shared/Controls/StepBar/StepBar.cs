@@ -82,12 +82,12 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty StepIndexProperty = DependencyProperty.Register(
-            "StepIndex", typeof(int), typeof(StepBar), new FrameworkPropertyMetadata(ValueBoxes.Int0Box, 
+            "StepIndex", typeof(int), typeof(StepBar), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
                 FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnStepIndexChanged, CoerceStepIndex));
 
         private static object CoerceStepIndex(DependencyObject d, object basevalue)
         {
-            var ctl = (StepBar)d;
+            var ctl = (StepBar) d;
             var stepIndex = (int) basevalue;
             if (ctl.Items.Count == 0 && stepIndex > 0)
             {
@@ -105,7 +105,7 @@ namespace HandyControl.Controls
         private static void OnStepIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (StepBar) d;
-            ctl.OnStepIndexChanged((int)e.NewValue);
+            ctl.OnStepIndexChanged((int) e.NewValue);
         }
 
         private void OnStepIndexChanged(int stepIndex)
@@ -129,7 +129,7 @@ namespace HandyControl.Controls
             if (ItemContainerGenerator.ContainerFromIndex(stepIndex) is StepBarItem stepItemSelected)
                 stepItemSelected.Status = StepStatus.UnderWay;
             _progressBarBack?.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(stepIndex));
-            
+
             RaiseEvent(new FunctionEventArgs<int>(StepChangedEvent, this)
             {
                 Info = stepIndex
@@ -138,7 +138,7 @@ namespace HandyControl.Controls
 
         public int StepIndex
         {
-            get => (int)GetValue(StepIndexProperty); 
+            get => (int) GetValue(StepIndexProperty);
             set => SetValue(StepIndexProperty, value);
         }
 
@@ -147,7 +147,7 @@ namespace HandyControl.Controls
 
         public Dock Dock
         {
-            get => (Dock)GetValue(DockProperty);
+            get => (Dock) GetValue(DockProperty);
             set => SetValue(DockProperty, value);
         }
 

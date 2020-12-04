@@ -13,7 +13,7 @@ namespace HandyControl.Controls
         private bool _isDisposed;
 
         public static readonly DependencyProperty NumberListProperty = DependencyProperty.Register(
-            "NumberList", typeof(List<int>), typeof(FlipClock), new PropertyMetadata(new List<int> {0, 0, 0, 0, 0, 0}));
+            "NumberList", typeof(List<int>), typeof(FlipClock), new PropertyMetadata(new List<int> { 0, 0, 0, 0, 0, 0 }));
 
         public List<int> NumberList
         {

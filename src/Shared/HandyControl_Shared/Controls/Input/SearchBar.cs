@@ -76,7 +76,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsRealTime
         {
-            get => (bool)GetValue(IsRealTimeProperty);
+            get => (bool) GetValue(IsRealTimeProperty);
             set => SetValue(IsRealTimeProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -85,7 +85,7 @@ namespace HandyControl.Controls
 
         private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (SearchBar)d;
+            var ctl = (SearchBar) d;
             if (e.OldValue is ICommand oldCommand)
             {
                 oldCommand.CanExecuteChanged -= ctl.CanExecuteChanged;

@@ -57,7 +57,7 @@ namespace HandyControl.Controls
 
         public IList SelectedItems
         {
-            get => (IList)GetValue(SelectedItemsProperty);
+            get => (IList) GetValue(SelectedItemsProperty);
             set => SetValue(SelectedItemsProperty, value);
         }
 

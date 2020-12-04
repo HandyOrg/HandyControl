@@ -102,7 +102,7 @@ namespace HandyControl.Controls
             }, (o, value) =>
             {
                 if (!(o is Pagination)) return 1;
-                var intValue = (int)value;
+                var intValue = (int) value;
                 if (intValue < 1)
                 {
                     return 1;
@@ -115,7 +115,7 @@ namespace HandyControl.Controls
         /// </summary>
         public int MaxPageCount
         {
-            get => (int)GetValue(MaxPageCountProperty);
+            get => (int) GetValue(MaxPageCountProperty);
             set => SetValue(MaxPageCountProperty, value);
         }
 
@@ -136,7 +136,7 @@ namespace HandyControl.Controls
             }, (o, value) =>
             {
                 if (!(o is Pagination)) return 1;
-                var intValue = (int)value;
+                var intValue = (int) value;
                 if (intValue < 1)
                 {
                     return 1;
@@ -149,7 +149,7 @@ namespace HandyControl.Controls
         /// </summary>
         public int DataCountPerPage
         {
-            get => (int)GetValue(DataCountPerPageProperty);
+            get => (int) GetValue(DataCountPerPageProperty);
             set => SetValue(DataCountPerPageProperty, value);
         }
 
@@ -174,7 +174,7 @@ namespace HandyControl.Controls
             }, (o, value) =>
             {
                 if (!(o is Pagination pagination)) return 1;
-                var intValue = (int)value;
+                var intValue = (int) value;
                 if (intValue < 0)
                 {
                     return 0;
@@ -188,7 +188,7 @@ namespace HandyControl.Controls
         /// </summary>
         public int PageIndex
         {
-            get => (int)GetValue(PageIndexProperty);
+            get => (int) GetValue(PageIndexProperty);
             set => SetValue(PageIndexProperty, value);
         }
 
@@ -208,7 +208,7 @@ namespace HandyControl.Controls
                 }
             }), value =>
             {
-                var intValue = (int)value;
+                var intValue = (int) value;
                 return intValue >= 0;
             });
 
@@ -217,7 +217,7 @@ namespace HandyControl.Controls
         /// </summary>   
         public int MaxPageInterval
         {
-            get => (int)GetValue(MaxPageIntervalProperty);
+            get => (int) GetValue(MaxPageIntervalProperty);
             set => SetValue(MaxPageIntervalProperty, value);
         }
 

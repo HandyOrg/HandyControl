@@ -10,7 +10,7 @@ namespace HandyControl.Interactivity
         private readonly object[] _parameters;
 
         public DefaultTriggerAttribute(Type targetType, Type triggerType, object parameter) : this(targetType,
-            triggerType, new[] {parameter})
+            triggerType, new[] { parameter })
         {
         }
 
@@ -19,7 +19,7 @@ namespace HandyControl.Interactivity
             if (!typeof(TriggerBase).IsAssignableFrom(triggerType))
                 throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
                     ExceptionStringTable.DefaultTriggerAttributeInvalidTriggerTypeSpecifiedExceptionMessage,
-                    new object[] {triggerType.Name}));
+                    new object[] { triggerType.Name }));
             TargetType = targetType;
             TriggerType = triggerType;
             _parameters = parameters;

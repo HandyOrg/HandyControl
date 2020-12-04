@@ -45,12 +45,12 @@ namespace HandyControl.Expression.Media
         {
             var startPoint = pathFigure.StartPoint;
             foreach (var iteratorVariable1 in pathFigure.AllSegments())
-            foreach (var iteratorVariable2 in iteratorVariable1.PathSegment.GetSimpleSegments(
-                iteratorVariable1.StartPoint))
-            {
-                yield return iteratorVariable2;
-                startPoint = iteratorVariable2.Points.Last();
-            }
+                foreach (var iteratorVariable2 in iteratorVariable1.PathSegment.GetSimpleSegments(
+                    iteratorVariable1.StartPoint))
+                {
+                    yield return iteratorVariable2;
+                    startPoint = iteratorVariable2.Points.Last();
+                }
 
             if (pathFigure.IsClosed) yield return SimpleSegment.Create(startPoint, pathFigure.StartPoint);
         }
@@ -103,7 +103,7 @@ namespace HandyControl.Expression.Media
                             var samplePoints = new List<Point>(sampleCount);
                             var sampleNormals = new List<Vector>(sampleCount);
                             var sampleIndex = 0;
-                            PolylineHelper.PathMarch(polyline, 0.0, 0.0, delegate(MarchLocation location)
+                            PolylineHelper.PathMarch(polyline, 0.0, 0.0, delegate (MarchLocation location)
                             {
                                 if (location.Reason == MarchStopReason.CompletePolyline) return double.NaN;
                                 if (location.Reason != MarchStopReason.CompleteStep) return location.Remain;

@@ -66,7 +66,7 @@ namespace HandyControl.Controls
 
         public bool IsSelected
         {
-            get => (bool)GetValue(IsSelectedProperty);
+            get => (bool) GetValue(IsSelectedProperty);
             set => SetValue(IsSelectedProperty, ValueBoxes.BooleanBox(value));
         }
 

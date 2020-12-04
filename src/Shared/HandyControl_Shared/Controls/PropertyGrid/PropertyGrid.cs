@@ -30,7 +30,7 @@ namespace HandyControl.Controls
         public PropertyGrid()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategory, SortByCategory, (s, e) => e.CanExecute = ShowSortButton));
-            CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName, (s, e)=> e.CanExecute = ShowSortButton));
+            CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName, (s, e) => e.CanExecute = ShowSortButton));
         }
 
         public virtual PropertyResolver PropertyResolver { get; } = new PropertyResolver();
@@ -50,7 +50,7 @@ namespace HandyControl.Controls
 
         private static void OnSelectedObjectChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (PropertyGrid)d;
+            var ctl = (PropertyGrid) d;
             ctl.OnSelectedObjectChanged(e.OldValue, e.NewValue);
         }
 
@@ -71,7 +71,7 @@ namespace HandyControl.Controls
 
         public string Description
         {
-            get => (string)GetValue(DescriptionProperty);
+            get => (string) GetValue(DescriptionProperty);
             set => SetValue(DescriptionProperty, value);
         }
 

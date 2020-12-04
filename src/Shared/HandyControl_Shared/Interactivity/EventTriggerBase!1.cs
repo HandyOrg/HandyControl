@@ -16,6 +16,6 @@
             OnSourceChanged(oldSource as T, newSource as T);
         }
 
-        public new T Source => (T)base.Source;
+        public new T Source => (T) base.Source;
     }
 }

@@ -125,11 +125,11 @@ namespace HandyControl.Controls
         protected virtual Ellipse CreateEllipse(int index)
         {
             var ellipse = new Ellipse();
-            ellipse.SetBinding(WidthProperty, new Binding(DotDiameterProperty.Name) {Source = this});
-            ellipse.SetBinding(HeightProperty, new Binding(DotDiameterProperty.Name) {Source = this});
-            ellipse.SetBinding(Shape.FillProperty, new Binding(ForegroundProperty.Name) {Source = this});
-            ellipse.SetBinding(Shape.StrokeThicknessProperty, new Binding(DotBorderThicknessProperty.Name) {Source = this});
-            ellipse.SetBinding(Shape.StrokeProperty, new Binding(DotBorderBrushProperty.Name) {Source = this});
+            ellipse.SetBinding(WidthProperty, new Binding(DotDiameterProperty.Name) { Source = this });
+            ellipse.SetBinding(HeightProperty, new Binding(DotDiameterProperty.Name) { Source = this });
+            ellipse.SetBinding(Shape.FillProperty, new Binding(ForegroundProperty.Name) { Source = this });
+            ellipse.SetBinding(Shape.StrokeThicknessProperty, new Binding(DotBorderThicknessProperty.Name) { Source = this });
+            ellipse.SetBinding(Shape.StrokeProperty, new Binding(DotBorderBrushProperty.Name) { Source = this });
             return ellipse;
         }
     }

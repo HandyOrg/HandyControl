@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -187,8 +187,8 @@ namespace HandyControl.Controls
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NumericUpDown)d;
-            var v = (double)e.NewValue;
+            var ctl = (NumericUpDown) d;
+            var v = (double) e.NewValue;
             ctl.SetText();
 
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
@@ -208,9 +208,9 @@ namespace HandyControl.Controls
 
         private static object CoerceValue(DependencyObject d, object basevalue)
         {
-            var ctl = (NumericUpDown)d;
+            var ctl = (NumericUpDown) d;
             var minimum = ctl.Minimum;
-            var num = (double)basevalue;
+            var num = (double) basevalue;
             if (num < minimum)
             {
                 ctl.Value = minimum;
@@ -230,7 +230,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double Value
         {
-            get => (double)GetValue(ValueProperty);
+            get => (double) GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
 
@@ -242,15 +242,15 @@ namespace HandyControl.Controls
 
         private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NumericUpDown)d;
+            var ctl = (NumericUpDown) d;
             ctl.CoerceValue(MinimumProperty);
             ctl.CoerceValue(ValueProperty);
         }
 
         private static object CoerceMaximum(DependencyObject d, object basevalue)
         {
-            var minimum = ((NumericUpDown)d).Minimum;
-            return (double)basevalue < minimum ? minimum : basevalue;
+            var minimum = ((NumericUpDown) d).Minimum;
+            return (double) basevalue < minimum ? minimum : basevalue;
         }
 
         /// <summary>
@@ -258,7 +258,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double Maximum
         {
-            get => (double)GetValue(MaximumProperty);
+            get => (double) GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
 
@@ -270,15 +270,15 @@ namespace HandyControl.Controls
 
         private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NumericUpDown)d;
+            var ctl = (NumericUpDown) d;
             ctl.CoerceValue(MaximumProperty);
             ctl.CoerceValue(ValueProperty);
         }
 
         private static object CoerceMinimum(DependencyObject d, object basevalue)
         {
-            var maximum = ((NumericUpDown)d).Maximum;
-            return (double)basevalue > maximum ? maximum : basevalue;
+            var maximum = ((NumericUpDown) d).Maximum;
+            return (double) basevalue > maximum ? maximum : basevalue;
         }
 
         /// <summary>
@@ -286,7 +286,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double Minimum
         {
-            get => (double)GetValue(MinimumProperty);
+            get => (double) GetValue(MinimumProperty);
             set => SetValue(MinimumProperty, value);
         }
 
@@ -301,7 +301,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double Increment
         {
-            get => (double)GetValue(IncrementProperty);
+            get => (double) GetValue(IncrementProperty);
             set => SetValue(IncrementProperty, value);
         }
 
@@ -316,7 +316,7 @@ namespace HandyControl.Controls
         /// </summary>
         public int? DecimalPlaces
         {
-            get => (int?)GetValue(DecimalPlacesProperty);
+            get => (int?) GetValue(DecimalPlacesProperty);
             set => SetValue(DecimalPlacesProperty, value);
         }
 
@@ -346,7 +346,7 @@ namespace HandyControl.Controls
         /// </summary>
         internal bool ShowUpDownButton
         {
-            get => (bool)GetValue(ShowUpDownButtonProperty);
+            get => (bool) GetValue(ShowUpDownButtonProperty);
             set => SetValue(ShowUpDownButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -358,7 +358,7 @@ namespace HandyControl.Controls
 
         public bool IsError
         {
-            get => (bool)GetValue(IsErrorProperty);
+            get => (bool) GetValue(IsErrorProperty);
             set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -370,7 +370,7 @@ namespace HandyControl.Controls
 
         public string ErrorStr
         {
-            get => (string)GetValue(ErrorStrProperty);
+            get => (string) GetValue(ErrorStrProperty);
             set => SetValue(ErrorStrProperty, value);
         }
 
@@ -385,7 +385,7 @@ namespace HandyControl.Controls
 
         public TextType TextType
         {
-            get => (TextType)GetValue(TextTypeProperty);
+            get => (TextType) GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 
@@ -397,7 +397,7 @@ namespace HandyControl.Controls
 
         public bool ShowClearButton
         {
-            get => (bool)GetValue(ShowClearButtonProperty);
+            get => (bool) GetValue(ShowClearButtonProperty);
             set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -412,7 +412,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsReadOnly
         {
-            get => (bool)GetValue(IsReadOnlyProperty);
+            get => (bool) GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -421,7 +421,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionBrush
         {
-            get => (Brush)GetValue(SelectionBrushProperty);
+            get => (Brush) GetValue(SelectionBrushProperty);
             set => SetValue(SelectionBrushProperty, value);
         }
 
@@ -432,7 +432,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionTextBrush
         {
-            get => (Brush)GetValue(SelectionTextBrushProperty);
+            get => (Brush) GetValue(SelectionTextBrushProperty);
             set => SetValue(SelectionTextBrushProperty, value);
         }
 
@@ -443,7 +443,7 @@ namespace HandyControl.Controls
 
         public double SelectionOpacity
         {
-            get => (double)GetValue(SelectionOpacityProperty);
+            get => (double) GetValue(SelectionOpacityProperty);
             set => SetValue(SelectionOpacityProperty, value);
         }
 
@@ -452,7 +452,7 @@ namespace HandyControl.Controls
 
         public Brush CaretBrush
         {
-            get => (Brush)GetValue(CaretBrushProperty);
+            get => (Brush) GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
 

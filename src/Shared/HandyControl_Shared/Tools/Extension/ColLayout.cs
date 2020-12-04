@@ -39,7 +39,7 @@ namespace HandyControl.Tools.Extension
 
         public ColLayout()
         {
-            
+
         }
 
         public ColLayout(int uniformWidth)

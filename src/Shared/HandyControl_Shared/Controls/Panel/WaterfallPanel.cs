@@ -17,7 +17,7 @@ namespace HandyControl.Controls
             set => SetValue(GroupsProperty, value);
         }
 
-        private static bool IsGroupsValid(object value) => (int)value >= 1;
+        private static bool IsGroupsValid(object value) => (int) value >= 1;
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
             "Orientation", typeof(Orientation), typeof(WaterfallPanel), new FrameworkPropertyMetadata(
@@ -27,7 +27,7 @@ namespace HandyControl.Controls
         {
             get => (Orientation) GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
-        }       
+        }
 
         protected override Size MeasureOverride(Size constraint)
         {

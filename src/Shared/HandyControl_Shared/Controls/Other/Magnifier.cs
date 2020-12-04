@@ -45,11 +45,11 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(
             "Scale", typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged), ValidateHelper.IsInRangeOfPosDouble);
 
-        private static void OnScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((Magnifier)d).UpdateViewboxSize();
+        private static void OnScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((Magnifier) d).UpdateViewboxSize();
 
         public double Scale
         {
-            get => (double)GetValue(ScaleProperty);
+            get => (double) GetValue(ScaleProperty);
             set => SetValue(ScaleProperty, value);
         }
 
@@ -76,7 +76,7 @@ namespace HandyControl.Controls
 
         private void UpdateViewboxSize() => _viewboxSize = new Size(ActualWidth / Scale, ActualHeight / Scale);
 
-        protected sealed override void OnTargetChanged(FrameworkElement element , bool isNew)
+        protected sealed override void OnTargetChanged(FrameworkElement element, bool isNew)
         {
             base.OnTargetChanged(element, isNew);
 
@@ -129,7 +129,7 @@ namespace HandyControl.Controls
             {
                 layer.Remove(_adornerContainer);
             }
-            else if(_adornerContainer != null && _adornerContainer.Parent is AdornerLayer parent)
+            else if (_adornerContainer != null && _adornerContainer.Parent is AdornerLayer parent)
             {
                 parent.Remove(_adornerContainer);
             }

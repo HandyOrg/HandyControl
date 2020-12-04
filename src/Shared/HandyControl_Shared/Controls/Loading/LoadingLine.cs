@@ -12,11 +12,11 @@ namespace HandyControl.Controls
         private const double MoveLength = 80;
 
         private const double UniformScale = .6;
-      
+
         public LoadingLine()
         {
             SetBinding(HeightProperty, new Binding("DotDiameter") { Source = this });
-        }        
+        }
 
         protected sealed override void UpdateDots()
         {
@@ -64,7 +64,7 @@ namespace HandyControl.Controls
                         EasingMode = EasingMode.EaseOut
                     },
                     Value = new Thickness(speedDownLength + ellipse.Margin.Left, 0, 0, 0),
-                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (1 - UniformScale)/2))
+                    KeyTime = KeyTime.FromTimeSpan(TimeSpan.FromSeconds(dotSpeed * (1 - UniformScale) / 2))
                 };
 
                 //匀速开始到匀速结束

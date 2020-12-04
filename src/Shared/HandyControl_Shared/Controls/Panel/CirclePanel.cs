@@ -65,7 +65,7 @@ namespace HandyControl.Controls
                 var centerX = element.DesiredSize.Width / 2.0;
                 var centerY = element.DesiredSize.Height / 2.0;
                 var angle = perDeg * i++ + offsetAngle;
-                
+
                 var transform = new RotateTransform
                 {
                     CenterX = centerX,
@@ -73,14 +73,14 @@ namespace HandyControl.Controls
                     Angle = keepVertical ? 0 : angle
                 };
                 element.RenderTransform = transform;
-                
+
                 var r = Math.PI * angle / 180.0;
                 var x = radius * Math.Cos(r);
                 var y = radius * Math.Sin(r);
-                
+
                 var rectX = x + finalSize.Width / 2 - centerX;
                 var rectY = y + finalSize.Height / 2 - centerY;
-                
+
                 element.Arrange(new Rect(rectX, rectY, element.DesiredSize.Width, element.DesiredSize.Height));
             }
 

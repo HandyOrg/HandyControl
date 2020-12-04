@@ -56,8 +56,8 @@ namespace HandyControl.Data
         public Color GetColor(double range)
         {
             if (range < 0 || range > 1) return default;
-            return Color.FromArgb((byte)(_start.A - _subColorArr[0] * range), (byte)(_start.R - _subColorArr[1] * range),
-                (byte)(_start.G - _subColorArr[2] * range), (byte)(_start.B - _subColorArr[3] * range));
+            return Color.FromArgb((byte) (_start.A - _subColorArr[0] * range), (byte) (_start.R - _subColorArr[1] * range),
+                (byte) (_start.G - _subColorArr[2] * range), (byte) (_start.B - _subColorArr[3] * range));
         }
     }
 }

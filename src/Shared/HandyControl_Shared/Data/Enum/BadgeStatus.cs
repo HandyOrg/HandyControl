@@ -2,8 +2,8 @@
 {
     public enum BadgeStatus
     {
-        Text, 
-        Dot, 
+        Text,
+        Dot,
         Processing
     }
 }

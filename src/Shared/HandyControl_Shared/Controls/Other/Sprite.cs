@@ -24,7 +24,7 @@ namespace HandyControl.Controls
             {
                 _isLeftButtonPressed = true;
             }
-            else if(_isLeftButtonPressed)
+            else if (_isLeftButtonPressed)
             {
                 if (Left < 0)
                 {

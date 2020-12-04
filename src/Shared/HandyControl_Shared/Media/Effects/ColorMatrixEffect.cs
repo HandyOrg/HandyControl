@@ -55,7 +55,7 @@ namespace HandyControl.Media.Effects
 
         public double M11
         {
-            get => (double)GetValue(M11Property);
+            get => (double) GetValue(M11Property);
             set => SetValue(M11Property, value);
         }
 
@@ -64,7 +64,7 @@ namespace HandyControl.Media.Effects
 
         public double M21
         {
-            get => (double)GetValue(M21Property);
+            get => (double) GetValue(M21Property);
             set => SetValue(M21Property, value);
         }
 
@@ -73,7 +73,7 @@ namespace HandyControl.Media.Effects
 
         public double M31
         {
-            get => (double)GetValue(M31Property);
+            get => (double) GetValue(M31Property);
             set => SetValue(M31Property, value);
         }
 
@@ -82,7 +82,7 @@ namespace HandyControl.Media.Effects
 
         public double M41
         {
-            get => (double)GetValue(M41Property);
+            get => (double) GetValue(M41Property);
             set => SetValue(M41Property, value);
         }
 
@@ -91,7 +91,7 @@ namespace HandyControl.Media.Effects
 
         public double M51
         {
-            get => (double)GetValue(M51Property);
+            get => (double) GetValue(M51Property);
             set => SetValue(M51Property, value);
         }
 
@@ -104,7 +104,7 @@ namespace HandyControl.Media.Effects
 
         public double M12
         {
-            get => (double)GetValue(M12Property);
+            get => (double) GetValue(M12Property);
             set => SetValue(M12Property, value);
         }
 
@@ -113,7 +113,7 @@ namespace HandyControl.Media.Effects
 
         public double M22
         {
-            get => (double)GetValue(M22Property);
+            get => (double) GetValue(M22Property);
             set => SetValue(M22Property, value);
         }
 
@@ -122,7 +122,7 @@ namespace HandyControl.Media.Effects
 
         public double M32
         {
-            get => (double)GetValue(M32Property);
+            get => (double) GetValue(M32Property);
             set => SetValue(M32Property, value);
         }
 
@@ -131,7 +131,7 @@ namespace HandyControl.Media.Effects
 
         public double M42
         {
-            get => (double)GetValue(M42Property);
+            get => (double) GetValue(M42Property);
             set => SetValue(M42Property, value);
         }
 
@@ -140,7 +140,7 @@ namespace HandyControl.Media.Effects
 
         public double M52
         {
-            get => (double)GetValue(M52Property);
+            get => (double) GetValue(M52Property);
             set => SetValue(M52Property, value);
         }
 
@@ -153,7 +153,7 @@ namespace HandyControl.Media.Effects
 
         public double M13
         {
-            get => (double)GetValue(M13Property);
+            get => (double) GetValue(M13Property);
             set => SetValue(M13Property, value);
         }
 
@@ -162,7 +162,7 @@ namespace HandyControl.Media.Effects
 
         public double M23
         {
-            get => (double)GetValue(M23Property);
+            get => (double) GetValue(M23Property);
             set => SetValue(M23Property, value);
         }
 
@@ -171,7 +171,7 @@ namespace HandyControl.Media.Effects
 
         public double M33
         {
-            get => (double)GetValue(M33Property);
+            get => (double) GetValue(M33Property);
             set => SetValue(M33Property, value);
         }
 
@@ -180,7 +180,7 @@ namespace HandyControl.Media.Effects
 
         public double M43
         {
-            get => (double)GetValue(M43Property);
+            get => (double) GetValue(M43Property);
             set => SetValue(M43Property, value);
         }
 
@@ -189,7 +189,7 @@ namespace HandyControl.Media.Effects
 
         public double M53
         {
-            get => (double)GetValue(M53Property);
+            get => (double) GetValue(M53Property);
             set => SetValue(M53Property, value);
         }
 
@@ -202,7 +202,7 @@ namespace HandyControl.Media.Effects
 
         public double M14
         {
-            get => (double)GetValue(M14Property);
+            get => (double) GetValue(M14Property);
             set => SetValue(M14Property, value);
         }
 
@@ -211,7 +211,7 @@ namespace HandyControl.Media.Effects
 
         public double M24
         {
-            get => (double)GetValue(M24Property);
+            get => (double) GetValue(M24Property);
             set => SetValue(M24Property, value);
         }
 
@@ -220,7 +220,7 @@ namespace HandyControl.Media.Effects
 
         public double M34
         {
-            get => (double)GetValue(M34Property);
+            get => (double) GetValue(M34Property);
             set => SetValue(M34Property, value);
         }
 
@@ -229,7 +229,7 @@ namespace HandyControl.Media.Effects
 
         public double M44
         {
-            get => (double)GetValue(M44Property);
+            get => (double) GetValue(M44Property);
             set => SetValue(M44Property, value);
         }
 
@@ -238,7 +238,7 @@ namespace HandyControl.Media.Effects
 
         public double M54
         {
-            get => (double)GetValue(M54Property);
+            get => (double) GetValue(M54Property);
             set => SetValue(M54Property, value);
         }
 

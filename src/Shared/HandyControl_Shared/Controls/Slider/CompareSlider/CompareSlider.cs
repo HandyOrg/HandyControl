@@ -21,6 +21,6 @@ namespace HandyControl.Controls
         {
             get => GetValue(SourceContentProperty);
             set => SetValue(SourceContentProperty, value);
-        }        
+        }
     }
 }

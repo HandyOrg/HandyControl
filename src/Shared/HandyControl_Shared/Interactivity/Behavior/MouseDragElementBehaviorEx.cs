@@ -37,19 +37,19 @@ namespace HandyControl.Interactivity
 
         public double X
         {
-            get => (double)GetValue(MouseDragElementBehavior.XProperty);
+            get => (double) GetValue(MouseDragElementBehavior.XProperty);
             set => SetValue(MouseDragElementBehavior.XProperty, value);
         }
 
         public double Y
         {
-            get => (double)GetValue(MouseDragElementBehavior.YProperty);
+            get => (double) GetValue(MouseDragElementBehavior.YProperty);
             set => SetValue(MouseDragElementBehavior.YProperty, value);
         }
 
         public bool ConstrainToParentBounds
         {
-            get => (bool)GetValue(MouseDragElementBehavior.ConstrainToParentBoundsProperty);
+            get => (bool) GetValue(MouseDragElementBehavior.ConstrainToParentBoundsProperty);
             set => SetValue(MouseDragElementBehavior.ConstrainToParentBoundsProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -103,19 +103,19 @@ namespace HandyControl.Interactivity
 
         private static void OnXChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-            var dragElementBehavior = (MouseDragElementBehaviorEx)sender;
-            dragElementBehavior.UpdatePosition(new Point((double)args.NewValue, dragElementBehavior.Y));
+            var dragElementBehavior = (MouseDragElementBehaviorEx) sender;
+            dragElementBehavior.UpdatePosition(new Point((double) args.NewValue, dragElementBehavior.Y));
         }
 
         private static void OnYChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-            var dragElementBehavior = (MouseDragElementBehaviorEx)sender;
-            dragElementBehavior.UpdatePosition(new Point(dragElementBehavior.X, (double)args.NewValue));
+            var dragElementBehavior = (MouseDragElementBehaviorEx) sender;
+            dragElementBehavior.UpdatePosition(new Point(dragElementBehavior.X, (double) args.NewValue));
         }
 
         private static void OnConstrainToParentBoundsChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-            var dragElementBehavior = (MouseDragElementBehaviorEx)sender;
+            var dragElementBehavior = (MouseDragElementBehaviorEx) sender;
             dragElementBehavior.UpdatePosition(new Point(dragElementBehavior.X, dragElementBehavior.Y));
         }
 

@@ -11,7 +11,7 @@ namespace HandyControl.Controls
         public static void SetGeometry(DependencyObject element, Geometry value)
             => element.SetValue(GeometryProperty, value);
 
-        public static Geometry GetGeometry(DependencyObject element) 
+        public static Geometry GetGeometry(DependencyObject element)
             => (Geometry) element.GetValue(GeometryProperty);
 
         public static readonly DependencyProperty WidthProperty = DependencyProperty.RegisterAttached(

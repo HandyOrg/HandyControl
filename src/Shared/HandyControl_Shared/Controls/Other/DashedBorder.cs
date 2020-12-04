@@ -29,7 +29,7 @@ namespace HandyControl.Controls
 
         private static void OnClearPenCache(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var border = (DashedBorder)d;
+            var border = (DashedBorder) d;
             border.LeftPenCache = null;
             border.RightPenCache = null;
             border.TopPenCache = null;
@@ -302,9 +302,9 @@ namespace HandyControl.Controls
                 var dpiScaleY = DpiHelper.DeviceDpiY;
 
                 borderThickness = new Thickness(
-                    DpiHelper.RoundLayoutValue(borderThickness.Left, dpiScaleX), 
+                    DpiHelper.RoundLayoutValue(borderThickness.Left, dpiScaleX),
                     DpiHelper.RoundLayoutValue(borderThickness.Top, dpiScaleY),
-                    DpiHelper.RoundLayoutValue(borderThickness.Right, dpiScaleX), 
+                    DpiHelper.RoundLayoutValue(borderThickness.Right, dpiScaleX),
                     DpiHelper.RoundLayoutValue(borderThickness.Bottom, dpiScaleY));
             }
 

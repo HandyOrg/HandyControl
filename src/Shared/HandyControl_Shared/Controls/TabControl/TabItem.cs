@@ -140,7 +140,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool ShowCloseButton
         {
-            get => (bool)GetValue(ShowCloseButtonProperty);
+            get => (bool) GetValue(ShowCloseButtonProperty);
             set => SetValue(ShowCloseButtonProperty, value);
         }
 
@@ -148,7 +148,7 @@ namespace HandyControl.Controls
             => element.SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowCloseButton(DependencyObject element)
-            => (bool)element.GetValue(ShowCloseButtonProperty);
+            => (bool) element.GetValue(ShowCloseButtonProperty);
 
         /// <summary>
         ///     是否显示上下文菜单
@@ -161,7 +161,7 @@ namespace HandyControl.Controls
             var ctl = (TabItem) d;
             if (ctl.Menu != null)
             {
-                var show = (bool)e.NewValue;
+                var show = (bool) e.NewValue;
                 ctl.Menu.IsEnabled = show;
                 ctl.Menu.Show(show);
             }
@@ -180,7 +180,7 @@ namespace HandyControl.Controls
             => element.SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowContextMenu(DependencyObject element)
-            => (bool)element.GetValue(ShowContextMenuProperty);
+            => (bool) element.GetValue(ShowContextMenuProperty);
 
         public static readonly DependencyProperty MenuProperty = DependencyProperty.Register(
             "Menu", typeof(ContextMenu), typeof(TabItem), new PropertyMetadata(default(ContextMenu), OnMenuChanged));
@@ -283,7 +283,7 @@ namespace HandyControl.Controls
             TabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, parent.IsAnimationEnabled
                     ? new Duration(TimeSpan.FromMilliseconds(200))
                     : new Duration(TimeSpan.FromMilliseconds(1)));
-            
+
             parent.IsInternalAction = true;
             RaiseEvent(new RoutedEventArgs(ClosedEvent, item));
 
@@ -332,18 +332,18 @@ namespace HandyControl.Controls
 
                 var subX = TranslatePoint(new Point(), parent).X + _scrollHorizontalOffset;
                 CurrentIndex = CalLocationIndex(subX);
-                
+
                 var p = e.GetPosition(parent);
                 p = new Point(p.X + _scrollHorizontalOffset, p.Y);
-                
+
                 var subLeft = p.X - _dragPoint.X;
                 var totalLeft = p.X - _mouseDownPoint.X;
 
                 if (Math.Abs(subLeft) <= WaitLength && _isWaiting) return;
-                
+
                 _isWaiting = false;
                 _isDragged = true;
-                
+
                 var left = subLeft + RenderTransform.Value.OffsetX;
                 if (totalLeft < _maxMoveLeft)
                 {
@@ -353,7 +353,7 @@ namespace HandyControl.Controls
                 {
                     left = _maxMoveRight + _mouseDownOffsetX;
                 }
-                
+
                 var t = new TranslateTransform(left, 0);
                 RenderTransform = t;
                 _dragPoint = p;
@@ -363,9 +363,9 @@ namespace HandyControl.Controls
         protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
         {
             base.OnMouseLeftButtonUp(e);
-            
+
             ReleaseMouseCapture();
-            
+
             if (_isDragged)
             {
                 var parent = TabControlParent;
@@ -377,7 +377,7 @@ namespace HandyControl.Controls
                 var offsetX = RenderTransform.Value.OffsetX;
                 CreateAnimation(offsetX, offsetX - subX + left, index);
             }
-            
+
             _isDragging = false;
             ItemIsDragging = false;
             _isDragged = false;
@@ -412,7 +412,7 @@ namespace HandyControl.Controls
                 TabPanel.ForceUpdate = true;
                 TabPanel.Measure(new Size(TabPanel.DesiredSize.Width, ActualHeight));
                 TabPanel.ForceUpdate = false;
-                
+
                 Focus();
                 IsSelected = true;
 
@@ -447,10 +447,10 @@ namespace HandyControl.Controls
             if (_isWaiting)
             {
                 return CurrentIndex;
-            } 
-            
+            }
+
             var maxIndex = TabControlParent.Items.Count - 1;
-            var div = (int)(left / ItemWidth);
+            var div = (int) (left / ItemWidth);
             var rest = left % ItemWidth;
             var result = rest / ItemWidth > .5 ? div + 1 : div;
 
