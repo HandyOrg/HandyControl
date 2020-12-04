@@ -112,6 +112,6 @@ namespace HandyControl.Tools
         private byte[] GetHatchData(HatchStyle hatchStyle) =>
             hatchStyle < HatchStyle.Horizontal || hatchStyle > HatchStyle.SolidDiamond
                 ? throw new ArgumentOutOfRangeException(nameof(hatchStyle))
-                : HatchBrushes[(int)hatchStyle];
+                : HatchBrushes[(int) hatchStyle];
     }
 }

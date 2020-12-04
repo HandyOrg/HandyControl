@@ -30,8 +30,8 @@ namespace HandyControl.Controls
         internal static readonly DependencyProperty UriProperty = DependencyProperty.Register(
             "Uri", typeof(Uri), typeof(ImagePropertyEditor), new PropertyMetadata(default(Uri), OnUriChangedCallback));
 
-        private static void OnUriChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e) => 
-            ((ImagePropertyEditor)d).Source = e.NewValue is Uri uri ? BitmapFrame.Create(uri) : null;
+        private static void OnUriChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
+            ((ImagePropertyEditor) d).Source = e.NewValue is Uri uri ? BitmapFrame.Create(uri) : null;
 
         internal Uri Uri
         {

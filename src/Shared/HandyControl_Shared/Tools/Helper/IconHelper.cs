@@ -37,7 +37,7 @@ namespace HandyControl.Tools
             {
                 bf = GetBestMatch(bf.Decoder.Frames, size);
 
-                asGoodAsItGets = bf.Decoder is IconBitmapDecoder || bf.PixelWidth == (int)size.Width && bf.PixelHeight == (int)size.Height;
+                asGoodAsItGets = bf.Decoder is IconBitmapDecoder || bf.PixelWidth == (int) size.Width && bf.PixelHeight == (int) size.Height;
 
                 image = bf;
             }
@@ -130,7 +130,7 @@ namespace HandyControl.Tools
                 var hPos = i % width;
                 var vPos = i / width;
                 var byteIndex = hPos / 8;
-                var offsetBit = (byte)(0x80 >> (hPos % 8));
+                var offsetBit = (byte) (0x80 >> (hPos % 8));
 
                 if (colorArray[i * 4 + 3] == 0x00)
                 {
@@ -138,7 +138,7 @@ namespace HandyControl.Tools
                 }
                 else
                 {
-                    bitsMask[byteIndex + bytesPerScanLine * vPos] &= (byte)~offsetBit;
+                    bitsMask[byteIndex + bytesPerScanLine * vPos] &= (byte) ~offsetBit;
                 }
 
                 if (hPos == width - 1 && width == 8)
@@ -153,7 +153,7 @@ namespace HandyControl.Tools
         internal static int AlignToBytes(double original, int nBytesCount)
         {
             var nBitsCount = 8 << (nBytesCount - 1);
-            return ((int)Math.Ceiling(original) + (nBitsCount - 1)) / nBitsCount * nBitsCount;
+            return ((int) Math.Ceiling(original) + (nBitsCount - 1)) / nBitsCount * nBitsCount;
         }
 
         private static BitmapSource GenerateBitmapSource(ImageSource img, Size renderSize)
@@ -183,7 +183,7 @@ namespace HandyControl.Tools
             dc.DrawImage(img, drawingDimensions);
             dc.Close();
 
-            var bmp = new RenderTargetBitmap((int)renderSize.Width, (int)renderSize.Height, 96, 96, PixelFormats.Pbgra32);
+            var bmp = new RenderTargetBitmap((int) renderSize.Width, (int) renderSize.Height, 96, 96, PixelFormats.Pbgra32);
             bmp.Render(dv);
 
             return bmp;
@@ -229,8 +229,8 @@ namespace HandyControl.Tools
         private static int MatchImage(BitmapFrame frame, Size size, int bpp)
         {
             var score = 2 * MyAbs(bpp, SystemBitDepth, false) +
-                        MyAbs(frame.PixelWidth, (int)size.Width, true) +
-                        MyAbs(frame.PixelHeight, (int)size.Height, true);
+                        MyAbs(frame.PixelWidth, (int) size.Width, true) +
+                        MyAbs(frame.PixelHeight, (int) size.Height, true);
 
             return score;
         }
@@ -257,7 +257,7 @@ namespace HandyControl.Tools
                 {
                     var sysBitDepth = InteropMethods.GetDeviceCaps(hdcDesktop, InteropValues.BITSPIXEL);
                     sysBitDepth *= InteropMethods.GetDeviceCaps(hdcDesktop, InteropValues.PLANES);
- 
+
                     if (sysBitDepth == 8)
                     {
                         sysBitDepth = 4;

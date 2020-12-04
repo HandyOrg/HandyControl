@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Windows;
+using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
-using GalaSoft.MvvmLight.Command;
 
 namespace HandyControlDemo.ViewModel
 {

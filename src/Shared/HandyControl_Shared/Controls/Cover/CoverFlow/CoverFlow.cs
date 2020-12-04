@@ -40,8 +40,8 @@ namespace HandyControl.Controls
 
         private static object CoercePageIndex(DependencyObject d, object baseValue)
         {
-            var ctl = (CoverFlow)d;
-            var v = (int)baseValue;
+            var ctl = (CoverFlow) d;
+            var v = (int) baseValue;
 
             if (v < 0)
             {
@@ -56,8 +56,8 @@ namespace HandyControl.Controls
 
         private static void OnPageIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (CoverFlow)d;
-            ctl.UpdateIndex((int)e.NewValue);
+            var ctl = (CoverFlow) d;
+            ctl.UpdateIndex((int) e.NewValue);
         }
 
         /// <summary>
@@ -113,7 +113,7 @@ namespace HandyControl.Controls
         /// </summary>
         public int PageIndex
         {
-            get => (int)GetValue(PageIndexProperty);
+            get => (int) GetValue(PageIndexProperty);
             internal set => SetValue(PageIndexProperty, value);
         }
 
@@ -122,7 +122,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool Loop
         {
-            get => (bool)GetValue(LoopProperty);
+            get => (bool) GetValue(LoopProperty);
             set => SetValue(LoopProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -217,7 +217,7 @@ namespace HandyControl.Controls
 
         private void Viewport3D_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            var result = (RayMeshGeometry3DHitTestResult)VisualTreeHelper.HitTest(_viewport3D, e.GetPosition(_viewport3D));
+            var result = (RayMeshGeometry3DHitTestResult) VisualTreeHelper.HitTest(_viewport3D, e.GetPosition(_viewport3D));
             if (result != null)
             {
                 foreach (var item in _itemShowDic.Values)

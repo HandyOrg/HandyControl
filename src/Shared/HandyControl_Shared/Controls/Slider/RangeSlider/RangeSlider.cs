@@ -18,7 +18,7 @@ namespace HandyControl.Controls
     [TemplatePart(Name = ElementTrack, Type = typeof(Track))]
     public class RangeSlider : TwoWayRangeBase
     {
-        private const string ElementTrack= "PART_Track";
+        private const string ElementTrack = "PART_Track";
 
         private RangeTrack _track;
 
@@ -136,7 +136,7 @@ namespace HandyControl.Controls
 
         public Orientation Orientation
         {
-            get => (Orientation)GetValue(OrientationProperty);
+            get => (Orientation) GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
 
@@ -145,7 +145,7 @@ namespace HandyControl.Controls
 
         public bool IsDirectionReversed
         {
-            get => (bool)GetValue(IsDirectionReversedProperty);
+            get => (bool) GetValue(IsDirectionReversedProperty);
             set => SetValue(IsDirectionReversedProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -153,7 +153,7 @@ namespace HandyControl.Controls
 
         public int Delay
         {
-            get => (int)GetValue(DelayProperty);
+            get => (int) GetValue(DelayProperty);
             set => SetValue(DelayProperty, value);
         }
 
@@ -169,7 +169,7 @@ namespace HandyControl.Controls
 
         public int Interval
         {
-            get => (int)GetValue(IntervalProperty);
+            get => (int) GetValue(IntervalProperty);
             set => SetValue(IntervalProperty, value);
         }
 
@@ -186,7 +186,7 @@ namespace HandyControl.Controls
 
         public AutoToolTipPlacement AutoToolTipPlacement
         {
-            get => (AutoToolTipPlacement)GetValue(AutoToolTipPlacementProperty);
+            get => (AutoToolTipPlacement) GetValue(AutoToolTipPlacementProperty);
             set => SetValue(AutoToolTipPlacementProperty, value);
         }
 
@@ -196,7 +196,7 @@ namespace HandyControl.Controls
 
         public int AutoToolTipPrecision
         {
-            get => (int)GetValue(AutoToolTipPrecisionProperty);
+            get => (int) GetValue(AutoToolTipPrecisionProperty);
             set => SetValue(AutoToolTipPrecisionProperty, value);
         }
 
@@ -205,7 +205,7 @@ namespace HandyControl.Controls
 
         public bool IsSnapToTickEnabled
         {
-            get => (bool)GetValue(IsSnapToTickEnabledProperty);
+            get => (bool) GetValue(IsSnapToTickEnabledProperty);
             set => SetValue(IsSnapToTickEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -214,7 +214,7 @@ namespace HandyControl.Controls
 
         public TickPlacement TickPlacement
         {
-            get => (TickPlacement)GetValue(TickPlacementProperty);
+            get => (TickPlacement) GetValue(TickPlacementProperty);
             set => SetValue(TickPlacementProperty, value);
         }
 
@@ -224,7 +224,7 @@ namespace HandyControl.Controls
 
         public double TickFrequency
         {
-            get => (double)GetValue(TickFrequencyProperty);
+            get => (double) GetValue(TickFrequencyProperty);
             set => SetValue(TickFrequencyProperty, value);
         }
 
@@ -233,7 +233,7 @@ namespace HandyControl.Controls
 
         public DoubleCollection Ticks
         {
-            get => (DoubleCollection)GetValue(TicksProperty);
+            get => (DoubleCollection) GetValue(TicksProperty);
             set => SetValue(TicksProperty, value);
         }
 
@@ -242,7 +242,7 @@ namespace HandyControl.Controls
 
         public bool IsMoveToPointEnabled
         {
-            get => (bool)GetValue(IsMoveToPointEnabledProperty);
+            get => (bool) GetValue(IsMoveToPointEnabledProperty);
             set => SetValue(IsMoveToPointEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -295,7 +295,7 @@ namespace HandyControl.Controls
             var greaterThan = direction > 0;
 
             // If the snapping brought us back to value, find the next tick point
-            if (MathHelper.AreClose(next, value) && 
+            if (MathHelper.AreClose(next, value) &&
                 !(greaterThan && MathHelper.AreClose(value, Maximum)) &&
                 !(!greaterThan && MathHelper.AreClose(value, Minimum)))
             {
@@ -522,7 +522,7 @@ namespace HandyControl.Controls
 
         private string GetAutoToolTipNumber(bool isStart)
         {
-            var format = (NumberFormatInfo)NumberFormatInfo.CurrentInfo.Clone();
+            var format = (NumberFormatInfo) NumberFormatInfo.CurrentInfo.Clone();
             format.NumberDecimalDigits = AutoToolTipPrecision;
             return isStart ? ValueStart.ToString("N", format) : ValueEnd.ToString("N", format);
         }
@@ -603,7 +603,7 @@ namespace HandyControl.Controls
         {
             if (e.ChangedButton != MouseButton.Left) return;
 
-            var slider = (RangeSlider)sender;
+            var slider = (RangeSlider) sender;
 
             // When someone click on the Slider's part, and it's not focusable
             // Slider need to take the focus in order to process keyboard correctly

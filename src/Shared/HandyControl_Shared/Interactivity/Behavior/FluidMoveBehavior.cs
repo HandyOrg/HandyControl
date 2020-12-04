@@ -111,7 +111,7 @@ namespace HandyControl.Interactivity
             {
                 renderTransform = new TransformGroup
                 {
-                    Children = {child.RenderTransform}
+                    Children = { child.RenderTransform }
                 };
                 child.RenderTransform = renderTransform;
                 SetHasTransformWrapper(child, true);

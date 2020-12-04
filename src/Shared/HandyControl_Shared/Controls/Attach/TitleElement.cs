@@ -56,7 +56,7 @@ namespace HandyControl.Controls
 
         public static void SetTitleWidth(DependencyObject element, GridLength value) => element.SetValue(TitleWidthProperty, value);
 
-        public static GridLength GetTitleWidth(DependencyObject element) => (GridLength)element.GetValue(TitleWidthProperty);
+        public static GridLength GetTitleWidth(DependencyObject element) => (GridLength) element.GetValue(TitleWidthProperty);
 
         public static readonly DependencyProperty HorizontalAlignmentProperty = DependencyProperty.RegisterAttached(
             "HorizontalAlignment", typeof(HorizontalAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(default(HorizontalAlignment), FrameworkPropertyMetadataOptions.Inherits));

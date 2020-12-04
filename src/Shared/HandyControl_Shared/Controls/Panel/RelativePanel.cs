@@ -112,7 +112,7 @@ namespace HandyControl.Controls
 
         [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetLeftOf(DependencyObject element)
-            => (UIElement)element.GetValue(LeftOfProperty);
+            => (UIElement) element.GetValue(LeftOfProperty);
 
         public static readonly DependencyProperty AboveProperty = DependencyProperty.RegisterAttached(
             "Above", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -122,7 +122,7 @@ namespace HandyControl.Controls
 
         [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAbove(DependencyObject element)
-            => (UIElement)element.GetValue(AboveProperty);
+            => (UIElement) element.GetValue(AboveProperty);
 
         public static readonly DependencyProperty RightOfProperty = DependencyProperty.RegisterAttached(
             "RightOf", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -132,7 +132,7 @@ namespace HandyControl.Controls
 
         [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetRightOf(DependencyObject element)
-            => (UIElement)element.GetValue(RightOfProperty);
+            => (UIElement) element.GetValue(RightOfProperty);
 
         public static readonly DependencyProperty BelowProperty = DependencyProperty.RegisterAttached(
             "Below", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -155,7 +155,7 @@ namespace HandyControl.Controls
             => element.SetValue(AlignHorizontalCenterWithPanelProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetAlignHorizontalCenterWithPanel(DependencyObject element)
-            => (bool)element.GetValue(AlignHorizontalCenterWithPanelProperty);
+            => (bool) element.GetValue(AlignHorizontalCenterWithPanelProperty);
 
         public static readonly DependencyProperty AlignVerticalCenterWithPanelProperty = DependencyProperty.RegisterAttached(
             "AlignVerticalCenterWithPanel", typeof(bool), typeof(RelativePanel), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
@@ -164,7 +164,7 @@ namespace HandyControl.Controls
             => element.SetValue(AlignVerticalCenterWithPanelProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetAlignVerticalCenterWithPanel(DependencyObject element)
-            => (bool)element.GetValue(AlignVerticalCenterWithPanelProperty);
+            => (bool) element.GetValue(AlignVerticalCenterWithPanelProperty);
 
         public static readonly DependencyProperty AlignHorizontalCenterWithProperty = DependencyProperty.RegisterAttached(
             "AlignHorizontalCenterWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -174,7 +174,7 @@ namespace HandyControl.Controls
 
         [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAlignHorizontalCenterWith(DependencyObject element)
-            => (UIElement)element.GetValue(AlignHorizontalCenterWithProperty);
+            => (UIElement) element.GetValue(AlignHorizontalCenterWithProperty);
 
         public static readonly DependencyProperty AlignVerticalCenterWithProperty = DependencyProperty.RegisterAttached(
             "AlignVerticalCenterWith", typeof(UIElement), typeof(RelativePanel), new FrameworkPropertyMetadata(default(UIElement), FrameworkPropertyMetadataOptions.AffectsRender));
@@ -184,7 +184,7 @@ namespace HandyControl.Controls
 
         [TypeConverter(typeof(NameReferenceConverter))]
         public static UIElement GetAlignVerticalCenterWith(DependencyObject element)
-            => (UIElement)element.GetValue(AlignVerticalCenterWithProperty);
+            => (UIElement) element.GetValue(AlignVerticalCenterWithProperty);
 
         #endregion
 
@@ -321,7 +321,7 @@ namespace HandyControl.Controls
                 {
                     if (node.Measured || !node.OutgoingNodes.Any())
                     {
-                        if (prevNode.LeftOfNode != null && prevNode.LeftOfNode == node || 
+                        if (prevNode.LeftOfNode != null && prevNode.LeftOfNode == node ||
                             prevNode.RightOfNode != null && prevNode.RightOfNode == node)
                         {
                             prevSize.Width += node.BoundingSize.Width;

@@ -82,8 +82,8 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
             "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
             {
-                var ctl = (Carousel)o;
-                ctl.TimerSwitch((bool)args.NewValue);
+                var ctl = (Carousel) o;
+                ctl.TimerSwitch((bool) args.NewValue);
             }));
 
         public static readonly DependencyProperty IntervalProperty = DependencyProperty.Register(
@@ -94,7 +94,7 @@ namespace HandyControl.Controls
 
         public double ExtendWidth
         {
-            get => (double)GetValue(ExtendWidthProperty);
+            get => (double) GetValue(ExtendWidthProperty);
             set => SetValue(ExtendWidthProperty, value);
         }
 
@@ -103,7 +103,7 @@ namespace HandyControl.Controls
 
         public bool IsCenter
         {
-            get => (bool)GetValue(IsCenterProperty);
+            get => (bool) GetValue(IsCenterProperty);
             set => SetValue(IsCenterProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -160,7 +160,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool AutoRun
         {
-            get => (bool)GetValue(AutoRunProperty);
+            get => (bool) GetValue(AutoRunProperty);
             set => SetValue(AutoRunProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -169,7 +169,7 @@ namespace HandyControl.Controls
         /// </summary>
         public TimeSpan Interval
         {
-            get => (TimeSpan)GetValue(IntervalProperty);
+            get => (TimeSpan) GetValue(IntervalProperty);
             set => SetValue(IntervalProperty, value);
         }
 
@@ -278,7 +278,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                var ctl = (FrameworkElement)ItemsHost.Children[PageIndex];
+                var ctl = (FrameworkElement) ItemsHost.Children[PageIndex];
                 var ctlWidth = ctl.DesiredSize.Width;
                 ItemsHost.BeginAnimation(MarginProperty,
                     AnimationHelper.CreateAnimation(
@@ -297,7 +297,7 @@ namespace HandyControl.Controls
             if (!CheckNull()) return;
 
             _selectedButton = e.OriginalSource as RadioButton;
-            
+
             var index = _panelPage.Children.IndexOf(_selectedButton);
             if (index != -1)
             {

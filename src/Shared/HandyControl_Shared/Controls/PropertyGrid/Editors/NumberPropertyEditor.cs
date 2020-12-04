@@ -6,7 +6,7 @@ namespace HandyControl.Controls
     {
         public NumberPropertyEditor()
         {
-            
+
         }
 
         public NumberPropertyEditor(double minimum, double maximum)

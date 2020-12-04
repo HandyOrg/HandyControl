@@ -15,7 +15,7 @@ namespace HandyControl.Controls
 
         public static Geometry GetGeometrySelected(DependencyObject element)
         {
-            return (Geometry)element.GetValue(GeometrySelectedProperty);
+            return (Geometry) element.GetValue(GeometrySelectedProperty);
         }
     }
 }

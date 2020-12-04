@@ -35,7 +35,7 @@ namespace HandyControl.Controls
 
         public char PasswordChar
         {
-            get => (char)GetValue(PasswordCharProperty);
+            get => (char) GetValue(PasswordCharProperty);
             set => SetValue(PasswordCharProperty, value);
         }
 
@@ -47,7 +47,7 @@ namespace HandyControl.Controls
 
         public bool IsError
         {
-            get => (bool)GetValue(IsErrorProperty);
+            get => (bool) GetValue(IsErrorProperty);
             set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -59,7 +59,7 @@ namespace HandyControl.Controls
 
         public string ErrorStr
         {
-            get => (string)GetValue(ErrorStrProperty);
+            get => (string) GetValue(ErrorStrProperty);
             set => SetValue(ErrorStrProperty, value);
         }
 
@@ -71,7 +71,7 @@ namespace HandyControl.Controls
 
         public TextType TextType
         {
-            get => (TextType)GetValue(TextTypeProperty);
+            get => (TextType) GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 
@@ -83,7 +83,7 @@ namespace HandyControl.Controls
 
         public bool ShowClearButton
         {
-            get => (bool)GetValue(ShowClearButtonProperty);
+            get => (bool) GetValue(ShowClearButtonProperty);
             set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -92,7 +92,7 @@ namespace HandyControl.Controls
 
         public bool ShowEyeButton
         {
-            get => (bool)GetValue(ShowEyeButtonProperty);
+            get => (bool) GetValue(ShowEyeButtonProperty);
             set => SetValue(ShowEyeButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -102,7 +102,7 @@ namespace HandyControl.Controls
 
         public bool ShowPassword
         {
-            get => (bool)GetValue(ShowPasswordProperty);
+            get => (bool) GetValue(ShowPasswordProperty);
             set => SetValue(ShowPasswordProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -111,8 +111,8 @@ namespace HandyControl.Controls
 
         private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var p = (PasswordBox)d;
-            p.SetCurrentValue(UnsafePasswordProperty, !(bool)e.NewValue ? p.Password : string.Empty);
+            var p = (PasswordBox) d;
+            p.SetCurrentValue(UnsafePasswordProperty, !(bool) e.NewValue ? p.Password : string.Empty);
         }
 
         public bool IsSafeEnabled
@@ -122,7 +122,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty UnsafePasswordProperty = DependencyProperty.Register(
-            "UnsafePassword", typeof(string), typeof(PasswordBox), new FrameworkPropertyMetadata(default(string), 
+            "UnsafePassword", typeof(string), typeof(PasswordBox), new FrameworkPropertyMetadata(default(string),
                 FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
 
         private static void OnUnsafePasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -145,7 +145,7 @@ namespace HandyControl.Controls
 
         public int MaxLength
         {
-            get => (int)GetValue(MaxLengthProperty);
+            get => (int) GetValue(MaxLengthProperty);
             set => SetValue(MaxLengthProperty, value);
         }
 
@@ -154,7 +154,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionBrush
         {
-            get => (Brush)GetValue(SelectionBrushProperty);
+            get => (Brush) GetValue(SelectionBrushProperty);
             set => SetValue(SelectionBrushProperty, value);
         }
 
@@ -165,7 +165,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionTextBrush
         {
-            get => (Brush)GetValue(SelectionTextBrushProperty);
+            get => (Brush) GetValue(SelectionTextBrushProperty);
             set => SetValue(SelectionTextBrushProperty, value);
         }
 
@@ -176,7 +176,7 @@ namespace HandyControl.Controls
 
         public double SelectionOpacity
         {
-            get => (double)GetValue(SelectionOpacityProperty);
+            get => (double) GetValue(SelectionOpacityProperty);
             set => SetValue(SelectionOpacityProperty, value);
         }
 
@@ -185,7 +185,7 @@ namespace HandyControl.Controls
 
         public Brush CaretBrush
         {
-            get => (Brush)GetValue(CaretBrushProperty);
+            get => (Brush) GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
 
@@ -265,9 +265,9 @@ namespace HandyControl.Controls
 
         private static void OnShowPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (PasswordBox)d;
+            var ctl = (PasswordBox) d;
             if (!ctl.ShowEyeButton) return;
-            if ((bool)e.NewValue)
+            if ((bool) e.NewValue)
             {
                 ctl._textBox.Text = ctl.ActualPasswordBox.Password;
                 ctl._textBox.Select(string.IsNullOrEmpty(ctl._textBox.Text) ? 0 : ctl._textBox.Text.Length, 0);

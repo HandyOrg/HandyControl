@@ -108,9 +108,9 @@ namespace HandyControl.Tools.Converter
             return i switch
             {
                 1 => new ColLayout(lengths[0]),
-                2 => new ColLayout {Xs = lengths[0], Sm = lengths[1]},
-                3 => new ColLayout {Xs = lengths[0], Sm = lengths[1], Md = lengths[2]},
-                4 => new ColLayout {Xs = lengths[0], Sm = lengths[1], Md = lengths[2], Lg = lengths[3]},
+                2 => new ColLayout { Xs = lengths[0], Sm = lengths[1] },
+                3 => new ColLayout { Xs = lengths[0], Sm = lengths[1], Md = lengths[2] },
+                4 => new ColLayout { Xs = lengths[0], Sm = lengths[1], Md = lengths[2], Lg = lengths[3] },
                 5 => new ColLayout
                 {
                     Xs = lengths[0],

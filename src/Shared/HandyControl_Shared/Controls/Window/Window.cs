@@ -128,7 +128,7 @@ namespace HandyControl.Controls
 
         private void WmGetMinMaxInfo(IntPtr hwnd, IntPtr lParam)
         {
-            var mmi = (InteropValues.MINMAXINFO)Marshal.PtrToStructure(lParam, typeof(InteropValues.MINMAXINFO));
+            var mmi = (InteropValues.MINMAXINFO) Marshal.PtrToStructure(lParam, typeof(InteropValues.MINMAXINFO));
             var monitor = InteropMethods.MonitorFromWindow(hwnd, InteropValues.MONITOR_DEFAULTTONEAREST);
 
             if (monitor != IntPtr.Zero && mmi != null)
@@ -138,7 +138,7 @@ namespace HandyControl.Controls
                 if (autoHide)
                 {
                     var monitorInfo = default(InteropValues.MONITORINFO);
-                    monitorInfo.cbSize = (uint)Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
+                    monitorInfo.cbSize = (uint) Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
                     InteropMethods.GetMonitorInfo(monitor, ref monitorInfo);
                     var rcWorkArea = monitorInfo.rcWork;
                     var rcMonitorArea = monitorInfo.rcMonitor;
@@ -177,37 +177,37 @@ namespace HandyControl.Controls
 
         public Brush CloseButtonBackground
         {
-            get => (Brush)GetValue(CloseButtonBackgroundProperty);
+            get => (Brush) GetValue(CloseButtonBackgroundProperty);
             set => SetValue(CloseButtonBackgroundProperty, value);
         }
 
         public Brush CloseButtonForeground
         {
-            get => (Brush)GetValue(CloseButtonForegroundProperty);
+            get => (Brush) GetValue(CloseButtonForegroundProperty);
             set => SetValue(CloseButtonForegroundProperty, value);
         }
 
         public Brush OtherButtonBackground
         {
-            get => (Brush)GetValue(OtherButtonBackgroundProperty);
+            get => (Brush) GetValue(OtherButtonBackgroundProperty);
             set => SetValue(OtherButtonBackgroundProperty, value);
         }
 
         public Brush OtherButtonForeground
         {
-            get => (Brush)GetValue(OtherButtonForegroundProperty);
+            get => (Brush) GetValue(OtherButtonForegroundProperty);
             set => SetValue(OtherButtonForegroundProperty, value);
         }
 
         public double NonClientAreaHeight
         {
-            get => (double)GetValue(NonClientAreaHeightProperty);
+            get => (double) GetValue(NonClientAreaHeightProperty);
             set => SetValue(NonClientAreaHeightProperty, value);
         }
 
         public bool IsFullScreen
         {
-            get => (bool)GetValue(IsFullScreenProperty);
+            get => (bool) GetValue(IsFullScreenProperty);
             set => SetValue(IsFullScreenProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -219,56 +219,56 @@ namespace HandyControl.Controls
 
         public Brush CloseButtonHoverBackground
         {
-            get => (Brush)GetValue(CloseButtonHoverBackgroundProperty);
+            get => (Brush) GetValue(CloseButtonHoverBackgroundProperty);
             set => SetValue(CloseButtonHoverBackgroundProperty, value);
         }
 
         public Brush CloseButtonHoverForeground
         {
-            get => (Brush)GetValue(CloseButtonHoverForegroundProperty);
+            get => (Brush) GetValue(CloseButtonHoverForegroundProperty);
             set => SetValue(CloseButtonHoverForegroundProperty, value);
         }
 
         public Brush OtherButtonHoverBackground
         {
-            get => (Brush)GetValue(OtherButtonHoverBackgroundProperty);
+            get => (Brush) GetValue(OtherButtonHoverBackgroundProperty);
             set => SetValue(OtherButtonHoverBackgroundProperty, value);
         }
 
         public Brush OtherButtonHoverForeground
         {
-            get => (Brush)GetValue(OtherButtonHoverForegroundProperty);
+            get => (Brush) GetValue(OtherButtonHoverForegroundProperty);
             set => SetValue(OtherButtonHoverForegroundProperty, value);
         }
 
         public Brush NonClientAreaBackground
         {
-            get => (Brush)GetValue(NonClientAreaBackgroundProperty);
+            get => (Brush) GetValue(NonClientAreaBackgroundProperty);
             set => SetValue(NonClientAreaBackgroundProperty, value);
         }
 
         public Brush NonClientAreaForeground
         {
-            get => (Brush)GetValue(NonClientAreaForegroundProperty);
+            get => (Brush) GetValue(NonClientAreaForegroundProperty);
             set => SetValue(NonClientAreaForegroundProperty, value);
         }
 
         public bool ShowNonClientArea
         {
-            get => (bool)GetValue(ShowNonClientAreaProperty);
+            get => (bool) GetValue(ShowNonClientAreaProperty);
             set => SetValue(ShowNonClientAreaProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool ShowTitle
         {
-            get => (bool)GetValue(ShowTitleProperty);
+            get => (bool) GetValue(ShowTitleProperty);
             set => SetValue(ShowTitleProperty, ValueBoxes.BooleanBox(value));
         }
 
         private static void OnShowNonClientAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (Window)d;
-            ctl.SwitchShowNonClientArea((bool)e.NewValue);
+            var ctl = (Window) d;
+            ctl.SwitchShowNonClientArea((bool) e.NewValue);
         }
 
         private void SwitchShowNonClientArea(bool showNonClientArea)
@@ -303,8 +303,8 @@ namespace HandyControl.Controls
 
         private static void OnIsFullScreenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (Window)d;
-            ctl.SwitchIsFullScreen((bool)e.NewValue);
+            var ctl = (Window) d;
+            ctl.SwitchIsFullScreen((bool) e.NewValue);
         }
 
         private void SwitchIsFullScreen(bool isFullScreen)

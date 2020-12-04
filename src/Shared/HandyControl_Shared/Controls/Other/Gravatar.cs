@@ -23,7 +23,7 @@ namespace HandyControl.Controls
         {
             var ctl = (Gravatar) d;
             if (ctl.Source != null) return;
-            ctl.Content = ctl.Generator.GetGravatar((string)e.NewValue);
+            ctl.Content = ctl.Generator.GetGravatar((string) e.NewValue);
         }
 
         public string Id
@@ -37,7 +37,7 @@ namespace HandyControl.Controls
 
         private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (Gravatar)d;
+            var ctl = (Gravatar) d;
             var v = (ImageSource) e.NewValue;
 
             ctl.Background = v != null

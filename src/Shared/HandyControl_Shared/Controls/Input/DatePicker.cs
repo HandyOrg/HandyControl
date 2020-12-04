@@ -94,7 +94,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionBrush
         {
-            get => (Brush)GetValue(SelectionBrushProperty);
+            get => (Brush) GetValue(SelectionBrushProperty);
             set => SetValue(SelectionBrushProperty, value);
         }
 
@@ -105,7 +105,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionTextBrush
         {
-            get => (Brush)GetValue(SelectionTextBrushProperty);
+            get => (Brush) GetValue(SelectionTextBrushProperty);
             set => SetValue(SelectionTextBrushProperty, value);
         }
 
@@ -116,7 +116,7 @@ namespace HandyControl.Controls
 
         public double SelectionOpacity
         {
-            get => (double)GetValue(SelectionOpacityProperty);
+            get => (double) GetValue(SelectionOpacityProperty);
             set => SetValue(SelectionOpacityProperty, value);
         }
 
@@ -125,7 +125,7 @@ namespace HandyControl.Controls
 
         public Brush CaretBrush
         {
-            get => (Brush)GetValue(CaretBrushProperty);
+            get => (Brush) GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
 

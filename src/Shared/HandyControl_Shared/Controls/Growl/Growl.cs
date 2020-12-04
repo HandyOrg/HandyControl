@@ -179,7 +179,7 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
             "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
             {
-                if ((bool)args.NewValue && o is Panel panel)
+                if ((bool) args.NewValue && o is Panel panel)
                 {
                     SetGrowlPanel(panel);
                 }
@@ -207,57 +207,57 @@ namespace HandyControl.Controls
             => element.SetValue(TokenProperty, value);
 
         public static string GetToken(DependencyObject element)
-            => (string)element.GetValue(TokenProperty);
+            => (string) element.GetValue(TokenProperty);
 
         public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, ValueBoxes.BooleanBox(value));
 
-        public static bool GetGrowlParent(DependencyObject element) => (bool)element.GetValue(GrowlParentProperty);
+        public static bool GetGrowlParent(DependencyObject element) => (bool) element.GetValue(GrowlParentProperty);
 
         public InfoType Type
         {
-            get => (InfoType)GetValue(TypeProperty);
+            get => (InfoType) GetValue(TypeProperty);
             set => SetValue(TypeProperty, value);
         }
 
         internal string CancelStr
         {
-            get => (string)GetValue(CancelStrProperty);
+            get => (string) GetValue(CancelStrProperty);
             set => SetValue(CancelStrProperty, value);
         }
 
         internal string ConfirmStr
         {
-            get => (string)GetValue(ConfirmStrProperty);
+            get => (string) GetValue(ConfirmStrProperty);
             set => SetValue(ConfirmStrProperty, value);
         }
 
         public bool ShowDateTime
         {
-            get => (bool)GetValue(ShowDateTimeProperty);
+            get => (bool) GetValue(ShowDateTimeProperty);
             set => SetValue(ShowDateTimeProperty, ValueBoxes.BooleanBox(value));
         }
 
         public string Message
         {
-            get => (string)GetValue(MessageProperty);
+            get => (string) GetValue(MessageProperty);
             set => SetValue(MessageProperty, value);
         }
 
         public DateTime Time
         {
-            get => (DateTime)GetValue(TimeProperty);
+            get => (DateTime) GetValue(TimeProperty);
             set => SetValue(TimeProperty, value);
         }
 
         public Geometry Icon
         {
-            get => (Geometry)GetValue(IconProperty);
+            get => (Geometry) GetValue(IconProperty);
             set => SetValue(IconProperty, value);
         }
 
         public Brush IconBrush
         {
-            get => (Brush)GetValue(IconBrushProperty);
+            get => (Brush) GetValue(IconBrushProperty);
             set => SetValue(IconBrushProperty, value);
         }
 

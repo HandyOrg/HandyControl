@@ -147,7 +147,7 @@ namespace HandyControl.Controls
 
         public static void SetIsInertiaEnabled(DependencyObject element, bool value) => element.SetValue(IsInertiaEnabledProperty, ValueBoxes.BooleanBox(value));
 
-        public static bool GetIsInertiaEnabled(DependencyObject element) => (bool)element.GetValue(IsInertiaEnabledProperty);
+        public static bool GetIsInertiaEnabled(DependencyObject element) => (bool) element.GetValue(IsInertiaEnabledProperty);
 
         /// <summary>
         ///     是否支持惯性

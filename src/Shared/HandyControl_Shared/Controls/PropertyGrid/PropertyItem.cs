@@ -22,7 +22,7 @@ namespace HandyControl.Controls
 
         public string DisplayName
         {
-            get => (string)GetValue(DisplayNameProperty);
+            get => (string) GetValue(DisplayNameProperty);
             set => SetValue(DisplayNameProperty, value);
         }
 
@@ -31,7 +31,7 @@ namespace HandyControl.Controls
 
         public string PropertyName
         {
-            get => (string)GetValue(PropertyNameProperty);
+            get => (string) GetValue(PropertyNameProperty);
             set => SetValue(PropertyNameProperty, value);
         }
 
@@ -49,7 +49,7 @@ namespace HandyControl.Controls
 
         public string PropertyTypeName
         {
-            get => (string)GetValue(PropertyTypeNameProperty);
+            get => (string) GetValue(PropertyTypeNameProperty);
             set => SetValue(PropertyTypeNameProperty, value);
         }
 
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         public string Description
         {
-            get => (string)GetValue(DescriptionProperty);
+            get => (string) GetValue(DescriptionProperty);
             set => SetValue(DescriptionProperty, value);
         }
 
@@ -67,7 +67,7 @@ namespace HandyControl.Controls
 
         public bool IsReadOnly
         {
-            get => (bool)GetValue(IsReadOnlyProperty);
+            get => (bool) GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -85,7 +85,7 @@ namespace HandyControl.Controls
 
         public string Category
         {
-            get => (string)GetValue(CategoryProperty);
+            get => (string) GetValue(CategoryProperty);
             set => SetValue(CategoryProperty, value);
         }
 
@@ -94,7 +94,7 @@ namespace HandyControl.Controls
 
         public PropertyEditorBase Editor
         {
-            get => (PropertyEditorBase)GetValue(EditorProperty);
+            get => (PropertyEditorBase) GetValue(EditorProperty);
             set => SetValue(EditorProperty, value);
         }
 
@@ -103,7 +103,7 @@ namespace HandyControl.Controls
 
         public FrameworkElement EditorElement
         {
-            get => (FrameworkElement)GetValue(EditorElementProperty);
+            get => (FrameworkElement) GetValue(EditorElementProperty);
             set => SetValue(EditorElementProperty, value);
         }
 
@@ -112,7 +112,7 @@ namespace HandyControl.Controls
 
         public bool IsExpandedEnabled
         {
-            get => (bool)GetValue(IsExpandedEnabledProperty);
+            get => (bool) GetValue(IsExpandedEnabledProperty);
             set => SetValue(IsExpandedEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 

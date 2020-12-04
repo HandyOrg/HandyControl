@@ -10,7 +10,7 @@ namespace HandyControl.Interactivity
         }
 
 #pragma warning disable 108,114
-        protected T AssociatedObject => (T)base.AssociatedObject;
+        protected T AssociatedObject => (T) base.AssociatedObject;
 #pragma warning restore 108,114
 
         protected sealed override Type AssociatedObjectTypeConstraint =>

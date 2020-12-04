@@ -77,7 +77,7 @@ namespace HandyControl.Controls
 
         public string DateTimeFormat
         {
-            get => (string)GetValue(DateTimeFormatProperty);
+            get => (string) GetValue(DateTimeFormatProperty);
             set => SetValue(DateTimeFormatProperty, value);
         }
 
@@ -86,7 +86,7 @@ namespace HandyControl.Controls
 
         public bool ShowConfirmButton
         {
-            get => (bool)GetValue(ShowConfirmButtonProperty);
+            get => (bool) GetValue(ShowConfirmButtonProperty);
             set => SetValue(ShowConfirmButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -95,8 +95,8 @@ namespace HandyControl.Controls
 
         private static void OnSelectedDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (CalendarWithClock)d;
-            var v = (DateTime?)e.NewValue;
+            var ctl = (CalendarWithClock) d;
+            var v = (DateTime?) e.NewValue;
             ctl.OnSelectedDateTimeChanged(new FunctionEventArgs<DateTime?>(SelectedDateTimeChangedEvent, ctl)
             {
                 Info = v
@@ -105,7 +105,7 @@ namespace HandyControl.Controls
 
         public DateTime? SelectedDateTime
         {
-            get => (DateTime?)GetValue(SelectedDateTimeProperty);
+            get => (DateTime?) GetValue(SelectedDateTimeProperty);
             set => SetValue(SelectedDateTimeProperty, value);
         }
 
@@ -114,9 +114,9 @@ namespace HandyControl.Controls
 
         private static void OnDisplayDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (CalendarWithClock)d;
+            var ctl = (CalendarWithClock) d;
             if (ctl.IsHandlerSuspended(DisplayDateTimeProperty)) return;
-            var v = (DateTime)e.NewValue;
+            var v = (DateTime) e.NewValue;
             ctl._clock.SelectedTime = v;
             ctl._calendar.SelectedDate = v;
             ctl.OnDisplayDateTimeChanged(new FunctionEventArgs<DateTime>(v));
@@ -124,7 +124,7 @@ namespace HandyControl.Controls
 
         public DateTime DisplayDateTime
         {
-            get => (DateTime)GetValue(DisplayDateTimeProperty);
+            get => (DateTime) GetValue(DisplayDateTimeProperty);
             set => SetValue(DisplayDateTimeProperty, value);
         }
 

@@ -176,7 +176,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsError
         {
-            get => (bool)GetValue(IsErrorProperty);
+            get => (bool) GetValue(IsErrorProperty);
             set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -191,7 +191,7 @@ namespace HandyControl.Controls
         /// </summary>
         public string ErrorStr
         {
-            get => (string)GetValue(ErrorStrProperty);
+            get => (string) GetValue(ErrorStrProperty);
             set => SetValue(ErrorStrProperty, value);
         }
 
@@ -212,7 +212,7 @@ namespace HandyControl.Controls
         /// </summary>
         public TextType TextType
         {
-            get => (TextType)GetValue(TextTypeProperty);
+            get => (TextType) GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 
@@ -227,7 +227,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool ShowClearButton
         {
-            get => (bool)GetValue(ShowClearButtonProperty);
+            get => (bool) GetValue(ShowClearButtonProperty);
             set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -239,7 +239,7 @@ namespace HandyControl.Controls
 
         private static void OnAutoCompleteChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ComboBox)d;
+            var ctl = (ComboBox) d;
             if (ctl._editableTextBox != null)
             {
                 ctl.UpdateSearchItems(ctl._editableTextBox.Text);
@@ -251,7 +251,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool AutoComplete
         {
-            get => (bool)GetValue(AutoCompleteProperty);
+            get => (bool) GetValue(AutoCompleteProperty);
             set => SetValue(AutoCompleteProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -263,7 +263,7 @@ namespace HandyControl.Controls
 
         private static void OnSearchTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ComboBox)d;
+            var ctl = (ComboBox) d;
             if (ctl._isAutoCompleteAction)
             {
 #if NET40
@@ -283,7 +283,7 @@ namespace HandyControl.Controls
         /// </summary>
         internal string SearchText
         {
-            get => (string)GetValue(SearchTextProperty);
+            get => (string) GetValue(SearchTextProperty);
             set => SetValue(SearchTextProperty, value);
         }
 
@@ -303,7 +303,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionTextBrush
         {
-            get => (Brush)GetValue(SelectionTextBrushProperty);
+            get => (Brush) GetValue(SelectionTextBrushProperty);
             set => SetValue(SelectionTextBrushProperty, value);
         }
 
@@ -314,7 +314,7 @@ namespace HandyControl.Controls
 
         public double SelectionOpacity
         {
-            get => (double)GetValue(SelectionOpacityProperty);
+            get => (double) GetValue(SelectionOpacityProperty);
             set => SetValue(SelectionOpacityProperty, value);
         }
 
@@ -323,7 +323,7 @@ namespace HandyControl.Controls
 
         public Brush CaretBrush
         {
-            get => (Brush)GetValue(CaretBrushProperty);
+            get => (Brush) GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
 

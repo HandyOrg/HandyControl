@@ -35,7 +35,7 @@ namespace HandyControl.Controls
 
         public Color ActiveGlowColor
         {
-            get => (Color)GetValue(ActiveGlowColorProperty);
+            get => (Color) GetValue(ActiveGlowColorProperty);
             set => SetValue(ActiveGlowColorProperty, value);
         }
 
@@ -44,7 +44,7 @@ namespace HandyControl.Controls
 
         public Color InactiveGlowColor
         {
-            get => (Color)GetValue(InactiveGlowColorProperty);
+            get => (Color) GetValue(InactiveGlowColorProperty);
             set => SetValue(InactiveGlowColorProperty, value);
         }
 
@@ -195,7 +195,7 @@ namespace HandyControl.Controls
 
         private GlowEdge GetOrCreateGlowWindow(int direction)
         {
-            return _glowEdges[direction] ?? (_glowEdges[direction] = new GlowEdge(this, (Dock)direction)
+            return _glowEdges[direction] ?? (_glowEdges[direction] = new GlowEdge(this, (Dock) direction)
             {
                 ActiveGlowColor = ActiveGlowColor,
                 InactiveGlowColor = InactiveGlowColor,
@@ -205,11 +205,11 @@ namespace HandyControl.Controls
 
         private static void OnResizeModeChanged(DependencyObject obj, DependencyPropertyChangedEventArgs e)
         {
-            var customChromeWindow = (GlowWindow)obj;
+            var customChromeWindow = (GlowWindow) obj;
             customChromeWindow.UpdateGlowVisibility(false);
         }
 
-        private static void OnGlowColorChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args) => ((GlowWindow)obj).UpdateGlowColors();
+        private static void OnGlowColorChanged(DependencyObject obj, DependencyPropertyChangedEventArgs args) => ((GlowWindow) obj).UpdateGlowColors();
 
         private void UpdateGlowColors()
         {
@@ -303,7 +303,7 @@ namespace HandyControl.Controls
 
         private void WmWindowPosChanging(IntPtr lParam)
         {
-            var windowpos = (InteropValues.WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
+            var windowpos = (InteropValues.WINDOWPOS) Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
             if ((windowpos.flags & 2u) == 0u && (windowpos.flags & 1u) == 0u && windowpos.cx > 0 && windowpos.cy > 0)
             {
                 var rect = new Rect(windowpos.x, windowpos.y, windowpos.cx, windowpos.cy);
@@ -317,8 +317,8 @@ namespace HandyControl.Controls
 
                 var logicalRect = GetOnScreenPosition(rect);
                 logicalRect = logicalRect.LogicalToDeviceUnits();
-                windowpos.x = (int)logicalRect.X;
-                windowpos.y = (int)logicalRect.Y;
+                windowpos.x = (int) logicalRect.X;
+                windowpos.y = (int) logicalRect.Y;
                 Marshal.StructureToPtr(windowpos, lParam, true);
             }
         }
@@ -364,7 +364,7 @@ namespace HandyControl.Controls
         {
             try
             {
-                var windowpos = (InteropValues.WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
+                var windowpos = (InteropValues.WINDOWPOS) Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
 
                 UpdateGlowWindowPositions((windowpos.flags & 64u) == 0u);
                 UpdateZOrderOfThisAndOwner();
@@ -399,7 +399,7 @@ namespace HandyControl.Controls
         {
             var hMonitor = InteropMethods.MonitorFromWindow(hWnd, 2);
             var result = default(InteropValues.MONITORINFO);
-            result.cbSize = (uint)Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
+            result.cbSize = (uint) Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
             InteropMethods.GetMonitorInfo(hMonitor, ref result);
             return result;
         }
@@ -417,7 +417,7 @@ namespace HandyControl.Controls
         private void WmSysCommand(IntPtr hWnd, IntPtr wParam)
         {
             var num = InteropMethods.GET_SC_WPARAM(wParam);
-            
+
             if (num == InteropValues.SC_MOVE)
             {
                 InteropMethods.RedrawWindow(hWnd, IntPtr.Zero, IntPtr.Zero,
@@ -430,13 +430,13 @@ namespace HandyControl.Controls
             {
                 _logicalSizeForRestore = new Rect(Left, Top, Width, Height);
             }
-            
+
             if (num == InteropValues.SC_MOVE && WindowState == WindowState.Maximized && _logicalSizeForRestore == Rect.Empty)
             {
                 _logicalSizeForRestore = new Rect(Left, Top, Width, Height);
             }
-            
-            if (num == InteropValues.SC_RESTORE && WindowState != WindowState.Minimized && 
+
+            if (num == InteropValues.SC_RESTORE && WindowState != WindowState.Minimized &&
                 _logicalSizeForRestore.Width > 0.0 && _logicalSizeForRestore.Height > 0.0)
             {
                 Left = _logicalSizeForRestore.Left;

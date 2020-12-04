@@ -110,7 +110,7 @@ namespace HandyControl.Tools.Interop
                 }
 
                 var oldThreshHold = 100 * _threshHold / (100 + _deltaPercent);
-                if (oldThreshHold >= _initialThreshHold && _handleCount < (int)(oldThreshHold * .9F))
+                if (oldThreshHold >= _initialThreshHold && _handleCount < (int) (oldThreshHold * .9F))
                 {
                     _threshHold = oldThreshHold;
                 }

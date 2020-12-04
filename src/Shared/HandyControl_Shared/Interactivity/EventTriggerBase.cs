@@ -231,14 +231,14 @@ namespace HandyControl.Interactivity
                 if (SourceObject != null)
                     throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
                         ExceptionStringTable.EventTriggerCannotFindEventNameExceptionMessage,
-                        new object[] {eventName, obj.GetType().Name}));
+                        new object[] { eventName, obj.GetType().Name }));
             }
             else if (!IsValidEvent(eventInfo))
             {
                 if (SourceObject != null)
                     throw new ArgumentException(string.Format(CultureInfo.CurrentCulture,
                         ExceptionStringTable.EventTriggerBaseInvalidEventExceptionMessage,
-                        new object[] {eventName, obj.GetType().Name}));
+                        new object[] { eventName, obj.GetType().Name }));
             }
             else
             {

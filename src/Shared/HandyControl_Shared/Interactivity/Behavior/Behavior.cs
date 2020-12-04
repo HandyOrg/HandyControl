@@ -43,7 +43,7 @@ namespace HandyControl.Interactivity
                 if (dependencyObject != null && !AssociatedType.IsInstanceOfType(dependencyObject))
                     throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture,
                         ExceptionStringTable.TypeConstraintViolatedExceptionMessage,
-                        new object[] {GetType().Name, dependencyObject.GetType().Name, AssociatedType.Name}));
+                        new object[] { GetType().Name, dependencyObject.GetType().Name, AssociatedType.Name }));
                 WritePreamble();
                 _associatedObject = dependencyObject;
                 WritePostscript();

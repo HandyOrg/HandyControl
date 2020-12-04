@@ -16,12 +16,12 @@ namespace HandyControl.Interactivity
 
         private static void OnEventNameChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-            ((EventTrigger)sender).OnEventNameChanged((string)args.OldValue, (string)args.NewValue);
+            ((EventTrigger) sender).OnEventNameChanged((string) args.OldValue, (string) args.NewValue);
         }
 
         public string EventName
         {
-            get => (string)GetValue(EventNameProperty);
+            get => (string) GetValue(EventNameProperty);
 
             set => SetValue(EventNameProperty, value);
         }

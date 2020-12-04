@@ -170,7 +170,7 @@ namespace HandyControl.Controls
 
         private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (SideMenuItem)d;
+            var ctl = (SideMenuItem) d;
             if (e.OldValue is ICommand oldCommand)
             {
                 oldCommand.CanExecuteChanged -= ctl.CanExecuteChanged;
@@ -195,7 +195,7 @@ namespace HandyControl.Controls
             get => GetValue(CommandParameterProperty);
             set => SetValue(CommandParameterProperty, value);
         }
-        
+
         public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
             "CommandTarget", typeof(IInputElement), typeof(SideMenuItem), new PropertyMetadata(default(IInputElement)));
 

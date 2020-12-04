@@ -28,7 +28,7 @@ namespace HandyControl.Controls
             => element.SetValue(OrderProperty, value);
 
         public static int GetOrder(DependencyObject element)
-            => (int)element.GetValue(OrderProperty);
+            => (int) element.GetValue(OrderProperty);
 
         public static readonly DependencyProperty FlexGrowProperty = DependencyProperty.RegisterAttached(
             "FlexGrow", typeof(double), typeof(FlexPanel),
@@ -39,7 +39,7 @@ namespace HandyControl.Controls
             => element.SetValue(FlexGrowProperty, value);
 
         public static double GetFlexGrow(DependencyObject element)
-            => (double)element.GetValue(FlexGrowProperty);
+            => (double) element.GetValue(FlexGrowProperty);
 
         public static readonly DependencyProperty FlexShrinkProperty = DependencyProperty.RegisterAttached(
             "FlexShrink", typeof(double), typeof(FlexPanel),
@@ -50,7 +50,7 @@ namespace HandyControl.Controls
             => element.SetValue(FlexShrinkProperty, value);
 
         public static double GetFlexShrink(DependencyObject element)
-            => (double)element.GetValue(FlexShrinkProperty);
+            => (double) element.GetValue(FlexShrinkProperty);
 
         public static readonly DependencyProperty FlexBasisProperty = DependencyProperty.RegisterAttached(
             "FlexBasis", typeof(double), typeof(FlexPanel),
@@ -60,7 +60,7 @@ namespace HandyControl.Controls
             => element.SetValue(FlexBasisProperty, value);
 
         public static double GetFlexBasis(DependencyObject element)
-            => (double)element.GetValue(FlexBasisProperty);
+            => (double) element.GetValue(FlexBasisProperty);
 
         public static readonly DependencyProperty AlignSelfProperty = DependencyProperty.RegisterAttached(
             "AlignSelf", typeof(FlexItemAlignment), typeof(FlexPanel),
@@ -74,7 +74,7 @@ namespace HandyControl.Controls
         #region Panel
 
         public static FlexItemAlignment GetAlignSelf(DependencyObject element)
-            => (FlexItemAlignment)element.GetValue(AlignSelfProperty);
+            => (FlexItemAlignment) element.GetValue(AlignSelfProperty);
 
         public static readonly DependencyProperty FlexDirectionProperty = DependencyProperty.Register(
             "FlexDirection", typeof(FlexDirection), typeof(FlexPanel),
@@ -82,7 +82,7 @@ namespace HandyControl.Controls
 
         public FlexDirection FlexDirection
         {
-            get => (FlexDirection)GetValue(FlexDirectionProperty);
+            get => (FlexDirection) GetValue(FlexDirectionProperty);
             set => SetValue(FlexDirectionProperty, value);
         }
 
@@ -92,7 +92,7 @@ namespace HandyControl.Controls
 
         public FlexWrap FlexWrap
         {
-            get => (FlexWrap)GetValue(FlexWrapProperty);
+            get => (FlexWrap) GetValue(FlexWrapProperty);
             set => SetValue(FlexWrapProperty, value);
         }
 
@@ -103,7 +103,7 @@ namespace HandyControl.Controls
 
         public FlexContentJustify JustifyContent
         {
-            get => (FlexContentJustify)GetValue(JustifyContentProperty);
+            get => (FlexContentJustify) GetValue(JustifyContentProperty);
             set => SetValue(JustifyContentProperty, value);
         }
 
@@ -114,7 +114,7 @@ namespace HandyControl.Controls
 
         public FlexItemsAlignment AlignItems
         {
-            get => (FlexItemsAlignment)GetValue(AlignItemsProperty);
+            get => (FlexItemsAlignment) GetValue(AlignItemsProperty);
             set => SetValue(AlignItemsProperty, value);
         }
 
@@ -125,7 +125,7 @@ namespace HandyControl.Controls
 
         public FlexContentAlignment AlignContent
         {
-            get => (FlexContentAlignment)GetValue(AlignContentProperty);
+            get => (FlexContentAlignment) GetValue(AlignContentProperty);
             set => SetValue(AlignContentProperty, value);
         }
 
@@ -604,7 +604,7 @@ namespace HandyControl.Controls
 
                 var v = lineInfo.OffsetV;
                 var alignSelf = GetAlignSelf(child);
-                var alignment = alignSelf == FlexItemAlignment.Auto ? alignItems : (FlexItemsAlignment)alignSelf;
+                var alignment = alignSelf == FlexItemAlignment.Auto ? alignItems : (FlexItemsAlignment) alignSelf;
 
                 switch (alignment)
                 {

@@ -44,12 +44,12 @@ namespace HandyControl.Collections
         private int _oldCount;
 
         public event NotifyCollectionChangedEventHandler CollectionChanged;
-        
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ManualObservableCollection()
         {
-            
+
         }
 
         // ReSharper disable once AssignNullToNotNullAttribute
@@ -140,7 +140,7 @@ namespace HandyControl.Collections
         protected virtual void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
         {
             if (!CanNotify || CollectionChanged == null) return;
-            
+
             using (BlockReentrancy())
             {
                 // ReSharper disable once PossibleNullReferenceException
@@ -162,16 +162,16 @@ namespace HandyControl.Collections
             }
         }
 
-        private void OnPropertyChanged(string propertyName) => 
+        private void OnPropertyChanged(string propertyName) =>
             OnPropertyChanged(new PropertyChangedEventArgs(propertyName));
 
-        private void OnCollectionChanged(NotifyCollectionChangedAction action, object item, int index) => 
+        private void OnCollectionChanged(NotifyCollectionChangedAction action, object item, int index) =>
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(action, item, index));
 
         private void OnCollectionChanged(NotifyCollectionChangedAction action, object item, int index, int oldIndex) =>
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(action, item, index, oldIndex));
 
-        private void OnCollectionChanged(NotifyCollectionChangedAction action, object oldItem, object newItem, int index) => 
+        private void OnCollectionChanged(NotifyCollectionChangedAction action, object oldItem, object newItem, int index) =>
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(action, newItem, oldItem, index));
 
         private void OnCollectionReset() =>

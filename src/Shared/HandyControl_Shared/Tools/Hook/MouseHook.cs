@@ -43,10 +43,10 @@ namespace HandyControl.Tools
         {
             using var curProcess = Process.GetCurrentProcess();
             using var curModule = curProcess.MainModule;
-            
+
             if (curModule != null)
             {
-                return InteropMethods.SetWindowsHookEx((int)InteropValues.HookType.WH_MOUSE_LL, proc,
+                return InteropMethods.SetWindowsHookEx((int) InteropValues.HookType.WH_MOUSE_LL, proc,
                     InteropMethods.GetModuleHandle(curModule.ModuleName), 0);
             }
             return IntPtr.Zero;
@@ -55,10 +55,10 @@ namespace HandyControl.Tools
         private static IntPtr HookCallback(int nCode, IntPtr wParam, IntPtr lParam)
         {
             if (nCode < 0) return InteropMethods.CallNextHookEx(HookId, nCode, wParam, lParam);
-            var hookStruct = (InteropValues.MOUSEHOOKSTRUCT)Marshal.PtrToStructure(lParam, typeof(InteropValues.MOUSEHOOKSTRUCT));
+            var hookStruct = (InteropValues.MOUSEHOOKSTRUCT) Marshal.PtrToStructure(lParam, typeof(InteropValues.MOUSEHOOKSTRUCT));
             StatusChanged?.Invoke(null, new MouseHookEventArgs
             {
-                MessageType = (MouseHookMessageType)wParam,
+                MessageType = (MouseHookMessageType) wParam,
                 Point = new InteropValues.POINT(hookStruct.pt.X, hookStruct.pt.Y)
             });
 

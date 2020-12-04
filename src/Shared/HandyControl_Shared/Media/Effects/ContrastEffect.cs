@@ -30,7 +30,7 @@ namespace HandyControl.Media.Effects
 
         public double Contrast
         {
-            get => (double)GetValue(ContrastProperty);
+            get => (double) GetValue(ContrastProperty);
             set => SetValue(ContrastProperty, value);
         }
     }

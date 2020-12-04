@@ -18,7 +18,7 @@ namespace HandyControl.Controls
 
         protected override void OnMouseMove(MouseEventArgs e)
         {
-            
+
         }
 
         public void StartDrag()

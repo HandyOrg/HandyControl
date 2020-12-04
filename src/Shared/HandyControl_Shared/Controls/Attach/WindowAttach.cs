@@ -23,7 +23,7 @@ namespace HandyControl.Controls
         {
             if (d is UIElement ctl)
             {
-                if ((bool)e.NewValue)
+                if ((bool) e.NewValue)
                 {
                     ctl.MouseLeftButtonDown += DragElement_MouseLeftButtonDown;
                 }
@@ -49,7 +49,7 @@ namespace HandyControl.Controls
         {
             if (d is System.Windows.Window window)
             {
-                if ((bool)e.NewValue)
+                if ((bool) e.NewValue)
                 {
                     window.PreviewKeyDown += Window_PreviewKeyDown;
                 }
@@ -110,7 +110,7 @@ namespace HandyControl.Controls
             => element.SetValue(ShowInTaskManagerProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowInTaskManager(DependencyObject element)
-            => (bool)element.GetValue(ShowInTaskManagerProperty);
+            => (bool) element.GetValue(ShowInTaskManagerProperty);
 
         public static readonly DependencyProperty HideWhenClosingProperty = DependencyProperty.RegisterAttached(
             "HideWhenClosing", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnHideWhenClosingChanged));
@@ -119,7 +119,7 @@ namespace HandyControl.Controls
         {
             if (d is System.Windows.Window window)
             {
-                var v = (bool)e.NewValue;
+                var v = (bool) e.NewValue;
                 if (v)
                 {
                     window.Closing += Window_Closing;

@@ -12,7 +12,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfDouble(object value)
         {
-            var v = (double)value;
+            var v = (double) value;
             return !(double.IsNaN(v) || double.IsInfinity(v));
         }
 
@@ -23,7 +23,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfPosDouble(object value)
         {
-            var v = (double)value;
+            var v = (double) value;
             return !(double.IsNaN(v) || double.IsInfinity(v)) && v > 0;
         }
 
@@ -34,7 +34,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfPosDoubleIncludeZero(object value)
         {
-            var v = (double)value;
+            var v = (double) value;
             return !(double.IsNaN(v) || double.IsInfinity(v)) && v >= 0;
         }
 
@@ -45,7 +45,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfNegDouble(object value)
         {
-            var v = (double)value;
+            var v = (double) value;
             return !(double.IsNaN(v) || double.IsInfinity(v)) && v < 0;
         }
 
@@ -56,7 +56,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfNegDoubleIncludeZero(object value)
         {
-            var v = (double)value;
+            var v = (double) value;
             return !(double.IsNaN(v) || double.IsInfinity(v)) && v <= 0;
         }
 
@@ -67,7 +67,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfPosInt(object value)
         {
-            var v = (int)value;
+            var v = (int) value;
             return v > 0;
         }
 
@@ -78,7 +78,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfPosIntIncludeZero(object value)
         {
-            var v = (int)value;
+            var v = (int) value;
             return v >= 0;
         }
 
@@ -89,7 +89,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfNegInt(object value)
         {
-            var v = (int)value;
+            var v = (int) value;
             return v < 0;
         }
 
@@ -100,7 +100,7 @@
         /// <returns></returns>
         public static bool IsInRangeOfNegIntIncludeZero(object value)
         {
-            var v = (int)value;
+            var v = (int) value;
             return v <= 0;
         }
     }

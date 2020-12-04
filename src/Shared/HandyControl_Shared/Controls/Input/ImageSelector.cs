@@ -32,7 +32,7 @@ namespace HandyControl.Controls
                     {
                         Stretch = Stretch
                     });
-                    SetValue(HasValuePropertyKey, ValueBoxes.TrueBox); 
+                    SetValue(HasValuePropertyKey, ValueBoxes.TrueBox);
                     SetCurrentValue(ToolTipProperty, dialog.FileName);
                 }
             }

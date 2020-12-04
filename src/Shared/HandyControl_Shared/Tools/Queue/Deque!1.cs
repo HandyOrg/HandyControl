@@ -329,7 +329,7 @@ namespace HandyControl.Tools
             }
         }
 
-        void ICollection.CopyTo(Array array, int index) => CopyTo((T[])array, index);
+        void ICollection.CopyTo(Array array, int index) => CopyTo((T[]) array, index);
 
         IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }

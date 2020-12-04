@@ -18,7 +18,7 @@ namespace HandyControl.Controls
 
         public DependencyObject Target
         {
-            get => (DependencyObject)GetValue(TargetProperty);
+            get => (DependencyObject) GetValue(TargetProperty);
             set => SetValue(TargetProperty, value);
         }
 

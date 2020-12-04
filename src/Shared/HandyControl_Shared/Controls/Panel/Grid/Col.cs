@@ -13,7 +13,7 @@ namespace HandyControl.Controls
 
         public ColLayout Layout
         {
-            get => (ColLayout)GetValue(LayoutProperty);
+            get => (ColLayout) GetValue(LayoutProperty);
             set => SetValue(LayoutProperty, value);
         }
 
@@ -22,7 +22,7 @@ namespace HandyControl.Controls
 
         public int Offset
         {
-            get => (int)GetValue(OffsetProperty);
+            get => (int) GetValue(OffsetProperty);
             set => SetValue(OffsetProperty, value);
         }
 
@@ -31,7 +31,7 @@ namespace HandyControl.Controls
 
         private static bool OnSpanValidate(object value)
         {
-            var v = (int)value;
+            var v = (int) value;
             return v >= 1 && v <= 24;
         }
 

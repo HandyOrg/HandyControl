@@ -35,7 +35,7 @@ namespace HandyControl.Tools.Interop
             PLANES = 14,
             BI_RGB = 0,
             DIB_RGB_COLORS = 0,
-            E_FAIL = unchecked((int)0x80004005),
+            E_FAIL = unchecked((int) 0x80004005),
             NIF_MESSAGE = 0x00000001,
             NIF_ICON = 0x00000002,
             NIF_TIP = 0x00000004,
@@ -233,10 +233,10 @@ namespace HandyControl.Tools.Interop
 
             public RECT(Rect rect)
             {
-                Left = (int)rect.Left;
-                Top = (int)rect.Top;
-                Right = (int)rect.Right;
-                Bottom = (int)rect.Bottom;
+                Left = (int) rect.Left;
+                Top = (int) rect.Top;
+                Right = (int) rect.Right;
+                Bottom = (int) rect.Bottom;
             }
 
             public Point Position => new Point(Left, Top);
@@ -717,11 +717,11 @@ namespace HandyControl.Tools.Interop
             [return: MarshalAs(UnmanagedType.I8)]
             long CopyTo([In, MarshalAs(UnmanagedType.Interface)] IStream pstm, [In, MarshalAs(UnmanagedType.I8)] long cb, [Out, MarshalAs(UnmanagedType.LPArray)] long[] pcbRead);
 
-            void Commit([In]int grfCommitFlags);
+            void Commit([In] int grfCommitFlags);
 
             void Revert();
 
-            void LockRegion([In, MarshalAs(UnmanagedType.I8)]long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb, [In] int dwLockType);
+            void LockRegion([In, MarshalAs(UnmanagedType.I8)] long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb, [In] int dwLockType);
 
             void UnlockRegion([In, MarshalAs(UnmanagedType.I8)] long libOffset, [In, MarshalAs(UnmanagedType.I8)] long cb, [In] int dwLockType);
 
@@ -820,7 +820,7 @@ namespace HandyControl.Tools.Interop
                     while (written < cb)
                     {
                         var toRead = bufsize;
-                        if (written + toRead > cb) toRead = (int)(cb - written);
+                        if (written + toRead > cb) toRead = (int) (cb - written);
                         var read = Read(buffer, toRead);
                         if (read == 0) break;
                         if (pstm.Write(buffer, read) != read)

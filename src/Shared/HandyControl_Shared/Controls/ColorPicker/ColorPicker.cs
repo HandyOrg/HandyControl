@@ -219,7 +219,7 @@ namespace HandyControl.Controls
 
         internal int ChannelA
         {
-            get => (int)GetValue(ChannelAProperty);
+            get => (int) GetValue(ChannelAProperty);
             set => SetValue(ChannelAProperty, value);
         }
 
@@ -228,7 +228,7 @@ namespace HandyControl.Controls
 
         internal int ChannelR
         {
-            get => (int)GetValue(ChannelRProperty);
+            get => (int) GetValue(ChannelRProperty);
             set => SetValue(ChannelRProperty, value);
         }
 
@@ -237,7 +237,7 @@ namespace HandyControl.Controls
 
         internal int ChannelG
         {
-            get => (int)GetValue(ChannelGProperty);
+            get => (int) GetValue(ChannelGProperty);
             set => SetValue(ChannelGProperty, value);
         }
 
@@ -246,7 +246,7 @@ namespace HandyControl.Controls
 
         internal int ChannelB
         {
-            get => (int)GetValue(ChannelBProperty);
+            get => (int) GetValue(ChannelBProperty);
             set => SetValue(ChannelBProperty, value);
         }
 
@@ -254,8 +254,8 @@ namespace HandyControl.Controls
             "SelectedBrush", typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White,
                 (o, args) =>
                 {
-                    var ctl = (ColorPicker)o;
-                    var v = (SolidColorBrush)args.NewValue;
+                    var ctl = (ColorPicker) o;
+                    var v = (SolidColorBrush) args.NewValue;
 
                     if (ctl.IsNeedUpdateInfo)
                     {
@@ -275,7 +275,7 @@ namespace HandyControl.Controls
         /// </summary>
         public SolidColorBrush SelectedBrush
         {
-            get => (SolidColorBrush)GetValue(SelectedBrushProperty);
+            get => (SolidColorBrush) GetValue(SelectedBrushProperty);
             set => SetValue(SelectedBrushProperty, value);
         }
 
@@ -284,7 +284,7 @@ namespace HandyControl.Controls
 
         internal SolidColorBrush SelectedBrushWithoutOpacity
         {
-            get => (SolidColorBrush)GetValue(SelectedBrushWithoutOpacityProperty);
+            get => (SolidColorBrush) GetValue(SelectedBrushWithoutOpacityProperty);
             set => SetValue(SelectedBrushWithoutOpacityProperty, value);
         }
 
@@ -293,7 +293,7 @@ namespace HandyControl.Controls
 
         internal SolidColorBrush BackColor
         {
-            get => (SolidColorBrush)GetValue(BackColorProperty);
+            get => (SolidColorBrush) GetValue(BackColorProperty);
             set => SetValue(BackColorProperty, value);
         }
 
@@ -305,7 +305,7 @@ namespace HandyControl.Controls
 
         internal List<bool> ShowList
         {
-            get => (List<bool>)GetValue(ShowListProperty);
+            get => (List<bool>) GetValue(ShowListProperty);
             set => SetValue(ShowListProperty, value);
         }
 
@@ -450,7 +450,7 @@ namespace HandyControl.Controls
         private Button CreateColorButton(string colorStr)
         {
             var color = ColorConverter.ConvertFromString(colorStr) ?? default(Color);
-            var brush = new SolidColorBrush((Color)color);
+            var brush = new SolidColorBrush((Color) color);
 
             var button = new Button
             {
@@ -527,7 +527,7 @@ namespace HandyControl.Controls
                     var common = list[commonIndex];
                     list[maxIndex] = 255;
                     list[minIndex] = 0;
-                    common = (byte)(255 * (min - common) / (double)(min - max));
+                    common = (byte) (255 * (min - common) / (double) (min - max));
                     list[commonIndex] = common;
                     BackColor = new SolidColorBrush(Color.FromRgb(list[0], list[1], list[2]));
 
@@ -575,7 +575,7 @@ namespace HandyControl.Controls
             }
 
             var matrix = _borderPicker.RenderTransform.Value;
-            var x = max == 0 ? 0 : (1 - min / (double)max) * ColorPanelWidth;
+            var x = max == 0 ? 0 : (1 - min / (double) max) * ColorPanelWidth;
             var y = (1 - max / 255.0) * ColorPanelHeight;
             if (_isNeedUpdatePicker)
             {
@@ -586,7 +586,7 @@ namespace HandyControl.Controls
         private void SliderColor_OnValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             if (!_appliedTemplate || !IsNeedUpdateInfo) return;
-            var index = Math.Min(5, (int)Math.Floor(e.NewValue));
+            var index = Math.Min(5, (int) Math.Floor(e.NewValue));
             var sub = e.NewValue - index;
             var range = _colorRangeList[index];
 
@@ -602,7 +602,7 @@ namespace HandyControl.Controls
         {
             if (!_appliedTemplate || !IsNeedUpdateInfo) return;
             var color = SelectedBrush.Color;
-            SelectedBrush = new SolidColorBrush(Color.FromArgb((byte)_sliderOpacity.Value, color.R, color.G, color.B));
+            SelectedBrush = new SolidColorBrush(Color.FromArgb((byte) _sliderOpacity.Value, color.R, color.G, color.B));
         }
 
         private void MouseDragElementBehavior_OnDragging(object sender, MouseEventArgs e)
@@ -646,15 +646,15 @@ namespace HandyControl.Controls
             var scaleX = p.X / ColorPanelWidth;
             var scaleY = 1 - p.Y / ColorPanelHeight;
 
-            var colorYLeft = Color.FromRgb((byte)(255 * scaleY), (byte)(255 * scaleY), (byte)(255 * scaleY));
-            var colorYRight = Color.FromRgb((byte)(BackColor.Color.R * scaleY), (byte)(BackColor.Color.G * scaleY), (byte)(BackColor.Color.B * scaleY));
+            var colorYLeft = Color.FromRgb((byte) (255 * scaleY), (byte) (255 * scaleY), (byte) (255 * scaleY));
+            var colorYRight = Color.FromRgb((byte) (BackColor.Color.R * scaleY), (byte) (BackColor.Color.G * scaleY), (byte) (BackColor.Color.B * scaleY));
 
             var subR = colorYLeft.R - colorYRight.R;
             var subG = colorYLeft.G - colorYRight.G;
             var subB = colorYLeft.B - colorYRight.B;
 
-            var color = Color.FromArgb((byte)_sliderOpacity.Value, (byte)(colorYLeft.R - subR * scaleX),
-                (byte)(colorYLeft.G - subG * scaleX), (byte)(colorYLeft.B - subB * scaleX));
+            var color = Color.FromArgb((byte) _sliderOpacity.Value, (byte) (colorYLeft.R - subR * scaleX),
+                (byte) (colorYLeft.G - subG * scaleX), (byte) (colorYLeft.B - subB * scaleX));
             SelectedBrush = new SolidColorBrush(color);
         }
 
@@ -675,17 +675,17 @@ namespace HandyControl.Controls
                 {
                     case "R":
                         {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, (byte)e.Info, color.G, color.B));
+                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, (byte) e.Info, color.G, color.B));
                             break;
                         }
                     case "G":
                         {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, color.R, (byte)e.Info, color.B));
+                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, color.R, (byte) e.Info, color.B));
                             break;
                         }
                     case "B":
                         {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, (byte)e.Info));
+                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, (byte) e.Info));
                             break;
                         }
                 }
@@ -731,6 +731,6 @@ namespace HandyControl.Controls
         }
 
         public bool CanDispose { get; } = true;
-        
+
     }
 }

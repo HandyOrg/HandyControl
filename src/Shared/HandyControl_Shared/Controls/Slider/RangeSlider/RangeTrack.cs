@@ -153,7 +153,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ValueEndProperty = DependencyProperty.Register(
-            "ValueEnd", typeof(double), typeof(RangeTrack), 
+            "ValueEnd", typeof(double), typeof(RangeTrack),
             new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
                 FrameworkPropertyMetadataOptions.BindsTwoWayByDefault |
                 FrameworkPropertyMetadataOptions.AffectsArrange));
@@ -310,7 +310,7 @@ namespace HandyControl.Controls
             out double thumbEndLength)
         {
             var min = Minimum;
-            var range = Math.Max(0.0, Maximum - min);            
+            var range = Math.Max(0.0, Maximum - min);
             var offsetStart = Math.Min(range, ValueStart - min);
             var offsetEnd = Math.Min(range, ValueEnd - min);
 
@@ -364,7 +364,7 @@ namespace HandyControl.Controls
 
         private static void OnIsEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if ((bool)e.NewValue)
+            if ((bool) e.NewValue)
             {
                 Mouse.Synchronize();
             }

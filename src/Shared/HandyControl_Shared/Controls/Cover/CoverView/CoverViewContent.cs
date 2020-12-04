@@ -47,7 +47,7 @@ namespace HandyControl.Controls
 
         internal double ManualHeight
         {
-            get => (double)GetValue(ManualHeightProperty);
+            get => (double) GetValue(ManualHeightProperty);
             set => SetValue(ManualHeightProperty, value);
         }
 
@@ -57,7 +57,7 @@ namespace HandyControl.Controls
 
         public double ContentHeight
         {
-            get => (double)GetValue(ContentHeightProperty);
+            get => (double) GetValue(ContentHeightProperty);
             set => SetValue(ContentHeightProperty, value);
         }
 

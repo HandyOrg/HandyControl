@@ -43,7 +43,7 @@ namespace HandyControlDemo.UserControl
                 if (tag.Equals(GlobalData.Config.Skin)) return;
                 GlobalData.Config.Skin = tag;
                 GlobalData.Save();
-                ((App)Application.Current).UpdateSkin(tag);
+                ((App) Application.Current).UpdateSkin(tag);
             }
         }
 

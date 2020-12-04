@@ -17,7 +17,7 @@ namespace HandyControlDemo.ViewModel
 #if NET40
             set => Set(nameof(Result), ref _result, value);
 #else
-            set => Set(ref _result, value);  
+            set => Set(ref _result, value);
 #endif
         }
 

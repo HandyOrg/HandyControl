@@ -33,7 +33,7 @@ namespace HandyControl.Controls
 
             count -= 1;
 
-            var index = (int)Math.Floor(Math.Pow(count / 3.0 + 0.25, 0.5) - 0.5);
+            var index = (int) Math.Floor(Math.Pow(count / 3.0 + 0.25, 0.5) - 0.5);
             var valeIndex = 3 * index * index + 3 * index;
 
             return count > valeIndex

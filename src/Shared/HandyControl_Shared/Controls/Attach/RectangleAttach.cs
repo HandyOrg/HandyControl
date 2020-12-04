@@ -15,7 +15,7 @@ namespace HandyControl.Controls
         {
             if (d is Rectangle rectangle)
             {
-                if ((bool)e.NewValue)
+                if ((bool) e.NewValue)
                 {
                     var binding = new MultiBinding
                     {

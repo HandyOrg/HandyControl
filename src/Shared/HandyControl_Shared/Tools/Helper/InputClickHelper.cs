@@ -14,7 +14,7 @@ namespace HandyControl.Tools
 
         private static void SetInputInfo(DependencyObject element, InputInfo value) => element.SetValue(InputInfoProperty, value);
 
-        private static InputInfo GetInputInfo(DependencyObject element) => (InputInfo)element.GetValue(InputInfoProperty);
+        private static InputInfo GetInputInfo(DependencyObject element) => (InputInfo) element.GetValue(InputInfoProperty);
 
         /// <summary>
         ///     将 MouseDown MouseMove MouseUp 封装为点击事件
@@ -67,25 +67,25 @@ namespace HandyControl.Tools
 
         private static void Element_LostMouseCapture(object sender, MouseEventArgs e)
         {
-            var element = (UIElement)sender;
+            var element = (UIElement) sender;
             GetInputInfo(element)?.LostCapture();
         }
 
         private static void Element_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            var element = (UIElement)sender;
+            var element = (UIElement) sender;
             GetInputInfo(element)?.Up(e.GetPosition(element));
         }
 
         private static void Element_MouseMove(object sender, MouseEventArgs e)
         {
-            var element = (UIElement)sender;
+            var element = (UIElement) sender;
             GetInputInfo(element)?.Move(e.GetPosition(element));
         }
 
         private static void Element_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            var element = (UIElement)sender;
+            var element = (UIElement) sender;
             GetInputInfo(element)?.Down(e.GetPosition(element));
         }
 

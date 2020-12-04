@@ -48,7 +48,7 @@ namespace HandyControl.Controls
 
         public bool Runaway
         {
-            get => (bool)GetValue(RunawayProperty);
+            get => (bool) GetValue(RunawayProperty);
             set => SetValue(RunawayProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -57,7 +57,7 @@ namespace HandyControl.Controls
 
         public bool AutoRun
         {
-            get => (bool)GetValue(AutoRunProperty);
+            get => (bool) GetValue(AutoRunProperty);
             set => SetValue(AutoRunProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -66,7 +66,7 @@ namespace HandyControl.Controls
 
         public Orientation Orientation
         {
-            get => (Orientation)GetValue(OrientationProperty);
+            get => (Orientation) GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
 
@@ -75,7 +75,7 @@ namespace HandyControl.Controls
 
         public Duration Duration
         {
-            get => (Duration)GetValue(DurationProperty);
+            get => (Duration) GetValue(DurationProperty);
             set => SetValue(DurationProperty, value);
         }
 
@@ -84,15 +84,15 @@ namespace HandyControl.Controls
 
         public double Speed
         {
-            get => (double)GetValue(SpeedProperty);
+            get => (double) GetValue(SpeedProperty);
             set => SetValue(SpeedProperty, value);
         }
 
         public static readonly DependencyProperty IsRunningProperty = DependencyProperty.Register(
             "IsRunning", typeof(bool), typeof(RunningBlock), new PropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
             {
-                var ctl = (RunningBlock)o;
-                var v = (bool)args.NewValue;
+                var ctl = (RunningBlock) o;
+                var v = (bool) args.NewValue;
                 if (v)
                 {
                     ctl._storyboard?.Resume();
@@ -105,7 +105,7 @@ namespace HandyControl.Controls
 
         public bool IsRunning
         {
-            get => (bool)GetValue(IsRunningProperty);
+            get => (bool) GetValue(IsRunningProperty);
             set => SetValue(IsRunningProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -114,7 +114,7 @@ namespace HandyControl.Controls
 
         public bool AutoReverse
         {
-            get => (bool)GetValue(AutoReverseProperty);
+            get => (bool) GetValue(AutoReverseProperty);
             set => SetValue(AutoReverseProperty, ValueBoxes.BooleanBox(value));
         }
 

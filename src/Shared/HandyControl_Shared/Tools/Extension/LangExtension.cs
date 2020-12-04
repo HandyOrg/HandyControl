@@ -37,7 +37,7 @@ namespace HandyControl.Tools.Extension
             => element.SetValue(TargetPropertyProperty, value);
 
         private static DependencyProperty GetTargetProperty(DependencyObject element)
-            => (DependencyProperty)element.GetValue(TargetPropertyProperty);
+            => (DependencyProperty) element.GetValue(TargetPropertyProperty);
 
         public BindingMode Mode { get; set; }
 

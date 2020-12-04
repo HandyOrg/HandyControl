@@ -6,7 +6,7 @@
 
         public SynchronizedPool(int maxPoolSize) : base(maxPoolSize)
         {
-            
+
         }
 
         public override T Acquire()
@@ -19,7 +19,8 @@
 
         public override bool Release(T element)
         {
-            lock (_lockObj) {
+            lock (_lockObj)
+            {
                 return base.Release(element);
             }
         }

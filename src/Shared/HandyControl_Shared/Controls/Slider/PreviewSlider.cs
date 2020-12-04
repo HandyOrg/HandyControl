@@ -99,7 +99,7 @@ namespace HandyControl.Controls
                     if (_thumb.IsMouseCaptureWithin)
                     {
                         PreviewPosition = Value;
-                    } 
+                    }
                     return;
                 }
 

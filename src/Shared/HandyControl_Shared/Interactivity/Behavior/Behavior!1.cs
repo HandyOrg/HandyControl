@@ -8,6 +8,6 @@ namespace HandyControl.Interactivity
         {
         }
 
-        protected new T AssociatedObject => (T)base.AssociatedObject;
+        protected new T AssociatedObject => (T) base.AssociatedObject;
     }
 }
