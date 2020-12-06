@@ -183,6 +183,12 @@ namespace HandyControlDemo.Service
                     DisplayName = "AutumnBox",
                     AvatarUri = "https://raw.githubusercontent.com/zsh2401/AutumnBox/master/src/AutumnBox.GUI/Resources/Images/icon.png",
                     Link = "https://github.com/zsh2401/AutumnBox"
+                },
+                new AvatarModel
+                {
+                    DisplayName = "quicker",
+                    AvatarUri = "https://files.getquicker.net/_sitefiles/quicker_round_128.png",
+                    Link = "https://getquicker.net"
                 }
             };
         }
