@@ -4,6 +4,8 @@
     <AssemblyName>HandyControlDemoCode</AssemblyName>
     <RootNamespace>HandyControlDemoCode</RootNamespace>
     <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net5.0-windows</TargetFrameworks>
+    <NoWarn>MSB3026;MSB3061</NoWarn>
+    <MSBuildWarningsAsMessages>NETSDK1138</MSBuildWarningsAsMessages>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Window\AboutWindow.xaml">
