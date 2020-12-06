@@ -23,11 +23,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Net_40", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Code", "Shared\HandyControlDemo_Code\HandyControlDemo_Code.csproj", "{D8A4748C-0500-4F63-BC47-3506658C68F7}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Windows.Shell", "Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.shproj", "{BBE51380-8B21-49FF-9CFC-B29447A40999}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
+		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{9a7b52e6-94bb-4e7e-bb6a-7cf6761b79a7}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{aac11083-faca-405d-9197-5c1212d65656}*SharedItemsImports = 13
+		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{bbe51380-8b21-49ff-9cfc-b29447a40999}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{c4694269-c9b8-45d5-87f8-d0088c532510}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{d8ae88f8-c36b-4d10-a7f9-22ffcfba5231}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{dc966e3d-bcff-4652-98cf-070e5494749a}*SharedItemsImports = 5
@@ -83,6 +87,7 @@ Global
 		{32204503-2EF0-4681-AE13-AA1FEB6C658A} = {35E3F9C0-8924-4536-BE09-F3761FDBF066}
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231} = {35E3F9C0-8924-4536-BE09-F3761FDBF066}
 		{D8A4748C-0500-4F63-BC47-3506658C68F7} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
+		{BBE51380-8B21-49FF-9CFC-B29447A40999} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4636382-1A18-4079-A3E7-054DD970F179}
