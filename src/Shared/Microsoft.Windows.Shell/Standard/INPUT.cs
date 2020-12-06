@@ -2,10 +2,10 @@
 
 namespace Standard
 {
-	internal struct INPUT
-	{
-		public uint type;
+    internal struct INPUT
+    {
+        public uint type;
 
-		public MOUSEINPUT mi;
-	}
+        public MOUSEINPUT mi;
+    }
 }

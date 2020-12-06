@@ -3,15 +3,15 @@ using System.Runtime.InteropServices;
 
 namespace Standard
 {
-	[StructLayout(LayoutKind.Sequential)]
-	internal class StartupInput
-	{
-		public int GdiplusVersion = 1;
+    [StructLayout(LayoutKind.Sequential)]
+    internal class StartupInput
+    {
+        public int GdiplusVersion = 1;
 
-		public IntPtr DebugEventCallback;
+        public IntPtr DebugEventCallback;
 
-		public bool SuppressBackgroundThread;
+        public bool SuppressBackgroundThread;
 
-		public bool SuppressExternalCodecs;
-	}
+        public bool SuppressExternalCodecs;
+    }
 }

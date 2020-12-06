@@ -2,14 +2,14 @@
 
 namespace Standard
 {
-	internal struct MARGINS
-	{
-		public int cxLeftWidth;
+    internal struct MARGINS
+    {
+        public int cxLeftWidth;
 
-		public int cxRightWidth;
+        public int cxRightWidth;
 
-		public int cyTopHeight;
+        public int cyTopHeight;
 
-		public int cyBottomHeight;
-	}
+        public int cyBottomHeight;
+    }
 }

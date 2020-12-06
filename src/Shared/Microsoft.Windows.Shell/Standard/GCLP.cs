@@ -2,8 +2,8 @@
 
 namespace Standard
 {
-	internal enum GCLP
-	{
-		HBRBACKGROUND = -10
-	}
+    internal enum GCLP
+    {
+        HBRBACKGROUND = -10
+    }
 }

@@ -2,10 +2,10 @@
 
 namespace Standard
 {
-	internal enum DWMFLIP3D
-	{
-		DEFAULT,
-		EXCLUDEBELOW,
-		EXCLUDEABOVE
-	}
+    internal enum DWMFLIP3D
+    {
+        DEFAULT,
+        EXCLUDEBELOW,
+        EXCLUDEABOVE
+    }
 }

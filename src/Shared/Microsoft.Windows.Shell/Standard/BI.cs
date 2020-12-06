@@ -2,8 +2,8 @@
 
 namespace Standard
 {
-	internal enum BI
-	{
-		RGB
-	}
+    internal enum BI
+    {
+        RGB
+    }
 }

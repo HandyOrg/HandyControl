@@ -2,10 +2,10 @@
 
 namespace Standard
 {
-	internal struct SIZE
-	{
-		public int cx;
+    internal struct SIZE
+    {
+        public int cx;
 
-		public int cy;
-	}
+        public int cy;
+    }
 }
