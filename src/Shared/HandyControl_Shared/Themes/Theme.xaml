@@ -10150,6 +10150,9 @@
             <Trigger Property="IsSelected" Value="False">
               <Setter Property="BorderThickness" TargetName="mainBorder" Value="0,0,0,0" />
             </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Opacity" Value="0.4" TargetName="contentPresenter" />
+            </Trigger>
             <MultiDataTrigger>
               <MultiDataTrigger.Conditions>
                 <Condition Binding="{Binding IsSelected, RelativeSource={RelativeSource Self}}" Value="true" />
@@ -10284,6 +10287,9 @@
             <DataTrigger Binding="{Binding TabStripPlacement, RelativeSource={RelativeSource AncestorType=TabControl}}" Value="Right">
               <Setter Property="Margin" Value="0,-1,0,0" />
             </DataTrigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Opacity" Value="0.4" TargetName="contentPresenter" />
+            </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>
       </Setter.Value>
@@ -12420,6 +12426,9 @@
             </Trigger>
             <Trigger Property="ShowCloseButton" Value="True">
               <Setter Property="Margin" Value="0,0,0,1" TargetName="BorderMask" />
+            </Trigger>
+            <Trigger Property="IsEnabled" Value="False">
+              <Setter Property="Opacity" Value="0.4" TargetName="contentPresenter" />
             </Trigger>
           </ControlTemplate.Triggers>
         </ControlTemplate>

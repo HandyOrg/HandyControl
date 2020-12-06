@@ -17,7 +17,7 @@
                             </TextBlock>
                         </Border>
                     </TabItem>
-                    <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" HeaderStringFormat="{}{0}2">
+                    <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" HeaderStringFormat="{}{0}2" IsEnabled="False">
                         <Border Background="{DynamicResource SuccessBrush}">
                             <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                                 <Run Text="{ex:Lang Key={x:Static langs:LangKeys.Text}}"/>
@@ -143,7 +143,7 @@
                             </TextBlock>
                         </Border>
                     </TabItem>
-                    <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" HeaderStringFormat="{}{0}2">
+                    <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" HeaderStringFormat="{}{0}2" IsEnabled="False">
                         <Border Background="{DynamicResource SuccessBrush}">
                             <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
                                 <Run Text="{ex:Lang Key={x:Static langs:LangKeys.Text}}"/>
