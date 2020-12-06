@@ -23,18 +23,16 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Code", "Sh
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo.Prism", "Net_GE45\HandyControlDemo.Prism\HandyControlDemo.Prism.csproj", "{D0A82E20-2886-4900-8DE4-60376263B389}"
 EndProject
-Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Windows.Shell", "Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.shproj", "{BBE51380-8B21-49FF-9CFC-B29447A40999}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
 		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
-		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{9a7b52e6-94bb-4e7e-bb6a-7cf6761b79a7}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{aac11083-faca-405d-9197-5c1212d65656}*SharedItemsImports = 13
 		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{bbe51380-8b21-49ff-9cfc-b29447a40999}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{c4694269-c9b8-45d5-87f8-d0088c532510}*SharedItemsImports = 13
+		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{d8ae88f8-c36b-4d10-a7f9-22ffcfba5231}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{dc966e3d-bcff-4652-98cf-070e5494749a}*SharedItemsImports = 5
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

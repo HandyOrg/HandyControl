@@ -6,6 +6,8 @@
     <UseWPF>true</UseWPF>
     <RootNamespace>HandyControlDemo</RootNamespace>
     <AssemblyName>HandyControlDemo</AssemblyName>
+    <NoWarn>0108;MSB3026;MSB3061</NoWarn>
+    <MSBuildWarningsAsMessages>NETSDK1138</MSBuildWarningsAsMessages>
   </PropertyGroup>
 
   <ItemGroup>
