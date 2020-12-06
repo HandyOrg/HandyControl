@@ -2,9 +2,9 @@
 
 namespace Standard
 {
-	internal enum MOUSEEVENTF
-	{
-		LEFTDOWN = 2,
-		LEFTUP = 4
-	}
+    internal enum MOUSEEVENTF
+    {
+        LEFTDOWN = 2,
+        LEFTUP = 4
+    }
 }

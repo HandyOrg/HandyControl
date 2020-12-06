@@ -2,20 +2,20 @@
 
 namespace Standard
 {
-	internal struct WINDOWPOS
-	{
-		public IntPtr hwnd;
+    internal struct WINDOWPOS
+    {
+        public IntPtr hwnd;
 
-		public IntPtr hwndInsertAfter;
+        public IntPtr hwndInsertAfter;
 
-		public int x;
+        public int x;
 
-		public int y;
+        public int y;
 
-		public int cx;
+        public int cx;
 
-		public int cy;
+        public int cy;
 
-		public int flags;
-	}
+        public int flags;
+    }
 }

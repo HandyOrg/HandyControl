@@ -2,10 +2,10 @@
 
 namespace Standard
 {
-	internal struct BITMAPINFO
-	{
-		public BITMAPINFOHEADER bmiHeader;
+    internal struct BITMAPINFO
+    {
+        public BITMAPINFOHEADER bmiHeader;
 
-		public RGBQUAD bmiColors;
-	}
+        public RGBQUAD bmiColors;
+    }
 }

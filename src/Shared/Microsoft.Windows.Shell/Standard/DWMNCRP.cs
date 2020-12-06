@@ -2,10 +2,10 @@
 
 namespace Standard
 {
-	internal enum DWMNCRP
-	{
-		USEWINDOWSTYLE,
-		DISABLED,
-		ENABLED
-	}
+    internal enum DWMNCRP
+    {
+        USEWINDOWSTYLE,
+        DISABLED,
+        ENABLED
+    }
 }

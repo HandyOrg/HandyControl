@@ -2,10 +2,10 @@
 
 namespace Standard
 {
-	internal struct POINT
-	{
-		public int x;
+    internal struct POINT
+    {
+        public int x;
 
-		public int y;
-	}
+        public int y;
+    }
 }
