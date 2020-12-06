@@ -46,7 +46,7 @@ namespace HandyControl.Controls
 
         public string ErrorStr
         {
-            get => (string)GetValue(ErrorStrProperty);
+            get => (string) GetValue(ErrorStrProperty);
             set => SetValue(ErrorStrProperty, value);
         }
 
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         public TextType TextType
         {
-            get => (TextType)GetValue(TextTypeProperty);
+            get => (TextType) GetValue(TextTypeProperty);
             set => SetValue(TextTypeProperty, value);
         }
 

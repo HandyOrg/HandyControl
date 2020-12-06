@@ -37,7 +37,7 @@ namespace HandyControl.Controls
         /// </summary>
         public Duration FluidMoveDuration
         {
-            get => (Duration)GetValue(FluidMoveDurationProperty);
+            get => (Duration) GetValue(FluidMoveDurationProperty);
             set => SetValue(FluidMoveDurationProperty, value);
         }
 
@@ -52,7 +52,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool IsTabFillEnabled
         {
-            get => (bool)GetValue(IsTabFillEnabledProperty);
+            get => (bool) GetValue(IsTabFillEnabledProperty);
             set => SetValue(IsTabFillEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -67,7 +67,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double TabItemWidth
         {
-            get => (double)GetValue(TabItemWidthProperty);
+            get => (double) GetValue(TabItemWidthProperty);
             set => SetValue(TabItemWidthProperty, value);
         }
 
@@ -82,7 +82,7 @@ namespace HandyControl.Controls
         /// </summary>
         public double TabItemHeight
         {
-            get => (double)GetValue(TabItemHeightProperty);
+            get => (double) GetValue(TabItemHeightProperty);
             set => SetValue(TabItemHeightProperty, value);
         }
 
@@ -127,7 +127,7 @@ namespace HandyControl.Controls
             {
                 if (TemplatedParent is TabControl tabControl)
                 {
-                    arr = ArithmeticHelper.DivideInt2Arr((int)tabControl.ActualWidth + InternalChildren.Count, count);
+                    arr = ArithmeticHelper.DivideInt2Arr((int) tabControl.ActualWidth + InternalChildren.Count, count);
                 }
             }
 

@@ -23,7 +23,7 @@ namespace HandyControl.Controls
 
         public bool IsClosed
         {
-            get => (bool)GetValue(IsClosedProperty);
+            get => (bool) GetValue(IsClosedProperty);
             internal set => SetValue(IsClosedProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -49,7 +49,7 @@ namespace HandyControl.Controls
             => element.SetValue(TokenProperty, value);
 
         public static string GetToken(DependencyObject element)
-            => (string)element.GetValue(TokenProperty);
+            => (string) element.GetValue(TokenProperty);
 
         public Dialog()
         {
@@ -116,8 +116,8 @@ namespace HandyControl.Controls
             else
             {
                 ContainerDic.TryGetValue(token, out element);
-                decorator = element is System.Windows.Window ? 
-                    VisualHelper.GetChild<AdornerDecorator>(element) : 
+                decorator = element is System.Windows.Window ?
+                    VisualHelper.GetChild<AdornerDecorator>(element) :
                     VisualHelper.GetChild<DialogContainer>(element);
             }
 

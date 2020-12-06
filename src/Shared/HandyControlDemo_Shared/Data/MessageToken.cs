@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.Data
 {
-	public class MessageToken
+    public class MessageToken
     {
-	    public static readonly string LoadShowContent = nameof(LoadShowContent);
+        public static readonly string LoadShowContent = nameof(LoadShowContent);
 
         public static readonly string FullSwitch = nameof(FullSwitch);
 

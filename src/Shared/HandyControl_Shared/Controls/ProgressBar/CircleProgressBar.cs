@@ -54,7 +54,7 @@ namespace HandyControl.Controls
 
         public bool IsIndeterminate
         {
-            get => (bool)GetValue(IsIndeterminateProperty);
+            get => (bool) GetValue(IsIndeterminateProperty);
             set => SetValue(IsIndeterminateProperty, value);
         }
 

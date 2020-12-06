@@ -115,8 +115,8 @@ namespace HandyControl.Controls
 
         private static object CoerceDisplayDateTime(DependencyObject d, object value)
         {
-            var dp = (DateTimePicker)d;
-            dp._calendarWithClock.DisplayDateTime = (DateTime)value;
+            var dp = (DateTimePicker) d;
+            dp._calendarWithClock.DisplayDateTime = (DateTime) value;
 
             return dp._calendarWithClock.DisplayDateTime;
         }
@@ -136,7 +136,7 @@ namespace HandyControl.Controls
         {
             var dp = d as DateTimePicker;
 
-            var newValue = (bool)e.NewValue;
+            var newValue = (bool) e.NewValue;
             if (dp?._popup != null && dp._popup.IsOpen != newValue)
             {
                 dp._popup.IsOpen = newValue;
@@ -144,10 +144,10 @@ namespace HandyControl.Controls
                 {
                     dp._originalSelectedDateTime = dp.SelectedDateTime;
 
-                    dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action)delegate
-                    {
-                        dp._calendarWithClock.Focus();
-                    });
+                    dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action) delegate
+                     {
+                         dp._calendarWithClock.Focus();
+                     });
                 }
             }
         }
@@ -163,8 +163,8 @@ namespace HandyControl.Controls
 
         private static object CoerceSelectedDateTime(DependencyObject d, object value)
         {
-            var dp = (DateTimePicker)d;
-            dp._calendarWithClock.SelectedDateTime = (DateTime?)value;
+            var dp = (DateTimePicker) d;
+            dp._calendarWithClock.SelectedDateTime = (DateTime?) value;
             return dp._calendarWithClock.SelectedDateTime;
         }
 
@@ -275,7 +275,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionBrush
         {
-            get => (Brush)GetValue(SelectionBrushProperty);
+            get => (Brush) GetValue(SelectionBrushProperty);
             set => SetValue(SelectionBrushProperty, value);
         }
 
@@ -286,7 +286,7 @@ namespace HandyControl.Controls
 
         public Brush SelectionTextBrush
         {
-            get => (Brush)GetValue(SelectionTextBrushProperty);
+            get => (Brush) GetValue(SelectionTextBrushProperty);
             set => SetValue(SelectionTextBrushProperty, value);
         }
 
@@ -297,7 +297,7 @@ namespace HandyControl.Controls
 
         public double SelectionOpacity
         {
-            get => (double)GetValue(SelectionOpacityProperty);
+            get => (double) GetValue(SelectionOpacityProperty);
             set => SetValue(SelectionOpacityProperty, value);
         }
 
@@ -306,7 +306,7 @@ namespace HandyControl.Controls
 
         public Brush CaretBrush
         {
-            get => (Brush)GetValue(CaretBrushProperty);
+            get => (Brush) GetValue(CaretBrushProperty);
             set => SetValue(CaretBrushProperty, value);
         }
 
@@ -645,7 +645,7 @@ namespace HandyControl.Controls
 
             if (d != null)
             {
-                SafeSetText(DateTimeToString((DateTime)d));
+                SafeSetText(DateTimeToString((DateTime) d));
                 return d;
             }
 
@@ -711,7 +711,7 @@ namespace HandyControl.Controls
 
         private static void OnGotFocus(object sender, RoutedEventArgs e)
         {
-            var picker = (DateTimePicker)sender;
+            var picker = (DateTimePicker) sender;
             if (!e.Handled && picker._textBox != null)
             {
                 if (Equals(e.OriginalSource, picker))

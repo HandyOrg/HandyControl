@@ -15,9 +15,9 @@ namespace HandyControl.Controls
 
         private static void OnTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (AdornerElement)d;
+            var ctl = (AdornerElement) d;
             ctl.OnTargetChanged(ctl.ElementTarget, false);
-            ctl.OnTargetChanged((FrameworkElement)e.NewValue, true);
+            ctl.OnTargetChanged((FrameworkElement) e.NewValue, true);
         }
 
         [Bindable(true), Category("Layout")]
@@ -34,7 +34,7 @@ namespace HandyControl.Controls
         private static void OnInstanceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (!(d is FrameworkElement target)) return;
-            var element = (AdornerElement)e.NewValue;
+            var element = (AdornerElement) e.NewValue;
             element.OnInstanceChanged(target);
         }
 

@@ -98,7 +98,7 @@ namespace HandyControl.Controls
         {
             var desk = InteropMethods.GetDesktopWindow();
             var dc = InteropMethods.GetWindowDC(desk);
-            var a = (int)InteropMethods.GetPixel(dc, x, y);
+            var a = (int) InteropMethods.GetPixel(dc, x, y);
             InteropMethods.ReleaseDC(desk, dc);
             return Color.FromArgb(255, (byte) ((a >> 0) & 0xff), (byte) ((a >> 8) & 0xff), (byte) ((a >> 16) & 0xff));
         }

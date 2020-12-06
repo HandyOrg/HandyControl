@@ -101,7 +101,7 @@ namespace HandyControl.Controls
 
         public Style CoverViewContentStyle
         {
-            get => (Style)GetValue(CoverViewContentStyleProperty);
+            get => (Style) GetValue(CoverViewContentStyleProperty);
             set => SetValue(CoverViewContentStyleProperty, value);
         }
 
@@ -120,13 +120,13 @@ namespace HandyControl.Controls
 
         private static bool IsGroupsValid(object value)
         {
-            var v = (int)value;
+            var v = (int) value;
             return v >= 1;
         }
 
         public int Groups
         {
-            get => (int)GetValue(GroupsProperty);
+            get => (int) GetValue(GroupsProperty);
             set => SetValue(GroupsProperty, value);
         }
 
@@ -136,7 +136,7 @@ namespace HandyControl.Controls
 
         public double ItemContentHeight
         {
-            get => (double)GetValue(ItemContentHeightProperty);
+            get => (double) GetValue(ItemContentHeightProperty);
             set => SetValue(ItemContentHeightProperty, value);
         }
 
@@ -145,7 +145,7 @@ namespace HandyControl.Controls
 
         public bool ItemContentHeightFixed
         {
-            get => (bool)GetValue(ItemContentHeightFixedProperty);
+            get => (bool) GetValue(ItemContentHeightFixedProperty);
             set => SetValue(ItemContentHeightFixedProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -162,7 +162,7 @@ namespace HandyControl.Controls
         {
             base.OnRenderSizeChanged(sizeInfo);
 
-            Groups = (int)(sizeInfo.NewSize.Width / (ItemWidth + ItemMargin.Left + ItemMargin.Right));
+            Groups = (int) (sizeInfo.NewSize.Width / (ItemWidth + ItemMargin.Left + ItemMargin.Right));
         }
 
         protected override void Refresh()

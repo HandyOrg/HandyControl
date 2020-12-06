@@ -42,9 +42,6 @@ namespace HandyControl.Controls
         public static Brush GetBorderBrush(DependencyObject element)
             => (Brush) element.GetValue(BorderBrushProperty);
 
-        /// <summary>
-        ///     标题对齐方式
-        /// </summary>
         public static readonly DependencyProperty TitlePlacementProperty = DependencyProperty.RegisterAttached(
             "TitlePlacement", typeof(TitlePlacementType), typeof(TitleElement), new FrameworkPropertyMetadata(TitlePlacementType.Top, FrameworkPropertyMetadataOptions.Inherits));
 
@@ -54,14 +51,29 @@ namespace HandyControl.Controls
         public static TitlePlacementType GetTitlePlacement(DependencyObject element)
             => (TitlePlacementType) element.GetValue(TitlePlacementProperty);
 
-        /// <summary>
-        ///     标题宽度
-        /// </summary>
         public static readonly DependencyProperty TitleWidthProperty = DependencyProperty.RegisterAttached(
-            "TitleWidth", typeof(GridLength), typeof(TitleElement), new FrameworkPropertyMetadata(new GridLength(120.0), FrameworkPropertyMetadataOptions.Inherits));
+            "TitleWidth", typeof(GridLength), typeof(TitleElement), new FrameworkPropertyMetadata(GridLength.Auto, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetTitleWidth(DependencyObject element, GridLength value) => element.SetValue(TitleWidthProperty, value);
 
-        public static GridLength GetTitleWidth(DependencyObject element) => (GridLength)element.GetValue(TitleWidthProperty);
+        public static GridLength GetTitleWidth(DependencyObject element) => (GridLength) element.GetValue(TitleWidthProperty);
+
+        public static readonly DependencyProperty HorizontalAlignmentProperty = DependencyProperty.RegisterAttached(
+            "HorizontalAlignment", typeof(HorizontalAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(default(HorizontalAlignment), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetHorizontalAlignment(DependencyObject element, HorizontalAlignment value)
+            => element.SetValue(HorizontalAlignmentProperty, value);
+
+        public static HorizontalAlignment GetHorizontalAlignment(DependencyObject element)
+            => (HorizontalAlignment) element.GetValue(HorizontalAlignmentProperty);
+
+        public static readonly DependencyProperty VerticalAlignmentProperty = DependencyProperty.RegisterAttached(
+            "VerticalAlignment", typeof(VerticalAlignment), typeof(TitleElement), new FrameworkPropertyMetadata(default(VerticalAlignment), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetVerticalAlignment(DependencyObject element, VerticalAlignment value)
+            => element.SetValue(VerticalAlignmentProperty, value);
+
+        public static VerticalAlignment GetVerticalAlignment(DependencyObject element)
+            => (VerticalAlignment) element.GetValue(VerticalAlignmentProperty);
     }
 }

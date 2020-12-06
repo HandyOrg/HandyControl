@@ -5,7 +5,7 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
-             xmlns:system="clr-namespace:System;assembly=System.Runtime"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              hc:Dialog.Token="{x:Static data:MessageToken.DialogContainer}"
              Background="{DynamicResource RegionBrush}"
              MinWidth="500"

@@ -1,9 +1,9 @@
-﻿using HandyControl.Tools.Extension;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
 using HandyControl.Tools;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
@@ -22,7 +22,7 @@ namespace HandyControl.Controls
 
         public double Gutter
         {
-            get => (double)GetValue(GutterProperty);
+            get => (double) GetValue(GutterProperty);
             set => SetValue(GutterProperty, value);
         }
 

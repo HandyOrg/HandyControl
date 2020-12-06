@@ -34,10 +34,10 @@ namespace HandyControl.Controls
         {
             var categoryAttribute = propertyDescriptor.Attributes.OfType<CategoryAttribute>().FirstOrDefault();
 
-            return categoryAttribute == null ? 
+            return categoryAttribute == null ?
                 Lang.Miscellaneous :
-                string.IsNullOrEmpty(categoryAttribute.Category) ? 
-                    Lang.Miscellaneous : 
+                string.IsNullOrEmpty(categoryAttribute.Category) ?
+                    Lang.Miscellaneous :
                     categoryAttribute.Category;
         }
 

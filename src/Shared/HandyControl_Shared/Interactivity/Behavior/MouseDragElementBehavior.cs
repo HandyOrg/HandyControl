@@ -220,7 +220,7 @@ namespace HandyControl.Interactivity
                     Y = transform5.Y
                 };
             if (transform is MatrixTransform transform6)
-                return new MatrixTransform {Matrix = transform6.Matrix};
+                return new MatrixTransform { Matrix = transform6.Matrix };
             if (!(transform is TransformGroup group))
                 return null;
             var group2 = new TransformGroup();

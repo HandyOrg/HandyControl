@@ -28,7 +28,7 @@ namespace HandyControl.Controls
 
         private static void MenuItem_Loaded(object sender, RoutedEventArgs e)
         {
-            var menuItem = (FrameworkElement)sender;
+            var menuItem = (FrameworkElement) sender;
             menuItem.Unloaded += MenuItem_Unloaded;
             var topLine = GetTopLine(menuItem);
             var popup = GetPopup(topLine);
@@ -40,7 +40,7 @@ namespace HandyControl.Controls
 
         private static void MenuItem_Unloaded(object sender, RoutedEventArgs e)
         {
-            var menuItem = (FrameworkElement)sender;
+            var menuItem = (FrameworkElement) sender;
             menuItem.Unloaded -= MenuItem_Unloaded;
             var topLine = GetTopLine(menuItem);
             var popup = GetPopup(topLine);
@@ -69,7 +69,7 @@ namespace HandyControl.Controls
 
                 if (positionLeftTop.X < 0)
                 {
-                    
+
                     topLine.Margin = new Thickness(positionLeftTop.X - panel.Margin.Left, 0, 0, 0);
                 }
                 else if (positionLeftTop.X + panel.ActualWidth > workAreaRect.Right)

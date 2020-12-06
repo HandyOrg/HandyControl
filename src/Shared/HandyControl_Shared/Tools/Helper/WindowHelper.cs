@@ -19,7 +19,7 @@ namespace HandyControl.Tools
         /// <returns></returns>
         public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
 
-        private static readonly BitArray _cacheValid = new BitArray((int)InteropValues.CacheSlot.NumSlots);
+        private static readonly BitArray _cacheValid = new BitArray((int) InteropValues.CacheSlot.NumSlots);
 
         private static bool _setDpiX = true;
 
@@ -90,7 +90,7 @@ namespace HandyControl.Tools
                             try
                             {
                                 _dpiX = InteropMethods.GetDeviceCaps(new HandleRef(null, dc), InteropValues.LOGPIXELSX);
-                                _cacheValid[(int)InteropValues.CacheSlot.DpiX] = true;
+                                _cacheValid[(int) InteropValues.CacheSlot.DpiX] = true;
                             }
                             finally
                             {
@@ -113,9 +113,9 @@ namespace HandyControl.Tools
             {
                 lock (_cacheValid)
                 {
-                    while (!_cacheValid[(int)InteropValues.CacheSlot.WindowResizeBorderThickness])
+                    while (!_cacheValid[(int) InteropValues.CacheSlot.WindowResizeBorderThickness])
                     {
-                        _cacheValid[(int)InteropValues.CacheSlot.WindowResizeBorderThickness] = true;
+                        _cacheValid[(int) InteropValues.CacheSlot.WindowResizeBorderThickness] = true;
 
                         var frameSize = new Size(InteropMethods.GetSystemMetrics(InteropValues.SM.CXSIZEFRAME), InteropMethods.GetSystemMetrics(InteropValues.SM.CYSIZEFRAME));
                         var frameSizeInDips = DpiHelper.DeviceSizeToLogical(frameSize, DpiX / 96.0, Dpi / 96.0);
@@ -142,7 +142,7 @@ namespace HandyControl.Tools
                 InteropMethods.ReleaseDC(IntPtr.Zero, hdc);
                 return WindowResizeBorderThickness.Add(new Thickness((autoHide ? - 4 : 4) * scale));
 #else
-                return WindowResizeBorderThickness.Add(new Thickness(autoHide ? - 4 : 4));
+                return WindowResizeBorderThickness.Add(new Thickness(autoHide ? -4 : 4));
 #endif
             }
         }

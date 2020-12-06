@@ -78,7 +78,7 @@ namespace HandyControl.Controls
         /// </summary>
         public bool ShowSpeStr
         {
-            get => (bool)GetValue(ShowSpeStrProperty);
+            get => (bool) GetValue(ShowSpeStrProperty);
             set => SetValue(ShowSpeStrProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -102,7 +102,7 @@ namespace HandyControl.Controls
         /// </summary>
         internal string SpeStr
         {
-            get => (string)GetValue(SpeStrProperty);
+            get => (string) GetValue(SpeStrProperty);
             set => SetValue(SpeStrProperty, value);
         }
 
@@ -116,7 +116,7 @@ namespace HandyControl.Controls
         {
             if (d is TimeBar timeBar && timeBar._textBlockSelected != null)
             {
-                timeBar.OnSelectedTimeChanged((DateTime)e.NewValue);
+                timeBar.OnSelectedTimeChanged((DateTime) e.NewValue);
             }
         }
 
@@ -125,7 +125,7 @@ namespace HandyControl.Controls
         /// </summary>
         public DateTime SelectedTime
         {
-            get => (DateTime)GetValue(SelectedTimeProperty);
+            get => (DateTime) GetValue(SelectedTimeProperty);
             set => SetValue(SelectedTimeProperty, value);
         }
 
@@ -237,7 +237,7 @@ namespace HandyControl.Controls
                     _dateTimeRanges.Add(item);
                 }
             }
-            else if(e.Action == NotifyCollectionChangedAction.Remove)
+            else if (e.Action == NotifyCollectionChangedAction.Remove)
             {
                 foreach (DateTimeRange item in e.OldItems)
                 {
@@ -300,7 +300,7 @@ namespace HandyControl.Controls
 
         private void CheckNull()
         {
-            if (_borderTop == null || _textBlockMove == null|| _textBlockSelected == null || _canvasSpe == null) throw new Exception();
+            if (_borderTop == null || _textBlockMove == null || _textBlockSelected == null || _canvasSpe == null) throw new Exception();
         }
 
         /// <summary>
@@ -474,10 +474,10 @@ namespace HandyControl.Controls
         private void Update()
         {
             if (_canvasSpe == null) return;
-            
+
             _speBlockList.Clear();
             _canvasSpe.Children.Clear();
-            _speCount = (int)(ActualWidth / 800 * 9) | 1;
+            _speCount = (int) (ActualWidth / 800 * 9) | 1;
 
             var itemWidthOld = _itemWidth;
             _itemWidth = ActualWidth / _speCount;
@@ -505,7 +505,7 @@ namespace HandyControl.Controls
             {
                 SetSpeTimeFormat("HH:mm:ss");
             }
-            
+
             ShowSpeStr = ActualWidth > 320;
             for (var i = 0; i < _speCount; i++)
             {
@@ -580,7 +580,7 @@ namespace HandyControl.Controls
 
             var set = _dateTimeRanges.GetViewBetween(new DateTimeRange(start), new DateTimeRange(end));
             var unitLength = ActualWidth / mlliseconds * 0.5;
-            
+
             foreach (var range in set)
             {
                 var width = range.TotalMilliseconds * unitLength;

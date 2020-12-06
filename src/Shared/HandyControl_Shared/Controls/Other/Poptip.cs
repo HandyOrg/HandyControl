@@ -21,7 +21,7 @@ namespace HandyControl.Controls
                 Child = this
             };
 
-            _popup.SetBinding(DataContextProperty, new Binding(DataContextProperty.Name) {Source = this});
+            _popup.SetBinding(DataContextProperty, new Binding(DataContextProperty.Name) { Source = this });
         }
 
         public static readonly DependencyProperty HitModeProperty = DependencyProperty.RegisterAttached(
@@ -35,7 +35,7 @@ namespace HandyControl.Controls
 
         public HitMode HitMode
         {
-            get => (HitMode)GetValue(HitModeProperty);
+            get => (HitMode) GetValue(HitModeProperty);
             set => SetValue(HitModeProperty, value);
         }
 
@@ -69,7 +69,7 @@ namespace HandyControl.Controls
 
         public DataTemplate ContentTemplate
         {
-            get => (DataTemplate)GetValue(ContentTemplateProperty);
+            get => (DataTemplate) GetValue(ContentTemplateProperty);
             set => SetValue(ContentTemplateProperty, value);
         }
 
@@ -78,7 +78,7 @@ namespace HandyControl.Controls
 
         public string ContentStringFormat
         {
-            get => (string)GetValue(ContentStringFormatProperty);
+            get => (string) GetValue(ContentStringFormatProperty);
             set => SetValue(ContentStringFormatProperty, value);
         }
 
@@ -87,7 +87,7 @@ namespace HandyControl.Controls
 
         public DataTemplateSelector ContentTemplateSelector
         {
-            get => (DataTemplateSelector)GetValue(ContentTemplateSelectorProperty);
+            get => (DataTemplateSelector) GetValue(ContentTemplateSelectorProperty);
             set => SetValue(ContentTemplateSelectorProperty, value);
         }
 
@@ -102,7 +102,7 @@ namespace HandyControl.Controls
 
         public double Offset
         {
-            get => (double)GetValue(OffsetProperty);
+            get => (double) GetValue(OffsetProperty);
             set => SetValue(OffsetProperty, value);
         }
 
@@ -117,7 +117,7 @@ namespace HandyControl.Controls
 
         public PlacementType PlacementType
         {
-            get => (PlacementType)GetValue(PlacementTypeProperty);
+            get => (PlacementType) GetValue(PlacementTypeProperty);
             set => SetValue(PlacementTypeProperty, value);
         }
 
@@ -132,7 +132,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                ((Poptip)GetInstance(d))?.SwitchPoptip((bool)e.NewValue);
+                ((Poptip) GetInstance(d))?.SwitchPoptip((bool) e.NewValue);
             }
         }
 
@@ -191,7 +191,7 @@ namespace HandyControl.Controls
             var offsetX = .0;
             var offsetY = .0;
 
-            var poptip = (Poptip)GetInstance(Target);
+            var poptip = (Poptip) GetInstance(Target);
             var popupPlacement = poptip.PlacementType;
             var popupOffset = poptip.Offset;
 

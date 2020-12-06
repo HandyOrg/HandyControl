@@ -94,7 +94,7 @@ namespace HandyControlDemo.ViewModel
         }
 
         public RelayCommand<object> MouseCmd => new Lazy<RelayCommand<object>>(() =>
-            new RelayCommand<object>(str=> Growl.Info(str.ToString()))).Value;
+            new RelayCommand<object>(str => Growl.Info(str.ToString()))).Value;
 
         public RelayCommand SendNotificationCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(SendNotification)).Value;

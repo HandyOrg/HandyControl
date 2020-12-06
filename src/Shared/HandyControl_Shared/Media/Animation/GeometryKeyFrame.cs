@@ -11,7 +11,7 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
 
     protected GeometryKeyFrame()
     {
-        
+
     }
 
     protected GeometryKeyFrame(Geometry value)
@@ -35,7 +35,7 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
     object IKeyFrame.Value
     {
         get => Value;
-        set => Value = (Geometry)value;
+        set => Value = (Geometry) value;
     }
 
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(

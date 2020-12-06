@@ -90,7 +90,7 @@ namespace HandyControl.Tools
 
         private Brush GetRenderBrush(string hashcode)
         {
-            var v = (double)int.Parse(hashcode.Substring(hashcode.Length - 7), NumberStyles.HexNumber);
+            var v = (double) int.Parse(hashcode.Substring(hashcode.Length - 7), NumberStyles.HexNumber);
             var scale = v / 0xfffffff;
             var color = Hsl2Rgb(scale);
             return new SolidColorBrush(color);

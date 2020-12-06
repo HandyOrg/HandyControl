@@ -20,7 +20,7 @@ namespace HandyControl.Tools
         {
             var rects = new List<InteropValues.RECT>();
             InteropMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero,
-                delegate(IntPtr hMonitor, IntPtr hdcMonitor, ref InteropValues.RECT rect, IntPtr lpData)
+                delegate (IntPtr hMonitor, IntPtr hdcMonitor, ref InteropValues.RECT rect, IntPtr lpData)
                 {
                     var monitorInfo = default(InteropValues.MONITORINFO);
                     monitorInfo.cbSize = (uint) Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
@@ -28,9 +28,9 @@ namespace HandyControl.Tools
                     rects.Add(monitorInfo.rcWork);
                     return true;
                 }, IntPtr.Zero);
-            
+
             var num = 0L;
-            
+
             screenSubRect = new InteropValues.RECT
             {
                 Left = 0,
@@ -38,7 +38,7 @@ namespace HandyControl.Tools
                 Top = 0,
                 Bottom = 0
             };
-            
+
             monitorRect = new InteropValues.RECT
             {
                 Left = 0,
@@ -46,7 +46,7 @@ namespace HandyControl.Tools
                 Top = 0,
                 Bottom = 0
             };
-            
+
             foreach (var current in rects)
             {
                 var rect = current;
@@ -68,10 +68,10 @@ namespace HandyControl.Tools
                 X = (int) point.X,
                 Y = (int) point.Y
             }, 2);
-            
+
             monitorRect = new Rect(0.0, 0.0, 0.0, 0.0);
             workAreaRect = new Rect(0.0, 0.0, 0.0, 0.0);
-            
+
             if (intPtr != IntPtr.Zero)
             {
                 InteropValues.MONITORINFO monitorInfo = default;

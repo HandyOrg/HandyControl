@@ -37,7 +37,7 @@ namespace HandyControl.Controls
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
             ((Rate) d).OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, d)
             {
-                Info = (double)e.NewValue
+                Info = (double) e.NewValue
             });
 
         protected virtual void OnValueChanged(FunctionEventArgs<double> e)
@@ -154,7 +154,7 @@ namespace HandyControl.Controls
 
         public bool IsReadOnly
         {
-            get => (bool)GetValue(IsReadOnlyProperty);
+            get => (bool) GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 

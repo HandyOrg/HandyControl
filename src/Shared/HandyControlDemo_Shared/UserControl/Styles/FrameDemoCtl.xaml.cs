@@ -10,7 +10,7 @@ namespace HandyControlDemo.UserControl
     {
 
         private readonly List<Page> _pageList;
-        
+
         public FrameDemoCtl()
         {
             InitializeComponent();

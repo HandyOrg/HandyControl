@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         private static void OnHeaderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctrl = (Tag)d;
+            var ctrl = (Tag) d;
 
             ctrl.SetValue(HasHeaderPropertyKey, e.NewValue != null ? ValueBoxes.TrueBox : ValueBoxes.FalseBox);
             ctrl.OnHeaderChanged(e.OldValue, e.NewValue);

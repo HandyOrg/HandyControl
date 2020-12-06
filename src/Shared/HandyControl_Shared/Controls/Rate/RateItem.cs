@@ -81,7 +81,7 @@ namespace HandyControl.Controls
 
         public bool IsReadOnly
         {
-            get => (bool)GetValue(IsReadOnlyProperty);
+            get => (bool) GetValue(IsReadOnlyProperty);
             set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -163,7 +163,7 @@ namespace HandyControl.Controls
             if (IsReadOnly) return;
             _isSentValue = false;
             IsSelected = true;
-            RaiseEvent(new RoutedEventArgs(SelectedChangedEvent) {Source = this});
+            RaiseEvent(new RoutedEventArgs(SelectedChangedEvent) { Source = this });
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -192,7 +192,7 @@ namespace HandyControl.Controls
                     {
                         if (!_isSentValue)
                         {
-                            RaiseEvent(new RoutedEventArgs(ValueChangedEvent) {Source = this});
+                            RaiseEvent(new RoutedEventArgs(ValueChangedEvent) { Source = this });
                             _isMouseLeftButtonDown = false;
                             _isSentValue = true;
                             return;
@@ -213,7 +213,7 @@ namespace HandyControl.Controls
                     }
                 }
 
-                RaiseEvent(new RoutedEventArgs(ValueChangedEvent) {Source = this});
+                RaiseEvent(new RoutedEventArgs(ValueChangedEvent) { Source = this });
                 _isMouseLeftButtonDown = false;
             }
         }

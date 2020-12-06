@@ -35,7 +35,7 @@ namespace HandyControl.Data
         public static bool operator ==(SystemVersionInfo left, SystemVersionInfo right) => left.Equals(right);
 
         public static bool operator !=(SystemVersionInfo left, SystemVersionInfo right) => !(left == right);
-        
+
         public int CompareTo(SystemVersionInfo other)
         {
             if (Major != other.Major)

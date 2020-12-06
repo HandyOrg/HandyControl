@@ -116,7 +116,7 @@ namespace HandyControl.Controls
             }
         }
 
-        private static void OnItemTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) 
+        private static void OnItemTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
             => (d as SimpleItemsControl)?.OnItemTemplateChanged(e);
 
         protected virtual void OnItemTemplateChanged(DependencyPropertyChangedEventArgs e) => Refresh();

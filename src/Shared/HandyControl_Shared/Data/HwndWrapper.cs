@@ -7,11 +7,11 @@ namespace HandyControl.Data
     public abstract class HwndWrapper : DisposableObject
     {
         private IntPtr _handle;
-        
+
         private bool _isHandleCreationAllowed = true;
-        
+
         private ushort _wndClassAtom;
-        
+
         private Delegate _wndProc;
 
         protected ushort WindowClassAtom

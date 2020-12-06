@@ -35,48 +35,48 @@ namespace HandyControl.Properties.Langs
                 Mode = BindingMode.OneWay
             });
 
-		private void UpdateLangs()
+        private void UpdateLangs()
         {
             OnPropertyChanged(nameof(All));
             OnPropertyChanged(nameof(Am));
-			OnPropertyChanged(nameof(Cancel));
-			OnPropertyChanged(nameof(CannotRegisterCompositeCommandInItself));
-			OnPropertyChanged(nameof(CannotRegisterSameCommandTwice));
-			OnPropertyChanged(nameof(Clear));
-			OnPropertyChanged(nameof(Close));
-			OnPropertyChanged(nameof(CloseAll));
-			OnPropertyChanged(nameof(CloseOther));
-			OnPropertyChanged(nameof(Confirm));
-			OnPropertyChanged(nameof(ErrorImgPath));
-			OnPropertyChanged(nameof(ErrorImgSize));
-			OnPropertyChanged(nameof(Find));
-			OnPropertyChanged(nameof(FormatError));
-			OnPropertyChanged(nameof(Interval10m));
-			OnPropertyChanged(nameof(Interval1h));
-			OnPropertyChanged(nameof(Interval1m));
-			OnPropertyChanged(nameof(Interval2h));
-			OnPropertyChanged(nameof(Interval30m));
-			OnPropertyChanged(nameof(Interval30s));
-			OnPropertyChanged(nameof(Interval5m));
-			OnPropertyChanged(nameof(IsNecessary));
-			OnPropertyChanged(nameof(Jump));
-			OnPropertyChanged(nameof(LangComment));
-			OnPropertyChanged(nameof(NextPage));
-			OnPropertyChanged(nameof(No));
-			OnPropertyChanged(nameof(OutOfRange));
-			OnPropertyChanged(nameof(PageMode));
-			OnPropertyChanged(nameof(Pm));
-			OnPropertyChanged(nameof(PngImg));
-			OnPropertyChanged(nameof(PreviousPage));
-			OnPropertyChanged(nameof(ScrollMode));
-			OnPropertyChanged(nameof(Tip));
-			OnPropertyChanged(nameof(TooLarge));
-			OnPropertyChanged(nameof(TwoPageMode));
-			OnPropertyChanged(nameof(Unknown));
-			OnPropertyChanged(nameof(UnknownSize));
-			OnPropertyChanged(nameof(Yes));
-			OnPropertyChanged(nameof(ZoomIn));
-			OnPropertyChanged(nameof(ZoomOut));
+            OnPropertyChanged(nameof(Cancel));
+            OnPropertyChanged(nameof(CannotRegisterCompositeCommandInItself));
+            OnPropertyChanged(nameof(CannotRegisterSameCommandTwice));
+            OnPropertyChanged(nameof(Clear));
+            OnPropertyChanged(nameof(Close));
+            OnPropertyChanged(nameof(CloseAll));
+            OnPropertyChanged(nameof(CloseOther));
+            OnPropertyChanged(nameof(Confirm));
+            OnPropertyChanged(nameof(ErrorImgPath));
+            OnPropertyChanged(nameof(ErrorImgSize));
+            OnPropertyChanged(nameof(Find));
+            OnPropertyChanged(nameof(FormatError));
+            OnPropertyChanged(nameof(Interval10m));
+            OnPropertyChanged(nameof(Interval1h));
+            OnPropertyChanged(nameof(Interval1m));
+            OnPropertyChanged(nameof(Interval2h));
+            OnPropertyChanged(nameof(Interval30m));
+            OnPropertyChanged(nameof(Interval30s));
+            OnPropertyChanged(nameof(Interval5m));
+            OnPropertyChanged(nameof(IsNecessary));
+            OnPropertyChanged(nameof(Jump));
+            OnPropertyChanged(nameof(LangComment));
+            OnPropertyChanged(nameof(NextPage));
+            OnPropertyChanged(nameof(No));
+            OnPropertyChanged(nameof(OutOfRange));
+            OnPropertyChanged(nameof(PageMode));
+            OnPropertyChanged(nameof(Pm));
+            OnPropertyChanged(nameof(PngImg));
+            OnPropertyChanged(nameof(PreviousPage));
+            OnPropertyChanged(nameof(ScrollMode));
+            OnPropertyChanged(nameof(Tip));
+            OnPropertyChanged(nameof(TooLarge));
+            OnPropertyChanged(nameof(TwoPageMode));
+            OnPropertyChanged(nameof(Unknown));
+            OnPropertyChanged(nameof(UnknownSize));
+            OnPropertyChanged(nameof(Yes));
+            OnPropertyChanged(nameof(ZoomIn));
+            OnPropertyChanged(nameof(ZoomOut));
         }
 
         /// <summary>

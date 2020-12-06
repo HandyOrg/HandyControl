@@ -1,9 +1,6 @@
 name: build
 
-on:
-  push:
-    branches:
-      - master
+on: [push, pull_request]
 
 jobs:
   build:
@@ -11,17 +8,6 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      
-      - name: Setup Nuget.exe
-        uses: nuget/setup-nuget@main
-      
-      - name: Restore Nuget packages
-        run: nuget restore src/HandyControl.sln
-
-      - name: Setup .NET Core
-        uses: actions/setup-dotnet@master
-        with:
-          dotnet-version: '5.0.100'
       
       - name: Build Net_40
         run: dotnet build src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release-Net40

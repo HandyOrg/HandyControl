@@ -70,6 +70,9 @@
                         <Trigger Property="ShowCloseButton" Value="True">
                             <Setter Property="Margin" Value="0,0,0,1" TargetName="BorderMask"/>
                         </Trigger>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Opacity" Value="0.4" TargetName="contentPresenter"/>
+                        </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>

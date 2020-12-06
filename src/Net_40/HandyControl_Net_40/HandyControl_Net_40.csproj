@@ -7,43 +7,12 @@
     <PackageId>HandyControl</PackageId>
     <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <NoWarn>0067;0649;1591</NoWarn>
+    <NoWarn>0067;0649;1591;0108;1717</NoWarn>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net40|AnyCPU' ">
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\HandyControl.xml</DocumentationFile>
   </PropertyGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.Windows.Shell">
-      <Version>3.0.1</Version>
-    </PackageReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Themes\Styles\Base\ComboBoxBaseStyle.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Update="Themes\Styles\Base\TreeViewBaseStyle.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="Themes\Styles\DataGrid.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Update="Themes\Styles\ListView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Update="Themes\Styles\MessageBox.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-    <Page Update="Themes\Styles\Window.xaml">
-      <SubType>Designer</SubType>
-      <Generator>XamlIntelliSenseFileGenerator</Generator>
-    </Page>
-  </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.Designer.cs">
       <Link>Properties\Langs\Lang.Designer.cs</Link>
@@ -100,6 +69,7 @@
     </Content>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
+  <Import Project="..\..\Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems" Label="Shared" />
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\dropper.cur">
       <Link>Resources\dropper.cur</Link>
@@ -172,7 +142,7 @@
       <Link>Resources\Images\GlowWindow\topright.png</Link>
     </Resource>
   </ItemGroup>
-  <ItemGroup>
+  <ItemGroup> 
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\CheckComboBoxBaseStyle.xaml" />
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\ComboBoxBaseStyle.xaml" />
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Base\TreeViewBaseStyle.xaml" />
@@ -180,5 +150,44 @@
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\ListView.xaml" />
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\MessageBox.xaml" />
     <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Styles\Window.xaml" />
+    <Page Remove="..\..\Shared\HandyControl_Shared\Themes\Theme.xaml" />
+    <Page Remove="Themes\Styles\Base\CheckComboBoxBaseStyle.xaml" />
+    <Page Remove="Themes\Styles\Base\ComboBoxBaseStyle.xaml" />
+    <Page Remove="Themes\Styles\Base\TreeViewBaseStyle.xaml" />
+    <Page Remove="Themes\Styles\DataGrid.xaml" />
+    <Page Remove="Themes\Styles\ListView.xaml" />
+    <Page Remove="Themes\Styles\MessageBox.xaml" />
+    <Page Remove="Themes\Styles\Window.xaml" />
+    <Page Remove="Themes\Theme.xaml" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Themes\Styles\Base\CheckComboBoxBaseStyle.xaml" />
+    <None Include="Themes\Styles\Base\ComboBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </None>
+    <None Include="Themes\Styles\Base\TreeViewBaseStyle.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Themes\Styles\DataGrid.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Themes\Styles\ListView.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Themes\Styles\MessageBox.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Themes\Styles\Window.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <Page Include="Themes\Theme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="..\..\Shared\HandyControl_Shared\Themes\XamlCombine.exe ..\..\Shared\HandyControl_Shared\Themes\Theme_40.txt ..\..\..\Net_40\HandyControl_Net_40\Themes\Theme.xaml" />
+  </Target>
 </Project>

@@ -6,5 +6,5 @@
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource StatusBarBaseStyle}" TargetType="StatusBar"/>
-
+    <Style BasedOn="{StaticResource StatusBarItemBaseStyle}" TargetType="StatusBarItem"/>
 </ResourceDictionary>

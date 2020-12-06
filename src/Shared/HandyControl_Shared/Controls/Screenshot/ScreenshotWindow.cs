@@ -124,7 +124,7 @@ namespace HandyControl.Controls
 
         public bool IsDrawing
         {
-            get => (bool)GetValue(IsDrawingProperty);
+            get => (bool) GetValue(IsDrawingProperty);
             internal set => SetValue(IsDrawingProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -133,7 +133,7 @@ namespace HandyControl.Controls
 
         public bool IsSelecting
         {
-            get => (bool)GetValue(IsSelectingProperty);
+            get => (bool) GetValue(IsSelectingProperty);
             internal set => SetValue(IsSelectingProperty, ValueBoxes.BooleanBox(value));
         }
 
@@ -279,14 +279,14 @@ namespace HandyControl.Controls
             }
 
             var newPoint = Mouse.GetPosition(this);
-            var offsetX = (int)(newPoint.X - _mousePointOld.X);
-            var offsetY = (int)(newPoint.Y - _mousePointOld.Y);
-            
+            var offsetX = (int) (newPoint.X - _mousePointOld.X);
+            var offsetY = (int) (newPoint.Y - _mousePointOld.Y);
+
             if (IsDrawing)
             {
                 if (_isOut) return;
                 var rect = _targetWindowRect;
-                
+
                 if (_canDrag)
                 {
                     rect.Left += offsetX;
@@ -320,10 +320,10 @@ namespace HandyControl.Controls
                         magnifierPos.Y = _pointFloating.Y - 1;
                     }
 
-                    rect.Left = (int)Math.Min(_pointFixed.X, _pointFloating.X);
-                    rect.Top = (int)Math.Min(_pointFixed.Y, _pointFloating.Y);
-                    rect.Right = (int)Math.Max(_pointFixed.X, _pointFloating.X);
-                    rect.Bottom = (int)Math.Max(_pointFixed.Y, _pointFloating.Y);
+                    rect.Left = (int) Math.Min(_pointFixed.X, _pointFloating.X);
+                    rect.Top = (int) Math.Min(_pointFixed.Y, _pointFloating.Y);
+                    rect.Right = (int) Math.Max(_pointFixed.X, _pointFloating.X);
+                    rect.Bottom = (int) Math.Max(_pointFixed.Y, _pointFloating.Y);
 
                     _magnifier.Show();
                     MoveMagnifier(magnifierPos);
@@ -334,10 +334,10 @@ namespace HandyControl.Controls
             }
             else if (IsSelecting)
             {
-                var minX = (int)Math.Min(_mousePointOld.X, newPoint.X);
-                var maxX = (int)Math.Max(_mousePointOld.X, newPoint.X);
-                var minY = (int)Math.Min(_mousePointOld.Y, newPoint.Y);
-                var maxY = (int)Math.Max(_mousePointOld.Y, newPoint.Y);
+                var minX = (int) Math.Min(_mousePointOld.X, newPoint.X);
+                var maxX = (int) Math.Max(_mousePointOld.X, newPoint.X);
+                var minY = (int) Math.Min(_mousePointOld.Y, newPoint.Y);
+                var maxY = (int) Math.Max(_mousePointOld.Y, newPoint.Y);
 
                 MoveTargetArea(new InteropValues.RECT(minX, minY, maxX, maxY));
             }

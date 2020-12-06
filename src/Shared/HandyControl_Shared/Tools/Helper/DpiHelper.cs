@@ -10,7 +10,7 @@ namespace HandyControl.Tools
     {
         private const double LogicalDpi = 96.0;
 
-        [ThreadStatic] 
+        [ThreadStatic]
         private static Matrix _transformToDip;
 
         static DpiHelper()

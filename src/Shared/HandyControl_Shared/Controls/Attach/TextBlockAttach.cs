@@ -13,7 +13,7 @@ namespace HandyControl.Controls
         {
             if (d is TextBlock ctl)
             {
-                if ((bool)e.NewValue)
+                if ((bool) e.NewValue)
                 {
                     ctl.TextTrimming = TextTrimming.WordEllipsis;
                     UpdateTooltip(ctl);

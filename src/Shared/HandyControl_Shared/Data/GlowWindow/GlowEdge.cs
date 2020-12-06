@@ -11,42 +11,42 @@ namespace HandyControl.Data
     internal class GlowEdge : HwndWrapper
     {
         private const string GlowEdgeClassName = "HandyControlGlowEdge";
-        
+
         private const int GlowDepth = 9;
-        
+
         private const int CornerGripThickness = 18;
 
         private static ushort _sharedWindowClassAtom;
-        
+
         // ReSharper disable once NotAccessedField.Local
         private static InteropValues.WndProc _sharedWndProc;
 
         private readonly GlowBitmap[] _activeGlowBitmaps = new GlowBitmap[16];
-        
+
         private readonly GlowBitmap[] _inactiveGlowBitmaps = new GlowBitmap[16];
-        
+
         private readonly Dock _orientation;
-        
+
         private readonly GlowWindow _targetWindow;
-        
+
         private Color _activeGlowColor = Colors.Transparent;
-        
+
         private int _height;
-        
+
         private Color _inactiveGlowColor = Colors.Transparent;
-        
+
         private FieldInvalidationTypes _invalidatedValues;
-        
+
         private bool _isActive;
-        
+
         private bool _isVisible;
-        
+
         private int _left;
-        
+
         private bool _pendingDelayRender;
-        
+
         private int _top;
-        
+
         private int _width;
 
         internal static long CreatedGlowEdges { get; private set; }
@@ -69,7 +69,7 @@ namespace HandyControl.Data
                 if (_sharedWindowClassAtom == 0)
                 {
                     var wndclass = default(InteropValues.WNDCLASS);
-                    
+
                     wndclass.cbClsExtra = 0;
                     wndclass.cbWndExtra = 0;
                     wndclass.hbrBackground = IntPtr.Zero;
@@ -108,7 +108,7 @@ namespace HandyControl.Data
         internal int Width
         {
             get => _width;
-            set => UpdateProperty( ref _width, value, FieldInvalidationTypes.Size | FieldInvalidationTypes.Render);
+            set => UpdateProperty(ref _width, value, FieldInvalidationTypes.Size | FieldInvalidationTypes.Render);
         }
 
         internal int Height
@@ -183,7 +183,7 @@ namespace HandyControl.Data
                 if (msg == 6) return IntPtr.Zero;
                 if (msg == 70)
                 {
-                    var windowpos = (InteropValues.WINDOWPOS)Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
+                    var windowpos = (InteropValues.WINDOWPOS) Marshal.PtrToStructure(lParam, typeof(InteropValues.WINDOWPOS));
                     windowpos.flags |= 16u;
                     Marshal.StructureToPtr(windowpos, lParam, true);
                 }

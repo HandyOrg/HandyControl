@@ -118,7 +118,7 @@
         <Setter Property="KeyboardNavigation.TabNavigation" Value="Local"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="{x:Type FlowDocumentReader}">
+                <ControlTemplate TargetType="FlowDocumentReader">
                     <DockPanel Background="{TemplateBinding Background}" LastChildFill="True">
                         <Grid Panel.ZIndex="1" DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" Margin="0,6">
                             <Grid.ColumnDefinitions>

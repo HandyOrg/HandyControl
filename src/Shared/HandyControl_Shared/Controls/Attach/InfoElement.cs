@@ -13,7 +13,7 @@ namespace HandyControl.Controls
 
         public static void SetPlaceholder(DependencyObject element, string value) => element.SetValue(PlaceholderProperty, value);
 
-        public static string GetPlaceholder(DependencyObject element) => (string)element.GetValue(PlaceholderProperty);
+        public static string GetPlaceholder(DependencyObject element) => (string) element.GetValue(PlaceholderProperty);
 
         /// <summary>
         ///     是否必填
@@ -23,7 +23,7 @@ namespace HandyControl.Controls
 
         public static void SetNecessary(DependencyObject element, bool value) => element.SetValue(NecessaryProperty, ValueBoxes.BooleanBox(value));
 
-        public static bool GetNecessary(DependencyObject element) => (bool)element.GetValue(NecessaryProperty);
+        public static bool GetNecessary(DependencyObject element) => (bool) element.GetValue(NecessaryProperty);
 
         /// <summary>
         ///     标记
@@ -33,7 +33,7 @@ namespace HandyControl.Controls
 
         public static void SetSymbol(DependencyObject element, string value) => element.SetValue(SymbolProperty, value);
 
-        public static string GetSymbol(DependencyObject element) => (string)element.GetValue(SymbolProperty);
+        public static string GetSymbol(DependencyObject element) => (string) element.GetValue(SymbolProperty);
 
         /// <summary>
         ///     内容高度
@@ -43,7 +43,7 @@ namespace HandyControl.Controls
 
         public static void SetContentHeight(DependencyObject element, double value) => element.SetValue(ContentHeightProperty, value);
 
-        public static double GetContentHeight(DependencyObject element) => (double)element.GetValue(ContentHeightProperty);
+        public static double GetContentHeight(DependencyObject element) => (double) element.GetValue(ContentHeightProperty);
 
         /// <summary>
         ///     最小内容高度

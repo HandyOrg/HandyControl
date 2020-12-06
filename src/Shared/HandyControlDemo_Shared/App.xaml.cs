@@ -9,7 +9,6 @@ using System.Runtime;
 using System.Threading;
 using System.Windows;
 using HandyControl.Data;
-using HandyControl.Themes;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools;
@@ -19,7 +18,7 @@ namespace HandyControlDemo
     public partial class App
     {
 #pragma warning disable IDE0052
-        [SuppressMessage("ReSharper", "NotAccessedField.Local")] 
+        [SuppressMessage("ReSharper", "NotAccessedField.Local")]
         private static Mutex AppMutex;
 #pragma warning restore IDE0052
 
@@ -91,21 +90,20 @@ namespace HandyControlDemo
 
         internal void UpdateSkin(SkinType skin)
         {
-            SharedResourceDictionary.SharedDictionaries.Clear();
             var skins0 = Resources.MergedDictionaries[0];
             skins0.MergedDictionaries.Clear();
-            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));	
-            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));	
-            
-            var skins1 = Resources.MergedDictionaries[1];	
-            skins1.MergedDictionaries.Clear();	
-            skins1.MergedDictionaries.Add(new ResourceDictionary	
-            {	
-                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")	
-            });	
-            skins1.MergedDictionaries.Add(new ResourceDictionary	
-            {	
-                Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")	
+            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));
+            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));
+
+            var skins1 = Resources.MergedDictionaries[1];
+            skins1.MergedDictionaries.Clear();
+            skins1.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+            });
+            skins1.MergedDictionaries.Add(new ResourceDictionary
+            {
+                Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
             });
 
             Current.MainWindow?.OnApplyTemplate();

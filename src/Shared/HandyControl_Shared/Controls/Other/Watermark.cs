@@ -144,7 +144,7 @@ namespace HandyControl.Controls
                         Background = Brushes.Transparent,
                         Padding = MarkMargin,
                         Child = presenter
-                    }), 
+                    }),
                     Geometry = new RectangleGeometry(new Rect(markSize))
                 },
                 Viewport = new Rect(markSize)

@@ -13,7 +13,7 @@ namespace HandyControl.Media.Animation
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
         }
 
-        public new GeometryAnimationBase Clone() => (GeometryAnimationBase)base.Clone();
+        public new GeometryAnimationBase Clone() => (GeometryAnimationBase) base.Clone();
 
         public sealed override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue, AnimationClock animationClock)
         {
@@ -25,7 +25,7 @@ namespace HandyControl.Media.Animation
             {
                 throw new ArgumentNullException(nameof(defaultDestinationValue));
             }
-            return GetCurrentValue((Geometry)defaultOriginValue, (Geometry)defaultDestinationValue, animationClock);
+            return GetCurrentValue((Geometry) defaultOriginValue, (Geometry) defaultDestinationValue, animationClock);
         }
 
         public override Type TargetPropertyType

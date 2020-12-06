@@ -61,7 +61,7 @@ namespace HandyControlDemo.Service
                         Index = j,
                         IsSelected = j % 2 == 0,
                         Name = $"SubName{j}",
-                        Type = (DemoType)j
+                        Type = (DemoType) j
                     });
                 }
                 var model = new DemoDataModel
@@ -69,7 +69,7 @@ namespace HandyControlDemo.Service
                     Index = i,
                     IsSelected = i % 2 == 0,
                     Name = $"Name{i}",
-                    Type = (DemoType)i,
+                    Type = (DemoType) i,
                     DataList = dataList,
                     ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i % 6 + 1}.png",
                     Remark = new string(i.ToString()[0], 10)
@@ -91,7 +91,7 @@ namespace HandyControlDemo.Service
                     Index = i,
                     IsSelected = i % 2 == 0,
                     Name = $"Name{i}",
-                    Type = (DemoType)index,
+                    Type = (DemoType) index,
                     ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{index}.png",
                     Remark = new string(i.ToString()[0], 10)
                 };
@@ -129,7 +129,7 @@ namespace HandyControlDemo.Service
                     Link = item.html_url
                 }));
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 HandyControl.Controls.MessageBox.Error(e.Message, Lang.Error);
             }
@@ -183,6 +183,12 @@ namespace HandyControlDemo.Service
                     DisplayName = "AutumnBox",
                     AvatarUri = "https://raw.githubusercontent.com/zsh2401/AutumnBox/master/src/AutumnBox.GUI/Resources/Images/icon.png",
                     Link = "https://github.com/zsh2401/AutumnBox"
+                },
+                new AvatarModel
+                {
+                    DisplayName = "quicker",
+                    AvatarUri = "https://files.getquicker.net/_sitefiles/quicker_round_128.png",
+                    Link = "https://getquicker.net"
                 }
             };
         }
@@ -396,10 +402,10 @@ namespace HandyControlDemo.Service
 
             foreach (var item in list)
             {
-                var name = (string)item[0];
+                var name = (string) item[0];
                 string targetCtlName = item[1];
                 string imageName = item[2];
-                var isNew = !string.IsNullOrEmpty((string)item[3]);
+                var isNew = !string.IsNullOrEmpty((string) item[3]);
 
                 resultList.Add(new DemoItemModel
                 {

@@ -35,8 +35,8 @@ namespace HandyControl.Controls
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (Badge)d;
-            var v = (int)e.NewValue;
+            var ctl = (Badge) d;
+            var v = (int) e.NewValue;
             ctl.Text = v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+";
             if (ctl.IsInitialized)
             {
@@ -49,7 +49,7 @@ namespace HandyControl.Controls
 
         public int Value
         {
-            get => (int)GetValue(ValueProperty);
+            get => (int) GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
 
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         public BadgeStatus Status
         {
-            get => (BadgeStatus)GetValue(StatusProperty);
+            get => (BadgeStatus) GetValue(StatusProperty);
             set => SetValue(StatusProperty, value);
         }
 
@@ -67,7 +67,7 @@ namespace HandyControl.Controls
 
         public int Maximum
         {
-            get => (int)GetValue(MaximumProperty);
+            get => (int) GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
 
@@ -76,7 +76,7 @@ namespace HandyControl.Controls
 
         public Thickness BadgeMargin
         {
-            get => (Thickness)GetValue(BadgeMarginProperty);
+            get => (Thickness) GetValue(BadgeMarginProperty);
             set => SetValue(BadgeMarginProperty, value);
         }
 

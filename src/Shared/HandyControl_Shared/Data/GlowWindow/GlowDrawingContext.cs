@@ -6,7 +6,7 @@ namespace HandyControl.Data
     internal class GlowDrawingContext : DisposableObject
     {
         private readonly GlowBitmap _windowBitmap;
-        
+
         internal InteropValues.BLENDFUNCTION Blend;
 
         internal GlowDrawingContext(int width, int height)
@@ -25,8 +25,8 @@ namespace HandyControl.Data
             InteropMethods.SelectObject(WindowDC, _windowBitmap.Handle);
         }
 
-        internal bool IsInitialized => 
-            ScreenDC != IntPtr.Zero && WindowDC != IntPtr.Zero && 
+        internal bool IsInitialized =>
+            ScreenDC != IntPtr.Zero && WindowDC != IntPtr.Zero &&
             BackgroundDC != IntPtr.Zero && _windowBitmap != null;
 
         internal IntPtr ScreenDC { get; }

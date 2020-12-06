@@ -18,13 +18,13 @@ namespace HandyControl.Tools
 
         private static int VirtualKey;
 
-        private static readonly IntPtr KeyDownIntPtr = (IntPtr)InteropValues.WM_KEYDOWN;
+        private static readonly IntPtr KeyDownIntPtr = (IntPtr) InteropValues.WM_KEYDOWN;
 
-        private static readonly IntPtr KeyUpIntPtr = (IntPtr)InteropValues.WM_KEYUP;
+        private static readonly IntPtr KeyUpIntPtr = (IntPtr) InteropValues.WM_KEYUP;
 
-        private static readonly IntPtr SyskeyDownIntPtr = (IntPtr)InteropValues.WM_SYSKEYDOWN;
+        private static readonly IntPtr SyskeyDownIntPtr = (IntPtr) InteropValues.WM_SYSKEYDOWN;
 
-        private static readonly IntPtr SyskeyUpIntPtr = (IntPtr)InteropValues.WM_SYSKEYUP;
+        private static readonly IntPtr SyskeyUpIntPtr = (IntPtr) InteropValues.WM_SYSKEYUP;
 
         private static int Count;
 
@@ -55,10 +55,10 @@ namespace HandyControl.Tools
         {
             using var curProcess = Process.GetCurrentProcess();
             using var curModule = curProcess.MainModule;
-            
+
             if (curModule != null)
             {
-                return InteropMethods.SetWindowsHookEx((int)InteropValues.HookType.WH_KEYBOARD_LL, proc,
+                return InteropMethods.SetWindowsHookEx((int) InteropValues.HookType.WH_KEYBOARD_LL, proc,
                     InteropMethods.GetModuleHandle(curModule.ModuleName), 0);
             }
             return IntPtr.Zero;

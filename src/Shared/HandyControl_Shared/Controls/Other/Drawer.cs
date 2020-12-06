@@ -60,7 +60,7 @@ namespace HandyControl.Controls
         private void Drawer_Unloaded(object sender, RoutedEventArgs e)
         {
             Loaded -= Drawer_Loaded;
-            
+
             if (_maskElement != null)
             {
                 _maskElement.PreviewMouseLeftButtonDown -= MaskElement_PreviewMouseLeftButtonDown;
@@ -73,7 +73,7 @@ namespace HandyControl.Controls
         }
 
         private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
-            ((Drawer)d).OnDataContextPropertyChanged(e);
+            ((Drawer) d).OnDataContextPropertyChanged(e);
 
         private void OnDataContextPropertyChanged(DependencyPropertyChangedEventArgs e) => UpdateDataContext(_animationControl, e.OldValue, e.NewValue);
 
@@ -103,7 +103,7 @@ namespace HandyControl.Controls
         private static void OnIsOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (Drawer) d;
-            ctl.OnIsOpenChanged((bool)e.NewValue);
+            ctl.OnIsOpenChanged((bool) e.NewValue);
         }
 
         public bool IsOpen

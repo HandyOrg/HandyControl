@@ -26,7 +26,7 @@ namespace HandyControl.Expression.Drawing
             var segment = new SimpleSegment
             {
                 Type = SegmentType.Line,
-                Points = new[] {point0, point1}
+                Points = new[] { point0, point1 }
             };
             return segment;
         }
@@ -38,7 +38,7 @@ namespace HandyControl.Expression.Drawing
             var segment = new SimpleSegment
             {
                 Type = SegmentType.CubicBeizer,
-                Points = new[] {point0, point, point3, point2}
+                Points = new[] { point0, point, point3, point2 }
             };
             return segment;
         }
@@ -48,7 +48,7 @@ namespace HandyControl.Expression.Drawing
             var segment = new SimpleSegment
             {
                 Type = SegmentType.CubicBeizer,
-                Points = new[] {point0, point1, point2, point3}
+                Points = new[] { point0, point1, point2, point3 }
             };
             return segment;
         }

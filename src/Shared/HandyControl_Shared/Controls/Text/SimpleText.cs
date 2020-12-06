@@ -26,7 +26,7 @@ namespace HandyControl.Controls
 
         public string Text
         {
-            get => (string)GetValue(TextProperty);
+            get => (string) GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
 
@@ -36,7 +36,7 @@ namespace HandyControl.Controls
 
         public TextAlignment TextAlignment
         {
-            get => (TextAlignment)GetValue(TextAlignmentProperty);
+            get => (TextAlignment) GetValue(TextAlignmentProperty);
             set => SetValue(TextAlignmentProperty, value);
         }
 
@@ -46,7 +46,7 @@ namespace HandyControl.Controls
 
         public TextTrimming TextTrimming
         {
-            get => (TextTrimming)GetValue(TextTrimmingProperty);
+            get => (TextTrimming) GetValue(TextTrimmingProperty);
             set => SetValue(TextTrimmingProperty, value);
         }
 
@@ -56,7 +56,7 @@ namespace HandyControl.Controls
 
         public TextWrapping TextWrapping
         {
-            get => (TextWrapping)GetValue(TextWrappingProperty);
+            get => (TextWrapping) GetValue(TextWrappingProperty);
             set => SetValue(TextWrappingProperty, value);
         }
 
@@ -75,7 +75,7 @@ namespace HandyControl.Controls
 
         public FontFamily FontFamily
         {
-            get => (FontFamily)GetValue(FontFamilyProperty);
+            get => (FontFamily) GetValue(FontFamilyProperty);
             set => SetValue(FontFamilyProperty, value);
         }
 
@@ -86,7 +86,7 @@ namespace HandyControl.Controls
         [TypeConverter(typeof(FontSizeConverter))]
         public double FontSize
         {
-            get => (double)GetValue(FontSizeProperty);
+            get => (double) GetValue(FontSizeProperty);
             set => SetValue(FontSizeProperty, value);
         }
 
@@ -96,7 +96,7 @@ namespace HandyControl.Controls
 
         public FontStretch FontStretch
         {
-            get => (FontStretch)GetValue(FontStretchProperty);
+            get => (FontStretch) GetValue(FontStretchProperty);
             set => SetValue(FontStretchProperty, value);
         }
 
@@ -106,7 +106,7 @@ namespace HandyControl.Controls
 
         public FontStyle FontStyle
         {
-            get => (FontStyle)GetValue(FontStyleProperty);
+            get => (FontStyle) GetValue(FontStyleProperty);
             set => SetValue(FontStyleProperty, value);
         }
 
@@ -116,7 +116,7 @@ namespace HandyControl.Controls
 
         public FontWeight FontWeight
         {
-            get => (FontWeight)GetValue(FontWeightProperty);
+            get => (FontWeight) GetValue(FontWeightProperty);
             set => SetValue(FontWeightProperty, value);
         }
 
@@ -175,7 +175,7 @@ namespace HandyControl.Controls
 
         private static void OnFormattedTextUpdated(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var outlinedTextBlock = (SimpleText)d;
+            var outlinedTextBlock = (SimpleText) d;
             outlinedTextBlock.UpdateFormattedText();
 
             outlinedTextBlock.InvalidateMeasure();
@@ -184,7 +184,7 @@ namespace HandyControl.Controls
 
         private static void OnFormattedTextInvalidated(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var outlinedTextBlock = (SimpleText)d;
+            var outlinedTextBlock = (SimpleText) d;
             outlinedTextBlock._formattedText = null;
 
             outlinedTextBlock.InvalidateMeasure();

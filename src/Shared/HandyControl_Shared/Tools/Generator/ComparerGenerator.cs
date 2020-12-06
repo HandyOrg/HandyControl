@@ -18,7 +18,7 @@ namespace HandyControl.Tools
             {
                 if (comparerType == ComparerTypeCode.DateTimeRange)
                 {
-                    return (IComparer<T>)new DateTimeRangeComparer();
+                    return (IComparer<T>) new DateTimeRangeComparer();
                 }
 
                 return null;

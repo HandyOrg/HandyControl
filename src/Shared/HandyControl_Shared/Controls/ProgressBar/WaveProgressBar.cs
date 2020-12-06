@@ -66,7 +66,7 @@ namespace HandyControl.Controls
                 _translateTransformYRange = clipElement.Height - TranslateTransformMinY;
                 _waveElement.RenderTransform = new TransformGroup
                 {
-                    Children = {_translateTransform}
+                    Children = { _translateTransform }
                 };
             }
         }
@@ -76,7 +76,7 @@ namespace HandyControl.Controls
 
         public string Text
         {
-            get => (string)GetValue(TextProperty);
+            get => (string) GetValue(TextProperty);
             set => SetValue(TextProperty, value);
         }
 
@@ -85,7 +85,7 @@ namespace HandyControl.Controls
 
         public bool ShowText
         {
-            get => (bool)GetValue(ShowTextProperty);
+            get => (bool) GetValue(ShowTextProperty);
             set => SetValue(ShowTextProperty, ValueBoxes.BooleanBox(value));
         }
 

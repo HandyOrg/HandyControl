@@ -13,7 +13,7 @@ namespace HandyControl.Controls
 
         public Orientation Orientation
         {
-            get => (Orientation)GetValue(OrientationProperty);
+            get => (Orientation) GetValue(OrientationProperty);
             set => SetValue(OrientationProperty, value);
         }
 
@@ -24,7 +24,7 @@ namespace HandyControl.Controls
             var count = Items.Count;
             for (var i = 0; i < count; i++)
             {
-                var item = (ButtonBase)Items[i];
+                var item = (ButtonBase) Items[i];
                 item.Style = ItemContainerStyleSelector?.SelectStyle(item, this);
             }
         }

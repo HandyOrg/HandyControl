@@ -48,7 +48,7 @@ namespace HandyControl.Data
 
         protected override void DisposeNativeResources() => InteropMethods.DeleteObject(Handle);
 
-        private static byte PremultiplyAlpha(byte channel, byte alpha) => (byte)(channel * alpha / 255.0);
+        private static byte PremultiplyAlpha(byte channel, byte alpha) => (byte) (channel * alpha / 255.0);
 
         internal static GlowBitmap Create(GlowDrawingContext drawingContext, GlowBitmapPart bitmapPart, Color color)
         {
@@ -78,7 +78,7 @@ namespace HandyControl.Data
 
         private static CachedBitmapInfo GetOrCreateAlphaMask(GlowBitmapPart bitmapPart)
         {
-            if (_transparencyMasks[(int)bitmapPart] == null)
+            if (_transparencyMasks[(int) bitmapPart] == null)
             {
                 var bitmapImage = new BitmapImage(new Uri($"pack://application:,,,/HandyControl;Component/Resources/Images/GlowWindow/{bitmapPart}.png"));
 
@@ -87,14 +87,14 @@ namespace HandyControl.Data
                 bitmapImage.CopyPixels(array, stride, 0);
                 bitmapImage.Freeze();
 
-                _transparencyMasks[(int)bitmapPart] =
+                _transparencyMasks[(int) bitmapPart] =
                     new CachedBitmapInfo(
                         array,
                         bitmapImage.PixelWidth,
                         bitmapImage.PixelHeight);
             }
 
-            return _transparencyMasks[(int)bitmapPart];
+            return _transparencyMasks[(int) bitmapPart];
         }
 
         private sealed class CachedBitmapInfo

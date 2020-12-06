@@ -24,7 +24,7 @@ namespace HandyControl.Tools
             if (_poolSize > 0)
             {
                 var lastPooledIndex = _poolSize - 1;
-                var instance = (T)_pool[lastPooledIndex];
+                var instance = (T) _pool[lastPooledIndex];
                 _pool[lastPooledIndex] = null;
                 _poolSize--;
                 return instance;

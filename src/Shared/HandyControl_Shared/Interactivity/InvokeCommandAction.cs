@@ -35,7 +35,7 @@ namespace HandyControl.Interactivity
 
         public ICommand Command
         {
-            get => (ICommand)GetValue(CommandProperty);
+            get => (ICommand) GetValue(CommandProperty);
             set => SetValue(CommandProperty, value);
         }
 
@@ -57,7 +57,7 @@ namespace HandyControl.Interactivity
 
         private ICommand ResolveCommand()
         {
-            var command = (ICommand)null;
+            var command = (ICommand) null;
             if (Command != null)
                 command = Command;
             else if (AssociatedObject != null)
@@ -65,7 +65,7 @@ namespace HandyControl.Interactivity
                     .GetProperties(BindingFlags.Instance | BindingFlags.Public))
                     if (typeof(ICommand).IsAssignableFrom(property.PropertyType) &&
                         string.Equals(property.Name, CommandName, StringComparison.Ordinal))
-                        command = (ICommand)property.GetValue(AssociatedObject, null);
+                        command = (ICommand) property.GetValue(AssociatedObject, null);
             return command;
         }
     }
