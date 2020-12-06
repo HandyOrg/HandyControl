@@ -2,11 +2,11 @@
 
 namespace Standard
 {
-	internal enum CombineRgnResult
-	{
-		ERROR,
-		NULLREGION,
-		SIMPLEREGION,
-		COMPLEXREGION
-	}
+    internal enum CombineRgnResult
+    {
+        ERROR,
+        NULLREGION,
+        SIMPLEREGION,
+        COMPLEXREGION
+    }
 }

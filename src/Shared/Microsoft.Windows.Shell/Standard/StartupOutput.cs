@@ -2,10 +2,10 @@
 
 namespace Standard
 {
-	internal struct StartupOutput
-	{
-		public IntPtr hook;
+    internal struct StartupOutput
+    {
+        public IntPtr hook;
 
-		public IntPtr unhook;
-	}
+        public IntPtr unhook;
+    }
 }

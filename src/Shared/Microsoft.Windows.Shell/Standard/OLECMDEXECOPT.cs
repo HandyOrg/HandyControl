@@ -2,11 +2,11 @@
 
 namespace Standard
 {
-	internal enum OLECMDEXECOPT
-	{
-		DODEFAULT,
-		PROMPTUSER,
-		DONTPROMPTUSER,
-		SHOWHELP
-	}
+    internal enum OLECMDEXECOPT
+    {
+        DODEFAULT,
+        PROMPTUSER,
+        DONTPROMPTUSER,
+        SHOWHELP
+    }
 }

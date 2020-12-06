@@ -4,21 +4,21 @@ using System.Runtime.InteropServices.ComTypes;
 
 namespace Standard
 {
-	[Guid("43826d1e-e718-42ee-bc55-a1e261c37bfe")]
-	[InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
-	[ComImport]
-	internal interface IShellItem
-	{
-		[return: MarshalAs(UnmanagedType.Interface)]
-		object BindToHandler(IBindCtx pbc, [In] ref Guid bhid, [In] ref Guid riid);
+    [Guid("43826d1e-e718-42ee-bc55-a1e261c37bfe")]
+    [InterfaceType(ComInterfaceType.InterfaceIsIUnknown)]
+    [ComImport]
+    internal interface IShellItem
+    {
+        [return: MarshalAs(UnmanagedType.Interface)]
+        object BindToHandler(IBindCtx pbc, [In] ref Guid bhid, [In] ref Guid riid);
 
-		IShellItem GetParent();
+        IShellItem GetParent();
 
-		[return: MarshalAs(UnmanagedType.LPWStr)]
-		string GetDisplayName(SIGDN sigdnName);
+        [return: MarshalAs(UnmanagedType.LPWStr)]
+        string GetDisplayName(SIGDN sigdnName);
 
-		SFGAO GetAttributes(SFGAO sfgaoMask);
+        SFGAO GetAttributes(SFGAO sfgaoMask);
 
-		int Compare(IShellItem psi, SICHINT hint);
-	}
+        int Compare(IShellItem psi, SICHINT hint);
+    }
 }

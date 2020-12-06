@@ -2,14 +2,14 @@
 
 namespace Standard
 {
-	internal struct BLENDFUNCTION
-	{
-		public AC BlendOp;
+    internal struct BLENDFUNCTION
+    {
+        public AC BlendOp;
 
-		public byte BlendFlags;
+        public byte BlendFlags;
 
-		public byte SourceConstantAlpha;
+        public byte SourceConstantAlpha;
 
-		public AC AlphaFormat;
-	}
+        public AC AlphaFormat;
+    }
 }

@@ -2,12 +2,12 @@
 
 namespace Standard
 {
-	internal struct HIGHCONTRAST
-	{
-		public int cbSize;
+    internal struct HIGHCONTRAST
+    {
+        public int cbSize;
 
-		public HCF dwFlags;
+        public HCF dwFlags;
 
-		public IntPtr lpszDefaultScheme;
-	}
+        public IntPtr lpszDefaultScheme;
+    }
 }
