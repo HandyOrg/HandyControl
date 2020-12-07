@@ -46,5 +46,6 @@
     <Color x:Key="DarkMaskColor">#40000000</Color>
     <Color x:Key="DarkOpacityColor">#40000000</Color>
     <system:UInt32 x:Key="BlurGradientValue">0x99000000</system:UInt32>
+    <Color x:Key="SystemControlErrorBackgroundColor">#33FFFFFF</Color>
 
 </ResourceDictionary>

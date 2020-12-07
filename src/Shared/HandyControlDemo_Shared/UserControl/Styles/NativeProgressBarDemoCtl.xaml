@@ -28,7 +28,6 @@
                     <ProgressBar Style="{StaticResource ProgressBarInfoStripe}" Margin="0,0,0,10" Value="50" Maximum="200" />
                     <ProgressBar Style="{StaticResource ProgressBarWarningStripe}" Margin="0,0,0,10" Value="180" Maximum="200" />
                     <ProgressBar Style="{StaticResource ProgressBarDangerStripe}" Margin="0,0,0,10" IsIndeterminate="True" Maximum="200" />
-                    <ProgressBar Style="{StaticResource ProgressBarFlat}" Margin="0,8,0,10" Value="110" Maximum="200" IsIndeterminate="True"/>
                 </StackPanel>
                 <StackPanel Margin="10,0,0,0" Width="200" HorizontalAlignment="Left">
                     <TextBlock Padding="0,2,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarPrimaryStripe" HorizontalAlignment="Left"/>
@@ -36,7 +35,6 @@
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarInfoStripe" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarWarningStripe" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarDangerStripe" HorizontalAlignment="Left"/>
-                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarPlayer" HorizontalAlignment="Left"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="200">
@@ -51,7 +49,6 @@
                 <ProgressBar Style="{StaticResource ProgressBarInfoStripe}" Margin="0,0,10,0" Value="50" Maximum="200" Orientation="Vertical" Width="20" />
                 <ProgressBar Style="{StaticResource ProgressBarWarningStripe}" Margin="0,0,10,0" Value="180" Maximum="200" Orientation="Vertical" Width="20" />
                 <ProgressBar Style="{StaticResource ProgressBarDangerStripe}" Margin="0,0,10,0" IsIndeterminate="True" Maximum="200" Orientation="Vertical" Width="20"/>
-                <ProgressBar Style="{StaticResource ProgressBarFlat}" Margin="0,0,10,0" Value="110" Maximum="200" IsIndeterminate="True" Orientation="Vertical" Width="4"/>
             </StackPanel>
         </WrapPanel>
     </hc:TransitioningContentControl>

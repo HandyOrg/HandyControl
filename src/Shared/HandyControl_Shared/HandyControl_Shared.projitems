@@ -46,6 +46,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Poptip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Watermark.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\FlexPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ProgressBar\ProgressBar\ProgressBar.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\ProgressBar\ProgressBar\ProgressBarTemplateSettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\ImagePropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\VerticalAlignmentPropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\HorizontalAlignmentPropertyEditor.cs" />
@@ -107,6 +109,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\Commands\StartScreenshotCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\DiscreteGeometryKeyFrame.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\EasingGeometryKeyFrame.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\FadeInThemeAnimation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\FadeOutThemeAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimation.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimationBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Animation\GeometryAnimationUsingKeyFrames.cs" />
@@ -126,6 +130,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Themes\Theme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusFilterConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Double2GridLengthConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\DoubleMinConverter.cs" />

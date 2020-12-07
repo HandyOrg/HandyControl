@@ -217,61 +217,6 @@
     <Style x:Key="ProgressBarDangerWave" BasedOn="{StaticResource ProgressBarWaveBaseStyle}" TargetType="hc:WaveProgressBar">
         <Setter Property="WaveFill" Value="{DynamicResource DarkDangerBrush}"/>
     </Style>
-
-    <Style x:Key="ProgressBarFlat" TargetType="ProgressBar">
-        <Setter Property="Height" Value="4"/>
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ProgressBar">
-                    <ControlTemplate.Resources>
-                        <Storyboard x:Key="IsIndeterminate" RepeatBehavior="Forever">
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="Animation">
-                                <EasingDoubleKeyFrame KeyTime="0" Value="0.25"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0.25"/>
-                                <EasingDoubleKeyFrame KeyTime="0:0:2" Value="0.25"/>
-                            </DoubleAnimationUsingKeyFrames>
-                            <PointAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransformOrigin)" Storyboard.TargetName="Animation">
-                                <EasingPointKeyFrame KeyTime="0" Value="-0.5,0.5"/>
-                                <EasingPointKeyFrame KeyTime="0:0:1" Value="0.5,0.5"/>
-                                <EasingPointKeyFrame KeyTime="0:0:2" Value="1.5,0.5"/>
-                            </PointAnimationUsingKeyFrames>
-                        </Storyboard>
-                    </ControlTemplate.Resources>
-                    <hc:SimplePanel x:Name="TemplateRoot" SnapsToDevicePixels="true" ClipToBounds="True">
-                        <Rectangle x:Name="PART_Track" Fill="{TemplateBinding Background}" StrokeThickness="0" Stroke="{TemplateBinding BorderBrush}"/>
-                        <Decorator x:Name="PART_Indicator" HorizontalAlignment="Left">
-                            <Rectangle x:Name="Indicator" Fill="{TemplateBinding Foreground}"/>
-                        </Decorator>
-                        <Rectangle x:Name="Animation" Visibility="Collapsed" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">
-                            <Rectangle.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                </TransformGroup>
-                            </Rectangle.RenderTransform>
-                        </Rectangle>
-                    </hc:SimplePanel>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsIndeterminate" Value="true">
-                            <Trigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource IsIndeterminate}"/>
-                            </Trigger.EnterActions>
-                            <Setter Property="Visibility" TargetName="Indicator" Value="Collapsed"/>
-                            <Setter Property="Visibility" TargetName="Animation" Value="Visible"/>
-                        </Trigger>
-                        <Trigger Property="Orientation" Value="Vertical">
-                            <Setter Property="Height" Value="{x:Static system:Double.NaN}"/>
-                            <Setter Property="LayoutTransform" TargetName="TemplateRoot">
-                                <Setter.Value>
-                                    <RotateTransform Angle="-90"/>
-                                </Setter.Value>
-                            </Setter>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
+    
+    <Style BasedOn="{StaticResource IndeterminateProgressBarBaseStyle}" TargetType="hc:ProgressBar"/>
 </ResourceDictionary>
