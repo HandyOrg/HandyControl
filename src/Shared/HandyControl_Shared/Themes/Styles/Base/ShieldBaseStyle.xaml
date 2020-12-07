@@ -5,6 +5,7 @@
 
     <ResourceDictionary.MergedDictionaries>
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/BaseStyle.xaml" />
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml" />
     </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="ShieldBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:Shield">
@@ -22,17 +23,10 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="Auto"/>
                         </Grid.ColumnDefinitions>
-                        <Grid.OpacityMask>
-                            <VisualBrush Stretch="None">
-                                <VisualBrush.Visual>
-                                    <Border x:Name="clipMask" Background="White" Width="{TemplateBinding ActualWidth}" Height="{TemplateBinding ActualHeight}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
-                                </VisualBrush.Visual>
-                            </VisualBrush>
-                        </Grid.OpacityMask>
-                        <Border Grid.Column="0" Background="#555">
+                        <Border Grid.Column="0" Background="#555" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='1,0,0,1'}">
                             <TextBlock Text="{TemplateBinding Subject}" VerticalAlignment="Center" Margin="4,0"/>
                         </Border>
-                        <Border Grid.Column="1" Background="{TemplateBinding Color}">
+                        <Border Grid.Column="1" Background="{TemplateBinding Color}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,1,1,0'}">
                             <ContentPresenter ContentSource="Status" VerticalAlignment="Center" Margin="4,0" TextElement.Foreground="{TemplateBinding Foreground}"/>
                         </Border>
                     </Grid>
