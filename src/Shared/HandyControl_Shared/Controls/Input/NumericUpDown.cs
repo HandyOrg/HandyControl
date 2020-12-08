@@ -156,7 +156,7 @@ namespace HandyControl.Controls
         private string CurrentText => string.IsNullOrWhiteSpace(ValueFormat)
             ? DecimalPlaces.HasValue
                 ? Value.ToString($"#0.{new string('0', DecimalPlaces.Value)}")
-                : Value.ToString("#0")
+                : Value.ToString()
             : Value.ToString(ValueFormat);
 
         protected virtual void OnValueChanged(FunctionEventArgs<double> e) => RaiseEvent(e);
