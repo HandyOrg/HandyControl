@@ -14,5 +14,15 @@ namespace HandyControl.Controls
 
         public static bool GetConsistentWidth(DependencyObject element)
             => (bool) element.GetValue(ConsistentWidthProperty);
+
+        public static readonly DependencyProperty AutoWidthProperty = DependencyProperty.RegisterAttached(
+            "AutoWidth", typeof(bool), typeof(DropDownElement),
+            new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetAutoWidth(DependencyObject element, bool value)
+            => element.SetValue(AutoWidthProperty, value);
+
+        public static bool GetAutoWidth(DependencyObject element)
+            => (bool) element.GetValue(AutoWidthProperty);
     }
 }
