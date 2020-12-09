@@ -321,6 +321,8 @@ menu:
       MorphingAnimation 变形动画: /morphingAnimation/ ||
     国际化:
       default: /langs/ ||
+    Breaking Changes:
+      default: /breaking_changes/ ||
 
 # Enable / Disable menu icons / item badges.
 menu_settings:
