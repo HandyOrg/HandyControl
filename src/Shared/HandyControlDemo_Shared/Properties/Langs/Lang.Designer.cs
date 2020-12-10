@@ -1992,6 +1992,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   查找类似 侧边菜单 的本地化字符串。
+        /// </summary>
+        public static string SimpleStackPanel
+        {
+            get
+            {
+                return ResourceManager.GetString("SimpleStackPanel", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   查找类似 滑块 的本地化字符串。
         /// </summary>
         public static string Slider

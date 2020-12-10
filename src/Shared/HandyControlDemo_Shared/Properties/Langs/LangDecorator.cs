@@ -207,6 +207,7 @@ namespace HandyControlDemo.Properties.Langs
 			OnPropertyChanged(nameof(ShowInMainWindow));
 			OnPropertyChanged(nameof(ShowRowNumber));
 			OnPropertyChanged(nameof(SideMenu));
+			OnPropertyChanged(nameof(SimpleStackPanel));
 			OnPropertyChanged(nameof(Slider));
 			OnPropertyChanged(nameof(SplitButton));
 			OnPropertyChanged(nameof(Sprite));
@@ -1099,6 +1100,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 侧边菜单 的本地化字符串。
         /// </summary>
 		public string SideMenu => Lang.SideMenu;
+
+        /// <summary>
+        ///   查找类似 侧边菜单 的本地化字符串。
+        /// </summary>
+        public string SimpleStackPanel => Lang.SimpleStackPanel;
 
         /// <summary>
         ///   查找类似 滑块 的本地化字符串。
@@ -2163,6 +2169,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 侧边菜单 的本地化字符串。
         /// </summary>
 		public static string SideMenu = nameof(SideMenu);
+
+        /// <summary>
+        ///   查找类似 侧边菜单 的本地化字符串。
+        /// </summary>
+        public static string SimpleStackPanel = nameof(SimpleStackPanel);
 
         /// <summary>
         ///   查找类似 滑块 的本地化字符串。

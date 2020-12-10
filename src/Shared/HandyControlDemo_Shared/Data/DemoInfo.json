@@ -1,4 +1,4 @@
-[
+﻿[
   {
     "title": "Styles",
     "selectedIndex": -1,
@@ -40,6 +40,7 @@
     "title": "Controls",
     "selectedIndex": 0,
     "demoItemList": [
+      [ "SimpleStackPanel", "SimpleStackPanelDemoCtl", "Panel_16x", "1" ],
       [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "" ],
       [ "PropertyGrid", "PropertyGridDemoCtl", "PropertyGridEditorPart_16x", "1" ],
       [ "ImageSelector", "ImageSelectorDemoCtl", "Image_16x", "1" ],
