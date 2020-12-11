@@ -6,13 +6,20 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-       <StackPanel Margin="32">
+        <StackPanel>
+            <TextBlock Text="TEST" Foreground="{DynamicResource PrimaryTextBrush}"/>
+            <Button hc:ThemeManager.RequestedTheme="Default" Click="Button_Click" Content="Light" Margin="10"/>
+            <Button hc:ThemeManager.RequestedTheme="Dark" Click="Button_Click1" Content="Light" Margin="10"/>
+            <Button hc:ThemeManager.RequestedTheme="Violet" Click="Button_Click2" Content="Violet" Margin="10"/>
+            <Button Content="Default" Margin="10"/>
+        </StackPanel>
+       <!--<StackPanel Margin="32">
             <hc:GifImage Width="400" Height="300">
                 <hc:GifImage.Source>
                     <BitmapImage UriSource="/HandyControlDemo;component/Resources/Img/under_construction.gif"/>
                 </hc:GifImage.Source>
             </hc:GifImage>
            <TextBlock Margin="0,16,0,0" HorizontalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.ComingSoon}}" Style="{StaticResource TextBlockLargeBold}"/>
-        </StackPanel>
+        </StackPanel>-->
     </hc:TransitioningContentControl>
 </UserControl>

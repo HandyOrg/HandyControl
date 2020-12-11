@@ -124,6 +124,15 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Themes\SharedResourceDictionary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Themes\Theme.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\DesignMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\IntellisenseResourcesBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\MergedDictionariesHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\ResourceDictionaryEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\ResourceDictionaryHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\ThemeResources.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\TypedEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Theme\XamlControlsResources.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />

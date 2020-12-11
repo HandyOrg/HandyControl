@@ -66,10 +66,10 @@ namespace HandyControlDemo
                 GlobalData.Init();
                 ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
 
-                if (GlobalData.Config.Skin != SkinType.Default)
-                {
-                    UpdateSkin(GlobalData.Config.Skin);
-                }
+                //if (GlobalData.Config.Skin != SkinType.Default)
+                //{
+                //    UpdateSkin(GlobalData.Config.Skin);
+                //}
 
                 ConfigHelper.Instance.SetWindowDefaultStyle();
                 ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
