@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class SimpleStackPanelDemoCtl
+    public partial class StackPanelDemoCtl
     {
-        public SimpleStackPanelDemoCtl()
+        public StackPanelDemoCtl()
         {
             InitializeComponent();
         }

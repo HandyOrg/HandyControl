@@ -12,7 +12,7 @@ namespace HandyControl.Controls
             WindowStyle = WindowStyle.None;
             AllowsTransparency = true;
 
-            GrowlPanel = new StackPanel
+            GrowlPanel = new System.Windows.Controls.StackPanel
             {
                 VerticalAlignment = VerticalAlignment.Top,
                 Margin = new Thickness(0, 10, 10, 10)

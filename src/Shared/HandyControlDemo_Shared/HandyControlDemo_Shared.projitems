@@ -401,8 +401,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\HatchBrushGeneratorDemoCtl.xaml.cs">
       <DependentUpon>HatchBrushGeneratorDemoCtl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SimpleStackPanelDemoCtl.xaml.cs">
-      <DependentUpon>SimpleStackPanelDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\StackPanelDemoCtl.xaml.cs">
+      <DependentUpon>StackPanelDemoCtl.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\ChatBoxViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\InteractiveDialogViewModel.cs" />
@@ -804,7 +804,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-	 <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SimpleStackPanelDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\StackPanelDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

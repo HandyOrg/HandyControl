@@ -765,7 +765,7 @@
   <data name="TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>
   </data>
-  <data name="SimpleStackPanel" xml:space="preserve">
-    <value>SimpleStackPanel</value>
+  <data name="StackPanel" xml:space="preserve">
+    <value>StackPanel</value>
   </data>
 </root>

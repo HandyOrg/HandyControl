@@ -765,7 +765,7 @@
   <data name="FlexPanel" xml:space="preserve">
     <value>FlexPanel</value>
   </data>
-  <data name="SimpleStackPanel" xml:space="preserve">
-    <value>SimpleStackPanel</value>
+  <data name="StackPanel" xml:space="preserve">
+    <value>StackPanel</value>
   </data>
 </root>

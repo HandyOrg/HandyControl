@@ -765,7 +765,7 @@
   <data name="FlexPanel" xml:space="preserve">
     <value>弹性盒子</value>
   </data>
-  <data name="SimpleStackPanel" xml:space="preserve">
-    <value>SimpleStackPanel</value>
+  <data name="StackPanel" xml:space="preserve">
+    <value>StackPanel</value>
   </data>
 </root>

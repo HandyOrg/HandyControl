@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.SimpleStackPanelDemoCtl"
+﻿<UserControl x:Class="HandyControlDemo.UserControl.StackPanelDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              Background="{DynamicResource RegionBrush}"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -6,23 +6,23 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension">
     <hc:TransitioningContentControl>
-        <hc:SimpleStackPanel Margin="10" Spacing="10">
-            <hc:SimpleStackPanel Spacing="5">
+        <hc:StackPanel Margin="10" Spacing="10">
+            <hc:StackPanel Spacing="5">
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonPrimary}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonWarning}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonDanger}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonInfo}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonSuccess}"/>
-            </hc:SimpleStackPanel>
-            <hc:SimpleStackPanel Orientation="Horizontal" Spacing="5">
+            </hc:StackPanel>
+            <hc:StackPanel Orientation="Horizontal" Spacing="5">
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonPrimary}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonWarning}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonDanger}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonInfo}"/>
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Style="{StaticResource ButtonSuccess}"/>
-            </hc:SimpleStackPanel>
-        </hc:SimpleStackPanel>
+            </hc:StackPanel>
+        </hc:StackPanel>
     </hc:TransitioningContentControl>
 </UserControl>

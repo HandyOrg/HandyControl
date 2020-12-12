@@ -1994,11 +1994,11 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 侧边菜单 的本地化字符串。
         /// </summary>
-        public static string SimpleStackPanel
+        public static string StackPanel
         {
             get
             {
-                return ResourceManager.GetString("SimpleStackPanel", resourceCulture);
+                return ResourceManager.GetString("StackPanel", resourceCulture);
             }
         }
 

@@ -8,12 +8,12 @@ namespace HandyControl.Controls
     /// Arranges child elements into a single line that can be oriented horizontally
     /// or vertically.
     /// </summary>
-    public class SimpleStackPanel : Panel
+    public class StackPanel : Panel
     {
         /// <summary>
         /// Initializes a new instance of the SimpleStackPanel class.
         /// </summary>
-        public SimpleStackPanel()
+        public StackPanel()
         {
         }
 
@@ -35,7 +35,7 @@ namespace HandyControl.Controls
                 DependencyProperty.Register(
                         nameof(Orientation),
                         typeof(Orientation),
-                        typeof(SimpleStackPanel),
+                        typeof(StackPanel),
                         new FrameworkPropertyMetadata(
                                 Orientation.Vertical,
                                 FrameworkPropertyMetadataOptions.AffectsMeasure));
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
                 DependencyProperty.Register(
                         nameof(Spacing),
                         typeof(double),
-                        typeof(SimpleStackPanel),
+                        typeof(StackPanel),
                         new FrameworkPropertyMetadata(
                                 0.0,
                                 FrameworkPropertyMetadataOptions.AffectsMeasure));
