@@ -16,6 +16,7 @@
                         <hc:Watermark Mark="{Binding ContentTitle}" MarkMargin="3,0" FontSize="20" FontWeight="Bold" MarkBrush="#0F000000"/>
                         <TextBlock Style="{StaticResource TextBlockDefault}" Foreground="White" Text="{Binding ContentTitle}"/>
                         <ToggleButton Margin="0,0,6,0" IsChecked="{Binding IsOpen,ElementName=DrawerCode}" Padding="5" Foreground="{DynamicResource TextIconBrush}" Style="{StaticResource ToggleButtonIconTransparent}" HorizontalAlignment="Right" hc:IconElement.Geometry="{StaticResource CodeGeometry}"/>
+                        <Button Command="{Binding OpenDocCmd}" Height="26" Width="30" Margin="6,0,0,0" Padding="5" Foreground="{DynamicResource TextIconBrush}" Style="{StaticResource ButtonIcon}" HorizontalAlignment="Left" hc:IconElement.Geometry="{StaticResource DocumentGeometry}"/>
                         <hc:Drawer Name="DrawerCode" Opened="DrawerCode_OnOpened">
                             <Border Style="{StaticResource BorderClip}" Margin="32,32,0,32" CornerRadius="10,0,0,10" Background="{DynamicResource RegionBrush}" Width="800" Name="BorderCode"/>
                         </hc:Drawer>

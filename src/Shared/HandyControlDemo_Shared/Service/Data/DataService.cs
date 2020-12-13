@@ -418,5 +418,21 @@ namespace HandyControlDemo.Service
 
             return resultList;
         }
+
+        public string GetDemoUrl(DemoInfoModel demoInfo, DemoItemModel demoItem)
+        {
+            var key = demoInfo.Key switch
+            {
+                "Styles" => "native_controls",
+                "Controls" => "extend_controls",
+                "Tools" => "tools",
+                _ => string.Empty
+            };
+
+            var domainName = LangProvider.Culture == null || LangProvider.Culture.Name.ToLower() == "zh-cn"
+                ? "handyorg"
+                : "ghost1372";
+            return $"https://{domainName}.github.io/handycontrol/{key}/{demoItem.Name[0].ToString().ToLower()}{demoItem.Name.Substring(1)}";
+        }
     }
 }

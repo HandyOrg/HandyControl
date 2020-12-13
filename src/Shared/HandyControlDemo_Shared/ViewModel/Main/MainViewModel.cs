@@ -7,6 +7,7 @@ using System.Windows.Threading;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Messaging;
 using HandyControl.Controls;
+using HandyControl.Interactivity;
 using HandyControlDemo.Data;
 using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Service;
@@ -29,10 +30,13 @@ namespace HandyControlDemo.ViewModel
         /// </summary>
         private object _subContent;
 
+        private DataService _dataService;
+
         #endregion
 
         public MainViewModel(DataService dataService)
         {
+            _dataService = dataService;
             Messenger.Default.Register<object>(this, MessageToken.LoadShowContent, obj =>
             {
                 if (SubContent is IDisposable disposable)
@@ -145,6 +149,12 @@ namespace HandyControlDemo.ViewModel
 
         public RelayCommand GlobalShortcutWarningCmd => new Lazy<RelayCommand>(() =>
             new RelayCommand(() => Growl.Warning("Global Shortcut Warning"))).Value;
+
+        public RelayCommand OpenDocCmd => new Lazy<RelayCommand>(() =>
+            new RelayCommand(() =>
+            {
+                ControlCommands.OpenLink.Execute(_dataService.GetDemoUrl(DemoInfoCurrent, DemoItemCurrent));
+            })).Value;
 
         #endregion
 

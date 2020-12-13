@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.IO;
 using System.Net;
 #if !NET40
@@ -11,6 +12,7 @@ using System.Windows;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Tools;
 
 namespace HandyControlDemo
@@ -65,6 +67,7 @@ namespace HandyControlDemo
                 ShutdownMode = ShutdownMode.OnMainWindowClose;
                 GlobalData.Init();
                 ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
+                LangProvider.Culture = new CultureInfo(GlobalData.Config.Lang);
 
                 if (GlobalData.Config.Skin != SkinType.Default)
                 {
