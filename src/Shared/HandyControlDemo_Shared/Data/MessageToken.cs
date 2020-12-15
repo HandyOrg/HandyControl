@@ -46,6 +46,8 @@
 
         public static readonly string NavigationWindow = nameof(NavigationWindow);
 
+        public static readonly string TouchDragMoveWindow = nameof(TouchDragMoveWindow);
+
         public static readonly string DialogContainer = nameof(DialogContainer);
 
         public static readonly string LangUpdated = nameof(LangUpdated);

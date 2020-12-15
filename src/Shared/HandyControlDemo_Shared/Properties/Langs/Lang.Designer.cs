@@ -1442,6 +1442,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   查找类似 点击打开触摸拖动窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenTouchDragMoveWindow
+        {
+            get
+            {
+                return ResourceManager.GetString("OpenTouchDragMoveWindow", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   查找类似 打开无非客户端区域可拖拽窗口 的本地化字符串。
         /// </summary>
         public static string OpenNoNonClientAreaDragableWindow
