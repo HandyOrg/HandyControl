@@ -765,4 +765,7 @@
   <data name="TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>
   </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>open touch drag move window</value>
+  </data>
 </root>

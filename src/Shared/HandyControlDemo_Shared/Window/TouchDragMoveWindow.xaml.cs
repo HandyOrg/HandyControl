@@ -1,11 +1,12 @@
-﻿using System.Windows;
-using System.Windows.Input;
-using HandyControl.Tools.Helper;
+﻿using System.Windows.Input;
+using HandyControl.Tools;
 
 namespace HandyControlDemo.Window
 {
     public partial class TouchDragMoveWindow
     {
+        private int _currentTouchCount;
+
         public TouchDragMoveWindow()
         {
             InitializeComponent();
@@ -23,14 +24,9 @@ namespace HandyControlDemo.Window
         {
             CaptureTouch(e.TouchDevice);
 
-            if (_currentTouchCount == 0)
-            {
-                TouchDragMoveWindowHelper.DragMove(this);
-            }
+            if (_currentTouchCount == 0) this.TouchDragMove();
 
             _currentTouchCount++;
         }
-
-        private uint _currentTouchCount;
     }
 }

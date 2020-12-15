@@ -765,4 +765,7 @@
   <data name="FlexPanel" xml:space="preserve">
     <value>FlexPanel</value>
   </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>open touch drag move window</value>
+  </data>
 </root>

@@ -162,6 +162,7 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(OpenMouseFollowWindow));
             OnPropertyChanged(nameof(OpenNativeCommonWindow));
             OnPropertyChanged(nameof(OpenNavigationWindow));
+            OnPropertyChanged(nameof(OpenTouchDragMoveWindow));
             OnPropertyChanged(nameof(OpenNoNonClientAreaDragableWindow));
             OnPropertyChanged(nameof(OpenPanel));
             OnPropertyChanged(nameof(OpenSprite));
