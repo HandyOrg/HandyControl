@@ -329,8 +329,8 @@ namespace HandyControl.Controls
             MessageBox messageBox = null;
             Application.Current.Dispatcher.Invoke(new Action(() =>
             {
-                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.Cancel);
-                SetButtonStatus(messageBox, MessageBoxButton.OKCancel, MessageBoxResult.Cancel);
+                messageBox = CreateMessageBox(null, messageBoxText, caption, MessageBoxButton.OKCancel, MessageBoxImage.Question, MessageBoxResult.OK);
+                SetButtonStatus(messageBox, MessageBoxButton.OKCancel, MessageBoxResult.OK);
                 SetImage(messageBox, MessageBoxImage.Question);
                 SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
