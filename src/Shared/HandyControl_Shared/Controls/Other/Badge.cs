@@ -11,6 +11,11 @@ namespace HandyControl.Controls
     /// </summary>
     public class Badge : ContentControl
     {
+        public Badge()
+        {
+            OnValueChanged(this, new DependencyPropertyChangedEventArgs(ValueProperty,ValueBoxes.Int0Box, ValueBoxes.Int0Box));
+        }
+        
         public static readonly RoutedEvent ValueChangedEvent =
             EventManager.RegisterRoutedEvent("ValueChanged", RoutingStrategy.Bubble,
                 typeof(EventHandler<FunctionEventArgs<int>>), typeof(Badge));
