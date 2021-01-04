@@ -22,7 +22,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            "Text", typeof(string), typeof(Badge), new PropertyMetadata(default(string)));
+            "Text", typeof(string), typeof(Badge), new PropertyMetadata("0"));
 
         public string Text
         {
@@ -37,7 +37,7 @@ namespace HandyControl.Controls
         {
             var ctl = (Badge) d;
             var v = (int) e.NewValue;
-            ctl.Text = v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+";
+            ctl.SetCurrentValue(TextProperty, v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+");
             if (ctl.IsInitialized)
             {
                 ctl.RaiseEvent(new FunctionEventArgs<int>(ValueChangedEvent, ctl)
