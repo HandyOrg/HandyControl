@@ -141,7 +141,7 @@ namespace HandyControl.Controls
                     panelSize.V += curLineSize.V + spacing;
                     curLineSize = sz;
 
-                    if (MathHelper.GreaterThan(sz.U, uvConstraint.U))                
+                    if (MathHelper.GreaterThan(sz.U, uvConstraint.U))
                     {
                         panelSize.U = Math.Max(sz.U, panelSize.U);
                         panelSize.V += sz.V + spacing;
