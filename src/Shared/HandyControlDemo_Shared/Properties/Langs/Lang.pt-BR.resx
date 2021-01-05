@@ -768,4 +768,7 @@
   <data name="OpenTouchDragMoveWindow" xml:space="preserve">
     <value>open touch drag move window</value>
   </data>
+  <data name="UniformSpacingPanel" xml:space="preserve">
+    <value>UniformSpacingPanel</value>
+  </data>
 </root>

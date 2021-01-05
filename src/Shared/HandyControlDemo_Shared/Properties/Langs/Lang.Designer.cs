@@ -2366,6 +2366,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   查找类似 等间距布局 的本地化字符串。
+        /// </summary>
+        public static string UniformSpacingPanel
+        {
+            get
+            {
+                return ResourceManager.GetString("UniformSpacingPanel", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   查找类似 上传文件 的本地化字符串。
         /// </summary>
         public static string UploadFile

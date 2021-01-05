@@ -113,6 +113,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml">
       <Link>UserControl\Controls\DrawerDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml">
+      <Link>UserControl\Controls\FlexPanelDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlipClockDemoCtl.xaml">
       <Link>UserControl\Controls\FlipClockDemoCtl.xaml</Link>
     </Resource>
@@ -244,6 +247,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransitioningContentControlDemoCtl.xaml">
       <Link>UserControl\Controls\TransitioningContentControlDemoCtl.xaml</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\UniformSpacingPanelDemoCtl.xaml">
+      <Link>UserControl\Controls\UniformSpacingPanelDemoCtl.xaml</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemoCtl.xaml">
       <Link>UserControl\Controls\WaterfallPanelDemoCtl.xaml</Link>
@@ -677,6 +683,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransitioningContentControlDemoCtl.xaml.cs">
       <Link>UserControl\Controls\TransitioningContentControlDemoCtl.xaml.cs</Link>
       <DependentUpon>TransitioningContentControlDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\UniformSpacingPanelDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\UniformSpacingPanelDemoCtl.xaml.cs</Link>
+      <DependentUpon>UniformSpacingPanelDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs</Link>

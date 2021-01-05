@@ -246,6 +246,7 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(TreeView));
             OnPropertyChanged(nameof(Try2CloseApp));
             OnPropertyChanged(nameof(Type));
+            OnPropertyChanged(nameof(UniformSpacingPanel));
             OnPropertyChanged(nameof(UploadFile));
             OnPropertyChanged(nameof(UploadStr));
             OnPropertyChanged(nameof(Visibility));
@@ -1300,6 +1301,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 类型 的本地化字符串。
         /// </summary>
 		public string Type => Lang.Type;
+
+        /// <summary>
+        ///   查找类似 等间距布局 的本地化字符串。
+        /// </summary>
+        public string UniformSpacingPanel => Lang.UniformSpacingPanel;
 
         /// <summary>
         ///   查找类似 上传文件 的本地化字符串。

@@ -135,7 +135,7 @@ namespace HandyControl.Controls
                     itemWidthSet ? itemWidth : child.DesiredSize.Width,
                     itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
-                if (childWrapping == VisualWrapping.Wrap && MathHelper.GreaterThan(curLineSize.U + sz.U, uvConstraint.U))
+                if (childWrapping == VisualWrapping.Wrap && MathHelper.GreaterThan(curLineSize.U + sz.U + spacing, uvConstraint.U))
                 {
                     panelSize.U = Math.Max(curLineSize.U, panelSize.U);
                     panelSize.V += curLineSize.V + spacing;
@@ -153,8 +153,9 @@ namespace HandyControl.Controls
                 else
                 {
                     curLineSize.U += isFirst ? sz.U : sz.U + spacing;
-                    isFirst = false;
                     curLineSize.V = Math.Max(sz.V, curLineSize.V);
+
+                    isFirst = false;
                 }
             }
 
@@ -180,6 +181,7 @@ namespace HandyControl.Controls
             var childWrapping = ChildWrapping;
 
             var children = InternalChildren;
+            var isFirst = true;
 
             for (int i = 0, count = children.Count; i < count; i++)
             {
@@ -191,7 +193,7 @@ namespace HandyControl.Controls
                     itemWidthSet ? itemWidth : child.DesiredSize.Width,
                     itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
-                if (childWrapping == VisualWrapping.Wrap && MathHelper.GreaterThan(curLineSize.U + sz.U, uvFinalSize.U))
+                if (childWrapping == VisualWrapping.Wrap && MathHelper.GreaterThan(curLineSize.U + sz.U + spacing, uvFinalSize.U))
                 {
                     ArrangeLine(accumulatedV, curLineSize.V, firstInLine, i, useItemU, itemU, spacing);
 
@@ -205,12 +207,16 @@ namespace HandyControl.Controls
                         accumulatedV += sz.V + spacing;
                         curLineSize = new UVSize(_orientation);
                     }
+
                     firstInLine = i;
+                    isFirst = true;
                 }
                 else
                 {
-                    curLineSize.U += sz.U;
+                    curLineSize.U += isFirst ? sz.U : sz.U + spacing;
                     curLineSize.V = Math.Max(sz.V, curLineSize.V);
+
+                    isFirst = false;
                 }
             }
 
