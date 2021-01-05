@@ -147,11 +147,15 @@ Step 4: Enjoy coding
 
 ![PropertyGrid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PropertyGrid.png)
 
+### UniformSpacingPanel
+
+![UniformSpacingPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/UniformSpacingPanel.png)
+
+## History publication
+
 ### Screenshot
 
 ![Screenshot](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Screenshot.png)
-
-## History publication
 
 ### GooeyEffect
 
