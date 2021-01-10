@@ -771,4 +771,7 @@
   <data name="UniformSpacingPanel" xml:space="preserve">
     <value>UniformSpacingPanel</value>
   </data>
+  <data name="Misc" xml:space="preserve">
+    <value>Misc</value>
+  </data>
 </root>

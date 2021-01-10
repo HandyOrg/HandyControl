@@ -771,4 +771,7 @@
   <data name="UniformSpacingPanel" xml:space="preserve">
     <value>等间距布局</value>
   </data>
+  <data name="Misc" xml:space="preserve">
+    <value>杂项</value>
+  </data>
 </root>

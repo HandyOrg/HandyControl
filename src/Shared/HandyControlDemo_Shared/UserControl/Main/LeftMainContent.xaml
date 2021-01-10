@@ -46,7 +46,7 @@
                         </Grid.ColumnDefinitions>
                         <hc:SearchBar ShowClearButton="True" IsRealTime="True" SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterKey}}" Margin="0,4,4,4" Tag="{Binding ElementName=ListBoxDemo}"/>
                         <ToggleButton Tag="{Binding ElementName=ListBoxDemo}" Name="ButtonStyleAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Style="{StaticResource DemoInfoSortButtonStyle}"/>
-                        <ListBox Name="ListBoxDemo" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
+                        <ListBox Name="ListBoxDemo" ScrollViewer.CanContentScroll="False" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
@@ -56,6 +56,9 @@
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>
+                            <ListBox.GroupStyle>
+                                <GroupStyle ContainerStyle="{StaticResource DemoGroupItemStyle}"/>
+                            </ListBox.GroupStyle>
                         </ListBox>
                     </Grid>
                 </DataTemplate>

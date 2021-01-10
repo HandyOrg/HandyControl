@@ -31,6 +31,8 @@ namespace HandyControlDemo.Data
 #endif   
         }
 
+        public bool IsGroupEnabled { get; set; }
+
         public IList<DemoItemModel> DemoItemList { get; set; }
     }
 }

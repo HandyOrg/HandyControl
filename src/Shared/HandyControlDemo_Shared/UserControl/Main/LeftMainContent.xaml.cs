@@ -1,8 +1,12 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Threading;
 using HandyControl.Data;
+using HandyControl.Tools;
 using HandyControlDemo.Data;
 using HandyControlDemo.ViewModel;
 
@@ -30,7 +34,9 @@ namespace HandyControlDemo.UserControl
                 var selectedIndex = demoInfo.SelectedIndex;
                 demoInfo.SelectedIndex = -1;
                 demoInfo.SelectedIndex = selectedIndex;
+
                 FilterItems();
+                GroupItems(sender as TabControl, demoInfo);
             }
         }
 
@@ -90,6 +96,21 @@ namespace HandyControlDemo.UserControl
                         }
                     }
                 }
+            }
+        }
+
+        private void GroupItems(TabControl tabControl, DemoInfoModel demoInfo)
+        {
+            var listBox = VisualHelper.GetChild<ListBox>(tabControl);
+            if (listBox == null) return;
+            listBox.Items.GroupDescriptions?.Clear();
+
+            if (demoInfo.IsGroupEnabled)
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    listBox.Items.GroupDescriptions?.Add(new PropertyGroupDescription("GroupName"));
+                }), DispatcherPriority.Background);
             }
         }
     }

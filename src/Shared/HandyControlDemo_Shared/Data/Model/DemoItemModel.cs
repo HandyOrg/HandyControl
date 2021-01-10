@@ -6,6 +6,8 @@ namespace HandyControlDemo.Data
     {
         public string Name { get; set; }
 
+        public string GroupName { get; set; }
+
         public string TargetCtlName { get; set; }
 
         public string ImageName { get; set; }

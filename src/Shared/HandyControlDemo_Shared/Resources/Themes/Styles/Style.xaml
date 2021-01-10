@@ -203,4 +203,17 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="DemoGroupItemStyle" TargetType="GroupItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="GroupItem">
+                    <hc:SimpleStackPanel>
+                        <hc:Divider Content="{Binding Name}" LineStrokeDashArray="2, 2" Padding="16,0"/>
+                        <ItemsPresenter Margin="{TemplateBinding Padding}"/>
+                    </hc:SimpleStackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

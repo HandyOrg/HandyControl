@@ -1211,6 +1211,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   查找类似 杂项 的本地化字符串。
+        /// </summary>
+        public static string Misc
+        {
+            get
+            {
+                return ResourceManager.GetString("Misc", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   查找类似 变形动画 的本地化字符串。
         /// </summary>
         public static string Morphing_Animation
