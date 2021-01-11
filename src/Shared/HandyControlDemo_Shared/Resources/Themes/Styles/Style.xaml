@@ -1,7 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="https://handyorg.github.io/handycontrol"
-                    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit">
+                    xmlns:avalonedit="http://icsharpcode.net/sharpdevelop/avalonedit"
+                    xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension">
 
     <ResourceDictionary.MergedDictionaries>
         <ResourceDictionary Source="../Basic/Geometries.xaml"/>
@@ -208,7 +209,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="GroupItem">
                     <hc:SimpleStackPanel>
-                        <hc:Divider Content="{Binding Name}" LineStrokeDashArray="2, 2" Padding="16,0"/>
+                        <hc:Divider Content="{ex:Lang Key={Binding Name}}" LineStrokeDashArray="2, 2" Padding="16,0" Margin="0,16,0,10"/>
                         <ItemsPresenter Margin="{TemplateBinding Padding}"/>
                     </hc:SimpleStackPanel>
                 </ControlTemplate>

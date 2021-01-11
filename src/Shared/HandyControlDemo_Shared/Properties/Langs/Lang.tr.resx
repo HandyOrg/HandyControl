@@ -774,4 +774,22 @@
   <data name="Misc" xml:space="preserve">
     <value>Misc</value>
   </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>Data Entry</value>
+  </data>
+  <data name="Interacting" xml:space="preserve">
+    <value>Interacting</value>
+  </data>
+  <data name="DataDisplay" xml:space="preserve">
+    <value>Data Display</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
 </root>

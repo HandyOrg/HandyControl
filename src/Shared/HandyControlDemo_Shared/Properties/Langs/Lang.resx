@@ -774,4 +774,22 @@
   <data name="Misc" xml:space="preserve">
     <value>杂项</value>
   </data>
+  <data name="Interacting" xml:space="preserve">
+    <value>交互</value>
+  </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>数据录入</value>
+  </data>
+  <data name="DataDisplay" xml:space="preserve">
+    <value>数据展示</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>导航</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>布局</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>反馈</value>
+  </data>
 </root>

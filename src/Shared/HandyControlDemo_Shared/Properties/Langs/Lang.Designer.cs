@@ -543,6 +543,28 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   查找类似 数据展示 的本地化字符串。
+        /// </summary>
+        public static string DataDisplay
+        {
+            get
+            {
+                return ResourceManager.GetString("DataDisplay", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 数据录入 的本地化字符串。
+        /// </summary>
+        public static string DataEntry
+        {
+            get
+            {
+                return ResourceManager.GetString("DataEntry", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   查找类似 数据表格 的本地化字符串。
         /// </summary>
         public static string DataGrid
@@ -748,6 +770,17 @@ namespace HandyControlDemo.Properties.Langs
             get
             {
                 return ResourceManager.GetString("Fatal", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 反馈 的本地化字符串。
+        /// </summary>
+        public static string Feedback
+        {
+            get
+            {
+                return ResourceManager.GetString("Feedback", resourceCulture);
             }
         }
 
@@ -1101,6 +1134,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   查找类似 交互 的本地化字符串。
+        /// </summary>
+        public static string Interacting
+        {
+            get
+            {
+                return ResourceManager.GetString("Interacting", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   查找类似 可交互对话框 的本地化字符串。
         /// </summary>
         public static string InteractiveDialog
@@ -1141,6 +1185,17 @@ namespace HandyControlDemo.Properties.Langs
             get
             {
                 return ResourceManager.GetString("LangComment", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 布局 的本地化字符串。
+        /// </summary>
+        public static string Layout
+        {
+            get
+            {
+                return ResourceManager.GetString("Layout", resourceCulture);
             }
         }
 
@@ -1240,6 +1295,17 @@ namespace HandyControlDemo.Properties.Langs
             get
             {
                 return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   查找类似 导航 的本地化字符串。
+        /// </summary>
+        public static string Navigation
+        {
+            get
+            {
+                return ResourceManager.GetString("Navigation", resourceCulture);
             }
         }
 

@@ -80,6 +80,8 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(CoverFlow));
             OnPropertyChanged(nameof(CoverView));
             OnPropertyChanged(nameof(Danger));
+            OnPropertyChanged(nameof(DataDisplay));
+            OnPropertyChanged(nameof(DataEntry));
             OnPropertyChanged(nameof(DataGrid));
             OnPropertyChanged(nameof(DatePicker));
             OnPropertyChanged(nameof(DateTimePicker));
@@ -99,6 +101,7 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(Exit));
             OnPropertyChanged(nameof(Expander));
             OnPropertyChanged(nameof(Fatal));
+            OnPropertyChanged(nameof(Feedback));
             OnPropertyChanged(nameof(FlexPanel));
             OnPropertyChanged(nameof(FlipClock));
             OnPropertyChanged(nameof(FloatingBlock));
@@ -131,18 +134,22 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(ImageSelector));
             OnPropertyChanged(nameof(Index));
             OnPropertyChanged(nameof(Info));
+            OnPropertyChanged(nameof(Interacting));
             OnPropertyChanged(nameof(InteractiveDialog));
             OnPropertyChanged(nameof(IsNotPhone));
             OnPropertyChanged(nameof(Label));
             OnPropertyChanged(nameof(LangComment));
+            OnPropertyChanged(nameof(Layout));
             OnPropertyChanged(nameof(ListBox));
             OnPropertyChanged(nameof(ListView));
             OnPropertyChanged(nameof(Loading));
             OnPropertyChanged(nameof(Magnifier));
             OnPropertyChanged(nameof(Menu));
             OnPropertyChanged(nameof(MessageBox));
+            OnPropertyChanged(nameof(Misc));
             OnPropertyChanged(nameof(Morphing_Animation));
             OnPropertyChanged(nameof(Name));
+            OnPropertyChanged(nameof(Navigation));
             OnPropertyChanged(nameof(NewWindow));
             OnPropertyChanged(nameof(Next));
             OnPropertyChanged(nameof(Notification));
@@ -473,6 +480,16 @@ namespace HandyControlDemo.Properties.Langs
 		public string Danger => Lang.Danger;
 
         /// <summary>
+        ///   查找类似 数据展示 的本地化字符串。
+        /// </summary>
+        public string DataDisplay => Lang.DataDisplay;
+
+        /// <summary>
+        ///   查找类似 数据录入 的本地化字符串。
+        /// </summary>
+        public string DataEntry => Lang.DataEntry;
+
+        /// <summary>
         ///   查找类似 数据表格 的本地化字符串。
         /// </summary>
 		public string DataGrid => Lang.DataGrid;
@@ -566,6 +583,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 严重 的本地化字符串。
         /// </summary>
 		public string Fatal => Lang.Fatal;
+
+        /// <summary>
+        ///   查找类似 反馈 的本地化字符串。
+        /// </summary>
+        public string Feedback => Lang.Feedback;
 
         /// <summary>
         ///   查找类似 弹性盒子 的本地化字符串。
@@ -728,6 +750,11 @@ namespace HandyControlDemo.Properties.Langs
 		public string Info => Lang.Info;
 
         /// <summary>
+        ///   查找类似 交互 的本地化字符串。
+        /// </summary>
+        public string Interacting => Lang.Interacting;
+
+        /// <summary>
         ///   查找类似 可交互对话框 的本地化字符串。
         /// </summary>
 		public string InteractiveDialog => Lang.InteractiveDialog;
@@ -746,6 +773,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
         /// </summary>
 		public string LangComment => Lang.LangComment;
+
+        /// <summary>
+        ///   查找类似 布局 的本地化字符串。
+        /// </summary>
+        public string Layout => Lang.Layout;
 
         /// <summary>
         ///   查找类似 列表框 的本地化字符串。
@@ -778,6 +810,11 @@ namespace HandyControlDemo.Properties.Langs
 		public string MessageBox => Lang.MessageBox;
 
         /// <summary>
+        ///   查找类似 杂项 的本地化字符串。
+        /// </summary>
+        public string Misc => Lang.Misc;
+
+        /// <summary>
         ///   查找类似  的本地化字符串。
         /// </summary>
 		public string Morphing_Animation => Lang.Morphing_Animation;
@@ -786,6 +823,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 名称 的本地化字符串。
         /// </summary>
 		public string Name => Lang.Name;
+
+        /// <summary>
+        ///   查找类似 导航 的本地化字符串。
+        /// </summary>
+        public string Navigation => Lang.Navigation;
 
         /// <summary>
         ///   查找类似 新建窗口 的本地化字符串。
@@ -1572,6 +1614,16 @@ namespace HandyControlDemo.Properties.Langs
 		public static string Danger = nameof(Danger);
 
         /// <summary>
+        ///   查找类似 数据展示 的本地化字符串。
+        /// </summary>
+        public static string DataDisplay = nameof(DataDisplay);
+
+        /// <summary>
+        ///   查找类似 数据录入 的本地化字符串。
+        /// </summary>
+        public static string DataEntry = nameof(DataEntry);
+
+        /// <summary>
         ///   查找类似 数据表格 的本地化字符串。
         /// </summary>
 		public static string DataGrid = nameof(DataGrid);
@@ -1665,6 +1717,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 严重 的本地化字符串。
         /// </summary>
 		public static string Fatal = nameof(Fatal);
+
+        /// <summary>
+        ///   查找类似 反馈 的本地化字符串。
+        /// </summary>
+        public static string Feedback = nameof(Feedback);
 
         /// <summary>
         ///   查找类似 弹性盒子 的本地化字符串。
@@ -1827,6 +1884,11 @@ namespace HandyControlDemo.Properties.Langs
 		public static string Info = nameof(Info);
 
         /// <summary>
+        ///   查找类似 交互 的本地化字符串。
+        /// </summary>
+        public static string Interacting = nameof(Interacting);
+
+        /// <summary>
         ///   查找类似 可交互对话框 的本地化字符串。
         /// </summary>
 		public static string InteractiveDialog = nameof(InteractiveDialog);
@@ -1845,6 +1907,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
         /// </summary>
 		public static string LangComment = nameof(LangComment);
+
+        /// <summary>
+        ///   查找类似 布局 的本地化字符串。
+        /// </summary>
+        public static string Layout = nameof(Layout);
 
         /// <summary>
         ///   查找类似 列表框 的本地化字符串。
@@ -1877,6 +1944,11 @@ namespace HandyControlDemo.Properties.Langs
 		public static string MessageBox = nameof(MessageBox);
 
         /// <summary>
+        ///   查找类似 杂项 的本地化字符串。
+        /// </summary>
+        public static string Misc = nameof(Misc);
+
+        /// <summary>
         ///   查找类似  的本地化字符串。
         /// </summary>
 		public static string Morphing_Animation = nameof(Morphing_Animation);
@@ -1885,6 +1957,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 名称 的本地化字符串。
         /// </summary>
 		public static string Name = nameof(Name);
+
+        /// <summary>
+        ///   查找类似 导航 的本地化字符串。
+        /// </summary>
+        public static string Navigation = nameof(Navigation);
 
         /// <summary>
         ///   查找类似 新建窗口 的本地化字符串。
