@@ -54,7 +54,8 @@ namespace HandyControl.Tools
             {
                 Data = geometryGroup,
                 Fill = renderBrush,
-                VerticalAlignment = VerticalAlignment.Top
+                VerticalAlignment = VerticalAlignment.Top,
+                Stretch = Stretch.Uniform
             };
 
             RenderOptions.SetEdgeMode(path, EdgeMode.Aliased);

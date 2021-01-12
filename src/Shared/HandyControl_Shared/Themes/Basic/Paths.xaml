@@ -6,10 +6,6 @@
         <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style TargetType="Path">
-        <Setter Property="Stretch" Value="Uniform"/>
-    </Style>
-
     <Style x:Key="PathBaseStyle" TargetType="Path">
         <Setter Property="Stretch" Value="Uniform"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>

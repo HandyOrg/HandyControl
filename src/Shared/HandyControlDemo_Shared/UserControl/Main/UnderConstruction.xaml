@@ -1,10 +1,11 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.UnderConstruction"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:hc="https://handyorg.github.io/handycontrol"
-             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
-             Background="{DynamicResource RegionBrush}">
+﻿<Border x:Class="HandyControlDemo.UserControl.UnderConstruction"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+        xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+        Background="{DynamicResource RegionBrush}"
+        CornerRadius="4">
     <hc:TransitioningContentControl>
        <StackPanel Margin="32">
             <hc:GifImage Width="400" Height="300">
@@ -15,4 +16,4 @@
            <TextBlock Margin="0,16,0,0" HorizontalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.ComingSoon}}" Style="{StaticResource TextBlockLargeBold}"/>
         </StackPanel>
     </hc:TransitioningContentControl>
-</UserControl>
+</Border>

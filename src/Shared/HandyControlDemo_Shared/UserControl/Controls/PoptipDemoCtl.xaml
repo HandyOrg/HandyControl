@@ -44,7 +44,7 @@
                     <hc:Poptip.Instance>
                         <hc:Poptip PlacementType="Top">
                             <hc:Poptip.Content>
-                                <Path Width="100" Height="100" Fill="#f06632" Data="{StaticResource LogoGeometry}"/>
+                                <Path Width="100" Height="100" Fill="#f06632" Data="{StaticResource LogoGeometry}" Stretch="Uniform"/>
                             </hc:Poptip.Content>
                         </hc:Poptip>
                     </hc:Poptip.Instance>
@@ -57,7 +57,7 @@
                     <hc:Poptip.Instance>
                         <hc:Poptip Background="Transparent" Padding="0" BorderThickness="0" HitMode="None" PlacementType="Right" IsOpen="{Binding Target.IsChecked,RelativeSource={RelativeSource Self}}">
                             <hc:Poptip.Content>
-                                <Path Width="100" Height="100" Fill="#f06632" Data="{StaticResource LogoGeometry}"/>
+                                <Path Width="100" Height="100" Fill="#f06632" Data="{StaticResource LogoGeometry}" Stretch="Uniform"/>
                             </hc:Poptip.Content>
                         </hc:Poptip>
                     </hc:Poptip.Instance>

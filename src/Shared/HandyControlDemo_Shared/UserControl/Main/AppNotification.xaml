@@ -8,7 +8,7 @@
         Width="320"
         Height="518">
     <hc:SimplePanel>
-        <Path Margin="0,36,0,0" VerticalAlignment="Top" Width="70" Height="70" Data="{StaticResource LogoGeometry}" Fill="#f06632"/>
+        <Path Margin="0,36,0,0" VerticalAlignment="Top" Width="70" Height="70" Data="{StaticResource LogoGeometry}" Fill="#f06632" Stretch="Uniform"/>
         <TextBlock Text="HandyControl" FontSize="30" Foreground="{StaticResource PrimaryBrush}" HorizontalAlignment="Center" Margin="0,122,0,0" VerticalAlignment="Top"/>
         <Button Command="hc:ControlCommands.CloseWindow" CommandParameter="{Binding RelativeSource={RelativeSource Self}}" Content="{hc:Lang Key={x:Static hc:LangKeys.Close}}" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Margin="10,0,10,10"/>
     </hc:SimplePanel>

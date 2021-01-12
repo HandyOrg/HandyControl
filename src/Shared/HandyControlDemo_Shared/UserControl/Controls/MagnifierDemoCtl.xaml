@@ -5,9 +5,9 @@
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
         <WrapPanel Margin="16">
-            <Image Margin="16" hc:Magnifier.Instance="{x:Static hc:Magnifier.Default}" Source="/HandyControlDemo;component/Resources/Img/b1.jpg" Stretch="None"/>
+            <Image Margin="16" hc:Magnifier.Instance="{x:Static hc:Magnifier.Default}" Source="/HandyControlDemo;component/Resources/Img/b1.jpg" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor"/>
 
-            <Image Margin="16" Source="/HandyControlDemo;component/Resources/Img/b1.jpg" Stretch="None">
+            <Image Margin="16" Source="/HandyControlDemo;component/Resources/Img/b1.jpg" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor">
                 <hc:Magnifier.Instance>
                     <hc:Magnifier Scale="6" HorizontalOffset="-16" VerticalOffset="-16"/>
                 </hc:Magnifier.Instance>

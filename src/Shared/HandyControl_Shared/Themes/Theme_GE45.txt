@@ -1,4 +1,4 @@
-# --------------------------------------
+﻿# --------------------------------------
 Lang.xaml
 # --------------------------------------
 Basic\Brushes.xaml
@@ -17,7 +17,6 @@ Styles\ContentControl.xaml
 Styles\FlipClock.xaml
 Styles\FloatingBlock.xaml
 Styles\GridSplitter.xaml
-Styles\Image.xaml
 Styles\Notification.xaml
 Styles\Rectangle.xaml
 Styles\RichTextBox.xaml
@@ -144,7 +143,6 @@ Styles\GotoTop.xaml
 Styles\Gravatar.xaml
 Styles\GridSplitter.xaml
 Styles\Growl.xaml
-Styles\Image.xaml
 Styles\ImageSelector.xaml
 Styles\ImageViewer.xaml
 Styles\ListBox.xaml
