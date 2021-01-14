@@ -82,8 +82,10 @@
                                     <RowDefinition Height="Auto"/>
                                 </Grid.RowDefinitions>
                                 <Path Data="{TemplateBinding Image}" Fill="{TemplateBinding ImageBrush}" HorizontalAlignment="Center" Visibility="{TemplateBinding ShowImage,Converter={StaticResource Boolean2VisibilityConverter}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="20,32,0,0" Width="30" Height="30" Stretch="Uniform"/>
-                                <ScrollViewer Grid.Column="1" Grid.Row="0">
-                                    <TextBlock Margin="10,39,10,10" Text="{TemplateBinding Message}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                <ScrollViewer Grid.Row="0" Grid.Column="1" VerticalAlignment="Top">
+                                    <Border MinHeight="30" Margin="10,32,10,10" HorizontalAlignment="Left">
+                                        <TextBlock VerticalAlignment="Center" Text="{TemplateBinding Message}" TextWrapping="Wrap" />
+                                    </Border>
                                 </ScrollViewer>
                                 <StackPanel Name="PART_Panel" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,10,0,16" Orientation="Horizontal" HorizontalAlignment="Center"/>
                             </Grid>
