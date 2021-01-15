@@ -83,9 +83,6 @@
 	<Geometry o:Freeze="True" x:Key="DragVerticalGeometry">M2,12 C3.1045694,12 4,12.895431 4,14 4,15.104569 3.1045694,16 2,16 0.89543051,16 0,15.104569 0,14 0,12.895431 0.89543051,12 2,12 z M2,6 C3.1045694,6 4,6.8954306 4,8 4,9.1045694 3.1045694,10 2,10 0.89543051,10 0,9.1045694 0,8 0,6.8954306 0.89543051,6 2,6 z M2,0 C3.1045694,0 4,0.89543056 4,2 4,3.1045694 3.1045694,4 2,4 0.89543051,4 0,3.1045694 0,2 0,0.89543056 0.89543051,0 2,0 z</Geometry>
 	<Geometry o:Freeze="True" x:Key="DragHorizontalGeometry">M14,0 C15.104569,0 16,0.89543051 16,2 16,3.1045694 15.104569,4 14,4 12.895431,4 12,3.1045694 12,2 12,0.89543051 12.895431,0 14,0 z M8,0 C9.1045694,0 10,0.89543051 10,2 10,3.1045694 9.1045694,4 8,4 6.8954306,4 6,3.1045694 6,2 6,0.89543051 6.8954306,0 8,0 z M2,0 C3.1045694,0 4,0.89543051 4,2 4,3.1045694 3.1045694,4 2,4 0.89543056,4 0,3.1045694 0,2 0,0.89543051 0.89543056,0 2,0 z</Geometry>
 	<Geometry o:Freeze="True" x:Key="DropperGeometry">M798.165333 97.834667a42.624 42.624 0 0 0-60.330666 0l-140.629334 140.629333-55.381333-55.296-60.330667 60.330667 55.381334 55.296-353.706667 353.706666a42.709333 42.709333 0 0 0-11.221333 19.84l-42.666667 170.666667a42.538667 42.538667 0 0 0 51.712 51.712l170.666667-42.666667c7.509333-1.877333 14.378667-5.76 19.84-11.221333l353.792-353.792 55.210666 55.125333 60.330667-60.330666-55.210667-55.125334 140.544-140.544a42.624 42.624 0 0 0 0-60.330666l-128-128zM319.488 772.138667l-90.197333 22.570666 22.570666-90.197333 345.386667-345.386667 67.669333 67.584-345.429333 345.429334z</Geometry>
-	<Style TargetType="Path">
-		<Setter Property="Stretch" Value="Uniform" />
-	</Style>
 	<Style x:Key="PathBaseStyle" TargetType="Path">
 		<Setter Property="Stretch" Value="Uniform" />
 		<Setter Property="SnapsToDevicePixels" Value="True" />
@@ -179,10 +176,6 @@
 	</Style>
 	<Style TargetType="GridSplitter">
 		<Setter Property="Focusable" Value="False" />
-	</Style>
-	<Style TargetType="Image">
-		<Setter Property="Stretch" Value="Uniform" />
-		<Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
 	</Style>
 	<Style TargetType="hc:Notification">
 		<Setter Property="hc:WindowAttach.IgnoreAltF4" Value="True" />
@@ -2066,7 +2059,7 @@
 	<Style x:Key="ScrollBarBaseStyle" TargetType="ScrollBar">
 		<Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
 		<Setter Property="Stylus.IsFlicksEnabled" Value="false" />
-		<Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}" />
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="Background" Value="Transparent" />
 		<Setter Property="Focusable" Value="False" />
 		<Setter Property="BorderThickness" Value="0" />
@@ -2286,7 +2279,7 @@
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}" />
+		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="hc:TitleElement.TitlePlacement" Value="Top" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
@@ -4464,7 +4457,7 @@
 				<ControlTemplate TargetType="ToggleButton">
 					<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
 						<Border Margin="0,0,6,0" BorderThickness="1" BorderBrush="Transparent" HorizontalAlignment="Right" SnapsToDevicePixels="true" Width="{StaticResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
-							<Path Width="16" Height="9" x:Name="arrow" Data="{StaticResource DownGeometry}" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+							<Path Width="16" Height="9" x:Name="arrow" Data="{StaticResource DownGeometry}" Stretch="Uniform" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 						</Border>
 					</Border>
 					<ControlTemplate.Triggers>
@@ -5910,7 +5903,7 @@
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition Width="Auto" />
 									</Grid.ColumnDefinitions>
-									<ContentPresenter Margin="0,0,10,0" x:Name="Icon" Visibility="Collapsed" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
+									<ContentPresenter Margin="0,0,10,0" x:Name="Icon" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
 									<Border Margin="0,0,10,0" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
 										<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 									</Border>
@@ -5960,7 +5953,7 @@
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition />
 									</Grid.ColumnDefinitions>
-									<ContentPresenter Margin="0,0,10,0" x:Name="Icon" Visibility="Collapsed" HorizontalAlignment="Left" ContentSource="Icon" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
+									<ContentPresenter Margin="0,0,10,0" x:Name="Icon" HorizontalAlignment="Left" ContentSource="Icon" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
 									<Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
 										<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 									</Border>
@@ -8341,12 +8334,12 @@
 		<Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}" />
 	</Style>
 	<Style x:Key="ExpanderBaseStyle" TargetType="Expander">
-		<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-		<Setter Property="Background" Value="{DynamicResource TitleBrush}" />
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="HorizontalContentAlignment" Value="Left" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="BorderBrush" Value="Transparent" />
-		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
@@ -8365,7 +8358,7 @@
 										<ColumnDefinition Width="32" />
 									</Grid.ColumnDefinitions>
 									<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-									<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+									<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
 								</Grid>
 							</ToggleButton>
 						</Border>
@@ -9614,7 +9607,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="GroupItem">
-					<Expander BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Header="{Binding Name}" IsExpanded="True" Background="{DynamicResource SecondaryRegionBrush}" Foreground="{DynamicResource PrimaryTextBrush}">
+					<Expander Header="{Binding Name}" IsExpanded="True">
 						<Border BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" CornerRadius="0,0,4,4">
 							<ItemsPresenter Margin="{TemplateBinding Padding}" />
 						</Border>
@@ -12098,8 +12091,10 @@
 									<RowDefinition Height="Auto" />
 								</Grid.RowDefinitions>
 								<Path Data="{TemplateBinding Image}" Fill="{TemplateBinding ImageBrush}" HorizontalAlignment="Center" Visibility="{TemplateBinding ShowImage,Converter={StaticResource Boolean2VisibilityConverter}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="20,32,0,0" Width="30" Height="30" Stretch="Uniform" />
-								<ScrollViewer Grid.Column="1" Grid.Row="0">
-									<TextBlock Margin="10,39,10,10" Text="{TemplateBinding Message}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" />
+								<ScrollViewer Grid.Row="0" Grid.Column="1" VerticalAlignment="Top">
+									<Border MinHeight="30" Margin="10,32,10,10" HorizontalAlignment="Left">
+										<TextBlock VerticalAlignment="Center" Text="{TemplateBinding Message}" TextWrapping="Wrap" />
+									</Border>
 								</ScrollViewer>
 								<StackPanel Name="PART_Panel" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,10,0,16" Orientation="Horizontal" HorizontalAlignment="Center" />
 							</Grid>
