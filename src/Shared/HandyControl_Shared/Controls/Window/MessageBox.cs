@@ -211,7 +211,7 @@ namespace HandyControl.Controls
                 builder.Append(Environment.NewLine);
                 builder.Append(line);
                 builder.Append(Environment.NewLine);
-                Clipboard.SetText(builder.ToString());
+                Clipboard.SetDataObject(builder.ToString());
             }
         }
 
