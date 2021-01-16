@@ -259,7 +259,7 @@ namespace HandyControl.Controls
 
         private void OnIsOpenChanged(bool isOpen)
         {
-            if (Content == null) return;
+            if (Content == null || DesignerHelper.IsInDesignMode) return;
 
             _window = WindowHelper.GetActiveWindow();
             if (_window == null) return;

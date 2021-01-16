@@ -12,5 +12,3 @@ build/*
 build/tools/*
 !build/tools/packages.config
 !build/tools/VisualStudioToolsManifest.xml
-src/Shared/HandyControl_Shared/Themes/Theme.xaml
-src/Net_40/HandyControl_Net_40/Themes/Theme.xaml
