@@ -9,7 +9,6 @@
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
     <NoWarn>0067;0649;1591;0108;1717</NoWarn>
     <UseWPF>true</UseWPF>
-    <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\..\Shared\HandyControl_Shared\key.snk</AssemblyOriginatorKeyFile>
     <Copyright>Copyright © HandyOrg 2018-2021</Copyright>
     <AssemblyVersion>3.1.0.0</AssemblyVersion>
@@ -18,6 +17,7 @@
     <RepositoryUrl>https://github.com/HandyOrg/HandyControl</RepositoryUrl>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net40|AnyCPU' ">
+    <SignAssembly>true</SignAssembly>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\HandyControl.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
