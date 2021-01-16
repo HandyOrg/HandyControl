@@ -436,7 +436,7 @@
     <value>FlipClock</value>
   </data>
   <data name="OpenBlurWindow" xml:space="preserve">
-    <value>open blur window</value>
+    <value>Otwórz BlurWindow</value>
   </data>
   <data name="Rate" xml:space="preserve">
     <value>Rate</value>
@@ -526,7 +526,7 @@
     <value>Growl demo</value>
   </data>
   <data name="NewWindow" xml:space="preserve">
-    <value>New window</value>
+    <value>Nowe okno</value>
   </data>
   <data name="Visibility" xml:space="preserve">
     <value>Visibility</value>
@@ -538,7 +538,7 @@
     <value>Exit</value>
   </data>
   <data name="OpenPanel" xml:space="preserve">
-    <value>Open Panel</value>
+    <value>Otwórz Panel</value>
   </data>
   <data name="AppClosingTip" xml:space="preserve">
     <value>Ikona w zasobniku systemowym jest aktywna i przez to okno nie zostanie zamknięte, tylko ukryte</value>
@@ -601,10 +601,10 @@
     <value>Poptip</value>
   </data>
   <data name="Recommendation" xml:space="preserve">
-    <value>Recommendation</value>
+    <value>Rekomendacje</value>
   </data>
   <data name="Project" xml:space="preserve">
-    <value>Project</value>
+    <value>Projekt</value>
   </data>
   <data name="RangeSlider" xml:space="preserve">
     <value>RangeSlider</value>
@@ -649,7 +649,7 @@
     <value>Sprite</value>
   </data>
   <data name="OpenSprite" xml:space="preserve">
-    <value>Open sprite</value>
+    <value>Otwórz Sprite</value>
   </data>
   <data name="Notification" xml:space="preserve">
     <value>Notification</value>
@@ -691,10 +691,10 @@
     <value>Dokumentacja</value>
   </data>
   <data name="Effects" xml:space="preserve">
-    <value>Effects</value>
+    <value>Efekty</value>
   </data>
   <data name="Website" xml:space="preserve">
-    <value>Website</value>
+    <value>Strona internetowa</value>
   </data>
   <data name="Vsix" xml:space="preserve">
     <value>Vsix</value>
@@ -715,7 +715,7 @@
     <value>FlowDocumentScrollViewer</value>
   </data>
   <data name="OpenGlowWindow" xml:space="preserve">
-    <value>Open glowWindow</value>
+    <value>Otwórz GlowWindow</value>
   </data>
   <data name="FlowDocument" xml:space="preserve">
     <value>FlowDocument</value>
@@ -727,10 +727,10 @@
     <value>FlowDocumentReader</value>
   </data>
   <data name="OpenNativeCommonWindow" xml:space="preserve">
-    <value>Open native common window</value>
+    <value>Otwórz NativeCommonWindow</value>
   </data>
   <data name="OpenNavigationWindow" xml:space="preserve">
-    <value>Open navigation window</value>
+    <value>Otwórz NavigationWindow</value>
   </data>
   <data name="Frame" xml:space="preserve">
     <value>Frame</value>
@@ -766,7 +766,7 @@
     <value>FlexPanel</value>
   </data>
   <data name="OpenTouchDragMoveWindow" xml:space="preserve">
-    <value>open touch drag move window</value>
+    <value>Otwórz TouchDragMoveWindow</value>
   </data>
   <data name="UniformSpacingPanel" xml:space="preserve">
     <value>UniformSpacingPanel</value>
@@ -790,6 +790,6 @@
     <value>Layout</value>
   </data>
   <data name="Feedback" xml:space="preserve">
-    <value>Feedback</value>
+    <value>Informacje zwrotne</value>
   </data>
 </root>
