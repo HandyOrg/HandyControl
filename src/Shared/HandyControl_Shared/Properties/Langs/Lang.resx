@@ -240,4 +240,7 @@
   <data name="All" xml:space="preserve">
     <value>全部</value>
   </data>
+  <data name="NoData" xml:space="preserve">
+    <value>暂无数据</value>
+  </data>
 </root>

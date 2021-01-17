@@ -240,4 +240,7 @@
   <data name="All" xml:space="preserve">
     <value>Tots</value>
   </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No Data</value>
+  </data>
 </root>

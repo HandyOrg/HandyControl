@@ -8334,6 +8334,41 @@
 		<Setter Property="Dock" Value="Right" />
 		<Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}" />
 	</Style>
+	<DrawingBrush x:Key="EmptySimpleLogo" o:Freeze="True">
+		<DrawingBrush.Drawing>
+			<DrawingGroup o:Freeze="True">
+				<GeometryDrawing o:Freeze="True" Brush="{DynamicResource SecondaryRegionBrush}" Geometry="F1 M1638,1024z M0,0z M0,844.8C0,942.250667 361.096533,1021.269333 806.536533,1021.269333 1251.976533,1021.269333 1613.038933,942.250666 1613.038933,844.8 1613.038933,747.383467 1251.9424,668.398933 806.536533,668.398933 361.096533,668.398933 0,747.383467 0,844.8z" />
+				<GeometryDrawing o:Freeze="True" Brush="{DynamicResource BorderBrush}" Geometry="F1 M1638,1024z M0,0z M1398.784,580.164267L214.254933,580.164267 214.254933,330.6496 473.873067,35.771733C486.4,13.1072,509.1328,0.477867,531.797333,0.477867L1081.2416,0.477867C1103.940267,0.477867,1126.638933,13.1072,1141.725867,38.2976L1398.818133,330.6496 1398.818133,580.164267z M239.479467,555.008L1373.627733,555.008 1373.627733,338.261333 1121.553067,50.858667C1108.992,33.245867,1096.362667,23.210667,1081.2416,23.210667L531.797333,23.210667C516.676266,23.210667,504.081066,33.28,493.9776,48.401067L239.445333,340.753067 239.445333,554.973867z" />
+				<GeometryDrawing o:Freeze="True" Brush="{DynamicResource SecondaryRegionBrush}" Geometry="F1 M1638,1024z M0,0z M1048.4736,413.832533C1048.4736,373.521066,1073.664,340.753066,1103.940267,340.753067L1386.222933,340.753067 1386.222933,796.945067C1386.222933,849.851734,1353.454933,895.249067,1310.583467,895.249067L302.455467,895.249067C262.109867,895.249067,226.850134,852.3776,226.850133,796.945067L226.850133,340.753067 509.1328,340.753067C539.374933,340.753067 564.565333,373.521067 564.565333,413.832533 564.565333,454.143999 589.755733,486.912 619.997867,486.912L993.041067,486.912C1023.2832,489.437867,1048.4736,454.144,1048.4736,413.832533z" />
+				<GeometryDrawing o:Freeze="True" Brush="{DynamicResource BorderBrush}" Geometry="F1 M1638,1024z M0,0z M1310.583467,907.844267L302.455467,907.844267C254.5664,907.844267,214.2208,857.429334,214.2208,796.910933L214.2208,328.192 509.1328,328.192C546.9184,328.192 577.160533,365.9776 577.160533,413.866667 577.160533,446.634667 597.2992,474.350934 619.997867,474.350933L993.041067,474.350933C1015.7056,474.350933 1035.8784,446.634666 1035.8784,413.866667 1035.8784,365.9776 1066.120533,328.192 1103.940267,328.192L1398.818133,328.192 1398.818133,796.9792C1398.818133,857.463467,1360.9984,907.8784,1310.583467,907.8784z M239.445333,353.348267L239.445333,796.945067C239.445333,844.834134,267.1616,882.619734,302.455467,882.619733L1310.583467,882.619733C1345.877334,882.619733,1373.5936,844.834133,1373.5936,796.945067L1373.5936,353.348267 1103.940267,353.348267C1081.2416,353.348267 1061.0688,381.064534 1061.0688,413.832533 1061.0688,461.7216 1030.826667,499.5072 993.041067,499.5072L619.997867,499.5072C582.212267,499.5072 551.970134,461.7216 551.970133,413.832533 551.970133,381.064533 531.831466,350.8224 509.1328,350.8224L239.445333,350.8224 239.445333,353.348267z" />
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<Style x:Key="EmptyBaseStyle" TargetType="hc:Empty">
+		<Setter Property="Logo">
+			<Setter.Value>
+				<Rectangle HorizontalAlignment="Center" Width="64" Height="41" Fill="{StaticResource EmptySimpleLogo}" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Description">
+			<Setter.Value>
+				<TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" Foreground="{DynamicResource ThirdlyTextBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.NoData}}" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="hc:Empty">
+					<hc:SimpleStackPanel>
+						<ContentPresenter ContentSource="Logo" />
+						<ContentPresenter ContentSource="Description" />
+						<ContentPresenter HorizontalAlignment="Center" />
+					</hc:SimpleStackPanel>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+	</Style>
 	<ControlTemplate x:Key="ExpanderLeftTemplate" TargetType="Expander">
 		<Grid>
 			<Grid.ColumnDefinitions>
@@ -8880,9 +8915,16 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="ListBox">
 					<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-						<hc:ScrollViewer Focusable="false">
-							<ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:ScrollViewer>
+						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+							<hc:ToggleBlock.CheckedContent>
+								<hc:ScrollViewer Focusable="false">
+									<ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</hc:ScrollViewer>
+							</hc:ToggleBlock.CheckedContent>
+							<hc:ToggleBlock.UnCheckedContent>
+								<hc:Empty />
+							</hc:ToggleBlock.UnCheckedContent>
+						</hc:ToggleBlock>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
@@ -11179,10 +11221,17 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="TreeView">
-					<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-						<hc:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-							<ItemsPresenter />
-						</hc:ScrollViewer>
+					<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+							<hc:ToggleBlock.CheckedContent>
+								<hc:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+									<ItemsPresenter />
+								</hc:ScrollViewer>
+							</hc:ToggleBlock.CheckedContent>
+							<hc:ToggleBlock.UnCheckedContent>
+								<hc:Empty />
+							</hc:ToggleBlock.UnCheckedContent>
+						</hc:ToggleBlock>
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsEnabled" Value="false">
@@ -11750,37 +11799,44 @@
 						</Storyboard>
 					</ControlTemplate.Resources>
 					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-						<ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
-							<ScrollViewer.Template>
-								<ControlTemplate TargetType="ScrollViewer">
-									<Grid>
-										<Grid.ColumnDefinitions>
-											<ColumnDefinition Width="Auto" />
-											<ColumnDefinition Width="*" />
-											<ColumnDefinition Width="Auto" />
-										</Grid.ColumnDefinitions>
-										<Grid.RowDefinitions>
-											<RowDefinition Height="Auto" />
-											<RowDefinition Height="*" />
-										</Grid.RowDefinitions>
-										<Button Command="{x:Static DataGrid.SelectAllCommand}" Margin="0,0,0,6" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}" />
-										<DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-										<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" />
-										<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
-										<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
-									</Grid>
-									<ControlTemplate.Triggers>
-										<EventTrigger RoutedEvent="MouseEnter">
-											<BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
-										</EventTrigger>
-										<EventTrigger RoutedEvent="MouseLeave">
-											<BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
-										</EventTrigger>
-									</ControlTemplate.Triggers>
-								</ControlTemplate>
-							</ScrollViewer.Template>
-							<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</ScrollViewer>
+						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+							<hc:ToggleBlock.CheckedContent>
+								<ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+									<ScrollViewer.Template>
+										<ControlTemplate TargetType="ScrollViewer">
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="Auto" />
+													<ColumnDefinition Width="*" />
+													<ColumnDefinition Width="Auto" />
+												</Grid.ColumnDefinitions>
+												<Grid.RowDefinitions>
+													<RowDefinition Height="Auto" />
+													<RowDefinition Height="*" />
+												</Grid.RowDefinitions>
+												<Button Command="{x:Static DataGrid.SelectAllCommand}" Margin="0,0,0,6" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}" />
+												<DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+												<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" />
+												<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
+												<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
+											</Grid>
+											<ControlTemplate.Triggers>
+												<EventTrigger RoutedEvent="MouseEnter">
+													<BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+												</EventTrigger>
+												<EventTrigger RoutedEvent="MouseLeave">
+													<BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
+												</EventTrigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</ScrollViewer.Template>
+									<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</hc:ToggleBlock.CheckedContent>
+							<hc:ToggleBlock.UnCheckedContent>
+								<hc:Empty />
+							</hc:ToggleBlock.UnCheckedContent>
+						</hc:ToggleBlock>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
@@ -11804,6 +11860,7 @@
 	<Style BasedOn="{StaticResource DialogBaseStyle}" TargetType="hc:Dialog" />
 	<Style BasedOn="{StaticResource DividerBaseStyle}" TargetType="hc:Divider" />
 	<Style BasedOn="{StaticResource DrawerBaseStyle}" TargetType="hc:Drawer" />
+	<Style BasedOn="{StaticResource EmptyBaseStyle}" TargetType="hc:Empty" />
 	<Style BasedOn="{StaticResource ExpanderBaseStyle}" TargetType="Expander" />
 	<Style BasedOn="{StaticResource FlowDocumentScrollViewerBaseStyle}" TargetType="FlowDocumentScrollViewer" />
 	<Style BasedOn="{StaticResource FlowDocumentPageViewerBaseStyle}" TargetType="FlowDocumentPageViewer" />
@@ -12038,27 +12095,23 @@
 							</DoubleAnimationUsingKeyFrames>
 						</Storyboard>
 					</ControlTemplate.Resources>
-					<Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+					<Grid>
 						<Grid.ColumnDefinitions>
 							<ColumnDefinition Width="*" />
 							<ColumnDefinition Width="Auto" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
 							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-						<DockPanel Margin="{TemplateBinding Padding}" Grid.RowSpan="2" Grid.ColumnSpan="2">
-							<ScrollViewer DockPanel.Dock="Top" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
-								<GridViewHeaderRowPresenter AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-							</ScrollViewer>
-							<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" KeyboardNavigation.DirectionalNavigation="Local" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</DockPanel>
-						<ScrollBar x:Name="PART_VerticalScrollBar" Opacity="0" Style="{StaticResource ScrollBarBaseStyle}" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Grid.Row="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
-						<ScrollBar x:Name="PART_HorizontalScrollBar" Opacity="0" Style="{StaticResource ScrollBarBaseStyle}" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
-						<DockPanel Background="{Binding Background, ElementName=PART_VerticalScrollBar}" Grid.Column="1" LastChildFill="False" Grid.Row="1">
-							<Rectangle DockPanel.Dock="Left" Fill="White" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Width="1" />
-							<Rectangle DockPanel.Dock="Top" Fill="White" Height="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
-						</DockPanel>
+						<GridViewHeaderRowPresenter AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}" />
+						<ScrollContentPresenter Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="1" x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" KeyboardNavigation.DirectionalNavigation="Local" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						<!--<DockPanel Margin="{TemplateBinding Padding}" Grid.RowSpan="2" Grid.ColumnSpan="2">
+                            <GridViewHeaderRowPresenter DockPanel.Dock="Top" AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" KeyboardNavigation.DirectionalNavigation="Local" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                        </DockPanel>-->
+						<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
+						<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_HorizontalScrollBar" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
 					</Grid>
 					<ControlTemplate.Triggers>
 						<EventTrigger RoutedEvent="MouseEnter">

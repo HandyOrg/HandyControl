@@ -5,22 +5,6 @@
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <hc:SimplePanel Margin="22">
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Content="Left" IsChecked="{Binding IsOpen,ElementName=DrawerLeft}"/>
-                <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Content="Top" IsChecked="{Binding IsOpen,ElementName=DrawerTop}"/>
-                <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2" Content="Right" IsChecked="{Binding IsOpen,ElementName=DrawerRight}"/>
-                <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Content="Bottom" IsChecked="{Binding IsOpen,ElementName=DrawerBottom}"/>
-            </Grid>
             <hc:Drawer Name="DrawerLeft" Dock="Left" ShowMode="Push">
                 <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
                     <Grid>
@@ -69,6 +53,22 @@
                     </Grid>
                 </Border>
             </hc:Drawer>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="0" Content="Left" IsChecked="{Binding IsOpen,ElementName=DrawerLeft}"/>
+                <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="0" Grid.Column="1" Content="Top" IsChecked="{Binding IsOpen,ElementName=DrawerTop}"/>
+                <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="1" Grid.Column="2" Content="Right" IsChecked="{Binding IsOpen,ElementName=DrawerRight}"/>
+                <ToggleButton Margin="10" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Content="Bottom" IsChecked="{Binding IsOpen,ElementName=DrawerBottom}"/>
+            </Grid>
         </hc:SimplePanel>
     </hc:TransitioningContentControl>
 </UserControl>

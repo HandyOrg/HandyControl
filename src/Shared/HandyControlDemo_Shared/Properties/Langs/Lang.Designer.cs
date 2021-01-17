@@ -730,6 +730,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   查找类似 空状态 的本地化字符串。
+        /// </summary>
+        public static string Empty
+        {
+            get
+            {
+                return ResourceManager.GetString("Empty", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   查找类似 错误 的本地化字符串。
         /// </summary>
         public static string Error

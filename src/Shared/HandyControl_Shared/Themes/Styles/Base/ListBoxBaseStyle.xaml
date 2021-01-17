@@ -80,9 +80,16 @@
             <Setter.Value>
                 <ControlTemplate TargetType="ListBox">
                     <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                        <hc:ScrollViewer Focusable="false">
-                            <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                        </hc:ScrollViewer>
+                        <hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                            <hc:ToggleBlock.CheckedContent>
+                                <hc:ScrollViewer Focusable="false">
+                                    <ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </hc:ScrollViewer>
+                            </hc:ToggleBlock.CheckedContent>
+                            <hc:ToggleBlock.UnCheckedContent>
+                                <hc:Empty/>
+                            </hc:ToggleBlock.UnCheckedContent>
+                        </hc:ToggleBlock>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
