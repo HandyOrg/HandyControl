@@ -792,4 +792,7 @@
   <data name="Feedback" xml:space="preserve">
     <value>反馈</value>
   </data>
+  <data name="Empty" xml:space="preserve">
+    <value>空状态</value>
+  </data>
 </root>

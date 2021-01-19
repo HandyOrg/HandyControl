@@ -14,7 +14,7 @@
                     <ProgressBar Style="{StaticResource ProgressBarDanger}" Margin="0,0,0,10" Value="100" Maximum="200" IsIndeterminate="True"/>
                 </StackPanel>
                 <StackPanel Margin="10,0,0,0" Width="200" HorizontalAlignment="Left">
-                    <TextBlock Padding="0,2,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressbarPrimary" HorizontalAlignment="Left"/>
+                    <TextBlock Padding="0,2,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarPrimary" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarSuccess" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarInfo" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarWarning" HorizontalAlignment="Left"/>
@@ -36,7 +36,7 @@
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarInfoStripe" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarWarningStripe" HorizontalAlignment="Left"/>
                     <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarDangerStripe" HorizontalAlignment="Left"/>
-                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarPlayer" HorizontalAlignment="Left"/>
+                    <TextBlock Padding="0,12,0,3" Style="{StaticResource TextBlockDefault}" Text="ProgressBarFlat" HorizontalAlignment="Left"/>
                 </StackPanel>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Height="200">

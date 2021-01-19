@@ -136,6 +136,8 @@ namespace HandyControl.Controls
 
         private void SortByCategory(object sender, ExecutedRoutedEventArgs e)
         {
+            if (_dataView == null) return;
+
             using (_dataView.DeferRefresh())
             {
                 _dataView.GroupDescriptions.Clear();
@@ -148,6 +150,8 @@ namespace HandyControl.Controls
 
         private void SortByName(object sender, ExecutedRoutedEventArgs e)
         {
+            if (_dataView == null) return;
+
             using (_dataView.DeferRefresh())
             {
                 _dataView.GroupDescriptions.Clear();
@@ -158,6 +162,8 @@ namespace HandyControl.Controls
 
         private void SearchBar_SearchStarted(object sender, FunctionEventArgs<string> e)
         {
+            if (_dataView == null) return;
+
             _searchKey = e.Info;
             if (string.IsNullOrEmpty(_searchKey))
             {

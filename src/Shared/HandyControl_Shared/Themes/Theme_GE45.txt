@@ -82,6 +82,7 @@ Styles\Base\DateTimePickerBaseStyle.xaml
 Styles\Base\DialogBaseStyle.xaml
 Styles\Base\DividerBaseStyle.xaml
 Styles\Base\DrawerBaseStyle.xaml
+Styles\Base\EmptyBaseStyle.xaml
 Styles\Base\ExpanderBaseStyle.xaml
 Styles\Base\FlowDocumentBaseStyle.xaml
 Styles\Base\FrameBaseStyle.xaml
@@ -134,6 +135,7 @@ Styles\DateTimePicker.xaml
 Styles\Dialog.xaml
 Styles\Divider.xaml
 Styles\Drawer.xaml
+Styles\Empty.xaml
 Styles\Expander.xaml
 Styles\FlipClock.xaml
 Styles\FloatingBlock.xaml

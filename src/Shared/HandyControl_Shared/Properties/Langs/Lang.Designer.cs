@@ -345,6 +345,17 @@ namespace HandyControl.Properties.Langs
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to 暂无数据.
+        /// </summary>
+        public static string NoData
+        {
+            get
+            {
+                return ResourceManager.GetString("NoData", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to 不在范围内.
         /// </summary>
         public static string OutOfRange

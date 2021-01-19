@@ -1,0 +1,45 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
+                    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <DrawingBrush x:Key="EmptySimpleLogo" o:Freeze="True">
+        <DrawingBrush.Drawing>
+            <DrawingGroup o:Freeze="True">
+                <GeometryDrawing o:Freeze="True" Brush="{DynamicResource SecondaryRegionBrush}" Geometry="F1 M1638,1024z M0,0z M0,844.8C0,942.250667 361.096533,1021.269333 806.536533,1021.269333 1251.976533,1021.269333 1613.038933,942.250666 1613.038933,844.8 1613.038933,747.383467 1251.9424,668.398933 806.536533,668.398933 361.096533,668.398933 0,747.383467 0,844.8z" />
+                <GeometryDrawing o:Freeze="True" Brush="{DynamicResource BorderBrush}" Geometry="F1 M1638,1024z M0,0z M1398.784,580.164267L214.254933,580.164267 214.254933,330.6496 473.873067,35.771733C486.4,13.1072,509.1328,0.477867,531.797333,0.477867L1081.2416,0.477867C1103.940267,0.477867,1126.638933,13.1072,1141.725867,38.2976L1398.818133,330.6496 1398.818133,580.164267z M239.479467,555.008L1373.627733,555.008 1373.627733,338.261333 1121.553067,50.858667C1108.992,33.245867,1096.362667,23.210667,1081.2416,23.210667L531.797333,23.210667C516.676266,23.210667,504.081066,33.28,493.9776,48.401067L239.445333,340.753067 239.445333,554.973867z" />
+                <GeometryDrawing o:Freeze="True" Brush="{DynamicResource SecondaryRegionBrush}" Geometry="F1 M1638,1024z M0,0z M1048.4736,413.832533C1048.4736,373.521066,1073.664,340.753066,1103.940267,340.753067L1386.222933,340.753067 1386.222933,796.945067C1386.222933,849.851734,1353.454933,895.249067,1310.583467,895.249067L302.455467,895.249067C262.109867,895.249067,226.850134,852.3776,226.850133,796.945067L226.850133,340.753067 509.1328,340.753067C539.374933,340.753067 564.565333,373.521067 564.565333,413.832533 564.565333,454.143999 589.755733,486.912 619.997867,486.912L993.041067,486.912C1023.2832,489.437867,1048.4736,454.144,1048.4736,413.832533z" />
+                <GeometryDrawing o:Freeze="True" Brush="{DynamicResource BorderBrush}" Geometry="F1 M1638,1024z M0,0z M1310.583467,907.844267L302.455467,907.844267C254.5664,907.844267,214.2208,857.429334,214.2208,796.910933L214.2208,328.192 509.1328,328.192C546.9184,328.192 577.160533,365.9776 577.160533,413.866667 577.160533,446.634667 597.2992,474.350934 619.997867,474.350933L993.041067,474.350933C1015.7056,474.350933 1035.8784,446.634666 1035.8784,413.866667 1035.8784,365.9776 1066.120533,328.192 1103.940267,328.192L1398.818133,328.192 1398.818133,796.9792C1398.818133,857.463467,1360.9984,907.8784,1310.583467,907.8784z M239.445333,353.348267L239.445333,796.945067C239.445333,844.834134,267.1616,882.619734,302.455467,882.619733L1310.583467,882.619733C1345.877334,882.619733,1373.5936,844.834133,1373.5936,796.945067L1373.5936,353.348267 1103.940267,353.348267C1081.2416,353.348267 1061.0688,381.064534 1061.0688,413.832533 1061.0688,461.7216 1030.826667,499.5072 993.041067,499.5072L619.997867,499.5072C582.212267,499.5072 551.970134,461.7216 551.970133,413.832533 551.970133,381.064533 531.831466,350.8224 509.1328,350.8224L239.445333,350.8224 239.445333,353.348267z" />
+            </DrawingGroup>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <Style x:Key="EmptyBaseStyle" TargetType="hc:Empty">
+        <Setter Property="Logo">
+            <Setter.Value>
+                <Rectangle HorizontalAlignment="Center" Width="64" Height="41" Fill="{StaticResource EmptySimpleLogo}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Description">
+            <Setter.Value>
+                <TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" Foreground="{DynamicResource ThirdlyTextBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.NoData}}"/>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="hc:Empty">
+                    <hc:SimpleStackPanel>
+                        <ContentPresenter ContentSource="Logo"/>
+                        <ContentPresenter ContentSource="Description"/>
+                        <ContentPresenter HorizontalAlignment="Center"/>
+                    </hc:SimpleStackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

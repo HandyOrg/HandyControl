@@ -106,10 +106,17 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TreeView">
-                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-                        <hc:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-                            <ItemsPresenter/>
-                        </hc:ScrollViewer>
+                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                        <hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                            <hc:ToggleBlock.CheckedContent>
+                                <hc:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                    <ItemsPresenter/>
+                                </hc:ScrollViewer>
+                            </hc:ToggleBlock.CheckedContent>
+                            <hc:ToggleBlock.UnCheckedContent>
+                                <hc:Empty/>
+                            </hc:ToggleBlock.UnCheckedContent>
+                        </hc:ToggleBlock>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">

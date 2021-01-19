@@ -97,6 +97,7 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(Drawer));
             OnPropertyChanged(nameof(Effects));
             OnPropertyChanged(nameof(Email));
+            OnPropertyChanged(nameof(Empty));
             OnPropertyChanged(nameof(Error));
             OnPropertyChanged(nameof(Exit));
             OnPropertyChanged(nameof(Expander));
@@ -563,6 +564,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 邮箱 的本地化字符串。
         /// </summary>
 		public string Email => Lang.Email;
+
+        /// <summary>
+        ///   查找类似 空状态 的本地化字符串。
+        /// </summary>
+        public string Empty => Lang.Empty;
 
         /// <summary>
         ///   查找类似 错误 的本地化字符串。
@@ -1697,6 +1703,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 邮箱 的本地化字符串。
         /// </summary>
 		public static string Email = nameof(Email);
+
+        /// <summary>
+        ///   查找类似 空状态 的本地化字符串。
+        /// </summary>
+        public static string Empty = nameof(Empty);
 
         /// <summary>
         ///   查找类似 错误 的本地化字符串。

@@ -83,9 +83,6 @@
 	<Geometry o:Freeze="True" x:Key="DragVerticalGeometry">M2,12 C3.1045694,12 4,12.895431 4,14 4,15.104569 3.1045694,16 2,16 0.89543051,16 0,15.104569 0,14 0,12.895431 0.89543051,12 2,12 z M2,6 C3.1045694,6 4,6.8954306 4,8 4,9.1045694 3.1045694,10 2,10 0.89543051,10 0,9.1045694 0,8 0,6.8954306 0.89543051,6 2,6 z M2,0 C3.1045694,0 4,0.89543056 4,2 4,3.1045694 3.1045694,4 2,4 0.89543051,4 0,3.1045694 0,2 0,0.89543056 0.89543051,0 2,0 z</Geometry>
 	<Geometry o:Freeze="True" x:Key="DragHorizontalGeometry">M14,0 C15.104569,0 16,0.89543051 16,2 16,3.1045694 15.104569,4 14,4 12.895431,4 12,3.1045694 12,2 12,0.89543051 12.895431,0 14,0 z M8,0 C9.1045694,0 10,0.89543051 10,2 10,3.1045694 9.1045694,4 8,4 6.8954306,4 6,3.1045694 6,2 6,0.89543051 6.8954306,0 8,0 z M2,0 C3.1045694,0 4,0.89543051 4,2 4,3.1045694 3.1045694,4 2,4 0.89543056,4 0,3.1045694 0,2 0,0.89543051 0.89543056,0 2,0 z</Geometry>
 	<Geometry o:Freeze="True" x:Key="DropperGeometry">M798.165333 97.834667a42.624 42.624 0 0 0-60.330666 0l-140.629334 140.629333-55.381333-55.296-60.330667 60.330667 55.381334 55.296-353.706667 353.706666a42.709333 42.709333 0 0 0-11.221333 19.84l-42.666667 170.666667a42.538667 42.538667 0 0 0 51.712 51.712l170.666667-42.666667c7.509333-1.877333 14.378667-5.76 19.84-11.221333l353.792-353.792 55.210666 55.125333 60.330667-60.330666-55.210667-55.125334 140.544-140.544a42.624 42.624 0 0 0 0-60.330666l-128-128zM319.488 772.138667l-90.197333 22.570666 22.570666-90.197333 345.386667-345.386667 67.669333 67.584-345.429333 345.429334z</Geometry>
-	<Style TargetType="Path">
-		<Setter Property="Stretch" Value="Uniform" />
-	</Style>
 	<Style x:Key="PathBaseStyle" TargetType="Path">
 		<Setter Property="Stretch" Value="Uniform" />
 		<Setter Property="SnapsToDevicePixels" Value="True" />
@@ -179,10 +176,6 @@
 	</Style>
 	<Style TargetType="GridSplitter">
 		<Setter Property="Focusable" Value="False" />
-	</Style>
-	<Style TargetType="Image">
-		<Setter Property="Stretch" Value="Uniform" />
-		<Setter Property="RenderOptions.BitmapScalingMode" Value="NearestNeighbor" />
 	</Style>
 	<Style TargetType="hc:Notification">
 		<Setter Property="hc:WindowAttach.IgnoreAltF4" Value="True" />
@@ -534,7 +527,7 @@
 			<Border Grid.Row="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,0,1,1'}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
 				<ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 			</Border>
-			<Border Grid.Row="0" MinHeight="30" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="4,4,0,0">
+			<Border Grid.Row="0" MinHeight="30" BorderThickness="{Binding BorderThickness,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource ThicknessSplitConverter},ConverterParameter='1,1,1,0'}" BorderBrush="{TemplateBinding BorderBrush}" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='1,1,0,0'}">
 				<ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="10,0" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 			</Border>
 		</Grid>
@@ -548,7 +541,7 @@
 			<Border Grid.Column="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,1,1,0'}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
 				<ContentPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 			</Border>
-			<Border Grid.Column="0" MinWidth="30" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="4,0,0,4">
+			<Border Grid.Column="0" MinWidth="30" BorderThickness="{Binding BorderThickness,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource ThicknessSplitConverter},ConverterParameter='1,1,0,1'}" BorderBrush="{TemplateBinding BorderBrush}" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='1,0,0,1'}">
 				<ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,10" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
 					<ContentPresenter.LayoutTransform>
 						<TransformGroup>
@@ -2066,7 +2059,7 @@
 	<Style x:Key="ScrollBarBaseStyle" TargetType="ScrollBar">
 		<Setter Property="Stylus.IsPressAndHoldEnabled" Value="false" />
 		<Setter Property="Stylus.IsFlicksEnabled" Value="false" />
-		<Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}" />
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="Background" Value="Transparent" />
 		<Setter Property="Focusable" Value="False" />
 		<Setter Property="BorderThickness" Value="0" />
@@ -2285,13 +2278,13 @@
 	<Style x:Key="GroupBoxBaseStyle" TargetType="GroupBox">
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
-		<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}" />
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="hc:TitleElement.TitlePlacement" Value="Top" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Center" />
-		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Padding" Value="4" />
 		<Setter Property="Template" Value="{StaticResource GroupBoxBaseTopTemplate}" />
 		<Style.Triggers>
@@ -2335,6 +2328,7 @@
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Top" />
 		<Setter Property="Background" Value="Transparent" />
+		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="Padding" Value="0" />
 		<Setter Property="Template" Value="{StaticResource GroupBoxOriginalTopTemplate}" />
 		<Style.Triggers>
@@ -4464,7 +4458,7 @@
 				<ControlTemplate TargetType="ToggleButton">
 					<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
 						<Border Margin="0,0,6,0" BorderThickness="1" BorderBrush="Transparent" HorizontalAlignment="Right" SnapsToDevicePixels="true" Width="{StaticResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}">
-							<Path Width="16" Height="9" x:Name="arrow" Data="{StaticResource DownGeometry}" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+							<Path Width="16" Height="9" x:Name="arrow" Data="{StaticResource DownGeometry}" Stretch="Uniform" Fill="{TemplateBinding BorderBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 						</Border>
 					</Border>
 					<ControlTemplate.Triggers>
@@ -4519,14 +4513,16 @@
 			</Grid.ColumnDefinitions>
 			<Popup x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{Binding Background,RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}" />
@@ -4553,10 +4549,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -4591,14 +4583,16 @@
 			</StackPanel>
 			<Popup Grid.Row="1" Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Row="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}" />
@@ -4625,10 +4619,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -4661,14 +4651,16 @@
 			</StackPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Column="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}" />
@@ -4695,10 +4687,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -4743,14 +4731,16 @@
 			</Grid.ColumnDefinitions>
 			<Popup x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxToggleButton}" />
@@ -4777,10 +4767,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<Trigger Property="IsMouseOver" Value="true" SourceName="PART_EditableTextBox">
 				<Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
 			</Trigger>
@@ -4815,14 +4801,16 @@
 			</StackPanel>
 			<Popup Grid.Column="0" Grid.Row="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Row="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}" />
@@ -4849,10 +4837,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<Trigger Property="IsMouseOver" Value="true" SourceName="PART_EditableTextBox">
 				<Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
 			</Trigger>
@@ -4885,14 +4869,16 @@
 			</StackPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Column="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}" />
@@ -4919,10 +4905,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="border" />
@@ -5058,14 +5040,16 @@
 			</StackPanel>
 			<Popup Grid.Row="1" Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<TextBlock Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1" />
@@ -5094,10 +5078,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -5168,14 +5148,16 @@
 			</StackPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<TextBlock Grid.Column="1" Grid.ColumnSpan="2" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" />
@@ -5204,10 +5186,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -5281,14 +5259,16 @@
 			</StackPanel>
 			<Popup Grid.Column="0" Grid.Row="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<TextBlock Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1" />
@@ -5317,10 +5297,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="border" />
@@ -5412,26 +5388,30 @@
 			</StackPanel>
 			<Popup Grid.Column="0" Grid.Row="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<Popup Grid.Column="0" Grid.Row="1" x:Name="PART_Popup_AutoComplete" PlacementTarget="{Binding ElementName=toggleButton}" StaysOpen="False" AllowsTransparency="true" Grid.ColumnSpan="2" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder_AutoComplete" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer_AutoComplete">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect_AutoComplete" Fill="{Binding Background, ElementName=dropDownBorder_AutoComplete}" Height="{Binding ActualHeight, ElementName=dropDownBorder_AutoComplete}" Width="{Binding ActualWidth, ElementName=dropDownBorder_AutoComplete}" />
-							</Canvas>
-							<StackPanel Name="PART_AutoCompletePanel" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<StackPanel Name="PART_AutoCompletePanel" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<TextBlock Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1" />
@@ -5465,14 +5445,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer_AutoComplete" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect_AutoComplete" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer_AutoComplete}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect_AutoComplete" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer_AutoComplete}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="border" />
@@ -5561,14 +5533,16 @@
 			</StackPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<TextBlock Grid.Column="1" Grid.ColumnSpan="2" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" />
@@ -5597,10 +5571,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="border" />
@@ -5689,26 +5659,30 @@
 			</StackPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-							</Canvas>
-							<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<Popup Grid.Column="1" x:Name="PART_Popup_AutoComplete" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder_AutoComplete" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<ScrollViewer Margin="0,4" x:Name="DropDownScrollViewer_AutoComplete">
-						<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-							<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-								<Rectangle x:Name="opaqueRect_AutoComplete" Fill="{Binding Background, ElementName=dropDownBorder_AutoComplete}" Height="{Binding ActualHeight, ElementName=dropDownBorder_AutoComplete}" Width="{Binding ActualWidth, ElementName=dropDownBorder_AutoComplete}" />
-							</Canvas>
-							<StackPanel Name="PART_AutoCompletePanel" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:SimplePanel>
-					</ScrollViewer>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<ScrollViewer Margin="0,4">
+								<StackPanel Name="PART_AutoCompletePanel" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</ScrollViewer>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<TextBlock Grid.Column="1" Grid.ColumnSpan="2" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" />
@@ -5742,14 +5716,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer_AutoComplete" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect_AutoComplete" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer_AutoComplete}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect_AutoComplete" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer_AutoComplete}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="border" />
@@ -5910,7 +5876,7 @@
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition Width="Auto" />
 									</Grid.ColumnDefinitions>
-									<ContentPresenter Margin="0,0,10,0" x:Name="Icon" Visibility="Collapsed" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
+									<ContentPresenter Margin="0,0,10,0" x:Name="Icon" ContentSource="Icon" HorizontalAlignment="Right" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
 									<Border Margin="0,0,10,0" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
 										<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 									</Border>
@@ -5960,7 +5926,7 @@
 										<ColumnDefinition Width="Auto" />
 										<ColumnDefinition />
 									</Grid.ColumnDefinitions>
-									<ContentPresenter Margin="0,0,10,0" x:Name="Icon" Visibility="Collapsed" HorizontalAlignment="Left" ContentSource="Icon" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
+									<ContentPresenter Margin="0,0,10,0" x:Name="Icon" HorizontalAlignment="Left" ContentSource="Icon" Height="16" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center" Width="16" />
 									<Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Collapsed" VerticalAlignment="Center" Width="16">
 										<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 									</Border>
@@ -6881,21 +6847,23 @@
 			</Grid.ColumnDefinitions>
 			<Popup x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" StaysOpen="False" IsOpen="{Binding IsDropDownOpen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" AllowsTransparency="true" Grid.ColumnSpan="2" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<Grid Margin="0,4" ClipToBounds="False">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition />
-						</Grid.RowDefinitions>
-						<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
-						<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
-							<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-								<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-									<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-								</Canvas>
-								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-							</hc:SimplePanel>
-						</ScrollViewer>
-					</Grid>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<Grid Margin="0,4" ClipToBounds="False">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto" />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
+								<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
+									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</Grid>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Style="{StaticResource ComboBoxToggleButton}" />
@@ -6918,10 +6886,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -6977,21 +6941,23 @@
 			</StackPanel>
 			<Popup x:Name="PART_Popup" Grid.Row="1" Grid.Column="0" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" StaysOpen="False" IsOpen="{Binding IsDropDownOpen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<Grid Margin="0,4" ClipToBounds="False">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition />
-						</Grid.RowDefinitions>
-						<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
-						<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
-							<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-								<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-									<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-								</Canvas>
-								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-							</hc:SimplePanel>
-						</ScrollViewer>
-					</Grid>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<Grid Margin="0,4" ClipToBounds="False">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto" />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
+								<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
+									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</Grid>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Row="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}" />
@@ -7014,10 +6980,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -7050,21 +7012,23 @@
 			</StackPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" StaysOpen="False" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<Grid Margin="0,4" ClipToBounds="False">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition />
-						</Grid.RowDefinitions>
-						<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
-						<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
-							<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-								<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-									<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-								</Canvas>
-								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-							</hc:SimplePanel>
-						</ScrollViewer>
-					</Grid>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<Grid Margin="0,4" ClipToBounds="False">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto" />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
+								<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
+									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</Grid>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<ToggleButton Grid.Column="1" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Padding="{TemplateBinding Padding}" Content="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource ComboBoxWatermarkToggleButton}" />
@@ -7087,10 +7051,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -7146,21 +7106,23 @@
 			</StackPanel>
 			<Popup Grid.Row="1" Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" StaysOpen="False" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<Grid Margin="0,4" ClipToBounds="False">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition />
-						</Grid.RowDefinitions>
-						<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
-						<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
-							<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-								<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-									<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-								</Canvas>
-								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-							</hc:SimplePanel>
-						</ScrollViewer>
-					</Grid>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<Grid Margin="0,4" ClipToBounds="False">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto" />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
+								<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
+									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</Grid>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<TextBlock Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1" />
@@ -7185,10 +7147,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -7259,21 +7217,23 @@
 			</StackPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" StaysOpen="False" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" Background="{DynamicResource RegionBrush}">
-					<Grid Margin="0,4" ClipToBounds="False">
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition />
-						</Grid.RowDefinitions>
-						<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
-						<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
-							<hc:SimplePanel RenderOptions.ClearTypeHint="Enabled">
-								<Canvas HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
-									<Rectangle x:Name="opaqueRect" Fill="{Binding Background, ElementName=dropDownBorder}" Height="{Binding ActualHeight, ElementName=dropDownBorder}" Width="{Binding ActualWidth, ElementName=dropDownBorder}" />
-								</Canvas>
-								<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-							</hc:SimplePanel>
-						</ScrollViewer>
-					</Grid>
+					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+						<hc:ToggleBlock.CheckedContent>
+							<Grid Margin="0,4" ClipToBounds="False">
+								<Grid.RowDefinitions>
+									<RowDefinition Height="Auto" />
+									<RowDefinition />
+								</Grid.RowDefinitions>
+								<hc:CheckComboBoxItem x:Name="PART_SelectAll" Style="{TemplateBinding ItemContainerStyle}" IsEnabled="{TemplateBinding ShowSelectAllButton}" Visibility="{Binding ShowSelectAllButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" HorizontalContentAlignment="Stretch" Content="{ex:Lang Key={x:Static langs:LangKeys.All}}" />
+								<ScrollViewer x:Name="DropDownScrollViewer" Grid.Row="1">
+									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</Grid>
+						</hc:ToggleBlock.CheckedContent>
+						<hc:ToggleBlock.UnCheckedContent>
+							<hc:Empty />
+						</hc:ToggleBlock.UnCheckedContent>
+					</hc:ToggleBlock>
 				</Border>
 			</Popup>
 			<TextBlock Grid.Column="1" Grid.ColumnSpan="2" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" />
@@ -7298,10 +7258,6 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
-			<Trigger Property="ScrollViewer.CanContentScroll" SourceName="DropDownScrollViewer" Value="false">
-				<Setter Property="Canvas.Top" TargetName="opaqueRect" Value="{Binding VerticalOffset, ElementName=DropDownScrollViewer}" />
-				<Setter Property="Canvas.Left" TargetName="opaqueRect" Value="{Binding HorizontalOffset, ElementName=DropDownScrollViewer}" />
-			</Trigger>
 			<MultiTrigger>
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="toggleButton" />
@@ -8340,50 +8296,197 @@
 		<Setter Property="Dock" Value="Right" />
 		<Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}" />
 	</Style>
-	<Style x:Key="ExpanderBaseStyle" TargetType="Expander">
-		<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-		<Setter Property="Background" Value="{DynamicResource TitleBrush}" />
-		<Setter Property="HorizontalContentAlignment" Value="Left" />
-		<Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="BorderBrush" Value="Transparent" />
-		<Setter Property="BorderThickness" Value="0" />
-		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+	<DrawingBrush x:Key="EmptySimpleLogo" o:Freeze="True">
+		<DrawingBrush.Drawing>
+			<DrawingGroup o:Freeze="True">
+				<GeometryDrawing o:Freeze="True" Brush="{DynamicResource SecondaryRegionBrush}" Geometry="F1 M1638,1024z M0,0z M0,844.8C0,942.250667 361.096533,1021.269333 806.536533,1021.269333 1251.976533,1021.269333 1613.038933,942.250666 1613.038933,844.8 1613.038933,747.383467 1251.9424,668.398933 806.536533,668.398933 361.096533,668.398933 0,747.383467 0,844.8z" />
+				<GeometryDrawing o:Freeze="True" Brush="{DynamicResource BorderBrush}" Geometry="F1 M1638,1024z M0,0z M1398.784,580.164267L214.254933,580.164267 214.254933,330.6496 473.873067,35.771733C486.4,13.1072,509.1328,0.477867,531.797333,0.477867L1081.2416,0.477867C1103.940267,0.477867,1126.638933,13.1072,1141.725867,38.2976L1398.818133,330.6496 1398.818133,580.164267z M239.479467,555.008L1373.627733,555.008 1373.627733,338.261333 1121.553067,50.858667C1108.992,33.245867,1096.362667,23.210667,1081.2416,23.210667L531.797333,23.210667C516.676266,23.210667,504.081066,33.28,493.9776,48.401067L239.445333,340.753067 239.445333,554.973867z" />
+				<GeometryDrawing o:Freeze="True" Brush="{DynamicResource SecondaryRegionBrush}" Geometry="F1 M1638,1024z M0,0z M1048.4736,413.832533C1048.4736,373.521066,1073.664,340.753066,1103.940267,340.753067L1386.222933,340.753067 1386.222933,796.945067C1386.222933,849.851734,1353.454933,895.249067,1310.583467,895.249067L302.455467,895.249067C262.109867,895.249067,226.850134,852.3776,226.850133,796.945067L226.850133,340.753067 509.1328,340.753067C539.374933,340.753067 564.565333,373.521067 564.565333,413.832533 564.565333,454.143999 589.755733,486.912 619.997867,486.912L993.041067,486.912C1023.2832,489.437867,1048.4736,454.144,1048.4736,413.832533z" />
+				<GeometryDrawing o:Freeze="True" Brush="{DynamicResource BorderBrush}" Geometry="F1 M1638,1024z M0,0z M1310.583467,907.844267L302.455467,907.844267C254.5664,907.844267,214.2208,857.429334,214.2208,796.910933L214.2208,328.192 509.1328,328.192C546.9184,328.192 577.160533,365.9776 577.160533,413.866667 577.160533,446.634667 597.2992,474.350934 619.997867,474.350933L993.041067,474.350933C1015.7056,474.350933 1035.8784,446.634666 1035.8784,413.866667 1035.8784,365.9776 1066.120533,328.192 1103.940267,328.192L1398.818133,328.192 1398.818133,796.9792C1398.818133,857.463467,1360.9984,907.8784,1310.583467,907.8784z M239.445333,353.348267L239.445333,796.945067C239.445333,844.834134,267.1616,882.619734,302.455467,882.619733L1310.583467,882.619733C1345.877334,882.619733,1373.5936,844.834133,1373.5936,796.945067L1373.5936,353.348267 1103.940267,353.348267C1081.2416,353.348267 1061.0688,381.064534 1061.0688,413.832533 1061.0688,461.7216 1030.826667,499.5072 993.041067,499.5072L619.997867,499.5072C582.212267,499.5072 551.970134,461.7216 551.970133,413.832533 551.970133,381.064533 531.831466,350.8224 509.1328,350.8224L239.445333,350.8224 239.445333,353.348267z" />
+			</DrawingGroup>
+		</DrawingBrush.Drawing>
+	</DrawingBrush>
+	<Style x:Key="EmptyBaseStyle" TargetType="hc:Empty">
+		<Setter Property="Logo">
+			<Setter.Value>
+				<Rectangle HorizontalAlignment="Center" Width="64" Height="41" Fill="{StaticResource EmptySimpleLogo}" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="Description">
+			<Setter.Value>
+				<TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" Foreground="{DynamicResource ThirdlyTextBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.NoData}}" />
+			</Setter.Value>
+		</Setter>
+		<Setter Property="HorizontalAlignment" Value="Center" />
+		<Setter Property="VerticalAlignment" Value="Center" />
 		<Setter Property="Template">
 			<Setter.Value>
-				<ControlTemplate TargetType="Expander">
-					<Grid>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition Height="Auto" />
-						</Grid.RowDefinitions>
-						<Border x:Name="BorderHeader" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-							<ToggleButton HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Focusable="False" Padding="10,0,0,0" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Width="{TemplateBinding Width}" Height="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
-								<Grid>
-									<Grid.ColumnDefinitions>
-										<ColumnDefinition />
-										<ColumnDefinition Width="32" />
-									</Grid.ColumnDefinitions>
-									<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-									<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
-								</Grid>
-							</ToggleButton>
-						</Border>
-						<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Row="1" Grid.Column="0" />
-					</Grid>
-					<ControlTemplate.Triggers>
-						<Trigger Property="IsExpanded" Value="true">
-							<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" />
-							<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
-							<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
-						</Trigger>
-						<Trigger Property="IsEnabled" Value="false">
-							<Setter Property="Opacity" Value="2" />
-						</Trigger>
-					</ControlTemplate.Triggers>
+				<ControlTemplate TargetType="hc:Empty">
+					<hc:SimpleStackPanel>
+						<ContentPresenter ContentSource="Logo" />
+						<ContentPresenter ContentSource="Description" />
+						<ContentPresenter HorizontalAlignment="Center" />
+					</hc:SimpleStackPanel>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
+	</Style>
+	<ControlTemplate x:Key="ExpanderLeftTemplate" TargetType="Expander">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Border x:Name="BorderHeader" Grid.Column="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+				<ToggleButton VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Focusable="False" Padding="0,0,0,10" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="{TemplateBinding MinWidth}" Style="{StaticResource ToggleButtonCustom}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="32" />
+						</Grid.ColumnDefinitions>
+						<Grid.LayoutTransform>
+							<TransformGroup>
+								<RotateTransform Angle="-90" />
+							</TransformGroup>
+						</Grid.LayoutTransform>
+						<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+						<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource UpGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+					</Grid>
+				</ToggleButton>
+			</Border>
+			<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Column="0" />
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsExpanded" Value="true">
+				<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,1,1,0'}" />
+				<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
+				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource DownGeometry}" />
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="false">
+				<Setter Property="Opacity" Value="2" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate x:Key="ExpanderUpTemplate" TargetType="Expander">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Border x:Name="BorderHeader" Grid.Row="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+				<ToggleButton HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Focusable="False" Padding="10,0,0,0" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="32" />
+						</Grid.ColumnDefinitions>
+						<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+						<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource UpGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+					</Grid>
+				</ToggleButton>
+			</Border>
+			<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Row="0" />
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsExpanded" Value="true">
+				<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,0,1,1'}" />
+				<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
+				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource DownGeometry}" />
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="false">
+				<Setter Property="Opacity" Value="2" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate x:Key="ExpanderRightTemplate" TargetType="Expander">
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Border x:Name="BorderHeader" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+				<ToggleButton VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Focusable="False" Padding="0,0,0,10" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="{TemplateBinding MinWidth}" Style="{StaticResource ToggleButtonCustom}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="32" />
+						</Grid.ColumnDefinitions>
+						<Grid.LayoutTransform>
+							<TransformGroup>
+								<RotateTransform Angle="-90" />
+							</TransformGroup>
+						</Grid.LayoutTransform>
+						<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+						<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+					</Grid>
+				</ToggleButton>
+			</Border>
+			<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Column="1" />
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsExpanded" Value="true">
+				<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,0,0,1'}" />
+				<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
+				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="false">
+				<Setter Property="Opacity" Value="2" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<ControlTemplate x:Key="ExpanderDownTemplate" TargetType="Expander">
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<Border x:Name="BorderHeader" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+				<ToggleButton HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Focusable="False" Padding="10,0,0,0" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Width="{TemplateBinding Width}" Height="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
+					<Grid>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition />
+							<ColumnDefinition Width="32" />
+						</Grid.ColumnDefinitions>
+						<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+						<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+					</Grid>
+				</ToggleButton>
+			</Border>
+			<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Row="1" />
+		</Grid>
+		<ControlTemplate.Triggers>
+			<Trigger Property="IsExpanded" Value="true">
+				<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" />
+				<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
+				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="false">
+				<Setter Property="Opacity" Value="2" />
+			</Trigger>
+		</ControlTemplate.Triggers>
+	</ControlTemplate>
+	<Style x:Key="ExpanderBaseStyle" TargetType="Expander">
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+		<Setter Property="HorizontalContentAlignment" Value="Left" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
+		<Setter Property="MinWidth" Value="{StaticResource DefaultControlHeight}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="Template" Value="{StaticResource ExpanderDownTemplate}" />
+		<Style.Triggers>
+			<Trigger Property="ExpandDirection" Value="Left">
+				<Setter Property="Template" Value="{StaticResource ExpanderLeftTemplate}" />
+			</Trigger>
+			<Trigger Property="ExpandDirection" Value="Up">
+				<Setter Property="Template" Value="{StaticResource ExpanderUpTemplate}" />
+			</Trigger>
+			<Trigger Property="ExpandDirection" Value="Right">
+				<Setter Property="Template" Value="{StaticResource ExpanderRightTemplate}" />
+			</Trigger>
+		</Style.Triggers>
 	</Style>
 	<Style x:Key="FlowDocumentScrollViewerBaseStyle" TargetType="FlowDocumentScrollViewer">
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
@@ -8774,9 +8877,16 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="ListBox">
 					<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-						<hc:ScrollViewer Focusable="false">
-							<ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</hc:ScrollViewer>
+						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+							<hc:ToggleBlock.CheckedContent>
+								<hc:ScrollViewer Focusable="false">
+									<ItemsPresenter Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</hc:ScrollViewer>
+							</hc:ToggleBlock.CheckedContent>
+							<hc:ToggleBlock.UnCheckedContent>
+								<hc:Empty />
+							</hc:ToggleBlock.UnCheckedContent>
+						</hc:ToggleBlock>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
@@ -9614,7 +9724,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="GroupItem">
-					<Expander BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Header="{Binding Name}" IsExpanded="True" Background="{DynamicResource SecondaryRegionBrush}" Foreground="{DynamicResource PrimaryTextBrush}">
+					<Expander Header="{Binding Name}" IsExpanded="True">
 						<Border BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" CornerRadius="0,0,4,4">
 							<ItemsPresenter Margin="{TemplateBinding Padding}" />
 						</Border>
@@ -11073,10 +11183,17 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="TreeView">
-					<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
-						<hc:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-							<ItemsPresenter />
-						</hc:ScrollViewer>
+					<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+							<hc:ToggleBlock.CheckedContent>
+								<hc:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Template="{StaticResource ScrollViewerBaseControlTemplate}" Background="{TemplateBinding Background}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+									<ItemsPresenter />
+								</hc:ScrollViewer>
+							</hc:ToggleBlock.CheckedContent>
+							<hc:ToggleBlock.UnCheckedContent>
+								<hc:Empty />
+							</hc:ToggleBlock.UnCheckedContent>
+						</hc:ToggleBlock>
 					</Border>
 					<ControlTemplate.Triggers>
 						<Trigger Property="IsEnabled" Value="false">
@@ -11644,37 +11761,44 @@
 						</Storyboard>
 					</ControlTemplate.Resources>
 					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-						<ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
-							<ScrollViewer.Template>
-								<ControlTemplate TargetType="ScrollViewer">
-									<Grid>
-										<Grid.ColumnDefinitions>
-											<ColumnDefinition Width="Auto" />
-											<ColumnDefinition Width="*" />
-											<ColumnDefinition Width="Auto" />
-										</Grid.ColumnDefinitions>
-										<Grid.RowDefinitions>
-											<RowDefinition Height="Auto" />
-											<RowDefinition Height="*" />
-										</Grid.RowDefinitions>
-										<Button Command="{x:Static DataGrid.SelectAllCommand}" Margin="0,0,0,6" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}" />
-										<DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-										<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" />
-										<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
-										<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
-									</Grid>
-									<ControlTemplate.Triggers>
-										<EventTrigger RoutedEvent="MouseEnter">
-											<BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
-										</EventTrigger>
-										<EventTrigger RoutedEvent="MouseLeave">
-											<BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
-										</EventTrigger>
-									</ControlTemplate.Triggers>
-								</ControlTemplate>
-							</ScrollViewer.Template>
-							<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</ScrollViewer>
+						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+							<hc:ToggleBlock.CheckedContent>
+								<ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
+									<ScrollViewer.Template>
+										<ControlTemplate TargetType="ScrollViewer">
+											<Grid>
+												<Grid.ColumnDefinitions>
+													<ColumnDefinition Width="Auto" />
+													<ColumnDefinition Width="*" />
+													<ColumnDefinition Width="Auto" />
+												</Grid.ColumnDefinitions>
+												<Grid.RowDefinitions>
+													<RowDefinition Height="Auto" />
+													<RowDefinition Height="*" />
+												</Grid.RowDefinitions>
+												<Button Command="{x:Static DataGrid.SelectAllCommand}" Margin="0,0,0,6" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}" />
+												<DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
+												<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" />
+												<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
+												<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_HorizontalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
+											</Grid>
+											<ControlTemplate.Triggers>
+												<EventTrigger RoutedEvent="MouseEnter">
+													<BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+												</EventTrigger>
+												<EventTrigger RoutedEvent="MouseLeave">
+													<BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
+												</EventTrigger>
+											</ControlTemplate.Triggers>
+										</ControlTemplate>
+									</ScrollViewer.Template>
+									<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</hc:ToggleBlock.CheckedContent>
+							<hc:ToggleBlock.UnCheckedContent>
+								<hc:Empty />
+							</hc:ToggleBlock.UnCheckedContent>
+						</hc:ToggleBlock>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
@@ -11698,6 +11822,7 @@
 	<Style BasedOn="{StaticResource DialogBaseStyle}" TargetType="hc:Dialog" />
 	<Style BasedOn="{StaticResource DividerBaseStyle}" TargetType="hc:Divider" />
 	<Style BasedOn="{StaticResource DrawerBaseStyle}" TargetType="hc:Drawer" />
+	<Style BasedOn="{StaticResource EmptyBaseStyle}" TargetType="hc:Empty" />
 	<Style BasedOn="{StaticResource ExpanderBaseStyle}" TargetType="Expander" />
 	<Style BasedOn="{StaticResource FlowDocumentScrollViewerBaseStyle}" TargetType="FlowDocumentScrollViewer" />
 	<Style BasedOn="{StaticResource FlowDocumentPageViewerBaseStyle}" TargetType="FlowDocumentPageViewer" />
@@ -11856,15 +11981,7 @@
 				<ControlTemplate TargetType="GridViewColumnHeader">
 					<hc:SimplePanel SnapsToDevicePixels="true">
 						<Border x:Name="HeaderBorder" BorderBrush="{TemplateBinding BorderBrush}" Background="Transparent">
-							<Grid>
-								<Grid.RowDefinitions>
-									<RowDefinition MaxHeight="7" />
-									<RowDefinition />
-								</Grid.RowDefinitions>
-								<Border Padding="{TemplateBinding Padding}" Grid.RowSpan="2">
-									<ContentPresenter x:Name="HeaderContent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="0,0,0,1" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-								</Border>
-							</Grid>
+							<ContentPresenter x:Name="HeaderContent" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 						</Border>
 						<Canvas>
 							<Thumb x:Name="PART_HeaderGripper" Style="{StaticResource GridViewColumnHeaderGripper}" />
@@ -11938,21 +12055,13 @@
 							<ColumnDefinition Width="Auto" />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
-							<RowDefinition Height="*" />
 							<RowDefinition Height="Auto" />
+							<RowDefinition Height="*" />
 						</Grid.RowDefinitions>
-						<DockPanel Margin="{TemplateBinding Padding}" Grid.RowSpan="2" Grid.ColumnSpan="2">
-							<ScrollViewer DockPanel.Dock="Top" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden">
-								<GridViewHeaderRowPresenter AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-							</ScrollViewer>
-							<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" KeyboardNavigation.DirectionalNavigation="Local" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</DockPanel>
-						<ScrollBar x:Name="PART_VerticalScrollBar" Opacity="0" Style="{StaticResource ScrollBarBaseStyle}" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Grid.Row="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
-						<ScrollBar x:Name="PART_HorizontalScrollBar" Opacity="0" Style="{StaticResource ScrollBarBaseStyle}" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
-						<DockPanel Background="{Binding Background, ElementName=PART_VerticalScrollBar}" Grid.Column="1" LastChildFill="False" Grid.Row="1">
-							<Rectangle DockPanel.Dock="Left" Fill="White" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Width="1" />
-							<Rectangle DockPanel.Dock="Top" Fill="White" Height="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" />
-						</DockPanel>
+						<GridViewHeaderRowPresenter Grid.ColumnSpan="2" AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.ColumnSpan="2" Grid.Row="1" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" KeyboardNavigation.DirectionalNavigation="Local" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+						<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
+						<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_HorizontalScrollBar" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
 					</Grid>
 					<ControlTemplate.Triggers>
 						<EventTrigger RoutedEvent="MouseEnter">
@@ -11983,9 +12092,16 @@
 			<Setter.Value>
 				<ControlTemplate TargetType="ListView">
 					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-						<ScrollViewer Style="{StaticResource ListViewScrollViewerStyle}">
-							<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						</ScrollViewer>
+						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+							<hc:ToggleBlock.CheckedContent>
+								<ScrollViewer Style="{StaticResource ListViewScrollViewerStyle}">
+									<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</hc:ToggleBlock.CheckedContent>
+							<hc:ToggleBlock.UnCheckedContent>
+								<hc:Empty />
+							</hc:ToggleBlock.UnCheckedContent>
+						</hc:ToggleBlock>
 					</Border>
 				</ControlTemplate>
 			</Setter.Value>
@@ -12098,8 +12214,10 @@
 									<RowDefinition Height="Auto" />
 								</Grid.RowDefinitions>
 								<Path Data="{TemplateBinding Image}" Fill="{TemplateBinding ImageBrush}" HorizontalAlignment="Center" Visibility="{TemplateBinding ShowImage,Converter={StaticResource Boolean2VisibilityConverter}}" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="20,32,0,0" Width="30" Height="30" Stretch="Uniform" />
-								<ScrollViewer Grid.Column="1" Grid.Row="0">
-									<TextBlock Margin="10,39,10,10" Text="{TemplateBinding Message}" TextWrapping="Wrap" HorizontalAlignment="Left" VerticalAlignment="Top" />
+								<ScrollViewer Grid.Row="0" Grid.Column="1" VerticalAlignment="Top">
+									<Border MinHeight="30" Margin="10,32,10,10" HorizontalAlignment="Left">
+										<TextBlock VerticalAlignment="Center" Text="{TemplateBinding Message}" TextWrapping="Wrap" />
+									</Border>
 								</ScrollViewer>
 								<StackPanel Name="PART_Panel" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" Margin="0,10,0,16" Orientation="Horizontal" HorizontalAlignment="Center" />
 							</Grid>
