@@ -192,12 +192,6 @@
   <data name="FormatError" xml:space="preserve">
     <value>format hatası</value>
   </data>
-  <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
-    <value>Kompozit Komut Kendi Kendine Kaydedilemiyor</value>
-  </data>
-  <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
-    <value>Aynı Komut İki Kez Kaydedilemiyor</value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Evet</value>
   </data>

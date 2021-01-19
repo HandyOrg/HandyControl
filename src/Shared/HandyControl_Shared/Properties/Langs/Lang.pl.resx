@@ -118,123 +118,120 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Confirm" xml:space="preserve">
-    <value>确定</value>
+    <value>Akceptuj</value>
   </data>
   <data name="Cancel" xml:space="preserve">
-    <value>取消</value>
+    <value>Anuluj</value>
   </data>
   <data name="PngImg" xml:space="preserve">
-    <value>PNG图片</value>
+    <value>obraz PNG</value>
   </data>
   <data name="ErrorImgPath" xml:space="preserve">
-    <value>错误的图片路径</value>
+    <value>Ścieżka do obrazu jest niepoprawna</value>
   </data>
   <data name="ErrorImgSize" xml:space="preserve">
-    <value>非法的图片尺寸</value>
+    <value>Wielkość obrazu jest niepoprawna</value>
   </data>
   <data name="UnknownSize" xml:space="preserve">
-    <value>未知大小</value>
+    <value>Nieznany obraz</value>
   </data>
   <data name="TooLarge" xml:space="preserve">
-    <value>过大</value>
+    <value>Za duże</value>
   </data>
   <data name="Unknown" xml:space="preserve">
-    <value>未知</value>
+    <value>Nieznany</value>
   </data>
   <data name="Interval30s" xml:space="preserve">
-    <value>间隔30秒</value>
+    <value>30 sekundowy interwał</value>
   </data>
   <data name="Interval1m" xml:space="preserve">
-    <value>间隔1分钟</value>
+    <value>1 minutowy interwał</value>
   </data>
   <data name="Interval5m" xml:space="preserve">
-    <value>间隔5分钟</value>
+    <value>5 minutowy interwał</value>
   </data>
   <data name="Interval10m" xml:space="preserve">
-    <value>间隔10分钟</value>
+    <value>10 minutowy interwał</value>
   </data>
   <data name="Interval30m" xml:space="preserve">
-    <value>间隔30分钟</value>
+    <value>30 minutowy interwał</value>
   </data>
   <data name="Interval1h" xml:space="preserve">
-    <value>间隔1小时</value>
+    <value>1 godzinny interwał</value>
   </data>
   <data name="Interval2h" xml:space="preserve">
-    <value>间隔2小时</value>
+    <value>2 godzinny interwał</value>
   </data>
   <data name="Clear" xml:space="preserve">
-    <value>清空</value>
+    <value>Wyczyść</value>
   </data>
   <data name="Close" xml:space="preserve">
-    <value>关闭</value>
+    <value>Zamknij</value>
   </data>
   <data name="CloseAll" xml:space="preserve">
-    <value>关闭所有</value>
+    <value>Zamknij wszystkie</value>
   </data>
   <data name="CloseOther" xml:space="preserve">
-    <value>关闭其他</value>
+    <value>Zamknij inne</value>
   </data>
   <data name="Am" xml:space="preserve">
-    <value>上午</value>
+    <value>AM</value>
   </data>
   <data name="Pm" xml:space="preserve">
-    <value>下午</value>
+    <value>PM</value>
   </data>
   <data name="Tip" xml:space="preserve">
-    <value>提示</value>
+    <value>Podpowiedź</value>
   </data>
   <data name="IsNecessary" xml:space="preserve">
-    <value>不能为空</value>
+    <value>nie może być pusty</value>
   </data>
   <data name="OutOfRange" xml:space="preserve">
-    <value>不在范围内</value>
+    <value>poza zakresem</value>
   </data>
   <data name="FormatError" xml:space="preserve">
-    <value>格式错误</value>
+    <value>błąd formatu</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>是</value>
+    <value>Tak</value>
   </data>
   <data name="No" xml:space="preserve">
-    <value>否</value>
+    <value>Nie</value>
   </data>
   <data name="ZoomIn" xml:space="preserve">
-    <value>放大</value>
+    <value>Oddal</value>
   </data>
   <data name="ZoomOut" xml:space="preserve">
-    <value>缩小</value>
-  </data>
-  <data name="NextPage" xml:space="preserve">
-    <value>下一页</value>
+    <value>Przybliż</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
-    <value>上一页</value>
+    <value>Poprzednia strona</value>
+  </data>
+  <data name="NextPage" xml:space="preserve">
+    <value>Następna strona</value>
   </data>
   <data name="PageMode" xml:space="preserve">
-    <value>页面模式</value>
+    <value>Tryb strony</value>
   </data>
   <data name="TwoPageMode" xml:space="preserve">
-    <value>双页模式</value>
+    <value>Tryb dwustronny</value>
   </data>
   <data name="ScrollMode" xml:space="preserve">
-    <value>滚动模式</value>
+    <value>Tryb przewijania</value>
   </data>
   <data name="Find" xml:space="preserve">
-    <value>查找</value>
+    <value>Znajdź</value>
   </data>
   <data name="LangComment" xml:space="preserve">
-    <value>查找类似 {0} 的本地化字符串。</value>
+    <value>Wyszukuje zlokalizowany ciąg podobny do „{0}”.</value>
   </data>
   <data name="Jump" xml:space="preserve">
-    <value>跳转</value>
+    <value>Skocz</value>
   </data>
   <data name="Miscellaneous" xml:space="preserve">
-    <value>杂项</value>
+    <value>Różne</value>
   </data>
   <data name="All" xml:space="preserve">
-    <value>全部</value>
-  </data>
-  <data name="NoData" xml:space="preserve">
-    <value>暂无数据</value>
+    <value>Wszystkie</value>
   </data>
 </root>

@@ -170,10 +170,10 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(OpenMouseFollowWindow));
             OnPropertyChanged(nameof(OpenNativeCommonWindow));
             OnPropertyChanged(nameof(OpenNavigationWindow));
-            OnPropertyChanged(nameof(OpenTouchDragMoveWindow));
             OnPropertyChanged(nameof(OpenNoNonClientAreaDragableWindow));
             OnPropertyChanged(nameof(OpenPanel));
             OnPropertyChanged(nameof(OpenSprite));
+            OnPropertyChanged(nameof(OpenTouchDragMoveWindow));
             OnPropertyChanged(nameof(OutlineText));
             OnPropertyChanged(nameof(Pagination));
             OnPropertyChanged(nameof(PasswordBox));
@@ -383,7 +383,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 多选组合框 的本地化字符串。
         /// </summary>
-        public string CheckComboBox => Lang.CheckComboBox;
+		public string CheckComboBox => Lang.CheckComboBox;
 
         /// <summary>
         ///   查找类似 圆形布局 的本地化字符串。
@@ -483,12 +483,12 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 数据展示 的本地化字符串。
         /// </summary>
-        public string DataDisplay => Lang.DataDisplay;
+		public string DataDisplay => Lang.DataDisplay;
 
         /// <summary>
         ///   查找类似 数据录入 的本地化字符串。
         /// </summary>
-        public string DataEntry => Lang.DataEntry;
+		public string DataEntry => Lang.DataEntry;
 
         /// <summary>
         ///   查找类似 数据表格 的本地化字符串。
@@ -593,12 +593,12 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 反馈 的本地化字符串。
         /// </summary>
-        public string Feedback => Lang.Feedback;
+		public string Feedback => Lang.Feedback;
 
         /// <summary>
         ///   查找类似 弹性盒子 的本地化字符串。
         /// </summary>
-        public string FlexPanel => Lang.FlexPanel;
+		public string FlexPanel => Lang.FlexPanel;
 
         /// <summary>
         ///   查找类似 翻页时钟 的本地化字符串。
@@ -638,12 +638,12 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 几何形状 的本地化字符串。
         /// </summary>
-        public string Geometry => Lang.Geometry;
+		public string Geometry => Lang.Geometry;
 
         /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
-        public string GifImage => Lang.GifImage;
+		public string GifImage => Lang.GifImage;
 
         /// <summary>
         ///   查找类似 回到顶部 的本地化字符串。
@@ -743,7 +743,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 图片选择器 的本地化字符串。
         /// </summary>
-        public string ImageSelector => Lang.ImageSelector;
+		public string ImageSelector => Lang.ImageSelector;
 
         /// <summary>
         ///   查找类似 索引 的本地化字符串。
@@ -758,7 +758,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 交互 的本地化字符串。
         /// </summary>
-        public string Interacting => Lang.Interacting;
+		public string Interacting => Lang.Interacting;
 
         /// <summary>
         ///   查找类似 可交互对话框 的本地化字符串。
@@ -783,7 +783,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 布局 的本地化字符串。
         /// </summary>
-        public string Layout => Lang.Layout;
+		public string Layout => Lang.Layout;
 
         /// <summary>
         ///   查找类似 列表框 的本地化字符串。
@@ -818,7 +818,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 杂项 的本地化字符串。
         /// </summary>
-        public string Misc => Lang.Misc;
+		public string Misc => Lang.Misc;
 
         /// <summary>
         ///   查找类似  的本地化字符串。
@@ -833,7 +833,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 导航 的本地化字符串。
         /// </summary>
-        public string Navigation => Lang.Navigation;
+		public string Navigation => Lang.Navigation;
 
         /// <summary>
         ///   查找类似 新建窗口 的本地化字符串。
@@ -931,11 +931,6 @@ namespace HandyControlDemo.Properties.Langs
 		public string OpenNavigationWindow => Lang.OpenNavigationWindow;
 
         /// <summary>
-        ///   查找类似 点击打开触摸拖动窗口 的本地化字符串。
-        /// </summary>
-        public string OpenTouchDragMoveWindow => Lang.OpenTouchDragMoveWindow;
-
-        /// <summary>
         ///   查找类似 打开无非客户端区域可拖拽窗口 的本地化字符串。
         /// </summary>
 		public string OpenNoNonClientAreaDragableWindow => Lang.OpenNoNonClientAreaDragableWindow;
@@ -949,6 +944,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 打开精灵 的本地化字符串。
         /// </summary>
 		public string OpenSprite => Lang.OpenSprite;
+
+        /// <summary>
+        ///   查找类似 点击打开触摸拖动窗口 的本地化字符串。
+        /// </summary>
+		public string OpenTouchDragMoveWindow => Lang.OpenTouchDragMoveWindow;
 
         /// <summary>
         ///   查找类似 轮廓文本 的本地化字符串。
@@ -1043,7 +1043,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 属性编辑器 的本地化字符串。
         /// </summary>
-        public string PropertyGrid => Lang.PropertyGrid;
+		public string PropertyGrid => Lang.PropertyGrid;
 
         /// <summary>
         ///   查找类似 按住说话 的本地化字符串。
@@ -1353,7 +1353,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 等间距布局 的本地化字符串。
         /// </summary>
-        public string UniformSpacingPanel => Lang.UniformSpacingPanel;
+		public string UniformSpacingPanel => Lang.UniformSpacingPanel;
 
         /// <summary>
         ///   查找类似 上传文件 的本地化字符串。
@@ -1522,7 +1522,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 多选组合框 的本地化字符串。
         /// </summary>
-        public static string CheckComboBox = nameof(CheckComboBox);
+		public static string CheckComboBox = nameof(CheckComboBox);
 
         /// <summary>
         ///   查找类似 圆形布局 的本地化字符串。
@@ -1622,12 +1622,12 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 数据展示 的本地化字符串。
         /// </summary>
-        public static string DataDisplay = nameof(DataDisplay);
+		public static string DataDisplay = nameof(DataDisplay);
 
         /// <summary>
         ///   查找类似 数据录入 的本地化字符串。
         /// </summary>
-        public static string DataEntry = nameof(DataEntry);
+		public static string DataEntry = nameof(DataEntry);
 
         /// <summary>
         ///   查找类似 数据表格 的本地化字符串。
@@ -1732,12 +1732,12 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 反馈 的本地化字符串。
         /// </summary>
-        public static string Feedback = nameof(Feedback);
+		public static string Feedback = nameof(Feedback);
 
         /// <summary>
         ///   查找类似 弹性盒子 的本地化字符串。
         /// </summary>
-        public static string FlexPanel = nameof(FlexPanel);
+		public static string FlexPanel = nameof(FlexPanel);
 
         /// <summary>
         ///   查找类似 翻页时钟 的本地化字符串。
@@ -1777,7 +1777,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 几何形状 的本地化字符串。
         /// </summary>
-        public static string Geometry = nameof(Geometry);
+		public static string Geometry = nameof(Geometry);
 
         /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
@@ -1882,7 +1882,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 图片选择器 的本地化字符串。
         /// </summary>
-        public static string ImageSelector = nameof(ImageSelector);
+		public static string ImageSelector = nameof(ImageSelector);
 
         /// <summary>
         ///   查找类似 索引 的本地化字符串。
@@ -1897,7 +1897,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 交互 的本地化字符串。
         /// </summary>
-        public static string Interacting = nameof(Interacting);
+		public static string Interacting = nameof(Interacting);
 
         /// <summary>
         ///   查找类似 可交互对话框 的本地化字符串。
@@ -1922,7 +1922,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 布局 的本地化字符串。
         /// </summary>
-        public static string Layout = nameof(Layout);
+		public static string Layout = nameof(Layout);
 
         /// <summary>
         ///   查找类似 列表框 的本地化字符串。
@@ -1957,7 +1957,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 杂项 的本地化字符串。
         /// </summary>
-        public static string Misc = nameof(Misc);
+		public static string Misc = nameof(Misc);
 
         /// <summary>
         ///   查找类似  的本地化字符串。
@@ -1972,7 +1972,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 导航 的本地化字符串。
         /// </summary>
-        public static string Navigation = nameof(Navigation);
+		public static string Navigation = nameof(Navigation);
 
         /// <summary>
         ///   查找类似 新建窗口 的本地化字符串。
@@ -2070,11 +2070,6 @@ namespace HandyControlDemo.Properties.Langs
 		public static string OpenNavigationWindow = nameof(OpenNavigationWindow);
 
         /// <summary>
-        ///   查找类似 点击打开触摸拖动窗口 的本地化字符串。
-        /// </summary>
-        public static string OpenTouchDragMoveWindow = nameof(OpenTouchDragMoveWindow);
-
-        /// <summary>
         ///   查找类似 打开无非客户端区域可拖拽窗口 的本地化字符串。
         /// </summary>
 		public static string OpenNoNonClientAreaDragableWindow = nameof(OpenNoNonClientAreaDragableWindow);
@@ -2088,6 +2083,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 打开精灵 的本地化字符串。
         /// </summary>
 		public static string OpenSprite = nameof(OpenSprite);
+
+        /// <summary>
+        ///   查找类似 点击打开触摸拖动窗口 的本地化字符串。
+        /// </summary>
+		public static string OpenTouchDragMoveWindow = nameof(OpenTouchDragMoveWindow);
 
         /// <summary>
         ///   查找类似 轮廓文本 的本地化字符串。
@@ -2182,7 +2182,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 属性编辑器 的本地化字符串。
         /// </summary>
-        public static string PropertyGrid = nameof(PropertyGrid);
+		public static string PropertyGrid = nameof(PropertyGrid);
 
         /// <summary>
         ///   查找类似 按住说话 的本地化字符串。
@@ -2488,6 +2488,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 类型 的本地化字符串。
         /// </summary>
 		public static string Type = nameof(Type);
+
+        /// <summary>
+        ///   查找类似 等间距布局 的本地化字符串。
+        /// </summary>
+		public static string UniformSpacingPanel = nameof(UniformSpacingPanel);
 
         /// <summary>
         ///   查找类似 上传文件 的本地化字符串。
