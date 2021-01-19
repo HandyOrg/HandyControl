@@ -192,29 +192,17 @@
   <data name="FormatError" xml:space="preserve">
     <value>błąd formatu</value>
   </data>
-  <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
-    <value>Nie można zarejestrować polecenia złożonego w samym sobie</value>
-  </data>
-  <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
-    <value>Nie można dwukrotnie zarejestrować tego samego polecenia </value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Tak</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>Nie</value>
   </data>
-  <data name="BusyIndicatorLoading" xml:space="preserve">
-    <value>Proszę czekać...</value>
-  </data>
   <data name="ZoomIn" xml:space="preserve">
     <value>Oddal</value>
   </data>
   <data name="ZoomOut" xml:space="preserve">
     <value>Przybliż</value>
-  </data>
-  <data name="TagPlaceHolder" xml:space="preserve">
-    <value>Oddzielne tagi za pomocą ; lub spacja</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
     <value>Poprzednia strona</value>

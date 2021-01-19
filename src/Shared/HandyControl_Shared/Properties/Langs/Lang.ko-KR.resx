@@ -123,12 +123,6 @@
   <data name="Cancel" xml:space="preserve">
     <value>취소</value>
   </data>
-  <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
-    <value>여러 명령어 자체를 등록할 수 없습니다</value>
-  </data>
-  <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
-    <value>같은 명령어를 2번 등록할 수 없습니다</value>
-  </data>
   <data name="Clear" xml:space="preserve">
     <value>삭제</value>
   </data>

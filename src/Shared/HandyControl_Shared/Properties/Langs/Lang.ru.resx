@@ -192,12 +192,6 @@
   <data name="FormatError" xml:space="preserve">
     <value>некорректный формат</value>
   </data>
-  <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
-    <value>Невозможно зарегистировать составную команду самостоятельно</value>
-  </data>
-  <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
-    <value>Невозможно зарегистировать составную команду дважды</value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Да</value>
   </data>

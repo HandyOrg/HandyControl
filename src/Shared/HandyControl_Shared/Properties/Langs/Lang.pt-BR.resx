@@ -192,12 +192,6 @@
   <data name="FormatError" xml:space="preserve">
     <value>erro de formato</value>
   </data>
-  <data name="CannotRegisterCompositeCommandInItself" xml:space="preserve">
-    <value>Não é possível registrar o comando composto nele mesmo</value>
-  </data>
-  <data name="CannotRegisterSameCommandTwice" xml:space="preserve">
-    <value>Não é possível registrar o mesmo comando duas vezes</value>
-  </data>
   <data name="Yes" xml:space="preserve">
     <value>Sim</value>
   </data>
