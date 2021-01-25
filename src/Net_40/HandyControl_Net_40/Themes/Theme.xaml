@@ -8188,17 +8188,11 @@
 			</DrawingGroup>
 		</DrawingBrush.Drawing>
 	</DrawingBrush>
+	<Rectangle x:Key="LogoRectangle4Empty" x:Shared="False" HorizontalAlignment="Center" Width="64" Height="41" Fill="{StaticResource EmptySimpleLogo}" />
+	<TextBlock x:Key="DescriptionTextBlock4Empty" x:Shared="False" Margin="0,10,0,0" HorizontalAlignment="Center" Foreground="{DynamicResource ThirdlyTextBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.NoData}}" />
 	<Style x:Key="EmptyBaseStyle" TargetType="hc:Empty">
-		<Setter Property="Logo">
-			<Setter.Value>
-				<Rectangle HorizontalAlignment="Center" Width="64" Height="41" Fill="{StaticResource EmptySimpleLogo}" />
-			</Setter.Value>
-		</Setter>
-		<Setter Property="Description">
-			<Setter.Value>
-				<TextBlock Margin="0,10,0,0" HorizontalAlignment="Center" Foreground="{DynamicResource ThirdlyTextBrush}" Text="{ex:Lang Key={x:Static langs:LangKeys.NoData}}" />
-			</Setter.Value>
-		</Setter>
+		<Setter Property="Logo" Value="{StaticResource LogoRectangle4Empty}" />
+		<Setter Property="Description" Value="{StaticResource DescriptionTextBlock4Empty}" />
 		<Setter Property="HorizontalAlignment" Value="Center" />
 		<Setter Property="VerticalAlignment" Value="Center" />
 		<Setter Property="Template">
