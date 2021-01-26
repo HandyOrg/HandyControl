@@ -40,6 +40,8 @@ namespace HandyControl.Controls
             {
                 if (item.Role == SideMenuItemRole.Item)
                 {
+                    _isItemSelected = true;
+
                     if (Equals(item, _selectedItem)) return;
 
                     if (_selectedItem != null)
@@ -53,7 +55,6 @@ namespace HandyControl.Controls
                     {
                         Info = e.OriginalSource
                     });
-                    _isItemSelected = true;
                 }
                 else
                 {
@@ -90,9 +91,12 @@ namespace HandyControl.Controls
                     {
                         _isItemSelected = false;
                     }
-                    else if(_selectedHeader != null)
+                    else if (_selectedHeader != null)
                     {
-                        _selectedHeader.SelectDefaultItem();
+                        if (AutoSelect)
+                        {
+                            _selectedHeader.SelectDefaultItem();
+                        }
                         _isItemSelected = false;
                     }
                 }
@@ -116,6 +120,15 @@ namespace HandyControl.Controls
         protected override DependencyObject GetContainerForItemOverride() => new SideMenuItem();
 
         protected override bool IsItemItsOwnContainerOverride(object item) => item is SideMenuItem;
+
+        public static readonly DependencyProperty AutoSelectProperty = DependencyProperty.Register(
+            "AutoSelect", typeof(bool), typeof(SideMenu), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool AutoSelect
+        {
+            get => (bool) GetValue(AutoSelectProperty);
+            set => SetValue(AutoSelectProperty, ValueBoxes.BooleanBox(value));
+        }
 
         public static readonly DependencyProperty ExpandModeProperty = DependencyProperty.Register(
             "ExpandMode", typeof(ExpandMode), typeof(SideMenu), new PropertyMetadata(default(ExpandMode), OnExpandModeChanged));
@@ -157,6 +170,16 @@ namespace HandyControl.Controls
                     }
                     else if (sideMenuItem.IsSelected)
                     {
+                        switch (sideMenuItem.Role)
+                        {
+                            case SideMenuItemRole.Header:
+                                _selectedHeader = sideMenuItem;
+                                break;
+                            case SideMenuItemRole.Item:
+                                _selectedItem = sideMenuItem;
+                                break;
+                        }
+
                         ShowSelectedOne(sideMenuItem);
                         sideMenuItemSelected = sideMenuItem;
 
@@ -173,7 +196,7 @@ namespace HandyControl.Controls
                                     _selectedItem = sideMenuSubItem;
                                 }
                             }
-                        }                          
+                        }
                     }
                 }
             }

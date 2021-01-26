@@ -1,9 +1,9 @@
 ﻿// Adapted from https://referencesource.microsoft.com/#PresentationFramework/src/Framework/System/Windows/Controls/Primitives/RangeBase.cs
 
-using HandyControl.Data;
-using HandyControl.Tools;
 using System.Windows;
 using System.Windows.Controls;
+using HandyControl.Data;
+using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
@@ -15,12 +15,12 @@ namespace HandyControl.Controls
 
         private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctrl = (TwoWayRangeBase)d;
+            var ctrl = (TwoWayRangeBase) d;
 
             ctrl.CoerceValue(MaximumProperty);
             ctrl.CoerceValue(ValueStartProperty);
             ctrl.CoerceValue(ValueEndProperty);
-            ctrl.OnMinimumChanged((double)e.OldValue, (double)e.NewValue);
+            ctrl.OnMinimumChanged((double) e.OldValue, (double) e.NewValue);
         }
 
         protected virtual void OnMinimumChanged(double oldMinimum, double newMinimum)
@@ -29,7 +29,7 @@ namespace HandyControl.Controls
 
         public double Minimum
         {
-            get => (double)GetValue(MinimumProperty);
+            get => (double) GetValue(MinimumProperty);
             set => SetValue(MinimumProperty, value);
         }
 
@@ -40,9 +40,9 @@ namespace HandyControl.Controls
 
         private static object CoerceMaximum(DependencyObject d, object basevalue)
         {
-            var ctrl = (TwoWayRangeBase)d;
+            var ctrl = (TwoWayRangeBase) d;
             var min = ctrl.Minimum;
-            if ((double)basevalue < min)
+            if ((double) basevalue < min)
             {
                 return min;
             }
@@ -51,11 +51,11 @@ namespace HandyControl.Controls
 
         private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctrl = (TwoWayRangeBase)d;
+            var ctrl = (TwoWayRangeBase) d;
 
             ctrl.CoerceValue(ValueStartProperty);
             ctrl.CoerceValue(ValueEndProperty);
-            ctrl.OnMaximumChanged((double)e.OldValue, (double)e.NewValue);
+            ctrl.OnMaximumChanged((double) e.OldValue, (double) e.NewValue);
         }
 
         protected virtual void OnMaximumChanged(double oldMaximum, double newMaximum)
@@ -64,7 +64,7 @@ namespace HandyControl.Controls
 
         public double Maximum
         {
-            get => (double)GetValue(MaximumProperty);
+            get => (double) GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
 
@@ -76,24 +76,24 @@ namespace HandyControl.Controls
 
         private static void OnValueStartChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctrl = (TwoWayRangeBase)d;
-            ctrl.OnValueChanged(new TwoWayRange
+            var ctrl = (TwoWayRangeBase) d;
+            ctrl.OnValueChanged(new DoubleRange
             {
-                ValueStart = (double)e.OldValue,
-                ValueEnd = ctrl.ValueEnd
-            }, new TwoWayRange
+                Start = (double) e.OldValue,
+                End = ctrl.ValueEnd
+            }, new DoubleRange
             {
-                ValueStart = (double)e.NewValue,
-                ValueEnd = ctrl.ValueEnd
+                Start = (double) e.NewValue,
+                End = ctrl.ValueEnd
             });
         }
 
-        protected virtual void OnValueChanged(TwoWayRange oldValue, TwoWayRange newValue) => RaiseEvent(
-            new RoutedPropertyChangedEventArgs<TwoWayRange>(oldValue, newValue) {RoutedEvent = ValueChangedEvent});
+        protected virtual void OnValueChanged(DoubleRange oldValue, DoubleRange newValue) => RaiseEvent(
+            new RoutedPropertyChangedEventArgs<DoubleRange>(oldValue, newValue) { RoutedEvent = ValueChangedEvent });
 
         public double ValueStart
         {
-            get => (double)GetValue(ValueStartProperty);
+            get => (double) GetValue(ValueStartProperty);
             set => SetValue(ValueStartProperty, value);
         }
 
@@ -105,29 +105,29 @@ namespace HandyControl.Controls
 
         private static void OnValueEndChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctrl = (TwoWayRangeBase)d;
-            ctrl.OnValueChanged(new TwoWayRange
+            var ctrl = (TwoWayRangeBase) d;
+            ctrl.OnValueChanged(new DoubleRange
             {
-                ValueStart = ctrl.ValueStart,
-                ValueEnd = (double)e.OldValue
-            }, new TwoWayRange
+                Start = ctrl.ValueStart,
+                End = (double) e.OldValue
+            }, new DoubleRange
             {
-                ValueStart = ctrl.ValueStart,
-                ValueEnd = (double)e.NewValue
+                Start = ctrl.ValueStart,
+                End = (double) e.NewValue
             });
         }
 
         public double ValueEnd
         {
-            get => (double)GetValue(ValueEndProperty);
+            get => (double) GetValue(ValueEndProperty);
             set => SetValue(ValueEndProperty, value);
         }
 
         internal static object ConstrainToRange(DependencyObject d, object value)
         {
-            var ctrl = (TwoWayRangeBase)d;
+            var ctrl = (TwoWayRangeBase) d;
             var min = ctrl.Minimum;
-            var v = (double)value;
+            var v = (double) value;
             if (v < min)
             {
                 return min;
@@ -148,7 +148,7 @@ namespace HandyControl.Controls
 
         public double LargeChange
         {
-            get => (double)GetValue(LargeChangeProperty);
+            get => (double) GetValue(LargeChangeProperty);
             set => SetValue(LargeChangeProperty, value);
         }
 
@@ -158,24 +158,17 @@ namespace HandyControl.Controls
 
         public double SmallChange
         {
-            get => (double)GetValue(SmallChangeProperty);
+            get => (double) GetValue(SmallChangeProperty);
             set => SetValue(SmallChangeProperty, value);
         }
 
         public static readonly RoutedEvent ValueChangedEvent = EventManager.RegisterRoutedEvent("ValueChanged",
-            RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<TwoWayRange>), typeof(TwoWayRangeBase));
+            RoutingStrategy.Bubble, typeof(RoutedPropertyChangedEventHandler<DoubleRange>), typeof(TwoWayRangeBase));
 
-        public event RoutedPropertyChangedEventHandler<TwoWayRange> ValueChanged
+        public event RoutedPropertyChangedEventHandler<DoubleRange> ValueChanged
         {
             add => AddHandler(ValueChangedEvent, value);
             remove => RemoveHandler(ValueChangedEvent, value);
         }
-    }
-
-    public struct TwoWayRange
-    {
-        public double ValueStart { get; set; }
-
-        public double ValueEnd { get; set; }
     }
 }

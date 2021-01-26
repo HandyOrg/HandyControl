@@ -11,7 +11,7 @@ namespace HandyControl.Controls
         public bool IsTransferred
         {
             get => (bool) GetValue(IsTransferredProperty);
-            set => SetValue(IsTransferredProperty, value);
+            set => SetValue(IsTransferredProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty IsOriginProperty = DependencyProperty.Register(
@@ -20,7 +20,7 @@ namespace HandyControl.Controls
         public bool IsOrigin
         {
             get => (bool) GetValue(IsOriginProperty);
-            internal set => SetValue(IsOriginProperty, value);
+            internal set => SetValue(IsOriginProperty, ValueBoxes.BooleanBox(value));
         }
     }
 }

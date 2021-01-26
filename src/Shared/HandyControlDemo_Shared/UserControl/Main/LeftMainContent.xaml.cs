@@ -1,11 +1,14 @@
-﻿using System.ComponentModel;
-using System.Linq;
+﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Tools;
-using HandyControl.Tools.Extension;
+using HandyControlDemo.Data;
+using HandyControlDemo.ViewModel;
 
 
 namespace HandyControlDemo.UserControl
@@ -15,30 +18,25 @@ namespace HandyControlDemo.UserControl
     /// </summary>
     public partial class LeftMainContent
     {
+        private string _searchKey;
+
         public LeftMainContent()
         {
             InitializeComponent();
-
-            /*You have to ask me why I made Border special.
-             What drives me crazy is that if you don't do this, 
-             the content of ListBoxItemBorder will always be 1 ! 
-             How amazing!
-             I wish someone could tell me why. */
-            ListBoxItemBorder.Content = Properties.Langs.Lang.Border;
         }
 
         private void TabControl_OnSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (e.AddedItems.Count == 0) return;
-            if (e.AddedItems[0] is TabItem tabItem && 
-                VisualHelper.GetChild<ListBox>(tabItem.Content as DependencyObject) is ListBox listBox)
+            if (e.AddedItems[0] is DemoInfoModel demoInfo)
             {
-                if (listBox.SelectedItem != null)
-                {
-                    var item = listBox.SelectedItem;
-                    listBox.SelectedIndex = -1;
-                    listBox.SelectedItem = item;
-                }
+                ViewModelLocator.Instance.Main.DemoInfoCurrent = demoInfo;
+                var selectedIndex = demoInfo.SelectedIndex;
+                demoInfo.SelectedIndex = -1;
+                demoInfo.SelectedIndex = selectedIndex;
+
+                FilterItems();
+                GroupItems(sender as TabControl, demoInfo);
             }
         }
 
@@ -48,7 +46,7 @@ namespace HandyControlDemo.UserControl
             {
                 if (button.IsChecked == true)
                 {
-                    itemsControl.Items.SortDescriptions.Add(new SortDescription("Content", ListSortDirection.Ascending));
+                    itemsControl.Items.SortDescriptions.Add(new SortDescription("Name", ListSortDirection.Ascending));
                 }
                 else
                 {
@@ -59,12 +57,60 @@ namespace HandyControlDemo.UserControl
 
         private void SearchBar_OnSearchStarted(object sender, FunctionEventArgs<string> e)
         {
-            if (e.Info == null) return;
-            if (!(sender is FrameworkElement searchBar && searchBar.Tag is ListBox listBox)) return;
-            foreach (var listBoxItem in listBox.Items.OfType<ListBoxItem>())
+            _searchKey = e.Info;
+            FilterItems();
+        }
+
+        private void FilterItems()
+        {
+            if (string.IsNullOrEmpty(_searchKey))
             {
-                listBoxItem.Show(listBoxItem.Content.ToString().ToLower().Contains(e.Info.ToLower()) ||
-                                 listBoxItem.Tag.ToString().Replace("DemoCtl", "").ToLower().Contains(e.Info.ToLower()));
+                foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
+                {
+                    item.IsVisible = true;
+                }
+            }
+            else
+            {
+                var key = _searchKey.ToLower();
+                foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
+                {
+                    if (item.Name.ToLower().Contains(key))
+                    {
+                        item.IsVisible = true;
+                    }
+                    else if (item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(key))
+                    {
+                        item.IsVisible = true;
+                    }
+                    else
+                    {
+                        var name = Properties.Langs.LangProvider.GetLang(item.Name);
+                        if (!string.IsNullOrEmpty(name) && name.ToLower().Contains(key))
+                        {
+                            item.IsVisible = true;
+                        }
+                        else
+                        {
+                            item.IsVisible = false;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void GroupItems(TabControl tabControl, DemoInfoModel demoInfo)
+        {
+            var listBox = VisualHelper.GetChild<ListBox>(tabControl);
+            if (listBox == null) return;
+            listBox.Items.GroupDescriptions?.Clear();
+
+            if (demoInfo.IsGroupEnabled)
+            {
+                Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    listBox.Items.GroupDescriptions?.Add(new PropertyGroupDescription("GroupName"));
+                }), DispatcherPriority.Background);
             }
         }
     }

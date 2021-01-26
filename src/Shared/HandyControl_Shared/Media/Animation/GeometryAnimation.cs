@@ -4,8 +4,8 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using HandyControl.Tools;
-// ReSharper disable PossibleInvalidOperationException
 
+// ReSharper disable PossibleInvalidOperationException
 namespace HandyControl.Media.Animation
 {
     public class GeometryAnimation : GeometryAnimationBase
@@ -61,7 +61,7 @@ namespace HandyControl.Media.Animation
             FillBehavior = fillBehavior;
         }
 
-        public new GeometryAnimation Clone() => (GeometryAnimation)base.Clone();
+        public new GeometryAnimation Clone() => (GeometryAnimation) base.Clone();
 
         protected override Freezable CreateInstanceCore() => new GeometryAnimation();
 
@@ -79,7 +79,7 @@ namespace HandyControl.Media.Animation
                 {
                     var geometryStr = defaultDestinationValue.ToString(CultureInfo.InvariantCulture);
                     AnimationHelper.DecomposeGeometryStr(geometryStr, out _numbersTo);
-                    _strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern);
+                    _strings = Regex.Split(geometryStr, RegexPatterns.DigitsPattern);
                 }
 
                 UpdateValue();
@@ -96,10 +96,10 @@ namespace HandyControl.Media.Animation
             }
 
             var accumulated = new double[_numbersAccumulator.Length];
-            
+
             if (IsCumulative)
             {
-                var currentRepeat = (double)(animationClock.CurrentIteration - 1);
+                var currentRepeat = (double) (animationClock.CurrentIteration - 1);
 
                 if (currentRepeat > 0.0)
                 {
@@ -136,7 +136,7 @@ namespace HandyControl.Media.Animation
 
         public Geometry From
         {
-            get => (Geometry)GetValue(FromProperty);
+            get => (Geometry) GetValue(FromProperty);
             set => SetValue(FromProperty, value);
         }
 
@@ -145,19 +145,19 @@ namespace HandyControl.Media.Animation
 
         private static void OnToChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var obj = (GeometryAnimation)d;
+            var obj = (GeometryAnimation) d;
             if (e.NewValue is Geometry geometry)
             {
                 var geometryStr = geometry.ToString(CultureInfo.InvariantCulture);
                 AnimationHelper.DecomposeGeometryStr(geometryStr, out obj._numbersTo);
-                obj._strings = Regex.Split(geometryStr, RegularPatterns.DigitsPattern);
+                obj._strings = Regex.Split(geometryStr, RegexPatterns.DigitsPattern);
                 obj.UpdateValue();
             }
         }
 
         public Geometry To
         {
-            get => (Geometry)GetValue(ToProperty);
+            get => (Geometry) GetValue(ToProperty);
             set => SetValue(ToProperty, value);
         }
 
@@ -166,13 +166,13 @@ namespace HandyControl.Media.Animation
 
         public IEasingFunction EasingFunction
         {
-            get => (IEasingFunction)GetValue(EasingFunctionProperty);
+            get => (IEasingFunction) GetValue(EasingFunctionProperty);
             set => SetValue(EasingFunctionProperty, value);
         }
 
         public bool IsCumulative
         {
-            get => (bool)GetValue(IsCumulativeProperty);
+            get => (bool) GetValue(IsCumulativeProperty);
             set => SetValue(IsCumulativeProperty, value);
         }
     }

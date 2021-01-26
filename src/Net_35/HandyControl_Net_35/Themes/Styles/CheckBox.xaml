@@ -1,9 +1,0 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/CheckBoxBaseStyle.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
-
-    <Style BasedOn="{StaticResource CheckBoxBaseStyle}" TargetType="CheckBox"/>
-
-</ResourceDictionary>

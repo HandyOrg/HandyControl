@@ -8,7 +8,7 @@ namespace HandyControlDemo.UserControl
         {
             InitializeComponent();
 
-            CoverFlowMain.AddRange(new []
+            CoverFlowMain.AddRange(new[]
             {
                 new Uri(@"pack://application:,,,/Resources/Img/Album/1.jpg"),
                 new Uri(@"pack://application:,,,/Resources/Img/Album/2.jpg"),

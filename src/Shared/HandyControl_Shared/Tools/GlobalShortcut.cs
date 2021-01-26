@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows;
@@ -18,7 +17,6 @@ namespace HandyControl.Tools
 
         static GlobalShortcut()
         {
-
             KeyboardHook.KeyDown += KeyboardHook_KeyDown;
         }
 
@@ -51,18 +49,15 @@ namespace HandyControl.Tools
                    key == Key.RightCtrl || key == Key.RightAlt || key == Key.RightShift || key == Key.RWin;
         }
 
-        [Obsolete("pls use Host attach property instead of Init method")]
-        public static void Init(DependencyObject host)
+        public static void Init(List<KeyBinding> list)
         {
             CommandDic.Clear();
 
-            if (host == null) return;
-
-            KeyBindingCollection = GetKeyBindings(host);
-            if (KeyBindingCollection == null || KeyBindingCollection.Count == 0) return;
+            if (list == null) return;
+            KeyBindingCollection = new ObservableCollection<KeyBinding>(list);
+            if (KeyBindingCollection.Count == 0) return;
 
             AddKeyBindings(KeyBindingCollection);
-
             KeyboardHook.Start();
         }
 
@@ -109,7 +104,7 @@ namespace HandyControl.Tools
         }
 
         public static void SetHost(DependencyObject element, bool value)
-            => element.SetValue(HostProperty, value);
+            => element.SetValue(HostProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetHost(DependencyObject element)
             => (bool) element.GetValue(HostProperty);

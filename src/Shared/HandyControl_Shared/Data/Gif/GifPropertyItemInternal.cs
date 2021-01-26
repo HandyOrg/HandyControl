@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using HandyControl.Tools;
+using HandyControl.Tools.Interop;
 
 namespace HandyControl.Data
 {
@@ -85,7 +85,7 @@ namespace HandyControl.Data
                 GifPropertyItemInternal propcopy = null;
                 try
                 {
-                    propcopy = (GifPropertyItemInternal) ExternDllHelper.PtrToStructure(propdata,
+                    propcopy = (GifPropertyItemInternal) InteropMethods.PtrToStructure(propdata,
                         typeof(GifPropertyItemInternal));
 
                     props[i] = new GifPropertyItem

@@ -4,6 +4,6 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:GifImage x:Name="GifImageMain" Margin="32" Width="400" Height="300" Uri="/HandyControlDemo;component/Resources/Img/car_chase.gif"/>
+        <hc:GifImage x:Name="GifImageMain" Stretch="None" Margin="32" Uri="/HandyControlDemo;component/Resources/Img/car_chase.gif"/>
     </hc:TransitioningContentControl>
 </UserControl>

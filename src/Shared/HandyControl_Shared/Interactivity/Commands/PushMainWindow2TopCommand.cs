@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Interop;
-using HandyControl.Tools.Interop;
+using HandyControl.Tools;
 
 namespace HandyControl.Interactivity
 {
@@ -15,11 +14,7 @@ namespace HandyControl.Interactivity
             if (Application.Current.MainWindow != null && Application.Current.MainWindow.Visibility != Visibility.Visible)
             {
                 Application.Current.MainWindow.Show();
-                var hwndSource = (HwndSource)PresentationSource.FromDependencyObject(Application.Current.MainWindow);
-                if (hwndSource != null)
-                {
-                    UnsafeNativeMethods.SetForegroundWindow(hwndSource.Handle);
-                }
+                WindowHelper.SetWindowToForeground(Application.Current.MainWindow);
             }
         }
 

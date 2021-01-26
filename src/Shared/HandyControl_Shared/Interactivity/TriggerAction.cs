@@ -3,6 +3,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media.Animation;
+using HandyControl.Data;
 
 namespace HandyControl.Interactivity
 {
@@ -11,7 +12,7 @@ namespace HandyControl.Interactivity
     public abstract class TriggerAction : Animatable, IAttachedObject
     {
         public static readonly DependencyProperty IsEnabledProperty = DependencyProperty.Register("IsEnabled",
-            typeof(bool), typeof(TriggerAction), new FrameworkPropertyMetadata(true));
+            typeof(bool), typeof(TriggerAction), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
 
         private readonly Type _associatedObjectTypeConstraint;
 
@@ -43,9 +44,8 @@ namespace HandyControl.Interactivity
 
         public bool IsEnabled
         {
-            get =>
-                (bool) GetValue(IsEnabledProperty);
-            set => SetValue(IsEnabledProperty, value);
+            get => (bool) GetValue(IsEnabledProperty);
+            set => SetValue(IsEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal bool IsHosted

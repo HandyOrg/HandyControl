@@ -1,4 +1,5 @@
 ﻿using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using HandyControl.Data;
 using HandyControl.Expression.Shapes;
@@ -19,6 +20,10 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
             "Text", typeof(string), typeof(CircleProgressBar), new PropertyMetadata(default(string)));
 
+        public static readonly DependencyProperty IsIndeterminateProperty =
+            ProgressBar.IsIndeterminateProperty.AddOwner(typeof(CircleProgressBar),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
+
         private Arc _indicator;
 
         static CircleProgressBar()
@@ -38,13 +43,19 @@ namespace HandyControl.Controls
         public bool ShowText
         {
             get => (bool) GetValue(ShowTextProperty);
-            set => SetValue(ShowTextProperty, value);
+            set => SetValue(ShowTextProperty, ValueBoxes.BooleanBox(value));
         }
 
         public double ArcThickness
         {
             get => (double) GetValue(ArcThicknessProperty);
             set => SetValue(ArcThicknessProperty, value);
+        }
+
+        public bool IsIndeterminate
+        {
+            get => (bool) GetValue(IsIndeterminateProperty);
+            set => SetValue(IsIndeterminateProperty, value);
         }
 
         private void SetProgressBarIndicatorAngle()

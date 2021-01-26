@@ -203,7 +203,7 @@ namespace HandyControl.Controls
 
         private void Canvas_OnMouseWheel(object sender, MouseWheelEventArgs e)
         {
-            var value = (int)_rotateTransformClock.Angle;
+            var value = (int) _rotateTransformClock.Angle;
             if (e.Delta < 0)
             {
                 value += 6;
@@ -297,7 +297,7 @@ namespace HandyControl.Controls
 
             var hRest = h % 12;
             if (hRest == 0) hRest = 12;
-            var ctl = _radioButtonList[hRest-1];
+            var ctl = _radioButtonList[hRest - 1];
             ctl.IsChecked = true;
             ctl.RaiseEvent(new RoutedEventArgs { RoutedEvent = ButtonBase.ClickEvent });
 
@@ -322,7 +322,7 @@ namespace HandyControl.Controls
                 hValue = 0;
             }
             var now = DateTime.Now;
-            return new DateTime(now.Year, now.Month, now.Day, hValue, (int)Math.Abs(_rotateTransformClock.Angle) % 360 / 6, _secValue);
+            return new DateTime(now.Year, now.Month, now.Day, hValue, (int) Math.Abs(_rotateTransformClock.Angle) % 360 / 6, _secValue);
         }
 
         private void ButtonAm_OnClick(object sender, RoutedEventArgs e) => Update();

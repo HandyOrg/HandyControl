@@ -21,7 +21,7 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty HideUncheckedElementProperty = DependencyProperty.RegisterAttached(
             "HideUncheckedElement", typeof(bool), typeof(StatusSwitchElement), new PropertyMetadata(ValueBoxes.FalseBox));
 
-        public static void SetHideUncheckedElement(DependencyObject element, bool value) => element.SetValue(HideUncheckedElementProperty, value);
+        public static void SetHideUncheckedElement(DependencyObject element, bool value) => element.SetValue(HideUncheckedElementProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetHideUncheckedElement(DependencyObject element) => (bool) element.GetValue(HideUncheckedElementProperty);
     }

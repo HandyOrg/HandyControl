@@ -1,7 +1,7 @@
 ﻿
 namespace HandyControl.Data
 {
-    public enum TipPlacement
+    public enum PlacementType
     {
         /// <summary>
         /// 左上

@@ -8,7 +8,6 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    /// <inheritdoc cref="IDataInput" />
     public class TextBox : System.Windows.Controls.TextBox, IDataInput
     {
         public TextBox()
@@ -36,7 +35,7 @@ namespace HandyControl.Controls
         public bool IsError
         {
             get => (bool) GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, value);
+            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -72,7 +71,7 @@ namespace HandyControl.Controls
         public bool ShowClearButton
         {
             get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value);
+            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public virtual bool VerifyData()
@@ -89,7 +88,14 @@ namespace HandyControl.Controls
                 {
                     if (TextType != TextType.Common)
                     {
-                        result = Text.IsKindOf(TextType) ? OperationResult.Success() : OperationResult.Failed(Properties.Langs.Lang.FormatError);
+                        var regexPattern = InfoElement.GetRegexPattern(this);
+                        result = string.IsNullOrEmpty(regexPattern)
+                            ? Text.IsKindOf(TextType)
+                                ? OperationResult.Success()
+                                : OperationResult.Failed(Properties.Langs.Lang.FormatError)
+                            : Text.IsKindOf(regexPattern)
+                                ? OperationResult.Success()
+                                : OperationResult.Failed(Properties.Langs.Lang.FormatError);
                     }
                     else
                     {

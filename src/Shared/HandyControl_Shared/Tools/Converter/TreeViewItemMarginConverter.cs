@@ -6,16 +6,15 @@ using System.Windows.Media;
 
 namespace HandyControl.Tools.Converter
 {
-    public class TreeViewItemMarginConverter: IValueConverter
+    public class TreeViewItemMarginConverter : IValueConverter
     {
-
         public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             var left = 0.0;
             UIElement element = value as TreeViewItem;
             while (element != null && element.GetType() != typeof(TreeView))
             {
-                element = (UIElement)VisualTreeHelper.GetParent(element);
+                element = (UIElement) VisualTreeHelper.GetParent(element);
                 if (element is TreeViewItem)
                     left += 19.0;
             }

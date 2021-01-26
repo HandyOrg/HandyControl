@@ -1,11 +1,14 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
+using HandyControl.Tools;
 using HandyControl.Tools.Extension;
-#if netle40
+using HandyControl.Tools.Interop;
+#if NET40
 using Microsoft.Windows.Shell;
 #else
 using System.Windows.Shell;
@@ -63,7 +66,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty NonClientAreaHeightProperty = DependencyProperty.Register(
             "NonClientAreaHeight", typeof(double), typeof(Window),
-            new PropertyMetadata(26.0));
+            new PropertyMetadata(22.0));
 
         public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
             "ShowNonClientArea", typeof(bool), typeof(Window),
@@ -80,7 +83,7 @@ namespace HandyControl.Controls
 
         private Thickness _actualBorderThickness;
 
-        private UIElement _nonClientArea;
+        private readonly Thickness _commonPadding;
 
         private bool _showNonClientArea = true;
 
@@ -92,9 +95,16 @@ namespace HandyControl.Controls
 
         private ResizeMode _tempResizeMode;
 
+        private UIElement _nonClientArea;
+
+        static Window()
+        {
+            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>(ResourceToken.WindowWin10)));
+        }
+
         public Window()
         {
-#if netle40
+#if NET40
             var chrome = new WindowChrome
             {
                 CornerRadius = new CornerRadius(),
@@ -109,11 +119,61 @@ namespace HandyControl.Controls
             };
 #endif
             BindingOperations.SetBinding(chrome, WindowChrome.CaptionHeightProperty,
-                new Binding(NonClientAreaHeightProperty.Name) {Source = this});
+                new Binding(NonClientAreaHeightProperty.Name) { Source = this });
             WindowChrome.SetWindowChrome(this, chrome);
+            _commonPadding = Padding;
 
-            Loaded += (s, e) => OnLoaded(e);            
+            Loaded += (s, e) => OnLoaded(e);
         }
+
+        private void WmGetMinMaxInfo(IntPtr hwnd, IntPtr lParam)
+        {
+            var mmi = (InteropValues.MINMAXINFO) Marshal.PtrToStructure(lParam, typeof(InteropValues.MINMAXINFO));
+            var monitor = InteropMethods.MonitorFromWindow(hwnd, InteropValues.MONITOR_DEFAULTTONEAREST);
+
+            if (monitor != IntPtr.Zero && mmi != null)
+            {
+                InteropValues.APPBARDATA appBarData = default;
+                var autoHide = InteropMethods.SHAppBarMessage(4, ref appBarData) != 0;
+                if (autoHide)
+                {
+                    var monitorInfo = default(InteropValues.MONITORINFO);
+                    monitorInfo.cbSize = (uint) Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
+                    InteropMethods.GetMonitorInfo(monitor, ref monitorInfo);
+                    var rcWorkArea = monitorInfo.rcWork;
+                    var rcMonitorArea = monitorInfo.rcMonitor;
+                    mmi.ptMaxPosition.X = Math.Abs(rcWorkArea.Left - rcMonitorArea.Left);
+                    mmi.ptMaxPosition.Y = Math.Abs(rcWorkArea.Top - rcMonitorArea.Top);
+                    mmi.ptMaxSize.X = Math.Abs(rcWorkArea.Right - rcWorkArea.Left);
+                    mmi.ptMaxSize.Y = Math.Abs(rcWorkArea.Bottom - rcWorkArea.Top - 1);
+                }
+            }
+
+            Marshal.StructureToPtr(mmi, lParam, true);
+        }
+
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            this.GetHwndSource()?.AddHook(HwndSourceHook);
+            base.OnSourceInitialized(e);
+        }
+
+        private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
+        {
+            switch (msg)
+            {
+                case InteropValues.WM_WINDOWPOSCHANGED:
+                    Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
+                    break;
+                case InteropValues.WM_GETMINMAXINFO:
+                    WmGetMinMaxInfo(hwnd, lparam);
+                    Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
+                    break;
+            }
+
+            return IntPtr.Zero;
+        }
+
 
         public Brush CloseButtonBackground
         {
@@ -148,7 +208,7 @@ namespace HandyControl.Controls
         public bool IsFullScreen
         {
             get => (bool) GetValue(IsFullScreenProperty);
-            set => SetValue(IsFullScreenProperty, value);
+            set => SetValue(IsFullScreenProperty, ValueBoxes.BooleanBox(value));
         }
 
         public object NonClientAreaContent
@@ -196,13 +256,13 @@ namespace HandyControl.Controls
         public bool ShowNonClientArea
         {
             get => (bool) GetValue(ShowNonClientAreaProperty);
-            set => SetValue(ShowNonClientAreaProperty, value);
+            set => SetValue(ShowNonClientAreaProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool ShowTitle
         {
             get => (bool) GetValue(ShowTitleProperty);
-            set => SetValue(ShowTitleProperty, value);
+            set => SetValue(ShowTitleProperty, ValueBoxes.BooleanBox(value));
         }
 
         private static void OnShowNonClientAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -299,7 +359,7 @@ namespace HandyControl.Controls
                 _tempNonClientAreaHeight = NonClientAreaHeight;
                 NonClientAreaHeight += 8;
             }
-            else if (WindowState == WindowState.Normal)
+            else
             {
                 BorderThickness = _actualBorderThickness;
                 NonClientAreaHeight = _tempNonClientAreaHeight;

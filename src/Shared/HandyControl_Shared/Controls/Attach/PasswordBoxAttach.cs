@@ -13,7 +13,7 @@ namespace HandyControl.Controls
 
         public static void SetPasswordLength(DependencyObject element, int value) => element.SetValue(PasswordLengthProperty, value);
 
-        public static int GetPasswordLength(DependencyObject element) => (int)element.GetValue(PasswordLengthProperty);
+        public static int GetPasswordLength(DependencyObject element) => (int) element.GetValue(PasswordLengthProperty);
 
         /// <summary>
         ///     是否监测
@@ -39,9 +39,9 @@ namespace HandyControl.Controls
             }
         }
 
-        public static void SetIsMonitoring(DependencyObject element, bool value) => element.SetValue(IsMonitoringProperty, value);
+        public static void SetIsMonitoring(DependencyObject element, bool value) => element.SetValue(IsMonitoringProperty, ValueBoxes.BooleanBox(value));
 
-        public static bool GetIsMonitoring(DependencyObject element) => (bool)element.GetValue(IsMonitoringProperty);
+        public static bool GetIsMonitoring(DependencyObject element) => (bool) element.GetValue(IsMonitoringProperty);
 
         private static void PasswordChanged(object sender, RoutedEventArgs e)
         {

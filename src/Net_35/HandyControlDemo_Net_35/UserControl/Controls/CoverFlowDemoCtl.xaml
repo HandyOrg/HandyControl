@@ -1,7 +1,0 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.CoverFlowDemoCtl"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:controls="clr-namespace:HandyControl.Controls;assembly=HandyControl"
-             Background="{DynamicResource RegionBrush}">
-    <controls:CoverFlow x:Name="CoverFlowMain" Margin="32" Width="500" Height="300"/>
-</UserControl>

@@ -1,6 +1,5 @@
-﻿using System.Diagnostics;
-using System.Reflection;
-using System.Windows;
+﻿using System.Windows;
+using HandyControlDemo.Tools;
 
 namespace HandyControlDemo.Window
 {
@@ -11,10 +10,8 @@ namespace HandyControlDemo.Window
             InitializeComponent();
 
             DataContext = this;
-
-            var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
-            CopyRight = versionInfo.LegalCopyright;
-            Version = $"v {versionInfo.FileVersion}";
+            CopyRight = VersionHelper.GetCopyright();
+            Version = VersionHelper.GetVersion();
         }
 
         public static readonly DependencyProperty CopyRightProperty = DependencyProperty.Register(

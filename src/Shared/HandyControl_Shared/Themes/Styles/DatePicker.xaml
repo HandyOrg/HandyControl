@@ -1,15 +1,16 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/DatePickerBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/DatePickerBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource DatePickerBaseStyle}" TargetType="DatePicker"/>
 
     <Style x:Key="DatePickerExtend" BasedOn="{StaticResource DatePickerExtendBaseStyle}" TargetType="DatePicker"/>
 
-    <Style BasedOn="{StaticResource DatePickerPlusBaseStyle}" TargetType="controls:DatePicker"/>
+    <Style BasedOn="{StaticResource DatePickerPlusBaseStyle}" TargetType="hc:DatePicker"/>
 
 </ResourceDictionary>

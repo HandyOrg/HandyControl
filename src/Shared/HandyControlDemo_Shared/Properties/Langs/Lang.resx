@@ -579,9 +579,6 @@
   <data name="SideMenu" xml:space="preserve">
     <value>侧边菜单</value>
   </data>
-  <data name="Overview" xml:space="preserve">
-    <value>概览</value>
-  </data>
   <data name="Grid" xml:space="preserve">
     <value>栅格</value>
   </data>
@@ -686,5 +683,116 @@
   </data>
   <data name="TransitioningContentControl" xml:space="preserve">
     <value>内容过渡控件</value>
+  </data>
+  <data name="Drawer" xml:space="preserve">
+    <value>抽屉</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>文献资料</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>VS 插件</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>英文文档</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>中文文档</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>示例</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PIN码框</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>流文档滚动视图</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>点击打开辉光窗口</value>
+  </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>流文档</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>流文档单页视图</value>
+  </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>流文档查看器</value>
+  </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>点击打开原生常规窗口</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>点击打开导航窗口</value>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>导航框架</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>实用例子</value>
+  </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>开始截图</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>截图</value>
+  </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>文本对话框（控件中）</value>
+  </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>查找类似 {0} 的本地化字符串。</value>
+  </data>
+  <data name="PropertyGrid" xml:space="preserve">
+    <value>属性编辑器</value>
+  </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>图片选择器</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>几何形状</value>
+  </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>多选组合框</value>
+  </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>弹性盒子</value>
+  </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>点击打开触摸拖动窗口</value>
+  </data>
+  <data name="UniformSpacingPanel" xml:space="preserve">
+    <value>等间距布局</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>杂项</value>
+  </data>
+  <data name="Interacting" xml:space="preserve">
+    <value>交互</value>
+  </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>数据录入</value>
+  </data>
+  <data name="DataDisplay" xml:space="preserve">
+    <value>数据展示</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>导航</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>布局</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>反馈</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>空状态</value>
   </data>
 </root>

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}" 
              Width="550"
              Height="600">
@@ -17,27 +18,27 @@
                     <StackPanel Orientation="Horizontal">
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                     </StackPanel>
@@ -48,27 +49,27 @@
                     <WrapPanel Orientation="Horizontal">
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
-                                <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                             </Border>
                         </Border>
                     </WrapPanel>

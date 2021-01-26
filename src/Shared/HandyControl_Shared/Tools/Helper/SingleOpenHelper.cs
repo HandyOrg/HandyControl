@@ -21,7 +21,7 @@ namespace HandyControl.Tools
         {
             var typeStr = typeof(T).FullName;
 
-            if (string.IsNullOrEmpty(typeStr)) return default(T);
+            if (string.IsNullOrEmpty(typeStr)) return default;
 
             var temp = new T();
             if (!OpenDic.Keys.Contains(typeStr))
@@ -36,7 +36,7 @@ namespace HandyControl.Tools
                 OpenDic[typeStr] = temp;
                 return temp;
             }
-            return default(T);
+            return default;
         }
     }
 }

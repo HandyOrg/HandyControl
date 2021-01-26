@@ -9,7 +9,7 @@ namespace HandyControl.Media.Animation
     public class GeometryKeyFrameCollection : Freezable, IList
     {
         private List<GeometryKeyFrame> _keyFrames;
-        
+
         private static GeometryKeyFrameCollection s_emptyCollection;
 
         public GeometryKeyFrameCollection()
@@ -34,16 +34,16 @@ namespace HandyControl.Media.Animation
                 }
 
                 return s_emptyCollection;
-            } 
+            }
         }
 
-        public new GeometryKeyFrameCollection Clone() => (GeometryKeyFrameCollection)base.Clone();
+        public new GeometryKeyFrameCollection Clone() => (GeometryKeyFrameCollection) base.Clone();
 
         protected override Freezable CreateInstanceCore() => new GeometryKeyFrameCollection();
 
         protected override void CloneCore(Freezable sourceFreezable)
         {
-            var sourceCollection = (GeometryKeyFrameCollection)sourceFreezable;
+            var sourceCollection = (GeometryKeyFrameCollection) sourceFreezable;
             base.CloneCore(sourceFreezable);
 
             var count = sourceCollection._keyFrames.Count;
@@ -52,7 +52,7 @@ namespace HandyControl.Media.Animation
 
             for (var i = 0; i < count; i++)
             {
-                var keyFrame = (GeometryKeyFrame)sourceCollection._keyFrames[i].Clone();
+                var keyFrame = (GeometryKeyFrame) sourceCollection._keyFrames[i].Clone();
                 _keyFrames.Add(keyFrame);
                 OnFreezablePropertyChanged(null, keyFrame);
             }
@@ -60,7 +60,7 @@ namespace HandyControl.Media.Animation
 
         protected override void CloneCurrentValueCore(Freezable sourceFreezable)
         {
-            var sourceCollection = (GeometryKeyFrameCollection)sourceFreezable;
+            var sourceCollection = (GeometryKeyFrameCollection) sourceFreezable;
             base.CloneCurrentValueCore(sourceFreezable);
 
             var count = sourceCollection._keyFrames.Count;
@@ -69,7 +69,7 @@ namespace HandyControl.Media.Animation
 
             for (var i = 0; i < count; i++)
             {
-                var keyFrame = (GeometryKeyFrame)sourceCollection._keyFrames[i].CloneCurrentValue();
+                var keyFrame = (GeometryKeyFrame) sourceCollection._keyFrames[i].CloneCurrentValue();
                 _keyFrames.Add(keyFrame);
                 OnFreezablePropertyChanged(null, keyFrame);
             }
@@ -77,7 +77,7 @@ namespace HandyControl.Media.Animation
 
         protected override void GetAsFrozenCore(Freezable sourceFreezable)
         {
-            var sourceCollection = (GeometryKeyFrameCollection)sourceFreezable;
+            var sourceCollection = (GeometryKeyFrameCollection) sourceFreezable;
             base.GetAsFrozenCore(sourceFreezable);
 
             var count = sourceCollection._keyFrames.Count;
@@ -86,7 +86,7 @@ namespace HandyControl.Media.Animation
 
             for (var i = 0; i < count; i++)
             {
-                var keyFrame = (GeometryKeyFrame)sourceCollection._keyFrames[i].GetAsFrozen();
+                var keyFrame = (GeometryKeyFrame) sourceCollection._keyFrames[i].GetAsFrozen();
                 _keyFrames.Add(keyFrame);
                 OnFreezablePropertyChanged(null, keyFrame);
             }
@@ -94,7 +94,7 @@ namespace HandyControl.Media.Animation
 
         protected override void GetCurrentValueAsFrozenCore(Freezable sourceFreezable)
         {
-            var sourceCollection = (GeometryKeyFrameCollection)sourceFreezable;
+            var sourceCollection = (GeometryKeyFrameCollection) sourceFreezable;
             base.GetCurrentValueAsFrozenCore(sourceFreezable);
 
             var count = sourceCollection._keyFrames.Count;
@@ -103,7 +103,7 @@ namespace HandyControl.Media.Animation
 
             for (var i = 0; i < count; i++)
             {
-                var keyFrame = (GeometryKeyFrame)sourceCollection._keyFrames[i].GetCurrentValueAsFrozen();
+                var keyFrame = (GeometryKeyFrame) sourceCollection._keyFrames[i].GetCurrentValueAsFrozen();
                 _keyFrames.Add(keyFrame);
                 OnFreezablePropertyChanged(null, keyFrame);
             }
@@ -132,7 +132,7 @@ namespace HandyControl.Media.Animation
         {
             ReadPreamble();
 
-            ((ICollection)_keyFrames).CopyTo(array, index);
+            ((ICollection) _keyFrames).CopyTo(array, index);
         }
 
         public void CopyTo(GeometryKeyFrame[] array, int index)
@@ -151,14 +151,14 @@ namespace HandyControl.Media.Animation
                 return _keyFrames.Count;
             }
         }
-        
+
         public object SyncRoot
         {
             get
             {
                 ReadPreamble();
 
-                return ((ICollection)_keyFrames).SyncRoot;
+                return ((ICollection) _keyFrames).SyncRoot;
             }
         }
 
@@ -172,7 +172,7 @@ namespace HandyControl.Media.Animation
             }
         }
 
-        int IList.Add(object keyFrame) => Add((GeometryKeyFrame)keyFrame);
+        int IList.Add(object keyFrame) => Add((GeometryKeyFrame) keyFrame);
 
         public int Add(GeometryKeyFrame keyFrame)
         {
@@ -196,7 +196,7 @@ namespace HandyControl.Media.Animation
             WritePreamble();
 
             if (_keyFrames.Count <= 0) return;
-            
+
             foreach (var frame in _keyFrames)
             {
                 OnFreezablePropertyChanged(frame, null);
@@ -207,7 +207,7 @@ namespace HandyControl.Media.Animation
             WritePostscript();
         }
 
-        bool IList.Contains(object keyFrame) => Contains((GeometryKeyFrame)keyFrame);
+        bool IList.Contains(object keyFrame) => Contains((GeometryKeyFrame) keyFrame);
 
         public bool Contains(GeometryKeyFrame keyFrame)
         {
@@ -216,7 +216,7 @@ namespace HandyControl.Media.Animation
             return _keyFrames.Contains(keyFrame);
         }
 
-        int IList.IndexOf(object keyFrame) => IndexOf((GeometryKeyFrame)keyFrame);
+        int IList.IndexOf(object keyFrame) => IndexOf((GeometryKeyFrame) keyFrame);
 
         public int IndexOf(GeometryKeyFrame keyFrame)
         {
@@ -225,7 +225,7 @@ namespace HandyControl.Media.Animation
             return _keyFrames.IndexOf(keyFrame);
         }
 
-        void IList.Insert(int index, object keyFrame) => Insert(index, (GeometryKeyFrame)keyFrame);
+        void IList.Insert(int index, object keyFrame) => Insert(index, (GeometryKeyFrame) keyFrame);
 
         public void Insert(int index, GeometryKeyFrame keyFrame)
         {
@@ -242,7 +242,7 @@ namespace HandyControl.Media.Animation
             WritePostscript();
         }
 
-        void IList.Remove(object keyFrame) => Remove((GeometryKeyFrame)keyFrame);
+        void IList.Remove(object keyFrame) => Remove((GeometryKeyFrame) keyFrame);
 
         public void Remove(GeometryKeyFrame keyFrame)
         {
@@ -270,7 +270,7 @@ namespace HandyControl.Media.Animation
         object IList.this[int index]
         {
             get => this[index];
-            set => this[index] = (GeometryKeyFrame)value;
+            set => this[index] = (GeometryKeyFrame) value;
         }
 
         public GeometryKeyFrame this[int index]

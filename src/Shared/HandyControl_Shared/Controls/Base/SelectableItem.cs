@@ -66,8 +66,8 @@ namespace HandyControl.Controls
 
         public bool IsSelected
         {
-            get => (bool)GetValue(IsSelectedProperty);
-            set => SetValue(IsSelectedProperty, value);
+            get => (bool) GetValue(IsSelectedProperty);
+            set => SetValue(IsSelectedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty SelfManageProperty = DependencyProperty.Register(
@@ -76,7 +76,7 @@ namespace HandyControl.Controls
         public bool SelfManage
         {
             get => (bool) GetValue(SelfManageProperty);
-            set => SetValue(SelfManageProperty, value);
+            set => SetValue(SelfManageProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty CanDeselectProperty = DependencyProperty.Register(
@@ -85,7 +85,7 @@ namespace HandyControl.Controls
         public bool CanDeselect
         {
             get => (bool) GetValue(CanDeselectProperty);
-            set => SetValue(CanDeselectProperty, value);
+            set => SetValue(CanDeselectProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly RoutedEvent SelectedEvent =

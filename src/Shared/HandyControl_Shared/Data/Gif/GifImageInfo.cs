@@ -76,10 +76,8 @@ namespace HandyControl.Data
             {
                 FrameCount = 1;
             }
-            if (_frameDelay == null)
-            {
-                _frameDelay = new int[FrameCount];
-            }
+
+            _frameDelay ??= new int[FrameCount];
         }
 
         public int FrameDelay(int frame) => _frameDelay[frame];

@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
+using System.Windows;
 using HandyControl.Data;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Tools.Converter;
 using Newtonsoft.Json;
 
@@ -13,6 +16,38 @@ namespace HandyControlDemo.Service
 {
     public class DataService
     {
+        internal ObservableCollection<TabControlDemoModel> GetTabControlDemoDataList()
+        {
+            return new ObservableCollection<TabControlDemoModel>
+            {
+                new TabControlDemoModel
+                {
+                    Header = "Success",
+                    BackgroundToken = ResourceToken.SuccessBrush
+                },
+                new TabControlDemoModel
+                {
+                    Header = "Primary",
+                    BackgroundToken = ResourceToken.PrimaryBrush
+                },
+                new TabControlDemoModel
+                {
+                    Header = "Warning",
+                    BackgroundToken = ResourceToken.WarningBrush
+                },
+                new TabControlDemoModel
+                {
+                    Header = "Danger",
+                    BackgroundToken = ResourceToken.DangerBrush
+                },
+                new TabControlDemoModel
+                {
+                    Header = "Info",
+                    BackgroundToken = ResourceToken.InfoBrush
+                }
+            };
+        }
+
         internal List<DemoDataModel> GetDemoDataList()
         {
             var list = new List<DemoDataModel>();
@@ -26,7 +61,7 @@ namespace HandyControlDemo.Service
                         Index = j,
                         IsSelected = j % 2 == 0,
                         Name = $"SubName{j}",
-                        Type = (DemoType)j
+                        Type = (DemoType) j
                     });
                 }
                 var model = new DemoDataModel
@@ -34,7 +69,7 @@ namespace HandyControlDemo.Service
                     Index = i,
                     IsSelected = i % 2 == 0,
                     Name = $"Name{i}",
-                    Type = (DemoType)i,
+                    Type = (DemoType) i,
                     DataList = dataList,
                     ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i % 6 + 1}.png",
                     Remark = new string(i.ToString()[0], 10)
@@ -45,7 +80,7 @@ namespace HandyControlDemo.Service
             return list;
         }
 
-        public List<DemoDataModel> GetDemoDataList(int count)
+        internal List<DemoDataModel> GetDemoDataList(int count)
         {
             var list = new List<DemoDataModel>();
             for (var i = 1; i <= count; i++)
@@ -56,7 +91,7 @@ namespace HandyControlDemo.Service
                     Index = i,
                     IsSelected = i % 2 == 0,
                     Name = $"Name{i}",
-                    Type = (DemoType)index,
+                    Type = (DemoType) index,
                     ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{index}.png",
                     Remark = new string(i.ToString()[0], 10)
                 };
@@ -72,7 +107,7 @@ namespace HandyControlDemo.Service
             var list = new List<string>();
             for (var i = 1; i <= 9; i++)
             {
-                list.Add($"{converter.Convert(Properties.Langs.Lang.Text, null, i, CultureInfo.CurrentCulture)}{i}");
+                list.Add($"{converter.Convert(Lang.Text, null, i, CultureInfo.CurrentCulture)}{i}");
             }
 
             return list;
@@ -94,10 +129,11 @@ namespace HandyControlDemo.Service
                     Link = item.html_url
                 }));
             }
-            catch
+            catch (Exception e)
             {
-                // ignored
+                HandyControl.Controls.MessageBox.Error(e.Message, Lang.Error);
             }
+
             return list;
         }
 
@@ -145,14 +181,27 @@ namespace HandyControlDemo.Service
                 new AvatarModel
                 {
                     DisplayName = "AutumnBox",
-                    AvatarUri = "https://www.atmb.top/images/leaves.png",
+                    AvatarUri = "https://raw.githubusercontent.com/zsh2401/AutumnBox/master/src/AutumnBox.GUI/Resources/Images/icon.png",
                     Link = "https://github.com/zsh2401/AutumnBox"
                 },
                 new AvatarModel
                 {
-                    DisplayName = "PandaX Studio",
-                    AvatarUri = "https://raw.githubusercontent.com/aboutlong/pandaxstudio/master/pandax/pandax/source/image/logo.png",
-                    Link = "https://github.com/aboutlong/pandaxstudio"
+                    DisplayName = "quicker",
+                    AvatarUri = "https://files.getquicker.net/_sitefiles/quicker_round_128.png",
+                    Link = "https://getquicker.net"
+                }
+            };
+        }
+
+        internal List<AvatarModel> GetWebsiteDataList()
+        {
+            return new List<AvatarModel>
+            {
+                new AvatarModel
+                {
+                    DisplayName = "Dotnet9",
+                    AvatarUri = "https://pic.cnblogs.com/avatar/1663243/20191124121029.png",
+                    Link = "https://dotnet9.com/"
                 }
             };
         }
@@ -238,23 +287,23 @@ namespace HandyControlDemo.Service
             {
                 new StepBarDemoModel
                 {
-                    Header = $"{Properties.Langs.Lang.Step}1",
-                    Content = Properties.Langs.Lang.Register
+                    Header = LangKeys.Step,
+                    Content = LangKeys.Register
                 },
                 new StepBarDemoModel
                 {
-                    Header = $"{Properties.Langs.Lang.Step}2",
-                    Content = Properties.Langs.Lang.BasicInfo
+                    Header = LangKeys.Step,
+                    Content = LangKeys.BasicInfo
                 },
                 new StepBarDemoModel
                 {
-                    Header = $"{Properties.Langs.Lang.Step}3",
-                    Content = Properties.Langs.Lang.UploadFile
+                    Header = LangKeys.Step,
+                    Content = LangKeys.UploadFile
                 },
                 new StepBarDemoModel
                 {
-                    Header = $"{Properties.Langs.Lang.Step}4",
-                    Content = Properties.Langs.Lang.Complete
+                    Header = LangKeys.Step,
+                    Content = LangKeys.Complete
                 }
             };
         }
@@ -314,6 +363,86 @@ namespace HandyControlDemo.Service
                     BackgroundToken = ResourceToken.DangerBrush
                 }
             };
+        }
+
+        internal List<DemoInfoModel> GetDemoInfo()
+        {
+            var infoList = new List<DemoInfoModel>();
+
+            var stream = Application.GetResourceStream(new Uri("Data/DemoInfo.json", UriKind.Relative))?.Stream;
+            if (stream == null) return infoList;
+
+            string jsonStr;
+            using (var reader = new StreamReader(stream))
+            {
+                jsonStr = reader.ReadToEnd();
+            }
+
+            var jsonObj = JsonConvert.DeserializeObject<dynamic>(jsonStr);
+            foreach (var item in jsonObj)
+            {
+                var titleKey = (string) item.title;
+                var title = titleKey;
+                List<DemoItemModel> list = Convert2DemoItemList(item.demoItemList);
+
+                var demoInfoModel = new DemoInfoModel
+                {
+                    Key = titleKey,
+                    Title = title,
+                    DemoItemList = list,
+                    SelectedIndex = (int) item.selectedIndex,
+                    IsGroupEnabled = (bool) item.group
+                };
+
+                infoList.Add(demoInfoModel);
+            }
+
+            return infoList;
+        }
+
+        private List<DemoItemModel> Convert2DemoItemList(dynamic list)
+        {
+            var resultList = new List<DemoItemModel>();
+
+            foreach (var item in list)
+            {
+                var name = (string) item[0];
+                string targetCtlName = item[1];
+                string imageName = item[2];
+                var isNew = !string.IsNullOrEmpty((string) item[3]);
+                var groupName = (string) item[4];
+                if (string.IsNullOrEmpty(groupName))
+                {
+                    groupName = "Misc";
+                }
+
+                resultList.Add(new DemoItemModel
+                {
+                    Name = name,
+                    TargetCtlName = targetCtlName,
+                    ImageName = $"../../Resources/Img/LeftMainContent/{imageName}.png",
+                    IsNew = isNew,
+                    GroupName = groupName
+                });
+            }
+
+            return resultList;
+        }
+
+        public string GetDemoUrl(DemoInfoModel demoInfo, DemoItemModel demoItem)
+        {
+            var key = demoInfo.Key switch
+            {
+                "Styles" => "native_controls",
+                "Controls" => "extend_controls",
+                "Tools" => "tools",
+                _ => string.Empty
+            };
+
+            var domainName = LangProvider.Culture == null || LangProvider.Culture.Name.ToLower() == "zh-cn"
+                ? "handyorg"
+                : "ghost1372";
+            return $"https://{domainName}.github.io/handycontrol/{key}/{demoItem.Name[0].ToString().ToLower()}{demoItem.Name.Substring(1)}";
         }
     }
 }

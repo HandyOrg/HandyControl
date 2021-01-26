@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -27,7 +28,7 @@ namespace HandyControl.Controls
         public bool ShowCloseButton
         {
             get => (bool) GetValue(ShowCloseButtonProperty);
-            set => SetValue(ShowCloseButtonProperty, value);
+            set => SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty SelectableProperty = DependencyProperty.Register(
@@ -36,7 +37,7 @@ namespace HandyControl.Controls
         public bool Selectable
         {
             get => (bool) GetValue(SelectableProperty);
-            set => SetValue(SelectableProperty, value);
+            set => SetValue(SelectableProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
@@ -49,7 +50,65 @@ namespace HandyControl.Controls
         public bool IsSelected
         {
             get => (bool) GetValue(IsSelectedProperty);
-            set => SetValue(IsSelectedProperty, value);
+            set => SetValue(IsSelectedProperty, ValueBoxes.BooleanBox(value));
+        }
+
+        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
+            "Header", typeof(object), typeof(Tag), new PropertyMetadata(default, OnHeaderChanged));
+
+        private static void OnHeaderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctrl = (Tag) d;
+
+            ctrl.SetValue(HasHeaderPropertyKey, e.NewValue != null ? ValueBoxes.TrueBox : ValueBoxes.FalseBox);
+            ctrl.OnHeaderChanged(e.OldValue, e.NewValue);
+        }
+
+        protected virtual void OnHeaderChanged(object oldHeader, object newHeader)
+        {
+            RemoveLogicalChild(oldHeader);
+            AddLogicalChild(newHeader);
+        }
+
+        public object Header
+        {
+            get => GetValue(HeaderProperty);
+            set => SetValue(HeaderProperty, value);
+        }
+
+        internal static readonly DependencyPropertyKey HasHeaderPropertyKey = DependencyProperty.RegisterReadOnly(
+            "HasHeader", typeof(bool), typeof(Tag), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public static readonly DependencyProperty HasHeaderProperty = HasHeaderPropertyKey.DependencyProperty;
+
+        [Bindable(false), Browsable(false)]
+        public bool HasHeader => (bool) GetValue(HasHeaderProperty);
+
+        public static readonly DependencyProperty HeaderStringFormatProperty = DependencyProperty.Register(
+            "HeaderStringFormat", typeof(string), typeof(Tag), new PropertyMetadata(default(string)));
+
+        public string HeaderStringFormat
+        {
+            get => (string) GetValue(HeaderStringFormatProperty);
+            set => SetValue(HeaderStringFormatProperty, value);
+        }
+
+        public static readonly DependencyProperty HeaderTemplateSelectorProperty = DependencyProperty.Register(
+            "HeaderTemplateSelector", typeof(DataTemplateSelector), typeof(Tag), new PropertyMetadata(default(DataTemplateSelector)));
+
+        public DataTemplateSelector HeaderTemplateSelector
+        {
+            get => (DataTemplateSelector) GetValue(HeaderTemplateSelectorProperty);
+            set => SetValue(HeaderTemplateSelectorProperty, value);
+        }
+
+        public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
+            "HeaderTemplate", typeof(DataTemplate), typeof(Tag), new PropertyMetadata(default(DataTemplate)));
+
+        public DataTemplate HeaderTemplate
+        {
+            get => (DataTemplate) GetValue(HeaderTemplateProperty);
+            set => SetValue(HeaderTemplateProperty, value);
         }
 
         public static readonly RoutedEvent SelectedEvent = EventManager.RegisterRoutedEvent("Selected", RoutingStrategy.Bubble, typeof(EventHandler), typeof(Tag));

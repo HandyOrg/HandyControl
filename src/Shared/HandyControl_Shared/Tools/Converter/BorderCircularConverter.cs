@@ -17,7 +17,7 @@ namespace HandyControl.Tools.Converter
                 }
 
                 var min = Math.Min(width, height);
-                return new CornerRadius(min/2);
+                return new CornerRadius(min / 2);
             }
 
             return DependencyProperty.UnsetValue;

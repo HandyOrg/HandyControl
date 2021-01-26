@@ -1,16 +1,17 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls"
-                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
-        <ResourceDictionary Source="../../Basic/Behaviors.xaml"/>
-        <ResourceDictionary Source="../../Basic/Sizes.xaml"/>
-        <ResourceDictionary Source="../Base/BaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Behaviors.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Sizes.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/BaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="TransferItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="controls:TransferItem">
+    <Style x:Key="TransferItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:TransferItem">
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualMargin0}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="CanDeselect" Value="True"/>
@@ -20,9 +21,9 @@
         <Setter Property="Margin" Value="5,0,5,5"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:TransferItem">
-                    <Border x:Name="BorderRoot" Background="{DynamicResource RegionBrush}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
-                        <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=controls:TransferGroup}}"/>
+                <ControlTemplate TargetType="hc:TransferItem">
+                    <Border x:Name="BorderRoot" Background="{DynamicResource RegionBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                        <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=hc:TransferGroup}}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="True">
@@ -65,15 +66,15 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="TransferGroupBaseStyle" TargetType="controls:TransferGroup">
+    <Style x:Key="TransferGroupBaseStyle" TargetType="hc:TransferGroup">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:TransferGroup">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(controls:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                <ControlTemplate TargetType="hc:TransferGroup">
+                    <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <ScrollViewer Margin="0,5">
                             <StackPanel x:Name="PART_Panel"/>
                         </ScrollViewer>
@@ -83,15 +84,15 @@
         </Setter>
     </Style>
 
-    <Style x:Key="TransferBaseStyle" TargetType="controls:Transfer">
+    <Style x:Key="TransferBaseStyle" TargetType="hc:Transfer">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource TransferItemBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
-                <ControlTemplate TargetType="controls:Transfer">
+                <ControlTemplate TargetType="hc:Transfer">
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition MinWidth="200"/>
@@ -104,12 +105,12 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <controls:TransferGroup x:Name="PART_ItemsOrigin" Style="{StaticResource TransferGroupBaseStyle}" Grid.RowSpan="4" ItemTemplate="{TemplateBinding ItemTemplate}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}"/>
+                        <hc:TransferGroup x:Name="PART_ItemsOrigin" Style="{StaticResource TransferGroupBaseStyle}" Grid.RowSpan="4" ItemTemplate="{TemplateBinding ItemTemplate}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}"/>
                         <StackPanel Margin="32,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1">
-                            <Button controls:IconElement.Geometry="{StaticResource LeftGeometry}" Command="interactivity:ControlCommands.Cancel"/>
-                            <Button controls:IconElement.Geometry="{StaticResource RightGeometry}" Margin="0,10,0,0" Command="interactivity:ControlCommands.Selected"/>
+                            <Button hc:IconElement.Geometry="{StaticResource LeftGeometry}" Command="interactivity:ControlCommands.Cancel"/>
+                            <Button hc:IconElement.Geometry="{StaticResource RightGeometry}" Margin="0,10,0,0" Command="interactivity:ControlCommands.Selected"/>
                         </StackPanel>
-                        <controls:TransferGroup x:Name="PART_ItemsSelected" Style="{StaticResource TransferGroupBaseStyle}" Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" ItemTemplate="{TemplateBinding ItemTemplate}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}"/>
+                        <hc:TransferGroup x:Name="PART_ItemsSelected" Style="{StaticResource TransferGroupBaseStyle}" Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" ItemTemplate="{TemplateBinding ItemTemplate}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}"/>
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

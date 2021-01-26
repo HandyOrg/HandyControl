@@ -33,7 +33,7 @@ namespace HandyControl.Controls
 
         public string TimeFormat
         {
-            get => (string)GetValue(TimeFormatProperty);
+            get => (string) GetValue(TimeFormatProperty);
             set => SetValue(TimeFormatProperty, value);
         }
 
@@ -42,8 +42,8 @@ namespace HandyControl.Controls
 
         private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ClockBase)d;
-            var v = (DateTime?)e.NewValue;
+            var ctl = (ClockBase) d;
+            var v = (DateTime?) e.NewValue;
             ctl.DisplayTime = v ?? DateTime.Now;
             ctl.OnSelectedTimeChanged(new FunctionEventArgs<DateTime?>(SelectedTimeChangedEvent, ctl)
             {
@@ -64,15 +64,15 @@ namespace HandyControl.Controls
 
         private static void OnDisplayTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ClockBase)d;
-            var v = (DateTime)e.NewValue;
+            var ctl = (ClockBase) d;
+            var v = (DateTime) e.NewValue;
             ctl.Update(v);
             ctl.OnDisplayTimeChanged(new FunctionEventArgs<DateTime>(v));
         }
 
         public DateTime DisplayTime
         {
-            get => (DateTime)GetValue(DisplayTimeProperty);
+            get => (DateTime) GetValue(DisplayTimeProperty);
             set => SetValue(DisplayTimeProperty, value);
         }
 
@@ -82,7 +82,7 @@ namespace HandyControl.Controls
         internal bool ShowConfirmButton
         {
             get => (bool) GetValue(ShowConfirmButtonProperty);
-            set => SetValue(ShowConfirmButtonProperty, value);
+            set => SetValue(ShowConfirmButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected virtual void OnSelectedTimeChanged(FunctionEventArgs<DateTime?> e) => RaiseEvent(e);

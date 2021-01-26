@@ -15,7 +15,7 @@ namespace HandyControl.Tools.Converter
             {
                 return Visibility.Collapsed;
             }
-            
+
             var arr = new List<bool>();
             foreach (var item in values)
             {

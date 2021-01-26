@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Interop;
@@ -13,7 +14,7 @@ namespace HandyControl.Controls
             "IsDragElement", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDragElementChanged));
 
         public static void SetIsDragElement(DependencyObject element, bool value)
-            => element.SetValue(IsDragElementProperty, value);
+            => element.SetValue(IsDragElementProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetIsDragElement(DependencyObject element)
             => (bool) element.GetValue(IsDragElementProperty);
@@ -22,7 +23,7 @@ namespace HandyControl.Controls
         {
             if (d is UIElement ctl)
             {
-                if ((bool)e.NewValue)
+                if ((bool) e.NewValue)
                 {
                     ctl.MouseLeftButtonDown += DragElement_MouseLeftButtonDown;
                 }
@@ -48,7 +49,7 @@ namespace HandyControl.Controls
         {
             if (d is System.Windows.Window window)
             {
-                if ((bool)e.NewValue)
+                if ((bool) e.NewValue)
                 {
                     window.PreviewKeyDown += Window_PreviewKeyDown;
                 }
@@ -68,7 +69,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetIgnoreAltF4(DependencyObject element, bool value)
-            => element.SetValue(IgnoreAltF4Property, value);
+            => element.SetValue(IgnoreAltF4Property, ValueBoxes.BooleanBox(value));
 
         public static bool GetIgnoreAltF4(DependencyObject element)
             => (bool) element.GetValue(IgnoreAltF4Property);
@@ -80,7 +81,10 @@ namespace HandyControl.Controls
         {
             if (d is System.Windows.Window window)
             {
-                if ((bool)e.NewValue)
+                var v = (bool) e.NewValue;
+                window.SetCurrentValue(System.Windows.Window.ShowInTaskbarProperty, v);
+
+                if (v)
                 {
                     window.SourceInitialized -= Window_SourceInitialized;
                 }
@@ -97,15 +101,49 @@ namespace HandyControl.Controls
             {
                 var _ = new WindowInteropHelper(window)
                 {
-                    Owner = NativeMethods.GetDesktopWindow()
+                    Owner = InteropMethods.GetDesktopWindow()
                 };
             }
         }
 
         public static void SetShowInTaskManager(DependencyObject element, bool value)
-            => element.SetValue(ShowInTaskManagerProperty, value);
+            => element.SetValue(ShowInTaskManagerProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowInTaskManager(DependencyObject element)
             => (bool) element.GetValue(ShowInTaskManagerProperty);
+
+        public static readonly DependencyProperty HideWhenClosingProperty = DependencyProperty.RegisterAttached(
+            "HideWhenClosing", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnHideWhenClosingChanged));
+
+        private static void OnHideWhenClosingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is System.Windows.Window window)
+            {
+                var v = (bool) e.NewValue;
+                if (v)
+                {
+                    window.Closing += Window_Closing;
+                }
+                else
+                {
+                    window.Closing -= Window_Closing;
+                }
+            }
+        }
+
+        private static void Window_Closing(object sender, CancelEventArgs e)
+        {
+            if (sender is System.Windows.Window window)
+            {
+                window.Hide();
+                e.Cancel = true;
+            }
+        }
+
+        public static void SetHideWhenClosing(DependencyObject element, bool value)
+            => element.SetValue(HideWhenClosingProperty, value);
+
+        public static bool GetHideWhenClosing(DependencyObject element)
+            => (bool) element.GetValue(HideWhenClosingProperty);
     }
 }

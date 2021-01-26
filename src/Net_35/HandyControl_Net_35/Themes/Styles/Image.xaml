@@ -1,8 +1,0 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-
-    <Style TargetType="Image">
-        <Setter Property="Stretch" Value="Uniform" />
-        <Setter Property="RenderOptions.BitmapScalingMode" Value="HighQuality" />
-    </Style>
-
-</ResourceDictionary>

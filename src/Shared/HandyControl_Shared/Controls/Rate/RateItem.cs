@@ -58,13 +58,13 @@ namespace HandyControl.Controls
         public bool AllowClear
         {
             get => (bool) GetValue(AllowClearProperty);
-            set => SetValue(AllowClearProperty, value);
+            set => SetValue(AllowClearProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool AllowHalf
         {
             get => (bool) GetValue(AllowHalfProperty);
-            set => SetValue(AllowHalfProperty, value);
+            set => SetValue(AllowHalfProperty, ValueBoxes.BooleanBox(value));
         }
 
         public Geometry Icon
@@ -76,13 +76,13 @@ namespace HandyControl.Controls
         internal bool IsSelected
         {
             get => (bool) GetValue(IsSelectedProperty);
-            set => SetValue(IsSelectedProperty, value);
+            set => SetValue(IsSelectedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool IsReadOnly
         {
-            get => (bool)GetValue(IsReadOnlyProperty);
-            set => SetValue(IsReadOnlyProperty, value);
+            get => (bool) GetValue(IsReadOnlyProperty);
+            set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal bool IsHalf
@@ -163,7 +163,7 @@ namespace HandyControl.Controls
             if (IsReadOnly) return;
             _isSentValue = false;
             IsSelected = true;
-            RaiseEvent(new RoutedEventArgs(SelectedChangedEvent) {Source = this});
+            RaiseEvent(new RoutedEventArgs(SelectedChangedEvent) { Source = this });
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
@@ -192,7 +192,7 @@ namespace HandyControl.Controls
                     {
                         if (!_isSentValue)
                         {
-                            RaiseEvent(new RoutedEventArgs(ValueChangedEvent) {Source = this});
+                            RaiseEvent(new RoutedEventArgs(ValueChangedEvent) { Source = this });
                             _isMouseLeftButtonDown = false;
                             _isSentValue = true;
                             return;
@@ -213,7 +213,7 @@ namespace HandyControl.Controls
                     }
                 }
 
-                RaiseEvent(new RoutedEventArgs(ValueChangedEvent) {Source = this});
+                RaiseEvent(new RoutedEventArgs(ValueChangedEvent) { Source = this });
                 _isMouseLeftButtonDown = false;
             }
         }

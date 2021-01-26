@@ -8,9 +8,6 @@ namespace HandyControl.Controls
     /// <summary>
     ///     切换块
     /// </summary>
-    /// <remarks>
-    ///     在不需要命中测试的情况下可代替ToggleButton或CheckBox，以减少内存用量。
-    /// </remarks>
     public class ToggleBlock : Control
     {
         public static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register(
@@ -27,7 +24,7 @@ namespace HandyControl.Controls
                 // Because Nullable<bool> unboxing is very slow (uses reflection) first we cast to bool
                 var value = GetValue(IsCheckedProperty);
                 // ReSharper disable once RedundantExplicitNullableCreation
-                return value == null ? new bool?() : new bool?((bool)value);
+                return value == null ? new bool?() : new bool?((bool) value);
             }
             set => SetValue(IsCheckedProperty, value.HasValue ? ValueBoxes.BooleanBox(value.Value) : null);
         }

@@ -3,31 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              DataContext="{Binding GrowlDemo,Source={StaticResource Locator}}"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32">
             <GroupBox Header="Window" Padding="10,5">
                 <WrapPanel VerticalAlignment="Center">
-                    <Button Command="{Binding InfoCmd}" Content="{x:Static langs:Lang.Info}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
-                    <Button Command="{Binding SuccessCmd}" Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
-                    <Button Command="{Binding WarningCmd}" Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ButtonWarning}"/>
-                    <Button Command="{Binding ErrorCmd}" Content="{x:Static langs:Lang.Error}" Margin="5" Style="{StaticResource ButtonDanger}"/>
-                    <Button Command="{Binding AskCmd}" Content="{x:Static langs:Lang.Ask}" Margin="5" Background="BlueViolet" Foreground="White" BorderThickness="0"/>
-                    <Button Command="{Binding FatalCmd}" Content="{x:Static langs:Lang.Fatal}" Margin="5,0"/>
-                    <Button Command="{Binding ClearCmd}" Content="{x:Static langs:Lang.Clear}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
+                    <Button Command="{Binding InfoCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
+                    <Button Command="{Binding SuccessCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
+                    <Button Command="{Binding WarningCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ButtonWarning}"/>
+                    <Button Command="{Binding ErrorCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Error}}" Margin="5" Style="{StaticResource ButtonDanger}"/>
+                    <Button Command="{Binding AskCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Ask}}" Margin="5" Background="BlueViolet" Foreground="White" BorderThickness="0"/>
+                    <Button Command="{Binding FatalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Fatal}}" Margin="5,0"/>
+                    <Button Command="{Binding ClearCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Clear}}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
                 </WrapPanel>
             </GroupBox>
-            <Button Command="{Binding NewWindowCmd}" Content="{x:Static langs:Lang.NewWindow}" Margin="0,32" HorizontalAlignment="Left"/>
+            <Button Command="{Binding NewWindowCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.NewWindow}}" Margin="0,32" HorizontalAlignment="Left"/>
             <GroupBox Header="Desktop" Padding="10,5">
                 <WrapPanel VerticalAlignment="Center">
-                    <Button Command="{Binding InfoGlobalCmd}" Content="{x:Static langs:Lang.Info}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
-                    <Button Command="{Binding SuccessGlobalCmd}" Content="{x:Static langs:Lang.Success}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
-                    <Button Command="{Binding WarningGlobalCmd}" Content="{x:Static langs:Lang.Warning}" Margin="5" Style="{StaticResource ButtonWarning}"/>
-                    <Button Command="{Binding ErrorGlobalCmd}" Content="{x:Static langs:Lang.Error}" Margin="5" Style="{StaticResource ButtonDanger}"/>
-                    <Button Command="{Binding AskGlobalCmd}" Content="{x:Static langs:Lang.Ask}" Margin="5" Background="BlueViolet" Foreground="White" BorderThickness="0"/>
-                    <Button Command="{Binding FatalGlobalCmd}" Content="{x:Static langs:Lang.Fatal}" Margin="5,0"/>
-                    <Button Command="{Binding ClearGlobalCmd}" Content="{x:Static langs:Lang.Clear}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
+                    <Button Command="{Binding InfoGlobalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="0,5,5,5" Style="{StaticResource ButtonInfo}"/>
+                    <Button Command="{Binding SuccessGlobalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ButtonSuccess}"/>
+                    <Button Command="{Binding WarningGlobalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ButtonWarning}"/>
+                    <Button Command="{Binding ErrorGlobalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Error}}" Margin="5" Style="{StaticResource ButtonDanger}"/>
+                    <Button Command="{Binding AskGlobalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Ask}}" Margin="5" Background="BlueViolet" Foreground="White" BorderThickness="0"/>
+                    <Button Command="{Binding FatalGlobalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Fatal}}" Margin="5,0"/>
+                    <Button Command="{Binding ClearGlobalCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.Clear}}" Margin="5,0,0,0" Style="{StaticResource ButtonPrimary}"/>
                 </WrapPanel>
             </GroupBox>
         </StackPanel>

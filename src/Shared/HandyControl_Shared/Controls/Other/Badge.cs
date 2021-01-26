@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using HandyControl.Data;
 
 namespace HandyControl.Controls
@@ -21,7 +22,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            "Text", typeof(string), typeof(Badge), new PropertyMetadata(default(string)));
+            "Text", typeof(string), typeof(Badge), new PropertyMetadata("0"));
 
         public string Text
         {
@@ -34,9 +35,9 @@ namespace HandyControl.Controls
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (Badge)d;
-            var v = (int)e.NewValue;
-            ctl.Text = v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+";
+            var ctl = (Badge) d;
+            var v = (int) e.NewValue;
+            ctl.SetCurrentValue(TextProperty, v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+");
             if (ctl.IsInitialized)
             {
                 ctl.RaiseEvent(new FunctionEventArgs<int>(ValueChangedEvent, ctl)
@@ -48,7 +49,7 @@ namespace HandyControl.Controls
 
         public int Value
         {
-            get => (int)GetValue(ValueProperty);
+            get => (int) GetValue(ValueProperty);
             set => SetValue(ValueProperty, value);
         }
 
@@ -57,7 +58,7 @@ namespace HandyControl.Controls
 
         public BadgeStatus Status
         {
-            get => (BadgeStatus)GetValue(StatusProperty);
+            get => (BadgeStatus) GetValue(StatusProperty);
             set => SetValue(StatusProperty, value);
         }
 
@@ -66,7 +67,7 @@ namespace HandyControl.Controls
 
         public int Maximum
         {
-            get => (int)GetValue(MaximumProperty);
+            get => (int) GetValue(MaximumProperty);
             set => SetValue(MaximumProperty, value);
         }
 
@@ -75,8 +76,19 @@ namespace HandyControl.Controls
 
         public Thickness BadgeMargin
         {
-            get => (Thickness)GetValue(BadgeMarginProperty);
+            get => (Thickness) GetValue(BadgeMarginProperty);
             set => SetValue(BadgeMarginProperty, value);
         }
+
+        public static readonly DependencyProperty ShowBadgeProperty = DependencyProperty.Register(
+            "ShowBadge", typeof(bool), typeof(Badge), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool ShowBadge
+        {
+            get => (bool) GetValue(ShowBadgeProperty);
+            set => SetValue(ShowBadgeProperty, ValueBoxes.BooleanBox(value));
+        }
+
+        protected override Geometry GetLayoutClip(Size layoutSlotSize) => null;
     }
 }

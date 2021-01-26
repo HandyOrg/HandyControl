@@ -2,6 +2,6 @@
 {
     internal interface IFull
     {
-        
+
     }
 }

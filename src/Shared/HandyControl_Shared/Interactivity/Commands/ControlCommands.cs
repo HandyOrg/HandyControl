@@ -108,6 +108,11 @@ namespace HandyControl.Interactivity
         public static RoutedCommand Next { get; } = new RoutedCommand(nameof(Next), typeof(ControlCommands));
 
         /// <summary>
+        ///     跳转
+        /// </summary>
+        public static RoutedCommand Jump { get; } = new RoutedCommand(nameof(Jump), typeof(ControlCommands));
+
+        /// <summary>
         ///     上午
         /// </summary>
         public static RoutedCommand Am { get; } = new RoutedCommand(nameof(Am), typeof(ControlCommands));
@@ -161,5 +166,20 @@ namespace HandyControl.Interactivity
         ///     关闭窗口
         /// </summary>
         public static CloseWindowCommand CloseWindow { get; } = new CloseWindowCommand();
+
+        /// <summary>
+        ///     开始截图
+        /// </summary>
+        public static StartScreenshotCommand StartScreenshot { get; } = new StartScreenshotCommand();
+
+        /// <summary>
+        ///     按照类别排序
+        /// </summary>
+        public static RoutedCommand SortByCategory { get; } = new RoutedCommand(nameof(SortByCategory), typeof(ControlCommands));
+
+        /// <summary>
+        ///     按照名称排序
+        /// </summary>
+        public static RoutedCommand SortByName { get; } = new RoutedCommand(nameof(SortByName), typeof(ControlCommands));
     }
 }

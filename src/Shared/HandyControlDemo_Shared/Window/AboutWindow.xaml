@@ -6,18 +6,18 @@
            xmlns:hc="https://handyorg.github.io/handycontrol"
            mc:Ignorable="d"
            xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-           Title="{x:Static langs:Lang.About}"
+           xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+           Title="{ex:Lang Key={x:Static langs:LangKeys.About}}"
            ShowTitle="True"
            BorderThickness="1"
            BorderBrush="#262e2f"
-           Style="{StaticResource WindowWin10}"
            ResizeMode="NoResize"
            ShowInTaskbar="False"
            WindowStartupLocation="CenterOwner"
            Width="340"
            Height="220">
     <hc:SimplePanel>
-        <Path Data="{StaticResource LogoGeometry}" Width="40" Height="40" Fill="#f06632" VerticalAlignment="Top" Margin="0,16,0,0"/>
+        <Path Data="{StaticResource LogoGeometry}" Width="40" Height="40" Fill="#f06632" VerticalAlignment="Top" Margin="0,16,0,0" Stretch="Uniform"/>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,64,0,0">
             <TextBlock Text="HandyControl" FontSize="30" Foreground="{StaticResource PrimaryBrush}" VerticalAlignment="Top" HorizontalAlignment="Center"/>
             <TextBlock Text="{Binding Version}" HorizontalAlignment="Center" Margin="0,10,0,0" Foreground="{StaticResource PrimaryBrush}"/>

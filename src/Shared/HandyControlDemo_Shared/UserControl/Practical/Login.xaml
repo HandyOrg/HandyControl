@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.Login"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <Grid Width="320" Height="567" Background="#f2f3f7">
+        <StackPanel VerticalAlignment="Bottom">
+            <Button Content="ｻｲﾝｱｯプ" Height="44" Width="166" hc:BorderElement.CornerRadius="22" BorderThickness="0" Background="#41508d" Foreground="#edf0fb"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

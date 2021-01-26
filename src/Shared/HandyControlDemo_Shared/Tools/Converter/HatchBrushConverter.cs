@@ -20,7 +20,7 @@ namespace HandyControlDemo.Tools.Converter
         {
             if (value is HatchStyle style)
             {
-                return _brushGenerator.GetHatchBrush(style, ResourceHelper.GetResource<Color>("DarkPrimaryColor"), ResourceHelper.GetResource<Color>("BackgroundColor"));
+                return _brushGenerator.GetHatchBrush(style, ResourceHelper.GetResource<Color>(ResourceToken.DarkPrimaryColor), ResourceHelper.GetResource<Color>(ResourceToken.BackgroundColor));
             }
             return Brushes.Transparent;
         }

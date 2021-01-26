@@ -4,13 +4,12 @@
              xmlns:viewModel="clr-namespace:HandyControlDemo.ViewModel"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:d1P1="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:sys="clr-namespace:System;assembly=mscorlib"
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              d1P1:Ignorable="d" 
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
@@ -25,29 +24,12 @@
                         <ResourceDictionary Source="Resources/Themes/Theme.xaml"/>
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
-                <ResourceDictionary>
-                    <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True"/>
-                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
-
-            <ObjectDataProvider x:Key="DemoTypes" MethodName="GetValues" ObjectType="sys:Enum">
-                <ObjectDataProvider.MethodParameters>
-                    <x:Type Type="data:DemoType"/>
-                </ObjectDataProvider.MethodParameters>
-            </ObjectDataProvider>
-
-            <ObjectDataProvider x:Key="ShowAnimations" MethodName="GetValues" ObjectType="sys:Enum">
-                <ObjectDataProvider.MethodParameters>
-                    <x:Type TypeName="hc:ShowAnimation"/>
-                </ObjectDataProvider.MethodParameters>
-            </ObjectDataProvider>
-
-            <ObjectDataProvider x:Key="HatchStyles" MethodName="GetValues" ObjectType="sys:Enum">
-                <ObjectDataProvider.MethodParameters>
-                    <x:Type Type="hc:HatchStyle"/>
-                </ObjectDataProvider.MethodParameters>
-            </ObjectDataProvider>
+            <langs:LangProvider x:Key="DemoLangs"/>
+            <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True"/>
+            <hc:EnumDataProvider x:Key="DemoTypes" Type="data:DemoType"/>
+            <hc:EnumDataProvider x:Key="ShowAnimations" Type="hc:ShowAnimation"/>
+            <hc:EnumDataProvider x:Key="HatchStyles" Type="hc:HatchStyle"/>
         </ResourceDictionary>
-
     </Application.Resources>
 </Application>

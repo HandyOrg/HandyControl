@@ -10,14 +10,27 @@ namespace HandyControl.Controls
 {
     public class OutlineText : FrameworkElement
     {
+        private Pen _pen;
+
         private FormattedText _formattedText;
 
         private Geometry _textGeometry;
+
+        private PathGeometry _clipGeometry;
 
         static OutlineText()
         {
             SnapsToDevicePixelsProperty.OverrideMetadata(typeof(OutlineText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
             UseLayoutRoundingProperty.OverrideMetadata(typeof(OutlineText), new FrameworkPropertyMetadata(ValueBoxes.TrueBox));
+        }
+
+        public static readonly DependencyProperty StrokePositionProperty = DependencyProperty.Register(
+            "StrokePosition", typeof(StrokePosition), typeof(OutlineText), new PropertyMetadata(default(StrokePosition)));
+
+        public StrokePosition StrokePosition
+        {
+            get => (StrokePosition) GetValue(StrokePositionProperty);
+            set => SetValue(StrokePositionProperty, value);
         }
 
         public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
@@ -95,7 +108,7 @@ namespace HandyControl.Controls
 
         public FontFamily FontFamily
         {
-            get => (FontFamily)GetValue(FontFamilyProperty);
+            get => (FontFamily) GetValue(FontFamilyProperty);
             set => SetValue(FontFamilyProperty, value);
         }
 
@@ -106,7 +119,7 @@ namespace HandyControl.Controls
         [TypeConverter(typeof(FontSizeConverter))]
         public double FontSize
         {
-            get => (double)GetValue(FontSizeProperty);
+            get => (double) GetValue(FontSizeProperty);
             set => SetValue(FontSizeProperty, value);
         }
 
@@ -116,7 +129,7 @@ namespace HandyControl.Controls
 
         public FontStretch FontStretch
         {
-            get => (FontStretch)GetValue(FontStretchProperty);
+            get => (FontStretch) GetValue(FontStretchProperty);
             set => SetValue(FontStretchProperty, value);
         }
 
@@ -126,7 +139,7 @@ namespace HandyControl.Controls
 
         public FontStyle FontStyle
         {
-            get => (FontStyle)GetValue(FontStyleProperty);
+            get => (FontStyle) GetValue(FontStyleProperty);
             set => SetValue(FontStyleProperty, value);
         }
 
@@ -136,14 +149,49 @@ namespace HandyControl.Controls
 
         public FontWeight FontWeight
         {
-            get => (FontWeight)GetValue(FontWeightProperty);
+            get => (FontWeight) GetValue(FontWeightProperty);
             set => SetValue(FontWeightProperty, value);
         }
 
         protected override void OnRender(DrawingContext drawingContext)
         {
-            EnsureGeometry();
-            drawingContext.DrawGeometry(Fill, new Pen(Stroke, StrokeThickness), _textGeometry);
+            if (StrokeThickness > 0)
+            {
+                EnsureGeometry();
+
+                drawingContext.DrawGeometry(Fill, null, _textGeometry);
+
+                if (StrokePosition == StrokePosition.Outside)
+                {
+                    drawingContext.PushClip(_clipGeometry);
+                }
+                else if (StrokePosition == StrokePosition.Inside)
+                {
+                    drawingContext.PushClip(_textGeometry);
+                }
+
+                drawingContext.DrawGeometry(null, _pen, _textGeometry);
+
+                if (StrokePosition == StrokePosition.Outside || StrokePosition == StrokePosition.Inside)
+                {
+                    drawingContext.Pop();
+                }
+            }
+            else
+            {
+                UpdateFormattedText();
+                drawingContext.DrawText(_formattedText, new Point());
+            }
+        }
+
+        private void UpdatePen()
+        {
+            _pen = new Pen(Stroke, StrokeThickness);
+
+            if (StrokePosition == StrokePosition.Outside || StrokePosition == StrokePosition.Inside)
+            {
+                _pen.Thickness = StrokeThickness * 2;
+            }
         }
 
         private void EnsureFormattedText()
@@ -153,7 +201,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-#if netle45
+#if NET40 || NET45
             _formattedText = new FormattedText(
                 Text,
                 CultureInfo.CurrentUICulture,
@@ -171,7 +219,7 @@ namespace HandyControl.Controls
                 Text,
                 CultureInfo.CurrentUICulture,
                 FlowDirection,
-                new Typeface(FontFamily, FontStyle, FontWeight, FontStretch), 
+                new Typeface(FontFamily, FontStyle, FontWeight, FontStretch),
                 FontSize, Fill, dpi);
 #endif
 
@@ -187,6 +235,12 @@ namespace HandyControl.Controls
 
             EnsureFormattedText();
             _textGeometry = _formattedText.BuildGeometry(new Point(0, 0));
+
+            if (StrokePosition == StrokePosition.Outside)
+            {
+                var geometry = new RectangleGeometry(new Rect(0, 0, ActualWidth, ActualHeight));
+                _clipGeometry = Geometry.Combine(geometry, _textGeometry, GeometryCombineMode.Exclude, null);
+            }
         }
 
         private void UpdateFormattedText()
@@ -205,11 +259,12 @@ namespace HandyControl.Controls
             _formattedText.SetFontWeight(FontWeight);
             _formattedText.SetFontFamily(FontFamily);
             _formattedText.SetFontStretch(FontStretch);
+            _formattedText.SetForegroundBrush(Fill);
         }
 
         private static void OnFormattedTextUpdated(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var outlinedTextBlock = (OutlineText)d;
+            var outlinedTextBlock = (OutlineText) d;
             outlinedTextBlock.UpdateFormattedText();
             outlinedTextBlock._textGeometry = null;
 
@@ -219,7 +274,7 @@ namespace HandyControl.Controls
 
         private static void OnFormattedTextInvalidated(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var outlinedTextBlock = (OutlineText)d;
+            var outlinedTextBlock = (OutlineText) d;
             outlinedTextBlock._formattedText = null;
             outlinedTextBlock._textGeometry = null;
 
@@ -236,6 +291,8 @@ namespace HandyControl.Controls
             // the Math.Max call is to ensure we don't hit zero, which will cause MaxTextHeight to throw
             _formattedText.MaxTextWidth = Math.Min(3579139, availableSize.Width);
             _formattedText.MaxTextHeight = Math.Max(0.0001d, availableSize.Height);
+
+            UpdatePen();
 
             // return the desired size
             return new Size(_formattedText.Width, _formattedText.Height);

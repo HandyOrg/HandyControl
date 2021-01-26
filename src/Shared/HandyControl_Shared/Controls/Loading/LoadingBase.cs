@@ -31,7 +31,7 @@ namespace HandyControl.Controls
         public bool IsRunning
         {
             get => (bool) GetValue(IsRunningProperty);
-            set => SetValue(IsRunningProperty, value);
+            set => SetValue(IsRunningProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty DotCountProperty = DependencyProperty.Register(
@@ -122,14 +122,14 @@ namespace HandyControl.Controls
             UpdateDots();
         }
 
-        protected Ellipse CreateEllipse(int index)
+        protected virtual Ellipse CreateEllipse(int index)
         {
             var ellipse = new Ellipse();
-            ellipse.SetBinding(WidthProperty, new Binding(DotDiameterProperty.Name) {Source = this});
-            ellipse.SetBinding(HeightProperty, new Binding(DotDiameterProperty.Name) {Source = this});
-            ellipse.SetBinding(Shape.FillProperty, new Binding(ForegroundProperty.Name) {Source = this});
-            ellipse.SetBinding(Shape.StrokeThicknessProperty, new Binding(DotBorderThicknessProperty.Name) {Source = this});
-            ellipse.SetBinding(Shape.StrokeProperty, new Binding(DotBorderBrushProperty.Name) {Source = this});
+            ellipse.SetBinding(WidthProperty, new Binding(DotDiameterProperty.Name) { Source = this });
+            ellipse.SetBinding(HeightProperty, new Binding(DotDiameterProperty.Name) { Source = this });
+            ellipse.SetBinding(Shape.FillProperty, new Binding(ForegroundProperty.Name) { Source = this });
+            ellipse.SetBinding(Shape.StrokeThicknessProperty, new Binding(DotBorderThicknessProperty.Name) { Source = this });
+            ellipse.SetBinding(Shape.StrokeProperty, new Binding(DotBorderBrushProperty.Name) { Source = this });
             return ellipse;
         }
     }

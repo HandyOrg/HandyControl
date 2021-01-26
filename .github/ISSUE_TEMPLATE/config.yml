@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+    - name: Ask a Question
+      url: https://github.com/HandyOrg/HandyControl/discussions/category_choices
+      about: Please ask and answer questions for HandyControl here.
+    - name: Read the Docs (Chinese)
+      url: http://handyorg.github.io
+      about: Be sure you've read the docs!
+    - name: Read the Docs (English)
+      url: http://ghost1372.github.io
+      about: Be sure you've read the docs! 

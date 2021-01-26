@@ -8,7 +8,7 @@
             <Button hc:IconElement.Geometry="{StaticResource ThumbsUpGeometry}" Width="180">
                 <hc:FloatingBlock.ContentTemplate>
                     <DataTemplate>
-                        <Path Data="{StaticResource ThumbsUpGeometry}" Fill="{DynamicResource DangerBrush}" Width="16" Height="16"/>
+                        <Path Stretch="Uniform" Data="{StaticResource ThumbsUpGeometry}" Fill="{DynamicResource DangerBrush}" Width="16" Height="16"/>
                     </DataTemplate>
                 </hc:FloatingBlock.ContentTemplate>
             </Button>
@@ -16,7 +16,7 @@
             <Button hc:IconElement.Geometry="{StaticResource ThumbsUpGeometry}" Width="180" Margin="0,10,0,0" hc:FloatingBlock.Duration="0:0:1" hc:FloatingBlock.VerticalOffset="-20" hc:FloatingBlock.ToX="50" hc:FloatingBlock.ToY="-80">
                 <hc:FloatingBlock.ContentTemplate>
                     <DataTemplate>
-                        <Path Data="{StaticResource ThumbsUpGeometry}" Fill="{DynamicResource DangerBrush}" Width="16" Height="16"/>
+                        <Path Stretch="Uniform" Data="{StaticResource ThumbsUpGeometry}" Fill="{DynamicResource DangerBrush}" Width="16" Height="16"/>
                     </DataTemplate>
                 </hc:FloatingBlock.ContentTemplate>
             </Button>

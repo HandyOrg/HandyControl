@@ -10,8 +10,8 @@ namespace HandyControlDemo.UserControl
             InitializeComponent();
 
             NumericUpDownCustomVerify.VerifyFunc = str => double.TryParse(str, out var v)
-                ? v % 2 < 1e-06 
-                    ? OperationResult.Failed(Properties.Langs.Lang.Error) 
+                ? v % 2 < 1e-06
+                    ? OperationResult.Failed(Properties.Langs.Lang.Error)
                     : OperationResult.Success()
                 : OperationResult.Failed(Properties.Langs.Lang.Error);
         }

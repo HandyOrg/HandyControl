@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Globalization;
+using System.Threading;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
@@ -6,7 +8,12 @@ namespace HandyControl.Media.Animation
 {
     public abstract class GeometryAnimationBase : AnimationTimeline
     {
-        public new GeometryAnimationBase Clone() => (GeometryAnimationBase)base.Clone();
+        protected GeometryAnimationBase()
+        {
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+        }
+
+        public new GeometryAnimationBase Clone() => (GeometryAnimationBase) base.Clone();
 
         public sealed override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue, AnimationClock animationClock)
         {
@@ -18,7 +25,7 @@ namespace HandyControl.Media.Animation
             {
                 throw new ArgumentNullException(nameof(defaultDestinationValue));
             }
-            return GetCurrentValue((Geometry)defaultOriginValue, (Geometry)defaultDestinationValue, animationClock);
+            return GetCurrentValue((Geometry) defaultOriginValue, (Geometry) defaultDestinationValue, animationClock);
         }
 
         public override Type TargetPropertyType

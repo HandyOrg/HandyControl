@@ -9,11 +9,11 @@ namespace HandyControl.Tools.Extension
         {
             try
             {
-                return (T)TypeDescriptor.GetConverter(typeof(T)).ConvertFromString(input);
+                return (T) TypeDescriptor.GetConverter(typeof(T)).ConvertFromString(input);
             }
             catch
             {
-                return default(T);
+                return default;
             }
         }
 

@@ -23,28 +23,70 @@ namespace HandyControl.Controls
 
         private int _blockHeight;
 
+        private bool _isDisposed;
+
+        private int _columns = 1;
+
         public ImageBlock()
         {
             _dispatcherTimer = new DispatcherTimer(DispatcherPriority.Render)
             {
                 Interval = Interval
             };
-            _dispatcherTimer.Tick += DispatcherTimer_Tick;
+
+            IsVisibleChanged += ImageBlock_IsVisibleChanged;
+        }
+
+        ~ImageBlock() => Dispose();
+
+        public void Dispose()
+        {
+            if (_isDisposed) return;
+
+            IsVisibleChanged -= ImageBlock_IsVisibleChanged;
+            _dispatcherTimer.Stop();
+            _isDisposed = true;
+
+            GC.SuppressFinalize(this);
+        }
+
+        private void ImageBlock_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            if (IsVisible)
+            {
+                _dispatcherTimer.Tick += DispatcherTimer_Tick;
+                if (IsPlaying)
+                {
+                    _dispatcherTimer.Start();
+                }
+            }
+            else
+            {
+                _dispatcherTimer.Stop();
+                _dispatcherTimer.Tick -= DispatcherTimer_Tick;
+            }
         }
 
         private void UpdateDatas()
         {
             if (_source == null) return;
-            _indexMin = StartRow * Columns + StartColumn;
-            _indexMax = EndRow * Columns + EndColumn;
+
+            _indexMin = StartRow * _columns + StartColumn;
+            _indexMax = EndRow * _columns + EndColumn;
             _currentIndex = _indexMin;
-            _blockWidth = _source.PixelWidth / Columns;
+            _blockWidth = _source.PixelWidth / _columns;
             _blockHeight = _source.PixelHeight / Rows;
         }
 
         private static void OnPositionsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ImageBlock)d;
+            var ctl = (ImageBlock) d;
+
+            if (e.Property == ColumnsProperty)
+            {
+                ctl._columns = (int) e.NewValue;
+            }
+
             ctl.UpdateDatas();
         }
 
@@ -96,7 +138,7 @@ namespace HandyControl.Controls
 
         private static void OnIsPlayingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ImageBlock)d;
+            var ctl = (ImageBlock) d;
             if ((bool) e.NewValue)
             {
                 ctl._dispatcherTimer.Start();
@@ -110,12 +152,12 @@ namespace HandyControl.Controls
         public bool IsPlaying
         {
             get => (bool) GetValue(IsPlayingProperty);
-            set => SetValue(IsPlayingProperty, value);
+            set => SetValue(IsPlayingProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ColumnsProperty = DependencyProperty.Register(
             "Columns", typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int1Box,
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int)obj >= 1);
+                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int) obj >= 1);
 
         public int Columns
         {
@@ -125,7 +167,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty RowsProperty = DependencyProperty.Register(
             "Rows", typeof(int), typeof(ImageBlock), new FrameworkPropertyMetadata(ValueBoxes.Int1Box,
-                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int)obj >= 1);
+                FrameworkPropertyMetadataOptions.AffectsMeasure | FrameworkPropertyMetadataOptions.AffectsRender, OnPositionsChanged), obj => (int) obj >= 1);
 
         public int Rows
         {
@@ -154,14 +196,14 @@ namespace HandyControl.Controls
 
         private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (ImageBlock)d;
+            var ctl = (ImageBlock) d;
             ctl._source = e.NewValue as BitmapSource;
             ctl.UpdateDatas();
         }
 
         public ImageSource Source
         {
-            get => (ImageSource)GetValue(SourceProperty);
+            get => (ImageSource) GetValue(SourceProperty);
             set => SetValue(SourceProperty, value);
         }
 
@@ -179,8 +221,8 @@ namespace HandyControl.Controls
                 _currentIndex = _indexMin;
             }
 
-            var x = _currentIndex % Columns * _blockWidth;
-            var y = _currentIndex / Columns * _blockHeight;
+            var x = _currentIndex % _columns * _blockWidth;
+            var y = _currentIndex / _columns * _blockHeight;
 
             var rect = new Int32Rect(x, y, _blockWidth, _blockHeight);
             _currentIndex++;

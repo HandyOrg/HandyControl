@@ -38,7 +38,7 @@ namespace HandyControl.Controls
             {
                 if (e.NewItems != null && e.NewItems.Count > 0)
                 {
-                    SetValue(HasItemsPropertyKey, true);
+                    SetValue(HasItemsPropertyKey, ValueBoxes.TrueBox);
                 }
                 OnItemsChanged(s, e);
             };
@@ -116,7 +116,7 @@ namespace HandyControl.Controls
             }
         }
 
-        private static void OnItemTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) 
+        private static void OnItemTemplateChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
             => (d as SimpleItemsControl)?.OnItemTemplateChanged(e);
 
         protected virtual void OnItemTemplateChanged(DependencyPropertyChangedEventArgs e) => Refresh();

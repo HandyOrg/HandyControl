@@ -1,23 +1,28 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    /// <inheritdoc cref="IDataInput" />
     /// <summary>
     ///     数值选择控件
     /// </summary>
     [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
+    [TemplatePart(Name = ElementErrorTip, Type = typeof(UIElement))]
     public class NumericUpDown : Control, IDataInput
     {
         #region Constants
 
         private const string ElementTextBox = "PART_TextBox";
+
+        private const string ElementErrorTip = "PART_ErrorTip";
 
         #endregion Constants
 
@@ -25,26 +30,31 @@ namespace HandyControl.Controls
 
         private TextBox _textBox;
 
+        private UIElement _errorTip;
+
+        private bool _updateText;
+
         #endregion Data
 
         public NumericUpDown()
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) =>
             {
+                if (IsReadOnly) return;
+
                 Value += Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) =>
             {
+                if (IsReadOnly) return;
+
                 Value -= Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
             }));
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                SetCurrentValue(ValueProperty, 0d);
-                _textBox.Text = string.Empty;
+                if (IsReadOnly) return;
+
+                SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
             }));
 
             Loaded += (s, e) => OnApplyTemplate();
@@ -66,7 +76,7 @@ namespace HandyControl.Controls
             if (_textBox != null)
             {
                 TextCompositionManager.RemovePreviewTextInputHandler(_textBox, PreviewTextInputHandler);
-                _textBox.TextChanged -= _textBox_TextChanged;
+                _textBox.TextChanged -= TextBox_TextChanged;
                 _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
                 _textBox.LostFocus -= TextBox_LostFocus;
             }
@@ -74,25 +84,39 @@ namespace HandyControl.Controls
             base.OnApplyTemplate();
 
             _textBox = GetTemplateChild(ElementTextBox) as TextBox;
+            _errorTip = GetTemplateChild(ElementErrorTip) as UIElement;
 
             if (_textBox != null)
             {
+                _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+                _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+#endif
+                _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
+                _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+
                 TextCompositionManager.AddPreviewTextInputHandler(_textBox, PreviewTextInputHandler);
-                _textBox.TextChanged += _textBox_TextChanged;
+                _textBox.TextChanged += TextBox_TextChanged;
                 _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
                 _textBox.LostFocus += TextBox_LostFocus;
                 _textBox.Text = CurrentText;
             }
         }
 
-        private void _textBox_TextChanged(object sender, TextChangedEventArgs e) => UpdateData();
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) => UpdateData();
 
         private void UpdateData()
         {
-            if (!VerifyData()) return;
+            if (!VerifyData())
+            {
+                _updateText = true;
+                return;
+            }
             if (double.TryParse(_textBox.Text, out var value))
             {
+                _updateText = false;
                 Value = value;
+                _updateText = true;
             }
         }
 
@@ -100,21 +124,21 @@ namespace HandyControl.Controls
 
         private void TextBox_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (IsError) return;
+            if (IsError && _errorTip != null) return;
             _textBox.Text = CurrentText;
         }
 
         private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
         {
+            if (IsReadOnly) return;
+
             if (e.Key == Key.Up)
             {
                 Value += Increment;
-                _textBox.Text = CurrentText;
             }
             else if (e.Key == Key.Down)
             {
                 Value -= Increment;
-                _textBox.Text = CurrentText;
             }
         }
 
@@ -122,18 +146,18 @@ namespace HandyControl.Controls
         {
             base.OnMouseWheel(e);
 
-            if (_textBox.IsFocused)
+            if (_textBox.IsFocused && !IsReadOnly)
             {
                 Value += e.Delta > 0 ? Increment : -Increment;
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
                 e.Handled = true;
             }
         }
 
-        private string CurrentText => DecimalPlaces.HasValue
-            ? Value.ToString($"#0.{new string('0', DecimalPlaces.Value)}")
-            : Value.ToString("#0");
+        private string CurrentText => string.IsNullOrWhiteSpace(ValueFormat)
+            ? DecimalPlaces.HasValue
+                ? Value.ToString($"#0.{new string('0', DecimalPlaces.Value)}")
+                : Value.ToString()
+            : Value.ToString(ValueFormat);
 
         protected virtual void OnValueChanged(FunctionEventArgs<double> e) => RaiseEvent(e);
 
@@ -165,10 +189,7 @@ namespace HandyControl.Controls
         {
             var ctl = (NumericUpDown) d;
             var v = (double) e.NewValue;
-            if (ctl._textBox != null)
-            {
-                ctl._textBox.Text = v.ToString();
-            }
+            ctl.SetText();
 
             ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
             {
@@ -176,11 +197,20 @@ namespace HandyControl.Controls
             });
         }
 
+        private void SetText()
+        {
+            if (_updateText && _textBox != null)
+            {
+                _textBox.Text = CurrentText;
+                _textBox.Select(_textBox.Text.Length, 0);
+            }
+        }
+
         private static object CoerceValue(DependencyObject d, object basevalue)
         {
-            var ctl = (NumericUpDown)d;
+            var ctl = (NumericUpDown) d;
             var minimum = ctl.Minimum;
-            var num = (double)basevalue;
+            var num = (double) basevalue;
             if (num < minimum)
             {
                 ctl.Value = minimum;
@@ -191,14 +221,8 @@ namespace HandyControl.Controls
             {
                 ctl.Value = maximum;
             }
-
-            var result = num > maximum ? maximum : num;
-            if (!ctl.DecimalPlaces.HasValue)
-            {
-                result = Math.Floor(result);
-            }
-
-            return result;
+            ctl.SetText();
+            return num > maximum ? maximum : num;
         }
 
         /// <summary>
@@ -218,15 +242,15 @@ namespace HandyControl.Controls
 
         private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NumericUpDown)d;
+            var ctl = (NumericUpDown) d;
             ctl.CoerceValue(MinimumProperty);
             ctl.CoerceValue(ValueProperty);
         }
 
         private static object CoerceMaximum(DependencyObject d, object basevalue)
         {
-            var minimum = ((NumericUpDown)d).Minimum;
-            return (double)basevalue < minimum ? minimum : basevalue;
+            var minimum = ((NumericUpDown) d).Minimum;
+            return (double) basevalue < minimum ? minimum : basevalue;
         }
 
         /// <summary>
@@ -242,19 +266,19 @@ namespace HandyControl.Controls
         ///     最小值
         /// </summary>
         public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double0Box, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
+            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MinValue, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
 
         private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NumericUpDown)d;
+            var ctl = (NumericUpDown) d;
             ctl.CoerceValue(MaximumProperty);
             ctl.CoerceValue(ValueProperty);
         }
 
         private static object CoerceMinimum(DependencyObject d, object basevalue)
         {
-            var maximum = ((NumericUpDown)d).Maximum;
-            return (double)basevalue > maximum ? maximum : basevalue;
+            var maximum = ((NumericUpDown) d).Maximum;
+            return (double) basevalue > maximum ? maximum : basevalue;
         }
 
         /// <summary>
@@ -297,6 +321,21 @@ namespace HandyControl.Controls
         }
 
         /// <summary>
+        ///     指示要显示的数字的格式
+        /// </summary>
+        public static readonly DependencyProperty ValueFormatProperty = DependencyProperty.Register(
+            "ValueFormat", typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
+
+        /// <summary>
+        ///     指示要显示的数字的格式，这将会覆盖 <see cref="DecimalPlaces"/> 属性
+        /// </summary>
+        public string ValueFormat
+        {
+            get => (string) GetValue(ValueFormatProperty);
+            set => SetValue(ValueFormatProperty, value);
+        }
+
+        /// <summary>
         ///     是否显示上下调值按钮
         /// </summary>
         internal static readonly DependencyProperty ShowUpDownButtonProperty = DependencyProperty.Register(
@@ -308,7 +347,7 @@ namespace HandyControl.Controls
         internal bool ShowUpDownButton
         {
             get => (bool) GetValue(ShowUpDownButtonProperty);
-            set => SetValue(ShowUpDownButtonProperty, value);
+            set => SetValue(ShowUpDownButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -320,7 +359,7 @@ namespace HandyControl.Controls
         public bool IsError
         {
             get => (bool) GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, value);
+            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -359,7 +398,62 @@ namespace HandyControl.Controls
         public bool ShowClearButton
         {
             get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, value);
+            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
+        }
+
+        /// <summary>
+        ///     标识 IsReadOnly 依赖属性。
+        /// </summary>
+        public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
+            "IsReadOnly", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        /// <summary>
+        ///     获取或设置一个值，该值指示NumericUpDown是否只读。
+        /// </summary>
+        public bool IsReadOnly
+        {
+            get => (bool) GetValue(IsReadOnlyProperty);
+            set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
+        }
+
+        public static readonly DependencyProperty SelectionBrushProperty =
+            TextBoxBase.SelectionBrushProperty.AddOwner(typeof(NumericUpDown));
+
+        public Brush SelectionBrush
+        {
+            get => (Brush) GetValue(SelectionBrushProperty);
+            set => SetValue(SelectionBrushProperty, value);
+        }
+
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+
+        public static readonly DependencyProperty SelectionTextBrushProperty =
+            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(NumericUpDown));
+
+        public Brush SelectionTextBrush
+        {
+            get => (Brush) GetValue(SelectionTextBrushProperty);
+            set => SetValue(SelectionTextBrushProperty, value);
+        }
+
+#endif
+
+        public static readonly DependencyProperty SelectionOpacityProperty =
+            TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(NumericUpDown));
+
+        public double SelectionOpacity
+        {
+            get => (double) GetValue(SelectionOpacityProperty);
+            set => SetValue(SelectionOpacityProperty, value);
+        }
+
+        public static readonly DependencyProperty CaretBrushProperty =
+            TextBoxBase.CaretBrushProperty.AddOwner(typeof(NumericUpDown));
+
+        public Brush CaretBrush
+        {
+            get => (Brush) GetValue(CaretBrushProperty);
+            set => SetValue(CaretBrushProperty, value);
         }
 
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }

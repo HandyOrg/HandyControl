@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <Style x:Key="DrawerBaseStyle" TargetType="hc:Drawer">
+        <Setter Property="Dock" Value="Right"/>
+        <Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}"/>
+    </Style>
+
+</ResourceDictionary>

@@ -83,7 +83,7 @@ namespace HandyControl.Expression.Drawing
                 return false;
             }
 
-            if ((list is List<T> list2) && (factory == null))
+            if ((list is List<T> list2) && factory == null)
             {
                 list2.AddRange(new T[count - list.Count]);
             }
@@ -91,7 +91,7 @@ namespace HandyControl.Expression.Drawing
             {
                 for (var i = list.Count; i < count; i++)
                 {
-                    list.Add((factory == null) ? default(T) : factory());
+                    list.Add(factory == null ? default : factory());
                 }
             }
             return true;

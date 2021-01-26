@@ -1,18 +1,19 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
     
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="../../Basic/Geometries.xaml"/>
-        <ResourceDictionary Source="../Button.xaml"/>
-        <ResourceDictionary Source="../Rectangle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Rectangle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style x:Key="GotoTopBaseStyle" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="controls:GotoTop">
+    <Style x:Key="GotoTopBaseStyle" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="hc:GotoTop">
         <Setter Property="Width" Value="50"/>
         <Setter Property="Height" Value="50"/>
-        <Setter Property="controls:BorderElement.CornerRadius" Value="25"/>
-        <Setter Property="controls:IconElement.Geometry" Value="{StaticResource UpGeometry}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="25"/>
+        <Setter Property="hc:IconElement.Geometry" Value="{StaticResource UpGeometry}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Padding" Value="16"/>
         <Setter Property="BorderThickness" Value="1"/>
@@ -31,7 +32,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
                 <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>

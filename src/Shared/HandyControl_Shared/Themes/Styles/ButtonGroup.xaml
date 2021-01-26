@@ -1,17 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:controls="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
 
     <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Base/ButtonGroupBaseStyle.xaml"/>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/ButtonGroupBaseStyle.xaml"/>
     </ResourceDictionary.MergedDictionaries>
 
-    <Style BasedOn="{StaticResource ButtonGroupBaseStyle}" TargetType="controls:ButtonGroup"/>
+    <Style BasedOn="{StaticResource ButtonGroupBaseStyle}" TargetType="hc:ButtonGroup"/>
 
-    <Style x:Key="ButtonGroupSolid" BasedOn="{StaticResource ButtonGroupBaseStyle}" TargetType="controls:ButtonGroup">
-        <Setter Property="controls:TitleElement.BorderBrush" Value="{DynamicResource TitleBrush}"/>
-        <Setter Property="controls:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
-        <Setter Property="controls:TitleElement.Foreground" Value="{DynamicResource TextIconBrush}"/>
+    <Style x:Key="ButtonGroupSolid" BasedOn="{StaticResource ButtonGroupBaseStyle}" TargetType="hc:ButtonGroup">
+        <Setter Property="hc:VisualElement.HighlightBorderBrush" Value="{DynamicResource TitleBrush}"/>
+        <Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource TitleBrush}"/>
+        <Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource TextIconBrush}"/>
     </Style>
 
 </ResourceDictionary>

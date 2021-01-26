@@ -576,9 +576,6 @@
   <data name="SideMenu" xml:space="preserve">
     <value>SideMenu</value>
   </data>
-  <data name="Overview" xml:space="preserve">
-    <value>دید کلی</value>
-  </data>
   <data name="Grid" xml:space="preserve">
     <value>Grid</value>
   </data>
@@ -667,7 +664,7 @@
     <value>SplitButton</value>
   </data>
   <data name="Tools" xml:space="preserve">
-    <value>Tools</value>
+    <value>ابزار</value>
   </data>
   <data name="HatchBrushGenerator" xml:space="preserve">
     <value>HatchBrushGenerator</value>
@@ -686,5 +683,116 @@
   </data>
   <data name="TransitioningContentControl" xml:space="preserve">
     <value>TransitioningContentControl</value>
+  </data>
+  <data name="Drawer" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>مستندات</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>Effects</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>سایت</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>Vsix</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>مستندات انگلیسی</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>مستندات چینی</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>دمو</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PinBox</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>FlowDocumentScrollViewer</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>Open glowWindow</value>
+  </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>FlowDocument</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>FlowDocumentPageViewer</value>
+  </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>FlowDocumentReader</value>
+  </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>Open native common window</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>Open navigation window</value>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>Frame</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>دموی عملی</value>
+  </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>Start screenshot</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>Screenshot</value>
+  </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>TextDialog(In control)</value>
+  </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>Looks up a localized string similar to "{0}".</value>
+  </data>
+  <data name="PropertyGrid" xml:space="preserve">
+    <value>PropertyGrid</value>
+  </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>ImageSelector</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>Geometry</value>
+  </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>CheckComboBox</value>
+  </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>FlexPanel</value>
+  </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>open touch drag move window</value>
+  </data>
+  <data name="UniformSpacingPanel" xml:space="preserve">
+    <value>UniformSpacingPanel</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>Misc</value>
+  </data>
+  <data name="Interacting" xml:space="preserve">
+    <value>Interacting</value>
+  </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>Data Entry</value>
+  </data>
+  <data name="DataDisplay" xml:space="preserve">
+    <value>Data Display</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
   </data>
 </root>

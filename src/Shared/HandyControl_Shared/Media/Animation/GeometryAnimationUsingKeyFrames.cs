@@ -11,7 +11,6 @@ using System.Windows.Media.Animation;
 using HandyControl.Tools;
 
 // ReSharper disable PossibleInvalidOperationException
-
 namespace HandyControl.Media.Animation
 {
     [ContentProperty("KeyFrames")]
@@ -28,21 +27,24 @@ namespace HandyControl.Media.Animation
                     return null;
                 }
 
-                return _strings ??= Regex.Split(_keyFrames[0].Value.ToString(CultureInfo.InvariantCulture), RegularPatterns.DigitsPattern);
+                return _strings ??= Regex.Split(_keyFrames[0].Value.ToString(CultureInfo.InvariantCulture), RegexPatterns.DigitsPattern);
             }
         }
 
         private GeometryKeyFrameCollection _keyFrames;
-        
+
         private ResolvedKeyFrameEntry[] _sortedResolvedKeyFrames;
-        
+
         private bool _areKeyTimesValid;
 
-        public GeometryAnimationUsingKeyFrames() => _areKeyTimesValid = true;
+        public GeometryAnimationUsingKeyFrames()
+        {
+            _areKeyTimesValid = true;
+        }
 
-        public new GeometryAnimationUsingKeyFrames Clone() => (GeometryAnimationUsingKeyFrames)base.Clone();
+        public new GeometryAnimationUsingKeyFrames Clone() => (GeometryAnimationUsingKeyFrames) base.Clone();
 
-        public new GeometryAnimationUsingKeyFrames CloneCurrentValue() => (GeometryAnimationUsingKeyFrames)base.CloneCurrentValue();
+        public new GeometryAnimationUsingKeyFrames CloneCurrentValue() => (GeometryAnimationUsingKeyFrames) base.CloneCurrentValue();
 
         protected override bool FreezeCore(bool isChecking)
         {
@@ -69,7 +71,7 @@ namespace HandyControl.Media.Animation
 
         protected override void CloneCore(Freezable sourceFreezable)
         {
-            var sourceAnimation = (GeometryAnimationUsingKeyFrames)sourceFreezable;
+            var sourceAnimation = (GeometryAnimationUsingKeyFrames) sourceFreezable;
             base.CloneCore(sourceFreezable);
 
             CopyCommon(sourceAnimation, false);
@@ -77,7 +79,7 @@ namespace HandyControl.Media.Animation
 
         protected override void CloneCurrentValueCore(Freezable sourceFreezable)
         {
-            var sourceAnimation = (GeometryAnimationUsingKeyFrames)sourceFreezable;
+            var sourceAnimation = (GeometryAnimationUsingKeyFrames) sourceFreezable;
             base.CloneCurrentValueCore(sourceFreezable);
 
             CopyCommon(sourceAnimation, true);
@@ -85,7 +87,7 @@ namespace HandyControl.Media.Animation
 
         protected override void GetAsFrozenCore(Freezable source)
         {
-            var sourceAnimation = (GeometryAnimationUsingKeyFrames)source;
+            var sourceAnimation = (GeometryAnimationUsingKeyFrames) source;
             base.GetAsFrozenCore(source);
 
             CopyCommon(sourceAnimation, false);
@@ -93,7 +95,7 @@ namespace HandyControl.Media.Animation
 
         protected override void GetCurrentValueAsFrozenCore(Freezable source)
         {
-            var sourceAnimation = (GeometryAnimationUsingKeyFrames)source;
+            var sourceAnimation = (GeometryAnimationUsingKeyFrames) source;
             base.GetCurrentValueAsFrozenCore(source);
 
             CopyCommon(sourceAnimation, true);
@@ -105,14 +107,14 @@ namespace HandyControl.Media.Animation
 
             if (_areKeyTimesValid && sourceAnimation._sortedResolvedKeyFrames != null)
             {
-                _sortedResolvedKeyFrames = (ResolvedKeyFrameEntry[])sourceAnimation._sortedResolvedKeyFrames.Clone();
+                _sortedResolvedKeyFrames = (ResolvedKeyFrameEntry[]) sourceAnimation._sortedResolvedKeyFrames.Clone();
             }
 
             if (sourceAnimation._keyFrames != null)
             {
                 if (isCurrentValueClone)
                 {
-                    _keyFrames = (GeometryKeyFrameCollection)sourceAnimation._keyFrames.CloneCurrentValue();
+                    _keyFrames = (GeometryKeyFrameCollection) sourceAnimation._keyFrames.CloneCurrentValue();
                 }
                 else
                 {
@@ -232,7 +234,7 @@ namespace HandyControl.Media.Animation
 
                 currentIterationValue = GetResolvedKeyFrame(currentResolvedKeyFrameIndex).InterpolateValue(fromValue, currentSegmentProgress);
             }
-            
+
             return AnimationHelper.ComposeGeometry(Strings, currentIterationValue);
         }
 
@@ -241,7 +243,7 @@ namespace HandyControl.Media.Animation
         IList IKeyFrameAnimation.KeyFrames
         {
             get => KeyFrames;
-            set => KeyFrames = (GeometryKeyFrameCollection)value;
+            set => KeyFrames = (GeometryKeyFrameCollection) value;
         }
 
         public GeometryKeyFrameCollection KeyFrames

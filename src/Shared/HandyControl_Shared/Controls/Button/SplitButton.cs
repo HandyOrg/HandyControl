@@ -33,7 +33,7 @@ namespace HandyControl.Controls
         public bool IsDropDownOpen
         {
             get => (bool) GetValue(IsDropDownOpenProperty);
-            set => SetValue(IsDropDownOpenProperty, value);
+            set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty DropDownContentProperty = DependencyProperty.Register(

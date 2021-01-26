@@ -4,6 +4,6 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:TimeBar BorderThickness="0" Margin="32" Width="600"  VerticalAlignment="Center"/>
+        <hc:TimeBar Name="TimeBarDemo" BorderThickness="0" Margin="32" Width="600"  VerticalAlignment="Center"/>
     </hc:TransitioningContentControl>
 </UserControl>

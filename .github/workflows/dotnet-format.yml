@@ -1,0 +1,51 @@
+name: Code format check
+
+on: 
+  push:
+    branches: 
+      - master
+jobs:
+  dotnet-format:
+    runs-on: windows-latest
+    steps:
+
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      
+      # 代码文件编码规范机器人，详细请看 [dotnet 在 GitHub 的 Action 上部署自动代码编码规范机器人](https://blog.lindexi.com/post/dotnet-%E5%9C%A8-GitHub-%E7%9A%84-Action-%E4%B8%8A%E9%83%A8%E7%BD%B2%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E6%9C%BA%E5%99%A8%E4%BA%BA.html)
+      - name: Install dotnetCampus.EncodingNormalior
+        run: dotnet tool update -g dotnetCampus.EncodingNormalior
+
+      - name: Fix encoding
+        run: EncodingNormalior -f . --TryFix true
+
+      # 代码格式化机器人，详细请看 [dotnet 基于 dotnet format 的 GitHub Action 自动代码格式化机器人](https://blog.lindexi.com/post/dotnet-%E5%9F%BA%E4%BA%8E-dotnet-format-%E7%9A%84-GitHub-Action-%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E6%A0%BC%E5%BC%8F%E5%8C%96%E6%9C%BA%E5%99%A8%E4%BA%BA.html )
+      - name: Install dotnet-format
+        run: dotnet tool install -g dotnet-format
+
+      - name: Run dotnet format
+        run: dotnet format src\HandyControl.sln
+
+      - name: Commit files
+        # 下面将使用机器人的账号，你可以替换为你自己的账号
+        run: |
+          git config --local user.name "github-actions-dotnet-formatter[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -a -m 'Automated dotnet-format update'
+        continue-on-error: true
+        
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v3
+        with:
+          title: '[Bot] Automated PR to fix formatting errors'
+          body: |
+            Automated PR to fix formatting errors
+          committer: GitHub <noreply@github.com>
+          author: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          # 以下是给定代码审查者，需要设置仓库有权限的开发者
+          assignees: NaBian
+          reviewers: NaBian
+          # 对应的上传分支
+          branch: t/bot/fix-codeformatting

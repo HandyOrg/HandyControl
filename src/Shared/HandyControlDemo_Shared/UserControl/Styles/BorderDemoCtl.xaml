@@ -3,39 +3,57 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <UniformGrid Margin="32,32,0,0" Columns="3" Rows="2">
-            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32">
-                <Border Background="{DynamicResource PrimaryBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+        <StackPanel>
+            <UniformGrid Margin="32,32,0,0" Columns="3" Rows="2">
+                <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32">
+                    <Border Background="{DynamicResource PrimaryBrush}">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                    </Border>
                 </Border>
-            </Border>
-            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32" Effect="{StaticResource EffectShadow1}">
-                <Border Background="{DynamicResource InfoBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32" Effect="{StaticResource EffectShadow1}">
+                    <Border Background="{DynamicResource InfoBrush}">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                    </Border>
                 </Border>
-            </Border>
-            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32" Effect="{StaticResource EffectShadow2}">
-                <Border Background="{DynamicResource WarningBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="0,0,32,32" Effect="{StaticResource EffectShadow2}">
+                    <Border Background="{DynamicResource WarningBrush}">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                    </Border>
                 </Border>
-            </Border>
-            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow3}">
-                <Border Background="{DynamicResource DangerBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow3}">
+                    <Border Background="{DynamicResource DangerBrush}">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                    </Border>
                 </Border>
-            </Border>
-            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow4}">
-                <Border Background="{DynamicResource AccentBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow4}">
+                    <Border Background="{DynamicResource AccentBrush}">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                    </Border>
                 </Border>
-            </Border>
-            <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow5}">
-                <Border Background="{DynamicResource BorderBrush}">
-                    <TextBlock Text="{x:Static langs:Lang.ContentDemoStr}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <Border Style="{StaticResource BorderRegion}" Width="200" Height="200"  Margin="0,0,32,32" Effect="{StaticResource EffectShadow5}">
+                    <Border Background="{DynamicResource BorderBrush}">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
                 </Border>
+            </UniformGrid>
+            <Border Margin="32,0,32,10" Style="{StaticResource BorderTipPrimary}">
+                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}"/>
             </Border>
-        </UniformGrid>
+            <Border Margin="32,0,32,10" Style="{StaticResource BorderTipDanger}">
+                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}"/>
+            </Border>
+            <Border Margin="32,0,32,10" Style="{StaticResource BorderTipWarning}">
+                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}"/>
+            </Border>
+            <Border Margin="32,0,32,10" Style="{StaticResource BorderTipInfo}">
+                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}"/>
+            </Border>
+            <Border Margin="32,0,32,10" Style="{StaticResource BorderTipSuccess}">
+                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.Title},Converter={StaticResource StringRepeatConverter},ConverterParameter=10}"/>
+            </Border>
+        </StackPanel>
     </hc:TransitioningContentControl>
 </UserControl>

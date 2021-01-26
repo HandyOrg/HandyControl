@@ -1,10 +1,6 @@
 ﻿using System;
 using System.Windows;
-#if netle40
 using GalaSoft.MvvmLight.Command;
-#else
-using GalaSoft.MvvmLight.CommandWpf;
-# endif
 using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Window;
@@ -17,7 +13,7 @@ namespace HandyControlDemo.ViewModel
 
         public GrowlDemoViewModel()
         {
-            
+
         }
 
         public GrowlDemoViewModel(string token)

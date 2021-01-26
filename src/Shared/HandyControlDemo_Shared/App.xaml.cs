@@ -1,23 +1,41 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Diagnostics.CodeAnalysis;
+using System.Globalization;
 using System.IO;
 using System.Net;
-using System.Security.Authentication; 
+#if !NET40
+using System.Runtime;
+#endif
 using System.Threading;
 using System.Windows;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
+using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Tools;
 
 namespace HandyControlDemo
 {
     public partial class App
     {
-        // ReSharper disable once NotAccessedField.Local
-        [SuppressMessage("代码质量", "IDE0052:删除未读的私有成员", Justification = "<挂起>")]
+#pragma warning disable IDE0052
+        [SuppressMessage("ReSharper", "NotAccessedField.Local")]
         private static Mutex AppMutex;
+#pragma warning restore IDE0052
+
+        public App()
+        {
+#if !NET40
+            var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
+            if (!Directory.Exists(cachePath))
+            {
+                Directory.CreateDirectory(cachePath);
+            }
+            ProfileOptimization.SetProfileRoot(cachePath);
+            ProfileOptimization.StartProfile("Profile");
+#endif
+        }
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -49,15 +67,21 @@ namespace HandyControlDemo
                 ShutdownMode = ShutdownMode.OnMainWindowClose;
                 GlobalData.Init();
                 ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
+                LangProvider.Culture = new CultureInfo(GlobalData.Config.Lang);
 
                 if (GlobalData.Config.Skin != SkinType.Default)
                 {
                     UpdateSkin(GlobalData.Config.Skin);
                 }
 
-                ConfigHelper.Instance.SetSystemVersionInfo(CommonHelper.GetSystemVersionInfo());
+                ConfigHelper.Instance.SetWindowDefaultStyle();
+                ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
 
-                ServicePointManager.SecurityProtocol = (SecurityProtocolType)(SslProtocols)0x00000C00;
+#if NET40
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+#else
+                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+#endif
             }
         }
 
@@ -84,6 +108,7 @@ namespace HandyControlDemo
             {
                 Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
             });
+
             Current.MainWindow?.OnApplyTemplate();
         }
 

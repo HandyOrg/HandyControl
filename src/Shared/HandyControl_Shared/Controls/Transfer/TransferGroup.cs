@@ -34,20 +34,31 @@ namespace HandyControl.Controls
         protected override void OnItemsChanged(object sender, NotifyCollectionChangedEventArgs e)
         {
             if (ItemsHost == null) return;
-            if (e.OldItems != null)
+
+            switch (e.Action)
             {
-                foreach (FrameworkElement item in e.OldItems)
-                {
-                    ItemsHost.Children.Remove(item);
-                }
-            }
-            if (e.NewItems != null)
-            {
-                foreach (FrameworkElement item in e.NewItems)
-                {
-                    item.Style = ItemContainerStyle;
-                    ItemsHost.Children.Add(item);
-                }
+                case NotifyCollectionChangedAction.Add:
+                    if (e.NewItems != null)
+                    {
+                        if (e.NewItems[0] is FrameworkElement item)
+                        {
+                            item.Style = ItemContainerStyle;
+                            ItemsHost.Children.Insert(e.NewStartingIndex, item);
+                        }
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Remove:
+                    if (e.OldItems != null)
+                    {
+                        foreach (FrameworkElement item in e.OldItems)
+                        {
+                            ItemsHost.Children.Remove(item);
+                        }
+                    }
+                    break;
+                case NotifyCollectionChangedAction.Reset:
+                    ItemsHost.Children.Clear();
+                    break;
             }
         }
     }

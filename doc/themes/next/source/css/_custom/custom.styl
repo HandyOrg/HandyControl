@@ -1,8 +1,106 @@
 // Custom styles.
+
+.post-body figure {
+  border-radius: 4px;
+}
+
+.post-body img {
+  border-radius: 10px;
+}
+
+.site-author-image {
+  border-radius: 50%;
+}
+
+.table-container {
+  border-radius: 4px;
+}
+
+.table-container table {
+  background-color: #eee;
+  border-collapse:separate;
+  border-spacing: 0 4px;
+  padding: 0 6px 2px 6px;
+}
+
+.table-container th, td {
+  border: 0;
+}
+
+.table-container tr td:first-child {
+  border-radius: 4px 0 0 4px;
+}
+
+.table-container tr td:last-child {
+  border-radius: 0 4px 4px 0;
+}
+
+.table-container tbody > tr {
+    background-color: white !important;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: #bdbdbd;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #757575;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #212121;
+}
+
+.header-inner {
+  box-shadow: 0 4px 8px 1.5px rgba(0,0,0,0.15);
+  border-radius: 0 0 10px 10px;
+}
+
+.sub-menu {
+  box-shadow: 0 4px 8px 1.5px rgba(0,0,0,0.15);
+  border-radius: 0 0 10px 10px;
+}
+
+#sub-menu-2 {
+  margin-top: -10px;
+}
+
+.post-block, .sidebar-inner {
+  box-shadow: 0 4px 8px 1.5px rgba(0,0,0,0.15) !important;
+  border-radius:10px;
+}
+
+.back-to-top {
+  border-radius: 0 0 10px 10px;
+}
+
+.container {
+  min-height: 100%;
+}
+
+.container:before {
+  content: "";
+  opacity: 0.1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  background: url(https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/cloud.png);
+}
+
 .posts-expand .post-body img {
   margin: 3px;
   display: inline;
   padding: 3px !important;
+  border: 0;
 }
 
 .post-body h2 {

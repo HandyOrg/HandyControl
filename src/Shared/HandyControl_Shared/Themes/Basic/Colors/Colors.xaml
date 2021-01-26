@@ -2,20 +2,25 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <Color x:Key="PrimaryColor">#73a5ff</Color>
-    <Color x:Key="DarkPrimaryColor">#5477f5</Color>
+    <Color x:Key="LightPrimaryColor">#f3fbff</Color>
+    <Color x:Key="PrimaryColor">#326cf3</Color>
+    <Color x:Key="DarkPrimaryColor">#326cf3</Color>
 
-    <Color x:Key="DangerColor">#ff8792</Color>
-    <Color x:Key="DarkDangerColor">#ff4c9f</Color>
+    <Color x:Key="LightDangerColor">#fff6f7</Color>
+    <Color x:Key="DangerColor">#db3340</Color>
+    <Color x:Key="DarkDangerColor">#db3340</Color>
 
-    <Color x:Key="WarningColor">#ffd180</Color>
-    <Color x:Key="DarkWarningColor">#ff9100</Color>
+    <Color x:Key="LightWarningColor">#fffcf5</Color>
+    <Color x:Key="WarningColor">#e9af20</Color>
+    <Color x:Key="DarkWarningColor">#e9af20</Color>
 
-    <Color x:Key="InfoColor">#4dd0e1</Color>
+    <Color x:Key="LightInfoColor">#f1fdff</Color>
+    <Color x:Key="InfoColor">#00bcd4</Color>
     <Color x:Key="DarkInfoColor">#00bcd4</Color>
 
-    <Color x:Key="SuccessColor">#A5D6A7</Color>
-    <Color x:Key="DarkSuccessColor">#4CAF50</Color>
+    <Color x:Key="LightSuccessColor">#f3fff6</Color>
+    <Color x:Key="SuccessColor">#2db84d</Color>
+    <Color x:Key="DarkSuccessColor">#2db84d</Color>
 
     <Color x:Key="PrimaryTextColor">#212121</Color>
     <Color x:Key="SecondaryTextColor">#757575</Color>
@@ -29,14 +34,14 @@
     <Color x:Key="RegionColor">#ffffff</Color>
     <Color x:Key="SecondaryRegionColor">#eeeeee</Color>
     <Color x:Key="ThirdlyRegionColor">White</Color>
-    <Color x:Key="TitleColor">#73a5ff</Color>
-    <Color x:Key="SecondaryTitleColor">#5477f5</Color>
+    <Color x:Key="TitleColor">#326cf3</Color>
+    <Color x:Key="SecondaryTitleColor">#326cf3</Color>
 
     <Color x:Key="DefaultColor">White</Color>
     <Color x:Key="DarkDefaultColor">#f5f5f5</Color>
 
-    <Color x:Key="AccentColor">#ff5722</Color>
-    <Color x:Key="DarkAccentColor">#d43f3a</Color>
+    <Color x:Key="AccentColor">#f8491e</Color>
+    <Color x:Key="DarkAccentColor">#f8491e</Color>
 
     <Color x:Key="DarkMaskColor">#20000000</Color>
     <Color x:Key="DarkOpacityColor">#40000000</Color>

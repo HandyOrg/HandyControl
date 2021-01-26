@@ -15,7 +15,8 @@ namespace HandyControl.Expression.Media
 
         static DrawingPropertyMetadata()
         {
-            DrawingPropertyChanged += delegate (object sender, DrawingPropertyChangedEventArgs args) {
+            DrawingPropertyChanged += delegate (object sender, DrawingPropertyChangedEventArgs args)
+            {
                 if ((sender is IShape shape) && args.Metadata.AffectsRender)
                 {
                     InvalidateGeometryReasons reasons = InvalidateGeometryReasons.PropertyChanged;
@@ -36,7 +37,7 @@ namespace HandyControl.Expression.Media
         {
         }
 
-        private DrawingPropertyMetadata(DrawingPropertyMetadataOptions options, object defaultValue) : base(defaultValue, (FrameworkPropertyMetadataOptions)options)
+        private DrawingPropertyMetadata(DrawingPropertyMetadataOptions options, object defaultValue) : base(defaultValue, (FrameworkPropertyMetadataOptions) options)
         {
         }
 
@@ -44,7 +45,7 @@ namespace HandyControl.Expression.Media
         {
         }
 
-        public DrawingPropertyMetadata(object defaultValue, DrawingPropertyMetadataOptions options, PropertyChangedCallback propertyChangedCallback) : base(defaultValue, (FrameworkPropertyMetadataOptions)options, AttachCallback(defaultValue, options, propertyChangedCallback))
+        public DrawingPropertyMetadata(object defaultValue, DrawingPropertyMetadataOptions options, PropertyChangedCallback propertyChangedCallback) : base(defaultValue, (FrameworkPropertyMetadataOptions) options, AttachCallback(defaultValue, options, propertyChangedCallback))
         {
         }
 

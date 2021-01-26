@@ -6,6 +6,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -33,7 +34,7 @@ namespace HandyControl.Controls
 
         private IconHandle _iconHandle;
 
-        private const int WmTrayMouseMessage = NativeMethods.WM_USER + 1024;
+        private const int WmTrayMouseMessage = InteropValues.WM_USER + 1024;
 
         private string _windowClassName;
 
@@ -41,7 +42,7 @@ namespace HandyControl.Controls
 
         private IntPtr _messageWindowHandle;
 
-        private readonly WndProc _callback;
+        private readonly InteropValues.WndProc _callback;
 
         private Popup _contextContent;
 
@@ -62,12 +63,14 @@ namespace HandyControl.Controls
         static NotifyIcon()
         {
             VisibilityProperty.OverrideMetadata(typeof(NotifyIcon), new PropertyMetadata(Visibility.Visible, OnVisibilityChanged));
+            DataContextProperty.OverrideMetadata(typeof(NotifyIcon), new FrameworkPropertyMetadata(DataContextPropertyChanged));
+            ContextMenuProperty.OverrideMetadata(typeof(NotifyIcon), new FrameworkPropertyMetadata(ContextMenuPropertyChanged));
         }
 
         private static void OnVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (NotifyIcon) d;
-            var v = (Visibility)e.NewValue;
+            var v = (Visibility) e.NewValue;
 
             if (v == Visibility.Visible)
             {
@@ -77,11 +80,29 @@ namespace HandyControl.Controls
                 }
                 ctl.UpdateIcon(true);
             }
-            else if(ctl._iconCurrentHandle != IntPtr.Zero)
+            else if (ctl._iconCurrentHandle != IntPtr.Zero)
             {
                 ctl.UpdateIcon(false);
             }
         }
+
+        private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
+            ((NotifyIcon) d).OnDataContextPropertyChanged(e);
+
+        private void OnDataContextPropertyChanged(DependencyPropertyChangedEventArgs e)
+        {
+            UpdateDataContext(_contextContent, e.OldValue, e.NewValue);
+            UpdateDataContext(ContextMenu, e.OldValue, e.NewValue);
+        }
+
+        private static void ContextMenuPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (NotifyIcon) d;
+            ctl.OnContextMenuPropertyChanged(e);
+        }
+
+        private void OnContextMenuPropertyChanged(DependencyPropertyChangedEventArgs e) =>
+            UpdateDataContext((ContextMenu) e.NewValue, null, DataContext);
 
         public NotifyIcon()
         {
@@ -93,10 +114,7 @@ namespace HandyControl.Controls
             if (Application.Current != null) Application.Current.Exit += (s, e) => Dispose();
         }
 
-        ~NotifyIcon()
-        {
-            Dispose(false);
-        }
+        ~NotifyIcon() => Dispose(false);
 
         public void Init()
         {
@@ -165,9 +183,9 @@ namespace HandyControl.Controls
         {
             if (!_added || DesignerHelper.IsInDesignMode) return;
 
-            var data = new NOTIFYICONDATA
+            var data = new InteropValues.NOTIFYICONDATA
             {
-                uFlags = NativeMethods.NIF_INFO,
+                uFlags = InteropValues.NIF_INFO,
                 hWnd = _messageWindowHandle,
                 uID = _id,
                 szInfoTitle = title ?? string.Empty,
@@ -177,20 +195,20 @@ namespace HandyControl.Controls
             switch (infoType)
             {
                 case NotifyIconInfoType.Info:
-                    data.dwInfoFlags = NativeMethods.NIIF_INFO;
+                    data.dwInfoFlags = InteropValues.NIIF_INFO;
                     break;
                 case NotifyIconInfoType.Warning:
-                    data.dwInfoFlags = NativeMethods.NIIF_WARNING;
+                    data.dwInfoFlags = InteropValues.NIIF_WARNING;
                     break;
                 case NotifyIconInfoType.Error:
-                    data.dwInfoFlags = NativeMethods.NIIF_ERROR;
+                    data.dwInfoFlags = InteropValues.NIIF_ERROR;
                     break;
                 case NotifyIconInfoType.None:
-                    data.dwInfoFlags = NativeMethods.NIIF_NONE;
+                    data.dwInfoFlags = InteropValues.NIIF_NONE;
                     break;
             }
 
-            UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_MODIFY, data);
+            InteropMethods.Shell_NotifyIcon(InteropValues.NIM_MODIFY, data);
         }
 
         public void Dispose()
@@ -249,14 +267,19 @@ namespace HandyControl.Controls
 
         private static void OnIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NotifyIcon)d;
-            ctl._icon = (ImageSource)e.NewValue;
+            var ctl = (NotifyIcon) d;
+            ctl._icon = (ImageSource) e.NewValue;
             ctl.OnIconChanged();
+
+            if (!string.IsNullOrEmpty(ctl._windowClassName) && !ctl.IsBlink && ctl.Visibility == Visibility.Visible)
+            {
+                ctl.UpdateIcon(true);
+            }
         }
 
         public ImageSource Icon
         {
-            get => (ImageSource)GetValue(IconProperty);
+            get => (ImageSource) GetValue(IconProperty);
             set => SetValue(IconProperty, value);
         }
 
@@ -274,7 +297,7 @@ namespace HandyControl.Controls
 
         private static void OnBlinkIntervalChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NotifyIcon)d;
+            var ctl = (NotifyIcon) d;
             if (ctl._dispatcherTimerBlink != null)
             {
                 ctl._dispatcherTimerBlink.Interval = (TimeSpan) e.NewValue;
@@ -292,7 +315,7 @@ namespace HandyControl.Controls
 
         private static void OnIsBlinkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (NotifyIcon)d;
+            var ctl = (NotifyIcon) d;
             if (ctl.Visibility != Visibility.Visible) return;
             if ((bool) e.NewValue)
             {
@@ -316,8 +339,8 @@ namespace HandyControl.Controls
 
         public bool IsBlink
         {
-            get => (bool)GetValue(IsBlinkProperty);
-            set => SetValue(IsBlinkProperty, value);
+            get => (bool) GetValue(IsBlinkProperty);
+            set => SetValue(IsBlinkProperty, ValueBoxes.BooleanBox(value));
         }
 
         private void DispatcherTimerBlinkTick(object sender, EventArgs e)
@@ -328,16 +351,15 @@ namespace HandyControl.Controls
 
         private bool CheckMouseIsEnter()
         {
-            var isTrue = FindNotifyIcon(out var rectNotify);
+            var isTrue = FindNotifyIcon(out var rectNotifyList);
             if (!isTrue) return false;
-            NativeMethods.GetCursorPos(out var point);
-            if (point.X >= rectNotify.Left && point.X <= rectNotify.Right &&
-                point.Y >= rectNotify.Top && point.Y <= rectNotify.Bottom)
-            {
-                return true;
-            }
 
-            return false;
+            InteropMethods.GetCursorPos(out var point);
+            return rectNotifyList.Any(rectNotify =>
+                point.X >= rectNotify.Left &&
+                point.X <= rectNotify.Right &&
+                point.Y >= rectNotify.Top &&
+                point.Y <= rectNotify.Bottom);
         }
 
         private void DispatcherTimerPos_Tick(object sender, EventArgs e)
@@ -368,111 +390,115 @@ namespace HandyControl.Controls
         //referenced from http://www.cnblogs.com/sczmzx/p/5158127.html
         private IntPtr FindTrayToolbarWindow()
         {
-            var hWnd = NativeMethods.FindWindow("Shell_TrayWnd", null);
+            var hWnd = InteropMethods.FindWindow("Shell_TrayWnd", null);
             if (hWnd != IntPtr.Zero)
             {
-                hWnd = NativeMethods.FindWindowEx(hWnd, IntPtr.Zero, "TrayNotifyWnd", null);
+                hWnd = InteropMethods.FindWindowEx(hWnd, IntPtr.Zero, "TrayNotifyWnd", null);
                 if (hWnd != IntPtr.Zero)
                 {
-
-                    hWnd = NativeMethods.FindWindowEx(hWnd, IntPtr.Zero, "SysPager", null);
+                    hWnd = InteropMethods.FindWindowEx(hWnd, IntPtr.Zero, "SysPager", null);
                     if (hWnd != IntPtr.Zero)
                     {
-                        hWnd = NativeMethods.FindWindowEx(hWnd, IntPtr.Zero, "ToolbarWindow32", null);
-
+                        hWnd = InteropMethods.FindWindowEx(hWnd, IntPtr.Zero, "ToolbarWindow32", null);
                     }
                 }
             }
+
             return hWnd;
         }
 
         //referenced from http://www.cnblogs.com/sczmzx/p/5158127.html
         private IntPtr FindTrayToolbarOverFlowWindow()
         {
-            var hWnd = NativeMethods.FindWindow("NotifyIconOverflowWindow", null);
+            var hWnd = InteropMethods.FindWindow("NotifyIconOverflowWindow", null);
             if (hWnd != IntPtr.Zero)
             {
-                hWnd = NativeMethods.FindWindowEx(hWnd, IntPtr.Zero, "ToolbarWindow32", null);
+                hWnd = InteropMethods.FindWindowEx(hWnd, IntPtr.Zero, "ToolbarWindow32", null);
             }
             return hWnd;
         }
 
-        private bool FindNotifyIcon(out NativeMethods.RECT rect)
+        private bool FindNotifyIcon(out List<InteropValues.RECT> rectList)
         {
-            var rectNotify = new NativeMethods.RECT();
+            var rectNotifyList = new List<InteropValues.RECT>();
             var hTrayWnd = FindTrayToolbarWindow();
-            var isTrue = FindNotifyIcon(hTrayWnd, ref rectNotify);
+            var isTrue = FindNotifyIcon(hTrayWnd, ref rectNotifyList);
             if (!isTrue)
             {
                 hTrayWnd = FindTrayToolbarOverFlowWindow();
-                isTrue = FindNotifyIcon(hTrayWnd, ref rectNotify);
+                isTrue = FindNotifyIcon(hTrayWnd, ref rectNotifyList);
             }
-            rect = rectNotify;
+            rectList = rectNotifyList;
             return isTrue;
         }
 
         //referenced from http://www.cnblogs.com/sczmzx/p/5158127.html
-        private bool FindNotifyIcon(IntPtr hTrayWnd, ref NativeMethods.RECT rectNotify)
+        private bool FindNotifyIcon(IntPtr hTrayWnd, ref List<InteropValues.RECT> rectNotifyList)
         {
-            NativeMethods.GetWindowRect(hTrayWnd, out var rectTray);
-            var count = (int)NativeMethods.SendMessage(hTrayWnd, NativeMethods.TB_BUTTONCOUNT, 0, IntPtr.Zero);
+            InteropMethods.GetWindowRect(hTrayWnd, out var rectTray);
+            var count = (int) InteropMethods.SendMessage(hTrayWnd, InteropValues.TB_BUTTONCOUNT, 0, IntPtr.Zero);
 
             var isFind = false;
             if (count > 0)
             {
-                NativeMethods.GetWindowThreadProcessId(hTrayWnd, out var trayPid);
-                var hProcess = NativeMethods.OpenProcess(NativeMethods.ProcessAccess.VMOperation | NativeMethods.ProcessAccess.VMRead | NativeMethods.ProcessAccess.VMWrite, false, trayPid);
-                var address = NativeMethods.VirtualAllocEx(hProcess, IntPtr.Zero, 1024, NativeMethods.AllocationType.Commit, NativeMethods.MemoryProtection.ReadWrite);
+                InteropMethods.GetWindowThreadProcessId(hTrayWnd, out var trayPid);
+                var hProcess = InteropMethods.OpenProcess(InteropValues.ProcessAccess.VMOperation | InteropValues.ProcessAccess.VMRead | InteropValues.ProcessAccess.VMWrite, false, trayPid);
+                var address = InteropMethods.VirtualAllocEx(hProcess, IntPtr.Zero, 1024, InteropValues.AllocationType.Commit, InteropValues.MemoryProtection.ReadWrite);
 
-                var btnData = new NativeMethods.TBBUTTON();
-                var trayData = new NativeMethods.TRAYDATA();
-                var handel = Process.GetCurrentProcess().Id;
+                var btnData = new InteropValues.TBBUTTON();
+                var trayData = new InteropValues.TRAYDATA();
+                var handle = Process.GetCurrentProcess().Id;
 
                 for (uint i = 0; i < count; i++)
                 {
-                    NativeMethods.SendMessage(hTrayWnd, NativeMethods.TB_GETBUTTON, i, address);
-                    var isTrue = NativeMethods.ReadProcessMemory(hProcess, address, out btnData, Marshal.SizeOf(btnData), out _);
+                    InteropMethods.SendMessage(hTrayWnd, InteropValues.TB_GETBUTTON, i, address);
+                    var isTrue = InteropMethods.ReadProcessMemory(hProcess, address, out btnData, Marshal.SizeOf(btnData), out _);
                     if (!isTrue) continue;
+
                     if (btnData.dwData == IntPtr.Zero)
                     {
                         btnData.dwData = btnData.iString;
                     }
-                    NativeMethods.ReadProcessMemory(hProcess, btnData.dwData, out trayData, Marshal.SizeOf(trayData), out _);
-                    NativeMethods.GetWindowThreadProcessId(trayData.hwnd, out var dwProcessId);
-                    if (dwProcessId == (uint)handel)
-                    {
-                        var rect = new NativeMethods.RECT();
-                        var lngRect = NativeMethods.VirtualAllocEx(hProcess, IntPtr.Zero, Marshal.SizeOf(typeof(Rect)), NativeMethods.AllocationType.Commit, NativeMethods.MemoryProtection.ReadWrite);
-                        NativeMethods.SendMessage(hTrayWnd, NativeMethods.TB_GETITEMRECT, i, lngRect);
-                        NativeMethods.ReadProcessMemory(hProcess, lngRect, out rect, Marshal.SizeOf(rect), out _);
 
-                        NativeMethods.VirtualFreeEx(hProcess, lngRect, Marshal.SizeOf(rect), NativeMethods.FreeType.Decommit);
-                        NativeMethods.VirtualFreeEx(hProcess, lngRect, 0, NativeMethods.FreeType.Release);
+                    InteropMethods.ReadProcessMemory(hProcess, btnData.dwData, out trayData, Marshal.SizeOf(trayData), out _);
+                    InteropMethods.GetWindowThreadProcessId(trayData.hwnd, out var dwProcessId);
+
+                    if (dwProcessId == (uint) handle)
+                    {
+                        var rect = new InteropValues.RECT();
+                        var lngRect = InteropMethods.VirtualAllocEx(hProcess, IntPtr.Zero, Marshal.SizeOf(typeof(Rect)), InteropValues.AllocationType.Commit, InteropValues.MemoryProtection.ReadWrite);
+
+                        InteropMethods.SendMessage(hTrayWnd, InteropValues.TB_GETITEMRECT, i, lngRect);
+                        InteropMethods.ReadProcessMemory(hProcess, lngRect, out rect, Marshal.SizeOf(rect), out _);
+
+                        InteropMethods.VirtualFreeEx(hProcess, lngRect, Marshal.SizeOf(rect), InteropValues.FreeType.Decommit);
+                        InteropMethods.VirtualFreeEx(hProcess, lngRect, 0, InteropValues.FreeType.Release);
 
                         var left = rectTray.Left + rect.Left;
                         var top = rectTray.Top + rect.Top;
                         var botton = rectTray.Top + rect.Bottom;
                         var right = rectTray.Left + rect.Right;
-                        rectNotify = new NativeMethods.RECT
+                        rectNotifyList.Add(new InteropValues.RECT
                         {
                             Left = left,
                             Right = right,
                             Top = top,
                             Bottom = botton
-                        };
+                        });
                         isFind = true;
-                        break;
                     }
                 }
-                NativeMethods.VirtualFreeEx(hProcess, address, 0x4096, NativeMethods.FreeType.Decommit);
-                NativeMethods.VirtualFreeEx(hProcess, address, 0, NativeMethods.FreeType.Release);
-                NativeMethods.CloseHandle(hProcess);
+                InteropMethods.VirtualFreeEx(hProcess, address, 0x4096, InteropValues.FreeType.Decommit);
+                InteropMethods.VirtualFreeEx(hProcess, address, 0, InteropValues.FreeType.Release);
+                InteropMethods.CloseHandle(hProcess);
             }
-            return isFind;            
+            return isFind;
         }
 
         private void OnIconChanged()
         {
+            if (_windowClassName == null) return;
+
             if (_icon != null)
             {
                 IconHelper.GetIconHandlesFromImageSource(_icon, out _, out _iconHandle);
@@ -496,13 +522,13 @@ namespace HandyControl.Controls
                 if (DesignerHelper.IsInDesignMode) return;
 
                 _isTransparent = isTransparent;
-                var data = new NOTIFYICONDATA
+                var data = new InteropValues.NOTIFYICONDATA
                 {
                     uCallbackMessage = WmTrayMouseMessage,
-                    uFlags = NativeMethods.NIF_MESSAGE | NativeMethods.NIF_ICON | NativeMethods.NIF_TIP,
+                    uFlags = InteropValues.NIF_MESSAGE | InteropValues.NIF_ICON | InteropValues.NIF_TIP,
                     hWnd = _messageWindowHandle,
                     uID = _id,
-                    dwInfoFlags = NativeMethods.NIF_TIP,
+                    dwInfoFlags = InteropValues.NIF_TIP,
                     hIcon = isTransparent ? IntPtr.Zero : _iconCurrentHandle,
                     szTip = Text
                 };
@@ -511,17 +537,17 @@ namespace HandyControl.Controls
                 {
                     if (!_added)
                     {
-                        UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_ADD, data);
+                        InteropMethods.Shell_NotifyIcon(InteropValues.NIM_ADD, data);
                         _added = true;
                     }
                     else
                     {
-                        UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_MODIFY, data);
+                        InteropMethods.Shell_NotifyIcon(InteropValues.NIM_MODIFY, data);
                     }
                 }
                 else if (_added)
                 {
-                    UnsafeNativeMethods.Shell_NotifyIcon(NativeMethods.NIM_DELETE, data);
+                    InteropMethods.Shell_NotifyIcon(InteropValues.NIM_DELETE, data);
                     _added = false;
                 }
             }
@@ -530,7 +556,7 @@ namespace HandyControl.Controls
         private void RegisterClass()
         {
             _windowClassName = $"HandyControl.Controls.NotifyIcon{Guid.NewGuid()}";
-            var wndclass = new WNDCLASS
+            var wndclass = new InteropValues.WNDCLASS4ICON
             {
                 style = 0,
                 lpfnWndProc = _callback,
@@ -544,9 +570,9 @@ namespace HandyControl.Controls
                 lpszClassName = _windowClassName
             };
 
-            UnsafeNativeMethods.RegisterClass(wndclass);
-            _wmTaskbarCreated = NativeMethods.RegisterWindowMessage("TaskbarCreated");
-            _messageWindowHandle = UnsafeNativeMethods.CreateWindowEx(0, _windowClassName, "", 0, 0, 0, 1, 1,
+            InteropMethods.RegisterClass(wndclass);
+            _wmTaskbarCreated = InteropMethods.RegisterWindowMessage("TaskbarCreated");
+            _messageWindowHandle = InteropMethods.CreateWindowEx(0, _windowClassName, "", 0, 0, 0, 1, 1,
                 IntPtr.Zero, IntPtr.Zero, IntPtr.Zero, IntPtr.Zero);
         }
 
@@ -556,23 +582,24 @@ namespace HandyControl.Controls
             {
                 if (msg == _wmTaskbarCreated)
                 {
+                    _added = false;
                     UpdateIcon(true);
                 }
                 else
                 {
                     switch (lparam.ToInt64())
                     {
-                        case NativeMethods.WM_LBUTTONDBLCLK:
+                        case InteropValues.WM_LBUTTONDBLCLK:
                             WmMouseDown(MouseButton.Left, 2);
                             break;
-                        case NativeMethods.WM_LBUTTONUP:
+                        case InteropValues.WM_LBUTTONUP:
                             WmMouseUp(MouseButton.Left);
                             break;
-                        case NativeMethods.WM_RBUTTONUP:
+                        case InteropValues.WM_RBUTTONUP:
                             ShowContextMenu();
                             WmMouseUp(MouseButton.Right);
                             break;
-                        case NativeMethods.WM_MOUSEMOVE:
+                        case InteropValues.WM_MOUSEMOVE:
                             if (!_dispatcherTimerPos.IsEnabled)
                             {
                                 _dispatcherTimerPos.Interval = TimeSpan.FromMilliseconds(200);
@@ -583,7 +610,7 @@ namespace HandyControl.Controls
                 }
             }
 
-            return UnsafeNativeMethods.DefWindowProc(hWnd, msg, wparam, lparam);
+            return InteropMethods.DefWindowProc(hWnd, msg, wparam, lparam);
         }
 
         private void WmMouseDown(MouseButton button, int clicks)
@@ -615,31 +642,44 @@ namespace HandyControl.Controls
 
             if (ContextContent != null)
             {
-                if (_contextContent == null)
+                _contextContent ??= new Popup
                 {
-                    _contextContent = new Popup
-                    {
-                        Placement = PlacementMode.Mouse,
-                        AllowsTransparency = true,
-                        StaysOpen = false,
-                        UseLayoutRounding = true,
-                        SnapsToDevicePixels = true
-                    };
-                }
+                    Placement = PlacementMode.Mouse,
+                    AllowsTransparency = true,
+                    StaysOpen = false,
+                    UseLayoutRounding = true,
+                    SnapsToDevicePixels = true
+                };
 
                 _contextContent.Child = new ContentControl
                 {
                     Content = ContextContent
                 };
                 _contextContent.IsOpen = true;
-                UnsafeNativeMethods.SetForegroundWindow(_contextContent.Child.GetHandle());
+                InteropMethods.SetForegroundWindow(_contextContent.Child.GetHandle());
             }
             else if (ContextMenu != null)
             {
+                if (ContextMenu.Items.Count == 0) return;
+
+                ContextMenu.InvalidateProperty(StyleProperty);
+                foreach (var item in ContextMenu.Items)
+                {
+                    if (item is MenuItem menuItem)
+                    {
+                        menuItem.InvalidateProperty(StyleProperty);
+                    }
+                    else
+                    {
+                        var container = ContextMenu.ItemContainerGenerator.ContainerFromItem(item) as MenuItem;
+                        container?.InvalidateProperty(StyleProperty);
+                    }
+                }
+
                 ContextMenu.Placement = PlacementMode.Mouse;
                 ContextMenu.IsOpen = true;
 
-                UnsafeNativeMethods.SetForegroundWindow(ContextMenu.GetHandle());
+                InteropMethods.SetForegroundWindow(ContextMenu.GetHandle());
             }
         }
 
@@ -661,7 +701,16 @@ namespace HandyControl.Controls
         {
             add => AddHandler(MouseDoubleClickEvent, value);
             remove => RemoveHandler(MouseDoubleClickEvent, value);
-        }       
+        }
+
+        private void UpdateDataContext(FrameworkElement target, object oldValue, object newValue)
+        {
+            if (target == null || BindingOperations.GetBindingExpression(target, DataContextProperty) != null) return;
+            if (ReferenceEquals(this, target.DataContext) || Equals(oldValue, target.DataContext))
+            {
+                target.DataContext = newValue ?? this;
+            }
+        }
 
         private void Dispose(bool disposing)
         {

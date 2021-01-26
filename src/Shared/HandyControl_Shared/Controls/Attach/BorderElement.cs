@@ -13,7 +13,7 @@ namespace HandyControl.Controls
 
         public static void SetCornerRadius(DependencyObject element, CornerRadius value) => element.SetValue(CornerRadiusProperty, value);
 
-        public static CornerRadius GetCornerRadius(DependencyObject element) => (CornerRadius)element.GetValue(CornerRadiusProperty);
+        public static CornerRadius GetCornerRadius(DependencyObject element) => (CornerRadius) element.GetValue(CornerRadiusProperty);
 
         public static readonly DependencyProperty CircularProperty = DependencyProperty.RegisterAttached(
             "Circular", typeof(bool), typeof(BorderElement), new PropertyMetadata(ValueBoxes.FalseBox, OnCircularChanged));
@@ -22,13 +22,13 @@ namespace HandyControl.Controls
         {
             if (d is Border border)
             {
-                if ((bool)e.NewValue)
+                if ((bool) e.NewValue)
                 {
                     var binding = new MultiBinding
                     {
                         Converter = new BorderCircularConverter()
                     };
-                    binding.Bindings.Add(new Binding(FrameworkElement.ActualWidthProperty.Name) {Source = border});
+                    binding.Bindings.Add(new Binding(FrameworkElement.ActualWidthProperty.Name) { Source = border });
                     binding.Bindings.Add(new Binding(FrameworkElement.ActualHeightProperty.Name) { Source = border });
                     border.SetBinding(Border.CornerRadiusProperty, binding);
                 }
@@ -42,7 +42,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetCircular(DependencyObject element, bool value)
-            => element.SetValue(CircularProperty, value);
+            => element.SetValue(CircularProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetCircular(DependencyObject element)
             => (bool) element.GetValue(CircularProperty);

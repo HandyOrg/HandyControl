@@ -18,6 +18,7 @@ title: InfoElement 信息元素
 | ContentHeight    | 内容高度           |
 | MinContentHeight | 最小内容高度       |
 | MaxContentHeight | 最大内容高度       |
+| RegexPattern | 正则表达式       |
 
 # 使用案例
 
@@ -67,3 +68,7 @@ title: InfoElement 信息元素
 ```
 
 ![InfoElement.ContentHeight](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/attach/InfoElement.ContentHeight.png)
+
+## RegexPattern 正则表达式
+
+通过设置该属性，可自定义信息元素内部的验证逻辑实现对指定格式外的内容进行错误提示。

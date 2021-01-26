@@ -1,9 +1,0 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-
-    <ResourceDictionary.MergedDictionaries>
-        <ResourceDictionary Source="Brushes.xaml"/>
-        <ResourceDictionary Source="Geometries.xaml"/>
-        <ResourceDictionary Source="Converters.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
-
-</ResourceDictionary>

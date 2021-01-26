@@ -18,7 +18,7 @@ namespace HandyControl.Controls
 
         public DependencyObject Target
         {
-            get => (DependencyObject)GetValue(TargetProperty);
+            get => (DependencyObject) GetValue(TargetProperty);
             set => SetValue(TargetProperty, value);
         }
 
@@ -35,7 +35,7 @@ namespace HandyControl.Controls
             {
                 _scrollViewer.ScrollChanged += ScrollViewer_ScrollChanged;
 
-                if (_scrollViewer is ScrollViewer scrollViewerHandy && Animated && scrollViewerHandy.IsEnableInertia)
+                if (_scrollViewer is ScrollViewer scrollViewerHandy && Animated && scrollViewerHandy.IsInertiaEnabled)
                 {
                     _gotoTopAction = () => scrollViewerHandy.ScrollToTopInternal(AnimationTime);
                 }
@@ -60,7 +60,7 @@ namespace HandyControl.Controls
         public bool Animated
         {
             get => (bool) GetValue(AnimatedProperty);
-            set => SetValue(AnimatedProperty, value);
+            set => SetValue(AnimatedProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty AnimationTimeProperty = DependencyProperty.Register(
@@ -73,7 +73,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty HidingHeightProperty = DependencyProperty.Register(
-            "HidingHeight", typeof(double), typeof(GotoTop), new PropertyMetadata(default(double)));
+            "HidingHeight", typeof(double), typeof(GotoTop), new PropertyMetadata(ValueBoxes.Double0Box));
 
         public double HidingHeight
         {
@@ -87,7 +87,7 @@ namespace HandyControl.Controls
         public bool AutoHiding
         {
             get => (bool) GetValue(AutoHidingProperty);
-            set => SetValue(AutoHidingProperty, value);
+            set => SetValue(AutoHidingProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected override void OnClick()

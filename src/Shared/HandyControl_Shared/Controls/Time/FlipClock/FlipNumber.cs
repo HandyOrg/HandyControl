@@ -40,7 +40,7 @@ namespace HandyControl.Controls
 
         public CornerRadius CornerRadius
         {
-            get => (CornerRadius)GetValue(CornerRadiusProperty);
+            get => (CornerRadius) GetValue(CornerRadiusProperty);
             set => SetValue(CornerRadiusProperty, value);
         }
 
@@ -49,7 +49,7 @@ namespace HandyControl.Controls
 
         public Brush Background
         {
-            get => (Brush)GetValue(BackgroundProperty);
+            get => (Brush) GetValue(BackgroundProperty);
             set => SetValue(BackgroundProperty, value);
         }
 
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         public Brush Foreground
         {
-            get => (Brush)GetValue(ForegroundProperty);
+            get => (Brush) GetValue(ForegroundProperty);
             set => SetValue(ForegroundProperty, value);
         }
 
@@ -68,7 +68,7 @@ namespace HandyControl.Controls
         [TypeConverter(typeof(FontSizeConverter))]
         public double FontSize
         {
-            get => (double)GetValue(FontSizeProperty);
+            get => (double) GetValue(FontSizeProperty);
             set => SetValue(FontSizeProperty, value);
         }
 
@@ -76,11 +76,11 @@ namespace HandyControl.Controls
             "Number", typeof(int), typeof(FlipNumber), new PropertyMetadata(ValueBoxes.Int0Box, OnNumberChanged));
 
         private static void OnNumberChanged(DependencyObject s, DependencyPropertyChangedEventArgs e) =>
-            ((FlipNumber)s).OnNumberChanged();
+            ((FlipNumber) s).OnNumberChanged();
 
         public int Number
         {
-            get => (int)GetValue(NumberProperty);
+            get => (int) GetValue(NumberProperty);
             set => SetValue(NumberProperty, value);
         }
 
