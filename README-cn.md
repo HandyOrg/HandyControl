@@ -1,10 +1,30 @@
-[中文](https://gitee.com/handyorg/HandyControl/blob/master/README-cn.md) - [English](https://github.com/HandyOrg/HandyControl/blob/master/README.md)
+<p align="center">
+    <img align="center" src="https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Cover.png">
+</p>
 
-![logo](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/icon.png)
+<p align="center">
+    <a href="https://github.com/HandyOrg/HandyControl/blob/master/README-cn.md">中文</a> 
+    ❤ 
+    <a href="https://github.com/HandyOrg/HandyControl/blob/master/README.md">English</a>
+</p>
 
-![dotnet-version](https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg) ![csharp-version](https://img.shields.io/badge/C%23-8.0-blue.svg) ![IDE-version](https://img.shields.io/badge/IDE-vs2019-blue.svg) [![nuget-version](https://img.shields.io/nuget/v/HandyControl.svg)](https://www.nuget.org/packages/HandyControl) ![Github-build-status](https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg) [![Join the chat at https://gitter.im/HandyControl/Lobby](https://badges.gitter.im/HandyControl/Lobby.svg)](https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) [![wiki](https://img.shields.io/badge/wiki-Complete-brightgreen.svg)](https://github.com/ghost1372/HandyControl/wiki) [![Nuget](https://img.shields.io/nuget/dt/handycontrol)](https://www.nuget.org/packages/HandyControl)
-
-# Welcome to HandyControl
+<p align="center"> 
+    <img alt="dotnet-version" src="https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg"></img>
+    <img alt="csharp-version" src="https://img.shields.io/badge/C%23-8.0-blue.svg"></img>
+    <img alt="IDE-version" src="https://img.shields.io/badge/IDE-vs2019-blue.svg"></img>
+    <a href="https://www.nuget.org/packages/HandyControl">
+        <img alt="nuget-version" src="https://img.shields.io/nuget/v/HandyControl.svg"></img>
+    </a> 
+    <a href="https://github.com/HandyOrg/HandyControl/actions?query=workflow%3Abuild">
+        <img alt="Github-build-status" src="https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg"></img>
+    </a>
+    <a href="https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
+        <img alt="Join the chat at https://gitter.im/HandyControl/Lobby" src="https://badges.gitter.im/HandyControl/Lobby.svg"></img>
+    </a> 
+    <a href="https://www.nuget.org/packages/HandyControl">
+        <img alt="Nuget" src="https://img.shields.io/nuget/dt/handycontrol"></img>
+    </a> 
+</p>
 
 ## 面向中国
 
@@ -31,7 +51,7 @@
 * 为我们购买防脱洗发水  
 ![qrcode](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qrcode.png)
 
-## Contributors
+## 贡献者
 
 <a href="https://github.com/ghost1372" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ghost1372" src="https://avatars0.githubusercontent.com/u/9213496?s=64&v=4"></a>
 <a href="https://github.com/DingpingZhang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="DingpingZhang" src="https://avatars0.githubusercontent.com/u/8541016?s=64&v=4"></a>
@@ -60,7 +80,7 @@
 <a href="https://github.com/lwqwag" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lwqwag" src="https://avatars3.githubusercontent.com/u/29883542?s=64&v=4"></a>
 <a href="https://github.com/Epacik" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Epacik" src="https://avatars.githubusercontent.com/u/23077337?s=64&v=4"></a>
 
-## Backers
+## 赞助者
 
 <a href="https://github.com/bigorange1900" target="_blank"><img style="border-radius:50%!important" width="64px" alt="bigorange1900" src="https://avatars1.githubusercontent.com/u/49062011?s=64&v=4"></a>
 <a href="https://github.com/14632791" target="_blank"><img style="border-radius:50%!important" width="64px" alt="14632791" src="https://avatars3.githubusercontent.com/u/27358331?s=64&v=4"></a>
@@ -85,14 +105,14 @@
 <a href="https://github.com/yaronzz" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yaronzz" src="https://avatars0.githubusercontent.com/u/15530958?s=64&v=4"></a>
 <a href="https://github.com/cuiliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="cuiliang" src="https://avatars2.githubusercontent.com/u/1972649?s=64&v=4"></a>
 
-## Special thanks to
+## 鸣谢
 
 [![Visual Studio Community 2019](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/vs2019_logo.png)](https://visualstudio.microsoft.com/free-developer-offers/)
 [![JetBrains](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
 [![Cake](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/cake_logo.png)](https://cakebuild.net/)
 [![Gitter](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/gitter_logo.png)](https://gitter.im/)
 
-## Usage
+## 用法
 
 Step 1: Add a reference to HandyControl or search for HandyControl on the nuget; 
 
@@ -115,7 +135,7 @@ Step 3: Add NameSpace:
 
 Step 4: Enjoy coding
 
-## VSIX packages for Visual Studio
+## VS插件
 
 | [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019) |
 | ------------- |
@@ -124,13 +144,13 @@ Step 4: Enjoy coding
 
 [![Stargazers over time](https://starchart.cc/HandyOrg/HandyControl.svg)](https://starchart.cc/HandyOrg/HandyControl)
 
-## Overview
+## 概览
 
 ![Overview](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Overview.png)
 
 ![Overview-dark](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Overview-dark.png)
 
-## Latest examples
+## 最新示例
 
 ### UniformSpacingPanel
 
