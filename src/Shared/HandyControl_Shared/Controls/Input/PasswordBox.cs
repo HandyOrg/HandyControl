@@ -356,6 +356,11 @@ namespace HandyControl.Controls
             if (VerifyData() && !IsSafeEnabled)
             {
                 SetCurrentValue(UnsafePasswordProperty, ActualPasswordBox.Password);
+
+                if (ShowPassword)
+                {
+                    _textBox.Text = ActualPasswordBox.Password;
+                }
             }
         }
 
