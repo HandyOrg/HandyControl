@@ -129,7 +129,7 @@ namespace HandyControl.Controls
                 return;
             }
 
-#if NET40 || NET45
+#if NET40 || NET45 || NET451 || NET452 || NET46|| NET461
             _formattedText = new FormattedText(
                 Text,
                 CultureInfo.CurrentUICulture,

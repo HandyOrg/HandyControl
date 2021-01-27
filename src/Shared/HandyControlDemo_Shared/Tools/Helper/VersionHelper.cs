@@ -12,10 +12,22 @@ namespace HandyControlDemo.Tools
             var netVersion = "NET 40";
 #elif NET45
             var netVersion = "NET 45";
+#elif NET451
+            var netVersion = "NET 451";
+#elif NET452
+            var netVersion = "NET 452";
+#elif NET46
+            var netVersion = "NET 46";
+#elif NET461
+            var netVersion = "NET 461";
 #elif NET462
             var netVersion = "NET 462";
 #elif NET47
             var netVersion = "NET 47";
+#elif NET471
+            var netVersion = "NET 471";
+#elif NET472
+            var netVersion = "NET 472";
 #elif NET48
             var netVersion = "NET 48";
 #elif NET5_0
