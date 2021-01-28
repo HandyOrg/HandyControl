@@ -582,8 +582,10 @@ namespace HandyControl.Controls
             {
                 if (msg == _wmTaskbarCreated)
                 {
-                    _added = false;
-                    UpdateIcon(true);
+                    if (_messageWindowHandle == hWnd && Visibility == Visibility.Visible)
+                    {
+                        UpdateIcon(true);
+                    }
                 }
                 else
                 {
