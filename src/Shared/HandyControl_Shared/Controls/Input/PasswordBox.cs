@@ -351,6 +351,16 @@ namespace HandyControl.Controls
             _textBox.Clear();
         }
 
+
+        public void SetFocus()
+        {
+            ActualPasswordBox.Focus();
+            if (ShowEyeButton && ShowPassword)
+            {
+                _textBox.Focus();
+            }
+        }
+
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (VerifyData() && !IsSafeEnabled)
