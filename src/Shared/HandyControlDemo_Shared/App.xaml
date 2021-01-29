@@ -7,6 +7,7 @@
              xmlns:data="clr-namespace:HandyControlDemo.Data"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
              d1P1:Ignorable="d" 
              StartupUri="MainWindow.xaml">
     <Application.Resources>
@@ -14,17 +15,22 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml"/>
-                        <ResourceDictionary Source="Resources/Themes/SkinDefault.xaml"/>
+                        <hc:ThemeResources UsingSystemTheme="True"/>
+                        <ResourceDictionary Source="Resources/Themes/Basic/Colors/Dark.xaml"/>
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
                 <ResourceDictionary>
                     <ResourceDictionary.MergedDictionaries>
-                        <ResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Theme.xaml"/>
+                        <hc:Theme/>
                         <ResourceDictionary Source="Resources/Themes/Theme.xaml"/>
                     </ResourceDictionary.MergedDictionaries>
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
+            <DrawingBrush o:Freeze="True" Opacity=".1" x:Key="CloudDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,157,157" ViewportUnits="Absolute" Stretch="Uniform" TileMode="Tile">
+                <DrawingBrush.Drawing>
+                    <ImageDrawing o:Freeze="True" ImageSource="/HandyControlDemo;component/Resources/Img/cloud.png" Rect="0,0,157,157"/>
+                </DrawingBrush.Drawing>
+            </DrawingBrush>
             <langs:LangProvider x:Key="DemoLangs"/>
             <viewModel:ViewModelLocator x:Key="Locator" d:IsDataSource="True"/>
             <hc:EnumDataProvider x:Key="DemoTypes" Type="data:DemoType"/>

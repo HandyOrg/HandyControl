@@ -126,8 +126,22 @@
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\ContrastEffect.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\EffectBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Media\Effects\GrayScaleEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\AccentColorSet.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\DesignMode.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\IntellisenseResourcesBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\Markup\DynamicColorExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\Markup\StaticColorExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\Markup\StaticResourceExtension.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\Markup\ThemeResourceHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\MergedDictionariesHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\PackUriHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\ResourceDictionaryEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\ResourceDictionaryHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\ThemeManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\ThemeResources.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\TypedEventHandler.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ThemeManager\Theme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Themes\SharedResourceDictionary.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Themes\Theme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BorderCircularClipConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\ColLayoutConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\CornerRadiusSplitConverter.cs" />
@@ -250,7 +264,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\IpType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\ResultType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\SideMenuItemRole.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\SkinType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\StepStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\TextType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\PlacementType.cs" />
@@ -404,19 +417,12 @@
     <None Include="$(MSBuildThisFileDirectory)Themes\Basic\Behaviors.xaml">
       <SubType>Designer</SubType>
     </None>
-    <None Include="$(MSBuildThisFileDirectory)Themes\Basic\Brushes.xaml">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="$(MSBuildThisFileDirectory)Themes\XamlCombine.exe" />
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\Colors.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\Light.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\ColorsDark.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\ColorsViolet.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\Dark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -441,18 +447,6 @@
     <None Include="$(MSBuildThisFileDirectory)Themes\Lang.xaml">
       <SubType>Designer</SubType>
     </None>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\SkinDark.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\SkinDefault.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Themes\SkinViolet.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <None Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\CheckComboBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
     </None>

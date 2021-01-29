@@ -31,7 +31,6 @@
       <SubType>Code</SubType>
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Resources\DemoTheme.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service\Data\DataService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\HatchBrushConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\String2BrushConverter.cs" />
@@ -475,15 +474,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Resources\Themes\Basic\Brushes.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Resources\Themes\Basic\Colors\Light.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Resources\Themes\Basic\Colors\Colors.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Resources\Themes\Basic\Colors\ColorsDark.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)Resources\Themes\Basic\Colors\Dark.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -496,14 +491,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)Resources\Themes\Basic\Geometries.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Resources\Themes\SkinDark.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)Resources\Themes\SkinDefault.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

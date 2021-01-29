@@ -968,6 +968,7 @@ namespace HandyControl.Tools.Interop
             internal uint dwMajorVersion;
             internal uint dwMinorVersion;
             internal uint dwBuildNumber;
+            internal uint dwRevision;
             internal uint dwPlatformId;
             [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
             internal string szCSDVersion;

@@ -1,0 +1,66 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:m="https://handyorg.github.io/handycontrol"
+                    xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="../Geometries.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+    
+    <Color x:Key="MainBackgroundColor">#262e2f</Color>
+    <Color x:Key="MainContentForegroundColor">#FFF0F0F0</Color>
+    <Color x:Key="MainContentBackgroundColor">#FFF5F5F5</Color>
+
+    <!--region AvalonEdit-->
+
+    <Color x:Key="ControlAccentColorKey">#1ba1e2</Color>
+    <Color x:Key="EditorBackgroundColor">White</Color>
+    <Color x:Key="EditorForegroundColor">Black</Color>
+    <Color x:Key="EditorLineNumbersForegroundColor">Black</Color>
+    <Color x:Key="EditorNonPrintableCharacterColor">#3F8080FF</Color>
+    <Color x:Key="EditorLinkTextForegroundColor">#FF4040FF</Color>
+    <Color x:Key="EditorLinkTextBackgroundColor">#00000000</Color>
+
+    <!--endregion-->
+
+    <DrawingBrush o:Freeze="True" x:Key="MainContentForegroundDrawingBrush" RenderOptions.CacheInvalidationThresholdMinimum="0.5" RenderOptions.CacheInvalidationThresholdMaximum="2.0" RenderOptions.CachingHint="Cache" Viewport="0,0,16,16" ViewportUnits="Absolute" Stretch="None" TileMode="Tile">
+        <DrawingBrush.Drawing>
+            <GeometryDrawing o:Freeze="True" Brush="{m:StaticResource MainContentForegroundBrush}">
+                <GeometryDrawing.Geometry>
+                    <GeometryGroup o:Freeze="True">
+                        <RectangleGeometry o:Freeze="True" Rect="0,0,8,8" />
+                        <RectangleGeometry o:Freeze="True" Rect="8,8,8,8" />
+                    </GeometryGroup>
+                </GeometryDrawing.Geometry>
+            </GeometryDrawing>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+
+    <LinearGradientBrush o:Freeze="True" x:Key="MenuButtonBorderBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop o:Freeze="True" Color="White" Offset="0"/>
+        <GradientStop o:Freeze="True" Color="#F2F2F2" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush o:Freeze="True" x:Key="ToolBarBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+        <GradientStop o:Freeze="True" Color="#F5F4F5" Offset="0"/>
+        <GradientStop o:Freeze="True" Color="#D1CFD1" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush o:Freeze="True" x:Key="MainBackgroundBrush" Color="{m:StaticColor MainBackgroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="MainContentForegroundBrush" Color="{m:StaticColor MainContentForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="MainContentBackgroundBrush" Color="{m:StaticColor MainContentBackgroundColor}"/>
+
+    <!--region AvalonEdit-->
+
+    <SolidColorBrush o:Freeze="True" x:Key="ControlAccentBrushKey" Color="{m:StaticColor ControlAccentColorKey}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorBackground" Color="{m:StaticColor EditorBackgroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorForeground" Color="{m:StaticColor EditorForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLineNumbersForeground" Color="{m:StaticColor EditorLineNumbersForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorSelectionBrush" Color="{m:StaticColor ControlAccentColorKey}" Opacity="0.75"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorSelectionBorder" Color="{m:StaticColor ControlAccentColorKey}" Opacity="0.75"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorNonPrintableCharacterBrush" Color="{m:StaticColor EditorNonPrintableCharacterColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLinkTextForegroundBrush" Color="{m:StaticColor EditorLinkTextForegroundColor}"/>
+    <SolidColorBrush o:Freeze="True" x:Key="EditorLinkTextBackgroundBrush" Color="{m:StaticColor EditorLinkTextBackgroundColor}"/>
+
+    <!--endregion-->
+</ResourceDictionary>

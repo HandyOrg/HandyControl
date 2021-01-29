@@ -1,7 +1,6 @@
 ﻿# --------------------------------------
 Lang.xaml
 # --------------------------------------
-Basic\Brushes.xaml
 Basic\Converters.xaml
 Basic\Effects.xaml
 Basic\Fonts.xaml

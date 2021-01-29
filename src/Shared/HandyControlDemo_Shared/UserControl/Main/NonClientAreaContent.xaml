@@ -156,14 +156,11 @@
                 </StackPanel>
                 <hc:Divider LineStrokeDashArray="2,2" Orientation="Vertical" Margin="0,20" LineStrokeThickness="2"/>
                 <StackPanel Button.Click="ButtonSkins_OnClick"  Margin="10,10,10,10">
-                    <Button Tag="{x:Static hc:SkinType.Default}" Style="{StaticResource ButtonCustom}">
+                    <Button Tag="{x:Static hc:ApplicationTheme.Light}" Style="{StaticResource ButtonCustom}">
                         <Border Background="White" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                     </Button>
-                    <Button Tag="{x:Static hc:SkinType.Dark}" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
+                    <Button Tag="{x:Static hc:ApplicationTheme.Dark}" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
                         <Border Background="Black" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
-                    </Button>
-                    <Button Tag="{x:Static hc:SkinType.Violet}" Style="{StaticResource ButtonCustom}" Margin="0,10,0,0">
-                        <Border Background="DarkViolet" Width="32" Height="21" CornerRadius="2" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}"/>
                     </Button>
                 </StackPanel>
             </StackPanel>

@@ -1,5 +1,6 @@
 ﻿using System;
 using HandyControl.Data;
+using HandyControl.Tools;
 
 namespace HandyControlDemo.Data
 {
@@ -9,6 +10,6 @@ namespace HandyControlDemo.Data
 
         public string Lang { get; set; } = "zh-cn";
 
-        public SkinType Skin { get; set; }
+        public ApplicationTheme Theme { get; set; } = ApplicationTheme.Dark;
     }
 }

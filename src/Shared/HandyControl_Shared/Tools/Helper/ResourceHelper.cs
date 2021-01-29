@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Windows;
-using HandyControl.Data;
-using HandyControl.Themes;
 
 namespace HandyControl.Tools
 {
@@ -49,49 +45,6 @@ namespace HandyControl.Tools
             }
 
             return default;
-        }
-
-        /// <summary>
-        ///     获取HandyControl皮肤
-        /// </summary>
-        /// <param name="skin"></param>
-        /// <returns></returns>
-        public static ResourceDictionary GetSkin(SkinType skin) => new ResourceDictionary
-        {
-            Source = new Uri($"pack://application:,,,/HandyControl;component/Themes/Skin{skin.ToString()}.xaml")
-        };
-
-        /// <summary>
-        ///     获取皮肤
-        /// </summary>
-        /// <param name="assembly"></param>
-        /// <param name="themePath"></param>
-        /// <param name="skin"></param>
-        /// <returns></returns>
-        public static ResourceDictionary GetSkin(Assembly assembly, string themePath, SkinType skin)
-        {
-            try
-            {
-                var uri = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{skin.ToString()}.xaml");
-                return new ResourceDictionary
-                {
-                    Source = uri
-                };
-            }
-            catch
-            {
-                return new ResourceDictionary
-                {
-                    Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{SkinType.Default.ToString()}.xaml")
-                };
-            }
-        }
-
-        public static Theme GetTheme(string name, ResourceDictionary resourceDictionary)
-        {
-            if (string.IsNullOrEmpty(name) || resourceDictionary == null) return null;
-            return resourceDictionary.MergedDictionaries.OfType<Theme>()
-                .FirstOrDefault(item => Equals(item.Name, name));
         }
     }
 }

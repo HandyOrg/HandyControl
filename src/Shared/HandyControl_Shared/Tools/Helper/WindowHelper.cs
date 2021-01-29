@@ -195,5 +195,13 @@ namespace HandyControl.Tools
         ///     开始使用触摸拖动窗口，在触摸抬起后自动结束
         /// </summary>
         public static void TouchDragMove(this Window window) => new TouchDragMoveWindowHelper(window).Start();
+
+        public static Version GetWindowsVersion()
+        {
+            var osv = new InteropValues.RTL_OSVERSIONINFOEX();
+            osv.dwOSVersionInfoSize = (uint) Marshal.SizeOf(osv);
+            InteropMethods.Gdip.RtlGetVersion(out osv);
+            return new Version((int) osv.dwMajorVersion, (int) osv.dwMinorVersion, (int) osv.dwBuildNumber, (int) osv.dwRevision);
+        }
     }
 }
