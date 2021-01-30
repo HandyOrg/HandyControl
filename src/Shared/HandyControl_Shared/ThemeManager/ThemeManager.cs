@@ -59,7 +59,7 @@ namespace HandyControl.Tools
             {
                 _currenTheme = GetSystemTheme();
                 _currentAccent = GetAccentColorFromSystem();
-                ActualAccentColor = _currentAccent;
+                AccentColor = _currentAccent;
 
                 SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
             }
@@ -122,7 +122,7 @@ namespace HandyControl.Tools
                             _currenTheme = changedTheme;
                             _currentAccent = changedAccent;
                             ApplicationTheme = changedTheme;
-                            ActualAccentColor = changedAccent;
+                            AccentColor = changedAccent;
                             OnSystemThemeChanged(new SystemTheme()
                             { AccentBrush = changedAccent, CurrentTheme = changedTheme });
                             ThemeResources.Current.OnSystemThemeChanged(new SystemTheme()
@@ -223,23 +223,23 @@ namespace HandyControl.Tools
 
         #endregion
 
-        #region AccentColor
+        #region ActualAccentColor
 
-        public static Brush GetAccentColor(DependencyObject d)
+        public static Brush GetActualAccentColor(DependencyObject d)
         {
-            return (Brush) d.GetValue(AccentColorProperty);
+            return (Brush) d.GetValue(ActualAccentColorProperty);
         }
 
-        public static void SetAccentColor(DependencyObject d, Brush value)
+        public static void SetActualAccentColor(DependencyObject d, Brush value)
         {
-            d.SetValue(AccentColorProperty, value);
+            d.SetValue(ActualAccentColorProperty, value);
         }
 
-        public static readonly DependencyProperty AccentColorProperty =
-            DependencyProperty.RegisterAttached("AccentColor", typeof(Brush), typeof(ThemeManager),
-                new FrameworkPropertyMetadata(OnAccentColorChanged));
+        public static readonly DependencyProperty ActualAccentColorProperty =
+            DependencyProperty.RegisterAttached("ActualAccentColor", typeof(Brush), typeof(ThemeManager),
+                new FrameworkPropertyMetadata(OnActualAccentColorChanged));
 
-        private static void OnAccentColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnActualAccentColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is FrameworkElement ctl)
             {
@@ -249,22 +249,22 @@ namespace HandyControl.Tools
 
         #endregion
 
-        #region ActualAccentColor
+        #region AccentColor
 
-        public static readonly DependencyProperty ActualAccentColorProperty =
+        public static readonly DependencyProperty AccentColorProperty =
             DependencyProperty.Register(
-                nameof(ActualAccentColor),
+                nameof(AccentColor),
                 typeof(Brush),
                 typeof(ThemeManager),
-                new PropertyMetadata(OnActualAccentColorChanged));
+                new PropertyMetadata(OnAccentColorChanged));
 
-        public Brush ActualAccentColor
+        public Brush AccentColor
         {
-            get => (Brush) GetValue(ActualAccentColorProperty);
-            set => SetValue(ActualAccentColorProperty, value);
+            get => (Brush) GetValue(AccentColorProperty);
+            set => SetValue(AccentColorProperty, value);
         }
 
-        private static void OnActualAccentColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnAccentColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var tm = (ThemeManager) d;
             tm.applyAccentColor(tm.UsingSystemTheme ? tm.GetAccentColorFromSystem() : e.NewValue);

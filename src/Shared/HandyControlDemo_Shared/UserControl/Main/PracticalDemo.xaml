@@ -52,7 +52,7 @@
                     <RadioButton Margin="10,0" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsEnabled="False"/>
                 </StackPanel>
 
-                <StackPanel Margin="0,10" hc:ThemeManager.AccentColor="{DynamicResource VioletBrush}" Background="{DynamicResource RegionBrush}" Grid.Column="2">
+                <StackPanel Margin="0,10" hc:ThemeManager.ActualAccentColor="{DynamicResource VioletBrush}" Background="{DynamicResource RegionBrush}" Grid.Column="2">
                     <TextBlock Text="Accent Color" Style="{DynamicResource TextBlockTitle}"/>
                     <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="10"/>
                     <CheckBox Margin="10,5" Content="{ex:Lang Key={x:Static langs:LangKeys.CheckBox}}" IsChecked="True"/>

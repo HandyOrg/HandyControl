@@ -72,13 +72,13 @@ namespace HandyControl.Controls
         /// </summary>
         public Brush AccentColor
         {
-            get => HandyControl.Tools.ThemeManager.Current.ActualAccentColor;
+            get => HandyControl.Tools.ThemeManager.Current.AccentColor;
             set
             {
-                if (HandyControl.Tools.ThemeManager.Current.ActualAccentColor != value)
+                if (HandyControl.Tools.ThemeManager.Current.AccentColor != value)
                 {
                     HandyControl.Tools.ThemeManager.Current.SetCurrentValue(
-                        HandyControl.Tools.ThemeManager.ActualAccentColorProperty, value);
+                        HandyControl.Tools.ThemeManager.AccentColorProperty, value);
 
                     if (DesignMode.DesignModeEnabled)
                     {
