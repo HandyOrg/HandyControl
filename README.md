@@ -506,9 +506,9 @@ Step 4: Enjoy coding
 
 ![PasswordBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PasswordBox.jpg)
 
-### DataPicker
+### DatePicker
 
-![DataPicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DataPicker.jpg)
+![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DatePicker.jpg)
 
 ### TimePicker
 
