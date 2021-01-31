@@ -3,7 +3,12 @@
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs"
                     xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
                     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
-                    xmlns:hc="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
+
+    <ResourceDictionary.MergedDictionaries>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
 
     <DrawingBrush x:Key="EmptySimpleLogo" o:Freeze="True">
         <DrawingBrush.Drawing>
@@ -24,6 +29,7 @@
         <Setter Property="Description" Value="{StaticResource DescriptionTextBlock4Empty}"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Visibility" Value="{Binding Path=(hc:Empty.ShowEmpty),RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2VisibilityConverter}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:Empty">
