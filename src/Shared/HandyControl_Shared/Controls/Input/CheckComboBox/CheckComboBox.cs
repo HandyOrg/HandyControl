@@ -74,7 +74,20 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-            "IsDropDownOpen", typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
+            "IsDropDownOpen", typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDropDownOpenChanged));
+
+        private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (CheckComboBox) d;
+
+            if (!(bool) e.NewValue)
+            {
+                ctl.Dispatcher.BeginInvoke(new Action(() =>
+                {
+                    Mouse.Capture(null);
+                }), DispatcherPriority.Send);
+            }
+        }
 
         public bool IsDropDownOpen
         {

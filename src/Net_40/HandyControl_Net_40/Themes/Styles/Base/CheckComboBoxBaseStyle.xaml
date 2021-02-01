@@ -40,12 +40,12 @@
         </Setter>
     </Style>
 
-    <Style x:Key="CheckComboBoxWatermarkToggleButton" TargetType="ToggleButton">
-        <Setter Property="OverridesDefaultStyle" Value="true"/>
-        <Setter Property="Foreground" Value="{DynamicResource ThirdlyTextBrush}"/>
-        <Setter Property="IsTabStop" Value="false"/>
-        <Setter Property="Focusable" Value="false"/>
-        <Setter Property="ClickMode" Value="Press"/>
+    <Style x:Key="CheckComboBoxToggleButton" BasedOn="{StaticResource ComboBoxToggleButton}" TargetType="ToggleButton">
+        <Setter Property="ClickMode" Value="Release"/>
+    </Style>
+
+    <Style x:Key="CheckComboBoxWatermarkToggleButton" BasedOn="{StaticResource ComboBoxWatermarkToggleButton}" TargetType="ToggleButton">
+        <Setter Property="ClickMode" Value="Release"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
@@ -126,7 +126,7 @@
                     </hc:ToggleBlock>
                 </Border>
             </Popup>
-            <ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Style="{StaticResource ComboBoxToggleButton}"/>
+            <ToggleButton Grid.Column="0" x:Name="toggleButton" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Style="{StaticResource CheckComboBoxToggleButton}"/>
             <Border Grid.Column="0" Margin="-1,1">
                 <WrapPanel Name="PART_Panel" Margin="5,0,5,3"/>
             </Border>
