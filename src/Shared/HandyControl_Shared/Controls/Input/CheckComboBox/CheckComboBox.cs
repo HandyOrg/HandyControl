@@ -239,6 +239,7 @@ namespace HandyControl.Controls
             }
 
             _panel.Children.Clear();
+            var dataContext = DataContext;
 
             foreach (var item in SelectedItems)
             {
@@ -250,7 +251,15 @@ namespace HandyControl.Controls
                         Tag = checkComboBoxItem
                     };
 
-                    tag.SetBinding(ContentControl.ContentProperty, new Binding(DisplayMemberPath) { Source = item });
+                    if (dataContext != null)
+                    {
+                        tag.SetBinding(ContentControl.ContentProperty, new Binding(DisplayMemberPath) { Source = item });
+                    }
+                    else
+                    {
+                        tag.Content = checkComboBoxItem.Content;
+                    }
+
                     _panel.Children.Add(tag);
                 }
             }
