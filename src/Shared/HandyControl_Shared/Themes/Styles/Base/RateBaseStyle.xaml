@@ -11,14 +11,6 @@
 
     <Style x:Key="RateRateItemBaseStyle" TargetType="hc:RateItem">
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Margin" Value="{Binding ItemMargin,RelativeSource={RelativeSource  AncestorType=hc:Rate}}"/>
-        <Setter Property="Width" Value="{Binding ItemWidth,RelativeSource={RelativeSource  AncestorType=hc:Rate}}"/>
-        <Setter Property="Height" Value="{Binding ItemHeight,RelativeSource={RelativeSource  AncestorType=hc:Rate}}"/>
-        <Setter Property="AllowHalf" Value="{Binding AllowHalf,RelativeSource={RelativeSource  AncestorType=hc:Rate}}"/>
-        <Setter Property="AllowClear" Value="{Binding AllowClear,RelativeSource={RelativeSource  AncestorType=hc:Rate}}"/>
-        <Setter Property="Icon" Value="{Binding Icon,RelativeSource={RelativeSource  AncestorType=hc:Rate}}"/>
-        <Setter Property="IsReadOnly" Value="{Binding IsReadOnly,RelativeSource={RelativeSource  AncestorType=hc:Rate}}"/>
-        <Setter Property="Background" Value="{Binding Background,RelativeSource={RelativeSource  AncestorType=hc:Rate}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:RateItem">
