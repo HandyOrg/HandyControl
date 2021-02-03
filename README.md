@@ -113,6 +113,15 @@
 <a href="https://github.com/inows" target="_blank"><img style="border-radius:50%!important" width="64px" alt="inows" src="https://avatars.githubusercontent.com/u/15324558?s=64&v=4"></a>
 <a href="https://github.com/oo-simbo" target="_blank"><img style="border-radius:50%!important" width="64px" alt="oo-simbo" src="https://avatars.githubusercontent.com/u/49231532?s=64&v=4"></a>
 <a href="https://github.com/775253959" target="_blank"><img style="border-radius:50%!important" width="64px" alt="775253959" src="https://avatars.githubusercontent.com/u/24452103?s=64&v=4"></a>
+<a href="https://github.com/IanXxu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="IanXxu" src="https://avatars.githubusercontent.com/u/19760451?s=64&v=4"></a>
+<a href="https://github.com/NightwishMeng" target="_blank"><img style="border-radius:50%!important" width="64px" alt="NightwishMeng" src="https://avatars.githubusercontent.com/u/32695316?s64&v=4"></a>
+<a href="https://github.com/tonghudan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="tonghudan" src="https://avatars.githubusercontent.com/u/14705603?s=64&v=4"></a>
+<a href="https://github.com/Removable" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Removable" src="https://avatars.githubusercontent.com/u/7271713?s=64&v=4"></a>
+<a href="https://github.com/nicecodeclub" target="_blank"><img style="border-radius:50%!important" width="64px" alt="nicecodeclub" src="https://avatars.githubusercontent.com/u/12929071?s=64&v=4"></a>
+<a href="https://github.com/Jajison" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Jajison" src="https://avatars.githubusercontent.com/u/60476418?s=64&v=4"></a>
+<a href="https://github.com/xyghy13" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xyghy13" src="https://avatars.githubusercontent.com/u/27751725?s=64&v=4"></a>
+<a href="https://github.com/icarousfff" target="_blank"><img style="border-radius:50%!important" width="64px" alt="icarousfff" src="https://avatars.githubusercontent.com/u/49859230?s=64&v=4"></a>
+<a href="https://github.com/qiang9420d" target="_blank"><img style="border-radius:50%!important" width="64px" alt="qiang9420d" src="https://avatars.githubusercontent.com/u/22925262?s=64&v=4"></a>
 
 ## Special thanks to
 
