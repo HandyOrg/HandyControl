@@ -130,6 +130,14 @@
 [![Cake](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/cake_logo.png)](https://cakebuild.net/)
 [![Gitter](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/gitter_logo.png)](https://gitter.im/)
 
+## Projects using HandyControl
+
+<a href="https://getquicker.net" target="_blank"><img width="70px" alt="quicker" src="https://files.getquicker.net/_sitefiles/quicker_round_128.png"></a>
+<a href="https://www.phpenv.cn" target="_blank"><img width="70px" alt="phpenv" src="https://www.phpenv.cn/usr/themes/phpenv/img/logo.png"></a>
+<a href="https://atmb.top" target="_blank"><img width="70px" alt="AutumnBox" src="https://atmb.top/images/icon.png"></a>
+
+if your project is not listed here, let us know! 😀
+
 ## Usage
 
 Step 1: Add a reference to HandyControl or search for HandyControl on the nuget; 
