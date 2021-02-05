@@ -16,12 +16,15 @@
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="8,0,8,8"/>
         <Setter Property="ShowConfirmButton" Value="True"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Template">
              <Setter.Value>
                 <ControlTemplate TargetType="hc:CalendarWithClock">
-                    <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                    <hc:SimplePanel>
+                        <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Effect="{StaticResource EffectShadow2}"/>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto"/>
@@ -32,12 +35,12 @@
                                 <RowDefinition/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <Border Grid.ColumnSpan="2" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}"/>
+                            <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" Grid.ColumnSpan="2" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}"/>
                             <ContentPresenter Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_CalendarPresenter"/>
                             <ContentPresenter Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_ClockPresenter"/>
                             <Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm"  Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" HorizontalAlignment="Center" Margin="0,0,0,19" Width="180" VerticalAlignment="Bottom" Style="{StaticResource ButtonPrimary}"/>
                         </Grid>
-                    </Border>
+                    </hc:SimplePanel>
                 </ControlTemplate>
              </Setter.Value>
          </Setter>
