@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -81,6 +82,7 @@ namespace HandyControl.Controls
 
         public DateTimePicker()
         {
+            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
             InitCalendarWithClock();
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
