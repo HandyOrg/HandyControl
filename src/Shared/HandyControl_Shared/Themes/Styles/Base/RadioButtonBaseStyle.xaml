@@ -141,6 +141,7 @@
                             <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
+                            <Setter Property="Fill" Value="White" TargetName="PathMain"/>
                             <Setter Property="BorderBrush" Value="{Binding Path=(hc:VisualElement.HighlightBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderHighlight"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -185,6 +186,7 @@
                             <Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="true">
+                            <Setter Property="Fill" Value="White" TargetName="PathMain"/>
                             <Setter Property="BorderBrush" Value="{Binding Path=(hc:VisualElement.HighlightBorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
                             <Setter Property="Background" Value="{Binding Path=(hc:VisualElement.HighlightBackground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
                             <Setter Property="TextElement.Foreground" Value="{Binding Path=(hc:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter"/>
