@@ -356,7 +356,6 @@ namespace HandyControl.Controls
             if (WindowState == WindowState.Maximized)
             {
                 BorderThickness = new Thickness();
-                _tempNonClientAreaHeight = NonClientAreaHeight;
                 NonClientAreaHeight += 8;
             }
             else
