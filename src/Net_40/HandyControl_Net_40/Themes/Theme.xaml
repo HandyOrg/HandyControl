@@ -4292,6 +4292,9 @@
 							<Setter Property="Background" TargetName="ButtonMin" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
 							<Setter Property="Foreground" TargetName="ButtonMin" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
 						</Trigger>
+						<Trigger Property="WindowStyle" Value="None">
+							<Setter Property="ShowNonClientArea" Value="False" />
+						</Trigger>
 						<MultiTrigger>
 							<MultiTrigger.Conditions>
 								<Condition Property="ResizeMode" Value="CanResizeWithGrip" />
