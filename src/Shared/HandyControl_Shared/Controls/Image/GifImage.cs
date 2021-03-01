@@ -63,6 +63,8 @@ namespace HandyControl.Controls
         private static void OnVisibilityChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (GifImage) s;
+            if (ctl.NativeImage == IntPtr.Zero) return;
+
             var v = (Visibility) e.NewValue;
             if (v != Visibility.Visible)
             {
