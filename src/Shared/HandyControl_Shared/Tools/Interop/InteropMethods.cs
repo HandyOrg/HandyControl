@@ -97,6 +97,10 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.User32)]
         internal static extern bool InsertMenu(IntPtr hMenu, int wPosition, int wFlags, int wIDNewItem, string lpNewItem);
 
+        [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true, EntryPoint = "DestroyMenu", CharSet = CharSet.Auto)]
+        [ResourceExposure(ResourceScope.None)]
+        internal static extern bool IntDestroyMenu(HandleRef hMenu);
+
         [SecurityCritical]
         [SuppressUnmanagedCodeSecurity]
         [DllImport(InteropValues.ExternDll.User32, SetLastError = true, ExactSpelling = true, EntryPoint = nameof(GetDC),
