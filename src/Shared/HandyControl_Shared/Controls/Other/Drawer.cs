@@ -70,6 +70,8 @@ namespace HandyControl.Controls
             {
                 _storyboard.Completed -= Storyboard_Completed;
             }
+
+            _container = null;
         }
 
         private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
