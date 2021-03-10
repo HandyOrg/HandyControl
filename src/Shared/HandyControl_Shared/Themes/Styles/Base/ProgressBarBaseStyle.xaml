@@ -21,7 +21,7 @@
     <Style x:Key="ProgressBarBaseStyle" TargetType="ProgressBar">
         <Setter Property="hc:VisualElement.Text">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource Number2PercentageConverter}" StringFormat="{}{0} %">
+                <MultiBinding Converter="{StaticResource Number2PercentageConverter}" StringFormat="{}{0:F0} %">
                     <Binding Path="Value" RelativeSource="{RelativeSource Self}"/>
                     <Binding Path="Maximum" RelativeSource="{RelativeSource Self}"/>
                 </MultiBinding>
