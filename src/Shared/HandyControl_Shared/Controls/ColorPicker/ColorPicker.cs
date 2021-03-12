@@ -375,8 +375,6 @@ namespace HandyControl.Controls
                     _isLoaded = true;
                 }
             };
-
-            cPicker = this;
         }
 
         public override void OnApplyTemplate()
