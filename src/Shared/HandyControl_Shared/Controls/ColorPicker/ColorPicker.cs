@@ -192,17 +192,17 @@ namespace HandyControl.Controls
         /// <summary>
         ///     颜色改变事件
         /// </summary>
-        public static readonly RoutedEvent SelectedColorConfirmedEvent =
-            EventManager.RegisterRoutedEvent("SelectedColorConfirmed", RoutingStrategy.Bubble,
+        public static readonly RoutedEvent ConfirmedEvent =
+            EventManager.RegisterRoutedEvent("Confirmed", RoutingStrategy.Bubble,
                 typeof(EventHandler<FunctionEventArgs<Color>>), typeof(ColorPicker));
 
         /// <summary>
         ///     颜色改变事件
         /// </summary>
-        public event EventHandler<FunctionEventArgs<Color>> SelectedColorConfirmed
+        public event EventHandler<FunctionEventArgs<Color>> Confirmed
         {
-            add => AddHandler(SelectedColorConfirmedEvent, value);
-            remove => RemoveHandler(SelectedColorConfirmedEvent, value);
+            add => AddHandler(ConfirmedEvent, value);
+            remove => RemoveHandler(ConfirmedEvent, value);
         }
 
         /// <summary>
@@ -713,7 +713,7 @@ namespace HandyControl.Controls
 
         private void ButtonConfirm_OnClick(object sender, RoutedEventArgs e)
         {
-            RaiseEvent(new FunctionEventArgs<Color>(SelectedColorConfirmedEvent, this)
+            RaiseEvent(new FunctionEventArgs<Color>(ConfirmedEvent, this)
                {
                    Info = SelectedBrush.Color
                });
@@ -752,9 +752,5 @@ namespace HandyControl.Controls
         }
 
         public bool CanDispose { get; } = true;
-        public static void IsCheckedToggleButtonDropper(bool value)
-        {
-            ColorPicker.cPicker._toggleButtonDropper.IsChecked = value;
-        }
     }
 }
