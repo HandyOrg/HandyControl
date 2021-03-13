@@ -168,7 +168,6 @@
                         <Trigger Property="ExtendViewIntoNonClientArea" Value="True">
                             <Setter TargetName="AdornerDecorator" Property="Grid.Row" Value="0" />
                             <Setter TargetName="AdornerDecorator" Property="Grid.RowSpan" Value="2" />
-                            <Setter TargetName="ContentPresenterMain" Property="Visibility" Value="Collapsed"/>
                             <Setter Property="ShowTitle" Value="False"/>
                             <Setter Property="NonClientAreaBackground" Value="Transparent"/>
                         </Trigger>
