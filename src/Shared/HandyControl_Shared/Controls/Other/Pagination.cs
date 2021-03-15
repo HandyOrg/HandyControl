@@ -243,7 +243,7 @@ namespace HandyControl.Controls
         {
             if (d is Pagination pagination)
             {
-                pagination.OnAutoHidingChanged((bool)e.NewValue);
+                pagination.OnAutoHidingChanged((bool) e.NewValue);
             }
         }
 
