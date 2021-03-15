@@ -93,7 +93,7 @@ namespace HandyControl.Controls
 
             if (Orientation == Orientation.Horizontal)
             {
-                var pos = (e.GetPosition(this).X - _thumb.ActualWidth / 2) / _track.ActualWidth * Maximum;
+                var pos = (e.GetPosition(this).X - _thumb.ActualWidth / 2) / _track.ActualWidth * (Maximum - Minimum) + Minimum;
                 if (pos > Maximum || pos < 0)
                 {
                     if (_thumb.IsMouseCaptureWithin)
@@ -110,7 +110,7 @@ namespace HandyControl.Controls
             }
             else
             {
-                var pos = Maximum - (e.GetPosition(this).Y - _thumb.ActualHeight / 2) / _track.ActualHeight * Maximum;
+                var pos = (1 - (e.GetPosition(this).Y - _thumb.ActualHeight / 2) / _track.ActualHeight) * (Maximum - Minimum) + Minimum;
                 if (pos > Maximum || pos < 0)
                 {
                     if (_thumb.IsMouseCaptureWithin)
