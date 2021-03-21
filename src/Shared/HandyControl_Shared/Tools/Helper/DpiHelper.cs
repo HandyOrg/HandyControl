@@ -32,6 +32,9 @@ namespace HandyControl.Tools
                 DeviceDpiY = LogicalDpi;
             }
 
+            DpiScaleX = DeviceDpiX / LogicalDpi;
+            DpiScaleY = DeviceDpiY / LogicalDpi;
+
             var identity = Matrix.Identity;
             var identity2 = Matrix.Identity;
             identity.Scale(DeviceDpiX / LogicalDpi, DeviceDpiY / LogicalDpi);
@@ -49,6 +52,10 @@ namespace HandyControl.Tools
         public static double DeviceDpiX { get; }
 
         public static double DeviceDpiY { get; }
+
+        public static double DpiScaleX { get; }
+
+        public static double DpiScaleY { get; }
 
         public static double LogicalToDeviceUnitsScalingFactorX => TransformToDevice.Matrix.M11;
 

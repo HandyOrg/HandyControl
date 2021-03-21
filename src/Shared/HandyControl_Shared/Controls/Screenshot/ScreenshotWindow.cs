@@ -57,9 +57,9 @@ namespace HandyControl.Controls
 
         #region status
 
-        private InteropValues.RECT _desktopWindowRect;
+        private Rect _desktopWindowRect;
 
-        private InteropValues.RECT _targetWindowRect;
+        private Rect _targetWindowRect;
 
         private readonly int[] _flagArr = new int[4];
 
@@ -73,7 +73,7 @@ namespace HandyControl.Controls
 
         private Point _pointFixed;
 
-        private InteropValues.POINT _pointFloating;
+        private Point _pointFloating;
 
         private bool _saveScreenshot;
 
@@ -289,14 +289,11 @@ namespace HandyControl.Controls
 
                 if (_canDrag)
                 {
-                    rect.Left += offsetX;
-                    rect.Top += offsetY;
-                    rect.Right += offsetX;
-                    rect.Bottom += offsetY;
+                    rect = new Rect(rect.Left + offsetX, rect.Top + offsetY, rect.Width, rect.Height);
                 }
                 else
                 {
-                    var magnifierPos = new InteropValues.POINT((int) newPoint.X, (int) newPoint.Y);
+                    var magnifierPos = new Point(newPoint.X, newPoint.Y);
 
                     if (_flagArr[0] > 0)
                     {
@@ -320,13 +317,13 @@ namespace HandyControl.Controls
                         magnifierPos.Y = _pointFloating.Y - 1;
                     }
 
-                    rect.Left = (int) Math.Min(_pointFixed.X, _pointFloating.X);
-                    rect.Top = (int) Math.Min(_pointFixed.Y, _pointFloating.Y);
-                    rect.Right = (int) Math.Max(_pointFixed.X, _pointFloating.X);
-                    rect.Bottom = (int) Math.Max(_pointFixed.Y, _pointFloating.Y);
-
+                    var left = (int) Math.Min(_pointFixed.X, _pointFloating.X);
+                    var top = (int) Math.Min(_pointFixed.Y, _pointFloating.Y);
+                    var right = (int) Math.Max(_pointFixed.X, _pointFloating.X);
+                    var bottom = (int) Math.Max(_pointFixed.Y, _pointFloating.Y);
+                    rect = new Rect(left, top, right - left, bottom - top);
                     _magnifier.Show();
-                    MoveMagnifier(magnifierPos);
+                    MoveMagnifier(new Point(magnifierPos.X, magnifierPos.Y));
                 }
 
                 MoveTargetArea(rect);
@@ -339,7 +336,7 @@ namespace HandyControl.Controls
                 var minY = (int) Math.Min(_mousePointOld.Y, newPoint.Y);
                 var maxY = (int) Math.Max(_mousePointOld.Y, newPoint.Y);
 
-                MoveTargetArea(new InteropValues.RECT(minX, minY, maxX, maxY));
+                MoveTargetArea(new Rect(minX, minY, maxX - minX, maxY - minY));
             }
             else if (!IsSelecting && offsetX > 0 && offsetY > 0)
             {
@@ -372,8 +369,9 @@ namespace HandyControl.Controls
             Canvas.Children.Add(image);
             StartHooks();
             InteropMethods.GetCursorPos(out var point);
-            MoveElement(point);
-            MoveMagnifier(point);
+            point = new InteropValues.POINT((int) (point.X / DpiHelper.DpiScaleX), (int) (point.Y / DpiHelper.DpiScaleY));
+            MoveElement(new Point(point.X, point.Y));
+            MoveMagnifier(new Point(point.X, point.Y));
         }
 
         private void UpdateStatus(Point point)
@@ -401,7 +399,7 @@ namespace HandyControl.Controls
                         // left
                         cursor = Cursors.SizeWE;
                         _pointFixed = new Point(_targetWindowRect.Right, _targetWindowRect.Top);
-                        _pointFloating = new InteropValues.POINT(_targetWindowRect.Left, _targetWindowRect.Bottom);
+                        _pointFloating = new Point(_targetWindowRect.Left, _targetWindowRect.Bottom);
                         _flagArr[0] = 1;
                     }
                     else
@@ -409,7 +407,7 @@ namespace HandyControl.Controls
                         //left bottom
                         cursor = Cursors.SizeNESW;
                         _pointFixed = new Point(_targetWindowRect.Right, _targetWindowRect.Top);
-                        _pointFloating = new InteropValues.POINT(_targetWindowRect.Left, _targetWindowRect.Bottom);
+                        _pointFloating = new Point(_targetWindowRect.Left, _targetWindowRect.Bottom);
                         _flagArr[0] = 1;
                         _flagArr[3] = 1;
                     }
@@ -419,7 +417,7 @@ namespace HandyControl.Controls
                     // left top
                     cursor = Cursors.SizeNWSE;
                     _pointFixed = new Point(_targetWindowRect.Right, _targetWindowRect.Bottom);
-                    _pointFloating = new InteropValues.POINT(_targetWindowRect.Left, _targetWindowRect.Top);
+                    _pointFloating = new Point(_targetWindowRect.Left, _targetWindowRect.Top);
                     _flagArr[0] = 1;
                     _flagArr[1] = 1;
                 }
@@ -448,7 +446,7 @@ namespace HandyControl.Controls
                         //bottom
                         cursor = Cursors.SizeNS;
                         _pointFixed = new Point(_targetWindowRect.Left, _targetWindowRect.Top);
-                        _pointFloating = new InteropValues.POINT(_targetWindowRect.Right, _targetWindowRect.Bottom);
+                        _pointFloating = new Point(_targetWindowRect.Right, _targetWindowRect.Bottom);
                         _flagArr[3] = 1;
                     }
                 }
@@ -457,7 +455,7 @@ namespace HandyControl.Controls
                     //top
                     cursor = Cursors.SizeNS;
                     _pointFixed = new Point(_targetWindowRect.Right, _targetWindowRect.Bottom);
-                    _pointFloating = new InteropValues.POINT(_targetWindowRect.Left, _targetWindowRect.Top);
+                    _pointFloating = new Point(_targetWindowRect.Left, _targetWindowRect.Top);
                     _flagArr[1] = 1;
                 }
             }
@@ -470,7 +468,7 @@ namespace HandyControl.Controls
                         //right
                         cursor = Cursors.SizeWE;
                         _pointFixed = new Point(_targetWindowRect.Left, _targetWindowRect.Bottom);
-                        _pointFloating = new InteropValues.POINT(_targetWindowRect.Right, _targetWindowRect.Top);
+                        _pointFloating = new Point(_targetWindowRect.Right, _targetWindowRect.Top);
                         _flagArr[2] = 1;
                     }
                     else
@@ -478,7 +476,7 @@ namespace HandyControl.Controls
                         //right bottom
                         cursor = Cursors.SizeNWSE;
                         _pointFixed = new Point(_targetWindowRect.Left, _targetWindowRect.Top);
-                        _pointFloating = new InteropValues.POINT(_targetWindowRect.Right, _targetWindowRect.Bottom);
+                        _pointFloating = new Point(_targetWindowRect.Right, _targetWindowRect.Bottom);
                         _flagArr[2] = 1;
                         _flagArr[3] = 1;
                     }
@@ -488,7 +486,7 @@ namespace HandyControl.Controls
                     // right top
                     cursor = Cursors.SizeNESW;
                     _pointFixed = new Point(_targetWindowRect.Left, _targetWindowRect.Bottom);
-                    _pointFloating = new InteropValues.POINT(_targetWindowRect.Right, _targetWindowRect.Top);
+                    _pointFloating = new Point(_targetWindowRect.Right, _targetWindowRect.Top);
                     _flagArr[1] = 1;
                     _flagArr[2] = 1;
                 }
@@ -520,12 +518,13 @@ namespace HandyControl.Controls
             switch (e.MessageType)
             {
                 case MouseHookMessageType.MouseMove:
-                    MoveElement(e.Point);
-                    MoveMagnifier(e.Point);
+                    var pt = new Point(e.Point.X / DpiHelper.DpiScaleX, e.Point.Y / DpiHelper.DpiScaleY);
+                    MoveElement(pt);
+                    MoveMagnifier(pt);
                     break;
                 case MouseHookMessageType.LeftButtonDown:
                     _receiveMoveMsg = false;
-                    _mousePointOld = new Point(e.Point.X, e.Point.Y);
+                    _mousePointOld = new Point(e.Point.X / DpiHelper.DpiScaleX, e.Point.Y / DpiHelper.DpiScaleY);
                     InteropMethods.EnableWindow(_screenshotWindowHandle, true);
                     break;
                 case MouseHookMessageType.RightButtonDown:
@@ -542,7 +541,7 @@ namespace HandyControl.Controls
 
         private void SaveScreenshot()
         {
-            var cb = new CroppedBitmap(_imageSource, new Int32Rect(_targetWindowRect.Left, _targetWindowRect.Top, _targetWindowRect.Width, _targetWindowRect.Height));
+            var cb = new CroppedBitmap(_imageSource, new Int32Rect((int) (_targetWindowRect.Left * DpiHelper.DpiScaleX), (int) (_targetWindowRect.Top* DpiHelper.DpiScaleY), (int) (_targetWindowRect.Width* DpiHelper.DpiScaleX), (int) (_targetWindowRect.Height*DpiHelper.DpiScaleY)));
             _screenshot.OnSnapped(cb);
 
             Close();
@@ -554,13 +553,15 @@ namespace HandyControl.Controls
             var hdcSrc = InteropMethods.GetWindowDC(_desktopWindowHandle);
             var hdcDest = InteropMethods.CreateCompatibleDC(hdcSrc);
 
-            InteropMethods.GetWindowRect(_desktopWindowHandle, out _desktopWindowRect);
-            var desktopWindowWidth = _desktopWindowRect.Right - _desktopWindowRect.Left;
-            var desktopWindowHeight = _desktopWindowRect.Bottom - _desktopWindowRect.Top;
+            InteropMethods.GetWindowRect(_desktopWindowHandle, out var desktopWindowRect);
+            _desktopWindowRect = new Rect(desktopWindowRect.Left / DpiHelper.DpiScaleX,
+                desktopWindowRect.Left / DpiHelper.DpiScaleY, desktopWindowRect.Width / DpiHelper.DpiScaleX,
+                desktopWindowRect.Height / DpiHelper.DpiScaleY);
 
-            var hbitmap = InteropMethods.CreateCompatibleBitmap(hdcSrc, desktopWindowWidth, desktopWindowHeight);
+
+            var hbitmap = InteropMethods.CreateCompatibleBitmap(hdcSrc, desktopWindowRect.Width, desktopWindowRect.Height);
             var hOld = InteropMethods.SelectObject(hdcDest, hbitmap);
-            InteropMethods.BitBlt(hdcDest, 0, 0, desktopWindowWidth, desktopWindowHeight, hdcSrc, 0, 0, InteropValues.SRCCOPY);
+            InteropMethods.BitBlt(hdcDest, 0, 0, desktopWindowRect.Width, desktopWindowRect.Height, hdcSrc, 0, 0, InteropValues.SRCCOPY);
             InteropMethods.SelectObject(hdcDest, hOld);
             InteropMethods.DeleteDC(hdcDest);
             InteropMethods.ReleaseDC(_desktopWindowHandle, hdcSrc);
@@ -617,15 +618,15 @@ namespace HandyControl.Controls
             return bitmapImage;
         }
 
-        private void MoveElement(InteropValues.POINT point)
+        private void MoveElement(Point point)
         {
             if (!_receiveMoveMsg) return;
-
+            InteropValues.POINT pt = new InteropValues.POINT((int) (point.X * DpiHelper.DpiScaleX), (int) (point.Y * DpiHelper.DpiScaleX));
             var mouseOverWindowHandle = InteropMethods.ChildWindowFromPointEx(_desktopWindowHandle,
                 new InteropValues.POINT
                 {
-                    X = point.X,
-                    Y = point.Y
+                    X = pt.X,
+                    Y = pt.Y
                 }, 1 | 2);
 
             if (mouseOverWindowHandle != _mouseOverWindowHandle && mouseOverWindowHandle != IntPtr.Zero)
@@ -633,63 +634,66 @@ namespace HandyControl.Controls
                 _mouseOverWindowHandle = mouseOverWindowHandle;
 
                 InteropMethods.GetWindowRect(_mouseOverWindowHandle, out var windowRect);
-                MoveTargetArea(windowRect);
+                var rect = new Rect(windowRect.Left / DpiHelper.DpiScaleX, windowRect.Top / DpiHelper.DpiScaleY, windowRect.Width / DpiHelper.DpiScaleX, windowRect.Height / DpiHelper.DpiScaleY);
+                MoveTargetArea(rect);
             }
         }
 
-        private static InteropValues.RECT MoveRect(InteropValues.RECT rect, int leftFlag = 0, int topFlag = 0, int rightFlag = 0, int bottomFlag = 0)
+        private static Rect MoveRect(Rect rect, int leftFlag = 0, int topFlag = 0, int rightFlag = 0, int bottomFlag = 0)
         {
             var moveLength = Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)
                 ? IntervalBigLength
                 : IntervalLength;
 
-            rect.Left += leftFlag * moveLength;
-            rect.Top += topFlag * moveLength;
-            rect.Right += rightFlag * moveLength;
-            rect.Bottom += bottomFlag * moveLength;
+            var left = rect.Left + leftFlag * moveLength;
+            var top = rect.Top + topFlag * moveLength;
+            var right = rect.Right + rightFlag * moveLength;
+            var bottom = rect.Bottom + bottomFlag * moveLength;
 
-            return rect;
+            return new Rect(left, top, right - left, bottom - top);
         }
 
-        private void MoveTargetArea(InteropValues.RECT rect)
+        private void MoveTargetArea(Rect rect)
         {
-            if (rect.Left < 0)
-            {
-                rect.Right -= rect.Left;
-                rect.Left = 0;
-            }
-
-            if (rect.Top < 0)
-            {
-                rect.Bottom -= rect.Top;
-                rect.Top = 0;
-            }
-
-            if (rect.Right > _desktopWindowRect.Width)
-            {
-                rect.Left -= rect.Right - _desktopWindowRect.Width;
-                rect.Right = _desktopWindowRect.Width;
-            }
-
-            if (rect.Bottom > _desktopWindowRect.Height)
-            {
-                rect.Top -= rect.Bottom - _desktopWindowRect.Height;
-                rect.Bottom = _desktopWindowRect.Height;
-            }
-
-            rect.Left = Math.Max(0, rect.Left);
-            rect.Top = Math.Max(0, rect.Top);
-
-            var width = rect.Width;
-            var height = rect.Height;
             var left = rect.Left;
             var top = rect.Top;
+            var right = rect.Right;
+            var bottom = rect.Bottom;
+            if (left < 0)
+            {
+                right -= left;
+                left = 0;
+            }
+
+            if (top < 0)
+            {
+                bottom -= top;
+                top = 0;
+            }
+
+            if (right > _desktopWindowRect.Width)
+            {
+                left -= right - _desktopWindowRect.Width;
+                right = _desktopWindowRect.Width;
+            }
+
+            if (bottom > _desktopWindowRect.Height)
+            {
+                top -= bottom - _desktopWindowRect.Height;
+                bottom = _desktopWindowRect.Height;
+            }
+
+            left = Math.Max(0, left);
+            top = Math.Max(0, top);
+
+            var width = right - left;
+            var height = bottom - top;
 
             TargetArea.Width = width;
             TargetArea.Height = height;
             TargetArea.Margin = new Thickness(left, top, 0, 0);
 
-            _targetWindowRect = new InteropValues.RECT(left, top, left + width, top + height);
+            _targetWindowRect = new Rect(left, top, width, height);
             Size = _targetWindowRect.Size;
             SizeStr = $"{_targetWindowRect.Width} x {_targetWindowRect.Height}";
 
@@ -714,8 +718,9 @@ namespace HandyControl.Controls
             MaskAreaBottom.Height = _desktopWindowRect.Height - TargetArea.Height - TargetArea.Margin.Top;
         }
 
-        private void MoveMagnifier(InteropValues.POINT point)
+        private void MoveMagnifier(Point point)
         {
+            //point = new InteropValues.POINT((int) (point.X / DpiHelper.DpiScaleX), (int) (point.Y / DpiHelper.DpiScaleY));
             _magnifier.Margin = new Thickness(point.X + 4, point.Y + 26, 0, 0);
             _visualPreview.Viewbox = new Rect(new Point(point.X - _viewboxSize.Width / 2 + 0.5, point.Y - _viewboxSize.Height / 2 + 0.5), _viewboxSize);
         }
