@@ -541,7 +541,7 @@ namespace HandyControl.Controls
 
         private void SaveScreenshot()
         {
-            var cb = new CroppedBitmap(_imageSource, new Int32Rect((int) (_targetWindowRect.Left * DpiHelper.DpiScaleX), (int) (_targetWindowRect.Top* DpiHelper.DpiScaleY), (int) (_targetWindowRect.Width* DpiHelper.DpiScaleX), (int) (_targetWindowRect.Height*DpiHelper.DpiScaleY)));
+            var cb = new CroppedBitmap(_imageSource, new Int32Rect((int) (_targetWindowRect.Left * DpiHelper.DpiScaleX), (int) (_targetWindowRect.Top * DpiHelper.DpiScaleY), (int) (_targetWindowRect.Width * DpiHelper.DpiScaleX), (int) (_targetWindowRect.Height * DpiHelper.DpiScaleY)));
             _screenshot.OnSnapped(cb);
 
             Close();
