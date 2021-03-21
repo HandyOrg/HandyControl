@@ -541,7 +541,7 @@ namespace HandyControl.Controls
 
         private void SaveScreenshot()
         {
-            var cb = new CroppedBitmap(_imageSource, new Int32Rect((int) (_targetWindowRect.Left * DpiHelper.DpiScaleX), (int) (_targetWindowRect.Top* DpiHelper.DpiScaleY), (int) (_targetWindowRect.Width* DpiHelper.DpiScaleX), (int) (_targetWindowRect.Height*DpiHelper.DpiScaleY)));
+            var cb = new CroppedBitmap(_imageSource, new Int32Rect((int) (_targetWindowRect.Left * DpiHelper.DpiScaleX), (int) (_targetWindowRect.Top * DpiHelper.DpiScaleY), (int) (_targetWindowRect.Width * DpiHelper.DpiScaleX), (int) (_targetWindowRect.Height * DpiHelper.DpiScaleY)));
             _screenshot.OnSnapped(cb);
 
             Close();
@@ -695,7 +695,7 @@ namespace HandyControl.Controls
 
             _targetWindowRect = new Rect(left, top, width, height);
             Size = _targetWindowRect.Size;
-            SizeStr = $"{_targetWindowRect.Width} x {_targetWindowRect.Height}";
+            SizeStr = $"{_targetWindowRect.Width * DpiHelper.DpiScaleX} x {_targetWindowRect.Height * DpiHelper.DpiScaleY}";
 
             MoveMaskArea();
         }
@@ -720,7 +720,6 @@ namespace HandyControl.Controls
 
         private void MoveMagnifier(Point point)
         {
-            //point = new InteropValues.POINT((int) (point.X / DpiHelper.DpiScaleX), (int) (point.Y / DpiHelper.DpiScaleY));
             _magnifier.Margin = new Thickness(point.X + 4, point.Y + 26, 0, 0);
             _visualPreview.Viewbox = new Rect(new Point(point.X - _viewboxSize.Width / 2 + 0.5, point.Y - _viewboxSize.Height / 2 + 0.5), _viewboxSize);
         }
