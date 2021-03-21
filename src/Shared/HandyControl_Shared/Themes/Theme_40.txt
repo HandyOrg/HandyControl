@@ -96,6 +96,7 @@ Styles\Base\LoadingLineBaseStyle.xaml
 Styles\Base\MagnifierBaseStyle.xaml
 Styles\Base\NavigationWindowBaseStyle.xaml
 Styles\Base\NumericUpDownBaseStyle.xaml
+Styles\Base\DecimalBoxBaseStyle.xaml
 Styles\Base\PasswordBoxBaseStyle.xaml
 Styles\Base\PinBoxBaseStyle.xaml
 Styles\Base\PoptipBaseStyle.xaml
@@ -155,6 +156,7 @@ Styles\Magnifier.xaml
 Styles\NavigationWindow.xaml
 Styles\Notification.xaml
 Styles\NumericUpDown.xaml
+Styles\DecimalBox.xaml
 Styles\Pagination.xaml
 Styles\PasswordBox.xaml
 Styles\PinBox.xaml

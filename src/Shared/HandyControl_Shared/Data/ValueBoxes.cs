@@ -27,6 +27,24 @@
 
         internal static object DoubleNeg1Box = -1.0;
 
+        internal static object Decimal0Box = .0m;
+
+        internal static object Decimal01Box = .1m;
+
+        internal static object Decimal1Box = 1.0m;
+
+        internal static object Decimal10Box = 10.0m;
+
+        internal static object Decimal20Box = 20.0m;
+
+        internal static object Decimal100Box = 100.0m;
+
+        internal static object Decimal200Box = 200.0m;
+
+        internal static object Decimal300Box = 300.0m;
+
+        internal static object DecimalNeg1Box = -1.0m;
+
         internal static object Int0Box = 0;
 
         internal static object Int1Box = 1;

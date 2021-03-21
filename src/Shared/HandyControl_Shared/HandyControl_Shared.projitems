@@ -34,6 +34,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Image\ImageBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\CheckComboBox\CheckComboBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\CheckComboBox\CheckComboBoxItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\DecimalBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\ImageSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\PinBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\DashedBorder.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\FlexPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\SimpleStackPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\UniformSpacingPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\DecimalPropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\ImagePropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\VerticalAlignmentPropertyEditor.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\HorizontalAlignmentPropertyEditor.cs" />
@@ -924,6 +926,14 @@
     <None Include="$(MSBuildThisFileDirectory)Themes\Styles\Empty.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\DecimalBoxBaseStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\DecimalBox.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="$(MSBuildThisFileDirectory)Themes\Theme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -1013,5 +1023,8 @@
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Themes\Theme_40.txt" />
     <None Include="$(MSBuildThisFileDirectory)Themes\Theme_GE45.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)Resources\Icons\HandyControl.Controls.DecimalBox.icon.bmp" />
   </ItemGroup>
 </Project>

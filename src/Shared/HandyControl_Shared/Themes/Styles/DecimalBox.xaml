@@ -1,0 +1,16 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:themes="clr-namespace:HandyControl.Themes">
+
+    <ResourceDictionary.MergedDictionaries>
+        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/DecimalBoxBaseStyle.xaml"/>
+    </ResourceDictionary.MergedDictionaries>
+
+    <Style BasedOn="{StaticResource DecimalBoxBaseStyle}" TargetType="hc:DecimalBox"/>
+
+    <Style x:Key="DecimalBoxExtend" BasedOn="{StaticResource DecimalBoxExtendBaseStyle}" TargetType="hc:DecimalBox"/>
+
+    <Style x:Key="DecimalBoxPlus" BasedOn="{StaticResource DecimalBoxPlusBaseStyle}" TargetType="hc:DecimalBox"/>
+
+</ResourceDictionary>
