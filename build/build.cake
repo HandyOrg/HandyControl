@@ -104,7 +104,7 @@ Task("Build")
     {
         Configuration = "Release",
         Framework = "net5.0-windows",
-        OutputDirectory = "lib/net5.0-windows"
+        OutputDirectory = "lib/net5.0"
     };
 
     DotNetCoreBuild("../src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj", settingsNet40);
