@@ -3,6 +3,7 @@
     <ToolboxItems UIFramework="WPF" VSCategory="HandyControl" BlendCategory="HandyControl">
       <Item Type="HandyControl.Controls.AnimationPath" />
       <Item Type="HandyControl.Expression.Shapes.Arc" />
+      <Item Type="HandyControl.Controls.AxleCanvas" />
       <Item Type="HandyControl.Controls.Badge" />
       <Item Type="HandyControl.Controls.BlendEffectBox" />
       <Item Type="HandyControl.Controls.ButtonGroup" />
@@ -28,6 +29,7 @@
       <Item Type="HandyControl.Controls.DialogContainer" />
       <Item Type="HandyControl.Controls.Divider" />
       <Item Type="HandyControl.Controls.Drawer" />
+      <Item Type="HandyControl.Controls.Empty" />
       <Item Type="HandyControl.Controls.FlexPanel" />
       <Item Type="HandyControl.Controls.FlipClock" />
       <Item Type="HandyControl.Controls.FloatingBlock" />
@@ -62,17 +64,20 @@
       <Item Type="HandyControl.Controls.Shield" />
       <Item Type="HandyControl.Controls.SideMenu" />
       <Item Type="HandyControl.Controls.SimplePanel" />
+      <Item Type="HandyControl.Controls.SimpleStackPanel" />
       <Item Type="HandyControl.Controls.SimpleText" />
       <Item Type="HandyControl.Controls.SplitButton" />
       <Item Type="HandyControl.Controls.StepBar" />
       <Item Type="HandyControl.Controls.TabControl" />
       <Item Type="HandyControl.Controls.Tag" />
+      <Item Type="HandyControl.Controls.TagContainer" />
       <Item Type="HandyControl.Controls.TextBox" />
       <Item Type="HandyControl.Controls.TimeBar" />
       <Item Type="HandyControl.Controls.TimePicker" />
       <Item Type="HandyControl.Controls.ToggleBlock" />
       <Item Type="HandyControl.Controls.Transfer" />
       <Item Type="HandyControl.Controls.TransitioningContentControl" />
+      <Item Type="HandyControl.Controls.UniformSpacingPanel" />
       <Item Type="HandyControl.Controls.WaterfallPanel" />
       <Item Type="HandyControl.Controls.Watermark" />
       <Item Type="HandyControl.Controls.WaveProgressBar" />
