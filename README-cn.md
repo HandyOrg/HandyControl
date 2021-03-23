@@ -167,7 +167,7 @@ Step 4: Enjoy coding
 
 ## VS插件
 
-| [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019) |
+| [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.HandyControl) |
 | ------------- |
 
 ## Star趋势

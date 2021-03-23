@@ -7,7 +7,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("$safeprojectname$")]
-[assembly: AssemblyCopyright("Copyright © $username$ 2019")]
+[assembly: AssemblyCopyright("Copyright © $username$ $year$")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
