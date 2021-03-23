@@ -167,7 +167,7 @@ Step 4: Enjoy coding
 
 ## VSIX packages for Visual Studio
 
-| [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019) |
+| [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.HandyControl) |
 | ------------- |
 
 ## Stargazers over time
