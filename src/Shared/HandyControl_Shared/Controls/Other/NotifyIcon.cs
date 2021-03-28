@@ -578,37 +578,34 @@ namespace HandyControl.Controls
 
         private IntPtr Callback(IntPtr hWnd, int msg, IntPtr wparam, IntPtr lparam)
         {
-            if (IsLoaded)
+            if (msg == _wmTaskbarCreated)
             {
-                if (msg == _wmTaskbarCreated)
+                if (_messageWindowHandle == hWnd && Visibility == Visibility.Visible)
                 {
-                    if (_messageWindowHandle == hWnd && Visibility == Visibility.Visible)
-                    {
-                        UpdateIcon(true);
-                    }
+                    UpdateIcon(true);
                 }
-                else
+            }
+            else
+            {
+                switch (lparam.ToInt64())
                 {
-                    switch (lparam.ToInt64())
-                    {
-                        case InteropValues.WM_LBUTTONDBLCLK:
-                            WmMouseDown(MouseButton.Left, 2);
-                            break;
-                        case InteropValues.WM_LBUTTONUP:
-                            WmMouseUp(MouseButton.Left);
-                            break;
-                        case InteropValues.WM_RBUTTONUP:
-                            ShowContextMenu();
-                            WmMouseUp(MouseButton.Right);
-                            break;
-                        case InteropValues.WM_MOUSEMOVE:
-                            if (!_dispatcherTimerPos.IsEnabled)
-                            {
-                                _dispatcherTimerPos.Interval = TimeSpan.FromMilliseconds(200);
-                                _dispatcherTimerPos.Start();
-                            }
-                            break;
-                    }
+                    case InteropValues.WM_LBUTTONDBLCLK:
+                        WmMouseDown(MouseButton.Left, 2);
+                        break;
+                    case InteropValues.WM_LBUTTONUP:
+                        WmMouseUp(MouseButton.Left);
+                        break;
+                    case InteropValues.WM_RBUTTONUP:
+                        ShowContextMenu();
+                        WmMouseUp(MouseButton.Right);
+                        break;
+                    case InteropValues.WM_MOUSEMOVE:
+                        if (!_dispatcherTimerPos.IsEnabled)
+                        {
+                            _dispatcherTimerPos.Interval = TimeSpan.FromMilliseconds(200);
+                            _dispatcherTimerPos.Start();
+                        }
+                        break;
                 }
             }
 
