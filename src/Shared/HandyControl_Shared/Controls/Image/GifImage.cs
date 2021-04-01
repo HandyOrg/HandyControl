@@ -41,12 +41,12 @@ namespace HandyControl.Controls
 
         private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (GifImage)d;
+            var ctl = (GifImage) d;
             ctl.StopAnimate();
 
             if (e.NewValue != null)
             {
-                var v = (Uri)e.NewValue;
+                var v = (Uri) e.NewValue;
                 ctl.GetGifStreamFromPack(v);
                 ctl.StartAnimate();
             }
@@ -58,16 +58,16 @@ namespace HandyControl.Controls
 
         public Uri Uri
         {
-            get => (Uri)GetValue(UriProperty);
+            get => (Uri) GetValue(UriProperty);
             set => SetValue(UriProperty, value);
         }
 
         private static void OnVisibilityChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (GifImage)s;
+            var ctl = (GifImage) s;
             if (ctl.NativeImage == IntPtr.Zero) return;
 
-            var v = (Visibility)e.NewValue;
+            var v = (Visibility) e.NewValue;
             if (v != Visibility.Visible)
             {
                 ctl.StopAnimate();
@@ -268,8 +268,8 @@ namespace HandyControl.Controls
                         created = dataStream = File.OpenRead(filename);
                     }
 
-                    image._rawData = new byte[(int)dataStream.Length];
-                    dataStream.Read(image._rawData, 0, (int)dataStream.Length);
+                    image._rawData = new byte[(int) dataStream.Length];
+                    dataStream.Read(image._rawData, 0, (int) dataStream.Length);
                 }
                 finally
                 {
@@ -380,7 +380,7 @@ namespace HandyControl.Controls
                 {
                     for (var i = 0; i < count; i++)
                     {
-                        guids[i] = (Guid)InteropMethods.PtrToStructure((IntPtr)((long)buffer + size * i), typeof(Guid));
+                        guids[i] = (Guid) InteropMethods.PtrToStructure((IntPtr) ((long) buffer + size * i), typeof(Guid));
                     }
                 }
                 finally
