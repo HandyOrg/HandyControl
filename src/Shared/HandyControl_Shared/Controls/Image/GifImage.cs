@@ -21,6 +21,8 @@ namespace HandyControl.Controls
     {
         private static readonly Guid GifGuid = new Guid("{b96b3caa-0728-11d3-9d7b-0000f81ef32e}");
 
+        private static readonly Guid GifSingleFrameGuid = new Guid("{b96b3cb0-0728-11d3-9d7b-0000f81ef32e}");
+
         internal IntPtr NativeImage;
 
         private byte[] _rawData;
@@ -39,12 +41,12 @@ namespace HandyControl.Controls
 
         private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (GifImage) d;
+            var ctl = (GifImage)d;
             ctl.StopAnimate();
 
             if (e.NewValue != null)
             {
-                var v = (Uri) e.NewValue;
+                var v = (Uri)e.NewValue;
                 ctl.GetGifStreamFromPack(v);
                 ctl.StartAnimate();
             }
@@ -56,16 +58,16 @@ namespace HandyControl.Controls
 
         public Uri Uri
         {
-            get => (Uri) GetValue(UriProperty);
+            get => (Uri)GetValue(UriProperty);
             set => SetValue(UriProperty, value);
         }
 
         private static void OnVisibilityChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
         {
-            var ctl = (GifImage) s;
+            var ctl = (GifImage)s;
             if (ctl.NativeImage == IntPtr.Zero) return;
 
-            var v = (Visibility) e.NewValue;
+            var v = (Visibility)e.NewValue;
             if (v != Visibility.Visible)
             {
                 ctl.StopAnimate();
@@ -204,8 +206,12 @@ namespace HandyControl.Controls
                         streamInfo = Application.GetContentStream(uri) ?? Application.GetResourceStream(uri);
                     }
                 }
+
                 if (streamInfo == null)
+                {
                     throw new FileNotFoundException("Resource not found.", uri.ToString());
+                }
+
                 CreateSourceFromStream(streamInfo.Stream);
             }
             catch
@@ -214,20 +220,36 @@ namespace HandyControl.Controls
             }
         }
 
+        private void SwitchToCommonImage()
+        {
+            if (Source == null && Uri != null)
+            {
+                SetCurrentValue(SourceProperty, new BitmapImage(Uri));
+            }
+        }
+
         [ResourceExposure(ResourceScope.None)]
         [ResourceConsumption(ResourceScope.Machine, ResourceScope.Machine)]
         internal static void EnsureSave(GifImage image, string filename, Stream dataStream)
         {
-            if (!image.RawGuid.Equals(GifGuid)) return;
-            var animatedGif = false;
+            if (!image.RawGuid.Equals(GifGuid) && !image.RawGuid.Equals(GifSingleFrameGuid))
+            {
+                image.SwitchToCommonImage();
+                return;
+            }
 
+            var animatedGif = false;
             var dimensions = image.FrameDimensionsList;
             if (dimensions.Select(guid => new GifFrameDimension(guid)).Contains(GifFrameDimension.Time))
             {
                 animatedGif = image.GetFrameCount(GifFrameDimension.Time) > 1;
             }
 
-            if (!animatedGif) return;
+            if (!animatedGif)
+            {
+                image.SwitchToCommonImage();
+                return;
+            }
 
             try
             {
@@ -246,8 +268,8 @@ namespace HandyControl.Controls
                         created = dataStream = File.OpenRead(filename);
                     }
 
-                    image._rawData = new byte[(int) dataStream.Length];
-                    dataStream.Read(image._rawData, 0, (int) dataStream.Length);
+                    image._rawData = new byte[(int)dataStream.Length];
+                    dataStream.Read(image._rawData, 0, (int)dataStream.Length);
                 }
                 finally
                 {
@@ -358,7 +380,7 @@ namespace HandyControl.Controls
                 {
                     for (var i = 0; i < count; i++)
                     {
-                        guids[i] = (Guid) InteropMethods.PtrToStructure((IntPtr) ((long) buffer + size * i), typeof(Guid));
+                        guids[i] = (Guid)InteropMethods.PtrToStructure((IntPtr)((long)buffer + size * i), typeof(Guid));
                     }
                 }
                 finally
