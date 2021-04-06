@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
-             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <hc:ScrollViewer IsInertiaEnabled="True">
@@ -150,6 +150,22 @@
                         <Button Padding="7" Margin="5" Style="{StaticResource ButtonIconCircular}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
                         <Button Padding="7" IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconCircular}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconCircular（UpDownGeometry）"/>
+                    </StackPanel>
+
+                    <StackPanel>
+                        <TextBlock>IconContent-Example</TextBlock>
+                        <Button Style="{DynamicResource Handy.Styles.Buttons.IconProposal}" Content="Proposal" hc:IconElement.IconContent=":-)"
+                                Background="Red">
+                            <hc:IconElement.IconTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding}" FontSize="15" FontFamily="Courier New" FontWeight="Bold" />
+                                </DataTemplate>
+                            </hc:IconElement.IconTemplate>
+                        </Button>
+                        <Button Style="{DynamicResource Handy.Styles.Buttons.IconProposal}" Content="IconPacks Example"
+                                hc:IconElement.IconPosition="Right"
+                                hc:IconElement.IconContent="{iconPacks:Material Kind=Teach}"
+                                Background="BlueViolet" />
                     </StackPanel>
                 </WrapPanel>
             </StackPanel>

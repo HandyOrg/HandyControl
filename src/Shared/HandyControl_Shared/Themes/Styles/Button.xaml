@@ -49,6 +49,8 @@
 
     <!--region ButtonIcon-->
 
+    <Style TargetType="Button" BasedOn="{StaticResource ButtonBaseStyle_IconProposal}" x:Key="Handy.Styles.Buttons.IconProposal" />
+    
     <Style x:Key="ButtonIcon" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
