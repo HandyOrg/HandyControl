@@ -10,7 +10,7 @@
     <license type="file">LICENSE</license>
     <icon>icon.png</icon>
     <projectUrl>https://github.com/NaBian/HandyControl</projectUrl>
-    <description>Contains some commonly used simple WPF controls</description>
+    <description>Contains some simple and commonly used WPF controls</description>
     <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
     <copyright>Copyright © HandyOrg 2018-2021</copyright>
     <tags>WPF C# Control</tags>
