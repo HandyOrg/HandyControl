@@ -10,7 +10,7 @@ jobs:
         uses: actions/checkout@master
         
       - name: setup nuget.exe
-        uses: NuGet/setup-nuget@master
+        uses: NuGet/setup-nuget@v1.0.5
       
       - name: build
         shell: pwsh
