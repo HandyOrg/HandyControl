@@ -8,7 +8,10 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@master
-  
+        
+      - name: setup nuget.exe
+        uses: NuGet/setup-nuget@master
+      
       - name: build
         shell: pwsh
         run: |
