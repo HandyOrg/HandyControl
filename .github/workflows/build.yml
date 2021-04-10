@@ -8,8 +8,17 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@master
+        
+      - name: setup nuget.exe
+        uses: NuGet/setup-nuget@v1.0.5
       
       - name: build
+        shell: pwsh
         run: |
           cd build
-          powershell .\build.ps1
+          .\build.ps1
+          nuget pack build-for-myget.nuspec
+          $nupkgName = @(gci *.nupkg)[0].Name
+          $mygetSourcePath = "https://www.myget.org/F/handycontrol"
+          nuget setApiKey ${{ secrets.MYGETTOKEN }} -Source $mygetSourcePath
+          nuget push $nupkgName -Source $mygetSourcePath
