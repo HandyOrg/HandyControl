@@ -7,7 +7,7 @@
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <license type="file">LICENSE</license>
+    <licenseUrl>https://raw.githubusercontent.com/HandyOrg/HandyControl/master/LICENSE</licenseUrl>
     <icon>icon.png</icon>
     <projectUrl>https://github.com/NaBian/HandyControl</projectUrl>
     <description>Contains some simple and commonly used WPF controls</description>
