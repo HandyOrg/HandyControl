@@ -1,6 +1,6 @@
 name: build
 
-on: [push, pull_request]
+on: [push]
 
 jobs:
   build:
@@ -11,9 +11,6 @@ jobs:
         
       - name: setup nuget.exe
         uses: NuGet/setup-nuget@v1.0.5
-        with:
-          nuget-api-key: ${{ secrets.MYGETTOKEN }}
-          nuget-version: '5.x'
       
       - name: build
         shell: pwsh
@@ -23,4 +20,5 @@ jobs:
           nuget pack build-for-myget.nuspec
           $nupkgName = @(gci *.nupkg)[0].Name
           $mygetSourcePath = "https://www.myget.org/F/handycontrol"
+          nuget setApiKey ${{ secrets.MYGETTOKEN }} -Source $mygetSourcePath
           nuget push $nupkgName -Source $mygetSourcePath
