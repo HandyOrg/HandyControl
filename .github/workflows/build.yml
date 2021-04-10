@@ -17,8 +17,8 @@ jobs:
         run: |
           cd build
           .\build.ps1
-          tools\nuget pack build build-for-myget.nuspec
+          nuget pack build build-for-myget.nuspec
           $nupkgName = @(gci *.nupkg)[0].Name
           $mygetSourcePath = "https://www.myget.org/F/handycontrol"
-          tools\nuget setApiKey ${{ secrets.MYGETTOKEN }} -Source $mygetSourcePath
-          tools\nuget push $nupkgName -Source $mygetSourcePath
+          nuget setApiKey ${{ secrets.MYGETTOKEN }} -Source $mygetSourcePath
+          nuget push $nupkgName -Source $mygetSourcePath
