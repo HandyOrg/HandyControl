@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices;
-using System.Windows.Media;
+using System.Runtime.InteropServices;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Interop;
@@ -26,24 +25,28 @@ namespace HandyControl.Controls
         {
             var versionInfo = GetSystemVersionInfo();
 
-            if (versionInfo < SystemVersionInfo.Windows10 ||
-                versionInfo >= SystemVersionInfo.Windows10_1903)
-            {
-                var colorValue = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
-                var color = ColorHelper.ToColor(colorValue);
-                color = Color.FromRgb(color.R, color.G, color.B);
-                window.Background = new SolidColorBrush(color);
-                return;
-            }
-
             var accentPolicy = new InteropValues.ACCENTPOLICY();
             var accentPolicySize = Marshal.SizeOf(accentPolicy);
 
-            accentPolicy.AccentState = versionInfo < SystemVersionInfo.Windows10_1809
-                ? InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND
-                : InteropValues.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
-
             accentPolicy.AccentFlags = 2;
+
+            if (versionInfo >= SystemVersionInfo.Windows10_1903)
+            {
+                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND;
+            }
+            else if (versionInfo >= SystemVersionInfo.Windows10_1809)
+            {
+                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
+            }
+            else if (versionInfo >= SystemVersionInfo.Windows10)
+            {
+                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND;
+            }
+            else
+            {
+                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_TRANSPARENTGRADIENT;
+            }
+
             accentPolicy.GradientColor = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
 
             var accentPtr = Marshal.AllocHGlobal(accentPolicySize);
