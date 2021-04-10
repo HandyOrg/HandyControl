@@ -1,0 +1,14 @@
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: checkout
+        uses: actions/checkout@master
+      
+      - name: build
+        shell: pwsh
+        run: |
+          cd build
+          .\build.ps1
