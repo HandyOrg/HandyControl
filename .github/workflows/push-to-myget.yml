@@ -1,7 +1,7 @@
 on: workflow_dispatch
 
 jobs:
-  build:
+  push-to-myget:
     runs-on: windows-latest
     steps:
       - name: checkout
@@ -10,7 +10,7 @@ jobs:
       - name: setup nuget.exe
         uses: NuGet/setup-nuget@v1.0.5
       
-      - name: build
+      - name: build and push
         shell: pwsh
         run: |
           cd build
