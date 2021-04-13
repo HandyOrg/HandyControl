@@ -127,6 +127,8 @@ namespace HandyControl.Controls
             }
 
             base.OnSourceInitialized(e);
+
+            Activate();
         }
 
         public override void OnApplyTemplate()
