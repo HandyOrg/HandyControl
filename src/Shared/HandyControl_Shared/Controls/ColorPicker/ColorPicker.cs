@@ -268,6 +268,17 @@ namespace HandyControl.Controls
                     }
                     ctl.UpdateStatus(v.Color);
                     ctl.SelectedBrushWithoutOpacity = new SolidColorBrush(Color.FromRgb(v.Color.R, v.Color.G, v.Color.B));
+                },
+                (o, value) =>
+                {
+                    if (!(value is SolidColorBrush))
+                    {
+                        return Brushes.White;
+                    }
+                    else
+                    {
+                        return value;
+                    }
                 }));
 
         /// <summary>
