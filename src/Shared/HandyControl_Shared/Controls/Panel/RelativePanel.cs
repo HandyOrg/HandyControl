@@ -218,7 +218,12 @@ namespace HandyControl.Controls
             #region Calc AvailableSize
 
             _childGraph.Reset(false);
-            var boundingSize = _childGraph.GetBoundingSize(Width.IsNaN(), Height.IsNaN(), availableSize);
+
+
+            var calcWidth = Width.IsNaN() && HorizontalAlignment != HorizontalAlignment.Stretch;
+            var calcHeight = Height.IsNaN() && VerticalAlignment != VerticalAlignment.Stretch;
+
+            var boundingSize = _childGraph.GetBoundingSize(calcWidth, calcHeight);
             _childGraph.Reset();
             _childGraph.Measure(boundingSize);
             return boundingSize;
@@ -454,8 +459,6 @@ namespace HandyControl.Controls
 
             private void MeasureChild(GraphNode node)
             {
-                var availableSize = AvailableSize;
-
                 var child = node.Element;
                 child.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
                 node.OriginDesiredSize = child.DesiredSize;
@@ -504,10 +507,10 @@ namespace HandyControl.Controls
 
                 #region Measure
 
-                var availableHeight = availableSize.Height - node.Top - node.Bottom;
+                var availableHeight = AvailableSize.Height - node.Top - node.Bottom;
                 if (availableHeight.IsNaN())
                 {
-                    availableHeight = availableSize.Height;
+                    availableHeight = AvailableSize.Height;
 
                     if (!node.Top.IsNaN() && node.Bottom.IsNaN())
                     {
@@ -519,10 +522,10 @@ namespace HandyControl.Controls
                     }
                 }
 
-                var availableWidth = availableSize.Width - node.Left - node.Right;
+                var availableWidth = AvailableSize.Width - node.Left - node.Right;
                 if (availableWidth.IsNaN())
                 {
-                    availableWidth = availableSize.Width;
+                    availableWidth = AvailableSize.Width;
 
                     if (!node.Left.IsNaN() && node.Right.IsNaN())
                     {
@@ -560,7 +563,7 @@ namespace HandyControl.Controls
 
                     if (node.Left.IsNaN())
                     {
-                        node.Left = availableSize.Width - node.RightOfNode.Right;
+                        node.Left = AvailableSize.Width - node.RightOfNode.Right;
                     }
                 }
 
@@ -573,7 +576,7 @@ namespace HandyControl.Controls
 
                     if (node.Top.IsNaN())
                     {
-                        node.Top = availableSize.Height - node.BelowNode.Bottom;
+                        node.Top = AvailableSize.Height - node.BelowNode.Bottom;
                     }
                 }
 
@@ -583,8 +586,8 @@ namespace HandyControl.Controls
 
                 if (node.AlignHorizontalCenterWith != null)
                 {
-                    var halfWidthLeft = (availableSize.Width + node.AlignHorizontalCenterWith.Left - node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
-                    var halfWidthRight = (availableSize.Width - node.AlignHorizontalCenterWith.Left + node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
+                    var halfWidthLeft = (AvailableSize.Width + node.AlignHorizontalCenterWith.Left - node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
+                    var halfWidthRight = (AvailableSize.Width - node.AlignHorizontalCenterWith.Left + node.AlignHorizontalCenterWith.Right - childSize.Width) * 0.5;
 
                     if (node.Left.IsNaN()) node.Left = halfWidthLeft;
                     else node.Left = (node.Left + halfWidthLeft) * 0.5;
@@ -595,8 +598,8 @@ namespace HandyControl.Controls
 
                 if (node.AlignVerticalCenterWith != null)
                 {
-                    var halfHeightTop = (availableSize.Height + node.AlignVerticalCenterWith.Top - node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
-                    var halfHeightBottom = (availableSize.Height - node.AlignVerticalCenterWith.Top + node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
+                    var halfHeightTop = (AvailableSize.Height + node.AlignVerticalCenterWith.Top - node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
+                    var halfHeightBottom = (AvailableSize.Height - node.AlignVerticalCenterWith.Top + node.AlignVerticalCenterWith.Bottom - childSize.Height) * 0.5;
 
                     if (node.Top.IsNaN()) node.Top = halfHeightTop;
                     else node.Top = (node.Top + halfHeightTop) * 0.5;
@@ -611,7 +614,7 @@ namespace HandyControl.Controls
 
                 if (GetAlignHorizontalCenterWithPanel(child))
                 {
-                    var halfSubWidth = (availableSize.Width - childSize.Width) * 0.5;
+                    var halfSubWidth = (AvailableSize.Width - childSize.Width) * 0.5;
 
                     if (node.Left.IsNaN()) node.Left = halfSubWidth;
                     else node.Left = (node.Left + halfSubWidth) * 0.5;
@@ -622,7 +625,7 @@ namespace HandyControl.Controls
 
                 if (GetAlignVerticalCenterWithPanel(child))
                 {
-                    var halfSubHeight = (availableSize.Height - childSize.Height) * 0.5;
+                    var halfSubHeight = (AvailableSize.Height - childSize.Height) * 0.5;
 
                     if (node.Top.IsNaN()) node.Top = halfSubHeight;
                     else node.Top = (node.Top + halfSubHeight) * 0.5;
@@ -636,37 +639,37 @@ namespace HandyControl.Controls
                 if (node.Left.IsNaN())
                 {
                     if (!node.Right.IsNaN())
-                        node.Left = availableSize.Width - node.Right - childSize.Width;
+                        node.Left = AvailableSize.Width - node.Right - childSize.Width;
                     else
                     {
                         node.Left = 0;
-                        node.Right = availableSize.Width - childSize.Width;
+                        node.Right = AvailableSize.Width - childSize.Width;
                     }
                 }
                 else if (!node.Left.IsNaN() && node.Right.IsNaN())
                 {
-                    node.Right = availableSize.Width - node.Left - childSize.Width;
+                    node.Right = AvailableSize.Width - node.Left - childSize.Width;
                 }
 
                 if (node.Top.IsNaN())
                 {
                     if (!node.Bottom.IsNaN())
-                        node.Top = availableSize.Height - node.Bottom - childSize.Height;
+                        node.Top = AvailableSize.Height - node.Bottom - childSize.Height;
                     else
                     {
                         node.Top = 0;
-                        node.Bottom = availableSize.Height - childSize.Height;
+                        node.Bottom = AvailableSize.Height - childSize.Height;
                     }
                 }
                 else if (!node.Top.IsNaN() && node.Bottom.IsNaN())
                 {
-                    node.Bottom = availableSize.Height - node.Top - childSize.Height;
+                    node.Bottom = AvailableSize.Height - node.Top - childSize.Height;
                 }
 
                 node.Measured = true;
             }
 
-            public Size GetBoundingSize(bool calcWidth, bool calcHeight, Size availableSize)
+            public Size GetBoundingSize(bool calcWidth, bool calcHeight)
             {
                 var boundingSize = new Size();
 
@@ -677,8 +680,8 @@ namespace HandyControl.Controls
                     boundingSize.Height = Math.Max(boundingSize.Height, size.Height);
                 }
 
-                boundingSize.Width = calcWidth ? Math.Max(availableSize.Width, boundingSize.Width) : availableSize.Width;
-                boundingSize.Height = calcHeight ? Math.Max(availableSize.Height, boundingSize.Height) : availableSize.Height;
+                boundingSize.Width = calcWidth ? boundingSize.Width : AvailableSize.Width;
+                boundingSize.Height = calcHeight ? boundingSize.Height : AvailableSize.Height;
                 return boundingSize;
             }
         }
