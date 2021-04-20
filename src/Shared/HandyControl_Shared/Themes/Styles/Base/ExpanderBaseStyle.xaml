@@ -41,7 +41,7 @@
                 <Setter Property="Data" TargetName="PathArrow" Value="{StaticResource DownGeometry}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" Value="2" />
+                <Setter Property="Opacity" Value=".4" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -73,7 +73,7 @@
                 <Setter Property="Data" TargetName="PathArrow" Value="{StaticResource DownGeometry}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" Value="2" />
+                <Setter Property="Opacity" Value=".4" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -110,7 +110,7 @@
                 <Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" Value="2" />
+                <Setter Property="Opacity" Value=".4" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
@@ -142,7 +142,7 @@
                 <Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" Value="2" />
+                <Setter Property="Opacity" Value=".4" />
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
