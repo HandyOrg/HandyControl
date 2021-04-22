@@ -31,6 +31,10 @@
 
 ## 面向中国
 
+### 招聘
+
+百度地图，招 WPF 研发工程师，坐标上海，有意私聊 836904362@qq.com
+
 ### 码云
 
 [https://gitee.com/handyorg/HandyControl/](https://gitee.com/handyorg/HandyControl/)
