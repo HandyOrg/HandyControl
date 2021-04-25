@@ -1,5 +1,3 @@
-name: build
-
 on: [push, pull_request]
 
 jobs:
@@ -8,14 +6,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@master
-  
+      
       - name: build
         shell: pwsh
         run: |
           cd build
           .\build.ps1
-          tools\nuget pack build build-for-myget.nuspec
-          $nupkgName = @(gci *.nupkg)[0].Name
-          $mygetSourcePath = "https://www.myget.org/F/handycontrol"
-          tools\nuget setApiKey ${{ secrets.MYGETTOKEN }} -Source $mygetSourcePath
-          tools\nuget push $nupkgName -Source $mygetSourcePath

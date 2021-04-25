@@ -8261,7 +8261,7 @@
 	<ControlTemplate x:Key="ExpanderLeftTemplate" TargetType="Expander">
 		<Grid>
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
 			<Border x:Name="BorderHeader" Grid.Column="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
@@ -8290,14 +8290,14 @@
 				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource DownGeometry}" />
 			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
-				<Setter Property="Opacity" Value="2" />
+				<Setter Property="Opacity" Value=".4" />
 			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<ControlTemplate x:Key="ExpanderUpTemplate" TargetType="Expander">
 		<Grid>
 			<Grid.RowDefinitions>
-				<RowDefinition Height="Auto" />
+				<RowDefinition />
 				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
 			<Border x:Name="BorderHeader" Grid.Row="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
@@ -8321,7 +8321,7 @@
 				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource DownGeometry}" />
 			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
-				<Setter Property="Opacity" Value="2" />
+				<Setter Property="Opacity" Value=".4" />
 			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
@@ -8329,7 +8329,7 @@
 		<Grid>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="Auto" />
+				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 			<Border x:Name="BorderHeader" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<ToggleButton VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Focusable="False" Padding="0,0,0,10" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="{TemplateBinding MinWidth}" Style="{StaticResource ToggleButtonCustom}">
@@ -8357,7 +8357,7 @@
 				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
 			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
-				<Setter Property="Opacity" Value="2" />
+				<Setter Property="Opacity" Value=".4" />
 			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
@@ -8365,7 +8365,7 @@
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
-				<RowDefinition Height="Auto" />
+				<RowDefinition />
 			</Grid.RowDefinitions>
 			<Border x:Name="BorderHeader" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<ToggleButton HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Focusable="False" Padding="10,0,0,0" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Width="{TemplateBinding Width}" Height="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
@@ -8388,7 +8388,7 @@
 				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
 			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
-				<Setter Property="Opacity" Value="2" />
+				<Setter Property="Opacity" Value=".4" />
 			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>

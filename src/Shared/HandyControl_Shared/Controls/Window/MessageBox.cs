@@ -50,6 +50,8 @@ namespace HandyControl.Controls
 
         private bool _showNo;
 
+        private IntPtr _lastActiveWindowIntPtr;
+
         public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
             "Message", typeof(string), typeof(MessageBox), new PropertyMetadata(default(string)));
 
@@ -127,6 +129,16 @@ namespace HandyControl.Controls
             }
 
             base.OnSourceInitialized(e);
+
+            _lastActiveWindowIntPtr = InteropMethods.GetForegroundWindow();
+            Activate();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            InteropMethods.SetForegroundWindow(_lastActiveWindowIntPtr);
+
+            base.OnClosed(e);
         }
 
         public override void OnApplyTemplate()
