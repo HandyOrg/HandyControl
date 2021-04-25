@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" ?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
     <Metadata>
-        <Identity Id="5949c79d-eb43-4033-8b7b-9349d34512c6" Version="2.5.0" Language="en-US" Publisher="HandyOrg" />
+        <Identity Id="1B6729DF-3360-48C4-86A9-68A0591FBBEB" Version="3.1.0" Language="en-US" Publisher="HandyOrg" />
         <DisplayName>HandyControl for VS2019</DisplayName>
         <Description xml:space="preserve">This VSIX Project will help people initialize a HandyControl project.</Description>
         <MoreInfo>https://handyorg.github.io/handycontrol</MoreInfo>
@@ -21,10 +21,9 @@
         <Dependency Id="Microsoft.Framework.NDP" DisplayName="Microsoft .NET Framework" d:Source="Manual" Version="[4.0,)" />
     </Dependencies>
     <Prerequisites>
-        <Prerequisite Id="Microsoft.VisualStudio.Component.ManagedDesktop.Prerequisites" Version="[16.2.29003.222,17.0)" DisplayName=".NET 桌面开发工具" />
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[16.0,17.0)" DisplayName="Visual Studio core editor" />
     </Prerequisites>
     <Assets>
-        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="WpfApp" d:TargetPath="|WpfApp;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
         <Asset Type="Microsoft.VisualStudio.ProjectTemplate" d:Source="Project" d:ProjectName="WpfCoreApp" d:TargetPath="|WpfCoreApp;TemplateProjectOutputGroup|" Path="ProjectTemplates" d:VsixSubPath="ProjectTemplates" />
     </Assets>

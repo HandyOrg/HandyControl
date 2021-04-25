@@ -7,6 +7,7 @@ packages/
 build/*
 !build/build.cake
 !build/build.nuspec
+!build/build-for-myget.nuspec
 !build/build.ps1
 !build/tools/
 build/tools/*

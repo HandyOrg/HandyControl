@@ -192,9 +192,9 @@
                                 <ColumnDefinition Width="28"/>
                             </Grid.ColumnDefinitions>
                             <ToggleButton Name="PART_ButtonDropper" Width="16" Height="16" Margin="0,0,10,0" Style="{StaticResource ToggleButtonCustom}" hc:StatusSwitchElement.HideUncheckedElement="True">
-                                <Path Data="{StaticResource DropperGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
+                                <Path Stretch="Uniform" Data="{StaticResource DropperGeometry}" Fill="{DynamicResource PrimaryTextBrush}"/>
                                 <hc:StatusSwitchElement.CheckedElement>
-                                    <Path Data="{StaticResource DropperGeometry}" Fill="{DynamicResource DarkPrimaryBrush}"/>
+                                    <Path Stretch="Uniform" Data="{StaticResource DropperGeometry}" Fill="{DynamicResource DarkPrimaryBrush}"/>
                                 </hc:StatusSwitchElement.CheckedElement>
                             </ToggleButton>
                             <Border Grid.Row="0" Grid.Column="1" Width="32" Height="32" CornerRadius="16" Background="{StaticResource ColorPickerOpacityBrush}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1"/>

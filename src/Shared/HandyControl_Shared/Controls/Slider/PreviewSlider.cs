@@ -89,12 +89,18 @@ namespace HandyControl.Controls
             base.OnMouseMove(e);
 
             if (_previewContent == null) return;
+
             var p = e.GetPosition(_adorner);
+            var maximum = Maximum;
+            var minimum = Minimum;
 
             if (Orientation == Orientation.Horizontal)
             {
-                var pos = (e.GetPosition(this).X - _thumb.ActualWidth / 2) / _track.ActualWidth * Maximum;
-                if (pos > Maximum || pos < 0)
+
+                var pos = !IsDirectionReversed
+                    ? (e.GetPosition(this).X - _thumb.ActualWidth * 0.5) / _track.ActualWidth * (maximum - minimum) + minimum
+                    : (1 - (e.GetPosition(this).X - _thumb.ActualWidth * 0.5) / _track.ActualWidth) * (maximum - minimum) + minimum;
+                if (pos > maximum || pos < 0)
                 {
                     if (_thumb.IsMouseCaptureWithin)
                     {
@@ -103,15 +109,17 @@ namespace HandyControl.Controls
                     return;
                 }
 
-                _transform.X = p.X - _previewContent.ActualWidth / 2;
+                _transform.X = p.X - _previewContent.ActualWidth * 0.5;
                 _transform.Y = TranslatePoint(new Point(), _adorner).Y - _previewContent.ActualHeight - PreviewContentOffset;
 
                 PreviewPosition = _thumb.IsMouseCaptureWithin ? Value : pos;
             }
             else
             {
-                var pos = Maximum - (e.GetPosition(this).Y - _thumb.ActualHeight / 2) / _track.ActualHeight * Maximum;
-                if (pos > Maximum || pos < 0)
+                var pos = !IsDirectionReversed
+                    ? (1 - (e.GetPosition(this).Y - _thumb.ActualHeight * 0.5) / _track.ActualHeight) * (maximum - minimum) + minimum
+                    : (e.GetPosition(this).Y - _thumb.ActualHeight * 0.5) / _track.ActualHeight * (maximum - minimum) + minimum;
+                if (pos > maximum || pos < 0)
                 {
                     if (_thumb.IsMouseCaptureWithin)
                     {
@@ -121,7 +129,7 @@ namespace HandyControl.Controls
                 }
 
                 _transform.X = TranslatePoint(new Point(), _adorner).X - _previewContent.ActualWidth - PreviewContentOffset;
-                _transform.Y = p.Y - _previewContent.ActualHeight / 2;
+                _transform.Y = p.Y - _previewContent.ActualHeight * 0.5;
 
                 PreviewPosition = _thumb.IsMouseCaptureWithin ? Value : pos;
             }

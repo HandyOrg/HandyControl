@@ -98,6 +98,10 @@ namespace HandyControl.Controls
             }
 
             Storyboard.Begin();
+            if (!IsRunning)
+            {
+                Storyboard.Pause();
+            }
         }
 
         private Ellipse CreateEllipse(int index, double dotInterval, double dotDiameter)
