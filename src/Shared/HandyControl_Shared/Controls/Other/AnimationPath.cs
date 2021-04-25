@@ -154,7 +154,7 @@ namespace HandyControl.Controls
 
             var frameOut = new LinearDoubleKeyFrame
             {
-                Value = FillBehavior == FillBehavior.Stop ? - _pathLength : 0,
+                Value = FillBehavior == FillBehavior.Stop ? -_pathLength : 0,
                 KeyTime = KeyTime.FromTimeSpan(Duration.TimeSpan)
             };
             frames.KeyFrames.Add(frameOut);
