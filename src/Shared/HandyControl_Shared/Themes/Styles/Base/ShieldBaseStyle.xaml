@@ -27,7 +27,7 @@
                             <TextBlock Text="{TemplateBinding Subject}" VerticalAlignment="Center" Margin="4,0"/>
                         </Border>
                         <Border Grid.Column="1" Background="{TemplateBinding Color}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,1,1,0'}">
-                            <ContentPresenter ContentSource="Status" VerticalAlignment="Center" Margin="4,0" TextElement.Foreground="{TemplateBinding Foreground}"/>
+                            <ContentPresenter ContentSource="Status" VerticalAlignment="Center" Margin="4,0" TextElement.Foreground="{TemplateBinding Foreground}" ContentStringFormat="{TemplateBinding ContentStringFormat}"/>
                         </Border>
                     </Grid>
                 </ControlTemplate>

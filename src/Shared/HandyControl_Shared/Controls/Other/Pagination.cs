@@ -76,7 +76,9 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.Next, ButtonNext_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.Selected, ToggleButton_OnChecked));
             CommandBindings.Add(new CommandBinding(ControlCommands.Jump, (s, e) => PageIndex = (int) _jumpNumericUpDown.Value));
-            this.Show(MaxPageCount > 1);
+
+            OnAutoHidingChanged(AutoHiding);
+            Update();
         }
 
         #region Public Properties
@@ -87,28 +89,28 @@ namespace HandyControl.Controls
         ///     最大页数
         /// </summary>
         public static readonly DependencyProperty MaxPageCountProperty = DependencyProperty.Register(
-            "MaxPageCount", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, (o, args) =>
-            {
-                if (o is Pagination pagination && args.NewValue is int value)
-                {
-                    if (pagination.PageIndex > pagination.MaxPageCount)
-                    {
-                        pagination.PageIndex = pagination.MaxPageCount;
-                    }
+            "MaxPageCount", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosInt);
 
-                    pagination.Show(value > 1);
-                    pagination.Update();
-                }
-            }, (o, value) =>
+        private static object CoerceMaxPageCount(DependencyObject d, object basevalue)
+        {
+            var intValue = (int) basevalue;
+            return intValue < 1 ? 1 : intValue;
+        }
+
+        private static void OnMaxPageCountChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Pagination pagination)
             {
-                if (!(o is Pagination)) return 1;
-                var intValue = (int) value;
-                if (intValue < 1)
+                if (pagination.PageIndex > pagination.MaxPageCount)
                 {
-                    return 1;
+                    pagination.PageIndex = pagination.MaxPageCount;
                 }
-                return intValue;
-            }));
+
+                pagination.CoerceValue(PageIndexProperty);
+                pagination.OnAutoHidingChanged(pagination.AutoHiding);
+                pagination.Update();
+            }
+        }
 
         /// <summary>
         ///     最大页数
@@ -127,22 +129,16 @@ namespace HandyControl.Controls
         ///     每页的数据量
         /// </summary>
         public static readonly DependencyProperty DataCountPerPageProperty = DependencyProperty.Register(
-            "DataCountPerPage", typeof(int), typeof(Pagination), new PropertyMetadata(20, (o, args) =>
+            "DataCountPerPage", typeof(int), typeof(Pagination), new PropertyMetadata(20, OnDataCountPerPageChanged),
+            ValidateHelper.IsInRangeOfPosInt);
+
+        private static void OnDataCountPerPageChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Pagination pagination)
             {
-                if (o is Pagination pagination)
-                {
-                    pagination.Update();
-                }
-            }, (o, value) =>
-            {
-                if (!(o is Pagination)) return 1;
-                var intValue = (int) value;
-                if (intValue < 1)
-                {
-                    return 1;
-                }
-                return intValue;
-            }));
+                pagination.Update();
+            }
+        }
 
         /// <summary>
         ///     每页的数据量
@@ -161,27 +157,31 @@ namespace HandyControl.Controls
         ///     当前页
         /// </summary>
         public static readonly DependencyProperty PageIndexProperty = DependencyProperty.Register(
-            "PageIndex", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, (o, args) =>
+            "PageIndex", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosInt);
+
+        private static object CoercePageIndex(DependencyObject d, object basevalue)
+        {
+            if (!(d is Pagination pagination)) return 1;
+
+            var intValue = (int) basevalue;
+            return intValue < 1
+                ? 1
+                : intValue > pagination.MaxPageCount
+                    ? pagination.MaxPageCount
+                    : intValue;
+        }
+
+        private static void OnPageIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Pagination pagination && e.NewValue is int value)
             {
-                if (o is Pagination pagination && args.NewValue is int value)
+                pagination.Update();
+                pagination.RaiseEvent(new FunctionEventArgs<int>(PageUpdatedEvent, pagination)
                 {
-                    pagination.Update();
-                    pagination.RaiseEvent(new FunctionEventArgs<int>(PageUpdatedEvent, pagination)
-                    {
-                        Info = value
-                    });
-                }
-            }, (o, value) =>
-            {
-                if (!(o is Pagination pagination)) return 1;
-                var intValue = (int) value;
-                if (intValue < 0)
-                {
-                    return 0;
-                }
-                if (intValue > pagination.MaxPageCount) return pagination.MaxPageCount;
-                return intValue;
-            }));
+                    Info = value
+                });
+            }
+        }
 
         /// <summary>
         ///     当前页
@@ -200,17 +200,15 @@ namespace HandyControl.Controls
         ///     表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
         /// </summary>       
         public static readonly DependencyProperty MaxPageIntervalProperty = DependencyProperty.Register(
-            "MaxPageInterval", typeof(int), typeof(Pagination), new PropertyMetadata(3, (o, args) =>
+            "MaxPageInterval", typeof(int), typeof(Pagination), new PropertyMetadata(3, OnMaxPageIntervalChanged), ValidateHelper.IsInRangeOfPosIntIncludeZero);
+
+        private static void OnMaxPageIntervalChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Pagination pagination)
             {
-                if (o is Pagination pagination)
-                {
-                    pagination.Update();
-                }
-            }), value =>
-            {
-                var intValue = (int) value;
-                return intValue >= 0;
-            });
+                pagination.Update();
+            }
+        }
 
         /// <summary>
         ///     表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
@@ -232,6 +230,29 @@ namespace HandyControl.Controls
         {
             get => (bool) GetValue(IsJumpEnabledProperty);
             set => SetValue(IsJumpEnabledProperty, ValueBoxes.BooleanBox(value));
+        }
+
+        #endregion
+
+        #region AutoHiding
+
+        public static readonly DependencyProperty AutoHidingProperty = DependencyProperty.Register(
+            "AutoHiding", typeof(bool), typeof(Pagination), new PropertyMetadata(ValueBoxes.TrueBox, OnAutoHidingChanged));
+
+        private static void OnAutoHidingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is Pagination pagination)
+            {
+                pagination.OnAutoHidingChanged((bool) e.NewValue);
+            }
+        }
+
+        private void OnAutoHidingChanged(bool newValue) => this.Show(!newValue || MaxPageCount > 1);
+
+        public bool AutoHiding
+        {
+            get => (bool) GetValue(AutoHidingProperty);
+            set => SetValue(AutoHidingProperty, ValueBoxes.BooleanBox(value));
         }
 
         #endregion

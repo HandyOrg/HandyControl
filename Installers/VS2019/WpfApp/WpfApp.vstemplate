@@ -1,29 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <VSTemplate Version="3.0.0" Type="Project" xmlns="http://schemas.microsoft.com/developer/vstemplate/2005" xmlns:sdk="http://schemas.microsoft.com/developer/vstemplate-sdkextension/2010">
-  <TemplateData>
-    <Name>HandyControl WPF App(.NET Framework)</Name>
-    <Description>Creates a HandyControl WPF App(.NET Framework)</Description>
-    <Icon>icon.ico</Icon>
-    <ProjectType>CSharp</ProjectType>
-    <RequiredFrameworkVersion>4.7</RequiredFrameworkVersion>
-    <MaxFrameworkVersion>4.7.2</MaxFrameworkVersion>
-    <TemplateID>38e0a2df-5858-4bde-b373-7c50bc982906</TemplateID>
-    <CreateNewFolder>true</CreateNewFolder>
-    <DefaultName>HandyControlProject</DefaultName>
-    <ProvideDefaultName>true</ProvideDefaultName>
-    <LanguageTag>csharp</LanguageTag>
-    <PlatformTag>windows</PlatformTag>
-    <ProjectTypeTag>desktop</ProjectTypeTag>
-    <ProjectTypeTag>HandyControl</ProjectTypeTag>
-  </TemplateData>
-  <TemplateContent>
-    <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
-      <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml">App.xaml</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="App.xaml.cs">App.xaml.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml">MainWindow.xaml</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="MainWindow.xaml.cs">MainWindow.xaml.cs</ProjectItem>
-      <ProjectItem ReplaceParameters="true" TargetFileName="packages.config">packages.config</ProjectItem>
-    </Project>
-  </TemplateContent>
+    <TemplateData>
+        <Name>HandyControl WPF App (.NET Framework)</Name>
+        <Description>Creates a HandyControl WPF App (.NET Framework)</Description>
+        <Icon>icon.ico</Icon>
+        <ProjectType>CSharp</ProjectType>
+        <RequiredFrameworkVersion>4.0</RequiredFrameworkVersion>
+        <CreateNewFolder>true</CreateNewFolder>
+        <DefaultName>HandyControlWpfApp</DefaultName>
+        <ProvideDefaultName>true</ProvideDefaultName>
+        <LanguageTag>csharp</LanguageTag>
+        <PlatformTag>windows</PlatformTag>
+        <ProjectTypeTag>desktop</ProjectTypeTag>
+        <ProjectTypeTag>HandyControl</ProjectTypeTag>
+        <LocationField>Enabled</LocationField>
+        <EnableLocationBrowseButton>true</EnableLocationBrowseButton>
+        <CreateInPlace>true</CreateInPlace>
+    </TemplateData>
+    <TemplateContent>
+        <Project File="ProjectTemplate.csproj" ReplaceParameters="true">
+            <ProjectItem ReplaceParameters="true" TargetFileName="Properties\AssemblyInfo.cs">AssemblyInfo.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">App.xaml</ProjectItem>
+            <ProjectItem ReplaceParameters="true">App.xaml.cs</ProjectItem>
+            <ProjectItem ReplaceParameters="true">MainWindow.xaml</ProjectItem>
+            <ProjectItem ReplaceParameters="true">MainWindow.xaml.cs</ProjectItem>
+        </Project>
+    </TemplateContent>
 </VSTemplate>

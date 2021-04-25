@@ -180,6 +180,10 @@ namespace HandyControl.Controls
             }
 
             Storyboard.Begin();
+            if (!IsRunning)
+            {
+                Storyboard.Pause();
+            }
         }
 
         private Border CreateBorder(int index, double dotInterval, bool needHidden)

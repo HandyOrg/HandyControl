@@ -14,7 +14,10 @@
     <img alt="IDE-version" src="https://img.shields.io/badge/IDE-vs2019-blue.svg"></img>
     <a href="https://www.nuget.org/packages/HandyControl">
         <img alt="nuget-version" src="https://img.shields.io/nuget/v/HandyControl.svg"></img>
-    </a> 
+    </a>
+    <a href="https://www.myget.org/feed/handycontrol/package/nuget/HandyControl">
+        <img alt="myget-version" src="https://img.shields.io/myget/handycontrol/v/handycontrol?color=orange&label=myget"></img>
+    </a>  
     <a href="https://github.com/HandyOrg/HandyControl/actions?query=workflow%3Abuild">
         <img alt="Github-build-status" src="https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg"></img>
     </a>
@@ -27,6 +30,10 @@
 </p>
 
 ## 面向中国
+
+### 招聘
+
+百度地图，招 WPF 研发工程师，坐标上海，有意私聊 836904362@qq.com
 
 ### 码云
 
@@ -163,7 +170,7 @@ Step 4: Enjoy coding
 
 ## VS插件
 
-| [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019) |
+| [VS2019](https://marketplace.visualstudio.com/items?itemName=HandyOrg.HandyControl) |
 | ------------- |
 
 ## Star趋势

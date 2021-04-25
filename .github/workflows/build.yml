@@ -1,16 +1,14 @@
-name: build
-
 on: [push, pull_request]
 
 jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Checkout
+      - name: checkout
         uses: actions/checkout@master
       
-      - name: Build Net_40
-        run: dotnet build src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release-Net40
-
-      - name: Build Net_GE45
-        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
+      - name: build
+        shell: pwsh
+        run: |
+          cd build
+          .\build.ps1

@@ -21,7 +21,7 @@
     <Style x:Key="ProgressBarBaseStyle" TargetType="ProgressBar">
         <Setter Property="hc:VisualElement.Text">
             <Setter.Value>
-                <MultiBinding Converter="{StaticResource Number2PercentageConverter}" StringFormat="{}{0} %">
+                <MultiBinding Converter="{StaticResource Number2PercentageConverter}" StringFormat="{}{0:F0} %">
                     <Binding Path="Value" RelativeSource="{RelativeSource Self}"/>
                     <Binding Path="Maximum" RelativeSource="{RelativeSource Self}"/>
                 </MultiBinding>
@@ -52,10 +52,13 @@
                     <Border x:Name="TemplateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
                         <hc:SimplePanel>
                             <Rectangle x:Name="PART_Track"/>
+                            <TextBlock Visibility="{Binding Visibility,ElementName=PART_GlowRect}" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{TemplateBinding Foreground}" Text="{Binding Path=(hc:VisualElement.Text),RelativeSource={RelativeSource TemplatedParent}}"/>
                             <Border Style="{StaticResource BorderClip}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="PART_Indicator" HorizontalAlignment="Left">
                                 <hc:SimplePanel>
                                     <Border x:Name="Indicator" Background="{TemplateBinding Foreground}">
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Path=(hc:VisualElement.Text),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        <Border Width="{Binding ActualWidth,ElementName=TemplateRoot}">
+                                            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{DynamicResource TextIconBrush}" Text="{Binding Path=(hc:VisualElement.Text),RelativeSource={RelativeSource TemplatedParent}}"/>
+                                        </Border>
                                     </Border>
                                     <Rectangle x:Name="PART_GlowRect" Fill="{StaticResource ProgressBarIndicatorAnimatedFill}" HorizontalAlignment="Left" Margin="-100,0,0,0" Width="100"/>
                                     <Rectangle x:Name="Animation" Visibility="Collapsed" Fill="{TemplateBinding Foreground}" RenderTransformOrigin="0.5,0.5">

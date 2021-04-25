@@ -7,14 +7,11 @@
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
-    <license type="file">LICENSE</license>
-    <icon>icon.png</icon>
+    <licenseUrl>https://raw.githubusercontent.com/HandyOrg/HandyControl/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/NaBian/HandyControl</projectUrl>
     <description>Contains some simple and commonly used WPF controls</description>
-    <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
     <copyright>Copyright © HandyOrg 2018-2021</copyright>
     <tags>WPF C# Control</tags>
-    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="35bbccd5b86bcedcfe16886857343e719feaf173" />
     <dependencies>
       <group targetFramework=".NETFramework4.0" />
       <group targetFramework=".NETFramework4.5" />
@@ -205,8 +202,5 @@
     <file src="lib\netcoreapp3.1\HandyControl.dll" target="lib\netcoreapp3.1\HandyControl.dll" />
     <file src="lib\netcoreapp3.1\HandyControl.pdb" target="lib\netcoreapp3.1\HandyControl.pdb" />
     <file src="lib\netcoreapp3.1\HandyControl.xml" target="lib\netcoreapp3.1\HandyControl.xml" />
-    <file src="tools\VisualStudioToolsManifest.xml" target="tools\VisualStudioToolsManifest.xml" />
-    <file src="icon.png" target="icon.png" />
-    <file src="LICENSE" target="LICENSE" />
   </files>
 </package>
