@@ -63,8 +63,15 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-            "Maximum", typeof(int), typeof(Badge), new PropertyMetadata(ValueBoxes.Int99Box, OnValueChanged));
-
+            "Maximum", typeof(int), typeof(Badge), new PropertyMetadata(ValueBoxes.Int99Box, OnMaximumValueChanged));
+            
+        private static void OnMaximumValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (Badge) d;
+            var v = ctl.Value; 
+            ctl.SetCurrentValue(TextProperty, v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+");
+        }
+        
         public int Maximum
         {
             get => (int) GetValue(MaximumProperty);
