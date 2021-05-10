@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
+using HandyControl.Controls;
 
 namespace HandyControlDemo.Data
 {
@@ -20,6 +21,10 @@ namespace HandyControlDemo.Data
 
         [Category("Category2")]
         public DemoDataModel FlattenedType { get; set; }
+
+        [Category("Category1")]
+        [HierarchyLevel(0)]
+        public DemoDataModel LowHierarchy { get; set; }
 
         public HorizontalAlignment HorizontalAlignment { get; set; }
 
