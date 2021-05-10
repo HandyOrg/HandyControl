@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
-using HandyControl.Controls;
 
 namespace HandyControlDemo.Data
 {
