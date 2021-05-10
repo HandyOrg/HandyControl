@@ -33,6 +33,7 @@ namespace HandyControl.Controls
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategory, SortByCategory, (s, e) => e.CanExecute = ShowSortButton));
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName, (s, e) => e.CanExecute = ShowSortButton));
+            CommandBindings.Add(new CommandBinding(ControlCommands.SortByHierarchyLevel, SortByHierarchyLevel, (s, e) => e.CanExecute = ShowSortButton));
         }
 
         public virtual PropertyResolver PropertyResolver { get; } = new PropertyResolver();
@@ -111,7 +112,8 @@ namespace HandyControl.Controls
         {
             get => (bool) GetValue(ShowSearchBarProperty);
             set => SetValue(ShowSearchBarProperty, value);
-            
+        }
+
         public static readonly DependencyProperty FlattenChildPropertiesProperty = DependencyProperty.Register(
          "FlattenChildProperties", typeof(Flattening), typeof(PropertyGrid), new PropertyMetadata(Flattening.Off));
 
@@ -156,20 +158,20 @@ namespace HandyControl.Controls
             public string Category { get; }
         }
 
-        private IEnumerable<PropertyItem> FlattenUnknownProperties(PropertyDescriptorCollection propertiesToFlatten, string parentCategory)
+        private IEnumerable<PropertyItem> FlattenUnknownProperties(PropertyDescriptorCollection propertiesToFlatten, string parentCategory, int hierarchyLevel = 1)
         {
             var browsableProperties = propertiesToFlatten.OfType<PropertyDescriptor>()
                                                          .Where(item => PropertyResolver.ResolveIsBrowsable(item)).ToList();
 
             var knownProperties = browsableProperties.Where(item => PropertyResolver.IsKnownEditorType(item.PropertyType))
-                                                     .Select(item => CreatePropertyItem(item, parentCategory))
+                                                     .Select(item => CreatePropertyItem(item, parentCategory, hierarchyLevel))
                                                      .Do(item => item.InitElement());
 
             var unknownPropertiesCollections = browsableProperties.Where(item => !PropertyResolver.IsKnownEditorType(item.PropertyType))
                                                                   .Select(GetCategorizedChildProperties);
 
             return unknownPropertiesCollections
-                   .Select(coll => FlattenUnknownProperties(coll.Properties, coll.Category))
+                   .Select(coll => FlattenUnknownProperties(coll.Properties, coll.Category, hierarchyLevel + 1))
                    .Aggregate(knownProperties, (current, flattenedChildProperties) => current.Concat(flattenedChildProperties));
         }
 
@@ -197,7 +199,7 @@ namespace HandyControl.Controls
                 _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj.GetType())
                                                                               .OfType<PropertyDescriptor>()
                                                                               .Where(item => PropertyResolver.ResolveIsBrowsable(item))
-                                                                              .Select(item => CreatePropertyItem(item, null))
+                                                                              .Select(item => CreatePropertyItem(item, null, 0))
                                                                               .Do(item => item.InitElement()));
             }
             else
@@ -236,6 +238,19 @@ namespace HandyControl.Controls
             }
         }
 
+        private void SortByHierarchyLevel(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (_dataView == null) return;
+
+            using (_dataView.DeferRefresh())
+            {
+                _dataView.GroupDescriptions.Clear();
+                _dataView.SortDescriptions.Clear();
+                _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.HierarchyLevelProperty.Name, ListSortDirection.Ascending));
+                _dataView.GroupDescriptions.Add(new PropertyGroupDescription(PropertyItem.CategoryProperty.Name));
+            }
+        }
+
         private void SearchBar_SearchStarted(object sender, FunctionEventArgs<string> e)
         {
             if (_dataView == null) return;
@@ -257,7 +272,7 @@ namespace HandyControl.Controls
             }
         }
 
-        protected virtual PropertyItem CreatePropertyItem(PropertyDescriptor propertyDescriptor, string category) =>
+        protected virtual PropertyItem CreatePropertyItem(PropertyDescriptor propertyDescriptor, string category, int hierarchyLevel) =>
             new PropertyItem
             {
                 Category         = category ?? PropertyResolver.ResolveCategory(propertyDescriptor),
@@ -266,6 +281,7 @@ namespace HandyControl.Controls
                 IsReadOnly       = PropertyResolver.ResolveIsReadOnly(propertyDescriptor),
                 DefaultValue     = PropertyResolver.ResolveDefaultValue(propertyDescriptor),
                 Editor           = PropertyResolver.ResolveEditor(propertyDescriptor),
+                HierarchyLevel   = PropertyResolver.ResolveHierarchyLevel(propertyDescriptor) ?? hierarchyLevel,
                 Value            = SelectedObject,
                 PropertyName     = propertyDescriptor.Name,
                 PropertyType     = propertyDescriptor.PropertyType,

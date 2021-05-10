@@ -41,6 +41,12 @@ namespace HandyControl.Controls
                     categoryAttribute.Category;
         }
 
+        public int? ResolveHierarchyLevel(PropertyDescriptor propertyDescriptor)
+        {
+            var hierarchyLevelAttribute = propertyDescriptor.Attributes.OfType<HierarchyLevelAttribute>().FirstOrDefault();
+            return hierarchyLevelAttribute?.Value;
+        }
+
         public string ResolveDisplayName(PropertyDescriptor propertyDescriptor)
         {
             var displayName = propertyDescriptor.DisplayName;

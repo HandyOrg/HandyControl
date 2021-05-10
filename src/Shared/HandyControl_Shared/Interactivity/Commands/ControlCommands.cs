@@ -181,5 +181,10 @@ namespace HandyControl.Interactivity
         ///     按照名称排序
         /// </summary>
         public static RoutedCommand SortByName { get; } = new RoutedCommand(nameof(SortByName), typeof(ControlCommands));
+
+        /// <summary>
+        ///
+        /// </summary>
+        public static RoutedCommand SortByHierarchyLevel { get; } = new RoutedCommand(nameof(SortByHierarchyLevel), typeof(ControlCommands));
     }
 }
