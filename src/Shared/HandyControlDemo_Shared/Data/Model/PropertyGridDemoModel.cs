@@ -18,6 +18,9 @@ namespace HandyControlDemo.Data
         [Category("Category1")]
         public Gender Enum { get; set; }
 
+        [Category("Category2")]
+        public DemoDataModel FlattenedType { get; set; }
+
         public HorizontalAlignment HorizontalAlignment { get; set; }
 
         public VerticalAlignment VerticalAlignment { get; set; }
