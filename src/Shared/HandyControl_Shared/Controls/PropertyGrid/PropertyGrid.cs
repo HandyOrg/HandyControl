@@ -102,6 +102,15 @@ namespace HandyControl.Controls
             set => SetValue(ShowSortButtonProperty, value);
         }
 
+        public static readonly DependencyProperty ShowSearchBarProperty = DependencyProperty.Register(
+            "ShowSearchBar", typeof(bool), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool ShowSearchBar
+        {
+            get => (bool) GetValue(ShowSearchBarProperty);
+            set => SetValue(ShowSearchBarProperty, value);
+        }
+
         public override void OnApplyTemplate()
         {
             if (_searchBar != null)
