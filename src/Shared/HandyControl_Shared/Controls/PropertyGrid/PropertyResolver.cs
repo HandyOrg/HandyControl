@@ -104,6 +104,8 @@ namespace HandyControl.Controls
 
         public virtual PropertyEditorBase CreateEditor(Type type) => new ReadOnlyTextPropertyEditor();
 
+        public static bool IsKnownEditorType(Type type) => TypeCodeDic.ContainsKey(type) || type.IsSubclassOf(typeof(Enum));
+
         private enum EditorTypeCode
         {
             PlainText,

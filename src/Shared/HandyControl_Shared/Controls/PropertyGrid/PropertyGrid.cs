@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows;
@@ -6,6 +7,7 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
 using HandyControl.Data;
+using HandyControl.Data.Enum;
 using HandyControl.Interactivity;
 using HandyControl.Tools.Extension;
 
@@ -102,6 +104,15 @@ namespace HandyControl.Controls
             set => SetValue(ShowSortButtonProperty, value);
         }
 
+        public static readonly DependencyProperty FlattenChildPropertiesProperty = DependencyProperty.Register(
+         "FlattenChildProperties", typeof(Flattening), typeof(PropertyGrid), new PropertyMetadata(Flattening.Off));
+
+        public Flattening FlattenChildProperties
+        {
+            get => (Flattening) GetValue(FlattenChildPropertiesProperty);
+            set => SetValue(FlattenChildPropertiesProperty, value);
+        }
+
         public override void OnApplyTemplate()
         {
             if (_searchBar != null)
@@ -122,15 +133,72 @@ namespace HandyControl.Controls
             UpdateItems(SelectedObject);
         }
 
+        /// <summary>
+        /// Algorithmic helper class to temporarily link parent data to a PropertyDescriptorCollection
+        /// </summary>
+        private class ParentPropertyDescriptorCollection
+        {
+            public ParentPropertyDescriptorCollection(PropertyDescriptorCollection properties, string category)
+            {
+                Properties = properties;
+                Category = category;
+            }
+
+            public PropertyDescriptorCollection Properties { get; }
+            public string Category { get; }
+        }
+
+        private IEnumerable<PropertyItem> FlattenUnknownProperties(PropertyDescriptorCollection propertiesToFlatten, string parentCategory)
+        {
+            var browsableProperties = propertiesToFlatten.OfType<PropertyDescriptor>()
+                                                         .Where(item => PropertyResolver.ResolveIsBrowsable(item)).ToList();
+
+            var knownProperties = browsableProperties.Where(item => PropertyResolver.IsKnownEditorType(item.PropertyType))
+                                                     .Select(item => CreatePropertyItem(item, parentCategory))
+                                                     .Do(item => item.InitElement());
+
+            var unknownPropertiesCollections = browsableProperties.Where(item => !PropertyResolver.IsKnownEditorType(item.PropertyType))
+                                                                  .Select(GetCategorizedChildProperties);
+
+            return unknownPropertiesCollections
+                   .Select(coll => FlattenUnknownProperties(coll.Properties, coll.Category))
+                   .Aggregate(knownProperties, (current, flattenedChildProperties) => current.Concat(flattenedChildProperties));
+        }
+
+        private ParentPropertyDescriptorCollection GetCategorizedChildProperties(PropertyDescriptor parentItem)
+        {
+            string category = null;
+            switch (FlattenChildProperties)
+            {
+                case Flattening.ParentCategory:
+                    category = PropertyResolver.ResolveCategory(parentItem);
+                    break;
+                case Flattening.ParentNameAsCategory:
+                    category = parentItem.DisplayName;
+                    break;
+            }
+            return new ParentPropertyDescriptorCollection(parentItem.GetChildProperties(), category);
+        }
+
         private void UpdateItems(object obj)
         {
             if (obj == null || _itemsControl == null) return;
 
-            _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj.GetType()).OfType<PropertyDescriptor>()
-                .Where(item => PropertyResolver.ResolveIsBrowsable(item)).Select(CreatePropertyItem)
-                .Do(item => item.InitElement()));
+            if (FlattenChildProperties == Flattening.Off)
+            {
+                _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj.GetType())
+                                                                              .OfType<PropertyDescriptor>()
+                                                                              .Where(item => PropertyResolver.ResolveIsBrowsable(item))
+                                                                              .Select(item => CreatePropertyItem(item, null))
+                                                                              .Do(item => item.InitElement()));
+            }
+            else
+            {
+                _dataView = CollectionViewSource.GetDefaultView(FlattenUnknownProperties(TypeDescriptor.GetProperties(obj.GetType()), null));
+            }
 
             SortByCategory(null, null);
+
             _itemsControl.ItemsSource = _dataView;
         }
 
@@ -181,19 +249,20 @@ namespace HandyControl.Controls
             }
         }
 
-        protected virtual PropertyItem CreatePropertyItem(PropertyDescriptor propertyDescriptor) => new PropertyItem
-        {
-            Category = PropertyResolver.ResolveCategory(propertyDescriptor),
-            DisplayName = PropertyResolver.ResolveDisplayName(propertyDescriptor),
-            Description = PropertyResolver.ResolveDescription(propertyDescriptor),
-            IsReadOnly = PropertyResolver.ResolveIsReadOnly(propertyDescriptor),
-            DefaultValue = PropertyResolver.ResolveDefaultValue(propertyDescriptor),
-            Editor = PropertyResolver.ResolveEditor(propertyDescriptor),
-            Value = SelectedObject,
-            PropertyName = propertyDescriptor.Name,
-            PropertyType = propertyDescriptor.PropertyType,
-            PropertyTypeName = $"{propertyDescriptor.PropertyType.Namespace}.{propertyDescriptor.PropertyType.Name}"
-        };
+        protected virtual PropertyItem CreatePropertyItem(PropertyDescriptor propertyDescriptor, string category) =>
+            new PropertyItem
+            {
+                Category         = category ?? PropertyResolver.ResolveCategory(propertyDescriptor),
+                DisplayName      = PropertyResolver.ResolveDisplayName(propertyDescriptor),
+                Description      = PropertyResolver.ResolveDescription(propertyDescriptor),
+                IsReadOnly       = PropertyResolver.ResolveIsReadOnly(propertyDescriptor),
+                DefaultValue     = PropertyResolver.ResolveDefaultValue(propertyDescriptor),
+                Editor           = PropertyResolver.ResolveEditor(propertyDescriptor),
+                Value            = SelectedObject,
+                PropertyName     = propertyDescriptor.Name,
+                PropertyType     = propertyDescriptor.PropertyType,
+                PropertyTypeName = $"{propertyDescriptor.PropertyType.Namespace}.{propertyDescriptor.PropertyType.Name}"
+            };
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {

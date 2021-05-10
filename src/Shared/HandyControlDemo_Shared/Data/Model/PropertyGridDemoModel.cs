@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Media;
+using HandyControl.Controls;
 
 namespace HandyControlDemo.Data
 {
@@ -17,6 +18,9 @@ namespace HandyControlDemo.Data
 
         [Category("Category1")]
         public Gender Enum { get; set; }
+
+        [Category("Category2")]
+        public DemoDataModel FlattenedType { get; set; }
 
         public HorizontalAlignment HorizontalAlignment { get; set; }
 
