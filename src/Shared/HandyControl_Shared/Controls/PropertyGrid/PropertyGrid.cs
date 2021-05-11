@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -138,34 +139,38 @@ namespace HandyControl.Controls
         /// </summary>
         private class ParentPropertyDescriptorCollection
         {
-            public ParentPropertyDescriptorCollection(PropertyDescriptorCollection properties, string category)
+            public ParentPropertyDescriptorCollection(PropertyDescriptorCollection properties, object parent, string category)
             {
                 Properties = properties;
                 Category = category;
+                ParentComponent = parent;
             }
 
             public PropertyDescriptorCollection Properties { get; }
             public string Category { get; }
+            public object ParentComponent { get; }
         }
 
-        private IEnumerable<PropertyItem> FlattenUnknownProperties(PropertyDescriptorCollection propertiesToFlatten, string parentCategory)
+        private IEnumerable<PropertyItem> FlattenUnknownProperties(ParentPropertyDescriptorCollection collection) =>
+            FlattenUnknownProperties(collection.Properties, collection.ParentComponent, collection.Category);
+
+        private IEnumerable<PropertyItem> FlattenUnknownProperties(IEnumerable propertiesToFlatten, object component, string parentCategory)
         {
             var browsableProperties = propertiesToFlatten.OfType<PropertyDescriptor>()
                                                          .Where(item => PropertyResolver.ResolveIsBrowsable(item)).ToList();
 
             var knownProperties = browsableProperties.Where(item => PropertyResolver.IsKnownEditorType(item.PropertyType))
-                                                     .Select(item => CreatePropertyItem(item, parentCategory))
+                                                     .Select(item => CreatePropertyItem(item, component, parentCategory))
                                                      .Do(item => item.InitElement());
 
             var unknownPropertiesCollections = browsableProperties.Where(item => !PropertyResolver.IsKnownEditorType(item.PropertyType))
-                                                                  .Select(GetCategorizedChildProperties);
+                                                                  .Select(item => GetCategorizedChildProperties(item, component));
 
-            return unknownPropertiesCollections
-                   .Select(coll => FlattenUnknownProperties(coll.Properties, coll.Category))
-                   .Aggregate(knownProperties, (current, flattenedChildProperties) => current.Concat(flattenedChildProperties));
+            return unknownPropertiesCollections.Select(FlattenUnknownProperties)
+                                               .Aggregate(knownProperties, (current, flattenedChildProperties) => current.Concat(flattenedChildProperties));
         }
 
-        private ParentPropertyDescriptorCollection GetCategorizedChildProperties(PropertyDescriptor parentItem)
+        private ParentPropertyDescriptorCollection GetCategorizedChildProperties(PropertyDescriptor parentItem, object parentComponent)
         {
             string category = null;
             switch (FlattenChildProperties)
@@ -177,7 +182,7 @@ namespace HandyControl.Controls
                     category = parentItem.DisplayName;
                     break;
             }
-            return new ParentPropertyDescriptorCollection(parentItem.GetChildProperties(), category);
+            return new ParentPropertyDescriptorCollection(parentItem.GetChildProperties(), parentItem.GetValue(parentComponent), category);
         }
 
         private void UpdateItems(object obj)
@@ -189,12 +194,12 @@ namespace HandyControl.Controls
                 _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj.GetType())
                                                                               .OfType<PropertyDescriptor>()
                                                                               .Where(item => PropertyResolver.ResolveIsBrowsable(item))
-                                                                              .Select(item => CreatePropertyItem(item, null))
+                                                                              .Select(item => CreatePropertyItem(item, obj, null))
                                                                               .Do(item => item.InitElement()));
             }
             else
             {
-                _dataView = CollectionViewSource.GetDefaultView(FlattenUnknownProperties(TypeDescriptor.GetProperties(obj.GetType()), null));
+                _dataView = CollectionViewSource.GetDefaultView(FlattenUnknownProperties(TypeDescriptor.GetProperties(obj.GetType()), obj, null));
             }
 
             SortByCategory(null, null);
@@ -249,7 +254,7 @@ namespace HandyControl.Controls
             }
         }
 
-        protected virtual PropertyItem CreatePropertyItem(PropertyDescriptor propertyDescriptor, string category) =>
+        protected virtual PropertyItem CreatePropertyItem(PropertyDescriptor propertyDescriptor, object component, string category) =>
             new PropertyItem
             {
                 Category         = category ?? PropertyResolver.ResolveCategory(propertyDescriptor),
@@ -258,7 +263,7 @@ namespace HandyControl.Controls
                 IsReadOnly       = PropertyResolver.ResolveIsReadOnly(propertyDescriptor),
                 DefaultValue     = PropertyResolver.ResolveDefaultValue(propertyDescriptor),
                 Editor           = PropertyResolver.ResolveEditor(propertyDescriptor),
-                Value            = SelectedObject,
+                Value            = component,
                 PropertyName     = propertyDescriptor.Name,
                 PropertyType     = propertyDescriptor.PropertyType,
                 PropertyTypeName = $"{propertyDescriptor.PropertyType.Namespace}.{propertyDescriptor.PropertyType.Name}"
