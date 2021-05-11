@@ -116,7 +116,7 @@ namespace HandyControl.Controls
                     : new ReadOnlyTextPropertyEditor();
         }
 
-        public virtual PropertyEditorBase CreateEditor(Type type) => new ReadOnlyTextPropertyEditor();
+        public virtual PropertyEditorBase CreateEditor(Type type) => Activator.CreateInstance(type) as PropertyEditorBase ?? new ReadOnlyTextPropertyEditor();
 
         public static bool IsKnownEditorType(Type type)
         {
