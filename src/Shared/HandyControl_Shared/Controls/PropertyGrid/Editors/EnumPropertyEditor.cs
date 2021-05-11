@@ -57,10 +57,10 @@ namespace HandyControl.Controls
             }
 
             object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture) =>
-                cache.First(x => x.Key.Equals((Enum) value)).Value;
+                cache.FirstOrDefault(x => x.Key.Equals((Enum) value)).Value;
 
             object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture) =>
-                cache.First(x => x.Value == (string) value).Key;
+                cache.FirstOrDefault(x => x.Value == (string) value).Key;
         }
     }
 }
