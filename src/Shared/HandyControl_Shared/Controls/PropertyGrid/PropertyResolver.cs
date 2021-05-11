@@ -82,8 +82,15 @@ namespace HandyControl.Controls
             return editor;
         }
 
-        public virtual PropertyEditorBase CreateDefaultEditor(Type type) =>
-            TypeCodeDic.TryGetValue(type, out var editorType)
+        public virtual PropertyEditorBase CreateDefaultEditor(Type type)
+        {
+            var underlyingType = Nullable.GetUnderlyingType(type);
+            if (underlyingType is not null)
+            {
+                type = underlyingType;
+            }
+
+            return TypeCodeDic.TryGetValue(type, out var editorType)
                 ? editorType switch
                 {
                     EditorTypeCode.PlainText => new PlainTextPropertyEditor(),
@@ -107,10 +114,20 @@ namespace HandyControl.Controls
                 : type.IsSubclassOf(typeof(Enum))
                     ? (PropertyEditorBase) new EnumPropertyEditor()
                     : new ReadOnlyTextPropertyEditor();
+        }
 
         public virtual PropertyEditorBase CreateEditor(Type type) => new ReadOnlyTextPropertyEditor();
 
-        public static bool IsKnownEditorType(Type type) => TypeCodeDic.ContainsKey(type) || type.IsSubclassOf(typeof(Enum));
+        public static bool IsKnownEditorType(Type type)
+        {
+            var underlyingType = Nullable.GetUnderlyingType(type);
+            if (underlyingType is not null)
+            {
+                type = underlyingType;
+            }
+
+            return TypeCodeDic.ContainsKey(type) || type.IsSubclassOf(typeof(Enum));
+        }
 
         private enum EditorTypeCode
         {
