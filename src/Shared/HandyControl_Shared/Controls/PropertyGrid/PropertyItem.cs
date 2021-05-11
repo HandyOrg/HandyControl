@@ -116,6 +116,15 @@ namespace HandyControl.Controls
             set => SetValue(IsExpandedEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
+        public static readonly DependencyProperty HierarchyLevelProperty = DependencyProperty.Register(
+         "HierarchyLevel", typeof(int?), typeof(PropertyItem), new PropertyMetadata(default(int?)));
+
+        public int? HierarchyLevel
+        {
+            get => (int?) GetValue(HierarchyLevelProperty);
+            set => SetValue(HierarchyLevelProperty, value);
+        }
+
         public PropertyDescriptor PropertyDescriptor { get; set; }
 
         public virtual void InitElement()
