@@ -117,12 +117,12 @@
     </Style>
 
     <Style x:Key="PropertyGroupItemBaseStyle" TargetType="GroupItem">
-        <Setter Property="Margin" Value="0,0,0,6"/>
-        <Setter Property="Padding" Value="10,6,6,0"/>
+        <Setter Property="Margin" Value="{Binding Path=GroupHeaderMargin, RelativeSource={RelativeSource AncestorType={x:Type hc:PropertyGrid}, Mode=FindAncestor}, FallbackValue='0,0,0,6'}" />
+        <Setter Property="Padding" Value="10,6,6,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="GroupItem">
-                    <Expander Header="{Binding Name}" IsExpanded="True">
+                    <Expander Header="{Binding Name}" IsExpanded="True" HeaderTemplate="{Binding Path=GroupHeaderTemplate, RelativeSource={RelativeSource AncestorType={x:Type hc:PropertyGrid}, Mode=FindAncestor}}">
                         <Border BorderThickness="1,0,1,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" CornerRadius="0,0,4,4">
                             <ItemsPresenter Margin="{TemplateBinding Padding}"/>
                         </Border>
