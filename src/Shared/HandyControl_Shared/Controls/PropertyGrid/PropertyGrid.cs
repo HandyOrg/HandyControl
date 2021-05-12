@@ -124,6 +124,25 @@ namespace HandyControl.Controls
             set => SetValue(FlattenChildPropertiesProperty, value);
         }
 
+        public static readonly DependencyProperty GroupHeaderTemplateProperty = DependencyProperty.Register(
+         nameof(GroupHeaderTemplate), typeof(DataTemplate), typeof(PropertyGrid), new PropertyMetadata(default(DataTemplate)));
+
+        public DataTemplate GroupHeaderTemplate
+        {
+            get => (DataTemplate) GetValue(GroupHeaderTemplateProperty);
+            set => SetValue(GroupHeaderTemplateProperty, value);
+        }
+
+        public static readonly DependencyProperty GroupHeaderMarginProperty = DependencyProperty.Register(
+         nameof(GroupHeaderMargin), typeof(Thickness), typeof(PropertyGrid),
+         new FrameworkPropertyMetadata(new Thickness(0, 0, 0, 6), FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+        public Thickness GroupHeaderMargin
+        {
+            get => (Thickness) GetValue(GroupHeaderMarginProperty);
+            set => SetValue(GroupHeaderMarginProperty, value);
+        }
+
         public override void OnApplyTemplate()
         {
             if (_searchBar != null)
