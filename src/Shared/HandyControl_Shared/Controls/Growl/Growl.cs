@@ -56,7 +56,7 @@ namespace HandyControl.Controls
         /// </summary>
         private DispatcherTimer _timerClose;
 
-        private static readonly Dictionary<string, Panel> PanelDic = new Dictionary<string, Panel>();
+        private static readonly Dictionary<string, Panel> PanelDic = new();
 
         #endregion Data
 
@@ -769,7 +769,7 @@ namespace HandyControl.Controls
             ShowGlobal(growlInfo);
         }
 
-        private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close();
+        private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close(true, false);
 
         /// <summary>
         ///     关闭
