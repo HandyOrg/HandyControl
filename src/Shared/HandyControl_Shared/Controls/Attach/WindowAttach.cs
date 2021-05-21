@@ -171,10 +171,15 @@ namespace HandyControl.Controls
                 if (window.WindowStartupLocation == WindowStartupLocation.CenterOwner ||
                     window.WindowStartupLocation == WindowStartupLocation.CenterScreen)
                 {
+                    var focusedElement = Keyboard.FocusedElement;
+
                     if (e.WidthChanged)
                         window.Left += (e.PreviousSize.Width - e.NewSize.Width) / 2;
                     if (e.HeightChanged)
                         window.Top += (e.PreviousSize.Height - e.NewSize.Height) / 2;
+
+                    if (focusedElement != null)
+                        Keyboard.Focus(focusedElement);
                 }
             }
         }
