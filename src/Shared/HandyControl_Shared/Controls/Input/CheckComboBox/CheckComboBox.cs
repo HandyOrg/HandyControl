@@ -116,7 +116,15 @@ namespace HandyControl.Controls
         public CheckComboBox()
         {
             AddHandler(Controls.Tag.ClosedEvent, new RoutedEventHandler(Tags_OnClosed));
-            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => SelectedItems.Clear()));
+
+            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
+            {
+                SetCurrentValue(SelectedValueProperty, null);
+                SetCurrentValue(SelectedItemProperty, null);
+                SetCurrentValue(SelectedIndexProperty, -1);
+                SelectedItems.Clear();
+            }));
+
             ItemContainerGenerator.StatusChanged += ItemContainerGenerator_StatusChanged;
         }
 
