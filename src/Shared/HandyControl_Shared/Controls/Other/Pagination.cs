@@ -89,7 +89,7 @@ namespace HandyControl.Controls
         ///     最大页数
         /// </summary>
         public static readonly DependencyProperty MaxPageCountProperty = DependencyProperty.Register(
-            "MaxPageCount", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosInt);
+            "MaxPageCount", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
         private static object CoerceMaxPageCount(DependencyObject d, object basevalue)
         {
@@ -157,7 +157,7 @@ namespace HandyControl.Controls
         ///     当前页
         /// </summary>
         public static readonly DependencyProperty PageIndexProperty = DependencyProperty.Register(
-            "PageIndex", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosInt);
+            "PageIndex", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
         private static object CoercePageIndex(DependencyObject d, object basevalue)
         {
