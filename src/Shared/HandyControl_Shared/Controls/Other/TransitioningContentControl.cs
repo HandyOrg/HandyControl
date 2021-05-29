@@ -55,7 +55,7 @@ namespace HandyControl.Controls
             }
             else if (Application.Current != null)
             {
-                ResourceHelper.GetResource<Storyboard>($"{TransitionMode.ToString()}Transition")?.Begin(_contentPresenter);
+                ResourceHelper.GetResourceInternal<Storyboard>($"{TransitionMode.ToString()}Transition")?.Begin(_contentPresenter);
             }
         }
 

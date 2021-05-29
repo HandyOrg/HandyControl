@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows;
 using HandyControl.Data;
 using HandyControl.Tools;
@@ -11,11 +12,11 @@ namespace HandyControl.Themes
         {
             if (DesignerHelper.IsInDesignMode)
             {
-                MergedDictionaries.Add(new ResourceDictionary
+                MergedDictionaries.Add(new()
                 {
                     Source = new Uri("pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml")
                 });
-                MergedDictionaries.Add(new ResourceDictionary
+                MergedDictionaries.Add(new()
                 {
                     Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
                 });
@@ -48,14 +49,51 @@ namespace HandyControl.Themes
             }
         }
 
+        public static readonly DependencyProperty SkinProperty = DependencyProperty.RegisterAttached(
+            "Skin", typeof(SkinType), typeof(Theme), new PropertyMetadata(default(SkinType), OnSkinChanged));
+
+        private static void OnSkinChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is FrameworkElement element)
+            {
+                var skin = (SkinType) e.NewValue;
+
+                if (element.Resources is Theme resource)
+                {
+                    resource.Skin = skin;
+                }
+                else
+                {
+                    var themes = element.Resources.MergedDictionaries.OfType<Theme>();
+                    if (!themes.Any())
+                    {
+                        element.Resources.MergedDictionaries.Add(new Theme
+                        {
+                            Skin = skin
+                        });
+                    }
+                    else
+                    {
+                        foreach (var subResource in element.Resources.MergedDictionaries.OfType<Theme>())
+                        {
+                            subResource.Skin = skin;
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void SetSkin(DependencyObject element, SkinType value)
+            => element.SetValue(SkinProperty, value);
+
+        public static SkinType GetSkin(DependencyObject element)
+            => (SkinType) element.GetValue(SkinProperty);
+
         public string Name { get; set; }
 
         public virtual ResourceDictionary GetSkin(SkinType skinType) => ResourceHelper.GetSkin(skinType);
 
-        public virtual ResourceDictionary GetTheme() => new ResourceDictionary
-        {
-            Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-        };
+        public virtual ResourceDictionary GetTheme() => ResourceHelper.GetTheme();
 
         private void UpdateResource()
         {

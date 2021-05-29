@@ -385,7 +385,7 @@ namespace HandyControl.Controls
         {
             return new RadioButton
             {
-                Style = ResourceHelper.GetResource<Style>(ResourceToken.PaginationButtonStyle),
+                Style = ResourceHelper.GetResourceInternal<Style>(ResourceToken.PaginationButtonStyle),
                 Content = page.ToString()
             };
         }

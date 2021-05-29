@@ -29,7 +29,7 @@ namespace HandyControl.Controls
             if (versionInfo < SystemVersionInfo.Windows10 ||
                 versionInfo >= SystemVersionInfo.Windows10_1903)
             {
-                var colorValue = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
+                var colorValue = ResourceHelper.GetResourceInternal<uint>(ResourceToken.BlurGradientValue);
                 var color = ColorHelper.ToColor(colorValue);
                 color = Color.FromRgb(color.R, color.G, color.B);
                 window.Background = new SolidColorBrush(color);
@@ -44,7 +44,7 @@ namespace HandyControl.Controls
                 : InteropValues.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
 
             accentPolicy.AccentFlags = 2;
-            accentPolicy.GradientColor = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
+            accentPolicy.GradientColor = ResourceHelper.GetResourceInternal<uint>(ResourceToken.BlurGradientValue);
 
             var accentPtr = Marshal.AllocHGlobal(accentPolicySize);
             Marshal.StructureToPtr(accentPolicy, accentPtr, false);
