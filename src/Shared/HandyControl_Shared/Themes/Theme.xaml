@@ -11893,7 +11893,7 @@
 		<Setter Property="Focusable" Value="False" />
 		<Setter Property="MinHeight" Value="60" />
 		<Setter Property="Width" Value="320" />
-		<Setter Property="Margin" Value="10,0,0,10" />
+		<Setter Property="Margin" Value="10,10,10,0" />
 		<Setter Property="MaxWidth" Value="320" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="8" />
 		<Setter Property="Background" Value="{DynamicResource ThirdlyRegionBrush}" />
