@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -25,7 +26,9 @@ namespace HandyControl.Controls
         #region Constants
 
         private const string ElementPanelMore = "PART_PanelMore";
+
         private const string ElementGridMain = "PART_GridMain";
+
         private const string ElementButtonClose = "PART_ButtonClose";
 
         #endregion Constants
@@ -176,15 +179,6 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
             "Type", typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
 
-        public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
-            "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
-            {
-                if ((bool) args.NewValue && o is Panel panel)
-                {
-                    SetGrowlPanel(panel);
-                }
-            }));
-
         public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
             "Token", typeof(string), typeof(Growl), new PropertyMetadata(default(string), OnTokenChanged));
 
@@ -209,9 +203,27 @@ namespace HandyControl.Controls
         public static string GetToken(DependencyObject element)
             => (string) element.GetValue(TokenProperty);
 
+        public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
+            "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
+            {
+                if ((bool) args.NewValue && o is Panel panel)
+                {
+                    SetGrowlPanel(panel);
+                }
+            }));
+
         public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetGrowlParent(DependencyObject element) => (bool) element.GetValue(GrowlParentProperty);
+
+        private static readonly DependencyProperty IsCreatedAutomaticallyProperty = DependencyProperty.RegisterAttached(
+            "IsCreatedAutomatically", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        private static void SetIsCreatedAutomatically(DependencyObject element, bool value)
+            => element.SetValue(IsCreatedAutomaticallyProperty, ValueBoxes.BooleanBox(value));
+
+        private static bool GetIsCreatedAutomatically(DependencyObject element)
+            => (bool) element.GetValue(IsCreatedAutomaticallyProperty);
 
         public InfoType Type
         {
@@ -406,6 +418,7 @@ namespace HandyControl.Controls
                             Type = growlInfo.Type,
                             _waitTime = Math.Max(growlInfo.WaitTime, 2)
                         };
+
                         if (!string.IsNullOrEmpty(growlInfo.Token))
                         {
                             if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
@@ -415,13 +428,63 @@ namespace HandyControl.Controls
                         }
                         else
                         {
-                            GrowlPanel?.Children.Insert(0, ctl);
+                            // GrowlPanel is null, we create it automatically
+                            GrowlPanel ??= CreateDefaultPanel();
+                            GrowlPanel.Children.Insert(0, ctl);
                         }
                     }
 #if NET40
                 )
 #endif
             );
+        }
+
+        private static Panel CreateDefaultPanel()
+        {
+            var panel = new StackPanel
+            {
+                HorizontalAlignment = HorizontalAlignment.Right,
+                Margin = new Thickness(10)
+            };
+
+            InitGrowlPanel(panel);
+            SetIsCreatedAutomatically(panel, true);
+
+            FrameworkElement element = WindowHelper.GetActiveWindow();
+            var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
+
+            if (decorator != null)
+            {
+                var layer = decorator.AdornerLayer;
+                if (layer != null)
+                {
+                    var container = new AdornerContainer(layer)
+                    {
+                        Child = panel
+                    };
+
+                    layer.Add(container);
+                }
+            }
+
+            return panel;
+        }
+
+        private static void RemoveDefaultPanel(Panel panel)
+        {
+            FrameworkElement element = WindowHelper.GetActiveWindow();
+            var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
+
+            if (decorator != null)
+            {
+                var layer = decorator.AdornerLayer;
+                var adorner = VisualHelper.GetParent<Adorner>(panel);
+
+                if (adorner != null)
+                {
+                    layer?.Remove(adorner);
+                }
+            }
         }
 
         private static void InitGrowlInfo(ref GrowlInfo growlInfo, InfoType infoType)
@@ -791,10 +854,22 @@ namespace HandyControl.Controls
                 {
                     panel.Children.Remove(this);
 
-                    if (GrowlWindow?.GrowlPanel != null && GrowlWindow.GrowlPanel.Children.Count == 0)
+                    if (GrowlWindow != null)
                     {
-                        GrowlWindow.Close();
-                        GrowlWindow = null;
+                        if (GrowlWindow.GrowlPanel != null && GrowlWindow.GrowlPanel.Children.Count == 0)
+                        {
+                            GrowlWindow.Close();
+                            GrowlWindow = null;
+                        }
+                    }
+                    else
+                    {
+                        if (GrowlPanel != null && GrowlPanel.Children.Count == 0 && GetIsCreatedAutomatically(GrowlPanel))
+                        {
+                            // If the count of children is zero, we need to remove the panel, provided that the panel was created automatically  
+                            RemoveDefaultPanel(GrowlPanel);
+                            GrowlPanel = null;
+                        }
                     }
                 }
             };
