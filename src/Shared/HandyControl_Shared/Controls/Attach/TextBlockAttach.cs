@@ -46,7 +46,7 @@ namespace HandyControl.Controls
             textBlock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             var width = textBlock.DesiredSize.Width - textBlock.Margin.Left - textBlock.Margin.Right;
 
-            if(textBlock.RenderSize.Width > width || textBlock.ActualWidth < width || CalcTextWidth(textBlock) > width)
+            if (textBlock.RenderSize.Width > width || textBlock.ActualWidth < width || CalcTextWidth(textBlock) > width)
             {
                 ToolTipService.SetToolTip(textBlock, textBlock.Text);
             }
