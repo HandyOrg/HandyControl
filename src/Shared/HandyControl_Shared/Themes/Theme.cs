@@ -1,8 +1,10 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Windows;
 using HandyControl.Data;
 using HandyControl.Tools;
+using HandyControl.Tools.Helper;
+using Microsoft.Win32;
 
 namespace HandyControl.Themes
 {
@@ -12,14 +14,8 @@ namespace HandyControl.Themes
         {
             if (DesignerHelper.IsInDesignMode)
             {
-                MergedDictionaries.Add(new()
-                {
-                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml")
-                });
-                MergedDictionaries.Add(new()
-                {
-                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-                });
+                MergedDictionaries.Add(ResourceHelper.GetSkin(SkinType.Default));
+                MergedDictionaries.Add(ResourceHelper.GetTheme());
             }
             else
             {
@@ -34,6 +30,8 @@ namespace HandyControl.Themes
             get => DesignerHelper.IsInDesignMode ? null : _source;
             set => _source = value;
         }
+
+        private SkinType _manualSkinType;
 
         private SkinType _skin;
 
@@ -54,32 +52,43 @@ namespace HandyControl.Themes
 
         private static void OnSkinChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is FrameworkElement element)
+            if (d is not FrameworkElement element)
             {
-                var skin = (SkinType) e.NewValue;
+                return;
+            }
 
-                if (element.Resources is Theme resource)
+            var skin = (SkinType) e.NewValue;
+
+            var themes = new List<Theme>();
+            GetAllThemes(element.Resources, ref themes);
+
+            if (themes.Count > 0)
+            {
+                foreach (var theme in themes)
                 {
-                    resource.Skin = skin;
+                    theme.Skin = skin;
                 }
-                else
+            }
+            else
+            {
+                element.Resources.MergedDictionaries.Add(new Theme
                 {
-                    var themes = element.Resources.MergedDictionaries.OfType<Theme>();
-                    if (!themes.Any())
-                    {
-                        element.Resources.MergedDictionaries.Add(new Theme
-                        {
-                            Skin = skin
-                        });
-                    }
-                    else
-                    {
-                        foreach (var subResource in element.Resources.MergedDictionaries.OfType<Theme>())
-                        {
-                            subResource.Skin = skin;
-                        }
-                    }
-                }
+                    Skin = skin
+                });
+            }
+        }
+
+        private static void GetAllThemes(ResourceDictionary resourceDictionary, ref List<Theme> themes)
+        {
+            if (resourceDictionary is Theme theme)
+            {
+                themes.Add(theme);
+            }
+
+            // we must consider it's MergedDictionaries
+            foreach (var dictionaryMergedDictionary in resourceDictionary.MergedDictionaries)
+            {
+                GetAllThemes(dictionaryMergedDictionary, ref themes);
             }
         }
 
@@ -88,6 +97,39 @@ namespace HandyControl.Themes
 
         public static SkinType GetSkin(DependencyObject element)
             => (SkinType) element.GetValue(SkinProperty);
+
+        private bool _syncWithSystem;
+
+        public bool SyncWithSystem
+        {
+            get => _syncWithSystem;
+            set
+            {
+                _syncWithSystem = value;
+
+                if (value)
+                {
+                    _manualSkinType = Skin;
+                    SyncWithSystemTheme();
+                    SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
+                }
+                else
+                {
+                    SystemEvents.UserPreferenceChanged -= SystemEvents_UserPreferenceChanged;
+                    Skin = _manualSkinType;
+                }
+            }
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General)
+            {
+                SyncWithSystemTheme();
+            }
+        }
+
+        private void SyncWithSystemTheme() => Skin = SystemHelper.DetermineIfInLightThemeMode() ? SkinType.Default : SkinType.Dark;
 
         public string Name { get; set; }
 

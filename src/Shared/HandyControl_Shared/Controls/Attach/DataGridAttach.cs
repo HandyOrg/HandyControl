@@ -337,7 +337,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetCanUnselectAllWithBlankArea(DependencyObject element, bool value)
-            => element.SetValue(CanUnselectAllWithBlankAreaProperty, value);
+            => element.SetValue(CanUnselectAllWithBlankAreaProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetCanUnselectAllWithBlankArea(DependencyObject element)
             => (bool) element.GetValue(CanUnselectAllWithBlankAreaProperty);

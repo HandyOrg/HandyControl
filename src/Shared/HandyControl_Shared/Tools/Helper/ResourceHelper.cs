@@ -54,7 +54,7 @@ namespace HandyControl.Tools
         {
             try
             {
-                var uri = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{skin.ToString()}.xaml");
+                var uri = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{skin}.xaml");
                 return new ResourceDictionary
                 {
                     Source = uri
@@ -64,7 +64,7 @@ namespace HandyControl.Tools
             {
                 return new ResourceDictionary
                 {
-                    Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{SkinType.Default.ToString()}.xaml")
+                    Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{SkinType.Default}.xaml")
                 };
             }
         }

@@ -20,7 +20,7 @@ namespace HandyControl.Controls
             new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetAutoWidth(DependencyObject element, bool value)
-            => element.SetValue(AutoWidthProperty, value);
+            => element.SetValue(AutoWidthProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetAutoWidth(DependencyObject element)
             => (bool) element.GetValue(AutoWidthProperty);
