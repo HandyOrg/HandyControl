@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Helper;
@@ -19,17 +20,11 @@ namespace HandyControl.Themes
             }
             else
             {
-                UpdateResource();
+                InitResource();
             }
         }
 
-        private Uri _source;
-
-        public new Uri Source
-        {
-            get => DesignerHelper.IsInDesignMode ? null : _source;
-            set => _source = value;
-        }
+        #region Skin
 
         private SkinType _manualSkinType;
 
@@ -43,7 +38,7 @@ namespace HandyControl.Themes
                 if (_skin == value) return;
                 _skin = value;
 
-                UpdateResource();
+                UpdateSkin();
             }
         }
 
@@ -96,7 +91,11 @@ namespace HandyControl.Themes
             => element.SetValue(SkinProperty, value);
 
         public static SkinType GetSkin(DependencyObject element)
-            => (SkinType) element.GetValue(SkinProperty);
+            => (SkinType) element.GetValue(SkinProperty);   
+
+        #endregion
+
+        #region SyncWithSystem
 
         private bool _syncWithSystem;
 
@@ -109,14 +108,17 @@ namespace HandyControl.Themes
 
                 if (value)
                 {
-                    _manualSkinType = Skin;
+                    _manualSkinType = _skin;
                     SyncWithSystemTheme();
+
                     SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
                 }
                 else
                 {
                     SystemEvents.UserPreferenceChanged -= SystemEvents_UserPreferenceChanged;
-                    Skin = _manualSkinType;
+
+                    _skin = _manualSkinType;
+                    UpdateSkin();
                 }
             }
         }
@@ -129,17 +131,96 @@ namespace HandyControl.Themes
             }
         }
 
-        private void SyncWithSystemTheme() => Skin = SystemHelper.DetermineIfInLightThemeMode() ? SkinType.Default : SkinType.Dark;
+        private void SyncWithSystemTheme()
+        {
+            _skin = SystemHelper.DetermineIfInLightThemeMode() ? SkinType.Default : SkinType.Dark;
+            UpdateSkin();
+        }
+
+        #endregion
+
+        #region AccentColor
+
+        private Color? _accentColor;
+
+        public Color? AccentColor
+        {
+            get => _accentColor;
+            set
+            {
+                _accentColor = value;
+
+                if (value == null)
+                {
+                    _precSkin = null;
+                }
+
+                UpdateSkin();
+            }
+        }
+
+        #endregion
+
+        #region Source
+
+        private Uri _source;
+
+        public new Uri Source
+        {
+            get => DesignerHelper.IsInDesignMode ? null : _source;
+            set => _source = value;
+        }
+
+        #endregion
 
         public string Name { get; set; }
 
-        public virtual ResourceDictionary GetSkin(SkinType skinType) => ResourceHelper.GetSkin(skinType);
+        private SkinType _prevSkinType;
+
+        private ResourceDictionary _precSkin;
+
+        public virtual ResourceDictionary GetSkin(SkinType skinType)
+        {
+            if (_precSkin == null || _prevSkinType != skinType)
+            {
+                _precSkin = ResourceHelper.GetSkin(skinType);
+                _prevSkinType = skinType;
+            }
+
+            if (!SyncWithSystem)
+            {
+                if (AccentColor != null)
+                {
+                    _precSkin[ResourceToken.PrimaryColor] = AccentColor;
+                    _precSkin[ResourceToken.DarkPrimaryColor] = AccentColor;
+                    _precSkin[ResourceToken.TitleColor] = AccentColor;
+                    _precSkin[ResourceToken.SecondaryTitleColor] = AccentColor;
+                }
+            }
+            else
+            {
+                var windowGlassColor = ((SolidColorBrush) SystemParameters.WindowGlassBrush).Color;
+
+                _precSkin[ResourceToken.PrimaryColor] = windowGlassColor;
+                _precSkin[ResourceToken.DarkPrimaryColor] = windowGlassColor;
+                _precSkin[ResourceToken.TitleColor] = windowGlassColor;
+                _precSkin[ResourceToken.SecondaryTitleColor] = windowGlassColor;
+            }
+
+            return _precSkin;
+        }
+
+        private void UpdateSkin() => MergedDictionaries[0] = GetSkin(Skin);
 
         public virtual ResourceDictionary GetTheme() => ResourceHelper.GetTheme();
 
-        private void UpdateResource()
+        private void InitResource()
         {
-            if (DesignerHelper.IsInDesignMode) return;
+            if (DesignerHelper.IsInDesignMode)
+            {
+                return;
+            }
+
             MergedDictionaries.Clear();
             MergedDictionaries.Add(GetSkin(Skin));
             MergedDictionaries.Add(GetTheme());
