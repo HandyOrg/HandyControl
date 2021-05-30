@@ -5,6 +5,7 @@ using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Helper;
+using HandyControl.Tools.Interop;
 using Microsoft.Win32;
 
 namespace HandyControl.Themes
@@ -191,23 +192,24 @@ namespace HandyControl.Themes
             {
                 if (AccentColor != null)
                 {
-                    _precSkin[ResourceToken.PrimaryColor] = AccentColor;
-                    _precSkin[ResourceToken.DarkPrimaryColor] = AccentColor;
-                    _precSkin[ResourceToken.TitleColor] = AccentColor;
-                    _precSkin[ResourceToken.SecondaryTitleColor] = AccentColor;
+                    UpdateAccentColor(AccentColor.Value);
                 }
             }
             else
             {
-                var windowGlassColor = ((SolidColorBrush) SystemParameters.WindowGlassBrush).Color;
-
-                _precSkin[ResourceToken.PrimaryColor] = windowGlassColor;
-                _precSkin[ResourceToken.DarkPrimaryColor] = windowGlassColor;
-                _precSkin[ResourceToken.TitleColor] = windowGlassColor;
-                _precSkin[ResourceToken.SecondaryTitleColor] = windowGlassColor;
+                InteropMethods.DwmGetColorizationColor(out var color, out _);
+                UpdateAccentColor(ColorHelper.ToColor(color));
             }
 
             return _precSkin;
+        }
+
+        private void UpdateAccentColor(Color color)
+        {
+            _precSkin[ResourceToken.PrimaryColor] = color;
+            _precSkin[ResourceToken.DarkPrimaryColor] = color;
+            _precSkin[ResourceToken.TitleColor] = color;
+            _precSkin[ResourceToken.SecondaryTitleColor] = color;
         }
 
         private void UpdateSkin() => MergedDictionaries[0] = GetSkin(Skin);
