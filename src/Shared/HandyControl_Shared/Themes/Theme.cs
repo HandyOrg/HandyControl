@@ -92,7 +92,7 @@ namespace HandyControl.Themes
             => element.SetValue(SkinProperty, value);
 
         public static SkinType GetSkin(DependencyObject element)
-            => (SkinType) element.GetValue(SkinProperty);   
+            => (SkinType) element.GetValue(SkinProperty);
 
         #endregion
 
