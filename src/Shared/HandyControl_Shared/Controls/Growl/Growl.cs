@@ -775,6 +775,7 @@ namespace HandyControl.Controls
         /// <param name="growlInfo"></param>
         public static void Fatal(GrowlInfo growlInfo)
         {
+            GrowlPanel ??= CreateDefaultPanel();
             InitGrowlInfo(ref growlInfo, InfoType.Fatal);
             Show(growlInfo);
         }
