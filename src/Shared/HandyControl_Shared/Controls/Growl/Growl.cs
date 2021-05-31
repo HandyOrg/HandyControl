@@ -560,18 +560,6 @@ namespace HandyControl.Controls
                         growlInfo.IconBrushKey = ResourceToken.PrimaryTextBrush;
                         growlInfo.StaysOpen = true;
                         growlInfo.ShowCloseButton = false;
-                        Application.Current.Dispatcher?.Invoke(
-#if NET40
-                            new Action(
-#endif
-                                () =>
-                                {
-                                    if (GrowlPanel.ContextMenu != null) GrowlPanel.ContextMenu.Opacity = 0;
-                                }
-#if NET40
-                            )
-#endif
-                        );
                     }
                     else
                     {
@@ -909,16 +897,7 @@ namespace HandyControl.Controls
         ///     清除
         /// </summary>
         /// <param name="panel"></param>
-        private static void Clear(Panel panel)
-        {
-            if (panel == null) return;
-            panel.Children.Clear();
-            if (panel.ContextMenu != null)
-            {
-                panel.ContextMenu.IsOpen = false;
-                panel.ContextMenu.Opacity = 1;
-            }
-        }
+        private static void Clear(Panel panel) => panel?.Children.Clear();
 
         /// <summary>
         ///     清除
