@@ -168,8 +168,8 @@ namespace HandyControl.Controls
             static void Window_SizeChanged(object sender, SizeChangedEventArgs e)
             {
                 var window = (Window) sender;
-                if (window.WindowStartupLocation == WindowStartupLocation.CenterOwner ||
-                    window.WindowStartupLocation == WindowStartupLocation.CenterScreen)
+                if (window.WindowStartupLocation != WindowStartupLocation.Manual &&
+                    window.SizeToContent != SizeToContent.Manual)
                 {
                     var focusedElement = Keyboard.FocusedElement;
 
