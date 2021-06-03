@@ -29,11 +29,13 @@
     </a> 
 </p>
 
+## 特别声明
+
+HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组织。<br/>
+
+![dotnetchina](https://images.gitee.com/uploads/images/2021/0324/120117_2da9922c_416720.png "132645_21007ea0_974299.png")
+
 ## 面向中国
-
-### 招聘
-
-百度地图，招 WPF 研发工程师，坐标上海，有意私聊 836904362@qq.com
 
 ### 码云
 
@@ -129,6 +131,7 @@
 <a href="https://github.com/xyghy13" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xyghy13" src="https://avatars.githubusercontent.com/u/27751725?s=64&v=4"></a>
 <a href="https://github.com/icarousfff" target="_blank"><img style="border-radius:50%!important" width="64px" alt="icarousfff" src="https://avatars.githubusercontent.com/u/49859230?s=64&v=4"></a>
 <a href="https://github.com/qiang9420d" target="_blank"><img style="border-radius:50%!important" width="64px" alt="qiang9420d" src="https://avatars.githubusercontent.com/u/22925262?s=64&v=4"></a>
+<a href="https://github.com/zhongwcool" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zhongwcool" src="https://avatars.githubusercontent.com/u/5747392?s=64&v=4"></a>
 
 ## 鸣谢
 

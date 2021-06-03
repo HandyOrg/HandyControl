@@ -20,19 +20,19 @@ namespace HandyControl.Tools
                         {
                             if (count == 1)
                             {
-                                return ResourceHelper.GetResource<Style>(ResourceToken.RadioGroupItemSingle);
+                                return ResourceHelper.GetResourceInternal<Style>(ResourceToken.RadioGroupItemSingle);
                             }
 
                             var index = buttonGroup.Items.IndexOf(buttonBase);
                             return buttonGroup.Orientation == Orientation.Horizontal
                                 ? index == 0
-                                    ? ResourceHelper.GetResource<Style>(ResourceToken.RadioGroupItemHorizontalFirst)
-                                    : ResourceHelper.GetResource<Style>(index == count - 1
+                                    ? ResourceHelper.GetResourceInternal<Style>(ResourceToken.RadioGroupItemHorizontalFirst)
+                                    : ResourceHelper.GetResourceInternal<Style>(index == count - 1
                                         ? ResourceToken.RadioGroupItemHorizontalLast
                                         : ResourceToken.RadioGroupItemDefault)
                                 : index == 0
-                                    ? ResourceHelper.GetResource<Style>(ResourceToken.RadioGroupItemVerticalFirst)
-                                    : ResourceHelper.GetResource<Style>(index == count - 1
+                                    ? ResourceHelper.GetResourceInternal<Style>(ResourceToken.RadioGroupItemVerticalFirst)
+                                    : ResourceHelper.GetResourceInternal<Style>(index == count - 1
                                         ? ResourceToken.RadioGroupItemVerticalLast
                                         : ResourceToken.RadioGroupItemDefault);
                         }
@@ -41,19 +41,19 @@ namespace HandyControl.Tools
                         {
                             if (count == 1)
                             {
-                                return ResourceHelper.GetResource<Style>(ResourceToken.ButtonGroupItemSingle);
+                                return ResourceHelper.GetResourceInternal<Style>(ResourceToken.ButtonGroupItemSingle);
                             }
 
                             var index = buttonGroup.Items.IndexOf(buttonBase);
                             return buttonGroup.Orientation == Orientation.Horizontal
                                 ? index == 0
-                                    ? ResourceHelper.GetResource<Style>(ResourceToken.ButtonGroupItemHorizontalFirst)
-                                    : ResourceHelper.GetResource<Style>(index == count - 1
+                                    ? ResourceHelper.GetResourceInternal<Style>(ResourceToken.ButtonGroupItemHorizontalFirst)
+                                    : ResourceHelper.GetResourceInternal<Style>(index == count - 1
                                         ? ResourceToken.ButtonGroupItemHorizontalLast
                                         : ResourceToken.ButtonGroupItemDefault)
                                 : index == 0
-                                    ? ResourceHelper.GetResource<Style>(ResourceToken.ButtonGroupItemVerticalFirst)
-                                    : ResourceHelper.GetResource<Style>(index == count - 1
+                                    ? ResourceHelper.GetResourceInternal<Style>(ResourceToken.ButtonGroupItemVerticalFirst)
+                                    : ResourceHelper.GetResourceInternal<Style>(index == count - 1
                                         ? ResourceToken.ButtonGroupItemVerticalLast
                                         : ResourceToken.ButtonGroupItemDefault);
                         }
@@ -62,19 +62,19 @@ namespace HandyControl.Tools
                         {
                             if (count == 1)
                             {
-                                return ResourceHelper.GetResource<Style>(ResourceToken.ToggleButtonGroupItemSingle);
+                                return ResourceHelper.GetResourceInternal<Style>(ResourceToken.ToggleButtonGroupItemSingle);
                             }
 
                             var index = buttonGroup.Items.IndexOf(buttonBase);
                             return buttonGroup.Orientation == Orientation.Horizontal
                                 ? index == 0
-                                    ? ResourceHelper.GetResource<Style>(ResourceToken.ToggleButtonGroupItemHorizontalFirst)
-                                    : ResourceHelper.GetResource<Style>(index == count - 1
+                                    ? ResourceHelper.GetResourceInternal<Style>(ResourceToken.ToggleButtonGroupItemHorizontalFirst)
+                                    : ResourceHelper.GetResourceInternal<Style>(index == count - 1
                                         ? ResourceToken.ToggleButtonGroupItemHorizontalLast
                                         : ResourceToken.ToggleButtonGroupItemDefault)
                                 : index == 0
-                                    ? ResourceHelper.GetResource<Style>(ResourceToken.ToggleButtonGroupItemVerticalFirst)
-                                    : ResourceHelper.GetResource<Style>(index == count - 1
+                                    ? ResourceHelper.GetResourceInternal<Style>(ResourceToken.ToggleButtonGroupItemVerticalFirst)
+                                    : ResourceHelper.GetResourceInternal<Style>(index == count - 1
                                         ? ResourceToken.ToggleButtonGroupItemVerticalLast
                                         : ResourceToken.ToggleButtonGroupItemDefault);
                         }

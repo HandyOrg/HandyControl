@@ -13,13 +13,13 @@ namespace HandyControl.Tools
                 var count = comboBox.Items.Count;
                 if (count == 1)
                 {
-                    return ResourceHelper.GetResource<Style>(ResourceToken.ComboBoxItemCapsuleSingle);
+                    return ResourceHelper.GetResourceInternal<Style>(ResourceToken.ComboBoxItemCapsuleSingle);
                 }
 
                 var index = comboBox.ItemContainerGenerator.IndexFromContainer(comboBoxItem);
                 return index == 0
-                    ? ResourceHelper.GetResource<Style>(ResourceToken.ComboBoxItemCapsuleHorizontalFirst)
-                    : ResourceHelper.GetResource<Style>(index == count - 1
+                    ? ResourceHelper.GetResourceInternal<Style>(ResourceToken.ComboBoxItemCapsuleHorizontalFirst)
+                    : ResourceHelper.GetResourceInternal<Style>(index == count - 1
                         ? ResourceToken.ComboBoxItemCapsuleHorizontalLast
                         : ResourceToken.ComboBoxItemCapsuleDefault);
             }

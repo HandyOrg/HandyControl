@@ -480,6 +480,10 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.Shell32, CallingConvention = CallingConvention.StdCall)]
         internal static extern uint SHAppBarMessage(int dwMessage, ref InteropValues.APPBARDATA pData);
 
+        [SecurityCritical]
+        [DllImport(InteropValues.ExternDll.DwmApi, EntryPoint = "DwmGetColorizationColor", PreserveSig = true)]
+        internal static extern int DwmGetColorizationColor(out uint pcrColorization, out bool pfOpaqueBlend);
+
         #endregion
 
         internal class Gdip

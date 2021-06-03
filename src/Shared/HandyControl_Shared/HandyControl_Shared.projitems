@@ -374,6 +374,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ScreenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SecurityHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SystemHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TextHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TokenizerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TouchDragMoveWindowHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ValidateHelper.cs" />

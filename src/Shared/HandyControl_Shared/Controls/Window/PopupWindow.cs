@@ -187,7 +187,7 @@ namespace HandyControl.Controls
                 WindowStyle = WindowStyle.None,
                 ContentStr = message,
                 WindowStartupLocation = WindowStartupLocation.CenterScreen,
-                Background = ResourceHelper.GetResource<Brush>(ResourceToken.PrimaryBrush)
+                Background = ResourceHelper.GetResourceInternal<Brush>(ResourceToken.PrimaryBrush)
             };
             window.Show();
         }

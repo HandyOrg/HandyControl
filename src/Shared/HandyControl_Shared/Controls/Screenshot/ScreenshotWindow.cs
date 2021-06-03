@@ -188,7 +188,7 @@ namespace HandyControl.Controls
 
         public ScreenshotWindow(Screenshot screenshot)
         {
-            Style = ResourceHelper.GetResource<Style>(ResourceToken.Window4ScreenshotStyle);
+            Style = ResourceHelper.GetResourceInternal<Style>(ResourceToken.Window4ScreenshotStyle);
             _screenshot = screenshot;
             DataContext = this;
 

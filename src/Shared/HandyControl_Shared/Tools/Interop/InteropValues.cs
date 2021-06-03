@@ -18,7 +18,8 @@ namespace HandyControl.Tools.Interop
                 Kernel32 = "kernel32.dll",
                 Shell32 = "shell32.dll",
                 MsImg = "msimg32.dll",
-                NTdll = "ntdll.dll";
+                NTdll = "ntdll.dll",
+                DwmApi = "dwmapi.dll";
         }
 
         internal delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
