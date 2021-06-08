@@ -22,7 +22,7 @@ namespace HandyControl.Controls
 
         private bool _added;
 
-        private readonly object _syncObj = new object();
+        private readonly object _syncObj = new();
 
         private readonly int _id;
 
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         private static int NextId;
 
-        private static readonly Dictionary<string, NotifyIcon> NotifyIconDic = new Dictionary<string, NotifyIcon>();
+        private static readonly Dictionary<string, NotifyIcon> NotifyIconDic = new();
 
         static NotifyIcon()
         {

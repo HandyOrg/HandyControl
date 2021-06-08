@@ -50,7 +50,7 @@ namespace HandyControlDemo.ViewModel
 #endif
         }
 
-        public ObservableCollection<ChatInfoModel> ChatInfos { get; set; } = new ObservableCollection<ChatInfoModel>();
+        public ObservableCollection<ChatInfoModel> ChatInfos { get; set; } = new();
 
         public RelayCommand<KeyEventArgs> SendStringCmd => new Lazy<RelayCommand<KeyEventArgs>>(() =>
             new RelayCommand<KeyEventArgs>(SendString)).Value;

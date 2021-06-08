@@ -7,7 +7,7 @@ namespace HandyControl.Tools
 {
     public class ComparerGenerator
     {
-        private static readonly Dictionary<Type, ComparerTypeCode> TypeCodeDic = new Dictionary<Type, ComparerTypeCode>
+        private static readonly Dictionary<Type, ComparerTypeCode> TypeCodeDic = new()
         {
             [typeof(DateTimeRange)] = ComparerTypeCode.DateTimeRange,
         };

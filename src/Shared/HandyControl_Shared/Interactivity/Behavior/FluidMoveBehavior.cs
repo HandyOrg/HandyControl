@@ -52,7 +52,7 @@ namespace HandyControl.Interactivity
                 new PropertyMetadata(null));
 
         private static readonly Dictionary<object, Storyboard> TransitionStoryboardDictionary =
-            new Dictionary<object, Storyboard>();
+            new();
 
         public Duration Duration
         {

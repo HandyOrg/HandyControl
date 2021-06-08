@@ -2,7 +2,7 @@
 {
     public class SynchronizedPool<T> : SimplePool<T>
     {
-        private readonly object _lockObj = new object();
+        private readonly object _lockObj = new();
 
         public SynchronizedPool(int maxPoolSize) : base(maxPoolSize)
         {

@@ -101,7 +101,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     预设的颜色（一共18个，两行）
         /// </summary>
-        private readonly List<string> _colorPresetList = new List<string>
+        private readonly List<string> _colorPresetList = new()
         {
             "#f44336",
             "#e91e63",
@@ -127,7 +127,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     颜色范围集合
         /// </summary>
-        private readonly List<ColorRange> _colorRangeList = new List<ColorRange>
+        private readonly List<ColorRange> _colorRangeList = new()
         {
             new ColorRange
             {
@@ -164,7 +164,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     颜色分隔集合
         /// </summary>
-        private readonly List<Color> _colorSeparateList = new List<Color>
+        private readonly List<Color> _colorSeparateList = new()
         {
             Color.FromRgb(255, 0, 0),
             Color.FromRgb(255, 0, 255),

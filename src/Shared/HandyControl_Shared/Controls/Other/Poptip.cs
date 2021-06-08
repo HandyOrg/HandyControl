@@ -148,7 +148,7 @@ namespace HandyControl.Controls
             set => SetValue(IsOpenProperty, ValueBoxes.BooleanBox(value));
         }
 
-        public static Poptip Default => new Poptip();
+        public static Poptip Default => new();
 
         protected sealed override void OnTargetChanged(FrameworkElement element, bool isNew)
         {

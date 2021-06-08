@@ -9,7 +9,7 @@ namespace HandyControl.Tools
     /// </summary>
     public static class RegexJudgment
     {
-        private static readonly RegexPatterns RegexPatterns = new RegexPatterns();
+        private static readonly RegexPatterns RegexPatterns = new();
 
         /// <summary>
         ///     判断字符串格式是否符合某种要求

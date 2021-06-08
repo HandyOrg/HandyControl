@@ -240,8 +240,8 @@ namespace HandyControl.Tools.Interop
                 Bottom = (int) rect.Bottom;
             }
 
-            public Point Position => new Point(Left, Top);
-            public Size Size => new Size(Width, Height);
+            public Point Position => new(Left, Top);
+            public Size Size => new(Width, Height);
 
             public int Height
             {

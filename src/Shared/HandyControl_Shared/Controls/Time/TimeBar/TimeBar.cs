@@ -150,7 +150,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     刻度集合
         /// </summary>
-        private readonly List<SpeTextBlock> _speBlockList = new List<SpeTextBlock>();
+        private readonly List<SpeTextBlock> _speBlockList = new();
 
         /// <summary>
         ///     初始化时时间
@@ -160,7 +160,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     时间段集合
         /// </summary>
-        private readonly List<int> _timeSpeList = new List<int>
+        private readonly List<int> _timeSpeList = new()
         {
             7200000,
             3600000,

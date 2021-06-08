@@ -33,7 +33,7 @@ namespace HandyControl.Controls
 
         private BitmapSource _imageSource;
 
-        private static readonly Guid BmpGuid = new Guid("{b96b3cab-0728-11d3-9d7b-0000f81ef32e}");
+        private static readonly Guid BmpGuid = new("{b96b3cab-0728-11d3-9d7b-0000f81ef32e}");
 
         #region const
 

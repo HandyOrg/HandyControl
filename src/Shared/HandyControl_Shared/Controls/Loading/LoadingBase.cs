@@ -62,7 +62,7 @@ namespace HandyControl.Controls
             "DotDelayTime", typeof(double), typeof(LoadingBase),
             new FrameworkPropertyMetadata(80.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
-        protected readonly Canvas PrivateCanvas = new Canvas
+        protected readonly Canvas PrivateCanvas = new()
         {
             ClipToBounds = true
         };

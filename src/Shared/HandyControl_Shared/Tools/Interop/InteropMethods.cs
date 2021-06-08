@@ -19,7 +19,7 @@ namespace HandyControl.Tools.Interop
 
         internal const int E_FAIL = unchecked((int) 0x80004005);
 
-        internal static readonly IntPtr HRGN_NONE = new IntPtr(-1);
+        internal static readonly IntPtr HRGN_NONE = new(-1);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
         [ResourceExposure(ResourceScope.None)]

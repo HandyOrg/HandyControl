@@ -383,7 +383,7 @@ namespace HandyControl.Controls
 
         private RadioButton CreateButton(int page)
         {
-            return new RadioButton
+            return new()
             {
                 Style = ResourceHelper.GetResourceInternal<Style>(ResourceToken.PaginationButtonStyle),
                 Content = page.ToString()

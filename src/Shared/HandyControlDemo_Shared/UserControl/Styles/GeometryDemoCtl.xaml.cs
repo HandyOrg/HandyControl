@@ -10,13 +10,13 @@ namespace HandyControlDemo.UserControl
 {
     public partial class GeometryDemoCtl
     {
-        private readonly HashSet<string> _lineSet = new HashSet<string>
+        private readonly HashSet<string> _lineSet = new()
         {
             "CheckedGeometry"
         };
 
         public ObservableCollection<GeometryItemModel> GeometryItems { get; set; } =
-            new ObservableCollection<GeometryItemModel>();
+            new();
 
         public GeometryDemoCtl()
         {

@@ -60,6 +60,6 @@ namespace HandyControl.Controls
             return mySize;
         }
 
-        private static Size ConvertThickness2Size(Thickness th) => new Size(th.Left + th.Right, th.Top + th.Bottom);
+        private static Size ConvertThickness2Size(Thickness th) => new(th.Left + th.Right, th.Top + th.Bottom);
     }
 }

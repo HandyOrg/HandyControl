@@ -22,9 +22,9 @@ namespace HandyControl.Controls
 
         private const string ElementItemsSelected = "PART_ItemsSelected";
 
-        private readonly Dictionary<object, TransferEntry> _entryDic = new Dictionary<object, TransferEntry>();
+        private readonly Dictionary<object, TransferEntry> _entryDic = new();
 
-        private readonly List<TransferEntry> _entryList = new List<TransferEntry>();
+        private readonly List<TransferEntry> _entryList = new();
 
         private SimpleItemsControl _itemsOrigin;
 
