@@ -114,7 +114,7 @@ namespace HandyControl.Controls
 
         private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is TimeBar {_textBlockSelected: { }} timeBar)
+            if (d is TimeBar { _textBlockSelected: { } } timeBar)
             {
                 timeBar.OnSelectedTimeChanged((DateTime) e.NewValue);
             }
