@@ -1,4 +1,4 @@
-using System.Runtime.InteropServices;
+﻿using System.Runtime.InteropServices;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Helper;
