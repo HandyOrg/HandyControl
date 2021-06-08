@@ -561,7 +561,7 @@ namespace HandyControl.Controls
 
         private void PopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (sender is Popup {StaysOpen: false})
+            if (sender is Popup { StaysOpen: false })
             {
                 if (_dropDownButton?.InputHitTest(e.GetPosition(_dropDownButton)) != null)
                 {
