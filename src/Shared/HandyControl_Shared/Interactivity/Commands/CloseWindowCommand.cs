@@ -12,7 +12,7 @@ namespace HandyControl.Interactivity
         {
             if (parameter is DependencyObject dependencyObject)
             {
-                if (Window.GetWindow(dependencyObject) is Window window)
+                if (Window.GetWindow(dependencyObject) is { } window)
                 {
                     window.Close();
                 }

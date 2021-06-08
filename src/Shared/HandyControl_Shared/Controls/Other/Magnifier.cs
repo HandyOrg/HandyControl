@@ -129,7 +129,7 @@ namespace HandyControl.Controls
             {
                 layer.Remove(_adornerContainer);
             }
-            else if (_adornerContainer != null && _adornerContainer.Parent is AdornerLayer parent)
+            else if (_adornerContainer is {Parent: AdornerLayer parent})
             {
                 parent.Remove(_adornerContainer);
             }

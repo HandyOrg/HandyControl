@@ -79,38 +79,26 @@ namespace HandyControl.Tools
             var layoutSlot = LayoutInformation.GetLayoutSlot(element);
             var x = 0.0;
             var y = 0.0;
-            switch (element.HorizontalAlignment)
+            x = element.HorizontalAlignment switch
             {
-                case HorizontalAlignment.Left:
-                    x = layoutSlot.Left + margin.Left;
-                    break;
-                case HorizontalAlignment.Center:
-                    x = (layoutSlot.Left + margin.Left + layoutSlot.Right - margin.Right) / 2.0 - width / 2.0;
-                    break;
-                case HorizontalAlignment.Right:
-                    x = layoutSlot.Right - margin.Right - width;
-                    break;
-                case HorizontalAlignment.Stretch:
-                    x = Math.Max(layoutSlot.Left + margin.Left,
-                        (layoutSlot.Left + margin.Left + layoutSlot.Right - margin.Right) / 2.0 - width / 2.0);
-                    break;
-            }
-            switch (element.VerticalAlignment)
+                HorizontalAlignment.Left => layoutSlot.Left + margin.Left,
+                HorizontalAlignment.Center => (layoutSlot.Left + margin.Left + layoutSlot.Right - margin.Right) / 2.0 -
+                                              width / 2.0,
+                HorizontalAlignment.Right => layoutSlot.Right - margin.Right - width,
+                HorizontalAlignment.Stretch => Math.Max(layoutSlot.Left + margin.Left,
+                    (layoutSlot.Left + margin.Left + layoutSlot.Right - margin.Right) / 2.0 - width / 2.0),
+                _ => x
+            };
+            y = element.VerticalAlignment switch
             {
-                case VerticalAlignment.Top:
-                    y = layoutSlot.Top + margin.Top;
-                    break;
-                case VerticalAlignment.Center:
-                    y = (layoutSlot.Top + margin.Top + layoutSlot.Bottom - margin.Bottom) / 2.0 - height / 2.0;
-                    break;
-                case VerticalAlignment.Bottom:
-                    y = layoutSlot.Bottom - margin.Bottom - height;
-                    break;
-                case VerticalAlignment.Stretch:
-                    y = Math.Max(layoutSlot.Top + margin.Top,
-                        (layoutSlot.Top + margin.Top + layoutSlot.Bottom - margin.Bottom) / 2.0 - height / 2.0);
-                    break;
-            }
+                VerticalAlignment.Top => layoutSlot.Top + margin.Top,
+                VerticalAlignment.Center => (layoutSlot.Top + margin.Top + layoutSlot.Bottom - margin.Bottom) / 2.0 -
+                                            height / 2.0,
+                VerticalAlignment.Bottom => layoutSlot.Bottom - margin.Bottom - height,
+                VerticalAlignment.Stretch => Math.Max(layoutSlot.Top + margin.Top,
+                    (layoutSlot.Top + margin.Top + layoutSlot.Bottom - margin.Bottom) / 2.0 - height / 2.0),
+                _ => y
+            };
             return new Rect(x, y, width, height);
         }
 

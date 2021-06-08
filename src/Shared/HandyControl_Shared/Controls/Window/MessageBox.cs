@@ -628,6 +628,7 @@ namespace HandyControl.Controls
                    || value == MessageBoxButton.YesNoCancel;
         }
 
+        [SuppressMessage("ReSharper", "ConditionIsAlwaysTrueOrFalse")]
         private static bool IsValidMessageBoxImage(MessageBoxImage value)
         {
             return value == MessageBoxImage.Asterisk

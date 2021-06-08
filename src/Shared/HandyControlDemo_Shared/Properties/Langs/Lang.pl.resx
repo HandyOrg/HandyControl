@@ -517,7 +517,7 @@
     <value>TextDialog</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
-    <value>Proszę czekać</value>
+    <value>Proszę czekać...</value>
   </data>
   <data name="GrowlDemo" xml:space="preserve">
     <value>Growl demo</value>
@@ -791,5 +791,8 @@
   </data>
   <data name="Success" xml:space="preserve">
     <value>Success</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
   </data>
 </root>

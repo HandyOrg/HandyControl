@@ -21,19 +21,13 @@ namespace HandyControl.Expression.Drawing
                 arcSegment.Size.Height, arcSegment.RotationAngle, arcSegment.IsLargeArc,
                 arcSegment.SweepDirection == SweepDirection.Clockwise, arcSegment.Point.X, arcSegment.Point.Y,
                 out var pointArray, out var num);
-            switch (num)
+            return num switch
             {
-                case -1:
-                    return null;
-
-                case 0:
-                    return CreateLineSegment(arcSegment.Point, isStroked);
-
-                case 1:
-                    return CreateBezierSegment(pointArray[0], pointArray[1], pointArray[2], isStroked);
-            }
-
-            return CreatePolyBezierSegment(pointArray, 0, num * 3, isStroked);
+                -1 => null,
+                0 => CreateLineSegment(arcSegment.Point, isStroked),
+                1 => CreateBezierSegment(pointArray[0], pointArray[1], pointArray[2], isStroked),
+                _ => CreatePolyBezierSegment(pointArray, 0, num * 3, isStroked)
+            };
         }
 
         public static ArcSegment CreateArcSegment(Point point, Size size, bool isLargeArc, bool clockwise,

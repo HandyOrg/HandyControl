@@ -258,7 +258,7 @@ namespace HandyControl.Controls
 
         private static void OnShowRowNumberChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            if (!(target is DataGrid dataGrid)) return;
+            if (target is not DataGrid dataGrid) return;
             var show = (bool) e.NewValue;
 
             if (show)
@@ -277,7 +277,7 @@ namespace HandyControl.Controls
 
         private static void ItemContainerGenerator_ItemsChanged(object sender, ItemsChangedEventArgs e)
         {
-            if (!(sender is ItemContainerGenerator generator)) return;
+            if (sender is not ItemContainerGenerator generator) return;
             UpdateItems(generator, e.ItemCount);
         }
 

@@ -397,10 +397,7 @@ namespace HandyControl.Controls
         {
             if (oldValue != newValue)
             {
-                if (_visualChildren == null)
-                {
-                    _visualChildren = new Visual[5];
-                }
+                _visualChildren ??= new Visual[5];
 
                 if (oldValue != null)
                 {

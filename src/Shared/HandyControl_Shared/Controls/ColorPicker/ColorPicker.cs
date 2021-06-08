@@ -535,7 +535,7 @@ namespace HandyControl.Controls
                     var cIndex = _colorSeparateList.IndexOf(Color.FromRgb(list[0], list[1], list[2]));
                     int sub;
                     var direc = 0;
-                    if (cIndex < 5 && cIndex > 0)
+                    if (cIndex is < 5 and > 0)
                     {
                         var nextColorList = _colorSeparateList[cIndex + 1].ToList();
                         var prevColorList = _colorSeparateList[cIndex - 1].ToList();
@@ -666,29 +666,18 @@ namespace HandyControl.Controls
         private void NumericUpDownRgb_OnValueChanged(object sender, FunctionEventArgs<double> e)
         {
             if (!_appliedTemplate || !IsNeedUpdateInfo) return;
-            if (e.OriginalSource is NumericUpDown ctl && ctl.Tag is string tag)
+            if (e.OriginalSource is NumericUpDown {Tag: string tag})
             {
                 var color = SelectedBrush.Color;
                 IsNeedUpdateInfo = false;
 
-                switch (tag)
+                SelectedBrush = tag switch
                 {
-                    case "R":
-                        {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, (byte) e.Info, color.G, color.B));
-                            break;
-                        }
-                    case "G":
-                        {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, color.R, (byte) e.Info, color.B));
-                            break;
-                        }
-                    case "B":
-                        {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, (byte) e.Info));
-                            break;
-                        }
-                }
+                    "R" => new SolidColorBrush(Color.FromArgb(color.A, (byte) e.Info, color.G, color.B)),
+                    "G" => new SolidColorBrush(Color.FromArgb(color.A, color.R, (byte) e.Info, color.B)),
+                    "B" => new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, (byte) e.Info)),
+                    _ => SelectedBrush
+                };
 
                 IsNeedUpdateInfo = true;
             }
@@ -704,10 +693,7 @@ namespace HandyControl.Controls
 
         private void ToggleButtonDropper_Click(object sender, RoutedEventArgs e)
         {
-            if (_colorDropper == null)
-            {
-                _colorDropper = new ColorDropper(this);
-            }
+            _colorDropper ??= new ColorDropper(this);
             // ReSharper disable once PossibleInvalidOperationException
             _colorDropper.Update(_toggleButtonDropper.IsChecked.Value);
         }
@@ -730,7 +716,6 @@ namespace HandyControl.Controls
             GC.SuppressFinalize(this);
         }
 
-        public bool CanDispose { get; } = true;
-
+        public bool CanDispose => true;
     }
 }

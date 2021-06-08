@@ -192,21 +192,14 @@ namespace HandyControl.Controls
                 szInfo = content ?? string.Empty
             };
 
-            switch (infoType)
+            data.dwInfoFlags = infoType switch
             {
-                case NotifyIconInfoType.Info:
-                    data.dwInfoFlags = InteropValues.NIIF_INFO;
-                    break;
-                case NotifyIconInfoType.Warning:
-                    data.dwInfoFlags = InteropValues.NIIF_WARNING;
-                    break;
-                case NotifyIconInfoType.Error:
-                    data.dwInfoFlags = InteropValues.NIIF_ERROR;
-                    break;
-                case NotifyIconInfoType.None:
-                    data.dwInfoFlags = InteropValues.NIIF_NONE;
-                    break;
-            }
+                NotifyIconInfoType.Info => InteropValues.NIIF_INFO,
+                NotifyIconInfoType.Warning => InteropValues.NIIF_WARNING,
+                NotifyIconInfoType.Error => InteropValues.NIIF_ERROR,
+                NotifyIconInfoType.None => InteropValues.NIIF_NONE,
+                _ => data.dwInfoFlags
+            };
 
             InteropMethods.Shell_NotifyIcon(InteropValues.NIM_MODIFY, data);
         }

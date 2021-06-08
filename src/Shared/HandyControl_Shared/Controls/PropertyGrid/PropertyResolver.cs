@@ -99,7 +99,7 @@ namespace HandyControl.Controls
                     _ => new ReadOnlyTextPropertyEditor()
                 }
                 : type.IsSubclassOf(typeof(Enum))
-                    ? (PropertyEditorBase) new EnumPropertyEditor()
+                    ? new EnumPropertyEditor()
                     : new ReadOnlyTextPropertyEditor();
 
         public virtual PropertyEditorBase CreateEditor(Type type) => Activator.CreateInstance(type) as PropertyEditorBase ?? new ReadOnlyTextPropertyEditor();

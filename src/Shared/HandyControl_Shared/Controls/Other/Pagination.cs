@@ -161,7 +161,7 @@ namespace HandyControl.Controls
 
         private static object CoercePageIndex(DependencyObject d, object basevalue)
         {
-            if (!(d is Pagination pagination)) return 1;
+            if (d is not Pagination pagination) return 1;
 
             var intValue = (int) basevalue;
             return intValue < 1
@@ -392,7 +392,7 @@ namespace HandyControl.Controls
 
         private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
         {
-            if (!(e.OriginalSource is RadioButton button)) return;
+            if (e.OriginalSource is not RadioButton button) return;
             if (button.IsChecked == false) return;
             PageIndex = int.Parse(button.Content.ToString());
         }

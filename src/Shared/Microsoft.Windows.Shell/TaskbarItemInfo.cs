@@ -400,27 +400,15 @@ namespace Microsoft.Windows.Shell
             TBPF tbpFlags = TBPF.NOPROGRESS;
             if (attached)
             {
-                switch (progressState)
+                tbpFlags = progressState switch
                 {
-                    case TaskbarItemProgressState.None:
-                        tbpFlags = TBPF.NOPROGRESS;
-                        break;
-                    case TaskbarItemProgressState.Indeterminate:
-                        tbpFlags = TBPF.INDETERMINATE;
-                        break;
-                    case TaskbarItemProgressState.Normal:
-                        tbpFlags = TBPF.NORMAL;
-                        break;
-                    case TaskbarItemProgressState.Error:
-                        tbpFlags = TBPF.ERROR;
-                        break;
-                    case TaskbarItemProgressState.Paused:
-                        tbpFlags = TBPF.PAUSED;
-                        break;
-                    default:
-                        tbpFlags = TBPF.NOPROGRESS;
-                        break;
-                }
+                    TaskbarItemProgressState.None => TBPF.NOPROGRESS,
+                    TaskbarItemProgressState.Indeterminate => TBPF.INDETERMINATE,
+                    TaskbarItemProgressState.Normal => TBPF.NORMAL,
+                    TaskbarItemProgressState.Error => TBPF.ERROR,
+                    TaskbarItemProgressState.Paused => TBPF.PAUSED,
+                    _ => TBPF.NOPROGRESS
+                };
             }
             HRESULT result = this._taskbarList.SetProgressState(this._hwndSource.Handle, tbpFlags);
             if (result.Succeeded)
