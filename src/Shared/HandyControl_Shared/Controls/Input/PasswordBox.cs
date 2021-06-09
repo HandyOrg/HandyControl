@@ -302,7 +302,7 @@ namespace HandyControl.Controls
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
 
-                if (_password is {Length: > 0})
+                if (_password is { Length: > 0 })
                 {
                     var valuePtr = IntPtr.Zero;
                     try

@@ -248,7 +248,7 @@ namespace HandyControl.Controls
 
         protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            if (IsMoveToPointEnabled && _track.ThumbStart is {IsMouseOver: false} && _track.ThumbEnd is {IsMouseOver: false})
+            if (IsMoveToPointEnabled && _track.ThumbStart is { IsMouseOver: false } && _track.ThumbEnd is { IsMouseOver: false })
             {
                 // Here we need to determine whether it's closer to the starting point or the end point. 
                 var pt = e.MouseDevice.GetPosition(_track);
@@ -301,7 +301,7 @@ namespace HandyControl.Controls
             {
                 // If ticks collection is available, use it.
                 // Note that ticks may be unsorted.
-                if (Ticks is {Count: > 0})
+                if (Ticks is { Count: > 0 })
                 {
                     foreach (var tick in Ticks)
                     {
@@ -341,7 +341,7 @@ namespace HandyControl.Controls
             var previous = Minimum;
             var next = Maximum;
 
-            if (Ticks is {Count: > 0})
+            if (Ticks is { Count: > 0 })
             {
                 foreach (var tick in Ticks)
                 {

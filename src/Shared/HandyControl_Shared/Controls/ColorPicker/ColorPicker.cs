@@ -666,7 +666,7 @@ namespace HandyControl.Controls
         private void NumericUpDownRgb_OnValueChanged(object sender, FunctionEventArgs<double> e)
         {
             if (!_appliedTemplate || !IsNeedUpdateInfo) return;
-            if (e.OriginalSource is NumericUpDown {Tag: string tag})
+            if (e.OriginalSource is NumericUpDown { Tag: string tag })
             {
                 var color = SelectedBrush.Color;
                 IsNeedUpdateInfo = false;
