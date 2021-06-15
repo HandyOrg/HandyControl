@@ -278,7 +278,7 @@ namespace HandyControl.Controls
         private static void ItemContainerGenerator_ItemsChanged(object sender, ItemsChangedEventArgs e)
         {
             if (sender is not ItemContainerGenerator generator) return;
-            UpdateItems(generator, e.ItemCount);
+            UpdateItems(generator, generator.Items.Count);
         }
 
         private static void UpdateItems(ItemContainerGenerator generator, int itemsCount, bool show = true)
