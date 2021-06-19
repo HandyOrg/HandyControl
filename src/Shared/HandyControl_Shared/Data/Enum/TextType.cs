@@ -22,6 +22,12 @@ namespace HandyControl.Data
         NDouble,
         Double,
         NnDouble,
-        NpDouble
+        NpDouble,
+        Ip,
+        IpA,
+        IpB,
+        IpC,
+        IpD,
+        IpE
     }
 }
