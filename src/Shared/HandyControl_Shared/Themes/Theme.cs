@@ -228,4 +228,9 @@ namespace HandyControl.Themes
             MergedDictionaries.Add(GetTheme());
         }
     }
+
+    public class StandaloneTheme : Theme
+    {
+        public override ResourceDictionary GetTheme() => ResourceHelper.GetTheme(true);
+    }
 }
