@@ -49,6 +49,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Watermark.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\AxleCanvas.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\FlexPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\ElementGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\SimpleStackPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\UniformSpacingPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\ImagePropertyEditor.cs" />
