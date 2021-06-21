@@ -76,7 +76,7 @@ namespace HandyControlDemo.ViewModel
 
         private void ReadMessage(RoutedEventArgs e)
         {
-            if (e.OriginalSource is FrameworkElement {Tag: ChatInfoModel info})
+            if (e.OriginalSource is FrameworkElement { Tag: ChatInfoModel info })
             {
                 if (info.Type == ChatMessageType.Image)
                 {
