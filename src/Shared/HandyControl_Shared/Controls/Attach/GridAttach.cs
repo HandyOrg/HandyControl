@@ -13,7 +13,7 @@ namespace HandyControl.Controls
             => element.SetValue(NameProperty, value);
 
         public static string GetName(DependencyObject element)
-            => (string)element.GetValue(NameProperty);
+            => (string) element.GetValue(NameProperty);
 
         public static readonly DependencyProperty RowNameProperty = DependencyProperty.RegisterAttached(
             "RowName", typeof(string), typeof(GridAttach), new PropertyMetadata(default(string), OnRowNameChanged));
@@ -52,7 +52,7 @@ namespace HandyControl.Controls
             => element.SetValue(RowNameProperty, value);
 
         public static string GetRowName(DependencyObject element)
-            => (string)element.GetValue(RowNameProperty);
+            => (string) element.GetValue(RowNameProperty);
 
         public static readonly DependencyProperty ColumnNameProperty = DependencyProperty.RegisterAttached(
             "ColumnName", typeof(string), typeof(GridAttach), new PropertyMetadata(default(string), OnColumnNameChanged));
@@ -91,6 +91,6 @@ namespace HandyControl.Controls
             => element.SetValue(ColumnNameProperty, value);
 
         public static string GetColumnName(DependencyObject element)
-            => (string)element.GetValue(ColumnNameProperty);
+            => (string) element.GetValue(ColumnNameProperty);
     }
 }
