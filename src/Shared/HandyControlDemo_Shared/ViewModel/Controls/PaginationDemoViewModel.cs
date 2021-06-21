@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Data;
@@ -42,9 +41,7 @@ namespace HandyControlDemo.ViewModel
         /// <summary>
         ///     页码改变命令
         /// </summary>
-        public RelayCommand<FunctionEventArgs<int>> PageUpdatedCmd =>
-            new Lazy<RelayCommand<FunctionEventArgs<int>>>(() =>
-                new RelayCommand<FunctionEventArgs<int>>(PageUpdated)).Value;
+        public RelayCommand<FunctionEventArgs<int>> PageUpdatedCmd => new(PageUpdated);
 
         /// <summary>
         ///     页码改变
