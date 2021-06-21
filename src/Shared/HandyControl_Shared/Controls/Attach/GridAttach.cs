@@ -2,28 +2,23 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace HandyControl.Tools.Extension
+namespace HandyControl.Controls
 {
-    public class GridExtensions
+    public class GridAttach
     {
         public static readonly DependencyProperty NameProperty = DependencyProperty.RegisterAttached(
-            "Name", typeof(string), typeof(GridExtensions), new PropertyMetadata(default(string)));
+            "Name", typeof(string), typeof(GridAttach), new PropertyMetadata(default(string)));
 
         public static void SetName(DependencyObject element, string value)
-        {
-            element.SetValue(NameProperty, value);
-        }
+            => element.SetValue(NameProperty, value);
 
         public static string GetName(DependencyObject element)
-        {
-            return (string) element.GetValue(NameProperty);
-        }
+            => (string)element.GetValue(NameProperty);
 
         public static readonly DependencyProperty RowNameProperty = DependencyProperty.RegisterAttached(
-            "RowName", typeof(string), typeof(GridExtensions),
-            new PropertyMetadata(default(string), RowName_PropertyChanged));
+            "RowName", typeof(string), typeof(GridAttach), new PropertyMetadata(default(string), OnRowNameChanged));
 
-        private static void RowName_PropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnRowNameChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is FrameworkElement frameworkElement)
             {
@@ -40,6 +35,7 @@ namespace HandyControl.Tools.Extension
                         {
                             var gridRowDefinition = grid.RowDefinitions[i];
                             var gridRowName = GetName(gridRowDefinition);
+
                             if (!string.IsNullOrEmpty(gridRowName) &&
                                 gridRowName.Equals(rowName, StringComparison.Ordinal))
                             {
@@ -53,20 +49,15 @@ namespace HandyControl.Tools.Extension
         }
 
         public static void SetRowName(DependencyObject element, string value)
-        {
-            element.SetValue(RowNameProperty, value);
-        }
+            => element.SetValue(RowNameProperty, value);
 
         public static string GetRowName(DependencyObject element)
-        {
-            return (string) element.GetValue(RowNameProperty);
-        }
+            => (string)element.GetValue(RowNameProperty);
 
         public static readonly DependencyProperty ColumnNameProperty = DependencyProperty.RegisterAttached(
-            "ColumnName", typeof(string), typeof(GridExtensions),
-            new PropertyMetadata(default(string), ColumnName_PropertyChanged));
+            "ColumnName", typeof(string), typeof(GridAttach), new PropertyMetadata(default(string), OnColumnNameChanged));
 
-        private static void ColumnName_PropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        private static void OnColumnNameChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             if (d is FrameworkElement frameworkElement)
             {
@@ -83,6 +74,7 @@ namespace HandyControl.Tools.Extension
                         {
                             var gridColumnDefinition = grid.ColumnDefinitions[i];
                             var gridColumnName = GetName(gridColumnDefinition);
+
                             if (!string.IsNullOrEmpty(gridColumnName) &&
                                 gridColumnName.Equals(columnName, StringComparison.Ordinal))
                             {
@@ -96,13 +88,9 @@ namespace HandyControl.Tools.Extension
         }
 
         public static void SetColumnName(DependencyObject element, string value)
-        {
-            element.SetValue(ColumnNameProperty, value);
-        }
+            => element.SetValue(ColumnNameProperty, value);
 
         public static string GetColumnName(DependencyObject element)
-        {
-            return (string) element.GetValue(ColumnNameProperty);
-        }
+            => (string)element.GetValue(ColumnNameProperty);
     }
 }
