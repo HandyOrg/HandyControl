@@ -331,7 +331,7 @@ namespace HandyControl.Controls
 
             var transform = new TranslateTransform
             {
-                X = MaxWidth
+                X = FlowDirection == FlowDirection.LeftToRight ? MaxWidth : -MaxWidth
             };
             _gridMain.RenderTransform = transform;
             transform.BeginAnimation(TranslateTransform.XProperty, AnimationHelper.CreateAnimation(0));
