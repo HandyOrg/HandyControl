@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Windows;
 
 namespace HandyControl.Data
 {
@@ -29,5 +30,7 @@ namespace HandyControl.Data
         public bool ShowCloseButton { get; set; } = true;
 
         public string Token { get; set; }
+
+        public FlowDirection FlowDirection { get; set; }
     }
 }
