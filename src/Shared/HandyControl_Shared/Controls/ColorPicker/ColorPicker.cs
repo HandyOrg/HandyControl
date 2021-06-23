@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
@@ -711,11 +711,9 @@ namespace HandyControl.Controls
         private void ButtonConfirm_OnClick(object sender, RoutedEventArgs e)
         {
             RaiseEvent(new FunctionEventArgs<Color>(ConfirmedEvent, this)
-               {
-                   Info = SelectedBrush.Color
-               });
-
-            RaiseEvent(new RoutedEventArgs(CanceledEvent));
+            {
+                Info = SelectedBrush.Color
+            });
         }
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(CanceledEvent));
