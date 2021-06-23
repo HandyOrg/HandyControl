@@ -178,20 +178,30 @@ namespace HandyControl.Controls
 
         #region Public Events
 
+        public static readonly RoutedEvent SelectedColorChangedEvent =
+            EventManager.RegisterRoutedEvent("SelectedColorChanged", RoutingStrategy.Bubble,
+                typeof(EventHandler<FunctionEventArgs<Color>>), typeof(ColorPicker));
+
+        public event EventHandler<FunctionEventArgs<Color>> SelectedColorChanged
+        {
+            add => AddHandler(SelectedColorChangedEvent, value);
+            remove => RemoveHandler(SelectedColorChangedEvent, value);
+        }
+
         /// <summary>
         ///     颜色改变事件
         /// </summary>
-        public static readonly RoutedEvent SelectedColorChangedEvent =
-            EventManager.RegisterRoutedEvent("SelectedColorChanged", RoutingStrategy.Bubble,
+        public static readonly RoutedEvent ConfirmedEvent =
+            EventManager.RegisterRoutedEvent("Confirmed", RoutingStrategy.Bubble,
                 typeof(EventHandler<FunctionEventArgs<Color>>), typeof(ColorPicker));
 
         /// <summary>
         ///     颜色改变事件
         /// </summary>
-        public event EventHandler<FunctionEventArgs<Color>> SelectedColorChanged
+        public event EventHandler<FunctionEventArgs<Color>> Confirmed
         {
-            add => AddHandler(SelectedColorChangedEvent, value);
-            remove => RemoveHandler(SelectedColorChangedEvent, value);
+            add => AddHandler(ConfirmedEvent, value);
+            remove => RemoveHandler(ConfirmedEvent, value);
         }
 
         /// <summary>
@@ -268,6 +278,10 @@ namespace HandyControl.Controls
                     }
                     ctl.UpdateStatus(v.Color);
                     ctl.SelectedBrushWithoutOpacity = new SolidColorBrush(Color.FromRgb(v.Color.R, v.Color.G, v.Color.B));
+                    ctl.RaiseEvent(new FunctionEventArgs<Color>(SelectedColorChangedEvent, ctl)
+                    {
+                        Info = v.Color
+                    });
                 }));
 
         /// <summary>
@@ -684,10 +698,12 @@ namespace HandyControl.Controls
         }
 
         private void ButtonConfirm_OnClick(object sender, RoutedEventArgs e)
-            => RaiseEvent(new FunctionEventArgs<Color>(SelectedColorChangedEvent, this)
+        {
+            RaiseEvent(new FunctionEventArgs<Color>(ConfirmedEvent, this)
             {
                 Info = SelectedBrush.Color
             });
+        }
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(CanceledEvent));
 
