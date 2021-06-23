@@ -21,7 +21,7 @@ namespace HandyControl.Tools
         /// <returns></returns>
         public static ThicknessAnimation CreateAnimation(Thickness thickness = default, double milliseconds = 200)
         {
-            return new ThicknessAnimation(thickness, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
+            return new(thickness, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
             {
                 EasingFunction = new PowerEase { EasingMode = EasingMode.EaseInOut }
             };
@@ -35,7 +35,7 @@ namespace HandyControl.Tools
         /// <returns></returns>
         public static DoubleAnimation CreateAnimation(double toValue, double milliseconds = 200)
         {
-            return new DoubleAnimation(toValue, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
+            return new(toValue, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
             {
                 EasingFunction = new PowerEase { EasingMode = EasingMode.EaseInOut }
             };

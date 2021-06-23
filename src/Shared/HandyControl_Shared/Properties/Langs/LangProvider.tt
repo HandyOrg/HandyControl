@@ -27,7 +27,7 @@ namespace HandyControl.Properties.Langs
 {
     public class LangProvider : INotifyPropertyChanged
     {
-        internal static LangProvider Instance => ResourceHelper.GetResource<LangProvider>("Langs");
+        internal static LangProvider Instance { get; } = ResourceHelper.GetResourceInternal<LangProvider>("Langs");
 
         private static string CultureInfoStr;
 

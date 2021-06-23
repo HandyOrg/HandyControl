@@ -1,5 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HandyControl.Data;
@@ -9,8 +8,7 @@ namespace HandyControlDemo.ViewModel
 {
     public class NotificationDemoViewModel : ViewModelBase
     {
-        public RelayCommand OpenCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => Notification.Show(new AppNotification(), ShowAnimation, StaysOpen))).Value;
+        public RelayCommand OpenCmd => new(() => Notification.Show(new AppNotification(), ShowAnimation, StaysOpen));
 
         private ShowAnimation _showAnimation;
 

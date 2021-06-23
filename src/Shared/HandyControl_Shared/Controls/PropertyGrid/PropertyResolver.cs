@@ -10,7 +10,7 @@ namespace HandyControl.Controls
 {
     public class PropertyResolver
     {
-        private static readonly Dictionary<Type, EditorTypeCode> TypeCodeDic = new Dictionary<Type, EditorTypeCode>
+        private static readonly Dictionary<Type, EditorTypeCode> TypeCodeDic = new()
         {
             [typeof(string)] = EditorTypeCode.PlainText,
             [typeof(sbyte)] = EditorTypeCode.SByteNumber,
@@ -99,10 +99,10 @@ namespace HandyControl.Controls
                     _ => new ReadOnlyTextPropertyEditor()
                 }
                 : type.IsSubclassOf(typeof(Enum))
-                    ? (PropertyEditorBase) new EnumPropertyEditor()
+                    ? new EnumPropertyEditor()
                     : new ReadOnlyTextPropertyEditor();
 
-        public virtual PropertyEditorBase CreateEditor(Type type) => new ReadOnlyTextPropertyEditor();
+        public virtual PropertyEditorBase CreateEditor(Type type) => Activator.CreateInstance(type) as PropertyEditorBase ?? new ReadOnlyTextPropertyEditor();
 
         private enum EditorTypeCode
         {

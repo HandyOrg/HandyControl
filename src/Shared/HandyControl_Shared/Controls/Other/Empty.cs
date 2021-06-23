@@ -28,7 +28,7 @@ namespace HandyControl.Controls
             "ShowEmpty", typeof(bool), typeof(Empty), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetShowEmpty(DependencyObject element, bool value)
-            => element.SetValue(ShowEmptyProperty, value);
+            => element.SetValue(ShowEmptyProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowEmpty(DependencyObject element)
             => (bool) element.GetValue(ShowEmptyProperty);

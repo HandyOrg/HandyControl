@@ -12,7 +12,7 @@ namespace HandyControl.Tools
     {
         private static List<GifImageInfo> ImageInfoList;
 
-        private static readonly ReaderWriterLock RwImgListLock = new ReaderWriterLock();
+        private static readonly ReaderWriterLock RwImgListLock = new();
 
         private static Thread AnimationThread;
 

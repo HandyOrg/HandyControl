@@ -16,7 +16,7 @@ namespace HandyControl.Controls
 
         private AdornerContainer _container;
 
-        private static readonly Dictionary<string, FrameworkElement> ContainerDic = new Dictionary<string, FrameworkElement>();
+        private static readonly Dictionary<string, FrameworkElement> ContainerDic = new();
 
         public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
             "IsClosed", typeof(bool), typeof(Dialog), new PropertyMetadata(ValueBoxes.FalseBox));

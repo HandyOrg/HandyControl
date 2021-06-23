@@ -1,5 +1,4 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
@@ -27,12 +26,12 @@ namespace HandyControlDemo.ViewModel
         /// <summary>
         ///     下一步
         /// </summary>
-        public RelayCommand<Panel> NextCmd => new Lazy<RelayCommand<Panel>>(() => new RelayCommand<Panel>(Next)).Value;
+        public RelayCommand<Panel> NextCmd => new(Next);
 
         /// <summary>
         ///     上一步
         /// </summary>
-        public RelayCommand<Panel> PrevCmd => new Lazy<RelayCommand<Panel>>(() => new RelayCommand<Panel>(Prev)).Value;
+        public RelayCommand<Panel> PrevCmd => new(Prev);
 
         private void Next(Panel panel)
         {

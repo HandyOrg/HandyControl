@@ -12,10 +12,7 @@ namespace HandyControl.Tools
         [SecurityCritical]
         internal static void DemandUIWindowPermission()
         {
-            if (_allWindowsUIPermission == null)
-            {
-                _allWindowsUIPermission = new UIPermission(UIPermissionWindow.AllWindows);
-            }
+            _allWindowsUIPermission ??= new UIPermission(UIPermissionWindow.AllWindows);
             _allWindowsUIPermission.Demand();
         }
     }

@@ -8,7 +8,7 @@ namespace HandyControl.Tools
 {
     public class SystemMenuHook
     {
-        private static readonly Dictionary<int, HwndSource> DataDic = new Dictionary<int, HwndSource>();
+        private static readonly Dictionary<int, HwndSource> DataDic = new();
 
         public static event Action<int> Click;
 

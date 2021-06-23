@@ -8,7 +8,7 @@ namespace HandyControl.Controls
     {
         public override FrameworkElement CreateElement(PropertyItem propertyItem) => new ToggleButton
         {
-            Style = ResourceHelper.GetResource<Style>("ToggleButtonSwitch"),
+            Style = ResourceHelper.GetResourceInternal<Style>("ToggleButtonSwitch"),
             HorizontalAlignment = HorizontalAlignment.Left,
             IsEnabled = !propertyItem.IsReadOnly
         };

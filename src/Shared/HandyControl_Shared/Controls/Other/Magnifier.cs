@@ -18,7 +18,7 @@ namespace HandyControl.Controls
 
         private const string ElementVisualBrush = "PART_VisualBrush";
 
-        private VisualBrush _visualBrush = new VisualBrush();
+        private VisualBrush _visualBrush = new();
 
         private readonly TranslateTransform _translateTransform;
 
@@ -40,7 +40,7 @@ namespace HandyControl.Controls
             set => SetValue(VerticalOffsetProperty, value);
         }
 
-        public static Magnifier Default => new Magnifier();
+        public static Magnifier Default => new();
 
         public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(
             "Scale", typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged), ValidateHelper.IsInRangeOfPosDouble);
@@ -129,7 +129,7 @@ namespace HandyControl.Controls
             {
                 layer.Remove(_adornerContainer);
             }
-            else if (_adornerContainer != null && _adornerContainer.Parent is AdornerLayer parent)
+            else if (_adornerContainer is { Parent: AdornerLayer parent })
             {
                 parent.Remove(_adornerContainer);
             }

@@ -18,7 +18,7 @@ namespace HandyControlDemo.Service
     {
         internal ObservableCollection<TabControlDemoModel> GetTabControlDemoDataList()
         {
-            return new ObservableCollection<TabControlDemoModel>
+            return new()
             {
                 new TabControlDemoModel
                 {
@@ -139,7 +139,7 @@ namespace HandyControlDemo.Service
 
         internal List<AvatarModel> GetBlogDataList()
         {
-            return new List<AvatarModel>
+            return new()
             {
                 new AvatarModel
                 {
@@ -170,7 +170,7 @@ namespace HandyControlDemo.Service
 
         internal List<AvatarModel> GetProjectDataList()
         {
-            return new List<AvatarModel>
+            return new()
             {
                 new AvatarModel
                 {
@@ -195,7 +195,7 @@ namespace HandyControlDemo.Service
 
         internal List<AvatarModel> GetWebsiteDataList()
         {
-            return new List<AvatarModel>
+            return new()
             {
                 new AvatarModel
                 {
@@ -208,7 +208,7 @@ namespace HandyControlDemo.Service
 
         internal ObservableCollection<CardModel> GetCardDataList()
         {
-            return new ObservableCollection<CardModel>
+            return new()
             {
                 new CardModel
                 {
@@ -275,7 +275,7 @@ namespace HandyControlDemo.Service
 
         internal CardModel GetCardData()
         {
-            return new CardModel
+            return new()
             {
                 Content = $"/HandyControlDemo;component/Resources/Img/Album/{DateTime.Now.Second % 10 + 1}.jpg"
             };
@@ -283,7 +283,7 @@ namespace HandyControlDemo.Service
 
         internal List<StepBarDemoModel> GetStepBarDemoDataList()
         {
-            return new List<StepBarDemoModel>
+            return new()
             {
                 new StepBarDemoModel
                 {
@@ -310,7 +310,7 @@ namespace HandyControlDemo.Service
 
         internal ObservableCollection<CoverViewDemoModel> GetCoverViewDemoDataList()
         {
-            return new ObservableCollection<CoverViewDemoModel>
+            return new()
             {
                 new CoverViewDemoModel
                 {

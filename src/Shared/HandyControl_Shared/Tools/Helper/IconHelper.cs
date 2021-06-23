@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics.CodeAnalysis;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
@@ -9,6 +10,8 @@ using HandyControl.Tools.Interop;
 
 namespace HandyControl.Tools
 {
+    [SuppressMessage("ReSharper", "ArrangeRedundantParentheses")]
+    [SuppressMessage("ReSharper", "IntVariableOverflowInUncheckedContext")]
     internal static class IconHelper
     {
         private static Size SmallIconSize;

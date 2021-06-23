@@ -17,8 +17,7 @@ namespace HandyControl.Controls
 
             GrowlPanel = new StackPanel
             {
-                VerticalAlignment = VerticalAlignment.Top,
-                Margin = new Thickness(0, 10, 10, 10)
+                VerticalAlignment = VerticalAlignment.Top
             };
 
             Content = new ScrollViewer

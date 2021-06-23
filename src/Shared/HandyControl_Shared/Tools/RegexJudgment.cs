@@ -9,7 +9,7 @@ namespace HandyControl.Tools
     /// </summary>
     public static class RegexJudgment
     {
-        private static readonly RegexPatterns RegexPatterns = new RegexPatterns();
+        private static readonly RegexPatterns RegexPatterns = new();
 
         /// <summary>
         ///     判断字符串格式是否符合某种要求
@@ -53,15 +53,15 @@ namespace HandyControl.Tools
         /// <returns>方法返回布尔值</returns>
         public static bool IsIp(this string ip, IpType ipType)
         {
-            switch (ipType)
+            return ipType switch
             {
-                case IpType.A: return Regex.IsMatch(ip, RegexPatterns.IpAPattern);
-                case IpType.B: return Regex.IsMatch(ip, RegexPatterns.IpBPattern);
-                case IpType.C: return Regex.IsMatch(ip, RegexPatterns.IpCPattern);
-                case IpType.D: return Regex.IsMatch(ip, RegexPatterns.IpDPattern);
-                case IpType.E: return Regex.IsMatch(ip, RegexPatterns.IpEPattern);
-                default: return false;
-            }
+                IpType.A => Regex.IsMatch(ip, RegexPatterns.IpAPattern),
+                IpType.B => Regex.IsMatch(ip, RegexPatterns.IpBPattern),
+                IpType.C => Regex.IsMatch(ip, RegexPatterns.IpCPattern),
+                IpType.D => Regex.IsMatch(ip, RegexPatterns.IpDPattern),
+                IpType.E => Regex.IsMatch(ip, RegexPatterns.IpEPattern),
+                _ => false
+            };
         }
 
         /// <summary>

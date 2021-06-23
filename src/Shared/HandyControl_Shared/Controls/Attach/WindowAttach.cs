@@ -141,7 +141,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetHideWhenClosing(DependencyObject element, bool value)
-            => element.SetValue(HideWhenClosingProperty, value);
+            => element.SetValue(HideWhenClosingProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetHideWhenClosing(DependencyObject element)
             => (bool) element.GetValue(HideWhenClosingProperty);

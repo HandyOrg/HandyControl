@@ -26,7 +26,7 @@
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="MinHeight" Value="60"/>
         <Setter Property="Width" Value="320"/>
-        <Setter Property="Margin" Value="10,0,0,10"/>
+        <Setter Property="Margin" Value="10,10,10,0"/>
         <Setter Property="MaxWidth" Value="320"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="8"/>
         <Setter Property="Background" Value="{DynamicResource ThirdlyRegionBrush}"/>
@@ -49,13 +49,13 @@
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Border Grid.ColumnSpan="3" Grid.RowSpan="2" Effect="{StaticResource EffectShadow2}" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
-                        <Path Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="0,15,0,0" Width="30" Height="30" Data="{TemplateBinding Icon}" Stretch="Uniform" Fill="{TemplateBinding IconBrush}"/>
+                        <Path FlowDirection="LeftToRight" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="0,15,0,0" Width="30" Height="30" Data="{TemplateBinding Icon}" Stretch="Uniform" Fill="{TemplateBinding IconBrush}"/>
                         <StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0,10,10,10">
                             <TextBlock Text="{TemplateBinding Message}" Style="{StaticResource TextBlockDefault}" HorizontalAlignment="Left" TextWrapping="Wrap"/>
                             <TextBlock Visibility="{Binding ShowDateTime,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Text="{Binding Time,RelativeSource={RelativeSource AncestorType=hc:Growl},StringFormat=yyyy/MM/dd HH:mm:ss}" Style="{StaticResource TextBlockDefault}" Foreground="{DynamicResource SecondaryTextBrush}" HorizontalAlignment="Left" Margin="0,4,0,0"/>
                         </StackPanel>
                         <Button Grid.Row="0" Visibility="Collapsed" Margin="11,0" Name="PART_ButtonClose" Command="interactivity:ControlCommands.Close" Grid.Column="2" Background="Transparent" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="18" Height="18">
-                            <Path Data="{StaticResource ErrorGeometry}" Stretch="Uniform" Fill="{DynamicResource SecondaryTextBrush}"/>
+                            <Path FlowDirection="LeftToRight" Data="{StaticResource ErrorGeometry}" Stretch="Uniform" Fill="{DynamicResource SecondaryTextBrush}"/>
                         </Button>
                         <UniformGrid Columns="2" Name="PART_PanelMore" IsEnabled="False" Visibility="Collapsed" Grid.Row="1" Grid.ColumnSpan="3" Height="28" Grid.Column="0">
                             <Button Command="interactivity:ControlCommands.Cancel" Style="{StaticResource ButtonCustom}" HorizontalAlignment="Stretch" Background="Transparent">

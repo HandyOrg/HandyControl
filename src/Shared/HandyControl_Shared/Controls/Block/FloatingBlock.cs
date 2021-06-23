@@ -99,7 +99,7 @@ namespace HandyControl.Controls
 
         private static void OnDataChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (!(d is UIElement target)) return;
+            if (d is not UIElement target) return;
 
             target.PreviewMouseLeftButtonDown -= Target_PreviewMouseLeftButtonDown;
             target.PreviewMouseLeftButtonUp -= Target_PreviewMouseLeftButtonUp;

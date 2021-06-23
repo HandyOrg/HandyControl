@@ -73,7 +73,7 @@ namespace HandyControl.Expression.Shapes
 
         protected abstract IGeometrySource CreateGeometrySource();
 
-        protected override Size MeasureOverride(Size availableSize) => new Size(base.StrokeThickness, base.StrokeThickness);
+        protected override Size MeasureOverride(Size availableSize) => new(base.StrokeThickness, base.StrokeThickness);
 
         private void RealizeGeometry() => RenderedGeometryChanged?.Invoke(this, EventArgs.Empty);
     }

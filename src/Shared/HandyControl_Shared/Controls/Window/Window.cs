@@ -99,7 +99,7 @@ namespace HandyControl.Controls
 
         static Window()
         {
-            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(ResourceHelper.GetResource<Style>(ResourceToken.WindowWin10)));
+            StyleProperty.OverrideMetadata(typeof(Window), new FrameworkPropertyMetadata(ResourceHelper.GetResourceInternal<Style>(ResourceToken.WindowWin10)));
         }
 
         public Window()

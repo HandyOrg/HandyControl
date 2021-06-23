@@ -258,50 +258,45 @@ namespace HandyControl.Controls
 
         private static void OnShowRowNumberChanged(DependencyObject target, DependencyPropertyChangedEventArgs e)
         {
-            if (!(target is DataGrid dataGrid)) return;
+            if (target is not DataGrid dataGrid) return;
             var show = (bool) e.NewValue;
 
             if (show)
             {
                 dataGrid.LoadingRow += DataGrid_LoadingRow;
-                dataGrid.ItemContainerGenerator.ItemsChanged += ItemContainerGenerator_ItemsChanged;
+                dataGrid.ItemContainerGenerator.ItemsChanged += ItemContainerGeneratorItemsChanged;
             }
             else
             {
                 dataGrid.LoadingRow -= DataGrid_LoadingRow;
-                dataGrid.ItemContainerGenerator.ItemsChanged -= ItemContainerGenerator_ItemsChanged;
+                dataGrid.ItemContainerGenerator.ItemsChanged -= ItemContainerGeneratorItemsChanged;
             }
 
-            UpdateItems(dataGrid.ItemContainerGenerator, dataGrid.Items.Count, show);
-        }
-
-        private static void ItemContainerGenerator_ItemsChanged(object sender, ItemsChangedEventArgs e)
-        {
-            if (!(sender is ItemContainerGenerator generator)) return;
-            UpdateItems(generator, e.ItemCount);
-        }
-
-        private static void UpdateItems(ItemContainerGenerator generator, int itemsCount, bool show = true)
-        {
-            if (show)
+            void ItemContainerGeneratorItemsChanged(object sender, ItemsChangedEventArgs e)
             {
-                for (var i = 0; i < itemsCount; i++)
+                var generator = dataGrid.ItemContainerGenerator;
+                var itemsCount = dataGrid.Items.Count;
+
+                if (show)
                 {
-                    var row = (DataGridRow) generator.ContainerFromIndex(i);
-                    if (row != null)
+                    for (var i = 0; i < itemsCount; i++)
                     {
-                        row.Header = (i + 1).ToString();
+                        var row = (DataGridRow) generator.ContainerFromIndex(i);
+                        if (row != null)
+                        {
+                            row.Header = (i + 1).ToString();
+                        }
                     }
                 }
-            }
-            else
-            {
-                for (var i = 0; i < itemsCount; i++)
+                else
                 {
-                    var row = (DataGridRow) generator.ContainerFromIndex(i);
-                    if (row != null)
+                    for (var i = 0; i < itemsCount; i++)
                     {
-                        row.Header = null;
+                        var row = (DataGridRow) generator.ContainerFromIndex(i);
+                        if (row != null)
+                        {
+                            row.Header = null;
+                        }
                     }
                 }
             }
@@ -337,7 +332,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetCanUnselectAllWithBlankArea(DependencyObject element, bool value)
-            => element.SetValue(CanUnselectAllWithBlankAreaProperty, value);
+            => element.SetValue(CanUnselectAllWithBlankAreaProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetCanUnselectAllWithBlankArea(DependencyObject element)
             => (bool) element.GetValue(CanUnselectAllWithBlankAreaProperty);
