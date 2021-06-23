@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
@@ -30,21 +29,20 @@ namespace HandyControlDemo.ViewModel
 #endif
         }
 
-        public RelayCommand AddItemCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() =>
+        public RelayCommand AddItemCmd => new(() =>
+        {
+            if (string.IsNullOrEmpty(TagName))
             {
-                if (string.IsNullOrEmpty(TagName))
-                {
-                    Growl.Warning(Lang.PlsEnterContent);
-                    return;
-                }
+                Growl.Warning(Lang.PlsEnterContent);
+                return;
+            }
 
-                DataList.Insert(0, new DemoDataModel
-                {
-                    IsSelected = DataList.Count % 2 == 0,
-                    Name = TagName
-                });
-                TagName = string.Empty;
-            })).Value;
+            DataList.Insert(0, new DemoDataModel
+            {
+                IsSelected = DataList.Count % 2 == 0,
+                Name = TagName
+            });
+            TagName = string.Empty;
+        });
     }
 }

@@ -9,8 +9,8 @@ namespace HandyControl.Interactivity
         private static ResourceManager ResourceMan;
 
         [EditorBrowsable(EditorBrowsableState.Advanced)]
-        internal static ResourceManager ResourceManager => ResourceMan ?? (ResourceMan = new ResourceManager(nameof(ExceptionStringTable),
-                                                               typeof(ExceptionStringTable).Assembly));
+        internal static ResourceManager ResourceManager => ResourceMan ??= new ResourceManager(nameof(ExceptionStringTable),
+            typeof(ExceptionStringTable).Assembly);
 
         [EditorBrowsable(EditorBrowsableState.Advanced)]
         internal static CultureInfo Culture { get; set; }

@@ -1,5 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight.Command;
+﻿using GalaSoft.MvvmLight.Command;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 
@@ -15,16 +14,14 @@ namespace HandyControlDemo.ViewModel
             DataList = dataService.GetCardDataList();
         }
 
-        public RelayCommand AddItemCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => DataList.Insert(0, _dataService.GetCardData()))).Value;
+        public RelayCommand AddItemCmd => new(() => DataList.Insert(0, _dataService.GetCardData()));
 
-        public RelayCommand RemoveItemCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() =>
+        public RelayCommand RemoveItemCmd => new(() =>
+        {
+            if (DataList.Count > 0)
             {
-                if (DataList.Count > 0)
-                {
-                    DataList.RemoveAt(0);
-                }
-            })).Value;
+                DataList.RemoveAt(0);
+            }
+        });
     }
 }

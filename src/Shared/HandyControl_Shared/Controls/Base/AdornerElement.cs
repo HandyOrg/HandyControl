@@ -33,7 +33,7 @@ namespace HandyControl.Controls
 
         private static void OnInstanceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (!(d is FrameworkElement target)) return;
+            if (d is not FrameworkElement target) return;
             var element = (AdornerElement) e.NewValue;
             element.OnInstanceChanged(target);
         }

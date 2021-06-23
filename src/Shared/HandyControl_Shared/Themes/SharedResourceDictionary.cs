@@ -7,7 +7,7 @@ namespace HandyControl.Themes
 {
     public class SharedResourceDictionary : ResourceDictionary
     {
-        public static Dictionary<Uri, ResourceDictionary> SharedDictionaries = new Dictionary<Uri, ResourceDictionary>();
+        public static Dictionary<Uri, ResourceDictionary> SharedDictionaries = new();
 
         private Uri _sourceUri;
 

@@ -18,7 +18,6 @@
         <Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="8,0,8,8"/>
-        <Setter Property="ShowConfirmButton" Value="True"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Template">
              <Setter.Value>

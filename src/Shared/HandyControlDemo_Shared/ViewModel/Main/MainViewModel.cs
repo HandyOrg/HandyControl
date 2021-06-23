@@ -89,24 +89,18 @@ namespace HandyControlDemo.ViewModel
         /// <summary>
         ///     切换例子命令
         /// </summary>
-        public RelayCommand<SelectionChangedEventArgs> SwitchDemoCmd =>
-            new Lazy<RelayCommand<SelectionChangedEventArgs>>(() =>
-                new RelayCommand<SelectionChangedEventArgs>(SwitchDemo)).Value;
+        public RelayCommand<SelectionChangedEventArgs> SwitchDemoCmd => new(SwitchDemo);
 
-        public RelayCommand OpenPracticalDemoCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(OpenPracticalDemo)).Value;
+        public RelayCommand OpenPracticalDemoCmd => new(OpenPracticalDemo);
 
-        public RelayCommand GlobalShortcutInfoCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => Growl.Info("Global Shortcut Info"))).Value;
+        public RelayCommand GlobalShortcutInfoCmd => new(() => Growl.Info("Global Shortcut Info"));
 
-        public RelayCommand GlobalShortcutWarningCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => Growl.Warning("Global Shortcut Warning"))).Value;
+        public RelayCommand GlobalShortcutWarningCmd => new(() => Growl.Warning("Global Shortcut Warning"));
 
-        public RelayCommand OpenDocCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() =>
-            {
-                ControlCommands.OpenLink.Execute(_dataService.GetDemoUrl(DemoInfoCurrent, DemoItemCurrent));
-            })).Value;
+        public RelayCommand OpenDocCmd => new(() =>
+        {
+            ControlCommands.OpenLink.Execute(_dataService.GetDemoUrl(DemoInfoCurrent, DemoItemCurrent));
+        });
 
         #endregion
 

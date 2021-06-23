@@ -173,11 +173,7 @@ namespace HandyControl.Controls
         {
             if (value)
             {
-                if (_isHandlerSuspended == null)
-                {
-                    _isHandlerSuspended = new Dictionary<DependencyProperty, bool>(2);
-                }
-
+                _isHandlerSuspended ??= new Dictionary<DependencyProperty, bool>(2);
                 _isHandlerSuspended[property] = true;
             }
             else

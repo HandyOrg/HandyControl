@@ -24,7 +24,7 @@
                         <Path Data="{StaticResource NugetGeometry}" Fill="#30a5dd" Stretch="Uniform"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://marketplace.visualstudio.com/items?itemName=HandyOrg.handycontrolforvs2019" Header="{ex:Lang Key={x:Static langs:LangKeys.Vsix}}">
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://marketplace.visualstudio.com/items?itemName=HandyOrg.HandyControl" Header="{ex:Lang Key={x:Static langs:LangKeys.Vsix}}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource VisualStudioGeometry}" Fill="{DynamicResource PrimaryTextBrush}" Stretch="Uniform"/>
                     </MenuItem.Icon>

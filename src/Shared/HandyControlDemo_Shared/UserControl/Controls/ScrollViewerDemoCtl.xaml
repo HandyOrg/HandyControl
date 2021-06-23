@@ -45,7 +45,7 @@
                 </hc:ScrollViewer>
             </Border>
             <Border Grid.Row="1" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,16,0,0">
-                <hc:ScrollViewer IsInertiaEnabled="True">
+                <hc:ScrollViewer IsInertiaEnabled="True" hc:ScrollViewerAttach.AutoHide="False">
                     <WrapPanel Orientation="Horizontal">
                         <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
                             <Border Background="{DynamicResource PrimaryBrush}">
