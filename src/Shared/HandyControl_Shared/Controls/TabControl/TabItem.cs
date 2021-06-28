@@ -225,7 +225,11 @@ namespace HandyControl.Controls
         /// <param name="oldIndex"></param>
         private void UpdateItemOffsetX(int oldIndex)
         {
-            if (!_isDragging) return;
+            if (!_isDragging || CurrentIndex >= TabPanel.ItemDic.Count)
+            {
+                return;
+            }
+
             var moveItem = TabPanel.ItemDic[CurrentIndex];
             moveItem.CurrentIndex -= CurrentIndex - oldIndex;
             var offsetX = moveItem.TargetOffsetX;
