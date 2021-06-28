@@ -169,6 +169,18 @@ namespace HandyControl.Controls
                     WmGetMinMaxInfo(hwnd, lparam);
                     Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
                     break;
+                case InteropValues.WM_NCHITTEST:
+                    // for fixing #886
+                    // https://developercommunity.visualstudio.com/t/overflow-exception-in-windowchrome/167357
+                    try
+                    {
+                        _ = lparam.ToInt32();
+                    }
+                    catch (OverflowException)
+                    {
+                        handled = true;
+                    }
+                    break;
             }
 
             return IntPtr.Zero;
