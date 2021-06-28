@@ -183,6 +183,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### ElementGroup
+
+![ElementGroup](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ElementGroup.png)
+
 ### UniformSpacingPanel
 
 ![UniformSpacingPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/UniformSpacingPanel.png)
