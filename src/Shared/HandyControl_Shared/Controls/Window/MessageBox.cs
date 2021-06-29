@@ -375,13 +375,13 @@ namespace HandyControl.Controls
                 if (!string.IsNullOrEmpty(info.IconKey))
                 {
                     messageBox.ShowImage = true;
-                    messageBox.Image = ResourceHelper.GetResourceInternal<Geometry>(info.IconKey);
-                    messageBox.ImageBrush = ResourceHelper.GetResourceInternal<Brush>(info.IconBrushKey);
+                    messageBox.Image = ResourceHelper.GetResource<Geometry>(info.IconKey) ?? info.Icon;
+                    messageBox.ImageBrush = ResourceHelper.GetResource<Brush>(info.IconBrushKey) ?? info.IconBrush;
                 }
 
                 if (info.StyleKey != null)
                 {
-                    messageBox.Style = ResourceHelper.GetResourceInternal<Style>(info.StyleKey);
+                    messageBox.Style = ResourceHelper.GetResource<Style>(info.StyleKey) ?? info.Style;
                 }
                 SystemSounds.Asterisk.Play();
                 messageBox.ShowDialog();
