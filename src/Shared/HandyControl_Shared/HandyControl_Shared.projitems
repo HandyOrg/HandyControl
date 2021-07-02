@@ -15,7 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DataGridAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DropDownElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\EdgeElement.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\GridAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ImageAttach.cs" />
@@ -24,7 +23,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\RectangleAttach.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ScrollViewerAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\TextBlockAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Base\AdornerElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\FloatingBlock.cs" />
@@ -50,7 +48,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Watermark.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\AxleCanvas.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\FlexPanel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\ElementGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\SimpleStackPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\UniformSpacingPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\Editors\ImagePropertyEditor.cs" />
@@ -84,7 +81,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Collections\DateTimeRangeComparer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Annotations\HierarchyLevelAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Annotations\PriorityAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Annotations\NecessaryAttribute.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\Flattening.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\SortingDefault.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\VisualWrapping.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexContentJustify.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Flex\FlexContentAlignment.cs" />
@@ -377,8 +377,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ScreenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SecurityHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SystemHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TextHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TokenizerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TouchDragMoveWindowHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ValidateHelper.cs" />

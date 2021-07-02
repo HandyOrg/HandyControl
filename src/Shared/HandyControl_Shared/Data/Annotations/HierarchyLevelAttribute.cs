@@ -1,7 +1,4 @@
-﻿// -----------------------------
-// Copyright (c) XION GmbH
-// -----------------------------
-#nullable enable
+﻿#nullable enable
 using System;
 
 namespace HandyControl.Controls

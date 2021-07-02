@@ -1,8 +1,4 @@
-﻿// -----------------------------
-// Copyright (c) XION GmbH
-// -----------------------------
-
-namespace HandyControl.Data.Enum
+﻿namespace HandyControl.Data.Enum
 {
     public enum Flattening : byte
     {

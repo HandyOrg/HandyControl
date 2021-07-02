@@ -14,9 +14,9 @@ namespace HandyControl.Controls
     {
         public override FrameworkElement CreateElement(PropertyItem propertyItem) => new System.Windows.Controls.ComboBox
         {
-            Style = ResourceHelper.GetResourceInternal<Style>("ComboBoxCapsule"),
+            Style = ResourceHelper.GetResource<Style>("ComboBoxCapsule"),
             ItemsSource = Enum.GetValues(propertyItem.PropertyType),
-            ItemTemplateSelector = ResourceHelper.GetResourceInternal<DataTemplateSelector>("HorizontalAlignmentPathTemplateSelector"),
+            ItemTemplateSelector = ResourceHelper.GetResource<DataTemplateSelector>("HorizontalAlignmentPathTemplateSelector"),
             HorizontalAlignment = HorizontalAlignment.Left
         };
 
@@ -48,16 +48,16 @@ namespace HandyControl.Controls
                 switch (horizontalAlignment)
                 {
                     case HorizontalAlignment.Left:
-                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignLeftGeometry"));
+                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResource<Geometry>("AlignLeftGeometry"));
                         break;
                     case HorizontalAlignment.Center:
-                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignHCenterGeometry"));
+                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResource<Geometry>("AlignHCenterGeometry"));
                         break;
                     case HorizontalAlignment.Right:
-                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignRightGeometry"));
+                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResource<Geometry>("AlignRightGeometry"));
                         break;
                     case HorizontalAlignment.Stretch:
-                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignHStretchGeometry"));
+                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResource<Geometry>("AlignHStretchGeometry"));
                         break;
                 }
 
