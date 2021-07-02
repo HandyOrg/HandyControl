@@ -37,7 +37,7 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByHierarchyLevel, SortByHierarchyLevel, (s, e) => e.CanExecute = ShowSortButton));
         }
 
-        public virtual PropertyResolver PropertyResolver { get; } = new PropertyResolver();
+        public virtual PropertyResolver PropertyResolver { get; } = new();
 
         public static readonly RoutedEvent SelectedObjectChangedEvent =
             EventManager.RegisterRoutedEvent("SelectedObjectChanged", RoutingStrategy.Bubble,
@@ -347,7 +347,7 @@ namespace HandyControl.Controls
                 DefaultValue     = PropertyResolver.ResolveDefaultValue(propertyDescriptor),
                 Editor           = PropertyResolver.ResolveEditor(propertyDescriptor),
                 HierarchyLevel   = PropertyResolver.ResolveHierarchyLevel(propertyDescriptor) ?? hierarchyLevel,
-                Priority         = PropertyResolver.ResolvePriority(propertyDescriptor), 
+                Priority         = PropertyResolver.ResolvePriority(propertyDescriptor),
                 IsNecessary      = PropertyResolver.ResolveIsNecessary(propertyDescriptor),
                 Value            = component,
                 PropertyName     = propertyDescriptor.Name,
