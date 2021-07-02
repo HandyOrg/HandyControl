@@ -15,6 +15,6 @@ namespace HandyControl.Controls
 
         public override BindingMode GetBindingMode(PropertyItem propertyItem) => BindingMode.OneWay;
 
-        protected override IValueConverter GetConverter(PropertyItem propertyItem) => ResourceHelper.GetResource<IValueConverter>("Object2StringConverter");
+        protected override IValueConverter GetConverter(PropertyItem propertyItem) => ResourceHelper.GetResourceInternal<IValueConverter>("Object2StringConverter");
     }
 }
