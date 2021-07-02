@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using HandyControl.Data;
@@ -46,7 +47,9 @@ namespace HandyControl.Controls
             textBlock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             var width = textBlock.DesiredSize.Width - textBlock.Margin.Left - textBlock.Margin.Right;
 
-            if (textBlock.RenderSize.Width > width || textBlock.ActualWidth < width || CalcTextWidth(textBlock) > width)
+            // the code Math.Abs(CalcTextWidth(textBlock) - width) > 1 is not elegant end even bugly,
+            // while it does solve the problem of Tooltip failure in some cases
+            if (textBlock.RenderSize.Width > width || textBlock.ActualWidth < width || Math.Abs(CalcTextWidth(textBlock) - width) > 1)
             {
                 ToolTipService.SetToolTip(textBlock, textBlock.Text);
             }

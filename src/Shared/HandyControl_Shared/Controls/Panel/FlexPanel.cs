@@ -16,7 +16,7 @@ namespace HandyControl.Controls
 
         private int _lineCount;
 
-        private readonly List<FlexItemInfo> _orderList = new List<FlexItemInfo>();
+        private readonly List<FlexItemInfo> _orderList = new();
 
         #region Item
 

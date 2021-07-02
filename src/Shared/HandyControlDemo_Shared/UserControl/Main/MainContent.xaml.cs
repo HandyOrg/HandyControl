@@ -67,17 +67,17 @@ namespace HandyControlDemo.UserControl
                 var textEditorCustomStyle = ResourceHelper.GetResource<Style>("TextEditorCustom");
                 _textEditor = new Dictionary<string, TextEditor>
                 {
-                    ["XAML"] = new TextEditor
+                    ["XAML"] = new()
                     {
                         Style = textEditorCustomStyle,
                         SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("XML")
                     },
-                    ["C#"] = new TextEditor
+                    ["C#"] = new()
                     {
                         Style = textEditorCustomStyle,
                         SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#")
                     },
-                    ["VM"] = new TextEditor
+                    ["VM"] = new()
                     {
                         Style = textEditorCustomStyle,
                         SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#")

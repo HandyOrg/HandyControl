@@ -10,7 +10,7 @@ namespace HandyControl.Controls
 {
     public class PropertyResolver
     {
-        private static readonly Dictionary<Type, EditorTypeCode> TypeCodeDic = new Dictionary<Type, EditorTypeCode>
+        private static readonly Dictionary<Type, EditorTypeCode> TypeCodeDic = new()
         {
             [typeof(string)]              = EditorTypeCode.PlainText,
             [typeof(sbyte)]               = EditorTypeCode.SByteNumber,

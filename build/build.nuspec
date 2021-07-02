@@ -2,19 +2,19 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HandyControl</id>
-    <version>3.1.0</version>
+    <version>3.2.0</version>
     <title>HandyOrg</title>
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
     <license type="file">LICENSE</license>
     <icon>icon.png</icon>
-    <projectUrl>https://github.com/NaBian/HandyControl</projectUrl>
+    <projectUrl>https://github.com/HandyOrg/HandyControl</projectUrl>
     <description>Contains some simple and commonly used WPF controls</description>
     <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
     <copyright>Copyright © HandyOrg 2018-2021</copyright>
     <tags>WPF C# Control</tags>
-    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="35bbccd5b86bcedcfe16886857343e719feaf173" />
+    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="2aff85c4e2e903f9962899288dce92d27fda2a4c" />
     <dependencies>
       <group targetFramework=".NETFramework4.0" />
       <group targetFramework=".NETFramework4.5" />

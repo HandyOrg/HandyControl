@@ -343,7 +343,7 @@ namespace HandyControl.Controls
 
             var transform = new TranslateTransform
             {
-                X = MaxWidth
+                X = FlowDirection == FlowDirection.LeftToRight ? MaxWidth : -MaxWidth
             };
             _gridMain.RenderTransform = transform;
             transform.BeginAnimation(TranslateTransform.XProperty, AnimationHelper.CreateAnimation(0));
@@ -372,8 +372,8 @@ namespace HandyControl.Controls
                         {
                             Message = growlInfo.Message,
                             Time = DateTime.Now,
-                            Icon = ResourceHelper.GetResourceInternal<Geometry>(growlInfo.IconKey),
-                            IconBrush = ResourceHelper.GetResourceInternal<Brush>(growlInfo.IconBrushKey),
+                            Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey) ?? growlInfo.Icon,
+                            IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey) ?? growlInfo.IconBrush,
                             _showCloseButton = growlInfo.ShowCloseButton,
                             ActionBeforeClose = growlInfo.ActionBeforeClose,
                             _staysOpen = growlInfo.StaysOpen,
@@ -381,7 +381,8 @@ namespace HandyControl.Controls
                             ConfirmStr = growlInfo.ConfirmStr,
                             CancelStr = growlInfo.CancelStr,
                             Type = growlInfo.Type,
-                            _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                            _waitTime = Math.Max(growlInfo.WaitTime, 2),
+                            FlowDirection = growlInfo.FlowDirection
                         };
                         GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
                     }
@@ -407,8 +408,8 @@ namespace HandyControl.Controls
                         {
                             Message = growlInfo.Message,
                             Time = DateTime.Now,
-                            Icon = ResourceHelper.GetResourceInternal<Geometry>(growlInfo.IconKey),
-                            IconBrush = ResourceHelper.GetResourceInternal<Brush>(growlInfo.IconBrushKey),
+                            Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey) ?? growlInfo.Icon,
+                            IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey) ?? growlInfo.IconBrush,
                             _showCloseButton = growlInfo.ShowCloseButton,
                             ActionBeforeClose = growlInfo.ActionBeforeClose,
                             _staysOpen = growlInfo.StaysOpen,
@@ -845,7 +846,7 @@ namespace HandyControl.Controls
             _timerClose?.Stop();
             var transform = new TranslateTransform();
             _gridMain.RenderTransform = transform;
-            var animation = AnimationHelper.CreateAnimation(ActualWidth);
+            var animation = AnimationHelper.CreateAnimation(FlowDirection == FlowDirection.LeftToRight ? ActualWidth : -ActualWidth);
             animation.Completed += (s, e) =>
             {
                 if (Parent is Panel panel)

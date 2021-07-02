@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -110,6 +111,7 @@ namespace HandyControl.Controls
             selector.ItemsSource = list;
         }
 
+        [SuppressMessage("ReSharper", "MergeIntoPattern")]
         private void Update()
         {
             if (_hourList.SelectedIndex >= 0 && _hourList.SelectedIndex < 24 &&

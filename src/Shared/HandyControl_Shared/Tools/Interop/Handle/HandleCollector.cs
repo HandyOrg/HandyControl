@@ -10,7 +10,7 @@ namespace HandyControl.Tools.Interop
         private static HandleType[] HandleTypes;
         private static int HandleTypeCount;
 
-        private static readonly object HandleMutex = new object();
+        private static readonly object HandleMutex = new();
 
         internal static IntPtr Add(IntPtr handle, int type)
         {

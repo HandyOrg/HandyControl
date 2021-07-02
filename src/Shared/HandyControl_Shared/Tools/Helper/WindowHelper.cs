@@ -20,13 +20,13 @@ namespace HandyControl.Tools
         /// <returns></returns>
         public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
 
-        private static readonly BitArray _cacheValid = new BitArray((int) InteropValues.CacheSlot.NumSlots);
+        private static readonly BitArray _cacheValid = new((int) InteropValues.CacheSlot.NumSlots);
 
         private static bool _setDpiX = true;
 
         private static bool _dpiInitialized;
 
-        private static readonly object _dpiLock = new object();
+        private static readonly object _dpiLock = new();
 
         private static int _dpi;
 

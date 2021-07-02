@@ -82,10 +82,9 @@ namespace HandyControl.Tools
         /// <summary>
         ///     get HandyControl theme
         /// </summary>
-        /// <returns></returns>
-        public static ResourceDictionary GetTheme() => new Lazy<ResourceDictionary>(() => new ResourceDictionary
+        public static ResourceDictionary GetTheme() => new()
         {
             Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-        }).Value;
+        };
     }
 }

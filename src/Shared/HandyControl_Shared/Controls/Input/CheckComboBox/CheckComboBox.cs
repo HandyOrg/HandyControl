@@ -208,7 +208,7 @@ namespace HandyControl.Controls
 
         private void Tags_OnClosed(object sender, RoutedEventArgs e)
         {
-            if (e.OriginalSource is Tag tag && tag.Tag is CheckComboBoxItem checkComboBoxItem)
+            if (e.OriginalSource is Tag { Tag: CheckComboBoxItem checkComboBoxItem })
             {
                 checkComboBoxItem.SetCurrentValue(IsSelectedProperty, false);
             }

@@ -27,7 +27,7 @@ namespace HandyControl.Interactivity
 
         private static DateTime NextToLastPurgeTick = DateTime.MinValue;
 
-        internal static Dictionary<object, TagData> TagDictionary = new Dictionary<object, TagData>();
+        internal static Dictionary<object, TagData> TagDictionary = new();
 
         public static readonly DependencyProperty TagPathProperty = DependencyProperty.Register("TagPath",
             typeof(string), typeof(FluidMoveBehaviorBase), new PropertyMetadata(string.Empty));

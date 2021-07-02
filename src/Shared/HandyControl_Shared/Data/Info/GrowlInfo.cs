@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Windows;
+using System.Windows.Media;
 
 namespace HandyControl.Data
 {
@@ -22,12 +24,18 @@ namespace HandyControl.Data
 
         public InfoType Type { get; set; }
 
+        public Geometry Icon { get; set; }
+
         public string IconKey { get; set; }
+
+        public Brush IconBrush { get; set; }
 
         public string IconBrushKey { get; set; }
 
         public bool ShowCloseButton { get; set; } = true;
 
         public string Token { get; set; }
+
+        public FlowDirection FlowDirection { get; set; }
     }
 }

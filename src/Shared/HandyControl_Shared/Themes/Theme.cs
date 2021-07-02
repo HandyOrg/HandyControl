@@ -214,7 +214,13 @@ namespace HandyControl.Themes
 
         private void UpdateSkin() => MergedDictionaries[0] = GetSkin(Skin);
 
-        public virtual ResourceDictionary GetTheme() => ResourceHelper.GetTheme();
+        private ResourceDictionary _theme;
+
+        public virtual ResourceDictionary GetTheme()
+        {
+            _theme ??= ResourceHelper.GetTheme();
+            return _theme;
+        }
 
         private void InitResource()
         {
@@ -227,5 +233,10 @@ namespace HandyControl.Themes
             MergedDictionaries.Add(GetSkin(Skin));
             MergedDictionaries.Add(GetTheme());
         }
+    }
+
+    public class StandaloneTheme : Theme
+    {
+        public override ResourceDictionary GetTheme() => ResourceHelper.GetTheme();
     }
 }

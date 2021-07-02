@@ -142,7 +142,13 @@ namespace HandyControl.Controls
             typeof(TimePicker),
             new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
-        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) => d is TimePicker dp && !dp.IsEnabled ? false : baseValue;
+        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
+            d is TimePicker
+            {
+                IsEnabled: false
+            }
+                ? false
+                : baseValue;
 
         private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -183,7 +189,7 @@ namespace HandyControl.Controls
 
         private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (!(d is TimePicker dp)) return;
+            if (d is not TimePicker dp) return;
 
             if (dp.SelectedTime.HasValue)
             {
@@ -340,16 +346,14 @@ namespace HandyControl.Controls
         private static void OnClockChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (TimePicker) d;
-            var oldClock = e.OldValue as ClockBase;
-            var newClock = e.NewValue as ClockBase;
 
-            if (oldClock != null)
+            if (e.OldValue is ClockBase oldClock)
             {
                 oldClock.SelectedTimeChanged -= ctl.Clock_SelectedTimeChanged;
                 oldClock.Confirmed -= ctl.Clock_Confirmed;
             }
 
-            if (newClock != null)
+            if (e.NewValue is ClockBase newClock)
             {
                 newClock.ShowConfirmButton = true;
                 newClock.SelectedTimeChanged += ctl.Clock_SelectedTimeChanged;
@@ -589,7 +593,7 @@ namespace HandyControl.Controls
 
         private void PopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (sender is Popup popup && !popup.StaysOpen)
+            if (sender is Popup { StaysOpen: false })
             {
                 if (_dropDownButton?.InputHitTest(e.GetPosition(_dropDownButton)) != null)
                 {

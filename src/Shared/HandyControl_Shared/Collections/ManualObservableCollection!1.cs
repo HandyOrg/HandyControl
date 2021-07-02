@@ -9,7 +9,7 @@ namespace HandyControl.Collections
     [Serializable]
     public class ManualObservableCollection<T> : Collection<T>, INotifyCollectionChanged, INotifyPropertyChanged
     {
-        private readonly SimpleMonitor _monitor = new SimpleMonitor();
+        private readonly SimpleMonitor _monitor = new();
 
         private const string CountString = "Count";
 

@@ -27,8 +27,7 @@ namespace HandyControlDemo.ViewModel
 #endif
         }
 
-        public RelayCommand<FrameworkElement> ShowTextCmd => new Lazy<RelayCommand<FrameworkElement>>(() =>
-            new RelayCommand<FrameworkElement>(ShowText)).Value;
+        public RelayCommand<FrameworkElement> ShowTextCmd => new(ShowText);
 
         private void ShowText(FrameworkElement element)
         {
@@ -43,8 +42,7 @@ namespace HandyControlDemo.ViewModel
         }
 
 #if NET40
-        public RelayCommand<bool> ShowInteractiveDialogCmd => new Lazy<RelayCommand<bool>>(() =>
-            new RelayCommand<bool>(ShowInteractiveDialog)).Value;
+        public RelayCommand<bool> ShowInteractiveDialogCmd => new(ShowInteractiveDialog);
 
         private void ShowInteractiveDialog(bool withTimer)
         {
@@ -60,8 +58,7 @@ namespace HandyControlDemo.ViewModel
             }
         }
 #else
-        public RelayCommand<bool> ShowInteractiveDialogCmd => new Lazy<RelayCommand<bool>>(() =>
-            new RelayCommand<bool>(async withTimer => await ShowInteractiveDialog(withTimer))).Value;
+        public RelayCommand<bool> ShowInteractiveDialogCmd => new(async withTimer => await ShowInteractiveDialog(withTimer));
 
         private async Task ShowInteractiveDialog(bool withTimer)
         {
@@ -78,13 +75,11 @@ namespace HandyControlDemo.ViewModel
         }
 #endif
 
-        public RelayCommand NewWindowCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => new DialogDemoWindow
-            {
-                Owner = Application.Current.MainWindow
-            }.Show())).Value;
+        public RelayCommand NewWindowCmd => new(() => new DialogDemoWindow
+        {
+            Owner = Application.Current.MainWindow
+        }.Show());
 
-        public RelayCommand<string> ShowWithTokenCmd => new Lazy<RelayCommand<string>>(() =>
-            new RelayCommand<string>(token => Dialog.Show(new TextDialog(), token))).Value;
+        public RelayCommand<string> ShowWithTokenCmd => new(token => Dialog.Show(new TextDialog(), token));
     }
 }

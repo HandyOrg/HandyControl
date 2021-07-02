@@ -37,7 +37,7 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByHierarchyLevel, SortByHierarchyLevel, (s, e) => e.CanExecute = ShowSortButton));
         }
 
-        public virtual PropertyResolver PropertyResolver { get; } = new PropertyResolver();
+        public virtual PropertyResolver PropertyResolver { get; } = new();
 
         public static readonly RoutedEvent SelectedObjectChangedEvent =
             EventManager.RegisterRoutedEvent("SelectedObjectChanged", RoutingStrategy.Bubble,

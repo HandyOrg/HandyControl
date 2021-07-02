@@ -33,6 +33,6 @@ namespace HandyControlDemo.ViewModel
 #endif
         }
 
-        public RelayCommand CloseCmd => new Lazy<RelayCommand>(() => new RelayCommand(() => CloseAction?.Invoke())).Value;
+        public RelayCommand CloseCmd => new(() => CloseAction?.Invoke());
     }
 }

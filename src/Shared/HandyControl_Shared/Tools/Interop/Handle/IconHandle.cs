@@ -21,7 +21,7 @@ namespace HandyControl.Tools.Interop
         [SecurityCritical, SecuritySafeCritical]
         internal static IconHandle GetInvalidIcon()
         {
-            return new IconHandle();
+            return new();
         }
 
         [SecurityCritical]

@@ -16,13 +16,10 @@ namespace HandyControl.Controls
         {
             var topLine = (FrameworkElement) d;
 
-            if (e.NewValue is Popup popup)
+            if (e.NewValue is Popup { TemplatedParent: MenuItem menuItem })
             {
-                if (popup.TemplatedParent is MenuItem menuItem)
-                {
-                    SetTopLine(menuItem, topLine);
-                    menuItem.Loaded += MenuItem_Loaded;
-                }
+                SetTopLine(menuItem, topLine);
+                menuItem.Loaded += MenuItem_Loaded;
             }
         }
 
