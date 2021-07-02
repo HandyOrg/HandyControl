@@ -19,9 +19,9 @@ namespace HandyControl.Controls
 {
     public class GifImage : Image, IDisposable
     {
-        private static readonly Guid GifGuid = new Guid("{b96b3caa-0728-11d3-9d7b-0000f81ef32e}");
+        private static readonly Guid GifGuid = new("{b96b3caa-0728-11d3-9d7b-0000f81ef32e}");
 
-        private static readonly Guid GifSingleFrameGuid = new Guid("{b96b3cb0-0728-11d3-9d7b-0000f81ef32e}");
+        private static readonly Guid GifSingleFrameGuid = new("{b96b3cb0-0728-11d3-9d7b-0000f81ef32e}");
 
         internal IntPtr NativeImage;
 

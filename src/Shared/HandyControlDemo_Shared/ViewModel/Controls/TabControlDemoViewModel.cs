@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HandyControl.Data;
@@ -12,16 +11,14 @@ namespace HandyControlDemo.ViewModel
     {
         public TabControlDemoViewModel(DataService dataService) => DataList = dataService.GetTabControlDemoDataList();
 
-        public RelayCommand<CancelRoutedEventArgs> ClosingCmd => new Lazy<RelayCommand<CancelRoutedEventArgs>>(() =>
-            new RelayCommand<CancelRoutedEventArgs>(Closing)).Value;
+        public RelayCommand<CancelRoutedEventArgs> ClosingCmd => new(Closing);
 
         private void Closing(CancelRoutedEventArgs args)
         {
             Growl.Info($"{(args.OriginalSource as TabItem)?.Header} Closing");
         }
 
-        public RelayCommand<RoutedEventArgs> ClosedCmd => new Lazy<RelayCommand<RoutedEventArgs>>(() =>
-            new RelayCommand<RoutedEventArgs>(Closed)).Value;
+        public RelayCommand<RoutedEventArgs> ClosedCmd => new(Closed);
 
         private void Closed(RoutedEventArgs args)
         {

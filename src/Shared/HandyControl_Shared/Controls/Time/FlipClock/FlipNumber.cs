@@ -240,10 +240,10 @@ namespace HandyControl.Controls
 
             var positions = new Point3DCollection
             {
-                new Point3D(-quarterWidth * flag, quarterHeight, 0),
-                new Point3D(-quarterWidth * flag, 0, 0),
-                new Point3D(quarterWidth * flag, 0, 0),
-                new Point3D(quarterWidth * flag, quarterHeight, 0)
+                new(-quarterWidth * flag, quarterHeight, 0),
+                new(-quarterWidth * flag, 0, 0),
+                new(quarterWidth * flag, 0, 0),
+                new(quarterWidth * flag, quarterHeight, 0)
             };
 
             var triangleIndices = new Int32Collection
@@ -258,10 +258,10 @@ namespace HandyControl.Controls
 
             var textureCoordinates = new PointCollection
             {
-                new Point(0, 0),
-                new Point(0, 1),
-                new Point(1, 1),
-                new Point(1, 0)
+                new(0, 0),
+                new(0, 1),
+                new(1, 1),
+                new(1, 0)
             };
 
             var geometry3D = new MeshGeometry3D

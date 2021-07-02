@@ -46,7 +46,6 @@
 
     <Style x:Key="PropertyItemToolTipBaseStyle" BasedOn="{StaticResource {x:Type ToolTip}}" TargetType="ToolTip">
         <Setter Property="Padding" Value="10"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToolTip">

@@ -234,4 +234,7 @@
   <data name="All" xml:space="preserve">
     <value>Wszystkie</value>
   </data>
+  <data name="NoData" xml:space="preserve">
+    <value>No Data</value>
+  </data>
 </root>

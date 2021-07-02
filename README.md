@@ -31,10 +31,6 @@
 
 ## 面向中国
 
-### 招聘
-
-百度地图，招 WPF 研发工程师，坐标上海，有意私聊 836904362@qq.com
-
 ### 码云
 
 [https://gitee.com/handyorg/HandyControl/](https://gitee.com/handyorg/HandyControl/)
@@ -51,7 +47,7 @@
 
 | | 西江月群 | 定风波群 |
 |-|:-:|:-:|
-| 群号码 | [![qq-group](https://img.shields.io/badge/qq-714704041-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1) | [![qq-group](https://img.shields.io/badge/qq-858784803-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=5c18622a0f6ee07a6f33afa8cdb85b1f72ea50e878271dfcec919c76b55afee7) | 微信群 |
+| 群号码 | [![qq-group](https://img.shields.io/badge/qq-714704041-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1) | [![qq-group](https://img.shields.io/badge/qq-858784803-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=5c18622a0f6ee07a6f33afa8cdb85b1f72ea50e878271dfcec919c76b55afee7) |
 | 二维码 | ![qq-group](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qq_group_1.png) | ![qq-group](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qq_group_2.png) |
 
 * 为我们购买防脱洗发水 （支付宝扫码）  
@@ -85,6 +81,7 @@
 <a href="https://github.com/cuiliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="cuiliang" src="https://avatars2.githubusercontent.com/u/1972649?s=64&v=4"></a>
 <a href="https://github.com/lwqwag" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lwqwag" src="https://avatars3.githubusercontent.com/u/29883542?s=64&v=4"></a>
 <a href="https://github.com/Epacik" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Epacik" src="https://avatars.githubusercontent.com/u/23077337?s=64&v=4"></a>
+<a href="https://github.com/ChoKaPeek" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ChoKaPeek" src="https://avatars.githubusercontent.com/u/16904907?s=64&v=4"></a>
 
 ## Backers
 
@@ -129,6 +126,7 @@
 <a href="https://github.com/xyghy13" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xyghy13" src="https://avatars.githubusercontent.com/u/27751725?s=64&v=4"></a>
 <a href="https://github.com/icarousfff" target="_blank"><img style="border-radius:50%!important" width="64px" alt="icarousfff" src="https://avatars.githubusercontent.com/u/49859230?s=64&v=4"></a>
 <a href="https://github.com/qiang9420d" target="_blank"><img style="border-radius:50%!important" width="64px" alt="qiang9420d" src="https://avatars.githubusercontent.com/u/22925262?s=64&v=4"></a>
+<a href="https://github.com/zhongwcool" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zhongwcool" src="https://avatars.githubusercontent.com/u/5747392?s=64&v=4"></a>
 
 ## Special thanks to
 

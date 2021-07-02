@@ -148,7 +148,7 @@ namespace HandyControl.Controls
             set => SetValue(IsOpenProperty, ValueBoxes.BooleanBox(value));
         }
 
-        public static Poptip Default => new Poptip();
+        public static Poptip Default => new();
 
         protected sealed override void OnTargetChanged(FrameworkElement element, bool isNew)
         {
@@ -287,7 +287,7 @@ namespace HandyControl.Controls
         private void Element_MouseEnter(object sender, MouseEventArgs e)
         {
             var hitMode = GetIsInstance(Target) ? HitMode : GetHitMode(Target);
-            if (hitMode != HitMode.Hover || hitMode == HitMode.None) return;
+            if (hitMode != HitMode.Hover) return;
 
             SwitchPoptip(true);
         }
@@ -295,7 +295,7 @@ namespace HandyControl.Controls
         private void Element_MouseLeave(object sender, MouseEventArgs e)
         {
             var hitMode = GetIsInstance(Target) ? HitMode : GetHitMode(Target);
-            if (hitMode != HitMode.Hover || hitMode == HitMode.None) return;
+            if (hitMode != HitMode.Hover) return;
 
             SwitchPoptip(false);
         }
@@ -303,7 +303,7 @@ namespace HandyControl.Controls
         private void Element_GotFocus(object sender, RoutedEventArgs e)
         {
             var hitMode = GetIsInstance(Target) ? HitMode : GetHitMode(Target);
-            if (hitMode != HitMode.Focus || hitMode == HitMode.None) return;
+            if (hitMode != HitMode.Focus) return;
 
             SwitchPoptip(true);
         }
@@ -311,7 +311,7 @@ namespace HandyControl.Controls
         private void Element_LostFocus(object sender, RoutedEventArgs e)
         {
             var hitMode = GetIsInstance(Target) ? HitMode : GetHitMode(Target);
-            if (hitMode != HitMode.Focus || hitMode == HitMode.None) return;
+            if (hitMode != HitMode.Focus) return;
 
             SwitchPoptip(false);
         }

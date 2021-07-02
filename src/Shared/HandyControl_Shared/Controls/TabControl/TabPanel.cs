@@ -20,7 +20,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     选项卡字典
         /// </summary>
-        internal Dictionary<int, TabItem> ItemDic = new Dictionary<int, TabItem>();
+        internal Dictionary<int, TabItem> ItemDic = new();
 
         public static readonly DependencyPropertyKey FluidMoveDurationPropertyKey =
             DependencyProperty.RegisterReadOnly("FluidMoveDuration", typeof(Duration), typeof(TabPanel),

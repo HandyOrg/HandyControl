@@ -96,7 +96,6 @@
     </ControlTemplate>
 
     <Style x:Key="GroupBoxOriginalBaseStyle" BasedOn="{StaticResource GroupBoxBaseStyle}" TargetType="GroupBox">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
         <Setter Property="VerticalContentAlignment" Value="Top"/>
         <Setter Property="Background" Value="Transparent"/>

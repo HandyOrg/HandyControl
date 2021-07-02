@@ -18,7 +18,8 @@ namespace HandyControl.Tools.Interop
                 Kernel32 = "kernel32.dll",
                 Shell32 = "shell32.dll",
                 MsImg = "msimg32.dll",
-                NTdll = "ntdll.dll";
+                NTdll = "ntdll.dll",
+                DwmApi = "dwmapi.dll";
         }
 
         internal delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
@@ -55,6 +56,7 @@ namespace HandyControl.Tools.Interop
             WM_SETICON = 0x0080,
             WM_NCCREATE = 0x0081,
             WM_NCDESTROY = 0x0082,
+            WM_NCHITTEST = 0x0084,
             WM_NCACTIVATE = 0x0086,
             WM_NCRBUTTONDOWN = 0x00A4,
             WM_NCRBUTTONUP = 0x00A5,
@@ -239,8 +241,8 @@ namespace HandyControl.Tools.Interop
                 Bottom = (int) rect.Bottom;
             }
 
-            public Point Position => new Point(Left, Top);
-            public Size Size => new Size(Width, Height);
+            public Point Position => new(Left, Top);
+            public Size Size => new(Width, Height);
 
             public int Height
             {

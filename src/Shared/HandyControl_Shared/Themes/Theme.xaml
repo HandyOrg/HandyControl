@@ -2046,7 +2046,7 @@
 						</Storyboard>
 					</ControlTemplate.Resources>
 					<Border Height="{TemplateBinding Height}" Background="Transparent">
-						<Rectangle x:Name="rectangle" RadiusX="4" RadiusY="4" VerticalAlignment="Bottom" Height="2" SnapsToDevicePixels="True" Width="{TemplateBinding Width}" Fill="{TemplateBinding Background}">
+						<Rectangle x:Name="rectangle" RadiusX="1" RadiusY="1" VerticalAlignment="Bottom" Height="2" SnapsToDevicePixels="True" Width="{TemplateBinding Width}" Fill="{TemplateBinding Background}">
 							<Rectangle.RenderTransform>
 								<TransformGroup>
 									<TranslateTransform Y="-2" />
@@ -2132,6 +2132,21 @@
 		</Style.Triggers>
 	</Style>
 	<ControlTemplate x:Key="ScrollViewerNativeBaseControlTemplate" TargetType="ScrollViewer">
+		<Grid x:Name="Grid" Background="{TemplateBinding Background}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.RowSpan="2" Grid.ColumnSpan="2" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="0" />
+			<ScrollBar x:Name="PART_VerticalScrollBar" Style="{StaticResource ScrollBarBaseStyle}" AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Grid.Row="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
+			<ScrollBar x:Name="PART_HorizontalScrollBar" Style="{StaticResource ScrollBarBaseStyle}" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
+		</Grid>
+	</ControlTemplate>
+	<ControlTemplate x:Key="ScrollViewerNativeAutoHideBaseControlTemplate" TargetType="ScrollViewer">
 		<ControlTemplate.Resources>
 			<Storyboard x:Key="Storyboard1">
 				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_VerticalScrollBar">
@@ -2177,9 +2192,29 @@
 	<Style x:Key="ScrollViewerNativeBaseStyle" TargetType="ScrollViewer">
 		<Setter Property="VerticalScrollBarVisibility" Value="Auto" />
 		<Setter Property="Focusable" Value="False" />
-		<Setter Property="Template" Value="{StaticResource ScrollViewerNativeBaseControlTemplate}" />
+		<Setter Property="Template" Value="{StaticResource ScrollViewerNativeAutoHideBaseControlTemplate}" />
+		<Style.Triggers>
+			<Trigger Property="hc:ScrollViewerAttach.AutoHide" Value="False">
+				<Setter Property="Template" Value="{StaticResource ScrollViewerNativeBaseControlTemplate}" />
+			</Trigger>
+		</Style.Triggers>
 	</Style>
 	<ControlTemplate x:Key="ScrollViewerBaseControlTemplate" TargetType="hc:ScrollViewer">
+		<Grid x:Name="Grid" Background="{TemplateBinding Background}">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="Auto" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.RowSpan="2" Grid.ColumnSpan="2" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Grid.Column="0" Margin="{TemplateBinding Padding}" Grid.Row="0" />
+			<ScrollBar x:Name="PART_VerticalScrollBar" Style="{StaticResource ScrollBarBaseStyle}" AutomationProperties.AutomationId="VerticalScrollBar" Cursor="Arrow" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Minimum="0" Grid.Row="0" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
+			<ScrollBar x:Name="PART_HorizontalScrollBar" Style="{StaticResource ScrollBarBaseStyle}" AutomationProperties.AutomationId="HorizontalScrollBar" Cursor="Arrow" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Minimum="0" Orientation="Horizontal" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
+		</Grid>
+	</ControlTemplate>
+	<ControlTemplate x:Key="ScrollViewerAutoHideBaseControlTemplate" TargetType="hc:ScrollViewer">
 		<ControlTemplate.Resources>
 			<Storyboard x:Key="Storyboard1">
 				<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_VerticalScrollBar">
@@ -2225,7 +2260,12 @@
 	<Style x:Key="ScrollViewerBaseStyle" TargetType="hc:ScrollViewer">
 		<Setter Property="VerticalScrollBarVisibility" Value="Auto" />
 		<Setter Property="Focusable" Value="False" />
-		<Setter Property="Template" Value="{StaticResource ScrollViewerBaseControlTemplate}" />
+		<Setter Property="Template" Value="{StaticResource ScrollViewerAutoHideBaseControlTemplate}" />
+		<Style.Triggers>
+			<Trigger Property="hc:ScrollViewerAttach.AutoHide" Value="False">
+				<Setter Property="Template" Value="{StaticResource ScrollViewerBaseControlTemplate}" />
+			</Trigger>
+		</Style.Triggers>
 	</Style>
 	<Style x:Key="RepeatButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
@@ -2340,7 +2380,6 @@
 		</Grid>
 	</ControlTemplate>
 	<Style x:Key="GroupBoxOriginalBaseStyle" BasedOn="{StaticResource GroupBoxBaseStyle}" TargetType="GroupBox">
-		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0" />
 		<Setter Property="VerticalContentAlignment" Value="Top" />
 		<Setter Property="Background" Value="Transparent" />
@@ -4600,10 +4639,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Row="1" Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -4668,10 +4707,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -4818,10 +4857,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Column="0" Grid.Row="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -4886,10 +4925,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -5057,10 +5096,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" MinWidth="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Row="1" Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -5165,10 +5204,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" MinWidth="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -5276,10 +5315,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" MinWidth="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Column="0" Grid.Row="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -5405,10 +5444,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" MinWidth="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Column="0" Grid.Row="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -5550,10 +5589,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" MinWidth="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -5676,10 +5715,10 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" MinWidth="30" />
 			</Grid.ColumnDefinitions>
-			<StackPanel VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Popup Grid.Column="1" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=toggleButton}" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 				<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 					<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
@@ -6040,7 +6079,6 @@
 		<Setter Property="FontWeight" Value="Normal" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="ItemContainerStyle" Value="{StaticResource MenuItemBaseStyle}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Menu">
@@ -6338,10 +6376,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid>
 					<Grid.ColumnDefinitions>
@@ -6372,10 +6410,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid>
 					<Grid.ColumnDefinitions>
@@ -6427,10 +6465,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock Grid.Row="1" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" />
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid>
@@ -6488,10 +6526,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1" />
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid>
@@ -7694,10 +7732,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
@@ -7742,10 +7780,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
@@ -7811,10 +7849,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock FontSize="12" Grid.Row="1" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" />
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -7886,10 +7924,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1" />
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -8016,10 +8054,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
@@ -8064,10 +8102,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
@@ -8133,10 +8171,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock FontSize="12" Grid.Row="1" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" />
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -8208,10 +8246,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1" />
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -9103,10 +9141,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Foreground="{TemplateBinding Foreground}" Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid>
 					<Grid.ColumnDefinitions>
@@ -9141,10 +9179,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Foreground="{TemplateBinding Foreground}" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid>
 					<Grid.ColumnDefinitions>
@@ -9201,10 +9239,10 @@
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
 			<TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="PART_ErrorTip" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1" />
-			<StackPanel Grid.Row="0" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Foreground="{TemplateBinding Foreground}" Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.ColumnSpan="2" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid>
 					<Grid.ColumnDefinitions>
@@ -9267,10 +9305,10 @@
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
 			<TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="PART_ErrorTip" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1" />
-			<StackPanel Grid.Column="0" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,8">
-				<TextBlock Foreground="{TemplateBinding Foreground}" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.Column="0" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
@@ -9370,10 +9408,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border x:Name="border" Grid.Row="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" />
 			<TextBlock x:Name="placeholder" Padding="1" Visibility="Collapsed" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" Grid.Row="1" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" />
 			<ScrollViewer Margin="-1,1" Padding="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Grid.Row="1" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
@@ -9401,10 +9439,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border x:Name="border" Grid.Column="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" />
 			<TextBlock Padding="1" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" x:Name="placeholder" Visibility="Collapsed" Grid.Column="1" HorizontalAlignment="Stretch" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" />
 			<ScrollViewer Margin="-1,1" Padding="{TemplateBinding Padding}" Grid.Column="1" x:Name="PART_ContentHost" Focusable="false" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" />
@@ -9487,10 +9525,10 @@
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
-			<StackPanel Grid.ColumnSpan="2" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel Grid.ColumnSpan="3" LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock FontSize="12" Grid.Column="0" Grid.ColumnSpan="3" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Row="1" />
 			<Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" />
 			<PasswordBox Margin="-1,1,0,1" Visibility="{Binding ShowPassword,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityReConverter}}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" Grid.Column="0" Grid.Row="1" x:Name="PART_PasswordBox" PasswordChar="{TemplateBinding PasswordChar}" Style="{StaticResource PasswordBoxPlusInternalStyle}" />
@@ -9545,10 +9583,10 @@
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
-			<StackPanel Grid.Column="0" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock FontSize="12" Grid.ColumnSpan="3" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1" />
 			<Border Grid.Column="1" Grid.ColumnSpan="3" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True" />
 			<PasswordBox Margin="-1,1,0,1" Visibility="{Binding ShowPassword,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityReConverter}}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" Padding="{TemplateBinding Padding}" Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" Grid.Column="1" x:Name="PART_PasswordBox" PasswordChar="{TemplateBinding PasswordChar}" Style="{StaticResource PasswordBoxPlusInternalStyle}" />
@@ -9704,7 +9742,6 @@
 	</Style>
 	<Style x:Key="PropertyItemToolTipBaseStyle" BasedOn="{StaticResource {x:Type ToolTip}}" TargetType="ToolTip">
 		<Setter Property="Padding" Value="10" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="2" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ToolTip">
@@ -10568,10 +10605,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
@@ -10616,10 +10653,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
@@ -10685,10 +10722,10 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" Margin="{TemplateBinding Padding}">
-				<TextBlock Margin="1,0,0,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{TemplateBinding Padding}">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Margin="1,0,1,0" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock Grid.Row="1" FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" />
 			<Border Grid.Row="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -10760,10 +10797,10 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<StackPanel Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" Orientation="Horizontal" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="0,7,6,7">
-				<TextBlock Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
-				<ContentPresenter TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
-			</StackPanel>
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
+				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
+			</DockPanel>
 			<TextBlock FontSize="12" Text="{TemplateBinding ErrorStr}" Name="TextBlockError" VerticalAlignment="Bottom" Margin="9,0,0,4" Foreground="{DynamicResource DangerBrush}" Grid.Column="1" />
 			<Border Grid.Column="1" x:Name="templateRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
@@ -11492,7 +11529,7 @@
 							<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" Grid.ColumnSpan="3" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Name="PART_BorderTitle">
 								<TextBlock x:Name="PART_TimeStr" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="{DynamicResource TextIconBrush}" />
 							</Border>
-							<Canvas Grid.Row="1" Grid.ColumnSpan="3" Margin="0,16,0,0" VerticalAlignment="Top" Name="PART_Canvas" Width="178" Height="178">
+							<Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,16,0,0" VerticalAlignment="Top" Name="PART_Canvas" Width="178" Height="178">
 								<Border Background="{DynamicResource SecondaryRegionBrush}" Width="178" Height="178" CornerRadius="89" />
 								<hc:CirclePanel Diameter="130" x:Name="PART_PanelNum" KeepVertical="True" Margin="24,24,0,0" OffsetAngle="-60" />
 								<Border Focusable="False" Name="PART_BorderClock" Background="{DynamicResource PrimaryBrush}" RenderTransformOrigin="0.5,1" Height="63" Width="2" Canvas.Left="88" Canvas.Top="26" />
@@ -11910,7 +11947,7 @@
 		<Setter Property="Focusable" Value="False" />
 		<Setter Property="MinHeight" Value="60" />
 		<Setter Property="Width" Value="320" />
-		<Setter Property="Margin" Value="10,0,0,10" />
+		<Setter Property="Margin" Value="10,10,10,0" />
 		<Setter Property="MaxWidth" Value="320" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="8" />
 		<Setter Property="Background" Value="{DynamicResource ThirdlyRegionBrush}" />
@@ -11933,13 +11970,13 @@
 							<RowDefinition Height="Auto" />
 						</Grid.RowDefinitions>
 						<Border Grid.ColumnSpan="3" Grid.RowSpan="2" Effect="{StaticResource EffectShadow2}" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" />
-						<Path Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="0,15,0,0" Width="30" Height="30" Data="{TemplateBinding Icon}" Stretch="Uniform" Fill="{TemplateBinding IconBrush}" />
+						<Path FlowDirection="LeftToRight" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Margin="0,15,0,0" Width="30" Height="30" Data="{TemplateBinding Icon}" Stretch="Uniform" Fill="{TemplateBinding IconBrush}" />
 						<StackPanel VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0,10,10,10">
 							<TextBlock Text="{TemplateBinding Message}" Style="{StaticResource TextBlockDefault}" HorizontalAlignment="Left" TextWrapping="Wrap" />
 							<TextBlock Visibility="{Binding ShowDateTime,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Text="{Binding Time,RelativeSource={RelativeSource AncestorType=hc:Growl},StringFormat=yyyy/MM/dd HH:mm:ss}" Style="{StaticResource TextBlockDefault}" Foreground="{DynamicResource SecondaryTextBrush}" HorizontalAlignment="Left" Margin="0,4,0,0" />
 						</StackPanel>
 						<Button Grid.Row="0" Visibility="Collapsed" Margin="11,0" Name="PART_ButtonClose" Command="interactivity:ControlCommands.Close" Grid.Column="2" Background="Transparent" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center" HorizontalAlignment="Center" Width="18" Height="18">
-							<Path Data="{StaticResource ErrorGeometry}" Stretch="Uniform" Fill="{DynamicResource SecondaryTextBrush}" />
+							<Path FlowDirection="LeftToRight" Data="{StaticResource ErrorGeometry}" Stretch="Uniform" Fill="{DynamicResource SecondaryTextBrush}" />
 						</Button>
 						<UniformGrid Columns="2" Name="PART_PanelMore" IsEnabled="False" Visibility="Collapsed" Grid.Row="1" Grid.ColumnSpan="3" Height="28" Grid.Column="0">
 							<Button Command="interactivity:ControlCommands.Cancel" Style="{StaticResource ButtonCustom}" HorizontalAlignment="Stretch" Background="Transparent">
@@ -12087,55 +12124,6 @@
 			</MultiTrigger>
 		</Style.Triggers>
 	</Style>
-	<Style x:Key="ListViewScrollViewerStyle" TargetType="ScrollViewer">
-		<Setter Property="Focusable" Value="False" />
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="ScrollViewer">
-					<ControlTemplate.Resources>
-						<Storyboard x:Key="Storyboard1">
-							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_VerticalScrollBar">
-								<EasingDoubleKeyFrame KeyTime="0:0:.2" Value=".8" />
-							</DoubleAnimationUsingKeyFrames>
-							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_HorizontalScrollBar">
-								<EasingDoubleKeyFrame KeyTime="0:0:.2" Value=".8" />
-							</DoubleAnimationUsingKeyFrames>
-						</Storyboard>
-						<Storyboard x:Key="Storyboard2">
-							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_VerticalScrollBar">
-								<EasingDoubleKeyFrame KeyTime="0:0:.2" Value="0" />
-							</DoubleAnimationUsingKeyFrames>
-							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_HorizontalScrollBar">
-								<EasingDoubleKeyFrame KeyTime="0:0:.2" Value="0" />
-							</DoubleAnimationUsingKeyFrames>
-						</Storyboard>
-					</ControlTemplate.Resources>
-					<Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="*" />
-							<ColumnDefinition Width="Auto" />
-						</Grid.ColumnDefinitions>
-						<Grid.RowDefinitions>
-							<RowDefinition Height="Auto" />
-							<RowDefinition Height="*" />
-						</Grid.RowDefinitions>
-						<GridViewHeaderRowPresenter Grid.ColumnSpan="2" AllowsColumnReorder="{Binding TemplatedParent.View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding TemplatedParent.View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding TemplatedParent.View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding TemplatedParent.View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding TemplatedParent.View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding TemplatedParent.View.Columns, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" Grid.ColumnSpan="2" Grid.Row="1" CanContentScroll="{TemplateBinding CanContentScroll}" CanHorizontallyScroll="False" CanVerticallyScroll="False" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" KeyboardNavigation.DirectionalNavigation="Local" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-						<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="1" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
-						<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_HorizontalScrollBar" Grid.Column="0" Maximum="{TemplateBinding ScrollableWidth}" Orientation="Horizontal" VerticalAlignment="Bottom" Grid.Row="1" Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}" Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportWidth}" />
-					</Grid>
-					<ControlTemplate.Triggers>
-						<EventTrigger RoutedEvent="MouseEnter">
-							<BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
-						</EventTrigger>
-						<EventTrigger RoutedEvent="MouseLeave">
-							<BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
-						</EventTrigger>
-					</ControlTemplate.Triggers>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-	</Style>
 	<Style TargetType="ListView">
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
@@ -12155,8 +12143,15 @@
 					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Style="{StaticResource ListViewScrollViewerStyle}">
-									<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								<ScrollViewer>
+									<Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto" />
+											<RowDefinition Height="*" />
+										</Grid.RowDefinitions>
+										<GridViewHeaderRowPresenter AllowsColumnReorder="{Binding View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding View.Columns, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+										<ItemsPresenter Grid.Row="1" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+									</Grid>
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
 							<hc:ToggleBlock.UnCheckedContent>

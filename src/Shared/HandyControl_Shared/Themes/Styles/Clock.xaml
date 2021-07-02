@@ -90,7 +90,7 @@
                             <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" Grid.ColumnSpan="3" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Name="PART_BorderTitle">
                                 <TextBlock x:Name="PART_TimeStr" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="{DynamicResource TextIconBrush}"/>
                             </Border>
-                            <Canvas Grid.Row="1" Grid.ColumnSpan="3" Margin="0,16,0,0" VerticalAlignment="Top" Name="PART_Canvas" Width="178" Height="178">
+                            <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,16,0,0" VerticalAlignment="Top" Name="PART_Canvas" Width="178" Height="178">
                                 <Border Background="{DynamicResource SecondaryRegionBrush}" Width="178" Height="178" CornerRadius="89"/>
                                 <hc:CirclePanel Diameter="130" x:Name="PART_PanelNum" KeepVertical="True" Margin="24,24,0,0" OffsetAngle="-60"/>
                                 <Border Focusable="False" Name="PART_BorderClock"  Background="{DynamicResource PrimaryBrush}" RenderTransformOrigin="0.5,1" Height="63" Width="2" Canvas.Left="88" Canvas.Top="26"/>

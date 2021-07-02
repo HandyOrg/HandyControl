@@ -114,7 +114,7 @@ namespace HandyControl.Controls
 
         private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is TimeBar timeBar && timeBar._textBlockSelected != null)
+            if (d is TimeBar { _textBlockSelected: { } } timeBar)
             {
                 timeBar.OnSelectedTimeChanged((DateTime) e.NewValue);
             }
@@ -150,7 +150,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     刻度集合
         /// </summary>
-        private readonly List<SpeTextBlock> _speBlockList = new List<SpeTextBlock>();
+        private readonly List<SpeTextBlock> _speBlockList = new();
 
         /// <summary>
         ///     初始化时时间
@@ -160,7 +160,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     时间段集合
         /// </summary>
-        private readonly List<int> _timeSpeList = new List<int>
+        private readonly List<int> _timeSpeList = new()
         {
             7200000,
             3600000,
@@ -403,25 +403,17 @@ namespace HandyControl.Controls
         /// <returns></returns>
         private DateTime TimeConvert(DateTime time)
         {
-            switch (_speIndex)
+            return _speIndex switch
             {
-                case 0:
-                    return new DateTime(time.Year, time.Month, time.Day, time.Hour / 2 * 2, 0, 0);
-                case 1:
-                    return new DateTime(time.Year, time.Month, time.Day, time.Hour, 0, 0);
-                case 2:
-                    return new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute / 30 * 30, 0);
-                case 3:
-                    return new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute / 10 * 10, 0);
-                case 4:
-                    return new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute / 5 * 5, 0);
-                case 5:
-                    return new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, 0);
-                case 6:
-                    return new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, time.Second / 30 * 30);
-                default:
-                    return time;
-            }
+                0 => new DateTime(time.Year, time.Month, time.Day, time.Hour / 2 * 2, 0, 0),
+                1 => new DateTime(time.Year, time.Month, time.Day, time.Hour, 0, 0),
+                2 => new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute / 30 * 30, 0),
+                3 => new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute / 10 * 10, 0),
+                4 => new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute / 5 * 5, 0),
+                5 => new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, 0),
+                6 => new DateTime(time.Year, time.Month, time.Day, time.Hour, time.Minute, time.Second / 30 * 30),
+                _ => time
+            };
         }
 
         /// <summary>

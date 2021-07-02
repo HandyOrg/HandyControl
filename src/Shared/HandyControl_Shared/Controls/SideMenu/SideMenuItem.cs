@@ -149,7 +149,7 @@ namespace HandyControl.Controls
             if (Role == SideMenuItemRole.Header && ItemsHost.Children.Count > 0)
             {
                 var item = ItemsHost.Children.OfType<SideMenuItem>().FirstOrDefault();
-                if (item != null && !item.IsSelected)
+                if (item is { IsSelected: false })
                 {
                     item.OnSelected(new RoutedEventArgs(SelectedEvent, item));
                 }
