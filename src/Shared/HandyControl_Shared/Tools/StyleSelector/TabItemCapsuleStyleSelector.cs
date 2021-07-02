@@ -13,16 +13,16 @@ namespace HandyControl.Tools
                 var count = tabControl.Items.Count;
                 if (count == 1)
                 {
-                    return ResourceHelper.GetResource<Style>(ResourceToken.TabItemCapsuleSingle);
+                    return ResourceHelper.GetResourceInternal<Style>(ResourceToken.TabItemCapsuleSingle);
                 }
 
                 var index = tabControl.ItemContainerGenerator.IndexFromContainer(tabItem);
                 return index == 0
-                    ? ResourceHelper.GetResource<Style>(
+                    ? ResourceHelper.GetResourceInternal<Style>(
                         tabControl.TabStripPlacement == Dock.Top || tabControl.TabStripPlacement == Dock.Bottom
                             ? ResourceToken.TabItemCapsuleHorizontalFirst
                             : ResourceToken.TabItemCapsuleVerticalFirst)
-                    : ResourceHelper.GetResource<Style>(index == count - 1
+                    : ResourceHelper.GetResourceInternal<Style>(index == count - 1
                         ? tabControl.TabStripPlacement == Dock.Top || tabControl.TabStripPlacement == Dock.Bottom
                             ? ResourceToken.TabItemCapsuleHorizontalLast
                             : ResourceToken.TabItemCapsuleVerticalLast

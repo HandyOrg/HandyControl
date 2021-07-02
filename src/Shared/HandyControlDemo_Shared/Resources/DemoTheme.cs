@@ -11,7 +11,7 @@ namespace HandyControlDemo.Resources
         public override ResourceDictionary GetSkin(SkinType skinType) =>
             ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skinType);
 
-        public override ResourceDictionary GetTheme() => new ResourceDictionary
+        public override ResourceDictionary GetTheme() => new()
         {
             Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
         };

@@ -11,10 +11,14 @@ namespace HandyControl.Controls
     {
         private FrameworkElement _contentPresenter;
 
+        private static Storyboard StoryboardBuildInDefault;
+
+        private Storyboard _storyboardBuildIn;
+
         public TransitioningContentControl()
         {
             Loaded += TransitioningContentControl_Loaded;
-            IsVisibleChanged += TransitioningContentControl_IsVisibleChanged;
+            Unloaded += TransitioningContentControl_Unloaded;
         }
 
         public static readonly DependencyProperty TransitionModeProperty = DependencyProperty.Register(
@@ -23,7 +27,13 @@ namespace HandyControl.Controls
         private static void OnTransitionModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (TransitioningContentControl) d;
-            ctl.StartTransition();
+            ctl.OnTransitionModeChanged((TransitionMode) e.NewValue);
+        }
+
+        private void OnTransitionModeChanged(TransitionMode newValue)
+        {
+            _storyboardBuildIn = ResourceHelper.GetResourceInternal<Storyboard>($"{newValue}Transition");
+            StartTransition();
         }
 
         public TransitionMode TransitionMode
@@ -43,19 +53,33 @@ namespace HandyControl.Controls
 
         private void TransitioningContentControl_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) => StartTransition();
 
-        private void TransitioningContentControl_Loaded(object sender, RoutedEventArgs e) => StartTransition();
+        private void TransitioningContentControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            StartTransition();
+            IsVisibleChanged += TransitioningContentControl_IsVisibleChanged;
+        }
+
+        private void TransitioningContentControl_Unloaded(object sender, RoutedEventArgs e)
+        {
+            IsVisibleChanged -= TransitioningContentControl_IsVisibleChanged;
+        }
 
         private void StartTransition()
         {
-            if (Visibility != Visibility.Visible || _contentPresenter == null) return;
+            if (!IsArrangeValid || _contentPresenter == null) return;
 
             if (TransitionStoryboard != null)
             {
                 TransitionStoryboard.Begin(_contentPresenter);
             }
-            else if (Application.Current != null)
+            else if (_storyboardBuildIn != null)
             {
-                ResourceHelper.GetResource<Storyboard>($"{TransitionMode.ToString()}Transition")?.Begin(_contentPresenter);
+                _storyboardBuildIn?.Begin(_contentPresenter);
+            }
+            else
+            {
+                StoryboardBuildInDefault ??= ResourceHelper.GetResourceInternal<Storyboard>($"{default(TransitionMode)}Transition");
+                StoryboardBuildInDefault?.Begin(_contentPresenter);
             }
         }
 

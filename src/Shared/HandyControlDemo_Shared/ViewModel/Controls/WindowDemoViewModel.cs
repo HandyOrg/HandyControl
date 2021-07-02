@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using GalaSoft.MvvmLight.Command;
 using HandyControlDemo.Tools;
 
@@ -7,7 +6,7 @@ namespace HandyControlDemo.ViewModel
 {
     public class WindowDemoViewModel
     {
-        public RelayCommand<string> OpenWindowCmd => new Lazy<RelayCommand<string>>(() => new RelayCommand<string>(OpenWindow)).Value;
+        public RelayCommand<string> OpenWindowCmd => new(OpenWindow);
 
         private void OpenWindow(string windowTag)
         {

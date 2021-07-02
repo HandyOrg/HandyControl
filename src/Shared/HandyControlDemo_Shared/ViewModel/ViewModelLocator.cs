@@ -58,7 +58,7 @@ namespace HandyControlDemo.ViewModel
 
         public WindowDemoViewModel WindowDemo => SimpleIoc.Default.GetInstance<WindowDemoViewModel>();
 
-        public ItemsDisplayViewModel ContributorsView => new ItemsDisplayViewModel(SimpleIoc.Default.GetInstance<DataService>().GetContributorDataList);
+        public ItemsDisplayViewModel ContributorsView => new(SimpleIoc.Default.GetInstance<DataService>().GetContributorDataList);
 
         public ItemsDisplayViewModel BlogsView => SimpleIoc.Default.GetInstance<ItemsDisplayViewModel>("Blogs");
 
@@ -70,7 +70,7 @@ namespace HandyControlDemo.ViewModel
 
         public PaginationDemoViewModel PaginationDemo => SimpleIoc.Default.GetInstance<PaginationDemoViewModel>();
 
-        public ChatBoxViewModel ChatBox => new ChatBoxViewModel();
+        public ChatBoxViewModel ChatBox => new();
 
         public CoverViewModel CoverView => SimpleIoc.Default.GetInstance<CoverViewModel>();
 
@@ -86,11 +86,11 @@ namespace HandyControlDemo.ViewModel
 
         public SideMenuDemoViewModel SideMenuDemo => SimpleIoc.Default.GetInstance<SideMenuDemoViewModel>();
 
-        public TabControlDemoViewModel TabControlDemo => new TabControlDemoViewModel(SimpleIoc.Default.GetInstance<DataService>());
+        public TabControlDemoViewModel TabControlDemo => new(SimpleIoc.Default.GetInstance<DataService>());
 
         public NonClientAreaViewModel NoUser => SimpleIoc.Default.GetInstance<NonClientAreaViewModel>();
 
-        public CardDemoViewModel CardDemo => new CardDemoViewModel(SimpleIoc.Default.GetInstance<DataService>());
+        public CardDemoViewModel CardDemo => new(SimpleIoc.Default.GetInstance<DataService>());
 
         public SpriteDemoViewModel SpriteDemo => SimpleIoc.Default.GetInstance<SpriteDemoViewModel>();
 
@@ -98,7 +98,7 @@ namespace HandyControlDemo.ViewModel
 
         public SplitButtonDemoViewModel SplitButtonDemo => SimpleIoc.Default.GetInstance<SplitButtonDemoViewModel>();
 
-        public TagDemoViewModel TagDemo => new TagDemoViewModel(SimpleIoc.Default.GetInstance<DataService>());
+        public TagDemoViewModel TagDemo => new(SimpleIoc.Default.GetInstance<DataService>());
 
         #endregion
     }

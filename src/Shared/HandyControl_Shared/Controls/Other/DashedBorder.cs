@@ -134,9 +134,9 @@ namespace HandyControl.Controls
             set => SetValue(BorderDashOffsetProperty, value);
         }
 
-        private static Size ConvertThickness2Size(Thickness th) => new Size(th.Left + th.Right, th.Top + th.Bottom);
+        private static Size ConvertThickness2Size(Thickness th) => new(th.Left + th.Right, th.Top + th.Bottom);
 
-        private static Rect DeflateRect(Rect rt, Thickness thick) => new Rect(rt.Left + thick.Left,
+        private static Rect DeflateRect(Rect rt, Thickness thick) => new(rt.Left + thick.Left,
             rt.Top + thick.Top,
             Math.Max(0.0, rt.Width - thick.Left - thick.Right),
             Math.Max(0.0, rt.Height - thick.Top - thick.Bottom));

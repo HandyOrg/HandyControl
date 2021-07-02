@@ -69,12 +69,12 @@ namespace HandyControl.Controls
         /// <summary>
         ///     存储所有的内容
         /// </summary>
-        private readonly Dictionary<int, object> _contentDic = new Dictionary<int, object>();
+        private readonly Dictionary<int, object> _contentDic = new();
 
         /// <summary>
         ///     当前在显示范围内的项
         /// </summary>
-        private readonly Dictionary<int, CoverFlowItem> _itemShowDic = new Dictionary<int, CoverFlowItem>();
+        private readonly Dictionary<int, CoverFlowItem> _itemShowDic = new();
 
         /// <summary>
         ///     相机

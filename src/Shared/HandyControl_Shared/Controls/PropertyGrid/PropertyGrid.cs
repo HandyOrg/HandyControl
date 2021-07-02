@@ -35,7 +35,7 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName, (s, e) => e.CanExecute = ShowSortButton));
         }
 
-        public virtual PropertyResolver PropertyResolver { get; } = new PropertyResolver();
+        public virtual PropertyResolver PropertyResolver { get; } = new();
 
         public static readonly RoutedEvent SelectedObjectChangedEvent =
             EventManager.RegisterRoutedEvent("SelectedObjectChanged", RoutingStrategy.Bubble,
@@ -258,7 +258,7 @@ namespace HandyControl.Controls
         }
 
         protected virtual PropertyItem CreatePropertyItem(PropertyDescriptor propertyDescriptor, string category) =>
-            new PropertyItem
+            new()
             {
                 Category         = category ?? PropertyResolver.ResolveCategory(propertyDescriptor),
                 DisplayName      = PropertyResolver.ResolveDisplayName(propertyDescriptor),

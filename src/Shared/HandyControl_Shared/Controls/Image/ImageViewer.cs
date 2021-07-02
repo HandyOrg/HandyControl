@@ -48,7 +48,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     图片保存对话框
         /// </summary>
-        private static readonly SaveFileDialog SaveFileDialog = new SaveFileDialog
+        private static readonly SaveFileDialog SaveFileDialog = new()
         {
             Filter = $"{Lang.PngImg}|*.png"
         };
@@ -160,6 +160,8 @@ namespace HandyControl.Controls
 
         private DispatcherTimer _dispatcher;
 
+        private bool _isLoaded;
+
         #endregion Data
 
         #region ctor
@@ -174,7 +176,11 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.RotateLeft, ButtonRotateLeft_OnClick));
             CommandBindings.Add(new CommandBinding(ControlCommands.RotateRight, ButtonRotateRight_OnClick));
 
-            Loaded += (s, e) => Init();
+            Loaded += (s, e) =>
+            {
+                _isLoaded = true;
+                Init();
+            };
         }
 
         /// <summary>
@@ -445,7 +451,7 @@ namespace HandyControl.Controls
         /// </summary>
         private void Init()
         {
-            if (ImageSource == null || !IsLoaded) return;
+            if (ImageSource == null || !_isLoaded) return;
 
             if (ImageSource.IsDownloading)
             {
@@ -464,13 +470,13 @@ namespace HandyControl.Controls
 
             if (!_isOblique)
             {
-                width = ImageSource.Width;
-                height = ImageSource.Height;
+                width = ImageSource.PixelWidth;
+                height = ImageSource.PixelHeight;
             }
             else
             {
-                width = ImageSource.Height;
-                height = ImageSource.Width;
+                width = ImageSource.PixelHeight;
+                height = ImageSource.PixelWidth;
             }
 
             ImageWidth = width;
@@ -514,7 +520,7 @@ namespace HandyControl.Controls
         {
             if (_dispatcher == null) return;
 
-            if (ImageSource == null || !IsLoaded)
+            if (ImageSource == null || !_isLoaded)
             {
                 _dispatcher.Stop();
                 _dispatcher.Tick -= Dispatcher_Tick;

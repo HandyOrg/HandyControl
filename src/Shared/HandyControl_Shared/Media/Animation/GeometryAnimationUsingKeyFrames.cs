@@ -238,7 +238,7 @@ namespace HandyControl.Media.Animation
             return AnimationHelper.ComposeGeometry(Strings, currentIterationValue);
         }
 
-        protected sealed override Duration GetNaturalDurationCore(Clock clock) => new Duration(LargestTimeSpanKeyTime);
+        protected sealed override Duration GetNaturalDurationCore(Clock clock) => new(LargestTimeSpanKeyTime);
 
         IList IKeyFrameAnimation.KeyFrames
         {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Threading;
@@ -25,7 +26,9 @@ namespace HandyControl.Controls
         #region Constants
 
         private const string ElementPanelMore = "PART_PanelMore";
+
         private const string ElementGridMain = "PART_GridMain";
+
         private const string ElementButtonClose = "PART_ButtonClose";
 
         #endregion Constants
@@ -56,7 +59,7 @@ namespace HandyControl.Controls
         /// </summary>
         private DispatcherTimer _timerClose;
 
-        private static readonly Dictionary<string, Panel> PanelDic = new Dictionary<string, Panel>();
+        private static readonly Dictionary<string, Panel> PanelDic = new();
 
         #endregion Data
 
@@ -176,15 +179,6 @@ namespace HandyControl.Controls
         public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
             "Type", typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
 
-        public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
-            "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
-            {
-                if ((bool) args.NewValue && o is Panel panel)
-                {
-                    SetGrowlPanel(panel);
-                }
-            }));
-
         public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
             "Token", typeof(string), typeof(Growl), new PropertyMetadata(default(string), OnTokenChanged));
 
@@ -209,9 +203,27 @@ namespace HandyControl.Controls
         public static string GetToken(DependencyObject element)
             => (string) element.GetValue(TokenProperty);
 
+        public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
+            "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
+            {
+                if ((bool) args.NewValue && o is Panel panel)
+                {
+                    SetGrowlPanel(panel);
+                }
+            }));
+
         public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetGrowlParent(DependencyObject element) => (bool) element.GetValue(GrowlParentProperty);
+
+        private static readonly DependencyProperty IsCreatedAutomaticallyProperty = DependencyProperty.RegisterAttached(
+            "IsCreatedAutomatically", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        private static void SetIsCreatedAutomatically(DependencyObject element, bool value)
+            => element.SetValue(IsCreatedAutomaticallyProperty, ValueBoxes.BooleanBox(value));
+
+        private static bool GetIsCreatedAutomatically(DependencyObject element)
+            => (bool) element.GetValue(IsCreatedAutomaticallyProperty);
 
         public InfoType Type
         {
@@ -316,7 +328,7 @@ namespace HandyControl.Controls
                 }
             };
 
-            PanelElement.SetFluidMoveBehavior(panel, ResourceHelper.GetResource<FluidMoveBehavior>(ResourceToken.BehaviorXY400));
+            PanelElement.SetFluidMoveBehavior(panel, ResourceHelper.GetResourceInternal<FluidMoveBehavior>(ResourceToken.BehaviorXY400));
         }
 
         private void Update()
@@ -331,7 +343,7 @@ namespace HandyControl.Controls
 
             var transform = new TranslateTransform
             {
-                X = MaxWidth
+                X = FlowDirection == FlowDirection.LeftToRight ? MaxWidth : -MaxWidth
             };
             _gridMain.RenderTransform = transform;
             transform.BeginAnimation(TranslateTransform.XProperty, AnimationHelper.CreateAnimation(0));
@@ -360,8 +372,8 @@ namespace HandyControl.Controls
                         {
                             Message = growlInfo.Message,
                             Time = DateTime.Now,
-                            Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                            IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                            Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey) ?? growlInfo.Icon,
+                            IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey) ?? growlInfo.IconBrush,
                             _showCloseButton = growlInfo.ShowCloseButton,
                             ActionBeforeClose = growlInfo.ActionBeforeClose,
                             _staysOpen = growlInfo.StaysOpen,
@@ -369,7 +381,8 @@ namespace HandyControl.Controls
                             ConfirmStr = growlInfo.ConfirmStr,
                             CancelStr = growlInfo.CancelStr,
                             Type = growlInfo.Type,
-                            _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                            _waitTime = Math.Max(growlInfo.WaitTime, 2),
+                            FlowDirection = growlInfo.FlowDirection
                         };
                         GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
                     }
@@ -395,8 +408,8 @@ namespace HandyControl.Controls
                         {
                             Message = growlInfo.Message,
                             Time = DateTime.Now,
-                            Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey),
-                            IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey),
+                            Icon = ResourceHelper.GetResource<Geometry>(growlInfo.IconKey) ?? growlInfo.Icon,
+                            IconBrush = ResourceHelper.GetResource<Brush>(growlInfo.IconBrushKey) ?? growlInfo.IconBrush,
                             _showCloseButton = growlInfo.ShowCloseButton,
                             ActionBeforeClose = growlInfo.ActionBeforeClose,
                             _staysOpen = growlInfo.StaysOpen,
@@ -406,6 +419,7 @@ namespace HandyControl.Controls
                             Type = growlInfo.Type,
                             _waitTime = Math.Max(growlInfo.WaitTime, 2)
                         };
+
                         if (!string.IsNullOrEmpty(growlInfo.Token))
                         {
                             if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
@@ -415,6 +429,8 @@ namespace HandyControl.Controls
                         }
                         else
                         {
+                            // GrowlPanel is null, we create it automatically
+                            GrowlPanel ??= CreateDefaultPanel();
                             GrowlPanel?.Children.Insert(0, ctl);
                         }
                     }
@@ -422,6 +438,64 @@ namespace HandyControl.Controls
                 )
 #endif
             );
+        }
+
+        private static Panel CreateDefaultPanel()
+        {
+            FrameworkElement element = WindowHelper.GetActiveWindow();
+            var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
+
+            if (decorator != null)
+            {
+                var layer = decorator.AdornerLayer;
+                if (layer != null)
+                {
+                    var panel = new StackPanel
+                    {
+                        VerticalAlignment = VerticalAlignment.Top
+                    };
+
+                    InitGrowlPanel(panel);
+                    SetIsCreatedAutomatically(panel, true);
+
+                    var scrollViewer = new ScrollViewer
+                    {
+                        HorizontalAlignment = HorizontalAlignment.Right,
+                        VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
+                        IsInertiaEnabled = true,
+                        IsPenetrating = true,
+                        Content = panel
+                    };
+
+                    var container = new AdornerContainer(layer)
+                    {
+                        Child = scrollViewer
+                    };
+
+                    layer.Add(container);
+
+                    return panel;
+                }
+            }
+
+            return null;
+        }
+
+        private static void RemoveDefaultPanel(Panel panel)
+        {
+            FrameworkElement element = WindowHelper.GetActiveWindow();
+            var decorator = VisualHelper.GetChild<AdornerDecorator>(element);
+
+            if (decorator != null)
+            {
+                var layer = decorator.AdornerLayer;
+                var adorner = VisualHelper.GetParent<Adorner>(panel);
+
+                if (adorner != null)
+                {
+                    layer?.Remove(adorner);
+                }
+            }
         }
 
         private static void InitGrowlInfo(ref GrowlInfo growlInfo, InfoType infoType)
@@ -487,18 +561,6 @@ namespace HandyControl.Controls
                         growlInfo.IconBrushKey = ResourceToken.PrimaryTextBrush;
                         growlInfo.StaysOpen = true;
                         growlInfo.ShowCloseButton = false;
-                        Application.Current.Dispatcher?.Invoke(
-#if NET40
-                            new Action(
-#endif
-                                () =>
-                                {
-                                    if (GrowlPanel.ContextMenu != null) GrowlPanel.ContextMenu.Opacity = 0;
-                                }
-#if NET40
-                            )
-#endif
-                        );
                     }
                     else
                     {
@@ -769,7 +831,7 @@ namespace HandyControl.Controls
             ShowGlobal(growlInfo);
         }
 
-        private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close();
+        private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close(true, false);
 
         /// <summary>
         ///     关闭
@@ -784,17 +846,29 @@ namespace HandyControl.Controls
             _timerClose?.Stop();
             var transform = new TranslateTransform();
             _gridMain.RenderTransform = transform;
-            var animation = AnimationHelper.CreateAnimation(ActualWidth);
+            var animation = AnimationHelper.CreateAnimation(FlowDirection == FlowDirection.LeftToRight ? ActualWidth : -ActualWidth);
             animation.Completed += (s, e) =>
             {
                 if (Parent is Panel panel)
                 {
                     panel.Children.Remove(this);
 
-                    if (GrowlWindow?.GrowlPanel != null && GrowlWindow.GrowlPanel.Children.Count == 0)
+                    if (GrowlWindow != null)
                     {
-                        GrowlWindow.Close();
-                        GrowlWindow = null;
+                        if (GrowlWindow.GrowlPanel != null && GrowlWindow.GrowlPanel.Children.Count == 0)
+                        {
+                            GrowlWindow.Close();
+                            GrowlWindow = null;
+                        }
+                    }
+                    else
+                    {
+                        if (GrowlPanel != null && GrowlPanel.Children.Count == 0 && GetIsCreatedAutomatically(GrowlPanel))
+                        {
+                            // If the count of children is zero, we need to remove the panel, provided that the panel was created automatically  
+                            RemoveDefaultPanel(GrowlPanel);
+                            GrowlPanel = null;
+                        }
                     }
                 }
             };
@@ -824,16 +898,7 @@ namespace HandyControl.Controls
         ///     清除
         /// </summary>
         /// <param name="panel"></param>
-        private static void Clear(Panel panel)
-        {
-            if (panel == null) return;
-            panel.Children.Clear();
-            if (panel.ContextMenu != null)
-            {
-                panel.ContextMenu.IsOpen = false;
-                panel.ContextMenu.Opacity = 1;
-            }
-        }
+        private static void Clear(Panel panel) => panel?.Children.Clear();
 
         /// <summary>
         ///     清除

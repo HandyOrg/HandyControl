@@ -84,7 +84,7 @@ namespace HandyControl.Controls
             return double.IsNaN(v) || v >= 0.0d && !double.IsPositiveInfinity(v);
         }
 
-        private void ArrangeLine(double v, double lineV, int start, int end, bool useItemU, double itemU, double spacing)
+        private void ArrangeWrapLine(double v, double lineV, int start, int end, bool useItemU, double itemU, double spacing)
         {
             double u = 0;
             var isHorizontal = _orientation == Orientation.Horizontal;
@@ -99,6 +99,26 @@ namespace HandyControl.Controls
                 var layoutSlotU = useItemU ? itemU : childSize.U;
 
                 child.Arrange(isHorizontal ? new Rect(u, v, layoutSlotU, lineV) : new Rect(v, u, lineV, layoutSlotU));
+
+                u += layoutSlotU + spacing;
+            }
+        }
+
+        private void ArrangeLine(double lineV, bool useItemU, double itemU, double spacing)
+        {
+            double u = 0;
+            var isHorizontal = _orientation == Orientation.Horizontal;
+
+            var children = InternalChildren;
+            for (var i = 0; i < children.Count; i++)
+            {
+                var child = children[i];
+                if (child == null) continue;
+
+                var childSize = new UVSize(_orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+                var layoutSlotU = useItemU ? itemU : childSize.U;
+
+                child.Arrange(isHorizontal ? new Rect(u, 0, layoutSlotU, lineV) : new Rect(0, u, lineV, layoutSlotU));
 
                 u += layoutSlotU + spacing;
             }
@@ -123,35 +143,69 @@ namespace HandyControl.Controls
             var children = InternalChildren;
             var isFirst = true;
 
-            for (int i = 0, count = children.Count; i < count; i++)
+            if (childWrapping == VisualWrapping.Wrap)
             {
-                var child = children[i];
-                if (child == null) continue;
-
-                child.Measure(childConstraint);
-
-                var sz = new UVSize(
-                    _orientation,
-                    itemWidthSet ? itemWidth : child.DesiredSize.Width,
-                    itemHeightSet ? itemHeight : child.DesiredSize.Height);
-
-                if (childWrapping == VisualWrapping.Wrap && MathHelper.GreaterThan(curLineSize.U + sz.U + spacing, uvConstraint.U))
+                for (int i = 0, count = children.Count; i < count; i++)
                 {
-                    panelSize.U = Math.Max(curLineSize.U, panelSize.U);
-                    panelSize.V += curLineSize.V + spacing;
-                    curLineSize = sz;
+                    var child = children[i];
+                    if (child == null) continue;
 
-                    if (MathHelper.GreaterThan(sz.U, uvConstraint.U))
+                    child.Measure(childConstraint);
+
+                    var sz = new UVSize(
+                        _orientation,
+                        itemWidthSet ? itemWidth : child.DesiredSize.Width,
+                        itemHeightSet ? itemHeight : child.DesiredSize.Height);
+
+                    if (MathHelper.GreaterThan(curLineSize.U + sz.U + spacing, uvConstraint.U))
                     {
-                        panelSize.U = Math.Max(sz.U, panelSize.U);
-                        panelSize.V += sz.V + spacing;
-                        curLineSize = new UVSize(_orientation);
-                    }
+                        panelSize.U = Math.Max(curLineSize.U, panelSize.U);
+                        panelSize.V += curLineSize.V + spacing;
+                        curLineSize = sz;
 
-                    isFirst = true;
+                        if (MathHelper.GreaterThan(sz.U, uvConstraint.U))
+                        {
+                            panelSize.U = Math.Max(sz.U, panelSize.U);
+                            panelSize.V += sz.V + spacing;
+                            curLineSize = new UVSize(_orientation);
+                        }
+
+                        isFirst = true;
+                    }
+                    else
+                    {
+                        curLineSize.U += isFirst ? sz.U : sz.U + spacing;
+                        curLineSize.V = Math.Max(sz.V, curLineSize.V);
+
+                        isFirst = false;
+                    }
+                }
+            }
+            else
+            {
+                var layoutSlotSize = constraint;
+
+                if (_orientation == Orientation.Horizontal)
+                {
+                    layoutSlotSize.Width = double.PositiveInfinity;
                 }
                 else
                 {
+                    layoutSlotSize.Height = double.PositiveInfinity;
+                }
+
+                for (int i = 0, count = children.Count; i < count; ++i)
+                {
+                    var child = children[i];
+                    if (child == null) continue;
+
+                    child.Measure(layoutSlotSize);
+
+                    var sz = new UVSize(
+                        _orientation,
+                        itemWidthSet ? itemWidth : child.DesiredSize.Width,
+                        itemHeightSet ? itemHeight : child.DesiredSize.Height);
+
                     curLineSize.U += isFirst ? sz.U : sz.U + spacing;
                     curLineSize.V = Math.Max(sz.V, curLineSize.V);
 
@@ -183,46 +237,53 @@ namespace HandyControl.Controls
             var children = InternalChildren;
             var isFirst = true;
 
-            for (int i = 0, count = children.Count; i < count; i++)
+            if (childWrapping == VisualWrapping.Wrap)
             {
-                var child = children[i];
-                if (child == null) continue;
-
-                var sz = new UVSize(
-                    _orientation,
-                    itemWidthSet ? itemWidth : child.DesiredSize.Width,
-                    itemHeightSet ? itemHeight : child.DesiredSize.Height);
-
-                if (childWrapping == VisualWrapping.Wrap && MathHelper.GreaterThan(curLineSize.U + sz.U + spacing, uvFinalSize.U))
+                for (int i = 0, count = children.Count; i < count; i++)
                 {
-                    ArrangeLine(accumulatedV, curLineSize.V, firstInLine, i, useItemU, itemU, spacing);
+                    var child = children[i];
+                    if (child == null) continue;
 
-                    accumulatedV += curLineSize.V + spacing;
-                    curLineSize = sz;
+                    var sz = new UVSize(
+                        _orientation,
+                        itemWidthSet ? itemWidth : child.DesiredSize.Width,
+                        itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
-                    if (MathHelper.GreaterThan(sz.U, uvFinalSize.U))
+                    if (MathHelper.GreaterThan(curLineSize.U + sz.U + spacing, uvFinalSize.U))
                     {
-                        ArrangeLine(accumulatedV, sz.V, i, ++i, useItemU, itemU, spacing);
+                        ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, i, useItemU, itemU, spacing);
 
-                        accumulatedV += sz.V + spacing;
-                        curLineSize = new UVSize(_orientation);
+                        accumulatedV += curLineSize.V + spacing;
+                        curLineSize = sz;
+
+                        if (MathHelper.GreaterThan(sz.U, uvFinalSize.U))
+                        {
+                            ArrangeWrapLine(accumulatedV, sz.V, i, ++i, useItemU, itemU, spacing);
+
+                            accumulatedV += sz.V + spacing;
+                            curLineSize = new UVSize(_orientation);
+                        }
+
+                        firstInLine = i;
+                        isFirst = true;
                     }
+                    else
+                    {
+                        curLineSize.U += isFirst ? sz.U : sz.U + spacing;
+                        curLineSize.V = Math.Max(sz.V, curLineSize.V);
 
-                    firstInLine = i;
-                    isFirst = true;
+                        isFirst = false;
+                    }
                 }
-                else
-                {
-                    curLineSize.U += isFirst ? sz.U : sz.U + spacing;
-                    curLineSize.V = Math.Max(sz.V, curLineSize.V);
 
-                    isFirst = false;
+                if (firstInLine < children.Count)
+                {
+                    ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, children.Count, useItemU, itemU, spacing);
                 }
             }
-
-            if (firstInLine < children.Count)
+            else
             {
-                ArrangeLine(accumulatedV, curLineSize.V, firstInLine, children.Count, useItemU, itemU, spacing);
+                ArrangeLine(uvFinalSize.V, useItemU, itemU, spacing);
             }
 
             return finalSize;

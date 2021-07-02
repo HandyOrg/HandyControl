@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -13,29 +12,6 @@ namespace HandyControl.Tools
     /// </summary>
     public class ResourceHelper
     {
-        /// <summary>
-        ///     获取字符串
-        /// </summary>
-        /// <param name="key"></param>
-        /// <returns></returns>
-        public static string GetString(string key) => Application.Current.TryFindResource(key) as string;
-
-        /// <summary>
-        ///     获取字符串
-        /// </summary>
-        /// <param name="separator"></param>
-        /// <param name="keyArr"></param>
-        /// <returns></returns>
-        public static string GetString(string separator = ";", params string[] keyArr) =>
-            string.Join(separator, keyArr.Select(key => Application.Current.TryFindResource(key) as string).ToList());
-
-        /// <summary>
-        ///     获取字符串
-        /// </summary>
-        /// <param name="keyArr"></param>
-        /// <returns></returns>
-        public static List<string> GetStringList(params string[] keyArr) => keyArr.Select(key => Application.Current.TryFindResource(key) as string).ToList();
-
         /// <summary>
         ///     获取资源
         /// </summary>
@@ -51,28 +27,34 @@ namespace HandyControl.Tools
             return default;
         }
 
-        /// <summary>
-        ///     获取HandyControl皮肤
-        /// </summary>
-        /// <param name="skin"></param>
-        /// <returns></returns>
-        public static ResourceDictionary GetSkin(SkinType skin) => new ResourceDictionary
+        internal static T GetResourceInternal<T>(string key)
         {
-            Source = new Uri($"pack://application:,,,/HandyControl;component/Themes/Skin{skin.ToString()}.xaml")
-        };
+            if (GetTheme()[key] is T resource)
+            {
+                return resource;
+            }
+
+            return default;
+        }
+
+        public static Theme GetTheme(string name, ResourceDictionary resourceDictionary)
+        {
+            if (string.IsNullOrEmpty(name) || resourceDictionary == null)
+            {
+                return null;
+            }
+
+            return resourceDictionary.MergedDictionaries.OfType<Theme>().FirstOrDefault(item => Equals(item.Name, name));
+        }
 
         /// <summary>
         ///     获取皮肤
         /// </summary>
-        /// <param name="assembly"></param>
-        /// <param name="themePath"></param>
-        /// <param name="skin"></param>
-        /// <returns></returns>
         public static ResourceDictionary GetSkin(Assembly assembly, string themePath, SkinType skin)
         {
             try
             {
-                var uri = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{skin.ToString()}.xaml");
+                var uri = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{skin}.xaml");
                 return new ResourceDictionary
                 {
                     Source = uri
@@ -82,16 +64,27 @@ namespace HandyControl.Tools
             {
                 return new ResourceDictionary
                 {
-                    Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{SkinType.Default.ToString()}.xaml")
+                    Source = new Uri($"pack://application:,,,/{assembly.GetName().Name};component/{themePath}/Skin{SkinType.Default}.xaml")
                 };
             }
         }
 
-        public static Theme GetTheme(string name, ResourceDictionary resourceDictionary)
+        /// <summary>
+        ///     get HandyControl skin
+        /// </summary>
+        /// <param name="skin"></param>
+        /// <returns></returns>
+        public static ResourceDictionary GetSkin(SkinType skin) => new()
         {
-            if (string.IsNullOrEmpty(name) || resourceDictionary == null) return null;
-            return resourceDictionary.MergedDictionaries.OfType<Theme>()
-                .FirstOrDefault(item => Equals(item.Name, name));
-        }
+            Source = new Uri($"pack://application:,,,/HandyControl;component/Themes/Skin{skin}.xaml")
+        };
+
+        /// <summary>
+        ///     get HandyControl theme
+        /// </summary>
+        public static ResourceDictionary GetTheme() => new()
+        {
+            Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+        };
     }
 }

@@ -202,7 +202,6 @@
         <Setter Property="FontWeight" Value="Normal"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource MenuItemBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Menu">

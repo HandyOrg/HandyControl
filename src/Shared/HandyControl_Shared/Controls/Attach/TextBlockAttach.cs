@@ -1,6 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 using HandyControl.Data;
+using HandyControl.Tools.Helper;
 
 namespace HandyControl.Controls
 {
@@ -15,13 +18,11 @@ namespace HandyControl.Controls
             {
                 if ((bool) e.NewValue)
                 {
-                    ctl.TextTrimming = TextTrimming.WordEllipsis;
                     UpdateTooltip(ctl);
                     ctl.SizeChanged += TextBlock_SizeChanged;
                 }
                 else
                 {
-                    ctl.ClearValue(TextBlock.TextTrimmingProperty);
                     ctl.SizeChanged -= TextBlock_SizeChanged;
                 }
             }
@@ -46,8 +47,25 @@ namespace HandyControl.Controls
             textBlock.Measure(new Size(double.PositiveInfinity, double.PositiveInfinity));
             var width = textBlock.DesiredSize.Width - textBlock.Margin.Left - textBlock.Margin.Right;
 
-            ToolTipService.SetToolTip(textBlock,
-                textBlock.RenderSize.Width > width || textBlock.ActualWidth < width ? textBlock.Text : null);
+            // the code Math.Abs(CalcTextWidth(textBlock) - width) > 1 is not elegant end even bugly,
+            // while it does solve the problem of Tooltip failure in some cases
+            if (textBlock.RenderSize.Width > width || textBlock.ActualWidth < width || Math.Abs(CalcTextWidth(textBlock) - width) > 1)
+            {
+                ToolTipService.SetToolTip(textBlock, textBlock.Text);
+            }
+            else
+            {
+                ToolTipService.SetToolTip(textBlock, null);
+            }
+        }
+
+        private static double CalcTextWidth(TextBlock textBlock)
+        {
+            var formattedText = TextHelper.CreateFormattedText(textBlock.Text, textBlock.FlowDirection,
+                new Typeface(textBlock.FontFamily, textBlock.FontStyle, textBlock.FontWeight, textBlock.FontStretch),
+                textBlock.FontSize);
+
+            return formattedText.WidthIncludingTrailingWhitespace;
         }
     }
 }

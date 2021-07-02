@@ -23,7 +23,7 @@ namespace HandyControl.Tools.Extension
         /// <returns></returns>
         public static int ToInt32Reverse(this Color color) => color.R | color.G << 8 | color.B << 18;
 
-        internal static List<byte> ToList(this Color color) => new List<byte>
+        internal static List<byte> ToList(this Color color) => new()
         {
             color.R,
             color.G,

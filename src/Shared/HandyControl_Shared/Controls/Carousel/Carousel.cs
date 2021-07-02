@@ -44,9 +44,9 @@ namespace HandyControl.Controls
 
         private DispatcherTimer _updateTimer;
 
-        private readonly List<double> _widthList = new List<double>();
+        private readonly List<double> _widthList = new();
 
-        private readonly Dictionary<object, CarouselItem> _entryDic = new Dictionary<object, CarouselItem>();
+        private readonly Dictionary<object, CarouselItem> _entryDic = new();
 
         private bool _isRefresh;
 

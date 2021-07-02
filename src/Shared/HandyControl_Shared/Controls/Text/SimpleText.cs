@@ -1,10 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Globalization;
 using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 using HandyControl.Data;
+using HandyControl.Tools.Helper;
 
 namespace HandyControl.Controls
 {
@@ -129,27 +129,8 @@ namespace HandyControl.Controls
                 return;
             }
 
-#if NET40 || NET45 || NET451 || NET452 || NET46|| NET461
-            _formattedText = new FormattedText(
-                Text,
-                CultureInfo.CurrentUICulture,
-                FlowDirection,
-                new Typeface(FontFamily, FontStyle, FontWeight, FontStretch),
-                FontSize, Foreground);
-#else
-            var source = PresentationSource.FromVisual(this);
-            var dpi = 1.0;
-            if (source?.CompositionTarget != null)
-            {
-                dpi = 96.0 * source.CompositionTarget.TransformToDevice.M11 / 96.0;
-            }
-            _formattedText = new FormattedText(
-                Text,
-                CultureInfo.CurrentUICulture,
-                FlowDirection,
-                new Typeface(FontFamily, FontStyle, FontWeight, FontStretch),
-                FontSize, Foreground, dpi);
-#endif
+            _formattedText = TextHelper.CreateFormattedText(Text, FlowDirection,
+                new Typeface(FontFamily, FontStyle, FontWeight, FontStretch), FontSize);
 
             UpdateFormattedText();
         }

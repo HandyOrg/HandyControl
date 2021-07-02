@@ -89,7 +89,7 @@ namespace HandyControl.Controls
         ///     最大页数
         /// </summary>
         public static readonly DependencyProperty MaxPageCountProperty = DependencyProperty.Register(
-            "MaxPageCount", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosInt);
+            "MaxPageCount", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
         private static object CoerceMaxPageCount(DependencyObject d, object basevalue)
         {
@@ -157,11 +157,11 @@ namespace HandyControl.Controls
         ///     当前页
         /// </summary>
         public static readonly DependencyProperty PageIndexProperty = DependencyProperty.Register(
-            "PageIndex", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosInt);
+            "PageIndex", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
         private static object CoercePageIndex(DependencyObject d, object basevalue)
         {
-            if (!(d is Pagination pagination)) return 1;
+            if (d is not Pagination pagination) return 1;
 
             var intValue = (int) basevalue;
             return intValue < 1
@@ -383,16 +383,16 @@ namespace HandyControl.Controls
 
         private RadioButton CreateButton(int page)
         {
-            return new RadioButton
+            return new()
             {
-                Style = ResourceHelper.GetResource<Style>(ResourceToken.PaginationButtonStyle),
+                Style = ResourceHelper.GetResourceInternal<Style>(ResourceToken.PaginationButtonStyle),
                 Content = page.ToString()
             };
         }
 
         private void ToggleButton_OnChecked(object sender, RoutedEventArgs e)
         {
-            if (!(e.OriginalSource is RadioButton button)) return;
+            if (e.OriginalSource is not RadioButton button) return;
             if (button.IsChecked == false) return;
             PageIndex = int.Parse(button.Content.ToString());
         }

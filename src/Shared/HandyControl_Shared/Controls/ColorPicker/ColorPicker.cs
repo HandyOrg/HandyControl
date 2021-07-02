@@ -101,7 +101,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     预设的颜色（一共18个，两行）
         /// </summary>
-        private readonly List<string> _colorPresetList = new List<string>
+        private readonly List<string> _colorPresetList = new()
         {
             "#f44336",
             "#e91e63",
@@ -127,7 +127,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     颜色范围集合
         /// </summary>
-        private readonly List<ColorRange> _colorRangeList = new List<ColorRange>
+        private readonly List<ColorRange> _colorRangeList = new()
         {
             new ColorRange
             {
@@ -164,7 +164,7 @@ namespace HandyControl.Controls
         /// <summary>
         ///     颜色分隔集合
         /// </summary>
-        private readonly List<Color> _colorSeparateList = new List<Color>
+        private readonly List<Color> _colorSeparateList = new()
         {
             Color.FromRgb(255, 0, 0),
             Color.FromRgb(255, 0, 255),
@@ -178,20 +178,30 @@ namespace HandyControl.Controls
 
         #region Public Events
 
+        public static readonly RoutedEvent SelectedColorChangedEvent =
+            EventManager.RegisterRoutedEvent("SelectedColorChanged", RoutingStrategy.Bubble,
+                typeof(EventHandler<FunctionEventArgs<Color>>), typeof(ColorPicker));
+
+        public event EventHandler<FunctionEventArgs<Color>> SelectedColorChanged
+        {
+            add => AddHandler(SelectedColorChangedEvent, value);
+            remove => RemoveHandler(SelectedColorChangedEvent, value);
+        }
+
         /// <summary>
         ///     颜色改变事件
         /// </summary>
-        public static readonly RoutedEvent SelectedColorChangedEvent =
-            EventManager.RegisterRoutedEvent("SelectedColorChanged", RoutingStrategy.Bubble,
+        public static readonly RoutedEvent ConfirmedEvent =
+            EventManager.RegisterRoutedEvent("Confirmed", RoutingStrategy.Bubble,
                 typeof(EventHandler<FunctionEventArgs<Color>>), typeof(ColorPicker));
 
         /// <summary>
         ///     颜色改变事件
         /// </summary>
-        public event EventHandler<FunctionEventArgs<Color>> SelectedColorChanged
+        public event EventHandler<FunctionEventArgs<Color>> Confirmed
         {
-            add => AddHandler(SelectedColorChangedEvent, value);
-            remove => RemoveHandler(SelectedColorChangedEvent, value);
+            add => AddHandler(ConfirmedEvent, value);
+            remove => RemoveHandler(ConfirmedEvent, value);
         }
 
         /// <summary>
@@ -268,6 +278,10 @@ namespace HandyControl.Controls
                     }
                     ctl.UpdateStatus(v.Color);
                     ctl.SelectedBrushWithoutOpacity = new SolidColorBrush(Color.FromRgb(v.Color.R, v.Color.G, v.Color.B));
+                    ctl.RaiseEvent(new FunctionEventArgs<Color>(SelectedColorChangedEvent, ctl)
+                    {
+                        Info = v.Color
+                    });
                 }));
 
         /// <summary>
@@ -455,7 +469,7 @@ namespace HandyControl.Controls
             var button = new Button
             {
                 Margin = new Thickness(6),
-                Style = ResourceHelper.GetResource<Style>(ResourceToken.ButtonCustom),
+                Style = ResourceHelper.GetResourceInternal<Style>(ResourceToken.ButtonCustom),
                 Content = new Border
                 {
                     Background = brush,
@@ -535,7 +549,7 @@ namespace HandyControl.Controls
                     var cIndex = _colorSeparateList.IndexOf(Color.FromRgb(list[0], list[1], list[2]));
                     int sub;
                     var direc = 0;
-                    if (cIndex < 5 && cIndex > 0)
+                    if (cIndex is < 5 and > 0)
                     {
                         var nextColorList = _colorSeparateList[cIndex + 1].ToList();
                         var prevColorList = _colorSeparateList[cIndex - 1].ToList();
@@ -666,48 +680,36 @@ namespace HandyControl.Controls
         private void NumericUpDownRgb_OnValueChanged(object sender, FunctionEventArgs<double> e)
         {
             if (!_appliedTemplate || !IsNeedUpdateInfo) return;
-            if (e.OriginalSource is NumericUpDown ctl && ctl.Tag is string tag)
+            if (e.OriginalSource is NumericUpDown { Tag: string tag })
             {
                 var color = SelectedBrush.Color;
                 IsNeedUpdateInfo = false;
 
-                switch (tag)
+                SelectedBrush = tag switch
                 {
-                    case "R":
-                        {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, (byte) e.Info, color.G, color.B));
-                            break;
-                        }
-                    case "G":
-                        {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, color.R, (byte) e.Info, color.B));
-                            break;
-                        }
-                    case "B":
-                        {
-                            SelectedBrush = new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, (byte) e.Info));
-                            break;
-                        }
-                }
+                    "R" => new SolidColorBrush(Color.FromArgb(color.A, (byte) e.Info, color.G, color.B)),
+                    "G" => new SolidColorBrush(Color.FromArgb(color.A, color.R, (byte) e.Info, color.B)),
+                    "B" => new SolidColorBrush(Color.FromArgb(color.A, color.R, color.G, (byte) e.Info)),
+                    _ => SelectedBrush
+                };
 
                 IsNeedUpdateInfo = true;
             }
         }
 
         private void ButtonConfirm_OnClick(object sender, RoutedEventArgs e)
-            => RaiseEvent(new FunctionEventArgs<Color>(SelectedColorChangedEvent, this)
+        {
+            RaiseEvent(new FunctionEventArgs<Color>(ConfirmedEvent, this)
             {
                 Info = SelectedBrush.Color
             });
+        }
 
         private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => RaiseEvent(new RoutedEventArgs(CanceledEvent));
 
         private void ToggleButtonDropper_Click(object sender, RoutedEventArgs e)
         {
-            if (_colorDropper == null)
-            {
-                _colorDropper = new ColorDropper(this);
-            }
+            _colorDropper ??= new ColorDropper(this);
             // ReSharper disable once PossibleInvalidOperationException
             _colorDropper.Update(_toggleButtonDropper.IsChecked.Value);
         }
@@ -730,7 +732,6 @@ namespace HandyControl.Controls
             GC.SuppressFinalize(this);
         }
 
-        public bool CanDispose { get; } = true;
-
+        public bool CanDispose => true;
     }
 }

@@ -19,7 +19,7 @@ namespace HandyControl.Tools.Interop
 
         internal const int E_FAIL = unchecked((int) 0x80004005);
 
-        internal static readonly IntPtr HRGN_NONE = new IntPtr(-1);
+        internal static readonly IntPtr HRGN_NONE = new(-1);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
         [ResourceExposure(ResourceScope.None)]
@@ -166,7 +166,7 @@ namespace HandyControl.Tools.Interop
         internal static BitmapHandle CreateDIBSection(HandleRef hdc, ref InteropValues.BITMAPINFO bitmapInfo, int iUsage,
             ref IntPtr ppvBits, SafeFileMappingHandle hSection, int dwOffset)
         {
-            if (hSection == null) hSection = new SafeFileMappingHandle(IntPtr.Zero);
+            hSection ??= new SafeFileMappingHandle(IntPtr.Zero);
 
             var hBitmap = PrivateCreateDIBSection(hdc, ref bitmapInfo, iUsage, ref ppvBits, hSection, dwOffset);
             return hBitmap;
@@ -480,6 +480,10 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.Shell32, CallingConvention = CallingConvention.StdCall)]
         internal static extern uint SHAppBarMessage(int dwMessage, ref InteropValues.APPBARDATA pData);
 
+        [SecurityCritical]
+        [DllImport(InteropValues.ExternDll.DwmApi, EntryPoint = "DwmGetColorizationColor", PreserveSig = true)]
+        internal static extern int DwmGetColorizationColor(out uint pcrColorization, out bool pfOpaqueBlend);
+
         #endregion
 
         internal class Gdip
@@ -543,7 +547,7 @@ namespace HandyControl.Tools.Interop
             }
 
             [StructLayout(LayoutKind.Sequential)]
-            private struct StartupOutput
+            private readonly struct StartupOutput
             {
                 private readonly IntPtr hook;
 
@@ -609,31 +613,30 @@ namespace HandyControl.Tools.Interop
 
             internal static Exception StatusException(int status)
             {
-                switch (status)
+                return status switch
                 {
-                    case GenericError: return new ExternalException("GdiplusGenericError");
-                    case InvalidParameter: return new ArgumentException("GdiplusInvalidParameter");
-                    case OutOfMemory: return new OutOfMemoryException("GdiplusOutOfMemory");
-                    case ObjectBusy: return new InvalidOperationException("GdiplusObjectBusy");
-                    case InsufficientBuffer: return new OutOfMemoryException("GdiplusInsufficientBuffer");
-                    case NotImplemented: return new NotImplementedException("GdiplusNotImplemented");
-                    case Win32Error: return new ExternalException("GdiplusGenericError");
-                    case WrongState: return new InvalidOperationException("GdiplusWrongState");
-                    case Aborted: return new ExternalException("GdiplusAborted");
-                    case FileNotFound: return new FileNotFoundException("GdiplusFileNotFound");
-                    case ValueOverflow: return new OverflowException("GdiplusOverflow");
-                    case AccessDenied: return new ExternalException("GdiplusAccessDenied");
-                    case UnknownImageFormat: return new ArgumentException("GdiplusUnknownImageFormat");
-                    case PropertyNotFound: return new ArgumentException("GdiplusPropertyNotFoundError");
-                    case PropertyNotSupported: return new ArgumentException("GdiplusPropertyNotSupportedError");
-                    case FontFamilyNotFound: return new ArgumentException("GdiplusFontFamilyNotFound");
-                    case FontStyleNotFound: return new ArgumentException("GdiplusFontStyleNotFound");
-                    case NotTrueTypeFont: return new ArgumentException("GdiplusNotTrueTypeFont_NoName");
-                    case UnsupportedGdiplusVersion: return new ExternalException("GdiplusUnsupportedGdiplusVersion");
-                    case GdiplusNotInitialized: return new ExternalException("GdiplusNotInitialized");
-                }
-
-                return new ExternalException("GdiplusUnknown");
+                    GenericError => new ExternalException("GdiplusGenericError"),
+                    InvalidParameter => new ArgumentException("GdiplusInvalidParameter"),
+                    OutOfMemory => new OutOfMemoryException("GdiplusOutOfMemory"),
+                    ObjectBusy => new InvalidOperationException("GdiplusObjectBusy"),
+                    InsufficientBuffer => new OutOfMemoryException("GdiplusInsufficientBuffer"),
+                    NotImplemented => new NotImplementedException("GdiplusNotImplemented"),
+                    Win32Error => new ExternalException("GdiplusGenericError"),
+                    WrongState => new InvalidOperationException("GdiplusWrongState"),
+                    Aborted => new ExternalException("GdiplusAborted"),
+                    FileNotFound => new FileNotFoundException("GdiplusFileNotFound"),
+                    ValueOverflow => new OverflowException("GdiplusOverflow"),
+                    AccessDenied => new ExternalException("GdiplusAccessDenied"),
+                    UnknownImageFormat => new ArgumentException("GdiplusUnknownImageFormat"),
+                    PropertyNotFound => new ArgumentException("GdiplusPropertyNotFoundError"),
+                    PropertyNotSupported => new ArgumentException("GdiplusPropertyNotSupportedError"),
+                    FontFamilyNotFound => new ArgumentException("GdiplusFontFamilyNotFound"),
+                    FontStyleNotFound => new ArgumentException("GdiplusFontStyleNotFound"),
+                    NotTrueTypeFont => new ArgumentException("GdiplusNotTrueTypeFont_NoName"),
+                    UnsupportedGdiplusVersion => new ExternalException("GdiplusUnsupportedGdiplusVersion"),
+                    GdiplusNotInitialized => new ExternalException("GdiplusNotInitialized"),
+                    _ => new ExternalException("GdiplusUnknown")
+                };
             }
 
             [DllImport(InteropValues.ExternDll.GdiPlus, SetLastError = true, ExactSpelling = true, CharSet = CharSet.Unicode)]

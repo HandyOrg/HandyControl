@@ -1,5 +1,4 @@
-﻿using System;
-using GalaSoft.MvvmLight;
+﻿using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 
 namespace HandyControlDemo.ViewModel
@@ -18,7 +17,6 @@ namespace HandyControlDemo.ViewModel
 #endif
         }
 
-        public RelayCommand CountCmd => new Lazy<RelayCommand>(() =>
-            new RelayCommand(() => Count++)).Value;
+        public RelayCommand CountCmd => new(() => Count++);
     }
 }
