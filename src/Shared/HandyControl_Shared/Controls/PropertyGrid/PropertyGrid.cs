@@ -37,7 +37,7 @@ namespace HandyControl.Controls
             CommandBindings.Add(new CommandBinding(ControlCommands.SortByHierarchyLevel, SortByHierarchyLevel, (s, e) => e.CanExecute = ShowSortButton));
         }
 
-        public virtual PropertyResolver PropertyResolver { get; } = new();
+        public virtual PropertyResolver PropertyResolver { get; } = new PropertyResolver();
 
         public static readonly RoutedEvent SelectedObjectChangedEvent =
             EventManager.RegisterRoutedEvent("SelectedObjectChanged", RoutingStrategy.Bubble,
@@ -124,6 +124,15 @@ namespace HandyControl.Controls
             set => SetValue(FlattenChildPropertiesProperty, value);
         }
 
+        public static readonly DependencyProperty DefaultSortingProperty = DependencyProperty.Register(
+         "DefaultSorting", typeof(SortingMode), typeof(PropertyGrid), new PropertyMetadata(SortingMode.Category));
+
+        public SortingMode DefaultSorting
+        {
+            get => (SortingMode) GetValue(DefaultSortingProperty);
+            set => SetValue(DefaultSortingProperty, value);
+        }
+
         public static readonly DependencyProperty GroupHeaderTemplateProperty = DependencyProperty.Register(
          nameof(GroupHeaderTemplate), typeof(DataTemplate), typeof(PropertyGrid), new PropertyMetadata(default(DataTemplate)));
 
@@ -141,6 +150,15 @@ namespace HandyControl.Controls
         {
             get => (Thickness) GetValue(GroupHeaderMarginProperty);
             set => SetValue(GroupHeaderMarginProperty, value);
+        }
+
+        public static readonly DependencyProperty SortByPriorityProperty = DependencyProperty.Register(
+         "SortByPriority", typeof(bool), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool SortByPriority
+        {
+            get => (bool) GetValue(SortByPriorityProperty);
+            set => SetValue(SortByPriorityProperty, value);
         }
 
         public override void OnApplyTemplate()
@@ -188,11 +206,11 @@ namespace HandyControl.Controls
             var browsableProperties = propertiesToFlatten.OfType<PropertyDescriptor>()
                                                          .Where(item => PropertyResolver.ResolveIsBrowsable(item)).ToList();
 
-            var knownProperties = browsableProperties.Where(item => PropertyResolver.IsKnownEditorType(item.PropertyType))
+            var knownProperties = browsableProperties.Where(item => PropertyResolver.IsKnownEditorType(item.PropertyType) || PropertyResolver.HasEditorType(item))
                                                      .Select(item => CreatePropertyItem(item, component, parentCategory, hierarchyLevel))
                                                      .Do(item => item.InitElement());
 
-            var unknownPropertiesCollections = browsableProperties.Where(item => !PropertyResolver.IsKnownEditorType(item.PropertyType))
+            var unknownPropertiesCollections = browsableProperties.Where(item => !PropertyResolver.IsKnownEditorType(item.PropertyType) && !PropertyResolver.HasEditorType(item))
                                                                   .Select(item => GetCategorizedChildProperties(item, component));
 
             return unknownPropertiesCollections.Select(coll => FlattenUnknownProperties(coll, hierarchyLevel + 1))
@@ -231,7 +249,18 @@ namespace HandyControl.Controls
                 _dataView = CollectionViewSource.GetDefaultView(FlattenUnknownProperties(TypeDescriptor.GetProperties(obj.GetType()), obj, null));
             }
 
-            SortByCategory(null, null);
+            switch (DefaultSorting)
+            {
+                case SortingMode.Name:
+                    SortByName(null, null);
+                    break;
+                case SortingMode.Hierarchy:
+                    SortByHierarchyLevel(null, null);
+                    break;
+                default:
+                    SortByCategory(null, null);
+                    break;
+            }
 
             _itemsControl.ItemsSource = _dataView;
         }
@@ -244,6 +273,10 @@ namespace HandyControl.Controls
             {
                 _dataView.GroupDescriptions.Clear();
                 _dataView.SortDescriptions.Clear();
+                if (SortByPriority)
+                {
+                    _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.PriorityProperty.Name, ListSortDirection.Descending));
+                }
                 _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.CategoryProperty.Name, ListSortDirection.Ascending));
                 _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.DisplayNameProperty.Name, ListSortDirection.Ascending));
                 _dataView.GroupDescriptions.Add(new PropertyGroupDescription(PropertyItem.CategoryProperty.Name));
@@ -258,6 +291,10 @@ namespace HandyControl.Controls
             {
                 _dataView.GroupDescriptions.Clear();
                 _dataView.SortDescriptions.Clear();
+                if (SortByPriority)
+                {
+                    _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.PriorityProperty.Name, ListSortDirection.Descending));
+                }
                 _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.PropertyNameProperty.Name, ListSortDirection.Ascending));
             }
         }
@@ -270,6 +307,10 @@ namespace HandyControl.Controls
             {
                 _dataView.GroupDescriptions.Clear();
                 _dataView.SortDescriptions.Clear();
+                if (SortByPriority)
+                {
+                    _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.PriorityProperty.Name, ListSortDirection.Descending));
+                }
                 _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.HierarchyLevelProperty.Name, ListSortDirection.Ascending));
                 _dataView.GroupDescriptions.Add(new PropertyGroupDescription(PropertyItem.CategoryProperty.Name));
             }
@@ -279,7 +320,7 @@ namespace HandyControl.Controls
         {
             if (_dataView == null) return;
 
-            _searchKey = e.Info;
+            _searchKey = e.Info.ToLower();
             if (string.IsNullOrEmpty(_searchKey))
             {
                 foreach (UIElement item in _dataView)
@@ -306,6 +347,8 @@ namespace HandyControl.Controls
                 DefaultValue     = PropertyResolver.ResolveDefaultValue(propertyDescriptor),
                 Editor           = PropertyResolver.ResolveEditor(propertyDescriptor),
                 HierarchyLevel   = PropertyResolver.ResolveHierarchyLevel(propertyDescriptor) ?? hierarchyLevel,
+                Priority         = PropertyResolver.ResolvePriority(propertyDescriptor), 
+                IsNecessary      = PropertyResolver.ResolveIsNecessary(propertyDescriptor),
                 Value            = component,
                 PropertyName     = propertyDescriptor.Name,
                 PropertyType     = propertyDescriptor.PropertyType,

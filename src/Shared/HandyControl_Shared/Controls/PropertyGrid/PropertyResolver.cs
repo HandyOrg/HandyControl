@@ -47,6 +47,18 @@ namespace HandyControl.Controls
             return hierarchyLevelAttribute?.Value;
         }
 
+        public int ResolvePriority(PropertyDescriptor propertyDescriptor)
+        {
+            var priorityAttribute = propertyDescriptor.Attributes.OfType<PriorityAttribute>().FirstOrDefault();
+            return priorityAttribute?.Value ?? 0;
+        }
+
+        public bool ResolveIsNecessary(PropertyDescriptor propertyDescriptor)
+        {
+            var isRequiredAttribute = propertyDescriptor.Attributes.OfType<NecessaryAttribute>().FirstOrDefault();
+            return isRequiredAttribute is not null;
+        }
+
         public string ResolveDisplayName(PropertyDescriptor propertyDescriptor)
         {
             var displayName = propertyDescriptor.DisplayName;
@@ -84,7 +96,7 @@ namespace HandyControl.Controls
 
         public virtual PropertyEditorBase CreateDefaultEditor(Type type)
         {
-            if (!PropertyResolver.IsKnownEditorType(ref type))
+            if (!IsKnownEditorType(ref type))
             {
                 return new ReadOnlyTextPropertyEditor();
             }
@@ -118,7 +130,7 @@ namespace HandyControl.Controls
         public virtual PropertyEditorBase CreateEditor(Type type) =>
             Activator.CreateInstance(type) as PropertyEditorBase ?? new ReadOnlyTextPropertyEditor();
 
-        public static bool IsKnownEditorType(ref Type type)
+        public bool IsKnownEditorType(ref Type type)
         {
             var underlyingType = Nullable.GetUnderlyingType(type);
             if (underlyingType is not null)
@@ -129,7 +141,13 @@ namespace HandyControl.Controls
             return TypeCodeDic.ContainsKey(type) || type.IsSubclassOf(typeof(Enum));
         }
 
-        public static bool IsKnownEditorType(Type type) => IsKnownEditorType(ref type);
+        public virtual bool IsKnownEditorType(Type type) => IsKnownEditorType(ref type);
+
+        public static bool HasEditorType(PropertyDescriptor propertyDescriptor)
+        {
+            var editorAttribute = propertyDescriptor.Attributes.OfType<EditorAttribute>().FirstOrDefault();
+            return editorAttribute != null && !string.IsNullOrEmpty(editorAttribute.EditorTypeName);
+        }
 
         private enum EditorTypeCode
         {

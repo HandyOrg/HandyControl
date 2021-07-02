@@ -14,9 +14,9 @@ namespace HandyControl.Controls
     {
         public override FrameworkElement CreateElement(PropertyItem propertyItem) => new System.Windows.Controls.ComboBox
         {
-            Style = ResourceHelper.GetResourceInternal<Style>("ComboBoxCapsule"),
+            Style = ResourceHelper.GetResource<Style>("ComboBoxCapsule"),
             ItemsSource = Enum.GetValues(propertyItem.PropertyType),
-            ItemTemplateSelector = ResourceHelper.GetResourceInternal<DataTemplateSelector>("VerticalAlignmentPathTemplateSelector"),
+            ItemTemplateSelector = ResourceHelper.GetResource<DataTemplateSelector>("VerticalAlignmentPathTemplateSelector"),
             HorizontalAlignment = HorizontalAlignment.Left
         };
 
@@ -48,16 +48,16 @@ namespace HandyControl.Controls
                 switch (verticalAlignment)
                 {
                     case VerticalAlignment.Top:
-                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignTopGeometry"));
+                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResource<Geometry>("AlignTopGeometry"));
                         break;
                     case VerticalAlignment.Center:
-                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignVCenterGeometry"));
+                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResource<Geometry>("AlignVCenterGeometry"));
                         break;
                     case VerticalAlignment.Bottom:
-                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignBottomGeometry"));
+                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResource<Geometry>("AlignBottomGeometry"));
                         break;
                     case VerticalAlignment.Stretch:
-                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResourceInternal<Geometry>("AlignVStretchGeometry"));
+                        factory.SetValue(Path.DataProperty, ResourceHelper.GetResource<Geometry>("AlignVStretchGeometry"));
                         break;
                 }
 
