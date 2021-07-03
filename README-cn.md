@@ -147,15 +147,15 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 <a href="https://www.phpenv.cn" target="_blank"><img width="70px" alt="phpenv" src="https://www.phpenv.cn/usr/themes/phpenv/img/logo.png"></a>
 <a href="https://atmb.top" target="_blank"><img width="70px" alt="AutumnBox" src="https://atmb.top/images/icon.png"></a>
 
-if your project is not listed here, let us know! 😀
+如果你的项目没有被列出，请告知我们! 😀
 
 ## 用法
 
-Step 1: Add a reference to HandyControl or search for HandyControl on the nuget; 
+Step 1: 添加 HandyControl 引用，或在 nuget 上搜索 HandyControl; 
 
 ```Install-Package HandyControl```
 
-Step 2: Add code in App.xaml as follows:
+Step 2: 在 App.xaml 中添加如下代码:
 ```XML
 <Application.Resources>
     <ResourceDictionary>
@@ -167,10 +167,10 @@ Step 2: Add code in App.xaml as follows:
 </Application.Resources>
 ```
 
-Step 3: Add NameSpace:
+Step 3: 添加命名空间:
 `xmlns:hc="https://handyorg.github.io/handycontrol"`
 
-Step 4: Enjoy coding
+Step 4: 开始编码
 
 ## VS插件
 
@@ -189,6 +189,10 @@ Step 4: Enjoy coding
 
 ## 最新示例
 
+### ElementGroup
+
+![ElementGroup](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ElementGroup.png)
+
 ### UniformSpacingPanel
 
 ![UniformSpacingPanel](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/UniformSpacingPanel.png)
@@ -205,11 +209,11 @@ Step 4: Enjoy coding
 
 ![ImageSelector](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ImageSelector.png)
 
+## 历史发布
+
 ### PropertyGrid
 
 ![PropertyGrid](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/PropertyGrid.png)
-
-## 历史发布
 
 ### Screenshot
 

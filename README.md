@@ -183,6 +183,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### ElementGroup
+
+![ElementGroup](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ElementGroup.png)
+
 ### UniformSpacingPanel
 
 ![UniformSpacingPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/UniformSpacingPanel.png)
@@ -199,11 +203,11 @@ Step 4: Enjoy coding
 
 ![ImageSelector](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ImageSelector.png)
 
+## History publication
+
 ### PropertyGrid
 
 ![PropertyGrid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PropertyGrid.png)
-
-## History publication
 
 ### Screenshot
 
