@@ -59,6 +59,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml.cs">
       <DependentUpon>TextDialogWithTimer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemoCtl.xaml.cs">
+      <DependentUpon>ElementGroupDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlexPanelDemoCtl.xaml.cs">
       <DependentUpon>FlexPanelDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -536,6 +539,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

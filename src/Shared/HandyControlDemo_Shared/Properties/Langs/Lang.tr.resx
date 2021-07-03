@@ -795,4 +795,7 @@
   <data name="Empty" xml:space="preserve">
     <value>Empty</value>
   </data>
+  <data name="ElementGroup" xml:space="preserve">
+    <value>ElementGroup</value>
+  </data>
 </root>

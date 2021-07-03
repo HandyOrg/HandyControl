@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ElementGroupDemoCtl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension">
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32" VerticalAlignment="Center">
+            <hc:ElementGroup Orientation="Horizontal">
+                <Border Style="{StaticResource BorderRegion}" Padding="6,0">
+                    <Path Data="{StaticResource ClockGeometry}" Width="16" Height="16" Stretch="Uniform" Fill="{DynamicResource BorderBrush}"/>
+                </Border>
+                <TextBox MinWidth="200"/>
+                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+            </hc:ElementGroup>
+            <hc:ElementGroup Margin="0,16,0,0">
+                <TextBox/>
+                <Button HorizontalAlignment="Stretch" Width="auto" Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
+                <ToggleButton HorizontalAlignment="Stretch" Width="auto" Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
+            </hc:ElementGroup>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</UserControl>

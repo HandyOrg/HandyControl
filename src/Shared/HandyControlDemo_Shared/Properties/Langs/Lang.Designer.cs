@@ -719,6 +719,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to 元素组.
+        /// </summary>
+        public static string ElementGroup
+        {
+            get
+            {
+                return ResourceManager.GetString("ElementGroup", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to 邮箱.
         /// </summary>
         public static string Email
