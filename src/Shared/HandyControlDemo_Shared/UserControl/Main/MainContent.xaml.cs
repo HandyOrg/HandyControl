@@ -2,12 +2,13 @@
 using System.Windows;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Messaging;
+using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 using HandyControlDemo.Data;
+using HandyControlDemo.Tools;
 using HandyControlDemo.ViewModel;
 using ICSharpCode.AvalonEdit;
-using ICSharpCode.AvalonEdit.Highlighting;
 
 
 namespace HandyControlDemo.UserControl
@@ -30,12 +31,18 @@ namespace HandyControlDemo.UserControl
             InitializeComponent();
 
             Messenger.Default.Register<bool>(this, MessageToken.FullSwitch, FullSwitch);
+            Messenger.Default.Register<SkinType>(this, MessageToken.SkinUpdated, SkinUpdated);
         }
 
         private void FullSwitch(bool isFull)
         {
-            if (_isFull == isFull) return;
+            if (_isFull == isFull)
+            {
+                return;
+            }
+
             _isFull = isFull;
+
             if (_isFull)
             {
                 BorderRootEffect.Show();
@@ -60,58 +67,79 @@ namespace HandyControlDemo.UserControl
             }
         }
 
-        private void DrawerCode_OnOpened(object sender, RoutedEventArgs e)
+        private void SkinUpdated(SkinType skinType)
         {
             if (!_drawerCodeUsed)
             {
-                var textEditorCustomStyle = ResourceHelper.GetResource<Style>("TextEditorCustom");
-                _textEditor = new Dictionary<string, TextEditor>
-                {
-                    ["XAML"] = new()
-                    {
-                        Style = textEditorCustomStyle,
-                        SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("XML")
-                    },
-                    ["C#"] = new()
-                    {
-                        Style = textEditorCustomStyle,
-                        SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#")
-                    },
-                    ["VM"] = new()
-                    {
-                        Style = textEditorCustomStyle,
-                        SyntaxHighlighting = HighlightingManager.Instance.GetDefinition("C#")
-                    }
-                };
-                BorderCode.Child = new TabControl
-                {
-                    Style = ResourceHelper.GetResource<Style>("TabControlInLine"),
-                    Items =
-                    {
-                        new TabItem
-                        {
-                            Header = "XAML",
-                            Content = _textEditor["XAML"]
-                        },
-                        new TabItem
-                        {
-                            Header = "C#",
-                            Content = _textEditor["C#"]
-                        },
-                        new TabItem
-                        {
-                            Header = "VM",
-                            Content = _textEditor["VM"]
-                        }
-                    }
-                };
-
-                _drawerCodeUsed = true;
+                return;
             }
 
+            _textEditor[ConstString.Xaml].SyntaxHighlighting = HighlightingProvider.GetDefinition(skinType, ConstString.Xml);
+            _textEditor[ConstString.Cs].SyntaxHighlighting = HighlightingProvider.GetDefinition(skinType, ConstString.Cs);
+            _textEditor[ConstString.Vm].SyntaxHighlighting = HighlightingProvider.GetDefinition(skinType, ConstString.Cs);
+        }
+
+        private void InitTextEditor()
+        {
+            HighlightingProvider.Register(SkinType.Default, HighlightingProvider.Default);
+            HighlightingProvider.Register(SkinType.Dark, new HighlightingProviderDark());
+            HighlightingProvider.Register(SkinType.Violet, HighlightingProvider.Default);
+
+            var textEditorCustomStyle = ResourceHelper.GetResource<Style>("TextEditorCustom");
+            var skinType = GlobalData.Config.Skin;
+
+            _textEditor = new Dictionary<string, TextEditor>
+            {
+                [ConstString.Xaml] = new()
+                {
+                    Style = textEditorCustomStyle,
+                    SyntaxHighlighting = HighlightingProvider.GetDefinition(skinType, ConstString.Xml)
+                },
+                [ConstString.Cs] = new()
+                {
+                    Style = textEditorCustomStyle,
+                    SyntaxHighlighting = HighlightingProvider.GetDefinition(skinType, ConstString.Cs)
+                },
+                [ConstString.Vm] = new()
+                {
+                    Style = textEditorCustomStyle,
+                    SyntaxHighlighting = HighlightingProvider.GetDefinition(skinType, ConstString.Cs)
+                }
+            };
+
+            BorderCode.Child = new TabControl
+            {
+                Style = ResourceHelper.GetResource<Style>("TabControlInLine"),
+                Items =
+                {
+                    new TabItem
+                    {
+                        Header = ConstString.Xaml,
+                        Content = _textEditor[ConstString.Xaml]
+                    },
+                    new TabItem
+                    {
+                        Header = ConstString.Cs,
+                        Content = _textEditor[ConstString.Cs]
+                    },
+                    new TabItem
+                    {
+                        Header = ConstString.Vm,
+                        Content = _textEditor[ConstString.Vm]
+                    }
+                }
+            };
+        }
+
+        private void UpdateTextEditor()
+        {
             var typeKey = ViewModelLocator.Instance.Main.DemoInfoCurrent.Key;
             var demoKey = ViewModelLocator.Instance.Main.DemoItemCurrent.TargetCtlName;
-            if (Equals(_currentDemoKey, demoKey)) return;
+            if (Equals(_currentDemoKey, demoKey))
+            {
+                return;
+            }
+
             _currentDemoKey = demoKey;
 
             if (ViewModelLocator.Instance.Main.SubContent is FrameworkElement demoCtl)
@@ -124,10 +152,32 @@ namespace HandyControlDemo.UserControl
                     ? $"ViewModel/{dcTypeName}"
                     : xamlPath;
 
-                _textEditor["XAML"].Text = DemoHelper.GetCode(xamlPath);
-                _textEditor["C#"].Text = DemoHelper.GetCode($"{xamlPath}.cs");
-                _textEditor["VM"].Text = DemoHelper.GetCode($"{vmPath}.cs");
+                _textEditor[ConstString.Xaml].Text = DemoHelper.GetCode(xamlPath);
+                _textEditor[ConstString.Cs].Text = DemoHelper.GetCode($"{xamlPath}.cs");
+                _textEditor[ConstString.Vm].Text = DemoHelper.GetCode($"{vmPath}.cs");
             }
+        }
+
+        private void DrawerCode_OnOpened(object sender, RoutedEventArgs e)
+        {
+            if (!_drawerCodeUsed)
+            {
+                InitTextEditor();
+                _drawerCodeUsed = true;
+            }
+
+            UpdateTextEditor();
+        }
+
+        private static class ConstString
+        {
+            public const string Xaml = "XAML";
+
+            public const string Vm = "VM";
+
+            public const string Cs = "C#";
+
+            public const string Xml = "XML";
         }
     }
 }

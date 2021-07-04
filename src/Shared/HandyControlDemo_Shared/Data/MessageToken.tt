@@ -28,7 +28,8 @@ var messageList = new List<string>
 	"NavigationWindow",
 	"TouchDragMoveWindow",
 	"DialogContainer",
-	"LangUpdated"
+	"LangUpdated",
+	"SkinUpdated"
 };
 #>
 namespace HandyControlDemo.Data
