@@ -1,12 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:hc="clr-namespace:HandyControl.Controls"
-                    xmlns:themes="clr-namespace:HandyControl.Themes">
-
-    <ResourceDictionary.MergedDictionaries>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/MenuBaseStyle.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ToggleButton.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="SplitButtonBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:SplitButton">
         <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
