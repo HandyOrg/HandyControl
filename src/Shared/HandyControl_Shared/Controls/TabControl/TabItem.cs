@@ -387,6 +387,17 @@ namespace HandyControl.Controls
             _isDragged = false;
         }
 
+        protected override void OnMouseDown(MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Middle && e.ButtonState == MouseButtonState.Pressed)
+            {
+                if (ShowCloseButton || ShowContextMenu)
+                {
+                    Close();
+                }
+            }
+        }
+
         /// <summary>
         ///     创建动画
         /// </summary>
