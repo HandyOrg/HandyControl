@@ -113,6 +113,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml">
       <Link>UserControl\Controls\DrawerDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemoCtl.xaml">
+      <Link>UserControl\Controls\ElementGroupDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml">
       <Link>UserControl\Controls\FlexPanelDemoCtl.xaml</Link>
     </Resource>
@@ -503,6 +506,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml.cs">
       <Link>UserControl\Controls\DrawerDemoCtl.xaml.cs</Link>
       <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\ElementGroupDemoCtl.xaml.cs</Link>
+      <DependentUpon>ElementGroupDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\FlexPanelDemoCtl.xaml.cs</Link>

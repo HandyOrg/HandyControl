@@ -55,58 +55,59 @@
 
 ## Contributors
 
-<a href="https://github.com/ghost1372" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ghost1372" src="https://avatars0.githubusercontent.com/u/9213496?s=64&v=4"></a>
-<a href="https://github.com/DingpingZhang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="DingpingZhang" src="https://avatars0.githubusercontent.com/u/8541016?s=64&v=4"></a>
-<a href="https://github.com/M0n7y5" target="_blank"><img style="border-radius:50%!important" width="64px" alt="M0n7y5" src="https://avatars0.githubusercontent.com/u/17201053?s=64&v=4"></a>
-<a href="https://github.com/guanguanchuangyu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="guanguanchuangyu" src="https://avatars1.githubusercontent.com/u/25916858?s=64&v=4"></a>
-<a href="https://github.com/yanchao891012" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yanchao891012" src="https://avatars0.githubusercontent.com/u/16846702?s=64&v=4"></a>
-<a href="https://github.com/noctwolf" target="_blank"><img style="border-radius:50%!important" width="64px" alt="noctwolf" src="https://avatars3.githubusercontent.com/u/21022467?s=64&v=4"></a>
-<a href="https://github.com/xianyun666" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xianyun666" src="https://avatars1.githubusercontent.com/u/22339210?s=64&v=4"></a>
-<a href="https://github.com/afunc233" target="_blank"><img style="border-radius:50%!important" width="64px" alt="afunc233" src="https://avatars1.githubusercontent.com/u/19919631?s=64&v=4"></a>
-<a href="https://github.com/DinoChan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="DinoChan" src="https://avatars1.githubusercontent.com/u/6076257?s=64&v=4"></a>
-<a href="https://github.com/MrZhangYuan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="MrZhangYuan" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
-<a href="https://github.com/JinhuaChen-OMEC" target="_blank"><img style="border-radius:50%!important" width="64px" alt="JinhuaChen-OMEC" src="https://avatars0.githubusercontent.com/u/47024703?s=64&v=4"></a>
-<a href="https://github.com/seedtyx" target="_blank"><img style="border-radius:50%!important" width="64px" alt="seedtyx" src="https://avatars2.githubusercontent.com/u/5851975?s=64&v=4"></a>
-<a href="https://github.com/KleinPan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="KleinPan" src="https://avatars2.githubusercontent.com/u/34428802?s=64&v=4"></a>
-<a href="https://github.com/yxhq" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yxhq" src="https://avatars3.githubusercontent.com/u/10378954?s=64&v=4"></a>
-<a href="https://github.com/AiHaibara" target="_blank"><img style="border-radius:50%!important" width="64px" alt="AiHaibara" src="https://avatars3.githubusercontent.com/u/5195234?s=64&v=4"></a>
-<a href="https://github.com/walterlv" target="_blank"><img style="border-radius:50%!important" width="64px" alt="walterlv" src="https://avatars3.githubusercontent.com/u/9959623?s=64&v=4"></a>
-<a href="https://github.com/Luoyingliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Luoyingliang" src="https://avatars2.githubusercontent.com/u/29297262?s=64&v=4"></a>
-<a href="https://github.com/lindexi" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lindexi" src="https://avatars3.githubusercontent.com/u/16054566?s=64&v=4"></a>
-<a href="https://github.com/danwalmsley" target="_blank"><img style="border-radius:50%!important" width="64px" alt="danwalmsley" src="https://avatars1.githubusercontent.com/u/4672627?s=64&v=4"></a>
-<a href="https://github.com/varKeytrap" target="_blank"><img style="border-radius:50%!important" width="64px" alt="varKeytrap" src="https://avatars0.githubusercontent.com/u/17864005?s=64&v=4"></a>
-<a href="https://github.com/xsnakes" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xsnakes" src="https://avatars1.githubusercontent.com/u/4363683?s=64&v=4"></a>
-<a href="https://github.com/mmasdivins" target="_blank"><img style="border-radius:50%!important" width="64px" alt="mmasdivins" src="https://avatars1.githubusercontent.com/u/63245359?s=64&v=4"></a>
-<a href="https://github.com/GF-Huang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="GF-Huang" src="https://avatars1.githubusercontent.com/u/4510984?s=64v=4"></a>
-<a href="https://github.com/cuiliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="cuiliang" src="https://avatars2.githubusercontent.com/u/1972649?s=64&v=4"></a>
-<a href="https://github.com/lwqwag" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lwqwag" src="https://avatars3.githubusercontent.com/u/29883542?s=64&v=4"></a>
+<a href="https://github.com/ghost1372" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ghost1372" src="https://avatars.githubusercontent.com/u/9213496?s=64&v=4"></a>
+<a href="https://github.com/DingpingZhang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="DingpingZhang" src="https://avatars.githubusercontent.com/u/8541016?s=64&v=4"></a>
+<a href="https://github.com/M0n7y5" target="_blank"><img style="border-radius:50%!important" width="64px" alt="M0n7y5" src="https://avatars.githubusercontent.com/u/17201053?s=64&v=4"></a>
+<a href="https://github.com/guanguanchuangyu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="guanguanchuangyu" src="https://avatars.githubusercontent.com/u/25916858?s=64&v=4"></a>
+<a href="https://github.com/yanchao891012" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yanchao891012" src="https://avatars.githubusercontent.com/u/16846702?s=64&v=4"></a>
+<a href="https://github.com/noctwolf" target="_blank"><img style="border-radius:50%!important" width="64px" alt="noctwolf" src="https://avatars.githubusercontent.com/u/21022467?s=64&v=4"></a>
+<a href="https://github.com/xianyun666" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xianyun666" src="https://avatars.githubusercontent.com/u/22339210?s=64&v=4"></a>
+<a href="https://github.com/afunc233" target="_blank"><img style="border-radius:50%!important" width="64px" alt="afunc233" src="https://avatars.githubusercontent.com/u/19919631?s=64&v=4"></a>
+<a href="https://github.com/DinoChan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="DinoChan" src="https://avatars.githubusercontent.com/u/6076257?s=64&v=4"></a>
+<a href="https://github.com/MrZhangYuan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="MrZhangYuan" src="https://avatars.githubusercontent.com/u/16384123?s=64&v=4"></a>
+<a href="https://github.com/JinhuaChen-OMEC" target="_blank"><img style="border-radius:50%!important" width="64px" alt="JinhuaChen-OMEC" src="https://avatars.githubusercontent.com/u/47024703?s=64&v=4"></a>
+<a href="https://github.com/seedtyx" target="_blank"><img style="border-radius:50%!important" width="64px" alt="seedtyx" src="https://avatars.githubusercontent.com/u/5851975?s=64&v=4"></a>
+<a href="https://github.com/KleinPan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="KleinPan" src="https://avatars.githubusercontent.com/u/34428802?s=64&v=4"></a>
+<a href="https://github.com/yxhq" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yxhq" src="https://avatars.githubusercontent.com/u/10378954?s=64&v=4"></a>
+<a href="https://github.com/AiHaibara" target="_blank"><img style="border-radius:50%!important" width="64px" alt="AiHaibara" src="https://avatars.githubusercontent.com/u/5195234?s=64&v=4"></a>
+<a href="https://github.com/walterlv" target="_blank"><img style="border-radius:50%!important" width="64px" alt="walterlv" src="https://avatars.githubusercontent.com/u/9959623?s=64&v=4"></a>
+<a href="https://github.com/Luoyingliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Luoyingliang" src="https://avatars.githubusercontent.com/u/29297262?s=64&v=4"></a>
+<a href="https://github.com/lindexi" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lindexi" src="https://avatars.githubusercontent.com/u/16054566?s=64&v=4"></a>
+<a href="https://github.com/danwalmsley" target="_blank"><img style="border-radius:50%!important" width="64px" alt="danwalmsley" src="https://avatars.githubusercontent.com/u/4672627?s=64&v=4"></a>
+<a href="https://github.com/varKeytrap" target="_blank"><img style="border-radius:50%!important" width="64px" alt="varKeytrap" src="https://avatars.githubusercontent.com/u/17864005?s=64&v=4"></a>
+<a href="https://github.com/xsnakes" target="_blank"><img style="border-radius:50%!important" width="64px" alt="xsnakes" src="https://avatars.githubusercontent.com/u/4363683?s=64&v=4"></a>
+<a href="https://github.com/mmasdivins" target="_blank"><img style="border-radius:50%!important" width="64px" alt="mmasdivins" src="https://avatars.githubusercontent.com/u/63245359?s=64&v=4"></a>
+<a href="https://github.com/GF-Huang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="GF-Huang" src="https://avatars.githubusercontent.com/u/4510984?s=64v=4"></a>
+<a href="https://github.com/cuiliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="cuiliang" src="https://avatars.githubusercontent.com/u/1972649?s=64&v=4"></a>
+<a href="https://github.com/lwqwag" target="_blank"><img style="border-radius:50%!important" width="64px" alt="lwqwag" src="https://avatars.githubusercontent.com/u/29883542?s=64&v=4"></a>
 <a href="https://github.com/Epacik" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Epacik" src="https://avatars.githubusercontent.com/u/23077337?s=64&v=4"></a>
 <a href="https://github.com/ChoKaPeek" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ChoKaPeek" src="https://avatars.githubusercontent.com/u/16904907?s=64&v=4"></a>
+<a href="https://github.com/shaosu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="shaosu" src="https://avatars.githubusercontent.com/u/12237247?s=64&v=4"></a>
 
 ## Backers
 
-<a href="https://github.com/bigorange1900" target="_blank"><img style="border-radius:50%!important" width="64px" alt="bigorange1900" src="https://avatars1.githubusercontent.com/u/49062011?s=64&v=4"></a>
-<a href="https://github.com/14632791" target="_blank"><img style="border-radius:50%!important" width="64px" alt="14632791" src="https://avatars3.githubusercontent.com/u/27358331?s=64&v=4"></a>
-<a href="https://github.com/IUpdatable" target="_blank"><img style="border-radius:50%!important" width="64px" alt="IUpdatable" src="https://avatars2.githubusercontent.com/u/51181716?s=64&v=4"></a>
-<a href="https://github.com/maplewei" target="_blank"><img style="border-radius:50%!important" width="64px" alt="maplewei" src="https://avatars1.githubusercontent.com/u/13778095?s=64&v=4"></a>
-<a href="https://github.com/sunshang-hl" target="_blank"><img style="border-radius:50%!important" width="64px" alt="sunshang-hl" src="https://avatars1.githubusercontent.com/u/34593206?s=64&v=4"></a>
-<a href="https://github.com/yangkang326" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yangkang326" src="https://avatars1.githubusercontent.com/u/51224259?s=64&v=4"></a>	
-<a href="https://github.com/zmrbak" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zmrbak" src="https://avatars3.githubusercontent.com/u/7257543?s=64&v=4"></a>	
-<a href="https://github.com/AFei19911012" target="_blank"><img style="border-radius:50%!important" width="64px" alt="AFei19911012" src="https://avatars0.githubusercontent.com/u/31465314?s=64&v=4"></a>
-<a href="https://github.com/wayne2006" target="_blank"><img style="border-radius:50%!important" width="64px" alt="wayne2006" src="https://avatars0.githubusercontent.com/u/21210915?s=64&v=4"></a>
-<a href="https://github.com/towerDLH" target="_blank"><img style="border-radius:50%!important" width="64px" alt="towerDLH" src="https://avatars1.githubusercontent.com/u/53053537?s=64&v=4"></a>
-<a href="https://github.com/BluceBosen" target="_blank"><img style="border-radius:50%!important" width="64px" alt="BluceBosen" src="https://avatars3.githubusercontent.com/u/24750822?s=64&v=4"></a>
-<a href="https://github.com/MrZhangYuan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="MrZhangYuan" src="https://avatars2.githubusercontent.com/u/16384123?s=64&v=4"></a>
-<a href="https://github.com/YC946586" target="_blank"><img style="border-radius:50%!important" width="64px" alt="YC946586" src="https://avatars2.githubusercontent.com/u/49895722?s=64&v=4"></a>
-<a href="https://github.com/wihalo" target="_blank"><img style="border-radius:50%!important" width="64px" alt="wihalo" src="https://avatars0.githubusercontent.com/u/26402999?s=64&v=4"></a>
-<a href="https://github.com/startewho" target="_blank"><img style="border-radius:50%!important" width="64px" alt="startewho" src="https://avatars0.githubusercontent.com/u/898009?s=64&v=4"></a>
-<a href="https://github.com/5653325" target="_blank"><img style="border-radius:50%!important" width="64px" alt="5653325" src="https://avatars1.githubusercontent.com/u/3361135?s=64&v=4"></a>
-<a href="https://github.com/LostAsk" target="_blank"><img style="border-radius:50%!important" width="64px" alt="LostAsk" src="https://avatars0.githubusercontent.com/u/46678241?s=64&v=4"></a>
-<a href="https://github.com/sanshiliuxiao" target="_blank"><img style="border-radius:50%!important" width="64px" alt="sanshiliuxiao" src="https://avatars3.githubusercontent.com/u/25658690?s=64&v=4"></a>
-<a href="https://github.com/QJJMSK" target="_blank"><img style="border-radius:50%!important" width="64px" alt="QJJMSK" src="https://avatars2.githubusercontent.com/u/28100716?s=64&v=4"></a>
-<a href="https://github.com/dspcjy" target="_blank"><img style="border-radius:50%!important" width="64px" alt="dspcjy" src="https://avatars3.githubusercontent.com/u/17764711?s=64&v=4"></a>
-<a href="https://github.com/yaronzz" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yaronzz" src="https://avatars0.githubusercontent.com/u/15530958?s=64&v=4"></a>
-<a href="https://github.com/cuiliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="cuiliang" src="https://avatars2.githubusercontent.com/u/1972649?s=64&v=4"></a>
+<a href="https://github.com/bigorange1900" target="_blank"><img style="border-radius:50%!important" width="64px" alt="bigorange1900" src="https://avatars.githubusercontent.com/u/49062011?s=64&v=4"></a>
+<a href="https://github.com/14632791" target="_blank"><img style="border-radius:50%!important" width="64px" alt="14632791" src="https://avatars.githubusercontent.com/u/27358331?s=64&v=4"></a>
+<a href="https://github.com/IUpdatable" target="_blank"><img style="border-radius:50%!important" width="64px" alt="IUpdatable" src="https://avatars.githubusercontent.com/u/51181716?s=64&v=4"></a>
+<a href="https://github.com/maplewei" target="_blank"><img style="border-radius:50%!important" width="64px" alt="maplewei" src="https://avatars.githubusercontent.com/u/13778095?s=64&v=4"></a>
+<a href="https://github.com/sunshang-hl" target="_blank"><img style="border-radius:50%!important" width="64px" alt="sunshang-hl" src="https://avatars.githubusercontent.com/u/34593206?s=64&v=4"></a>
+<a href="https://github.com/yangkang326" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yangkang326" src="https://avatars.githubusercontent.com/u/51224259?s=64&v=4"></a>	
+<a href="https://github.com/zmrbak" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zmrbak" src="https://avatars.githubusercontent.com/u/7257543?s=64&v=4"></a>	
+<a href="https://github.com/AFei19911012" target="_blank"><img style="border-radius:50%!important" width="64px" alt="AFei19911012" src="https://avatars.githubusercontent.com/u/31465314?s=64&v=4"></a>
+<a href="https://github.com/wayne2006" target="_blank"><img style="border-radius:50%!important" width="64px" alt="wayne2006" src="https://avatars.githubusercontent.com/u/21210915?s=64&v=4"></a>
+<a href="https://github.com/towerDLH" target="_blank"><img style="border-radius:50%!important" width="64px" alt="towerDLH" src="https://avatars.githubusercontent.com/u/53053537?s=64&v=4"></a>
+<a href="https://github.com/BluceBosen" target="_blank"><img style="border-radius:50%!important" width="64px" alt="BluceBosen" src="https://avatars.githubusercontent.com/u/24750822?s=64&v=4"></a>
+<a href="https://github.com/MrZhangYuan" target="_blank"><img style="border-radius:50%!important" width="64px" alt="MrZhangYuan" src="https://avatars.githubusercontent.com/u/16384123?s=64&v=4"></a>
+<a href="https://github.com/YC946586" target="_blank"><img style="border-radius:50%!important" width="64px" alt="YC946586" src="https://avatars.githubusercontent.com/u/49895722?s=64&v=4"></a>
+<a href="https://github.com/wihalo" target="_blank"><img style="border-radius:50%!important" width="64px" alt="wihalo" src="https://avatars.githubusercontent.com/u/26402999?s=64&v=4"></a>
+<a href="https://github.com/startewho" target="_blank"><img style="border-radius:50%!important" width="64px" alt="startewho" src="https://avatars.githubusercontent.com/u/898009?s=64&v=4"></a>
+<a href="https://github.com/5653325" target="_blank"><img style="border-radius:50%!important" width="64px" alt="5653325" src="https://avatars.githubusercontent.com/u/3361135?s=64&v=4"></a>
+<a href="https://github.com/LostAsk" target="_blank"><img style="border-radius:50%!important" width="64px" alt="LostAsk" src="https://avatars.githubusercontent.com/u/46678241?s=64&v=4"></a>
+<a href="https://github.com/sanshiliuxiao" target="_blank"><img style="border-radius:50%!important" width="64px" alt="sanshiliuxiao" src="https://avatars.githubusercontent.com/u/25658690?s=64&v=4"></a>
+<a href="https://github.com/QJJMSK" target="_blank"><img style="border-radius:50%!important" width="64px" alt="QJJMSK" src="https://avatars.githubusercontent.com/u/28100716?s=64&v=4"></a>
+<a href="https://github.com/dspcjy" target="_blank"><img style="border-radius:50%!important" width="64px" alt="dspcjy" src="https://avatars.githubusercontent.com/u/17764711?s=64&v=4"></a>
+<a href="https://github.com/yaronzz" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yaronzz" src="https://avatars.githubusercontent.com/u/15530958?s=64&v=4"></a>
+<a href="https://github.com/cuiliang" target="_blank"><img style="border-radius:50%!important" width="64px" alt="cuiliang" src="https://avatars.githubusercontent.com/u/1972649?s=64&v=4"></a>
 <a href="https://github.com/GenmTim" target="_blank"><img style="border-radius:50%!important" width="64px" alt="GenmTim" src="https://avatars.githubusercontent.com/u/69684108?s=64&v=4"></a>
 <a href="https://github.com/ms1094392787" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ms1094392787" src="https://avatars.githubusercontent.com/u/49998334?s=64&v=4"></a>
 <a href="https://gitee.com/ZJHome" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ZJHome" src="https://tvax2.sinaimg.cn/crop.0.0.1080.1080.180/69543af8ly8gf4iat3amdj20u00u0whg.jpg"></a>
@@ -183,6 +184,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### ElementGroup
+
+![ElementGroup](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ElementGroup.png)
+
 ### UniformSpacingPanel
 
 ![UniformSpacingPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/UniformSpacingPanel.png)
@@ -199,11 +204,11 @@ Step 4: Enjoy coding
 
 ![ImageSelector](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ImageSelector.png)
 
+## History publication
+
 ### PropertyGrid
 
 ![PropertyGrid](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PropertyGrid.png)
-
-## History publication
 
 ### Screenshot
 

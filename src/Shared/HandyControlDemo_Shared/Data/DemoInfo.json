@@ -34,7 +34,7 @@
       [ "Label", "LabelDemoCtl", "Label_16x", "", "" ],
       [ "Frame", "FrameDemoCtl", "frame_16xLG", "", "" ],
       [ "Window", "NativeWindowDemoCtl", "WindowsForm_16x", "", "" ],
-      [ "Geometry", "GeometryDemoCtl", "Path_16x", "1", "" ]
+      [ "Geometry", "GeometryDemoCtl", "Path_16x", "", "" ]
     ]
   },
   {
@@ -43,7 +43,7 @@
     "group": true,
     "demoItemList": [
       [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "", "Interacting" ],
-      [ "PropertyGrid", "PropertyGridDemoCtl", "PropertyGridEditorPart_16x", "1", "DataEntry" ],
+      [ "PropertyGrid", "PropertyGridDemoCtl", "PropertyGridEditorPart_16x", "", "DataEntry" ],
       [ "ImageSelector", "ImageSelectorDemoCtl", "Image_16x", "1", "DataEntry" ],
       [ "ImageBlock", "ImageBlockDemoCtl", "ImageStack_16x", "", "DataDisplay" ],
       [ "Magnifier", "MagnifierDemoCtl", "Search_16x", "", "Interacting" ],
@@ -74,6 +74,7 @@
       [ "OutlineText", "OutlineTextDemoCtl", "TextBlock_16x", "", "DataDisplay" ],
       [ "RunningBlock", "RunningBlockDemoCtl", "Dynamic_16x", "", "DataDisplay" ],
       [ "Card", "CardDemoCtl", "VSO_Card_16x", "", "DataDisplay" ],
+      [ "ElementGroup", "ElementGroupDemoCtl", "ButtonGroup_16x", "1", "Layout" ],
       [ "Divider", "DividerDemoCtl", "DottedSplitter_16x", "", "Layout" ],
       [ "CirclePanel", "CirclePanelDemoCtl", "ColorWheel_16x", "", "Layout" ],
       [ "Grid", "GridDemoCtl", "GridPane_16x", "", "Layout" ],
