@@ -261,28 +261,34 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty SelectedBrushProperty = DependencyProperty.Register(
-            "SelectedBrush", typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White,
-                (o, args) =>
-                {
-                    var ctl = (ColorPicker) o;
-                    var v = (SolidColorBrush) args.NewValue;
+            "SelectedBrush", typeof(SolidColorBrush), typeof(ColorPicker), new PropertyMetadata(Brushes.White, OnSelectedBrushChanged, CoerceSelectedBrush));
 
-                    if (ctl.IsNeedUpdateInfo)
-                    {
-                        ctl.IsNeedUpdateInfo = false;
-                        ctl.ChannelR = v.Color.R;
-                        ctl.ChannelG = v.Color.G;
-                        ctl.ChannelB = v.Color.B;
-                        ctl.ChannelA = v.Color.A;
-                        ctl.IsNeedUpdateInfo = true;
-                    }
-                    ctl.UpdateStatus(v.Color);
-                    ctl.SelectedBrushWithoutOpacity = new SolidColorBrush(Color.FromRgb(v.Color.R, v.Color.G, v.Color.B));
-                    ctl.RaiseEvent(new FunctionEventArgs<Color>(SelectedColorChangedEvent, ctl)
-                    {
-                        Info = v.Color
-                    });
-                }));
+        private static object CoerceSelectedBrush(DependencyObject d, object basevalue)
+        {
+            return basevalue is SolidColorBrush ? basevalue : Brushes.White;
+        }
+
+        private static void OnSelectedBrushChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (ColorPicker) d;
+            var v = (SolidColorBrush) e.NewValue;
+
+            if (ctl.IsNeedUpdateInfo)
+            {
+                ctl.IsNeedUpdateInfo = false;
+                ctl.ChannelR = v.Color.R;
+                ctl.ChannelG = v.Color.G;
+                ctl.ChannelB = v.Color.B;
+                ctl.ChannelA = v.Color.A;
+                ctl.IsNeedUpdateInfo = true;
+            }
+            ctl.UpdateStatus(v.Color);
+            ctl.SelectedBrushWithoutOpacity = new SolidColorBrush(Color.FromRgb(v.Color.R, v.Color.G, v.Color.B));
+            ctl.RaiseEvent(new FunctionEventArgs<Color>(SelectedColorChangedEvent, ctl)
+            {
+                Info = v.Color
+            });
+        }
 
         /// <summary>
         ///     当前选中的颜色
