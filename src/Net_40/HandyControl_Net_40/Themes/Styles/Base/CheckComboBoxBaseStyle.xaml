@@ -2,15 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
-                    xmlns:themes="clr-namespace:HandyControl.Themes"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
                     xmlns:langs="clr-namespace:HandyControl.Properties.Langs">
-
-    <ResourceDictionary.MergedDictionaries>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Tag.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/ComboBoxBaseStyle.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
 
     <Style x:Key="Tag4CheckComboBoxStyle" BasedOn="{StaticResource TagBaseStyle}" TargetType="hc:Tag">
         <Setter Property="Margin" Value="0,3,3,0"/>
