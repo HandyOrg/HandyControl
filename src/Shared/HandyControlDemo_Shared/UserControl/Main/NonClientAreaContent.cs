@@ -19,7 +19,7 @@ namespace HandyControlDemo.UserControl
 
         private void ButtonLangs_OnClick(object sender, RoutedEventArgs e)
         {
-            if (e.OriginalSource is Button {Tag: string langName})
+            if (e.OriginalSource is Button { Tag: string langName })
             {
                 PopupConfig.IsOpen = false;
                 if (langName.Equals(GlobalData.Config.Lang))
@@ -40,7 +40,7 @@ namespace HandyControlDemo.UserControl
 
         private void ButtonSkins_OnClick(object sender, RoutedEventArgs e)
         {
-            if (e.OriginalSource is Button {Tag: SkinType skinType})
+            if (e.OriginalSource is Button { Tag: SkinType skinType })
             {
                 PopupConfig.IsOpen = false;
                 if (skinType.Equals(GlobalData.Config.Skin))
