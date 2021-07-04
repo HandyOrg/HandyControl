@@ -1,8 +1,10 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Helper;
 using HandyControl.Tools.Interop;
+using Microsoft.Win32;
 
 namespace HandyControl.Controls
 {
@@ -14,6 +16,22 @@ namespace HandyControl.Controls
             EnableBlur(this);
         }
 
+        internal static bool IsTransparencyEnabled()
+        {
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize"))
+            {
+                if (key != null)
+                {
+                    var value = key.GetValue("EnableTransparency");
+                    if (value != null)
+                    {
+                        return Convert.ToBoolean(value);
+                    }
+                }
+            }
+            return true;
+        }
+
         internal static void EnableBlur(Window window)
         {
             var versionInfo = SystemHelper.GetSystemVersionInfo();
@@ -23,7 +41,11 @@ namespace HandyControl.Controls
 
             accentPolicy.AccentFlags = 2;
 
-            if (versionInfo >= SystemVersionInfo.Windows10_1903)
+            if (versionInfo >= SystemVersionInfo.Windows10_1903 && !IsTransparencyEnabled())
+            {
+                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
+            }
+            else if (versionInfo >= SystemVersionInfo.Windows10_1903 && IsTransparencyEnabled())
             {
                 accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND;
             }
