@@ -1,4 +1,5 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Helper;
@@ -8,13 +9,39 @@ namespace HandyControl.Controls
 {
     public class BlurWindow : Window
     {
+        protected override void OnSourceInitialized(EventArgs e)
+        {
+            var versionInfo = SystemHelper.GetSystemVersionInfo();
+            if (versionInfo >= SystemVersionInfo.Windows10_1903)
+            {
+                this.GetHwndSource()?.AddHook(HwndSourceHook);
+            }
+
+            base.OnSourceInitialized(e);
+        }
+
+        private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
+        {
+            switch (msg)
+            {
+                case InteropValues.WM_ENTERSIZEMOVE:
+                    EnableBlur(this, false);
+                    break;
+                case InteropValues.WM_EXITSIZEMOVE:
+                    EnableBlur(this, true);
+                    break;
+            }
+
+            return IntPtr.Zero;
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            EnableBlur(this);
+            EnableBlur(this, true);
         }
 
-        internal static void EnableBlur(Window window)
+        private static void EnableBlur(Window window, bool isEnabled)
         {
             var versionInfo = SystemHelper.GetSystemVersionInfo();
 
@@ -23,21 +50,24 @@ namespace HandyControl.Controls
 
             accentPolicy.AccentFlags = 2;
 
-            if (versionInfo >= SystemVersionInfo.Windows10_1903)
+            if (isEnabled)
             {
-                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND;
-            }
-            else if (versionInfo >= SystemVersionInfo.Windows10_1809)
-            {
-                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
-            }
-            else if (versionInfo >= SystemVersionInfo.Windows10)
-            {
-                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND;
+                if (versionInfo >= SystemVersionInfo.Windows10_1809)
+                {
+                    accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_ACRYLICBLURBEHIND;
+                }
+                else if (versionInfo >= SystemVersionInfo.Windows10)
+                {
+                    accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND;
+                }
+                else
+                {
+                    accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_TRANSPARENTGRADIENT;
+                }
             }
             else
             {
-                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_TRANSPARENTGRADIENT;
+                accentPolicy.AccentState = InteropValues.ACCENTSTATE.ACCENT_ENABLE_BLURBEHIND;
             }
 
             accentPolicy.GradientColor = ResourceHelper.GetResource<uint>(ResourceToken.BlurGradientValue);
