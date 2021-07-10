@@ -291,7 +291,10 @@ namespace HandyControl.Controls
                 }
 
                 _tickCount++;
-                if (_tickCount >= _waitTime) Close(true);
+                if (_tickCount >= _waitTime)
+                {
+                    Close(true);
+                }
             };
             _timerClose.Start();
         }
@@ -317,7 +320,7 @@ namespace HandyControl.Controls
             {
                 foreach (var item in panel.Children.OfType<Growl>())
                 {
-                    item.Close();
+                    item.Close(false);
                 }
             };
             panel.ContextMenu = new ContextMenu
@@ -830,14 +833,17 @@ namespace HandyControl.Controls
             ShowGlobal(growlInfo);
         }
 
-        private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close(invokeParam: false);
+        private void ButtonClose_OnClick(object sender, RoutedEventArgs e) => Close(false);
 
         /// <summary>
         ///     关闭
         /// </summary>
-        private void Close(bool invokeParam = true)
+        private void Close(bool invokeParam)
         {
-            if (ActionBeforeClose?.Invoke(invokeParam) == false) return;
+            if (ActionBeforeClose?.Invoke(invokeParam) == false)
+            {
+                return;
+            }
 
             _timerClose?.Stop();
             var transform = new TranslateTransform();
@@ -907,7 +913,7 @@ namespace HandyControl.Controls
             GrowlWindow = null;
         }
 
-        private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => Close(invokeParam: false);
+        private void ButtonCancel_OnClick(object sender, RoutedEventArgs e) => Close(false);
 
         private void ButtonOk_OnClick(object sender, RoutedEventArgs e) => Close(true);
     }
