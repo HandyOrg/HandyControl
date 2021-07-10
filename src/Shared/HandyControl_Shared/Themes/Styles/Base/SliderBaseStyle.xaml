@@ -624,7 +624,7 @@
     <ControlTemplate x:Key="PreviewSliderHorizontal" TargetType="hc:PreviewSlider">
         <hc:SimplePanel>
             <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Height="2" VerticalAlignment="center" Margin="9,0"/>
-            <Track Margin="9,0" x:Name="PART_Track">
+            <Track VerticalAlignment="center" Margin="9,0" x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
                     <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource PreviewSliderRepeatButtonHorizontalStyle}"/>
                 </Track.DecreaseRepeatButton>
@@ -641,7 +641,7 @@
     <ControlTemplate x:Key="PreviewSliderVertical" TargetType="hc:PreviewSlider">
         <hc:SimplePanel>
             <Border x:Name="TrackBackground" Background="{TemplateBinding Background}" Width="2" HorizontalAlignment="center" Margin="0,9"/>
-            <Track Margin="0,9" x:Name="PART_Track">
+            <Track HorizontalAlignment="center" Margin="0,9" x:Name="PART_Track">
                 <Track.DecreaseRepeatButton>
                     <RepeatButton Command="{x:Static Slider.DecreaseLarge}" Background="{DynamicResource PrimaryBrush}" Style="{StaticResource PreviewSliderRepeatButtonVerticalStyle}"/>
                 </Track.DecreaseRepeatButton>
