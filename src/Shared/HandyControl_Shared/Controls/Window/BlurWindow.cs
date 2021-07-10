@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Runtime.InteropServices;
-using System.Windows.Interop;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Helper;
@@ -10,29 +9,27 @@ namespace HandyControl.Controls
 {
     public class BlurWindow : Window
     {
-        private static readonly int WM_EXITSIZEMOVE = 0x0232;
-        private static readonly int WM_ENTERSIZEMOVE = 0x0231;
-
-        public BlurWindow()
+        protected override void OnSourceInitialized(EventArgs e)
         {
             var versionInfo = SystemHelper.GetSystemVersionInfo();
-
             if (versionInfo >= SystemVersionInfo.Windows10_1903)
             {
-                var source = HwndSource.FromHwnd(WindowHelper.GetHandle(this));
-                source.AddHook(WndProc);
+                this.GetHwndSource()?.AddHook(HwndSourceHook);
             }
+
+            base.OnSourceInitialized(e);
         }
 
-        private IntPtr WndProc(IntPtr hwnd, int msg, IntPtr wParam, IntPtr lParam, ref bool handled)
+        private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)
         {
-            if (msg == WM_ENTERSIZEMOVE)
+            switch (msg)
             {
-                EnableBlur(this, false);
-            }
-            else if (msg == WM_EXITSIZEMOVE)
-            {
-                EnableBlur(this);
+                case InteropValues.WM_ENTERSIZEMOVE:
+                    EnableBlur(this, false);
+                    break;
+                case InteropValues.WM_EXITSIZEMOVE:
+                    EnableBlur(this, true);
+                    break;
             }
 
             return IntPtr.Zero;
@@ -41,10 +38,10 @@ namespace HandyControl.Controls
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
-            EnableBlur(this);
+            EnableBlur(this, true);
         }
 
-        internal static void EnableBlur(Window window, bool isEnabled = true)
+        private static void EnableBlur(Window window, bool isEnabled)
         {
             var versionInfo = SystemHelper.GetSystemVersionInfo();
 
