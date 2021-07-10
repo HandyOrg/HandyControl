@@ -2,15 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:o="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
                     xmlns:hc="clr-namespace:HandyControl.Controls"
-                    xmlns:themes="clr-namespace:HandyControl.Themes"
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
-
-    <ResourceDictionary.MergedDictionaries>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Effects.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/GroupBox.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/SearchBar.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ButtonGroup.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
 
     <DrawingBrush x:Key="SortByCategoryDrawingBrush" o:Freeze="True">
         <DrawingBrush.Drawing>

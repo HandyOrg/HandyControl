@@ -4,13 +4,7 @@
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:lang="clr-namespace:HandyControl.Properties.Langs"
-                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension"
-                    xmlns:themes="clr-namespace:HandyControl.Themes">
-
-    <ResourceDictionary.MergedDictionaries>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+                    xmlns:ex="clr-namespace:HandyControl.Tools.Extension">
 
     <Style x:Key="PaginationButtonStyle" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
         <Setter Property="GroupName" Value="1"/>

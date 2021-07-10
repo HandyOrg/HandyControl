@@ -41,7 +41,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<TagDemoViewModel>();
         }
 
-        public static ViewModelLocator Instance => new Lazy<ViewModelLocator>(() =>
+        public static ViewModelLocator Instance = new Lazy<ViewModelLocator>(() =>
             Application.Current.TryFindResource("Locator") as ViewModelLocator).Value;
 
         #region Vm

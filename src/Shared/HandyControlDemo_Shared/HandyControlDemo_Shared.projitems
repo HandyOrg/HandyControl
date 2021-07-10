@@ -40,6 +40,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\AssemblyHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\VersionHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\Win32Helper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\HighlightingProvider.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
     </Compile>

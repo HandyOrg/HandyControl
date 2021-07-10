@@ -5,7 +5,7 @@ title: 原生控件
 原生控件是指WPF框架自带的控件，除此之外，通过附加属性实现简单的功能扩展。
 
 {% note warning %}
-HandyControl中，几乎所有的原生控件都有默认实现的基样式（即定义样式的时候，没有显示给定Key值）。
+HandyControl中，几乎所有的原生控件都有默认实现的基样式（即定义样式的时候，没有显式给定Key值）。
 {% endnote %}
 
 {% note warning %}

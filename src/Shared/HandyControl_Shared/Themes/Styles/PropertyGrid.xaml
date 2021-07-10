@@ -1,14 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:themes="clr-namespace:HandyControl.Themes"
                     xmlns:system="clr-namespace:System;assembly=mscorlib"
                     xmlns:tools="clr-namespace:HandyControl.Tools">
-    
-    <ResourceDictionary.MergedDictionaries>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Base/PropertyGridBaseStyle.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ComboBox.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
 
     <Style BasedOn="{StaticResource PropertyGridBaseStyle}" TargetType="hc:PropertyGrid"/>
 
