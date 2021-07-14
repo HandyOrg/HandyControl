@@ -21,9 +21,6 @@
     <a href="https://github.com/HandyOrg/HandyControl/actions?query=workflow%3Abuild">
         <img alt="Github-build-status" src="https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg"></img>
     </a>
-    <a href="https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
-        <img alt="Join the chat at https://gitter.im/HandyControl/Lobby" src="https://badges.gitter.im/HandyControl/Lobby.svg"></img>
-    </a> 
     <a href="https://www.nuget.org/packages/HandyControl">
         <img alt="Nuget" src="https://img.shields.io/nuget/dt/handycontrol"></img>
     </a> 
@@ -37,6 +34,10 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 
 ## 面向中国
 
+### 技术交流
+
+[https://join.slack.com/t/handycontrol/shared_invite/zt-sw29prqd-okFmRlmETdtWhnF7C3foxA](https://join.slack.com/t/handycontrol/shared_invite/zt-sw29prqd-okFmRlmETdtWhnF7C3foxA)
+
 ### 码云
 
 [https://gitee.com/handyorg/HandyControl/](https://gitee.com/handyorg/HandyControl/)
@@ -47,14 +48,7 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 
 ### 赞助
 
-* [以HandyControl的名义为慈善事业做贡献（请联系我们上赞助墙）](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
-
-* 扫码入群 
-
-| | 西江月群 | 定风波群 |
-|-|:-:|:-:|
-| 群号码 | [![qq-group](https://img.shields.io/badge/qq-714704041-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1) | [![qq-group](https://img.shields.io/badge/qq-858784803-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=5c18622a0f6ee07a6f33afa8cdb85b1f72ea50e878271dfcec919c76b55afee7) |
-| 二维码 | ![qq-group](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qq_group_1.png) | ![qq-group](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qq_group_2.png) |
+* [以HandyControl的名义为慈善事业做贡献（请联系我们上赞助墙）](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3) 
 
 * 为我们购买防脱洗发水 （支付宝扫码）  
 ![qrcode](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qrcode.png)
