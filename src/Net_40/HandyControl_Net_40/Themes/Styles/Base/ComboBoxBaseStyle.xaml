@@ -514,6 +514,7 @@
         <Setter Property="Padding" Value="{StaticResource DefaultInputPadding}"/>
         <Setter Property="Template" Value="{StaticResource ComboBoxTemplate}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
         <Style.Triggers>
             <Trigger Property="IsEditable" Value="true">
                 <Setter Property="IsTabStop" Value="false"/>
@@ -1291,6 +1292,7 @@
 
     <!--Handy式下拉框样式-->
     <Style x:Key="ComboBoxPlusBaseStyle" BasedOn="{StaticResource ComboBoxExtendBaseStyle}" TargetType="hc:ComboBox">
+        <Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Template" Value="{StaticResource ComboBoxPlusTopTemplate}"/>
         <Style.Triggers>
             <MultiTrigger>
