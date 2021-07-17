@@ -40,6 +40,7 @@
         <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TextBox">
@@ -255,6 +256,7 @@
     </ControlTemplate>
 
     <Style x:Key="TextBoxPlusBaseStyle" BasedOn="{StaticResource TextBoxExtendBaseStyle}" TargetType="hc:TextBox">
+        <Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Template" Value="{StaticResource TextBoxPlusTopTemplate}"/>
         <Style.Triggers>
             <Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
