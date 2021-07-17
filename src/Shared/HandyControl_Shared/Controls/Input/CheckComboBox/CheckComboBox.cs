@@ -185,9 +185,22 @@ namespace HandyControl.Controls
                 }
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
+            var isError = !result.Data;
+            if (isError)
+            {
+                SetCurrentValue(IsErrorProperty, true);
+                SetCurrentValue(ErrorStrProperty, result.Message);
+            }
+            else
+            {
+                isError = Validation.GetHasError(this);
+                if (isError)
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
+                }
+            }
+
+            return !isError;
         }
 
         public Func<string, OperationResult<bool>> VerifyFunc { get; set; }

@@ -172,6 +172,7 @@
         <Setter Property="Padding" Value="{StaticResource DefaultInputPadding}"/>
         <Setter Property="Template" Value="{StaticResource CheckComboBoxTemplate}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
     </Style>
 
     <ControlTemplate x:Key="CheckComboBoxExtendTopTemplate" TargetType="hc:CheckComboBox">
@@ -534,6 +535,7 @@
     </ControlTemplate>
 
     <Style x:Key="CheckComboBoxPlusBaseStyle" BasedOn="{StaticResource CheckComboBoxExtendBaseStyle}" TargetType="hc:CheckComboBox">
+        <Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Template" Value="{StaticResource CheckComboBoxPlusTopTemplate}"/>
         <Style.Triggers>
             <Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
