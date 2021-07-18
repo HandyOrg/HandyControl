@@ -112,12 +112,28 @@ namespace HandyControl.Controls
                 _updateText = true;
                 return;
             }
-            if (double.TryParse(_textBox.Text, out var value))
+
+            _updateText = false;
+
+            if (string.IsNullOrWhiteSpace(_textBox.Text))
             {
-                _updateText = false;
-                Value = value;
-                _updateText = true;
+                Value = 0;
+
+                SetCurrentValue(ErrorStrProperty, string.Empty);
+                SetCurrentValue(IsErrorProperty, false);
             }
+            else if (double.TryParse(_textBox.Text, out var value))
+            {
+                Value = value;
+
+                if (Validation.GetHasError(this))
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
+                    SetCurrentValue(IsErrorProperty, true);
+                }
+            }
+
+            _updateText = true;
         }
 
         private void PreviewTextInputHandler(object sender, TextCompositionEventArgs e) => UpdateData();
@@ -496,8 +512,8 @@ namespace HandyControl.Controls
                 }
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
+            SetCurrentValue(ErrorStrProperty, result.Message);
+            SetCurrentValue(IsErrorProperty, !result.Data);
             return result.Data;
         }
     }
