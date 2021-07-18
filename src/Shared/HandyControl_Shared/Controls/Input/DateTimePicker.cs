@@ -427,9 +427,21 @@ namespace HandyControl.Controls
                 }
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
+            var isError = !result.Data;
+            if (isError)
+            {
+                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+                SetCurrentValue(ErrorStrProperty, result.Message);
+            }
+            else
+            {
+                isError = Validation.GetHasError(this);
+                if (isError)
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
+                }
+            }
+            return !isError;
         }
 
         public override string ToString() => SelectedDateTime?.ToString(DateTimeFormat) ?? string.Empty;

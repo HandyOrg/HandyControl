@@ -156,7 +156,7 @@ namespace HandyControl.Controls
             var isError = !result.Data;
             if (isError)
             {
-                SetCurrentValue(IsErrorProperty, true);
+                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
                 SetCurrentValue(ErrorStrProperty, result.Message);
             }
             else
