@@ -120,7 +120,7 @@ namespace HandyControl.Controls
                 Value = 0;
 
                 SetCurrentValue(ErrorStrProperty, string.Empty);
-                SetCurrentValue(IsErrorProperty, false);
+                SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
             }
             else if (double.TryParse(_textBox.Text, out var value))
             {
@@ -129,7 +129,7 @@ namespace HandyControl.Controls
                 if (Validation.GetHasError(this))
                 {
                     SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
-                    SetCurrentValue(IsErrorProperty, true);
+                    SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
                 }
             }
 
@@ -513,7 +513,7 @@ namespace HandyControl.Controls
             }
 
             SetCurrentValue(ErrorStrProperty, result.Message);
-            SetCurrentValue(IsErrorProperty, !result.Data);
+            SetCurrentValue(IsErrorProperty, ValueBoxes.BooleanBox(!result.Data));
             return result.Data;
         }
     }
