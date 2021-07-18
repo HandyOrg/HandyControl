@@ -5090,6 +5090,7 @@
 		<Setter Property="Padding" Value="{StaticResource DefaultInputPadding}" />
 		<Setter Property="Template" Value="{StaticResource ComboBoxTemplate}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Style.Triggers>
 			<Trigger Property="IsEditable" Value="true">
 				<Setter Property="IsTabStop" Value="false" />
@@ -5895,6 +5896,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="ComboBoxPlusBaseStyle" BasedOn="{StaticResource ComboBoxExtendBaseStyle}" TargetType="hc:ComboBox">
+		<Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}" />
 		<Setter Property="Template" Value="{StaticResource ComboBoxPlusTopTemplate}" />
 		<Style.Triggers>
 			<MultiTrigger>
@@ -6173,6 +6175,7 @@
 		<Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="TextBox">
@@ -6382,6 +6385,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="TextBoxPlusBaseStyle" BasedOn="{StaticResource TextBoxExtendBaseStyle}" TargetType="hc:TextBox">
+		<Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}" />
 		<Setter Property="Template" Value="{StaticResource TextBoxPlusTopTemplate}" />
 		<Style.Triggers>
 			<Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
@@ -7065,6 +7069,7 @@
 		<Setter Property="Padding" Value="{StaticResource DefaultInputPadding}" />
 		<Setter Property="Template" Value="{StaticResource CheckComboBoxTemplate}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 	</Style>
 	<ControlTemplate x:Key="CheckComboBoxExtendTopTemplate" TargetType="hc:CheckComboBox">
 		<Grid>
@@ -7449,6 +7454,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="CheckComboBoxPlusBaseStyle" BasedOn="{StaticResource CheckComboBoxExtendBaseStyle}" TargetType="hc:CheckComboBox">
+		<Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}" />
 		<Setter Property="Template" Value="{StaticResource CheckComboBoxPlusTopTemplate}" />
 		<Style.Triggers>
 			<Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
@@ -7732,6 +7738,7 @@
 		<Setter Property="Padding" Value="{StaticResource DefaultInputPadding}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="DatePicker">
@@ -8035,6 +8042,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="DatePickerPlusBaseStyle" BasedOn="{StaticResource DatePickerExtendBaseStyle}" TargetType="hc:DatePicker">
+		<Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}" />
 		<Setter Property="CaretBrush" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="Template" Value="{StaticResource DatePickerPlusTopTemplate}" />
 		<Style.Triggers>
@@ -8054,6 +8062,7 @@
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="CaretBrush" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:DateTimePicker">
@@ -8357,6 +8366,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="DateTimePickerPlusBaseStyle" BasedOn="{StaticResource DateTimePickerExtendBaseStyle}" TargetType="hc:DateTimePicker">
+		<Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}" />
 		<Setter Property="Template" Value="{StaticResource DateTimePickerPlusTopTemplate}" />
 		<Style.Triggers>
 			<Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
@@ -9148,6 +9158,7 @@
 		<Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:NumericUpDown">
@@ -9406,6 +9417,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="NumericUpDownPlusBaseStyle" BasedOn="{StaticResource NumericUpDownExtendBaseStyle}" TargetType="hc:NumericUpDown">
+		<Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}" />
 		<Setter Property="Template" Value="{StaticResource NumericUpDownPlusTopTemplate}" />
 		<Style.Triggers>
 			<Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
@@ -9430,6 +9442,7 @@
 		<Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst" />
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="PasswordBox">
@@ -9675,6 +9688,8 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="PasswordBoxPlusBaseStyle" TargetType="hc:PasswordBox">
+		<Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
@@ -10596,6 +10611,7 @@
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="CaretBrush" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:TimePicker">
@@ -10899,6 +10915,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="TimePickerPlusBaseStyle" BasedOn="{StaticResource TimePickerExtendBaseStyle}" TargetType="hc:TimePicker">
+		<Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}" />
 		<Setter Property="Template" Value="{StaticResource TimePickerPlusTopTemplate}" />
 		<Style.Triggers>
 			<Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
