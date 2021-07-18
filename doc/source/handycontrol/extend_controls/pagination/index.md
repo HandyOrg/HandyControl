@@ -24,7 +24,8 @@ public class Pagination : Control
 |DataCountPerPage|每页的数据量|20||
 |PageIndex|页码|1||
 |MaxPageInterval|当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）|3||
-|IsJumpEnabled|是否显示跳转框|false|||
+|IsJumpEnabled|是否显示跳转框|false||
+|AutoHiding|最大页数等于1时显示页码条|false|||
 
 # 事件
 
