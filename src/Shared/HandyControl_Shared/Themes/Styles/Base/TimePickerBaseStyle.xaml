@@ -14,6 +14,7 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="CaretBrush" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:TimePicker">
@@ -323,6 +324,7 @@
     </ControlTemplate>
 
     <Style x:Key="TimePickerPlusBaseStyle" BasedOn="{StaticResource TimePickerExtendBaseStyle}" TargetType="hc:TimePicker">
+        <Setter Property="IsError" Value="{Binding Path=(Validation.HasError),RelativeSource={RelativeSource Self}}"/>
         <Setter Property="Template" Value="{StaticResource TimePickerPlusTopTemplate}"/>
         <Style.Triggers>
             <Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
