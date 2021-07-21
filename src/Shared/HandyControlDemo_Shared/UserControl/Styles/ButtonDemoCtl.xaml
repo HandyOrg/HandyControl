@@ -142,13 +142,13 @@
                         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonCustom"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Width="50" Padding="16,8" Margin="5" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
-                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource ButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <Button Width="50" Padding="16,8" Margin="5" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <Button Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIcon（UpDownGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <Button Padding="7" Margin="5" Style="{StaticResource ButtonIconCircular}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
-                        <Button Padding="7" IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconCircular}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <Button Padding="7" Margin="5" Style="{StaticResource ButtonIconCircular}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <Button Padding="7" IsEnabled="False" Margin="5" Style="{StaticResource ButtonIconCircular}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ButtonIconCircular（UpDownGeometry）"/>
                     </StackPanel>
                 </WrapPanel>
