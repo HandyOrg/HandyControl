@@ -58,4 +58,4 @@ public class CirclePanel : Panel
 </hc:CirclePanel>
 ```
 
-![CirclePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CirclePanel.jpg)
+![CirclePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CirclePanel.png)

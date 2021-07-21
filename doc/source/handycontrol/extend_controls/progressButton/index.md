@@ -28,4 +28,4 @@ public class ProgressButton : ToggleButton
 </StackPanel>
 ```
 
-![ProgressButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ProgressButton.png)
+![ProgressButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ProgressButton.gif)

@@ -250,7 +250,7 @@ Step 4: Enjoy coding
 
 ### SplitButton
 
-![SplitButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/SplitButton.png)
+![SplitButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/SplitButton.gif)
 
 ### FloatingBlock
 
@@ -304,7 +304,7 @@ Step 4: Enjoy coding
 
 ### Badge
 
-![Badge](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Badge.png)
+![Badge](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Badge.gif)
 
 ### Gravatar
 
@@ -324,11 +324,11 @@ Step 4: Enjoy coding
 
 ### Transfer
 
-![Transfer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Transfer.png)
+![Transfer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Transfer.gif)
 
 ### ProgressButton
 
-![ProgressButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ProgressButton.png)
+![ProgressButton](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ProgressButton.gif)
 
 ### CoverFlow
 
@@ -348,11 +348,11 @@ Step 4: Enjoy coding
 
 ### Rate
 
-![Rate](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Rate.png)
+![Rate](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Rate.gif)
 
 ### BlurWindow
 
-![BlurWindow](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/BlurWindow.png)
+![BlurWindow](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/BlurWindow.gif)
 
 ### FlipClock
 
@@ -384,7 +384,7 @@ Step 4: Enjoy coding
 
 ### CircleProgressBar
 
-![CircleProgressBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CircleProgressBar.png)
+![CircleProgressBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CircleProgressBar.gif)
 
 ### ButtonStyle
 
@@ -486,7 +486,7 @@ Step 4: Enjoy coding
 
 ### StepBar
 
-![StepBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/StepBar.png)
+![StepBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/StepBar.gif)
 
 ### GifImage
 
@@ -498,11 +498,11 @@ Step 4: Enjoy coding
 
 ### Calendar
 
-![Calendar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Calendar.jpg)
+![Calendar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Calendar.gif)
 
 ### Clock
 
-![Clock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Clock.jpg)
+![Clock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Clock.png)
 
 ### CalendarWithClock
 
@@ -510,7 +510,7 @@ Step 4: Enjoy coding
 
 ### TextBlock
 
-![TextBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TextBlock.jpg)
+![TextBlock](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TextBlock.png)
 
 ### RichTextBoxStyle
 
@@ -518,11 +518,11 @@ Step 4: Enjoy coding
 
 ### TextBox
 
-![TextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TextBox.jpg)
+![TextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TextBox.png)
 
 ### ComboBox
 
-![ComboBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ComboBox.jpg)
+![ComboBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ComboBox.png)
 
 ### NumericUpDown
 
@@ -534,27 +534,27 @@ Step 4: Enjoy coding
 
 ### PasswordBox
 
-![PasswordBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PasswordBox.jpg)
+![PasswordBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/PasswordBox.png)
 
 ### DatePicker
 
-![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DatePicker.jpg)
+![DatePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DatePicker.png)
 
 ### TimePicker
 
-![TimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TimePicker.jpg)
+![TimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TimePicker.gif)
 
 ### DateTimePicker
 
-![DateTimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DateTimePicker.png)
+![DateTimePicker](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/DateTimePicker.gif)
 
 ### ScrollViewer
 
-![ScrollViewer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ScrollViewer.png)
+![ScrollViewer](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ScrollViewer.gif)
 
 ### CirclePanel
 
-![CirclePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CirclePanel.jpg)
+![CirclePanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CirclePanel.png)
 
 ### TransitioningContentControl
 
