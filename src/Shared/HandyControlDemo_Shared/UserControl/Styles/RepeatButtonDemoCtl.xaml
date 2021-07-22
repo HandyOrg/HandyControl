@@ -142,13 +142,13 @@
                         <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonCustom"/>
                     </StackPanel>
                     <StackPanel>
-                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
-                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonIcon}" Foreground="{DynamicResource PrimaryTextBrush}"  hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" Margin="5" Style="{StaticResource RepeatButtonIcon}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <RepeatButton Width="50" Padding="16,8" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonIcon}"  hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonIcon（UpDownGeometry）"/>
                     </StackPanel>
                     <StackPanel>
-                        <RepeatButton Padding="7" Margin="5" Style="{StaticResource RepeatButtonIconCircular}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
-                        <RepeatButton Padding="7" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonIconCircular}" Foreground="{DynamicResource PrimaryTextBrush}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <RepeatButton Padding="7" Margin="5" Style="{StaticResource RepeatButtonIconCircular}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
+                        <RepeatButton Padding="7" IsEnabled="False" Margin="5" Style="{StaticResource RepeatButtonIconCircular}" hc:IconElement.Geometry="{StaticResource UpDownGeometry}"/>
                         <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="RepeatButtonIconCircular（UpDownGeometry）"/>
                     </StackPanel>
                 </WrapPanel>

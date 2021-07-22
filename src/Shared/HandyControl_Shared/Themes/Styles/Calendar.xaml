@@ -178,9 +178,9 @@
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
                             <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="3"/>
-                            <Button x:Name="PART_PreviousButton" Width="50" HorizontalAlignment="Left" Grid.Column="0" Height="50" Padding="16" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
-                            <Button x:Name="PART_HeaderButton" Focusable="False" Foreground="White" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource ButtonCustom}"/>
-                            <Button x:Name="PART_NextButton" Width="50" HorizontalAlignment="Right" Height="50" Padding="16" Grid.Column="2" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
+                            <Button x:Name="PART_PreviousButton" Width="50" Foreground="{DynamicResource TextIconBrush}" HorizontalAlignment="Left" Grid.Column="0" Height="50" Padding="16" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                            <Button x:Name="PART_HeaderButton" Focusable="False" Foreground="{DynamicResource TextIconBrush}" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource ButtonCustom}"/>
+                            <Button x:Name="PART_NextButton" Width="50" Foreground="{DynamicResource TextIconBrush}" HorizontalAlignment="Right" Height="50" Padding="16" Grid.Column="2" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
                             <Grid Width="240" Height="240" x:Name="PART_MonthView" Margin="10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Visible">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
