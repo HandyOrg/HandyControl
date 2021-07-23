@@ -128,7 +128,7 @@ namespace HandyControl.Controls
                     return;
                 }
 
-                _transform.X = _thumb.TranslatePoint(new Point(), _adorner).X -_previewContent.ActualWidth - PreviewContentOffset;
+                _transform.X = _thumb.TranslatePoint(new Point(), _adorner).X - _previewContent.ActualWidth - PreviewContentOffset;
                 _transform.Y = p.Y - _previewContent.ActualHeight * 0.5;
 
                 PreviewPosition = _thumb.IsMouseCaptureWithin ? Value : pos;

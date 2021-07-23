@@ -22,7 +22,7 @@ namespace HandyControl.Controls
         #region fields
 
         private const string ElementNonClientArea = "PART_NonClientArea";
-        
+
         private bool _isFullScreen;
 
         private Thickness _actualBorderThickness;
