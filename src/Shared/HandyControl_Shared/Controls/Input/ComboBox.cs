@@ -370,6 +370,11 @@ namespace HandyControl.Controls
                 {
                     SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
                 }
+                else
+                {
+                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                    SetCurrentValue(ErrorStrProperty, default(string));
+                }
             }
 
             return !isError;
