@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -195,7 +194,6 @@ namespace HandyControl.Controls
             if (dp.SelectedTime.HasValue)
             {
                 var time = dp.SelectedTime.Value;
-                Trace.WriteLine(time);
                 dp.SetTextInternal(dp.DateTimeToString(time));
             }
 
