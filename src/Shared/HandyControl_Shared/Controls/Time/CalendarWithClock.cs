@@ -119,6 +119,7 @@ namespace HandyControl.Controls
             var v = (DateTime) e.NewValue;
             ctl._clock.SelectedTime = v;
             ctl._calendar.SelectedDate = v;
+            ctl._calendar.DisplayDate = v;
             ctl.OnDisplayDateTimeChanged(new FunctionEventArgs<DateTime>(v));
         }
 

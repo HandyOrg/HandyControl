@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -194,6 +195,7 @@ namespace HandyControl.Controls
             if (dp.SelectedTime.HasValue)
             {
                 var time = dp.SelectedTime.Value;
+                Trace.WriteLine(time);
                 dp.SetTextInternal(dp.DateTimeToString(time));
             }
 
@@ -462,9 +464,11 @@ namespace HandyControl.Controls
             _dropDownButton.Click += DropDownButton_Click;
             _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
 
+            var selectedTime = SelectedTime;
+
             if (_textBox != null)
             {
-                if (SelectedTime == null)
+                if (selectedTime == null)
                 {
                     _textBox.Text = DateTime.Now.ToString(TimeFormat);
                 }
@@ -480,7 +484,7 @@ namespace HandyControl.Controls
                 _textBox.TextChanged += TextBox_TextChanged;
                 _textBox.LostFocus += TextBox_LostFocus;
 
-                if (SelectedTime == null)
+                if (selectedTime == null)
                 {
                     if (!string.IsNullOrEmpty(_defaultText))
                     {
@@ -490,12 +494,19 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    _textBox.Text = DateTimeToString((DateTime) SelectedTime);
+                    _textBox.Text = DateTimeToString(selectedTime.Value);
                 }
             }
 
-            _originalSelectedTime ??= DateTime.Now;
-            SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+            if (selectedTime is null)
+            {
+                _originalSelectedTime ??= DateTime.Now;
+                SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+            }
+            else
+            {
+                SetCurrentValue(DisplayTimeProperty, selectedTime);
+            }
         }
 
         public override string ToString() => SelectedTime?.ToString(TimeFormat) ?? string.Empty;
