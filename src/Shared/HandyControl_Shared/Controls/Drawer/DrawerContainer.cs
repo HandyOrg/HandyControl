@@ -4,6 +4,6 @@ namespace HandyControl.Controls
 {
     public class DrawerContainer : AdornerDecorator
     {
-        
+
     }
 }
