@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
-using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
-using System.Windows.Media;
-using HandyControl.Data;
 
 namespace HandyControl.Controls
 {
@@ -19,21 +16,44 @@ namespace HandyControl.Controls
 
         private readonly ObservableCollection<object> _tabHeaderItemsSource = new();
 
+        internal ItemsControl RibbonTabHeaderItemsControl => _tabHeaderItemsControl;
+
         public Ribbon()
         {
+            SetRibbon(this, this);
             ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
-
-            AddHandler(SelectableItem.SelectedEvent, new RoutedEventHandler(OnTabHeaderSelected));
         }
 
-        private void OnTabHeaderSelected(object sender, RoutedEventArgs e)
+        internal static readonly DependencyProperty RibbonProperty = DependencyProperty.RegisterAttached(
+            "Ribbon", typeof(Ribbon), typeof(Ribbon),
+            new FrameworkPropertyMetadata(default(Ribbon), FrameworkPropertyMetadataOptions.Inherits));
+
+        internal static void SetRibbon(DependencyObject element, Ribbon value)
+            => element.SetValue(RibbonProperty, value);
+
+        internal static Ribbon GetRibbon(DependencyObject element)
+            => (Ribbon) element.GetValue(RibbonProperty);
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+
+            _tabHeaderItemsControl = GetTemplateChild(TabHeaderItemsControl) as ItemsControl;
+            if (_tabHeaderItemsControl is {ItemsSource: null})
+            {
+                _tabHeaderItemsControl.ItemsSource = _tabHeaderItemsSource;
+            }
+        }
+
+        internal void ResetSelection()
+        {
+            SelectedIndex = -1;
+            InitializeSelection();
+        }
+
+        internal void NotifyMouseClickedOnTabHeader(RibbonTabHeader tabHeader)
         {
             if (_tabHeaderItemsControl == null)
-            {
-                return;
-            }
-
-            if (e.OriginalSource is not RibbonTabHeader tabHeader)
             {
                 return;
             }
@@ -47,73 +67,14 @@ namespace HandyControl.Controls
             }
         }
 
-        private static readonly DependencyPropertyKey SelectedContentPropertyKey =
-            DependencyProperty.RegisterReadOnly("SelectedContent", typeof(object), typeof(Ribbon),
-                new FrameworkPropertyMetadata((object) null));
-
-        public static readonly DependencyProperty SelectedContentProperty =
-            SelectedContentPropertyKey.DependencyProperty;
-
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
-        public object SelectedContent
+        internal void NotifyTabHeaderChanged()
         {
-            get => GetValue(SelectedContentProperty);
-            internal set => SetValue(SelectedContentPropertyKey, value);
-        }
-
-        public static readonly DependencyProperty IsMinimizedProperty = DependencyProperty.Register(nameof(IsMinimized),
-            typeof(bool), typeof(Ribbon),
-            new PropertyMetadata(ValueBoxes.FalseBox, OnIsMinimizedChanged, CoerceIsMinimized));
-
-        private static object CoerceIsMinimized(DependencyObject d, object basevalue)
-        {
-            var num = (bool) basevalue ? 1 : 0;
-            var ribbon = (Ribbon) d;
-            return num != 0 && ribbon.ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated ? ValueBoxes.FalseBox : basevalue;
-        }
-
-        private static void OnIsMinimizedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
-
-        public bool IsMinimized
-        {
-            get => (bool) GetValue(IsMinimizedProperty);
-            set => SetValue(IsMinimizedProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        public static readonly DependencyProperty IsDropDownOpenProperty =
-            DependencyProperty.Register(nameof(IsDropDownOpen), typeof(bool), typeof(Ribbon),
-                new PropertyMetadata(ValueBoxes.FalseBox, OnIsDropDownOpenChanged, CoerceIsDropDownOpen));
-
-        private static object CoerceIsDropDownOpen(DependencyObject d, object basevalue)
-        {
-            return ValueBoxes.FalseBox;
-        }
-
-        private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            
-        }
-
-        public bool IsDropDownOpen
-        {
-            get => (bool) GetValue(IsDropDownOpenProperty);
-            set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        public override void OnApplyTemplate()
-        {
-            base.OnApplyTemplate();
-
-            _tabHeaderItemsControl = GetTemplateChild(TabHeaderItemsControl) as ItemsControl;
-            if (_tabHeaderItemsControl is {ItemsSource: null})
+            if (ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated)
             {
-                _tabHeaderItemsControl.ItemsSource = _tabHeaderItemsSource;
+                return;
             }
 
-            UpdateSelectedContent();
+            RefreshHeaderCollection();
         }
 
         protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
@@ -140,6 +101,23 @@ namespace HandyControl.Controls
 
         protected override bool IsItemItsOwnContainerOverride(object item) => item is RibbonTab;
 
+        protected override void OnSelectionChanged(SelectionChangedEventArgs e)
+        {
+            base.OnSelectionChanged(e);
+
+            if (e.AddedItems is not {Count: > 0})
+            {
+                return;
+            }
+
+            if (e.RemovedItems.Count > 0 && ItemContainerGenerator.ContainerFromItem(e.RemovedItems[0]) is RibbonTab oldRibbonTab)
+            {
+                oldRibbonTab.IsSelected = false;
+            }
+
+            SelectedItem = e.AddedItems[0];
+        }
+
         private void OnItemContainerGeneratorStatusChanged(object sender, EventArgs e)
         {
             if (ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated)
@@ -147,7 +125,6 @@ namespace HandyControl.Controls
                 return;
             }
 
-            CoerceValue(Ribbon.IsMinimizedProperty);
             InitializeSelection();
             RefreshHeaderCollection();
         }
@@ -180,58 +157,6 @@ namespace HandyControl.Controls
             }
 
             SelectedIndex = firstVisibleTabIndex;
-        }
-
-        private static bool EqualsEx(object o1, object o2)
-        {
-            try
-            {
-                return Equals(o1, o2);
-            }
-            catch (InvalidCastException)
-            {
-                return false;
-            }
-        }
-
-        private RibbonTab GetSelectedRibbonTab()
-        {
-            var selectedItem = SelectedItem;
-            if (selectedItem != null)
-            {
-                if (selectedItem is not RibbonTab ribbonTab)
-                {
-                    ribbonTab = ItemContainerGenerator.ContainerFromIndex(SelectedIndex) as RibbonTab;
-
-                    if (ribbonTab == null || !EqualsEx(selectedItem, ItemContainerGenerator.ItemFromContainer(ribbonTab)))
-                    {
-                        ribbonTab = ItemContainerGenerator.ContainerFromItem(selectedItem) as RibbonTab;
-                    }
-                }
-
-                return ribbonTab;
-            }
-
-            return null;
-        }
-
-        private void UpdateSelectedContent()
-        {
-            if (SelectedIndex < 0)
-            {
-                SelectedContent = null;
-                return;
-            }
-
-            var ribbonTab = GetSelectedRibbonTab();
-            if (ribbonTab == null)
-            {
-                return;
-            }
-
-            var visualParent = VisualTreeHelper.GetParent(ribbonTab) as FrameworkElement;
-
-            //seitem
         }
 
         private static object CreateDefaultHeaderObject() => new SingleSpaceObject();

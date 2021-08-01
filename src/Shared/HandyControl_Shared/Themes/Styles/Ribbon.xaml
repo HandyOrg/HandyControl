@@ -51,7 +51,6 @@
         <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="Margin" Value="0"/>
-        <Setter Property="SelfManage" Value="True"/>
         <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
         <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -85,7 +84,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:RibbonTab">
-                    <hc:SimplePanel>
+                    <hc:SimplePanel Visibility="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}">
                         <Border x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,0,0,3" Background="{TemplateBinding Background}" Margin="0"/>
                         <ItemsPresenter/>
                     </hc:SimplePanel>
@@ -112,7 +111,7 @@
                 <ControlTemplate TargetType="hc:Ribbon">
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
