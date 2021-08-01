@@ -72,6 +72,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyItemsControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\Ribbon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTab.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabHeaderItemsControl.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabHeadersPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Screenshot\Screenshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\ToggleBlock.cs" />
@@ -385,6 +391,9 @@
     <None Include="$(MSBuildThisFileDirectory)Themes\Styles\ElementGroup.xaml">
       <SubType>Designer</SubType>
     </None>
+    <Page Include="$(MSBuildThisFileDirectory)Themes\Styles\Ribbon.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <None Include="$(MSBuildThisFileDirectory)Themes\XamlCombine.exe" />
     <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\Colors.xaml">
       <SubType>Designer</SubType>
