@@ -133,6 +133,7 @@
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ClockListBoxItemStyle}"/>
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
     </Style>
 
     <Style TargetType="hc:ListClock">
