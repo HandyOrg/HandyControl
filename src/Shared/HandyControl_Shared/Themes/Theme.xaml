@@ -4707,204 +4707,6 @@
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="UseLayoutRounding" Value="True" />
 	</Style>
-	<ControlTemplate x:Key="WindowWin10Template" TargetType="hc:Window">
-		<Border SnapsToDevicePixels="True" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
-			<Grid Margin="{TemplateBinding Padding}">
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition />
-				</Grid.RowDefinitions>
-				<Grid Background="{TemplateBinding NonClientAreaBackground}" Name="PART_NonClientArea" TextElement.Foreground="{TemplateBinding NonClientAreaForeground}">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition />
-						<ColumnDefinition Width="Auto" />
-					</Grid.ColumnDefinitions>
-					<StackPanel Name="ButtonPanel" WindowChrome.IsHitTestVisibleInChrome="True" UseLayoutRounding="True" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
-						<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MinimizeWindowCommand" IsTabStop="False" Name="ButtonMin" Height="29" Style="{StaticResource ButtonIcon}" Width="45" hc:IconElement.Geometry="{StaticResource WindowMinGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
-						<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MaximizeWindowCommand" IsTabStop="False" Name="ButtonMax" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource WindowMaxGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
-						<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.RestoreWindowCommand" IsTabStop="False" Name="ButtonRestore" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource WindowRestoreGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
-						<Button Background="{TemplateBinding CloseButtonBackground}" Foreground="{TemplateBinding CloseButtonForeground}" Command="SystemCommands.CloseWindowCommand" IsTabStop="False" Name="ButtonClose" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource CloseGeometry}" BorderThickness="1,0,0,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
-					</StackPanel>
-					<Grid Grid.Column="0">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition Width="Auto" />
-							<ColumnDefinition Width="Auto" />
-							<ColumnDefinition />
-						</Grid.ColumnDefinitions>
-						<Button Name="ButtonIcon" Visibility="{TemplateBinding Icon,Converter={StaticResource Object2VisibilityConverter}}" Command="{x:Static SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
-							<interactivity:Interaction.Triggers>
-								<interactivity:EventTrigger EventName="MouseDoubleClick">
-									<interactivity:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
-								</interactivity:EventTrigger>
-							</interactivity:Interaction.Triggers>
-							<Image IsHitTestVisible="False" Source="{TemplateBinding Icon}" VerticalAlignment="Center" Width="16" Height="16" />
-						</Button>
-						<TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Padding="10,0,0,0" VerticalAlignment="Center">
-							<TextBlock.Visibility>
-								<MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
-									<MultiBinding.Bindings>
-										<Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}" />
-										<Binding Path="Title" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}" />
-									</MultiBinding.Bindings>
-								</MultiBinding>
-							</TextBlock.Visibility>
-						</TextBlock>
-						<ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="2" x:Name="ContentPresenterMain" Content="{TemplateBinding NonClientAreaContent}" />
-					</Grid>
-				</Grid>
-				<AdornerDecorator Grid.Row="1">
-					<ContentPresenter ClipToBounds="True" />
-				</AdornerDecorator>
-				<ResizeGrip Width="10" Height="10" x:Name="ResizeGrip" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" IsTabStop="False" Visibility="Collapsed" WindowChrome.ResizeGripDirection="BottomRight" />
-			</Grid>
-		</Border>
-		<ControlTemplate.Triggers>
-			<Trigger Property="IsActive" Value="False">
-				<Setter Property="Opacity" Value=".8" TargetName="ContentPresenterMain" />
-				<Setter Property="Opacity" Value=".8" TargetName="ButtonPanel" />
-			</Trigger>
-			<Trigger Property="WindowState" Value="Maximized">
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
-				<Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore" />
-			</Trigger>
-			<Trigger Property="WindowState" Value="Normal">
-				<Setter Property="Visibility" Value="Visible" TargetName="ButtonMax" />
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
-			</Trigger>
-			<Trigger Property="ResizeMode" Value="NoResize">
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMin" />
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
-			</Trigger>
-			<Trigger Property="ResizeMode" Value="CanMinimize">
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
-			</Trigger>
-			<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonClose">
-				<Setter Property="Background" TargetName="ButtonClose" Value="{Binding CloseButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
-				<Setter Property="Foreground" TargetName="ButtonClose" Value="{Binding CloseButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
-			</Trigger>
-			<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMax">
-				<Setter Property="Background" TargetName="ButtonMax" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
-				<Setter Property="Foreground" TargetName="ButtonMax" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
-			</Trigger>
-			<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonRestore">
-				<Setter Property="Background" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
-				<Setter Property="Foreground" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
-			</Trigger>
-			<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMin">
-				<Setter Property="Background" TargetName="ButtonMin" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
-				<Setter Property="Foreground" TargetName="ButtonMin" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
-			</Trigger>
-			<Trigger Property="WindowStyle" Value="None">
-				<Setter Property="ShowNonClientArea" Value="False" />
-			</Trigger>
-			<MultiTrigger>
-				<MultiTrigger.Conditions>
-					<Condition Property="ResizeMode" Value="CanResizeWithGrip" />
-					<Condition Property="WindowState" Value="Normal" />
-				</MultiTrigger.Conditions>
-				<Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
-			</MultiTrigger>
-		</ControlTemplate.Triggers>
-	</ControlTemplate>
-	<ControlTemplate x:Key="WindowWin10ExtendContentToNonClientTemplate" TargetType="hc:Window">
-		<Border SnapsToDevicePixels="True" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
-			<hc:SimplePanel Margin="{TemplateBinding Padding}">
-				<AdornerDecorator>
-					<hc:SimplePanel>
-						<ContentPresenter ClipToBounds="True" />
-						<Grid Background="{TemplateBinding NonClientAreaBackground}" Name="PART_NonClientArea" TextElement.Foreground="{TemplateBinding NonClientAreaForeground}" VerticalAlignment="Top">
-							<Grid.ColumnDefinitions>
-								<ColumnDefinition />
-								<ColumnDefinition Width="Auto" />
-							</Grid.ColumnDefinitions>
-							<StackPanel Name="ButtonPanel" WindowChrome.IsHitTestVisibleInChrome="True" UseLayoutRounding="True" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
-								<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MinimizeWindowCommand" IsTabStop="False" Name="ButtonMin" Height="29" Style="{StaticResource ButtonIcon}" Width="45" hc:IconElement.Geometry="{StaticResource WindowMinGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
-								<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MaximizeWindowCommand" IsTabStop="False" Name="ButtonMax" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource WindowMaxGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
-								<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.RestoreWindowCommand" IsTabStop="False" Name="ButtonRestore" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource WindowRestoreGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
-								<Button Background="{TemplateBinding CloseButtonBackground}" Foreground="{TemplateBinding CloseButtonForeground}" Command="SystemCommands.CloseWindowCommand" IsTabStop="False" Name="ButtonClose" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource CloseGeometry}" BorderThickness="1,0,0,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
-							</StackPanel>
-							<Grid Grid.Column="0">
-								<Grid.ColumnDefinitions>
-									<ColumnDefinition Width="Auto" />
-									<ColumnDefinition Width="Auto" />
-									<ColumnDefinition />
-								</Grid.ColumnDefinitions>
-								<Button Name="ButtonIcon" Visibility="{TemplateBinding Icon,Converter={StaticResource Object2VisibilityConverter}}" Command="{x:Static SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
-									<interactivity:Interaction.Triggers>
-										<interactivity:EventTrigger EventName="MouseDoubleClick">
-											<interactivity:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
-										</interactivity:EventTrigger>
-									</interactivity:Interaction.Triggers>
-									<Image IsHitTestVisible="False" Source="{TemplateBinding Icon}" VerticalAlignment="Center" Width="16" Height="16" />
-								</Button>
-								<TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Padding="10,0,0,0" VerticalAlignment="Center">
-									<TextBlock.Visibility>
-										<MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
-											<MultiBinding.Bindings>
-												<Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}" />
-												<Binding Path="Title" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}" />
-											</MultiBinding.Bindings>
-										</MultiBinding>
-									</TextBlock.Visibility>
-								</TextBlock>
-							</Grid>
-						</Grid>
-					</hc:SimplePanel>
-				</AdornerDecorator>
-				<ResizeGrip Width="10" Height="10" x:Name="ResizeGrip" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" IsTabStop="False" Visibility="Collapsed" WindowChrome.ResizeGripDirection="BottomRight" />
-			</hc:SimplePanel>
-		</Border>
-		<ControlTemplate.Triggers>
-			<Trigger Property="IsActive" Value="False">
-				<Setter Property="Opacity" Value=".8" TargetName="ButtonPanel" />
-			</Trigger>
-			<Trigger Property="WindowState" Value="Maximized">
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
-				<Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore" />
-			</Trigger>
-			<Trigger Property="WindowState" Value="Normal">
-				<Setter Property="Visibility" Value="Visible" TargetName="ButtonMax" />
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
-			</Trigger>
-			<Trigger Property="ResizeMode" Value="NoResize">
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMin" />
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
-			</Trigger>
-			<Trigger Property="ResizeMode" Value="CanMinimize">
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
-				<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
-			</Trigger>
-			<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonClose">
-				<Setter Property="Background" TargetName="ButtonClose" Value="{Binding CloseButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
-				<Setter Property="Foreground" TargetName="ButtonClose" Value="{Binding CloseButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
-			</Trigger>
-			<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMax">
-				<Setter Property="Background" TargetName="ButtonMax" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
-				<Setter Property="Foreground" TargetName="ButtonMax" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
-			</Trigger>
-			<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonRestore">
-				<Setter Property="Background" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
-				<Setter Property="Foreground" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
-			</Trigger>
-			<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMin">
-				<Setter Property="Background" TargetName="ButtonMin" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
-				<Setter Property="Foreground" TargetName="ButtonMin" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
-			</Trigger>
-			<Trigger Property="WindowStyle" Value="None">
-				<Setter Property="ShowNonClientArea" Value="False" />
-			</Trigger>
-			<MultiTrigger>
-				<MultiTrigger.Conditions>
-					<Condition Property="ResizeMode" Value="CanResizeWithGrip" />
-					<Condition Property="WindowState" Value="Normal" />
-				</MultiTrigger.Conditions>
-				<Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
-			</MultiTrigger>
-		</ControlTemplate.Triggers>
-	</ControlTemplate>
 	<Style x:Key="WindowWin10" TargetType="hc:Window">
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="BorderBrush" Value="#262e2f" />
@@ -4921,12 +4723,111 @@
 		<Setter Property="OtherButtonForeground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="OtherButtonHoverBackground" Value="{DynamicResource DarkMaskBrush}" />
 		<Setter Property="OtherButtonHoverForeground" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="Template" Value="{StaticResource WindowWin10Template}" />
-		<Style.Triggers>
-			<Trigger Property="hc:WindowAttach.ExtendContentToNonClientArea" Value="true">
-				<Setter Property="Template" Value="{StaticResource WindowWin10ExtendContentToNonClientTemplate}" />
-			</Trigger>
-		</Style.Triggers>
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="hc:Window">
+					<Border SnapsToDevicePixels="True" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+						<Grid Margin="{TemplateBinding Padding}">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition />
+							</Grid.RowDefinitions>
+							<Grid Background="{TemplateBinding NonClientAreaBackground}" Name="PART_NonClientArea" TextElement.Foreground="{TemplateBinding NonClientAreaForeground}">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition />
+									<ColumnDefinition Width="Auto" />
+								</Grid.ColumnDefinitions>
+								<StackPanel Name="ButtonPanel" WindowChrome.IsHitTestVisibleInChrome="True" UseLayoutRounding="True" VerticalAlignment="Top" Grid.Column="1" HorizontalAlignment="Right" Orientation="Horizontal">
+									<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MinimizeWindowCommand" IsTabStop="False" Name="ButtonMin" Height="29" Style="{StaticResource ButtonIcon}" Width="45" hc:IconElement.Geometry="{StaticResource WindowMinGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
+									<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.MaximizeWindowCommand" IsTabStop="False" Name="ButtonMax" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource WindowMaxGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
+									<Button Background="{TemplateBinding OtherButtonBackground}" Foreground="{TemplateBinding OtherButtonForeground}" Command="SystemCommands.RestoreWindowCommand" IsTabStop="False" Name="ButtonRestore" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource WindowRestoreGeometry}" BorderThickness="1,0,1,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
+									<Button Background="{TemplateBinding CloseButtonBackground}" Foreground="{TemplateBinding CloseButtonForeground}" Command="SystemCommands.CloseWindowCommand" IsTabStop="False" Name="ButtonClose" Height="29" Style="{StaticResource ButtonIcon}" Width="46" hc:IconElement.Geometry="{StaticResource CloseGeometry}" BorderThickness="1,0,0,0" hc:IconElement.Width="10" hc:IconElement.Height="10" />
+								</StackPanel>
+								<Grid Grid.Column="0">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition />
+									</Grid.ColumnDefinitions>
+									<Button Name="ButtonIcon" Visibility="{TemplateBinding Icon,Converter={StaticResource Object2VisibilityConverter}}" Command="{x:Static SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+										<interactivity:Interaction.Triggers>
+											<interactivity:EventTrigger EventName="MouseDoubleClick">
+												<interactivity:InvokeCommandAction Command="{x:Static SystemCommands.CloseWindowCommand}" />
+											</interactivity:EventTrigger>
+										</interactivity:Interaction.Triggers>
+										<Image IsHitTestVisible="False" Source="{TemplateBinding Icon}" VerticalAlignment="Center" Width="16" Height="16" />
+									</Button>
+									<TextBlock Grid.Column="1" Text="{TemplateBinding Title}" Padding="10,0,0,0" VerticalAlignment="Center">
+										<TextBlock.Visibility>
+											<MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
+												<MultiBinding.Bindings>
+													<Binding Path="ShowTitle" RelativeSource="{RelativeSource TemplatedParent}" />
+													<Binding Path="Title" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}" />
+												</MultiBinding.Bindings>
+											</MultiBinding>
+										</TextBlock.Visibility>
+									</TextBlock>
+									<ContentPresenter WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="2" x:Name="ContentPresenterMain" Content="{TemplateBinding NonClientAreaContent}" />
+								</Grid>
+							</Grid>
+							<AdornerDecorator Grid.Row="1">
+								<ContentPresenter ClipToBounds="True" />
+							</AdornerDecorator>
+							<ResizeGrip Width="10" Height="10" x:Name="ResizeGrip" HorizontalAlignment="Right" VerticalAlignment="Bottom" Grid.Row="1" IsTabStop="False" Visibility="Collapsed" WindowChrome.ResizeGripDirection="BottomRight" />
+						</Grid>
+					</Border>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsActive" Value="False">
+							<Setter Property="Opacity" Value=".8" TargetName="ContentPresenterMain" />
+							<Setter Property="Opacity" Value=".8" TargetName="ButtonPanel" />
+						</Trigger>
+						<Trigger Property="WindowState" Value="Maximized">
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
+							<Setter Property="Visibility" Value="Visible" TargetName="ButtonRestore" />
+						</Trigger>
+						<Trigger Property="WindowState" Value="Normal">
+							<Setter Property="Visibility" Value="Visible" TargetName="ButtonMax" />
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
+						</Trigger>
+						<Trigger Property="ResizeMode" Value="NoResize">
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMin" />
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
+						</Trigger>
+						<Trigger Property="ResizeMode" Value="CanMinimize">
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonMax" />
+							<Setter Property="Visibility" Value="Collapsed" TargetName="ButtonRestore" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonClose">
+							<Setter Property="Background" TargetName="ButtonClose" Value="{Binding CloseButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter Property="Foreground" TargetName="ButtonClose" Value="{Binding CloseButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMax">
+							<Setter Property="Background" TargetName="ButtonMax" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter Property="Foreground" TargetName="ButtonMax" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonRestore">
+							<Setter Property="Background" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter Property="Foreground" TargetName="ButtonRestore" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMin">
+							<Setter Property="Background" TargetName="ButtonMin" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}" />
+							<Setter Property="Foreground" TargetName="ButtonMin" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}" />
+						</Trigger>
+						<Trigger Property="WindowStyle" Value="None">
+							<Setter Property="ShowNonClientArea" Value="False" />
+						</Trigger>
+						<MultiTrigger>
+							<MultiTrigger.Conditions>
+								<Condition Property="ResizeMode" Value="CanResizeWithGrip" />
+								<Condition Property="WindowState" Value="Normal" />
+							</MultiTrigger.Conditions>
+							<Setter TargetName="ResizeGrip" Property="Visibility" Value="Visible" />
+						</MultiTrigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
 	</Style>
 	<Style x:Key="WindowBlur" BasedOn="{StaticResource WindowWin10}" TargetType="hc:BlurWindow">
 		<Setter Property="Background" Value="Transparent" />
@@ -5145,7 +5046,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -5217,7 +5118,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -5287,7 +5188,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -5369,7 +5270,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -5441,7 +5342,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -5511,7 +5412,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -5580,7 +5481,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ComboBoxItem">
-					<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+					<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
 						<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 					</Border>
 					<ControlTemplate.Triggers>
@@ -5686,7 +5587,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -5796,7 +5697,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -5909,7 +5810,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -6040,7 +5941,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -6056,7 +5957,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder_AutoComplete" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<StackPanel Name="PART_AutoCompletePanel" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -6189,7 +6090,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -6317,7 +6218,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -6333,7 +6234,7 @@
 					<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder_AutoComplete" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<ScrollViewer Margin="2,2,2,0">
+								<ScrollViewer Margin="0,4">
 									<StackPanel Name="PART_AutoCompletePanel" KeyboardNavigation.DirectionalNavigation="Contained" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -7124,18 +7025,12 @@
 		<Setter Property="MinHeight" Value="20" />
 	</Style>
 	<Style BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="ComboBox" />
-	<Style x:Key="ComboBoxItem.Small" BasedOn="{StaticResource ComboBoxItemBaseStyle}" TargetType="ComboBoxItem">
-		<Setter Property="Padding" Value="6,0" />
-		<Setter Property="MinHeight" Value="20" />
-	</Style>
 	<Style x:Key="ComboBox.Small" BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="ComboBox">
-		<Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItem.Small}" />
 		<Setter Property="MinHeight" Value="20" />
 		<Setter Property="Padding" Value="6,0" />
 	</Style>
 	<Style x:Key="ComboBoxExtend" BasedOn="{StaticResource ComboBoxExtendBaseStyle}" TargetType="ComboBox" />
 	<Style x:Key="ComboBoxExtend.Small" BasedOn="{StaticResource ComboBoxExtend}" TargetType="ComboBox">
-		<Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItem.Small}" />
 		<Setter Property="hc:InfoElement.MinContentHeight" Value="20" />
 		<Setter Property="hc:InfoElement.ContentHeight" Value="20" />
 		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3" />
@@ -7143,7 +7038,6 @@
 	</Style>
 	<Style BasedOn="{StaticResource ComboBoxPlusBaseStyle}" TargetType="hc:ComboBox" />
 	<Style x:Key="ComboBoxPlus.Small" BasedOn="{StaticResource ComboBoxPlusBaseStyle}" TargetType="hc:ComboBox">
-		<Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItem.Small}" />
 		<Setter Property="hc:InfoElement.MinContentHeight" Value="20" />
 		<Setter Property="hc:InfoElement.ContentHeight" Value="20" />
 		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3" />
@@ -9500,7 +9394,6 @@
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderBrush" Value="Transparent" />
 		<Setter Property="BorderThickness" Value="0" />
-		<Setter Property="Margin" Value="0,0,0,2" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ListBoxItem">
@@ -9556,8 +9449,6 @@
 		<Setter Property="hc:ScrollViewer.PanningMode" Value="Both" />
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="Padding" Value="2,2,2,0" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle}" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -10984,7 +10875,7 @@
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-		<Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource TitleBrush}" />
 		<Setter Property="Margin" Value="0" />
 		<Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
 		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
@@ -11974,7 +11865,6 @@
 		<Setter Property="Padding" Value="10,0" />
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
-		<Setter Property="Margin" Value="0,0,0,2" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="TreeViewItem">
@@ -12026,8 +11916,7 @@
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="Padding" Value="2,2,2,0" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="Padding" Value="0" />
 		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
 		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
 		<Setter Property="ScrollViewer.PanningMode" Value="Both" />
@@ -13002,7 +12891,7 @@
 	<Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox" />
 	<Style x:Key="ListBoxItemBaseStyle.Small" BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
 		<Setter Property="Padding" Value="6,0" />
-		<Setter Property="MinHeight" Value="20" />
+		<Setter Property="MinHeight" Value="24" />
 	</Style>
 	<Style x:Key="ListBox.Small" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle.Small}" />
@@ -13793,7 +13682,7 @@
 	<Style BasedOn="{StaticResource TreeViewBaseStyle}" TargetType="TreeView" />
 	<Style x:Key="TreeViewItemBaseStyle.Small" BasedOn="{StaticResource TreeViewItemBaseStyle}" TargetType="TreeViewItem">
 		<Setter Property="Padding" Value="6,0" />
-		<Setter Property="MinHeight" Value="20" />
+		<Setter Property="MinHeight" Value="24" />
 	</Style>
 	<Style x:Key="TreeView.Small" BasedOn="{StaticResource TreeViewBaseStyle}" TargetType="TreeView">
 		<Setter Property="ItemContainerStyle" Value="{StaticResource TreeViewItemBaseStyle.Small}" />
