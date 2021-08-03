@@ -31,6 +31,7 @@
 	<converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter" />
 	<converter:DoubleMinConverter x:Key="DoubleMinConverter" />
 	<converter:Object2StringConverter x:Key="Object2StringConverter" />
+	<converter:DataGridSelectAllButtonVisibilityConverter x:Key="DataGridSelectAllButtonVisibilityConverter" />
 	<Color x:Key="EffectShadowColor">#88000000</Color>
 	<system:Double x:Key="LargeFontSize">24</system:Double>
 	<system:Double x:Key="HeadFontSize">20</system:Double>
@@ -11626,7 +11627,6 @@
 		<Setter Property="SnapsToDevicePixels" Value="true" />
 		<Setter Property="Margin" Value="0,0,0,4" />
 		<Setter Property="Padding" Value="0,6" />
-		<Setter Property="MinHeight" Value="44" />
 		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
 		<Setter Property="ValidationErrorTemplate">
 			<Setter.Value>
@@ -11676,8 +11676,7 @@
 	<Style x:Key="DataGridColumnHeaderStyle" TargetType="DataGridColumnHeader">
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="Padding" Value="12,6,12,12" />
-		<Setter Property="MinHeight" Value="44" />
+		<Setter Property="Padding" Value="12,0" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="DataGridColumnHeader">
@@ -11756,6 +11755,8 @@
 		<Setter Property="CellStyle" Value="{StaticResource DataGridCellStyle}" />
 		<Setter Property="Padding" Value="6" />
 		<Setter Property="ColumnWidth" Value="*" />
+		<Setter Property="RowHeight" Value="44" />
+		<Setter Property="ColumnHeaderHeight" Value="44" />
 		<Setter Property="hc:DataGridAttach.TextColumnStyle" Value="{StaticResource DataGridTextColumnStyle}" />
 		<Setter Property="hc:DataGridAttach.EditingTextColumnStyle" Value="{StaticResource TextBoxBaseStyle}" />
 		<Setter Property="hc:DataGridAttach.ComboBoxColumnStyle" Value="{StaticResource TextBlockComboBoxStyle}" />
@@ -11798,7 +11799,14 @@
 											<RowDefinition Height="Auto" />
 											<RowDefinition Height="*" />
 										</Grid.RowDefinitions>
-										<Button Command="{x:Static DataGrid.SelectAllCommand}" Margin="0,0,0,6" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.All}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}" />
+										<Button Command="{x:Static DataGrid.SelectAllCommand}" Width="{Binding CellsPanelHorizontalOffset, RelativeSource={RelativeSource AncestorType=DataGrid},Converter={StaticResource DoubleMinConverter}}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource AllGeometry}" Foreground="{DynamicResource PrimaryBrush}">
+											<Button.Visibility>
+												<MultiBinding Converter="{StaticResource DataGridSelectAllButtonVisibilityConverter}">
+													<Binding Path="HeadersVisibility" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+													<Binding Path="(hc:DataGridAttach.ShowSelectAllButton)" RelativeSource="{RelativeSource AncestorType=DataGrid}" />
+												</MultiBinding>
+											</Button.Visibility>
+										</Button>
 										<DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
 										<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource AncestorType=DataGrid},Mode=OneWay}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 											<hc:ToggleBlock.CheckedContent>
