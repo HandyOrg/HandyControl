@@ -36,8 +36,13 @@ namespace HandyControl.Controls
             VisibilityProperty.OverrideMetadata(typeof(RibbonTab), new PropertyMetadata(Visibility.Visible, OnVisibilityChanged));
         }
 
-        public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-            "IsSelected", typeof(bool), typeof(RibbonTab), new PropertyMetadata(ValueBoxes.FalseBox, OnIsSelectedChanged));
+        public static readonly DependencyProperty IsSelectedProperty =
+            Selector.IsSelectedProperty.AddOwner(typeof(RibbonTab),
+                new FrameworkPropertyMetadata(ValueBoxes.FalseBox,
+                    FrameworkPropertyMetadataOptions.AffectsParentMeasure |
+                    FrameworkPropertyMetadataOptions.BindsTwoWayByDefault |
+                    FrameworkPropertyMetadataOptions.Journal,
+                    OnIsSelectedChanged));
 
         private static void OnIsSelectedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {

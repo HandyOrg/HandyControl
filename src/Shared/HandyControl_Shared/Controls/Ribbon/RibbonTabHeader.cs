@@ -46,6 +46,11 @@ namespace HandyControl.Controls
             set => SetValue(IsSelectedProperty, value);
         }
 
+        internal void PrepareRibbonTabHeader()
+        {
+            CoerceValue(IsSelectedProperty);
+        }
+
         protected virtual void OnIsSelectedChanged(bool oldIsSelected, bool newIsSelected)
         {
             
@@ -53,10 +58,27 @@ namespace HandyControl.Controls
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            base.OnMouseLeftButtonDown(e);
+            var ribbon = Ribbon;
+            if (ribbon != null)
+            {
+                ribbon.NotifyMouseClickedOnTabHeader(this, e);
+                e.Handled = true;
+            }
 
-            Ribbon.NotifyMouseClickedOnTabHeader(this);
-            RibbonTab.IsSelected = true;
+            base.OnMouseLeftButtonDown(e);
+        }
+
+        protected override void OnGotKeyboardFocus(KeyboardFocusChangedEventArgs e)
+        {
+            base.OnGotKeyboardFocus(e);
+
+            var ribbonTab = RibbonTab;
+            if (ribbonTab == null)
+            {
+                return;
+            }
+
+            ribbonTab.IsSelected = true;
         }
     }
 }

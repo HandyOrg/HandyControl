@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Input;
 
 namespace HandyControl.Controls
 {
@@ -51,7 +52,7 @@ namespace HandyControl.Controls
             InitializeSelection();
         }
 
-        internal void NotifyMouseClickedOnTabHeader(RibbonTabHeader tabHeader)
+        internal void NotifyMouseClickedOnTabHeader(RibbonTabHeader tabHeader, MouseButtonEventArgs e)
         {
             if (_tabHeaderItemsControl == null)
             {
@@ -108,11 +109,6 @@ namespace HandyControl.Controls
             if (e.AddedItems is not {Count: > 0})
             {
                 return;
-            }
-
-            if (e.RemovedItems.Count > 0 && ItemContainerGenerator.ContainerFromItem(e.RemovedItems[0]) is RibbonTab oldRibbonTab)
-            {
-                oldRibbonTab.IsSelected = false;
             }
 
             SelectedItem = e.AddedItems[0];

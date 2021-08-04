@@ -6,6 +6,7 @@
     <Geometry x:Key="DialogBoxLauncherGeometry">M0,0 8,0 8,1 1,1 1,8 0,8 M 3.7,3 8,7.3 8,4 9,4 9,9 4,9 4,8 7.3,8 3,3.7</Geometry>
 
     <Style TargetType="hc:RibbonGroup">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Height" Value="95"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="Padding" Value="6"/>
@@ -73,6 +74,7 @@
     </Style>
 
     <Style TargetType="hc:RibbonTab">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="ItemsPanel">
             <Setter.Value>
@@ -94,6 +96,7 @@
     </Style>
 
     <Style TargetType="hc:Ribbon">
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
@@ -123,7 +126,7 @@
                                 <DropShadowEffect BlurRadius="8" ShadowDepth="2" Direction="-90" Color="{StaticResource EffectShadowColor}" Opacity=".1" RenderingBias="Performance"/>
                             </Border.Effect>
                         </Border>
-                        <hc:RibbonTabHeaderItemsControl Grid.Row="0" Grid.Column="0" x:Name="PART_TabHeaderItemsControl" Margin="10,0,10,2">
+                        <hc:RibbonTabHeaderItemsControl Focusable="False" Grid.Row="0" Grid.Column="0" x:Name="PART_TabHeaderItemsControl" Margin="10,0,10,2">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
                                     <hc:SimpleStackPanel Orientation="Horizontal"/>
