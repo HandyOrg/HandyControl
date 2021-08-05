@@ -25,15 +25,14 @@ namespace HandyControl.Controls
             }
         }
 
+        static RibbonTabHeader()
+        {
+            VisibilityProperty.OverrideMetadata(typeof(RibbonTabHeader), new FrameworkPropertyMetadata(null, CoerceVisibility));
+        }
+
         public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
             "IsSelected", typeof(bool), typeof(RibbonTabHeader),
             new PropertyMetadata(ValueBoxes.FalseBox, OnIsSelectedChanged, CoerceIsSelected));
-
-        private static object CoerceIsSelected(DependencyObject d, object basevalue)
-        {
-            var ribbonTab = ((RibbonTabHeader) d).RibbonTab;
-            return ribbonTab != null ? ValueBoxes.BooleanBox(ribbonTab.IsSelected) : basevalue;
-        }
 
         private static void OnIsSelectedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -49,6 +48,7 @@ namespace HandyControl.Controls
         internal void PrepareRibbonTabHeader()
         {
             CoerceValue(IsSelectedProperty);
+            CoerceValue(VisibilityProperty);
         }
 
         protected virtual void OnIsSelectedChanged(bool oldIsSelected, bool newIsSelected)
@@ -79,6 +79,18 @@ namespace HandyControl.Controls
             }
 
             ribbonTab.IsSelected = true;
+        }
+
+        private static object CoerceIsSelected(DependencyObject d, object basevalue)
+        {
+            var ribbonTab = ((RibbonTabHeader) d).RibbonTab;
+            return ribbonTab != null ? ValueBoxes.BooleanBox(ribbonTab.IsSelected) : basevalue;
+        }
+
+        private static object CoerceVisibility(DependencyObject d, object basevalue)
+        {
+            var ribbonTab = ((RibbonTabHeader) d).RibbonTab;
+            return ribbonTab != null ? ValueBoxes.VisibilityBox(ribbonTab.Visibility) : basevalue;
         }
     }
 }

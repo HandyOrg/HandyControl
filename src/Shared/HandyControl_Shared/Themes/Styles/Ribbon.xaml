@@ -51,6 +51,7 @@
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Foreground" Value="{DynamicResource SecondaryTextBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource TitleBrush}"/>
+        <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Margin" Value="0"/>
         <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
         <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
@@ -59,10 +60,12 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:RibbonTabHeader">
-                    <hc:SimplePanel x:Name="templateRoot" SnapsToDevicePixels="true">
-                        <Border x:Name="BorderBottom" Visibility="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,0,0,2" Background="{TemplateBinding Background}" Margin="12,0,12,2"/>
-                        <ContentPresenter x:Name="ContentPresenter" Focusable="False" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
-                    </hc:SimplePanel>
+                    <Border Background="{TemplateBinding Background}">
+                        <hc:SimplePanel x:Name="templateRoot" SnapsToDevicePixels="true">
+                            <Border x:Name="BorderBottom" Visibility="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,0,0,2" Margin="12,0,12,2"/>
+                            <ContentPresenter x:Name="ContentPresenter" Focusable="False" HorizontalAlignment="Center" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="Center"/>
+                        </hc:SimplePanel>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>

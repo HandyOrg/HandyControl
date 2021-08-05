@@ -2,7 +2,6 @@
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using HandyControl.Data;
-using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
@@ -75,11 +74,16 @@ namespace HandyControl.Controls
             Ribbon?.NotifyTabHeaderChanged();
         }
 
+        protected override DependencyObject GetContainerForItemOverride() => new RibbonGroup();
+
+        protected override bool IsItemItsOwnContainerOverride(object item) => item is RibbonGroup;
+
         private static void OnVisibilityChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ribbonTab = (RibbonTab) d;
-            var ribbon = ribbonTab.Ribbon;
+            ribbonTab.RibbonTabHeader?.CoerceValue(VisibilityProperty);
 
+            var ribbon = ribbonTab.Ribbon;
             if (ribbon == null ||
                 !ribbonTab.IsSelected ||
                 (Visibility) e.OldValue != Visibility.Visible ||
@@ -90,9 +94,5 @@ namespace HandyControl.Controls
 
             ribbon.ResetSelection();
         }
-
-        protected override DependencyObject GetContainerForItemOverride() => new RibbonGroup();
-
-        protected override bool IsItemItsOwnContainerOverride(object item) => item is RibbonGroup;
     }
 }
