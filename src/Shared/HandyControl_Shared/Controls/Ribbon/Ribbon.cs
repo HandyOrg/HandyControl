@@ -5,19 +5,32 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using System.Windows.Media.Animation;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
 namespace HandyControl.Controls
 {
     [TemplatePart(Name = TabHeaderItemsControl, Type = typeof(ItemsControl))]
+    [TemplatePart(Name = RootPanel, Type = typeof(Panel))]
+    [TemplatePart(Name = ContentPanel, Type = typeof(Panel))]
     public class Ribbon : Selector
     {
         private const string TabHeaderItemsControl = "PART_TabHeaderItemsControl";
 
+        private const string RootPanel = "PART_RootPanel";
+
+        private const string ContentPanel = "PART_ContentPanel";
+
         private ItemsControl _tabHeaderItemsControl;
 
+        private Panel _rootPanel;
+
+        private Panel _contentPanel;
+
         private System.Windows.Window _window;
+
+        private double _originHeight;
 
         private readonly ObservableCollection<object> _tabHeaderItemsSource = new();
 
@@ -45,7 +58,23 @@ namespace HandyControl.Controls
             => (Ribbon) element.GetValue(RibbonProperty);
 
         public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-            "IsDropDownOpen", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.TrueBox));
+            "IsDropDownOpen", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.TrueBox, OnIsDropDownOpenChanged));
+
+        private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((Ribbon) d).OnIsDropDownOpenChanged((bool) e.NewValue);
+        }
+
+        private void OnIsDropDownOpenChanged(bool isDropDownOpen)
+        {
+            if (_contentPanel == null)
+            {
+                return;
+            }
+
+            var animation = isDropDownOpen ? CreateAnimation(0, ContentHeight) : CreateAnimation(ContentHeight, 0);
+            _contentPanel.BeginAnimation(HeightProperty, animation);
+        }
 
         public bool IsDropDownOpen
         {
@@ -54,7 +83,25 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsMinimizedProperty = DependencyProperty.Register(
-            "IsMinimized", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.FalseBox));
+            "IsMinimized", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.FalseBox, OnIsMinimizedChanged));
+
+        private static void OnIsMinimizedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            ((Ribbon) d).OnIsMinimizedChanged((bool) e.NewValue);
+        }
+
+        private void OnIsMinimizedChanged(bool isMinimized)
+        {
+            if (_tabHeaderItemsControl == null || _rootPanel == null)
+            {
+                return;
+            }
+
+            var animation = isMinimized
+                ? CreateAnimation(_originHeight, _tabHeaderItemsControl.ActualHeight)
+                : CreateAnimation(_tabHeaderItemsControl.ActualHeight, _originHeight);
+            _rootPanel.BeginAnimation(HeightProperty, animation);
+        }
 
         public bool IsMinimized
         {
@@ -79,6 +126,21 @@ namespace HandyControl.Controls
             if (_tabHeaderItemsControl is {ItemsSource: null})
             {
                 _tabHeaderItemsControl.ItemsSource = _tabHeaderItemsSource;
+            }
+
+            _rootPanel = GetTemplateChild(RootPanel) as Panel;
+            _contentPanel = GetTemplateChild(ContentPanel) as Panel;
+
+            _originHeight = MeasureOverride(new Size(double.MaxValue, double.MaxValue)).Height;
+
+            if (IsMinimized)
+            {
+                _rootPanel.SetCurrentValue(HeightProperty, _tabHeaderItemsControl.ActualHeight);
+            }
+
+            if (!IsDropDownOpen)
+            {
+                _contentPanel.SetCurrentValue(HeightProperty, .0);
             }
         }
 
@@ -208,8 +270,6 @@ namespace HandyControl.Controls
                 _window.PreviewMouseRightButtonDown += Window_PreviewMouseRightButtonDown;
                 _window.PreviewMouseRightButtonUp += Window_PreviewMouseRightButtonUp;
             }
-
-            UpdateLayout();
         }
 
         private void Ribbon_Unloaded(object sender, RoutedEventArgs e)
@@ -273,6 +333,12 @@ namespace HandyControl.Controls
 
         private void InitializeSelection()
         {
+            if (!IsDropDownOpen)
+            {
+                SelectedIndex = -1;
+                return;
+            }
+
             if (SelectedIndex >= 0 || Items.Count <= 0)
             {
                 return;
@@ -315,6 +381,17 @@ namespace HandyControl.Controls
             {
                 _tabHeaderItemsSource.RemoveAt(itemsCount);
             }
+        }
+
+        private static DoubleAnimation CreateAnimation(double fromValue, double toValue, double milliseconds = 200)
+        {
+            return new(fromValue, toValue, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
+            {
+                EasingFunction = new PowerEase
+                {
+                    EasingMode = EasingMode.EaseInOut
+                }
+            };
         }
     }
 }

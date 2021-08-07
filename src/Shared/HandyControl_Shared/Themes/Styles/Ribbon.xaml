@@ -119,27 +119,22 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:Ribbon">
-                    <hc:RibbonTabsPanel x:Name="TabsPanel">
+                    <hc:ClipGrid x:Name="PART_RootPanel" IsClipEnabled="False">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <Grid x:Name="MainContentGrid" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
-                            <Grid.RenderTransform>
-                                <TransformGroup>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Grid.RenderTransform>
+                        <Grid x:Name="PART_ContentPanel" Grid.Row="1">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <Border Margin="10,0" Height="{TemplateBinding ContentHeight}" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource RegionBrush}">
+                            <Border Margin="10,0" VerticalAlignment="Bottom" Height="{TemplateBinding ContentHeight}" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource RegionBrush}">
                                 <Border.Effect>
                                     <DropShadowEffect BlurRadius="8" ShadowDepth="2" Direction="-90" Color="{StaticResource EffectShadowColor}" Opacity=".1" RenderingBias="Performance"/>
                                 </Border.Effect>
                             </Border>
-                            <ItemsPresenter Grid.Column="0" Margin="10,0,0,0"/>
+                            <ItemsPresenter VerticalAlignment="Bottom" Height="{TemplateBinding ContentHeight}" Grid.Column="0" Margin="10,0,0,0"/>
                             <ToggleButton Command="interactivity:ControlCommands.Switch" IsChecked="{Binding IsMinimized,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Margin="0,0,10,0" Padding="5" Width="20" Height="20" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconElement.Geometry="{StaticResource UpGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource NailGeometry}"/>
                         </Grid>
                         <hc:RibbonTabHeaderItemsControl Grid.Row="0" Background="{TemplateBinding Background}" Focusable="False" x:Name="PART_TabHeaderItemsControl" Margin="0,0,0,2">
@@ -149,15 +144,7 @@
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </hc:RibbonTabHeaderItemsControl>
-                    </hc:RibbonTabsPanel>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMinimized" Value="True">
-                            <Setter TargetName="TabsPanel" Property="Height" Value="{Binding ActualHeight,ElementName=PART_TabHeaderItemsControl}"/>
-                        </Trigger>
-                        <Trigger Property="IsDropDownOpen" Value="False">
-                            <Setter TargetName="MainContentGrid" Property="Visibility" Value="Collapsed"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
+                    </hc:ClipGrid>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
