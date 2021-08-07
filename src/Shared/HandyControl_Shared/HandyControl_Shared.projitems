@@ -78,6 +78,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabHeader.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabHeaderItemsControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabHeadersPanel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabsPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Screenshot\Screenshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\ToggleBlock.cs" />

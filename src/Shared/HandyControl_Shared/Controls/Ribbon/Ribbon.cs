@@ -5,6 +5,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
+using HandyControl.Data;
+using HandyControl.Interactivity;
 
 namespace HandyControl.Controls
 {
@@ -15,6 +17,8 @@ namespace HandyControl.Controls
 
         private ItemsControl _tabHeaderItemsControl;
 
+        private System.Windows.Window _window;
+
         private readonly ObservableCollection<object> _tabHeaderItemsSource = new();
 
         internal ItemsControl RibbonTabHeaderItemsControl => _tabHeaderItemsControl;
@@ -22,7 +26,12 @@ namespace HandyControl.Controls
         public Ribbon()
         {
             SetRibbon(this, this);
+
+            Loaded += Ribbon_Loaded;
+            Unloaded += Ribbon_Unloaded;
+
             ItemContainerGenerator.StatusChanged += OnItemContainerGeneratorStatusChanged;
+            CommandBindings.Add(new CommandBinding(ControlCommands.Switch, IsMinimizedSwitchButton_OnClick));
         }
 
         internal static readonly DependencyProperty RibbonProperty = DependencyProperty.RegisterAttached(
@@ -34,6 +43,33 @@ namespace HandyControl.Controls
 
         internal static Ribbon GetRibbon(DependencyObject element)
             => (Ribbon) element.GetValue(RibbonProperty);
+
+        public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
+            "IsDropDownOpen", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool IsDropDownOpen
+        {
+            get => (bool) GetValue(IsDropDownOpenProperty);
+            set => SetValue(IsDropDownOpenProperty, value);
+        }
+
+        public static readonly DependencyProperty IsMinimizedProperty = DependencyProperty.Register(
+            "IsMinimized", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public bool IsMinimized
+        {
+            get => (bool) GetValue(IsMinimizedProperty);
+            set => SetValue(IsMinimizedProperty, value);
+        }
+
+        public static readonly DependencyProperty ContentHeightProperty = DependencyProperty.Register(
+            "ContentHeight", typeof(double), typeof(Ribbon), new PropertyMetadata(default(double)));
+
+        public double ContentHeight
+        {
+            get => (double) GetValue(ContentHeightProperty);
+            set => SetValue(ContentHeightProperty, value);
+        }
 
         public override void OnApplyTemplate()
         {
@@ -60,11 +96,45 @@ namespace HandyControl.Controls
             }
 
             var selectedIndex = _tabHeaderItemsControl.ItemContainerGenerator.IndexFromContainer(tabHeader);
-            var currentSelectedIndex = SelectedIndex;
 
-            if (currentSelectedIndex < 0 || SelectedIndex != selectedIndex)
+            if (e.ClickCount == 1)
             {
-                SelectedIndex = selectedIndex;
+                var currentSelectedIndex = SelectedIndex;
+
+                if (currentSelectedIndex < 0 || currentSelectedIndex != selectedIndex)
+                {
+                    SelectedIndex = selectedIndex;
+
+                    if (IsMinimized)
+                    {
+                        IsDropDownOpen = true;
+                    }
+                }
+                else
+                {
+                    if (IsMinimized)
+                    {
+                        IsDropDownOpen = !IsDropDownOpen;
+                        if (!IsDropDownOpen)
+                        {
+                            SelectedIndex = -1;
+                        }
+                    }
+                }
+            }
+            else if (e.ClickCount == 2)
+            {
+                IsMinimized = !IsMinimized;
+                IsDropDownOpen = !IsMinimized;
+
+                if (IsMinimized && !IsDropDownOpen)
+                {
+                    SelectedIndex = -1;
+                }
+                else
+                {
+                    SelectedIndex = selectedIndex;
+                }
             }
         }
 
@@ -89,8 +159,8 @@ namespace HandyControl.Controls
                 InitializeSelection();
             }
 
-            if ((ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated || e.Action != NotifyCollectionChangedAction.Move) &&
-                e.Action != NotifyCollectionChangedAction.Remove)
+            if ((ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated ||
+                 e.Action != NotifyCollectionChangedAction.Move) && e.Action != NotifyCollectionChangedAction.Remove)
             {
                 return;
             }
@@ -112,6 +182,68 @@ namespace HandyControl.Controls
             }
 
             SelectedItem = e.AddedItems[0];
+        }
+
+        private void OnPreviewMouseButton(MouseButtonEventArgs e)
+        {
+            var postion = e.GetPosition(this);
+            if (InputHitTest(postion) == null)
+            {
+                if (IsMinimized && IsDropDownOpen)
+                {
+                    IsDropDownOpen = false;
+                    SelectedIndex = -1;
+                }
+            }
+        }
+
+        private void Ribbon_Loaded(object sender, RoutedEventArgs e)
+        {
+            _window = System.Windows.Window.GetWindow(this);
+            if (_window != null)
+            {
+                _window.Deactivated += Window_Deactivated;
+                _window.PreviewMouseLeftButtonDown += Window_PreviewMouseLeftButtonDown;
+                _window.PreviewMouseLeftButtonUp += Window_PreviewMouseLeftButtonUp;
+                _window.PreviewMouseRightButtonDown += Window_PreviewMouseRightButtonDown;
+                _window.PreviewMouseRightButtonUp += Window_PreviewMouseRightButtonUp;
+            }
+
+            UpdateLayout();
+        }
+
+        private void Ribbon_Unloaded(object sender, RoutedEventArgs e)
+        {
+            if (_window != null)
+            {
+                _window.Deactivated -= Window_Deactivated;
+            }
+        }
+
+        private void Window_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e) => OnPreviewMouseButton(e);
+
+        private void Window_PreviewMouseLeftButtonUp(object sender, MouseButtonEventArgs e) => OnPreviewMouseButton(e);
+
+        private void Window_PreviewMouseRightButtonDown(object sender, MouseButtonEventArgs e) => OnPreviewMouseButton(e);
+
+        private void Window_PreviewMouseRightButtonUp(object sender, MouseButtonEventArgs e) => OnPreviewMouseButton(e);
+
+        private void Window_Deactivated(object sender, EventArgs e)
+        {
+            if (IsMinimized && IsDropDownOpen)
+            {
+                IsDropDownOpen = false;
+                SelectedIndex = -1;
+            }
+        }
+
+        private void IsMinimizedSwitchButton_OnClick(object sender, ExecutedRoutedEventArgs e)
+        {
+            IsDropDownOpen = !IsMinimized;
+            if (!IsDropDownOpen)
+            {
+                SelectedIndex = -1;
+            }
         }
 
         private void OnItemContainerGeneratorStatusChanged(object sender, EventArgs e)
@@ -155,8 +287,6 @@ namespace HandyControl.Controls
             SelectedIndex = firstVisibleTabIndex;
         }
 
-        private static object CreateDefaultHeaderObject() => new SingleSpaceObject();
-
         private void RefreshHeaderCollection()
         {
             var itemsCount = Items.Count;
@@ -168,7 +298,7 @@ namespace HandyControl.Controls
                     header = ribbonTab.Header;
                 }
 
-                header ??= CreateDefaultHeaderObject();
+                header ??= string.Empty;
 
                 if (index >= _tabHeaderItemsSource.Count)
                 {
@@ -185,11 +315,6 @@ namespace HandyControl.Controls
             {
                 _tabHeaderItemsSource.RemoveAt(itemsCount);
             }
-        }
-
-        private class SingleSpaceObject
-        {
-            public override string ToString() => " ";
         }
     }
 }

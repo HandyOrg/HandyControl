@@ -1,6 +1,8 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:hc="clr-namespace:HandyControl.Controls">
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
 
     <Geometry x:Key="NailGeometry">M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3-15.4 12.3-16.6 35.4-2.7 49.4l181.7 181.7-215.4 215.2c-2.6 2.6-4.3 6.1-4.6 9.8l-3.4 37.2c-0.9 9.4 6.6 17.4 15.9 17.4 0.5 0 1 0 1.5-0.1l37.2-3.4c3.7-0.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8z</Geometry>
     <Geometry x:Key="DialogBoxLauncherGeometry">M0,0 8,0 8,1 1,1 1,8 0,8 M 3.7,3 8,7.3 8,4 9,4 9,9 4,9 4,8 7.3,8 3,3.7</Geometry>
@@ -100,7 +102,9 @@
 
     <Style TargetType="hc:Ribbon">
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Panel.ZIndex" Value="{x:Static system:Int32.MaxValue}"/>
+        <Setter Property="ContentHeight" Value="96"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -115,30 +119,45 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:Ribbon">
-                    <Grid>
+                    <hc:RibbonTabsPanel x:Name="TabsPanel">
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
+                            <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <Border Margin="10,0" Grid.Row="1" Grid.ColumnSpan="2" Height="96" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
-                            <Border.Effect>
-                                <DropShadowEffect BlurRadius="8" ShadowDepth="2" Direction="-90" Color="{StaticResource EffectShadowColor}" Opacity=".1" RenderingBias="Performance"/>
-                            </Border.Effect>
-                        </Border>
-                        <hc:RibbonTabHeaderItemsControl Focusable="False" Grid.Row="0" Grid.Column="0" x:Name="PART_TabHeaderItemsControl" Margin="10,0,10,2">
+                        <Grid x:Name="MainContentGrid" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+                            <Grid.RenderTransform>
+                                <TransformGroup>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Grid.RenderTransform>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Border Margin="10,0" Height="{TemplateBinding ContentHeight}" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource RegionBrush}">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="8" ShadowDepth="2" Direction="-90" Color="{StaticResource EffectShadowColor}" Opacity=".1" RenderingBias="Performance"/>
+                                </Border.Effect>
+                            </Border>
+                            <ItemsPresenter Grid.Column="0" Margin="10,0,0,0"/>
+                            <ToggleButton Command="interactivity:ControlCommands.Switch" IsChecked="{Binding IsMinimized,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Margin="0,0,10,0" Padding="5" Width="20" Height="20" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconElement.Geometry="{StaticResource UpGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource NailGeometry}"/>
+                        </Grid>
+                        <hc:RibbonTabHeaderItemsControl Grid.Row="0" Background="{TemplateBinding Background}" Focusable="False" x:Name="PART_TabHeaderItemsControl" Margin="0,0,0,2">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <hc:SimpleStackPanel Orientation="Horizontal"/>
+                                    <hc:SimpleStackPanel Margin="10,0" Orientation="Horizontal"/>
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </hc:RibbonTabHeaderItemsControl>
-                        <ItemsPresenter Grid.Column="0" Grid.Row="1" Margin="10,0"/>
-                        <ToggleButton Margin="0,0,10,0" Padding="5" Width="20" Height="20" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconElement.Geometry="{StaticResource DownGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource NailGeometry}"/>
-                    </Grid>
+                    </hc:RibbonTabsPanel>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMinimized" Value="True">
+                            <Setter TargetName="TabsPanel" Property="Height" Value="{Binding ActualHeight,ElementName=PART_TabHeaderItemsControl}"/>
+                        </Trigger>
+                        <Trigger Property="IsDropDownOpen" Value="False">
+                            <Setter TargetName="MainContentGrid" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
