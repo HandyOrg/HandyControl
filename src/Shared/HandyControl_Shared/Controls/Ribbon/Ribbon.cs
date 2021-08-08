@@ -73,6 +73,11 @@ namespace HandyControl.Controls
             }
 
             var animation = isDropDownOpen ? CreateAnimation(0, ContentHeight) : CreateAnimation(ContentHeight, 0);
+            animation.Completed += (s, e) =>
+            {
+                SwitchCurrentTabContentVisibility(isDropDownOpen);
+            };
+
             _contentPanel.BeginAnimation(HeightProperty, animation);
         }
 
@@ -100,6 +105,7 @@ namespace HandyControl.Controls
             var animation = isMinimized
                 ? CreateAnimation(_originHeight, _tabHeaderItemsControl.ActualHeight)
                 : CreateAnimation(_tabHeaderItemsControl.ActualHeight, _originHeight);
+
             _rootPanel.BeginAnimation(HeightProperty, animation);
         }
 
@@ -329,6 +335,29 @@ namespace HandyControl.Controls
             }
 
             return -1;
+        }
+
+        private void SwitchCurrentTabContentVisibility(bool isVisible)
+        {
+            var tab = GetCurrentTab();
+            tab?.SwitchContentVisibility(isVisible);
+        }
+
+        private RibbonTab GetCurrentTab()
+        {
+            var index = SelectedIndex;
+
+            if (index == -1)
+            {
+                return null;
+            }
+
+            if (ItemContainerGenerator.ContainerFromIndex(index) is RibbonTab ribbonTab)
+            {
+                return ribbonTab;
+            }
+
+            return null;
         }
 
         private void InitializeSelection()

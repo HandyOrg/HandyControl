@@ -2,11 +2,17 @@
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using HandyControl.Data;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
+    [TemplatePart(Name = RootContainer, Type = typeof(UIElement))]
     public class RibbonTab : HeaderedItemsControl
     {
+        private const string RootContainer = "PART_RootContainer";
+
+        private UIElement _rootContainer;
+
         public Ribbon Ribbon => Ribbon.GetRibbon(this);
 
         internal RibbonTabHeader RibbonTabHeader
@@ -48,10 +54,16 @@ namespace HandyControl.Controls
             var ribbonTab = (RibbonTab) d;
             if (ribbonTab.IsSelected)
             {
+                if (ribbonTab.Ribbon.IsDropDownOpen)
+                {
+                    ribbonTab.SwitchContentVisibility(true);
+                }
+
                 ribbonTab.OnSelected(new RoutedEventArgs(Selector.SelectedEvent, ribbonTab));
             }
             else
             {
+                ribbonTab.SwitchContentVisibility(false);
                 ribbonTab.OnUnselected(new RoutedEventArgs(Selector.UnselectedEvent, ribbonTab));
             }
 
@@ -63,6 +75,16 @@ namespace HandyControl.Controls
             get => (bool) GetValue(IsSelectedProperty);
             set => SetValue(IsSelectedProperty, value);
         }
+
+        public override void OnApplyTemplate()
+        {
+            base.OnApplyTemplate();
+            _rootContainer = GetTemplateChild(RootContainer) as UIElement;
+
+            SwitchContentVisibility(IsSelected);
+        }
+
+        internal void SwitchContentVisibility(bool isVisible) => _rootContainer?.Show(isVisible);
 
         protected virtual void OnSelected(RoutedEventArgs e) => RaiseEvent(e);
 

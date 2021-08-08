@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -22,8 +22,6 @@ internal static class ValueBoxes
     internal static object CollapsedBox = Visibility.Collapsed;
 
     internal static object HiddenBox = Visibility.Hidden;
-
-    internal static object Double0Box = .0;
 
     internal static object Double01Box = .1;
 

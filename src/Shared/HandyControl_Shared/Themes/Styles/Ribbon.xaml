@@ -4,7 +4,7 @@
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
-    <Geometry x:Key="NailGeometry">M878.3 392.1L631.9 145.7c-6.5-6.5-15-9.7-23.5-9.7s-17 3.2-23.5 9.7L423.8 306.9c-12.2-1.4-24.5-2-36.8-2-73.2 0-146.4 24.1-206.5 72.3-15.4 12.3-16.6 35.4-2.7 49.4l181.7 181.7-215.4 215.2c-2.6 2.6-4.3 6.1-4.6 9.8l-3.4 37.2c-0.9 9.4 6.6 17.4 15.9 17.4 0.5 0 1 0 1.5-0.1l37.2-3.4c3.7-0.3 7.2-2 9.8-4.6l215.4-215.4 181.7 181.7c6.5 6.5 15 9.7 23.5 9.7 9.7 0 19.3-4.2 25.9-12.4 56.3-70.3 79.7-158.3 70.2-243.4l161.1-161.1c12.9-12.8 12.9-33.8 0-46.8z</Geometry>
+    <Geometry x:Key="NailGeometry">M956.553 366.486L657.514 67.447c-7.888-7.888-18.204-11.772-28.52-11.772s-20.632 3.884-28.52 11.772L404.958 263.085c-14.806-1.7-29.734-2.428-44.662-2.428-88.837 0-177.675 29.249-250.614 87.746-18.69 14.927-20.268 42.962-3.277 59.953l220.516 220.517L65.506 890.046c-3.156 3.155-5.219 7.403-5.583 11.893l-4.126 45.147c-1.093 11.408 8.01 21.117 19.296 21.117 0.607 0 1.214 0 1.82-0.121l45.148-4.126c4.49-0.364 8.738-2.428 11.893-5.583L395.37 696.957l220.517 220.517c7.888 7.888 18.204 11.772 28.52 11.772 11.772 0 23.423-5.097 31.433-15.05 68.327-85.317 96.726-192.117 85.197-295.397l195.516-195.515c15.655-15.535 15.655-41.021 0-56.798zM699.142 557.268l-29.734 29.734 4.612 41.75c4.49 40.898 1.213 81.555-9.952 120.998-6.554 23.059-15.535 45.026-26.943 65.779L208.593 386.753c15.655-8.616 31.918-15.898 48.909-21.724 33.01-11.408 67.599-17.112 102.794-17.112 11.651 0 23.423 0.607 35.074 1.942l41.75 4.612 29.733-29.734 162.262-162.262 232.41 232.41-162.383 162.383z</Geometry>
     <Geometry x:Key="DialogBoxLauncherGeometry">M0,0 8,0 8,1 1,1 1,8 0,8 M 3.7,3 8,7.3 8,4 9,4 9,9 4,9 4,8 7.3,8 3,3.7</Geometry>
 
     <Style TargetType="hc:RibbonGroup">
@@ -34,8 +34,8 @@
                         </Grid.ColumnDefinitions>
                         <ItemsPresenter Grid.ColumnSpan="2" Margin="{TemplateBinding Padding}"/>
                         <ContentPresenter Name="ContentPresenter"  VerticalAlignment="Bottom" TextElement.Foreground="{DynamicResource SecondaryTextBrush}" Grid.Column="0" Grid.ColumnSpan="2" Margin="10,0,10,2" ContentSource="Header" HorizontalAlignment="Center" Grid.Row="1"/>
-                        <Button Visibility="{Binding ShowLauncherButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0,0,4,0" Grid.Column="1" Width="9" Height="9" Grid.Row="1" HorizontalAlignment="Right" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="{DynamicResource SecondaryRegionBrush}">
-                            <Path Stretch="Uniform" Data="{StaticResource DialogBoxLauncherGeometry}" Fill="{DynamicResource SecondaryTextBrush}"/>
+                        <Button hc:Poptip.Instance="{TemplateBinding LauncherPoptip}" Command="interactivity:ControlCommands.More" Visibility="{Binding ShowLauncherButton,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0,0,2,0" Grid.Column="1" Width="16" Height="16" Grid.Row="1" HorizontalAlignment="Right" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="{DynamicResource SecondaryRegionBrush}">
+                            <Path Width="9" Height="9" Stretch="Uniform" Data="{StaticResource DialogBoxLauncherGeometry}" Fill="{DynamicResource SecondaryTextBrush}"/>
                         </Button>
                         <Border Visibility="{Binding ShowSplitter,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0,4" Grid.Column="2" Grid.Row="0" Grid.RowSpan="2" Width="1" Background="{TemplateBinding BorderBrush}"/>
                     </Grid>
@@ -91,7 +91,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:RibbonTab">
-                    <hc:SimplePanel Visibility="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}">
+                    <hc:SimplePanel Visibility="Collapsed" x:Name="PART_RootContainer">
                         <Border x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,0,0,3" Background="{TemplateBinding Background}" Margin="0"/>
                         <ItemsPresenter/>
                     </hc:SimplePanel>
@@ -134,7 +134,7 @@
                                     <DropShadowEffect BlurRadius="8" ShadowDepth="2" Direction="-90" Color="{StaticResource EffectShadowColor}" Opacity=".1" RenderingBias="Performance"/>
                                 </Border.Effect>
                             </Border>
-                            <ItemsPresenter VerticalAlignment="Bottom" Height="{TemplateBinding ContentHeight}" Grid.Column="0" Margin="10,0,0,0"/>
+                            <ItemsPresenter x:Name="PART_TabItemsPresenter" VerticalAlignment="Bottom" Height="{TemplateBinding ContentHeight}" Grid.Column="0" Margin="10,0,0,0"/>
                             <ToggleButton Command="interactivity:ControlCommands.Switch" IsChecked="{Binding IsMinimized,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Margin="0,0,10,0" Padding="5" Width="20" Height="20" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconElement.Geometry="{StaticResource UpGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource NailGeometry}"/>
                         </Grid>
                         <hc:RibbonTabHeaderItemsControl Grid.Row="0" Background="{TemplateBinding Background}" Focusable="False" x:Name="PART_TabHeaderItemsControl" Margin="0,0,0,2">
