@@ -79,12 +79,24 @@ namespace HandyControl.Tools
             Source = new Uri($"pack://application:,,,/HandyControl;component/Themes/Skin{skin}.xaml")
         };
 
+        
+		
+		private static ResourceDictionary _theme;
+
         /// <summary>
         ///     get HandyControl theme
         /// </summary>
-        public static ResourceDictionary GetTheme() => new()
+        public static ResourceDictionary GetTheme()
         {
-            Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-        };
+            if (_theme == null)
+            {
+                _theme = new()
+                {
+                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+                };
+            }
+
+            return _theme;
+        }
     }
 }
