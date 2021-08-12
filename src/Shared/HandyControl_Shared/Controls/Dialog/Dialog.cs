@@ -110,7 +110,7 @@ namespace HandyControl.Controls
             AdornerDecorator decorator;
             if (string.IsNullOrEmpty(token))
             {
-                element = WindowHelper.GetActiveWindow();
+                element = WindowHelper.GetActiveWindow() ?? Application.Current.MainWindow;
                 decorator = VisualHelper.GetChild<AdornerDecorator>(element);
             }
             else
@@ -147,7 +147,7 @@ namespace HandyControl.Controls
         {
             if (string.IsNullOrEmpty(_token))
             {
-                Close(WindowHelper.GetActiveWindow());
+                Close(WindowHelper.GetActiveWindow() ?? Application.Current.MainWindow);
             }
             else if (ContainerDic.TryGetValue(_token, out var element))
             {
