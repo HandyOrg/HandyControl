@@ -15,36 +15,36 @@ namespace HandyControl.Expression.Drawing
 
         internal static Rect Bounds(this Size size)
         {
-            return new Rect(0.0, 0.0, size.Width, size.Height);
+            return new(0.0, 0.0, size.Width, size.Height);
         }
 
         internal static Point Center(this Rect rect)
         {
-            return new Point(rect.X + rect.Width / 2.0, rect.Y + rect.Height / 2.0);
+            return new(rect.X + rect.Width / 2.0, rect.Y + rect.Height / 2.0);
         }
 
         internal static Vector Subtract(this Point lhs, Point rhs)
         {
-            return new Vector(lhs.X - rhs.X, lhs.Y - rhs.Y);
+            return new(lhs.X - rhs.X, lhs.Y - rhs.Y);
         }
 
         internal static Thickness Subtract(this Rect lhs, Rect rhs)
         {
-            return new Thickness(rhs.Left - lhs.Left,
+            return new(rhs.Left - lhs.Left,
                 rhs.Top - lhs.Top, lhs.Right - rhs.Right,
                 lhs.Bottom - rhs.Bottom);
         }
 
         internal static Point Lerp(Point pointA, Point pointB, double alpha)
         {
-            return new Point(
+            return new(
                 MathHelper.Lerp(pointA.X, pointB.X, alpha),
                 MathHelper.Lerp(pointA.Y, pointB.Y, alpha));
         }
 
         internal static Vector Lerp(Vector vectorA, Vector vectorB, double alpha)
         {
-            return new Vector(MathHelper.Lerp(vectorA.X, vectorB.X, alpha),
+            return new(MathHelper.Lerp(vectorA.X, vectorB.X, alpha),
                 MathHelper.Lerp(vectorA.Y, vectorB.Y, alpha));
         }
 
@@ -107,7 +107,7 @@ namespace HandyControl.Expression.Drawing
 
         internal static Point RelativeToAbsolutePoint(Rect bound, Point relative)
         {
-            return new Point(bound.X + relative.X * bound.Width, bound.Y + relative.Y * bound.Height);
+            return new(bound.X + relative.X * bound.Width, bound.Y + relative.Y * bound.Height);
         }
 
         internal static double SquaredDistance(Point lhs, Point rhs)
@@ -119,7 +119,7 @@ namespace HandyControl.Expression.Drawing
 
         internal static Point Midpoint(Point lhs, Point rhs)
         {
-            return new Point((lhs.X + rhs.X) / 2.0, (lhs.Y + rhs.Y) / 2.0);
+            return new((lhs.X + rhs.X) / 2.0, (lhs.Y + rhs.Y) / 2.0);
         }
 
         internal static bool HasValidArea(this Size size)
@@ -166,12 +166,12 @@ namespace HandyControl.Expression.Drawing
 
         internal static Point Plus(this Point lhs, Point rhs)
         {
-            return new Point(lhs.X + rhs.X, lhs.Y + rhs.Y);
+            return new(lhs.X + rhs.X, lhs.Y + rhs.Y);
         }
 
         internal static Point Minus(this Point lhs, Point rhs)
         {
-            return new Point(lhs.X - rhs.X, lhs.Y - rhs.Y);
+            return new(lhs.X - rhs.X, lhs.Y - rhs.Y);
         }
 
         internal static Vector Normal(Point lhs, Point rhs)

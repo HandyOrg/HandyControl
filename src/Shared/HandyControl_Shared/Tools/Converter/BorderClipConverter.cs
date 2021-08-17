@@ -21,7 +21,7 @@ namespace HandyControl.Tools.Converter
                 {
                     Figures = new PathFigureCollection
                     {
-                        new PathFigure(new Point(radius.TopLeft, 0), new PathSegment[]
+                        new(new Point(radius.TopLeft, 0), new PathSegment[]
                         {
                             new LineSegment(new Point(width - radius.TopRight, 0), false),
                             new ArcSegment(new Point(width, radius.TopRight), new Size(radius.TopRight, radius.TopRight), 90, false, SweepDirection.Clockwise, false),

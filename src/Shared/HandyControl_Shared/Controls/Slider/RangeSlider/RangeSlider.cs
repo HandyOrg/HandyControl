@@ -248,7 +248,7 @@ namespace HandyControl.Controls
 
         protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
         {
-            if (IsMoveToPointEnabled && _track.ThumbStart != null && !_track.ThumbStart.IsMouseOver && _track.ThumbEnd != null && !_track.ThumbEnd.IsMouseOver)
+            if (IsMoveToPointEnabled && _track.ThumbStart is { IsMouseOver: false } && _track.ThumbEnd is { IsMouseOver: false })
             {
                 // Here we need to determine whether it's closer to the starting point or the end point. 
                 var pt = e.MouseDevice.GetPosition(_track);
@@ -301,7 +301,7 @@ namespace HandyControl.Controls
             {
                 // If ticks collection is available, use it.
                 // Note that ticks may be unsorted.
-                if (Ticks != null && Ticks.Count > 0)
+                if (Ticks is { Count: > 0 })
                 {
                     foreach (var tick in Ticks)
                     {
@@ -341,7 +341,7 @@ namespace HandyControl.Controls
             var previous = Minimum;
             var next = Maximum;
 
-            if (Ticks != null && Ticks.Count > 0)
+            if (Ticks is { Count: > 0 })
             {
                 foreach (var tick in Ticks)
                 {
@@ -429,7 +429,7 @@ namespace HandyControl.Controls
         {
             // Show AutoToolTip if needed.
 
-            if (!(e.OriginalSource is RangeThumb thumb)) return;
+            if (e.OriginalSource is not RangeThumb thumb) return;
             _thumbCurrent = thumb;
             _originThumbPoint = Mouse.GetPosition(_thumbCurrent);
             _thumbCurrent.StartDrag();
@@ -531,7 +531,7 @@ namespace HandyControl.Controls
 
         protected virtual void OnThumbDragDelta(DragDeltaEventArgs e)
         {
-            if (!(e.OriginalSource is Thumb thumb)) return;
+            if (e.OriginalSource is not Thumb thumb) return;
             var isStart = thumb.Equals(_track.ThumbStart);
             if (!isStart)
             {
@@ -579,7 +579,7 @@ namespace HandyControl.Controls
         {
             // Show AutoToolTip if needed.
 
-            if (!(e.OriginalSource is Thumb thumb) || AutoToolTipPlacement == AutoToolTipPlacement.None)
+            if (e.OriginalSource is not Thumb thumb || AutoToolTipPlacement == AutoToolTipPlacement.None)
             {
                 return;
             }

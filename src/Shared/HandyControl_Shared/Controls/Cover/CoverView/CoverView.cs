@@ -16,7 +16,7 @@ namespace HandyControl.Controls
 
         private IEnumerable _itemsSourceInternal;
 
-        private readonly Dictionary<object, CoverViewItem> _entryDic = new Dictionary<object, CoverViewItem>();
+        private readonly Dictionary<object, CoverViewItem> _entryDic = new();
 
         private bool _isRefresh;
 

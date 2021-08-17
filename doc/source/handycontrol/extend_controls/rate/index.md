@@ -52,4 +52,4 @@ public class Rate : RegularItemsControl
 </StackPanel>
 ```
 
-![Rate](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Rate.png)
+![Rate](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Rate.gif)

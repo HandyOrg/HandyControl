@@ -26,7 +26,7 @@
                 <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
 
                 <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
-                <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
             </StackPanel>
         </StackPanel>
     </hc:TransitioningContentControl>

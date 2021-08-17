@@ -32,9 +32,7 @@ namespace HandyControl.Controls
 
         private AdornerLayer _layer;
 
-        private System.Windows.Window _window;
-
-        private UIElement _windowContentElement;
+        private UIElement _contentElement;
 
         private Point _contentRenderTransformOrigin;
 
@@ -70,6 +68,8 @@ namespace HandyControl.Controls
             {
                 _storyboard.Completed -= Storyboard_Completed;
             }
+
+            _container = null;
         }
 
         private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
@@ -247,7 +247,7 @@ namespace HandyControl.Controls
         {
             if (!IsOpen)
             {
-                _windowContentElement.SetCurrentValue(RenderTransformOriginProperty, _contentRenderTransformOrigin);
+                _contentElement.SetCurrentValue(RenderTransformOriginProperty, _contentRenderTransformOrigin);
                 _layer.Remove(_container);
                 RaiseEvent(new RoutedEventArgs(ClosedEvent, this));
             }
@@ -259,19 +259,42 @@ namespace HandyControl.Controls
 
         private void OnIsOpenChanged(bool isOpen)
         {
-            if (Content == null || DesignerHelper.IsInDesignMode) return;
+            if (Content == null || DesignerHelper.IsInDesignMode)
+            {
+                return;
+            }
 
-            _window = WindowHelper.GetActiveWindow();
-            if (_window == null) return;
+            AdornerDecorator decorator;
+            var parent = VisualHelper.GetParent<DrawerContainer>(this);
+            if (parent != null)
+            {
+                _contentElement = parent.Child;
+                decorator = parent;
+            }
+            else
+            {
+                var window = WindowHelper.GetActiveWindow();
+                if (window == null)
+                {
+                    return;
+                }
 
-            _windowContentElement = _window.Content as UIElement;
-            if (_windowContentElement == null) return;
+                decorator = VisualHelper.GetChild<AdornerDecorator>(window);
+                _contentElement = window.Content as UIElement;
+            }
 
-            _contentRenderTransformOrigin = _windowContentElement.RenderTransformOrigin;
+            if (_contentElement == null)
+            {
+                return;
+            }
 
-            var decorator = VisualHelper.GetChild<AdornerDecorator>(_window);
             _layer = decorator?.AdornerLayer;
-            if (_layer == null) return;
+            if (_layer == null)
+            {
+                return;
+            }
+
+            _contentRenderTransformOrigin = _contentElement.RenderTransformOrigin;
 
             if (_container == null)
             {
@@ -284,7 +307,7 @@ namespace HandyControl.Controls
                     ShowByPush(isOpen);
                     break;
                 case DrawerShowMode.Press:
-                    _windowContentElement.SetCurrentValue(RenderTransformOriginProperty, new Point(0.5, 0.5));
+                    _contentElement.SetCurrentValue(RenderTransformOriginProperty, new Point(0.5, 0.5));
                     ShowByPress(isOpen);
                     break;
             }
@@ -333,7 +356,7 @@ namespace HandyControl.Controls
                 case Dock.Left:
                 case Dock.Right:
                     animationPropertyName = "(UIElement.RenderTransform).(TranslateTransform.X)";
-                    _windowContentElement.RenderTransform = new TranslateTransform
+                    _contentElement.RenderTransform = new TranslateTransform
                     {
                         X = isOpen ? 0 : -_animationLength
                     };
@@ -341,7 +364,7 @@ namespace HandyControl.Controls
                 case Dock.Top:
                 case Dock.Bottom:
                     animationPropertyName = "(UIElement.RenderTransform).(TranslateTransform.Y)";
-                    _windowContentElement.RenderTransform = new TranslateTransform
+                    _contentElement.RenderTransform = new TranslateTransform
                     {
                         Y = isOpen ? 0 : -_animationLength
                     };
@@ -353,7 +376,7 @@ namespace HandyControl.Controls
             var animation = isOpen
                 ? AnimationHelper.CreateAnimation(-_animationLength)
                 : AnimationHelper.CreateAnimation(0);
-            Storyboard.SetTarget(animation, _windowContentElement);
+            Storyboard.SetTarget(animation, _contentElement);
             Storyboard.SetTargetProperty(animation, new PropertyPath(animationPropertyName));
 
             _storyboard.Children.Add(animation);
@@ -361,7 +384,7 @@ namespace HandyControl.Controls
 
         private void ShowByPress(bool isOpen)
         {
-            _windowContentElement.RenderTransform = isOpen
+            _contentElement.RenderTransform = isOpen
                 ? new ScaleTransform()
                 : new ScaleTransform
                 {
@@ -372,7 +395,7 @@ namespace HandyControl.Controls
             var animationX = isOpen
                 ? AnimationHelper.CreateAnimation(.9)
                 : AnimationHelper.CreateAnimation(1);
-            Storyboard.SetTarget(animationX, _windowContentElement);
+            Storyboard.SetTarget(animationX, _contentElement);
             Storyboard.SetTargetProperty(animationX, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleX)"));
 
             _storyboard.Children.Add(animationX);
@@ -380,7 +403,7 @@ namespace HandyControl.Controls
             var animationY = isOpen
                 ? AnimationHelper.CreateAnimation(.9)
                 : AnimationHelper.CreateAnimation(1);
-            Storyboard.SetTarget(animationY, _windowContentElement);
+            Storyboard.SetTarget(animationY, _contentElement);
             Storyboard.SetTargetProperty(animationY, new PropertyPath("(UIElement.RenderTransform).(ScaleTransform.ScaleY)"));
 
             _storyboard.Children.Add(animationY);

@@ -20,14 +20,14 @@ namespace HandyControlDemo.Tools.Converter
         {
             if (value is HatchStyle style)
             {
-                return _brushGenerator.GetHatchBrush(style, ResourceHelper.GetResource<Color>(ResourceToken.DarkPrimaryColor), ResourceHelper.GetResource<Color>(ResourceToken.BackgroundColor));
+                return _brushGenerator.GetHatchBrush(style, ResourceHelper.GetResource<Color>(ResourceToken.DarkPrimaryColor), Colors.Transparent);
             }
             return Brushes.Transparent;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            throw new NotImplementedException();
+            throw new NotSupportedException();
         }
     }
 }

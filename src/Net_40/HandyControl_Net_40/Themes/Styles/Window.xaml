@@ -2,14 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="clr-namespace:HandyControl.Controls"
                     xmlns:shell="clr-namespace:Microsoft.Windows.Shell"
-                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity"
-                    xmlns:themes="clr-namespace:HandyControl.Themes">
-
-    <ResourceDictionary.MergedDictionaries>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/Button.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Converters.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Basic/Geometries.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <LinearGradientBrush x:Key="ResizeGripperForeground" EndPoint="1,0.75" StartPoint="0,0.25">
         <GradientStop Color="#FFFFFF" Offset="0.3"/>
@@ -161,6 +154,9 @@
                         <Trigger Property="IsMouseOver" Value="True" SourceName="ButtonMin">
                             <Setter Property="Background" TargetName="ButtonMin" Value="{Binding OtherButtonHoverBackground,RelativeSource={RelativeSource TemplatedParent}}"/>
                             <Setter Property="Foreground" TargetName="ButtonMin" Value="{Binding OtherButtonHoverForeground,RelativeSource={RelativeSource TemplatedParent}}"/>
+                        </Trigger>
+                        <Trigger Property="WindowStyle" Value="None">
+                            <Setter Property="ShowNonClientArea" Value="False"/>
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>

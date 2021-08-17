@@ -1,7 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
+using HandyControl.Tools.Helper;
+using HandyControl.Tools.Interop;
+using Microsoft.Win32;
 
 namespace HandyControl.Themes
 {
@@ -11,28 +16,18 @@ namespace HandyControl.Themes
         {
             if (DesignerHelper.IsInDesignMode)
             {
-                MergedDictionaries.Add(new ResourceDictionary
-                {
-                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/SkinDefault.xaml")
-                });
-                MergedDictionaries.Add(new ResourceDictionary
-                {
-                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-                });
+                MergedDictionaries.Add(ResourceHelper.GetSkin(SkinType.Default));
+                MergedDictionaries.Add(ResourceHelper.GetTheme());
             }
             else
             {
-                UpdateResource();
+                InitResource();
             }
         }
 
-        private Uri _source;
+        #region Skin
 
-        public new Uri Source
-        {
-            get => DesignerHelper.IsInDesignMode ? null : _source;
-            set => _source = value;
-        }
+        private SkinType _manualSkinType;
 
         private SkinType _skin;
 
@@ -44,25 +39,204 @@ namespace HandyControl.Themes
                 if (_skin == value) return;
                 _skin = value;
 
-                UpdateResource();
+                UpdateSkin();
             }
         }
 
+        public static readonly DependencyProperty SkinProperty = DependencyProperty.RegisterAttached(
+            "Skin", typeof(SkinType), typeof(Theme), new PropertyMetadata(default(SkinType), OnSkinChanged));
+
+        private static void OnSkinChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (d is not FrameworkElement element)
+            {
+                return;
+            }
+
+            var skin = (SkinType) e.NewValue;
+
+            var themes = new List<Theme>();
+            GetAllThemes(element.Resources, ref themes);
+
+            if (themes.Count > 0)
+            {
+                foreach (var theme in themes)
+                {
+                    theme.Skin = skin;
+                }
+            }
+            else
+            {
+                element.Resources.MergedDictionaries.Add(new Theme
+                {
+                    Skin = skin
+                });
+            }
+        }
+
+        private static void GetAllThemes(ResourceDictionary resourceDictionary, ref List<Theme> themes)
+        {
+            if (resourceDictionary is Theme theme)
+            {
+                themes.Add(theme);
+            }
+
+            // we must consider it's MergedDictionaries
+            foreach (var dictionaryMergedDictionary in resourceDictionary.MergedDictionaries)
+            {
+                GetAllThemes(dictionaryMergedDictionary, ref themes);
+            }
+        }
+
+        public static void SetSkin(DependencyObject element, SkinType value)
+            => element.SetValue(SkinProperty, value);
+
+        public static SkinType GetSkin(DependencyObject element)
+            => (SkinType) element.GetValue(SkinProperty);
+
+        #endregion
+
+        #region SyncWithSystem
+
+        private bool _syncWithSystem;
+
+        public bool SyncWithSystem
+        {
+            get => _syncWithSystem;
+            set
+            {
+                _syncWithSystem = value;
+
+                if (value)
+                {
+                    _manualSkinType = _skin;
+                    SyncWithSystemTheme();
+
+                    SystemEvents.UserPreferenceChanged += SystemEvents_UserPreferenceChanged;
+                }
+                else
+                {
+                    SystemEvents.UserPreferenceChanged -= SystemEvents_UserPreferenceChanged;
+
+                    _skin = _manualSkinType;
+                    UpdateSkin();
+                }
+            }
+        }
+
+        private void SystemEvents_UserPreferenceChanged(object sender, UserPreferenceChangedEventArgs e)
+        {
+            if (e.Category == UserPreferenceCategory.General)
+            {
+                SyncWithSystemTheme();
+            }
+        }
+
+        private void SyncWithSystemTheme()
+        {
+            _skin = SystemHelper.DetermineIfInLightThemeMode() ? SkinType.Default : SkinType.Dark;
+            UpdateSkin();
+        }
+
+        #endregion
+
+        #region AccentColor
+
+        private Color? _accentColor;
+
+        public Color? AccentColor
+        {
+            get => _accentColor;
+            set
+            {
+                _accentColor = value;
+
+                if (value == null)
+                {
+                    _precSkin = null;
+                }
+
+                UpdateSkin();
+            }
+        }
+
+        #endregion
+
+        #region Source
+
+        private Uri _source;
+
+        public new Uri Source
+        {
+            get => DesignerHelper.IsInDesignMode ? null : _source;
+            set => _source = value;
+        }
+
+        #endregion
+
         public string Name { get; set; }
 
-        public virtual ResourceDictionary GetSkin(SkinType skinType) => ResourceHelper.GetSkin(skinType);
+        private SkinType _prevSkinType;
 
-        public virtual ResourceDictionary GetTheme() => new ResourceDictionary
-        {
-            Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-        };
+        private ResourceDictionary _precSkin;
 
-        private void UpdateResource()
+        public virtual ResourceDictionary GetSkin(SkinType skinType)
         {
-            if (DesignerHelper.IsInDesignMode) return;
+            if (_precSkin == null || _prevSkinType != skinType)
+            {
+                _precSkin = ResourceHelper.GetSkin(skinType);
+                _prevSkinType = skinType;
+            }
+
+            if (!SyncWithSystem)
+            {
+                if (AccentColor != null)
+                {
+                    UpdateAccentColor(AccentColor.Value);
+                }
+            }
+            else
+            {
+                InteropMethods.DwmGetColorizationColor(out var color, out _);
+                UpdateAccentColor(ColorHelper.ToColor(color));
+            }
+
+            return _precSkin;
+        }
+
+        private void UpdateAccentColor(Color color)
+        {
+            _precSkin[ResourceToken.PrimaryColor] = color;
+            _precSkin[ResourceToken.DarkPrimaryColor] = color;
+            _precSkin[ResourceToken.TitleColor] = color;
+            _precSkin[ResourceToken.SecondaryTitleColor] = color;
+        }
+
+        private void UpdateSkin() => MergedDictionaries[0] = GetSkin(Skin);
+
+        private ResourceDictionary _theme;
+
+        public virtual ResourceDictionary GetTheme()
+        {
+            _theme ??= ResourceHelper.GetTheme();
+            return _theme;
+        }
+
+        private void InitResource()
+        {
+            if (DesignerHelper.IsInDesignMode)
+            {
+                return;
+            }
+
             MergedDictionaries.Clear();
             MergedDictionaries.Add(GetSkin(Skin));
             MergedDictionaries.Add(GetTheme());
         }
+    }
+
+    public class StandaloneTheme : Theme
+    {
+        public override ResourceDictionary GetTheme() => ResourceHelper.GetTheme();
     }
 }

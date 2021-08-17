@@ -161,14 +161,14 @@ namespace HandyControl.Controls
 
         protected override void OnSourceInitialized(EventArgs e)
         {
+            base.OnSourceInitialized(e);
+
             var hwndSource = this.GetHwndSource();
             if (hwndSource != null)
             {
                 hwndSource.AddHook(HwndSourceHook);
                 CreateGlowWindowHandles();
             }
-
-            base.OnSourceInitialized(e);
         }
 
         #endregion

@@ -16,7 +16,7 @@ namespace HandyControl.Controls
 
         private int _lineCount;
 
-        private readonly List<FlexItemInfo> _orderList = new List<FlexItemInfo>();
+        private readonly List<FlexItemInfo> _orderList = new();
 
         #region Item
 
@@ -193,7 +193,7 @@ namespace HandyControl.Controls
                         curLineSize = sz;
                         _lineCount++;
 
-                        if (MathHelper.GreaterThan(sz.U, _uvConstraint.U)) //the element is wider then the constrint - give it a separate line                    
+                        if (MathHelper.GreaterThan(sz.U, _uvConstraint.U)) //the element is wider then the constrint - give it a separate line
                         {
                             panelSize.U = Math.Max(sz.U, panelSize.U);
                             panelSize.V += sz.V;
@@ -260,7 +260,7 @@ namespace HandyControl.Controls
                         lineIndex++;
                         curLineSizeArr[lineIndex] = sz;
 
-                        if (MathHelper.GreaterThan(sz.U, uvFinalSize.U)) //the element is wider then the constraint - give it a separate line                    
+                        if (MathHelper.GreaterThan(sz.U, uvFinalSize.U)) //the element is wider then the constraint - give it a separate line
                         {
                             //switch to next line which only contain one element
                             lastInLineArr[lineIndex] = i;
@@ -399,7 +399,7 @@ namespace HandyControl.Controls
                         lineIndex++;
                         itemsU = 0;
 
-                        if (i >= lastInLineArr[lineIndex]) //the element is wider then the constraint - give it a separate line                    
+                        if (i >= lastInLineArr[lineIndex]) //the element is wider then the constraint - give it a separate line
                         {
                             //switch to next line which only contain one element
                             ArrangeLine(new FlexLineInfo
@@ -507,7 +507,7 @@ namespace HandyControl.Controls
                     {
                         flexGrowItem = constraintFreeU / flexGrowSum;
                         lineInfo.ScaleU = 1;
-                        lineFreeU = 0; //line free U was used up 
+                        lineFreeU = 0; //line free U was used up
                     }
 
                     for (var i = 0; i < itemCount; i++)
@@ -543,7 +543,7 @@ namespace HandyControl.Controls
                     {
                         flexShrinkItem = constraintFreeU / flexShrinkSum;
                         lineInfo.ScaleU = 1;
-                        lineFreeU = 0; //line free U was used up 
+                        lineFreeU = 0; //line free U was used up
                     }
 
                     for (var i = 0; i < itemCount; i++)
@@ -648,7 +648,12 @@ namespace HandyControl.Controls
 
             public int Index { get; }
 
-            public int CompareTo(FlexItemInfo other) => Order.CompareTo(other.Order);
+            public int CompareTo(FlexItemInfo other)
+            {
+                var orderCompare = Order.CompareTo(other.Order);
+                if (orderCompare != 0) return orderCompare;
+                return Index.CompareTo(other.Index);
+            }
         }
 
         private struct FlexLineInfo

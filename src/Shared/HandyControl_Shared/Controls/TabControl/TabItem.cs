@@ -208,7 +208,7 @@ namespace HandyControl.Controls
                 menu.SetBinding(VisibilityProperty, new Binding(ShowContextMenuProperty.Name)
                 {
                     Source = this,
-                    Converter = ResourceHelper.GetResource<IValueConverter>(ResourceToken.Boolean2VisibilityConverter)
+                    Converter = ResourceHelper.GetResourceInternal<IValueConverter>(ResourceToken.Boolean2VisibilityConverter)
                 });
             }
         }
@@ -225,7 +225,11 @@ namespace HandyControl.Controls
         /// <param name="oldIndex"></param>
         private void UpdateItemOffsetX(int oldIndex)
         {
-            if (!_isDragging) return;
+            if (!_isDragging || CurrentIndex >= TabPanel.ItemDic.Count)
+            {
+                return;
+            }
+
             var moveItem = TabPanel.ItemDic[CurrentIndex];
             moveItem.CurrentIndex -= CurrentIndex - oldIndex;
             var offsetX = moveItem.TargetOffsetX;
@@ -381,6 +385,17 @@ namespace HandyControl.Controls
             _isDragging = false;
             ItemIsDragging = false;
             _isDragged = false;
+        }
+
+        protected override void OnMouseDown(MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Middle && e.ButtonState == MouseButtonState.Pressed)
+            {
+                if (ShowCloseButton || ShowContextMenu)
+                {
+                    Close();
+                }
+            }
         }
 
         /// <summary>

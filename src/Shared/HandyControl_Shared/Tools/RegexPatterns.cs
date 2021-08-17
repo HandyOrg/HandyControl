@@ -84,7 +84,7 @@
         /// <summary>
         ///     数字正则匹配
         /// </summary>
-        public const string NumberPattern = @"^\d$";
+        public const string NumberPattern = @"^\d+$";
 
         /// <summary>
         ///     计算性质数字正则匹配
@@ -104,7 +104,7 @@
         /// <summary>
         ///     整数正则匹配
         /// </summary>
-        public const string IntPattern = @"^-?[1-9]\d*$";
+        public const string IntPattern = @"^-?[1-9]\d*|0$";
 
         /// <summary>
         ///     非负整数正则匹配

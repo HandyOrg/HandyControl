@@ -11,7 +11,7 @@ namespace HandyControl.Tools
     {
         private static ObservableCollection<KeyBinding> KeyBindingCollection;
 
-        private static readonly Dictionary<string, KeyBinding> CommandDic = new Dictionary<string, KeyBinding>();
+        private static readonly Dictionary<string, KeyBinding> CommandDic = new();
 
         private static void KeyboardHook_KeyDown(object sender, KeyboardHookEventArgs e) => HitTest(e.Key);
 

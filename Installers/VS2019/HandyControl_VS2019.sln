@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfApp", "WpfApp\WpfApp.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfCoreApp", "WpfCoreApp\WpfCoreApp.csproj", "{2F6E9FB8-F579-40CF-A151-57F281F08E1B}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Project Templates", "Project Templates", "{26BC7FA1-50F7-46C7-84FE-0D8ABAC47E07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +32,10 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{83C70EB1-3A3F-4812-B86C-C7D1936699EB} = {26BC7FA1-50F7-46C7-84FE-0D8ABAC47E07}
+		{2F6E9FB8-F579-40CF-A151-57F281F08E1B} = {26BC7FA1-50F7-46C7-84FE-0D8ABAC47E07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A7F567D2-5FA3-4E17-A8A8-CDAFC217BFF5}

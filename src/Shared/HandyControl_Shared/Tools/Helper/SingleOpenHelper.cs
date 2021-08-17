@@ -10,7 +10,7 @@ namespace HandyControl.Tools
     /// </summary>
     public class SingleOpenHelper
     {
-        private static readonly Dictionary<string, ISingleOpen> OpenDic = new Dictionary<string, ISingleOpen>();
+        private static readonly Dictionary<string, ISingleOpen> OpenDic = new();
 
         /// <summary>
         ///     根据指定的类型创建实例

@@ -8,7 +8,7 @@ namespace HandyControlDemo.Properties.Langs
 {
     public class LangProvider : INotifyPropertyChanged
     {
-        internal static LangProvider Instance => ResourceHelper.GetResource<LangProvider>("DemoLangs");
+        internal static LangProvider Instance { get; } = ResourceHelper.GetResource<LangProvider>("DemoLangs");
 
         private static string CultureInfoStr;
 
@@ -96,6 +96,7 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(DragHere));
             OnPropertyChanged(nameof(Drawer));
             OnPropertyChanged(nameof(Effects));
+            OnPropertyChanged(nameof(ElementGroup));
             OnPropertyChanged(nameof(Email));
             OnPropertyChanged(nameof(Empty));
             OnPropertyChanged(nameof(Error));
@@ -559,6 +560,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 效果 的本地化字符串。
         /// </summary>
 		public string Effects => Lang.Effects;
+
+        /// <summary>
+        ///   查找类似 元素组 的本地化字符串。
+        /// </summary>
+        public string ElementGroup => Lang.ElementGroup;
 
         /// <summary>
         ///   查找类似 邮箱 的本地化字符串。
@@ -1698,6 +1704,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 效果 的本地化字符串。
         /// </summary>
 		public static string Effects = nameof(Effects);
+
+        /// <summary>
+        ///   查找类似 元素组 的本地化字符串。
+        /// </summary>
+        public static string ElementGroup = nameof(ElementGroup);
 
         /// <summary>
         ///   查找类似 邮箱 的本地化字符串。

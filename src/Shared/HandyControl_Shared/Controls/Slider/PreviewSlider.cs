@@ -89,12 +89,18 @@ namespace HandyControl.Controls
             base.OnMouseMove(e);
 
             if (_previewContent == null) return;
+
             var p = e.GetPosition(_adorner);
+            var maximum = Maximum;
+            var minimum = Minimum;
 
             if (Orientation == Orientation.Horizontal)
             {
-                var pos = (e.GetPosition(this).X - _thumb.ActualWidth / 2) / _track.ActualWidth * Maximum;
-                if (pos > Maximum || pos < 0)
+
+                var pos = !IsDirectionReversed
+                    ? (e.GetPosition(this).X - _thumb.ActualWidth * 0.5) / _track.ActualWidth * (maximum - minimum) + minimum
+                    : (1 - (e.GetPosition(this).X - _thumb.ActualWidth * 0.5) / _track.ActualWidth) * (maximum - minimum) + minimum;
+                if (pos > maximum || pos < 0)
                 {
                     if (_thumb.IsMouseCaptureWithin)
                     {
@@ -103,15 +109,17 @@ namespace HandyControl.Controls
                     return;
                 }
 
-                _transform.X = p.X - _previewContent.ActualWidth / 2;
-                _transform.Y = TranslatePoint(new Point(), _adorner).Y - _previewContent.ActualHeight - PreviewContentOffset;
+                _transform.X = p.X - _previewContent.ActualWidth * 0.5;
+                _transform.Y = _thumb.TranslatePoint(new Point(), _adorner).Y - _previewContent.ActualHeight - PreviewContentOffset;
 
                 PreviewPosition = _thumb.IsMouseCaptureWithin ? Value : pos;
             }
             else
             {
-                var pos = Maximum - (e.GetPosition(this).Y - _thumb.ActualHeight / 2) / _track.ActualHeight * Maximum;
-                if (pos > Maximum || pos < 0)
+                var pos = !IsDirectionReversed
+                    ? (1 - (e.GetPosition(this).Y - _thumb.ActualHeight * 0.5) / _track.ActualHeight) * (maximum - minimum) + minimum
+                    : (e.GetPosition(this).Y - _thumb.ActualHeight * 0.5) / _track.ActualHeight * (maximum - minimum) + minimum;
+                if (pos > maximum || pos < 0)
                 {
                     if (_thumb.IsMouseCaptureWithin)
                     {
@@ -120,8 +128,8 @@ namespace HandyControl.Controls
                     return;
                 }
 
-                _transform.X = TranslatePoint(new Point(), _adorner).X - _previewContent.ActualWidth - PreviewContentOffset;
-                _transform.Y = p.Y - _previewContent.ActualHeight / 2;
+                _transform.X = _thumb.TranslatePoint(new Point(), _adorner).X - _previewContent.ActualWidth - PreviewContentOffset;
+                _transform.Y = p.Y - _previewContent.ActualHeight * 0.5;
 
                 PreviewPosition = _thumb.IsMouseCaptureWithin ? Value : pos;
             }
@@ -157,7 +165,7 @@ namespace HandyControl.Controls
             {
                 layer.Remove(_adorner);
             }
-            else if (_adorner != null && _adorner.Parent is AdornerLayer parent)
+            else if (_adorner is { Parent: AdornerLayer parent })
             {
                 parent.Remove(_adorner);
             }
@@ -186,9 +194,10 @@ namespace HandyControl.Controls
             if (_previewContent != null)
             {
                 _transform = new TranslateTransform();
-                _previewContent.RenderTransform = _transform;
+
                 _previewContent.HorizontalAlignment = HorizontalAlignment.Left;
                 _previewContent.VerticalAlignment = VerticalAlignment.Top;
+                _previewContent.RenderTransform = _transform;
             }
         }
     }

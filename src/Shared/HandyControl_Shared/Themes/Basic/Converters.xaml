@@ -27,4 +27,5 @@
     <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter"/>
     <converter:DoubleMinConverter x:Key="DoubleMinConverter"/>
     <converter:Object2StringConverter x:Key="Object2StringConverter"/>
+    <converter:DataGridSelectAllButtonVisibilityConverter x:Key="DataGridSelectAllButtonVisibilityConverter"/>
 </ResourceDictionary>

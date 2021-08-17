@@ -433,15 +433,12 @@ namespace Microsoft.Windows.Shell
         private WindowState _GetHwndState()
         {
             WINDOWPLACEMENT windowPlacement = NativeMethods.GetWindowPlacement(this._hwnd);
-            switch (windowPlacement.showCmd)
+            return windowPlacement.showCmd switch
             {
-                case SW.SHOWMINIMIZED:
-                    return WindowState.Minimized;
-                case SW.SHOWMAXIMIZED:
-                    return WindowState.Maximized;
-                default:
-                    return WindowState.Normal;
-            }
+                SW.SHOWMINIMIZED => WindowState.Minimized,
+                SW.SHOWMAXIMIZED => WindowState.Maximized,
+                _ => WindowState.Normal
+            };
         }
 
         private Rect _GetWindowRect()

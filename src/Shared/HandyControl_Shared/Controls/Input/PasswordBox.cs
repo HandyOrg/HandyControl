@@ -258,9 +258,26 @@ namespace HandyControl.Controls
                     result = OperationResult.Success();
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
+            var isError = !result.Data;
+            if (isError)
+            {
+                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+                SetCurrentValue(ErrorStrProperty, result.Message);
+            }
+            else
+            {
+                isError = Validation.GetHasError(this);
+                if (isError)
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
+                }
+                else
+                {
+                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                    SetCurrentValue(ErrorStrProperty, default(string));
+                }
+            }
+            return !isError;
         }
 
         private static void OnShowPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -302,21 +319,18 @@ namespace HandyControl.Controls
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
                 ActualPasswordBox.SetBinding(System.Windows.Controls.PasswordBox.CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
 
-                if (_password != null)
+                if (_password is { Length: > 0 })
                 {
-                    if (_password.Length > 0)
+                    var valuePtr = IntPtr.Zero;
+                    try
                     {
-                        var valuePtr = IntPtr.Zero;
-                        try
-                        {
-                            valuePtr = Marshal.SecureStringToGlobalAllocUnicode(_password);
-                            ActualPasswordBox.Password = Marshal.PtrToStringUni(valuePtr) ?? throw new InvalidOperationException();
-                        }
-                        finally
-                        {
-                            Marshal.ZeroFreeGlobalAllocUnicode(valuePtr);
-                            _password.Clear();
-                        }
+                        valuePtr = Marshal.SecureStringToGlobalAllocUnicode(_password);
+                        ActualPasswordBox.Password = Marshal.PtrToStringUni(valuePtr) ?? throw new InvalidOperationException();
+                    }
+                    finally
+                    {
+                        Marshal.ZeroFreeGlobalAllocUnicode(valuePtr);
+                        _password.Clear();
                     }
                 }
             }
@@ -356,6 +370,11 @@ namespace HandyControl.Controls
             if (VerifyData() && !IsSafeEnabled)
             {
                 SetCurrentValue(UnsafePasswordProperty, ActualPasswordBox.Password);
+
+                if (ShowPassword)
+                {
+                    _textBox.Text = ActualPasswordBox.Password;
+                }
             }
         }
 

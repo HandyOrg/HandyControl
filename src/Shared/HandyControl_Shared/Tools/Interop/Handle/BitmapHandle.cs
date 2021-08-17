@@ -30,13 +30,13 @@ namespace HandyControl.Tools.Interop
         [SecurityCritical]
         internal HandleRef MakeHandleRef(object obj)
         {
-            return new HandleRef(obj, handle);
+            return new(obj, handle);
         }
 
         [SecurityCritical]
         internal static BitmapHandle CreateFromHandle(IntPtr hbitmap, bool ownsHandle = true)
         {
-            return new BitmapHandle(ownsHandle)
+            return new(ownsHandle)
             {
                 handle = hbitmap,
             };

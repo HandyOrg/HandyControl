@@ -156,7 +156,7 @@ namespace HandyControl.Expression.Media
         [MethodImpl(MethodImplOptions.NoInlining)]
         private static Size GetArcSize(Rect bound)
         {
-            return new Size(bound.Width / 2.0, bound.Height / 2.0);
+            return new(bound.Width / 2.0, bound.Height / 2.0);
         }
 
         private static void IncreaseDuplicatedIndex(IList<double> values, ref int index)

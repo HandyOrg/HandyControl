@@ -52,5 +52,7 @@
 
         public static readonly string LangUpdated = nameof(LangUpdated);
 
+        public static readonly string SkinUpdated = nameof(SkinUpdated);
+
     }
 }

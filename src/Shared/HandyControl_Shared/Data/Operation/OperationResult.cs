@@ -4,7 +4,7 @@
     {
         public static OperationResult<bool> Failed(string message = "")
         {
-            return new OperationResult<bool>
+            return new()
             {
                 ResultType = ResultType.Failed,
                 Message = message,
@@ -14,7 +14,7 @@
 
         public static OperationResult<bool> Success(string message = "")
         {
-            return new OperationResult<bool>
+            return new()
             {
                 ResultType = ResultType.Success,
                 Message = message,

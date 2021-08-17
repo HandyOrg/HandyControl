@@ -12,19 +12,10 @@ namespace HandyControl.Controls
 {
     public class AnimationPath : Shape
     {
-        /// <summary>
-        ///     故事板
-        /// </summary>
         private Storyboard _storyboard;
 
-        /// <summary>
-        ///     路径长度
-        /// </summary>
         private double _pathLength;
 
-        /// <summary>
-        ///     路径
-        /// </summary>
         public static readonly DependencyProperty DataProperty = DependencyProperty.Register(nameof(Data),
             typeof(Geometry), typeof(AnimationPath), new FrameworkPropertyMetadata(null,
                 OnPropertiesChanged));
@@ -37,9 +28,6 @@ namespace HandyControl.Controls
             }
         }
 
-        /// <summary>
-        ///     路径
-        /// </summary>
         public Geometry Data
         {
             get => (Geometry) GetValue(DataProperty);
@@ -48,31 +36,19 @@ namespace HandyControl.Controls
 
         protected override Geometry DefiningGeometry => Data ?? Geometry.Empty;
 
-        /// <summary>
-        ///     路径长度
-        /// </summary>
         public static readonly DependencyProperty PathLengthProperty = DependencyProperty.Register(
             "PathLength", typeof(double), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnPropertiesChanged));
 
-        /// <summary>
-        ///     路径长度
-        /// </summary>
         public double PathLength
         {
             get => (double) GetValue(PathLengthProperty);
             set => SetValue(PathLengthProperty, value);
         }
 
-        /// <summary>
-        ///     动画间隔时间
-        /// </summary>
         public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(
             "Duration", typeof(Duration), typeof(AnimationPath), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2)),
                 OnPropertiesChanged));
 
-        /// <summary>
-        ///     动画间隔时间
-        /// </summary>
         public Duration Duration
         {
             get => (Duration) GetValue(DurationProperty);
@@ -94,25 +70,29 @@ namespace HandyControl.Controls
                 }
             }));
 
-        /// <summary>
-        ///     是否正在播放动画
-        /// </summary>
         public bool IsPlaying
         {
             get => (bool) GetValue(IsPlayingProperty);
             set => SetValue(IsPlayingProperty, ValueBoxes.BooleanBox(value));
         }
 
-        public static readonly DependencyProperty RepeatBehaviorProperty = DependencyProperty.Register(
-            "RepeatBehavior", typeof(RepeatBehavior), typeof(AnimationPath), new PropertyMetadata(RepeatBehavior.Forever));
+        public static readonly DependencyProperty RepeatBehaviorProperty =
+            Timeline.RepeatBehaviorProperty.AddOwner(typeof(AnimationPath),
+                new PropertyMetadata(RepeatBehavior.Forever));
 
-        /// <summary>
-        ///     动画重复行为
-        /// </summary>
         public RepeatBehavior RepeatBehavior
         {
             get => (RepeatBehavior) GetValue(RepeatBehaviorProperty);
             set => SetValue(RepeatBehaviorProperty, value);
+        }
+
+        public static readonly DependencyProperty FillBehaviorProperty =
+            Timeline.FillBehaviorProperty.AddOwner(typeof(AnimationPath), new PropertyMetadata(FillBehavior.Stop));
+
+        public FillBehavior FillBehavior
+        {
+            get { return (FillBehavior) GetValue(FillBehaviorProperty); }
+            set { SetValue(FillBehaviorProperty, value); }
         }
 
         static AnimationPath()
@@ -126,25 +106,16 @@ namespace HandyControl.Controls
 
         public AnimationPath() => Loaded += (s, e) => UpdatePath();
 
-        /// <summary>
-        ///     动画完成事件
-        /// </summary>
         public static readonly RoutedEvent CompletedEvent =
             EventManager.RegisterRoutedEvent("Completed", RoutingStrategy.Bubble,
                 typeof(EventHandler), typeof(AnimationPath));
 
-        /// <summary>
-        ///     动画完成事件
-        /// </summary>
         public event EventHandler Completed
         {
             add => AddHandler(CompletedEvent, value);
             remove => RemoveHandler(CompletedEvent, value);
         }
 
-        /// <summary>
-        ///     更新路径
-        /// </summary>
         private void UpdatePath()
         {
             if (!Duration.HasTimeSpan || !IsPlaying) return;
@@ -160,7 +131,6 @@ namespace HandyControl.Controls
                 _pathLength
             });
 
-            //定义动画
             if (_storyboard != null)
             {
                 _storyboard.Stop();
@@ -168,25 +138,26 @@ namespace HandyControl.Controls
             }
             _storyboard = new Storyboard
             {
-                RepeatBehavior = RepeatBehavior
+                RepeatBehavior = RepeatBehavior,
+                FillBehavior = FillBehavior
             };
             _storyboard.Completed += Storyboard_Completed;
 
             var frames = new DoubleAnimationUsingKeyFrames();
-            //开始位置
-            var frame0 = new LinearDoubleKeyFrame
+
+            var frameIn = new LinearDoubleKeyFrame
             {
                 Value = _pathLength,
                 KeyTime = KeyTime.FromTimeSpan(TimeSpan.Zero)
             };
-            //结束位置
-            var frame1 = new LinearDoubleKeyFrame
+            frames.KeyFrames.Add(frameIn);
+
+            var frameOut = new LinearDoubleKeyFrame
             {
-                Value = -_pathLength,
+                Value = FillBehavior == FillBehavior.Stop ? -_pathLength : 0,
                 KeyTime = KeyTime.FromTimeSpan(Duration.TimeSpan)
             };
-            frames.KeyFrames.Add(frame0);
-            frames.KeyFrames.Add(frame1);
+            frames.KeyFrames.Add(frameOut);
 
             Storyboard.SetTarget(frames, this);
             Storyboard.SetTargetProperty(frames, new PropertyPath(StrokeDashOffsetProperty));

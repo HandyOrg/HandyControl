@@ -19,7 +19,9 @@ namespace HandyControl.Controls
 {
     public class GifImage : Image, IDisposable
     {
-        private static readonly Guid GifGuid = new Guid("{b96b3caa-0728-11d3-9d7b-0000f81ef32e}");
+        private static readonly Guid GifGuid = new("{b96b3caa-0728-11d3-9d7b-0000f81ef32e}");
+
+        private static readonly Guid GifSingleFrameGuid = new("{b96b3cb0-0728-11d3-9d7b-0000f81ef32e}");
 
         internal IntPtr NativeImage;
 
@@ -63,6 +65,8 @@ namespace HandyControl.Controls
         private static void OnVisibilityChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (GifImage) s;
+            if (ctl.NativeImage == IntPtr.Zero) return;
+
             var v = (Visibility) e.NewValue;
             if (v != Visibility.Visible)
             {
@@ -202,8 +206,12 @@ namespace HandyControl.Controls
                         streamInfo = Application.GetContentStream(uri) ?? Application.GetResourceStream(uri);
                     }
                 }
+
                 if (streamInfo == null)
+                {
                     throw new FileNotFoundException("Resource not found.", uri.ToString());
+                }
+
                 CreateSourceFromStream(streamInfo.Stream);
             }
             catch
@@ -212,20 +220,36 @@ namespace HandyControl.Controls
             }
         }
 
+        private void SwitchToCommonImage()
+        {
+            if (Source == null && Uri != null)
+            {
+                SetCurrentValue(SourceProperty, new BitmapImage(Uri));
+            }
+        }
+
         [ResourceExposure(ResourceScope.None)]
         [ResourceConsumption(ResourceScope.Machine, ResourceScope.Machine)]
         internal static void EnsureSave(GifImage image, string filename, Stream dataStream)
         {
-            if (!image.RawGuid.Equals(GifGuid)) return;
-            var animatedGif = false;
+            if (!image.RawGuid.Equals(GifGuid) && !image.RawGuid.Equals(GifSingleFrameGuid))
+            {
+                image.SwitchToCommonImage();
+                return;
+            }
 
+            var animatedGif = false;
             var dimensions = image.FrameDimensionsList;
             if (dimensions.Select(guid => new GifFrameDimension(guid)).Contains(GifFrameDimension.Time))
             {
                 animatedGif = image.GetFrameCount(GifFrameDimension.Time) > 1;
             }
 
-            if (!animatedGif) return;
+            if (!animatedGif)
+            {
+                image.SwitchToCommonImage();
+                return;
+            }
 
             try
             {

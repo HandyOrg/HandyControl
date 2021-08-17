@@ -41,6 +41,12 @@ namespace HandyControl.Controls
             UpdateContent();
         }
 
+        protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
+        {
+            base.OnRenderSizeChanged(sizeInfo);
+            UpdateContent();
+        }
+
         private void ElementPanel_SizeChanged(object sender, SizeChangedEventArgs e) => UpdateContent();
 
         public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
@@ -173,7 +179,7 @@ namespace HandyControl.Controls
             var duration = double.IsNaN(Speed)
                 ? Duration
                 : !MathHelper.IsVerySmall(Speed)
-                    ? TimeSpan.FromSeconds((to - from) / Speed)
+                    ? TimeSpan.FromSeconds(Math.Abs(to - from) / Speed)
                     : Duration;
 
             var animation = new DoubleAnimation(from, to, duration)

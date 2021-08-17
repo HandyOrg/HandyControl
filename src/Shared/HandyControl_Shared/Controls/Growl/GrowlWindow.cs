@@ -1,5 +1,8 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using HandyControl.Tools;
+using HandyControl.Tools.Interop;
 
 namespace HandyControl.Controls
 {
@@ -14,8 +17,7 @@ namespace HandyControl.Controls
 
             GrowlPanel = new StackPanel
             {
-                VerticalAlignment = VerticalAlignment.Top,
-                Margin = new Thickness(0, 10, 10, 10)
+                VerticalAlignment = VerticalAlignment.Top
             };
 
             Content = new ScrollViewer
@@ -33,5 +35,8 @@ namespace HandyControl.Controls
             Left = desktopWorkingArea.Right - Width;
             Top = 0;
         }
+
+        protected override void OnSourceInitialized(EventArgs e)
+            => InteropMethods.IntDestroyMenu(this.GetHwndSource().CreateHandleRef());
     }
 }

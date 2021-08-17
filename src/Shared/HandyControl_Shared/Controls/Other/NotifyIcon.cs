@@ -22,7 +22,7 @@ namespace HandyControl.Controls
 
         private bool _added;
 
-        private readonly object _syncObj = new object();
+        private readonly object _syncObj = new();
 
         private readonly int _id;
 
@@ -58,7 +58,7 @@ namespace HandyControl.Controls
 
         private static int NextId;
 
-        private static readonly Dictionary<string, NotifyIcon> NotifyIconDic = new Dictionary<string, NotifyIcon>();
+        private static readonly Dictionary<string, NotifyIcon> NotifyIconDic = new();
 
         static NotifyIcon()
         {
@@ -192,21 +192,14 @@ namespace HandyControl.Controls
                 szInfo = content ?? string.Empty
             };
 
-            switch (infoType)
+            data.dwInfoFlags = infoType switch
             {
-                case NotifyIconInfoType.Info:
-                    data.dwInfoFlags = InteropValues.NIIF_INFO;
-                    break;
-                case NotifyIconInfoType.Warning:
-                    data.dwInfoFlags = InteropValues.NIIF_WARNING;
-                    break;
-                case NotifyIconInfoType.Error:
-                    data.dwInfoFlags = InteropValues.NIIF_ERROR;
-                    break;
-                case NotifyIconInfoType.None:
-                    data.dwInfoFlags = InteropValues.NIIF_NONE;
-                    break;
-            }
+                NotifyIconInfoType.Info => InteropValues.NIIF_INFO,
+                NotifyIconInfoType.Warning => InteropValues.NIIF_WARNING,
+                NotifyIconInfoType.Error => InteropValues.NIIF_ERROR,
+                NotifyIconInfoType.None => InteropValues.NIIF_NONE,
+                _ => data.dwInfoFlags
+            };
 
             InteropMethods.Shell_NotifyIcon(InteropValues.NIM_MODIFY, data);
         }
@@ -578,35 +571,34 @@ namespace HandyControl.Controls
 
         private IntPtr Callback(IntPtr hWnd, int msg, IntPtr wparam, IntPtr lparam)
         {
-            if (IsLoaded)
+            if (msg == _wmTaskbarCreated)
             {
-                if (msg == _wmTaskbarCreated)
+                if (_messageWindowHandle == hWnd && Visibility == Visibility.Visible)
                 {
-                    _added = false;
                     UpdateIcon(true);
                 }
-                else
+            }
+            else
+            {
+                switch (lparam.ToInt64())
                 {
-                    switch (lparam.ToInt64())
-                    {
-                        case InteropValues.WM_LBUTTONDBLCLK:
-                            WmMouseDown(MouseButton.Left, 2);
-                            break;
-                        case InteropValues.WM_LBUTTONUP:
-                            WmMouseUp(MouseButton.Left);
-                            break;
-                        case InteropValues.WM_RBUTTONUP:
-                            ShowContextMenu();
-                            WmMouseUp(MouseButton.Right);
-                            break;
-                        case InteropValues.WM_MOUSEMOVE:
-                            if (!_dispatcherTimerPos.IsEnabled)
-                            {
-                                _dispatcherTimerPos.Interval = TimeSpan.FromMilliseconds(200);
-                                _dispatcherTimerPos.Start();
-                            }
-                            break;
-                    }
+                    case InteropValues.WM_LBUTTONDBLCLK:
+                        WmMouseDown(MouseButton.Left, 2);
+                        break;
+                    case InteropValues.WM_LBUTTONUP:
+                        WmMouseUp(MouseButton.Left);
+                        break;
+                    case InteropValues.WM_RBUTTONUP:
+                        ShowContextMenu();
+                        WmMouseUp(MouseButton.Right);
+                        break;
+                    case InteropValues.WM_MOUSEMOVE:
+                        if (!_dispatcherTimerPos.IsEnabled)
+                        {
+                            _dispatcherTimerPos.Interval = TimeSpan.FromMilliseconds(200);
+                            _dispatcherTimerPos.Start();
+                        }
+                        break;
                 }
             }
 

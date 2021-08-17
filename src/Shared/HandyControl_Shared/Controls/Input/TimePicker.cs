@@ -142,7 +142,13 @@ namespace HandyControl.Controls
             typeof(TimePicker),
             new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
-        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) => d is TimePicker dp && !dp.IsEnabled ? false : baseValue;
+        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
+            d is TimePicker
+            {
+                IsEnabled: false
+            }
+                ? false
+                : baseValue;
 
         private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -183,7 +189,7 @@ namespace HandyControl.Controls
 
         private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (!(d is TimePicker dp)) return;
+            if (d is not TimePicker dp) return;
 
             if (dp.SelectedTime.HasValue)
             {
@@ -340,16 +346,14 @@ namespace HandyControl.Controls
         private static void OnClockChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (TimePicker) d;
-            var oldClock = e.OldValue as ClockBase;
-            var newClock = e.NewValue as ClockBase;
 
-            if (oldClock != null)
+            if (e.OldValue is ClockBase oldClock)
             {
                 oldClock.SelectedTimeChanged -= ctl.Clock_SelectedTimeChanged;
                 oldClock.Confirmed -= ctl.Clock_Confirmed;
             }
 
-            if (newClock != null)
+            if (e.NewValue is ClockBase newClock)
             {
                 newClock.ShowConfirmButton = true;
                 newClock.SelectedTimeChanged += ctl.Clock_SelectedTimeChanged;
@@ -391,9 +395,26 @@ namespace HandyControl.Controls
                 }
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
+            var isError = !result.Data;
+            if (isError)
+            {
+                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+                SetCurrentValue(ErrorStrProperty, result.Message);
+            }
+            else
+            {
+                isError = Validation.GetHasError(this);
+                if (isError)
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
+                }
+                else
+                {
+                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                    SetCurrentValue(ErrorStrProperty, default(string));
+                }
+            }
+            return !isError;
         }
 
         public override void OnApplyTemplate()
@@ -441,9 +462,11 @@ namespace HandyControl.Controls
             _dropDownButton.Click += DropDownButton_Click;
             _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
 
+            var selectedTime = SelectedTime;
+
             if (_textBox != null)
             {
-                if (SelectedTime == null)
+                if (selectedTime == null)
                 {
                     _textBox.Text = DateTime.Now.ToString(TimeFormat);
                 }
@@ -459,7 +482,7 @@ namespace HandyControl.Controls
                 _textBox.TextChanged += TextBox_TextChanged;
                 _textBox.LostFocus += TextBox_LostFocus;
 
-                if (SelectedTime == null)
+                if (selectedTime == null)
                 {
                     if (!string.IsNullOrEmpty(_defaultText))
                     {
@@ -469,12 +492,19 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    _textBox.Text = DateTimeToString((DateTime) SelectedTime);
+                    _textBox.Text = DateTimeToString(selectedTime.Value);
                 }
             }
 
-            _originalSelectedTime ??= DateTime.Now;
-            SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+            if (selectedTime is null)
+            {
+                _originalSelectedTime ??= DateTime.Now;
+                SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+            }
+            else
+            {
+                SetCurrentValue(DisplayTimeProperty, selectedTime);
+            }
         }
 
         public override string ToString() => SelectedTime?.ToString(TimeFormat) ?? string.Empty;
@@ -589,7 +619,7 @@ namespace HandyControl.Controls
 
         private void PopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
-            if (sender is Popup popup && !popup.StaysOpen)
+            if (sender is Popup { StaysOpen: false })
             {
                 if (_dropDownButton?.InputHitTest(e.GetPosition(_dropDownButton)) != null)
                 {

@@ -198,7 +198,15 @@ namespace HandyControl.Controls
             {
                 var item = new RateItem
                 {
-                    Index = i
+                    Index = i,
+                    Width = ItemWidth,
+                    Height = ItemHeight,
+                    Margin = ItemMargin,
+                    AllowHalf = AllowHalf,
+                    AllowClear = AllowClear,
+                    Icon = Icon,
+                    IsReadOnly = IsReadOnly,
+                    Background = Background
                 };
 
                 Items.Add(item);

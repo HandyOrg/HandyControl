@@ -26,8 +26,8 @@ namespace HandyControlDemo
 
             GlobalShortcut.Init(new List<KeyBinding>
             {
-                new KeyBinding(ViewModelLocator.Instance.Main.GlobalShortcutInfoCmd, Key.I, ModifierKeys.Control | ModifierKeys.Alt),
-                new KeyBinding(ViewModelLocator.Instance.Main.GlobalShortcutWarningCmd, Key.E, ModifierKeys.Control | ModifierKeys.Alt)
+                new(ViewModelLocator.Instance.Main.GlobalShortcutInfoCmd, Key.I, ModifierKeys.Control | ModifierKeys.Alt),
+                new(ViewModelLocator.Instance.Main.GlobalShortcutWarningCmd, Key.E, ModifierKeys.Control | ModifierKeys.Alt)
             });
 
             Dialog.SetToken(this, MessageToken.MainWindow);

@@ -72,12 +72,12 @@ namespace HandyControl.Controls
 
             var textureCoordinates = new PointCollection
             {
-                new Point(0, 1),
-                new Point(1, 1),
-                new Point(1, 0),
-                new Point(0, 0),
-                new Point(1, 0),
-                new Point(1, 1)
+                new(0, 1),
+                new(1, 1),
+                new(1, 0),
+                new(0, 0),
+                new(1, 0),
+                new(1, 1)
             };
 
             var normals = new Vector3DCollection

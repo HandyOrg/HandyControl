@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Tools;
 
 namespace HandyControl.Controls
@@ -45,7 +46,7 @@ namespace HandyControl.Controls
                 {
                     Stretch = Stretch.UniformToFill
                 }
-                : ResourceHelper.GetResource<Brush>("SecondaryRegionBrush");
+                : ResourceHelper.GetResourceInternal<Brush>(ResourceToken.SecondaryRegionBrush);
         }
 
         public ImageSource Source

@@ -3,14 +3,9 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemoCode</AssemblyName>
     <RootNamespace>HandyControlDemoCode</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net5.0-windows</TargetFrameworks>
     <NoWarn>MSB3026;MSB3061</NoWarn>
     <MSBuildWarningsAsMessages>NETSDK1138</MSBuildWarningsAsMessages>
-    <Version>3.1.0.0</Version>
-    <Copyright>Copyright © HandyOrg 2018-2021</Copyright>
-    <RepositoryUrl>https://github.com/HandyOrg/HandyControl</RepositoryUrl>
-    <AssemblyVersion>3.1.0.0</AssemblyVersion>
-    <FileVersion>3.1.0.0</FileVersion>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Window\AboutWindow.xaml">
@@ -117,6 +112,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml">
       <Link>UserControl\Controls\DrawerDemoCtl.xaml</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemoCtl.xaml">
+      <Link>UserControl\Controls\ElementGroupDemoCtl.xaml</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml">
       <Link>UserControl\Controls\FlexPanelDemoCtl.xaml</Link>
@@ -508,6 +506,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml.cs">
       <Link>UserControl\Controls\DrawerDemoCtl.xaml.cs</Link>
       <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\ElementGroupDemoCtl.xaml.cs</Link>
+      <DependentUpon>ElementGroupDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\FlexPanelDemoCtl.xaml.cs</Link>
