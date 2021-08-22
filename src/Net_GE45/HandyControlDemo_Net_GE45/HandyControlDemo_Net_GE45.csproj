@@ -173,6 +173,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\en.png">
       <Link>Resources\Img\Flag\en.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\es.png">
+      <Link>Resources\Img\Flag\es.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\fa.png">
       <Link>Resources\Img\Flag\fa.png</Link>
     </Resource>
@@ -523,6 +526,9 @@
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.es.resx">
+      <Link>Properties\Langs\Lang.es.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.fa.resx">
       <Link>Properties\Langs\Lang.fa.resx</Link>
     </EmbeddedResource>
@@ -574,6 +580,7 @@
     <PostBuildEvent>
       if not exist Langs md Langs
       rd /s /q Langs\en
+      rd /s /q Langs\es
       rd /s /q Langs\fa
       rd /s /q Langs\fr
       rd /s /q Langs\ko-KR
@@ -583,6 +590,7 @@
       rd /s /q Langs\tr
       rd /s /q Langs\ca-Es
       move en Langs
+      move es Langs
       move fa Langs
       move fr Langs
       move ko-KR Langs

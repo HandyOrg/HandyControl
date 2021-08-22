@@ -153,6 +153,11 @@
                             <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/pl.png" />
                         </Button>
                     </StackPanel>
+                    <StackPanel Button.Click="ButtonLangs_OnClick" Margin="10,0,0,0">
+                        <Button Tag="es" Style="{StaticResource ButtonCustom}">
+                            <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/es.png"/>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
                 <hc:Divider LineStrokeDashArray="2,2" Orientation="Vertical" Margin="0,20" LineStrokeThickness="2"/>
                 <StackPanel Button.Click="ButtonSkins_OnClick"  Margin="10,10,10,10">
