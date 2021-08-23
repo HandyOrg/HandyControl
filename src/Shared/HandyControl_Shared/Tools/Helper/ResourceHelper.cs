@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Linq;
 using System.Reflection;
 using System.Windows;
 using HandyControl.Data;
-using HandyControl.Themes;
 
 namespace HandyControl.Tools
 {
@@ -12,6 +10,8 @@ namespace HandyControl.Tools
     /// </summary>
     public class ResourceHelper
     {
+        private static ResourceDictionary _theme;
+
         /// <summary>
         ///     获取资源
         /// </summary>
@@ -35,16 +35,6 @@ namespace HandyControl.Tools
             }
 
             return default;
-        }
-
-        public static Theme GetTheme(string name, ResourceDictionary resourceDictionary)
-        {
-            if (string.IsNullOrEmpty(name) || resourceDictionary == null)
-            {
-                return null;
-            }
-
-            return resourceDictionary.MergedDictionaries.OfType<Theme>().FirstOrDefault(item => Equals(item.Name, name));
         }
 
         /// <summary>
@@ -79,24 +69,17 @@ namespace HandyControl.Tools
             Source = new Uri($"pack://application:,,,/HandyControl;component/Themes/Skin{skin}.xaml")
         };
 
-        
-		
-		private static ResourceDictionary _theme;
-
         /// <summary>
         ///     get HandyControl theme
         /// </summary>
-        public static ResourceDictionary GetTheme()
-        {
-            if (_theme == null)
-            {
-                _theme = new()
-                {
-                    Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-                };
-            }
+        public static ResourceDictionary GetTheme() => _theme ??= GetStandaloneTheme();
 
-            return _theme;
+        public static ResourceDictionary GetStandaloneTheme()
+        {
+            return new()
+            {
+                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+            };
         }
     }
 }
