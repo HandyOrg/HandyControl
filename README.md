@@ -77,6 +77,8 @@
 <a href="https://github.com/Epacik" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Epacik" src="https://avatars.githubusercontent.com/u/23077337?s=64&v=4"></a>
 <a href="https://github.com/ChoKaPeek" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ChoKaPeek" src="https://avatars.githubusercontent.com/u/16904907?s=64&v=4"></a>
 <a href="https://github.com/shaosu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="shaosu" src="https://avatars.githubusercontent.com/u/12237247?s=64&v=4"></a>
+<a href="https://github.com/imba-tjd" target="_blank"><img style="border-radius:50%!important" width="64px" alt="imba-tjd" src="https://avatars.githubusercontent.com/u/24759802?s=64&v=4"></a>
+<a href="https://github.com/jhm-ciberman" target="_blank"><img style="border-radius:50%!important" width="64px" alt="jhm-ciberman" src="https://avatars.githubusercontent.com/u/7988351?s=64&v=4"></a>
 
 ## Backers
 
