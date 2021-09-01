@@ -84,6 +84,26 @@ namespace HandyControl.Controls
             return double.IsNaN(v) || v >= 0.0d && !double.IsPositiveInfinity(v);
         }
 
+        public static readonly DependencyProperty ItemHorizontalAlignmentProperty = DependencyProperty.Register(
+            "ItemHorizontalAlignment", typeof(HorizontalAlignment?), typeof(UniformSpacingPanel),
+            new FrameworkPropertyMetadata(HorizontalAlignment.Stretch, FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+        public HorizontalAlignment? ItemHorizontalAlignment
+        {
+            get => (HorizontalAlignment?) GetValue(ItemHorizontalAlignmentProperty);
+            set => SetValue(ItemHorizontalAlignmentProperty, value);
+        }
+
+        public static readonly DependencyProperty ItemVerticalAlignmentProperty = DependencyProperty.Register(
+            "ItemVerticalAlignment", typeof(VerticalAlignment?), typeof(UniformSpacingPanel),
+            new FrameworkPropertyMetadata(VerticalAlignment.Stretch, FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+        public VerticalAlignment? ItemVerticalAlignment
+        {
+            get => (VerticalAlignment?) GetValue(ItemVerticalAlignmentProperty);
+            set => SetValue(ItemVerticalAlignmentProperty, value);
+        }
+
         private void ArrangeWrapLine(double v, double lineV, int start, int end, bool useItemU, double itemU, double spacing)
         {
             double u = 0;
@@ -100,7 +120,10 @@ namespace HandyControl.Controls
 
                 child.Arrange(isHorizontal ? new Rect(u, v, layoutSlotU, lineV) : new Rect(v, u, lineV, layoutSlotU));
 
-                u += layoutSlotU + spacing;
+                if (layoutSlotU > 0)
+                {
+                    u += layoutSlotU + spacing;
+                }
             }
         }
 
@@ -120,7 +143,10 @@ namespace HandyControl.Controls
 
                 child.Arrange(isHorizontal ? new Rect(u, 0, layoutSlotU, lineV) : new Rect(0, u, lineV, layoutSlotU));
 
-                u += layoutSlotU + spacing;
+                if (layoutSlotU > 0)
+                {
+                    u += layoutSlotU + spacing;
+                }
             }
         }
 
@@ -135,6 +161,10 @@ namespace HandyControl.Controls
             var itemHeightSet = !double.IsNaN(itemHeight);
             var spacing = Spacing;
             var childWrapping = ChildWrapping;
+            var itemHorizontalAlignment = ItemHorizontalAlignment;
+            var itemVerticalAlignment = ItemVerticalAlignment;
+            var itemHorizontalAlignmentSet = itemHorizontalAlignment != null;
+            var itemVerticalAlignmentSet = ItemVerticalAlignment != null;
 
             var childConstraint = new Size(
                 itemWidthSet ? itemWidth : constraint.Width,
@@ -149,6 +179,16 @@ namespace HandyControl.Controls
                 {
                     var child = children[i];
                     if (child == null) continue;
+
+                    if (itemHorizontalAlignmentSet)
+                    {
+                        child.SetCurrentValue(HorizontalAlignmentProperty, itemHorizontalAlignment);
+                    }
+
+                    if (itemVerticalAlignmentSet)
+                    {
+                        child.SetCurrentValue(VerticalAlignmentProperty, itemVerticalAlignment);
+                    }
 
                     child.Measure(childConstraint);
 
@@ -198,6 +238,16 @@ namespace HandyControl.Controls
                 {
                     var child = children[i];
                     if (child == null) continue;
+
+                    if (itemHorizontalAlignmentSet)
+                    {
+                        child.SetCurrentValue(HorizontalAlignmentProperty, itemHorizontalAlignment);
+                    }
+
+                    if (itemVerticalAlignmentSet)
+                    {
+                        child.SetCurrentValue(VerticalAlignmentProperty, itemVerticalAlignment);
+                    }
 
                     child.Measure(layoutSlotSize);
 
