@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -130,10 +130,10 @@
     <value>Ruta de imagen incorrecta</value>
   </data>
   <data name="ErrorImgSize" xml:space="preserve">
-    <value>Tamaño de imagen incorrecto</value>
+    <value>Tama帽o de imagen incorrecto</value>
   </data>
   <data name="UnknownSize" xml:space="preserve">
-    <value>Tamaño desconocido</value>
+    <value>Tama帽o desconocido</value>
   </data>
   <data name="TooLarge" xml:space="preserve">
     <value>Muy grande</value>
@@ -172,7 +172,7 @@
     <value>Cerrar todo</value>
   </data>
   <data name="CloseOther" xml:space="preserve">
-    <value>Cerrar las demás</value>
+    <value>Cerrar las dem谩s</value>
   </data>
   <data name="Am" xml:space="preserve">
     <value>AM</value>
@@ -193,7 +193,7 @@
     <value>Error de formato</value>
   </data>
   <data name="Yes" xml:space="preserve">
-    <value>Sí</value>
+    <value>S铆</value>
   </data>
   <data name="No" xml:space="preserve">
     <value>No</value>
@@ -205,19 +205,19 @@
     <value>Reducir</value>
   </data>
   <data name="PreviousPage" xml:space="preserve">
-    <value>Página anterior</value>
+    <value>P谩gina anterior</value>
   </data>
   <data name="NextPage" xml:space="preserve">
-    <value>Página siguiente</value>
+    <value>P谩gina siguiente</value>
   </data>
   <data name="PageMode" xml:space="preserve">
-    <value>Vista de una página</value>
+    <value>Vista de una p谩gina</value>
   </data>
   <data name="TwoPageMode" xml:space="preserve">
-    <value>Vista de dos páginas</value>
+    <value>Vista de dos p谩ginas</value>
   </data>
   <data name="ScrollMode" xml:space="preserve">
-    <value>Vista de ajuste de página</value>
+    <value>Vista de ajuste de p谩gina</value>
   </data>
   <data name="Find" xml:space="preserve">
     <value>Buscar</value>
@@ -229,7 +229,7 @@
     <value>Ir</value>
   </data>
   <data name="Miscellaneous" xml:space="preserve">
-    <value>Misceláneas</value>
+    <value>Miscel谩neas</value>
   </data>
   <data name="All" xml:space="preserve">
     <value>Todo</value>
