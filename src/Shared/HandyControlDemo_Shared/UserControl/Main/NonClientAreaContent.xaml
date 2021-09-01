@@ -36,19 +36,14 @@
                         <Path Data="{StaticResource ContributorsGeometry}" Fill="#ef6c00" Stretch="Uniform"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Command="{Binding OpenViewCmd}" CommandParameter="{x:Static data:MessageToken.QQGroupView}" Header="{ex:Lang Key={x:Static langs:LangKeys.QQGroup}}">
-                    <MenuItem.Icon>
-                        <Path Data="{StaticResource QqGeometry}" Fill="{DynamicResource PrimaryBrush}" Stretch="Uniform"/>
-                    </MenuItem.Icon>
-                </MenuItem>
                 <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="mailto:836904362@qq.com" Header="{ex:Lang Key={x:Static langs:LangKeys.Email}}">
                     <MenuItem.Icon>
                         <Path Data="{StaticResource EmailGeometry}" Fill="{DynamicResource WarningBrush}" Stretch="Uniform"/>
                     </MenuItem.Icon>
                 </MenuItem>
-                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://gitter.im/HandyControl/Lobby" Header="{ex:Lang Key={x:Static langs:LangKeys.Chatroom}}">
+                <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://join.slack.com/t/handycontrol/shared_invite/zt-sw29prqd-okFmRlmETdtWhnF7C3foxA" Header="{ex:Lang Key={x:Static langs:LangKeys.Chatroom}}">
                     <MenuItem.Icon>
-                        <Path Data="{StaticResource GitterGeometry}" Fill="#e52e64" Stretch="Uniform"/>
+                        <Image Width="16" Height="16" Source="/HandyControlDemo;component/Resources/Img/Slack.png" Stretch="None" StretchDirection="Both"/>
                     </MenuItem.Icon>
                 </MenuItem>
                 <MenuItem Command="hc:ControlCommands.OpenLink" CommandParameter="https://www.cnblogs.com/nabian" Header="{ex:Lang Key={x:Static langs:LangKeys.Blog}}">

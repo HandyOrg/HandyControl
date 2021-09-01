@@ -195,17 +195,14 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\tr.png">
       <Link>Resources\Img\Flag\tr.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Slack.png">
+      <Link>Resources\Img\Slack.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon-white.ico">
       <Link>Resources\Img\icon-white.ico</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\icon.ico">
       <Link>Resources\Img\icon.ico</Link>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\qq_group_1.jpg">
-      <Link>Resources\Img\qq_group_1.jpg</Link>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\qq_group_2.jpg">
-      <Link>Resources\Img\qq_group_2.jpg</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\Animation_16x.png">
       <Link>Resources\Img\LeftMainContent\Animation_16x.png</Link>
