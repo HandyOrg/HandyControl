@@ -2,7 +2,7 @@
 
 using System;
 
-namespace HandyControl.Tools
+namespace HandyControl.Collections
 {
     public class SimplePool<T> : IPool<T>
     {

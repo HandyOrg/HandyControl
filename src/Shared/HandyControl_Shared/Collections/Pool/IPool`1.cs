@@ -1,4 +1,4 @@
-﻿namespace HandyControl.Tools
+﻿namespace HandyControl.Collections
 {
     public interface IPool<T>
     {

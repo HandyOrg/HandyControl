@@ -901,8 +901,8 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\WindowDemoViewModel.cs">
       <Link>ViewModel\WindowDemoViewModel.cs</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\DemoViewModelBase!1.cs">
-      <Link>ViewModel\DemoViewModelBase!1.cs</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\DemoViewModelBase`1.cs">
+      <Link>ViewModel\DemoViewModelBase`1.cs</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Main\ItemsDisplayViewModel.cs">
       <Link>ViewModel\ItemsDisplayViewModel.cs</Link>
