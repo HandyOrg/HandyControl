@@ -367,7 +367,7 @@ namespace HandyControl.Controls
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (VerifyData() && !IsSafeEnabled)
+            if (!IsSafeEnabled)
             {
                 SetCurrentValue(UnsafePasswordProperty, ActualPasswordBox.Password);
 
@@ -376,17 +376,19 @@ namespace HandyControl.Controls
                     _textBox.Text = ActualPasswordBox.Password;
                 }
             }
+
+            VerifyData();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            VerifyData();
-
             if (!IsSafeEnabled && ShowPassword)
             {
                 Password = _textBox.Text;
                 SetCurrentValue(UnsafePasswordProperty, Password);
             }
+
+            VerifyData();
         }
     }
 }
