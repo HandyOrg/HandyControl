@@ -4,6 +4,9 @@ namespace HandyControlDemo.Data
 {
     public class DemoItemModel : ObservableObject
     {
+        private bool _isVisible = true;
+        private string _queriesText = string.Empty;
+
         public string Name { get; set; }
 
         public string GroupName { get; set; }
@@ -14,7 +17,15 @@ namespace HandyControlDemo.Data
 
         public bool IsNew { get; set; }
 
-        private bool _isVisible = true;
+        public string QueriesText
+        {
+            get => _queriesText;
+#if NET40
+            set => Set(nameof(QueriesText), ref _queriesText, value);
+#else
+            set => Set(ref _queriesText, value);
+#endif
+        }
 
         public bool IsVisible
         {
