@@ -44,7 +44,7 @@ namespace HandyControl.Collections
 
         public ManualObservableCollection()
         {
-            
+
         }
 
         public ManualObservableCollection(List<T> list) : base(list != null ? new List<T>(list.Count) : list) => CopyFrom(list);
