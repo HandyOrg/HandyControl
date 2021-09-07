@@ -42,6 +42,7 @@ namespace HandyControlDemo.Properties.Langs
             OnPropertyChanged(nameof(AnimationPath));
             OnPropertyChanged(nameof(AppClosingTip));
             OnPropertyChanged(nameof(Ask));
+            OnPropertyChanged(nameof(AutoCompleteTextBox));
             OnPropertyChanged(nameof(Badge));
             OnPropertyChanged(nameof(BasicInfo));
             OnPropertyChanged(nameof(BasicLayout));
@@ -290,6 +291,11 @@ namespace HandyControlDemo.Properties.Langs
         ///   查找类似 询问 的本地化字符串。
         /// </summary>
 		public string Ask => Lang.Ask;
+
+        /// <summary>
+        ///   查找类似 自动补全文本框 的本地化字符串。
+        /// </summary>
+		public string AutoCompleteTextBox => Lang.AutoCompleteTextBox;
 
         /// <summary>
         ///   查找类似 标记 的本地化字符串。
@@ -564,7 +570,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 元素组 的本地化字符串。
         /// </summary>
-        public string ElementGroup => Lang.ElementGroup;
+		public string ElementGroup => Lang.ElementGroup;
 
         /// <summary>
         ///   查找类似 邮箱 的本地化字符串。
@@ -574,7 +580,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 空状态 的本地化字符串。
         /// </summary>
-        public string Empty => Lang.Empty;
+		public string Empty => Lang.Empty;
 
         /// <summary>
         ///   查找类似 错误 的本地化字符串。
@@ -1436,6 +1442,11 @@ namespace HandyControlDemo.Properties.Langs
 		public static string Ask = nameof(Ask);
 
         /// <summary>
+        ///   查找类似 自动补全文本框 的本地化字符串。
+        /// </summary>
+		public static string AutoCompleteTextBox = nameof(AutoCompleteTextBox);
+
+        /// <summary>
         ///   查找类似 标记 的本地化字符串。
         /// </summary>
 		public static string Badge = nameof(Badge);
@@ -1708,7 +1719,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 元素组 的本地化字符串。
         /// </summary>
-        public static string ElementGroup = nameof(ElementGroup);
+		public static string ElementGroup = nameof(ElementGroup);
 
         /// <summary>
         ///   查找类似 邮箱 的本地化字符串。
@@ -1718,7 +1729,7 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   查找类似 空状态 的本地化字符串。
         /// </summary>
-        public static string Empty = nameof(Empty);
+		public static string Empty = nameof(Empty);
 
         /// <summary>
         ///   查找类似 错误 的本地化字符串。

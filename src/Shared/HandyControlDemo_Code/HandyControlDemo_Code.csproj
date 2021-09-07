@@ -56,6 +56,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AnimationPathDemoCtl.xaml">
       <Link>UserControl\Controls\AnimationPathDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml">
+      <Link>UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\BadgeDemoCtl.xaml">
       <Link>UserControl\Controls\BadgeDemoCtl.xaml</Link>
     </Resource>
@@ -430,6 +433,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
       <Link>UserControl\Controls\AnimationPathDemoCtl.xaml.cs</Link>
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml.cs</Link>
+      <DependentUpon>AutoCompleteTextBoxDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\BadgeDemoCtl.xaml.cs">
       <Link>UserControl\Controls\BadgeDemoCtl.xaml.cs</Link>
@@ -849,6 +856,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Common\ComboBoxDemoViewModel.cs">
       <Link>ViewModel\ComboBoxDemoViewModel.cs</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\AutoCompleteTextBoxDemoViewModel.cs">
+      <Link>ViewModel\AutoCompleteTextBoxDemoViewModel.cs</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\BadgeDemoViewModel.cs">
       <Link>ViewModel\BadgeDemoViewModel.cs</Link>

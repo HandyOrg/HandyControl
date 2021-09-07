@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <root>
   <!-- 
     Microsoft ResX Schema 
@@ -797,5 +797,8 @@
   </data>
   <data name="ElementGroup" xml:space="preserve">
     <value>ElementGroup</value>
+  </data>
+  <data name="AutoCompleteTextBox" xml:space="preserve">
+    <value>AutoCompleteTextBox</value>
   </data>
 </root>

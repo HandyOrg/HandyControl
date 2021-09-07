@@ -798,4 +798,7 @@
   <data name="ElementGroup" xml:space="preserve">
     <value>ElementGroup</value>
   </data>
+  <data name="AutoCompleteTextBox" xml:space="preserve">
+    <value>AutoCompleteTextBox</value>
+  </data>
 </root>

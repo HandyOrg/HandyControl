@@ -116,6 +116,7 @@ Styles\Base\ToolTipBaseStyle.xaml
 Styles\Base\TransferBaseStyle.xaml
 ..\..\..\Net_40\HandyControl_Net_40\Themes\Styles\Base\TreeViewBaseStyle.xaml
 Styles\Base\WatermarkBaseStyle.xaml
+Styles\Base\AutoCompleteTextBoxBaseStyle.xaml
 # --------------------------------------
 Styles\Badge.xaml
 Styles\CalendarWithClock.xaml
@@ -183,3 +184,4 @@ Styles\Transfer.xaml
 Styles\TransitioningContentControl.xaml
 Styles\TreeView.xaml
 Styles\Watermark.xaml
+Styles\AutoCompleteTextBox.xaml
