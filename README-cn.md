@@ -185,6 +185,10 @@ Step 4: 开始编码
 
 ## 最新示例
 
+### AutoCompleteTextBox
+
+![AutoCompleteTextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/AutoCompleteTextBox.gif)
+
 ### ElementGroup
 
 ![ElementGroup](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ElementGroup.png)

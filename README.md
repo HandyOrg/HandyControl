@@ -179,6 +179,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### AutoCompleteTextBox
+
+![AutoCompleteTextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/AutoCompleteTextBox.gif)
+
 ### ElementGroup
 
 ![ElementGroup](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ElementGroup.png)
