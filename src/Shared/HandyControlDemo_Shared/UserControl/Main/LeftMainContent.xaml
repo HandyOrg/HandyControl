@@ -49,7 +49,7 @@
                         <ToggleButton Tag="{Binding ElementName=ListBoxDemo}" Name="ButtonStyleAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Style="{StaticResource DemoInfoSortButtonStyle}"/>
                         <ListBox Name="ListBoxDemo" ScrollViewer.CanContentScroll="False" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
                             <ListBox.ItemTemplate>
-                                <DataTemplate DataType="data:DemoItemModel">
+                                <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
                                         <Image Width="16" Height="16" Source="{Binding ImageName}"/>
                                         <hc:HighlightTextBlock Margin="6,0,0,0" SourceText="{ex:Lang Key={Binding Name}}" QueriesText="{Binding QueriesText}" HighlightBrush="#f06632" />
