@@ -205,11 +205,11 @@ Step 4: 开始编码
 
 ![CheckComboBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CheckComboBox.png)
 
+## 历史发布
+
 ### ImageSelector
 
 ![ImageSelector](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ImageSelector.png)
-
-## 历史发布
 
 ### PropertyGrid
 

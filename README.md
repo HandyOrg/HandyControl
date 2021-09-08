@@ -199,11 +199,11 @@ Step 4: Enjoy coding
 
 ![CheckComboBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CheckComboBox.png)
 
+## History publication
+
 ### ImageSelector
 
 ![ImageSelector](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/ImageSelector.png)
-
-## History publication
 
 ### PropertyGrid
 
