@@ -68,6 +68,7 @@ namespace HandyControlDemo.UserControl
                 foreach (var item in ViewModelLocator.Instance.Main.DemoInfoCurrent.DemoItemList)
                 {
                     item.IsVisible = true;
+                    item.QueriesText = string.Empty;
                 }
             }
             else
@@ -78,10 +79,12 @@ namespace HandyControlDemo.UserControl
                     if (item.Name.ToLower().Contains(key))
                     {
                         item.IsVisible = true;
+                        item.QueriesText = _searchKey;
                     }
                     else if (item.TargetCtlName.Replace("DemoCtl", "").ToLower().Contains(key))
                     {
                         item.IsVisible = true;
+                        item.QueriesText = _searchKey;
                     }
                     else
                     {
@@ -89,10 +92,12 @@ namespace HandyControlDemo.UserControl
                         if (!string.IsNullOrEmpty(name) && name.ToLower().Contains(key))
                         {
                             item.IsVisible = true;
+                            item.QueriesText = _searchKey;
                         }
                         else
                         {
                             item.IsVisible = false;
+                            item.QueriesText = string.Empty;
                         }
                     }
                 }
