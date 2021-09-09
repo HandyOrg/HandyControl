@@ -45,7 +45,7 @@ namespace HandyControlDemo.ViewModel
 
             foreach (var data in _dataList)
             {
-                if (data.Name.Contains(key, System.StringComparison.OrdinalIgnoreCase))
+                if (data.Name.ToLower().Contains(key.ToLower()))
                 {
                     Items.Add(data);
                 }
