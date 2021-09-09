@@ -10,7 +10,6 @@ namespace HandyControl.Data
         public EnumDataProvider()
         {
             MethodName = nameof(GetValues);
-            ObjectType = typeof(System.Enum);
         }
 
         private Type _type;
@@ -21,6 +20,7 @@ namespace HandyControl.Data
             {
                 _type = value;
                 MethodParameters.Add(value);
+                ObjectType = typeof(System.Enum);
             }
         }
 
