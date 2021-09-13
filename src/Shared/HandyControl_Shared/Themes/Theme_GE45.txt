@@ -117,6 +117,7 @@ Styles\Base\TransferBaseStyle.xaml
 Styles\Base\TreeViewBaseStyle.xaml
 Styles\Base\WatermarkBaseStyle.xaml
 Styles\Base\AutoCompleteTextBoxBaseStyle.xaml
+Styles\Base\DataGridBaseStyle.xaml
 # --------------------------------------
 Styles\Badge.xaml
 Styles\CalendarWithClock.xaml

@@ -426,6 +426,9 @@
     <None Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\AutoCompleteTextBoxBaseStyle.xaml">
       <SubType>Designer</SubType>
     </None>
+    <None Include="$(MSBuildThisFileDirectory)Themes\Styles\Base\DataGridBaseStyle.xaml">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="$(MSBuildThisFileDirectory)Themes\XamlCombine.exe" />
     <Page Include="$(MSBuildThisFileDirectory)Themes\Basic\Colors\Colors.xaml">
       <SubType>Designer</SubType>
