@@ -87,6 +87,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Text\SimpleText.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\EnumItem.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\PanelUvSize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BooleanArr2BooleanConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Generator\DateTimeRangeComparer.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\VisualWrapping.cs" />

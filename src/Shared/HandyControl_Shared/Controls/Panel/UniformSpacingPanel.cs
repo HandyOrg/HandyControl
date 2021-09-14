@@ -115,7 +115,7 @@ namespace HandyControl.Controls
                 var child = children[i];
                 if (child == null) continue;
 
-                var childSize = new UVSize(_orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+                var childSize = new PanelUvSize(_orientation, child.DesiredSize);
                 var layoutSlotU = useItemU ? itemU : childSize.U;
 
                 child.Arrange(isHorizontal ? new Rect(u, v, layoutSlotU, lineV) : new Rect(v, u, lineV, layoutSlotU));
@@ -138,7 +138,7 @@ namespace HandyControl.Controls
                 var child = children[i];
                 if (child == null) continue;
 
-                var childSize = new UVSize(_orientation, child.DesiredSize.Width, child.DesiredSize.Height);
+                var childSize = new PanelUvSize(_orientation, child.DesiredSize);
                 var layoutSlotU = useItemU ? itemU : childSize.U;
 
                 child.Arrange(isHorizontal ? new Rect(u, 0, layoutSlotU, lineV) : new Rect(0, u, lineV, layoutSlotU));
@@ -152,9 +152,9 @@ namespace HandyControl.Controls
 
         protected override Size MeasureOverride(Size constraint)
         {
-            var curLineSize = new UVSize(_orientation);
-            var panelSize = new UVSize(_orientation);
-            var uvConstraint = new UVSize(_orientation, constraint.Width, constraint.Height);
+            var curLineSize = new PanelUvSize(_orientation);
+            var panelSize = new PanelUvSize(_orientation);
+            var uvConstraint = new PanelUvSize(_orientation, constraint);
             var itemWidth = ItemWidth;
             var itemHeight = ItemHeight;
             var itemWidthSet = !double.IsNaN(itemWidth);
@@ -192,7 +192,7 @@ namespace HandyControl.Controls
 
                     child.Measure(childConstraint);
 
-                    var sz = new UVSize(
+                    var sz = new PanelUvSize(
                         _orientation,
                         itemWidthSet ? itemWidth : child.DesiredSize.Width,
                         itemHeightSet ? itemHeight : child.DesiredSize.Height);
@@ -207,7 +207,7 @@ namespace HandyControl.Controls
                         {
                             panelSize.U = Math.Max(sz.U, panelSize.U);
                             panelSize.V += sz.V + spacing;
-                            curLineSize = new UVSize(_orientation);
+                            curLineSize = new PanelUvSize(_orientation);
                         }
 
                         isFirst = true;
@@ -251,7 +251,7 @@ namespace HandyControl.Controls
 
                     child.Measure(layoutSlotSize);
 
-                    var sz = new UVSize(
+                    var sz = new PanelUvSize(
                         _orientation,
                         itemWidthSet ? itemWidth : child.DesiredSize.Width,
                         itemHeightSet ? itemHeight : child.DesiredSize.Height);
@@ -276,8 +276,8 @@ namespace HandyControl.Controls
             var itemHeight = ItemHeight;
             double accumulatedV = 0;
             var itemU = _orientation == Orientation.Horizontal ? itemWidth : itemHeight;
-            var curLineSize = new UVSize(_orientation);
-            var uvFinalSize = new UVSize(_orientation, finalSize.Width, finalSize.Height);
+            var curLineSize = new PanelUvSize(_orientation);
+            var uvFinalSize = new PanelUvSize(_orientation, finalSize);
             var itemWidthSet = !double.IsNaN(itemWidth);
             var itemHeightSet = !double.IsNaN(itemHeight);
             var useItemU = _orientation == Orientation.Horizontal ? itemWidthSet : itemHeightSet;
@@ -294,7 +294,7 @@ namespace HandyControl.Controls
                     var child = children[i];
                     if (child == null) continue;
 
-                    var sz = new UVSize(
+                    var sz = new PanelUvSize(
                         _orientation,
                         itemWidthSet ? itemWidth : child.DesiredSize.Width,
                         itemHeightSet ? itemHeight : child.DesiredSize.Height);
@@ -311,7 +311,7 @@ namespace HandyControl.Controls
                             ArrangeWrapLine(accumulatedV, sz.V, i, ++i, useItemU, itemU, spacing);
 
                             accumulatedV += sz.V + spacing;
-                            curLineSize = new UVSize(_orientation);
+                            curLineSize = new PanelUvSize(_orientation);
                         }
 
                         firstInLine = i;
@@ -337,61 +337,6 @@ namespace HandyControl.Controls
             }
 
             return finalSize;
-        }
-
-        private struct UVSize
-        {
-            internal UVSize(Orientation orientation, double width, double height)
-            {
-                U = V = 0d;
-                _orientation = orientation;
-                Width = width;
-                Height = height;
-            }
-
-            internal UVSize(Orientation orientation)
-            {
-                U = V = 0d;
-                _orientation = orientation;
-            }
-
-            public double U { get; set; }
-
-            public double V { get; set; }
-
-            private readonly Orientation _orientation;
-
-            public double Width
-            {
-                get => _orientation == Orientation.Horizontal ? U : V;
-                private set
-                {
-                    if (_orientation == Orientation.Horizontal)
-                    {
-                        U = value;
-                    }
-                    else
-                    {
-                        V = value;
-                    }
-                }
-            }
-
-            public double Height
-            {
-                get => _orientation == Orientation.Horizontal ? V : U;
-                private set
-                {
-                    if (_orientation == Orientation.Horizontal)
-                    {
-                        V = value;
-                    }
-                    else
-                    {
-                        U = value;
-                    }
-                }
-            }
         }
     }
 }
