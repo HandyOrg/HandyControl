@@ -4,7 +4,6 @@ using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
 using HandyControl.Expression.Drawing;
-using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
@@ -45,13 +44,32 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty SpacingProperty = DependencyProperty.Register(
             "Spacing", typeof(double), typeof(UniformSpacingPanel),
-            new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure),
-            ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+            new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure), IsSpacingValid);
 
         public double Spacing
         {
             get => (double) GetValue(SpacingProperty);
             set => SetValue(SpacingProperty, value);
+        }
+
+        public static readonly DependencyProperty HorizontalSpacingProperty = DependencyProperty.Register(
+            "HorizontalSpacing", typeof(double), typeof(UniformSpacingPanel),
+            new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure), IsSpacingValid);
+
+        public double HorizontalSpacing
+        {
+            get => (double) GetValue(HorizontalSpacingProperty);
+            set => SetValue(HorizontalSpacingProperty, value);
+        }
+
+        public static readonly DependencyProperty VerticalSpacingProperty = DependencyProperty.Register(
+            "VerticalSpacing", typeof(double), typeof(UniformSpacingPanel),
+            new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure), IsSpacingValid);
+
+        public double VerticalSpacing
+        {
+            get => (double) GetValue(VerticalSpacingProperty);
+            set => SetValue(VerticalSpacingProperty, value);
         }
 
         public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(
@@ -78,12 +96,6 @@ namespace HandyControl.Controls
             set => SetValue(ItemHeightProperty, value);
         }
 
-        private static bool IsWidthHeightValid(object value)
-        {
-            var v = (double) value;
-            return double.IsNaN(v) || v >= 0.0d && !double.IsPositiveInfinity(v);
-        }
-
         public static readonly DependencyProperty ItemHorizontalAlignmentProperty = DependencyProperty.Register(
             "ItemHorizontalAlignment", typeof(HorizontalAlignment?), typeof(UniformSpacingPanel),
             new FrameworkPropertyMetadata(HorizontalAlignment.Stretch, FrameworkPropertyMetadataOptions.AffectsMeasure));
@@ -102,6 +114,22 @@ namespace HandyControl.Controls
         {
             get => (VerticalAlignment?) GetValue(ItemVerticalAlignmentProperty);
             set => SetValue(ItemVerticalAlignmentProperty, value);
+        }
+
+        private static bool IsWidthHeightValid(object value)
+        {
+            var v = (double) value;
+            return double.IsNaN(v) || v >= 0.0d && !double.IsPositiveInfinity(v);
+        }
+
+        private static bool IsSpacingValid(object value)
+        {
+            if (value is double spacing)
+            {
+                return double.IsNaN(spacing) || spacing > 0;
+            }
+
+            return false;
         }
 
         private void ArrangeWrapLine(double v, double lineV, int start, int end, bool useItemU, double itemU, double spacing)
@@ -159,12 +187,12 @@ namespace HandyControl.Controls
             var itemHeight = ItemHeight;
             var itemWidthSet = !double.IsNaN(itemWidth);
             var itemHeightSet = !double.IsNaN(itemHeight);
-            var spacing = Spacing;
             var childWrapping = ChildWrapping;
             var itemHorizontalAlignment = ItemHorizontalAlignment;
             var itemVerticalAlignment = ItemVerticalAlignment;
             var itemHorizontalAlignmentSet = itemHorizontalAlignment != null;
             var itemVerticalAlignmentSet = ItemVerticalAlignment != null;
+            var spacingSize = GetSpacingSize();
 
             var childConstraint = new Size(
                 itemWidthSet ? itemWidth : constraint.Width,
@@ -197,16 +225,16 @@ namespace HandyControl.Controls
                         itemWidthSet ? itemWidth : child.DesiredSize.Width,
                         itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
-                    if (MathHelper.GreaterThan(curLineSize.U + sz.U + spacing, uvConstraint.U))
+                    if (MathHelper.GreaterThan(curLineSize.U + sz.U + spacingSize.U, uvConstraint.U))
                     {
                         panelSize.U = Math.Max(curLineSize.U, panelSize.U);
-                        panelSize.V += curLineSize.V + spacing;
+                        panelSize.V += curLineSize.V + spacingSize.V;
                         curLineSize = sz;
 
                         if (MathHelper.GreaterThan(sz.U, uvConstraint.U))
                         {
                             panelSize.U = Math.Max(sz.U, panelSize.U);
-                            panelSize.V += sz.V + spacing;
+                            panelSize.V += sz.V + spacingSize.V;
                             curLineSize = new PanelUvSize(_orientation);
                         }
 
@@ -214,7 +242,7 @@ namespace HandyControl.Controls
                     }
                     else
                     {
-                        curLineSize.U += isFirst ? sz.U : sz.U + spacing;
+                        curLineSize.U += isFirst ? sz.U : sz.U + spacingSize.U;
                         curLineSize.V = Math.Max(sz.V, curLineSize.V);
 
                         isFirst = false;
@@ -256,7 +284,7 @@ namespace HandyControl.Controls
                         itemWidthSet ? itemWidth : child.DesiredSize.Width,
                         itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
-                    curLineSize.U += isFirst ? sz.U : sz.U + spacing;
+                    curLineSize.U += isFirst ? sz.U : sz.U + spacingSize.U;
                     curLineSize.V = Math.Max(sz.V, curLineSize.V);
 
                     isFirst = false;
@@ -267,6 +295,30 @@ namespace HandyControl.Controls
             panelSize.V += curLineSize.V;
 
             return new Size(panelSize.Width, panelSize.Height);
+        }
+
+        private PanelUvSize GetSpacingSize()
+        {
+            var spacing = Spacing;
+
+            if (!double.IsNaN(spacing))
+            {
+                return new PanelUvSize(_orientation, spacing, spacing);
+            }
+
+            var horizontalSpacing = HorizontalSpacing;
+            if (double.IsNaN(horizontalSpacing))
+            {
+                horizontalSpacing = 0;
+            }
+
+            var verticalSpacing = VerticalSpacing;
+            if (double.IsNaN(verticalSpacing))
+            {
+                verticalSpacing = 0;
+            }
+
+            return new PanelUvSize(_orientation, horizontalSpacing, verticalSpacing);
         }
 
         protected override Size ArrangeOverride(Size finalSize)
@@ -281,8 +333,8 @@ namespace HandyControl.Controls
             var itemWidthSet = !double.IsNaN(itemWidth);
             var itemHeightSet = !double.IsNaN(itemHeight);
             var useItemU = _orientation == Orientation.Horizontal ? itemWidthSet : itemHeightSet;
-            var spacing = Spacing;
             var childWrapping = ChildWrapping;
+            var spacingSize = GetSpacingSize();
 
             var children = InternalChildren;
             var isFirst = true;
@@ -299,41 +351,32 @@ namespace HandyControl.Controls
                         itemWidthSet ? itemWidth : child.DesiredSize.Width,
                         itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
-                    if (MathHelper.GreaterThan(curLineSize.U + sz.U + spacing, uvFinalSize.U))
+                    if (MathHelper.GreaterThan(curLineSize.U + (isFirst ? sz.U : sz.U + spacingSize.U), uvFinalSize.U))
                     {
-                        ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, i, useItemU, itemU, spacing);
+                        ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, i, useItemU, itemU, spacingSize.U);
 
-                        accumulatedV += curLineSize.V + spacing;
+                        accumulatedV += curLineSize.V + spacingSize.V;
                         curLineSize = sz;
 
-                        if (MathHelper.GreaterThan(sz.U, uvFinalSize.U))
-                        {
-                            ArrangeWrapLine(accumulatedV, sz.V, i, ++i, useItemU, itemU, spacing);
-
-                            accumulatedV += sz.V + spacing;
-                            curLineSize = new PanelUvSize(_orientation);
-                        }
-
                         firstInLine = i;
-                        isFirst = true;
                     }
                     else
                     {
-                        curLineSize.U += isFirst ? sz.U : sz.U + spacing;
+                        curLineSize.U += isFirst ? sz.U : sz.U + spacingSize.U;
                         curLineSize.V = Math.Max(sz.V, curLineSize.V);
-
-                        isFirst = false;
                     }
+
+                    isFirst = false;
                 }
 
                 if (firstInLine < children.Count)
                 {
-                    ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, children.Count, useItemU, itemU, spacing);
+                    ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, children.Count, useItemU, itemU, spacingSize.U);
                 }
             }
             else
             {
-                ArrangeLine(uvFinalSize.V, useItemU, itemU, spacing);
+                ArrangeLine(uvFinalSize.V, useItemU, itemU, spacingSize.U);
             }
 
             return finalSize;
