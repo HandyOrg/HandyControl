@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using HandyControl.Data;
@@ -41,32 +40,18 @@ namespace HandyControl.Controls
                 _searchTextBox.PreviewKeyDown += SearchTextBoxKeyDown;
                 _searchTextBox.TextChanged += SearchTextBoxTextChanged;
             }
+
+            UpdateTextBoxBySelectedItem(_selectedItem);
         }
 
         protected override void OnSelectionChanged(SelectionChangedEventArgs e)
         {
+            base.OnSelectionChanged(e);
+
             if (e.AddedItems.Count > 0)
             {
                 _selectedItem = e.AddedItems[0];
-            }
-        }
-
-        protected override void OnDropDownClosed(EventArgs e)
-        {
-            base.OnDropDownClosed(e);
-
-            if (ItemContainerGenerator.ContainerFromItem(_selectedItem) is AutoCompleteTextBoxItem boxItem)
-            {
-                ignoreTextChanging = true;
-
-                _searchTextBox.Text = BindingHelper.GetString(boxItem.Content, DisplayMemberPath);
-                _searchTextBox.CaretIndex = _searchTextBox.Text.Length;
-
-                ignoreTextChanging = true;
-
-                Text = _searchTextBox.Text;
-
-                ignoreTextChanging = false;
+                UpdateTextBoxBySelectedItem(_selectedItem);
             }
         }
 
@@ -128,6 +113,11 @@ namespace HandyControl.Controls
 
         private void UpdateTextBoxBySelectedIndex(int selectedIndex)
         {
+            if (_searchTextBox == null)
+            {
+                return;
+            }
+
             ignoreTextChanging = true;
 
             if (ItemContainerGenerator.ContainerFromIndex(selectedIndex) is AutoCompleteTextBoxItem boxItem)
@@ -137,6 +127,25 @@ namespace HandyControl.Controls
 
                 SelectedIndex = selectedIndex;
             }
+        }
+
+        private void UpdateTextBoxBySelectedItem(object selectedItem)
+        {
+            if (_searchTextBox == null)
+            {
+                return;
+            }
+
+            ignoreTextChanging = true;
+
+            _searchTextBox.Text = BindingHelper.GetString(selectedItem, DisplayMemberPath);
+            _searchTextBox.CaretIndex = _searchTextBox.Text.Length;
+
+            ignoreTextChanging = true;
+
+            Text = _searchTextBox.Text;
+
+            ignoreTextChanging = false;
         }
 
         private void SearchTextBoxGotFocus(object sender, RoutedEventArgs e)
