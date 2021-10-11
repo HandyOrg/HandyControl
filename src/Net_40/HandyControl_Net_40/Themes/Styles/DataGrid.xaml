@@ -21,7 +21,6 @@
         <Setter Property="RowStyle" Value="{StaticResource DataGridRowStyle}"/>
         <Setter Property="CellStyle" Value="{StaticResource DataGridCellStyle}"/>
         <Setter Property="Padding" Value="6"/>
-        <Setter Property="ColumnWidth" Value="*"/>
         <Setter Property="RowHeight" Value="44"/>
         <Setter Property="ColumnHeaderHeight" Value="44"/>
         <Setter Property="hc:DataGridAttach.TextColumnStyle" Value="{StaticResource DataGridTextColumnStyle}"/>
@@ -104,11 +103,6 @@
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource DataGridBaseStyle}" TargetType="DataGrid"/>
-
-    <Style x:Key="DataGrid.Small" BasedOn="{StaticResource DataGridBaseStyle}" TargetType="DataGrid">
-        <Setter Property="RowHeight" Value="24"/>
-    </Style>
     <Style BasedOn="{StaticResource DataGridBaseStyle}" TargetType="DataGrid"/>
 
     <Style x:Key="DataGridCellStyle.Small" BasedOn="{StaticResource DataGridCellStyle}" TargetType="DataGridCell">
