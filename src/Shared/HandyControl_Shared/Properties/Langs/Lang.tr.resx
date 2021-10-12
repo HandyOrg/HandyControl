@@ -226,15 +226,15 @@
     <value>Looks up a localized string similar to "{0}".</value>
   </data>
   <data name="Jump" xml:space="preserve">
-    <value>Jump</value>
+    <value>Zıpla</value>
   </data>
   <data name="Miscellaneous" xml:space="preserve">
-    <value>Miscellaneous</value>
+    <value>Çeşitli</value>
   </data>
   <data name="All" xml:space="preserve">
-    <value>All</value>
+    <value>Hepsi</value>
   </data>
   <data name="NoData" xml:space="preserve">
-    <value>No Data</value>
+    <value>Veri yok</value>
   </data>
 </root>
