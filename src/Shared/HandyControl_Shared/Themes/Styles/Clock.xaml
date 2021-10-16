@@ -51,16 +51,12 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-   
-    <Style TargetType="hc:Clock">
+
+    <Style x:Key="ClockBaseStyle" TargetType="hc:Clock">
         <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Margin" Value="8,0,8,8"/>
+        <Setter Property="Margin" Value="8 0"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Width" Value="210"/>
-        <Setter Property="Height" Value="310"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="ClockRadioButtonStyle" Value="{StaticResource ClockRadioButtonStyle}"/>
         <Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
@@ -68,7 +64,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:Clock">
-                    <hc:SimplePanel>
+                    <hc:SimplePanel Margin="0,4,0,8" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Effect="{StaticResource EffectShadow2}"/>
                         <Grid>
                             <Grid.RowDefinitions>
@@ -80,10 +76,10 @@
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
-                            <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" Grid.ColumnSpan="3" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Name="PART_BorderTitle">
+                            <Border Margin="4" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="3" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" Name="PART_BorderTitle">
                                 <TextBlock x:Name="PART_TimeStr" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="20" Foreground="{DynamicResource TextIconBrush}"/>
                             </Border>
-                            <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,16,0,0" VerticalAlignment="Top" Name="PART_Canvas" Width="178" Height="178">
+                            <Canvas Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="16,16,16,62" VerticalAlignment="Top" Name="PART_Canvas" Width="178" Height="178">
                                 <Border Background="{DynamicResource SecondaryRegionBrush}" Width="178" Height="178" CornerRadius="89"/>
                                 <hc:CirclePanel Diameter="130" x:Name="PART_PanelNum" KeepVertical="True" Margin="24,24,0,0" OffsetAngle="-60"/>
                                 <Border Focusable="False" Name="PART_BorderClock"  Background="{DynamicResource PrimaryBrush}" RenderTransformOrigin="0.5,1" Height="63" Width="2" Canvas.Left="88" Canvas.Top="26"/>
@@ -98,6 +94,8 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="hc:Clock" BasedOn="{StaticResource ClockBaseStyle}"/>
 
     <Style x:Key="ClockListBoxItemStyle" TargetType="ListBoxItem" BasedOn="{StaticResource ListBoxItemBaseStyle}">
         <Style.Triggers>
@@ -129,30 +127,27 @@
     </Style>
 
     <Style x:Key="ClockListBoxStyle" TargetType="ListBox" BasedOn="{StaticResource ListBoxBaseStyle}">
-        <Setter Property="MaxHeight" Value="192"/>
+        <Setter Property="MaxHeight" Value="180"/>
         <Setter Property="ScrollViewer.CanContentScroll" Value="True"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ClockListBoxItemStyle}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
     </Style>
 
-    <Style TargetType="hc:ListClock">
-        <Setter Property="BorderThickness" Value="0,1,0,0"/>
-        <Setter Property="Margin" Value="8,0,8,8"/>
+    <Style x:Key="ListClockBaseStyle" TargetType="hc:ListClock">
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="8 0"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Width" Value="210"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:ListClock">
-                    <hc:SimplePanel>
+                    <hc:SimplePanel Margin="0,4,0,8" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Effect="{StaticResource EffectShadow2}"/>
-                        <Grid Margin="0,4">
+                        <Grid Margin="0,4" Width="210">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition/>
@@ -173,5 +168,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+
+    <Style TargetType="hc:ListClock" BasedOn="{StaticResource ListClockBaseStyle}"/>
     
 </ResourceDictionary>

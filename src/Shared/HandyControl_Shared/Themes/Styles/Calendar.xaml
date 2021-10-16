@@ -247,7 +247,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Calendar">
-                    <hc:SimplePanel Margin="0,4,0,8" HorizontalAlignment="Center">
+                    <hc:SimplePanel Margin="0,4,0,8" HorizontalAlignment="Center" VerticalAlignment="Center">
                         <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Effect="{StaticResource EffectShadow2}"/>
                         <CalendarItem x:Name="PART_CalendarItem" Margin="{TemplateBinding BorderThickness}"/>
                     </hc:SimplePanel>
