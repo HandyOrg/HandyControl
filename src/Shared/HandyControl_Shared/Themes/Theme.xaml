@@ -3934,7 +3934,7 @@
 							<Button x:Name="PART_PreviousButton" Width="50" Foreground="{Binding Path=(hc:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Left" Grid.Column="0" Height="50" Padding="16" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
 							<Button x:Name="PART_HeaderButton" Focusable="False" Foreground="{Binding Path=(hc:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" Grid.Row="0" Style="{StaticResource ButtonCustom}" />
 							<Button x:Name="PART_NextButton" Width="50" Foreground="{Binding Path=(hc:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Right" Height="50" Padding="16" Grid.Column="2" Focusable="False" Grid.Row="0" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource RightGeometry}" />
-							<Grid Width="240" Height="240" x:Name="PART_MonthView" Margin="10,4,10,10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Visible">
+							<Grid Width="240" Height="240" x:Name="PART_MonthView" Margin="10,6,10,10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Visible">
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition />
 									<ColumnDefinition />
@@ -3954,7 +3954,7 @@
 									<RowDefinition />
 								</Grid.RowDefinitions>
 							</Grid>
-							<Grid Width="240" Height="240" x:Name="PART_YearView" Margin="10,4,10,10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Hidden">
+							<Grid Width="240" Height="240" x:Name="PART_YearView" Margin="10,6,10,10" Grid.ColumnSpan="3" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Visibility="Hidden">
 								<Grid.ColumnDefinitions>
 									<ColumnDefinition />
 									<ColumnDefinition />
@@ -8187,7 +8187,7 @@
 							</Grid.ColumnDefinitions>
 							<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 							<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-							<Popup Grid.Column="0" VerticalOffset="4" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
+							<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 						</Grid>
 					</Border>
 					<ControlTemplate.Triggers>
@@ -8237,7 +8237,7 @@
 					</Grid.ColumnDefinitions>
 					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 					<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Watermark="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-					<Popup Grid.Column="0" VerticalOffset="4" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
+					<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 				</Grid>
 			</Border>
 		</Grid>
@@ -8285,7 +8285,7 @@
 					</Grid.ColumnDefinitions>
 					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 					<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Watermark="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-					<Popup Grid.Column="0" VerticalOffset="4" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
+					<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 				</Grid>
 			</Border>
 		</Grid>
@@ -8357,7 +8357,7 @@
 					<Button Height="{x:Static system:Double.NaN}" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}" />
 					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="2,6,7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 					<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Watermark="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-					<Popup Grid.Column="0" VerticalOffset="4" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
+					<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 				</Grid>
 			</Border>
 		</Grid>
@@ -8432,7 +8432,7 @@
 					<Button Height="{x:Static system:Double.NaN}" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}" />
 					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="2,6,7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 					<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Watermark="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-					<Popup Grid.Column="0" VerticalOffset="4" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
+					<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 				</Grid>
 			</Border>
 		</Grid>
@@ -11960,19 +11960,19 @@
 	<Style x:Key="BadgeDanger" BasedOn="{StaticResource BadgeBaseStyle}" TargetType="hc:Badge">
 		<Setter Property="Background" Value="{DynamicResource DangerBrush}" />
 	</Style>
-	<Style TargetType="hc:CalendarWithClock">
+	<Style x:Key="CalendarWithClockBaseStyle" TargetType="hc:CalendarWithClock">
 		<Setter Property="Focusable" Value="False" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}" />
 		<Setter Property="BorderThickness" Value="0" />
-		<Setter Property="Margin" Value="8,0,8,8" />
+		<Setter Property="Margin" Value="8 0" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:CalendarWithClock">
-					<hc:SimplePanel>
+					<hc:SimplePanel Margin="0,4,0,8" HorizontalAlignment="Center" VerticalAlignment="Center">
 						<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Effect="{StaticResource EffectShadow2}" />
 						<Grid>
 							<Grid.ColumnDefinitions>
@@ -11980,13 +11980,13 @@
 								<ColumnDefinition Width="Auto" />
 							</Grid.ColumnDefinitions>
 							<Grid.RowDefinitions>
-								<RowDefinition Height="50" />
+								<RowDefinition Height="Auto" />
 								<RowDefinition />
 								<RowDefinition Height="Auto" />
 							</Grid.RowDefinitions>
-							<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" Grid.ColumnSpan="2" Grid.Row="0" Height="50" VerticalAlignment="Top" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" />
-							<ContentPresenter Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_CalendarPresenter" />
-							<ContentPresenter Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_ClockPresenter" />
+							<Border Margin="4" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Grid.ColumnSpan="2" Height="42" VerticalAlignment="Top" Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}" />
+							<ContentPresenter Grid.Column="0" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_CalendarPresenter" Margin="-8,-4,-8,-8" />
+							<ContentPresenter Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" x:Name="PART_ClockPresenter" Margin="-8,-4,-8,-8" />
 							<Button Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm" Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" HorizontalAlignment="Center" Margin="0,0,0,19" Width="180" VerticalAlignment="Bottom" Style="{StaticResource ButtonPrimary}" />
 						</Grid>
 					</hc:SimplePanel>
@@ -11994,6 +11994,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+	<Style TargetType="hc:CalendarWithClock" BasedOn="{StaticResource CalendarWithClockBaseStyle}" />
 	<Style BasedOn="{StaticResource CardBaseStyle}" TargetType="hc:Card" />
 	<Style x:Key="CarouselPateButton" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
 		<Setter Property="Margin" Value="5,0" />
