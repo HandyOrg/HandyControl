@@ -7,27 +7,49 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <StackPanel Margin="32" Orientation="Horizontal">
-            <StackPanel>
-                <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" ShowSelectAllButton="True"/>
-                <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxExtend}" Margin="0,16,0,0"  IsEnabled="False" ShowSelectAllButton="True"/>
+        <ScrollViewer>
+            <hc:UniformSpacingPanel Spacing="32" Margin="32" ChildWrapping="Wrap">
+                <StackPanel>
+                    <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxExtend}" Margin="0,16,0,0"  IsEnabled="False" ShowSelectAllButton="True"/>
 
-                <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
-                <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource CheckComboBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                    <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource CheckComboBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
 
-                <hc:CheckComboBox ShowClearButton="True" Width="380" ItemsSource="{Binding DataList}" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource CheckComboBoxExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
-                <hc:CheckComboBox Width="380" ItemsSource="{Binding DataList}" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource CheckComboBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
-            </StackPanel>
-            <StackPanel Margin="32,0,0,0">
-                <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxPlus}" ShowSelectAllButton="True"/>
-                <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource CheckComboBoxPlus}"/>
+                    <hc:CheckComboBox ShowClearButton="True" Width="380" ItemsSource="{Binding DataList}" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource CheckComboBoxExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox Width="380" ItemsSource="{Binding DataList}" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource CheckComboBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                </StackPanel>
+                <StackPanel>
+                    <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxPlus}" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource CheckComboBoxPlus}"/>
 
-                <hc:CheckComboBox MaxWidth="380" ShowClearButton="True" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
-                <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                    <hc:CheckComboBox MaxWidth="380" ShowClearButton="True" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
 
-                <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
-                <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
-            </StackPanel>
-        </StackPanel>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource CheckComboBoxPlus}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                </StackPanel>
+                <StackPanel>
+                    <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" ShowSelectAllButton="True" Style="{StaticResource CheckComboBox.Small}"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxExtend.Small}" Margin="0,16,0,0"  IsEnabled="False" ShowSelectAllButton="True"/>
+
+                    <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxExtend.Small}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource CheckComboBoxExtend.Small}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
+                    <hc:CheckComboBox ShowClearButton="True" Width="380" ItemsSource="{Binding DataList}" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource CheckComboBoxExtend.Small}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox Width="380" ItemsSource="{Binding DataList}" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource CheckComboBoxExtend.Small}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                </StackPanel>
+                <StackPanel>
+                    <hc:CheckComboBox ShowClearButton="True" MaxWidth="380" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxPlus.Small}" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource CheckComboBoxPlus.Small}"/>
+
+                    <hc:CheckComboBox MaxWidth="380" ShowClearButton="True" ItemsSource="{Binding DataList}" Style="{StaticResource CheckComboBoxPlus.Small}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource CheckComboBoxPlus.Small}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource CheckComboBoxPlus.Small}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" ShowSelectAllButton="True"/>
+                    <hc:CheckComboBox MaxWidth="380" ItemsSource="{Binding DataList}" ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource CheckComboBoxPlus.Small}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                </StackPanel>
+            </hc:UniformSpacingPanel>
+        </ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>
