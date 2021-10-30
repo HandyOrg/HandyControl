@@ -484,6 +484,29 @@ namespace HandyControl.Tools.Interop
         [DllImport(InteropValues.ExternDll.DwmApi, EntryPoint = "DwmGetColorizationColor", PreserveSig = true)]
         internal static extern int DwmGetColorizationColor(out uint pcrColorization, out bool pfOpaqueBlend);
 
+        [DllImport(InteropValues.ExternDll.DwmApi)]
+        internal static extern int DwmSetWindowAttribute(IntPtr hwnd, InteropValues.DWMWINDOWATTRIBUTE attr, ref int attrValue, int attrSize);
+
+        [DllImport(InteropValues.ExternDll.DwmApi)]
+        internal static extern int DwmExtendFrameIntoClientArea(IntPtr hWnd, ref InteropValues.MARGINS pMarInset);
+
+        internal static bool SetWindowAttributeValue(IntPtr hWnd, InteropValues.DWMWINDOWATTRIBUTE attribute, int attributeValue)
+        {
+            return SetWindowAttribute(hWnd, attribute, ref attributeValue);
+        }
+
+        internal static bool SetWindowAttribute(IntPtr hWnd, InteropValues.DWMWINDOWATTRIBUTE attribute, ref int attributeValue)
+        {
+            var result = DwmSetWindowAttribute(hWnd, attribute, ref attributeValue, sizeof(int));
+            return result == 0;
+        }
+
+        internal static bool WindowExtendIntoClientArea(IntPtr hWnd, InteropValues.MARGINS margins)
+        {
+            // Extend frame on the bottom of client area
+            var result = DwmExtendFrameIntoClientArea(hWnd, ref margins);
+            return result == 0;
+        }
         #endregion
 
         internal class Gdip

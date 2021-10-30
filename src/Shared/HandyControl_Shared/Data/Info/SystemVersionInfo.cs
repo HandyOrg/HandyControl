@@ -12,6 +12,7 @@ namespace HandyControl.Data
         public static SystemVersionInfo Windows10_1809 => new(10, 0, 17763);
 
         public static SystemVersionInfo Windows10_1903 => new(10, 0, 18362);
+        public static SystemVersionInfo Windows11_22000 => new(10, 0, 22000);
 
         public SystemVersionInfo(int major, int minor, int build)
         {
