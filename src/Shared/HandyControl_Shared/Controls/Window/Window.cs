@@ -539,8 +539,8 @@ namespace HandyControl.Controls
 
         public void UpdateWindowEffect(IntPtr windowHandle)
         {
-          //  var isDark = ThemeManager.Current.ApplicationTheme == ApplicationTheme.Dark;
-            WindowHelper.EnableMicaEffect(windowHandle, true);
+            var isDark = !SystemHelper.DetermineIfInLightThemeMode();
+            WindowHelper.EnableMicaEffect(windowHandle, isDark);
         }
 
         #endregion
