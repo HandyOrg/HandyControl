@@ -90,4 +90,4 @@ public class StepBar : ItemsControl
 </Grid>
 ```
 
-![StepBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/StepBar.png)
+![StepBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/StepBar.gif)

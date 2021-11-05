@@ -5,6 +5,7 @@
     <converter:Boolean2BooleanReConverter x:Key="Boolean2BooleanReConverter"/>
     <converter:Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter"/>
     <converter:BooleanArr2VisibilityConverter x:Key="BooleanArr2VisibilityConverter"/>
+    <converter:BooleanArr2BooleanConverter x:Key="BooleanArr2BooleanConverter" />
     <converter:Long2FileSizeConverter x:Key="Long2FileSizeConverter"/>
     <converter:String2VisibilityConverter x:Key="String2VisibilityConverter"/>
     <converter:String2VisibilityReConverter x:Key="String2VisibilityReConverter"/>
@@ -27,4 +28,5 @@
     <converter:Double2GridLengthConverter x:Key="Double2GridLengthConverter"/>
     <converter:DoubleMinConverter x:Key="DoubleMinConverter"/>
     <converter:Object2StringConverter x:Key="Object2StringConverter"/>
+    <converter:DataGridSelectAllButtonVisibilityConverter x:Key="DataGridSelectAllButtonVisibilityConverter"/>
 </ResourceDictionary>

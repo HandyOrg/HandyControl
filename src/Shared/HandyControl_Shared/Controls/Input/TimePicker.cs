@@ -395,9 +395,26 @@ namespace HandyControl.Controls
                 }
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
+            var isError = !result.Data;
+            if (isError)
+            {
+                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+                SetCurrentValue(ErrorStrProperty, result.Message);
+            }
+            else
+            {
+                isError = Validation.GetHasError(this);
+                if (isError)
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
+                }
+                else
+                {
+                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                    SetCurrentValue(ErrorStrProperty, default(string));
+                }
+            }
+            return !isError;
         }
 
         public override void OnApplyTemplate()
@@ -445,9 +462,11 @@ namespace HandyControl.Controls
             _dropDownButton.Click += DropDownButton_Click;
             _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
 
+            var selectedTime = SelectedTime;
+
             if (_textBox != null)
             {
-                if (SelectedTime == null)
+                if (selectedTime == null)
                 {
                     _textBox.Text = DateTime.Now.ToString(TimeFormat);
                 }
@@ -463,7 +482,7 @@ namespace HandyControl.Controls
                 _textBox.TextChanged += TextBox_TextChanged;
                 _textBox.LostFocus += TextBox_LostFocus;
 
-                if (SelectedTime == null)
+                if (selectedTime == null)
                 {
                     if (!string.IsNullOrEmpty(_defaultText))
                     {
@@ -473,12 +492,19 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    _textBox.Text = DateTimeToString((DateTime) SelectedTime);
+                    _textBox.Text = DateTimeToString(selectedTime.Value);
                 }
             }
 
-            _originalSelectedTime ??= DateTime.Now;
-            SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+            if (selectedTime is null)
+            {
+                _originalSelectedTime ??= DateTime.Now;
+                SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+            }
+            else
+            {
+                SetCurrentValue(DisplayTimeProperty, selectedTime);
+            }
         }
 
         public override string ToString() => SelectedTime?.ToString(TimeFormat) ?? string.Empty;

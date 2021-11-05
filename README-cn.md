@@ -21,9 +21,6 @@
     <a href="https://github.com/HandyOrg/HandyControl/actions?query=workflow%3Abuild">
         <img alt="Github-build-status" src="https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg"></img>
     </a>
-    <a href="https://gitter.im/HandyControl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge">
-        <img alt="Join the chat at https://gitter.im/HandyControl/Lobby" src="https://badges.gitter.im/HandyControl/Lobby.svg"></img>
-    </a> 
     <a href="https://www.nuget.org/packages/HandyControl">
         <img alt="Nuget" src="https://img.shields.io/nuget/dt/handycontrol"></img>
     </a> 
@@ -37,6 +34,10 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 
 ## 面向中国
 
+### 技术交流
+
+[https://join.slack.com/t/handycontrol/shared_invite/zt-sw29prqd-okFmRlmETdtWhnF7C3foxA](https://join.slack.com/t/handycontrol/shared_invite/zt-sw29prqd-okFmRlmETdtWhnF7C3foxA)
+
 ### 码云
 
 [https://gitee.com/handyorg/HandyControl/](https://gitee.com/handyorg/HandyControl/)
@@ -47,14 +48,7 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 
 ### 赞助
 
-* [以HandyControl的名义为慈善事业做贡献（请联系我们上赞助墙）](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)  
-
-* 扫码入群 
-
-| | 西江月群 | 定风波群 |
-|-|:-:|:-:|
-| 群号码 | [![qq-group](https://img.shields.io/badge/qq-714704041-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=a571e5553c9d41e49c4f22f3a8b2865451497a795ff281fedf3285def247efc1) | [![qq-group](https://img.shields.io/badge/qq-858784803-red.svg)](//shang.qq.com/wpa/qunwpa?idkey=5c18622a0f6ee07a6f33afa8cdb85b1f72ea50e878271dfcec919c76b55afee7) |
-| 二维码 | ![qq-group](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qq_group_1.png) | ![qq-group](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qq_group_2.png) |
+* [以HandyControl的名义为慈善事业做贡献（请联系我们上赞助墙）](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3) 
 
 * 为我们购买防脱洗发水 （支付宝扫码）  
 ![qrcode](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qrcode.png)
@@ -89,6 +83,8 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 <a href="https://github.com/Epacik" target="_blank"><img style="border-radius:50%!important" width="64px" alt="Epacik" src="https://avatars.githubusercontent.com/u/23077337?s=64&v=4"></a>
 <a href="https://github.com/ChoKaPeek" target="_blank"><img style="border-radius:50%!important" width="64px" alt="ChoKaPeek" src="https://avatars.githubusercontent.com/u/16904907?s=64&v=4"></a>
 <a href="https://github.com/shaosu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="shaosu" src="https://avatars.githubusercontent.com/u/12237247?s=64&v=4"></a>
+<a href="https://github.com/imba-tjd" target="_blank"><img style="border-radius:50%!important" width="64px" alt="imba-tjd" src="https://avatars.githubusercontent.com/u/24759802?s=64&v=4"></a>
+<a href="https://github.com/jhm-ciberman" target="_blank"><img style="border-radius:50%!important" width="64px" alt="jhm-ciberman" src="https://avatars.githubusercontent.com/u/7988351?s=64&v=4"></a>
 
 ## 赞助者
 
@@ -140,7 +136,6 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 [![Visual Studio Community 2019](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/vs2019_logo.png)](https://visualstudio.microsoft.com/free-developer-offers/)
 [![JetBrains](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/resharper_logo.png)](https://www.jetbrains.com/?from=HandyControl)
 [![Cake](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/cake_logo.png)](https://cakebuild.net/)
-[![Gitter](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/gitter_logo.png)](https://gitter.im/)
 
 ## 使用HandyControl的项目
 
@@ -190,6 +185,10 @@ Step 4: 开始编码
 
 ## 最新示例
 
+### AutoCompleteTextBox
+
+![AutoCompleteTextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/AutoCompleteTextBox.gif)
+
 ### ElementGroup
 
 ![ElementGroup](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ElementGroup.png)
@@ -206,11 +205,11 @@ Step 4: 开始编码
 
 ![CheckComboBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CheckComboBox.png)
 
+## 历史发布
+
 ### ImageSelector
 
 ![ImageSelector](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ImageSelector.png)
-
-## 历史发布
 
 ### PropertyGrid
 
@@ -262,7 +261,7 @@ Step 4: 开始编码
 
 ### SplitButton
 
-![SplitButton](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/SplitButton.png)
+![SplitButton](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/SplitButton.gif)
 
 ### FloatingBlock
 
@@ -316,7 +315,7 @@ Step 4: 开始编码
 
 ### Badge
 
-![Badge](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Badge.png)
+![Badge](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Badge.gif)
 
 ### Gravatar
 
@@ -336,11 +335,11 @@ Step 4: 开始编码
 
 ### Transfer
 
-![Transfer](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Transfer.png)
+![Transfer](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Transfer.gif)
 
 ### ProgressButton
 
-![ProgressButton](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ProgressButton.png)
+![ProgressButton](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ProgressButton.gif)
 
 ### CoverFlow
 
@@ -360,11 +359,11 @@ Step 4: 开始编码
 
 ### Rate
 
-![Rate](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Rate.png)
+![Rate](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Rate.gif)
 
 ### BlurWindow
 
-![BlurWindow](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/BlurWindow.png)
+![BlurWindow](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/BlurWindow.gif)
 
 ### FlipClock
 
@@ -396,7 +395,7 @@ Step 4: 开始编码
 
 ### CircleProgressBar
 
-![CircleProgressBar](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CircleProgressBar.png)
+![CircleProgressBar](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CircleProgressBar.gif)
 
 ### ButtonStyle
 
@@ -498,7 +497,7 @@ Step 4: 开始编码
 
 ### StepBar
 
-![StepBar](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/StepBar.png)
+![StepBar](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/StepBar.gif)
 
 ### GifImage
 
@@ -510,11 +509,11 @@ Step 4: 开始编码
 
 ### Calendar
 
-![Calendar](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Calendar.jpg)
+![Calendar](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Calendar.gif)
 
 ### Clock
 
-![Clock](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Clock.jpg)
+![Clock](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Clock.png)
 
 ### CalendarWithClock
 
@@ -522,7 +521,7 @@ Step 4: 开始编码
 
 ### TextBlock
 
-![TextBlock](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/TextBlock.jpg)
+![TextBlock](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/TextBlock.png)
 
 ### RichTextBoxStyle
 
@@ -530,11 +529,11 @@ Step 4: 开始编码
 
 ### TextBox
 
-![TextBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/TextBox.jpg)
+![TextBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/TextBox.png)
 
 ### ComboBox
 
-![ComboBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ComboBox.jpg)
+![ComboBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ComboBox.png)
 
 ### NumericUpDown
 
@@ -546,27 +545,27 @@ Step 4: 开始编码
 
 ### PasswordBox
 
-![PasswordBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/PasswordBox.jpg)
+![PasswordBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/PasswordBox.png)
 
 ### DatePicker
 
-![DatePicker](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/DatePicker.jpg)
+![DatePicker](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/DatePicker.png)
 
 ### TimePicker
 
-![TimePicker](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/TimePicker.jpg)
+![TimePicker](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/TimePicker.gif)
 
 ### DateTimePicker
 
-![DateTimePicker](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/DateTimePicker.png)
+![DateTimePicker](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/DateTimePicker.gif)
 
 ### ScrollViewer
 
-![ScrollViewer](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ScrollViewer.png)
+![ScrollViewer](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ScrollViewer.gif)
 
 ### CirclePanel
 
-![CirclePanel](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CirclePanel.jpg)
+![CirclePanel](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CirclePanel.png)
 
 ### TransitioningContentControl
 

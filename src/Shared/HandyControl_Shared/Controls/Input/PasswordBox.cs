@@ -258,9 +258,26 @@ namespace HandyControl.Controls
                     result = OperationResult.Success();
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
+            var isError = !result.Data;
+            if (isError)
+            {
+                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+                SetCurrentValue(ErrorStrProperty, result.Message);
+            }
+            else
+            {
+                isError = Validation.GetHasError(this);
+                if (isError)
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
+                }
+                else
+                {
+                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                    SetCurrentValue(ErrorStrProperty, default(string));
+                }
+            }
+            return !isError;
         }
 
         private static void OnShowPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -350,7 +367,7 @@ namespace HandyControl.Controls
 
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
         {
-            if (VerifyData() && !IsSafeEnabled)
+            if (!IsSafeEnabled)
             {
                 SetCurrentValue(UnsafePasswordProperty, ActualPasswordBox.Password);
 
@@ -359,17 +376,19 @@ namespace HandyControl.Controls
                     _textBox.Text = ActualPasswordBox.Password;
                 }
             }
+
+            VerifyData();
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            VerifyData();
-
             if (!IsSafeEnabled && ShowPassword)
             {
                 Password = _textBox.Text;
                 SetCurrentValue(UnsafePasswordProperty, Password);
             }
+
+            VerifyData();
         }
     }
 }

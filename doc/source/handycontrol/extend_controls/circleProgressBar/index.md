@@ -40,4 +40,4 @@ public class CircleProgressBar : RangeBase
 </StackPanel>
 ```
 
-![CircleProgressBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CircleProgressBar.png)
+![CircleProgressBar](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CircleProgressBar.gif)

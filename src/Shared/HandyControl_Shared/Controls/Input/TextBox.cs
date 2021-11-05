@@ -112,9 +112,27 @@ namespace HandyControl.Controls
                 }
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
+            var isError = !result.Data;
+            if (isError)
+            {
+                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+                SetCurrentValue(ErrorStrProperty, result.Message);
+            }
+            else
+            {
+                isError = Validation.GetHasError(this);
+                if (isError)
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
+                }
+                else
+                {
+                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                    SetCurrentValue(ErrorStrProperty, default(string));
+                }
+            }
+
+            return !isError;
         }
     }
 }

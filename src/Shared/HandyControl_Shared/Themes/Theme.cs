@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Media;
 using HandyControl.Data;
@@ -204,23 +205,17 @@ namespace HandyControl.Themes
             return _precSkin;
         }
 
-        private void UpdateAccentColor(Color color)
+        public static Theme GetTheme(string name, ResourceDictionary resourceDictionary)
         {
-            _precSkin[ResourceToken.PrimaryColor] = color;
-            _precSkin[ResourceToken.DarkPrimaryColor] = color;
-            _precSkin[ResourceToken.TitleColor] = color;
-            _precSkin[ResourceToken.SecondaryTitleColor] = color;
+            if (string.IsNullOrEmpty(name) || resourceDictionary == null)
+            {
+                return null;
+            }
+
+            return resourceDictionary.MergedDictionaries.OfType<Theme>().FirstOrDefault(item => Equals(item.Name, name));
         }
 
-        private void UpdateSkin() => MergedDictionaries[0] = GetSkin(Skin);
-
-        private ResourceDictionary _theme;
-
-        public virtual ResourceDictionary GetTheme()
-        {
-            _theme ??= ResourceHelper.GetTheme();
-            return _theme;
-        }
+        public virtual ResourceDictionary GetTheme() => ResourceHelper.GetTheme();
 
         private void InitResource()
         {
@@ -233,10 +228,20 @@ namespace HandyControl.Themes
             MergedDictionaries.Add(GetSkin(Skin));
             MergedDictionaries.Add(GetTheme());
         }
+
+        private void UpdateAccentColor(Color color)
+        {
+            _precSkin[ResourceToken.PrimaryColor] = color;
+            _precSkin[ResourceToken.DarkPrimaryColor] = color;
+            _precSkin[ResourceToken.TitleColor] = color;
+            _precSkin[ResourceToken.SecondaryTitleColor] = color;
+        }
+
+        private void UpdateSkin() => MergedDictionaries[0] = GetSkin(Skin);
     }
 
     public class StandaloneTheme : Theme
     {
-        public override ResourceDictionary GetTheme() => ResourceHelper.GetTheme();
+        public override ResourceDictionary GetTheme() => ResourceHelper.GetStandaloneTheme();
     }
 }

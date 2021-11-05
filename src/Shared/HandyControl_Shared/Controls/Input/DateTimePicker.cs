@@ -367,9 +367,11 @@ namespace HandyControl.Controls
             _dropDownButton.Click += DropDownButton_Click;
             _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
 
+            var selectedDateTime = SelectedDateTime;
+
             if (_textBox != null)
             {
-                if (SelectedDateTime == null)
+                if (selectedDateTime == null)
                 {
                     _textBox.Text = DateTime.Now.ToString(DateTimeFormat);
                 }
@@ -385,7 +387,7 @@ namespace HandyControl.Controls
                 _textBox.TextChanged += TextBox_TextChanged;
                 _textBox.LostFocus += TextBox_LostFocus;
 
-                if (SelectedDateTime == null)
+                if (selectedDateTime == null)
                 {
                     if (!string.IsNullOrEmpty(_defaultText))
                     {
@@ -395,12 +397,19 @@ namespace HandyControl.Controls
                 }
                 else
                 {
-                    _textBox.Text = DateTimeToString(SelectedDateTime.Value);
+                    _textBox.Text = DateTimeToString(selectedDateTime.Value);
                 }
             }
 
-            _originalSelectedDateTime ??= DateTime.Now;
-            SetCurrentValue(DisplayDateTimeProperty, _originalSelectedDateTime);
+            if (selectedDateTime is null)
+            {
+                _originalSelectedDateTime ??= DateTime.Now;
+                SetCurrentValue(DisplayDateTimeProperty, _originalSelectedDateTime);
+            }
+            else
+            {
+                SetCurrentValue(DisplayDateTimeProperty, selectedDateTime);
+            }
         }
 
         public virtual bool VerifyData()
@@ -427,9 +436,26 @@ namespace HandyControl.Controls
                 }
             }
 
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
+            var isError = !result.Data;
+            if (isError)
+            {
+                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+                SetCurrentValue(ErrorStrProperty, result.Message);
+            }
+            else
+            {
+                isError = Validation.GetHasError(this);
+                if (isError)
+                {
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
+                }
+                else
+                {
+                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                    SetCurrentValue(ErrorStrProperty, default(string));
+                }
+            }
+            return !isError;
         }
 
         public override string ToString() => SelectedDateTime?.ToString(DateTimeFormat) ?? string.Empty;

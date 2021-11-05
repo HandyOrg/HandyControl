@@ -69,7 +69,7 @@ namespace HandyControlDemo.Service
                     Index = i,
                     IsSelected = i % 2 == 0,
                     Name = $"Name{i}",
-                    Type = (DemoType) i,
+                    Type = (DemoType) (i % 6 + 1),
                     DataList = dataList,
                     ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i % 6 + 1}.png",
                     Remark = new string(i.ToString()[0], 10)
@@ -164,6 +164,12 @@ namespace HandyControlDemo.Service
                     DisplayName = "noctwolf",
                     AvatarUri = "https://avatars3.githubusercontent.com/u/21022467?s=400&v=4",
                     Link = "https://www.cnblogs.com/noctwolf/"
+                },
+                new AvatarModel
+                {
+                    DisplayName = "关关长语",
+                    AvatarUri = "https://avatars3.githubusercontent.com/u/25916858?s=400&v=4",
+                    Link = "https://blog.csdn.net/qq_28806349/category_11213909.html"
                 }
             };
         }

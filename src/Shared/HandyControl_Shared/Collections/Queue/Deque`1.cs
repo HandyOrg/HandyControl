@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 
-namespace HandyControl.Tools
+namespace HandyControl.Collections
 {
     [Serializable]
     public class Deque<T> : IEnumerable<T>, ICollection

@@ -60,6 +60,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml.cs">
       <DependentUpon>TextDialogWithTimer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml.cs">
+      <DependentUpon>AutoCompleteTextBoxDemoCtl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemoCtl.xaml.cs">
       <DependentUpon>ElementGroupDemoCtl.xaml</DependentUpon>
     </Compile>
@@ -294,9 +297,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\MainContent.xaml.cs">
       <DependentUpon>MainContent.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\QQGroupView.xaml.cs">
-      <DependentUpon>QQGroupView.xaml</DependentUpon>
-    </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\UnderConstruction.xaml.cs">
       <DependentUpon>UnderConstruction.xaml</DependentUpon>
     </Compile>
@@ -411,6 +411,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\ChatBoxViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\InteractiveDialogViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Common\ComboBoxDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\AutoCompleteTextBoxDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\BadgeDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\CardDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\CoverViewModel.cs" />
@@ -428,7 +429,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\TabControlDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\TagDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\WindowDemoViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\DemoViewModelBase!1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\DemoViewModelBase`1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Main\ItemsDisplayViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Main\MainViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Main\NonClientAreaViewModel.cs" />
@@ -540,6 +541,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -852,10 +857,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\MainContent.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Main\QQGroupView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

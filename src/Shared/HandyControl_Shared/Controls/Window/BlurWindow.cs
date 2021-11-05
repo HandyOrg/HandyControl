@@ -11,13 +11,13 @@ namespace HandyControl.Controls
     {
         protected override void OnSourceInitialized(EventArgs e)
         {
+            base.OnSourceInitialized(e);
+
             var versionInfo = SystemHelper.GetSystemVersionInfo();
             if (versionInfo >= SystemVersionInfo.Windows10_1903)
             {
                 this.GetHwndSource()?.AddHook(HwndSourceHook);
             }
-
-            base.OnSourceInitialized(e);
         }
 
         private IntPtr HwndSourceHook(IntPtr hwnd, int msg, IntPtr wparam, IntPtr lparam, ref bool handled)

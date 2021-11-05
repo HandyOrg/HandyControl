@@ -103,7 +103,7 @@ namespace HandyControl.Controls
         public bool ShowSortButton
         {
             get => (bool) GetValue(ShowSortButtonProperty);
-            set => SetValue(ShowSortButtonProperty, value);
+            set => SetValue(ShowSortButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static readonly DependencyProperty ShowSearchBarProperty = DependencyProperty.Register(

@@ -4,6 +4,15 @@
     <!--默认样式-->
     <Style BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox"/>
 
+    <Style x:Key="ListBoxItemBaseStyle.Small" BasedOn="{StaticResource ListBoxItemBaseStyle}" TargetType="ListBoxItem">
+        <Setter Property="Padding" Value="6,0"/>
+        <Setter Property="MinHeight" Value="24"/>
+    </Style>
+
+    <Style x:Key="ListBox.Small" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
+        <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle.Small}"/>
+    </Style>
+
     <Style x:Key="ListBoxItemCustom" TargetType="ListBoxItem">
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>

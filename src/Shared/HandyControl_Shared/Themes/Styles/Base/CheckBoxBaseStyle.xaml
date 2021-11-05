@@ -19,7 +19,7 @@
         <Setter Property="Background" Value="White"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Stretch"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="Padding" Value="6,0,0,0"/>
@@ -43,8 +43,8 @@
                             <ColumnDefinition Width="Auto"/>
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
-                        <Border Height="18" Width="18" x:Name="checkBoxBorder" Background="{TemplateBinding Background}" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                        <hc:SimplePanel Grid.Column="0" Height="18" Width="18" x:Name="markGrid">
+                        <Border Height="16" Width="16" x:Name="checkBoxBorder" Background="{TemplateBinding Background}" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <hc:SimplePanel Grid.Column="0" Height="16" Width="16" x:Name="markGrid">
                             <Path FlowDirection="LeftToRight" UseLayoutRounding="True" x:Name="path" StrokeDashOffset="8" StrokeDashArray="8,8" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
                             <Rectangle x:Name="indeterminateMark" RadiusX="2" RadiusY="2" Fill="{DynamicResource PrimaryBrush}" Margin="2" Opacity="0"/>
                         </hc:SimplePanel>

@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using HandyControl.Data;
 
-namespace HandyControl.Collections
+namespace HandyControl.Tools
 {
     public class DateTimeRangeComparer : IComparer<DateTimeRange>
     {

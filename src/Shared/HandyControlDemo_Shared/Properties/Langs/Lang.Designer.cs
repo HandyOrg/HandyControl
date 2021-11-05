@@ -125,6 +125,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to 自动补全文本框.
+        /// </summary>
+        public static string AutoCompleteTextBox
+        {
+            get
+            {
+                return ResourceManager.GetString("AutoCompleteTextBox", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to 标记.
         /// </summary>
         public static string Badge

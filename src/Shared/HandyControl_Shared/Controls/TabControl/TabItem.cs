@@ -141,7 +141,7 @@ namespace HandyControl.Controls
         public bool ShowCloseButton
         {
             get => (bool) GetValue(ShowCloseButtonProperty);
-            set => SetValue(ShowCloseButtonProperty, value);
+            set => SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static void SetShowCloseButton(DependencyObject element, bool value)

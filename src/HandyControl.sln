@@ -25,6 +25,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControlDemo_Code", "Sh
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Windows.Shell", "Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.shproj", "{BBE51380-8B21-49FF-9CFC-B29447A40999}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{7F52CFD3-EF6C-4D3C-A9D4-B25BF726382A}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.Props = Directory.Build.Props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5

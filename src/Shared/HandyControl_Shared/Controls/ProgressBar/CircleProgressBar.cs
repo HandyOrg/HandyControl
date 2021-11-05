@@ -55,7 +55,7 @@ namespace HandyControl.Controls
         public bool IsIndeterminate
         {
             get => (bool) GetValue(IsIndeterminateProperty);
-            set => SetValue(IsIndeterminateProperty, value);
+            set => SetValue(IsIndeterminateProperty, ValueBoxes.BooleanBox(value));
         }
 
         private void SetProgressBarIndicatorAngle()

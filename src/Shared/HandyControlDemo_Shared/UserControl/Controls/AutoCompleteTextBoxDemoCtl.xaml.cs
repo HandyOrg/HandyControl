@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl
 {
-    public partial class QQGroupView
+    public partial class AutoCompleteTextBoxDemoCtl
     {
-        public QQGroupView()
+        public AutoCompleteTextBoxDemoCtl()
         {
             InitializeComponent();
         }
