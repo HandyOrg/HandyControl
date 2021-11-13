@@ -32,6 +32,8 @@ namespace HandyControlDemo.Tools
             var netVersion = "NET 48";
 #elif NET5_0
             var netVersion = "NET 50";
+#elif NET6_0
+            var netVersion = "NET 60";
 #elif NETCOREAPP3_0
             var netVersion = "CORE 30";
 #elif NETCOREAPP3_1

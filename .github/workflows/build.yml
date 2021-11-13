@@ -6,7 +6,7 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@master
-      
+
       - name: build
         shell: pwsh
         run: |
