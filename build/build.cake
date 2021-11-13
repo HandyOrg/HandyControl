@@ -107,6 +107,13 @@ Task("Build")
         OutputDirectory = "lib/net5.0"
     };
 
+    var settingsNet60 = new DotNetCoreBuildSettings
+    {
+        Configuration = "Release",
+        Framework = "net6.0-windows",
+        OutputDirectory = "lib/net6.0"
+    };
+
     DotNetCoreBuild("../src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj", settingsNet40);
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsNet45);
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsNet451);
@@ -121,6 +128,7 @@ Task("Build")
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsCore30);
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsCore31);
     DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsNet50);
+    DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settingsNet60);
 });
 
 RunTarget(target);
