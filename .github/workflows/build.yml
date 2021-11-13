@@ -8,10 +8,10 @@ jobs:
         uses: actions/checkout@master
       
       - name: Install .NET 60
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: '6.0'
-        include-prerelease: True
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0'
+          include-prerelease: True
 
 
       - name: build
