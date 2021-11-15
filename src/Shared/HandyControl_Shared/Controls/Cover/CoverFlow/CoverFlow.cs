@@ -186,20 +186,9 @@ namespace HandyControl.Controls
         /// </summary>
         public void JumpTo(int index) => _jumpToIndex = index;
 
-        public void Next()
-        {
-            PageIndex = PageIndex + 1;
-        }
+        public void Next() => PageIndex++;
 
-        public void Previous()
-        {
-            PageIndex = PageIndex - 1;
-        }
-
-        public void GoTo(int index)
-        {
-            PageIndex = index;
-        }
+        public void Prev() => PageIndex--;
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
