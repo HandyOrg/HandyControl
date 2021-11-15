@@ -171,6 +171,10 @@ namespace HandyControl.Controls
         /// <param name="uri"></param>
         public void Add(Uri uri) => _contentDic.Add(_contentDic.Count, uri);
 
+        public void Next() => PageIndex++;
+
+        public void Prev() => PageIndex--;
+        
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
             base.OnMouseWheel(e);
