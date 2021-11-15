@@ -174,7 +174,7 @@ namespace HandyControl.Controls
         public void Next() => PageIndex++;
 
         public void Prev() => PageIndex--;
-        
+
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
             base.OnMouseWheel(e);
