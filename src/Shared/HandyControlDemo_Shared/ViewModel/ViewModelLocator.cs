@@ -39,6 +39,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<NotificationDemoViewModel>();
             SimpleIoc.Default.Register<SplitButtonDemoViewModel>();
             SimpleIoc.Default.Register<TagDemoViewModel>();
+            SimpleIoc.Default.Register<AutoCompleteTextBoxDemoViewModel>();
         }
 
         public static ViewModelLocator Instance = new Lazy<ViewModelLocator>(() =>
@@ -99,6 +100,8 @@ namespace HandyControlDemo.ViewModel
         public SplitButtonDemoViewModel SplitButtonDemo => SimpleIoc.Default.GetInstance<SplitButtonDemoViewModel>();
 
         public TagDemoViewModel TagDemo => new(SimpleIoc.Default.GetInstance<DataService>());
+
+        public AutoCompleteTextBoxDemoViewModel AutoCompleteTextBoxDemo => new(SimpleIoc.Default.GetInstance<DataService>());
 
         #endregion
     }

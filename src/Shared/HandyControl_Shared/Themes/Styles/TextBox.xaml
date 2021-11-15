@@ -6,8 +6,27 @@
 
     <Style BasedOn="{StaticResource TextBoxBaseStyle}" TargetType="TextBox"/>
 
+    <Style x:Key="TextBox.Small" BasedOn="{StaticResource TextBoxBaseStyle}" TargetType="TextBox">
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+
     <Style x:Key="TextBoxExtend" BasedOn="{StaticResource TextBoxExtendBaseStyle}" TargetType="TextBox"/>
 
+    <Style x:Key="TextBoxExtend.Small" BasedOn="{StaticResource TextBoxExtend}" TargetType="TextBox">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+
     <Style BasedOn="{StaticResource TextBoxPlusBaseStyle}" TargetType="hc:TextBox"/>
+
+    <Style x:Key="TextBoxPlus.Small" BasedOn="{StaticResource TextBoxPlusBaseStyle}" TargetType="hc:TextBox">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
 
 </ResourceDictionary>

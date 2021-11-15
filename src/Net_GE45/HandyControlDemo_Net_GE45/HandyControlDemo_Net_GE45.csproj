@@ -404,6 +404,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\GridPane_16x.png">
       <Link>Resources\Img\LeftMainContent\GridPane_16x.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\LeftMainContent\AutoComplete_16x.png">
+      <Link>Resources\Img\LeftMainContent\AutoComplete_16x.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\under_construction.gif">
       <Link>Resources\Img\under_construction.gif</Link>
     </Resource>

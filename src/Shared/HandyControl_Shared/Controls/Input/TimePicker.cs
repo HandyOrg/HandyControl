@@ -406,7 +406,7 @@ namespace HandyControl.Controls
                 isError = Validation.GetHasError(this);
                 if (isError)
                 {
-                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
                 }
                 else
                 {

@@ -798,4 +798,7 @@
   <data name="ElementGroup" xml:space="preserve">
     <value>元素组</value>
   </data>
+  <data name="AutoCompleteTextBox" xml:space="preserve">
+    <value>自动补全文本框</value>
+  </data>
 </root>

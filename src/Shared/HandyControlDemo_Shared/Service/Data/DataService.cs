@@ -69,7 +69,7 @@ namespace HandyControlDemo.Service
                     Index = i,
                     IsSelected = i % 2 == 0,
                     Name = $"Name{i}",
-                    Type = (DemoType) i,
+                    Type = (DemoType) (i % 6 + 1),
                     DataList = dataList,
                     ImgPath = $"/HandyControlDemo;component/Resources/Img/Avatar/avatar{i % 6 + 1}.png",
                     Remark = new string(i.ToString()[0], 10)

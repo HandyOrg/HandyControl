@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using System.Windows;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
+using HandyControl.Data;
 using HandyControl.Tools;
 
 // ReSharper disable PossibleInvalidOperationException
@@ -173,7 +174,7 @@ namespace HandyControl.Media.Animation
         public bool IsCumulative
         {
             get => (bool) GetValue(IsCumulativeProperty);
-            set => SetValue(IsCumulativeProperty, value);
+            set => SetValue(IsCumulativeProperty, ValueBoxes.BooleanBox(value));
         }
     }
 }

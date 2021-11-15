@@ -17,26 +17,56 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="RepeatButtonDefault.Small" BasedOn="{StaticResource RepeatButtonDefault}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+    </Style>
+
     <Style BasedOn="{StaticResource RepeatButtonDefault}" TargetType="RepeatButton"/>
     
     <Style x:Key="RepeatButtonPrimary" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
+
+    <Style x:Key="RepeatButtonPrimary.Small" BasedOn="{StaticResource RepeatButtonPrimary}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,2"/>
+    </Style>
     
     <Style x:Key="RepeatButtonSuccess" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonSuccess.Small" BasedOn="{StaticResource RepeatButtonSuccess}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,2"/>
     </Style>
     
     <Style x:Key="RepeatButtonInfo" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
     </Style>
+
+    <Style x:Key="RepeatButtonInfo.Small" BasedOn="{StaticResource RepeatButtonInfo}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,2"/>
+    </Style>
     
     <Style x:Key="RepeatButtonWarning" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
     </Style>
+
+    <Style x:Key="RepeatButtonWarning.Small" BasedOn="{StaticResource RepeatButtonWarning}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,2"/>
+    </Style>
     
     <Style x:Key="RepeatButtonDanger" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonDanger.Small" BasedOn="{StaticResource RepeatButtonDanger}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,2"/>
     </Style>
 
     <!--endregion-->
@@ -59,6 +89,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="RepeatButtonIcon.Small" BasedOn="{StaticResource RepeatButtonIcon}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,2"/>
     </Style>
 
     <Style x:Key="RepeatButtonIconCircular" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
@@ -92,6 +127,12 @@
         </Setter>
     </Style>
 
+    <Style x:Key="RepeatButtonIconCircular.Small" BasedOn="{StaticResource RepeatButtonIconCircular}" TargetType="RepeatButton">
+        <Setter Property="Width" Value="20"/>
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="1"/>
+    </Style>
+
     <!--endregion-->
 
     <!--region ButtonDashed-->
@@ -106,9 +147,19 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="RepeatButtonDashed.Small" BasedOn="{StaticResource RepeatButtonDashed}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+    </Style>
+
     <Style x:Key="RepeatButtonDashedPrimary" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonDashedPrimary.Small" BasedOn="{StaticResource RepeatButtonDashedPrimary}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
     </Style>
 
     <Style x:Key="RepeatButtonDashedSuccess" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
@@ -116,9 +167,19 @@
         <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
     </Style>
 
+    <Style x:Key="RepeatButtonDashedSuccess.Small" BasedOn="{StaticResource RepeatButtonDashedSuccess}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+    </Style>
+
     <Style x:Key="RepeatButtonDashedInfo" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Foreground" Value="{DynamicResource InfoBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonDashedInfo.Small" BasedOn="{StaticResource RepeatButtonDashedInfo}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
     </Style>
 
     <Style x:Key="RepeatButtonDashedWarning" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
@@ -126,9 +187,19 @@
         <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
     </Style>
 
+    <Style x:Key="RepeatButtonDashedWarning.Small" BasedOn="{StaticResource RepeatButtonDashedWarning}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+    </Style>
+
     <Style x:Key="RepeatButtonDashedDanger" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Foreground" Value="{DynamicResource DangerBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
+    <Style x:Key="RepeatButtonDashedDanger.Small" BasedOn="{StaticResource RepeatButtonDashedDanger}" TargetType="RepeatButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
     </Style>
 
     <!--endregion-->

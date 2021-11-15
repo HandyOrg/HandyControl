@@ -21,7 +21,8 @@ namespace HandyControlDemo.UserControl
                 new Uri(@"pack://application:,,,/Resources/Img/Album/9.jpg"),
                 new Uri(@"pack://application:,,,/Resources/Img/Album/10.jpg")
             });
-            CoverFlowMain.JumpTo(2);
+
+            CoverFlowMain.PageIndex = 2;
         }
     }
 }

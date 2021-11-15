@@ -4,8 +4,34 @@
 
     <Style BasedOn="{StaticResource CheckComboBoxBaseStyle}" TargetType="hc:CheckComboBox"/>
 
+    <Style x:Key="Tag4CheckComboBoxStyle.Small" BasedOn="{StaticResource Tag4CheckComboBoxStyle}" TargetType="hc:Tag">
+        <Setter Property="Padding" Value="6,0,4,0"/>
+    </Style>
+
+    <Style x:Key="CheckComboBox.Small" BasedOn="{StaticResource CheckComboBoxBaseStyle}" TargetType="hc:CheckComboBox">
+        <Setter Property="TagStyle" Value="{StaticResource Tag4CheckComboBoxStyle.Small}"/>
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+    </Style>
+
     <Style x:Key="CheckComboBoxExtend" BasedOn="{StaticResource CheckComboBoxExtendBaseStyle}" TargetType="hc:CheckComboBox"/>
 
+    <Style x:Key="CheckComboBoxExtend.Small" BasedOn="{StaticResource CheckComboBoxExtend}" TargetType="hc:CheckComboBox">
+        <Setter Property="TagStyle" Value="{StaticResource Tag4CheckComboBoxStyle.Small}"/>
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+    </Style>
+
     <Style x:Key="CheckComboBoxPlus" BasedOn="{StaticResource CheckComboBoxPlusBaseStyle}" TargetType="hc:CheckComboBox"/>
+
+    <Style x:Key="CheckComboBoxPlus.Small" BasedOn="{StaticResource CheckComboBoxPlus}" TargetType="hc:CheckComboBox">
+        <Setter Property="TagStyle" Value="{StaticResource Tag4CheckComboBoxStyle.Small}"/>
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+    </Style>
 
 </ResourceDictionary>

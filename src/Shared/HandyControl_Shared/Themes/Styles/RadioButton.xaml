@@ -4,6 +4,40 @@
 
     <Style BasedOn="{StaticResource RadioButtonBaseStyle}" TargetType="RadioButton"/>
 
+    <Style x:Key="RadioButtonSameAsButtonDefault" BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}" TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+            </Trigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="RadioButtonSameAsButtonPrimary" BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}" TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="RadioButtonSameAsButtonSuccess" BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}" TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+    </Style>
+
+    <Style x:Key="RadioButtonSameAsButtonInfo" BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}" TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="RadioButtonSameAsButtonWarning" BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}" TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
+    </Style>
+
+    <Style x:Key="RadioButtonSameAsButtonDanger" BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}" TargetType="RadioButton">
+        <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
     <Style x:Key="RadioButtonIcon" BasedOn="{StaticResource RadioButtonIconBaseStyle}" TargetType="RadioButton"/>
 
     <Style x:Key="RadioGroupItemDefault" BasedOn="{StaticResource RadioGroupItemBaseStyle}" TargetType="RadioButton"/>

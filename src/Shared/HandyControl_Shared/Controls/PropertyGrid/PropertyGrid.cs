@@ -99,7 +99,7 @@ namespace HandyControl.Controls
         public bool ShowSortButton
         {
             get => (bool) GetValue(ShowSortButtonProperty);
-            set => SetValue(ShowSortButtonProperty, value);
+            set => SetValue(ShowSortButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         public override void OnApplyTemplate()

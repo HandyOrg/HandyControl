@@ -128,7 +128,7 @@ namespace HandyControl.Controls
 
                 if (Validation.GetHasError(this))
                 {
-                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent);
+                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
                     SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
                 }
             }

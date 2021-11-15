@@ -44,7 +44,7 @@
     "demoItemList": [
       [ "FloatingBlock", "FloatingBlockDemoCtl", "thumbs_up", "", "Interacting" ],
       [ "PropertyGrid", "PropertyGridDemoCtl", "PropertyGridEditorPart_16x", "", "DataEntry" ],
-      [ "ImageSelector", "ImageSelectorDemoCtl", "Image_16x", "1", "DataEntry" ],
+      [ "ImageSelector", "ImageSelectorDemoCtl", "Image_16x", "", "DataEntry" ],
       [ "ImageBlock", "ImageBlockDemoCtl", "ImageStack_16x", "", "DataDisplay" ],
       [ "Magnifier", "MagnifierDemoCtl", "Search_16x", "", "Interacting" ],
       [ "Gravatar", "GravatarDemoCtl", "User_16x", "", "DataDisplay" ],
@@ -57,6 +57,7 @@
       [ "TextBox", "TextBoxDemoCtl", "TextBox_16x", "", "DataEntry" ],
       [ "ComboBox", "ComboBoxDemoCtl", "ComboBox_16x", "", "DataEntry" ],
       [ "CheckComboBox", "CheckComboBoxDemoCtl", "CheckBoxList_16x", "1", "DataEntry" ],
+      [ "AutoCompleteTextBox", "AutoCompleteTextBoxDemoCtl", "AutoComplete_16x", "1", "DataEntry" ],
       [ "PasswordBox", "PasswordBoxDemoCtl", "PasswordBox_16x", "", "DataEntry" ],
       [ "PinBox", "PinBoxDemoCtl", "Ellipsis_16x", "", "DataEntry" ],
       [ "DatePicker", "DatePickerDemoCtl", "DatePicker_16x", "", "DataEntry" ],
