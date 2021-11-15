@@ -21,7 +21,7 @@ namespace HandyControl.Controls
             add => AddHandler(ImageSelectedEvent, value);
             remove => RemoveHandler(ImageSelectedEvent, value);
         }
-        
+
         public ImageSelector() => CommandBindings.Add(new CommandBinding(ControlCommands.Switch, SwitchImage));
 
         private void SwitchImage(object sender, ExecutedRoutedEventArgs e)
