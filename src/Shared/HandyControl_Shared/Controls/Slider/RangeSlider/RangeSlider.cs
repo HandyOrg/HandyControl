@@ -271,15 +271,10 @@ namespace HandyControl.Controls
                     var newValue = _track.ValueFromPoint(pt);
                     if (ValidateHelper.IsInRangeOfDouble(newValue))
                     {
-                        var dir = (ValueStart + ValueEnd) / 2 > newValue;
-                        if (!dir)
+                        isStart = (ValueStart + ValueEnd) / 2 > newValue;
+                        if (!isStart)
                         {
-                            isStart = false;
                             direction = -Math.Abs(direction);
-                        }
-                        else
-                        {
-                            isStart = true;
                         }
                     }
                 }
