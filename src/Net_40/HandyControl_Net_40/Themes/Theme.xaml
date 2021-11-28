@@ -11535,13 +11535,14 @@
 		<Setter Property="Background" Value="Transparent" />
 		<Setter Property="Padding" Value="10,0" />
 		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="TreeViewItem">
 					<Grid>
 						<Grid.RowDefinitions>
-							<RowDefinition MinHeight="{StaticResource DefaultControlHeight}" />
-							<RowDefinition />
+							<RowDefinition MinHeight="{TemplateBinding MinHeight}" />
+							<RowDefinition Height="Auto" />
 						</Grid.RowDefinitions>
 						<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
 							<DockPanel LastChildFill="True" Margin="{Binding Converter={StaticResource TreeViewItemMarginConverter}, RelativeSource={RelativeSource TemplatedParent}}">
@@ -13269,6 +13270,13 @@
 	<Style BasedOn="{StaticResource TransferBaseStyle}" TargetType="hc:Transfer" />
 	<Style BasedOn="{StaticResource TreeViewItemBaseStyle}" TargetType="TreeViewItem" />
 	<Style BasedOn="{StaticResource TreeViewBaseStyle}" TargetType="TreeView" />
+	<Style x:Key="TreeViewItemBaseStyle.Small" BasedOn="{StaticResource TreeViewItemBaseStyle}" TargetType="TreeViewItem">
+		<Setter Property="Padding" Value="6,0" />
+		<Setter Property="MinHeight" Value="24" />
+	</Style>
+	<Style x:Key="TreeView.Small" BasedOn="{StaticResource TreeViewBaseStyle}" TargetType="TreeView">
+		<Setter Property="ItemContainerStyle" Value="{StaticResource TreeViewItemBaseStyle.Small}" />
+	</Style>
 	<Style BasedOn="{StaticResource WatermarkBaseStyle}" TargetType="hc:Watermark" />
 	<Style BasedOn="{StaticResource AutoCompleteTextBoxBaseStyle}" TargetType="hc:AutoCompleteTextBox" />
 	<ControlTemplate x:Key="TipSliderThumbHorizontalTop" TargetType="Thumb">
