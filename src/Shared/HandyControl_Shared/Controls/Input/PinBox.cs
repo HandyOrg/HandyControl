@@ -58,6 +58,28 @@ namespace HandyControl.Controls
 
             _passwordBoxsGotFocusEventHandler = PasswordBoxsGotFocus;
             AddHandler(GotFocusEvent, _passwordBoxsGotFocusEventHandler);
+
+            FocusPasswordBox();
+        }
+
+        private void FocusPasswordBox()
+        {
+            if (!IsFocused)
+            {
+                return;
+            }
+
+            if (_panel.Children.Count == 0)
+            {
+                return;
+            }
+
+            if (_panel.Children.OfType<System.Windows.Controls.PasswordBox>().Any(box => box.IsFocused))
+            {
+                return;
+            }
+
+            FocusManager.SetFocusedElement(this, _panel.Children[0]);
         }
 
         private void PasswordBoxsPasswordChanged(object sender, RoutedEventArgs e)
