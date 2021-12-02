@@ -90,6 +90,7 @@ Styles\Base\GotoTopBaseStyle.xaml
 Styles\Base\GravatarBaseStyle.xaml
 Styles\Base\ImageSelectorBaseStyle.xaml
 Styles\Base\ListBoxBaseStyle.xaml
+Styles\Base\ListViewBaseStyle.xaml
 Styles\Base\LoadingBaseStyle.xaml
 Styles\Base\LoadingCircleBaseStyle.xaml
 Styles\Base\LoadingLineBaseStyle.xaml
