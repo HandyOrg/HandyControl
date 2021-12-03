@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
@@ -67,6 +68,8 @@ namespace HandyControl.Controls
             var totalCellCount = 0;
             var gutterHalf = Gutter / 2;
             var itemWidth = (finalSize.Width - _totalAutoWidth + Gutter) / ColLayout.ColMaxCellCount;
+            itemWidth = Math.Max(0, itemWidth);
+
             var childBounds = new Rect(-gutterHalf, -gutterHalf, 0, _maxChildDesiredHeight);
             _layoutStatus = ColLayout.GetLayoutStatus(finalSize.Width);
 
