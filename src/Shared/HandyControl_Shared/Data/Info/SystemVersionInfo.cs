@@ -8,6 +8,7 @@ namespace HandyControl.Data
     public readonly struct SystemVersionInfo
     {
         public static SystemVersionInfo Windows10 => new(10, 0, 10240);
+        public static SystemVersionInfo Windows11 => new(10, 0, 22000);
 
         public static SystemVersionInfo Windows10_1809 => new(10, 0, 17763);
 

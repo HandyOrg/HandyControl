@@ -8,6 +8,10 @@ using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 using HandyControl.Tools.Interop;
+using System.Windows.Automation.Peers;
+using System.Windows.Automation.Provider;
+using System.Windows.Controls;
+using HandyControl.Tools.Helper;
 #if NET40
 using Microsoft.Windows.Shell;
 #else
@@ -41,6 +45,15 @@ namespace HandyControl.Controls
 
         private UIElement _nonClientArea;
 
+        #region SnapLayout
+        /// <summary>DPI Scale for current display</summary>
+        private const double DPI_SCALE = 1.5;
+        private const int HTMAXBUTTON = 9;
+        private const string ButtonMax = "ButtonMax";
+        private const string ButtonRestore = "ButtonRestore";
+        private Button _ButtonMax;
+        private Button _ButtonRestore;
+        #endregion
         #endregion
 
         #region ctor
@@ -246,6 +259,8 @@ namespace HandyControl.Controls
             base.OnApplyTemplate();
 
             _nonClientArea = GetTemplateChild(ElementNonClientArea) as UIElement;
+            _ButtonMax = GetTemplateChild(ButtonMax) as Button;
+            _ButtonRestore = GetTemplateChild(ButtonRestore) as Button;
         }
 
         #endregion
@@ -361,21 +376,65 @@ namespace HandyControl.Controls
                     WmGetMinMaxInfo(hwnd, lparam);
                     Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
                     break;
+                #region SnapLayout
                 case InteropValues.WM_NCHITTEST:
-                    // for fixing #886
-                    // https://developercommunity.visualstudio.com/t/overflow-exception-in-windowchrome/167357
                     try
                     {
-                        _ = lparam.ToInt32();
+                        int x = lparam.ToInt32() & 0xffff;
+                        if (IsWin11SnaplayoutSupported())
+                        {
+                            int y = lparam.ToInt32() >> 16;
+                            var _button = WindowState == WindowState.Maximized ? _ButtonRestore : _ButtonMax;
+                            var rect = new Rect(_button.PointToScreen(
+                                new Point()),
+                                new Size(_button.Width * DPI_SCALE, _button.Height * DPI_SCALE));
+                            if (rect.Contains(new Point(x, y)))
+                            {
+                                handled = true;
+                                _button.Background = OtherButtonHoverBackground;
+                            }
+                            else
+                            {
+                                _button.Background = OtherButtonBackground;
+                            }
+                            return new IntPtr(HTMAXBUTTON);
+                        }
                     }
                     catch (OverflowException)
                     {
                         handled = true;
                     }
                     break;
+                case InteropValues.WM_NCLBUTTONDOWN:
+                    if (IsWin11SnaplayoutSupported())
+                    {
+                        int x = lparam.ToInt32() & 0xffff;
+                        int y = lparam.ToInt32() >> 16;
+                        var _button = WindowState == WindowState.Maximized ? _ButtonRestore : _ButtonMax;
+                        var rect = new Rect(_button.PointToScreen(
+                            new Point()),
+                            new Size(_button.Width * DPI_SCALE, _button.Height * DPI_SCALE));
+                        if (rect.Contains(new Point(x, y)))
+                        {
+                            handled = true;
+                            IInvokeProvider invokeProv = new ButtonAutomationPeer(_button).GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                            invokeProv?.Invoke();
+                        }
+                    }
+                    break;
+                default:
+                    handled = false;
+                    break;
+                    #endregion
             }
 
             return IntPtr.Zero;
+        }
+
+        private bool IsWin11SnaplayoutSupported()
+        {
+            var versionInfo = SystemHelper.GetSystemVersionInfo();
+            return versionInfo >= SystemVersionInfo.Windows11;
         }
 
         private static void OnShowNonClientAreaChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

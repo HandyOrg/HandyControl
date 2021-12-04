@@ -57,6 +57,7 @@ namespace HandyControl.Tools.Interop
             WM_NCCREATE = 0x0081,
             WM_NCDESTROY = 0x0082,
             WM_NCHITTEST = 0x0084,
+            WM_NCLBUTTONDOWN = 0x00A1,
             WM_NCACTIVATE = 0x0086,
             WM_NCRBUTTONDOWN = 0x00A4,
             WM_NCRBUTTONUP = 0x00A5,
