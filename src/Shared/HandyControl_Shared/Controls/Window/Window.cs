@@ -46,8 +46,6 @@ namespace HandyControl.Controls
         private UIElement _nonClientArea;
 
         #region SnapLayout
-        /// <summary>DPI Scale for current display</summary>
-        private const double DPI_SCALE = 1.5;
         private const int HTMAXBUTTON = 9;
         private const string ButtonMax = "ButtonMax";
         private const string ButtonRestore = "ButtonRestore";
@@ -384,6 +382,7 @@ namespace HandyControl.Controls
                         if (IsWin11SnaplayoutSupported())
                         {
                             int y = lparam.ToInt32() >> 16;
+                            var DPI_SCALE = DpiHelper.LogicalToDeviceUnitsScalingFactorX;
                             var _button = WindowState == WindowState.Maximized ? _ButtonRestore : _ButtonMax;
                             var rect = new Rect(_button.PointToScreen(
                                 new Point()),
@@ -410,6 +409,7 @@ namespace HandyControl.Controls
                     {
                         int x = lparam.ToInt32() & 0xffff;
                         int y = lparam.ToInt32() >> 16;
+                        var DPI_SCALE = DpiHelper.LogicalToDeviceUnitsScalingFactorX;
                         var _button = WindowState == WindowState.Maximized ? _ButtonRestore : _ButtonMax;
                         var rect = new Rect(_button.PointToScreen(
                             new Point()),
