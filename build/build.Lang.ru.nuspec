@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HandyControl.Lang.ru</id>
-    <version>3.2.0</version>
+    <version>3.3.0</version>
     <title>HandyOrg</title>
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
@@ -14,7 +14,7 @@
     <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
     <copyright>Copyright © HandyOrg 2018-2021</copyright>
     <tags>WPF C# Control</tags>
-    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="2aff85c4e2e903f9962899288dce92d27fda2a4c" />
+    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="083639031635a4b9618842b2be589324d8676055" />
     <dependencies>
       <group targetFramework=".NETFramework4.0" />
       <group targetFramework=".NETFramework4.5" />
