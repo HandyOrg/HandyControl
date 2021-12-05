@@ -14,7 +14,6 @@ using System.Windows.Controls;
 using HandyControl.Tools.Helper;
 #if NET40
 using Microsoft.Windows.Shell;
-using DpiHelper = HandyControl.Tools.DpiHelper;
 #else
 using System.Windows.Shell;
 #endif
