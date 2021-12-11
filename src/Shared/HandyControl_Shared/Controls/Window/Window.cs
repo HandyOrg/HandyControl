@@ -379,7 +379,7 @@ namespace HandyControl.Controls
                     try
                     {
                         int x = lparam.ToInt32() & 0xffff;
-                        if (IsWin11SnaplayoutSupported())
+                        if (IsWin11SnaplayoutSupported() && ShowNonClientArea)
                         {
                             int y = lparam.ToInt32() >> 16;
                             var DPI_SCALE = DpiHelper.LogicalToDeviceUnitsScalingFactorX;
@@ -405,7 +405,7 @@ namespace HandyControl.Controls
                     }
                     break;
                 case InteropValues.WM_NCLBUTTONDOWN:
-                    if (IsWin11SnaplayoutSupported())
+                    if (IsWin11SnaplayoutSupported() && ShowNonClientArea)
                     {
                         int x = lparam.ToInt32() & 0xffff;
                         int y = lparam.ToInt32() >> 16;
