@@ -11728,6 +11728,7 @@
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="CaretBrush" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
 		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
 		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
@@ -11745,7 +11746,7 @@
 				<ControlTemplate TargetType="hc:AutoCompleteTextBox">
 					<hc:SimplePanel>
 						<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-							<TextBox x:Name="PART_SearchTextBox" Padding="{TemplateBinding Padding}" Style="{StaticResource AutoCompleteTextBoxInternal}" />
+							<TextBox x:Name="PART_SearchTextBox" CaretBrush="{TemplateBinding CaretBrush}" Padding="{TemplateBinding Padding}" Style="{StaticResource AutoCompleteTextBoxInternal}" />
 						</Border>
 						<Popup x:Name="PART_Popup" AllowsTransparency="true" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
 							<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
