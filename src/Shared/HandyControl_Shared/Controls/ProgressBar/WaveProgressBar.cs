@@ -25,8 +25,6 @@ namespace HandyControl.Controls
 
         private TranslateTransform _translateTransform;
 
-        public WaveProgressBar() => Loaded += (s, e) => UpdateWave(Value);
-
         static WaveProgressBar()
         {
             FocusableProperty.OverrideMetadata(typeof(WaveProgressBar), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
@@ -60,15 +58,19 @@ namespace HandyControl.Controls
 
             if (_waveElement != null && clipElement != null)
             {
+                var clipElementHeight = clipElement.Height;
+
                 _translateTransform = new TranslateTransform
                 {
-                    Y = clipElement.Height
+                    Y = clipElementHeight
                 };
-                _translateTransformYRange = clipElement.Height - TranslateTransformMinY;
+                _translateTransformYRange = clipElementHeight - TranslateTransformMinY;
                 _waveElement.RenderTransform = new TransformGroup
                 {
                     Children = { _translateTransform }
                 };
+
+                UpdateWave(Value);
             }
         }
 
