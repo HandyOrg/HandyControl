@@ -72,7 +72,7 @@ namespace HandyControl.Tools.Interop
             string lpszWindow);
 
         [DllImport(InteropValues.ExternDll.User32)]
-        internal static extern int GetWindowRect(IntPtr hwnd, out InteropValues.RECT lpRect);
+        internal static extern bool GetWindowRect(IntPtr hwnd, out InteropValues.RECT lpRect);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto)]
         internal static extern bool GetCursorPos(out InteropValues.POINT pt);
@@ -380,14 +380,9 @@ namespace HandyControl.Tools.Interop
 
         internal static int GetWindowLong(IntPtr hWnd, InteropValues.GWL nIndex) => GetWindowLong(hWnd, (int) nIndex);
 
-        internal static IntPtr SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong)
-        {
-            if (IntPtr.Size == 4)
-            {
-                return SetWindowLongPtr32(hWnd, nIndex, dwNewLong);
-            }
-            return SetWindowLongPtr64(hWnd, nIndex, dwNewLong);
-        }
+        internal static IntPtr SetWindowLong(IntPtr hWnd, int nIndex, IntPtr dwNewLong) => IntPtr.Size == 4
+            ? SetWindowLongPtr32(hWnd, nIndex, dwNewLong)
+            : SetWindowLongPtr64(hWnd, nIndex, dwNewLong);
 
         [DllImport(InteropValues.ExternDll.User32, CharSet = CharSet.Auto, EntryPoint = "SetWindowLong")]
         internal static extern IntPtr SetWindowLongPtr32(IntPtr hWnd, int nIndex, IntPtr dwNewLong);
@@ -448,6 +443,10 @@ namespace HandyControl.Tools.Interop
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool GetMonitorInfo(IntPtr hMonitor, ref InteropValues.MONITORINFO monitorInfo);
 
+        [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true)]
+        [ResourceExposure(ResourceScope.None)]
+        public static extern IntPtr MonitorFromRect(ref InteropValues.RECT rect, int flags);
+
         [DllImport(InteropValues.ExternDll.Gdi32, SetLastError = true)]
         internal static extern IntPtr CreateDIBSection(IntPtr hdc, ref InteropValues.BITMAPINFO pbmi, uint iUsage, out IntPtr ppvBits, IntPtr hSection, uint dwOffset);
 
@@ -470,6 +469,9 @@ namespace HandyControl.Tools.Interop
         [ResourceExposure(ResourceScope.None)]
         internal static extern bool EnableWindow(IntPtr hWnd, bool enable);
 
+        [DllImport(InteropValues.ExternDll.User32)]
+        public static extern bool ShowWindow(IntPtr hwnd, InteropValues.SW nCmdShow);
+
         [ReflectionPermission(SecurityAction.Assert, Unrestricted = true), SecurityPermission(SecurityAction.Assert, Flags = SecurityPermissionFlag.UnmanagedCode)]
         internal static object PtrToStructure(IntPtr lparam, Type cls) => Marshal.PtrToStructure(lparam, cls);
 
@@ -483,6 +485,23 @@ namespace HandyControl.Tools.Interop
         [SecurityCritical]
         [DllImport(InteropValues.ExternDll.DwmApi, EntryPoint = "DwmGetColorizationColor", PreserveSig = true)]
         internal static extern int DwmGetColorizationColor(out uint pcrColorization, out bool pfOpaqueBlend);
+
+        [DllImport(InteropValues.ExternDll.DwmApi, ExactSpelling = true, SetLastError = true)]
+        internal static extern int DwmSetWindowAttribute(IntPtr hwnd, InteropValues.DwmWindowAttribute dwAttribute,
+            in int pvAttribute, uint cbAttribute);
+
+        [DllImport(InteropValues.ExternDll.User32, EntryPoint = "GetWindowLong")]
+        private static extern IntPtr GetWindowLongPtr32(IntPtr hWnd, int nIndex);
+
+        [DllImport(InteropValues.ExternDll.User32, EntryPoint = "GetWindowLongPtr")]
+        private static extern IntPtr GetWindowLongPtr64(IntPtr hWnd, int nIndex);
+
+        internal static IntPtr GetWindowLongPtr(IntPtr hWnd, int nIndex) =>
+            IntPtr.Size == 8 ? GetWindowLongPtr64(hWnd, nIndex) : GetWindowLongPtr32(hWnd, nIndex);
+
+        [DllImport(InteropValues.ExternDll.User32, ExactSpelling = true, CharSet = CharSet.Auto)]
+        [ResourceExposure(ResourceScope.None)]
+        internal static extern bool SetWindowPlacement(IntPtr hWnd, [In] ref InteropValues.WINDOWPLACEMENT placement);
 
         #endregion
 

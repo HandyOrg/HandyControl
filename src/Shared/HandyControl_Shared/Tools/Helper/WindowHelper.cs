@@ -6,9 +6,11 @@ using System.Runtime.InteropServices;
 using System.Security;
 using System.Windows;
 using System.Windows.Interop;
+using HandyControl.Controls;
 using HandyControl.Tools.Extension;
 using HandyControl.Tools.Helper;
 using HandyControl.Tools.Interop;
+using Window = System.Windows.Window;
 
 namespace HandyControl.Tools
 {
@@ -195,5 +197,9 @@ namespace HandyControl.Tools
         ///     开始使用触摸拖动窗口，在触摸抬起后自动结束
         /// </summary>
         public static void TouchDragMove(this Window window) => new TouchDragMoveWindowHelper(window).Start();
+
+        public static void StartFullScreen(this Window window) => FullScreenHelper.StartFullScreen(window);
+
+        public static void EndFullScreen(this Window window) => FullScreenHelper.EndFullScreen(window);
     }
 }
