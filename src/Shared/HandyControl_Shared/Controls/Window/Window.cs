@@ -384,19 +384,22 @@ namespace HandyControl.Controls
                             int y = lparam.ToInt32() >> 16;
                             var DPI_SCALE = DpiHelper.LogicalToDeviceUnitsScalingFactorX;
                             var _button = WindowState == WindowState.Maximized ? _ButtonRestore : _ButtonMax;
-                            var rect = new Rect(_button.PointToScreen(
+                            if (_button != null)
+                            {
+                                var rect = new Rect(_button.PointToScreen(
                                 new Point()),
                                 new Size(_button.Width * DPI_SCALE, _button.Height * DPI_SCALE));
-                            if (rect.Contains(new Point(x, y)))
-                            {
-                                handled = true;
-                                _button.Background = OtherButtonHoverBackground;
+                                if (rect.Contains(new Point(x, y)))
+                                {
+                                    handled = true;
+                                    _button.Background = OtherButtonHoverBackground;
+                                }
+                                else
+                                {
+                                    _button.Background = OtherButtonBackground;
+                                }
+                                return new IntPtr(HTMAXBUTTON);
                             }
-                            else
-                            {
-                                _button.Background = OtherButtonBackground;
-                            }
-                            return new IntPtr(HTMAXBUTTON);
                         }
                     }
                     catch (OverflowException)
@@ -411,14 +414,17 @@ namespace HandyControl.Controls
                         int y = lparam.ToInt32() >> 16;
                         var DPI_SCALE = DpiHelper.LogicalToDeviceUnitsScalingFactorX;
                         var _button = WindowState == WindowState.Maximized ? _ButtonRestore : _ButtonMax;
-                        var rect = new Rect(_button.PointToScreen(
+                        if (_button != null)
+                        {
+                            var rect = new Rect(_button.PointToScreen(
                             new Point()),
                             new Size(_button.Width * DPI_SCALE, _button.Height * DPI_SCALE));
-                        if (rect.Contains(new Point(x, y)))
-                        {
-                            handled = true;
-                            IInvokeProvider invokeProv = new ButtonAutomationPeer(_button).GetPattern(PatternInterface.Invoke) as IInvokeProvider;
-                            invokeProv?.Invoke();
+                            if (rect.Contains(new Point(x, y)))
+                            {
+                                handled = true;
+                                IInvokeProvider invokeProv = new ButtonAutomationPeer(_button).GetPattern(PatternInterface.Invoke) as IInvokeProvider;
+                                invokeProv?.Invoke();
+                            }
                         }
                     }
                     break;
