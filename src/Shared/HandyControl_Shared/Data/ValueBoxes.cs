@@ -1,4 +1,6 @@
-﻿namespace HandyControl.Data
+﻿using System.Windows.Controls;
+
+namespace HandyControl.Data
 {
     /// <summary>
     ///     装箱后的值类型（用于提高效率）
@@ -8,6 +10,10 @@
         internal static object TrueBox = true;
 
         internal static object FalseBox = false;
+
+        internal static object VerticalBox = Orientation.Vertical;
+
+        internal static object HorizontalBox = Orientation.Horizontal;
 
         internal static object Double0Box = .0;
 
@@ -38,5 +44,8 @@
         internal static object Int99Box = 99;
 
         internal static object BooleanBox(bool value) => value ? TrueBox : FalseBox;
+
+        internal static object OrientationBox(Orientation value) =>
+            value == Orientation.Horizontal ? HorizontalBox : VerticalBox;
     }
 }

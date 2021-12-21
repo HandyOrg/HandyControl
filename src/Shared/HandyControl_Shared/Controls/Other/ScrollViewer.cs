@@ -18,21 +18,6 @@ namespace HandyControl.Controls
         private bool _isRunning;
 
         /// <summary>
-        ///     滚动方向
-        /// </summary>
-        public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-            "Orientation", typeof(Orientation), typeof(ScrollViewer), new PropertyMetadata(Orientation.Vertical));
-
-        /// <summary>
-        ///     滚动方向
-        /// </summary>
-        public Orientation Orientation
-        {
-            get => (Orientation) GetValue(OrientationProperty);
-            set => SetValue(OrientationProperty, value);
-        }
-
-        /// <summary>
         ///     是否响应鼠标滚轮操作
         /// </summary>
         public static readonly DependencyProperty CanMouseWheelProperty = DependencyProperty.Register(
@@ -53,7 +38,7 @@ namespace HandyControl.Controls
 
             if (!IsInertiaEnabled)
             {
-                if (Orientation == Orientation.Vertical)
+                if (ScrollViewerAttach.GetOrientation(this) == Orientation.Vertical)
                 {
                     base.OnMouseWheel(e);
                 }
@@ -68,7 +53,7 @@ namespace HandyControl.Controls
             }
             e.Handled = true;
 
-            if (Orientation == Orientation.Vertical)
+            if (ScrollViewerAttach.GetOrientation(this) == Orientation.Vertical)
             {
                 if (!_isRunning)
                 {
