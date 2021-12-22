@@ -26,8 +26,8 @@
       <group targetFramework=".NETFramework4.8" />
       <group targetFramework=".NETCoreApp3.0" />
       <group targetFramework=".NETCoreApp3.1" />
-      <group targetFramework="net5.0" />
-      <group targetFramework="net6.0" />
+      <group targetFramework="net5.0-windows" />
+      <group targetFramework="net6.0-windows" />
     </dependencies>
   </metadata>
   <files>
