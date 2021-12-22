@@ -26,8 +26,8 @@
       <group targetFramework=".NETFramework4.8" />
       <group targetFramework=".NETCoreApp3.0" />
       <group targetFramework=".NETCoreApp3.1" />
-      <group targetFramework="net5.0-windows" />
-      <group targetFramework="net6.0-windows" />
+      <group targetFramework="net5.0" />
+      <group targetFramework="net6.0" />
     </dependencies>
   </metadata>
   <files>
@@ -163,34 +163,34 @@
     <file src="lib\net48\HandyControl.dll" target="lib\net48\HandyControl.dll" />
     <file src="lib\net48\HandyControl.pdb" target="lib\net48\HandyControl.pdb" />
     <file src="lib\net48\HandyControl.xml" target="lib\net48\HandyControl.xml" />
-    <file src="lib\net5.0-windows\ca-ES\HandyControl.resources.dll" target="lib\net5.0-windows\ca-ES\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\en\HandyControl.resources.dll" target="lib\net5.0-windows\en\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\fa\HandyControl.resources.dll" target="lib\net5.0-windows\fa\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\fr\HandyControl.resources.dll" target="lib\net5.0-windows\fr\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\ko-KR\HandyControl.resources.dll" target="lib\net5.0-windows\ko-KR\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\pl\HandyControl.resources.dll" target="lib\net5.0-windows\pl\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\pt-BR\HandyControl.resources.dll" target="lib\net5.0-windows\pt-BR\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\ref\HandyControl.dll" target="lib\net5.0-windows\ref\HandyControl.dll" />
-    <file src="lib\net5.0-windows\ru\HandyControl.resources.dll" target="lib\net5.0-windows\ru\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\tr\HandyControl.resources.dll" target="lib\net5.0-windows\tr\HandyControl.resources.dll" />
-    <file src="lib\net5.0-windows\HandyControl.deps.json" target="lib\net5.0-windows\HandyControl.deps.json" />
-    <file src="lib\net5.0-windows\HandyControl.dll" target="lib\net5.0-windows\HandyControl.dll" />
-    <file src="lib\net5.0-windows\HandyControl.pdb" target="lib\net5.0-windows\HandyControl.pdb" />
-    <file src="lib\net5.0-windows\HandyControl.xml" target="lib\net5.0-windows\HandyControl.xml" />
-    <file src="lib\net6.0-windows\ca-ES\HandyControl.resources.dll" target="lib\net6.0-windows\ca-ES\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\en\HandyControl.resources.dll" target="lib\net6.0-windows\en\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\fa\HandyControl.resources.dll" target="lib\net6.0-windows\fa\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\fr\HandyControl.resources.dll" target="lib\net6.0-windows\fr\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\ko-KR\HandyControl.resources.dll" target="lib\net6.0-windows\ko-KR\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\pl\HandyControl.resources.dll" target="lib\net6.0-windows\pl\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\pt-BR\HandyControl.resources.dll" target="lib\net6.0-windows\pt-BR\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\ref\HandyControl.dll" target="lib\net6.0-windows\ref\HandyControl.dll" />
-    <file src="lib\net6.0-windows\ru\HandyControl.resources.dll" target="lib\net6.0-windows\ru\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\tr\HandyControl.resources.dll" target="lib\net6.0-windows\tr\HandyControl.resources.dll" />
-    <file src="lib\net6.0-windows\HandyControl.deps.json" target="lib\net6.0-windows\HandyControl.deps.json" />
-    <file src="lib\net6.0-windows\HandyControl.dll" target="lib\net6.0-windows\HandyControl.dll" />
-    <file src="lib\net6.0-windows\HandyControl.pdb" target="lib\net6.0-windows\HandyControl.pdb" />
-    <file src="lib\net6.0-windows\HandyControl.xml" target="lib\net6.0-windows\HandyControl.xml" />
+    <file src="lib\net5.0\ca-ES\HandyControl.resources.dll" target="lib\net5.0\ca-ES\HandyControl.resources.dll" />
+    <file src="lib\net5.0\en\HandyControl.resources.dll" target="lib\net5.0\en\HandyControl.resources.dll" />
+    <file src="lib\net5.0\fa\HandyControl.resources.dll" target="lib\net5.0\fa\HandyControl.resources.dll" />
+    <file src="lib\net5.0\fr\HandyControl.resources.dll" target="lib\net5.0\fr\HandyControl.resources.dll" />
+    <file src="lib\net5.0\ko-KR\HandyControl.resources.dll" target="lib\net5.0\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net5.0\pl\HandyControl.resources.dll" target="lib\net5.0\pl\HandyControl.resources.dll" />
+    <file src="lib\net5.0\pt-BR\HandyControl.resources.dll" target="lib\net5.0\pt-BR\HandyControl.resources.dll" />
+    <file src="lib\net5.0\ref\HandyControl.dll" target="lib\net5.0\ref\HandyControl.dll" />
+    <file src="lib\net5.0\ru\HandyControl.resources.dll" target="lib\net5.0\ru\HandyControl.resources.dll" />
+    <file src="lib\net5.0\tr\HandyControl.resources.dll" target="lib\net5.0\tr\HandyControl.resources.dll" />
+    <file src="lib\net5.0\HandyControl.deps.json" target="lib\net5.0\HandyControl.deps.json" />
+    <file src="lib\net5.0\HandyControl.dll" target="lib\net5.0\HandyControl.dll" />
+    <file src="lib\net5.0\HandyControl.pdb" target="lib\net5.0\HandyControl.pdb" />
+    <file src="lib\net5.0\HandyControl.xml" target="lib\net5.0\HandyControl.xml" />
+    <file src="lib\net6.0\ca-ES\HandyControl.resources.dll" target="lib\net6.0\ca-ES\HandyControl.resources.dll" />
+    <file src="lib\net6.0\en\HandyControl.resources.dll" target="lib\net6.0\en\HandyControl.resources.dll" />
+    <file src="lib\net6.0\fa\HandyControl.resources.dll" target="lib\net6.0\fa\HandyControl.resources.dll" />
+    <file src="lib\net6.0\fr\HandyControl.resources.dll" target="lib\net6.0\fr\HandyControl.resources.dll" />
+    <file src="lib\net6.0\ko-KR\HandyControl.resources.dll" target="lib\net6.0\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net6.0\pl\HandyControl.resources.dll" target="lib\net6.0\pl\HandyControl.resources.dll" />
+    <file src="lib\net6.0\pt-BR\HandyControl.resources.dll" target="lib\net6.0\pt-BR\HandyControl.resources.dll" />
+    <file src="lib\net6.0\ref\HandyControl.dll" target="lib\net6.0\ref\HandyControl.dll" />
+    <file src="lib\net6.0\ru\HandyControl.resources.dll" target="lib\net6.0\ru\HandyControl.resources.dll" />
+    <file src="lib\net6.0\tr\HandyControl.resources.dll" target="lib\net6.0\tr\HandyControl.resources.dll" />
+    <file src="lib\net6.0\HandyControl.deps.json" target="lib\net6.0\HandyControl.deps.json" />
+    <file src="lib\net6.0\HandyControl.dll" target="lib\net6.0\HandyControl.dll" />
+    <file src="lib\net6.0\HandyControl.pdb" target="lib\net6.0\HandyControl.pdb" />
+    <file src="lib\net6.0\HandyControl.xml" target="lib\net6.0\HandyControl.xml" />
     <file src="lib\netcoreapp3.0\ca-ES\HandyControl.resources.dll" target="lib\netcoreapp3.0\ca-ES\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\en\HandyControl.resources.dll" target="lib\netcoreapp3.0\en\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\fa\HandyControl.resources.dll" target="lib\netcoreapp3.0\fa\HandyControl.resources.dll" />
