@@ -21,8 +21,10 @@ namespace HandyControl.Controls
                 new PropertyMetadata(null, OnQueriesTextChanged));
 
         public static readonly DependencyProperty HighlightBrushProperty =
-            DependencyProperty.Register("HighlightBrush", typeof(Brush), typeof(HighlightTextBlock),
-                new PropertyMetadata(Brushes.Yellow));
+            DependencyProperty.Register("HighlightBrush", typeof(Brush), typeof(HighlightTextBlock));
+
+        public static readonly DependencyProperty HighlightTextBrushProperty =
+            DependencyProperty.Register("HighlightTextBrush", typeof(Brush), typeof(HighlightTextBlock));
 
         private static void OnSourceTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
             ((HighlightTextBlock) d).RefreshInlines();
@@ -64,6 +66,12 @@ namespace HandyControl.Controls
             set => SetValue(HighlightBrushProperty, value);
         }
 
+        public Brush HighlightTextBrush
+        {
+            get => (Brush) GetValue(HighlightTextBrushProperty);
+            set => SetValue(HighlightTextBrushProperty, value);
+        }
+
         private void RefreshInlines()
         {
             Inlines.Clear();
@@ -97,12 +105,10 @@ namespace HandyControl.Controls
         private Run GetHighlightRun(string highlightText)
         {
             var run = new Run(highlightText);
-            run.SetBinding(TextElement.BackgroundProperty, new Binding
-            {
-                Source = this,
-                Path = new PropertyPath(nameof(HighlightBrush)),
-                Mode = BindingMode.OneWay
-            });
+
+            run.SetBinding(TextElement.BackgroundProperty, new Binding(nameof(HighlightBrush)) { Source = this });
+            run.SetBinding(TextElement.ForegroundProperty, new Binding(nameof(HighlightTextBrush)) { Source = this });
+
             return run;
         }
 

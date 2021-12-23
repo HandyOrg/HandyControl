@@ -1306,6 +1306,10 @@
 	<Style x:Key="TextBlockBoldBaseStyle" BasedOn="{StaticResource TextBlockBaseStyle}" TargetType="TextBlock">
 		<Setter Property="FontWeight" Value="Bold" />
 	</Style>
+	<Style x:Key="HighlightTextBlockBaseStyle" TargetType="hc:HighlightTextBlock">
+		<Setter Property="HighlightBrush" Value="{DynamicResource PrimaryBrush}" />
+		<Setter Property="HighlightTextBrush" Value="{DynamicResource TextIconBrush}" />
+	</Style>
 	<Style x:Key="LabelBaseStyle" TargetType="Label">
 		<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
@@ -3280,6 +3284,7 @@
 		<Setter Property="FontSize" Value="{StaticResource SubHeadFontSize}" />
 	</Style>
 	<Style x:Key="TextBlockDefaultBold" BasedOn="{StaticResource TextBlockBoldBaseStyle}" TargetType="TextBlock" />
+	<Style BasedOn="{StaticResource HighlightTextBlockBaseStyle}" TargetType="hc:HighlightTextBlock" />
 	<Style BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
