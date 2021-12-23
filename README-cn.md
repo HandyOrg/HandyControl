@@ -130,6 +130,7 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 <a href="https://github.com/icarousfff" target="_blank"><img style="border-radius:50%!important" width="64px" alt="icarousfff" src="https://avatars.githubusercontent.com/u/49859230?s=64&v=4"></a>
 <a href="https://github.com/qiang9420d" target="_blank"><img style="border-radius:50%!important" width="64px" alt="qiang9420d" src="https://avatars.githubusercontent.com/u/22925262?s=64&v=4"></a>
 <a href="https://github.com/zhongwcool" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zhongwcool" src="https://avatars.githubusercontent.com/u/5747392?s=64&v=4"></a>
+<a href="https://github.com/HenJigg" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zhongwcool" src="https://avatars.githubusercontent.com/u/42528522?s=64&v=4"></a>
 
 ## 鸣谢
 
