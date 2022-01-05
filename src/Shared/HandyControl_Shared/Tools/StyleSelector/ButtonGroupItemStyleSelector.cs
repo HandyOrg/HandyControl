@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
@@ -37,76 +38,85 @@ namespace HandyControl.Tools
         {
             if (container is ButtonGroup buttonGroup && item is ButtonBase buttonBase)
             {
-                var count = buttonGroup.Items.Count;
+                var count = GetVisibleButtonsCount(buttonGroup);
 
                 switch (buttonBase)
                 {
-                    case RadioButton:
-                        {
-                            if (count == 1)
-                            {
-                                return StyleDict[ResourceToken.RadioGroupItemSingle];
-                            }
-
-                            var index = buttonGroup.Items.IndexOf(buttonBase);
-                            return buttonGroup.Orientation == Orientation.Horizontal
-                                ? index == 0
-                                    ? StyleDict[ResourceToken.RadioGroupItemHorizontalFirst]
-                                    : StyleDict[index == count - 1
-                                        ? ResourceToken.RadioGroupItemHorizontalLast
-                                        : ResourceToken.RadioGroupItemDefault]
-                                : index == 0
-                                    ? StyleDict[ResourceToken.RadioGroupItemVerticalFirst]
-                                    : StyleDict[index == count - 1
-                                        ? ResourceToken.RadioGroupItemVerticalLast
-                                        : ResourceToken.RadioGroupItemDefault];
-                        }
-
-                    case Button:
-                        {
-                            if (count == 1)
-                            {
-                                return StyleDict[ResourceToken.ButtonGroupItemSingle];
-                            }
-
-                            var index = buttonGroup.Items.IndexOf(buttonBase);
-                            return buttonGroup.Orientation == Orientation.Horizontal
-                                ? index == 0
-                                    ? StyleDict[ResourceToken.ButtonGroupItemHorizontalFirst]
-                                    : StyleDict[index == count - 1
-                                        ? ResourceToken.ButtonGroupItemHorizontalLast
-                                        : ResourceToken.ButtonGroupItemDefault]
-                                : index == 0
-                                    ? StyleDict[ResourceToken.ButtonGroupItemVerticalFirst]
-                                    : StyleDict[index == count - 1
-                                        ? ResourceToken.ButtonGroupItemVerticalLast
-                                        : ResourceToken.ButtonGroupItemDefault];
-                        }
-
-                    case ToggleButton:
-                        {
-                            if (count == 1)
-                            {
-                                return StyleDict[ResourceToken.ToggleButtonGroupItemSingle];
-                            }
-
-                            var index = buttonGroup.Items.IndexOf(buttonBase);
-                            return buttonGroup.Orientation == Orientation.Horizontal
-                                ? index == 0
-                                    ? StyleDict[ResourceToken.ToggleButtonGroupItemHorizontalFirst]
-                                    : StyleDict[index == count - 1
-                                        ? ResourceToken.ToggleButtonGroupItemHorizontalLast
-                                        : ResourceToken.ToggleButtonGroupItemDefault]
-                                : index == 0
-                                    ? StyleDict[ResourceToken.ToggleButtonGroupItemVerticalFirst]
-                                    : StyleDict[index == count - 1
-                                        ? ResourceToken.ToggleButtonGroupItemVerticalLast
-                                        : ResourceToken.ToggleButtonGroupItemDefault];
-                        }
+                    case RadioButton: return GetRadioButtonStyle(count, buttonGroup, buttonBase);
+                    case Button: return GetButtonStyle(count, buttonGroup, buttonBase);
+                    case ToggleButton: return GetToggleButtonStyle(count, buttonGroup, buttonBase);
                 }
             }
 
             return null;
+        }
+
+        private static int GetVisibleButtonsCount(ButtonGroup buttonGroup)
+        {
+            return buttonGroup.Items.OfType<ButtonBase>().Count(button => button.IsVisible);
+        }
+
+        private static Style GetToggleButtonStyle(int count, ButtonGroup buttonGroup, ButtonBase button)
+        {
+            if (count == 1)
+            {
+                return StyleDict[ResourceToken.ToggleButtonGroupItemSingle];
+            }
+
+            var index = buttonGroup.Items.IndexOf(button);
+            return buttonGroup.Orientation == Orientation.Horizontal
+                ? index == 0
+                    ? StyleDict[ResourceToken.ToggleButtonGroupItemHorizontalFirst]
+                    : StyleDict[index == count - 1
+                        ? ResourceToken.ToggleButtonGroupItemHorizontalLast
+                        : ResourceToken.ToggleButtonGroupItemDefault]
+                : index == 0
+                    ? StyleDict[ResourceToken.ToggleButtonGroupItemVerticalFirst]
+                    : StyleDict[index == count - 1
+                        ? ResourceToken.ToggleButtonGroupItemVerticalLast
+                        : ResourceToken.ToggleButtonGroupItemDefault];
+        }
+
+        private static Style GetButtonStyle(int count, ButtonGroup buttonGroup, ButtonBase button)
+        {
+            if (count == 1)
+            {
+                return StyleDict[ResourceToken.ButtonGroupItemSingle];
+            }
+
+            var index = buttonGroup.Items.IndexOf(button);
+            return buttonGroup.Orientation == Orientation.Horizontal
+                ? index == 0
+                    ? StyleDict[ResourceToken.ButtonGroupItemHorizontalFirst]
+                    : StyleDict[index == count - 1
+                        ? ResourceToken.ButtonGroupItemHorizontalLast
+                        : ResourceToken.ButtonGroupItemDefault]
+                : index == 0
+                    ? StyleDict[ResourceToken.ButtonGroupItemVerticalFirst]
+                    : StyleDict[index == count - 1
+                        ? ResourceToken.ButtonGroupItemVerticalLast
+                        : ResourceToken.ButtonGroupItemDefault];
+        }
+
+        private static Style GetRadioButtonStyle(int count, ButtonGroup buttonGroup, ButtonBase button)
+        {
+            if (count == 1)
+            {
+                return StyleDict[ResourceToken.RadioGroupItemSingle];
+            }
+
+            var index = buttonGroup.Items.IndexOf(button);
+            return buttonGroup.Orientation == Orientation.Horizontal
+                ? index == 0
+                    ? StyleDict[ResourceToken.RadioGroupItemHorizontalFirst]
+                    : StyleDict[index == count - 1
+                        ? ResourceToken.RadioGroupItemHorizontalLast
+                        : ResourceToken.RadioGroupItemDefault]
+                : index == 0
+                    ? StyleDict[ResourceToken.RadioGroupItemVerticalFirst]
+                    : StyleDict[index == count - 1
+                        ? ResourceToken.RadioGroupItemVerticalLast
+                        : ResourceToken.RadioGroupItemDefault];
         }
     }
 }

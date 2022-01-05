@@ -561,11 +561,17 @@
 			</Border>
 		</Grid>
 	</ControlTemplate>
-	<ItemsPanelTemplate x:Key="ButtonGroupHorizontalItemsPanelTemplate">
+	<ItemsPanelTemplate x:Key="ButtonGroupHorizontalUniformItemsPanelTemplate">
 		<UniformGrid FocusVisualStyle="{x:Null}" Rows="1" />
 	</ItemsPanelTemplate>
-	<ItemsPanelTemplate x:Key="ButtonGroupVerticalItemsPanelTemplate">
+	<ItemsPanelTemplate x:Key="ButtonGroupVerticalUniformItemsPanelTemplate">
 		<UniformGrid FocusVisualStyle="{x:Null}" Columns="1" />
+	</ItemsPanelTemplate>
+	<ItemsPanelTemplate x:Key="ButtonGroupHorizontalStackItemsPanelTemplate">
+		<StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal" />
+	</ItemsPanelTemplate>
+	<ItemsPanelTemplate x:Key="ButtonGroupVerticalStackItemsPanelTemplate">
+		<StackPanel FocusVisualStyle="{x:Null}" />
 	</ItemsPanelTemplate>
 	<tools:ButtonGroupItemStyleSelector x:Key="ButtonGroupItemStyleSelector" />
 	<LinearGradientBrush x:Key="ProgressBarIndicatorAnimatedFill" StartPoint="0,0" EndPoint="1,0">
@@ -2442,16 +2448,35 @@
 	<Style x:Key="ButtonGroupBaseStyle" TargetType="hc:ButtonGroup">
 		<Setter Property="ItemContainerStyleSelector" Value="{StaticResource ButtonGroupItemStyleSelector}" />
 		<Setter Property="VerticalAlignment" Value="Top" />
+		<Setter Property="Layout" Value="Uniform" />
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
 		<Setter Property="Focusable" Value="False" />
-		<Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupHorizontalItemsPanelTemplate}" />
+		<Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupHorizontalUniformItemsPanelTemplate}" />
 		<Setter Property="hc:VisualElement.HighlightBorderBrush" Value="{DynamicResource PrimaryBrush}" />
 		<Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource PrimaryBrush}" />
 		<Style.Triggers>
-			<Trigger Property="Orientation" Value="Vertical">
-				<Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupVerticalItemsPanelTemplate}" />
-			</Trigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Layout" Value="Uniform" />
+					<Condition Property="Orientation" Value="Vertical" />
+				</MultiTrigger.Conditions>
+				<Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupVerticalUniformItemsPanelTemplate}" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Layout" Value="Stack" />
+					<Condition Property="Orientation" Value="Horizontal" />
+				</MultiTrigger.Conditions>
+				<Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupHorizontalStackItemsPanelTemplate}" />
+			</MultiTrigger>
+			<MultiTrigger>
+				<MultiTrigger.Conditions>
+					<Condition Property="Layout" Value="Stack" />
+					<Condition Property="Orientation" Value="Vertical" />
+				</MultiTrigger.Conditions>
+				<Setter Property="ItemsPanel" Value="{StaticResource ButtonGroupVerticalStackItemsPanelTemplate}" />
+			</MultiTrigger>
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="ProgressBarBaseStyle" TargetType="ProgressBar">
