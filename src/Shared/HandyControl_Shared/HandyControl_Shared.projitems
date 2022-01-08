@@ -88,6 +88,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\LinearLayout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\FullScreenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Annotations\HierarchyLevelAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Annotations\PriorityAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Annotations\NecessaryAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\Flattening.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\SortingDefault.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\EnumItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\PanelUvSize.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\BooleanArr2BooleanConverter.cs" />
@@ -386,7 +391,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\ScreenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SecurityHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SingleOpenHelper.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SystemHelper.cs" />
+	<Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\SystemHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TextHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TokenizerHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\TouchDragMoveWindowHelper.cs" />
