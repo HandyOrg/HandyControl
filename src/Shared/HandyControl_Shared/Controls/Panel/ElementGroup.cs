@@ -1,13 +1,37 @@
 ﻿using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using HandyControl.Data;
 using HandyControl.Tools;
 
 namespace HandyControl.Controls
 {
-    public class ElementGroup : SimpleStackPanel
+    public class ElementGroup : ItemsControl
     {
         private static readonly Dictionary<Orientation, Dictionary<ChildLocation, CornerRadius>> CornerRadiusDict;
+
+        public static readonly DependencyProperty OrientationProperty =
+            StackPanel.OrientationProperty.AddOwner(typeof(ElementGroup),
+                new FrameworkPropertyMetadata(ValueBoxes.HorizontalBox, FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+        public Orientation Orientation
+        {
+            get => (Orientation) GetValue(OrientationProperty);
+            set => SetValue(OrientationProperty, ValueBoxes.OrientationBox(value));
+        }
+
+        public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register(
+            "Layout", typeof(LinearLayout), typeof(ElementGroup),
+            new FrameworkPropertyMetadata(LinearLayout.Uniform, FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+        public LinearLayout Layout
+        {
+            get => (LinearLayout) GetValue(LayoutProperty);
+            set => SetValue(LayoutProperty, value);
+        }
 
         static ElementGroup()
         {
@@ -40,45 +64,60 @@ namespace HandyControl.Controls
             {
                 elementAdded.GotFocus += ElementAdded_GotFocus;
                 elementAdded.LostFocus += ElementAdded_LostFocus;
+                elementAdded.IsVisibleChanged += ElementAdded_IsVisibleChanged;
             }
 
             if (visualRemoved is UIElement elementRemoved)
             {
                 elementRemoved.GotFocus -= ElementAdded_GotFocus;
                 elementRemoved.LostFocus -= ElementAdded_LostFocus;
+                elementRemoved.IsVisibleChanged -= ElementAdded_IsVisibleChanged;
             }
+        }
 
-            var childrenCount = InternalChildren.Count;
-            if (childrenCount == 0)
+        protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e) => UpdateChildrenCornerRadius();
+
+        protected override void OnRender(DrawingContext drawingContext) => UpdateChildrenCornerRadius();
+
+        private void UpdateChildrenCornerRadius()
+        {
+            var visibleChildren = GetVisibleChildrenCount();
+            var count = visibleChildren.Count;
+            if (count == 0)
             {
                 return;
             }
 
             var orientation = Orientation;
 
-            if (childrenCount == 1)
+            if (count == 1)
             {
-                UpdateChildCornerRadius(InternalChildren[0], CornerRadiusDict[orientation][ChildLocation.Single]);
+                UpdateChildCornerRadius(visibleChildren[0], CornerRadiusDict[orientation][ChildLocation.Single]);
             }
             else
             {
-                UpdateChildCornerRadius(InternalChildren[0], CornerRadiusDict[orientation][ChildLocation.First]);
+                UpdateChildCornerRadius(visibleChildren[0], CornerRadiusDict[orientation][ChildLocation.First]);
 
                 var childMargin = orientation == Orientation.Horizontal
                     ? new Thickness(-1, 0, 0, 0)
                     : new Thickness(0, -1, 0, 0);
 
-                for (var childIndex = 1; childIndex < childrenCount; childIndex++)
+                for (var childIndex = 1; childIndex < count; childIndex++)
                 {
-                    var child = InternalChildren[childIndex];
+                    var child = visibleChildren[childIndex];
                     child.SetCurrentValue(MarginProperty, childMargin);
                     UpdateChildCornerRadius(child, CornerRadiusDict[orientation][ChildLocation.Middle]);
                 }
 
-                var lastChild = InternalChildren[childrenCount - 1];
+                var lastChild = visibleChildren[count - 1];
                 lastChild.SetCurrentValue(MarginProperty, childMargin);
                 UpdateChildCornerRadius(lastChild, CornerRadiusDict[orientation][ChildLocation.Last]);
             }
+        }
+
+        private List<UIElement> GetVisibleChildrenCount()
+        {
+            return Items.OfType<UIElement>().Where(element => element.Visibility == Visibility.Visible).ToList();
         }
 
         private static void UpdateChildCornerRadius(DependencyObject child, CornerRadius cornerRadius)
@@ -93,21 +132,15 @@ namespace HandyControl.Controls
             }
         }
 
-        private void ElementAdded_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (sender is UIElement element)
-            {
-                SetZIndex(element, 0);
-            }
-        }
+        private void ElementAdded_LostFocus(object sender, RoutedEventArgs e) => ResetElementZIndex(e.OriginalSource);
 
-        private void ElementAdded_GotFocus(object sender, RoutedEventArgs e)
-        {
-            if (sender is UIElement element)
-            {
-                SetZIndex(element, int.MaxValue);
-            }
-        }
+        private void ElementAdded_GotFocus(object sender, RoutedEventArgs e) => MaximizeElementZIndex(e.OriginalSource);
+
+        private static void ResetElementZIndex(object element) => Panel.SetZIndex((UIElement) element, 0);
+
+        private static void MaximizeElementZIndex(object element) => Panel.SetZIndex((UIElement) element, int.MaxValue);
+
+        private void ElementAdded_IsVisibleChanged(object sender, DependencyPropertyChangedEventArgs e) => UpdateChildrenCornerRadius();
 
         private enum ChildLocation
         {
