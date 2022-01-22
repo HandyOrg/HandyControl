@@ -55,7 +55,6 @@ namespace HandyControl.Controls
 
         private void TransitioningContentControl_Loaded(object sender, RoutedEventArgs e)
         {
-            StartTransition();
             IsVisibleChanged += TransitioningContentControl_IsVisibleChanged;
         }
 
@@ -66,7 +65,7 @@ namespace HandyControl.Controls
 
         private void StartTransition()
         {
-            if (!IsArrangeValid || _contentPresenter == null) return;
+            if (_contentPresenter == null || !IsVisible) return;
 
             if (TransitionStoryboard != null)
             {
@@ -102,6 +101,8 @@ namespace HandyControl.Controls
                     }
                 };
             }
+
+            StartTransition();
         }
     }
 }
