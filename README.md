@@ -137,7 +137,7 @@
 
 <a href="https://getquicker.net" target="_blank"><img width="70px" alt="quicker" src="https://i0.hdslb.com/bfs/face/3765a3d0ce5da37e1aaa830d2eec6d3e0806a2d8.jpg@96w_96h_1c.webp"></a>
 <a href="https://www.phpenv.cn" target="_blank"><img width="70px" alt="phpenv" src="https://www.phpenv.cn/usr/themes/phpenv/img/logo.png"></a>
-<a href="https://atmb.top" target="_blank"><img width="70px" alt="AutumnBox" src="https://atmb.top/images/icon.png"></a>
+<a href="https://github.com/zsh2401/AutumnBox" target="_blank"><img width="70px" alt="AutumnBox" src="https://raw.githubusercontent.com/zsh2401/AutumnBox/master/src/AutumnBox.GUI/Resources/Icons/icon.ico"></a>
 
 if your project is not listed here, let us know! 😀
 
