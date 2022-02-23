@@ -364,7 +364,6 @@ namespace HandyControl.Tools.Interop
         [StructLayout(LayoutKind.Sequential)]
         internal struct WINDOWPLACEMENT
         {
-
             public int length;
             public int flags;
             public SW showCmd;
