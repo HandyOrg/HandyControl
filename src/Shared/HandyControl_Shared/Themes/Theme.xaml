@@ -8366,6 +8366,7 @@
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="{StaticResource DefaultInputPadding}" />
+		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,8,6,8" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
@@ -8380,9 +8381,9 @@
 						<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="*" />
-								<ColumnDefinition Width="30" />
+								<ColumnDefinition Width="25" />
 							</Grid.ColumnDefinitions>
-							<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
+							<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Margin="3,0,0,0" HorizontalAlignment="Left" Width="16" Padding="0" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 							<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
 							<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 						</Grid>
@@ -8430,9 +8431,9 @@
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*" />
-						<ColumnDefinition Width="30" />
+						<ColumnDefinition Width="25" />
 					</Grid.ColumnDefinitions>
-					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
+					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Margin="3,0,0,0" HorizontalAlignment="Left" Width="16" Padding="0" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 					<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Watermark="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
 					<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 				</Grid>
@@ -8470,7 +8471,7 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{Binding Path=(hc:TitleElement.MarginOnTheLeft),RelativeSource={RelativeSource TemplatedParent}}">
 				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
 				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
 			</DockPanel>
@@ -8478,9 +8479,9 @@
 				<Grid x:Name="PART_Root" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 					<Grid.ColumnDefinitions>
 						<ColumnDefinition Width="*" />
-						<ColumnDefinition Width="30" />
+						<ColumnDefinition Width="25" />
 					</Grid.ColumnDefinitions>
-					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
+					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Margin="3,0,0,0" HorizontalAlignment="Left" Width="16" Padding="0" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="1" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 					<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Watermark="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
 					<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 				</Grid>
@@ -8551,8 +8552,8 @@
 						<ColumnDefinition Width="Auto" />
 						<ColumnDefinition Width="25" />
 					</Grid.ColumnDefinitions>
-					<Button Height="{x:Static system:Double.NaN}" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}" />
-					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="2,6,7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
+					<Button Height="{x:Static system:Double.NaN}" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}" />
+					<Button Height="{x:Static system:Double.NaN}" Margin="3,0,0,0" HorizontalAlignment="Left" Style="{StaticResource ButtonIcon}" Width="16" Padding="0" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 					<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Watermark="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
 					<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 				</Grid>
@@ -8614,7 +8615,7 @@
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="0,7,6,7">
+			<DockPanel LastChildFill="True" Visibility="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource String2VisibilityConverter}}" HorizontalAlignment="{Binding Path=(hc:TitleElement.HorizontalAlignment),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="{Binding Path=(hc:TitleElement.VerticalAlignment),RelativeSource={RelativeSource TemplatedParent}}" Margin="{Binding Path=(hc:TitleElement.MarginOnTheLeft),RelativeSource={RelativeSource TemplatedParent}}">
 				<ContentPresenter DockPanel.Dock="Right" TextElement.Foreground="{DynamicResource DangerBrush}" Margin="4,0,0,0" Content="{Binding Path=(hc:InfoElement.Symbol),RelativeSource={RelativeSource TemplatedParent}}" Visibility="{Binding Path=(hc:InfoElement.Necessary),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Boolean2VisibilityConverter}}" />
 				<TextBlock hc:TextBlockAttach.AutoTooltip="True" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Text="{Binding Path=(hc:InfoElement.Title),RelativeSource={RelativeSource TemplatedParent}}" />
 			</DockPanel>
@@ -8626,8 +8627,8 @@
 						<ColumnDefinition Width="Auto" />
 						<ColumnDefinition Width="25" />
 					</Grid.ColumnDefinitions>
-					<Button Height="{x:Static system:Double.NaN}" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0,6" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}" />
-					<Button Height="{x:Static system:Double.NaN}" Style="{StaticResource ButtonIcon}" Padding="2,6,7,6" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
+					<Button Height="{x:Static system:Double.NaN}" Command="interactivity:ControlCommands.Clear" Visibility="Collapsed" Name="ButtonClear" Width="16" Grid.Column="1" Style="{StaticResource ButtonIcon}" Padding="0" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}" Foreground="{Binding BorderBrush,ElementName=templateRoot}" />
+					<Button Height="{x:Static system:Double.NaN}" Margin="3,0,0,0" HorizontalAlignment="Left" Style="{StaticResource ButtonIcon}" Width="16" Padding="0" hc:IconElement.Geometry="{StaticResource ClockGeometry}" x:Name="PART_Button" Grid.Column="2" Foreground="{Binding BorderBrush,ElementName=templateRoot}" Focusable="False" Grid.Row="0" />
 					<hc:WatermarkTextBox CaretBrush="{TemplateBinding CaretBrush}" Foreground="{TemplateBinding Foreground}" Padding="{TemplateBinding Padding}" x:Name="PART_TextBox" Watermark="{Binding Path=(hc:InfoElement.Placeholder),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" Grid.Column="0" Focusable="{TemplateBinding Focusable}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Grid.Row="0" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
 					<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=templateRoot}" StaysOpen="False" />
 				</Grid>
@@ -12658,8 +12659,24 @@
 		<Setter Property="Padding" Value="6,0" />
 	</Style>
 	<Style BasedOn="{StaticResource DateTimePickerBaseStyle}" TargetType="hc:DateTimePicker" />
+	<Style x:Key="DateTimePicker.Small" BasedOn="{StaticResource DateTimePickerBaseStyle}" TargetType="hc:DateTimePicker">
+		<Setter Property="MinHeight" Value="20" />
+		<Setter Property="Padding" Value="6,0" />
+	</Style>
 	<Style x:Key="DateTimePickerExtend" BasedOn="{StaticResource DateTimePickerExtendBaseStyle}" TargetType="hc:DateTimePicker" />
+	<Style x:Key="DateTimePickerExtend.Small" BasedOn="{StaticResource DateTimePickerExtend}" TargetType="hc:DateTimePicker">
+		<Setter Property="hc:InfoElement.MinContentHeight" Value="20" />
+		<Setter Property="hc:InfoElement.ContentHeight" Value="20" />
+		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3" />
+		<Setter Property="Padding" Value="6,0" />
+	</Style>
 	<Style x:Key="DateTimePickerPlus" BasedOn="{StaticResource DateTimePickerPlusBaseStyle}" TargetType="hc:DateTimePicker" />
+	<Style x:Key="DateTimePickerPlus.Small" BasedOn="{StaticResource DateTimePickerPlus}" TargetType="hc:DateTimePicker">
+		<Setter Property="hc:InfoElement.MinContentHeight" Value="20" />
+		<Setter Property="hc:InfoElement.ContentHeight" Value="20" />
+		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3" />
+		<Setter Property="Padding" Value="6,0" />
+	</Style>
 	<Style BasedOn="{StaticResource DialogBaseStyle}" TargetType="hc:Dialog" />
 	<Style BasedOn="{StaticResource DividerBaseStyle}" TargetType="hc:Divider" />
 	<Style BasedOn="{StaticResource DrawerBaseStyle}" TargetType="hc:Drawer" />
