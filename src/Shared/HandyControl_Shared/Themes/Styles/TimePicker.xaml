@@ -4,8 +4,27 @@
 
     <Style BasedOn="{StaticResource TimePickerBaseStyle}" TargetType="hc:TimePicker"/>
 
+    <Style x:Key="TimePicker.Small" BasedOn="{StaticResource TimePickerBaseStyle}" TargetType="hc:TimePicker">
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+    
     <Style x:Key="TimePickerExtend" BasedOn="{StaticResource TimePickerExtendBaseStyle}" TargetType="hc:TimePicker"/>
 
+    <Style x:Key="TimePickerExtend.Small" BasedOn="{StaticResource TimePickerExtend}" TargetType="hc:TimePicker">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+    
     <Style x:Key="TimePickerPlus" BasedOn="{StaticResource TimePickerPlusBaseStyle}" TargetType="hc:TimePicker"/>
 
+    <Style x:Key="TimePickerPlus.Small" BasedOn="{StaticResource TimePickerPlus}" TargetType="hc:TimePicker">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+    
 </ResourceDictionary>
