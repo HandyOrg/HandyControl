@@ -8,7 +8,7 @@ namespace HandyControl.Controls
     public class ScrollViewerAttach
     {
         public static readonly DependencyProperty AutoHideProperty = DependencyProperty.RegisterAttached(
-            "AutoHide", typeof(bool), typeof(ScrollViewerAttach), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+            "AutoHide", typeof(bool), typeof(ScrollViewerAttach), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.None));
 
         public static void SetAutoHide(DependencyObject element, bool value)
             => element.SetValue(AutoHideProperty, value);
@@ -17,7 +17,7 @@ namespace HandyControl.Controls
             => (bool) element.GetValue(AutoHideProperty);
 
         public static readonly DependencyProperty OrientationProperty = DependencyProperty.RegisterAttached(
-            "Orientation", typeof(Orientation), typeof(ScrollViewerAttach), new FrameworkPropertyMetadata(ValueBoxes.VerticalBox, FrameworkPropertyMetadataOptions.Inherits, OnOrientationChanged));
+            "Orientation", typeof(Orientation), typeof(ScrollViewerAttach), new FrameworkPropertyMetadata(ValueBoxes.VerticalBox, FrameworkPropertyMetadataOptions.None, OnOrientationChanged));
 
         private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
