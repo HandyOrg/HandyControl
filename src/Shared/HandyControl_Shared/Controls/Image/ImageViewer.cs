@@ -229,6 +229,9 @@ namespace HandyControl.Controls
             ctl.Init();
         }
 
+        public static readonly DependencyProperty ShowToolBarProperty = DependencyProperty.Register(
+            "ShowToolBar", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.TrueBox));
+
         public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
             "IsFullScreen", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
@@ -290,6 +293,12 @@ namespace HandyControl.Controls
         {
             get => (BitmapFrame) GetValue(ImageSourceProperty);
             set => SetValue(ImageSourceProperty, value);
+        }
+
+        public bool ShowToolBar
+        {
+            get => (bool) GetValue(ShowToolBarProperty);
+            set => SetValue(ShowToolBarProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal object ImageContent
@@ -406,7 +415,6 @@ namespace HandyControl.Controls
                 _canvasSmallImg.MouseLeftButtonDown -= CanvasSmallImg_OnMouseLeftButtonDown;
                 _canvasSmallImg.MouseLeftButtonUp -= CanvasSmallImg_OnMouseLeftButtonUp;
                 _canvasSmallImg.MouseMove -= CanvasSmallImg_OnMouseMove;
-                _canvasSmallImg.MouseLeave -= CanvasSmallImg_OnMouseLeave;
             }
 
             base.OnApplyTemplate();
@@ -430,7 +438,6 @@ namespace HandyControl.Controls
                 _canvasSmallImg.MouseLeftButtonDown += CanvasSmallImg_OnMouseLeftButtonDown;
                 _canvasSmallImg.MouseLeftButtonUp += CanvasSmallImg_OnMouseLeftButtonUp;
                 _canvasSmallImg.MouseMove += CanvasSmallImg_OnMouseMove;
-                _canvasSmallImg.MouseLeave += CanvasSmallImg_OnMouseLeave;
             }
 
             _borderSmallIsLoaded = false;
@@ -595,24 +602,11 @@ namespace HandyControl.Controls
             }
         }
 
-        protected override void OnMouseMove(MouseEventArgs e)
-        {
-            base.OnMouseMove(e);
-            MoveImg();
-        }
+        protected override void OnMouseMove(MouseEventArgs e) => MoveImg();
 
-        protected override void OnMouseLeave(MouseEventArgs e)
-        {
-            base.OnMouseLeave(e);
-            _imgIsMouseLeftButtonDown = false;
-            ShowBorderBottom = false;
-        }
+        protected override void OnMouseLeave(MouseEventArgs e) => ShowBorderBottom = false;
 
-        protected override void OnMouseWheel(MouseWheelEventArgs e)
-        {
-            base.OnMouseWheel(e);
-            ScaleImg(e.Delta > 0);
-        }
+        protected override void OnMouseWheel(MouseWheelEventArgs e) => ScaleImg(e.Delta > 0);
 
         protected override void OnRenderSizeChanged(SizeChangedInfo sizeInfo)
         {
@@ -658,11 +652,7 @@ namespace HandyControl.Controls
             _imgIsMouseLeftButtonDown = true;
         }
 
-        protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e)
-        {
-            base.OnPreviewMouseLeftButtonUp(e);
-            _imgIsMouseLeftButtonDown = false;
-        }
+        protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e) => _imgIsMouseLeftButtonDown = false;
 
         /// <summary>
         ///     右下角小图片显示切换
@@ -837,6 +827,11 @@ namespace HandyControl.Controls
             ShowCloseButton = _imgCurrentPoint.Y < 200;
             ShowBorderBottom = _imgCurrentPoint.Y > ActualHeight - 200;
 
+            if (Mouse.LeftButton == MouseButtonState.Released)
+            {
+                return;
+            }
+
             if (_imgIsMouseLeftButtonDown)
             {
                 var subX = _imgCurrentPoint.X - _imgMouseDownPoint.X;
@@ -874,18 +869,25 @@ namespace HandyControl.Controls
         /// </summary>
         private void MoveSmallImg()
         {
-            if (_imgSmallIsMouseLeftButtonDown)
+            if (!_imgSmallIsMouseLeftButtonDown)
             {
-                _imgSmallCurrentPoint = Mouse.GetPosition(_canvasSmallImg);
-
-                var subX = _imgSmallCurrentPoint.X - _imgSmallMouseDownPoint.X;
-                var subY = _imgSmallCurrentPoint.Y - _imgSmallMouseDownPoint.Y;
-
-                var marginX = _imgSmallMouseDownMargin.Left + subX;
-                var marginY = _imgSmallMouseDownMargin.Top + subY;
-
-                MoveSmallImg(marginX, marginY);
+                return;
             }
+
+            if (Mouse.LeftButton == MouseButtonState.Released)
+            {
+                return;
+            }
+
+            _imgSmallCurrentPoint = Mouse.GetPosition(_canvasSmallImg);
+
+            var subX = _imgSmallCurrentPoint.X - _imgSmallMouseDownPoint.X;
+            var subY = _imgSmallCurrentPoint.Y - _imgSmallMouseDownPoint.Y;
+
+            var marginX = _imgSmallMouseDownMargin.Left + subX;
+            var marginY = _imgSmallMouseDownMargin.Top + subY;
+
+            MoveSmallImg(marginX, marginY);
         }
 
         private void MoveSmallImg(double marginX, double marginY)
@@ -921,7 +923,5 @@ namespace HandyControl.Controls
         private void CanvasSmallImg_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e) => _imgSmallIsMouseLeftButtonDown = false;
 
         private void CanvasSmallImg_OnMouseMove(object sender, MouseEventArgs e) => MoveSmallImg();
-
-        private void CanvasSmallImg_OnMouseLeave(object sender, MouseEventArgs e) => _imgSmallIsMouseLeftButtonDown = false;
     }
 }
