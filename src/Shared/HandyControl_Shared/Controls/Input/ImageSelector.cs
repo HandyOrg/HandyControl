@@ -37,21 +37,21 @@ namespace HandyControl.Controls
 
                 if (dialog.ShowDialog() == true)
                 {
-                    SetValue(UriPropertyKey, new Uri(dialog.FileName, UriKind.RelativeOrAbsolute));
-                    SetValue(PreviewBrushPropertyKey, new ImageBrush(BitmapFrame.Create(Uri, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None))
+                    SetValue(UriProperty, new Uri(dialog.FileName, UriKind.RelativeOrAbsolute));
+                    SetValue(PreviewBrushProperty, new ImageBrush(BitmapFrame.Create(Uri, BitmapCreateOptions.IgnoreImageCache, BitmapCacheOption.None))
                     {
                         Stretch = Stretch
                     });
-                    SetValue(HasValuePropertyKey, ValueBoxes.TrueBox);
+                    SetValue(HasValueProperty, ValueBoxes.TrueBox);
                     SetCurrentValue(ToolTipProperty, dialog.FileName);
                     RaiseEvent(new RoutedEventArgs(ImageSelectedEvent, this));
                 }
             }
             else
             {
-                SetValue(UriPropertyKey, default(Uri));
-                SetValue(PreviewBrushPropertyKey, default(Brush));
-                SetValue(HasValuePropertyKey, ValueBoxes.FalseBox);
+                SetValue(UriProperty, default(Uri));
+                SetValue(PreviewBrushProperty, default(Brush));
+                SetValue(HasValueProperty, ValueBoxes.FalseBox);
                 SetCurrentValue(ToolTipProperty, default);
             }
         }
@@ -65,10 +65,8 @@ namespace HandyControl.Controls
             set => SetValue(StretchProperty, value);
         }
 
-        public static readonly DependencyPropertyKey UriPropertyKey = DependencyProperty.RegisterReadOnly(
+        public static DependencyProperty UriProperty = DependencyProperty.Register(
             "Uri", typeof(Uri), typeof(ImageSelector), new PropertyMetadata(default(Uri)));
-
-        public static readonly DependencyProperty UriProperty = UriPropertyKey.DependencyProperty;
 
         public Uri Uri
         {
@@ -76,10 +74,9 @@ namespace HandyControl.Controls
             set => SetValue(UriProperty, value);
         }
 
-        public static readonly DependencyPropertyKey PreviewBrushPropertyKey = DependencyProperty.RegisterReadOnly(
-            "PreviewBrush", typeof(Brush), typeof(ImageSelector), new PropertyMetadata(default(Brush)));
 
-        public static readonly DependencyProperty PreviewBrushProperty = PreviewBrushPropertyKey.DependencyProperty;
+        public static readonly DependencyProperty PreviewBrushProperty = DependencyProperty.Register(
+            "PreviewBrush", typeof(Brush), typeof(ImageSelector), new PropertyMetadata(default(Brush)));
 
         public Brush PreviewBrush
         {
@@ -123,10 +120,8 @@ namespace HandyControl.Controls
             set => SetValue(FilterProperty, value);
         }
 
-        public static readonly DependencyPropertyKey HasValuePropertyKey = DependencyProperty.RegisterReadOnly(
+        public static readonly DependencyProperty HasValueProperty = DependencyProperty.Register(
             "HasValue", typeof(bool), typeof(ImageSelector), new PropertyMetadata(ValueBoxes.FalseBox));
-
-        public static readonly DependencyProperty HasValueProperty = HasValuePropertyKey.DependencyProperty;
 
         public bool HasValue
         {
