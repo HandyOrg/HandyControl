@@ -18,7 +18,8 @@ namespace HandyControl.Controls
             _popup = new Popup
             {
                 AllowsTransparency = true,
-                Child = this
+                Child = this,
+                Placement = PlacementMode.Relative
             };
 
             _popup.SetBinding(DataContextProperty, new Binding(DataContextProperty.Name) { Source = this });
@@ -91,19 +92,42 @@ namespace HandyControl.Controls
             set => SetValue(ContentTemplateSelectorProperty, value);
         }
 
-        public static readonly DependencyProperty OffsetProperty = DependencyProperty.RegisterAttached(
-            "Offset", typeof(double), typeof(Poptip), new PropertyMetadata(6.0));
+        public static readonly DependencyProperty VerticalOffsetProperty = DependencyProperty.RegisterAttached(
+            "VerticalOffset", typeof(double), typeof(Poptip), new PropertyMetadata(ValueBoxes.Double0Box));
 
-        public static void SetOffset(DependencyObject element, double value)
-            => element.SetValue(OffsetProperty, value);
-
-        public static double GetOffset(DependencyObject element)
-            => (double) element.GetValue(OffsetProperty);
-
-        public double Offset
+        public static void SetVerticalOffset(DependencyObject element, double value)
         {
-            get => (double) GetValue(OffsetProperty);
-            set => SetValue(OffsetProperty, value);
+            element.SetValue(VerticalOffsetProperty, value);
+        }
+
+        public static double GetVerticalOffset(DependencyObject element)
+        {
+            return (double) element.GetValue(VerticalOffsetProperty);
+        }
+
+        public double VerticalOffset
+        {
+            get => (double) GetValue(VerticalOffsetProperty);
+            set => SetValue(VerticalOffsetProperty, value);
+        }
+
+        public static readonly DependencyProperty HorizontalOffsetProperty = DependencyProperty.RegisterAttached(
+            "HorizontalOffset", typeof(double), typeof(Poptip), new PropertyMetadata(ValueBoxes.Double0Box));
+
+        public static void SetHorizontalOffset(DependencyObject element, double value)
+        {
+            element.SetValue(HorizontalOffsetProperty, value);
+        }
+
+        public static double GetHorizontalOffset(DependencyObject element)
+        {
+            return (double) element.GetValue(HorizontalOffsetProperty);
+        }
+
+        public double HorizontalOffset
+        {
+            get => (double) GetValue(HorizontalOffsetProperty);
+            set => SetValue(HorizontalOffsetProperty, value);
         }
 
         public static readonly DependencyProperty PlacementTypeProperty = DependencyProperty.RegisterAttached(
@@ -193,75 +217,60 @@ namespace HandyControl.Controls
 
             var poptip = (Poptip) GetInstance(Target);
             var popupPlacement = poptip.PlacementType;
-            var popupOffset = poptip.Offset;
-
-            PlacementMode placementMode;
+            var popupOffsetX = poptip.HorizontalOffset;
+            var popupOffsetY = poptip.VerticalOffset;
 
             switch (popupPlacement)
             {
                 case PlacementType.LeftTop:
-                    offsetX = -popupOffset;
-                    placementMode = PlacementMode.Left;
                     break;
                 case PlacementType.Left:
-                    offsetX = -popupOffset;
-                    offsetY = (targetHeight - height) / 2;
-                    placementMode = PlacementMode.Left;
+                    offsetY = -(height - targetHeight) * 0.5;
                     break;
                 case PlacementType.LeftBottom:
-                    offsetX = -popupOffset;
-                    offsetY = targetHeight - height;
-                    placementMode = PlacementMode.Left;
+                    offsetY = -(height - targetHeight);
                     break;
                 case PlacementType.TopLeft:
-                    offsetY = -popupOffset;
-                    placementMode = PlacementMode.Top;
+                    offsetX = width;
+                    offsetY = -height;
                     break;
                 case PlacementType.Top:
-                    offsetX = (targetWidth - width) / 2;
-                    offsetY = -popupOffset;
-                    placementMode = PlacementMode.Top;
+                    offsetX = (width + targetWidth) * 0.5;
+                    offsetY = -height;
                     break;
                 case PlacementType.TopRight:
-                    offsetX = targetWidth - width;
-                    offsetY = -popupOffset;
-                    placementMode = PlacementMode.Top;
+                    offsetX = targetWidth;
+                    offsetY = -height;
                     break;
                 case PlacementType.RightTop:
-                    offsetX = popupOffset;
-                    placementMode = PlacementMode.Right;
+                    offsetX = width + targetWidth;
                     break;
                 case PlacementType.Right:
-                    offsetX = popupOffset;
-                    offsetY = (targetHeight - height) / 2;
-                    placementMode = PlacementMode.Right;
+                    offsetX = width + targetWidth;
+                    offsetY = -(height - targetHeight) * 0.5;
                     break;
                 case PlacementType.RightBottom:
-                    offsetX = popupOffset;
-                    offsetY = targetHeight - height;
-                    placementMode = PlacementMode.Right;
+                    offsetX = width + targetWidth;
+                    offsetY = -(height - targetHeight);
                     break;
                 case PlacementType.BottomLeft:
-                    offsetY = popupOffset;
-                    placementMode = PlacementMode.Bottom;
+                    offsetX = width;
+                    offsetY = targetHeight;
                     break;
                 case PlacementType.Bottom:
-                    offsetX = (targetWidth - width) / 2;
-                    offsetY = popupOffset;
-                    placementMode = PlacementMode.Bottom;
+                    offsetX = (width + targetWidth) * 0.5;
+                    offsetY = targetHeight;
                     break;
                 case PlacementType.BottomRight:
-                    offsetX = targetWidth - width;
-                    offsetY = popupOffset;
-                    placementMode = PlacementMode.Bottom;
+                    offsetX = targetWidth;
+                    offsetY = targetHeight;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
 
-            _popup.HorizontalOffset = offsetX;
-            _popup.VerticalOffset = offsetY;
-            _popup.Placement = placementMode;
+            _popup.HorizontalOffset = offsetX + popupOffsetX;
+            _popup.VerticalOffset = offsetY + popupOffsetY;
         }
 
         private void SwitchPoptip(bool isShow)
@@ -273,7 +282,8 @@ namespace HandyControl.Controls
                     SetCurrentValue(ContentProperty, GetContent(Target));
                     SetCurrentValue(PlacementTypeProperty, GetPlacement(Target));
                     SetCurrentValue(HitModeProperty, GetHitMode(Target));
-                    SetCurrentValue(OffsetProperty, GetOffset(Target));
+                    SetCurrentValue(HorizontalOffsetProperty, GetHorizontalOffset(Target));
+                    SetCurrentValue(VerticalOffsetProperty, GetVerticalOffset(Target));
                     SetCurrentValue(IsOpenProperty, GetIsOpen(Target));
                 }
 
