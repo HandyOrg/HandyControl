@@ -29,7 +29,7 @@
                             <RowDefinition Height="16"/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <Border x:Name="PART_Triangle" Visibility="Visible" Grid.Row="0" Width="30" Height="30" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2">
+                        <Border x:Name="PART_Triangle" Visibility="Visible" Grid.Row="0" Width="30" Height="30" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Left" VerticalAlignment="Top" Grid.RowSpan="2">
                             <Border.RenderTransform>
                                 <TransformGroup>
                                     <TranslateTransform X="5" Y="5"/>
@@ -62,9 +62,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="hc:CoverView">
                     <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-                        <ScrollViewer>
-                            <WrapPanel x:Name="PART_Panel"/>
-                        </ScrollViewer>
+                        <WrapPanel x:Name="PART_Panel"/>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>

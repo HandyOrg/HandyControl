@@ -341,7 +341,7 @@ namespace HandyControl.Controls
             "ShowSelectAllButton", typeof(bool), typeof(DataGridAttach), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public static void SetShowSelectAllButton(DependencyObject element, bool value)
-            => element.SetValue(ShowSelectAllButtonProperty, value);
+            => element.SetValue(ShowSelectAllButtonProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowSelectAllButton(DependencyObject element)
             => (bool) element.GetValue(ShowSelectAllButtonProperty);

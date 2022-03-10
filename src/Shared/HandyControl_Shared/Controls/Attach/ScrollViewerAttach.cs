@@ -11,7 +11,7 @@ namespace HandyControl.Controls
             "AutoHide", typeof(bool), typeof(ScrollViewerAttach), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
 
         public static void SetAutoHide(DependencyObject element, bool value)
-            => element.SetValue(AutoHideProperty, value);
+            => element.SetValue(AutoHideProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetAutoHide(DependencyObject element)
             => (bool) element.GetValue(AutoHideProperty);

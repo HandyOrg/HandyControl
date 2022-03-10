@@ -35,7 +35,7 @@ namespace HandyControl.Controls
             {
                 if (_selectedItem == null)
                 {
-                    item.IsSelected = true;
+                    item.SetCurrentValue(SelectableItem.IsSelectedProperty, ValueBoxes.TrueBox);
                     _selectedItem = item;
                     if (_viewContent != null)
                     {
@@ -49,8 +49,8 @@ namespace HandyControl.Controls
 
                 if (!Equals(_selectedItem, item))
                 {
-                    _selectedItem.IsSelected = false;
-                    item.IsSelected = true;
+                    _selectedItem.SetCurrentValue(SelectableItem.IsSelectedProperty, ValueBoxes.FalseBox);
+                    item.SetCurrentValue(SelectableItem.IsSelectedProperty, ValueBoxes.TrueBox);
                     _selectedItem = item;
                     if (_viewContent != null)
                     {
@@ -67,7 +67,7 @@ namespace HandyControl.Controls
                     _viewContent.ContentTemplate = null;
                     UpdateCoverViewContent(false);
                 }
-                _selectedItem.IsSelected = false;
+                _selectedItem.SetCurrentValue(SelectableItem.IsSelectedProperty, ValueBoxes.FalseBox);
                 _selectedItem = null;
             }
         }
@@ -218,6 +218,12 @@ namespace HandyControl.Controls
             {
                 ItemsHost.Children.Remove(_viewContent);
             }
+
+            if (_selectedItem == null)
+            {
+                return;
+            }
+
             var total = _entryDic.Count + 1;
             var totalRow = total / Groups + (total % Groups > 0 ? 1 : 0);
             if (total <= Groups)

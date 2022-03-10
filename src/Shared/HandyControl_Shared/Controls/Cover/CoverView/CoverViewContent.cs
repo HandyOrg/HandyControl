@@ -9,7 +9,7 @@ namespace HandyControl.Controls
 {
     [TemplatePart(Name = ElementTriangle, Type = typeof(FrameworkElement))]
     [TemplatePart(Name = ElementContent, Type = typeof(FrameworkElement))]
-    internal class CoverViewContent : ContentControl
+    public class CoverViewContent : ContentControl
     {
         private const string ElementTriangle = "PART_Triangle";
 
