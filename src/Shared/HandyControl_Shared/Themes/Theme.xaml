@@ -1192,6 +1192,7 @@
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 	</Style>
 	<Style x:Key="ButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="Button">
+		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
@@ -1231,7 +1232,6 @@
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="ButtonDashedBaseStyle" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
-		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="Transparent" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -1670,6 +1670,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<Style x:Key="ToggleButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="ToggleButton">
+		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -1694,6 +1695,48 @@
 						<Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
 							<Setter Property="Visibility" Value="Collapsed" TargetName="PathMain" />
 							<Setter Property="Margin" Value="0" TargetName="ContentPresenterMain" />
+						</Trigger>
+					</ControlTemplate.Triggers>
+				</ControlTemplate>
+			</Setter.Value>
+		</Setter>
+		<Style.Triggers>
+			<Trigger Property="IsMouseOver" Value="True">
+				<Setter Property="Opacity" Value=".9" />
+			</Trigger>
+			<Trigger Property="IsPressed" Value="True">
+				<Setter Property="Opacity" Value=".6" />
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="False">
+				<Setter Property="Opacity" Value="0.4" />
+			</Trigger>
+		</Style.Triggers>
+	</Style>
+	<Style x:Key="ToggleButtonIconBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
+		<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+		<Setter Property="Width" Value="{StaticResource DefaultControlHeight}" />
+		<Setter Property="Height" Value="{StaticResource DefaultControlHeight}" />
+		<Setter Property="Padding" Value="8" />
+		<Setter Property="hc:IconSwitchElement.Geometry" Value="{x:Null}" />
+		<Setter Property="hc:IconSwitchElement.GeometrySelected" Value="{x:Null}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+		<Setter Property="BorderThickness" Value="1" />
+		<Setter Property="Template">
+			<Setter.Value>
+				<ControlTemplate TargetType="ToggleButton">
+					<hc:SimplePanel>
+						<Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" />
+						<Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+							<ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
+								<Path x:Name="PathIcon" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconSwitchElement.Geometry}" />
+							</ContentControl>
+						</Border>
+						<Border Visibility="Collapsed" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{TemplateBinding BorderBrush}" />
+					</hc:SimplePanel>
+					<ControlTemplate.Triggers>
+						<Trigger Property="IsChecked" Value="True">
+							<Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(hc:IconSwitchElement.GeometrySelected)}" />
 						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
@@ -1835,48 +1878,6 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-	</Style>
-	<Style x:Key="ToggleButtonIconBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
-		<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-		<Setter Property="Width" Value="{StaticResource DefaultControlHeight}" />
-		<Setter Property="Height" Value="{StaticResource DefaultControlHeight}" />
-		<Setter Property="Padding" Value="8" />
-		<Setter Property="hc:IconSwitchElement.Geometry" Value="{x:Null}" />
-		<Setter Property="hc:IconSwitchElement.GeometrySelected" Value="{x:Null}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
-		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-		<Setter Property="BorderThickness" Value="0" />
-		<Setter Property="Template">
-			<Setter.Value>
-				<ControlTemplate TargetType="ToggleButton">
-					<hc:SimplePanel>
-						<Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" />
-						<Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
-							<ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}">
-								<Path x:Name="PathIcon" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconSwitchElement.Geometry}" />
-							</ContentControl>
-						</Border>
-						<Border Visibility="Collapsed" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{TemplateBinding BorderBrush}" />
-					</hc:SimplePanel>
-					<ControlTemplate.Triggers>
-						<Trigger Property="IsChecked" Value="True">
-							<Setter TargetName="PathIcon" Property="Data" Value="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(hc:IconSwitchElement.GeometrySelected)}" />
-						</Trigger>
-					</ControlTemplate.Triggers>
-				</ControlTemplate>
-			</Setter.Value>
-		</Setter>
-		<Style.Triggers>
-			<Trigger Property="IsMouseOver" Value="True">
-				<Setter Property="Opacity" Value=".9" />
-			</Trigger>
-			<Trigger Property="IsPressed" Value="True">
-				<Setter Property="Opacity" Value=".6" />
-			</Trigger>
-			<Trigger Property="IsEnabled" Value="False">
-				<Setter Property="Opacity" Value="0.4" />
-			</Trigger>
-		</Style.Triggers>
 	</Style>
 	<Style x:Key="ToggleButtonGroupItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
@@ -2314,6 +2315,7 @@
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="RepeatButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RepeatButton">
+		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
@@ -3092,7 +3094,6 @@
 	</Style>
 	<Style x:Key="ButtonDefault" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="BorderThickness" Value="1" />
 		<Style.Triggers>
 			<Trigger Property="IsMouseOver" Value="True">
 				<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
@@ -3105,42 +3106,53 @@
 	<Style x:Key="ButtonDefault.Small" BasedOn="{StaticResource ButtonDefault}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style BasedOn="{StaticResource ButtonDefault}" TargetType="Button" />
 	<Style x:Key="ButtonPrimary" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
 		<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
 	</Style>
 	<Style x:Key="ButtonPrimary.Small" BasedOn="{StaticResource ButtonPrimary}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonSuccess" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
 		<Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
 	</Style>
 	<Style x:Key="ButtonSuccess.Small" BasedOn="{StaticResource ButtonSuccess}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonInfo" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
 		<Setter Property="Background" Value="{DynamicResource InfoBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
 	</Style>
 	<Style x:Key="ButtonInfo.Small" BasedOn="{StaticResource ButtonInfo}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonWarning" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
 		<Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
 	</Style>
 	<Style x:Key="ButtonWarning.Small" BasedOn="{StaticResource ButtonWarning}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonDanger" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
 		<Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
 	</Style>
 	<Style x:Key="ButtonDanger.Small" BasedOn="{StaticResource ButtonDanger}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonIcon" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
 		<Setter Property="Background" Value="Transparent" />
@@ -3161,12 +3173,12 @@
 	</Style>
 	<Style x:Key="ButtonIcon.Small" BasedOn="{StaticResource ButtonIcon}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonIconCircular" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
 		<Setter Property="Width" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0" />
 		<Setter Property="Padding" Value="6" />
 		<Setter Property="FocusVisualStyle">
@@ -3198,6 +3210,7 @@
 		<Setter Property="Width" Value="20" />
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonDashed" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
@@ -3211,6 +3224,7 @@
 	<Style x:Key="ButtonDashed.Small" BasedOn="{StaticResource ButtonDashed}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonDashedPrimary" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
@@ -3219,6 +3233,7 @@
 	<Style x:Key="ButtonDashedPrimary.Small" BasedOn="{StaticResource ButtonDashedPrimary}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonDashedSuccess" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
 		<Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
@@ -3227,6 +3242,7 @@
 	<Style x:Key="ButtonDashedSuccess.Small" BasedOn="{StaticResource ButtonDashedSuccess}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonDashedInfo" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
 		<Setter Property="Foreground" Value="{DynamicResource InfoBrush}" />
@@ -3235,6 +3251,7 @@
 	<Style x:Key="ButtonDashedInfo.Small" BasedOn="{StaticResource ButtonDashedInfo}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonDashedWarning" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
 		<Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
@@ -3243,6 +3260,7 @@
 	<Style x:Key="ButtonDashedWarning.Small" BasedOn="{StaticResource ButtonDashedWarning}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonDashedDanger" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
 		<Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
@@ -3251,6 +3269,7 @@
 	<Style x:Key="ButtonDashedDanger.Small" BasedOn="{StaticResource ButtonDashedDanger}" TargetType="Button">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="Button">
 		<Setter Property="Background" Value="{x:Null}" />
@@ -3368,7 +3387,6 @@
 	<Style x:Key="ToggleButtonDefault" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="BorderThickness" Value="1" />
 		<Style.Triggers>
 			<Trigger Property="IsMouseOver" Value="True">
 				<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
@@ -3377,27 +3395,61 @@
 				<Setter Property="Background" Value="{DynamicResource BorderBrush}" />
 			</Trigger>
 		</Style.Triggers>
+	</Style>
+	<Style x:Key="ToggleButtonDefault.Small" BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton" />
 	<Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonPrimary.Small" BasedOn="{StaticResource ToggleButtonPrimary}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonSuccess" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonSuccess.Small" BasedOn="{StaticResource ToggleButtonSuccess}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonInfo" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource InfoBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonInfo.Small" BasedOn="{StaticResource ToggleButtonInfo}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonWarning" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonWarning.Small" BasedOn="{StaticResource ToggleButtonWarning}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonDanger" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonDanger.Small" BasedOn="{StaticResource ToggleButtonDanger}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="BorderThickness" Value="1" />
 		<Style.Triggers>
 			<Trigger Property="IsMouseOver" Value="True">
 				<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
@@ -3407,20 +3459,55 @@
 			</Trigger>
 		</Style.Triggers>
 	</Style>
+	<Style x:Key="ToggleButtonIcon.Small" BasedOn="{StaticResource ToggleButtonIcon}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
+	</Style>
 	<Style x:Key="ToggleButtonIconPrimary" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonIconPrimary.Small" BasedOn="{StaticResource ToggleButtonIconPrimary}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonIconSuccess" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonIconSuccess.Small" BasedOn="{StaticResource ToggleButtonIconSuccess}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonIconInfo" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource InfoBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonIconInfo.Small" BasedOn="{StaticResource ToggleButtonIconInfo}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonIconWarning" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonIconWarning.Small" BasedOn="{StaticResource ToggleButtonIconWarning}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonIconDanger" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+	</Style>
+	<Style x:Key="ToggleButtonIconDanger.Small" BasedOn="{StaticResource ToggleButtonIconDanger}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="ToggleButtonIconTransparent" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="Transparent" />
@@ -3443,7 +3530,15 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
+	<Style x:Key="ToggleButtonIconTransparent.Small" BasedOn="{StaticResource ToggleButtonIconTransparent}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
+	</Style>
 	<Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="ToggleButton" />
+	<Style x:Key="ToggleButtonSwitch.Small" BasedOn="{StaticResource ToggleButtonSwitch}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="16" />
+	</Style>
 	<Style x:Key="ToggleButtonFlip" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="HorizontalAlignment" Value="Center" />
@@ -3559,6 +3654,10 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
+	</Style>
+	<Style x:Key="ToggleButtonFlip.Small" BasedOn="{StaticResource ToggleButtonFlip}" TargetType="ToggleButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Width" Value="20" />
 	</Style>
 	<Style x:Key="ToggleButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="Transparent" />
@@ -3689,7 +3788,6 @@
 	</Style>
 	<Style x:Key="RepeatButtonDefault" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="BorderThickness" Value="1" />
 		<Style.Triggers>
 			<Trigger Property="IsMouseOver" Value="True">
 				<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
@@ -3702,42 +3800,53 @@
 	<Style x:Key="RepeatButtonDefault.Small" BasedOn="{StaticResource RepeatButtonDefault}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style BasedOn="{StaticResource RepeatButtonDefault}" TargetType="RepeatButton" />
 	<Style x:Key="RepeatButtonPrimary" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
 	</Style>
 	<Style x:Key="RepeatButtonPrimary.Small" BasedOn="{StaticResource RepeatButtonPrimary}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonSuccess" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
 	</Style>
 	<Style x:Key="RepeatButtonSuccess.Small" BasedOn="{StaticResource RepeatButtonSuccess}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonInfo" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Background" Value="{DynamicResource InfoBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
 	</Style>
 	<Style x:Key="RepeatButtonInfo.Small" BasedOn="{StaticResource RepeatButtonInfo}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonWarning" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
 	</Style>
 	<Style x:Key="RepeatButtonWarning.Small" BasedOn="{StaticResource RepeatButtonWarning}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonDanger" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+		<Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
 	</Style>
 	<Style x:Key="RepeatButtonDanger.Small" BasedOn="{StaticResource RepeatButtonDanger}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonIcon" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Background" Value="Transparent" />
@@ -3758,13 +3867,14 @@
 	</Style>
 	<Style x:Key="RepeatButtonIcon.Small" BasedOn="{StaticResource RepeatButtonIcon}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,2" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonIconCircular" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Width" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0" />
+		<Setter Property="Padding" Value="6" />
 		<Setter Property="FocusVisualStyle">
 			<Setter.Value>
 				<Style>
@@ -3794,6 +3904,7 @@
 		<Setter Property="Width" Value="20" />
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonDashed" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
@@ -3807,6 +3918,7 @@
 	<Style x:Key="RepeatButtonDashed.Small" BasedOn="{StaticResource RepeatButtonDashed}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonDashedPrimary" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryBrush}" />
@@ -3815,6 +3927,7 @@
 	<Style x:Key="RepeatButtonDashedPrimary.Small" BasedOn="{StaticResource RepeatButtonDashedPrimary}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonDashedSuccess" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Foreground" Value="{DynamicResource SuccessBrush}" />
@@ -3823,6 +3936,7 @@
 	<Style x:Key="RepeatButtonDashedSuccess.Small" BasedOn="{StaticResource RepeatButtonDashedSuccess}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonDashedInfo" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Foreground" Value="{DynamicResource InfoBrush}" />
@@ -3831,6 +3945,7 @@
 	<Style x:Key="RepeatButtonDashedInfo.Small" BasedOn="{StaticResource RepeatButtonDashedInfo}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonDashedWarning" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Foreground" Value="{DynamicResource WarningBrush}" />
@@ -3839,6 +3954,7 @@
 	<Style x:Key="RepeatButtonDashedWarning.Small" BasedOn="{StaticResource RepeatButtonDashedWarning}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonDashedDanger" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Foreground" Value="{DynamicResource DangerBrush}" />
@@ -3847,6 +3963,7 @@
 	<Style x:Key="RepeatButtonDashedDanger.Small" BasedOn="{StaticResource RepeatButtonDashedDanger}" TargetType="RepeatButton">
 		<Setter Property="Height" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="RepeatButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="RepeatButton">
 		<Setter Property="Background" Value="{x:Null}" />
@@ -3857,7 +3974,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="RepeatButton">
-					<Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+					<Border x:Name="Chrome" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
 						<ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 					</Border>
 					<ControlTemplate.Triggers>

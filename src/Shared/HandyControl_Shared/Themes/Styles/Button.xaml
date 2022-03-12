@@ -6,7 +6,6 @@
 
     <Style x:Key="ButtonDefault" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
@@ -20,53 +19,64 @@
     <Style x:Key="ButtonDefault.Small" BasedOn="{StaticResource ButtonDefault}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style BasedOn="{StaticResource ButtonDefault}" TargetType="Button"/>
 
     <Style x:Key="ButtonPrimary" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
 
     <Style x:Key="ButtonPrimary.Small" BasedOn="{StaticResource ButtonPrimary}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonSuccess" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
     </Style>
 
     <Style x:Key="ButtonSuccess.Small" BasedOn="{StaticResource ButtonSuccess}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonInfo" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}"/>
     </Style>
 
     <Style x:Key="ButtonInfo.Small" BasedOn="{StaticResource ButtonInfo}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonWarning" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
     </Style>
 
     <Style x:Key="ButtonWarning.Small" BasedOn="{StaticResource ButtonWarning}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonDanger" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
     <Style x:Key="ButtonDanger.Small" BasedOn="{StaticResource ButtonDanger}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <!--endregion-->
@@ -93,13 +103,13 @@
 
     <Style x:Key="ButtonIcon.Small" BasedOn="{StaticResource ButtonIcon}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonIconCircular" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
         <Setter Property="Width" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="FocusVisualStyle">
@@ -132,6 +142,7 @@
         <Setter Property="Width" Value="20"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <!--endregion-->
@@ -151,6 +162,7 @@
     <Style x:Key="ButtonDashed.Small" BasedOn="{StaticResource ButtonDashed}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonDashedPrimary" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
@@ -161,6 +173,7 @@
     <Style x:Key="ButtonDashedPrimary.Small" BasedOn="{StaticResource ButtonDashedPrimary}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonDashedSuccess" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
@@ -171,6 +184,7 @@
     <Style x:Key="ButtonDashedSuccess.Small" BasedOn="{StaticResource ButtonDashedSuccess}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonDashedInfo" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
@@ -181,6 +195,7 @@
     <Style x:Key="ButtonDashedInfo.Small" BasedOn="{StaticResource ButtonDashedInfo}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonDashedWarning" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
@@ -191,6 +206,7 @@
     <Style x:Key="ButtonDashedWarning.Small" BasedOn="{StaticResource ButtonDashedWarning}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ButtonDashedDanger" BasedOn="{StaticResource ButtonDashedBaseStyle}" TargetType="Button">
@@ -201,6 +217,7 @@
     <Style x:Key="ButtonDashedDanger.Small" BasedOn="{StaticResource ButtonDashedDanger}" TargetType="Button">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <!--endregion-->

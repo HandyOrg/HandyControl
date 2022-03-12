@@ -6,7 +6,6 @@
     <Style x:Key="ToggleButtonDefault" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
@@ -15,35 +14,75 @@
                 <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
             </Trigger>
         </Style.Triggers>
+    </Style>
+
+    <Style x:Key="ToggleButtonDefault.Small" BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton"/>
 
     <Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonPrimary.Small" BasedOn="{StaticResource ToggleButtonPrimary}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonSuccess" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonSuccess.Small" BasedOn="{StaticResource ToggleButtonSuccess}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonInfo" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonInfo.Small" BasedOn="{StaticResource ToggleButtonInfo}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonWarning" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonWarning.Small" BasedOn="{StaticResource ToggleButtonWarning}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonDanger" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonDanger.Small" BasedOn="{StaticResource ToggleButtonDanger}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <!--图标-->
     <Style x:Key="ToggleButtonIcon" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
@@ -54,24 +93,65 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="ToggleButtonIcon.Small" BasedOn="{StaticResource ToggleButtonIcon}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
+    </Style>
+
     <Style x:Key="ToggleButtonIconPrimary" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconPrimary.Small" BasedOn="{StaticResource ToggleButtonIconPrimary}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonIconSuccess" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconSuccess.Small" BasedOn="{StaticResource ToggleButtonIconSuccess}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonIconInfo" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconInfo.Small" BasedOn="{StaticResource ToggleButtonIconInfo}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonIconWarning" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconWarning.Small" BasedOn="{StaticResource ToggleButtonIconWarning}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonIconDanger" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
+    <Style x:Key="ToggleButtonIconDanger.Small" BasedOn="{StaticResource ToggleButtonIconDanger}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="ToggleButtonIconTransparent" BasedOn="{StaticResource ToggleButtonIconBaseStyle}" TargetType="ToggleButton">
@@ -96,8 +176,18 @@
         </Setter>
     </Style>
 
+    <Style x:Key="ToggleButtonIconTransparent.Small" BasedOn="{StaticResource ToggleButtonIconTransparent}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
+    </Style>
+
     <!--开关-->
     <Style x:Key="ToggleButtonSwitch" BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}" TargetType="ToggleButton"/>
+
+    <Style x:Key="ToggleButtonSwitch.Small" BasedOn="{StaticResource ToggleButtonSwitch}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="16"/>
+    </Style>
 
     <!--翻转-->
     <Style x:Key="ToggleButtonFlip" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
@@ -215,6 +305,11 @@
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style x:Key="ToggleButtonFlip.Small" BasedOn="{StaticResource ToggleButtonFlip}" TargetType="ToggleButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Width" Value="20"/>
     </Style>
 
     <!--自定义-->

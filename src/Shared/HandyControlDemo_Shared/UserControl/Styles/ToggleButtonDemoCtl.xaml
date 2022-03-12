@@ -7,129 +7,202 @@
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
         <hc:ScrollViewer IsInertiaEnabled="True">
-            <StackPanel Margin="32">
-                <WrapPanel ItemWidth="160" ItemHeight="130">
-                    <StackPanel>
-                        <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5"/>
-                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource ToggleButtonPrimary}"/>
-                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ToggleButtonPrimary}"/>
-                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonPrimary"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource ToggleButtonSuccess}"/>
-                        <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ToggleButtonSuccess}"/>
-                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSuccess"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ToggleButtonInfo}"/>
-                        <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ToggleButtonInfo}"/>
-                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonInfo"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ToggleButtonWarning}"/>
-                        <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ToggleButtonWarning}"/>
-                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonWarning"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger}"/>
-                        <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger}"/>
-                        <TextBlock TextAlignment="Center" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonDanger"/>
-                    </StackPanel>
-                </WrapPanel>
-                <WrapPanel ItemWidth="160" ItemHeight="130">
-                    <StackPanel>
-                        <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIcon}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIcon}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonIcon"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconPrimary}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconPrimary}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonIconPrimary"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconSuccess}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconSuccess}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonIconSuccess"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconInfo}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconInfo}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonIconInfo"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconWarning}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconWarning}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonIconWarning"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconDanger}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconDanger}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonIconDanger"/>
-                    </StackPanel>
-                </WrapPanel>
-                <WrapPanel ItemWidth="160" ItemHeight="130">
-                    <StackPanel>
-                        <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource DeleteGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource DownGeometry}"/>
-                        <TextBlock TextAlignment="Center" TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonIconTransparent"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton IsChecked="True" Style="{StaticResource ToggleButtonCustom}" hc:StatusSwitchElement.HideUncheckedElement="True" Margin="5">
-                            <hc:StatusSwitchElement.CheckedElement>
+            <hc:UniformSpacingPanel ChildWrapping="Wrap" Spacing="32" Margin="32">
+                <hc:UniformSpacingPanel Orientation="Vertical" Spacing="32">
+                    <WrapPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5"/>
+                            <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ToggleButtonPrimary}"/>
+                            <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ToggleButtonPrimary}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ToggleButtonSuccess}"/>
+                            <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ToggleButtonSuccess}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ToggleButtonInfo}"/>
+                            <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ToggleButtonInfo}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ToggleButtonWarning}"/>
+                            <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ToggleButtonWarning}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger}"/>
+                            <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIcon}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIcon}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconPrimary}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconPrimary}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconSuccess}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconSuccess}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconInfo}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconInfo}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconWarning}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconWarning}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconDanger}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconDanger}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Style="{StaticResource ToggleButtonCustom}" hc:StatusSwitchElement.HideUncheckedElement="True" Margin="5">
+                                <hc:StatusSwitchElement.CheckedElement>
+                                    <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
+                                        <Ellipse Width="20" Height="20" Fill="{DynamicResource PrimaryBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
+                                    </Border>
+                                </hc:StatusSwitchElement.CheckedElement>
                                 <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
-                                    <Ellipse Width="20" Height="20" Fill="{DynamicResource PrimaryBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
+                                    <Ellipse Width="20" Height="20" Fill="{DynamicResource BorderBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
                                 </Border>
-                            </hc:StatusSwitchElement.CheckedElement>
-                            <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
-                                <Ellipse Width="20" Height="20" Fill="{DynamicResource BorderBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
-                            </Border>
-                        </ToggleButton>
-                        <ToggleButton IsEnabled="False" IsChecked="True" Style="{StaticResource ToggleButtonCustom}" hc:StatusSwitchElement.HideUncheckedElement="True" Margin="5">
-                            <hc:StatusSwitchElement.CheckedElement>
+                            </ToggleButton>
+                            <ToggleButton IsEnabled="False" IsChecked="True" Style="{StaticResource ToggleButtonCustom}" hc:StatusSwitchElement.HideUncheckedElement="True" Margin="5">
+                                <hc:StatusSwitchElement.CheckedElement>
+                                    <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
+                                        <Ellipse Width="20" Height="20" Fill="{DynamicResource PrimaryBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
+                                    </Border>
+                                </hc:StatusSwitchElement.CheckedElement>
                                 <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
-                                    <Ellipse Width="20" Height="20" Fill="{DynamicResource PrimaryBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
+                                    <Ellipse Width="20" Height="20" Fill="{DynamicResource BorderBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
                                 </Border>
-                            </hc:StatusSwitchElement.CheckedElement>
-                            <Border Width="80" Height="30" CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
-                                <Ellipse Width="20" Height="20" Fill="{DynamicResource BorderBrush}" StrokeThickness="1" Stroke="{DynamicResource BorderBrush}"/>
-                            </Border>
-                        </ToggleButton>
-                        <TextBlock TextTrimming="CharacterEllipsis" TextWrapping="Wrap" Style="{StaticResource TextBlockDefault}" Text="ToggleButtonCustom"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton IsChecked="True" Margin="5,9" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}"/>
-                        <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,9" Style="{StaticResource ToggleButtonSwitch}"/>
-                        <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonSwitch"/>
-                    </StackPanel>
-                    <StackPanel>
-                        <ToggleButton BorderThickness="0" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
-                            <hc:StatusSwitchElement.CheckedElement>
-                                <Border Background="{DynamicResource PrimaryBrush}">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.Off}}" Foreground="{DynamicResource TextIconBrush}"/>
+                            </ToggleButton>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Margin="5,9" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}"/>
+                            <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,9" Style="{StaticResource ToggleButtonSwitch}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton BorderThickness="0" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
+                                <hc:StatusSwitchElement.CheckedElement>
+                                    <Border Background="{DynamicResource PrimaryBrush}">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.Off}}" Foreground="{DynamicResource TextIconBrush}"/>
+                                    </Border>
+                                </hc:StatusSwitchElement.CheckedElement>
+                                <Border Background="{DynamicResource DangerBrush}">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.On}}" Foreground="{DynamicResource TextIconBrush}"/>
                                 </Border>
-                            </hc:StatusSwitchElement.CheckedElement>
-                            <Border Background="{DynamicResource DangerBrush}">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.On}}" Foreground="{DynamicResource TextIconBrush}"/>
-                            </Border>
-                        </ToggleButton>
-                        <ToggleButton BorderThickness="0" IsEnabled="False" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
-                            <hc:StatusSwitchElement.CheckedElement>
-                                <Border Background="{DynamicResource PrimaryBrush}">
-                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.Off}}" Foreground="{DynamicResource TextIconBrush}"/>
+                            </ToggleButton>
+                            <ToggleButton BorderThickness="0" IsEnabled="False" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
+                                <hc:StatusSwitchElement.CheckedElement>
+                                    <Border Background="{DynamicResource PrimaryBrush}">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.Off}}" Foreground="{DynamicResource TextIconBrush}"/>
+                                    </Border>
+                                </hc:StatusSwitchElement.CheckedElement>
+                                <Border Background="{DynamicResource DangerBrush}">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.On}}" Foreground="{DynamicResource TextIconBrush}"/>
                                 </Border>
-                            </hc:StatusSwitchElement.CheckedElement>
-                            <Border Background="{DynamicResource DangerBrush}">
-                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.On}}" Foreground="{DynamicResource TextIconBrush}"/>
-                            </Border>
-                        </ToggleButton>
-                        <TextBlock Style="{StaticResource TextBlockDefault}" Text="ToggleButtonFlip"/>
-                    </StackPanel>
-                </WrapPanel>
-            </StackPanel>
+                            </ToggleButton>
+                        </StackPanel>
+                    </WrapPanel>
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Orientation="Vertical" Spacing="32">
+                    <WrapPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource ToggleButtonDefault.Small}"/>
+                            <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource ToggleButtonDefault.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ToggleButtonPrimary.Small}"/>
+                            <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource ToggleButtonPrimary.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ToggleButtonSuccess.Small}"/>
+                            <ToggleButton IsEnabled="False" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource ToggleButtonSuccess.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ToggleButtonInfo.Small}"/>
+                            <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource ToggleButtonInfo.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ToggleButtonWarning.Small}"/>
+                            <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource ToggleButtonWarning.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger.Small}"/>
+                            <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger.Small}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIcon.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIcon.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconPrimary.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconPrimary.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconSuccess.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconSuccess.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconInfo.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconInfo.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconWarning.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconWarning.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconDanger.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconDanger.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIconTransparent.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconTransparent.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton IsChecked="True" Margin="5,8" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch.Small}"/>
+                            <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,4" Style="{StaticResource ToggleButtonSwitch.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton BorderThickness="0" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip.Small}">
+                                <hc:StatusSwitchElement.CheckedElement>
+                                    <Border Background="{DynamicResource PrimaryBrush}">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.Off}}" Foreground="{DynamicResource TextIconBrush}"/>
+                                    </Border>
+                                </hc:StatusSwitchElement.CheckedElement>
+                                <Border Background="{DynamicResource DangerBrush}">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.On}}" Foreground="{DynamicResource TextIconBrush}"/>
+                                </Border>
+                            </ToggleButton>
+                            <ToggleButton BorderThickness="0" IsEnabled="False" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip.Small}">
+                                <hc:StatusSwitchElement.CheckedElement>
+                                    <Border Background="{DynamicResource PrimaryBrush}">
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.Off}}" Foreground="{DynamicResource TextIconBrush}"/>
+                                    </Border>
+                                </hc:StatusSwitchElement.CheckedElement>
+                                <Border Background="{DynamicResource DangerBrush}">
+                                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Text="{ex:Lang Key={x:Static langs:LangKeys.On}}" Foreground="{DynamicResource TextIconBrush}"/>
+                                </Border>
+                            </ToggleButton>
+                        </StackPanel>
+                    </WrapPanel>
+                </hc:UniformSpacingPanel>
+            </hc:UniformSpacingPanel>
         </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

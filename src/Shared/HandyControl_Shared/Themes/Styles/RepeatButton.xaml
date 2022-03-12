@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="clr-namespace:HandyControl.Controls">
 
@@ -6,7 +6,6 @@
 
     <Style x:Key="RepeatButtonDefault" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
                 <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
@@ -20,53 +19,64 @@
     <Style x:Key="RepeatButtonDefault.Small" BasedOn="{StaticResource RepeatButtonDefault}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style BasedOn="{StaticResource RepeatButtonDefault}" TargetType="RepeatButton"/>
-    
+
     <Style x:Key="RepeatButtonPrimary" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
     </Style>
 
     <Style x:Key="RepeatButtonPrimary.Small" BasedOn="{StaticResource RepeatButtonPrimary}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
-    
+
     <Style x:Key="RepeatButtonSuccess" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}"/>
     </Style>
 
     <Style x:Key="RepeatButtonSuccess.Small" BasedOn="{StaticResource RepeatButtonSuccess}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
-    
+
     <Style x:Key="RepeatButtonInfo" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}"/>
     </Style>
 
     <Style x:Key="RepeatButtonInfo.Small" BasedOn="{StaticResource RepeatButtonInfo}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
-    
+
     <Style x:Key="RepeatButtonWarning" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}"/>
     </Style>
 
     <Style x:Key="RepeatButtonWarning.Small" BasedOn="{StaticResource RepeatButtonWarning}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
-    
+
     <Style x:Key="RepeatButtonDanger" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
     </Style>
 
     <Style x:Key="RepeatButtonDanger.Small" BasedOn="{StaticResource RepeatButtonDanger}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <!--endregion-->
@@ -93,14 +103,15 @@
 
     <Style x:Key="RepeatButtonIcon.Small" BasedOn="{StaticResource RepeatButtonIcon}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="RepeatButtonIconCircular" BasedOn="{StaticResource RepeatButtonBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Width" Value="{StaticResource DefaultControlHeight}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
+        <Setter Property="Padding" Value="6"/>
         <Setter Property="FocusVisualStyle">
             <Setter.Value>
                 <Style>
@@ -131,11 +142,12 @@
         <Setter Property="Width" Value="20"/>
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <!--endregion-->
 
-    <!--region ButtonDashed-->
+    <!--region RepeatButtonDashed-->
 
     <Style x:Key="RepeatButtonDashed" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
@@ -150,6 +162,7 @@
     <Style x:Key="RepeatButtonDashed.Small" BasedOn="{StaticResource RepeatButtonDashed}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="RepeatButtonDashedPrimary" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
@@ -160,6 +173,7 @@
     <Style x:Key="RepeatButtonDashedPrimary.Small" BasedOn="{StaticResource RepeatButtonDashedPrimary}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="RepeatButtonDashedSuccess" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
@@ -170,6 +184,7 @@
     <Style x:Key="RepeatButtonDashedSuccess.Small" BasedOn="{StaticResource RepeatButtonDashedSuccess}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="RepeatButtonDashedInfo" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
@@ -180,6 +195,7 @@
     <Style x:Key="RepeatButtonDashedInfo.Small" BasedOn="{StaticResource RepeatButtonDashedInfo}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="RepeatButtonDashedWarning" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
@@ -190,6 +206,7 @@
     <Style x:Key="RepeatButtonDashedWarning.Small" BasedOn="{StaticResource RepeatButtonDashedWarning}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="RepeatButtonDashedDanger" BasedOn="{StaticResource RepeatButtonDashedBaseStyle}" TargetType="RepeatButton">
@@ -200,6 +217,7 @@
     <Style x:Key="RepeatButtonDashedDanger.Small" BasedOn="{StaticResource RepeatButtonDashedDanger}" TargetType="RepeatButton">
         <Setter Property="Height" Value="20"/>
         <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <!--endregion-->
@@ -213,7 +231,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RepeatButton">
-                    <Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+                    <Border x:Name="Chrome" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
                         <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                     </Border>
                     <ControlTemplate.Triggers>
