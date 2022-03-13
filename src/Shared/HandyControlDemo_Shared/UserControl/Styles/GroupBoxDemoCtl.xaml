@@ -42,7 +42,7 @@
                     <TextBox/>
                 </GroupBox>
                 <GroupBox Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="300" hc:TitleElement.TitleWidth="100" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left">
-                    <ComboBox DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}" ItemsSource="{Binding DataList}"/>
+                    <ComboBox DataContext="{Binding InputElementDemo,Source={StaticResource Locator}}" ItemsSource="{Binding DataList}"/>
                 </GroupBox>
             </Grid>
         </ScrollViewer>

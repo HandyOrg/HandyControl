@@ -101,18 +101,6 @@ namespace HandyControlDemo.Service
             return list;
         }
 
-        internal List<string> GetComboBoxDemoDataList()
-        {
-            var converter = new StringRepeatConverter();
-            var list = new List<string>();
-            for (var i = 1; i <= 9; i++)
-            {
-                list.Add($"{converter.Convert(Lang.Text, null, i, CultureInfo.CurrentCulture)}{i}");
-            }
-
-            return list;
-        }
-
         internal List<AvatarModel> GetContributorDataList()
         {
             var client = new WebClient();

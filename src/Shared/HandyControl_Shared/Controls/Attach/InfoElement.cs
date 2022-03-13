@@ -80,5 +80,14 @@ namespace HandyControl.Controls
 
         public static string GetRegexPattern(DependencyObject element)
             => (string) element.GetValue(RegexPatternProperty);
+
+        public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.RegisterAttached(
+            "ShowClearButton", typeof(bool), typeof(InfoElement), new PropertyMetadata(ValueBoxes.FalseBox));
+
+        public static void SetShowClearButton(DependencyObject element, bool value)
+            => element.SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
+
+        public static bool GetShowClearButton(DependencyObject element)
+            => (bool) element.GetValue(ShowClearButtonProperty);
     }
 }

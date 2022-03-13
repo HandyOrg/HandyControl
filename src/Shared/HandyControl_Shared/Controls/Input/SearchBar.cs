@@ -42,7 +42,6 @@ namespace HandyControl.Controls
             {
                 OnSearchStarted();
             }
-            VerifyData();
         }
 
         private void OnSearchStarted()

@@ -17,7 +17,6 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register(() => new GrowlDemoViewModel(), "GrowlDemo");
             SimpleIoc.Default.Register(() => new GrowlDemoViewModel(MessageToken.GrowlDemoPanel), "GrowlDemoWithToken");
             SimpleIoc.Default.Register<ImageBrowserDemoViewModel>();
-            SimpleIoc.Default.Register<ComboBoxDemoViewModel>();
             SimpleIoc.Default.Register<WindowDemoViewModel>();
             SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetBlogDataList), "Blogs");
             SimpleIoc.Default.Register(() => new ItemsDisplayViewModel(dataService.GetProjectDataList), "Projects");
@@ -27,7 +26,6 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<ChatBoxViewModel>();
             SimpleIoc.Default.Register<CoverViewModel>();
             SimpleIoc.Default.Register<DialogDemoViewModel>();
-            SimpleIoc.Default.Register<SearchBarDemoViewModel>();
             SimpleIoc.Default.Register<NotifyIconDemoViewModel>();
             SimpleIoc.Default.Register<InteractiveDialogViewModel>();
             SimpleIoc.Default.Register<BadgeDemoViewModel>();
@@ -40,6 +38,7 @@ namespace HandyControlDemo.ViewModel
             SimpleIoc.Default.Register<SplitButtonDemoViewModel>();
             SimpleIoc.Default.Register<TagDemoViewModel>();
             SimpleIoc.Default.Register<AutoCompleteTextBoxDemoViewModel>();
+            SimpleIoc.Default.Register<InputElementDemoViewModel>();
         }
 
         public static ViewModelLocator Instance = new Lazy<ViewModelLocator>(() =>
@@ -54,8 +53,6 @@ namespace HandyControlDemo.ViewModel
         public GrowlDemoViewModel GrowlDemoWithToken => SimpleIoc.Default.GetInstance<GrowlDemoViewModel>("GrowlDemoWithToken");
 
         public ImageBrowserDemoViewModel ImageBrowserDemo => SimpleIoc.Default.GetInstance<ImageBrowserDemoViewModel>();
-
-        public ComboBoxDemoViewModel ComboBoxDemo => SimpleIoc.Default.GetInstance<ComboBoxDemoViewModel>();
 
         public WindowDemoViewModel WindowDemo => SimpleIoc.Default.GetInstance<WindowDemoViewModel>();
 
@@ -76,8 +73,6 @@ namespace HandyControlDemo.ViewModel
         public CoverViewModel CoverView => SimpleIoc.Default.GetInstance<CoverViewModel>();
 
         public DialogDemoViewModel DialogDemo => SimpleIoc.Default.GetInstance<DialogDemoViewModel>();
-
-        public SearchBarDemoViewModel SearchBarDemo => SimpleIoc.Default.GetInstance<SearchBarDemoViewModel>();
 
         public NotifyIconDemoViewModel NotifyIconDemo => SimpleIoc.Default.GetInstance<NotifyIconDemoViewModel>();
 
@@ -102,6 +97,8 @@ namespace HandyControlDemo.ViewModel
         public TagDemoViewModel TagDemo => new(SimpleIoc.Default.GetInstance<DataService>());
 
         public AutoCompleteTextBoxDemoViewModel AutoCompleteTextBoxDemo => new(SimpleIoc.Default.GetInstance<DataService>());
+
+        public InputElementDemoViewModel InputElementDemo => new();
 
         #endregion
     }

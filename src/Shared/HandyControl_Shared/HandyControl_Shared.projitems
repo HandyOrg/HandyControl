@@ -415,6 +415,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ButtonGroupItemStyleSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\ComboBoxItemCapsuleStyleSelector.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\StyleSelector\TabItemCapsuleStyleSelector.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\ValidationRule\NoBlankTextRule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\ValidationRule\RegexRule.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="$(MSBuildThisFileDirectory)Themes\Basic\Behaviors.xaml">
