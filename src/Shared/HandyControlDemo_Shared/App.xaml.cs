@@ -27,13 +27,13 @@ public partial class App
     public App()
     {
 #if !NET40
-            var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
-            if (!Directory.Exists(cachePath))
-            {
-                Directory.CreateDirectory(cachePath);
-            }
-            ProfileOptimization.SetProfileRoot(cachePath);
-            ProfileOptimization.StartProfile("Profile");
+        var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
+        if (!Directory.Exists(cachePath))
+        {
+            Directory.CreateDirectory(cachePath);
+        }
+        ProfileOptimization.SetProfileRoot(cachePath);
+        ProfileOptimization.StartProfile("Profile");
 #endif
     }
 
@@ -80,7 +80,7 @@ public partial class App
 #if NET40
             ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 #else
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 #endif
         }
     }

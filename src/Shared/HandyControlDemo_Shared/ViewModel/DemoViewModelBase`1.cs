@@ -19,7 +19,7 @@ public class DemoViewModelBase<T> : ViewModelBase
 #if NET40
         set => Set(nameof(DataList), ref _dataList, value);
 #else
-            set => Set(ref _dataList, value);
+        set => Set(ref _dataList, value);
 #endif       
     }
 }

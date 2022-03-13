@@ -203,12 +203,12 @@ internal class GlowEdge : HwndWrapper
                     case 169:
                     case 171:
                     case 173:
-                    {
-                        var targetWindowHandle = TargetWindowHandle;
-                        InteropMethods.SendMessage(targetWindowHandle, 6, new IntPtr(2), IntPtr.Zero);
-                        InteropMethods.SendMessage(targetWindowHandle, msg, wParam, IntPtr.Zero);
-                        return IntPtr.Zero;
-                    }
+                        {
+                            var targetWindowHandle = TargetWindowHandle;
+                            InteropMethods.SendMessage(targetWindowHandle, 6, new IntPtr(2), IntPtr.Zero);
+                            InteropMethods.SendMessage(targetWindowHandle, msg, wParam, IntPtr.Zero);
+                            return IntPtr.Zero;
+                        }
                 }
             }
             else

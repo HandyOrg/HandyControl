@@ -506,7 +506,7 @@ public sealed class TaskbarItemInfo : Freezable
                         default:
                             goto IL_A5;
                     }
-                    IL_146:
+IL_146:
                     array[(int) ((UIntPtr) num)] = thumbbutton;
                     num += 1u;
                     if (num != 7u)
@@ -514,7 +514,7 @@ public sealed class TaskbarItemInfo : Freezable
                         continue;
                     }
                     break;
-                    IL_A5:
+IL_A5:
                     thumbbutton.szTip = (thumbButtonInfo.Description ?? "");
                     thumbbutton.hIcon = this._GetHICONFromImageSource(thumbButtonInfo.ImageSource, this._overlaySize);
                     if (!thumbButtonInfo.IsBackgroundVisible)
@@ -542,7 +542,7 @@ public sealed class TaskbarItemInfo : Freezable
                 }
                 goto IL_1AE;
             }
-            IL_179:
+IL_179:
             array[(int) ((UIntPtr) num)] = new THUMBBUTTON
             {
                 iId = num,
@@ -550,7 +550,7 @@ public sealed class TaskbarItemInfo : Freezable
                 dwMask = (THB.ICON | THB.TOOLTIP | THB.FLAGS)
             };
             num += 1u;
-            IL_1AE:
+IL_1AE:
             if (num < 7u)
             {
                 goto IL_179;

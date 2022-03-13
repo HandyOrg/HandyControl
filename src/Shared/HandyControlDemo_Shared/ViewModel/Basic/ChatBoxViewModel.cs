@@ -46,7 +46,7 @@ public class ChatBoxViewModel : ViewModelBase
 #if NET40
         set => Set(nameof(ChatString), ref _chatString, value);
 #else
-            set => Set(ref _chatString, value);
+        set => Set(ref _chatString, value);
 #endif
     }
 

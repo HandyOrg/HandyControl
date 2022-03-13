@@ -233,24 +233,24 @@ public class ScreenshotWindow : System.Windows.Window
             switch (e.Key)
             {
                 case Key.Left:
-                {
-                    MoveTargetArea(MoveRect(_targetWindowRect, -1, rightFlag: -1));
-                }
+                    {
+                        MoveTargetArea(MoveRect(_targetWindowRect, -1, rightFlag: -1));
+                    }
                     break;
                 case Key.Up:
-                {
-                    MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: -1, topFlag: -1));
-                }
+                    {
+                        MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: -1, topFlag: -1));
+                    }
                     break;
                 case Key.Right:
-                {
-                    MoveTargetArea(MoveRect(_targetWindowRect, 1, rightFlag: 1));
-                }
+                    {
+                        MoveTargetArea(MoveRect(_targetWindowRect, 1, rightFlag: 1));
+                    }
                     break;
                 case Key.Down:
-                {
-                    MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: 1, topFlag: 1));
-                }
+                    {
+                        MoveTargetArea(MoveRect(_targetWindowRect, bottomFlag: 1, topFlag: 1));
+                    }
                     break;
                 case Key.Enter:
                     _saveScreenshot = true;

@@ -13,7 +13,7 @@ public class BadgeDemoViewModel : ViewModelBase
 #if NET40
         set => Set(nameof(Count), ref _count, value);
 #else
-            set => Set(ref _count, value);
+        set => Set(ref _count, value);
 #endif
     }
 

@@ -45,12 +45,12 @@ public sealed class SketchGeometryEffect : GeometryEffect
     {
         var startPoint = pathFigure.StartPoint;
         foreach (var iteratorVariable1 in pathFigure.AllSegments())
-        foreach (var iteratorVariable2 in iteratorVariable1.PathSegment.GetSimpleSegments(
-                     iteratorVariable1.StartPoint))
-        {
-            yield return iteratorVariable2;
-            startPoint = iteratorVariable2.Points.Last();
-        }
+            foreach (var iteratorVariable2 in iteratorVariable1.PathSegment.GetSimpleSegments(
+                         iteratorVariable1.StartPoint))
+            {
+                yield return iteratorVariable2;
+                startPoint = iteratorVariable2.Points.Last();
+            }
 
         if (pathFigure.IsClosed) yield return SimpleSegment.Create(startPoint, pathFigure.StartPoint);
     }

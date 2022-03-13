@@ -72,7 +72,7 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
 
                 _editableTextBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-                    _editableTextBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+                _editableTextBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
                 _editableTextBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
                 _editableTextBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
@@ -93,7 +93,7 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
                         UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged,
                         Mode = BindingMode.OneWayToSource,
 #if !NET40
-                            Delay = 500,
+                        Delay = 500,
 #endif
                         Source = this
                     });
@@ -128,12 +128,12 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     }
 
 #if !NET40
-        protected override void OnDropDownClosed(EventArgs e)
-        {
-            base.OnDropDownClosed(e);
+    protected override void OnDropDownClosed(EventArgs e)
+    {
+        base.OnDropDownClosed(e);
 
-            _isAutoCompleteAction = false;
-        }
+        _isAutoCompleteAction = false;
+    }
 #endif
 
     private void EditableTextBox_GotFocus(object sender, RoutedEventArgs e)
@@ -271,7 +271,7 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
             ctl._autoCompleteTimer.Stop();
             ctl._autoCompleteTimer.Start();
 #else
-                ctl.UpdateSearchItems(e.NewValue as string);
+            ctl.UpdateSearchItems(e.NewValue as string);
 #endif
         }
 
@@ -298,14 +298,14 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
 
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
 
-        public static readonly DependencyProperty SelectionTextBrushProperty =
-            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(ComboBox));
+    public static readonly DependencyProperty SelectionTextBrushProperty =
+        TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(ComboBox));
 
-        public Brush SelectionTextBrush
-        {
-            get => (Brush) GetValue(SelectionTextBrushProperty);
-            set => SetValue(SelectionTextBrushProperty, value);
-        }
+    public Brush SelectionTextBrush
+    {
+        get => (Brush) GetValue(SelectionTextBrushProperty);
+        set => SetValue(SelectionTextBrushProperty, value);
+    }
 
 #endif
 
