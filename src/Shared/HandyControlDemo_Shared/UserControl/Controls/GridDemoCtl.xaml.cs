@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class GridDemoCtl : IFull
 {
-    public partial class GridDemoCtl : IFull
+    public GridDemoCtl()
     {
-        public GridDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

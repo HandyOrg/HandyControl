@@ -1,9 +1,8 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum StrokePosition
 {
-    public enum StrokePosition
-    {
-        Center,
-        Outside,
-        Inside
-    }
+    Center,
+    Outside,
+    Inside
 }

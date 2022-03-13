@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class SliderDemoCtl
 {
-    public partial class SliderDemoCtl
+    public SliderDemoCtl()
     {
-        public SliderDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

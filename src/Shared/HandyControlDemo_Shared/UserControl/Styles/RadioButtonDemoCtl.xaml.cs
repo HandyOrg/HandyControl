@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class RadioButtonDemoCtl
 {
-    public partial class RadioButtonDemoCtl
+    public RadioButtonDemoCtl()
     {
-        public RadioButtonDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class CardDemoCtl
 {
-    public partial class CardDemoCtl
+    public CardDemoCtl()
     {
-        public CardDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

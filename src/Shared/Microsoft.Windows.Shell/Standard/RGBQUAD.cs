@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal struct RGBQUAD
 {
-    internal struct RGBQUAD
-    {
-        public byte rgbBlue;
+    public byte rgbBlue;
 
-        public byte rgbGreen;
+    public byte rgbGreen;
 
-        public byte rgbRed;
+    public byte rgbRed;
 
-        public byte rgbReserved;
-    }
+    public byte rgbReserved;
 }

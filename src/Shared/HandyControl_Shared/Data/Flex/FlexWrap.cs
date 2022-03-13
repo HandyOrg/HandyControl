@@ -1,9 +1,8 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum FlexWrap
 {
-    public enum FlexWrap
-    {
-        NoWrap,
-        Wrap,
-        WrapReverse
-    }
+    NoWrap,
+    Wrap,
+    WrapReverse
 }

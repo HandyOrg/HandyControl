@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace HandyControl.Interactivity
-{
-    [AttributeUsage(AttributeTargets.Class, Inherited = false)]
-    public sealed class TypeConstraintAttribute : Attribute
-    {
-        public TypeConstraintAttribute(Type constraint)
-        {
-            Constraint = constraint;
-        }
+namespace HandyControl.Interactivity;
 
-        public Type Constraint { get; }
+[AttributeUsage(AttributeTargets.Class, Inherited = false)]
+public sealed class TypeConstraintAttribute : Attribute
+{
+    public TypeConstraintAttribute(Type constraint)
+    {
+        Constraint = constraint;
     }
+
+    public Type Constraint { get; }
 }

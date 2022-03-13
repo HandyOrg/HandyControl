@@ -1,13 +1,12 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum ColLayoutStatus
 {
-    public enum ColLayoutStatus
-    {
-        Xs,
-        Sm,
-        Md,
-        Lg,
-        Xl,
-        Xxl,
-        Auto
-    }
+    Xs,
+    Sm,
+    Md,
+    Lg,
+    Xl,
+    Xxl,
+    Auto
 }

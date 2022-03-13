@@ -6,36 +6,35 @@ using System.Windows.Media;
 using HandyControl.Tools;
 using HandyControlDemo.Data;
 
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class GeometryDemoCtl
 {
-    public partial class GeometryDemoCtl
+    private readonly HashSet<string> _lineSet = new()
     {
-        private readonly HashSet<string> _lineSet = new()
-        {
-            "CheckedGeometry"
-        };
+        "CheckedGeometry"
+    };
 
-        public ObservableCollection<GeometryItemModel> GeometryItems { get; set; } =
-            new();
+    public ObservableCollection<GeometryItemModel> GeometryItems { get; set; } =
+        new();
 
-        public GeometryDemoCtl()
-        {
-            InitializeComponent();
-            GenerateGeometries();
-        }
+    public GeometryDemoCtl()
+    {
+        InitializeComponent();
+        GenerateGeometries();
+    }
 
-        public void GenerateGeometries()
+    public void GenerateGeometries()
+    {
+        foreach (var key in Application.Current.Resources.MergedDictionaries[1].MergedDictionaries[0].Keys.OfType<string>().OrderBy(item => item))
         {
-            foreach (var key in Application.Current.Resources.MergedDictionaries[1].MergedDictionaries[0].Keys.OfType<string>().OrderBy(item => item))
+            if (!key.EndsWith("Geometry")) continue;
+            GeometryItems.Add(new GeometryItemModel
             {
-                if (!key.EndsWith("Geometry")) continue;
-                GeometryItems.Add(new GeometryItemModel
-                {
-                    Key = key,
-                    Data = ResourceHelper.GetResource<Geometry>(key),
-                    Line = _lineSet.Contains(key)
-                });
-            }
+                Key = key,
+                Data = ResourceHelper.GetResource<Geometry>(key),
+                Line = _lineSet.Contains(key)
+            });
         }
     }
 }

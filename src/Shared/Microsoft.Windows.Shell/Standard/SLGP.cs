@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+[Flags]
+internal enum SLGP
 {
-    [Flags]
-    internal enum SLGP
-    {
-        SHORTPATH = 1,
-        UNCPRIORITY = 2,
-        RAWPATH = 4
-    }
+    SHORTPATH = 1,
+    UNCPRIORITY = 2,
+    RAWPATH = 4
 }

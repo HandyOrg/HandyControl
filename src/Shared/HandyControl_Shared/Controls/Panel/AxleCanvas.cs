@@ -1,64 +1,63 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class AxleCanvas : Canvas
 {
-    public class AxleCanvas : Canvas
+    public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
+        "Orientation", typeof(Orientation), typeof(AxleCanvas), new PropertyMetadata(default(Orientation)));
+
+    public Orientation Orientation
     {
-        public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-            "Orientation", typeof(Orientation), typeof(AxleCanvas), new PropertyMetadata(default(Orientation)));
+        get => (Orientation) GetValue(OrientationProperty);
+        set => SetValue(OrientationProperty, value);
+    }
 
-        public Orientation Orientation
+    protected override Size ArrangeOverride(Size arrangeSize)
+    {
+        foreach (UIElement internalChild in InternalChildren)
         {
-            get => (Orientation) GetValue(OrientationProperty);
-            set => SetValue(OrientationProperty, value);
-        }
+            if (internalChild == null) continue;
 
-        protected override Size ArrangeOverride(Size arrangeSize)
-        {
-            foreach (UIElement internalChild in InternalChildren)
+            var x = 0.0;
+            var y = 0.0;
+
+            if (Orientation == Orientation.Horizontal)
             {
-                if (internalChild == null) continue;
+                x = (arrangeSize.Width - internalChild.DesiredSize.Width) / 2;
 
-                var x = 0.0;
-                var y = 0.0;
-
-                if (Orientation == Orientation.Horizontal)
+                var top = GetTop(internalChild);
+                if (!double.IsNaN(top))
                 {
-                    x = (arrangeSize.Width - internalChild.DesiredSize.Width) / 2;
-
-                    var top = GetTop(internalChild);
-                    if (!double.IsNaN(top))
-                    {
-                        y = top;
-                    }
-                    else
-                    {
-                        var bottom = GetBottom(internalChild);
-                        if (!double.IsNaN(bottom))
-                            y = arrangeSize.Height - internalChild.DesiredSize.Height - bottom;
-                    }
+                    y = top;
                 }
                 else
                 {
-                    y = (arrangeSize.Height - internalChild.DesiredSize.Height) / 2;
-
-                    var left = GetLeft(internalChild);
-                    if (!double.IsNaN(left))
-                    {
-                        x = left;
-                    }
-                    else
-                    {
-                        var right = GetRight(internalChild);
-                        if (!double.IsNaN(right))
-                            x = arrangeSize.Width - internalChild.DesiredSize.Width - right;
-                    }
+                    var bottom = GetBottom(internalChild);
+                    if (!double.IsNaN(bottom))
+                        y = arrangeSize.Height - internalChild.DesiredSize.Height - bottom;
                 }
-
-                internalChild.Arrange(new Rect(new Point(x, y), internalChild.DesiredSize));
             }
-            return arrangeSize;
+            else
+            {
+                y = (arrangeSize.Height - internalChild.DesiredSize.Height) / 2;
+
+                var left = GetLeft(internalChild);
+                if (!double.IsNaN(left))
+                {
+                    x = left;
+                }
+                else
+                {
+                    var right = GetRight(internalChild);
+                    if (!double.IsNaN(right))
+                        x = arrangeSize.Width - internalChild.DesiredSize.Width - right;
+                }
+            }
+
+            internalChild.Arrange(new Rect(new Point(x, y), internalChild.DesiredSize));
         }
+        return arrangeSize;
     }
 }

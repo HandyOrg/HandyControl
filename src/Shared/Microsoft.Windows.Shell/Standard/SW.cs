@@ -1,22 +1,21 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum SW
 {
-    internal enum SW
-    {
-        HIDE,
-        SHOWNORMAL,
-        NORMAL = 1,
-        SHOWMINIMIZED,
-        SHOWMAXIMIZED,
-        MAXIMIZE = 3,
-        SHOWNOACTIVATE,
-        SHOW,
-        MINIMIZE,
-        SHOWMINNOACTIVE,
-        SHOWNA,
-        RESTORE,
-        SHOWDEFAULT,
-        FORCEMINIMIZE
-    }
+    HIDE,
+    SHOWNORMAL,
+    NORMAL = 1,
+    SHOWMINIMIZED,
+    SHOWMAXIMIZED,
+    MAXIMIZE = 3,
+    SHOWNOACTIVATE,
+    SHOW,
+    MINIMIZE,
+    SHOWMINNOACTIVE,
+    SHOWNA,
+    RESTORE,
+    SHOWDEFAULT,
+    FORCEMINIMIZE
 }

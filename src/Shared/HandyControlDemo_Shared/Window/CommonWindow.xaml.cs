@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.Window
+﻿namespace HandyControlDemo.Window;
+
+public partial class CommonWindow
 {
-    public partial class CommonWindow
+    public CommonWindow()
     {
-        public CommonWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

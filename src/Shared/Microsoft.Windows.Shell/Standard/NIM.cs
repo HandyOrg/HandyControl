@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum NIM : uint
 {
-    internal enum NIM : uint
-    {
-        ADD,
-        MODIFY,
-        DELETE,
-        SETFOCUS,
-        SETVERSION
-    }
+    ADD,
+    MODIFY,
+    DELETE,
+    SETFOCUS,
+    SETVERSION
 }

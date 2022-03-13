@@ -1,38 +1,37 @@
 ﻿using System.IO;
 using Newtonsoft.Json;
 
-namespace HandyControlDemo.Data
+namespace HandyControlDemo.Data;
+
+internal class GlobalData
 {
-    internal class GlobalData
+    public static void Init()
     {
-        public static void Init()
+        if (File.Exists(AppConfig.SavePath))
         {
-            if (File.Exists(AppConfig.SavePath))
+            try
             {
-                try
-                {
-                    var json = File.ReadAllText(AppConfig.SavePath);
-                    Config = (string.IsNullOrEmpty(json) ? new AppConfig() : JsonConvert.DeserializeObject<AppConfig>(json)) ?? new AppConfig();
-                }
-                catch
-                {
-                    Config = new AppConfig();
-                }
+                var json = File.ReadAllText(AppConfig.SavePath);
+                Config = (string.IsNullOrEmpty(json) ? new AppConfig() : JsonConvert.DeserializeObject<AppConfig>(json)) ?? new AppConfig();
             }
-            else
+            catch
             {
                 Config = new AppConfig();
             }
         }
-
-        public static void Save()
+        else
         {
-            var json = JsonConvert.SerializeObject(Config);
-            File.WriteAllText(AppConfig.SavePath, json);
+            Config = new AppConfig();
         }
-
-        public static AppConfig Config { get; set; }
-
-        public static bool NotifyIconIsShow { get; set; }
     }
+
+    public static void Save()
+    {
+        var json = JsonConvert.SerializeObject(Config);
+        File.WriteAllText(AppConfig.SavePath, json);
+    }
+
+    public static AppConfig Config { get; set; }
+
+    public static bool NotifyIconIsShow { get; set; }
 }

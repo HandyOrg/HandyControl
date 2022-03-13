@@ -2,23 +2,22 @@
 using System.Windows.Controls.Primitives;
 using HandyControl.Tools;
 
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class TextDialogWithTimer
 {
-    public partial class TextDialogWithTimer
+    public TextDialogWithTimer()
     {
-        public TextDialogWithTimer()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            var animation = AnimationHelper.CreateAnimation(100, 5000);
-            animation.EasingFunction = null;
-            animation.Completed += Animation_Completed;
-            ProgressBarTimer.BeginAnimation(RangeBase.ValueProperty, animation);
-        }
+        var animation = AnimationHelper.CreateAnimation(100, 5000);
+        animation.EasingFunction = null;
+        animation.Completed += Animation_Completed;
+        ProgressBarTimer.BeginAnimation(RangeBase.ValueProperty, animation);
+    }
 
-        private void Animation_Completed(object sender, EventArgs e)
-        {
-            ButtonClose.Command.Execute(null);
-        }
+    private void Animation_Completed(object sender, EventArgs e)
+    {
+        ButtonClose.Command.Execute(null);
     }
 }

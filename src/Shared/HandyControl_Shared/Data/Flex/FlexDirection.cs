@@ -1,10 +1,9 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum FlexDirection
 {
-    public enum FlexDirection
-    {
-        Row,
-        RowReverse,
-        Column,
-        ColumnReverse
-    }
+    Row,
+    RowReverse,
+    Column,
+    ColumnReverse
 }

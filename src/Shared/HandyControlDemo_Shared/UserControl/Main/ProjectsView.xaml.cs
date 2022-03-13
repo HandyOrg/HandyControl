@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class ProjectsView
 {
-    public partial class ProjectsView
+    public ProjectsView()
     {
-        public ProjectsView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

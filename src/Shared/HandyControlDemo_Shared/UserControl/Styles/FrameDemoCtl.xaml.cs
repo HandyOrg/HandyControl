@@ -4,54 +4,53 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using HandyControl.Tools.Extension;
 
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class FrameDemoCtl
 {
-    public partial class FrameDemoCtl
+
+    private readonly List<Page> _pageList;
+
+    public FrameDemoCtl()
     {
+        InitializeComponent();
 
-        private readonly List<Page> _pageList;
+        AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(Button_Click));
 
-        public FrameDemoCtl()
+        _pageList = new List<Page>();
+        for (var i = 0; i < 5; i++)
         {
-            InitializeComponent();
-
-            AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(Button_Click));
-
-            _pageList = new List<Page>();
-            for (var i = 0; i < 5; i++)
-            {
-                _pageList.Add(CreatePage(i));
-            }
-
-            FrameDemo.Navigate(_pageList[0]);
+            _pageList.Add(CreatePage(i));
         }
 
-        private Page CreatePage(int index)
-        {
-            var indexStr = index.ToString();
-            var button = new Button
-            {
-                HorizontalAlignment = HorizontalAlignment.Center,
-                VerticalAlignment = VerticalAlignment.Center,
-                Content = indexStr,
-                Width = 320,
-                Tag = indexStr
-            };
+        FrameDemo.Navigate(_pageList[0]);
+    }
 
-            return new Page
-            {
-                Title = indexStr,
-                Content = button
-            };
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
+    private Page CreatePage(int index)
+    {
+        var indexStr = index.ToString();
+        var button = new Button
         {
-            if (e.OriginalSource is Button button && button.Tag is string tag)
-            {
-                var index = tag.Value<int>() + 1;
-                FrameDemo.Navigate(index >= _pageList.Count ? _pageList[0] : _pageList[index]);
-            }
+            HorizontalAlignment = HorizontalAlignment.Center,
+            VerticalAlignment = VerticalAlignment.Center,
+            Content = indexStr,
+            Width = 320,
+            Tag = indexStr
+        };
+
+        return new Page
+        {
+            Title = indexStr,
+            Content = button
+        };
+    }
+
+    private void Button_Click(object sender, RoutedEventArgs e)
+    {
+        if (e.OriginalSource is Button button && button.Tag is string tag)
+        {
+            var index = tag.Value<int>() + 1;
+            FrameDemo.Navigate(index >= _pageList.Count ? _pageList[0] : _pageList[index]);
         }
     }
 }

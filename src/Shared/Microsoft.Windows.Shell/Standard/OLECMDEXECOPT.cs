@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum OLECMDEXECOPT
 {
-    internal enum OLECMDEXECOPT
-    {
-        DODEFAULT,
-        PROMPTUSER,
-        DONTPROMPTUSER,
-        SHOWHELP
-    }
+    DODEFAULT,
+    PROMPTUSER,
+    DONTPROMPTUSER,
+    SHOWHELP
 }

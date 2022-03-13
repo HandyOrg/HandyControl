@@ -1,9 +1,8 @@
-﻿namespace HandyControl.Expression.Drawing
+﻿namespace HandyControl.Expression.Drawing;
+
+internal enum MarchStopReason
 {
-    internal enum MarchStopReason
-    {
-        CompleteStep,
-        CompletePolyline,
-        CornerPoint
-    }
+    CompleteStep,
+    CompletePolyline,
+    CornerPoint
 }

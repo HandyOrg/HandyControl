@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Standard
-{
-    internal struct SIZE
-    {
-        public int cx;
+namespace Standard;
 
-        public int cy;
-    }
+internal struct SIZE
+{
+    public int cx;
+
+    public int cy;
 }

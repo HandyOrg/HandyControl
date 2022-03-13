@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class SpriteDemoCtl
 {
-    public partial class SpriteDemoCtl
+    public SpriteDemoCtl()
     {
-        public SpriteDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

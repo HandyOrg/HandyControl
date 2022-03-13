@@ -1,8 +1,7 @@
-﻿namespace HandyControl.Interactivity
+﻿namespace HandyControl.Interactivity;
+
+public enum TagType
 {
-    public enum TagType
-    {
-        Element,
-        DataContext
-    }
+    Element,
+    DataContext
 }

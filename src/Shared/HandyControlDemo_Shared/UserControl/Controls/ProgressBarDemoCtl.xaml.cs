@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class ProgressBarDemoCtl
 {
-    public partial class ProgressBarDemoCtl
+    public ProgressBarDemoCtl()
     {
-        public ProgressBarDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

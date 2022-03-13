@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class UniformSpacingPanelDemoCtl
 {
-    public partial class UniformSpacingPanelDemoCtl
+    public UniformSpacingPanelDemoCtl()
     {
-        public UniformSpacingPanelDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

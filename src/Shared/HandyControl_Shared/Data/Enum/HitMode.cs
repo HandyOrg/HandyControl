@@ -1,10 +1,9 @@
-﻿namespace HandyControl.Data.Enum
+﻿namespace HandyControl.Data.Enum;
+
+public enum HitMode
 {
-    public enum HitMode
-    {
-        Click,
-        Hover,
-        Focus,
-        None
-    }
+    Click,
+    Hover,
+    Focus,
+    None
 }

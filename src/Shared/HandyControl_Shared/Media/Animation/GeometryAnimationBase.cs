@@ -4,57 +4,56 @@ using System.Threading;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 
-namespace HandyControl.Media.Animation
+namespace HandyControl.Media.Animation;
+
+public abstract class GeometryAnimationBase : AnimationTimeline
 {
-    public abstract class GeometryAnimationBase : AnimationTimeline
+    protected GeometryAnimationBase()
     {
-        protected GeometryAnimationBase()
+        Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+    }
+
+    public new GeometryAnimationBase Clone() => (GeometryAnimationBase) base.Clone();
+
+    public sealed override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue, AnimationClock animationClock)
+    {
+        if (defaultOriginValue == null)
         {
-            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            throw new ArgumentNullException(nameof(defaultOriginValue));
         }
-
-        public new GeometryAnimationBase Clone() => (GeometryAnimationBase) base.Clone();
-
-        public sealed override object GetCurrentValue(object defaultOriginValue, object defaultDestinationValue, AnimationClock animationClock)
+        if (defaultDestinationValue == null)
         {
-            if (defaultOriginValue == null)
-            {
-                throw new ArgumentNullException(nameof(defaultOriginValue));
-            }
-            if (defaultDestinationValue == null)
-            {
-                throw new ArgumentNullException(nameof(defaultDestinationValue));
-            }
-            return GetCurrentValue((Geometry) defaultOriginValue, (Geometry) defaultDestinationValue, animationClock);
+            throw new ArgumentNullException(nameof(defaultDestinationValue));
         }
+        return GetCurrentValue((Geometry) defaultOriginValue, (Geometry) defaultDestinationValue, animationClock);
+    }
 
-        public override Type TargetPropertyType
-        {
-            get
-            {
-                ReadPreamble();
-
-                return typeof(Geometry);
-            }
-        }
-
-        public Geometry GetCurrentValue(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock)
+    public override Type TargetPropertyType
+    {
+        get
         {
             ReadPreamble();
 
-            if (animationClock == null)
-            {
-                throw new ArgumentNullException(nameof(animationClock));
-            }
+            return typeof(Geometry);
+        }
+    }
 
-            if (animationClock.CurrentState == ClockState.Stopped)
-            {
-                return defaultDestinationValue;
-            }
+    public Geometry GetCurrentValue(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock)
+    {
+        ReadPreamble();
 
-            return GetCurrentValueCore(defaultOriginValue, defaultDestinationValue, animationClock);
+        if (animationClock == null)
+        {
+            throw new ArgumentNullException(nameof(animationClock));
         }
 
-        protected abstract Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock);
+        if (animationClock.CurrentState == ClockState.Stopped)
+        {
+            return defaultDestinationValue;
+        }
+
+        return GetCurrentValueCore(defaultOriginValue, defaultDestinationValue, animationClock);
     }
+
+    protected abstract Geometry GetCurrentValueCore(Geometry defaultOriginValue, Geometry defaultDestinationValue, AnimationClock animationClock);
 }

@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace HandyControl.Expression.Media
-{
-    internal class DrawingPropertyChangedEventArgs : EventArgs
-    {
-        public bool IsAnimated { get; set; }
+namespace HandyControl.Expression.Media;
 
-        public DrawingPropertyMetadata Metadata { get; set; }
-    }
+internal class DrawingPropertyChangedEventArgs : EventArgs
+{
+    public bool IsAnimated { get; set; }
+
+    public DrawingPropertyMetadata Metadata { get; set; }
 }

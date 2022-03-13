@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace Microsoft.Windows.Shell
-{
-    public abstract class JumpItem
-    {
-        internal JumpItem()
-        {
-        }
+namespace Microsoft.Windows.Shell;
 
-        public string CustomCategory { get; set; }
+public abstract class JumpItem
+{
+    internal JumpItem()
+    {
     }
+
+    public string CustomCategory { get; set; }
 }

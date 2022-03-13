@@ -1,38 +1,37 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Standard
+namespace Standard;
+
+[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+internal struct LOGFONT
 {
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    internal struct LOGFONT
-    {
-        public int lfHeight;
+    public int lfHeight;
 
-        public int lfWidth;
+    public int lfWidth;
 
-        public int lfEscapement;
+    public int lfEscapement;
 
-        public int lfOrientation;
+    public int lfOrientation;
 
-        public int lfWeight;
+    public int lfWeight;
 
-        public byte lfItalic;
+    public byte lfItalic;
 
-        public byte lfUnderline;
+    public byte lfUnderline;
 
-        public byte lfStrikeOut;
+    public byte lfStrikeOut;
 
-        public byte lfCharSet;
+    public byte lfCharSet;
 
-        public byte lfOutPrecision;
+    public byte lfOutPrecision;
 
-        public byte lfClipPrecision;
+    public byte lfClipPrecision;
 
-        public byte lfQuality;
+    public byte lfQuality;
 
-        public byte lfPitchAndFamily;
+    public byte lfPitchAndFamily;
 
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
-        public string lfFaceName;
-    }
+    [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 32)]
+    public string lfFaceName;
 }

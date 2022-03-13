@@ -2,24 +2,23 @@
 using System.Windows;
 using System.Windows.Media;
 
-namespace HandyControl.Expression.Media
+namespace HandyControl.Expression.Media;
+
+public interface IShape
 {
-    public interface IShape
-    {
-        event EventHandler RenderedGeometryChanged;
+    event EventHandler RenderedGeometryChanged;
 
-        void InvalidateGeometry(InvalidateGeometryReasons reasons);
+    void InvalidateGeometry(InvalidateGeometryReasons reasons);
 
-        Brush Fill { get; set; }
+    Brush Fill { get; set; }
 
-        Thickness GeometryMargin { get; }
+    Thickness GeometryMargin { get; }
 
-        Geometry RenderedGeometry { get; }
+    Geometry RenderedGeometry { get; }
 
-        Stretch Stretch { get; set; }
+    Stretch Stretch { get; set; }
 
-        Brush Stroke { get; set; }
+    Brush Stroke { get; set; }
 
-        double StrokeThickness { get; set; }
-    }
+    double StrokeThickness { get; set; }
 }

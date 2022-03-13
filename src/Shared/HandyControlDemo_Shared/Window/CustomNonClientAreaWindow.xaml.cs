@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.Window
+﻿namespace HandyControlDemo.Window;
+
+public partial class CustomNonClientAreaWindow
 {
-    public partial class CustomNonClientAreaWindow
+    public CustomNonClientAreaWindow()
     {
-        public CustomNonClientAreaWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

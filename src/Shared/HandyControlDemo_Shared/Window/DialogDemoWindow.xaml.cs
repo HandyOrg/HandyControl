@@ -3,26 +3,25 @@ using System.Windows;
 using HandyControl.Controls;
 using HandyControlDemo.Data;
 
-namespace HandyControlDemo.Window
+namespace HandyControlDemo.Window;
+
+public partial class DialogDemoWindow
 {
-    public partial class DialogDemoWindow
+    public DialogDemoWindow()
     {
-        public DialogDemoWindow()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            var dialogToken = $"{MessageToken.DialogDemoWindow}+{DateTime.Now:yyyyMMddHHmmssfff}";
-            DialogToken = dialogToken;
-            Dialog.SetToken(this, dialogToken);
-        }
+        var dialogToken = $"{MessageToken.DialogDemoWindow}+{DateTime.Now:yyyyMMddHHmmssfff}";
+        DialogToken = dialogToken;
+        Dialog.SetToken(this, dialogToken);
+    }
 
-        public static readonly DependencyProperty DialogTokenProperty = DependencyProperty.Register(
-            "DialogToken", typeof(string), typeof(DialogDemoWindow), new PropertyMetadata(default(string)));
+    public static readonly DependencyProperty DialogTokenProperty = DependencyProperty.Register(
+        "DialogToken", typeof(string), typeof(DialogDemoWindow), new PropertyMetadata(default(string)));
 
-        public string DialogToken
-        {
-            get => (string) GetValue(DialogTokenProperty);
-            set => SetValue(DialogTokenProperty, value);
-        }
+    public string DialogToken
+    {
+        get => (string) GetValue(DialogTokenProperty);
+        set => SetValue(DialogTokenProperty, value);
     }
 }

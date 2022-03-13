@@ -3,33 +3,32 @@ using System.Collections.Generic;
 using HandyControl.Collections;
 using HandyControl.Data;
 
-namespace HandyControl.Tools
+namespace HandyControl.Tools;
+
+public class ComparerGenerator
 {
-    public class ComparerGenerator
+    private static readonly Dictionary<Type, ComparerTypeCode> TypeCodeDic = new()
     {
-        private static readonly Dictionary<Type, ComparerTypeCode> TypeCodeDic = new()
-        {
-            [typeof(DateTimeRange)] = ComparerTypeCode.DateTimeRange,
-        };
+        [typeof(DateTimeRange)] = ComparerTypeCode.DateTimeRange,
+    };
 
-        public static IComparer<T> GetComparer<T>()
+    public static IComparer<T> GetComparer<T>()
+    {
+        if (TypeCodeDic.TryGetValue(typeof(T), out var comparerType))
         {
-            if (TypeCodeDic.TryGetValue(typeof(T), out var comparerType))
+            if (comparerType == ComparerTypeCode.DateTimeRange)
             {
-                if (comparerType == ComparerTypeCode.DateTimeRange)
-                {
-                    return (IComparer<T>) new DateTimeRangeComparer();
-                }
-
-                return null;
+                return (IComparer<T>) new DateTimeRangeComparer();
             }
 
             return null;
         }
 
-        private enum ComparerTypeCode
-        {
-            DateTimeRange
-        }
+        return null;
+    }
+
+    private enum ComparerTypeCode
+    {
+        DateTimeRange
     }
 }

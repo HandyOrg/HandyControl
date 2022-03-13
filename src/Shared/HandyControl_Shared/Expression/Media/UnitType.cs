@@ -1,8 +1,7 @@
-﻿namespace HandyControl.Expression.Media
+﻿namespace HandyControl.Expression.Media;
+
+public enum UnitType
 {
-    public enum UnitType
-    {
-        Pixel,
-        Percent
-    }
+    Pixel,
+    Percent
 }

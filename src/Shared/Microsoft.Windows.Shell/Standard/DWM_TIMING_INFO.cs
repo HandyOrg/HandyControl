@@ -1,89 +1,88 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Standard
+namespace Standard;
+
+[StructLayout(LayoutKind.Sequential, Pack = 1)]
+internal struct DWM_TIMING_INFO
 {
-    [StructLayout(LayoutKind.Sequential, Pack = 1)]
-    internal struct DWM_TIMING_INFO
-    {
-        public int cbSize;
+    public int cbSize;
 
-        public UNSIGNED_RATIO rateRefresh;
+    public UNSIGNED_RATIO rateRefresh;
 
-        public ulong qpcRefreshPeriod;
+    public ulong qpcRefreshPeriod;
 
-        public UNSIGNED_RATIO rateCompose;
+    public UNSIGNED_RATIO rateCompose;
 
-        public ulong qpcVBlank;
+    public ulong qpcVBlank;
 
-        public ulong cRefresh;
+    public ulong cRefresh;
 
-        public uint cDXRefresh;
+    public uint cDXRefresh;
 
-        public ulong qpcCompose;
+    public ulong qpcCompose;
 
-        public ulong cFrame;
+    public ulong cFrame;
 
-        public uint cDXPresent;
+    public uint cDXPresent;
 
-        public ulong cRefreshFrame;
+    public ulong cRefreshFrame;
 
-        public ulong cFrameSubmitted;
+    public ulong cFrameSubmitted;
 
-        public uint cDXPresentSubmitted;
+    public uint cDXPresentSubmitted;
 
-        public ulong cFrameConfirmed;
+    public ulong cFrameConfirmed;
 
-        public uint cDXPresentConfirmed;
+    public uint cDXPresentConfirmed;
 
-        public ulong cRefreshConfirmed;
+    public ulong cRefreshConfirmed;
 
-        public uint cDXRefreshConfirmed;
+    public uint cDXRefreshConfirmed;
 
-        public ulong cFramesLate;
+    public ulong cFramesLate;
 
-        public uint cFramesOutstanding;
+    public uint cFramesOutstanding;
 
-        public ulong cFrameDisplayed;
+    public ulong cFrameDisplayed;
 
-        public ulong qpcFrameDisplayed;
+    public ulong qpcFrameDisplayed;
 
-        public ulong cRefreshFrameDisplayed;
+    public ulong cRefreshFrameDisplayed;
 
-        public ulong cFrameComplete;
+    public ulong cFrameComplete;
 
-        public ulong qpcFrameComplete;
+    public ulong qpcFrameComplete;
 
-        public ulong cFramePending;
+    public ulong cFramePending;
 
-        public ulong qpcFramePending;
+    public ulong qpcFramePending;
 
-        public ulong cFramesDisplayed;
+    public ulong cFramesDisplayed;
 
-        public ulong cFramesComplete;
+    public ulong cFramesComplete;
 
-        public ulong cFramesPending;
+    public ulong cFramesPending;
 
-        public ulong cFramesAvailable;
+    public ulong cFramesAvailable;
 
-        public ulong cFramesDropped;
+    public ulong cFramesDropped;
 
-        public ulong cFramesMissed;
+    public ulong cFramesMissed;
 
-        public ulong cRefreshNextDisplayed;
+    public ulong cRefreshNextDisplayed;
 
-        public ulong cRefreshNextPresented;
+    public ulong cRefreshNextPresented;
 
-        public ulong cRefreshesDisplayed;
+    public ulong cRefreshesDisplayed;
 
-        public ulong cRefreshesPresented;
+    public ulong cRefreshesPresented;
 
-        public ulong cRefreshStarted;
+    public ulong cRefreshStarted;
 
-        public ulong cPixelsReceived;
+    public ulong cPixelsReceived;
 
-        public ulong cPixelsDrawn;
+    public ulong cPixelsDrawn;
 
-        public ulong cBuffersEmpty;
-    }
+    public ulong cBuffersEmpty;
 }

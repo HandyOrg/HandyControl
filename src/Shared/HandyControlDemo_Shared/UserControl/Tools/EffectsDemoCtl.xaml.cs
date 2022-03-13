@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class EffectsDemoCtl
 {
-    public partial class EffectsDemoCtl
+    public EffectsDemoCtl()
     {
-        public EffectsDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

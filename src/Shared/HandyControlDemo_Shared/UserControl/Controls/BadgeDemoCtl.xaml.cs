@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class BadgeDemoCtl
 {
-    public partial class BadgeDemoCtl
+    public BadgeDemoCtl()
     {
-        public BadgeDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

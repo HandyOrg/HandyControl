@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class PracticalDemo
 {
-    public partial class PracticalDemo
+    public PracticalDemo()
     {
-        public PracticalDemo()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

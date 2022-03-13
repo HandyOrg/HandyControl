@@ -1,12 +1,11 @@
 ﻿
 
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class ExpanderDemoCtl
 {
-    public partial class ExpanderDemoCtl
+    public ExpanderDemoCtl()
     {
-        public ExpanderDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

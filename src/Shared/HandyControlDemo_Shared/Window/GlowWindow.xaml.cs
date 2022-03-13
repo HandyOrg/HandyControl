@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.Window
+﻿namespace HandyControlDemo.Window;
+
+public partial class GlowWindow
 {
-    public partial class GlowWindow
+    public GlowWindow()
     {
-        public GlowWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

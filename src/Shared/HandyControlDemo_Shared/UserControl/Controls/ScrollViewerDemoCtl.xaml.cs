@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class ScrollViewerDemoCtl
 {
-    public partial class ScrollViewerDemoCtl
+    public ScrollViewerDemoCtl()
     {
-        public ScrollViewerDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

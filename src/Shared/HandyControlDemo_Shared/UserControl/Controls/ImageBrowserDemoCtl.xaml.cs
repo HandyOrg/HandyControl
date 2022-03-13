@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class ImageBrowserDemoCtl
 {
-    public partial class ImageBrowserDemoCtl
+    public ImageBrowserDemoCtl()
     {
-        public ImageBrowserDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

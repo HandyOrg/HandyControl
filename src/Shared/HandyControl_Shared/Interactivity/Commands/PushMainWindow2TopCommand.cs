@@ -3,21 +3,20 @@ using System.Windows;
 using System.Windows.Input;
 using HandyControl.Tools;
 
-namespace HandyControl.Interactivity
+namespace HandyControl.Interactivity;
+
+public class PushMainWindow2TopCommand : ICommand
 {
-    public class PushMainWindow2TopCommand : ICommand
+    public bool CanExecute(object parameter) => true;
+
+    public void Execute(object parameter)
     {
-        public bool CanExecute(object parameter) => true;
-
-        public void Execute(object parameter)
+        if (Application.Current.MainWindow != null && Application.Current.MainWindow.Visibility != Visibility.Visible)
         {
-            if (Application.Current.MainWindow != null && Application.Current.MainWindow.Visibility != Visibility.Visible)
-            {
-                Application.Current.MainWindow.Show();
-                WindowHelper.SetWindowToForeground(Application.Current.MainWindow);
-            }
+            Application.Current.MainWindow.Show();
+            WindowHelper.SetWindowToForeground(Application.Current.MainWindow);
         }
-
-        public event EventHandler CanExecuteChanged;
     }
+
+    public event EventHandler CanExecuteChanged;
 }

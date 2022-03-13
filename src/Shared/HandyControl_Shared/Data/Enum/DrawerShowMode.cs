@@ -1,9 +1,8 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum DrawerShowMode
 {
-    public enum DrawerShowMode
-    {
-        Cover,
-        Push,
-        Press
-    }
+    Cover,
+    Push,
+    Press
 }

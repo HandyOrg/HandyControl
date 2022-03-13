@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum APPDOCLISTTYPE
 {
-    internal enum APPDOCLISTTYPE
-    {
-        ADLT_RECENT,
-        ADLT_FREQUENT
-    }
+    ADLT_RECENT,
+    ADLT_FREQUENT
 }

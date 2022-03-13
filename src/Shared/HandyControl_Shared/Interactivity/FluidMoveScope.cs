@@ -1,8 +1,7 @@
-﻿namespace HandyControl.Interactivity
+﻿namespace HandyControl.Interactivity;
+
+public enum FluidMoveScope
 {
-    public enum FluidMoveScope
-    {
-        Self,
-        Children
-    }
+    Self,
+    Children
 }

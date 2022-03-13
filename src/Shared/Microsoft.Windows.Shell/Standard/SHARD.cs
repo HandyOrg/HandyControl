@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum SHARD
 {
-    internal enum SHARD
-    {
-        PIDL = 1,
-        PATHA,
-        PATHW,
-        APPIDINFO,
-        APPIDINFOIDLIST,
-        LINK,
-        APPIDINFOLINK
-    }
+    PIDL = 1,
+    PATHA,
+    PATHW,
+    APPIDINFO,
+    APPIDINFOIDLIST,
+    LINK,
+    APPIDINFOLINK
 }

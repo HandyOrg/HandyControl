@@ -22,10 +22,9 @@
 //OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //SOFTWARE.
 
-namespace HandyControl.Interactivity
+namespace HandyControl.Interactivity;
+
+public interface IEventArgsConverter
 {
-    public interface IEventArgsConverter
-    {
-        object Convert(object value, object parameter);
-    }
+    object Convert(object value, object parameter);
 }

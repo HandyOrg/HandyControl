@@ -1,21 +1,20 @@
 ﻿using HandyControl.Controls;
 
-namespace HandyControl.Data
+namespace HandyControl.Data;
+
+internal class ChangeScope : DisposableObject
 {
-    internal class ChangeScope : DisposableObject
+    private readonly GlowWindow _window;
+
+    public ChangeScope(GlowWindow window)
     {
-        private readonly GlowWindow _window;
+        _window = window;
+        _window.DeferGlowChangesCount++;
+    }
 
-        public ChangeScope(GlowWindow window)
-        {
-            _window = window;
-            _window.DeferGlowChangesCount++;
-        }
-
-        protected override void DisposeManagedResources()
-        {
-            _window.DeferGlowChangesCount--;
-            if (_window.DeferGlowChangesCount == 0) _window.EndDeferGlowChanges();
-        }
+    protected override void DisposeManagedResources()
+    {
+        _window.DeferGlowChangesCount--;
+        if (_window.DeferGlowChangesCount == 0) _window.EndDeferGlowChanges();
     }
 }

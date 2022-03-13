@@ -1,21 +1,20 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal struct WINDOWPOS
 {
-    internal struct WINDOWPOS
-    {
-        public IntPtr hwnd;
+    public IntPtr hwnd;
 
-        public IntPtr hwndInsertAfter;
+    public IntPtr hwndInsertAfter;
 
-        public int x;
+    public int x;
 
-        public int y;
+    public int y;
 
-        public int cx;
+    public int cx;
 
-        public int cy;
+    public int cy;
 
-        public int flags;
-    }
+    public int flags;
 }

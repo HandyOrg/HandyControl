@@ -1,9 +1,8 @@
-﻿namespace HandyControl.Collections
-{
-    public interface IPool<T>
-    {
-        T Acquire();
+﻿namespace HandyControl.Collections;
 
-        bool Release(T instance);
-    }
+public interface IPool<T>
+{
+    T Acquire();
+
+    bool Release(T instance);
 }

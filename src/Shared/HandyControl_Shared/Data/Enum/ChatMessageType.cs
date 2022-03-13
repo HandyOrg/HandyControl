@@ -1,10 +1,9 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum ChatMessageType
 {
-    public enum ChatMessageType
-    {
-        String,
-        Image,
-        Audio,
-        Custom
-    }
+    String,
+    Image,
+    Audio,
+    Custom
 }

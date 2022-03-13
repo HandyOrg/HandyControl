@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class TagDemoCtl
 {
-    public partial class TagDemoCtl
+    public TagDemoCtl()
     {
-        public TagDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

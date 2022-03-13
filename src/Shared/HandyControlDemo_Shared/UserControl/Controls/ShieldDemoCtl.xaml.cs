@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class ShieldDemoCtl
 {
-    public partial class ShieldDemoCtl
+    public ShieldDemoCtl()
     {
-        public ShieldDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

@@ -1,9 +1,8 @@
-﻿namespace HandyControlDemo.Data
-{
-    public class TabControlDemoModel
-    {
-        public string Header { get; set; }
+﻿namespace HandyControlDemo.Data;
 
-        public string BackgroundToken { get; set; }
-    }
+public class TabControlDemoModel
+{
+    public string Header { get; set; }
+
+    public string BackgroundToken { get; set; }
 }

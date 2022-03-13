@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public interface ISingleOpen : IDisposable
 {
-    public interface ISingleOpen : IDisposable
-    {
-        bool CanDispose { get; }
-    }
+    bool CanDispose { get; }
 }

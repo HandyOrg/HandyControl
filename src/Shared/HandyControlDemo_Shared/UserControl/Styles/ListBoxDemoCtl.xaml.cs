@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class ListBoxDemoCtl
 {
-    public partial class ListBoxDemoCtl
+    public ListBoxDemoCtl()
     {
-        public ListBoxDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

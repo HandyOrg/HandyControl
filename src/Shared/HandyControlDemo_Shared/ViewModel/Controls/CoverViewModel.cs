@@ -1,10 +1,9 @@
 ﻿using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 
-namespace HandyControlDemo.ViewModel
+namespace HandyControlDemo.ViewModel;
+
+public class CoverViewModel : DemoViewModelBase<CoverViewDemoModel>
 {
-    public class CoverViewModel : DemoViewModelBase<CoverViewDemoModel>
-    {
-        public CoverViewModel(DataService dataService) => DataList = dataService.GetCoverViewDemoDataList();
-    }
+    public CoverViewModel(DataService dataService) => DataList = dataService.GetCoverViewDemoDataList();
 }

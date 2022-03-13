@@ -3,51 +3,50 @@ using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Tools.Extension;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class TagContainer : ItemsControl
 {
-    public class TagContainer : ItemsControl
+    public TagContainer()
     {
-        public TagContainer()
-        {
-            AddHandler(Controls.Tag.ClosedEvent, new RoutedEventHandler(Tag_OnClosed));
-        }
+        AddHandler(Controls.Tag.ClosedEvent, new RoutedEventHandler(Tag_OnClosed));
+    }
 
-        private void Tag_OnClosed(object sender, RoutedEventArgs e)
+    private void Tag_OnClosed(object sender, RoutedEventArgs e)
+    {
+        if (e.OriginalSource is Tag tag)
         {
-            if (e.OriginalSource is Tag tag)
+            tag.Hide();
+
+            if (ItemsSource == null)
             {
-                tag.Hide();
-
-                if (ItemsSource == null)
-                {
-                    Items.Remove(tag);
-                }
-                else
-                {
-                    var item = ItemContainerGenerator.ItemFromContainer(tag);
-                    GetActualList()?.Remove(item);
-                    Items.Refresh();
-                }
-            }
-        }
-
-        internal IList GetActualList()
-        {
-            IList list;
-            if (ItemsSource != null)
-            {
-                list = ItemsSource as IList;
+                Items.Remove(tag);
             }
             else
             {
-                list = Items;
+                var item = ItemContainerGenerator.ItemFromContainer(tag);
+                GetActualList()?.Remove(item);
+                Items.Refresh();
             }
+        }
+    }
 
-            return list;
+    internal IList GetActualList()
+    {
+        IList list;
+        if (ItemsSource != null)
+        {
+            list = ItemsSource as IList;
+        }
+        else
+        {
+            list = Items;
         }
 
-        protected override DependencyObject GetContainerForItemOverride() => new Tag();
-
-        protected override bool IsItemItsOwnContainerOverride(object item) => item is Tag;
+        return list;
     }
+
+    protected override DependencyObject GetContainerForItemOverride() => new Tag();
+
+    protected override bool IsItemItsOwnContainerOverride(object item) => item is Tag;
 }

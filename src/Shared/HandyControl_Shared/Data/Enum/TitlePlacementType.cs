@@ -1,12 +1,11 @@
 ﻿
-namespace HandyControl.Data
+namespace HandyControl.Data;
+
+/// <summary>
+///     标题对齐方式
+/// </summary>
+public enum TitlePlacementType
 {
-    /// <summary>
-    ///     标题对齐方式
-    /// </summary>
-    public enum TitlePlacementType
-    {
-        Left,
-        Top
-    }
+    Left,
+    Top
 }

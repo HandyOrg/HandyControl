@@ -2,114 +2,113 @@
 using System.Collections.Generic;
 using System.Windows;
 
-namespace HandyControl.Expression.Drawing
+namespace HandyControl.Expression.Drawing;
+
+internal static class CommonExtensions
 {
-    internal static class CommonExtensions
+    public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> newItems)
     {
-        public static void AddRange<T>(this ICollection<T> collection, IEnumerable<T> newItems)
+        if (collection == null)
         {
-            if (collection == null)
-            {
-                throw new ArgumentNullException(nameof(collection));
-            }
-
-            if (collection is List<T> list)
-            {
-                list.AddRange(newItems);
-            }
-            else
-            {
-                foreach (var local in newItems)
-                {
-                    collection.Add(local);
-                }
-            }
+            throw new ArgumentNullException(nameof(collection));
         }
 
-        public static bool SetIfDifferent(this DependencyObject dependencyObject, DependencyProperty dependencyProperty, object value)
+        if (collection is List<T> list)
         {
-            if (!Equals(dependencyObject.GetValue(dependencyProperty), value))
-            {
-                dependencyObject.SetValue(dependencyProperty, value);
-                return true;
-            }
-            return false;
+            list.AddRange(newItems);
         }
-
-        public static bool EnsureListCount<T>(this IList<T> list, int count, Func<T> factory = null)
+        else
         {
-            if (list == null)
+            foreach (var local in newItems)
             {
-                throw new ArgumentNullException(nameof(list));
+                collection.Add(local);
             }
-            if (count < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(count));
-            }
-            if (!list.EnsureListCountAtLeast(count, factory))
-            {
-                if (list.Count <= count)
-                {
-                    return false;
-                }
+        }
+    }
 
-                if (list is List<T> list2)
-                {
-                    list2.RemoveRange(count, list.Count - count);
-                }
-                else
-                {
-                    for (var i = list.Count - 1; i >= count; i--)
-                    {
-                        list.RemoveAt(i);
-                    }
-                }
-            }
+    public static bool SetIfDifferent(this DependencyObject dependencyObject, DependencyProperty dependencyProperty, object value)
+    {
+        if (!Equals(dependencyObject.GetValue(dependencyProperty), value))
+        {
+            dependencyObject.SetValue(dependencyProperty, value);
             return true;
         }
+        return false;
+    }
 
-        public static bool EnsureListCountAtLeast<T>(this IList<T> list, int count, Func<T> factory = null)
+    public static bool EnsureListCount<T>(this IList<T> list, int count, Func<T> factory = null)
+    {
+        if (list == null)
         {
-            if (list == null)
-            {
-                throw new ArgumentNullException(nameof(list));
-            }
-            if (count < 0)
-            {
-                throw new ArgumentOutOfRangeException(nameof(count));
-            }
-            if (list.Count >= count)
+            throw new ArgumentNullException(nameof(list));
+        }
+        if (count < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(count));
+        }
+        if (!list.EnsureListCountAtLeast(count, factory))
+        {
+            if (list.Count <= count)
             {
                 return false;
             }
 
-            if ((list is List<T> list2) && factory == null)
+            if (list is List<T> list2)
             {
-                list2.AddRange(new T[count - list.Count]);
+                list2.RemoveRange(count, list.Count - count);
             }
             else
             {
-                for (var i = list.Count; i < count; i++)
+                for (var i = list.Count - 1; i >= count; i--)
                 {
-                    list.Add(factory == null ? default : factory());
+                    list.RemoveAt(i);
                 }
             }
-            return true;
         }
+        return true;
+    }
 
-        public static bool ClearIfSet(this DependencyObject dependencyObject, DependencyProperty dependencyProperty)
+    public static bool EnsureListCountAtLeast<T>(this IList<T> list, int count, Func<T> factory = null)
+    {
+        if (list == null)
         {
-            if (dependencyObject.ReadLocalValue(dependencyProperty) != DependencyProperty.UnsetValue)
-            {
-                dependencyObject.ClearValue(dependencyProperty);
-                return true;
-            }
+            throw new ArgumentNullException(nameof(list));
+        }
+        if (count < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(count));
+        }
+        if (list.Count >= count)
+        {
             return false;
         }
 
-        public static void RemoveLast<T>(this IList<T> list)
+        if ((list is List<T> list2) && factory == null)
         {
-            list.RemoveAt(list.Count - 1);
+            list2.AddRange(new T[count - list.Count]);
         }
+        else
+        {
+            for (var i = list.Count; i < count; i++)
+            {
+                list.Add(factory == null ? default : factory());
+            }
+        }
+        return true;
+    }
+
+    public static bool ClearIfSet(this DependencyObject dependencyObject, DependencyProperty dependencyProperty)
+    {
+        if (dependencyObject.ReadLocalValue(dependencyProperty) != DependencyProperty.UnsetValue)
+        {
+            dependencyObject.ClearValue(dependencyProperty);
+            return true;
+        }
+        return false;
+    }
+
+    public static void RemoveLast<T>(this IList<T> list)
+    {
+        list.RemoveAt(list.Count - 1);
     }
 }

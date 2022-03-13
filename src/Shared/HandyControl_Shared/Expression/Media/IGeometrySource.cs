@@ -1,17 +1,16 @@
 ﻿using System.Windows;
 
-namespace HandyControl.Expression.Media
+namespace HandyControl.Expression.Media;
+
+public interface IGeometrySource
 {
-    public interface IGeometrySource
-    {
-        bool InvalidateGeometry(InvalidateGeometryReasons reasons);
+    bool InvalidateGeometry(InvalidateGeometryReasons reasons);
 
-        bool UpdateGeometry(IGeometrySourceParameters parameters, Rect layoutBounds);
+    bool UpdateGeometry(IGeometrySourceParameters parameters, Rect layoutBounds);
 
-        System.Windows.Media.Geometry Geometry { get; }
+    System.Windows.Media.Geometry Geometry { get; }
 
-        Rect LayoutBounds { get; }
+    Rect LayoutBounds { get; }
 
-        Rect LogicalBounds { get; }
-    }
+    Rect LogicalBounds { get; }
 }

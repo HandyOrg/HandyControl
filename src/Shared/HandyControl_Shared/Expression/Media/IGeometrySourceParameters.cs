@@ -1,13 +1,12 @@
 ﻿using System.Windows.Media;
 
-namespace HandyControl.Expression.Media
+namespace HandyControl.Expression.Media;
+
+public interface IGeometrySourceParameters
 {
-    public interface IGeometrySourceParameters
-    {
-        Stretch Stretch { get; }
+    Stretch Stretch { get; }
 
-        Brush Stroke { get; }
+    Brush Stroke { get; }
 
-        double StrokeThickness { get; }
-    }
+    double StrokeThickness { get; }
 }

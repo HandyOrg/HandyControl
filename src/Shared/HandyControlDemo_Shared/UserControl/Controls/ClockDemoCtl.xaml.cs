@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class ClockDemoCtl
 {
-    public partial class ClockDemoCtl
+    public ClockDemoCtl()
     {
-        public ClockDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

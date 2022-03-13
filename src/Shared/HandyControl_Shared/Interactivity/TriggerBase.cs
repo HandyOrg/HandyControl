@@ -4,107 +4,106 @@ using System.Windows;
 using System.Windows.Markup;
 using System.Windows.Media.Animation;
 
-namespace HandyControl.Interactivity
+namespace HandyControl.Interactivity;
+
+[ContentProperty("Actions")]
+public abstract class TriggerBase : Animatable, IAttachedObject
 {
-    [ContentProperty("Actions")]
-    public abstract class TriggerBase : Animatable, IAttachedObject
+    private static readonly DependencyPropertyKey ActionsPropertyKey =
+        DependencyProperty.RegisterReadOnly("Actions", typeof(TriggerActionCollection), typeof(TriggerBase),
+            new FrameworkPropertyMetadata());
+
+    public static readonly DependencyProperty ActionsProperty = ActionsPropertyKey.DependencyProperty;
+
+    private DependencyObject _associatedObject;
+    private readonly Type _associatedObjectTypeConstraint;
+
+    internal TriggerBase(Type associatedObjectTypeConstraint)
     {
-        private static readonly DependencyPropertyKey ActionsPropertyKey =
-            DependencyProperty.RegisterReadOnly("Actions", typeof(TriggerActionCollection), typeof(TriggerBase),
-                new FrameworkPropertyMetadata());
+        _associatedObjectTypeConstraint = associatedObjectTypeConstraint;
+        var actions = new TriggerActionCollection();
+        SetValue(ActionsPropertyKey, actions);
+    }
 
-        public static readonly DependencyProperty ActionsProperty = ActionsPropertyKey.DependencyProperty;
+    public TriggerActionCollection Actions =>
+        (TriggerActionCollection) GetValue(ActionsProperty);
 
-        private DependencyObject _associatedObject;
-        private readonly Type _associatedObjectTypeConstraint;
-
-        internal TriggerBase(Type associatedObjectTypeConstraint)
+    protected DependencyObject AssociatedObject
+    {
+        get
         {
-            _associatedObjectTypeConstraint = associatedObjectTypeConstraint;
-            var actions = new TriggerActionCollection();
-            SetValue(ActionsPropertyKey, actions);
+            ReadPreamble();
+            return _associatedObject;
         }
+    }
 
-        public TriggerActionCollection Actions =>
-            (TriggerActionCollection) GetValue(ActionsProperty);
-
-        protected DependencyObject AssociatedObject
+    protected virtual Type AssociatedObjectTypeConstraint
+    {
+        get
         {
-            get
-            {
-                ReadPreamble();
-                return _associatedObject;
-            }
+            ReadPreamble();
+            return _associatedObjectTypeConstraint;
         }
+    }
 
-        protected virtual Type AssociatedObjectTypeConstraint
+    public void Attach(DependencyObject dependencyObject)
+    {
+        if (!Equals(dependencyObject, AssociatedObject))
         {
-            get
-            {
-                ReadPreamble();
-                return _associatedObjectTypeConstraint;
-            }
-        }
-
-        public void Attach(DependencyObject dependencyObject)
-        {
-            if (!Equals(dependencyObject, AssociatedObject))
-            {
-                if (AssociatedObject != null)
-                    throw new InvalidOperationException(ExceptionStringTable
-                        .CannotHostTriggerMultipleTimesExceptionMessage);
-                if (dependencyObject != null &&
-                    !AssociatedObjectTypeConstraint.IsInstanceOfType(dependencyObject))
-                    throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture,
-                        ExceptionStringTable.TypeConstraintViolatedExceptionMessage,
-                        new object[]
-                            {GetType().Name, dependencyObject.GetType().Name, AssociatedObjectTypeConstraint.Name}));
-                WritePreamble();
-                _associatedObject = dependencyObject;
-                WritePostscript();
-                Actions.Attach(dependencyObject);
-                OnAttached();
-            }
-        }
-
-        public void Detach()
-        {
-            OnDetaching();
+            if (AssociatedObject != null)
+                throw new InvalidOperationException(ExceptionStringTable
+                    .CannotHostTriggerMultipleTimesExceptionMessage);
+            if (dependencyObject != null &&
+                !AssociatedObjectTypeConstraint.IsInstanceOfType(dependencyObject))
+                throw new InvalidOperationException(string.Format(CultureInfo.CurrentCulture,
+                    ExceptionStringTable.TypeConstraintViolatedExceptionMessage,
+                    new object[]
+                        {GetType().Name, dependencyObject.GetType().Name, AssociatedObjectTypeConstraint.Name}));
             WritePreamble();
-            _associatedObject = null;
+            _associatedObject = dependencyObject;
             WritePostscript();
-            Actions.Detach();
+            Actions.Attach(dependencyObject);
+            OnAttached();
         }
+    }
 
-        DependencyObject IAttachedObject.AssociatedObject =>
-            AssociatedObject;
+    public void Detach()
+    {
+        OnDetaching();
+        WritePreamble();
+        _associatedObject = null;
+        WritePostscript();
+        Actions.Detach();
+    }
 
-        public event EventHandler<PreviewInvokeEventArgs> PreviewInvoke;
+    DependencyObject IAttachedObject.AssociatedObject =>
+        AssociatedObject;
 
-        protected override Freezable CreateInstanceCore()
+    public event EventHandler<PreviewInvokeEventArgs> PreviewInvoke;
+
+    protected override Freezable CreateInstanceCore()
+    {
+        return (Freezable) Activator.CreateInstance(GetType());
+    }
+
+    protected void InvokeActions(object parameter)
+    {
+        if (PreviewInvoke != null)
         {
-            return (Freezable) Activator.CreateInstance(GetType());
+            var e = new PreviewInvokeEventArgs();
+            PreviewInvoke(this, e);
+            if (e.Cancelling)
+                return;
         }
+        foreach (var action in Actions)
+            action.CallInvoke(parameter);
+    }
 
-        protected void InvokeActions(object parameter)
-        {
-            if (PreviewInvoke != null)
-            {
-                var e = new PreviewInvokeEventArgs();
-                PreviewInvoke(this, e);
-                if (e.Cancelling)
-                    return;
-            }
-            foreach (var action in Actions)
-                action.CallInvoke(parameter);
-        }
+    protected virtual void OnAttached()
+    {
+    }
 
-        protected virtual void OnAttached()
-        {
-        }
-
-        protected virtual void OnDetaching()
-        {
-        }
+    protected virtual void OnDetaching()
+    {
     }
 }

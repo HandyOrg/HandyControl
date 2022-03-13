@@ -2,32 +2,31 @@
 using System.Diagnostics;
 using System.Windows.Input;
 
-namespace HandyControl.Interactivity
-{
-    public class OpenLinkCommand : ICommand
-    {
-        public bool CanExecute(object parameter) => true;
+namespace HandyControl.Interactivity;
 
-        public void Execute(object parameter)
+public class OpenLinkCommand : ICommand
+{
+    public bool CanExecute(object parameter) => true;
+
+    public void Execute(object parameter)
+    {
+        if (parameter is string link)
         {
-            if (parameter is string link)
+            link = link.Replace("&", "^&");
+            try
             {
-                link = link.Replace("&", "^&");
-                try
+                Process.Start(new ProcessStartInfo("cmd", $"/c start {link}")
                 {
-                    Process.Start(new ProcessStartInfo("cmd", $"/c start {link}")
-                    {
-                        UseShellExecute = false,
-                        CreateNoWindow = true
-                    });
-                }
-                catch
-                {
-                    // ignored
-                }
+                    UseShellExecute = false,
+                    CreateNoWindow = true
+                });
+            }
+            catch
+            {
+                // ignored
             }
         }
-
-        public event EventHandler CanExecuteChanged;
     }
+
+    public event EventHandler CanExecuteChanged;
 }

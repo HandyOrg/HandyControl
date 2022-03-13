@@ -1,7 +1,6 @@
-﻿namespace HandyControl.Controls
+﻿namespace HandyControl.Controls;
+
+public interface IGravatarGenerator
 {
-    public interface IGravatarGenerator
-    {
-        object GetGravatar(string id);
-    }
+    object GetGravatar(string id);
 }

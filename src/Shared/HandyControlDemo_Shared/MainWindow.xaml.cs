@@ -10,45 +10,44 @@ using HandyControlDemo.Tools;
 using HandyControlDemo.UserControl;
 using HandyControlDemo.ViewModel;
 
-namespace HandyControlDemo
+namespace HandyControlDemo;
+
+public partial class MainWindow
 {
-    public partial class MainWindow
+    public MainWindow() => InitializeComponent();
+
+    protected override void OnContentRendered(EventArgs e)
     {
-        public MainWindow() => InitializeComponent();
+        base.OnContentRendered(e);
 
-        protected override void OnContentRendered(EventArgs e)
+        DataContext = ViewModelLocator.Instance.Main;
+        NonClientAreaContent = new NonClientAreaContent();
+        ControlMain.Content = new MainWindowContent();
+
+        GlobalShortcut.Init(new List<KeyBinding>
         {
-            base.OnContentRendered(e);
+            new(ViewModelLocator.Instance.Main.GlobalShortcutInfoCmd, Key.I, ModifierKeys.Control | ModifierKeys.Alt),
+            new(ViewModelLocator.Instance.Main.GlobalShortcutWarningCmd, Key.E, ModifierKeys.Control | ModifierKeys.Alt)
+        });
 
-            DataContext = ViewModelLocator.Instance.Main;
-            NonClientAreaContent = new NonClientAreaContent();
-            ControlMain.Content = new MainWindowContent();
+        Dialog.SetToken(this, MessageToken.MainWindow);
+        WindowAttach.SetIgnoreAltF4(this, true);
 
-            GlobalShortcut.Init(new List<KeyBinding>
-            {
-                new(ViewModelLocator.Instance.Main.GlobalShortcutInfoCmd, Key.I, ModifierKeys.Control | ModifierKeys.Alt),
-                new(ViewModelLocator.Instance.Main.GlobalShortcutWarningCmd, Key.E, ModifierKeys.Control | ModifierKeys.Alt)
-            });
+        Messenger.Default.Send(true, MessageToken.FullSwitch);
+        Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.PracticalDemo}"), MessageToken.LoadShowContent);
+    }
 
-            Dialog.SetToken(this, MessageToken.MainWindow);
-            WindowAttach.SetIgnoreAltF4(this, true);
-
-            Messenger.Default.Send(true, MessageToken.FullSwitch);
-            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.PracticalDemo}"), MessageToken.LoadShowContent);
+    protected override void OnClosing(CancelEventArgs e)
+    {
+        if (GlobalData.NotifyIconIsShow)
+        {
+            MessageBox.Info(Properties.Langs.Lang.AppClosingTip, Properties.Langs.Lang.Tip);
+            Hide();
+            e.Cancel = true;
         }
-
-        protected override void OnClosing(CancelEventArgs e)
+        else
         {
-            if (GlobalData.NotifyIconIsShow)
-            {
-                MessageBox.Info(Properties.Langs.Lang.AppClosingTip, Properties.Langs.Lang.Tip);
-                Hide();
-                e.Cancel = true;
-            }
-            else
-            {
-                base.OnClosing(e);
-            }
+            base.OnClosing(e);
         }
     }
 }

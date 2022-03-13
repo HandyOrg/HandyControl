@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class NativeWindowDemoCtl
 {
-    public partial class NativeWindowDemoCtl
+    public NativeWindowDemoCtl()
     {
-        public NativeWindowDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

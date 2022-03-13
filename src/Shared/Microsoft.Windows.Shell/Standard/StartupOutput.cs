@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Standard
-{
-    internal struct StartupOutput
-    {
-        public IntPtr hook;
+namespace Standard;
 
-        public IntPtr unhook;
-    }
+internal struct StartupOutput
+{
+    public IntPtr hook;
+
+    public IntPtr unhook;
 }

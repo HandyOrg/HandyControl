@@ -4,169 +4,168 @@ using System.Windows;
 using System.Windows.Media;
 using System.Windows.Threading;
 
-namespace HandyControl.Expression.Media
+namespace HandyControl.Expression.Media;
+
+[TypeConverter(typeof(GeometryEffectConverter))]
+public abstract class GeometryEffect : Freezable
 {
-    [TypeConverter(typeof(GeometryEffectConverter))]
-    public abstract class GeometryEffect : Freezable
+    // ReSharper disable once InconsistentNaming
+    private static GeometryEffect defaultGeometryEffect;
+
+    public static readonly DependencyProperty GeometryEffectProperty =
+        DependencyProperty.RegisterAttached("GeometryEffect", typeof(GeometryEffect),
+            typeof(GeometryEffect),
+            new DrawingPropertyMetadata(DefaultGeometryEffect,
+                DrawingPropertyMetadataOptions.AffectsRender, OnGeometryEffectChanged));
+
+    protected Geometry CachedGeometry;
+
+    private bool _effectInvalidated;
+
+    static GeometryEffect()
     {
-        // ReSharper disable once InconsistentNaming
-        private static GeometryEffect defaultGeometryEffect;
-
-        public static readonly DependencyProperty GeometryEffectProperty =
-            DependencyProperty.RegisterAttached("GeometryEffect", typeof(GeometryEffect),
-                typeof(GeometryEffect),
-                new DrawingPropertyMetadata(DefaultGeometryEffect,
-                    DrawingPropertyMetadataOptions.AffectsRender, OnGeometryEffectChanged));
-
-        protected Geometry CachedGeometry;
-
-        private bool _effectInvalidated;
-
-        static GeometryEffect()
-        {
-            DrawingPropertyMetadata.DrawingPropertyChanged +=
-                delegate (object sender, DrawingPropertyChangedEventArgs args)
-                {
-                    if (sender is GeometryEffect effect && args.Metadata.AffectsRender)
-                        effect.InvalidateGeometry(InvalidateGeometryReasons.PropertyChanged);
-                };
-        }
-
-        public static GeometryEffect DefaultGeometryEffect =>
-            defaultGeometryEffect ?? (defaultGeometryEffect = new NoGeometryEffect());
-
-        public Geometry OutputGeometry =>
-            CachedGeometry;
-
-        protected internal DependencyObject Parent { get; private set; }
-
-        protected internal virtual void Attach(DependencyObject obj)
-        {
-            if (Parent != null) Detach();
-            _effectInvalidated = true;
-            CachedGeometry = null;
-            if (InvalidateParent(obj)) Parent = obj;
-        }
-
-        public new GeometryEffect CloneCurrentValue()
-        {
-            return (GeometryEffect) base.CloneCurrentValue();
-        }
-
-        protected override Freezable CreateInstanceCore()
-        {
-            return (Freezable) Activator.CreateInstance(GetType());
-        }
-
-        protected abstract GeometryEffect DeepCopy();
-
-        protected internal virtual void Detach()
-        {
-            _effectInvalidated = true;
-            CachedGeometry = null;
-            if (Parent != null)
+        DrawingPropertyMetadata.DrawingPropertyChanged +=
+            delegate (object sender, DrawingPropertyChangedEventArgs args)
             {
-                InvalidateParent(Parent);
-                Parent = null;
-            }
-        }
+                if (sender is GeometryEffect effect && args.Metadata.AffectsRender)
+                    effect.InvalidateGeometry(InvalidateGeometryReasons.PropertyChanged);
+            };
+    }
 
-        public abstract bool Equals(GeometryEffect geometryEffect);
+    public static GeometryEffect DefaultGeometryEffect =>
+        defaultGeometryEffect ?? (defaultGeometryEffect = new NoGeometryEffect());
 
-        public static GeometryEffect GetGeometryEffect(DependencyObject obj)
+    public Geometry OutputGeometry =>
+        CachedGeometry;
+
+    protected internal DependencyObject Parent { get; private set; }
+
+    protected internal virtual void Attach(DependencyObject obj)
+    {
+        if (Parent != null) Detach();
+        _effectInvalidated = true;
+        CachedGeometry = null;
+        if (InvalidateParent(obj)) Parent = obj;
+    }
+
+    public new GeometryEffect CloneCurrentValue()
+    {
+        return (GeometryEffect) base.CloneCurrentValue();
+    }
+
+    protected override Freezable CreateInstanceCore()
+    {
+        return (Freezable) Activator.CreateInstance(GetType());
+    }
+
+    protected abstract GeometryEffect DeepCopy();
+
+    protected internal virtual void Detach()
+    {
+        _effectInvalidated = true;
+        CachedGeometry = null;
+        if (Parent != null)
         {
-            return (GeometryEffect) obj.GetValue(GeometryEffectProperty);
+            InvalidateParent(Parent);
+            Parent = null;
         }
+    }
 
-        public bool InvalidateGeometry(InvalidateGeometryReasons reasons)
+    public abstract bool Equals(GeometryEffect geometryEffect);
+
+    public static GeometryEffect GetGeometryEffect(DependencyObject obj)
+    {
+        return (GeometryEffect) obj.GetValue(GeometryEffectProperty);
+    }
+
+    public bool InvalidateGeometry(InvalidateGeometryReasons reasons)
+    {
+        if (_effectInvalidated) return false;
+        _effectInvalidated = true;
+        if (reasons != InvalidateGeometryReasons.ParentInvalidated) InvalidateParent(Parent);
+        return true;
+    }
+
+    private static bool InvalidateParent(DependencyObject parent)
+    {
+        if (parent is IShape shape)
         {
-            if (_effectInvalidated) return false;
-            _effectInvalidated = true;
-            if (reasons != InvalidateGeometryReasons.ParentInvalidated) InvalidateParent(Parent);
+            shape.InvalidateGeometry(InvalidateGeometryReasons.ChildInvalidated);
             return true;
         }
 
-        private static bool InvalidateParent(DependencyObject parent)
+        if (parent is GeometryEffect effect)
         {
-            if (parent is IShape shape)
-            {
-                shape.InvalidateGeometry(InvalidateGeometryReasons.ChildInvalidated);
-                return true;
-            }
-
-            if (parent is GeometryEffect effect)
-            {
-                effect.InvalidateGeometry(InvalidateGeometryReasons.ChildInvalidated);
-                return true;
-            }
-
-            return false;
+            effect.InvalidateGeometry(InvalidateGeometryReasons.ChildInvalidated);
+            return true;
         }
 
-        private static void OnGeometryEffectChanged(DependencyObject obj,
-            DependencyPropertyChangedEventArgs e)
+        return false;
+    }
+
+    private static void OnGeometryEffectChanged(DependencyObject obj,
+        DependencyPropertyChangedEventArgs e)
+    {
+        var oldValue = e.OldValue as GeometryEffect;
+        var newValue = e.NewValue as GeometryEffect;
+        if (!Equals(oldValue, newValue))
         {
-            var oldValue = e.OldValue as GeometryEffect;
-            var newValue = e.NewValue as GeometryEffect;
-            if (!Equals(oldValue, newValue))
+            if (oldValue != null && obj.Equals(oldValue.Parent)) oldValue.Detach();
+            if (newValue != null)
             {
-                if (oldValue != null && obj.Equals(oldValue.Parent)) oldValue.Detach();
-                if (newValue != null)
+                if (newValue.Parent != null)
                 {
-                    if (newValue.Parent != null)
+                    obj.Dispatcher.BeginInvoke(new Action(() =>
                     {
-                        obj.Dispatcher.BeginInvoke(new Action(() =>
-                        {
-                            var effect = newValue.CloneCurrentValue();
-                            obj.SetValue(GeometryEffectProperty, effect);
-                        }), DispatcherPriority.Send, null);
-                    }
-                    else
-                    {
-                        newValue.Attach(obj);
-                    }
+                        var effect = newValue.CloneCurrentValue();
+                        obj.SetValue(GeometryEffectProperty, effect);
+                    }), DispatcherPriority.Send, null);
+                }
+                else
+                {
+                    newValue.Attach(obj);
                 }
             }
         }
+    }
 
-        public bool ProcessGeometry(Geometry input)
+    public bool ProcessGeometry(Geometry input)
+    {
+        var flag = false;
+        if (_effectInvalidated)
         {
-            var flag = false;
-            if (_effectInvalidated)
-            {
-                flag |= UpdateCachedGeometry(input);
-                _effectInvalidated = false;
-            }
-
-            return flag;
+            flag |= UpdateCachedGeometry(input);
+            _effectInvalidated = false;
         }
 
-        public static void SetGeometryEffect(DependencyObject obj, GeometryEffect value)
+        return flag;
+    }
+
+    public static void SetGeometryEffect(DependencyObject obj, GeometryEffect value)
+    {
+        obj.SetValue(GeometryEffectProperty, value);
+    }
+
+    protected abstract bool UpdateCachedGeometry(Geometry input);
+
+
+    private class NoGeometryEffect : GeometryEffect
+    {
+        protected override GeometryEffect DeepCopy()
         {
-            obj.SetValue(GeometryEffectProperty, value);
+            return new NoGeometryEffect();
         }
 
-        protected abstract bool UpdateCachedGeometry(Geometry input);
-
-
-        private class NoGeometryEffect : GeometryEffect
+        public override bool Equals(GeometryEffect geometryEffect)
         {
-            protected override GeometryEffect DeepCopy()
-            {
-                return new NoGeometryEffect();
-            }
+            if (geometryEffect != null) return geometryEffect is NoGeometryEffect;
+            return true;
+        }
 
-            public override bool Equals(GeometryEffect geometryEffect)
-            {
-                if (geometryEffect != null) return geometryEffect is NoGeometryEffect;
-                return true;
-            }
-
-            protected override bool UpdateCachedGeometry(Geometry input)
-            {
-                CachedGeometry = input;
-                return false;
-            }
+        protected override bool UpdateCachedGeometry(Geometry input)
+        {
+            CachedGeometry = input;
+            return false;
         }
     }
 }

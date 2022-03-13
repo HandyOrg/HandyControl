@@ -2,10 +2,9 @@
 using HandyControl.Controls;
 using HandyControlDemo.UserControl;
 
-namespace HandyControlDemo.ViewModel
+namespace HandyControlDemo.ViewModel;
+
+public class SpriteDemoViewModel
 {
-    public class SpriteDemoViewModel
-    {
-        public RelayCommand OpenCmd => new(() => Sprite.Show(new AppSprite()));
-    }
+    public RelayCommand OpenCmd => new(() => Sprite.Show(new AppSprite()));
 }

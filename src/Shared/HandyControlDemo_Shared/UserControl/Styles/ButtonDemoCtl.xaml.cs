@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class ButtonDemoCtl
 {
-    public partial class ButtonDemoCtl
+    public ButtonDemoCtl()
     {
-        public ButtonDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

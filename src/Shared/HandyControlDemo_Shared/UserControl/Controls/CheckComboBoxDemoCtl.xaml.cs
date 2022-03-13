@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class CheckComboBoxDemoCtl
 {
-    public partial class CheckComboBoxDemoCtl
+    public CheckComboBoxDemoCtl()
     {
-        public CheckComboBoxDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

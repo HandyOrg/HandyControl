@@ -1,8 +1,7 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum ChatRoleType
 {
-    public enum ChatRoleType
-    {
-        Sender,
-        Receiver
-    }
+    Sender,
+    Receiver
 }

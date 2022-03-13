@@ -1,9 +1,8 @@
-﻿namespace HandyControl.Data
-{
-    public enum LinearLayout
-    {
-        Stack,
+﻿namespace HandyControl.Data;
 
-        Uniform
-    }
+public enum LinearLayout
+{
+    Stack,
+
+    Uniform
 }

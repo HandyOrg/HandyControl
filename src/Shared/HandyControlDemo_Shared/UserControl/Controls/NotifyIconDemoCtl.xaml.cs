@@ -2,20 +2,19 @@
 using HandyControlDemo.Tools;
 using HandyControlDemo.ViewModel;
 
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class NotifyIconDemoCtl
 {
-    public partial class NotifyIconDemoCtl
+    public NotifyIconDemoCtl()
     {
-        public NotifyIconDemoCtl()
-        {
-            InitializeComponent();
+        InitializeComponent();
 
-            AssemblyHelper.Register(nameof(NotifyIconDemoCtl), this);
-            Unloaded += NotifyIconDemoCtl_Unloaded;
-        }
-
-        private void NotifyIconDemoCtl_Unloaded(object sender, RoutedEventArgs e) => ViewModelLocator.Instance.NotifyIconDemo.Cleanup();
-
-        private void ButtonPush_OnClick(object sender, RoutedEventArgs e) => NotifyIconContextContent.CloseContextControl();
+        AssemblyHelper.Register(nameof(NotifyIconDemoCtl), this);
+        Unloaded += NotifyIconDemoCtl_Unloaded;
     }
+
+    private void NotifyIconDemoCtl_Unloaded(object sender, RoutedEventArgs e) => ViewModelLocator.Instance.NotifyIconDemo.Cleanup();
+
+    private void ButtonPush_OnClick(object sender, RoutedEventArgs e) => NotifyIconContextContent.CloseContextControl();
 }
