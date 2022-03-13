@@ -57,37 +57,37 @@ public class LangExtension : MarkupExtension
         switch (Key)
         {
             case string key:
-            {
-                var binding = CreateLangBinding(key);
-                BindingOperations.SetBinding(targetObject, targetProperty, binding);
-                return binding.ProvideValue(serviceProvider);
-            }
+                {
+                    var binding = CreateLangBinding(key);
+                    BindingOperations.SetBinding(targetObject, targetProperty, binding);
+                    return binding.ProvideValue(serviceProvider);
+                }
             case Binding keyBinding when targetObject is FrameworkElement element:
-            {
-                if (element.DataContext != null)
                 {
-                    var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                    return binding.ProvideValue(serviceProvider);
+                    if (element.DataContext != null)
+                    {
+                        var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                        return binding.ProvideValue(serviceProvider);
+                    }
+
+                    SetTargetProperty(element, targetProperty);
+                    element.DataContextChanged += LangExtension_DataContextChanged;
+
+                    break;
                 }
-
-                SetTargetProperty(element, targetProperty);
-                element.DataContextChanged += LangExtension_DataContextChanged;
-
-                break;
-            }
             case Binding keyBinding when targetObject is FrameworkContentElement element:
-            {
-                if (element.DataContext != null)
                 {
-                    var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                    return binding.ProvideValue(serviceProvider);
+                    if (element.DataContext != null)
+                    {
+                        var binding = SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                        return binding.ProvideValue(serviceProvider);
+                    }
+
+                    SetTargetProperty(element, targetProperty);
+                    element.DataContextChanged += LangExtension_DataContextChanged;
+
+                    break;
                 }
-
-                SetTargetProperty(element, targetProperty);
-                element.DataContextChanged += LangExtension_DataContextChanged;
-
-                break;
-            }
         }
 
         return string.Empty;
@@ -98,25 +98,25 @@ public class LangExtension : MarkupExtension
         switch (sender)
         {
             case FrameworkElement element:
-            {
-                element.DataContextChanged -= LangExtension_DataContextChanged;
-                if (!(Key is Binding keyBinding)) return;
+                {
+                    element.DataContextChanged -= LangExtension_DataContextChanged;
+                    if (!(Key is Binding keyBinding)) return;
 
-                var targetProperty = GetTargetProperty(element);
-                SetTargetProperty(element, null);
-                SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                break;
-            }
+                    var targetProperty = GetTargetProperty(element);
+                    SetTargetProperty(element, null);
+                    SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                    break;
+                }
             case FrameworkContentElement element:
-            {
-                element.DataContextChanged -= LangExtension_DataContextChanged;
-                if (!(Key is Binding keyBinding)) return;
+                {
+                    element.DataContextChanged -= LangExtension_DataContextChanged;
+                    if (!(Key is Binding keyBinding)) return;
 
-                var targetProperty = GetTargetProperty(element);
-                SetTargetProperty(element, null);
-                SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
-                break;
-            }
+                    var targetProperty = GetTargetProperty(element);
+                    SetTargetProperty(element, null);
+                    SetLangBinding(element, targetProperty, keyBinding.Path, element.DataContext);
+                    break;
+                }
         }
     }
 

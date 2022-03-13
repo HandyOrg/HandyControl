@@ -86,8 +86,8 @@ public class HighlightTextBlock : TextBlock
         var sourceText = SourceText;
         var queries = QueriesText.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
         var intervals = from query in queries.Distinct()
-            from interval in GetQueryIntervals(sourceText, query)
-            select interval;
+                        from interval in GetQueryIntervals(sourceText, query)
+                        select interval;
         var mergedIntervals = MergeIntervals(intervals.ToList());
         var fragments = SplitTextByOrderedDisjointIntervals(sourceText, mergedIntervals);
 
@@ -97,9 +97,9 @@ public class HighlightTextBlock : TextBlock
     private IEnumerable GenerateRunElement(IEnumerable<Fragment> fragments)
     {
         return from item in fragments
-            select item.IsQuery
-                ? GetHighlightRun(item.Text)
-                : new Run(item.Text);
+               select item.IsQuery
+                   ? GetHighlightRun(item.Text)
+                   : new Run(item.Text);
     }
 
     private Run GetHighlightRun(string highlightText)

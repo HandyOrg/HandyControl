@@ -16,12 +16,12 @@ internal class TextHelper
             typeface,
             fontSize, Brushes.Black);
 #else
-            var formattedText = new FormattedText(
-                text,
-                CultureInfo.CurrentUICulture,
-                flowDirection,
-                typeface,
-                fontSize, Brushes.Black, DpiHelper.DeviceDpiX);
+        var formattedText = new FormattedText(
+            text,
+            CultureInfo.CurrentUICulture,
+            flowDirection,
+            typeface,
+            fontSize, Brushes.Black, DpiHelper.DeviceDpiX);
 #endif
 
         return formattedText;

@@ -35,7 +35,7 @@ internal class VersionHelper
 #elif NET6_0
             var netVersion = "NET 60";
 #elif NETCOREAPP3_0
-            var netVersion = "CORE 30";
+        var netVersion = "CORE 30";
 #elif NETCOREAPP3_1
             var netVersion = "CORE 31";
 #endif

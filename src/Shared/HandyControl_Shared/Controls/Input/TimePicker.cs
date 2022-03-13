@@ -311,14 +311,14 @@ public class TimePicker : Control, IDataInput
 
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
 
-        public static readonly DependencyProperty SelectionTextBrushProperty =
-            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(TimePicker));
+    public static readonly DependencyProperty SelectionTextBrushProperty =
+        TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(TimePicker));
 
-        public Brush SelectionTextBrush
-        {
-            get => (Brush) GetValue(SelectionTextBrushProperty);
-            set => SetValue(SelectionTextBrushProperty, value);
-        }
+    public Brush SelectionTextBrush
+    {
+        get => (Brush) GetValue(SelectionTextBrushProperty);
+        set => SetValue(SelectionTextBrushProperty, value);
+    }
 
 #endif
 
@@ -473,7 +473,7 @@ public class TimePicker : Control, IDataInput
 
             _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-                _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+            _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
             _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
             _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
@@ -574,29 +574,29 @@ public class TimePicker : Control, IDataInput
         switch (e.Key)
         {
             case Key.System:
-            {
-                switch (e.SystemKey)
                 {
-                    case Key.Down:
+                    switch (e.SystemKey)
                     {
-                        if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                        {
-                            TogglePopup();
-                            return true;
-                        }
+                        case Key.Down:
+                            {
+                                if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
+                                {
+                                    TogglePopup();
+                                    return true;
+                                }
 
-                        break;
+                                break;
+                            }
                     }
+
+                    break;
                 }
 
-                break;
-            }
-
             case Key.Enter:
-            {
-                SetSelectedTime();
-                return true;
-            }
+                {
+                    SetSelectedTime();
+                    return true;
+                }
         }
 
         return false;

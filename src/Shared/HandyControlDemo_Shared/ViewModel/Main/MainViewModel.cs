@@ -60,7 +60,7 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 #if NET40
         set => Set(nameof(SubContent), ref _subContent, value);
 #else
-            set => Set(ref _subContent, value);
+        set => Set(ref _subContent, value);
 #endif
     }
 
@@ -73,7 +73,7 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 #if NET40
         set => Set(nameof(ContentTitle), ref _contentTitle, value);
 #else
-            set => Set(ref _contentTitle, value);
+        set => Set(ref _contentTitle, value);
 #endif
     }
 
@@ -141,7 +141,7 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 #if NET40
         Task.Factory.StartNew(() =>
 #else
-            Task.Run(() =>
+        Task.Run(() =>
 #endif
         {
             DataList = _dataService.GetDemoDataList();

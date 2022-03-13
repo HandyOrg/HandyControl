@@ -19,7 +19,7 @@ public class StepBarDemoViewModel : DemoViewModelBase<StepBarDemoModel>
 #if NET40
         set => Set(nameof(StepIndex), ref _stepIndex, value);
 #else
-            set => Set(ref _stepIndex, value);
+        set => Set(ref _stepIndex, value);
 #endif
     }
 

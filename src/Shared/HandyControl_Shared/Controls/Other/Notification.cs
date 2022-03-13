@@ -97,31 +97,31 @@ public sealed class Notification : System.Windows.Window
             case ShowAnimation.None:
                 break;
             case ShowAnimation.HorizontalMove:
-            {
-                var animation = AnimationHelper.CreateAnimation(desktopWorkingArea.Width);
-                animation.Completed += Animation_Completed;
-                BeginAnimation(LeftProperty, animation);
-                e.Cancel = true;
-                _shouldBeClosed = true;
-            }
+                {
+                    var animation = AnimationHelper.CreateAnimation(desktopWorkingArea.Width);
+                    animation.Completed += Animation_Completed;
+                    BeginAnimation(LeftProperty, animation);
+                    e.Cancel = true;
+                    _shouldBeClosed = true;
+                }
                 break;
             case ShowAnimation.VerticalMove:
-            {
-                var animation = AnimationHelper.CreateAnimation(desktopWorkingArea.Height);
-                animation.Completed += Animation_Completed;
-                BeginAnimation(TopProperty, animation);
-                e.Cancel = true;
-                _shouldBeClosed = true;
-            }
+                {
+                    var animation = AnimationHelper.CreateAnimation(desktopWorkingArea.Height);
+                    animation.Completed += Animation_Completed;
+                    BeginAnimation(TopProperty, animation);
+                    e.Cancel = true;
+                    _shouldBeClosed = true;
+                }
                 break;
             case ShowAnimation.Fade:
-            {
-                var animation = AnimationHelper.CreateAnimation(0);
-                animation.Completed += Animation_Completed;
-                BeginAnimation(OpacityProperty, animation);
-                e.Cancel = true;
-                _shouldBeClosed = true;
-            }
+                {
+                    var animation = AnimationHelper.CreateAnimation(0);
+                    animation.Completed += Animation_Completed;
+                    BeginAnimation(OpacityProperty, animation);
+                    e.Cancel = true;
+                    _shouldBeClosed = true;
+                }
                 break;
         }
     }

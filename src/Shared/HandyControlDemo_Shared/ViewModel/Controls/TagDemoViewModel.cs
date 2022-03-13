@@ -25,7 +25,7 @@ public class TagDemoViewModel : ViewModelBase
 #if NET40
         set => Set(nameof(TagName), ref _tagName, value);
 #else
-            set => Set(ref _tagName, value);
+        set => Set(ref _tagName, value);
 #endif
     }
 

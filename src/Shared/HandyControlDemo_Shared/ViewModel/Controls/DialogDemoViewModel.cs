@@ -23,7 +23,7 @@ public class DialogDemoViewModel : ViewModelBase
 #if NET40
         set => Set(nameof(DialogResult), ref _dialogResult, value);
 #else
-            set => Set(ref _dialogResult, value);
+        set => Set(ref _dialogResult, value);
 #endif
     }
 
@@ -58,21 +58,21 @@ public class DialogDemoViewModel : ViewModelBase
         }
     }
 #else
-        public RelayCommand<bool> ShowInteractiveDialogCmd => new(async withTimer => await ShowInteractiveDialog(withTimer));
+    public RelayCommand<bool> ShowInteractiveDialogCmd => new(async withTimer => await ShowInteractiveDialog(withTimer));
 
-        private async Task ShowInteractiveDialog(bool withTimer)
+    private async Task ShowInteractiveDialog(bool withTimer)
+    {
+        if (!withTimer)
         {
-            if (!withTimer)
-            {
-                DialogResult = await Dialog.Show<InteractiveDialog>()
-                    .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
-                    .GetResultAsync<string>();
-            }
-            else
-            {
-                await Dialog.Show<TextDialogWithTimer>(MessageToken.MainWindow).GetResultAsync<string>();
-            }
+            DialogResult = await Dialog.Show<InteractiveDialog>()
+                .Initialize<InteractiveDialogViewModel>(vm => vm.Message = DialogResult)
+                .GetResultAsync<string>();
         }
+        else
+        {
+            await Dialog.Show<TextDialogWithTimer>(MessageToken.MainWindow).GetResultAsync<string>();
+        }
+    }
 #endif
 
     public RelayCommand NewWindowCmd => new(() => new DialogDemoWindow
