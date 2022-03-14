@@ -37,6 +37,32 @@
                     </WrapPanel>
                     <WrapPanel>
                         <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" Margin="5" Style="{StaticResource ToggleButtonPrimary}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonPrimary}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonSuccess}" hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonSuccess}" hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonInfo}" hc:IconElement.Geometry="{StaticResource RotateRightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonInfo}" hc:IconElement.Geometry="{StaticResource RotateRightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonDanger}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonDanger}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
                             <ToggleButton Margin="5" Style="{StaticResource ToggleButtonIcon}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
                             <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIcon}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
                         </StackPanel>
@@ -141,6 +167,32 @@
                         <StackPanel>
                             <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger.Small}"/>
                             <ToggleButton IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource ToggleButtonDanger.Small}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource ToggleButtonDefault.Small}"/>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource ToggleButtonDefault.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" Margin="5" Style="{StaticResource ToggleButtonPrimary.Small}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                            <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonPrimary.Small}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonSuccess.Small}" hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonSuccess.Small}" hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonInfo.Small}" hc:IconElement.Geometry="{StaticResource RotateRightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonInfo.Small}" hc:IconElement.Geometry="{StaticResource RotateRightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonWarning.Small}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonWarning.Small}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton Margin="5" Style="{StaticResource ToggleButtonDanger.Small}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
+                            <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonDanger.Small}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
                         </StackPanel>
                     </WrapPanel>
                     <WrapPanel>
