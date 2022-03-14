@@ -30,7 +30,7 @@ public class NonClientAreaViewModel : ViewModelBase
 #if NET40
         set => Set(nameof(VersionInfo), ref _versionInfo, value);
 #else
-            set => Set(ref _versionInfo, value);
+        set => Set(ref _versionInfo, value);
 #endif
     }
 }

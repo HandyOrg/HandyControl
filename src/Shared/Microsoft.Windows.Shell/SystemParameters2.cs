@@ -201,7 +201,7 @@ public class SystemParameters2 : INotifyPropertyChanged
             }
         }
         windowCornerRadius = new CornerRadius(0.0);
-        IL_E6:
+IL_E6:
         this.WindowCornerRadius = windowCornerRadius;
     }
 

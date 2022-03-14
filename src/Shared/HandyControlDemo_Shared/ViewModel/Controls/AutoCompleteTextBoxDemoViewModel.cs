@@ -20,11 +20,11 @@ public class AutoCompleteTextBoxDemoViewModel : ViewModelBase
             FilterItems(value);
         }
 #else
-            set
-            {
-                Set(ref _searchText, value);
-                FilterItems(value);
-            }
+        set
+        {
+            Set(ref _searchText, value);
+            FilterItems(value);
+        }
 #endif
     }
 

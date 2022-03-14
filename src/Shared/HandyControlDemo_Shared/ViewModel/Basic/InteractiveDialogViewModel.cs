@@ -17,7 +17,7 @@ public class InteractiveDialogViewModel : ViewModelBase, IDialogResultable<strin
 #if NET40
         set => Set(nameof(Result), ref _result, value);
 #else
-            set => Set(ref _result, value);
+        set => Set(ref _result, value);
 #endif
     }
 
@@ -29,7 +29,7 @@ public class InteractiveDialogViewModel : ViewModelBase, IDialogResultable<strin
 #if NET40
         set => Set(nameof(Message), ref _message, value);
 #else
-            set => Set(ref _message, value);
+        set => Set(ref _message, value);
 #endif
     }
 
