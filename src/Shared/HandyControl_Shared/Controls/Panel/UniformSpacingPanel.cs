@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
@@ -378,7 +377,6 @@ public class UniformSpacingPanel : Panel
             ArrangeLine(uvFinalSize.V, useItemU, itemU, spacingSize.U);
         }
 
-        Trace.WriteLine(finalSize.Width);
         return finalSize;
     }
 }
