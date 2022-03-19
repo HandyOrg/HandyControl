@@ -143,7 +143,7 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 
 <a href="https://getquicker.net" target="_blank"><img width="70px" alt="quicker" src="https://files.getquicker.net/_sitefiles/quicker_round_128.png"></a>
 <a href="https://www.phpenv.cn" target="_blank"><img width="70px" alt="phpenv" src="https://www.phpenv.cn/usr/themes/phpenv/img/logo.png"></a>
-<a href="https://atmb.top" target="_blank"><img width="70px" alt="AutumnBox" src="https://atmb.top/images/icon.png"></a>
+<a href="https://github.com/zsh2401/AutumnBox" target="_blank"><img width="70px" alt="AutumnBox" src="https://raw.githubusercontent.com/zsh2401/AutumnBox/master/src/AutumnBox.GUI/Resources/Icons/icon.ico"></a>
 
 如果你的项目没有被列出，请告知我们! 😀
 
