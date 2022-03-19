@@ -1,9 +1,8 @@
-﻿namespace HandyControl.Data
-{
-    public class EnumItem
-    {
-        public string Description { get; set; }
+﻿namespace HandyControl.Data;
 
-        public System.Enum Value { get; set; }
-    }
+public class EnumItem
+{
+    public string Description { get; set; }
+
+    public System.Enum Value { get; set; }
 }

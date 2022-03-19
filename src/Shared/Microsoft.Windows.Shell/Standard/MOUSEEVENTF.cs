@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum MOUSEEVENTF
 {
-    internal enum MOUSEEVENTF
-    {
-        LEFTDOWN = 2,
-        LEFTUP = 4
-    }
+    LEFTDOWN = 2,
+    LEFTUP = 4
 }

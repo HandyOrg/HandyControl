@@ -4,8 +4,27 @@
 
     <Style BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="ComboBox"/>
 
+    <Style x:Key="ComboBox.Small" BasedOn="{StaticResource ComboBoxBaseStyle}" TargetType="ComboBox">
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+
     <Style x:Key="ComboBoxExtend" BasedOn="{StaticResource ComboBoxExtendBaseStyle}" TargetType="ComboBox"/>
 
+    <Style x:Key="ComboBoxExtend.Small" BasedOn="{StaticResource ComboBoxExtend}" TargetType="ComboBox">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+
     <Style BasedOn="{StaticResource ComboBoxPlusBaseStyle}" TargetType="hc:ComboBox"/>
+
+    <Style x:Key="ComboBoxPlus.Small" BasedOn="{StaticResource ComboBoxPlusBaseStyle}" TargetType="hc:ComboBox">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
 
 </ResourceDictionary>

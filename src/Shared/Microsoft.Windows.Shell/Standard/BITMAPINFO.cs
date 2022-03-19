@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Standard
-{
-    internal struct BITMAPINFO
-    {
-        public BITMAPINFOHEADER bmiHeader;
+namespace Standard;
 
-        public RGBQUAD bmiColors;
-    }
+internal struct BITMAPINFO
+{
+    public BITMAPINFOHEADER bmiHeader;
+
+    public RGBQUAD bmiColors;
 }

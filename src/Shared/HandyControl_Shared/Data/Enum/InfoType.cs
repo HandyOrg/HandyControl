@@ -1,13 +1,12 @@
 ﻿
-namespace HandyControl.Data
+namespace HandyControl.Data;
+
+public enum InfoType
 {
-    public enum InfoType
-    {
-        Success = 0,
-        Info,
-        Warning,
-        Error,
-        Fatal,
-        Ask
-    }
+    Success = 0,
+    Info,
+    Warning,
+    Error,
+    Fatal,
+    Ask
 }

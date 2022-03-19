@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class AppSprite
 {
-    public partial class AppSprite
+    public AppSprite()
     {
-        public AppSprite()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

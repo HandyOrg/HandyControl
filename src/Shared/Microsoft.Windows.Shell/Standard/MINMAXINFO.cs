@@ -1,17 +1,16 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal struct MINMAXINFO
 {
-    internal struct MINMAXINFO
-    {
-        public POINT ptReserved;
+    public POINT ptReserved;
 
-        public POINT ptMaxSize;
+    public POINT ptMaxSize;
 
-        public POINT ptMaxPosition;
+    public POINT ptMaxPosition;
 
-        public POINT ptMinTrackSize;
+    public POINT ptMinTrackSize;
 
-        public POINT ptMaxTrackSize;
-    }
+    public POINT ptMaxTrackSize;
 }

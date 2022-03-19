@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class ImageSelectorDemoCtl
 {
-    public partial class ImageSelectorDemoCtl
+    public ImageSelectorDemoCtl()
     {
-        public ImageSelectorDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

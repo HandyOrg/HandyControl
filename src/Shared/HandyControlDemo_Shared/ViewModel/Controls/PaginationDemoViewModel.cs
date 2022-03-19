@@ -5,50 +5,49 @@ using HandyControl.Data;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 
-namespace HandyControlDemo.ViewModel
+namespace HandyControlDemo.ViewModel;
+
+public class PaginationDemoViewModel : DemoViewModelBase<DemoDataModel>
 {
-    public class PaginationDemoViewModel : DemoViewModelBase<DemoDataModel>
+    /// <summary>
+    ///     所有数据
+    /// </summary>
+    private readonly List<DemoDataModel> _totalDataList;
+
+    /// <summary>
+    ///     页码
+    /// </summary>
+    private int _pageIndex = 1;
+
+    /// <summary>
+    ///     页码
+    /// </summary>
+    public int PageIndex
     {
-        /// <summary>
-        ///     所有数据
-        /// </summary>
-        private readonly List<DemoDataModel> _totalDataList;
-
-        /// <summary>
-        ///     页码
-        /// </summary>
-        private int _pageIndex = 1;
-
-        /// <summary>
-        ///     页码
-        /// </summary>
-        public int PageIndex
-        {
-            get => _pageIndex;
+        get => _pageIndex;
 #if NET40
             set => Set(nameof(PageIndex), ref _pageIndex, value);
 #else
-            set => Set(ref _pageIndex, value);
+        set => Set(ref _pageIndex, value);
 #endif
-        }
+    }
 
-        public PaginationDemoViewModel(DataService dataService)
-        {
-            _totalDataList = dataService.GetDemoDataList(100);
-            DataList = _totalDataList.Take(10).ToList();
-        }
+    public PaginationDemoViewModel(DataService dataService)
+    {
+        _totalDataList = dataService.GetDemoDataList(100);
+        DataList = _totalDataList.Take(10).ToList();
+    }
 
-        /// <summary>
-        ///     页码改变命令
-        /// </summary>
-        public RelayCommand<FunctionEventArgs<int>> PageUpdatedCmd => new(PageUpdated);
+    /// <summary>
+    ///     页码改变命令
+    /// </summary>
+    public RelayCommand<FunctionEventArgs<int>> PageUpdatedCmd => new(PageUpdated);
 
-        /// <summary>
-        ///     页码改变
-        /// </summary>
-        private void PageUpdated(FunctionEventArgs<int> info)
-        {
-            DataList = _totalDataList.Skip((info.Info - 1) * 10).Take(10).ToList();
-        }
+    /// <summary>
+    ///     页码改变
+    /// </summary>
+    private void PageUpdated(FunctionEventArgs<int> info)
+    {
+        DataList = _totalDataList.Skip((info.Info - 1) * 10).Take(10).ToList();
     }
 }

@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class GrowlDemoCtl
 {
-    public partial class GrowlDemoCtl
+    public GrowlDemoCtl()
     {
-        public GrowlDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

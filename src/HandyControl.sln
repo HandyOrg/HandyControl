@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28729.10
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HandyControl_Net_GE45", "Net_GE45\HandyControl_Net_GE45\HandyControl_Net_GE45.csproj", "{DC966E3D-BCFF-4652-98CF-070E5494749A}"
 EndProject
@@ -30,16 +30,31 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Directory.Build.Props = Directory.Build.Props
 	EndProjectSection
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Expression.Drawing", "Shared\Microsoft.Expression.Drawing\Microsoft.Expression.Drawing.shproj", "{E5DC7C25-6293-4660-B5FB-186496386B90}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "System.Windows.Interactivity", "Shared\System.Windows.Interactivity\System.Windows.Interactivity.shproj", "{6F0C9CFF-2269-46A7-9664-478354C582A4}"
+EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Microsoft.Expression.Interactions", "Shared\Microsoft.Expression.Interactions\Microsoft.Expression.Interactions.shproj", "{3531857C-28FC-4E0F-82D9-BFBB70740E04}"
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
+		Shared\Microsoft.Expression.Drawing\Microsoft.Expression.Drawing.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
+		Shared\Microsoft.Expression.Interactions\Microsoft.Expression.Interactions.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
 		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
+		Shared\System.Windows.Interactivity\System.Windows.Interactivity.projitems*{32204503-2ef0-4681-ae13-aa1feb6c658a}*SharedItemsImports = 5
+		Shared\Microsoft.Expression.Interactions\Microsoft.Expression.Interactions.projitems*{3531857c-28fc-4e0f-82d9-bfbb70740e04}*SharedItemsImports = 13
+		Shared\System.Windows.Interactivity\System.Windows.Interactivity.projitems*{6f0c9cff-2269-46a7-9664-478354c582a4}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{9a7b52e6-94bb-4e7e-bb6a-7cf6761b79a7}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{aac11083-faca-405d-9197-5c1212d65656}*SharedItemsImports = 13
 		Shared\Microsoft.Windows.Shell\Microsoft.Windows.Shell.projitems*{bbe51380-8b21-49ff-9cfc-b29447a40999}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{c4694269-c9b8-45d5-87f8-d0088c532510}*SharedItemsImports = 13
 		Shared\HandyControlDemo_Shared\HandyControlDemo_Shared.projitems*{d8ae88f8-c36b-4d10-a7f9-22ffcfba5231}*SharedItemsImports = 5
 		Shared\HandyControl_Shared\HandyControl_Shared.projitems*{dc966e3d-bcff-4652-98cf-070e5494749a}*SharedItemsImports = 5
+		Shared\Microsoft.Expression.Drawing\Microsoft.Expression.Drawing.projitems*{dc966e3d-bcff-4652-98cf-070e5494749a}*SharedItemsImports = 5
+		Shared\Microsoft.Expression.Interactions\Microsoft.Expression.Interactions.projitems*{dc966e3d-bcff-4652-98cf-070e5494749a}*SharedItemsImports = 5
+		Shared\System.Windows.Interactivity\System.Windows.Interactivity.projitems*{dc966e3d-bcff-4652-98cf-070e5494749a}*SharedItemsImports = 5
+		Shared\Microsoft.Expression.Drawing\Microsoft.Expression.Drawing.projitems*{e5dc7c25-6293-4660-b5fb-186496386b90}*SharedItemsImports = 13
 	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +108,9 @@ Global
 		{D8AE88F8-C36B-4D10-A7F9-22FFCFBA5231} = {35E3F9C0-8924-4536-BE09-F3761FDBF066}
 		{D8A4748C-0500-4F63-BC47-3506658C68F7} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
 		{BBE51380-8B21-49FF-9CFC-B29447A40999} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
+		{E5DC7C25-6293-4660-B5FB-186496386B90} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
+		{6F0C9CFF-2269-46A7-9664-478354C582A4} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
+		{3531857C-28FC-4E0F-82D9-BFBB70740E04} = {0938270D-E9F0-489B-AF9E-5C5AD7C69897}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D4636382-1A18-4079-A3E7-054DD970F179}

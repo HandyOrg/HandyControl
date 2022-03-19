@@ -2,63 +2,62 @@
 
 using System;
 
-namespace HandyControl.Collections
+namespace HandyControl.Collections;
+
+public class SimplePool<T> : IPool<T>
 {
-    public class SimplePool<T> : IPool<T>
+    private readonly object[] _pool;
+
+    private int _poolSize;
+
+    public SimplePool(int maxPoolSize)
     {
-        private readonly object[] _pool;
-
-        private int _poolSize;
-
-        public SimplePool(int maxPoolSize)
+        if (maxPoolSize <= 0)
         {
-            if (maxPoolSize <= 0)
-            {
-                throw new ArgumentException("The max pool size must be > 0");
-            }
-            _pool = new object[maxPoolSize];
+            throw new ArgumentException("The max pool size must be > 0");
+        }
+        _pool = new object[maxPoolSize];
+    }
+
+    public virtual T Acquire()
+    {
+        if (_poolSize > 0)
+        {
+            var lastPooledIndex = _poolSize - 1;
+            var instance = (T) _pool[lastPooledIndex];
+            _pool[lastPooledIndex] = null;
+            _poolSize--;
+            return instance;
+        }
+        return default;
+    }
+
+    public virtual bool Release(T instance)
+    {
+        if (IsInPool(instance))
+        {
+            throw new Exception("Already in the pool!");
         }
 
-        public virtual T Acquire()
+        if (_poolSize < _pool.Length)
         {
-            if (_poolSize > 0)
-            {
-                var lastPooledIndex = _poolSize - 1;
-                var instance = (T) _pool[lastPooledIndex];
-                _pool[lastPooledIndex] = null;
-                _poolSize--;
-                return instance;
-            }
-            return default;
+            _pool[_poolSize] = instance;
+            _poolSize++;
+            return true;
         }
 
-        public virtual bool Release(T instance)
-        {
-            if (IsInPool(instance))
-            {
-                throw new Exception("Already in the pool!");
-            }
+        return false;
+    }
 
-            if (_poolSize < _pool.Length)
+    private bool IsInPool(T instance)
+    {
+        for (var i = 0; i < _poolSize; i++)
+        {
+            if (Equals(_pool[i], instance))
             {
-                _pool[_poolSize] = instance;
-                _poolSize++;
                 return true;
             }
-
-            return false;
         }
-
-        private bool IsInPool(T instance)
-        {
-            for (var i = 0; i < _poolSize; i++)
-            {
-                if (Equals(_pool[i], instance))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
+        return false;
     }
 }

@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum AC : byte
 {
-    internal enum AC : byte
-    {
-        SRC_OVER,
-        SRC_ALPHA
-    }
+    SRC_OVER,
+    SRC_ALPHA
 }

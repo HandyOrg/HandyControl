@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Microsoft.Windows.Shell
+namespace Microsoft.Windows.Shell;
+
+public enum JumpItemRejectionReason
 {
-    public enum JumpItemRejectionReason
-    {
-        None,
-        InvalidItem,
-        NoRegisteredHandler,
-        RemovedByUser
-    }
+    None,
+    InvalidItem,
+    NoRegisteredHandler,
+    RemovedByUser
 }

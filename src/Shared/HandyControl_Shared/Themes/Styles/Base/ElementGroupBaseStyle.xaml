@@ -1,0 +1,39 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+
+    <Style x:Key="ElementGroupBaseStyle" TargetType="hc:ElementGroup">
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="Layout" Value="Uniform"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Focusable" Value="False"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource UniformHorizontalItemsPanelTemplate}"/>
+        <Setter Property="hc:VisualElement.HighlightBorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource RegionBrush}"/>
+        <Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource PrimaryBrush}"/>
+        <Style.Triggers>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Layout" Value="Uniform"/>
+                    <Condition Property="Orientation" Value="Vertical"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="ItemsPanel" Value="{StaticResource UniformVerticalItemsPanelTemplate}"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Layout" Value="Stack"/>
+                    <Condition Property="Orientation" Value="Horizontal"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="ItemsPanel" Value="{StaticResource StackHorizontalItemsPanelTemplate}"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="Layout" Value="Stack"/>
+                    <Condition Property="Orientation" Value="Vertical"/>
+                </MultiTrigger.Conditions>
+                <Setter Property="ItemsPanel" Value="{StaticResource StackVerticalItemsPanelTemplate}"/>
+            </MultiTrigger>
+        </Style.Triggers>
+    </Style>
+
+</ResourceDictionary>

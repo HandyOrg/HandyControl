@@ -1,9 +1,8 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum BadgeStatus
 {
-    public enum BadgeStatus
-    {
-        Text,
-        Dot,
-        Processing
-    }
+    Text,
+    Dot,
+    Processing
 }

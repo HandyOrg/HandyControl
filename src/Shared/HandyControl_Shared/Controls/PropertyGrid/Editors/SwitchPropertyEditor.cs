@@ -2,17 +2,16 @@
 using System.Windows.Controls.Primitives;
 using HandyControl.Tools;
 
-namespace HandyControl.Controls
-{
-    public class SwitchPropertyEditor : PropertyEditorBase
-    {
-        public override FrameworkElement CreateElement(PropertyItem propertyItem) => new ToggleButton
-        {
-            Style = ResourceHelper.GetResourceInternal<Style>("ToggleButtonSwitch"),
-            HorizontalAlignment = HorizontalAlignment.Left,
-            IsEnabled = !propertyItem.IsReadOnly
-        };
+namespace HandyControl.Controls;
 
-        public override DependencyProperty GetDependencyProperty() => ToggleButton.IsCheckedProperty;
-    }
+public class SwitchPropertyEditor : PropertyEditorBase
+{
+    public override FrameworkElement CreateElement(PropertyItem propertyItem) => new ToggleButton
+    {
+        Style = ResourceHelper.GetResourceInternal<Style>("ToggleButtonSwitch"),
+        HorizontalAlignment = HorizontalAlignment.Left,
+        IsEnabled = !propertyItem.IsReadOnly
+    };
+
+    public override DependencyProperty GetDependencyProperty() => ToggleButton.IsCheckedProperty;
 }

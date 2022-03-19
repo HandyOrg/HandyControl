@@ -1,12 +1,11 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum FlexItemAlignment
 {
-    public enum FlexItemAlignment
-    {
-        Auto,
-        FlexStart,
-        FlexEnd,
-        Center,
-        Baseline,
-        Stretch
-    }
+    Auto,
+    FlexStart,
+    FlexEnd,
+    Center,
+    Baseline,
+    Stretch
 }

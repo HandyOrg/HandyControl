@@ -1,16 +1,15 @@
 ﻿using System.Windows;
 
-namespace HandyControl.Controls
-{
-    public class HeaderedSimpleItemsControl : SimpleItemsControl
-    {
-        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
-            "Header", typeof(object), typeof(HeaderedSimpleItemsControl), new PropertyMetadata(default(object)));
+namespace HandyControl.Controls;
 
-        public object Header
-        {
-            get => GetValue(HeaderProperty);
-            set => SetValue(HeaderProperty, value);
-        }
+public class HeaderedSimpleItemsControl : SimpleItemsControl
+{
+    public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
+        "Header", typeof(object), typeof(HeaderedSimpleItemsControl), new PropertyMetadata(default(object)));
+
+    public object Header
+    {
+        get => GetValue(HeaderProperty);
+        set => SetValue(HeaderProperty, value);
     }
 }

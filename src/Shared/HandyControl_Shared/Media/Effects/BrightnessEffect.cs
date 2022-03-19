@@ -3,35 +3,34 @@ using System.Windows;
 using System.Windows.Media.Effects;
 using HandyControl.Data;
 
-namespace HandyControl.Media.Effects
+namespace HandyControl.Media.Effects;
+
+public class BrightnessEffect : EffectBase
 {
-    public class BrightnessEffect : EffectBase
+    private static readonly PixelShader Shader;
+
+    static BrightnessEffect()
     {
-        private static readonly PixelShader Shader;
-
-        static BrightnessEffect()
+        Shader = new PixelShader
         {
-            Shader = new PixelShader
-            {
-                UriSource = new Uri("pack://application:,,,/HandyControl;component/Resources/Effects/BrightnessEffect.ps")
-            };
-        }
+            UriSource = new Uri("pack://application:,,,/HandyControl;component/Resources/Effects/BrightnessEffect.ps")
+        };
+    }
 
-        public BrightnessEffect()
-        {
-            PixelShader = Shader;
+    public BrightnessEffect()
+    {
+        PixelShader = Shader;
 
-            UpdateShaderValue(InputProperty);
-            UpdateShaderValue(BrightnessProperty);
-        }
+        UpdateShaderValue(InputProperty);
+        UpdateShaderValue(BrightnessProperty);
+    }
 
-        public static readonly DependencyProperty BrightnessProperty = DependencyProperty.Register(
-            "Brightness", typeof(double), typeof(BrightnessEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
+    public static readonly DependencyProperty BrightnessProperty = DependencyProperty.Register(
+        "Brightness", typeof(double), typeof(BrightnessEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
 
-        public double Brightness
-        {
-            get => (double) GetValue(BrightnessProperty);
-            set => SetValue(BrightnessProperty, value);
-        }
+    public double Brightness
+    {
+        get => (double) GetValue(BrightnessProperty);
+        set => SetValue(BrightnessProperty, value);
     }
 }

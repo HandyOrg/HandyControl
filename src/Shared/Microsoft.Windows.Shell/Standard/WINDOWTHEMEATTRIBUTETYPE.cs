@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum WINDOWTHEMEATTRIBUTETYPE : uint
 {
-    internal enum WINDOWTHEMEATTRIBUTETYPE : uint
-    {
-        WTA_NONCLIENT = 1u
-    }
+    WTA_NONCLIENT = 1u
 }

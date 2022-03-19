@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class FloatingBlockDemoCtl
 {
-    public partial class FloatingBlockDemoCtl
+    public FloatingBlockDemoCtl()
     {
-        public FloatingBlockDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

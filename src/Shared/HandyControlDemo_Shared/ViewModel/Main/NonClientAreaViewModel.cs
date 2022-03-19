@@ -4,34 +4,33 @@ using GalaSoft.MvvmLight.Messaging;
 using HandyControlDemo.Data;
 using HandyControlDemo.Tools;
 
-namespace HandyControlDemo.ViewModel
+namespace HandyControlDemo.ViewModel;
+
+public class NonClientAreaViewModel : ViewModelBase
 {
-    public class NonClientAreaViewModel : ViewModelBase
+    public NonClientAreaViewModel()
     {
-        public NonClientAreaViewModel()
-        {
-            VersionInfo = VersionHelper.GetVersion();
-        }
+        VersionInfo = VersionHelper.GetVersion();
+    }
 
-        public RelayCommand<string> OpenViewCmd => new(OpenView);
+    public RelayCommand<string> OpenViewCmd => new(OpenView);
 
-        private void OpenView(string viewName)
-        {
-            Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
-            Messenger.Default.Send(true, MessageToken.FullSwitch);
-            Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{viewName}"), MessageToken.LoadShowContent);
-        }
+    private void OpenView(string viewName)
+    {
+        Messenger.Default.Send<object>(null, MessageToken.ClearLeftSelected);
+        Messenger.Default.Send(true, MessageToken.FullSwitch);
+        Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{viewName}"), MessageToken.LoadShowContent);
+    }
 
-        private string _versionInfo;
+    private string _versionInfo;
 
-        public string VersionInfo
-        {
-            get => _versionInfo;
+    public string VersionInfo
+    {
+        get => _versionInfo;
 #if NET40
-            set => Set(nameof(VersionInfo), ref _versionInfo, value);
+        set => Set(nameof(VersionInfo), ref _versionInfo, value);
 #else
-            set => Set(ref _versionInfo, value);
+        set => Set(ref _versionInfo, value);
 #endif
-        }
     }
 }

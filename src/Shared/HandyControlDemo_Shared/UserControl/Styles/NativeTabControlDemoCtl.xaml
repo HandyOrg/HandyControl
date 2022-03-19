@@ -6,9 +6,9 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <ScrollViewer>
-            <UniformGrid Rows="2" Columns="2" Margin="16">
-                <TabControl TabStripPlacement="Right" Margin="16" Width="400" Height="200">
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Margin="32" Spacing="32" ItemWidth="400" ItemHeight="200" MaxWidth="832" ChildWrapping="Wrap">
+                <TabControl TabStripPlacement="Right">
                     <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" HeaderStringFormat="{}{0}1">
                         <Border Background="{DynamicResource PrimaryBrush}">
                             <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
@@ -50,7 +50,7 @@
                         </Border>
                     </TabItem>
                 </TabControl>
-                <TabControl Margin="16" Width="400" Height="200" Style="{StaticResource TabControlInLine}">
+                <TabControl Style="{StaticResource TabControlInLine}">
                     <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" HeaderStringFormat="{}{0}1">
                         <Border Background="{DynamicResource PrimaryBrush}">
                             <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
@@ -92,7 +92,7 @@
                         </Border>
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Left" Margin="16" Width="400" Height="200" Style="{StaticResource TabControlCapsule}">
+                <TabControl TabStripPlacement="Left" Style="{StaticResource TabControlCapsule}">
                     <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" HeaderStringFormat="{}{0}1">
                         <Border Background="{DynamicResource PrimaryBrush}">
                             <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
@@ -134,7 +134,7 @@
                         </Border>
                     </TabItem>
                 </TabControl>
-                <TabControl TabStripPlacement="Bottom" Margin="16" Width="400" Height="200" Style="{StaticResource TabControlCapsuleSolid}">
+                <TabControl TabStripPlacement="Bottom" Style="{StaticResource TabControlCapsuleSolid}">
                     <TabItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" HeaderStringFormat="{}{0}1">
                         <Border Background="{DynamicResource PrimaryBrush}">
                             <TextBlock Style="{StaticResource TextBlockLargeBold}" Foreground="{DynamicResource TextIconBrush}">
@@ -176,7 +176,7 @@
                         </Border>
                     </TabItem>
                 </TabControl>
-            </UniformGrid>
-        </ScrollViewer>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

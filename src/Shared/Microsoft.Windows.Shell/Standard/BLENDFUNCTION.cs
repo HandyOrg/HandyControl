@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal struct BLENDFUNCTION
 {
-    internal struct BLENDFUNCTION
-    {
-        public AC BlendOp;
+    public AC BlendOp;
 
-        public byte BlendFlags;
+    public byte BlendFlags;
 
-        public byte SourceConstantAlpha;
+    public byte SourceConstantAlpha;
 
-        public AC AlphaFormat;
-    }
+    public AC AlphaFormat;
 }

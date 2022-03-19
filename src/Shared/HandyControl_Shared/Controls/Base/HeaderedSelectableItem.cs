@@ -1,25 +1,24 @@
 ﻿using System.Windows;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class HeaderedSelectableItem : SelectableItem
 {
-    public class HeaderedSelectableItem : SelectableItem
+    public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
+        "Header", typeof(object), typeof(HeaderedSelectableItem), new PropertyMetadata(default(object)));
+
+    public object Header
     {
-        public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
-            "Header", typeof(object), typeof(HeaderedSelectableItem), new PropertyMetadata(default(object)));
+        get => GetValue(HeaderProperty);
+        set => SetValue(HeaderProperty, value);
+    }
 
-        public object Header
-        {
-            get => GetValue(HeaderProperty);
-            set => SetValue(HeaderProperty, value);
-        }
+    public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
+        "HeaderTemplate", typeof(DataTemplate), typeof(HeaderedSelectableItem), new PropertyMetadata(default(DataTemplate)));
 
-        public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
-            "HeaderTemplate", typeof(DataTemplate), typeof(HeaderedSelectableItem), new PropertyMetadata(default(DataTemplate)));
-
-        public DataTemplate HeaderTemplate
-        {
-            get => (DataTemplate) GetValue(HeaderTemplateProperty);
-            set => SetValue(HeaderTemplateProperty, value);
-        }
+    public DataTemplate HeaderTemplate
+    {
+        get => (DataTemplate) GetValue(HeaderTemplateProperty);
+        set => SetValue(HeaderTemplateProperty, value);
     }
 }

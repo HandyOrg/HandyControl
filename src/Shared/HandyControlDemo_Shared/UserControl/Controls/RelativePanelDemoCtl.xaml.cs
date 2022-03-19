@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class RelativePanelDemoCtl
 {
-    public partial class RelativePanelDemoCtl
+    public RelativePanelDemoCtl()
     {
-        public RelativePanelDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

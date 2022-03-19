@@ -66,14 +66,6 @@
         </Setter>
     </Style>
 
-    <ItemsPanelTemplate x:Key="StepBarHorizontalItemsPanelTemplate">
-        <UniformGrid Rows="1"/>
-    </ItemsPanelTemplate>
-
-    <ItemsPanelTemplate x:Key="StepBarVerticalItemsPanelTemplate">
-        <UniformGrid Columns="1"/>
-    </ItemsPanelTemplate>
-
     <ControlTemplate x:Key="StepBarHorizontalTopControlTemplate" TargetType="hc:StepBar">
         <hc:SimplePanel>
             <ProgressBar HorizontalAlignment="Center" Name="PART_ProgressBarBack" VerticalAlignment="Top" Margin="0,10,0,0" Style="{StaticResource ProgressBarFlat}" Background="{DynamicResource ThirdlyTextBrush}"/>
@@ -105,23 +97,23 @@
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemHorizontalTop}"/>
         <Setter Property="Template" Value="{StaticResource StepBarHorizontalTopControlTemplate}"/>
-        <Setter Property="ItemsPanel" Value="{StaticResource StepBarHorizontalItemsPanelTemplate}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource UniformHorizontalItemsPanelTemplate}"/>
         <Style.Triggers>
             <Trigger Property="Dock" Value="Left">
                 <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemVerticalLeft}"/>
                 <Setter Property="Template" Value="{StaticResource StepBarVerticalLeftControlTemplate}"/>
-                <Setter Property="ItemsPanel" Value="{StaticResource StepBarVerticalItemsPanelTemplate}"/>
+                <Setter Property="ItemsPanel" Value="{StaticResource UniformVerticalItemsPanelTemplate}"/>
             </Trigger>
             <Trigger Property="Dock" Value="Bottom">
                 <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemHorizontalBottom}"/>
                 <Setter Property="Template" Value="{StaticResource StepBarHorizontalBottomControlTemplate}"/>
-                <Setter Property="ItemsPanel" Value="{StaticResource StepBarHorizontalItemsPanelTemplate}"/>
+                <Setter Property="ItemsPanel" Value="{StaticResource UniformHorizontalItemsPanelTemplate}"/>
             </Trigger>
             <Trigger Property="Dock" Value="Right">
                 <Setter Property="FlowDirection" Value="RightToLeft"/>
                 <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemVerticalLeft}"/>
                 <Setter Property="Template" Value="{StaticResource StepBarVerticalLeftControlTemplate}"/>
-                <Setter Property="ItemsPanel" Value="{StaticResource StepBarVerticalItemsPanelTemplate}"/>
+                <Setter Property="ItemsPanel" Value="{StaticResource UniformVerticalItemsPanelTemplate}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

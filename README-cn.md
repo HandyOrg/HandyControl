@@ -130,6 +130,8 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 <a href="https://github.com/icarousfff" target="_blank"><img style="border-radius:50%!important" width="64px" alt="icarousfff" src="https://avatars.githubusercontent.com/u/49859230?s=64&v=4"></a>
 <a href="https://github.com/qiang9420d" target="_blank"><img style="border-radius:50%!important" width="64px" alt="qiang9420d" src="https://avatars.githubusercontent.com/u/22925262?s=64&v=4"></a>
 <a href="https://github.com/zhongwcool" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zhongwcool" src="https://avatars.githubusercontent.com/u/5747392?s=64&v=4"></a>
+<a href="https://github.com/HenJigg" target="_blank"><img style="border-radius:50%!important" width="64px" alt="HenJigg" src="https://avatars.githubusercontent.com/u/42528522?s=64&v=4"></a>
+<a href="https://github.com/MysticABC" target="_blank"><img style="border-radius:50%!important" width="64px" alt="MysticABC" src="https://avatars.githubusercontent.com/u/53632904?s=64&v=4"></a>
 
 ## 鸣谢
 
@@ -141,7 +143,7 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 
 <a href="https://getquicker.net" target="_blank"><img width="70px" alt="quicker" src="https://files.getquicker.net/_sitefiles/quicker_round_128.png"></a>
 <a href="https://www.phpenv.cn" target="_blank"><img width="70px" alt="phpenv" src="https://www.phpenv.cn/usr/themes/phpenv/img/logo.png"></a>
-<a href="https://atmb.top" target="_blank"><img width="70px" alt="AutumnBox" src="https://atmb.top/images/icon.png"></a>
+<a href="https://github.com/zsh2401/AutumnBox" target="_blank"><img width="70px" alt="AutumnBox" src="https://raw.githubusercontent.com/zsh2401/AutumnBox/master/src/AutumnBox.GUI/Resources/Icons/icon.ico"></a>
 
 如果你的项目没有被列出，请告知我们! 😀
 

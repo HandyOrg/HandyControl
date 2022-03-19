@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class AnimationPathDemoCtl
 {
-    public partial class AnimationPathDemoCtl
+    public AnimationPathDemoCtl()
     {
-        public AnimationPathDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
