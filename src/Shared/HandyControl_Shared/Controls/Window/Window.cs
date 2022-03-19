@@ -73,6 +73,7 @@ namespace HandyControl.Controls
             var chrome = new WindowChrome
             {
                 CornerRadius = new CornerRadius(),
+                ResizeBorderThickness = new Thickness(8),
                 GlassFrameThickness = new Thickness(0, 0, 0, 1),
                 UseAeroCaptionButtons = false
             };
