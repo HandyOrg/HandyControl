@@ -30,9 +30,15 @@ body:
     attributes:
       label: NuGet package version
       options:
+        - "HandyControl 3.4.0"
+        - "HandyControl 3.3.0"
         - "HandyControl 3.2.0"
         - "HandyControl 3.1.0"
         - "HandyControl 3.0.0"
+        - "HandyControls (Custom version) 3.4.0"
+        - "HandyControls (Custom version) 3.3.11"
+        - "HandyControls (Custom version) 3.3.10"
+        - "HandyControls (Custom version) 3.3.9"
         - "HandyControls (Custom version) 3.3.8.1"
         - "HandyControls (Custom version) 3.3.8"
         - "HandyControls (Custom version) 3.3.7"
