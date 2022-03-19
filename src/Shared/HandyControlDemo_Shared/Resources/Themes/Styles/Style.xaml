@@ -81,6 +81,7 @@
         <Setter Property="hc:BorderElement.CornerRadius" Value="4"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemTransparent}"/>
+        <Setter Property="hc:ScrollViewer.IsInertiaEnabled" Value="True"/>
     </Style>
 
     <ItemsPanelTemplate x:Key="FluidMoveBehaviorWrapPanelItemsPanelTemplate">
@@ -176,7 +177,7 @@
                         </Style>
                     </ControlTemplate.Resources>
                     <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
-                        <ScrollViewer Name="PART_ScrollViewer" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" CanContentScroll="True" Content="{Binding TextArea,RelativeSource={RelativeSource TemplatedParent}}" Focusable="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
+                        <hc:ScrollViewer IsInertiaEnabled="True" Name="PART_ScrollViewer" Padding="{TemplateBinding Padding}" HorizontalContentAlignment="Left" VerticalContentAlignment="Top" CanContentScroll="True" Content="{Binding TextArea,RelativeSource={RelativeSource TemplatedParent}}" Focusable="False" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" />
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="WordWrap" Value="True">

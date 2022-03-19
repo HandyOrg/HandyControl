@@ -7,7 +7,7 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <ScrollViewer>
+        <hc:ScrollViewer IsInertiaEnabled="True">
             <hc:UniformSpacingPanel Spacing="32" Margin="32" ChildWrapping="Wrap">
                 <StackPanel>
                     <hc:DatePicker ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}"/>
@@ -30,6 +30,6 @@
                     <hc:DatePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0" Style="{StaticResource DatePickerPlus.Small}"/>
                 </StackPanel>
             </hc:UniformSpacingPanel>
-        </ScrollViewer>
+        </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

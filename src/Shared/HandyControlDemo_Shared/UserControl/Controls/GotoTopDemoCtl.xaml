@@ -4,7 +4,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:SimplePanel Width="500" Height="400">
+        <hc:SimplePanel Height="400">
             <hc:ScrollViewer Name="ScrollViewerDemo" IsInertiaEnabled="True" Margin="0,10,0,0">
                 <Border Height="2000" Margin="8,0">
                     <Border.Background>

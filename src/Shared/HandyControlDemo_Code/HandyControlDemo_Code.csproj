@@ -854,6 +854,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Basic\InteractiveDialogViewModel.cs">
       <Link>ViewModel\InteractiveDialogViewModel.cs</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Common\InputElementDemoViewModel.cs">
+      <Link>ViewModel\InputElementDemoViewModel.cs</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\AutoCompleteTextBoxDemoViewModel.cs">
       <Link>ViewModel\AutoCompleteTextBoxDemoViewModel.cs</Link>
     </Resource>

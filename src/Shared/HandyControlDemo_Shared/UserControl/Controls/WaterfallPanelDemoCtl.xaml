@@ -12,7 +12,7 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <hc:NumericUpDown x:Name="UpDownGroups" HorizontalAlignment="Center" Value="2" Minimum="1" Maximum="3" Width="200" Style="{StaticResource NumericUpDownExtend}" hc:TitleElement.Title="{ex:Lang Key={x:Static langs:LangKeys.Groups}}" hc:TitleElement.TitleWidth="50" hc:TitleElement.TitlePlacement="Left"/>
-            <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="0,16,0,0">
+            <hc:UniformSpacingPanel Grid.Row="1" Spacing="16" ChildWrapping="Wrap" Margin="0,16,0,0">
                 <hc:ScrollViewer MaxHeight="300">
                     <hc:WaterfallPanel VerticalAlignment="Center" Width="300" Groups="{Binding Value,ElementName=UpDownGroups}" hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}">
                         <Border Height="100" Background="{DynamicResource PrimaryBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
@@ -32,7 +32,7 @@
                         </Border>
                     </hc:WaterfallPanel>
                 </hc:ScrollViewer>
-                <hc:ScrollViewer Margin="32,0,0,0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" hc:ScrollViewerAttach.Orientation="Horizontal" MaxWidth="300">
+                <hc:ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" hc:ScrollViewerAttach.Orientation="Horizontal" MaxWidth="300">
                     <hc:WaterfallPanel VerticalAlignment="Center" Height="300" Orientation="Vertical" Groups="{Binding Value,ElementName=UpDownGroups}" hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}">
                         <Border Width="100" Background="{DynamicResource PrimaryBrush}" Effect="{StaticResource EffectShadow1}" Margin="5">
                             <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
@@ -51,7 +51,7 @@
                         </Border>
                     </hc:WaterfallPanel>
                 </hc:ScrollViewer>
-            </StackPanel>
+            </hc:UniformSpacingPanel>
         </Grid>
     </hc:TransitioningContentControl>
 </UserControl>

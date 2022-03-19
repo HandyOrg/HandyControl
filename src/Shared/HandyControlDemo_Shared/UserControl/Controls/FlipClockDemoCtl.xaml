@@ -4,6 +4,8 @@
              Background="{DynamicResource RegionBrush}"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
-        <hc:FlipClock Margin="32"/>
+        <Viewbox MaxWidth="520">
+            <hc:FlipClock Margin="32"/>
+        </Viewbox>
     </hc:TransitioningContentControl>
 </UserControl>

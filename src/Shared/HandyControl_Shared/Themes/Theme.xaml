@@ -3015,6 +3015,7 @@
 	<Style x:Key="RadioButtonIconBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RadioButton">
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0}" />
+		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0" />
 		<Setter Property="hc:VisualElement.HighlightBrush" Value="{DynamicResource PrimaryBrush}" />

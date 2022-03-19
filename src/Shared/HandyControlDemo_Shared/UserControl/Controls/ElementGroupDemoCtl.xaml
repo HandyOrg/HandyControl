@@ -13,7 +13,7 @@
                 <Button HorizontalAlignment="Stretch" Width="auto" Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
                 <Button HorizontalAlignment="Stretch" Width="auto" Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
             </hc:ElementGroup>
-            <hc:ElementGroup Orientation="Horizontal" Width="500">
+            <hc:ElementGroup Orientation="Horizontal" MaxWidth="500">
                 <ToggleButton HorizontalAlignment="Stretch" Width="auto" Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
                 <Button HorizontalAlignment="Stretch" Width="auto" Content="{ex:Lang Key={x:Static langs:LangKeys.Button}}"/>
                 <ToggleButton HorizontalAlignment="Stretch" Width="auto" Content="{ex:Lang Key={x:Static langs:LangKeys.ToggleButton}}"/>
