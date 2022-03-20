@@ -108,7 +108,12 @@ public class CoverView : RegularItemsControl
     internal static readonly DependencyProperty GroupsProperty = DependencyProperty.Register(
         "Groups", typeof(int), typeof(CoverView),
         new FrameworkPropertyMetadata(ValueBoxes.Int5Box, FrameworkPropertyMetadataOptions.AffectsMeasure,
-            OnGroupsChanged), IsGroupsValid);
+            OnGroupsChanged, CoerceGroups));
+
+    private static object CoerceGroups(DependencyObject d, object basevalue)
+    {
+        return (int) basevalue < 1 ? 1 : basevalue;
+    }
 
     internal static void OnGroupsChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -116,12 +121,6 @@ public class CoverView : RegularItemsControl
         {
             ctl.UpdateCoverViewContent(ctl._viewContent.IsOpen);
         }
-    }
-
-    private static bool IsGroupsValid(object value)
-    {
-        var v = (int) value;
-        return v >= 1;
     }
 
     public int Groups
