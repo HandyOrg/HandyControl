@@ -417,8 +417,16 @@ public class RelativePanel : Panel
 
         public void Measure(Size availableSize)
         {
-            AvailableSize = availableSize;
+            AvailableSize = EnsureValidSize(availableSize);
             Measure(_nodeDic.Values, null);
+        }
+
+        private static Size EnsureValidSize(Size size)
+        {
+            var width = double.IsInfinity(size.Width) ? 0 : size.Width;
+            var height = double.IsInfinity(size.Height) ? 0 : size.Height;
+
+            return new Size(width, height);
         }
 
         private void Measure(IEnumerable<GraphNode> nodes, HashSet<DependencyObject> set)
