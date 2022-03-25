@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Controls" xml:space="preserve">
-    <value>Controls</value>
+    <value>コントロール</value>
   </data>
   <data name="Styles" xml:space="preserve">
-    <value>Styles</value>
+    <value>スタイル</value>
   </data>
   <data name="Growl" xml:space="preserve">
-    <value>Growl</value>
+    <value>Growl通知</value>
   </data>
   <data name="GrowlInfo" xml:space="preserve">
     <value>It's a nice day today~~~</value>
@@ -136,13 +136,13 @@
     <value>Disk space is running out!</value>
   </data>
   <data name="GrowlError" xml:space="preserve">
-    <value>Connection failed. please check your network!</value>
+    <value>接続できません。ネットワーク接続を確認してください！</value>
   </data>
   <data name="GrowlFatal" xml:space="preserve">
     <value>The program has crashed~~~</value>
   </data>
   <data name="GrowlAsk" xml:space="preserve">
-    <value>A new version has been detected!Do you want to update?</value>
+    <value>新しいバージョンがあります！アップデートしますか？</value>
   </data>
   <data name="Loading" xml:space="preserve">
     <value>Loading</value>
@@ -169,7 +169,7 @@
     <value>Pagination</value>
   </data>
   <data name="OpenImageBrowser" xml:space="preserve">
-    <value>Click to open image browser</value>
+    <value>画像ブラウザを開く</value>
   </data>
   <data name="ProgressBar" xml:space="preserve">
     <value>ProgressBar</value>
@@ -214,7 +214,7 @@
     <value>Custom button</value>
   </data>
   <data name="Title" xml:space="preserve">
-    <value>Title</value>
+    <value>タイトル</value>
   </data>
   <data name="StepBar" xml:space="preserve">
     <value>StepBar</value>
@@ -253,25 +253,25 @@
     <value>TextBox</value>
   </data>
   <data name="ContentDemoStr" xml:space="preserve">
-    <value>This is the content</value>
+    <value>ここはコンテンツ</value>
   </data>
   <data name="TitleDemoStr1" xml:space="preserve">
-    <value>This is the title</value>
+    <value>ここはタイトル</value>
   </data>
   <data name="TitleDemoStr2" xml:space="preserve">
-    <value>This item must be filled in</value>
+    <value>ここは入力必須</value>
   </data>
   <data name="PlsEnterContent" xml:space="preserve">
-    <value>Please enter content</value>
+    <value>内容を入力</value>
   </data>
   <data name="TitleDemoStr3" xml:space="preserve">
-    <value>The title is on the left</value>
+    <value>左寄せタイトル</value>
   </data>
   <data name="Text" xml:space="preserve">
-    <value>Text</value>
+    <value>テキスト</value>
   </data>
   <data name="SubTitle" xml:space="preserve">
-    <value>Subtitle</value>
+    <value>サブタイトル</value>
   </data>
   <data name="PasswordBox" xml:space="preserve">
     <value>PasswordBox</value>
@@ -289,19 +289,19 @@
     <value>DataGrid</value>
   </data>
   <data name="Index" xml:space="preserve">
-    <value>Index</value>
+    <value>インデックス</value>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>Name</value>
+    <value>名前</value>
   </data>
   <data name="Type" xml:space="preserve">
-    <value>Type</value>
+    <value>種類</value>
   </data>
   <data name="Remark" xml:space="preserve">
-    <value>Remark</value>
+    <value>注記</value>
   </data>
   <data name="Selected" xml:space="preserve">
-    <value>Selected</value>
+    <value>選択</value>
   </data>
   <data name="ListBox" xml:space="preserve">
     <value>ListBox</value>
@@ -319,25 +319,25 @@
     <value>Menu</value>
   </data>
   <data name="RightClickHere" xml:space="preserve">
-    <value>Right click here</value>
+    <value>ここを右クリック</value>
   </data>
   <data name="RadioButton" xml:space="preserve">
     <value>RadioButton</value>
   </data>
   <data name="OpenMessageWindow" xml:space="preserve">
-    <value>open message window</value>
+    <value>メッセージウインドウを開く</value>
   </data>
   <data name="OpenCommonWindow" xml:space="preserve">
-    <value>open common window</value>
+    <value>通常のウインドウを開く</value>
   </data>
   <data name="OpenCustomNonClientAreaWindow" xml:space="preserve">
-    <value>open custom Non-client Area window</value>
+    <value>カスタム非クライアント領域ウインドウを開く</value>
   </data>
   <data name="OpenMouseFollowWindow" xml:space="preserve">
-    <value>open mouse follow window</value>
+    <value>マウス位置にウインドウを開く</value>
   </data>
   <data name="OpenCustomContentWindow" xml:space="preserve">
-    <value>open custom content window</value>
+    <value>カスタムコンテンツウインドウを開く</value>
   </data>
   <data name="Ignore" xml:space="preserve">
     <value>Ignore</value>
@@ -358,19 +358,19 @@
     <value>Whether to restart to change the language?</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>About</value>
+    <value>情報</value>
   </data>
   <data name="Repository" xml:space="preserve">
-    <value>Repository</value>
+    <value>リポジトリ</value>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>Email</value>
+    <value>Eメール</value>
   </data>
   <data name="Chatroom" xml:space="preserve">
-    <value>Chatroom</value>
+    <value>チャットルーム</value>
   </data>
   <data name="Blog" xml:space="preserve">
-    <value>Blog</value>
+    <value>ブログ</value>
   </data>
   <data name="Brush" xml:space="preserve">
     <value>Brush</value>
@@ -379,7 +379,7 @@
     <value>PreviewSlider</value>
   </data>
   <data name="Contributors" xml:space="preserve">
-    <value>Contributors</value>
+    <value>貢献者</value>
   </data>
   <data name="Slider" xml:space="preserve">
     <value>Slider</value>
@@ -388,7 +388,7 @@
     <value>It's not a phone number</value>
   </data>
   <data name="PlsEnterEmail" xml:space="preserve">
-    <value>please enter email</value>
+    <value>Eメールアドレスを入力</value>
   </data>
   <data name="Step" xml:space="preserve">
     <value>Step</value>
@@ -412,10 +412,10 @@
     <value>ToolBar</value>
   </data>
   <data name="Common" xml:space="preserve">
-    <value>Common</value>
+    <value>通常</value>
   </data>
   <data name="ShowRowNumber" xml:space="preserve">
-    <value>ShowRowNumber</value>
+    <value>行番号表示</value>
   </data>
   <data name="SearchBar" xml:space="preserve">
     <value>SearchBar</value>
@@ -436,7 +436,7 @@
     <value>FlipClock</value>
   </data>
   <data name="OpenBlurWindow" xml:space="preserve">
-    <value>open blur window</value>
+    <value>BlurWindowを開く</value>
   </data>
   <data name="Rate" xml:space="preserve">
     <value>Rate</value>
@@ -457,10 +457,10 @@
     <value>CoverFlow</value>
   </data>
   <data name="PlsEnterKey" xml:space="preserve">
-    <value>Please input a keyword</value>
+    <value>検索ワードを入力</value>
   </data>
   <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
-    <value>open no Non-client Area dragable window</value>
+    <value>非クライアント領域の無いドラッグ可能ウインドウを開く</value>
   </data>
   <data name="DragHere" xml:space="preserve">
     <value>Drag here</value>
@@ -472,10 +472,10 @@
     <value>ProgressButton</value>
   </data>
   <data name="UploadStr" xml:space="preserve">
-    <value>Upload;Uploading</value>
+    <value>アップロード;アップロード中</value>
   </data>
   <data name="OpenCustomMessageWindow" xml:space="preserve">
-    <value>open custom message window</value>
+    <value>カスタムメッセージウインドウを開く</value>
   </data>
   <data name="Transfer" xml:space="preserve">
     <value>Transfer</value>
@@ -505,7 +505,7 @@
     <value>Gravatar</value>
   </data>
   <data name="ComingSoon" xml:space="preserve">
-    <value>Coming Soon</value>
+    <value>近日公開</value>
   </data>
   <data name="Comment" xml:space="preserve">
     <value>Comment</value>
@@ -520,19 +520,19 @@
     <value>TextDialog</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
-    <value>Please wait...</value>
+    <value>お待ちください...</value>
   </data>
   <data name="GrowlDemo" xml:space="preserve">
-    <value>Growl demo</value>
+    <value>Growl通知デモ</value>
   </data>
   <data name="NewWindow" xml:space="preserve">
-    <value>New window</value>
+    <value>新規ウインドウ</value>
   </data>
   <data name="Visibility" xml:space="preserve">
-    <value>Visibility</value>
+    <value>表示</value>
   </data>
   <data name="Blink" xml:space="preserve">
-    <value>Blink</value>
+    <value>点滅</value>
   </data>
   <data name="Exit" xml:space="preserve">
     <value>Exit</value>
@@ -550,13 +550,13 @@
     <value>Try to close app?</value>
   </data>
   <data name="InteractiveDialog" xml:space="preserve">
-    <value>Interactive Dialog</value>
+    <value>対話型 Dialog</value>
   </data>
   <data name="Ok" xml:space="preserve">
     <value>Ok</value>
   </data>
   <data name="PleaseInput" xml:space="preserve">
-    <value>Please input...</value>
+    <value>入力してください...</value>
   </data>
   <data name="Click2Count" xml:space="preserve">
     <value>Click to count</value>
@@ -565,13 +565,13 @@
     <value>RepeatButton</value>
   </data>
   <data name="DialogDemo" xml:space="preserve">
-    <value>Dialog demo</value>
+    <value>Dialog デモ</value>
   </data>
   <data name="ShowInCurrentWindow" xml:space="preserve">
-    <value>Show in the current window</value>
+    <value>このウインドウに表示</value>
   </data>
   <data name="ShowInMainWindow" xml:space="preserve">
-    <value>Show in the main window</value>
+    <value>メインウインドウに表示</value>
   </data>
   <data name="SideMenu" xml:space="preserve">
     <value>SideMenu</value>
@@ -580,19 +580,19 @@
     <value>Grid</value>
   </data>
   <data name="BasicLayout" xml:space="preserve">
-    <value>Basic layout</value>
+    <value>基本レイアウト</value>
   </data>
   <data name="ColumnSpacing" xml:space="preserve">
-    <value>Column spacing</value>
+    <value>列スペース</value>
   </data>
   <data name="HybridLayout" xml:space="preserve">
-    <value>Hybrid layout</value>
+    <value>混合レイアウト</value>
   </data>
   <data name="ColumnOffset" xml:space="preserve">
-    <value>Column offset</value>
+    <value>列オフセット</value>
   </data>
   <data name="ResponsiveLayout" xml:space="preserve">
-    <value>Responsive layout</value>
+    <value>レスポンシブレイアウト</value>
   </data>
   <data name="Border" xml:space="preserve">
     <value>Border</value>
@@ -601,10 +601,10 @@
     <value>Poptip</value>
   </data>
   <data name="Recommendation" xml:space="preserve">
-    <value>Recommendation</value>
+    <value>おすすめ</value>
   </data>
   <data name="Project" xml:space="preserve">
-    <value>Project</value>
+    <value>プロジェクト</value>
   </data>
   <data name="RangeSlider" xml:space="preserve">
     <value>RangeSlider</value>
@@ -625,7 +625,7 @@
     <value>Card</value>
   </data>
   <data name="TextDialogWithTimer" xml:space="preserve">
-    <value>TextDialog with timer</value>
+    <value>TextDialog, タイマーあり</value>
   </data>
   <data name="Magnifier" xml:space="preserve">
     <value>Magnifier</value>
@@ -640,25 +640,25 @@
     <value>HoneycombPanel</value>
   </data>
   <data name="AddItem" xml:space="preserve">
-    <value>Add an item</value>
+    <value>アイテム追加</value>
   </data>
   <data name="RemoveItem" xml:space="preserve">
-    <value>Remove an item</value>
+    <value>アイテム削除</value>
   </data>
   <data name="Sprite" xml:space="preserve">
     <value>Sprite</value>
   </data>
   <data name="OpenSprite" xml:space="preserve">
-    <value>Open sprite</value>
+    <value>Spriteを開く</value>
   </data>
   <data name="Notification" xml:space="preserve">
     <value>Notification</value>
   </data>
   <data name="SendNotification" xml:space="preserve">
-    <value>Send notification</value>
+    <value>通知を送信</value>
   </data>
   <data name="StaysOpen" xml:space="preserve">
-    <value>Stays open</value>
+    <value>開いたままにする</value>
   </data>
   <data name="FloatingBlock" xml:space="preserve">
     <value>FloatingBlock</value>
@@ -667,7 +667,7 @@
     <value>SplitButton</value>
   </data>
   <data name="Tools" xml:space="preserve">
-    <value>Tools</value>
+    <value>ツール</value>
   </data>
   <data name="HatchBrushGenerator" xml:space="preserve">
     <value>HatchBrushGenerator</value>
@@ -688,25 +688,25 @@
     <value>Drawer</value>
   </data>
   <data name="Documentation" xml:space="preserve">
-    <value>Documentation</value>
+    <value>ドキュメント</value>
   </data>
   <data name="Effects" xml:space="preserve">
     <value>Effects</value>
   </data>
   <data name="Website" xml:space="preserve">
-    <value>Website</value>
+    <value>ウェブサイト</value>
   </data>
   <data name="Vsix" xml:space="preserve">
     <value>Vsix</value>
   </data>
   <data name="Doc_en" xml:space="preserve">
-    <value>English document</value>
+    <value>英語ドキュメント</value>
   </data>
   <data name="Doc_cn" xml:space="preserve">
-    <value>Chinese document</value>
+    <value>中国語ドキュメント</value>
   </data>
   <data name="Demo" xml:space="preserve">
-    <value>Demo</value>
+    <value>デモ</value>
   </data>
   <data name="PinBox" xml:space="preserve">
     <value>PinBox</value>
@@ -715,7 +715,7 @@
     <value>FlowDocumentScrollViewer</value>
   </data>
   <data name="OpenGlowWindow" xml:space="preserve">
-    <value>Open glowWindow</value>
+    <value>GlowWindowを開く</value>
   </data>
   <data name="FlowDocument" xml:space="preserve">
     <value>FlowDocument</value>
@@ -727,25 +727,25 @@
     <value>FlowDocumentReader</value>
   </data>
   <data name="OpenNativeCommonWindow" xml:space="preserve">
-    <value>Open native common window</value>
+    <value>標準のウインドウを開く</value>
   </data>
   <data name="OpenNavigationWindow" xml:space="preserve">
-    <value>Open navigation window</value>
+    <value>ナビゲーションウインドウを開く</value>
   </data>
   <data name="Frame" xml:space="preserve">
     <value>Frame</value>
   </data>
   <data name="PracticalDemos" xml:space="preserve">
-    <value>Practical demos</value>
+    <value>実用例</value>
   </data>
   <data name="StartScreenshot" xml:space="preserve">
-    <value>Start screenshot</value>
+    <value>スクリーンショット開始</value>
   </data>
   <data name="Screenshot" xml:space="preserve">
     <value>Screenshot</value>
   </data>
   <data name="TextDialogInControl" xml:space="preserve">
-    <value>TextDialog(In control)</value>
+    <value>TextDialog（コントロール内）</value>
   </data>
   <data name="LangComment" xml:space="preserve">
     <value>Looks up a localized string similar to "{0}".</value>
@@ -766,7 +766,7 @@
     <value>FlexPanel</value>
   </data>
   <data name="OpenTouchDragMoveWindow" xml:space="preserve">
-    <value>open touch drag move window</value>
+    <value>タッチ移動ウインドウを開く</value>
   </data>
   <data name="UniformSpacingPanel" xml:space="preserve">
     <value>UniformSpacingPanel</value>
