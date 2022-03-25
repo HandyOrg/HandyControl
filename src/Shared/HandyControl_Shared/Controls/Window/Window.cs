@@ -331,9 +331,9 @@ namespace HandyControl.Controls
 
             if (monitor != IntPtr.Zero && mmi != null)
             {
-                InteropValues.APPBARDATA appBarData = default;
-                var autoHide = InteropMethods.SHAppBarMessage(4, ref appBarData) != 0;
-                if (autoHide)
+                //InteropValues.APPBARDATA appBarData = default;
+                //var autoHide = InteropMethods.SHAppBarMessage(4, ref appBarData) != 0;
+                //if (autoHide)
                 {
                     var monitorInfo = default(InteropValues.MONITORINFO);
                     monitorInfo.cbSize = (uint) Marshal.SizeOf(typeof(InteropValues.MONITORINFO));
@@ -355,11 +355,11 @@ namespace HandyControl.Controls
             switch (msg)
             {
                 case InteropValues.WM_WINDOWPOSCHANGED:
-                    Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
+                    //Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
                     break;
                 case InteropValues.WM_GETMINMAXINFO:
                     WmGetMinMaxInfo(hwnd, lparam);
-                    Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
+                    //Padding = WindowState == WindowState.Maximized ? WindowHelper.WindowMaximizedPadding : _commonPadding;
                     break;
                 case InteropValues.WM_NCHITTEST:
                     // for fixing #886
