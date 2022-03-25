@@ -1,69 +1,68 @@
 ﻿using System;
 
-namespace HandyControl.Data
+namespace HandyControl.Data;
+
+public class DisposableObject : IDisposable
 {
-    public class DisposableObject : IDisposable
+    private EventHandler _disposing;
+
+    public bool IsDisposed { get; private set; }
+
+    public void Dispose()
     {
-        private EventHandler _disposing;
+        Dispose(true);
+        GC.SuppressFinalize(this);
+    }
 
-        public bool IsDisposed { get; private set; }
+    ~DisposableObject()
+    {
+        Dispose(false);
+    }
 
-        public void Dispose()
+    public event EventHandler Disposing
+    {
+        add
         {
-            Dispose(true);
-            GC.SuppressFinalize(this);
+            ThrowIfDisposed();
+            _disposing += value;
         }
-
-        ~DisposableObject()
+        remove
         {
-            Dispose(false);
+            _disposing -= value;
         }
+    }
 
-        public event EventHandler Disposing
+    protected void ThrowIfDisposed()
+    {
+        if (IsDisposed) throw new ObjectDisposedException(GetType().Name);
+    }
+
+    protected void Dispose(bool disposing)
+    {
+        if (IsDisposed) return;
+
+        try
         {
-            add
+            if (disposing)
             {
-                ThrowIfDisposed();
-                _disposing += value;
+                _disposing?.Invoke(this, EventArgs.Empty);
+                _disposing = null;
+                DisposeManagedResources();
             }
-            remove
-            {
-                _disposing -= value;
-            }
-        }
 
-        protected void ThrowIfDisposed()
+            DisposeNativeResources();
+        }
+        finally
         {
-            if (IsDisposed) throw new ObjectDisposedException(GetType().Name);
+            IsDisposed = true;
         }
+    }
 
-        protected void Dispose(bool disposing)
-        {
-            if (IsDisposed) return;
+    protected virtual void DisposeManagedResources()
+    {
+    }
 
-            try
-            {
-                if (disposing)
-                {
-                    _disposing?.Invoke(this, EventArgs.Empty);
-                    _disposing = null;
-                    DisposeManagedResources();
-                }
-
-                DisposeNativeResources();
-            }
-            finally
-            {
-                IsDisposed = true;
-            }
-        }
-
-        protected virtual void DisposeManagedResources()
-        {
-        }
-
-        protected virtual void DisposeNativeResources()
-        {
-        }
+    protected virtual void DisposeNativeResources()
+    {
     }
 }

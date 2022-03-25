@@ -7,25 +7,25 @@
              Background="{DynamicResource RegionBrush}"
              DataContext="{Binding BadgeDemo, Source={StaticResource Locator}}">
     <hc:TransitioningContentControl>
-        <StackPanel Margin="32" Orientation="Horizontal">
+        <hc:UniformSpacingPanel Margin="32" Spacing="32" ChildWrapping="Wrap" VerticalAlignment="Center" HorizontalAlignment="Center">
             <hc:Badge Text="New" BadgeMargin="0,-14,-20,0" Height="30">
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Comment}}"/>
             </hc:Badge>
-            <hc:Badge Text="New" BadgeMargin="0,-14,-20,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
+            <hc:Badge Text="New" BadgeMargin="0,-14,-20,0" Height="30" Style="{StaticResource BadgeDanger}">
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Comment}}"/>
             </hc:Badge>
-            <hc:Badge Value="{Binding Count}" BadgeMargin="0,-14,-10,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgePrimary}">
+            <hc:Badge Value="{Binding Count}" BadgeMargin="0,-14,-10,0" Height="30" Style="{StaticResource BadgePrimary}">
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Click2Count}}" Command="{Binding CountCmd}"/>
             </hc:Badge>
-            <hc:Badge Value="100" BadgeMargin="0,-14,-20,0" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
+            <hc:Badge Value="100" BadgeMargin="0,-14,-20,0" Height="30" Style="{StaticResource BadgeDanger}">
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Comment}}"/>
             </hc:Badge>
-            <hc:Badge Status="Dot" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
+            <hc:Badge Status="Dot" Height="30" Style="{StaticResource BadgeDanger}">
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Reply}}"/>
             </hc:Badge>
-            <hc:Badge Status="Processing" Height="30" Margin="32,0,0,0" Style="{StaticResource BadgeDanger}">
+            <hc:Badge Status="Processing" Height="30" Style="{StaticResource BadgeDanger}">
                 <Button Content="{ex:Lang Key={x:Static langs:LangKeys.Reply}}" />
             </hc:Badge>
-        </StackPanel>
+        </hc:UniformSpacingPanel>
     </hc:TransitioningContentControl>
 </UserControl>

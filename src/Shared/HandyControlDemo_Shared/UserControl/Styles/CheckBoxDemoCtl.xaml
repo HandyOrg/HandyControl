@@ -4,8 +4,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
-             Background="{DynamicResource RegionBrush}"
-             Width="400">
+             Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center">
             <CheckBox Content="{ex:Lang Key={x:Static langs:LangKeys.CheckBox}}" IsChecked="True"/>

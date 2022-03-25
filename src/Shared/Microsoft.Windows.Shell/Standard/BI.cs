@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum BI
 {
-    internal enum BI
-    {
-        RGB
-    }
+    RGB
 }

@@ -1,0 +1,32 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ItemsPanelTemplate x:Key="UniformHorizontalItemsPanelTemplate">
+        <UniformGrid FocusVisualStyle="{x:Null}" Rows="1"/>
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="UniformVerticalItemsPanelTemplate">
+        <UniformGrid FocusVisualStyle="{x:Null}" Columns="1"/>
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="StackHorizontalItemsPanelTemplate">
+        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal"/>
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="StackVerticalItemsPanelTemplate">
+        <StackPanel FocusVisualStyle="{x:Null}"/>
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="WrapHorizontalItemsPanelTemplate">
+        <WrapPanel FocusVisualStyle="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="WrapVerticalItemsPanelTemplate">
+        <WrapPanel FocusVisualStyle="{x:Null}" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="DockItemsPanelTemplate">
+        <DockPanel FocusVisualStyle="{x:Null}" LastChildFill="True"/>
+    </ItemsPanelTemplate>
+
+</ResourceDictionary>

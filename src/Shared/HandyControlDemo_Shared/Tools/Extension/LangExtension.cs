@@ -1,12 +1,11 @@
 ﻿using HandyControlDemo.Properties.Langs;
 
-namespace HandyControlDemo.Tools.Extension
+namespace HandyControlDemo.Tools.Extension;
+
+public class LangExtension : HandyControl.Tools.Extension.LangExtension
 {
-    public class LangExtension : HandyControl.Tools.Extension.LangExtension
+    public LangExtension()
     {
-        public LangExtension()
-        {
-            Source = LangProvider.Instance;
-        }
+        Source = LangProvider.Instance;
     }
 }

@@ -4,9 +4,11 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <StackPanel Orientation="Horizontal" Margin="32">
-            <hc:Clock/>
-            <hc:ListClock Margin="16,0,0,0"/>
-        </StackPanel>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Spacing="16" ChildWrapping="Wrap" Margin="32">
+                <hc:Clock/>
+                <hc:ListClock/>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

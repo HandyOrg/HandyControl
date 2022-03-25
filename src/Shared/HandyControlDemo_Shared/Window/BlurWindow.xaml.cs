@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.Window
+﻿namespace HandyControlDemo.Window;
+
+public partial class BlurWindow
 {
-    public partial class BlurWindow
+    public BlurWindow()
     {
-        public BlurWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

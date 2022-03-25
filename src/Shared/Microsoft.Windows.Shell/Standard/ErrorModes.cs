@@ -1,14 +1,13 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+[Flags]
+internal enum ErrorModes
 {
-    [Flags]
-    internal enum ErrorModes
-    {
-        Default = 0,
-        FailCriticalErrors = 1,
-        NoGpFaultErrorBox = 2,
-        NoAlignmentFaultExcept = 4,
-        NoOpenFileErrorBox = 32768
-    }
+    Default = 0,
+    FailCriticalErrors = 1,
+    NoGpFaultErrorBox = 2,
+    NoAlignmentFaultExcept = 4,
+    NoOpenFileErrorBox = 32768
 }

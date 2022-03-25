@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+[Flags]
+internal enum THBF : uint
 {
-    [Flags]
-    internal enum THBF : uint
-    {
-        ENABLED = 0u,
-        DISABLED = 1u,
-        DISMISSONCLICK = 2u,
-        NOBACKGROUND = 4u,
-        HIDDEN = 8u,
-        NONINTERACTIVE = 16u
-    }
+    ENABLED = 0u,
+    DISABLED = 1u,
+    DISMISSONCLICK = 2u,
+    NOBACKGROUND = 4u,
+    HIDDEN = 8u,
+    NONINTERACTIVE = 16u
 }

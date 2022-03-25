@@ -1,10 +1,9 @@
 ﻿
-namespace HandyControl.Data
+namespace HandyControl.Data;
+
+public enum SkinType
 {
-    public enum SkinType
-    {
-        Default,
-        Dark,
-        Violet
-    }
+    Default,
+    Dark,
+    Violet
 }

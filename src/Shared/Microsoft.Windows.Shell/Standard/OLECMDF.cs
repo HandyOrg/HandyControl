@@ -1,14 +1,13 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum OLECMDF
 {
-    internal enum OLECMDF
-    {
-        SUPPORTED = 1,
-        ENABLED,
-        LATCHED = 4,
-        NINCHED = 8,
-        INVISIBLE = 16,
-        DEFHIDEONCTXTMENU = 32
-    }
+    SUPPORTED = 1,
+    ENABLED,
+    LATCHED = 4,
+    NINCHED = 8,
+    INVISIBLE = 16,
+    DEFHIDEONCTXTMENU = 32
 }

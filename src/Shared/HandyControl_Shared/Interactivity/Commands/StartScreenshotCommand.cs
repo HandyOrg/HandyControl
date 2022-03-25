@@ -2,14 +2,13 @@
 using System.Windows.Input;
 using HandyControl.Controls;
 
-namespace HandyControl.Interactivity
+namespace HandyControl.Interactivity;
+
+public class StartScreenshotCommand : ICommand
 {
-    public class StartScreenshotCommand : ICommand
-    {
-        public bool CanExecute(object parameter) => true;
+    public bool CanExecute(object parameter) => true;
 
-        public void Execute(object parameter) => new Screenshot().Start();
+    public void Execute(object parameter) => new Screenshot().Start();
 
-        public event EventHandler CanExecuteChanged;
-    }
+    public event EventHandler CanExecuteChanged;
 }

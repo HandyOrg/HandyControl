@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class DatePickerDemoCtl
 {
-    public partial class DatePickerDemoCtl
+    public DatePickerDemoCtl()
     {
-        public DatePickerDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

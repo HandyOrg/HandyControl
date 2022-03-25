@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Standard
-{
-    internal struct UNSIGNED_RATIO
-    {
-        public uint uiNumerator;
+namespace Standard;
 
-        public uint uiDenominator;
-    }
+internal struct UNSIGNED_RATIO
+{
+    public uint uiNumerator;
+
+    public uint uiDenominator;
 }

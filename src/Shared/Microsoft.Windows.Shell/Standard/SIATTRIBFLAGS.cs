@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum SIATTRIBFLAGS
 {
-    internal enum SIATTRIBFLAGS
-    {
-        AND = 1,
-        OR,
-        APPCOMPAT
-    }
+    AND = 1,
+    OR,
+    APPCOMPAT
 }

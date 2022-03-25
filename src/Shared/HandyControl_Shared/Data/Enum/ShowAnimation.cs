@@ -1,10 +1,9 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum ShowAnimation
 {
-    public enum ShowAnimation
-    {
-        None,
-        HorizontalMove,
-        VerticalMove,
-        Fade
-    }
+    None,
+    HorizontalMove,
+    VerticalMove,
+    Fade
 }

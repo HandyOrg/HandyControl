@@ -1,15 +1,15 @@
 ﻿using System.Diagnostics;
 using System.Reflection;
 
-namespace HandyControlDemo.Tools
+namespace HandyControlDemo.Tools;
+
+internal class VersionHelper
 {
-    internal class VersionHelper
+    internal static string GetVersion()
     {
-        internal static string GetVersion()
-        {
-            var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
+        var versionInfo = FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location);
 #if NET40
-            var netVersion = "NET 40";
+        var netVersion = "NET 40";
 #elif NET45
             var netVersion = "NET 45";
 #elif NET451
@@ -35,14 +35,13 @@ namespace HandyControlDemo.Tools
 #elif NET6_0
             var netVersion = "NET 60";
 #elif NETCOREAPP3_0
-            var netVersion = "CORE 30";
+        var netVersion = "CORE 30";
 #elif NETCOREAPP3_1
             var netVersion = "CORE 31";
 #endif
-            return $"v {versionInfo.FileVersion} {netVersion}";
-        }
-
-        internal static string GetCopyright() =>
-            FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location).LegalCopyright;
+        return $"v {versionInfo.FileVersion} {netVersion}";
     }
+
+    internal static string GetCopyright() =>
+        FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location).LegalCopyright;
 }

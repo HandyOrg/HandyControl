@@ -1,18 +1,17 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace HandyControl.Data
+namespace HandyControl.Data;
+
+public class KeyboardHookEventArgs : EventArgs
 {
-    public class KeyboardHookEventArgs : EventArgs
+    public bool IsSystemKey { get; }
+
+    public Key Key { get; }
+
+    public KeyboardHookEventArgs(int virtualKey, bool isSystemKey)
     {
-        public bool IsSystemKey { get; }
-
-        public Key Key { get; }
-
-        public KeyboardHookEventArgs(int virtualKey, bool isSystemKey)
-        {
-            IsSystemKey = isSystemKey;
-            Key = KeyInterop.KeyFromVirtualKey(virtualKey);
-        }
+        IsSystemKey = isSystemKey;
+        Key = KeyInterop.KeyFromVirtualKey(virtualKey);
     }
 }

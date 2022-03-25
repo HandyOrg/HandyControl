@@ -5,128 +5,126 @@ using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class SearchBar : TextBox, ICommandSource
 {
-    public class SearchBar : TextBox, ICommandSource
+    public SearchBar()
     {
-        public SearchBar()
+        CommandBindings.Add(new CommandBinding(ControlCommands.Search, (s, e) => OnSearchStarted()));
+    }
+
+    public static readonly RoutedEvent SearchStartedEvent =
+        EventManager.RegisterRoutedEvent("SearchStarted", RoutingStrategy.Bubble,
+            typeof(EventHandler<FunctionEventArgs<string>>), typeof(SearchBar));
+
+    public event EventHandler<FunctionEventArgs<string>> SearchStarted
+    {
+        add => AddHandler(SearchStartedEvent, value);
+        remove => RemoveHandler(SearchStartedEvent, value);
+    }
+
+    protected override void OnKeyDown(KeyEventArgs e)
+    {
+        base.OnKeyDown(e);
+
+        if (e.Key == Key.Enter)
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.Search, (s, e) => OnSearchStarted()));
+            OnSearchStarted();
         }
+    }
 
-        public static readonly RoutedEvent SearchStartedEvent =
-            EventManager.RegisterRoutedEvent("SearchStarted", RoutingStrategy.Bubble,
-                typeof(EventHandler<FunctionEventArgs<string>>), typeof(SearchBar));
+    protected override void OnTextChanged(TextChangedEventArgs e)
+    {
+        base.OnTextChanged(e);
 
-        public event EventHandler<FunctionEventArgs<string>> SearchStarted
+        if (IsRealTime)
         {
-            add => AddHandler(SearchStartedEvent, value);
-            remove => RemoveHandler(SearchStartedEvent, value);
+            OnSearchStarted();
         }
+    }
 
-        protected override void OnKeyDown(KeyEventArgs e)
+    private void OnSearchStarted()
+    {
+        RaiseEvent(new FunctionEventArgs<string>(SearchStartedEvent, this)
         {
-            base.OnKeyDown(e);
+            Info = Text
+        });
 
-            if (e.Key == Key.Enter)
-            {
-                OnSearchStarted();
-            }
-        }
-
-        protected override void OnTextChanged(TextChangedEventArgs e)
+        switch (Command)
         {
-            base.OnTextChanged(e);
-
-            if (IsRealTime)
-            {
-                OnSearchStarted();
-            }
-            VerifyData();
+            case null:
+                return;
+            case RoutedCommand command:
+                command.Execute(CommandParameter, CommandTarget);
+                break;
+            default:
+                Command.Execute(CommandParameter);
+                break;
         }
+    }
 
-        private void OnSearchStarted()
+    /// <summary>
+    ///     是否实时搜索
+    /// </summary>
+    public static readonly DependencyProperty IsRealTimeProperty = DependencyProperty.Register(
+        "IsRealTime", typeof(bool), typeof(SearchBar), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    /// <summary>
+    ///     是否实时搜索
+    /// </summary>
+    public bool IsRealTime
+    {
+        get => (bool) GetValue(IsRealTimeProperty);
+        set => SetValue(IsRealTimeProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
+        "Command", typeof(ICommand), typeof(SearchBar), new PropertyMetadata(default(ICommand), OnCommandChanged));
+
+    private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var ctl = (SearchBar) d;
+        if (e.OldValue is ICommand oldCommand)
         {
-            RaiseEvent(new FunctionEventArgs<string>(SearchStartedEvent, this)
-            {
-                Info = Text
-            });
-
-            switch (Command)
-            {
-                case null:
-                    return;
-                case RoutedCommand command:
-                    command.Execute(CommandParameter, CommandTarget);
-                    break;
-                default:
-                    Command.Execute(CommandParameter);
-                    break;
-            }
+            oldCommand.CanExecuteChanged -= ctl.CanExecuteChanged;
         }
-
-        /// <summary>
-        ///     是否实时搜索
-        /// </summary>
-        public static readonly DependencyProperty IsRealTimeProperty = DependencyProperty.Register(
-            "IsRealTime", typeof(bool), typeof(SearchBar), new PropertyMetadata(ValueBoxes.FalseBox));
-
-        /// <summary>
-        ///     是否实时搜索
-        /// </summary>
-        public bool IsRealTime
+        if (e.NewValue is ICommand newCommand)
         {
-            get => (bool) GetValue(IsRealTimeProperty);
-            set => SetValue(IsRealTimeProperty, ValueBoxes.BooleanBox(value));
+            newCommand.CanExecuteChanged += ctl.CanExecuteChanged;
         }
+    }
 
-        public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
-            "Command", typeof(ICommand), typeof(SearchBar), new PropertyMetadata(default(ICommand), OnCommandChanged));
+    public ICommand Command
+    {
+        get => (ICommand) GetValue(CommandProperty);
+        set => SetValue(CommandProperty, value);
+    }
 
-        private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (SearchBar) d;
-            if (e.OldValue is ICommand oldCommand)
-            {
-                oldCommand.CanExecuteChanged -= ctl.CanExecuteChanged;
-            }
-            if (e.NewValue is ICommand newCommand)
-            {
-                newCommand.CanExecuteChanged += ctl.CanExecuteChanged;
-            }
-        }
+    public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
+        "CommandParameter", typeof(object), typeof(SearchBar), new PropertyMetadata(default(object)));
 
-        public ICommand Command
-        {
-            get => (ICommand) GetValue(CommandProperty);
-            set => SetValue(CommandProperty, value);
-        }
+    public object CommandParameter
+    {
+        get => GetValue(CommandParameterProperty);
+        set => SetValue(CommandParameterProperty, value);
+    }
 
-        public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
-            "CommandParameter", typeof(object), typeof(SearchBar), new PropertyMetadata(default(object)));
+    public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
+        "CommandTarget", typeof(IInputElement), typeof(SearchBar), new PropertyMetadata(default(IInputElement)));
 
-        public object CommandParameter
-        {
-            get => GetValue(CommandParameterProperty);
-            set => SetValue(CommandParameterProperty, value);
-        }
+    public IInputElement CommandTarget
+    {
+        get => (IInputElement) GetValue(CommandTargetProperty);
+        set => SetValue(CommandTargetProperty, value);
+    }
 
-        public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
-            "CommandTarget", typeof(IInputElement), typeof(SearchBar), new PropertyMetadata(default(IInputElement)));
+    private void CanExecuteChanged(object sender, EventArgs e)
+    {
+        if (Command == null) return;
 
-        public IInputElement CommandTarget
-        {
-            get => (IInputElement) GetValue(CommandTargetProperty);
-            set => SetValue(CommandTargetProperty, value);
-        }
-
-        private void CanExecuteChanged(object sender, EventArgs e)
-        {
-            if (Command == null) return;
-
-            IsEnabled = Command is RoutedCommand command
-                ? command.CanExecute(CommandParameter, CommandTarget)
-                : Command.CanExecute(CommandParameter);
-        }
+        IsEnabled = Command is RoutedCommand command
+            ? command.CanExecute(CommandParameter, CommandTarget)
+            : Command.CanExecute(CommandParameter);
     }
 }

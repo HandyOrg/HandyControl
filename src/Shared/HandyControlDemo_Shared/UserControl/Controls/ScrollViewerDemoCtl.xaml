@@ -5,7 +5,7 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}"
-             Width="550"
+             MaxWidth="550"
              Height="600">
     <hc:TransitioningContentControl>
         <Grid Margin="32">

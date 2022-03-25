@@ -1,13 +1,13 @@
 ﻿<UserControl x:Class="HandyControlDemo.UserControl.ComboBoxDemoCtl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}"
+             DataContext="{Binding InputElementDemo,Source={StaticResource Locator}}"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <ScrollViewer>
+        <hc:ScrollViewer IsInertiaEnabled="True">
             <hc:UniformSpacingPanel Spacing="32" Margin="32" ChildWrapping="Wrap">
                 <StackPanel>
                     <hc:ComboBox ShowClearButton="True" ItemsSource="{Binding DataList}" SelectedIndex="0"/>
@@ -40,6 +40,6 @@
                     <hc:ComboBox AutoComplete="True" ShowClearButton="True" ItemsSource="{Binding DataList}" IsEditable="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,32,0,0" Style="{StaticResource ComboBoxPlus.Small}"/>
                 </StackPanel>
             </hc:UniformSpacingPanel>
-        </ScrollViewer>
+        </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

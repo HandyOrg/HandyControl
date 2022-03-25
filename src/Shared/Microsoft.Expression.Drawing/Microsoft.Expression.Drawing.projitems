@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>e5dc7c25-6293-4660-b5fb-186496386b90</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Microsoft.Expression.Drawing</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\BezierCurveFlattener.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\CommonExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\ExceptionStringTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\GeometryHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\MarchLocation.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\MarchStopReason.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\MathHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\PathFigureHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\PathGeometryHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\PathSegmentData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\PathSegmentHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\PolylineData.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\PolylineHelper.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\RandomEngine.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Drawing\SimpleSegment.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\ArcGeometrySource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\DrawingPropertyChangedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\DrawingPropertyMetadata.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\DrawingPropertyMetadataOptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\GeometryEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\GeometryEffectConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\GeometrySource`1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\IArcGeometrySourceParameters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\IGeometrySource.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\IGeometrySourceExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\IGeometrySourceParameters.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\InvalidateGeometryReasons.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\IShape.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\SketchGeometryEffect.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Media\UnitType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\Arc.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Shapes\PrimitiveShape.cs" />
+  </ItemGroup>
+</Project>

@@ -4,97 +4,96 @@ using HandyControl.Controls;
 using HandyControl.Data;
 using HandyControlDemo.Window;
 
-namespace HandyControlDemo.ViewModel
+namespace HandyControlDemo.ViewModel;
+
+public class GrowlDemoViewModel
 {
-    public class GrowlDemoViewModel
+    private readonly string _token;
+
+    public GrowlDemoViewModel()
     {
-        private readonly string _token;
 
-        public GrowlDemoViewModel()
-        {
+    }
 
-        }
+    public GrowlDemoViewModel(string token)
+    {
+        _token = token;
+    }
 
-        public GrowlDemoViewModel(string token)
-        {
-            _token = token;
-        }
+    #region Window
 
-        #region Window
+    public RelayCommand InfoCmd => new(() => Growl.Info(Properties.Langs.Lang.GrowlInfo, _token));
 
-        public RelayCommand InfoCmd => new(() => Growl.Info(Properties.Langs.Lang.GrowlInfo, _token));
+    public RelayCommand SuccessCmd => new(() => Growl.Success(Properties.Langs.Lang.GrowlSuccess, _token));
 
-        public RelayCommand SuccessCmd => new(() => Growl.Success(Properties.Langs.Lang.GrowlSuccess, _token));
-
-        public RelayCommand WarningCmd => new(() => Growl.Warning(new GrowlInfo
-        {
-            Message = Properties.Langs.Lang.GrowlWarning,
-            CancelStr = Properties.Langs.Lang.Ignore,
-            ActionBeforeClose = isConfirmed =>
-            {
-                Growl.Info(isConfirmed.ToString());
-                return true;
-            },
-            Token = _token
-        }));
-
-        public RelayCommand ErrorCmd => new(() => Growl.Error(Properties.Langs.Lang.GrowlError, _token));
-
-        public RelayCommand AskCmd => new(() => Growl.Ask(Properties.Langs.Lang.GrowlAsk, isConfirmed =>
+    public RelayCommand WarningCmd => new(() => Growl.Warning(new GrowlInfo
+    {
+        Message = Properties.Langs.Lang.GrowlWarning,
+        CancelStr = Properties.Langs.Lang.Ignore,
+        ActionBeforeClose = isConfirmed =>
         {
             Growl.Info(isConfirmed.ToString());
             return true;
-        }, _token));
+        },
+        Token = _token
+    }));
 
-        public RelayCommand FatalCmd => new(() => Growl.Fatal(new GrowlInfo
-        {
-            Message = Properties.Langs.Lang.GrowlFatal,
-            ShowDateTime = false,
-            Token = _token
-        }));
+    public RelayCommand ErrorCmd => new(() => Growl.Error(Properties.Langs.Lang.GrowlError, _token));
 
-        public RelayCommand ClearCmd => new(() => Growl.Clear(_token));
+    public RelayCommand AskCmd => new(() => Growl.Ask(Properties.Langs.Lang.GrowlAsk, isConfirmed =>
+    {
+        Growl.Info(isConfirmed.ToString());
+        return true;
+    }, _token));
 
-        #endregion
+    public RelayCommand FatalCmd => new(() => Growl.Fatal(new GrowlInfo
+    {
+        Message = Properties.Langs.Lang.GrowlFatal,
+        ShowDateTime = false,
+        Token = _token
+    }));
 
-        #region Desktop
+    public RelayCommand ClearCmd => new(() => Growl.Clear(_token));
 
-        public RelayCommand InfoGlobalCmd => new(() => Growl.InfoGlobal(Properties.Langs.Lang.GrowlInfo));
+    #endregion
 
-        public RelayCommand SuccessGlobalCmd => new(() => Growl.SuccessGlobal(Properties.Langs.Lang.GrowlSuccess));
+    #region Desktop
 
-        public RelayCommand WarningGlobalCmd => new(() => Growl.WarningGlobal(new GrowlInfo
-        {
-            Message = Properties.Langs.Lang.GrowlWarning,
-            CancelStr = Properties.Langs.Lang.Ignore,
-            ActionBeforeClose = isConfirmed =>
-            {
-                Growl.InfoGlobal(isConfirmed.ToString());
-                return true;
-            }
-        }));
+    public RelayCommand InfoGlobalCmd => new(() => Growl.InfoGlobal(Properties.Langs.Lang.GrowlInfo));
 
-        public RelayCommand ErrorGlobalCmd => new(() => Growl.ErrorGlobal(Properties.Langs.Lang.GrowlError));
+    public RelayCommand SuccessGlobalCmd => new(() => Growl.SuccessGlobal(Properties.Langs.Lang.GrowlSuccess));
 
-        public RelayCommand AskGlobalCmd => new(() => Growl.AskGlobal(Properties.Langs.Lang.GrowlAsk, isConfirmed =>
+    public RelayCommand WarningGlobalCmd => new(() => Growl.WarningGlobal(new GrowlInfo
+    {
+        Message = Properties.Langs.Lang.GrowlWarning,
+        CancelStr = Properties.Langs.Lang.Ignore,
+        ActionBeforeClose = isConfirmed =>
         {
             Growl.InfoGlobal(isConfirmed.ToString());
             return true;
-        }));
+        }
+    }));
 
-        public RelayCommand FatalGlobalCmd => new(() => Growl.FatalGlobal(new GrowlInfo
-        {
-            Message = Properties.Langs.Lang.GrowlFatal,
-            ShowDateTime = false
-        }));
+    public RelayCommand ErrorGlobalCmd => new(() => Growl.ErrorGlobal(Properties.Langs.Lang.GrowlError));
 
-        public RelayCommand ClearGlobalCmd => new(Growl.ClearGlobal);
+    public RelayCommand AskGlobalCmd => new(() => Growl.AskGlobal(Properties.Langs.Lang.GrowlAsk, isConfirmed =>
+    {
+        Growl.InfoGlobal(isConfirmed.ToString());
+        return true;
+    }));
 
-        #endregion
+    public RelayCommand FatalGlobalCmd => new(() => Growl.FatalGlobal(new GrowlInfo
+    {
+        Message = Properties.Langs.Lang.GrowlFatal,
+        ShowDateTime = false
+    }));
 
-        public RelayCommand NewWindowCmd => new(() => new GrowlDemoWindow
-        {
-            Owner = Application.Current.MainWindow
-        }.Show());
-    }
+    public RelayCommand ClearGlobalCmd => new(Growl.ClearGlobal);
+
+    #endregion
+
+    public RelayCommand NewWindowCmd => new(() => new GrowlDemoWindow
+    {
+        Owner = Application.Current.MainWindow
+    }.Show());
 }

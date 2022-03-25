@@ -1,37 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace HandyControlDemo.Tools
+namespace HandyControlDemo.Tools;
+
+internal class AssemblyHelper
 {
-    internal class AssemblyHelper
+    private static readonly string NameSpaceStr = typeof(AssemblyHelper).Assembly.GetName().Name;
+
+    private static readonly Dictionary<string, object> CacheDic = new();
+
+    public static void Register(string name, object instance) => CacheDic[name] = instance;
+
+    public static object ResolveByKey(string key)
     {
-        private static readonly string NameSpaceStr = typeof(AssemblyHelper).Assembly.GetName().Name;
-
-        private static readonly Dictionary<string, object> CacheDic = new();
-
-        public static void Register(string name, object instance) => CacheDic[name] = instance;
-
-        public static object ResolveByKey(string key)
+        if (CacheDic.TryGetValue(key, out var value))
         {
-            if (CacheDic.TryGetValue(key, out var value))
-            {
-                return value;
-            }
-
-            return null;
+            return value;
         }
 
-        public static object CreateInternalInstance(string className)
+        return null;
+    }
+
+    public static object CreateInternalInstance(string className)
+    {
+        try
         {
-            try
-            {
-                var type = Type.GetType($"{NameSpaceStr}.{className}");
-                return type == null ? null : Activator.CreateInstance(type);
-            }
-            catch
-            {
-                return null;
-            }
+            var type = Type.GetType($"{NameSpaceStr}.{className}");
+            return type == null ? null : Activator.CreateInstance(type);
+        }
+        catch
+        {
+            return null;
         }
     }
 }

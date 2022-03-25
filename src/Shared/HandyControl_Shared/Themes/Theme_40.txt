@@ -37,9 +37,11 @@ Styles\Base\RepeatButtonBaseStyle.xaml
 Styles\Base\ToggleBlockBaseStyle.xaml
 Styles\Base\GroupBoxBaseStyle.xaml
 Styles\Base\ButtonGroupBaseStyle.xaml
+Styles\Base\ElementGroupBaseStyle.xaml
 Styles\Base\ProgressBarBaseStyle.xaml
 Styles\Base\CheckBoxBaseStyle.xaml
 Styles\Base\RadioButtonBaseStyle.xaml
+Styles\Base\ItemsPanelTemplate.xaml
 # --------------------------------------
 Styles\Button.xaml
 Styles\TextBlock.xaml
@@ -138,6 +140,7 @@ Styles\DateTimePicker.xaml
 Styles\Dialog.xaml
 Styles\Divider.xaml
 Styles\Drawer.xaml
+Styles\ElementGroup.xaml
 Styles\Empty.xaml
 Styles\Expander.xaml
 Styles\FlipClock.xaml

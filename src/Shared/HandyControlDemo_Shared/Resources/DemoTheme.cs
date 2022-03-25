@@ -4,16 +4,15 @@ using HandyControl.Data;
 using HandyControl.Themes;
 using HandyControl.Tools;
 
-namespace HandyControlDemo.Resources
-{
-    public class DemoTheme : Theme
-    {
-        public override ResourceDictionary GetSkin(SkinType skinType) =>
-            ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skinType);
+namespace HandyControlDemo.Resources;
 
-        public override ResourceDictionary GetTheme() => new()
-        {
-            Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
-        };
-    }
+public class DemoTheme : Theme
+{
+    public override ResourceDictionary GetSkin(SkinType skinType) =>
+        ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skinType);
+
+    public override ResourceDictionary GetTheme() => new()
+    {
+        Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
+    };
 }

@@ -6,45 +6,37 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
-        <ScrollViewer>
-            <Grid Margin="32">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <GroupBox Grid.Row="0" Grid.Column="0" Width="300" Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Margin="16">
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel ChildWrapping="Wrap" Margin="32" Spacing="32" ItemWidth="300">
+                <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10">
                     <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="0" Grid.Column="1" Width="300" Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Margin="16" hc:TitleElement.TitlePlacement="Left">
+                <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" hc:TitleElement.TitlePlacement="Left">
                     <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="1" Grid.Column="0" Width="300" Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}">
+                <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Style="{StaticResource GroupBoxTab}">
                     <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="1" Grid.Column="1" Width="300" Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Margin="16" Style="{StaticResource GroupBoxTab}" hc:TitleElement.TitlePlacement="Left">
+                <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Style="{StaticResource GroupBoxTab}" hc:TitleElement.TitlePlacement="Left">
                     <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
                 </GroupBox>
-                <GroupBox Grid.Row="2" Grid.Column="0" Width="300" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left">
-                    <TextBox/>
-                </GroupBox>
-                <GroupBox Grid.Row="2" VerticalAlignment="Bottom" Grid.Column="1" Width="300" hc:TitleElement.TitleWidth="100" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="16" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left">
-                    <ComboBox DataContext="{Binding ComboBoxDemo,Source={StaticResource Locator}}" ItemsSource="{Binding DataList}"/>
-                </GroupBox>
-            </Grid>
-        </ScrollViewer>
+                <hc:UniformSpacingPanel Orientation="Vertical" Spacing="16">
+                    <GroupBox VerticalAlignment="Bottom" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left">
+                        <TextBox/>
+                    </GroupBox>
+                    <GroupBox VerticalAlignment="Bottom" hc:TitleElement.TitleWidth="100" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource GroupBoxOriginal}" HorizontalContentAlignment="Left" hc:TitleElement.TitlePlacement="Left">
+                        <ComboBox DataContext="{Binding InputElementDemo,Source={StaticResource Locator}}" ItemsSource="{Binding DataList}"/>
+                    </GroupBox>
+                </hc:UniformSpacingPanel>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

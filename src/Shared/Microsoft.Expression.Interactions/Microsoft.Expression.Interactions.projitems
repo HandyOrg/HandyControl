@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>3531857c-28fc-4e0f-82d9-bfbb70740e04</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Microsoft.Expression.Interactions</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AdornerContainer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExceptionStringTable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ExtendedVisualStateManager.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FluidMoveBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FluidMoveBehaviorBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FluidMoveScope.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MouseDragElementBehavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TagType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TransitionEffect.cs" />
+  </ItemGroup>
+</Project>

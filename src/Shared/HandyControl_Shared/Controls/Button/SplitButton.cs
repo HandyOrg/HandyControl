@@ -5,77 +5,76 @@ using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Data.Enum;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class SplitButton : ButtonBase
 {
-    public class SplitButton : ButtonBase
+    public static readonly DependencyProperty HitModeProperty = DependencyProperty.Register(
+        "HitMode", typeof(HitMode), typeof(SplitButton), new PropertyMetadata(default(HitMode)));
+
+    public HitMode HitMode
     {
-        public static readonly DependencyProperty HitModeProperty = DependencyProperty.Register(
-            "HitMode", typeof(HitMode), typeof(SplitButton), new PropertyMetadata(default(HitMode)));
+        get => (HitMode) GetValue(HitModeProperty);
+        set => SetValue(HitModeProperty, value);
+    }
 
-        public HitMode HitMode
+    public static readonly DependencyProperty MaxDropDownHeightProperty = DependencyProperty.Register(
+        "MaxDropDownHeight", typeof(double), typeof(SplitButton), new PropertyMetadata(SystemParameters.PrimaryScreenHeight / 3.0));
+
+    public double MaxDropDownHeight
+    {
+        get => (double) GetValue(MaxDropDownHeightProperty);
+        set => SetValue(MaxDropDownHeightProperty, value);
+    }
+
+    public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
+        "IsDropDownOpen", typeof(bool), typeof(SplitButton), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public bool IsDropDownOpen
+    {
+        get => (bool) GetValue(IsDropDownOpenProperty);
+        set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty DropDownContentProperty = DependencyProperty.Register(
+        "DropDownContent", typeof(object), typeof(SplitButton), new PropertyMetadata(default(object)));
+
+    public object DropDownContent
+    {
+        get => GetValue(DropDownContentProperty);
+        set => SetValue(DropDownContentProperty, value);
+    }
+
+    public SplitButton()
+    {
+        AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(ItemsOnClick));
+    }
+
+    private void ItemsOnClick(object sender, RoutedEventArgs e)
+    {
+        if (e.OriginalSource is MenuItem)
         {
-            get => (HitMode) GetValue(HitModeProperty);
-            set => SetValue(HitModeProperty, value);
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
         }
+    }
 
-        public static readonly DependencyProperty MaxDropDownHeightProperty = DependencyProperty.Register(
-            "MaxDropDownHeight", typeof(double), typeof(SplitButton), new PropertyMetadata(SystemParameters.PrimaryScreenHeight / 3.0));
+    protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
+    {
+        base.OnPreviewMouseLeftButtonDown(e);
 
-        public double MaxDropDownHeight
+        if (HitMode == HitMode.Hover)
         {
-            get => (double) GetValue(MaxDropDownHeightProperty);
-            set => SetValue(MaxDropDownHeightProperty, value);
+            e.Handled = true;
         }
+    }
 
-        public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-            "IsDropDownOpen", typeof(bool), typeof(SplitButton), new PropertyMetadata(ValueBoxes.FalseBox));
+    protected override void OnMouseEnter(MouseEventArgs e)
+    {
+        base.OnMouseEnter(e);
 
-        public bool IsDropDownOpen
+        if (HitMode == HitMode.Hover)
         {
-            get => (bool) GetValue(IsDropDownOpenProperty);
-            set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        public static readonly DependencyProperty DropDownContentProperty = DependencyProperty.Register(
-            "DropDownContent", typeof(object), typeof(SplitButton), new PropertyMetadata(default(object)));
-
-        public object DropDownContent
-        {
-            get => GetValue(DropDownContentProperty);
-            set => SetValue(DropDownContentProperty, value);
-        }
-
-        public SplitButton()
-        {
-            AddHandler(MenuItem.ClickEvent, new RoutedEventHandler(ItemsOnClick));
-        }
-
-        private void ItemsOnClick(object sender, RoutedEventArgs e)
-        {
-            if (e.OriginalSource is MenuItem)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
-            }
-        }
-
-        protected override void OnPreviewMouseLeftButtonDown(MouseButtonEventArgs e)
-        {
-            base.OnPreviewMouseLeftButtonDown(e);
-
-            if (HitMode == HitMode.Hover)
-            {
-                e.Handled = true;
-            }
-        }
-
-        protected override void OnMouseEnter(MouseEventArgs e)
-        {
-            base.OnMouseEnter(e);
-
-            if (HitMode == HitMode.Hover)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
-            }
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
         }
     }
 }

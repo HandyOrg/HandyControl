@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum GCLP
 {
-    internal enum GCLP
-    {
-        HBRBACKGROUND = -10
-    }
+    HBRBACKGROUND = -10
 }

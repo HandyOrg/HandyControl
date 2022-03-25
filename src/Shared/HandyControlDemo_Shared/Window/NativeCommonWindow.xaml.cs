@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.Window
+﻿namespace HandyControlDemo.Window;
+
+public partial class NativeCommonWindow
 {
-    public partial class NativeCommonWindow
+    public NativeCommonWindow()
     {
-        public NativeCommonWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

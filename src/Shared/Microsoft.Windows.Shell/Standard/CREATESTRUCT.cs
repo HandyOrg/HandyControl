@@ -1,35 +1,34 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Standard
+namespace Standard;
+
+[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
+internal struct CREATESTRUCT
 {
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode)]
-    internal struct CREATESTRUCT
-    {
-        public IntPtr lpCreateParams;
+    public IntPtr lpCreateParams;
 
-        public IntPtr hInstance;
+    public IntPtr hInstance;
 
-        public IntPtr hMenu;
+    public IntPtr hMenu;
 
-        public IntPtr hwndParent;
+    public IntPtr hwndParent;
 
-        public int cy;
+    public int cy;
 
-        public int cx;
+    public int cx;
 
-        public int y;
+    public int y;
 
-        public int x;
+    public int x;
 
-        public WS style;
+    public WS style;
 
-        [MarshalAs(UnmanagedType.LPWStr)]
-        public string lpszName;
+    [MarshalAs(UnmanagedType.LPWStr)]
+    public string lpszName;
 
-        [MarshalAs(UnmanagedType.LPWStr)]
-        public string lpszClass;
+    [MarshalAs(UnmanagedType.LPWStr)]
+    public string lpszClass;
 
-        public WS_EX dwExStyle;
-    }
+    public WS_EX dwExStyle;
 }

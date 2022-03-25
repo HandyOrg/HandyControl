@@ -4,156 +4,155 @@ using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Tools.Helper;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+[TemplatePart(Name = SearchTextBox, Type = typeof(System.Windows.Controls.TextBox))]
+public class AutoCompleteTextBox : ComboBox
 {
-    [TemplatePart(Name = SearchTextBox, Type = typeof(System.Windows.Controls.TextBox))]
-    public class AutoCompleteTextBox : ComboBox
+    private const string SearchTextBox = "PART_SearchTextBox";
+
+    private bool ignoreTextChanging;
+
+    private System.Windows.Controls.TextBox _searchTextBox;
+
+    private object _selectedItem;
+
+    static AutoCompleteTextBox()
     {
-        private const string SearchTextBox = "PART_SearchTextBox";
+        TextProperty.OverrideMetadata(typeof(AutoCompleteTextBox), new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+    }
 
-        private bool ignoreTextChanging;
-
-        private System.Windows.Controls.TextBox _searchTextBox;
-
-        private object _selectedItem;
-
-        static AutoCompleteTextBox()
+    public override void OnApplyTemplate()
+    {
+        if (_searchTextBox != null)
         {
-            TextProperty.OverrideMetadata(typeof(AutoCompleteTextBox), new FrameworkPropertyMetadata(default(string), FrameworkPropertyMetadataOptions.BindsTwoWayByDefault));
+            _searchTextBox.GotFocus -= SearchTextBoxGotFocus;
+            _searchTextBox.KeyDown -= SearchTextBoxKeyDown;
+            _searchTextBox.TextChanged -= SearchTextBoxTextChanged;
         }
 
-        public override void OnApplyTemplate()
+        base.OnApplyTemplate();
+
+        _searchTextBox = GetTemplateChild(SearchTextBox) as System.Windows.Controls.TextBox;
+        if (_searchTextBox != null)
         {
-            if (_searchTextBox != null)
-            {
-                _searchTextBox.GotFocus -= SearchTextBoxGotFocus;
-                _searchTextBox.KeyDown -= SearchTextBoxKeyDown;
-                _searchTextBox.TextChanged -= SearchTextBoxTextChanged;
-            }
+            _searchTextBox.GotFocus += SearchTextBoxGotFocus;
+            _searchTextBox.PreviewKeyDown += SearchTextBoxKeyDown;
+            _searchTextBox.TextChanged += SearchTextBoxTextChanged;
+        }
 
-            base.OnApplyTemplate();
+        UpdateTextBoxBySelectedItem(_selectedItem);
+    }
 
-            _searchTextBox = GetTemplateChild(SearchTextBox) as System.Windows.Controls.TextBox;
-            if (_searchTextBox != null)
-            {
-                _searchTextBox.GotFocus += SearchTextBoxGotFocus;
-                _searchTextBox.PreviewKeyDown += SearchTextBoxKeyDown;
-                _searchTextBox.TextChanged += SearchTextBoxTextChanged;
-            }
+    protected override void OnSelectionChanged(SelectionChangedEventArgs e)
+    {
+        base.OnSelectionChanged(e);
 
+        if (e.AddedItems.Count > 0)
+        {
+            _selectedItem = e.AddedItems[0];
             UpdateTextBoxBySelectedItem(_selectedItem);
         }
+    }
 
-        protected override void OnSelectionChanged(SelectionChangedEventArgs e)
+    protected override bool IsItemItsOwnContainerOverride(object item) => item is AutoCompleteTextBoxItem;
+
+    protected override DependencyObject GetContainerForItemOverride() => new AutoCompleteTextBoxItem();
+
+    private void SearchTextBoxTextChanged(object sender, TextChangedEventArgs e)
+    {
+        _selectedItem = null;
+        SelectedIndex = -1;
+
+        if (ignoreTextChanging)
         {
-            base.OnSelectionChanged(e);
-
-            if (e.AddedItems.Count > 0)
-            {
-                _selectedItem = e.AddedItems[0];
-                UpdateTextBoxBySelectedItem(_selectedItem);
-            }
+            ignoreTextChanging = false;
+            return;
         }
 
-        protected override bool IsItemItsOwnContainerOverride(object item) => item is AutoCompleteTextBoxItem;
-
-        protected override DependencyObject GetContainerForItemOverride() => new AutoCompleteTextBoxItem();
-
-        private void SearchTextBoxTextChanged(object sender, TextChangedEventArgs e)
+        Text = _searchTextBox.Text;
+        if (string.IsNullOrEmpty(Text))
         {
-            _selectedItem = null;
-            SelectedIndex = -1;
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
+            _searchTextBox.Focus();
+        }
+        else if (_searchTextBox.IsFocused)
+        {
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+        }
+    }
 
-            if (ignoreTextChanging)
+    private void SearchTextBoxKeyDown(object sender, KeyEventArgs e)
+    {
+        if (e.Key == Key.Up)
+        {
+            var index = SelectedIndex - 1;
+            if (index < 0)
             {
-                ignoreTextChanging = false;
-                return;
+                index = Items.Count - 1;
             }
 
-            Text = _searchTextBox.Text;
-            if (string.IsNullOrEmpty(Text))
+            UpdateTextBoxBySelectedIndex(index);
+        }
+        else if (e.Key == Key.Down)
+        {
+            var index = SelectedIndex + 1;
+            if (index >= Items.Count)
             {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
-                _searchTextBox.Focus();
+                index = 0;
             }
-            else if (_searchTextBox.IsFocused)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
-            }
+
+            UpdateTextBoxBySelectedIndex(index);
+        }
+        else if (e.Key == Key.Enter)
+        {
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
+            e.Handled = true;
+        }
+    }
+
+    private void UpdateTextBoxBySelectedIndex(int selectedIndex)
+    {
+        if (_searchTextBox == null)
+        {
+            return;
         }
 
-        private void SearchTextBoxKeyDown(object sender, KeyEventArgs e)
+        ignoreTextChanging = true;
+
+        if (ItemContainerGenerator.ContainerFromIndex(selectedIndex) is AutoCompleteTextBoxItem boxItem)
         {
-            if (e.Key == Key.Up)
-            {
-                var index = SelectedIndex - 1;
-                if (index < 0)
-                {
-                    index = Items.Count - 1;
-                }
-
-                UpdateTextBoxBySelectedIndex(index);
-            }
-            else if (e.Key == Key.Down)
-            {
-                var index = SelectedIndex + 1;
-                if (index >= Items.Count)
-                {
-                    index = 0;
-                }
-
-                UpdateTextBoxBySelectedIndex(index);
-            }
-            else if (e.Key == Key.Enter)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
-                e.Handled = true;
-            }
-        }
-
-        private void UpdateTextBoxBySelectedIndex(int selectedIndex)
-        {
-            if (_searchTextBox == null)
-            {
-                return;
-            }
-
-            ignoreTextChanging = true;
-
-            if (ItemContainerGenerator.ContainerFromIndex(selectedIndex) is AutoCompleteTextBoxItem boxItem)
-            {
-                _searchTextBox.Text = BindingHelper.GetString(boxItem.Content, DisplayMemberPath);
-                _searchTextBox.CaretIndex = _searchTextBox.Text.Length;
-
-                SelectedIndex = selectedIndex;
-            }
-        }
-
-        private void UpdateTextBoxBySelectedItem(object selectedItem)
-        {
-            if (_searchTextBox == null)
-            {
-                return;
-            }
-
-            ignoreTextChanging = true;
-
-            _searchTextBox.Text = BindingHelper.GetString(selectedItem, DisplayMemberPath);
+            _searchTextBox.Text = BindingHelper.GetString(boxItem.Content, DisplayMemberPath);
             _searchTextBox.CaretIndex = _searchTextBox.Text.Length;
 
-            ignoreTextChanging = true;
+            SelectedIndex = selectedIndex;
+        }
+    }
 
-            Text = _searchTextBox.Text;
-
-            ignoreTextChanging = false;
+    private void UpdateTextBoxBySelectedItem(object selectedItem)
+    {
+        if (_searchTextBox == null)
+        {
+            return;
         }
 
-        private void SearchTextBoxGotFocus(object sender, RoutedEventArgs e)
+        ignoreTextChanging = true;
+
+        _searchTextBox.Text = BindingHelper.GetString(selectedItem, DisplayMemberPath);
+        _searchTextBox.CaretIndex = _searchTextBox.Text.Length;
+
+        ignoreTextChanging = true;
+
+        Text = _searchTextBox.Text;
+
+        ignoreTextChanging = false;
+    }
+
+    private void SearchTextBoxGotFocus(object sender, RoutedEventArgs e)
+    {
+        if (!string.IsNullOrEmpty(Text))
         {
-            if (!string.IsNullOrEmpty(Text))
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
-            }
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
         }
     }
 }
