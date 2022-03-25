@@ -124,7 +124,7 @@
     <value>スタイル</value>
   </data>
   <data name="Growl" xml:space="preserve">
-    <value>Growl通知</value>
+    <value>Growl</value>
   </data>
   <data name="GrowlInfo" xml:space="preserve">
     <value>It's a nice day today~~~</value>
@@ -523,7 +523,7 @@
     <value>お待ちください...</value>
   </data>
   <data name="GrowlDemo" xml:space="preserve">
-    <value>Growl通知デモ</value>
+    <value>Growl デモ</value>
   </data>
   <data name="NewWindow" xml:space="preserve">
     <value>新規ウインドウ</value>
