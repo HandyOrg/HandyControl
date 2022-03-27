@@ -3,12 +3,12 @@
 </p>
 
 <p align="center">
-    <a href="https://github.com/HandyOrg/HandyControl/blob/master/README-cn.md">中文</a> 
-    ❤ 
+    <a href="https://github.com/HandyOrg/HandyControl/blob/master/README-cn.md">中文</a>
+    ❤
     <a href="https://github.com/HandyOrg/HandyControl/blob/master/README.md">English</a>
 </p>
 
-<p align="center"> 
+<p align="center">
     <img alt="dotnet-version" src="https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg"></img>
     <img alt="csharp-version" src="https://img.shields.io/badge/C%23-8.0-blue.svg"></img>
     <img alt="IDE-version" src="https://img.shields.io/badge/IDE-vs2019-blue.svg"></img>
@@ -17,13 +17,13 @@
     </a>
     <a href="https://www.myget.org/feed/handycontrol/package/nuget/HandyControl">
         <img alt="myget-version" src="https://img.shields.io/myget/handycontrol/v/handycontrol?color=orange&label=myget"></img>
-    </a>  
+    </a>
     <a href="https://github.com/HandyOrg/HandyControl/actions?query=workflow%3Abuild">
         <img alt="Github-build-status" src="https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg"></img>
     </a>
     <a href="https://www.nuget.org/packages/HandyControl">
         <img alt="Nuget" src="https://img.shields.io/nuget/dt/handycontrol"></img>
-    </a> 
+    </a>
 </p>
 
 ## 特别声明
@@ -48,9 +48,9 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 
 ### 赞助
 
-* [以HandyControl的名义为慈善事业做贡献（请联系我们上赞助墙）](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3) 
+* [以HandyControl的名义为慈善事业做贡献（请联系我们上赞助墙）](http://www.chinacharityfederation.org/ConfirmDonation/0.html?zhijie=3)
 
-* 为我们购买防脱洗发水 （支付宝扫码）  
+* 为我们购买防脱洗发水 （支付宝扫码）
 ![qrcode](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/qrcode.png)
 
 ## 贡献者
@@ -85,6 +85,7 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 <a href="https://github.com/shaosu" target="_blank"><img style="border-radius:50%!important" width="64px" alt="shaosu" src="https://avatars.githubusercontent.com/u/12237247?s=64&v=4"></a>
 <a href="https://github.com/imba-tjd" target="_blank"><img style="border-radius:50%!important" width="64px" alt="imba-tjd" src="https://avatars.githubusercontent.com/u/24759802?s=64&v=4"></a>
 <a href="https://github.com/jhm-ciberman" target="_blank"><img style="border-radius:50%!important" width="64px" alt="jhm-ciberman" src="https://avatars.githubusercontent.com/u/7988351?s=64&v=4"></a>
+<a href="https://github.com/musashi-miyamoto" target="_blank"><img style="border-radius:50%!important" width="64px" alt="musashi-miyamoto" src="https://avatars.githubusercontent.com/u/44890163?s=64&v=4"></a>
 
 ## 赞助者
 
@@ -93,8 +94,8 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 <a href="https://github.com/IUpdatable" target="_blank"><img style="border-radius:50%!important" width="64px" alt="IUpdatable" src="https://avatars.githubusercontent.com/u/51181716?s=64&v=4"></a>
 <a href="https://github.com/maplewei" target="_blank"><img style="border-radius:50%!important" width="64px" alt="maplewei" src="https://avatars.githubusercontent.com/u/13778095?s=64&v=4"></a>
 <a href="https://github.com/sunshang-hl" target="_blank"><img style="border-radius:50%!important" width="64px" alt="sunshang-hl" src="https://avatars.githubusercontent.com/u/34593206?s=64&v=4"></a>
-<a href="https://github.com/yangkang326" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yangkang326" src="https://avatars.githubusercontent.com/u/51224259?s=64&v=4"></a>	
-<a href="https://github.com/zmrbak" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zmrbak" src="https://avatars.githubusercontent.com/u/7257543?s=64&v=4"></a>	
+<a href="https://github.com/yangkang326" target="_blank"><img style="border-radius:50%!important" width="64px" alt="yangkang326" src="https://avatars.githubusercontent.com/u/51224259?s=64&v=4"></a>
+<a href="https://github.com/zmrbak" target="_blank"><img style="border-radius:50%!important" width="64px" alt="zmrbak" src="https://avatars.githubusercontent.com/u/7257543?s=64&v=4"></a>
 <a href="https://github.com/AFei19911012" target="_blank"><img style="border-radius:50%!important" width="64px" alt="AFei19911012" src="https://avatars.githubusercontent.com/u/31465314?s=64&v=4"></a>
 <a href="https://github.com/wayne2006" target="_blank"><img style="border-radius:50%!important" width="64px" alt="wayne2006" src="https://avatars.githubusercontent.com/u/21210915?s=64&v=4"></a>
 <a href="https://github.com/towerDLH" target="_blank"><img style="border-radius:50%!important" width="64px" alt="towerDLH" src="https://avatars.githubusercontent.com/u/53053537?s=64&v=4"></a>
@@ -149,7 +150,7 @@ HandyControl 项目已加入 [dotNET China](https://gitee.com/dotnetchina)  组�
 
 ## 用法
 
-Step 1: 添加 HandyControl 引用，或在 nuget 上搜索 HandyControl; 
+Step 1: 添加 HandyControl 引用，或在 nuget 上搜索 HandyControl;
 
 ```Install-Package HandyControl```
 
@@ -279,7 +280,7 @@ Step 4: 开始编码
 
 ### ImageBlock
 
-![ImageBlock](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ImageBlock.gif)  
+![ImageBlock](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ImageBlock.gif)
 
 ![ImageBlock](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ImageBlock.png)
 
