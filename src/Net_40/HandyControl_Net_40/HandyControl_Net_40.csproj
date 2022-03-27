@@ -50,6 +50,9 @@
       <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fr.resx">
       <Link>Properties\Langs\Lang.fr.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ja.resx">
+      <Link>Properties\Langs\Lang.ja.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ko-KR.resx">
       <Link>Properties\Langs\Lang.ko-KR.resx</Link>
     </EmbeddedResource>
