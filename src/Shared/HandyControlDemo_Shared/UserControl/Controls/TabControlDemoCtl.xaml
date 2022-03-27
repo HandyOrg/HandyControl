@@ -5,7 +5,7 @@
              DataContext="{Binding TabControlDemo,Source={StaticResource Locator}}"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
-        <hc:ScrollViewer HorizontalScrollBarVisibility="Auto">
+        <hc:ScrollViewer IsInertiaEnabled="True">
             <hc:Interaction.Triggers>
                 <hc:RoutedEventTrigger RoutedEvent="hc:TabItem.Closing">
                     <hc:EventToCommand Command="{Binding ClosingCmd}" PassEventArgsToCommand="True" />
@@ -14,9 +14,13 @@
                     <hc:EventToCommand Command="{Binding ClosedCmd}" PassEventArgsToCommand="True" />
                 </hc:RoutedEventTrigger>
             </hc:Interaction.Triggers>
-            <StackPanel>
-                <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
-                <hc:TabControl ShowOverflowButton="False" ShowScrollButton="True" Margin="32,16,32,0" Width="800" Height="300" IsScrollable="True">
+            <Grid Margin="32">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <hc:TabControl ShowOverflowButton="False" ShowScrollButton="True" MaxWidth="800" Height="300" IsScrollable="True">
                     <hc:TabItem Header="TabItem1" IsSelected="True">
                         <hc:SimplePanel Background="{DynamicResource RegionBrush}"/>
                     </hc:TabItem>
@@ -39,13 +43,7 @@
                         <hc:SimplePanel Background="{DynamicResource DarkAccentBrush}"/>
                     </hc:TabItem>
                 </hc:TabControl>
-                <StackPanel Orientation="Horizontal" Margin="32,32,32,16">
-                    <Label Style="{StaticResource LabelPrimary}" Margin="0" Content="IsTabFillEnabled = True"/>
-                    <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="ShowCloseButton = True"/>
-                    <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsDraggable = True"/>
-                    <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsAnimationEnabled = True"/>
-                </StackPanel>
-                <hc:TabControl x:Name="TabControlDemo" IsAnimationEnabled="True" ShowCloseButton="True" IsDraggable="True" IsTabFillEnabled="True" Margin="32,0,32,32" Width="800" Height="300">
+                <hc:TabControl Grid.Row="1" x:Name="TabControlDemo" Margin="0,32,0,0" IsAnimationEnabled="True" ShowCloseButton="True" IsDraggable="True" IsTabFillEnabled="True" MaxWidth="800" Height="300">
                     <hc:TabItem Header="TabItem1" hc:IconElement.Height="16" hc:IconElement.Width="16" hc:IconElement.Geometry="{StaticResource ConfigGeometry}">
                         <hc:SimplePanel Background="{DynamicResource RegionBrush}"/>
                     </hc:TabItem>
@@ -68,7 +66,7 @@
                         <hc:SimplePanel Background="#FFE8E03F"/>
                     </hc:TabItem>
                 </hc:TabControl>
-                <hc:TabControl IsAnimationEnabled="True" ShowCloseButton="True" IsDraggable="True" ItemsSource="{Binding DataList}" Width="800" Height="300">
+                <hc:TabControl Grid.Row="2" IsAnimationEnabled="True" Margin="0,32,0,0" ShowCloseButton="True" IsDraggable="True" ItemsSource="{Binding DataList}" MaxWidth="800" Height="300">
                     <TabControl.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Header}"/>
@@ -80,7 +78,7 @@
                         </DataTemplate>
                     </TabControl.ContentTemplate>
                 </hc:TabControl>
-            </StackPanel>
+            </Grid>
         </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

@@ -41,6 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\VersionHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\Win32Helper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\HighlightingProvider.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\ValidationRule\NumericUpDownDemoRule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\Avatar.xaml.cs">
       <DependentUpon>Avatar.xaml</DependentUpon>
     </Compile>
@@ -410,7 +411,6 @@
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\ChatBoxViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\InteractiveDialogViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Common\ComboBoxDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\AutoCompleteTextBoxDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\BadgeDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\CardDemoViewModel.cs" />
@@ -421,13 +421,13 @@
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\NotificationDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\NotifyIconDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\PaginationDemoViewModel.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SearchBarDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SideMenuDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SplitButtonDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\SpriteDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\StepBarDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\TabControlDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\TagDemoViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Common\InputElementDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Controls\WindowDemoViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\DemoViewModelBase`1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Main\ItemsDisplayViewModel.cs" />

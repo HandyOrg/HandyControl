@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum DWM_SIT
 {
-    internal enum DWM_SIT
-    {
-        None,
-        DISPLAYFRAME
-    }
+    None,
+    DISPLAYFRAME
 }

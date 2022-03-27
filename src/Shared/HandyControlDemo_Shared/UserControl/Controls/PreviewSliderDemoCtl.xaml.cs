@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class PreviewSliderDemoCtl
 {
-    public partial class PreviewSliderDemoCtl
+    public PreviewSliderDemoCtl()
     {
-        public PreviewSliderDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

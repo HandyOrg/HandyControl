@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum FO
 {
-    internal enum FO
-    {
-        MOVE = 1,
-        COPY,
-        DELETE,
-        RENAME
-    }
+    MOVE = 1,
+    COPY,
+    DELETE,
+    RENAME
 }

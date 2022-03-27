@@ -3,44 +3,43 @@ using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class RangeThumb : Thumb
 {
-    public class RangeThumb : Thumb
+    public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
+        "Content", typeof(object), typeof(RangeThumb), new PropertyMetadata(default(object)));
+
+    public object Content
     {
-        public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
-            "Content", typeof(object), typeof(RangeThumb), new PropertyMetadata(default(object)));
+        get => GetValue(ContentProperty);
+        set => SetValue(ContentProperty, value);
+    }
 
-        public object Content
+    protected override void OnMouseMove(MouseEventArgs e)
+    {
+
+    }
+
+    public void StartDrag()
+    {
+        IsDragging = true;
+        Focus();
+        CaptureMouse();
+        RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
         {
-            get => GetValue(ContentProperty);
-            set => SetValue(ContentProperty, value);
-        }
+            RoutedEvent = PreviewMouseLeftButtonDownEvent,
+            Source = this
+        });
+    }
 
-        protected override void OnMouseMove(MouseEventArgs e)
+    public new void CancelDrag()
+    {
+        base.CancelDrag();
+
+        RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
         {
-
-        }
-
-        public void StartDrag()
-        {
-            IsDragging = true;
-            Focus();
-            CaptureMouse();
-            RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
-            {
-                RoutedEvent = PreviewMouseLeftButtonDownEvent,
-                Source = this
-            });
-        }
-
-        public new void CancelDrag()
-        {
-            base.CancelDrag();
-
-            RaiseEvent(new MouseButtonEventArgs(Mouse.PrimaryDevice, Environment.TickCount, MouseButton.Left)
-            {
-                RoutedEvent = PreviewMouseLeftButtonUpEvent
-            });
-        }
+            RoutedEvent = PreviewMouseLeftButtonUpEvent
+        });
     }
 }

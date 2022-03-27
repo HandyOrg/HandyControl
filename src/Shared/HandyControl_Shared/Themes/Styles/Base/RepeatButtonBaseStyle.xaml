@@ -3,6 +3,7 @@
                     xmlns:hc="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="RepeatButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RepeatButton">
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Template">

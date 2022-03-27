@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class InteractiveDialog
 {
-    public partial class InteractiveDialog
+    public InteractiveDialog()
     {
-        public InteractiveDialog()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum KDC
 {
-    internal enum KDC
-    {
-        FREQUENT = 1,
-        RECENT
-    }
+    FREQUENT = 1,
+    RECENT
 }

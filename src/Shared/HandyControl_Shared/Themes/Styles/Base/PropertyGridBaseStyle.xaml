@@ -140,7 +140,7 @@
                                         <Rectangle Width="16" Height="16" Fill="{StaticResource SortByNameDrawingBrush}"/>
                                     </RadioButton>
                                 </hc:ButtonGroup>
-                                <hc:SearchBar x:Name="PART_SearchBar" IsRealTime="True" ShowClearButton="True" Style="{StaticResource SearchBarPlus}"/>
+                                <hc:SearchBar x:Name="PART_SearchBar" IsRealTime="True" hc:InfoElement.ShowClearButton="True" Style="{StaticResource SearchBarPlus}"/>
                             </DockPanel>
                             <hc:PropertyItemsControl Grid.Row="1" x:Name="PART_ItemsControl" Style="{StaticResource PropertyItemsControlBaseStyle}">
                                 <hc:PropertyItemsControl.GroupStyle>

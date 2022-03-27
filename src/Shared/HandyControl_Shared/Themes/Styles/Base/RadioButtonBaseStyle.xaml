@@ -103,6 +103,7 @@
 
     <Style x:Key="RadioButtonSameAsButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RadioButton">
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
@@ -144,20 +145,13 @@
         </Style.Triggers>
     </Style>
 
-    <Style x:Key="RadioButtonIconBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
-        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
+    <Style x:Key="RadioButtonIconBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RadioButton">
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
-        <Setter Property="Padding" Value="10,0"/>
         <Setter Property="hc:VisualElement.HighlightBrush" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="hc:IconElement.Width" Value="16"/>
-        <Setter Property="hc:IconElement.Height" Value="16"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">

@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class TreeViewDemoCtl
 {
-    public partial class TreeViewDemoCtl
+    public TreeViewDemoCtl()
     {
-        public TreeViewDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

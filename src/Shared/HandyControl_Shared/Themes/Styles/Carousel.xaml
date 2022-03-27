@@ -68,7 +68,6 @@
                     </ControlTemplate.Triggers>
                     <hc:SimplePanel ClipToBounds="True">
                         <StackPanel x:Name="PART_Panel" Orientation="Horizontal"/>
-                        <!--<ItemsPresenter x:Name="PART_ItemsControl" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Left"/>-->
                         <hc:SimplePanel x:Name="GridTop" Opacity="0">
                             <Button Command="interactivity:ControlCommands.Prev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonCustom}">
                                 <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
@@ -87,90 +86,5 @@
             </Setter.Value>
         </Setter>
     </Style>
-
-    <!--<Style x:Key="CarouselListBoxItemStyle" BasedOn="{StaticResource ListBoxItemCustom}" TargetType="ListBoxItem">
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="VerticalContentAlignment" Value="Stretch"/>
-        <Setter Property="Height" Value="{Binding ActualHeight, RelativeSource={RelativeSource AncestorType=ItemsControl}}"/>
-    </Style>
-
-    <ItemsPanelTemplate x:Key="CarouselListBoxItemPanelTemplate">
-        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal" HorizontalAlignment="Left"/>
-    </ItemsPanelTemplate>
-
-    <Style x:Key="CarouselListBox" BasedOn="{StaticResource ListBoxBaseStyle}" TargetType="ListBox">
-        <Setter Property="ItemsPanel" Value="{StaticResource CarouselListBoxItemPanelTemplate}"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource CarouselListBoxItemStyle}"/>
-    </Style>
-
-    <Style x:Key="CarouselPateButton" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
-        <Setter Property="Margin" Value="5,0"/>
-        <Setter Property="Width" Value="10"/>
-        <Setter Property="Height" Value="10"/>
-        <Setter Property="Background" Value="White"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
-        <Setter Property="Padding" Value="0"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="ToggleButton">
-                    <Border CornerRadius="5" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}"/>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Opacity" Value=".9"/>
-                        </Trigger>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Opacity" Value=".6"/>
-                        </Trigger>
-                        <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>
-
-    <Style TargetType="hc:Carousel" BasedOn="{StaticResource CarouselListBox}">
-        <Setter Property="PageButtonStyle" Value="{StaticResource CarouselPateButton}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="hc:Carousel">
-                    <ControlTemplate.Triggers>
-                        <EventTrigger RoutedEvent="FrameworkElement.MouseEnter">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="GridTop" Storyboard.TargetProperty="Opacity" To="1" Duration="0:0:.1"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                        <EventTrigger RoutedEvent="FrameworkElement.MouseLeave">
-                            <BeginStoryboard>
-                                <Storyboard>
-                                    <DoubleAnimation Storyboard.TargetName="GridTop" Storyboard.TargetProperty="Opacity" To="0" Duration="0:0:.1"/>
-                                </Storyboard>
-                            </BeginStoryboard>
-                        </EventTrigger>
-                    </ControlTemplate.Triggers>
-                    <hc:SimplePanel ClipToBounds="True">
-                        <ItemsPresenter x:Name="PART_ItemsControl" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="Left"/>
-                        <hc:SimplePanel x:Name="GridTop" Opacity="0">
-                            <Button Command="interactivity:ControlCommands.Prev" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0" Style="{StaticResource ButtonCustom}">
-                                <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
-                                    <Path Margin="16" Fill="White" Style="{StaticResource LeftPathStyle}"/>
-                                </Border>
-                            </Button>
-                            <Button Command="interactivity:ControlCommands.Next" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,30,0" Style="{StaticResource ButtonCustom}">
-                                <Border Width="50" Height="100" Background="{DynamicResource DarkOpacityBrush}" CornerRadius="4">
-                                    <Path Margin="16" Fill="White" Style="{StaticResource RightPathStyle}"/>
-                                </Border>
-                            </Button>
-                        </hc:SimplePanel>
-                        <StackPanel Name="PART_PanelPage" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,20"/>
-                    </hc:SimplePanel>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
-    </Style>-->
 
 </ResourceDictionary>

@@ -4,8 +4,27 @@
 
     <Style BasedOn="{StaticResource DateTimePickerBaseStyle}" TargetType="hc:DateTimePicker"/>
 
+    <Style x:Key="DateTimePicker.Small" BasedOn="{StaticResource DateTimePickerBaseStyle}" TargetType="hc:DateTimePicker">
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+
     <Style x:Key="DateTimePickerExtend" BasedOn="{StaticResource DateTimePickerExtendBaseStyle}" TargetType="hc:DateTimePicker"/>
 
+    <Style x:Key="DateTimePickerExtend.Small" BasedOn="{StaticResource DateTimePickerExtend}" TargetType="hc:DateTimePicker">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
+
     <Style x:Key="DateTimePickerPlus" BasedOn="{StaticResource DateTimePickerPlusBaseStyle}" TargetType="hc:DateTimePicker"/>
+
+    <Style x:Key="DateTimePickerPlus.Small" BasedOn="{StaticResource DateTimePickerPlus}" TargetType="hc:DateTimePicker">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3"/>
+        <Setter Property="Padding" Value="6,0"/>
+    </Style>
 
 </ResourceDictionary>

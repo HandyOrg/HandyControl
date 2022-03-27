@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class WebsitesView
 {
-    public partial class WebsitesView
+    public WebsitesView()
     {
-        public WebsitesView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

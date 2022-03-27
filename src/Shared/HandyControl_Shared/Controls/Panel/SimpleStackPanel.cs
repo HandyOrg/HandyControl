@@ -2,100 +2,99 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class SimpleStackPanel : Panel
 {
-    public class SimpleStackPanel : Panel
+    public static readonly DependencyProperty OrientationProperty =
+        StackPanel.OrientationProperty.AddOwner(typeof(SimpleStackPanel),
+            new FrameworkPropertyMetadata(Orientation.Vertical, FrameworkPropertyMetadataOptions.AffectsMeasure));
+
+    public Orientation Orientation
     {
-        public static readonly DependencyProperty OrientationProperty =
-            StackPanel.OrientationProperty.AddOwner(typeof(SimpleStackPanel),
-                new FrameworkPropertyMetadata(Orientation.Vertical, FrameworkPropertyMetadataOptions.AffectsMeasure));
+        get => (Orientation) GetValue(OrientationProperty);
+        set => SetValue(OrientationProperty, value);
+    }
 
-        public Orientation Orientation
+    protected override Size MeasureOverride(Size constraint)
+    {
+        var stackDesiredSize = new Size();
+        var children = InternalChildren;
+        var layoutSlotSize = constraint;
+
+        if (Orientation == Orientation.Horizontal)
         {
-            get => (Orientation) GetValue(OrientationProperty);
-            set => SetValue(OrientationProperty, value);
+            layoutSlotSize.Width = double.PositiveInfinity;
+
+            for (int i = 0, count = children.Count; i < count; ++i)
+            {
+                var child = children[i];
+                if (child == null) continue;
+
+                child.Measure(layoutSlotSize);
+                var childDesiredSize = child.DesiredSize;
+
+                stackDesiredSize.Width += childDesiredSize.Width;
+                stackDesiredSize.Height = Math.Max(stackDesiredSize.Height, childDesiredSize.Height);
+            }
+        }
+        else
+        {
+            layoutSlotSize.Height = double.PositiveInfinity;
+
+            for (int i = 0, count = children.Count; i < count; ++i)
+            {
+                var child = children[i];
+                if (child == null) continue;
+
+                child.Measure(layoutSlotSize);
+                var childDesiredSize = child.DesiredSize;
+
+                stackDesiredSize.Width = Math.Max(stackDesiredSize.Width, childDesiredSize.Width);
+                stackDesiredSize.Height += childDesiredSize.Height;
+            }
         }
 
-        protected override Size MeasureOverride(Size constraint)
+        return stackDesiredSize;
+    }
+
+    protected override Size ArrangeOverride(Size arrangeSize)
+    {
+        var children = InternalChildren;
+        var rcChild = new Rect(arrangeSize);
+        var previousChildSize = 0.0;
+
+        if (Orientation == Orientation.Horizontal)
         {
-            var stackDesiredSize = new Size();
-            var children = InternalChildren;
-            var layoutSlotSize = constraint;
-
-            if (Orientation == Orientation.Horizontal)
+            for (int i = 0, count = children.Count; i < count; ++i)
             {
-                layoutSlotSize.Width = double.PositiveInfinity;
+                var child = children[i];
+                if (child == null) continue;
 
-                for (int i = 0, count = children.Count; i < count; ++i)
-                {
-                    var child = children[i];
-                    if (child == null) continue;
+                rcChild.X += previousChildSize;
+                previousChildSize = child.DesiredSize.Width;
+                rcChild.Width = previousChildSize;
+                rcChild.Height = Math.Max(arrangeSize.Height, child.DesiredSize.Height);
 
-                    child.Measure(layoutSlotSize);
-                    var childDesiredSize = child.DesiredSize;
-
-                    stackDesiredSize.Width += childDesiredSize.Width;
-                    stackDesiredSize.Height = Math.Max(stackDesiredSize.Height, childDesiredSize.Height);
-                }
+                child.Arrange(rcChild);
             }
-            else
+        }
+        else
+        {
+            for (int i = 0, count = children.Count; i < count; ++i)
             {
-                layoutSlotSize.Height = double.PositiveInfinity;
+                var child = children[i];
+                if (child == null) continue;
 
-                for (int i = 0, count = children.Count; i < count; ++i)
-                {
-                    var child = children[i];
-                    if (child == null) continue;
+                rcChild.Y += previousChildSize;
+                previousChildSize = child.DesiredSize.Height;
+                rcChild.Height = previousChildSize;
+                rcChild.Width = Math.Max(arrangeSize.Width, child.DesiredSize.Width);
 
-                    child.Measure(layoutSlotSize);
-                    var childDesiredSize = child.DesiredSize;
-
-                    stackDesiredSize.Width = Math.Max(stackDesiredSize.Width, childDesiredSize.Width);
-                    stackDesiredSize.Height += childDesiredSize.Height;
-                }
+                child.Arrange(rcChild);
             }
-
-            return stackDesiredSize;
         }
 
-        protected override Size ArrangeOverride(Size arrangeSize)
-        {
-            var children = InternalChildren;
-            var rcChild = new Rect(arrangeSize);
-            var previousChildSize = 0.0;
-
-            if (Orientation == Orientation.Horizontal)
-            {
-                for (int i = 0, count = children.Count; i < count; ++i)
-                {
-                    var child = children[i];
-                    if (child == null) continue;
-
-                    rcChild.X += previousChildSize;
-                    previousChildSize = child.DesiredSize.Width;
-                    rcChild.Width = previousChildSize;
-                    rcChild.Height = Math.Max(arrangeSize.Height, child.DesiredSize.Height);
-
-                    child.Arrange(rcChild);
-                }
-            }
-            else
-            {
-                for (int i = 0, count = children.Count; i < count; ++i)
-                {
-                    var child = children[i];
-                    if (child == null) continue;
-
-                    rcChild.Y += previousChildSize;
-                    previousChildSize = child.DesiredSize.Height;
-                    rcChild.Height = previousChildSize;
-                    rcChild.Width = Math.Max(arrangeSize.Width, child.DesiredSize.Width);
-
-                    child.Arrange(rcChild);
-                }
-            }
-
-            return arrangeSize;
-        }
+        return arrangeSize;
     }
 }

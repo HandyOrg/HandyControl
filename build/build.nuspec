@@ -67,16 +67,16 @@
     <file src="lib\net48\HandyControl.dll" target="lib\net48\HandyControl.dll" />
     <file src="lib\net48\HandyControl.pdb" target="lib\net48\HandyControl.pdb" />
     <file src="lib\net48\HandyControl.xml" target="lib\net48\HandyControl.xml" />
-    <file src="lib\net5.0-windows\ref\HandyControl.dll" target="lib\net5.0-windows\ref\HandyControl.dll" />
-    <file src="lib\net5.0-windows\HandyControl.deps.json" target="lib\net5.0-windows\HandyControl.deps.json" />
-    <file src="lib\net5.0-windows\HandyControl.dll" target="lib\net5.0-windows\HandyControl.dll" />
-    <file src="lib\net5.0-windows\HandyControl.pdb" target="lib\net5.0-windows\HandyControl.pdb" />
-    <file src="lib\net5.0-windows\HandyControl.xml" target="lib\net5.0-windows\HandyControl.xml" />
-    <file src="lib\net6.0-windows\ref\HandyControl.dll" target="lib\net6.0-windows\ref\HandyControl.dll" />
-    <file src="lib\net6.0-windows\HandyControl.deps.json" target="lib\net6.0-windows\HandyControl.deps.json" />
-    <file src="lib\net6.0-windows\HandyControl.dll" target="lib\net6.0-windows\HandyControl.dll" />
-    <file src="lib\net6.0-windows\HandyControl.pdb" target="lib\net6.0-windows\HandyControl.pdb" />
-    <file src="lib\net6.0-windows\HandyControl.xml" target="lib\net6.0-windows\HandyControl.xml" />
+    <file src="lib\net5.0\ref\HandyControl.dll" target="lib\net5.0\ref\HandyControl.dll" />
+    <file src="lib\net5.0\HandyControl.deps.json" target="lib\net5.0\HandyControl.deps.json" />
+    <file src="lib\net5.0\HandyControl.dll" target="lib\net5.0\HandyControl.dll" />
+    <file src="lib\net5.0\HandyControl.pdb" target="lib\net5.0\HandyControl.pdb" />
+    <file src="lib\net5.0\HandyControl.xml" target="lib\net5.0\HandyControl.xml" />
+    <file src="lib\net6.0\ref\HandyControl.dll" target="lib\net6.0\ref\HandyControl.dll" />
+    <file src="lib\net6.0\HandyControl.deps.json" target="lib\net6.0\HandyControl.deps.json" />
+    <file src="lib\net6.0\HandyControl.dll" target="lib\net6.0\HandyControl.dll" />
+    <file src="lib\net6.0\HandyControl.pdb" target="lib\net6.0\HandyControl.pdb" />
+    <file src="lib\net6.0\HandyControl.xml" target="lib\net6.0\HandyControl.xml" />
     <file src="lib\netcoreapp3.0\HandyControl.deps.json" target="lib\netcoreapp3.0\HandyControl.deps.json" />
     <file src="lib\netcoreapp3.0\HandyControl.dll" target="lib\netcoreapp3.0\HandyControl.dll" />
     <file src="lib\netcoreapp3.0\HandyControl.pdb" target="lib\netcoreapp3.0\HandyControl.pdb" />

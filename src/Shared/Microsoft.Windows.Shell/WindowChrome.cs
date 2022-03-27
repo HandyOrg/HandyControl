@@ -6,214 +6,213 @@ using System.Windows;
 using System.Windows.Data;
 using Standard;
 
-namespace Microsoft.Windows.Shell
+namespace Microsoft.Windows.Shell;
+
+public class WindowChrome : Freezable
 {
-    public class WindowChrome : Freezable
+    public static Thickness GlassFrameCompleteThickness
     {
-        public static Thickness GlassFrameCompleteThickness
+        get
         {
-            get
-            {
-                return new Thickness(-1.0);
-            }
+            return new Thickness(-1.0);
         }
+    }
 
-        private static void _OnChromeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static void _OnChromeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (DesignerProperties.GetIsInDesignMode(d))
         {
-            if (DesignerProperties.GetIsInDesignMode(d))
-            {
-                return;
-            }
-            Window window = (Window) d;
-            WindowChrome windowChrome = (WindowChrome) e.NewValue;
-            WindowChromeWorker windowChromeWorker = WindowChromeWorker.GetWindowChromeWorker(window);
-            if (windowChromeWorker == null)
-            {
-                windowChromeWorker = new WindowChromeWorker();
-                WindowChromeWorker.SetWindowChromeWorker(window, windowChromeWorker);
-            }
-            windowChromeWorker.SetWindowChrome(windowChrome);
+            return;
         }
-
-        [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-        [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
-        public static WindowChrome GetWindowChrome(Window window)
+        Window window = (Window) d;
+        WindowChrome windowChrome = (WindowChrome) e.NewValue;
+        WindowChromeWorker windowChromeWorker = WindowChromeWorker.GetWindowChromeWorker(window);
+        if (windowChromeWorker == null)
         {
-            Verify.IsNotNull<Window>(window, "window");
-            return (WindowChrome) window.GetValue(WindowChrome.WindowChromeProperty);
+            windowChromeWorker = new WindowChromeWorker();
+            WindowChromeWorker.SetWindowChromeWorker(window, windowChromeWorker);
         }
+        windowChromeWorker.SetWindowChrome(windowChrome);
+    }
 
-        [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-        [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
-        public static void SetWindowChrome(Window window, WindowChrome chrome)
+    [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
+    [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+    public static WindowChrome GetWindowChrome(Window window)
+    {
+        Verify.IsNotNull<Window>(window, "window");
+        return (WindowChrome) window.GetValue(WindowChrome.WindowChromeProperty);
+    }
+
+    [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
+    [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+    public static void SetWindowChrome(Window window, WindowChrome chrome)
+    {
+        Verify.IsNotNull<Window>(window, "window");
+        window.SetValue(WindowChrome.WindowChromeProperty, chrome);
+    }
+
+    [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
+    [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+    public static bool GetIsHitTestVisibleInChrome(IInputElement inputElement)
+    {
+        Verify.IsNotNull<IInputElement>(inputElement, "inputElement");
+        DependencyObject dependencyObject = inputElement as DependencyObject;
+        if (dependencyObject == null)
         {
-            Verify.IsNotNull<Window>(window, "window");
-            window.SetValue(WindowChrome.WindowChromeProperty, chrome);
+            throw new ArgumentException("The element must be a DependencyObject", "inputElement");
         }
+        return (bool) dependencyObject.GetValue(WindowChrome.IsHitTestVisibleInChromeProperty);
+    }
 
-        [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-        [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
-        public static bool GetIsHitTestVisibleInChrome(IInputElement inputElement)
+    [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
+    [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
+    public static void SetIsHitTestVisibleInChrome(IInputElement inputElement, bool hitTestVisible)
+    {
+        Verify.IsNotNull<IInputElement>(inputElement, "inputElement");
+        DependencyObject dependencyObject = inputElement as DependencyObject;
+        if (dependencyObject == null)
         {
-            Verify.IsNotNull<IInputElement>(inputElement, "inputElement");
-            DependencyObject dependencyObject = inputElement as DependencyObject;
-            if (dependencyObject == null)
-            {
-                throw new ArgumentException("The element must be a DependencyObject", "inputElement");
-            }
-            return (bool) dependencyObject.GetValue(WindowChrome.IsHitTestVisibleInChromeProperty);
+            throw new ArgumentException("The element must be a DependencyObject", "inputElement");
         }
+        dependencyObject.SetValue(WindowChrome.IsHitTestVisibleInChromeProperty, hitTestVisible);
+    }
 
-        [SuppressMessage("Microsoft.Design", "CA1011:ConsiderPassingBaseTypesAsParameters")]
-        [SuppressMessage("Microsoft.Design", "CA1062:Validate arguments of public methods", MessageId = "0")]
-        public static void SetIsHitTestVisibleInChrome(IInputElement inputElement, bool hitTestVisible)
+    public double CaptionHeight
+    {
+        get
         {
-            Verify.IsNotNull<IInputElement>(inputElement, "inputElement");
-            DependencyObject dependencyObject = inputElement as DependencyObject;
-            if (dependencyObject == null)
-            {
-                throw new ArgumentException("The element must be a DependencyObject", "inputElement");
-            }
-            dependencyObject.SetValue(WindowChrome.IsHitTestVisibleInChromeProperty, hitTestVisible);
+            return (double) base.GetValue(WindowChrome.CaptionHeightProperty);
         }
-
-        public double CaptionHeight
+        set
         {
-            get
-            {
-                return (double) base.GetValue(WindowChrome.CaptionHeightProperty);
-            }
-            set
-            {
-                base.SetValue(WindowChrome.CaptionHeightProperty, value);
-            }
+            base.SetValue(WindowChrome.CaptionHeightProperty, value);
         }
+    }
 
-        public Thickness ResizeBorderThickness
+    public Thickness ResizeBorderThickness
+    {
+        get
         {
-            get
-            {
-                return (Thickness) base.GetValue(WindowChrome.ResizeBorderThicknessProperty);
-            }
-            set
-            {
-                base.SetValue(WindowChrome.ResizeBorderThicknessProperty, value);
-            }
+            return (Thickness) base.GetValue(WindowChrome.ResizeBorderThicknessProperty);
         }
-
-        private static object _CoerceGlassFrameThickness(Thickness thickness)
+        set
         {
-            if (!Utility.IsThicknessNonNegative(thickness))
-            {
-                return WindowChrome.GlassFrameCompleteThickness;
-            }
-            return thickness;
+            base.SetValue(WindowChrome.ResizeBorderThicknessProperty, value);
         }
+    }
 
-        public Thickness GlassFrameThickness
+    private static object _CoerceGlassFrameThickness(Thickness thickness)
+    {
+        if (!Utility.IsThicknessNonNegative(thickness))
         {
-            get
-            {
-                return (Thickness) base.GetValue(WindowChrome.GlassFrameThicknessProperty);
-            }
-            set
-            {
-                base.SetValue(WindowChrome.GlassFrameThicknessProperty, value);
-            }
+            return WindowChrome.GlassFrameCompleteThickness;
         }
+        return thickness;
+    }
 
-        public CornerRadius CornerRadius
+    public Thickness GlassFrameThickness
+    {
+        get
         {
-            get
-            {
-                return (CornerRadius) base.GetValue(WindowChrome.CornerRadiusProperty);
-            }
-            set
-            {
-                base.SetValue(WindowChrome.CornerRadiusProperty, value);
-            }
+            return (Thickness) base.GetValue(WindowChrome.GlassFrameThicknessProperty);
         }
-
-        protected override Freezable CreateInstanceCore()
+        set
         {
-            return new WindowChrome();
+            base.SetValue(WindowChrome.GlassFrameThicknessProperty, value);
         }
+    }
 
-        public WindowChrome()
+    public CornerRadius CornerRadius
+    {
+        get
         {
-            foreach (WindowChrome._SystemParameterBoundProperty systemParameterBoundProperty in WindowChrome._BoundProperties)
-            {
-                BindingOperations.SetBinding(this, systemParameterBoundProperty.DependencyProperty, new Binding
-                {
-                    Source = SystemParameters2.Current,
-                    Path = new PropertyPath(systemParameterBoundProperty.SystemParameterPropertyName, new object[0]),
-                    Mode = BindingMode.OneWay,
-                    UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
-                });
-            }
+            return (CornerRadius) base.GetValue(WindowChrome.CornerRadiusProperty);
         }
-
-        private void _OnPropertyChangedThatRequiresRepaint()
+        set
         {
-            EventHandler propertyChangedThatRequiresRepaint = this.PropertyChangedThatRequiresRepaint;
-            if (propertyChangedThatRequiresRepaint != null)
-            {
-                propertyChangedThatRequiresRepaint(this, EventArgs.Empty);
-            }
+            base.SetValue(WindowChrome.CornerRadiusProperty, value);
         }
+    }
 
-        internal event EventHandler PropertyChangedThatRequiresRepaint;
+    protected override Freezable CreateInstanceCore()
+    {
+        return new WindowChrome();
+    }
 
-        public static readonly DependencyProperty WindowChromeProperty = DependencyProperty.RegisterAttached("WindowChrome", typeof(WindowChrome), typeof(WindowChrome), new PropertyMetadata(null, new PropertyChangedCallback(WindowChrome._OnChromeChanged)));
-
-        public static readonly DependencyProperty IsHitTestVisibleInChromeProperty = DependencyProperty.RegisterAttached("IsHitTestVisibleInChrome", typeof(bool), typeof(WindowChrome), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
-
-        public static readonly DependencyProperty CaptionHeightProperty = DependencyProperty.Register("CaptionHeight", typeof(double), typeof(WindowChrome), new PropertyMetadata(0.0, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
+    public WindowChrome()
+    {
+        foreach (WindowChrome._SystemParameterBoundProperty systemParameterBoundProperty in WindowChrome._BoundProperties)
         {
-            ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
-        }), (object value) => (double) value >= 0.0);
-
-        public static readonly DependencyProperty ResizeBorderThicknessProperty = DependencyProperty.Register("ResizeBorderThickness", typeof(Thickness), typeof(WindowChrome), new PropertyMetadata(default(Thickness)), (object value) => Utility.IsThicknessNonNegative((Thickness) value));
-
-        public static readonly DependencyProperty GlassFrameThicknessProperty = DependencyProperty.Register("GlassFrameThickness", typeof(Thickness), typeof(WindowChrome), new PropertyMetadata(default(Thickness), delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
-        }, (DependencyObject d, object o) => WindowChrome._CoerceGlassFrameThickness((Thickness) o)));
-
-        public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(WindowChrome), new PropertyMetadata(default(CornerRadius), delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
-        }), (object value) => Utility.IsCornerRadiusValid((CornerRadius) value));
-
-        private static readonly List<WindowChrome._SystemParameterBoundProperty> _BoundProperties = new List<WindowChrome._SystemParameterBoundProperty>
-        {
-            new WindowChrome._SystemParameterBoundProperty
+            BindingOperations.SetBinding(this, systemParameterBoundProperty.DependencyProperty, new Binding
             {
-                DependencyProperty = WindowChrome.CornerRadiusProperty,
-                SystemParameterPropertyName = "WindowCornerRadius"
-            },
-            new WindowChrome._SystemParameterBoundProperty
-            {
-                DependencyProperty = WindowChrome.CaptionHeightProperty,
-                SystemParameterPropertyName = "WindowCaptionHeight"
-            },
-            new WindowChrome._SystemParameterBoundProperty
-            {
-                DependencyProperty = WindowChrome.ResizeBorderThicknessProperty,
-                SystemParameterPropertyName = "WindowResizeBorderThickness"
-            },
-            new WindowChrome._SystemParameterBoundProperty
-            {
-                DependencyProperty = WindowChrome.GlassFrameThicknessProperty,
-                SystemParameterPropertyName = "WindowNonClientFrameThickness"
-            }
-        };
-
-        private struct _SystemParameterBoundProperty
-        {
-            public string SystemParameterPropertyName { get; set; }
-
-            public DependencyProperty DependencyProperty { get; set; }
+                Source = SystemParameters2.Current,
+                Path = new PropertyPath(systemParameterBoundProperty.SystemParameterPropertyName, new object[0]),
+                Mode = BindingMode.OneWay,
+                UpdateSourceTrigger = UpdateSourceTrigger.PropertyChanged
+            });
         }
+    }
+
+    private void _OnPropertyChangedThatRequiresRepaint()
+    {
+        EventHandler propertyChangedThatRequiresRepaint = this.PropertyChangedThatRequiresRepaint;
+        if (propertyChangedThatRequiresRepaint != null)
+        {
+            propertyChangedThatRequiresRepaint(this, EventArgs.Empty);
+        }
+    }
+
+    internal event EventHandler PropertyChangedThatRequiresRepaint;
+
+    public static readonly DependencyProperty WindowChromeProperty = DependencyProperty.RegisterAttached("WindowChrome", typeof(WindowChrome), typeof(WindowChrome), new PropertyMetadata(null, new PropertyChangedCallback(WindowChrome._OnChromeChanged)));
+
+    public static readonly DependencyProperty IsHitTestVisibleInChromeProperty = DependencyProperty.RegisterAttached("IsHitTestVisibleInChrome", typeof(bool), typeof(WindowChrome), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits));
+
+    public static readonly DependencyProperty CaptionHeightProperty = DependencyProperty.Register("CaptionHeight", typeof(double), typeof(WindowChrome), new PropertyMetadata(0.0, delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
+    }), (object value) => (double) value >= 0.0);
+
+    public static readonly DependencyProperty ResizeBorderThicknessProperty = DependencyProperty.Register("ResizeBorderThickness", typeof(Thickness), typeof(WindowChrome), new PropertyMetadata(default(Thickness)), (object value) => Utility.IsThicknessNonNegative((Thickness) value));
+
+    public static readonly DependencyProperty GlassFrameThicknessProperty = DependencyProperty.Register("GlassFrameThickness", typeof(Thickness), typeof(WindowChrome), new PropertyMetadata(default(Thickness), delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
+    }, (DependencyObject d, object o) => WindowChrome._CoerceGlassFrameThickness((Thickness) o)));
+
+    public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register("CornerRadius", typeof(CornerRadius), typeof(WindowChrome), new PropertyMetadata(default(CornerRadius), delegate (DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((WindowChrome) d)._OnPropertyChangedThatRequiresRepaint();
+    }), (object value) => Utility.IsCornerRadiusValid((CornerRadius) value));
+
+    private static readonly List<WindowChrome._SystemParameterBoundProperty> _BoundProperties = new List<WindowChrome._SystemParameterBoundProperty>
+    {
+        new WindowChrome._SystemParameterBoundProperty
+        {
+            DependencyProperty = WindowChrome.CornerRadiusProperty,
+            SystemParameterPropertyName = "WindowCornerRadius"
+        },
+        new WindowChrome._SystemParameterBoundProperty
+        {
+            DependencyProperty = WindowChrome.CaptionHeightProperty,
+            SystemParameterPropertyName = "WindowCaptionHeight"
+        },
+        new WindowChrome._SystemParameterBoundProperty
+        {
+            DependencyProperty = WindowChrome.ResizeBorderThicknessProperty,
+            SystemParameterPropertyName = "WindowResizeBorderThickness"
+        },
+        new WindowChrome._SystemParameterBoundProperty
+        {
+            DependencyProperty = WindowChrome.GlassFrameThicknessProperty,
+            SystemParameterPropertyName = "WindowNonClientFrameThickness"
+        }
+    };
+
+    private struct _SystemParameterBoundProperty
+    {
+        public string SystemParameterPropertyName { get; set; }
+
+        public DependencyProperty DependencyProperty { get; set; }
     }
 }

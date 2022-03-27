@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class MainWindowContent
 {
-    public partial class MainWindowContent
+    public MainWindowContent()
     {
-        public MainWindowContent()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

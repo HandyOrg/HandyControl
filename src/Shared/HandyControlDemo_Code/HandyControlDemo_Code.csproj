@@ -854,8 +854,8 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Basic\InteractiveDialogViewModel.cs">
       <Link>ViewModel\InteractiveDialogViewModel.cs</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Common\ComboBoxDemoViewModel.cs">
-      <Link>ViewModel\ComboBoxDemoViewModel.cs</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Common\InputElementDemoViewModel.cs">
+      <Link>ViewModel\InputElementDemoViewModel.cs</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\AutoCompleteTextBoxDemoViewModel.cs">
       <Link>ViewModel\AutoCompleteTextBoxDemoViewModel.cs</Link>
@@ -886,9 +886,6 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\PaginationDemoViewModel.cs">
       <Link>ViewModel\PaginationDemoViewModel.cs</Link>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\SearchBarDemoViewModel.cs">
-      <Link>ViewModel\SearchBarDemoViewModel.cs</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\SideMenuDemoViewModel.cs">
       <Link>ViewModel\SideMenuDemoViewModel.cs</Link>

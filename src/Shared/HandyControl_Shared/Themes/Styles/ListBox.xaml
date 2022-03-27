@@ -36,36 +36,20 @@
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
     </Style>
 
-    <ItemsPanelTemplate x:Key="WrapPanelHorizontalItemsPanelTemplate">
-        <WrapPanel FocusVisualStyle="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </ItemsPanelTemplate>
-
     <Style x:Key="WrapPanelHorizontalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
-        <Setter Property="ItemsPanel" Value="{StaticResource WrapPanelHorizontalItemsPanelTemplate}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource WrapHorizontalItemsPanelTemplate}"/>
     </Style>
-
-    <ItemsPanelTemplate x:Key="WrapPanelVerticalItemsPanelTemplate">
-        <WrapPanel FocusVisualStyle="{x:Null}" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-    </ItemsPanelTemplate>
 
     <Style x:Key="WrapPanelVerticalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
-        <Setter Property="ItemsPanel" Value="{StaticResource WrapPanelVerticalItemsPanelTemplate}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource WrapVerticalItemsPanelTemplate}"/>
     </Style>
-
-    <ItemsPanelTemplate x:Key="StackPanelHorizontalItemsPanelTemplate">
-        <StackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal"/>
-    </ItemsPanelTemplate>
 
     <Style x:Key="StackPanelHorizontalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
-        <Setter Property="ItemsPanel" Value="{StaticResource StackPanelHorizontalItemsPanelTemplate}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource StackHorizontalItemsPanelTemplate}"/>
     </Style>
 
-    <ItemsPanelTemplate x:Key="StackPanelVerticalItemsPanelTemplate">
-        <StackPanel FocusVisualStyle="{x:Null}" HorizontalAlignment="Stretch"/>
-    </ItemsPanelTemplate>
-
     <Style x:Key="StackPanelVerticalListBox" BasedOn="{StaticResource ListBoxCustom}" TargetType="ListBox">
-        <Setter Property="ItemsPanel" Value="{StaticResource StackPanelVerticalItemsPanelTemplate}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource StackVerticalItemsPanelTemplate}"/>
     </Style>
 
 </ResourceDictionary>

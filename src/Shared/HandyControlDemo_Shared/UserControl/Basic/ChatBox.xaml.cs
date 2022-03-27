@@ -1,22 +1,21 @@
 ﻿using System.Windows.Controls;
 using HandyControl.Tools;
 
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class ChatBox
 {
-    public partial class ChatBox
+    private ScrollViewer _scrollViewer;
+
+    public ChatBox()
     {
-        private ScrollViewer _scrollViewer;
+        InitializeComponent();
+        ListBoxChat.ItemContainerGenerator.ItemsChanged += ItemContainerGenerator_ItemsChanged;
+    }
 
-        public ChatBox()
-        {
-            InitializeComponent();
-            ListBoxChat.ItemContainerGenerator.ItemsChanged += ItemContainerGenerator_ItemsChanged;
-        }
-
-        private void ItemContainerGenerator_ItemsChanged(object sender, System.Windows.Controls.Primitives.ItemsChangedEventArgs e)
-        {
-            _scrollViewer ??= VisualHelper.GetChild<ScrollViewer>(ListBoxChat);
-            _scrollViewer?.ScrollToBottom();
-        }
+    private void ItemContainerGenerator_ItemsChanged(object sender, System.Windows.Controls.Primitives.ItemsChangedEventArgs e)
+    {
+        _scrollViewer ??= VisualHelper.GetChild<ScrollViewer>(ListBoxChat);
+        _scrollViewer?.ScrollToBottom();
     }
 }

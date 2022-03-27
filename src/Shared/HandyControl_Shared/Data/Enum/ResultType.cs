@@ -1,24 +1,23 @@
 ﻿
-namespace HandyControl.Data
+namespace HandyControl.Data;
+
+/// <summary>
+///     表示一个操作的返回结果类型
+/// </summary>
+public enum ResultType
 {
     /// <summary>
-    ///     表示一个操作的返回结果类型
+    ///     成功
     /// </summary>
-    public enum ResultType
-    {
-        /// <summary>
-        ///     成功
-        /// </summary>
-        Success,
+    Success,
 
-        /// <summary>
-        ///     失败
-        /// </summary>
-        Failed,
+    /// <summary>
+    ///     失败
+    /// </summary>
+    Failed,
 
-        /// <summary>
-        ///     无数据
-        /// </summary>
-        None
-    }
+    /// <summary>
+    ///     无数据
+    /// </summary>
+    None
 }

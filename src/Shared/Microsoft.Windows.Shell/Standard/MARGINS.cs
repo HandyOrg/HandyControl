@@ -1,15 +1,14 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal struct MARGINS
 {
-    internal struct MARGINS
-    {
-        public int cxLeftWidth;
+    public int cxLeftWidth;
 
-        public int cxRightWidth;
+    public int cxRightWidth;
 
-        public int cyTopHeight;
+    public int cyTopHeight;
 
-        public int cyBottomHeight;
-    }
+    public int cyBottomHeight;
 }

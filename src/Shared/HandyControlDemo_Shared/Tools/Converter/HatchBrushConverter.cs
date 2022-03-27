@@ -5,29 +5,28 @@ using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Tools;
 
-namespace HandyControlDemo.Tools.Converter
+namespace HandyControlDemo.Tools.Converter;
+
+public class HatchBrushConverter : IValueConverter
 {
-    public class HatchBrushConverter : IValueConverter
+    private readonly HatchBrushGenerator _brushGenerator;
+
+    public HatchBrushConverter()
     {
-        private readonly HatchBrushGenerator _brushGenerator;
+        _brushGenerator = new HatchBrushGenerator();
+    }
 
-        public HatchBrushConverter()
+    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        if (value is HatchStyle style)
         {
-            _brushGenerator = new HatchBrushGenerator();
+            return _brushGenerator.GetHatchBrush(style, ResourceHelper.GetResource<Color>(ResourceToken.DarkPrimaryColor), Colors.Transparent);
         }
+        return Brushes.Transparent;
+    }
 
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value is HatchStyle style)
-            {
-                return _brushGenerator.GetHatchBrush(style, ResourceHelper.GetResource<Color>(ResourceToken.DarkPrimaryColor), Colors.Transparent);
-            }
-            return Brushes.Transparent;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            throw new NotSupportedException();
-        }
+    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+    {
+        throw new NotSupportedException();
     }
 }

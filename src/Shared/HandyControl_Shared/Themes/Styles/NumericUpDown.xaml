@@ -4,8 +4,29 @@
 
     <Style BasedOn="{StaticResource NumericUpDownBaseStyle}" TargetType="hc:NumericUpDown"/>
 
+    <Style x:Key="NumericUpDown.Small" BasedOn="{StaticResource NumericUpDownBaseStyle}" TargetType="hc:NumericUpDown">
+        <Setter Property="MinHeight" Value="20"/>
+        <Setter Property="Padding" Value="6,2,6,1"/>
+    </Style>
+
     <Style x:Key="NumericUpDownExtend" BasedOn="{StaticResource NumericUpDownExtendBaseStyle}" TargetType="hc:NumericUpDown"/>
 
+    <Style x:Key="NumericUpDownExtend.Small" BasedOn="{StaticResource NumericUpDownExtend}" TargetType="hc:NumericUpDown">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,0"/>
+        <Setter Property="Padding" Value="6,2,6,1"/>
+        <Setter Property="MinHeight" Value="20"/>
+    </Style>
+
     <Style x:Key="NumericUpDownPlus" BasedOn="{StaticResource NumericUpDownPlusBaseStyle}" TargetType="hc:NumericUpDown"/>
+
+    <Style x:Key="NumericUpDownPlus.Small" BasedOn="{StaticResource NumericUpDownPlus}" TargetType="hc:NumericUpDown">
+        <Setter Property="hc:InfoElement.MinContentHeight" Value="20"/>
+        <Setter Property="hc:InfoElement.ContentHeight" Value="20"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,0"/>
+        <Setter Property="Padding" Value="6,2,6,1"/>
+        <Setter Property="MinHeight" Value="20"/>
+    </Style>
 
 </ResourceDictionary>

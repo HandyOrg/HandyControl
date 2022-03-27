@@ -4,6 +4,8 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:CoverFlow x:Name="CoverFlowMain" Margin="32" Width="500" Height="300"/>
+        <Viewbox MaxWidth="500">
+            <hc:CoverFlow x:Name="CoverFlowMain" Margin="32" Width="500" Height="300"/>
+        </Viewbox>
     </hc:TransitioningContentControl>
 </UserControl>

@@ -4,7 +4,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:ScrollViewer VerticalAlignment="Center">
+        <hc:ScrollViewer IsInertiaEnabled="True">
             <WrapPanel ItemHeight="384" ItemWidth="632">
                 <hc:CompareSlider Value="5" Width="600" Height="352">
                     <hc:CompareSlider.TargetContent>

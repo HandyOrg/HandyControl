@@ -11,754 +11,753 @@ using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+/// <summary>
+///     时间日期选择器
+/// </summary>
+[TemplatePart(Name = ElementRoot, Type = typeof(Grid))]
+[TemplatePart(Name = ElementTextBox, Type = typeof(WatermarkTextBox))]
+[TemplatePart(Name = ElementButton, Type = typeof(Button))]
+[TemplatePart(Name = ElementPopup, Type = typeof(Popup))]
+public class DateTimePicker : Control, IDataInput
 {
-    /// <summary>
-    ///     时间日期选择器
-    /// </summary>
-    [TemplatePart(Name = ElementRoot, Type = typeof(Grid))]
-    [TemplatePart(Name = ElementTextBox, Type = typeof(WatermarkTextBox))]
-    [TemplatePart(Name = ElementButton, Type = typeof(Button))]
-    [TemplatePart(Name = ElementPopup, Type = typeof(Popup))]
-    public class DateTimePicker : Control, IDataInput
+    #region Constants
+
+    private const string ElementRoot = "PART_Root";
+
+    private const string ElementTextBox = "PART_TextBox";
+
+    private const string ElementButton = "PART_Button";
+
+    private const string ElementPopup = "PART_Popup";
+
+    #endregion Constants
+
+    #region Data
+
+    private CalendarWithClock _calendarWithClock;
+
+    private string _defaultText;
+
+    private ButtonBase _dropDownButton;
+
+    private Popup _popup;
+
+    private bool _disablePopupReopen;
+
+    private WatermarkTextBox _textBox;
+
+    private IDictionary<DependencyProperty, bool> _isHandlerSuspended;
+
+    private DateTime? _originalSelectedDateTime;
+
+    #endregion Data
+
+    #region Public Events
+
+    public static readonly RoutedEvent SelectedDateTimeChangedEvent =
+        EventManager.RegisterRoutedEvent("SelectedDateTimeChanged", RoutingStrategy.Direct,
+            typeof(EventHandler<FunctionEventArgs<DateTime?>>), typeof(DateTimePicker));
+
+    public event EventHandler<FunctionEventArgs<DateTime?>> SelectedDateTimeChanged
     {
-        #region Constants
+        add => AddHandler(SelectedDateTimeChangedEvent, value);
+        remove => RemoveHandler(SelectedDateTimeChangedEvent, value);
+    }
 
-        private const string ElementRoot = "PART_Root";
+    public event RoutedEventHandler PickerClosed;
 
-        private const string ElementTextBox = "PART_TextBox";
+    public event RoutedEventHandler PickerOpened;
 
-        private const string ElementButton = "PART_Button";
+    #endregion Public Events
 
-        private const string ElementPopup = "PART_Popup";
+    static DateTimePicker()
+    {
+        EventManager.RegisterClassHandler(typeof(DateTimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
+        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
+        KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
+    }
 
-        #endregion Constants
-
-        #region Data
-
-        private CalendarWithClock _calendarWithClock;
-
-        private string _defaultText;
-
-        private ButtonBase _dropDownButton;
-
-        private Popup _popup;
-
-        private bool _disablePopupReopen;
-
-        private WatermarkTextBox _textBox;
-
-        private IDictionary<DependencyProperty, bool> _isHandlerSuspended;
-
-        private DateTime? _originalSelectedDateTime;
-
-        #endregion Data
-
-        #region Public Events
-
-        public static readonly RoutedEvent SelectedDateTimeChangedEvent =
-            EventManager.RegisterRoutedEvent("SelectedDateTimeChanged", RoutingStrategy.Direct,
-                typeof(EventHandler<FunctionEventArgs<DateTime?>>), typeof(DateTimePicker));
-
-        public event EventHandler<FunctionEventArgs<DateTime?>> SelectedDateTimeChanged
+    public DateTimePicker()
+    {
+        InitCalendarWithClock();
+        CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
         {
-            add => AddHandler(SelectedDateTimeChangedEvent, value);
-            remove => RemoveHandler(SelectedDateTimeChangedEvent, value);
+            SetCurrentValue(SelectedDateTimeProperty, null);
+            SetCurrentValue(TextProperty, "");
+            _textBox.Text = string.Empty;
+        }));
+    }
+
+    #region Public Properties
+
+    public static readonly DependencyProperty DateTimeFormatProperty = DependencyProperty.Register(
+        "DateTimeFormat", typeof(string), typeof(DateTimePicker), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
+
+    public string DateTimeFormat
+    {
+        get => (string) GetValue(DateTimeFormatProperty);
+        set => SetValue(DateTimeFormatProperty, value);
+    }
+
+    public static readonly DependencyProperty CalendarStyleProperty = DependencyProperty.Register(
+        "CalendarStyle", typeof(Style), typeof(DateTimePicker), new PropertyMetadata(default(Style)));
+
+    public Style CalendarStyle
+    {
+        get => (Style) GetValue(CalendarStyleProperty);
+        set => SetValue(CalendarStyleProperty, value);
+    }
+
+    public static readonly DependencyProperty DisplayDateTimeProperty = DependencyProperty.Register(
+        "DisplayDateTime", typeof(DateTime), typeof(DateTimePicker), new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayDateTime));
+
+    private static object CoerceDisplayDateTime(DependencyObject d, object value)
+    {
+        var dp = (DateTimePicker) d;
+        dp._calendarWithClock.DisplayDateTime = (DateTime) value;
+
+        return dp._calendarWithClock.DisplayDateTime;
+    }
+
+    public DateTime DisplayDateTime
+    {
+        get => (DateTime) GetValue(DisplayDateTimeProperty);
+        set => SetValue(DisplayDateTimeProperty, value);
+    }
+
+    public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
+        "IsDropDownOpen", typeof(bool), typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
+
+    private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
+        d is DateTimePicker
+        {
+            IsEnabled: false
         }
+            ? false
+            : baseValue;
 
-        public event RoutedEventHandler PickerClosed;
+    private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var dp = d as DateTimePicker;
 
-        public event RoutedEventHandler PickerOpened;
-
-        #endregion Public Events
-
-        static DateTimePicker()
+        var newValue = (bool) e.NewValue;
+        if (dp?._popup != null && dp._popup.IsOpen != newValue)
         {
-            EventManager.RegisterClassHandler(typeof(DateTimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
-            KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
-            KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
-        }
-
-        public DateTimePicker()
-        {
-            InitCalendarWithClock();
-            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
+            dp._popup.IsOpen = newValue;
+            if (newValue)
             {
-                SetCurrentValue(SelectedDateTimeProperty, null);
-                SetCurrentValue(TextProperty, "");
-                _textBox.Text = string.Empty;
-            }));
-        }
+                dp._originalSelectedDateTime = dp.SelectedDateTime;
 
-        #region Public Properties
-
-        public static readonly DependencyProperty DateTimeFormatProperty = DependencyProperty.Register(
-            "DateTimeFormat", typeof(string), typeof(DateTimePicker), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
-
-        public string DateTimeFormat
-        {
-            get => (string) GetValue(DateTimeFormatProperty);
-            set => SetValue(DateTimeFormatProperty, value);
-        }
-
-        public static readonly DependencyProperty CalendarStyleProperty = DependencyProperty.Register(
-            "CalendarStyle", typeof(Style), typeof(DateTimePicker), new PropertyMetadata(default(Style)));
-
-        public Style CalendarStyle
-        {
-            get => (Style) GetValue(CalendarStyleProperty);
-            set => SetValue(CalendarStyleProperty, value);
-        }
-
-        public static readonly DependencyProperty DisplayDateTimeProperty = DependencyProperty.Register(
-            "DisplayDateTime", typeof(DateTime), typeof(DateTimePicker), new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayDateTime));
-
-        private static object CoerceDisplayDateTime(DependencyObject d, object value)
-        {
-            var dp = (DateTimePicker) d;
-            dp._calendarWithClock.DisplayDateTime = (DateTime) value;
-
-            return dp._calendarWithClock.DisplayDateTime;
-        }
-
-        public DateTime DisplayDateTime
-        {
-            get => (DateTime) GetValue(DisplayDateTimeProperty);
-            set => SetValue(DisplayDateTimeProperty, value);
-        }
-
-        public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-            "IsDropDownOpen", typeof(bool), typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
-
-        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
-            d is DateTimePicker
-            {
-                IsEnabled: false
-            }
-                ? false
-                : baseValue;
-
-        private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var dp = d as DateTimePicker;
-
-            var newValue = (bool) e.NewValue;
-            if (dp?._popup != null && dp._popup.IsOpen != newValue)
-            {
-                dp._popup.IsOpen = newValue;
-                if (newValue)
+                dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action) delegate
                 {
-                    dp._originalSelectedDateTime = dp.SelectedDateTime;
-
-                    dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action) delegate
-                     {
-                         dp._calendarWithClock.Focus();
-                     });
-                }
+                    dp._calendarWithClock.Focus();
+                });
             }
         }
+    }
 
-        public bool IsDropDownOpen
+    public bool IsDropDownOpen
+    {
+        get => (bool) GetValue(IsDropDownOpenProperty);
+        set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(
+        "SelectedDateTime", typeof(DateTime?), typeof(DateTimePicker), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDateTimeChanged, CoerceSelectedDateTime));
+
+    private static object CoerceSelectedDateTime(DependencyObject d, object value)
+    {
+        var dp = (DateTimePicker) d;
+        dp._calendarWithClock.SelectedDateTime = (DateTime?) value;
+        return dp._calendarWithClock.SelectedDateTime;
+    }
+
+    private static void OnSelectedDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not DateTimePicker dp) return;
+
+        if (dp.SelectedDateTime.HasValue)
         {
-            get => (bool) GetValue(IsDropDownOpenProperty);
-            set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
+            var time = dp.SelectedDateTime.Value;
+            dp.SetTextInternal(dp.DateTimeToString(time));
         }
 
-        public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(
-            "SelectedDateTime", typeof(DateTime?), typeof(DateTimePicker), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDateTimeChanged, CoerceSelectedDateTime));
-
-        private static object CoerceSelectedDateTime(DependencyObject d, object value)
+        dp.RaiseEvent(new FunctionEventArgs<DateTime?>(SelectedDateTimeChangedEvent, dp)
         {
-            var dp = (DateTimePicker) d;
-            dp._calendarWithClock.SelectedDateTime = (DateTime?) value;
-            return dp._calendarWithClock.SelectedDateTime;
-        }
+            Info = dp.SelectedDateTime
+        });
+    }
 
-        private static void OnSelectedDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    public DateTime? SelectedDateTime
+    {
+        get => (DateTime?) GetValue(SelectedDateTimeProperty);
+        set => SetValue(SelectedDateTimeProperty, value);
+    }
+
+    public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
+        "Text", typeof(string), typeof(DateTimePicker), new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
+
+    private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is DateTimePicker dp && !dp.IsHandlerSuspended(TextProperty))
         {
-            if (d is not DateTimePicker dp) return;
-
-            if (dp.SelectedDateTime.HasValue)
+            if (e.NewValue is string newValue)
             {
-                var time = dp.SelectedDateTime.Value;
-                dp.SetTextInternal(dp.DateTimeToString(time));
-            }
-
-            dp.RaiseEvent(new FunctionEventArgs<DateTime?>(SelectedDateTimeChangedEvent, dp)
-            {
-                Info = dp.SelectedDateTime
-            });
-        }
-
-        public DateTime? SelectedDateTime
-        {
-            get => (DateTime?) GetValue(SelectedDateTimeProperty);
-            set => SetValue(SelectedDateTimeProperty, value);
-        }
-
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-            "Text", typeof(string), typeof(DateTimePicker), new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
-
-        private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            if (d is DateTimePicker dp && !dp.IsHandlerSuspended(TextProperty))
-            {
-                if (e.NewValue is string newValue)
+                if (dp._textBox != null)
                 {
-                    if (dp._textBox != null)
-                    {
-                        dp._textBox.Text = newValue;
-                    }
-                    else
-                    {
-                        dp._defaultText = newValue;
-                    }
-
-                    dp.SetSelectedDateTime();
+                    dp._textBox.Text = newValue;
                 }
                 else
                 {
-                    dp.SetValueNoCallback(SelectedDateTimeProperty, null);
-                }
-            }
-        }
-
-        public string Text
-        {
-            get => (string) GetValue(TextProperty);
-            set => SetValue(TextProperty, value);
-        }
-
-        /// <summary>
-        /// Sets the local Text property without breaking bindings
-        /// </summary>
-        /// <param name="value"></param>
-        private void SetTextInternal(string value)
-        {
-            SetCurrentValue(TextProperty, value);
-        }
-
-        public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-        public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-            "IsError", typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
-
-        public bool IsError
-        {
-            get => (bool) GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-            "ErrorStr", typeof(string), typeof(DateTimePicker), new PropertyMetadata(default(string)));
-
-        public string ErrorStr
-        {
-            get => (string) GetValue(ErrorStrProperty);
-            set => SetValue(ErrorStrProperty, value);
-        }
-
-        public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-            "TextType", typeof(TextType), typeof(DateTimePicker), new PropertyMetadata(default(TextType)));
-
-        public TextType TextType
-        {
-            get => (TextType) GetValue(TextTypeProperty);
-            set => SetValue(TextTypeProperty, value);
-        }
-
-        public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-            "ShowClearButton", typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
-
-        public bool ShowClearButton
-        {
-            get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        public static readonly DependencyProperty SelectionBrushProperty =
-            TextBoxBase.SelectionBrushProperty.AddOwner(typeof(DateTimePicker));
-
-        public Brush SelectionBrush
-        {
-            get => (Brush) GetValue(SelectionBrushProperty);
-            set => SetValue(SelectionBrushProperty, value);
-        }
-
-#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-
-        public static readonly DependencyProperty SelectionTextBrushProperty =
-            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(DateTimePicker));
-
-        public Brush SelectionTextBrush
-        {
-            get => (Brush) GetValue(SelectionTextBrushProperty);
-            set => SetValue(SelectionTextBrushProperty, value);
-        }
-
-#endif
-
-        public static readonly DependencyProperty SelectionOpacityProperty =
-            TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(DateTimePicker));
-
-        public double SelectionOpacity
-        {
-            get => (double) GetValue(SelectionOpacityProperty);
-            set => SetValue(SelectionOpacityProperty, value);
-        }
-
-        public static readonly DependencyProperty CaretBrushProperty =
-            TextBoxBase.CaretBrushProperty.AddOwner(typeof(DateTimePicker));
-
-        public Brush CaretBrush
-        {
-            get => (Brush) GetValue(CaretBrushProperty);
-            set => SetValue(CaretBrushProperty, value);
-        }
-
-        #endregion
-
-        #region Public Methods
-
-        public override void OnApplyTemplate()
-        {
-            if (DesignerProperties.GetIsInDesignMode(this)) return;
-            if (_popup != null)
-            {
-                _popup.PreviewMouseLeftButtonDown -= PopupPreviewMouseLeftButtonDown;
-                _popup.Opened -= PopupOpened;
-                _popup.Closed -= PopupClosed;
-                _popup.Child = null;
-            }
-
-            if (_dropDownButton != null)
-            {
-                _dropDownButton.Click -= DropDownButton_Click;
-                _dropDownButton.MouseLeave -= DropDownButton_MouseLeave;
-            }
-
-            if (_textBox != null)
-            {
-                _textBox.KeyDown -= TextBox_KeyDown;
-                _textBox.TextChanged -= TextBox_TextChanged;
-                _textBox.LostFocus -= TextBox_LostFocus;
-            }
-
-            base.OnApplyTemplate();
-
-            _popup = GetTemplateChild(ElementPopup) as Popup;
-            _dropDownButton = GetTemplateChild(ElementButton) as Button;
-            _textBox = GetTemplateChild(ElementTextBox) as WatermarkTextBox;
-
-            CheckNull();
-
-            _popup.PreviewMouseLeftButtonDown += PopupPreviewMouseLeftButtonDown;
-            _popup.Opened += PopupOpened;
-            _popup.Closed += PopupClosed;
-            _popup.Child = _calendarWithClock;
-
-            if (IsDropDownOpen)
-            {
-                _popup.IsOpen = true;
-            }
-
-            _dropDownButton.Click += DropDownButton_Click;
-            _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
-
-            var selectedDateTime = SelectedDateTime;
-
-            if (_textBox != null)
-            {
-                if (selectedDateTime == null)
-                {
-                    _textBox.Text = DateTime.Now.ToString(DateTimeFormat);
+                    dp._defaultText = newValue;
                 }
 
-                _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
-#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-                _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
-#endif
-                _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
-                _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
-
-                _textBox.KeyDown += TextBox_KeyDown;
-                _textBox.TextChanged += TextBox_TextChanged;
-                _textBox.LostFocus += TextBox_LostFocus;
-
-                if (selectedDateTime == null)
-                {
-                    if (!string.IsNullOrEmpty(_defaultText))
-                    {
-                        _textBox.Text = _defaultText;
-                        SetSelectedDateTime();
-                    }
-                }
-                else
-                {
-                    _textBox.Text = DateTimeToString(selectedDateTime.Value);
-                }
-            }
-
-            if (selectedDateTime is null)
-            {
-                _originalSelectedDateTime ??= DateTime.Now;
-                SetCurrentValue(DisplayDateTimeProperty, _originalSelectedDateTime);
+                dp.SetSelectedDateTime();
             }
             else
             {
-                SetCurrentValue(DisplayDateTimeProperty, selectedDateTime);
+                dp.SetValueNoCallback(SelectedDateTimeProperty, null);
             }
         }
+    }
 
-        public virtual bool VerifyData()
+    public string Text
+    {
+        get => (string) GetValue(TextProperty);
+        set => SetValue(TextProperty, value);
+    }
+
+    /// <summary>
+    /// Sets the local Text property without breaking bindings
+    /// </summary>
+    /// <param name="value"></param>
+    private void SetTextInternal(string value)
+    {
+        SetCurrentValue(TextProperty, value);
+    }
+
+    public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
+
+    public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
+        "IsError", typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public bool IsError
+    {
+        get => (bool) GetValue(IsErrorProperty);
+        set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
+        "ErrorStr", typeof(string), typeof(DateTimePicker), new PropertyMetadata(default(string)));
+
+    public string ErrorStr
+    {
+        get => (string) GetValue(ErrorStrProperty);
+        set => SetValue(ErrorStrProperty, value);
+    }
+
+    public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
+        "TextType", typeof(TextType), typeof(DateTimePicker), new PropertyMetadata(default(TextType)));
+
+    public TextType TextType
+    {
+        get => (TextType) GetValue(TextTypeProperty);
+        set => SetValue(TextTypeProperty, value);
+    }
+
+    public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
+        "ShowClearButton", typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public bool ShowClearButton
+    {
+        get => (bool) GetValue(ShowClearButtonProperty);
+        set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty SelectionBrushProperty =
+        TextBoxBase.SelectionBrushProperty.AddOwner(typeof(DateTimePicker));
+
+    public Brush SelectionBrush
+    {
+        get => (Brush) GetValue(SelectionBrushProperty);
+        set => SetValue(SelectionBrushProperty, value);
+    }
+
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+
+    public static readonly DependencyProperty SelectionTextBrushProperty =
+        TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(DateTimePicker));
+
+    public Brush SelectionTextBrush
+    {
+        get => (Brush) GetValue(SelectionTextBrushProperty);
+        set => SetValue(SelectionTextBrushProperty, value);
+    }
+
+#endif
+
+    public static readonly DependencyProperty SelectionOpacityProperty =
+        TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(DateTimePicker));
+
+    public double SelectionOpacity
+    {
+        get => (double) GetValue(SelectionOpacityProperty);
+        set => SetValue(SelectionOpacityProperty, value);
+    }
+
+    public static readonly DependencyProperty CaretBrushProperty =
+        TextBoxBase.CaretBrushProperty.AddOwner(typeof(DateTimePicker));
+
+    public Brush CaretBrush
+    {
+        get => (Brush) GetValue(CaretBrushProperty);
+        set => SetValue(CaretBrushProperty, value);
+    }
+
+    #endregion
+
+    #region Public Methods
+
+    public override void OnApplyTemplate()
+    {
+        if (DesignerProperties.GetIsInDesignMode(this)) return;
+        if (_popup != null)
         {
-            OperationResult<bool> result;
+            _popup.PreviewMouseLeftButtonDown -= PopupPreviewMouseLeftButtonDown;
+            _popup.Opened -= PopupOpened;
+            _popup.Closed -= PopupClosed;
+            _popup.Child = null;
+        }
 
-            if (VerifyFunc != null)
+        if (_dropDownButton != null)
+        {
+            _dropDownButton.Click -= DropDownButton_Click;
+            _dropDownButton.MouseLeave -= DropDownButton_MouseLeave;
+        }
+
+        if (_textBox != null)
+        {
+            _textBox.KeyDown -= TextBox_KeyDown;
+            _textBox.TextChanged -= TextBox_TextChanged;
+            _textBox.LostFocus -= TextBox_LostFocus;
+        }
+
+        base.OnApplyTemplate();
+
+        _popup = GetTemplateChild(ElementPopup) as Popup;
+        _dropDownButton = GetTemplateChild(ElementButton) as Button;
+        _textBox = GetTemplateChild(ElementTextBox) as WatermarkTextBox;
+
+        CheckNull();
+
+        _popup.PreviewMouseLeftButtonDown += PopupPreviewMouseLeftButtonDown;
+        _popup.Opened += PopupOpened;
+        _popup.Closed += PopupClosed;
+        _popup.Child = _calendarWithClock;
+
+        if (IsDropDownOpen)
+        {
+            _popup.IsOpen = true;
+        }
+
+        _dropDownButton.Click += DropDownButton_Click;
+        _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
+
+        var selectedDateTime = SelectedDateTime;
+
+        if (_textBox != null)
+        {
+            if (selectedDateTime == null)
             {
-                result = VerifyFunc.Invoke(Text);
+                _textBox.Text = DateTime.Now.ToString(DateTimeFormat);
+            }
+
+            _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+            _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+#endif
+            _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
+            _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+
+            _textBox.KeyDown += TextBox_KeyDown;
+            _textBox.TextChanged += TextBox_TextChanged;
+            _textBox.LostFocus += TextBox_LostFocus;
+
+            if (selectedDateTime == null)
+            {
+                if (!string.IsNullOrEmpty(_defaultText))
+                {
+                    _textBox.Text = _defaultText;
+                    SetSelectedDateTime();
+                }
             }
             else
             {
-                if (!string.IsNullOrEmpty(Text))
-                {
-                    result = OperationResult.Success();
-                }
-                else if (InfoElement.GetNecessary(this))
-                {
-                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-                }
-                else
-                {
-                    result = OperationResult.Success();
-                }
+                _textBox.Text = DateTimeToString(selectedDateTime.Value);
             }
+        }
 
-            var isError = !result.Data;
+        if (selectedDateTime is null)
+        {
+            _originalSelectedDateTime ??= DateTime.Now;
+            SetCurrentValue(DisplayDateTimeProperty, _originalSelectedDateTime);
+        }
+        else
+        {
+            SetCurrentValue(DisplayDateTimeProperty, selectedDateTime);
+        }
+    }
+
+    public virtual bool VerifyData()
+    {
+        OperationResult<bool> result;
+
+        if (VerifyFunc != null)
+        {
+            result = VerifyFunc.Invoke(Text);
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(Text))
+            {
+                result = OperationResult.Success();
+            }
+            else if (InfoElement.GetNecessary(this))
+            {
+                result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
+            }
+            else
+            {
+                result = OperationResult.Success();
+            }
+        }
+
+        var isError = !result.Data;
+        if (isError)
+        {
+            SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+            SetCurrentValue(ErrorStrProperty, result.Message);
+        }
+        else
+        {
+            isError = Validation.GetHasError(this);
             if (isError)
             {
-                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
-                SetCurrentValue(ErrorStrProperty, result.Message);
+                SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
             }
             else
             {
-                isError = Validation.GetHasError(this);
-                if (isError)
+                SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                SetCurrentValue(ErrorStrProperty, default(string));
+            }
+        }
+        return !isError;
+    }
+
+    public override string ToString() => SelectedDateTime?.ToString(DateTimeFormat) ?? string.Empty;
+
+    #endregion
+
+    #region Protected Methods
+
+    protected virtual void OnPickerClosed(RoutedEventArgs e)
+    {
+        var handler = PickerClosed;
+        handler?.Invoke(this, e);
+    }
+
+    protected virtual void OnPickerOpened(RoutedEventArgs e)
+    {
+        var handler = PickerOpened;
+        handler?.Invoke(this, e);
+    }
+
+    #endregion Protected Methods
+
+    #region Private Methods
+
+    private void CheckNull()
+    {
+        if (_dropDownButton == null || _popup == null || _textBox == null)
+            throw new Exception();
+    }
+
+    private void InitCalendarWithClock()
+    {
+        _calendarWithClock = new CalendarWithClock
+        {
+            ShowConfirmButton = true
+        };
+        _calendarWithClock.SelectedDateTimeChanged += CalendarWithClock_SelectedDateTimeChanged;
+        _calendarWithClock.Confirmed += CalendarWithClock_Confirmed;
+    }
+
+    private void CalendarWithClock_Confirmed() => TogglePopup();
+
+    private void CalendarWithClock_SelectedDateTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedDateTime = e.Info;
+
+    private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+    {
+        SetSelectedDateTime();
+    }
+
+    private void SetIsHandlerSuspended(DependencyProperty property, bool value)
+    {
+        if (value)
+        {
+            _isHandlerSuspended ??= new Dictionary<DependencyProperty, bool>(2);
+            _isHandlerSuspended[property] = true;
+        }
+        else
+        {
+            _isHandlerSuspended?.Remove(property);
+        }
+    }
+
+    private void SetValueNoCallback(DependencyProperty property, object value)
+    {
+        SetIsHandlerSuspended(property, true);
+        try
+        {
+            SetCurrentValue(property, value);
+        }
+        finally
+        {
+            SetIsHandlerSuspended(property, false);
+        }
+    }
+
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        SetValueNoCallback(TextProperty, _textBox.Text);
+        VerifyData();
+    }
+
+    private bool ProcessDateTimePickerKey(KeyEventArgs e)
+    {
+        switch (e.Key)
+        {
+            case Key.System:
                 {
-                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
-                }
-                else
-                {
-                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
-                    SetCurrentValue(ErrorStrProperty, default(string));
-                }
-            }
-            return !isError;
-        }
-
-        public override string ToString() => SelectedDateTime?.ToString(DateTimeFormat) ?? string.Empty;
-
-        #endregion
-
-        #region Protected Methods
-
-        protected virtual void OnPickerClosed(RoutedEventArgs e)
-        {
-            var handler = PickerClosed;
-            handler?.Invoke(this, e);
-        }
-
-        protected virtual void OnPickerOpened(RoutedEventArgs e)
-        {
-            var handler = PickerOpened;
-            handler?.Invoke(this, e);
-        }
-
-        #endregion Protected Methods
-
-        #region Private Methods
-
-        private void CheckNull()
-        {
-            if (_dropDownButton == null || _popup == null || _textBox == null)
-                throw new Exception();
-        }
-
-        private void InitCalendarWithClock()
-        {
-            _calendarWithClock = new CalendarWithClock
-            {
-                ShowConfirmButton = true
-            };
-            _calendarWithClock.SelectedDateTimeChanged += CalendarWithClock_SelectedDateTimeChanged;
-            _calendarWithClock.Confirmed += CalendarWithClock_Confirmed;
-        }
-
-        private void CalendarWithClock_Confirmed() => TogglePopup();
-
-        private void CalendarWithClock_SelectedDateTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedDateTime = e.Info;
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            SetSelectedDateTime();
-        }
-
-        private void SetIsHandlerSuspended(DependencyProperty property, bool value)
-        {
-            if (value)
-            {
-                _isHandlerSuspended ??= new Dictionary<DependencyProperty, bool>(2);
-                _isHandlerSuspended[property] = true;
-            }
-            else
-            {
-                _isHandlerSuspended?.Remove(property);
-            }
-        }
-
-        private void SetValueNoCallback(DependencyProperty property, object value)
-        {
-            SetIsHandlerSuspended(property, true);
-            try
-            {
-                SetCurrentValue(property, value);
-            }
-            finally
-            {
-                SetIsHandlerSuspended(property, false);
-            }
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-            SetValueNoCallback(TextProperty, _textBox.Text);
-            VerifyData();
-        }
-
-        private bool ProcessDateTimePickerKey(KeyEventArgs e)
-        {
-            switch (e.Key)
-            {
-                case Key.System:
+                    switch (e.SystemKey)
                     {
-                        switch (e.SystemKey)
-                        {
-                            case Key.Down:
+                        case Key.Down:
+                            {
+                                if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
                                 {
-                                    if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                                    {
-                                        TogglePopup();
-                                        return true;
-                                    }
-
-                                    break;
+                                    TogglePopup();
+                                    return true;
                                 }
-                        }
 
-                        break;
+                                break;
+                            }
                     }
 
-                case Key.Enter:
-                    {
-                        SetSelectedDateTime();
-                        return true;
-                    }
-            }
-
-            return false;
-        }
-
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.Handled = ProcessDateTimePickerKey(e) || e.Handled;
-        }
-
-        private void DropDownButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            _disablePopupReopen = false;
-        }
-
-        private bool IsHandlerSuspended(DependencyProperty property)
-        {
-            return _isHandlerSuspended != null && _isHandlerSuspended.ContainsKey(property);
-        }
-
-        private void PopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (sender is Popup { StaysOpen: false })
-            {
-                if (_dropDownButton?.InputHitTest(e.GetPosition(_dropDownButton)) != null)
-                {
-                    _disablePopupReopen = true;
+                    break;
                 }
-            }
-        }
 
-        private void PopupOpened(object sender, EventArgs e)
-        {
-            if (!IsDropDownOpen)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
-            }
-
-            _calendarWithClock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
-
-            OnPickerOpened(new RoutedEventArgs());
-        }
-
-        private void PopupClosed(object sender, EventArgs e)
-        {
-            if (IsDropDownOpen)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
-            }
-
-            if (_calendarWithClock.IsKeyboardFocusWithin)
-            {
-                MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
-            }
-
-            OnPickerClosed(new RoutedEventArgs());
-        }
-
-        private void DropDownButton_Click(object sender, RoutedEventArgs e) => TogglePopup();
-
-        private void TogglePopup()
-        {
-            if (IsDropDownOpen)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
-            }
-            else
-            {
-                if (_disablePopupReopen)
-                {
-                    _disablePopupReopen = false;
-                }
-                else
+            case Key.Enter:
                 {
                     SetSelectedDateTime();
-                    SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+                    return true;
                 }
-            }
         }
 
-        private void SafeSetText(string s)
+        return false;
+    }
+
+    private void TextBox_KeyDown(object sender, KeyEventArgs e)
+    {
+        e.Handled = ProcessDateTimePickerKey(e) || e.Handled;
+    }
+
+    private void DropDownButton_MouseLeave(object sender, MouseEventArgs e)
+    {
+        _disablePopupReopen = false;
+    }
+
+    private bool IsHandlerSuspended(DependencyProperty property)
+    {
+        return _isHandlerSuspended != null && _isHandlerSuspended.ContainsKey(property);
+    }
+
+    private void PopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        if (sender is Popup { StaysOpen: false })
         {
-            if (string.Compare(Text, s, StringComparison.Ordinal) != 0)
+            if (_dropDownButton?.InputHitTest(e.GetPosition(_dropDownButton)) != null)
             {
-                SetCurrentValue(TextProperty, s);
+                _disablePopupReopen = true;
             }
         }
+    }
 
-        private DateTime? ParseText(string text)
+    private void PopupOpened(object sender, EventArgs e)
+    {
+        if (!IsDropDownOpen)
         {
-            try
-            {
-                return DateTime.Parse(text);
-            }
-            catch
-            {
-                // ignored
-            }
-
-            return null;
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
         }
 
-        private DateTime? SetTextBoxValue(string s)
+        _calendarWithClock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+
+        OnPickerOpened(new RoutedEventArgs());
+    }
+
+    private void PopupClosed(object sender, EventArgs e)
+    {
+        if (IsDropDownOpen)
         {
-            if (string.IsNullOrEmpty(s))
-            {
-                SafeSetText(s);
-                return SelectedDateTime;
-            }
-
-            var d = ParseText(s);
-
-            if (d != null)
-            {
-                SafeSetText(DateTimeToString((DateTime) d));
-                return d;
-            }
-
-            if (SelectedDateTime != null)
-            {
-                var newtext = DateTimeToString(SelectedDateTime.Value);
-                SafeSetText(newtext);
-                return SelectedDateTime;
-            }
-            SafeSetText(DateTimeToString(DisplayDateTime));
-            return DisplayDateTime;
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
         }
 
-        private void SetSelectedDateTime()
+        if (_calendarWithClock.IsKeyboardFocusWithin)
         {
-            if (_textBox != null)
+            MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+        }
+
+        OnPickerClosed(new RoutedEventArgs());
+    }
+
+    private void DropDownButton_Click(object sender, RoutedEventArgs e) => TogglePopup();
+
+    private void TogglePopup()
+    {
+        if (IsDropDownOpen)
+        {
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
+        }
+        else
+        {
+            if (_disablePopupReopen)
             {
-                if (!string.IsNullOrEmpty(_textBox.Text))
-                {
-                    var s = _textBox.Text;
-
-                    if (SelectedDateTime != null)
-                    {
-                        if (SelectedDateTime != DisplayDateTime)
-                        {
-                            SetCurrentValue(DisplayDateTimeProperty, SelectedDateTime);
-                        }
-
-                        var selectedTime = DateTimeToString(SelectedDateTime.Value);
-
-                        if (string.Compare(selectedTime, s, StringComparison.Ordinal) == 0)
-                        {
-                            return;
-                        }
-                    }
-
-                    var d = SetTextBoxValue(s);
-                    if (!SelectedDateTime.Equals(d))
-                    {
-                        SetCurrentValue(SelectedDateTimeProperty, d);
-                        SetCurrentValue(DisplayDateTimeProperty, d);
-                    }
-                }
-                else
-                {
-                    if (SelectedDateTime.HasValue)
-                    {
-                        SetCurrentValue(SelectedDateTimeProperty, null);
-                    }
-                }
+                _disablePopupReopen = false;
             }
             else
             {
-                var d = SetTextBoxValue(_defaultText);
+                SetSelectedDateTime();
+                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+            }
+        }
+    }
+
+    private void SafeSetText(string s)
+    {
+        if (string.Compare(Text, s, StringComparison.Ordinal) != 0)
+        {
+            SetCurrentValue(TextProperty, s);
+        }
+    }
+
+    private DateTime? ParseText(string text)
+    {
+        try
+        {
+            return DateTime.Parse(text);
+        }
+        catch
+        {
+            // ignored
+        }
+
+        return null;
+    }
+
+    private DateTime? SetTextBoxValue(string s)
+    {
+        if (string.IsNullOrEmpty(s))
+        {
+            SafeSetText(s);
+            return SelectedDateTime;
+        }
+
+        var d = ParseText(s);
+
+        if (d != null)
+        {
+            SafeSetText(DateTimeToString((DateTime) d));
+            return d;
+        }
+
+        if (SelectedDateTime != null)
+        {
+            var newtext = DateTimeToString(SelectedDateTime.Value);
+            SafeSetText(newtext);
+            return SelectedDateTime;
+        }
+        SafeSetText(DateTimeToString(DisplayDateTime));
+        return DisplayDateTime;
+    }
+
+    private void SetSelectedDateTime()
+    {
+        if (_textBox != null)
+        {
+            if (!string.IsNullOrEmpty(_textBox.Text))
+            {
+                var s = _textBox.Text;
+
+                if (SelectedDateTime != null)
+                {
+                    if (SelectedDateTime != DisplayDateTime)
+                    {
+                        SetCurrentValue(DisplayDateTimeProperty, SelectedDateTime);
+                    }
+
+                    var selectedTime = DateTimeToString(SelectedDateTime.Value);
+
+                    if (string.Compare(selectedTime, s, StringComparison.Ordinal) == 0)
+                    {
+                        return;
+                    }
+                }
+
+                var d = SetTextBoxValue(s);
                 if (!SelectedDateTime.Equals(d))
                 {
                     SetCurrentValue(SelectedDateTimeProperty, d);
+                    SetCurrentValue(DisplayDateTimeProperty, d);
                 }
             }
-        }
-
-        private string DateTimeToString(DateTime d) => d.ToString(DateTimeFormat);
-
-        private static void OnGotFocus(object sender, RoutedEventArgs e)
-        {
-            var picker = (DateTimePicker) sender;
-            if (!e.Handled && picker._textBox != null)
+            else
             {
-                if (Equals(e.OriginalSource, picker))
+                if (SelectedDateTime.HasValue)
                 {
-                    picker._textBox.Focus();
-                    e.Handled = true;
-                }
-                else if (Equals(e.OriginalSource, picker._textBox))
-                {
-                    picker._textBox.SelectAll();
-                    e.Handled = true;
+                    SetCurrentValue(SelectedDateTimeProperty, null);
                 }
             }
         }
-
-        #endregion
+        else
+        {
+            var d = SetTextBoxValue(_defaultText);
+            if (!SelectedDateTime.Equals(d))
+            {
+                SetCurrentValue(SelectedDateTimeProperty, d);
+            }
+        }
     }
+
+    private string DateTimeToString(DateTime d) => d.ToString(DateTimeFormat);
+
+    private static void OnGotFocus(object sender, RoutedEventArgs e)
+    {
+        var picker = (DateTimePicker) sender;
+        if (!e.Handled && picker._textBox != null)
+        {
+            if (Equals(e.OriginalSource, picker))
+            {
+                picker._textBox.Focus();
+                e.Handled = true;
+            }
+            else if (Equals(e.OriginalSource, picker._textBox))
+            {
+                picker._textBox.SelectAll();
+                e.Handled = true;
+            }
+        }
+    }
+
+    #endregion
 }

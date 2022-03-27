@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum DWMNCRP
 {
-    internal enum DWMNCRP
-    {
-        USEWINDOWSTYLE,
-        DISABLED,
-        ENABLED
-    }
+    USEWINDOWSTYLE,
+    DISABLED,
+    ENABLED
 }

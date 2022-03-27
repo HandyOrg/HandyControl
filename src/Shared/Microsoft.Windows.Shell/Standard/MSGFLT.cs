@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum MSGFLT
 {
-    internal enum MSGFLT
-    {
-        RESET,
-        ALLOW,
-        DISALLOW
-    }
+    RESET,
+    ALLOW,
+    DISALLOW
 }

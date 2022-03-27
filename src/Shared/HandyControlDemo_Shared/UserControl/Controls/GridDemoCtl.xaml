@@ -6,7 +6,7 @@
              xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
-    <ScrollViewer>
+    <hc:ScrollViewer IsInertiaEnabled="True">
         <StackPanel Margin="32">
             <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.BasicLayout}}" Style="{StaticResource TextBlockLargeBold}" HorizontalAlignment="Left"/>
             <hc:Row Margin="0,20,0,0">
@@ -154,5 +154,5 @@
                 </hc:Col>
             </hc:Row>
         </StackPanel>
-    </ScrollViewer>
+    </hc:ScrollViewer>
 </UserControl>

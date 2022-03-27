@@ -42,7 +42,7 @@ Task("Build")
         {
             Configuration = "Release",
             Framework = framework,
-            OutputDirectory = $"lib/{framework}"
+            OutputDirectory = $"lib/{framework.Split('-')[0]}"
         };
 
         DotNetCoreBuild("../src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj", settings);

@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class StepBarDemoCtl
 {
-    public partial class StepBarDemoCtl
+    public StepBarDemoCtl()
     {
-        public StepBarDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

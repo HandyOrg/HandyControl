@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.Window
+﻿namespace HandyControlDemo.Window;
+
+public partial class GrowlDemoWindow
 {
-    public partial class GrowlDemoWindow
+    public GrowlDemoWindow()
     {
-        public GrowlDemoWindow()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

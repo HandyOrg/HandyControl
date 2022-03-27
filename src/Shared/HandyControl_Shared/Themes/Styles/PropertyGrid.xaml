@@ -67,10 +67,6 @@
         <Setter Property="hc:BorderElement.CornerRadius" Value="0,0,4,4"/>
     </Style>
 
-    <ItemsPanelTemplate x:Key="ComboBoxCapsuleItemsPanelTemplate">
-        <UniformGrid FocusVisualStyle="{x:Null}" Rows="1"/>
-    </ItemsPanelTemplate>
-
     <tools:ComboBoxItemCapsuleStyleSelector x:Key="ComboBoxItemCapsuleStyleSelector"/>
 
     <Style x:Key="ComboBoxCapsule" BasedOn="{x:Null}" TargetType="ComboBox">
@@ -78,7 +74,7 @@
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="ItemsPanel" Value="{StaticResource ComboBoxCapsuleItemsPanelTemplate}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource UniformHorizontalItemsPanelTemplate}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ComboBox">

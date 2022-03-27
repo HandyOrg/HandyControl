@@ -129,6 +129,9 @@
                     <Button Tag="ca-ES" Style="{StaticResource ButtonCustom}">
                         <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ca-Es.png"/>
                     </Button>
+                    <Button Tag="ja" Style="{StaticResource ButtonCustom}">
+                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ja.png"/>
+                    </Button>
                     <Button Tag="ko-KR" Style="{StaticResource ButtonCustom}">
                         <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/ko-KR.png"/>
                     </Button>

@@ -11,787 +11,786 @@ using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+/// <summary>
+///     时间选择器
+/// </summary>
+[TemplatePart(Name = ElementRoot, Type = typeof(Grid))]
+[TemplatePart(Name = ElementTextBox, Type = typeof(WatermarkTextBox))]
+[TemplatePart(Name = ElementButton, Type = typeof(Button))]
+[TemplatePart(Name = ElementPopup, Type = typeof(Popup))]
+public class TimePicker : Control, IDataInput
 {
-    /// <summary>
-    ///     时间选择器
-    /// </summary>
-    [TemplatePart(Name = ElementRoot, Type = typeof(Grid))]
-    [TemplatePart(Name = ElementTextBox, Type = typeof(WatermarkTextBox))]
-    [TemplatePart(Name = ElementButton, Type = typeof(Button))]
-    [TemplatePart(Name = ElementPopup, Type = typeof(Popup))]
-    public class TimePicker : Control, IDataInput
+    #region Constants
+
+    private const string ElementRoot = "PART_Root";
+
+    private const string ElementTextBox = "PART_TextBox";
+
+    private const string ElementButton = "PART_Button";
+
+    private const string ElementPopup = "PART_Popup";
+
+    #endregion Constants
+
+    #region Data
+
+    private string _defaultText;
+
+    private ButtonBase _dropDownButton;
+
+    private Popup _popup;
+
+    private bool _disablePopupReopen;
+
+    private WatermarkTextBox _textBox;
+
+    private IDictionary<DependencyProperty, bool> _isHandlerSuspended;
+
+    private DateTime? _originalSelectedTime;
+
+    #endregion Data
+
+    #region Public Events
+
+    public static readonly RoutedEvent SelectedTimeChangedEvent =
+        EventManager.RegisterRoutedEvent("SelectedTimeChanged", RoutingStrategy.Direct,
+            typeof(EventHandler<FunctionEventArgs<DateTime?>>), typeof(TimePicker));
+
+    public event EventHandler<FunctionEventArgs<DateTime?>> SelectedTimeChanged
     {
-        #region Constants
+        add => AddHandler(SelectedTimeChangedEvent, value);
+        remove => RemoveHandler(SelectedTimeChangedEvent, value);
+    }
 
-        private const string ElementRoot = "PART_Root";
+    public event RoutedEventHandler ClockClosed;
 
-        private const string ElementTextBox = "PART_TextBox";
+    public event RoutedEventHandler ClockOpened;
 
-        private const string ElementButton = "PART_Button";
+    #endregion Public Events
 
-        private const string ElementPopup = "PART_Popup";
+    static TimePicker()
+    {
+        EventManager.RegisterClassHandler(typeof(TimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
+        KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
+        KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
+    }
 
-        #endregion Constants
-
-        #region Data
-
-        private string _defaultText;
-
-        private ButtonBase _dropDownButton;
-
-        private Popup _popup;
-
-        private bool _disablePopupReopen;
-
-        private WatermarkTextBox _textBox;
-
-        private IDictionary<DependencyProperty, bool> _isHandlerSuspended;
-
-        private DateTime? _originalSelectedTime;
-
-        #endregion Data
-
-        #region Public Events
-
-        public static readonly RoutedEvent SelectedTimeChangedEvent =
-            EventManager.RegisterRoutedEvent("SelectedTimeChanged", RoutingStrategy.Direct,
-                typeof(EventHandler<FunctionEventArgs<DateTime?>>), typeof(TimePicker));
-
-        public event EventHandler<FunctionEventArgs<DateTime?>> SelectedTimeChanged
+    public TimePicker()
+    {
+        Clock = new Clock();
+        CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
         {
-            add => AddHandler(SelectedTimeChangedEvent, value);
-            remove => RemoveHandler(SelectedTimeChangedEvent, value);
-        }
+            SetCurrentValue(SelectedTimeProperty, null);
+            SetCurrentValue(TextProperty, "");
+            _textBox.Text = string.Empty;
+        }));
+    }
 
-        public event RoutedEventHandler ClockClosed;
+    #region Public Properties
 
-        public event RoutedEventHandler ClockOpened;
+    #region TimeFormat
 
-        #endregion Public Events
+    public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
+        "TimeFormat", typeof(string), typeof(TimePicker), new PropertyMetadata("HH:mm:ss"));
 
-        static TimePicker()
-        {
-            EventManager.RegisterClassHandler(typeof(TimePicker), GotFocusEvent, new RoutedEventHandler(OnGotFocus));
-            KeyboardNavigation.TabNavigationProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(KeyboardNavigationMode.Once));
-            KeyboardNavigation.IsTabStopProperty.OverrideMetadata(typeof(TimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox));
-        }
+    public string TimeFormat
+    {
+        get => (string) GetValue(TimeFormatProperty);
+        set => SetValue(TimeFormatProperty, value);
+    }
 
-        public TimePicker()
-        {
-            Clock = new Clock();
-            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
-            {
-                SetCurrentValue(SelectedTimeProperty, null);
-                SetCurrentValue(TextProperty, "");
-                _textBox.Text = string.Empty;
-            }));
-        }
+    #endregion TimeFormat
 
-        #region Public Properties
+    #region DisplayTime
 
-        #region TimeFormat
+    public DateTime DisplayTime
+    {
+        get => (DateTime) GetValue(DisplayTimeProperty);
+        set => SetValue(DisplayTimeProperty, value);
+    }
 
-        public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
-            "TimeFormat", typeof(string), typeof(TimePicker), new PropertyMetadata("HH:mm:ss"));
+    public static readonly DependencyProperty DisplayTimeProperty =
+        DependencyProperty.Register(
+            "DisplayTime",
+            typeof(DateTime),
+            typeof(TimePicker),
+            new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayTime));
 
-        public string TimeFormat
-        {
-            get => (string) GetValue(TimeFormatProperty);
-            set => SetValue(TimeFormatProperty, value);
-        }
+    private static object CoerceDisplayTime(DependencyObject d, object value)
+    {
+        var dp = (TimePicker) d;
+        dp.Clock.DisplayTime = (DateTime) value;
+        return dp.Clock.DisplayTime;
+    }
 
-        #endregion TimeFormat
+    #endregion DisplayTime
 
-        #region DisplayTime
+    #region IsDropDownOpen
 
-        public DateTime DisplayTime
-        {
-            get => (DateTime) GetValue(DisplayTimeProperty);
-            set => SetValue(DisplayTimeProperty, value);
-        }
+    public bool IsDropDownOpen
+    {
+        get => (bool) GetValue(IsDropDownOpenProperty);
+        set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
+    }
 
-        public static readonly DependencyProperty DisplayTimeProperty =
-            DependencyProperty.Register(
-                "DisplayTime",
-                typeof(DateTime),
-                typeof(TimePicker),
-                new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayTime));
-
-        private static object CoerceDisplayTime(DependencyObject d, object value)
-        {
-            var dp = (TimePicker) d;
-            dp.Clock.DisplayTime = (DateTime) value;
-            return dp.Clock.DisplayTime;
-        }
-
-        #endregion DisplayTime
-
-        #region IsDropDownOpen
-
-        public bool IsDropDownOpen
-        {
-            get => (bool) GetValue(IsDropDownOpenProperty);
-            set => SetValue(IsDropDownOpenProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        public static readonly DependencyProperty IsDropDownOpenProperty =
-            DependencyProperty.Register(
+    public static readonly DependencyProperty IsDropDownOpenProperty =
+        DependencyProperty.Register(
             "IsDropDownOpen",
             typeof(bool),
             typeof(TimePicker),
             new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
-        private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
-            d is TimePicker
-            {
-                IsEnabled: false
-            }
-                ? false
-                : baseValue;
-
-        private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
+        d is TimePicker
         {
-            var dp = d as TimePicker;
+            IsEnabled: false
+        }
+            ? false
+            : baseValue;
 
-            var newValue = (bool) e.NewValue;
-            if (dp?._popup != null && dp._popup.IsOpen != newValue)
+    private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var dp = d as TimePicker;
+
+        var newValue = (bool) e.NewValue;
+        if (dp?._popup != null && dp._popup.IsOpen != newValue)
+        {
+            dp._popup.IsOpen = newValue;
+            if (newValue)
             {
-                dp._popup.IsOpen = newValue;
-                if (newValue)
+                dp._originalSelectedTime = dp.SelectedTime;
+
+                dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action) delegate
                 {
-                    dp._originalSelectedTime = dp.SelectedTime;
-
-                    dp.Dispatcher.BeginInvoke(DispatcherPriority.Input, (Action) delegate
-                     {
-                         dp.Clock.Focus();
-                     });
-                }
+                    dp.Clock.Focus();
+                });
             }
         }
+    }
 
-        #endregion IsDropDownOpen
+    #endregion IsDropDownOpen
 
-        #region SelectedTime
+    #region SelectedTime
 
-        public DateTime? SelectedTime
-        {
-            get => (DateTime?) GetValue(SelectedTimeProperty);
-            set => SetValue(SelectedTimeProperty, value);
-        }
+    public DateTime? SelectedTime
+    {
+        get => (DateTime?) GetValue(SelectedTimeProperty);
+        set => SetValue(SelectedTimeProperty, value);
+    }
 
-        public static readonly DependencyProperty SelectedTimeProperty =
-            DependencyProperty.Register(
+    public static readonly DependencyProperty SelectedTimeProperty =
+        DependencyProperty.Register(
             "SelectedTime",
             typeof(DateTime?),
             typeof(TimePicker),
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedTimeChanged, CoerceSelectedTime));
 
-        private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not TimePicker dp) return;
+
+        if (dp.SelectedTime.HasValue)
         {
-            if (d is not TimePicker dp) return;
-
-            if (dp.SelectedTime.HasValue)
-            {
-                var time = dp.SelectedTime.Value;
-                dp.SetTextInternal(dp.DateTimeToString(time));
-            }
-
-            dp.RaiseEvent(new FunctionEventArgs<DateTime?>(SelectedTimeChangedEvent, dp)
-            {
-                Info = dp.SelectedTime
-            });
+            var time = dp.SelectedTime.Value;
+            dp.SetTextInternal(dp.DateTimeToString(time));
         }
 
-        private static object CoerceSelectedTime(DependencyObject d, object value)
+        dp.RaiseEvent(new FunctionEventArgs<DateTime?>(SelectedTimeChangedEvent, dp)
         {
-            var dp = (TimePicker) d;
-            dp.Clock.SelectedTime = (DateTime?) value;
-            return dp.Clock.SelectedTime;
-        }
+            Info = dp.SelectedTime
+        });
+    }
 
-        #endregion SelectedDate
+    private static object CoerceSelectedTime(DependencyObject d, object value)
+    {
+        var dp = (TimePicker) d;
+        dp.Clock.SelectedTime = (DateTime?) value;
+        return dp.Clock.SelectedTime;
+    }
 
-        #region Text
+    #endregion SelectedDate
 
-        public string Text
-        {
-            get => (string) GetValue(TextProperty);
-            set => SetValue(TextProperty, value);
-        }
+    #region Text
 
-        public static readonly DependencyProperty TextProperty =
-            DependencyProperty.Register(
+    public string Text
+    {
+        get => (string) GetValue(TextProperty);
+        set => SetValue(TextProperty, value);
+    }
+
+    public static readonly DependencyProperty TextProperty =
+        DependencyProperty.Register(
             "Text",
             typeof(string),
             typeof(TimePicker),
             new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
 
-        private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is TimePicker dp && !dp.IsHandlerSuspended(TextProperty))
         {
-            if (d is TimePicker dp && !dp.IsHandlerSuspended(TextProperty))
+            if (e.NewValue is string newValue)
             {
-                if (e.NewValue is string newValue)
+                if (dp._textBox != null)
                 {
-                    if (dp._textBox != null)
-                    {
-                        dp._textBox.Text = newValue;
-                    }
-                    else
-                    {
-                        dp._defaultText = newValue;
-                    }
-
-                    dp.SetSelectedTime();
+                    dp._textBox.Text = newValue;
                 }
                 else
                 {
-                    dp.SetValueNoCallback(SelectedTimeProperty, null);
+                    dp._defaultText = newValue;
                 }
-            }
-        }
 
-        /// <summary>
-        /// Sets the local Text property without breaking bindings
-        /// </summary>
-        /// <param name="value"></param>
-        private void SetTextInternal(string value)
-        {
-            SetCurrentValue(TextProperty, value);
-        }
-
-        #endregion Text
-
-        public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-        public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-            "IsError", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
-
-        public bool IsError
-        {
-            get => (bool) GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-            "ErrorStr", typeof(string), typeof(TimePicker), new PropertyMetadata(default(string)));
-
-        public string ErrorStr
-        {
-            get => (string) GetValue(ErrorStrProperty);
-            set => SetValue(ErrorStrProperty, value);
-        }
-
-        public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-            "TextType", typeof(TextType), typeof(TimePicker), new PropertyMetadata(default(TextType)));
-
-        public TextType TextType
-        {
-            get => (TextType) GetValue(TextTypeProperty);
-            set => SetValue(TextTypeProperty, value);
-        }
-
-        public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-            "ShowClearButton", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
-
-        public bool ShowClearButton
-        {
-            get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
-        }
-
-        public static readonly DependencyProperty SelectionBrushProperty =
-            TextBoxBase.SelectionBrushProperty.AddOwner(typeof(TimePicker));
-
-        public Brush SelectionBrush
-        {
-            get => (Brush) GetValue(SelectionBrushProperty);
-            set => SetValue(SelectionBrushProperty, value);
-        }
-
-#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-
-        public static readonly DependencyProperty SelectionTextBrushProperty =
-            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(TimePicker));
-
-        public Brush SelectionTextBrush
-        {
-            get => (Brush) GetValue(SelectionTextBrushProperty);
-            set => SetValue(SelectionTextBrushProperty, value);
-        }
-
-#endif
-
-        public static readonly DependencyProperty SelectionOpacityProperty =
-            TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(TimePicker));
-
-        public double SelectionOpacity
-        {
-            get => (double) GetValue(SelectionOpacityProperty);
-            set => SetValue(SelectionOpacityProperty, value);
-        }
-
-        public static readonly DependencyProperty CaretBrushProperty =
-            TextBoxBase.CaretBrushProperty.AddOwner(typeof(TimePicker));
-
-        public Brush CaretBrush
-        {
-            get => (Brush) GetValue(CaretBrushProperty);
-            set => SetValue(CaretBrushProperty, value);
-        }
-
-        public static readonly DependencyProperty ClockProperty = DependencyProperty.Register(
-            "Clock", typeof(ClockBase), typeof(TimePicker), new FrameworkPropertyMetadata(default(Clock), FrameworkPropertyMetadataOptions.NotDataBindable, OnClockChanged));
-
-        private static void OnClockChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            var ctl = (TimePicker) d;
-
-            if (e.OldValue is ClockBase oldClock)
-            {
-                oldClock.SelectedTimeChanged -= ctl.Clock_SelectedTimeChanged;
-                oldClock.Confirmed -= ctl.Clock_Confirmed;
-            }
-
-            if (e.NewValue is ClockBase newClock)
-            {
-                newClock.ShowConfirmButton = true;
-                newClock.SelectedTimeChanged += ctl.Clock_SelectedTimeChanged;
-                newClock.Confirmed += ctl.Clock_Confirmed;
-            }
-        }
-
-        public ClockBase Clock
-        {
-            get => (ClockBase) GetValue(ClockProperty);
-            set => SetValue(ClockProperty, value);
-        }
-
-        #endregion Public Properties
-
-        #region Public Methods
-
-        public virtual bool VerifyData()
-        {
-            OperationResult<bool> result;
-
-            if (VerifyFunc != null)
-            {
-                result = VerifyFunc.Invoke(Text);
+                dp.SetSelectedTime();
             }
             else
             {
-                if (!string.IsNullOrEmpty(Text))
-                {
-                    result = OperationResult.Success();
-                }
-                else if (InfoElement.GetNecessary(this))
-                {
-                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-                }
-                else
-                {
-                    result = OperationResult.Success();
-                }
+                dp.SetValueNoCallback(SelectedTimeProperty, null);
             }
+        }
+    }
 
-            var isError = !result.Data;
+    /// <summary>
+    /// Sets the local Text property without breaking bindings
+    /// </summary>
+    /// <param name="value"></param>
+    private void SetTextInternal(string value)
+    {
+        SetCurrentValue(TextProperty, value);
+    }
+
+    #endregion Text
+
+    public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
+
+    public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
+        "IsError", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public bool IsError
+    {
+        get => (bool) GetValue(IsErrorProperty);
+        set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
+        "ErrorStr", typeof(string), typeof(TimePicker), new PropertyMetadata(default(string)));
+
+    public string ErrorStr
+    {
+        get => (string) GetValue(ErrorStrProperty);
+        set => SetValue(ErrorStrProperty, value);
+    }
+
+    public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
+        "TextType", typeof(TextType), typeof(TimePicker), new PropertyMetadata(default(TextType)));
+
+    public TextType TextType
+    {
+        get => (TextType) GetValue(TextTypeProperty);
+        set => SetValue(TextTypeProperty, value);
+    }
+
+    public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
+        "ShowClearButton", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public bool ShowClearButton
+    {
+        get => (bool) GetValue(ShowClearButtonProperty);
+        set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty SelectionBrushProperty =
+        TextBoxBase.SelectionBrushProperty.AddOwner(typeof(TimePicker));
+
+    public Brush SelectionBrush
+    {
+        get => (Brush) GetValue(SelectionBrushProperty);
+        set => SetValue(SelectionBrushProperty, value);
+    }
+
+#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+
+    public static readonly DependencyProperty SelectionTextBrushProperty =
+        TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(TimePicker));
+
+    public Brush SelectionTextBrush
+    {
+        get => (Brush) GetValue(SelectionTextBrushProperty);
+        set => SetValue(SelectionTextBrushProperty, value);
+    }
+
+#endif
+
+    public static readonly DependencyProperty SelectionOpacityProperty =
+        TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(TimePicker));
+
+    public double SelectionOpacity
+    {
+        get => (double) GetValue(SelectionOpacityProperty);
+        set => SetValue(SelectionOpacityProperty, value);
+    }
+
+    public static readonly DependencyProperty CaretBrushProperty =
+        TextBoxBase.CaretBrushProperty.AddOwner(typeof(TimePicker));
+
+    public Brush CaretBrush
+    {
+        get => (Brush) GetValue(CaretBrushProperty);
+        set => SetValue(CaretBrushProperty, value);
+    }
+
+    public static readonly DependencyProperty ClockProperty = DependencyProperty.Register(
+        "Clock", typeof(ClockBase), typeof(TimePicker), new FrameworkPropertyMetadata(default(Clock), FrameworkPropertyMetadataOptions.NotDataBindable, OnClockChanged));
+
+    private static void OnClockChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var ctl = (TimePicker) d;
+
+        if (e.OldValue is ClockBase oldClock)
+        {
+            oldClock.SelectedTimeChanged -= ctl.Clock_SelectedTimeChanged;
+            oldClock.Confirmed -= ctl.Clock_Confirmed;
+        }
+
+        if (e.NewValue is ClockBase newClock)
+        {
+            newClock.ShowConfirmButton = true;
+            newClock.SelectedTimeChanged += ctl.Clock_SelectedTimeChanged;
+            newClock.Confirmed += ctl.Clock_Confirmed;
+        }
+    }
+
+    public ClockBase Clock
+    {
+        get => (ClockBase) GetValue(ClockProperty);
+        set => SetValue(ClockProperty, value);
+    }
+
+    #endregion Public Properties
+
+    #region Public Methods
+
+    public virtual bool VerifyData()
+    {
+        OperationResult<bool> result;
+
+        if (VerifyFunc != null)
+        {
+            result = VerifyFunc.Invoke(Text);
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(Text))
+            {
+                result = OperationResult.Success();
+            }
+            else if (InfoElement.GetNecessary(this))
+            {
+                result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
+            }
+            else
+            {
+                result = OperationResult.Success();
+            }
+        }
+
+        var isError = !result.Data;
+        if (isError)
+        {
+            SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
+            SetCurrentValue(ErrorStrProperty, result.Message);
+        }
+        else
+        {
+            isError = Validation.GetHasError(this);
             if (isError)
             {
-                SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
-                SetCurrentValue(ErrorStrProperty, result.Message);
+                SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
             }
             else
             {
-                isError = Validation.GetHasError(this);
-                if (isError)
-                {
-                    SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
-                }
-                else
-                {
-                    SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
-                    SetCurrentValue(ErrorStrProperty, default(string));
-                }
+                SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
+                SetCurrentValue(ErrorStrProperty, default(string));
             }
-            return !isError;
+        }
+        return !isError;
+    }
+
+    public override void OnApplyTemplate()
+    {
+        if (DesignerProperties.GetIsInDesignMode(this)) return;
+        if (_popup != null)
+        {
+            _popup.PreviewMouseLeftButtonDown -= PopupPreviewMouseLeftButtonDown;
+            _popup.Opened -= PopupOpened;
+            _popup.Closed -= PopupClosed;
+            _popup.Child = null;
         }
 
-        public override void OnApplyTemplate()
+        if (_dropDownButton != null)
         {
-            if (DesignerProperties.GetIsInDesignMode(this)) return;
-            if (_popup != null)
+            _dropDownButton.Click -= DropDownButton_Click;
+            _dropDownButton.MouseLeave -= DropDownButton_MouseLeave;
+        }
+
+        if (_textBox != null)
+        {
+            _textBox.KeyDown -= TextBox_KeyDown;
+            _textBox.TextChanged -= TextBox_TextChanged;
+            _textBox.LostFocus -= TextBox_LostFocus;
+        }
+
+        base.OnApplyTemplate();
+
+        _popup = GetTemplateChild(ElementPopup) as Popup;
+        _dropDownButton = GetTemplateChild(ElementButton) as Button;
+        _textBox = GetTemplateChild(ElementTextBox) as WatermarkTextBox;
+
+        CheckNull();
+
+        _popup.PreviewMouseLeftButtonDown += PopupPreviewMouseLeftButtonDown;
+        _popup.Opened += PopupOpened;
+        _popup.Closed += PopupClosed;
+        _popup.Child = Clock;
+
+        if (IsDropDownOpen)
+        {
+            _popup.IsOpen = true;
+        }
+
+        _dropDownButton.Click += DropDownButton_Click;
+        _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
+
+        var selectedTime = SelectedTime;
+
+        if (_textBox != null)
+        {
+            if (selectedTime == null)
             {
-                _popup.PreviewMouseLeftButtonDown -= PopupPreviewMouseLeftButtonDown;
-                _popup.Opened -= PopupOpened;
-                _popup.Closed -= PopupClosed;
-                _popup.Child = null;
+                _textBox.Text = DateTime.Now.ToString(TimeFormat);
             }
 
-            if (_dropDownButton != null)
-            {
-                _dropDownButton.Click -= DropDownButton_Click;
-                _dropDownButton.MouseLeave -= DropDownButton_MouseLeave;
-            }
-
-            if (_textBox != null)
-            {
-                _textBox.KeyDown -= TextBox_KeyDown;
-                _textBox.TextChanged -= TextBox_TextChanged;
-                _textBox.LostFocus -= TextBox_LostFocus;
-            }
-
-            base.OnApplyTemplate();
-
-            _popup = GetTemplateChild(ElementPopup) as Popup;
-            _dropDownButton = GetTemplateChild(ElementButton) as Button;
-            _textBox = GetTemplateChild(ElementTextBox) as WatermarkTextBox;
-
-            CheckNull();
-
-            _popup.PreviewMouseLeftButtonDown += PopupPreviewMouseLeftButtonDown;
-            _popup.Opened += PopupOpened;
-            _popup.Closed += PopupClosed;
-            _popup.Child = Clock;
-
-            if (IsDropDownOpen)
-            {
-                _popup.IsOpen = true;
-            }
-
-            _dropDownButton.Click += DropDownButton_Click;
-            _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
-
-            var selectedTime = SelectedTime;
-
-            if (_textBox != null)
-            {
-                if (selectedTime == null)
-                {
-                    _textBox.Text = DateTime.Now.ToString(TimeFormat);
-                }
-
-                _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+            _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-                _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+            _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
-                _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
-                _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+            _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
+            _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
 
-                _textBox.KeyDown += TextBox_KeyDown;
-                _textBox.TextChanged += TextBox_TextChanged;
-                _textBox.LostFocus += TextBox_LostFocus;
+            _textBox.KeyDown += TextBox_KeyDown;
+            _textBox.TextChanged += TextBox_TextChanged;
+            _textBox.LostFocus += TextBox_LostFocus;
 
-                if (selectedTime == null)
-                {
-                    if (!string.IsNullOrEmpty(_defaultText))
-                    {
-                        _textBox.Text = _defaultText;
-                        SetSelectedTime();
-                    }
-                }
-                else
-                {
-                    _textBox.Text = DateTimeToString(selectedTime.Value);
-                }
-            }
-
-            if (selectedTime is null)
+            if (selectedTime == null)
             {
-                _originalSelectedTime ??= DateTime.Now;
-                SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
+                if (!string.IsNullOrEmpty(_defaultText))
+                {
+                    _textBox.Text = _defaultText;
+                    SetSelectedTime();
+                }
             }
             else
             {
-                SetCurrentValue(DisplayTimeProperty, selectedTime);
+                _textBox.Text = DateTimeToString(selectedTime.Value);
             }
         }
 
-        public override string ToString() => SelectedTime?.ToString(TimeFormat) ?? string.Empty;
-
-        #endregion
-
-        #region Protected Methods
-
-        protected virtual void OnClockClosed(RoutedEventArgs e)
+        if (selectedTime is null)
         {
-            var handler = ClockClosed;
-            handler?.Invoke(this, e);
+            _originalSelectedTime ??= DateTime.Now;
+            SetCurrentValue(DisplayTimeProperty, _originalSelectedTime);
         }
-
-        protected virtual void OnClockOpened(RoutedEventArgs e)
+        else
         {
-            var handler = ClockOpened;
-            handler?.Invoke(this, e);
+            SetCurrentValue(DisplayTimeProperty, selectedTime);
         }
+    }
 
-        #endregion Protected Methods
+    public override string ToString() => SelectedTime?.ToString(TimeFormat) ?? string.Empty;
 
-        #region Private Methods
+    #endregion
 
-        private void CheckNull()
+    #region Protected Methods
+
+    protected virtual void OnClockClosed(RoutedEventArgs e)
+    {
+        var handler = ClockClosed;
+        handler?.Invoke(this, e);
+    }
+
+    protected virtual void OnClockOpened(RoutedEventArgs e)
+    {
+        var handler = ClockOpened;
+        handler?.Invoke(this, e);
+    }
+
+    #endregion Protected Methods
+
+    #region Private Methods
+
+    private void CheckNull()
+    {
+        if (_dropDownButton == null || _popup == null || _textBox == null)
+            throw new Exception();
+    }
+
+    private void TextBox_LostFocus(object sender, RoutedEventArgs e) => SetSelectedTime();
+
+    private void SetIsHandlerSuspended(DependencyProperty property, bool value)
+    {
+        if (value)
         {
-            if (_dropDownButton == null || _popup == null || _textBox == null)
-                throw new Exception();
+            _isHandlerSuspended ??= new Dictionary<DependencyProperty, bool>(2);
+            _isHandlerSuspended[property] = true;
         }
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e) => SetSelectedTime();
-
-        private void SetIsHandlerSuspended(DependencyProperty property, bool value)
+        else
         {
-            if (value)
-            {
-                _isHandlerSuspended ??= new Dictionary<DependencyProperty, bool>(2);
-                _isHandlerSuspended[property] = true;
-            }
-            else
-            {
-                _isHandlerSuspended?.Remove(property);
-            }
+            _isHandlerSuspended?.Remove(property);
         }
+    }
 
-        private void SetValueNoCallback(DependencyProperty property, object value)
+    private void SetValueNoCallback(DependencyProperty property, object value)
+    {
+        SetIsHandlerSuspended(property, true);
+        try
         {
-            SetIsHandlerSuspended(property, true);
-            try
-            {
-                SetCurrentValue(property, value);
-            }
-            finally
-            {
-                SetIsHandlerSuspended(property, false);
-            }
+            SetCurrentValue(property, value);
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        finally
         {
-            SetValueNoCallback(TextProperty, _textBox.Text);
-            VerifyData();
+            SetIsHandlerSuspended(property, false);
         }
+    }
 
-        private bool ProcessTimePickerKey(KeyEventArgs e)
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        SetValueNoCallback(TextProperty, _textBox.Text);
+        VerifyData();
+    }
+
+    private bool ProcessTimePickerKey(KeyEventArgs e)
+    {
+        switch (e.Key)
         {
-            switch (e.Key)
-            {
-                case Key.System:
+            case Key.System:
+                {
+                    switch (e.SystemKey)
                     {
-                        switch (e.SystemKey)
-                        {
-                            case Key.Down:
+                        case Key.Down:
+                            {
+                                if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
                                 {
-                                    if ((Keyboard.Modifiers & ModifierKeys.Alt) == ModifierKeys.Alt)
-                                    {
-                                        TogglePopup();
-                                        return true;
-                                    }
-
-                                    break;
+                                    TogglePopup();
+                                    return true;
                                 }
-                        }
 
-                        break;
+                                break;
+                            }
                     }
 
-                case Key.Enter:
-                    {
-                        SetSelectedTime();
-                        return true;
-                    }
-            }
-
-            return false;
-        }
-
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            e.Handled = ProcessTimePickerKey(e) || e.Handled;
-        }
-
-        private void DropDownButton_MouseLeave(object sender, MouseEventArgs e)
-        {
-            _disablePopupReopen = false;
-        }
-
-        private bool IsHandlerSuspended(DependencyProperty property)
-        {
-            return _isHandlerSuspended != null && _isHandlerSuspended.ContainsKey(property);
-        }
-
-        private void PopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            if (sender is Popup { StaysOpen: false })
-            {
-                if (_dropDownButton?.InputHitTest(e.GetPosition(_dropDownButton)) != null)
-                {
-                    _disablePopupReopen = true;
+                    break;
                 }
-            }
-        }
 
-        private void Clock_SelectedTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedTime = e.Info;
-
-        private void Clock_Confirmed() => TogglePopup();
-
-        private void PopupOpened(object sender, EventArgs e)
-        {
-            if (!IsDropDownOpen)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
-            }
-
-            Clock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
-
-            OnClockOpened(new RoutedEventArgs());
-        }
-
-        private void PopupClosed(object sender, EventArgs e)
-        {
-            if (IsDropDownOpen)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
-            }
-
-            if (Clock.IsKeyboardFocusWithin)
-            {
-                MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
-            }
-
-            OnClockClosed(new RoutedEventArgs());
-        }
-
-        private void DropDownButton_Click(object sender, RoutedEventArgs e) => TogglePopup();
-
-        private void TogglePopup()
-        {
-            if (IsDropDownOpen)
-            {
-                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
-            }
-            else
-            {
-                if (_disablePopupReopen)
-                {
-                    _disablePopupReopen = false;
-                }
-                else
+            case Key.Enter:
                 {
                     SetSelectedTime();
-                    SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+                    return true;
                 }
-            }
         }
 
-        private void SafeSetText(string s)
+        return false;
+    }
+
+    private void TextBox_KeyDown(object sender, KeyEventArgs e)
+    {
+        e.Handled = ProcessTimePickerKey(e) || e.Handled;
+    }
+
+    private void DropDownButton_MouseLeave(object sender, MouseEventArgs e)
+    {
+        _disablePopupReopen = false;
+    }
+
+    private bool IsHandlerSuspended(DependencyProperty property)
+    {
+        return _isHandlerSuspended != null && _isHandlerSuspended.ContainsKey(property);
+    }
+
+    private void PopupPreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    {
+        if (sender is Popup { StaysOpen: false })
         {
-            if (string.Compare(Text, s, StringComparison.Ordinal) != 0)
+            if (_dropDownButton?.InputHitTest(e.GetPosition(_dropDownButton)) != null)
             {
-                SetCurrentValue(TextProperty, s);
+                _disablePopupReopen = true;
             }
         }
+    }
 
-        private DateTime? ParseText(string text)
+    private void Clock_SelectedTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedTime = e.Info;
+
+    private void Clock_Confirmed() => TogglePopup();
+
+    private void PopupOpened(object sender, EventArgs e)
+    {
+        if (!IsDropDownOpen)
         {
-            try
-            {
-                return DateTime.Parse(text);
-            }
-            catch
-            {
-                // ignored
-            }
-
-            return null;
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
         }
 
-        private DateTime? SetTextBoxValue(string s)
+        Clock?.MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+
+        OnClockOpened(new RoutedEventArgs());
+    }
+
+    private void PopupClosed(object sender, EventArgs e)
+    {
+        if (IsDropDownOpen)
         {
-            if (string.IsNullOrEmpty(s))
-            {
-                SafeSetText(s);
-                return SelectedTime;
-            }
-
-            var d = ParseText(s);
-
-            if (d != null)
-            {
-                SafeSetText(DateTimeToString((DateTime) d));
-                return d;
-            }
-
-            if (SelectedTime != null)
-            {
-                var newtext = DateTimeToString((DateTime) SelectedTime);
-                SafeSetText(newtext);
-                return SelectedTime;
-            }
-            SafeSetText(DateTimeToString(DisplayTime));
-            return DisplayTime;
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
         }
 
-        private void SetSelectedTime()
+        if (Clock.IsKeyboardFocusWithin)
         {
-            if (_textBox != null)
+            MoveFocus(new TraversalRequest(FocusNavigationDirection.First));
+        }
+
+        OnClockClosed(new RoutedEventArgs());
+    }
+
+    private void DropDownButton_Click(object sender, RoutedEventArgs e) => TogglePopup();
+
+    private void TogglePopup()
+    {
+        if (IsDropDownOpen)
+        {
+            SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.FalseBox);
+        }
+        else
+        {
+            if (_disablePopupReopen)
             {
-                if (!string.IsNullOrEmpty(_textBox.Text))
-                {
-                    var s = _textBox.Text;
-
-                    if (SelectedTime != null)
-                    {
-                        var selectedTime = DateTimeToString(SelectedTime.Value);
-
-                        if (string.Compare(selectedTime, s, StringComparison.Ordinal) == 0)
-                        {
-                            return;
-                        }
-                    }
-
-                    var d = SetTextBoxValue(s);
-                    if (!SelectedTime.Equals(d))
-                    {
-                        SetCurrentValue(SelectedTimeProperty, d);
-                        SetCurrentValue(DisplayTimeProperty, d);
-                    }
-                }
-                else
-                {
-                    if (SelectedTime.HasValue)
-                    {
-                        SetCurrentValue(SelectedTimeProperty, null);
-                    }
-                }
+                _disablePopupReopen = false;
             }
             else
             {
-                var d = SetTextBoxValue(_defaultText);
+                SetSelectedTime();
+                SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
+            }
+        }
+    }
+
+    private void SafeSetText(string s)
+    {
+        if (string.Compare(Text, s, StringComparison.Ordinal) != 0)
+        {
+            SetCurrentValue(TextProperty, s);
+        }
+    }
+
+    private DateTime? ParseText(string text)
+    {
+        try
+        {
+            return DateTime.Parse(text);
+        }
+        catch
+        {
+            // ignored
+        }
+
+        return null;
+    }
+
+    private DateTime? SetTextBoxValue(string s)
+    {
+        if (string.IsNullOrEmpty(s))
+        {
+            SafeSetText(s);
+            return SelectedTime;
+        }
+
+        var d = ParseText(s);
+
+        if (d != null)
+        {
+            SafeSetText(DateTimeToString((DateTime) d));
+            return d;
+        }
+
+        if (SelectedTime != null)
+        {
+            var newtext = DateTimeToString((DateTime) SelectedTime);
+            SafeSetText(newtext);
+            return SelectedTime;
+        }
+        SafeSetText(DateTimeToString(DisplayTime));
+        return DisplayTime;
+    }
+
+    private void SetSelectedTime()
+    {
+        if (_textBox != null)
+        {
+            if (!string.IsNullOrEmpty(_textBox.Text))
+            {
+                var s = _textBox.Text;
+
+                if (SelectedTime != null)
+                {
+                    var selectedTime = DateTimeToString(SelectedTime.Value);
+
+                    if (string.Compare(selectedTime, s, StringComparison.Ordinal) == 0)
+                    {
+                        return;
+                    }
+                }
+
+                var d = SetTextBoxValue(s);
                 if (!SelectedTime.Equals(d))
                 {
                     SetCurrentValue(SelectedTimeProperty, d);
+                    SetCurrentValue(DisplayTimeProperty, d);
                 }
             }
-        }
-
-        private string DateTimeToString(DateTime d) => d.ToString(TimeFormat);
-
-        private static void OnGotFocus(object sender, RoutedEventArgs e)
-        {
-            var picker = (TimePicker) sender;
-            if (!e.Handled && picker._textBox != null)
+            else
             {
-                if (Equals(e.OriginalSource, picker))
+                if (SelectedTime.HasValue)
                 {
-                    picker._textBox.Focus();
-                    e.Handled = true;
-                }
-                else if (Equals(e.OriginalSource, picker._textBox))
-                {
-                    picker._textBox.SelectAll();
-                    e.Handled = true;
+                    SetCurrentValue(SelectedTimeProperty, null);
                 }
             }
         }
-
-        #endregion Private Methods
+        else
+        {
+            var d = SetTextBoxValue(_defaultText);
+            if (!SelectedTime.Equals(d))
+            {
+                SetCurrentValue(SelectedTimeProperty, d);
+            }
+        }
     }
+
+    private string DateTimeToString(DateTime d) => d.ToString(TimeFormat);
+
+    private static void OnGotFocus(object sender, RoutedEventArgs e)
+    {
+        var picker = (TimePicker) sender;
+        if (!e.Handled && picker._textBox != null)
+        {
+            if (Equals(e.OriginalSource, picker))
+            {
+                picker._textBox.Focus();
+                e.Handled = true;
+            }
+            else if (Equals(e.OriginalSource, picker._textBox))
+            {
+                picker._textBox.SelectAll();
+                e.Handled = true;
+            }
+        }
+    }
+
+    #endregion Private Methods
 }

@@ -1,0 +1,96 @@
+name: Bug report
+description: File a bug report
+title: "Bug title"
+labels: []
+body: 
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: Describe the bug
+      description: Please enter a short, clear description of the bug.
+  - type: textarea
+    validations:
+      required: true
+    attributes:
+      label: Steps to reproduce the bug
+      description: Please provide any required setup and steps to reproduce the behavior.
+      placeholder: |
+        1. Go to '...'
+        2. Click on '....'
+  - type: textarea
+    attributes:
+      label: Expected behavior
+      description: Please provide a description of what you expected to happen
+  - type: textarea
+    attributes:
+      label: Screenshots
+      description: If applicable, add screenshots here to help explain your problem
+  - type: dropdown
+    attributes:
+      label: NuGet package version
+      options:
+        - "HandyControl 3.4.0"
+        - "HandyControl 3.3.0"
+        - "HandyControl 3.2.0"
+        - "HandyControl 3.1.0"
+        - "HandyControl 3.0.0"
+        - "HandyControls (Custom version) 3.4.0"
+        - "HandyControls (Custom version) 3.3.11"
+        - "HandyControls (Custom version) 3.3.10"
+        - "HandyControls (Custom version) 3.3.9"
+        - "HandyControls (Custom version) 3.3.8.1"
+        - "HandyControls (Custom version) 3.3.8"
+        - "HandyControls (Custom version) 3.3.7"
+  - type: dropdown
+    attributes:
+      label: IDE
+      description: Which Visual Studio versions did you see the issue on?
+      multiple: true
+      options:
+        - "Visual Studio 2022-preview"
+        - "Visual Studio 2022"
+        - "Visual Studio 2019"
+        - "Visual Studio 2017"
+  - type: dropdown
+    attributes:
+      label: Framework type
+      description: please specify for which framework type you have encountered the issue.
+      multiple: true
+      options:
+        - ".Net 6.0"
+        - ".Net 5.0"
+        - ".Net Core 3.1"
+        - ".Net Core 3.0"
+        - ".Net Framework 4.8"
+        - ".Net Framework 4.7.2"
+        - ".Net Framework 4.7.1"
+        - ".Net Framework 4.7.0"
+        - ".Net Framework 4.6.2"
+        - ".Net Framework 4.6.1"
+        - ".Net Framework 4.6.0"
+        - ".Net Framework 4.5.2"
+        - ".Net Framework 4.5.1"
+        - ".Net Framework 4.5.0"
+        - ".Net Framework 4.0.0"
+  - type: dropdown
+    attributes:
+      label: Windows version
+      description: Which Windows versions did you see the issue on?
+      multiple: true
+      options:
+        - "Insider Build (xxxxx)"
+        - "Windows 11 (22000)"
+        - "May 2021 Update (19043)"
+        - "October 2020 Update (19042)"
+        - "May 2020 Update (19041)"
+        - "November 2019 Update (18363)"
+        - "May 2019 Update (18362)"
+        - "October 2018 Update (17763)"
+        - "April 2018 Update (17134)"
+        - "Fall Creators Update (16299)"
+        - "Creators Update (15063)"
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Enter any other applicable info here

@@ -3,6 +3,7 @@
                     xmlns:hc="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="ButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="Button">
+        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="Template">
@@ -43,7 +44,6 @@
     </Style>
 
     <Style x:Key="ButtonDashedBaseStyle" BasedOn="{StaticResource ButtonBaseStyle}" TargetType="Button">
-        <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="Template">
             <Setter.Value>
