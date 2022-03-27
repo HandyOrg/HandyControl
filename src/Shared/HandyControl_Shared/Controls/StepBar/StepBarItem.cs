@@ -1,5 +1,4 @@
 ﻿using System.Windows;
-using System.Windows.Controls;
 using HandyControl.Data;
 
 namespace HandyControl.Controls;
@@ -7,7 +6,7 @@ namespace HandyControl.Controls;
 /// <summary>
 ///     步骤条单元项
 /// </summary>
-public class StepBarItem : ContentControl
+public class StepBarItem : SelectableItem
 {
     /// <summary>
     ///     步骤编号

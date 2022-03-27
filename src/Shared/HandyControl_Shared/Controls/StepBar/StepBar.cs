@@ -30,7 +30,22 @@ public class StepBar : ItemsControl
     {
         CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) => Next()));
         CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) => Prev()));
+
         ItemContainerGenerator.StatusChanged += ItemContainerGenerator_StatusChanged;
+        AddHandler(SelectableItem.SelectedEvent, new RoutedEventHandler(OnStepBarItemSelected));
+    }
+
+    private void OnStepBarItemSelected(object sender, RoutedEventArgs e)
+    {
+        if (!IsMouseSelectable)
+        {
+            return;
+        }
+
+        if (e.OriginalSource is StepBarItem item)
+        {
+            SetCurrentValue(StepIndexProperty, item.Index - 1);
+        }
     }
 
     private void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
@@ -149,6 +164,15 @@ public class StepBar : ItemsControl
     {
         get => (Dock) GetValue(DockProperty);
         set => SetValue(DockProperty, value);
+    }
+
+    public static readonly DependencyProperty IsMouseSelectableProperty = DependencyProperty.Register(
+        "IsMouseSelectable", typeof(bool), typeof(StepBar), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public bool IsMouseSelectable
+    {
+        get => (bool) GetValue(IsMouseSelectableProperty);
+        set => SetValue(IsMouseSelectableProperty, ValueBoxes.BooleanBox(value));
     }
 
     public override void OnApplyTemplate()
