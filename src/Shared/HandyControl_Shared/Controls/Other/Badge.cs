@@ -11,6 +11,8 @@ namespace HandyControl.Controls;
 /// </summary>
 public class Badge : ContentControl
 {
+    private int? _originalValue;
+
     public static readonly RoutedEvent ValueChangedEvent =
         EventManager.RegisterRoutedEvent("ValueChanged", RoutingStrategy.Bubble,
             typeof(EventHandler<FunctionEventArgs<int>>), typeof(Badge));
@@ -38,12 +40,16 @@ public class Badge : ContentControl
         var ctl = (Badge) d;
         var v = (int) e.NewValue;
         ctl.SetCurrentValue(TextProperty, v <= ctl.Maximum ? v.ToString() : $"{ctl.Maximum}+");
-        if (ctl.IsInitialized)
+        if (ctl.IsLoaded)
         {
             ctl.RaiseEvent(new FunctionEventArgs<int>(ValueChangedEvent, ctl)
             {
                 Info = v
             });
+        }
+        else
+        {
+            ctl._originalValue = v;
         }
     }
 
@@ -97,4 +103,19 @@ public class Badge : ContentControl
     }
 
     protected override Geometry GetLayoutClip(Size layoutSlotSize) => null;
+
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+
+        if (_originalValue != null)
+        {
+            RaiseEvent(new FunctionEventArgs<int>(ValueChangedEvent, this)
+            {
+                Info = _originalValue.Value
+            });
+
+            _originalValue = null;
+        }
+    }
 }
