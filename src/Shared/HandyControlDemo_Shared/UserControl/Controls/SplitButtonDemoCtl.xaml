@@ -6,8 +6,8 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              DataContext="{Binding SplitButtonDemo,Source={StaticResource Locator}}">
     <hc:TransitioningContentControl>
-        <StackPanel Margin="32" VerticalAlignment="Center">
-            <hc:SplitButton Margin="0,0,0,10" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
+        <hc:UniformSpacingPanel Margin="32" VerticalAlignment="Center" Spacing="10">
+            <hc:SplitButton Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
                 <hc:SplitButton.DropDownContent>
                     <StackPanel>
                         <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
@@ -16,7 +16,7 @@
                     </StackPanel>
                 </hc:SplitButton.DropDownContent>
             </hc:SplitButton>
-            <hc:SplitButton Style="{StaticResource SplitButtonPrimary}" Margin="0,0,0,10" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
+            <hc:SplitButton Style="{StaticResource SplitButtonPrimary}" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
                 <hc:SplitButton.DropDownContent>
                     <StackPanel>
                         <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
@@ -25,7 +25,7 @@
                     </StackPanel>
                 </hc:SplitButton.DropDownContent>
             </hc:SplitButton>
-            <hc:SplitButton Style="{StaticResource SplitButtonWarning}" Margin="0,0,0,10" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" HitMode="Hover" HorizontalAlignment="Stretch">
+            <hc:SplitButton Style="{StaticResource SplitButtonWarning}" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" HitMode="Hover" HorizontalAlignment="Stretch">
                 <hc:SplitButton.DropDownContent>
                     <StackPanel>
                         <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
@@ -34,6 +34,33 @@
                     </StackPanel>
                 </hc:SplitButton.DropDownContent>
             </hc:SplitButton>
-        </StackPanel>
+            <hc:SplitButton Style="{StaticResource SplitButtonDefault.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
+                <hc:SplitButton.DropDownContent>
+                    <StackPanel>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
+                    </StackPanel>
+                </hc:SplitButton.DropDownContent>
+            </hc:SplitButton>
+            <hc:SplitButton Style="{StaticResource SplitButtonPrimary.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Command="{Binding SelectCmd}" CommandParameter="Command0" HorizontalAlignment="Stretch">
+                <hc:SplitButton.DropDownContent>
+                    <StackPanel>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
+                    </StackPanel>
+                </hc:SplitButton.DropDownContent>
+            </hc:SplitButton>
+            <hc:SplitButton Style="{StaticResource SplitButtonWarning.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" HitMode="Hover" HorizontalAlignment="Stretch">
+                <hc:SplitButton.DropDownContent>
+                    <StackPanel>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command1"/>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command2"/>
+                        <MenuItem Header="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Command="{Binding SelectCmd}" CommandParameter="Command3"/>
+                    </StackPanel>
+                </hc:SplitButton.DropDownContent>
+            </hc:SplitButton>
+        </hc:UniformSpacingPanel>
     </hc:TransitioningContentControl>
 </UserControl>

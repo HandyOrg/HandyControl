@@ -2,7 +2,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
+    <Style x:Key="SplitButtonDefault" BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Style.Triggers>
@@ -15,24 +15,62 @@
         </Style.Triggers>
     </Style>
 
+    <Style x:Key="SplitButtonDefault.Small" BasedOn="{StaticResource SplitButtonDefault}" TargetType="hc:SplitButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
+    </Style>
+
+    <Style BasedOn="{StaticResource SplitButtonDefault}" TargetType="hc:SplitButton"/>
+
     <Style x:Key="SplitButtonPrimary"  BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
         <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
+    </Style>
+
+    <Style x:Key="SplitButtonPrimary.Small"  BasedOn="{StaticResource SplitButtonPrimary}" TargetType="hc:SplitButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="SplitButtonSuccess"  BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
         <Setter Property="Background" Value="{DynamicResource SuccessBrush}"/>
     </Style>
 
+    <Style x:Key="SplitButtonSuccess.Small"  BasedOn="{StaticResource SplitButtonSuccess}" TargetType="hc:SplitButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
+    </Style>
+
     <Style x:Key="SplitButtonInfo"  BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
         <Setter Property="Background" Value="{DynamicResource InfoBrush}"/>
+    </Style>
+
+    <Style x:Key="SplitButtonInfo.Small"  BasedOn="{StaticResource SplitButtonInfo}" TargetType="hc:SplitButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
     <Style x:Key="SplitButtonWarning"  BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
         <Setter Property="Background" Value="{DynamicResource WarningBrush}"/>
     </Style>
 
+    <Style x:Key="SplitButtonWarning.Small"  BasedOn="{StaticResource SplitButtonWarning}" TargetType="hc:SplitButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
+    </Style>
+
     <Style x:Key="SplitButtonDanger"  BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
         <Setter Property="Background" Value="{DynamicResource DangerBrush}"/>
+    </Style>
+
+    <Style x:Key="SplitButtonDanger.Small"  BasedOn="{StaticResource SplitButtonDanger}" TargetType="hc:SplitButton">
+        <Setter Property="Height" Value="20"/>
+        <Setter Property="Padding" Value="6,1"/>
+        <Setter Property="hc:IconElement.Height" Value="12"/>
     </Style>
 
 </ResourceDictionary>

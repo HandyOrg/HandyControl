@@ -10581,7 +10581,7 @@
 									<Path x:Name="PathMain" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}" />
 									<ContentPresenter x:Name="ContentPresenterMain" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 								</StackPanel>
-								<ToggleButton x:Name="PART_Arrow" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Width="22" Height="Auto" Padding="0,10,8,10" HorizontalContentAlignment="Left" Grid.Column="1" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" hc:IconElement.Geometry="{StaticResource DownGeometry}" />
+								<ToggleButton x:Name="PART_Arrow" hc:IconElement.Width="14" Padding="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,1,1,1'}" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Height="Auto" Width="Auto" Grid.Column="1" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" hc:IconElement.Geometry="{StaticResource DownGeometry}" />
 							</Grid>
 						</Border>
 						<Popup AllowsTransparency="true" StaysOpen="False" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="Fade" Placement="Bottom">
@@ -13241,7 +13241,7 @@
 			</Setter.Value>
 		</Setter>
 	</Style>
-	<Style BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
+	<Style x:Key="SplitButtonDefault" BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Style.Triggers>
@@ -13253,20 +13253,51 @@
 			</Trigger>
 		</Style.Triggers>
 	</Style>
+	<Style x:Key="SplitButtonDefault.Small" BasedOn="{StaticResource SplitButtonDefault}" TargetType="hc:SplitButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
+	</Style>
+	<Style BasedOn="{StaticResource SplitButtonDefault}" TargetType="hc:SplitButton" />
 	<Style x:Key="SplitButtonPrimary" BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
 		<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+	</Style>
+	<Style x:Key="SplitButtonPrimary.Small" BasedOn="{StaticResource SplitButtonPrimary}" TargetType="hc:SplitButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="SplitButtonSuccess" BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
 		<Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
 	</Style>
+	<Style x:Key="SplitButtonSuccess.Small" BasedOn="{StaticResource SplitButtonSuccess}" TargetType="hc:SplitButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
+	</Style>
 	<Style x:Key="SplitButtonInfo" BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
 		<Setter Property="Background" Value="{DynamicResource InfoBrush}" />
+	</Style>
+	<Style x:Key="SplitButtonInfo.Small" BasedOn="{StaticResource SplitButtonInfo}" TargetType="hc:SplitButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style x:Key="SplitButtonWarning" BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
 		<Setter Property="Background" Value="{DynamicResource WarningBrush}" />
 	</Style>
+	<Style x:Key="SplitButtonWarning.Small" BasedOn="{StaticResource SplitButtonWarning}" TargetType="hc:SplitButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
+	</Style>
 	<Style x:Key="SplitButtonDanger" BasedOn="{StaticResource SplitButtonBaseStyle}" TargetType="hc:SplitButton">
 		<Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+	</Style>
+	<Style x:Key="SplitButtonDanger.Small" BasedOn="{StaticResource SplitButtonDanger}" TargetType="hc:SplitButton">
+		<Setter Property="Height" Value="20" />
+		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
 	<Style BasedOn="{StaticResource StatusBarBaseStyle}" TargetType="StatusBar" />
 	<Style BasedOn="{StaticResource StatusBarItemBaseStyle}" TargetType="StatusBarItem" />
