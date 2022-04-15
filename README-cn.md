@@ -1,3 +1,9 @@
+## 友情链接
+
+[SimpleFactoryGenerator](https://github.com/DingpingZhang/SimpleFactoryGenerator) - A simple factory source generator that enables the pattern to not violate the open-close principle.
+
+[WpfExtensions](https://github.com/DingpingZhang/WpfExtensions) - Some syntactic sugar for Wpf development.
+
 <p align="center">
     <img align="center" src="https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Cover.png">
 </p>
