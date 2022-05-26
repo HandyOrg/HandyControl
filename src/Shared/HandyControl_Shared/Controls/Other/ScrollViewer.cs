@@ -32,15 +32,33 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
         set => SetValue(CanMouseWheelProperty, ValueBoxes.BooleanBox(value));
     }
 
+    /// <summary>
+    /// 鼠标滚动补偿
+    /// </summary>
+    public double MouseWheelDelta
+    {
+        get { return (double)GetValue(MouseWheelDeltaProperty); }
+        set { SetValue(MouseWheelDeltaProperty, value); }
+    }
+
+    /// <summary>
+    /// 鼠标滚动补偿
+    /// </summary>
+    public static readonly DependencyProperty MouseWheelDeltaProperty =
+        DependencyProperty.Register("MouseWheelDelta", typeof(double), typeof(ScrollViewer), new PropertyMetadata(0d));
+
     protected override void OnMouseWheel(MouseWheelEventArgs e)
     {
         if (!CanMouseWheel) return;
 
+        var mouseWheelDelta = e.Delta > 0 ? 0 - MouseWheelDelta : 0 + MouseWheelDelta;
+
         if (!IsInertiaEnabled)
         {
-            if (ScrollViewerAttach.GetOrientation(this) == Orientation.Vertical)
+            if (Orientation == Orientation.Vertical)
             {
                 base.OnMouseWheel(e);
+                this.ScrollToVerticalOffset(this.VerticalOffset + mouseWheelDelta);
             }
             else
             {
@@ -48,12 +66,13 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
                 CurrentHorizontalOffset = HorizontalOffset;
                 _totalHorizontalOffset = Math.Min(Math.Max(0, _totalHorizontalOffset - e.Delta), ScrollableWidth);
                 CurrentHorizontalOffset = _totalHorizontalOffset;
+                this.ScrollToHorizontalOffset(this.HorizontalOffset + mouseWheelDelta);
             }
             return;
         }
         e.Handled = true;
 
-        if (ScrollViewerAttach.GetOrientation(this) == Orientation.Vertical)
+        if (Orientation == Orientation.Vertical)
         {
             if (!_isRunning)
             {
@@ -61,7 +80,7 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
                 CurrentVerticalOffset = VerticalOffset;
             }
             _totalVerticalOffset = Math.Min(Math.Max(0, _totalVerticalOffset - e.Delta), ScrollableHeight);
-            ScrollToVerticalOffsetWithAnimation(_totalVerticalOffset);
+            ScrollToVerticalOffsetWithAnimation(_totalVerticalOffset + mouseWheelDelta);
         }
         else
         {
@@ -71,7 +90,7 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
                 CurrentHorizontalOffset = HorizontalOffset;
             }
             _totalHorizontalOffset = Math.Min(Math.Max(0, _totalHorizontalOffset - e.Delta), ScrollableWidth);
-            ScrollToHorizontalOffsetWithAnimation(_totalHorizontalOffset);
+            ScrollToHorizontalOffsetWithAnimation(_totalHorizontalOffset + mouseWheelDelta);
         }
     }
 
