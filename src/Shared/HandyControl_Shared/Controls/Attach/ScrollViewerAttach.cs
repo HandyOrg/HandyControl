@@ -62,7 +62,7 @@ public class ScrollViewerAttach
     {
         if (d is UIElement element)
         {
-            if ((bool)e.NewValue)
+            if ((bool) e.NewValue)
             {
                 element.PreviewMouseWheel += ScrollViewerPreviewMouseWheel;
             }
