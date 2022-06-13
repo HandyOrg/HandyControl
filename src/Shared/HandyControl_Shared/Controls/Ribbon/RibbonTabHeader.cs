@@ -53,7 +53,7 @@ namespace HandyControl.Controls
 
         protected virtual void OnIsSelectedChanged(bool oldIsSelected, bool newIsSelected)
         {
-            
+
         }
 
         protected override void OnMouseLeftButtonDown(MouseButtonEventArgs e)
