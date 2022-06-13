@@ -1,5 +1,4 @@
-﻿using System.Collections.Specialized;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
 
 namespace HandyControl.Controls
@@ -18,12 +17,6 @@ namespace HandyControl.Controls
             {
                 ribbonTabHeader.PrepareRibbonTabHeader();
             }
-        }
-
-        protected override void OnItemsChanged(NotifyCollectionChangedEventArgs e)
-        {
-            base.OnItemsChanged(e);
-            var r = this.RenderSize;
         }
     }
 }

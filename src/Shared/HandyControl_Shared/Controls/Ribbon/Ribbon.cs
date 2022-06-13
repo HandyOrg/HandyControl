@@ -1,16 +1,19 @@
-﻿using System;
+﻿// some code fetch from system.windows.controls.ribbon.
+
+using System;
 using System.Collections.ObjectModel;
 using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Input;
-using System.Windows.Media.Animation;
 using HandyControl.Data;
 using HandyControl.Interactivity;
+using HandyControl.Tools.Extension;
 
 namespace HandyControl.Controls
 {
+    // TODO: this control is a work-in-progress, it needs to support things like automatic resizing.
     [TemplatePart(Name = TabHeaderItemsControl, Type = typeof(ItemsControl))]
     [TemplatePart(Name = RootPanel, Type = typeof(Panel))]
     [TemplatePart(Name = ContentPanel, Type = typeof(Panel))]
@@ -29,8 +32,6 @@ namespace HandyControl.Controls
         private Panel _contentPanel;
 
         private System.Windows.Window _window;
-
-        private double _originHeight;
 
         private readonly ObservableCollection<object> _tabHeaderItemsSource = new();
 
@@ -72,13 +73,8 @@ namespace HandyControl.Controls
                 return;
             }
 
-            var animation = isDropDownOpen ? CreateAnimation(0, ContentHeight) : CreateAnimation(ContentHeight, 0);
-            animation.Completed += (s, e) =>
-            {
-                SwitchCurrentTabContentVisibility(isDropDownOpen);
-            };
-
-            _contentPanel.BeginAnimation(HeightProperty, animation);
+            SwitchCurrentTabContentVisibility(isDropDownOpen);
+            _contentPanel.Show(isDropDownOpen);
         }
 
         public bool IsDropDownOpen
@@ -88,26 +84,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsMinimizedProperty = DependencyProperty.Register(
-            "IsMinimized", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.FalseBox, OnIsMinimizedChanged));
-
-        private static void OnIsMinimizedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            ((Ribbon) d).OnIsMinimizedChanged((bool) e.NewValue);
-        }
-
-        private void OnIsMinimizedChanged(bool isMinimized)
-        {
-            if (_tabHeaderItemsControl == null || _rootPanel == null)
-            {
-                return;
-            }
-
-            var animation = isMinimized
-                ? CreateAnimation(_originHeight, _tabHeaderItemsControl.ActualHeight)
-                : CreateAnimation(_tabHeaderItemsControl.ActualHeight, _originHeight);
-
-            _rootPanel.BeginAnimation(HeightProperty, animation);
-        }
+            "IsMinimized", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsMinimized
         {
@@ -124,6 +101,24 @@ namespace HandyControl.Controls
             set => SetValue(ContentHeightProperty, value);
         }
 
+        public static readonly DependencyProperty PrefixContentProperty = DependencyProperty.Register(
+            "PrefixContent", typeof(object), typeof(Ribbon), new PropertyMetadata(default(object)));
+
+        public object PrefixContent
+        {
+            get => GetValue(PrefixContentProperty);
+            set => SetValue(PrefixContentProperty, value);
+        }
+
+        public static readonly DependencyProperty PostfixContentProperty = DependencyProperty.Register(
+            "PostfixContent", typeof(object), typeof(Ribbon), new PropertyMetadata(default(object)));
+
+        public object PostfixContent
+        {
+            get => GetValue(PostfixContentProperty);
+            set => SetValue(PostfixContentProperty, value);
+        }
+
         public override void OnApplyTemplate()
         {
             base.OnApplyTemplate();
@@ -136,8 +131,6 @@ namespace HandyControl.Controls
 
             _rootPanel = GetTemplateChild(RootPanel) as Panel;
             _contentPanel = GetTemplateChild(ContentPanel) as Panel;
-
-            _originHeight = MeasureOverride(new Size(double.MaxValue, double.MaxValue)).Height;
 
             if (IsMinimized)
             {
@@ -410,17 +403,6 @@ namespace HandyControl.Controls
             {
                 _tabHeaderItemsSource.RemoveAt(itemsCount);
             }
-        }
-
-        private static DoubleAnimation CreateAnimation(double fromValue, double toValue, double milliseconds = 200)
-        {
-            return new(fromValue, toValue, new Duration(TimeSpan.FromMilliseconds(milliseconds)))
-            {
-                EasingFunction = new PowerEase
-                {
-                    EasingMode = EasingMode.EaseInOut
-                }
-            };
         }
     }
 }

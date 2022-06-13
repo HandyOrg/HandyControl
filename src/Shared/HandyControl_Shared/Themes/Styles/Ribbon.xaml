@@ -9,9 +9,9 @@
 
     <Style TargetType="hc:RibbonGroup">
         <Setter Property="Focusable" Value="False"/>
-        <Setter Property="Height" Value="95"/>
+        <Setter Property="Height" Value="90"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Padding" Value="6"/>
+        <Setter Property="Padding" Value="6 6 6 0"/>
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
@@ -84,7 +84,7 @@
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <hc:SimpleStackPanel Orientation="Horizontal"/>
+                    <StackPanel Orientation="Horizontal"/>
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -93,7 +93,9 @@
                 <ControlTemplate TargetType="hc:RibbonTab">
                     <hc:SimplePanel Visibility="Collapsed" x:Name="PART_RootContainer">
                         <Border x:Name="mainBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="0,0,0,3" Background="{TemplateBinding Background}" Margin="0"/>
-                        <ItemsPresenter/>
+                        <ScrollViewer hc:ScrollViewerAttach.Orientation="Horizontal" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Disabled">
+                            <ItemsPresenter/>
+                        </ScrollViewer>
                     </hc:SimplePanel>
                 </ControlTemplate>
             </Setter.Value>
@@ -109,10 +111,11 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="Padding" Value="10 0"/>
         <Setter Property="ItemsPanel">
             <Setter.Value>
                 <ItemsPanelTemplate>
-                    <hc:SimpleStackPanel Orientation="Horizontal"/>
+                    <hc:SimplePanel/>
                 </ItemsPanelTemplate>
             </Setter.Value>
         </Setter>
@@ -124,26 +127,33 @@
                             <RowDefinition Height="Auto"/>
                             <RowDefinition Height="Auto"/>
                         </Grid.RowDefinitions>
-                        <Grid x:Name="PART_ContentPanel" Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <Grid x:Name="PART_ContentPanel" Grid.Row="1" Grid.ColumnSpan="3">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition/>
                                 <ColumnDefinition Width="Auto"/>
                             </Grid.ColumnDefinitions>
-                            <Border Margin="10,0" VerticalAlignment="Bottom" Height="{TemplateBinding ContentHeight}" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource RegionBrush}">
+                            <Border Margin="{TemplateBinding Padding}" VerticalAlignment="Bottom" Height="{TemplateBinding ContentHeight}" Grid.ColumnSpan="2" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource RegionBrush}">
                                 <Border.Effect>
                                     <DropShadowEffect BlurRadius="8" ShadowDepth="2" Direction="-90" Color="{StaticResource EffectShadowColor}" Opacity=".1" RenderingBias="Performance"/>
                                 </Border.Effect>
                             </Border>
-                            <ItemsPresenter x:Name="PART_TabItemsPresenter" VerticalAlignment="Bottom" Height="{TemplateBinding ContentHeight}" Grid.Column="0" Margin="10,0,0,0"/>
-                            <ToggleButton Command="interactivity:ControlCommands.Switch" IsChecked="{Binding IsMinimized,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}" Margin="0,0,10,0" Padding="5" Width="20" Height="20" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconElement.Geometry="{StaticResource UpGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource NailGeometry}"/>
+                            <ItemsPresenter x:Name="PART_TabItemsPresenter" VerticalAlignment="Bottom" Height="{TemplateBinding ContentHeight}" Grid.Column="0" Margin="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='1,0,0,0'}"/>
+                            <ToggleButton Command="interactivity:ControlCommands.Switch" IsChecked="{Binding IsMinimized, RelativeSource={RelativeSource TemplatedParent}, Mode=TwoWay}" Margin="{Binding Padding, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource ThicknessSplitConverter}, ConverterParameter='0,0,1,0'}" Padding="2 0" Width="16" Height="20" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Bottom" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconElement.Geometry="{StaticResource UpGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource NailGeometry}"/>
                         </Grid>
-                        <hc:RibbonTabHeaderItemsControl Grid.Row="0" Background="{TemplateBinding Background}" Focusable="False" x:Name="PART_TabHeaderItemsControl" Margin="0,0,0,2">
+                        <ContentPresenter Grid.Row="0" Grid.Column="0" ContentSource="PrefixContent"/>
+                        <hc:RibbonTabHeaderItemsControl Grid.Row="0" Grid.Column="1" Background="{TemplateBinding Background}" Focusable="False" x:Name="PART_TabHeaderItemsControl" Margin="0,0,0,2">
                             <ItemsControl.ItemsPanel>
                                 <ItemsPanelTemplate>
-                                    <hc:SimpleStackPanel Margin="10,0" Orientation="Horizontal"/>
+                                    <StackPanel Margin="{Binding Padding, RelativeSource={RelativeSource AncestorType= hc:Ribbon}}" Orientation="Horizontal"/>
                                 </ItemsPanelTemplate>
                             </ItemsControl.ItemsPanel>
                         </hc:RibbonTabHeaderItemsControl>
+                        <ContentPresenter Grid.Row="0" Grid.Column="2" ContentSource="PostfixContent"/>
                     </hc:ClipGrid>
                 </ControlTemplate>
             </Setter.Value>
