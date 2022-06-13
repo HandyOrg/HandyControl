@@ -181,4 +181,9 @@ public static class ControlCommands
     ///     按照名称排序
     /// </summary>
     public static RoutedCommand SortByName { get; } = new(nameof(SortByName), typeof(ControlCommands));
+
+    /// <summary>
+    ///     更多
+    /// </summary>
+    public static RoutedCommand More { get; } = new(nameof(More), typeof(ControlCommands));
 }

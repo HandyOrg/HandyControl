@@ -52,6 +52,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Poptip.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Watermark.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\AxleCanvas.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\ClipGrid.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\FlexPanel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\ElementGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Panel\SimpleStackPanel.cs" />
@@ -72,6 +73,11 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyItemsControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\PropertyGrid\PropertyResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\Ribbon.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTab.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabHeader.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Ribbon\RibbonTabHeaderItemsControl.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Screenshot\Screenshot.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Other\Sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Block\ToggleBlock.cs" />
@@ -383,6 +389,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="$(MSBuildThisFileDirectory)Themes\Styles\ElementGroup.xaml">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="$(MSBuildThisFileDirectory)Themes\Styles\Ribbon.xaml">
       <SubType>Designer</SubType>
     </None>
     <None Include="$(MSBuildThisFileDirectory)Themes\XamlCombine.exe" />

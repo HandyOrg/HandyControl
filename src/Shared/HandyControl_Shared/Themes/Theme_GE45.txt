@@ -169,6 +169,7 @@ Styles\PopupWindow.xaml
 Styles\ProgressButton.xaml
 Styles\PropertyGrid.xaml
 Styles\Rate.xaml
+Styles\Ribbon.xaml
 Styles\RichTextBox.xaml
 Styles\RunningBlock.xaml
 Styles\Screenshot.xaml

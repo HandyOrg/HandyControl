@@ -1,4 +1,6 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace HandyControl.Data;
 
@@ -15,9 +17,15 @@ internal static class ValueBoxes
 
     internal static object HorizontalBox = Orientation.Horizontal;
 
-    internal static object Double0Box = .0;
+    internal static object VisibleBox = Visibility.Visible;
+
+    internal static object CollapsedBox = Visibility.Collapsed;
+
+    internal static object HiddenBox = Visibility.Hidden;
 
     internal static object Double01Box = .1;
+
+    internal static object Double0Box = .0;
 
     internal static object Double1Box = 1.0;
 
@@ -47,4 +55,15 @@ internal static class ValueBoxes
 
     internal static object OrientationBox(Orientation value) =>
         value == Orientation.Horizontal ? HorizontalBox : VerticalBox;
+
+    internal static object VisibilityBox(Visibility value)
+    {
+        return value switch
+        {
+            Visibility.Visible => VisibleBox,
+            Visibility.Hidden => HiddenBox,
+            Visibility.Collapsed => CollapsedBox,
+            _ => throw new ArgumentOutOfRangeException(nameof(value), value, null)
+        };
+    }
 }

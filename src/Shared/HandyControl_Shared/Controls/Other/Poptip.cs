@@ -4,14 +4,19 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Data.Enum;
+using HandyControl.Expression.Drawing;
+using HandyControl.Tools;
 
 namespace HandyControl.Controls;
 
 public class Poptip : AdornerElement
 {
     private readonly Popup _popup;
+
+    private DispatcherTimer _openTimer;
 
     public Poptip()
     {
@@ -172,6 +177,15 @@ public class Poptip : AdornerElement
         set => SetValue(IsOpenProperty, ValueBoxes.BooleanBox(value));
     }
 
+    public static readonly DependencyProperty DelayProperty = DependencyProperty.Register(
+        "Delay", typeof(double), typeof(Poptip), new PropertyMetadata(1000.0), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+
+    public double Delay
+    {
+        get => (double) GetValue(DelayProperty);
+        set => SetValue(DelayProperty, value);
+    }
+
     public static Poptip Default => new();
 
     protected sealed override void OnTargetChanged(FrameworkElement element, bool isNew)
@@ -290,8 +304,43 @@ public class Poptip : AdornerElement
             _popup.PlacementTarget = Target;
             UpdateLocation();
         }
-        _popup.IsOpen = isShow;
-        Target.SetCurrentValue(IsOpenProperty, isShow);
+
+        ResetTimer();
+
+        var delay = Delay;
+        if (!isShow || HitMode != HitMode.Hover || MathHelper.IsVerySmall(delay))
+        {
+
+            _popup.IsOpen = isShow;
+            Target.SetCurrentValue(IsOpenProperty, isShow);
+        }
+        else
+        {
+            _openTimer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(delay)
+            };
+
+            _openTimer.Tick += OpenTimer_Tick;
+            _openTimer.Start();
+        }
+    }
+
+    private void ResetTimer()
+    {
+        if (_openTimer != null)
+        {
+            _openTimer.Stop();
+            _openTimer = null;
+        }
+    }
+
+    private void OpenTimer_Tick(object sender, EventArgs e)
+    {
+        _popup.IsOpen = true;
+        Target.SetCurrentValue(IsOpenProperty, true);
+
+        ResetTimer();
     }
 
     private void Element_MouseEnter(object sender, MouseEventArgs e)
