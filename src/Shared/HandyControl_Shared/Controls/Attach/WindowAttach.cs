@@ -145,4 +145,13 @@ public static class WindowAttach
 
     public static bool GetHideWhenClosing(DependencyObject element)
         => (bool) element.GetValue(HideWhenClosingProperty);
+
+    public static readonly DependencyProperty ExtendContentToNonClientAreaProperty = DependencyProperty.RegisterAttached(
+        "ExtendContentToNonClientArea", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public static void SetExtendContentToNonClientArea(DependencyObject element, bool value)
+        => element.SetValue(ExtendContentToNonClientAreaProperty, ValueBoxes.BooleanBox(value));
+
+    public static bool GetExtendContentToNonClientArea(DependencyObject element)
+        => (bool) element.GetValue(ExtendContentToNonClientAreaProperty);
 }
