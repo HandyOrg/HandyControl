@@ -7,7 +7,7 @@
 
     <Style x:Key="TreeViewItemBaseStyle.Small" BasedOn="{StaticResource TreeViewItemBaseStyle}" TargetType="TreeViewItem">
         <Setter Property="Padding" Value="6,0"/>
-        <Setter Property="MinHeight" Value="24"/>
+        <Setter Property="MinHeight" Value="20"/>
     </Style>
 
     <Style x:Key="TreeView.Small" BasedOn="{StaticResource TreeViewBaseStyle}" TargetType="TreeView">

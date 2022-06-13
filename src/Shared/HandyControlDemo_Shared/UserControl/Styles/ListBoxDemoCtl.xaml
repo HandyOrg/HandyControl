@@ -12,7 +12,7 @@
                     </DataTemplate>
                 </ListBox.ItemTemplate>
             </ListBox>
-            <ListBox Margin="16" Width="200" ItemsSource="{Binding DataList}" Style="{StaticResource ListBox.Small}" hc:BorderElement.CornerRadius="4">
+            <ListBox Margin="16" Width="200" ItemsSource="{Binding DataList}" Style="{StaticResource ListBox.Small}">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding Name}"/>

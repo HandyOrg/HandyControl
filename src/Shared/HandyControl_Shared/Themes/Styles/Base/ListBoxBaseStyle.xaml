@@ -13,6 +13,7 @@
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Margin" Value="0,0,0,2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListBoxItem">
@@ -69,6 +70,8 @@
         <Setter Property="hc:ScrollViewer.PanningMode" Value="Both"/>
         <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="2,2,2,0" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle}"/>
         <Setter Property="Template">
             <Setter.Value>

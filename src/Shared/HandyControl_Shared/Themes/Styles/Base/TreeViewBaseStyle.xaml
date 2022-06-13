@@ -37,6 +37,7 @@
         <Setter Property="Padding" Value="10,0"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
+        <Setter Property="Margin" Value="0,0,0,2" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="TreeViewItem">
@@ -89,7 +90,8 @@
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Padding" Value="0"/>
+        <Setter Property="Padding" Value="2,2,2,0" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
         <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
