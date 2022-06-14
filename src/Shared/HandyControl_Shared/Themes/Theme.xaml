@@ -6518,10 +6518,12 @@
 		<Setter Property="hc:ScrollViewer.PanningMode" Value="Both" />
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+		<Setter Property="Margin" Value="0,0,0,2" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="MenuItem">
-					<Border x:Name="Bd" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+					<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
 						<Grid x:Name="Grid" Margin="{TemplateBinding Padding}">
 							<Grid.ColumnDefinitions>
 								<ColumnDefinition Width="26" />
@@ -6568,8 +6570,8 @@
 									<ContentPresenter x:Name="menuHeaderContainer" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 									<Popup Grid.Column="0" x:Name="PART_Popup" PlacementTarget="{Binding ElementName=templateRoot}" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom">
 										<hc:SimplePanel Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8">
-											<Border CornerRadius="0,0,2,2" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
-												<ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="0,6">
+											<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,0,1,1'}" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
+												<ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="2,2,2,0">
 													<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle" />
 												</ScrollViewer>
 											</Border>
@@ -6653,7 +6655,7 @@
 				<Setter Property="Template">
 					<Setter.Value>
 						<ControlTemplate TargetType="MenuItem">
-							<Border x:Name="Bd" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+							<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MinWidth="240" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
 								<Grid x:Name="Grid" Margin="{TemplateBinding Padding}">
 									<Grid.ColumnDefinitions>
 										<ColumnDefinition Width="26" />
@@ -6668,9 +6670,9 @@
 									</Border>
 									<ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,3" x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 									<Path x:Name="Path" Grid.Column="4" Width="10" Height="10" HorizontalAlignment="Left" Data="{StaticResource RightGeometry}" Stretch="Uniform" Fill="{TemplateBinding Foreground}" VerticalAlignment="Center" />
-									<Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="-13" HorizontalOffset="10">
-										<Border Effect="{StaticResource EffectShadow2}" Margin="8" CornerRadius="2" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
-											<ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="0,6">
+									<Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="-9" HorizontalOffset="10">
+										<Border Effect="{StaticResource EffectShadow2}" Margin="8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
+											<ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="2,2,2,0">
 												<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle" />
 											</ScrollViewer>
 										</Border>
@@ -6702,6 +6704,7 @@
 		<Setter Property="FontWeight" Value="Normal" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Menu">
@@ -8204,11 +8207,13 @@
 	<Style x:Key="ContextMenuBaseStyle" TargetType="ContextMenu">
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="SnapsToDevicePixels" Value="True" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="Padding" Value="2,2,2,0" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ContextMenu">
-					<Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="2" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
-						<ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="0,6">
+					<Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
+						<ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="{TemplateBinding Padding}">
 							<ItemsPresenter />
 						</ScrollViewer>
 					</Border>

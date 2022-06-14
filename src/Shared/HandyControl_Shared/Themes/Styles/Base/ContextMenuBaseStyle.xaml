@@ -4,11 +4,13 @@
     <Style x:Key="ContextMenuBaseStyle" TargetType="ContextMenu">
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Padding" Value="2,2,2,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ContextMenu">
-                    <Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="2" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
-                        <ScrollViewer Style="{StaticResource ScrollViewerUpDown}"  Margin="0,6">
+                    <Border Effect="{StaticResource EffectShadow2}" Margin="8" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" MaxHeight="{TemplateBinding MaxHeight}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
+                        <ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="{TemplateBinding Padding}">
                             <ItemsPresenter/>
                         </ScrollViewer>
                     </Border>
