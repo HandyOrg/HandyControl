@@ -6511,8 +6511,7 @@
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="MenuItemBaseStyle" TargetType="MenuItem">
-		<Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
-		<Setter Property="OverridesDefaultStyle" Value="True" />
+		<Setter Property="Padding" Value="{Binding Path=(hc:MenuAttach.ItemPadding),RelativeSource={RelativeSource AncestorType=MenuBase}}" />
 		<Setter Property="Background" Value="Transparent" />
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="hc:ScrollViewer.PanningMode" Value="Both" />
@@ -6670,7 +6669,7 @@
 									</Border>
 									<ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,3" x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 									<Path x:Name="Path" Grid.Column="4" Width="10" Height="10" HorizontalAlignment="Left" Data="{StaticResource RightGeometry}" Stretch="Uniform" Fill="{TemplateBinding Foreground}" VerticalAlignment="Center" />
-									<Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="-9" HorizontalOffset="10">
+									<Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="{Binding Path=(hc:MenuAttach.PopupVerticalOffset),RelativeSource={RelativeSource AncestorType=MenuBase}}" HorizontalOffset="{Binding Path=(hc:MenuAttach.PopupHorizontalOffset),RelativeSource={RelativeSource AncestorType=MenuBase}}">
 										<Border Effect="{StaticResource EffectShadow2}" Margin="8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 											<ScrollViewer Style="{StaticResource ScrollViewerUpDown}" Margin="2,2,2,0">
 												<ItemsPresenter x:Name="ItemsPresenter" KeyboardNavigation.DirectionalNavigation="Cycle" Grid.IsSharedSizeScope="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.TabNavigation="Cycle" />
@@ -6697,11 +6696,10 @@
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="MenuBaseStyle" TargetType="Menu">
-		<Setter Property="OverridesDefaultStyle" Value="True" />
+		<Setter Property="hc:MenuAttach.ItemPadding" Value="{StaticResource DefaultControlPadding}" />
+		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-9" />
+		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="10" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-		<Setter Property="FontSize" Value="12" />
-		<Setter Property="FontStyle" Value="Normal" />
-		<Setter Property="FontWeight" Value="Normal" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
@@ -7203,6 +7201,11 @@
 	</Style>
 	<Style BasedOn="{StaticResource MenuItemBaseStyle}" TargetType="MenuItem" />
 	<Style BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu" />
+	<Style x:Key="Menu.Small" BasedOn="{StaticResource MenuBaseStyle}" TargetType="Menu">
+		<Setter Property="hc:MenuAttach.ItemPadding" Value="6,0" />
+		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-3" />
+		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="6" />
+	</Style>
 	<ControlTemplate x:Key="BadgeTextTemplate" TargetType="hc:Badge">
 		<hc:SimplePanel>
 			<ContentPresenter />
@@ -8205,6 +8208,9 @@
 		</Setter>
 	</Style>
 	<Style x:Key="ContextMenuBaseStyle" TargetType="ContextMenu">
+		<Setter Property="hc:MenuAttach.ItemPadding" Value="{StaticResource DefaultControlPadding}" />
+		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-9" />
+		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="10" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="SnapsToDevicePixels" Value="True" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
@@ -12727,6 +12733,11 @@
 	<Style TargetType="hc:ListClock" BasedOn="{StaticResource ListClockBaseStyle}" />
 	<Style BasedOn="{StaticResource ColorPickerBaseStyle}" TargetType="hc:ColorPicker" />
 	<Style BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="ContextMenu" />
+	<Style x:Key="ContextMenu.Small" BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="ContextMenu">
+		<Setter Property="hc:MenuAttach.ItemPadding" Value="6,0" />
+		<Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-3" />
+		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="6" />
+	</Style>
 	<Style BasedOn="{StaticResource CoverFlowBaseStyle}" TargetType="hc:CoverFlow" />
 	<Style BasedOn="{StaticResource CoverViewBaseStyle}" TargetType="hc:CoverView" />
 	<Style x:Key="DataGridBaseStyle" TargetType="DataGrid">

@@ -1,5 +1,12 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="ContextMenu"/>
+
+    <Style x:Key="ContextMenu.Small" BasedOn="{StaticResource ContextMenuBaseStyle}" TargetType="ContextMenu">
+        <Setter Property="hc:MenuAttach.ItemPadding" Value="6,0" />
+        <Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-3" />
+        <Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="6" />
+    </Style>
 
 </ResourceDictionary>

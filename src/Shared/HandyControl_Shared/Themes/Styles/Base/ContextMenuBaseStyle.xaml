@@ -2,6 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Style x:Key="ContextMenuBaseStyle" TargetType="ContextMenu">
+        <Setter Property="hc:MenuAttach.ItemPadding" Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-9" />
+        <Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="10" />
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />

@@ -6,20 +6,39 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:SimplePanel Margin="32">
-             <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.RightClickHere}}" Foreground="{DynamicResource BorderBrush}" Style="{StaticResource TextBlockTitle}"/>
-             <Rectangle Width="200" Height="112" RadiusX="4" RadiusY="4" Stroke="{DynamicResource BorderBrush}" StrokeDashArray="2,2"/>
-             <Border Width="200" Height="112" Background="Transparent">
-                 <Border.ContextMenu>
-                     <ContextMenu ItemsSource="{Binding DataList}">
-                         <ContextMenu.ItemTemplate>
-                             <HierarchicalDataTemplate ItemsSource="{Binding DataList}">
-                                 <TextBlock Text="{Binding Name}"/>
-                             </HierarchicalDataTemplate>
-                         </ContextMenu.ItemTemplate>
-                     </ContextMenu>
-                 </Border.ContextMenu>
-             </Border>
-         </hc:SimplePanel>
+        <hc:UniformSpacingPanel Spacing="16" Margin="32">
+            <hc:DashedBorder Width="200" Height="112" Background="Transparent" CornerRadius="4" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" BorderDashArray="2,2">
+                <hc:DashedBorder.ContextMenu>
+                    <ContextMenu ItemsSource="{Binding DataList}">
+                        <ContextMenu.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding DataList}">
+                                <TextBlock Text="{Binding Name}" />
+                            </HierarchicalDataTemplate>
+                        </ContextMenu.ItemTemplate>
+                    </ContextMenu>
+                </hc:DashedBorder.ContextMenu>
+                <TextBlock Foreground="{DynamicResource BorderBrush}" Style="{StaticResource TextBlockTitle}" TextAlignment="Center">
+                    <Run Text="{ex:Lang Key={x:Static langs:LangKeys.RightClickHere}}"/>
+                    <LineBreak />
+                    <Run Text="Default" />
+                </TextBlock>
+            </hc:DashedBorder>
+            <hc:DashedBorder Width="200" Height="112" Background="Transparent" CornerRadius="4" BorderBrush="{DynamicResource BorderBrush}" BorderThickness="1" BorderDashArray="2,2">
+                <hc:DashedBorder.ContextMenu>
+                    <ContextMenu ItemsSource="{Binding DataList}" Style="{StaticResource ContextMenu.Small}">
+                        <ContextMenu.ItemTemplate>
+                            <HierarchicalDataTemplate ItemsSource="{Binding DataList}">
+                                <TextBlock Text="{Binding Name}" />
+                            </HierarchicalDataTemplate>
+                        </ContextMenu.ItemTemplate>
+                    </ContextMenu>
+                </hc:DashedBorder.ContextMenu>
+                <TextBlock Foreground="{DynamicResource BorderBrush}" Style="{StaticResource TextBlockTitle}" TextAlignment="Center">
+                    <Run Text="{ex:Lang Key={x:Static langs:LangKeys.RightClickHere}}" />
+                    <LineBreak />
+                    <Run Text="Small" />
+                </TextBlock>
+            </hc:DashedBorder>
+        </hc:UniformSpacingPanel>
     </hc:TransitioningContentControl>
 </UserControl>
