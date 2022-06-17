@@ -23,8 +23,8 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Left"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="Padding" Value="12,6,12,12"/>
-        <Setter Property="MinHeight" Value="44"/>
+        <Setter Property="Padding" Value="12,0" />
+        <Setter Property="MinHeight" Value="{Binding Path=(hc:GridViewAttach.ColumnHeaderHeight),RelativeSource={RelativeSource AncestorType=ListView}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="GridViewColumnHeader">

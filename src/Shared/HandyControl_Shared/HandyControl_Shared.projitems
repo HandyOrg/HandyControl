@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\DropDownElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\EdgeElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\GridAttach.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\GridViewAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\IconSwitchElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ImageAttach.cs" />
