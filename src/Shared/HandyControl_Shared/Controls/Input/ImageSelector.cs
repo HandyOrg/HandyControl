@@ -22,6 +22,16 @@ public class ImageSelector : Control
         remove => RemoveHandler(ImageSelectedEvent, value);
     }
 
+    public static readonly RoutedEvent ImageUnselectedEvent =
+        EventManager.RegisterRoutedEvent("ImageUnselected", RoutingStrategy.Bubble,
+            typeof(RoutedEventHandler), typeof(ImageSelector));
+
+    public event RoutedEventHandler ImageUnselected
+    {
+        add => AddHandler(ImageUnselectedEvent, value);
+        remove => RemoveHandler(ImageUnselectedEvent, value);
+    }
+
     public ImageSelector() => CommandBindings.Add(new CommandBinding(ControlCommands.Switch, SwitchImage));
 
     private void SwitchImage(object sender, ExecutedRoutedEventArgs e)
@@ -53,6 +63,7 @@ public class ImageSelector : Control
             SetValue(PreviewBrushPropertyKey, default(Brush));
             SetValue(HasValuePropertyKey, ValueBoxes.FalseBox);
             SetCurrentValue(ToolTipProperty, default);
+            RaiseEvent(new RoutedEventArgs(ImageUnselectedEvent, this));
         }
     }
 
