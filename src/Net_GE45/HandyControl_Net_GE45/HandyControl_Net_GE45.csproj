@@ -14,7 +14,7 @@
     <PackageReleaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
     <SharedPath>..\..\Shared\HandyControl_Shared\Themes</SharedPath>
-    <TargetFile>..\..\Shared\HandyControl_Shared\Themes\Theme.xaml</TargetFile>
+    <TargetFile>Themes\Theme.xaml</TargetFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <SignAssembly>true</SignAssembly>
@@ -169,12 +169,15 @@
   <ItemGroup>
     <XAMLCombineItems Include="$(SharedPath)\Lang.xaml">
       <TargetFile>$(TargetFile)</TargetFile>
+      <Visible>False</Visible>
     </XAMLCombineItems>
     <XAMLCombineItems Include="$(SharedPath)\Basic\*.xaml">
       <TargetFile>$(TargetFile)</TargetFile>
+      <Visible>False</Visible>
     </XAMLCombineItems>
     <XAMLCombineItems Include="$(SharedPath)\Styles\**\*.xaml">
       <TargetFile>$(TargetFile)</TargetFile>
+      <Visible>False</Visible>
     </XAMLCombineItems>
   </ItemGroup>
 </Project>
