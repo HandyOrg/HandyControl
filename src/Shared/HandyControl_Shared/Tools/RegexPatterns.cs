@@ -99,7 +99,7 @@ public sealed class RegexPatterns
     /// <summary>
     ///     负整数正则匹配
     /// </summary>
-    public const string NIntPattern = @"^-[1-9]\d*$ ";
+    public const string NIntPattern = @"^-[1-9]\d*$";
 
     /// <summary>
     ///     整数正则匹配
