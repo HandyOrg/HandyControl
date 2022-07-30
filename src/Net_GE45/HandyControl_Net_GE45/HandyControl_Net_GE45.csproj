@@ -13,6 +13,8 @@
     <PackageTags>WPF C# Control</PackageTags>
     <PackageReleaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
+    <SharedPath>..\..\Shared\HandyControl_Shared\Themes</SharedPath>
+    <TargetFile>Themes\Theme.xaml</TargetFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <SignAssembly>true</SignAssembly>
@@ -158,7 +160,24 @@
       <Link>Resources\Images\GlowWindow\topright.png</Link>
     </Resource>
   </ItemGroup>
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="..\..\Shared\HandyControl_Shared\Themes\XamlCombine.exe ..\..\Shared\HandyControl_Shared\Themes\Theme_GE45.txt Theme.xaml" />
-  </Target>
+  <ItemGroup>
+    <PackageReference Include="XAMLTools.MSBuild" Version="1.0.0-alpha0121">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XAMLCombineItems Include="$(SharedPath)\Lang.xaml">
+      <TargetFile>$(TargetFile)</TargetFile>
+      <Visible>False</Visible>
+    </XAMLCombineItems>
+    <XAMLCombineItems Include="$(SharedPath)\Basic\*.xaml">
+      <TargetFile>$(TargetFile)</TargetFile>
+      <Visible>False</Visible>
+    </XAMLCombineItems>
+    <XAMLCombineItems Include="$(SharedPath)\Styles\**\*.xaml">
+      <TargetFile>$(TargetFile)</TargetFile>
+      <Visible>False</Visible>
+    </XAMLCombineItems>
+  </ItemGroup>
 </Project>

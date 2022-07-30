@@ -12,6 +12,8 @@
     <PackageTags>WPF C# Control</PackageTags>
     <PackageReleaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</PackageReleaseNotes>
     <RepositoryType>git</RepositoryType>
+    <StylePath>..\..\Shared\HandyControl_Shared\Themes\Styles</StylePath>
+    <SharedPath>..\..\Shared\HandyControl_Shared\Themes</SharedPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release-Net40|AnyCPU' ">
     <SignAssembly>true</SignAssembly>
@@ -174,7 +176,6 @@
     <Page Remove="Themes\Styles\ListView.xaml" />
     <Page Remove="Themes\Styles\MessageBox.xaml" />
     <Page Remove="Themes\Styles\Window.xaml" />
-    <Page Remove="Themes\Theme.xaml" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Themes\Styles\Base\CheckComboBoxBaseStyle.xaml" />
@@ -198,12 +199,29 @@
     <None Include="Themes\Styles\Window.xaml">
       <SubType>Designer</SubType>
     </None>
-    <Page Include="Themes\Theme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
-  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
-    <Exec Command="..\..\Shared\HandyControl_Shared\Themes\XamlCombine.exe ..\..\Shared\HandyControl_Shared\Themes\Theme_40.txt ..\..\..\Net_40\HandyControl_Net_40\Themes\Theme.xaml" />
-  </Target>
+  <ItemGroup>
+    <PackageReference Include="XAMLTools.MSBuild" Version="1.0.0-alpha0121">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XAMLCombineItems Include="$(SharedPath)\Lang.xaml">
+      <TargetFile>Themes\Theme.xaml</TargetFile>
+      <Visible>False</Visible>
+    </XAMLCombineItems>
+    <XAMLCombineItems Include="$(SharedPath)\Basic\*.xaml">
+      <TargetFile>Themes\Theme.xaml</TargetFile>
+      <Visible>False</Visible>
+    </XAMLCombineItems>
+    <XAMLCombineItems Include="Themes\Styles\**\*.xaml">
+      <TargetFile>Themes\Theme.xaml</TargetFile>
+      <Visible>False</Visible>
+    </XAMLCombineItems>
+    <XAMLCombineItems Include="$(SharedPath)\Styles\**\*.xaml" Exclude="$(StylePath)\Base\CheckComboBoxBaseStyle.xaml;$(StylePath)\Base\ComboBoxBaseStyle.xaml;$(StylePath)\Base\TreeViewBaseStyle.xaml;$(StylePath)\DataGrid.xaml;$(StylePath)\ListView.xaml;$(StylePath)\MessageBox.xaml;$(StylePath)\Window.xaml;">
+      <TargetFile>Themes\Theme.xaml</TargetFile>
+      <Visible>False</Visible>
+    </XAMLCombineItems>
+  </ItemGroup>
 </Project>
