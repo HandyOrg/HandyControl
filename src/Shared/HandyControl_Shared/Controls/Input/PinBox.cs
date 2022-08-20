@@ -351,7 +351,7 @@ public class PinBox : Control
     private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var p = (PinBox) d;
-        p.OnIsSafeEnabledChanged((bool)e.NewValue);
+        p.OnIsSafeEnabledChanged((bool) e.NewValue);
     }
 
     private void OnIsSafeEnabledChanged(bool newValue)
