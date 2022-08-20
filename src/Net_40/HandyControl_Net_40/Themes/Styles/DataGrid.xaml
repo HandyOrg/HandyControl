@@ -24,9 +24,9 @@
         <Setter Property="RowHeight" Value="44"/>
         <Setter Property="ColumnHeaderHeight" Value="44"/>
         <Setter Property="hc:DataGridAttach.TextColumnStyle" Value="{StaticResource DataGridTextColumnStyle}"/>
-        <Setter Property="hc:DataGridAttach.EditingTextColumnStyle" Value="{StaticResource TextBoxBaseStyle}"/>
-        <Setter Property="hc:DataGridAttach.ComboBoxColumnStyle" Value="{StaticResource TextBlockComboBoxStyle}"/>
-        <Setter Property="hc:DataGridAttach.EditingComboBoxColumnStyle" Value="{StaticResource ComboBoxBaseStyle}"/>
+        <Setter Property="hc:DataGridAttach.EditingTextColumnStyle" Value="{StaticResource DataGridEditingTextColumnStyle}"/>
+        <Setter Property="hc:DataGridAttach.ComboBoxColumnStyle" Value="{StaticResource DataGridComboBoxColumnStyle}"/>
+        <Setter Property="hc:DataGridAttach.EditingComboBoxColumnStyle" Value="{StaticResource DataGridEditingComboBoxColumnStyle}"/>
         <Setter Property="hc:DataGridAttach.CheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}"/>
         <Setter Property="hc:DataGridAttach.EditingCheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}"/>
         <Setter Property="hc:DataGridAttach.ApplyDefaultStyle" Value="True"/>
@@ -123,6 +123,8 @@
         <Setter Property="ColumnHeaderStyle" Value="{StaticResource DataGridColumnHeaderStyle.Small}"/>
         <Setter Property="RowHeight" Value="24"/>
         <Setter Property="ColumnHeaderHeight" Value="20"/>
+        <Setter Property="hc:DataGridAttach.EditingTextColumnStyle" Value="{StaticResource DataGridEditingTextColumnStyle.Small}"/>
+        <Setter Property="hc:DataGridAttach.EditingComboBoxColumnStyle" Value="{StaticResource DataGridEditingComboBoxColumnStyle.Small}"/>
     </Style>
 
 </ResourceDictionary>
