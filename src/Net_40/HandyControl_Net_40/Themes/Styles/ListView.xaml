@@ -2,58 +2,171 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="ListViewBaseStyle" TargetType="ListView">
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="Padding" Value="6"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="ScrollViewer.CanContentScroll" Value="true"/>
-        <Setter Property="ScrollViewer.PanningMode" Value="Both"/>
-        <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewItemBaseStyle}"/>
-        <Setter Property="hc:GridViewAttach.ColumnHeaderHeight" Value="44" />
+    <Style x:Key="ListViewBaseStyle"
+           TargetType="ListView">
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Padding"
+                Value="6" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                Value="Auto" />
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                Value="Auto" />
+        <Setter Property="ScrollViewer.CanContentScroll"
+                Value="true" />
+        <Setter Property="ScrollViewer.PanningMode"
+                Value="Both" />
+        <Setter Property="Stylus.IsFlicksEnabled"
+                Value="False" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="ItemContainerStyle"
+                Value="{StaticResource ListViewItemBaseStyle}" />
+        <Setter Property="hc:GridViewAttach.ColumnHeaderHeight"
+                Value="44" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ListView">
-                    <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
-                        <Grid Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="*" />
-                            </Grid.RowDefinitions>
-                            <GridViewHeaderRowPresenter AllowsColumnReorder="{Binding View.AllowsColumnReorder, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContainerStyle="{Binding View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderToolTip="{Binding View.ColumnHeaderToolTip, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderContextMenu="{Binding View.ColumnHeaderContextMenu, RelativeSource={RelativeSource TemplatedParent}}" ColumnHeaderTemplate="{Binding View.ColumnHeaderTemplate, RelativeSource={RelativeSource TemplatedParent}}" Columns="{Binding View.Columns, RelativeSource={RelativeSource TemplatedParent}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                            <hc:ToggleBlock Grid.Row="1" IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
-                                <hc:ToggleBlock.CheckedContent>
-                                    <ScrollViewer>
-                                        <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
-                                    </ScrollViewer>
-                                </hc:ToggleBlock.CheckedContent>
-                                <hc:ToggleBlock.UnCheckedContent>
-                                    <hc:Empty />
-                                </hc:ToggleBlock.UnCheckedContent>
-                            </hc:ToggleBlock>
-                        </Grid>
+                    <ControlTemplate.Resources>
+                        <Storyboard x:Key="Storyboard1">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
+                                                           Storyboard.TargetName="PART_VerticalScrollBar">
+                                <EasingDoubleKeyFrame KeyTime="0:0:.2"
+                                                      Value=".8" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
+                                                           Storyboard.TargetName="PART_HorizontalScrollBar">
+                                <EasingDoubleKeyFrame KeyTime="0:0:.2"
+                                                      Value=".8" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                        <Storyboard x:Key="Storyboard2">
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
+                                                           Storyboard.TargetName="PART_VerticalScrollBar">
+                                <EasingDoubleKeyFrame KeyTime="0:0:.2"
+                                                      Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity"
+                                                           Storyboard.TargetName="PART_HorizontalScrollBar">
+                                <EasingDoubleKeyFrame KeyTime="0:0:.2"
+                                                      Value="0" />
+                            </DoubleAnimationUsingKeyFrames>
+                        </Storyboard>
+                    </ControlTemplate.Resources>
+                    <Border BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            Padding="{TemplateBinding Padding}"
+                            SnapsToDevicePixels="True">
+                        <ScrollViewer Focusable="false">
+                            <ScrollViewer.Template>
+                                <ControlTemplate TargetType="ScrollViewer">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <DockPanel Grid.ColumnSpan="2">
+                                            <ScrollViewer DockPanel.Dock="Top"
+                                                          HorizontalScrollBarVisibility="Hidden"
+                                                          VerticalScrollBarVisibility="Hidden"
+                                                          Focusable="false">
+                                                <GridViewHeaderRowPresenter AllowsColumnReorder="{Binding View.AllowsColumnReorder, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                            ColumnHeaderContainerStyle="{Binding View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                            ColumnHeaderToolTip="{Binding View.ColumnHeaderToolTip, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                            ColumnHeaderContextMenu="{Binding View.ColumnHeaderContextMenu, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                            ColumnHeaderTemplate="{Binding View.ColumnHeaderTemplate, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                            ColumnHeaderTemplateSelector="{Binding View.ColumnHeaderTemplateSelector, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                            Columns="{Binding View.Columns, RelativeSource={RelativeSource AncestorType=ListView}}"
+                                                                            Margin="2,0"
+                                                                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                                            </ScrollViewer>
+                                        </DockPanel>
+                                        <hc:ToggleBlock Grid.Row="1"
+                                                        Grid.ColumnSpan="2"
+                                                        Grid.RowSpan="2"
+                                                        IsChecked="{Binding HasItems,RelativeSource={RelativeSource AncestorType=ListView},Mode=OneWay}"
+                                                        VerticalContentAlignment="Stretch"
+                                                        HorizontalContentAlignment="Stretch">
+                                            <hc:ToggleBlock.CheckedContent>
+                                                <ScrollContentPresenter x:Name="PART_ScrollContentPresenter"
+                                                                        CanContentScroll="{TemplateBinding CanContentScroll}" />
+                                            </hc:ToggleBlock.CheckedContent>
+                                            <hc:ToggleBlock.UnCheckedContent>
+                                                <hc:Empty />
+                                            </hc:ToggleBlock.UnCheckedContent>
+                                        </hc:ToggleBlock>
+                                        <ScrollBar Style="{StaticResource ScrollBarBaseStyle}"
+                                                   Opacity="0"
+                                                   x:Name="PART_VerticalScrollBar"
+                                                   Grid.Column="1"
+                                                   Grid.Row="1"
+                                                   Maximum="{TemplateBinding ScrollableHeight}"
+                                                   Orientation="Vertical"
+                                                   Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}"
+                                                   Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                   ViewportSize="{TemplateBinding ViewportHeight}" />
+                                        <ScrollBar Style="{StaticResource ScrollBarBaseStyle}"
+                                                   Opacity="0"
+                                                   x:Name="PART_HorizontalScrollBar"
+                                                   Grid.Row="1"
+                                                   Maximum="{TemplateBinding ScrollableWidth}"
+                                                   Orientation="Horizontal"
+                                                   VerticalAlignment="Bottom"
+                                                   Visibility="{TemplateBinding ComputedHorizontalScrollBarVisibility}"
+                                                   Value="{Binding HorizontalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}"
+                                                   ViewportSize="{TemplateBinding ViewportWidth}" />
+                                    </Grid>
+                                    <ControlTemplate.Triggers>
+                                        <EventTrigger RoutedEvent="MouseEnter">
+                                            <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+                                        </EventTrigger>
+                                        <EventTrigger RoutedEvent="MouseLeave">
+                                            <BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
+                                        </EventTrigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </ScrollViewer.Template>
+                            <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </ScrollViewer>
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style BasedOn="{StaticResource ListViewBaseStyle}" TargetType="ListView"/>
+    <Style BasedOn="{StaticResource ListViewBaseStyle}"
+           TargetType="ListView" />
 
-    <Style x:Key="ListViewItemBaseStyle.Small" BasedOn="{StaticResource ListViewItemBaseStyle}" TargetType="ListViewItem">
-        <Setter Property="Padding" Value="6,2" />
-        <Setter Property="MinHeight" Value="24" />
-        <Setter Property="Margin" Value="0,0,0,2" />
+    <Style x:Key="ListViewItemBaseStyle.Small"
+           BasedOn="{StaticResource ListViewItemBaseStyle}"
+           TargetType="ListViewItem">
+        <Setter Property="Padding"
+                Value="6,2" />
+        <Setter Property="MinHeight"
+                Value="24" />
+        <Setter Property="Margin"
+                Value="0,0,0,2" />
     </Style>
 
-    <Style x:Key="ListView.Small" BasedOn="{StaticResource ListViewBaseStyle}" TargetType="ListView">
-        <Setter Property="ItemContainerStyle" Value="{StaticResource ListViewItemBaseStyle.Small}" />
-        <Setter Property="hc:GridViewAttach.ColumnHeaderHeight" Value="30" />
+    <Style x:Key="ListView.Small"
+           BasedOn="{StaticResource ListViewBaseStyle}"
+           TargetType="ListView">
+        <Setter Property="ItemContainerStyle"
+                Value="{StaticResource ListViewItemBaseStyle.Small}" />
+        <Setter Property="hc:GridViewAttach.ColumnHeaderHeight"
+                Value="30" />
     </Style>
 
 </ResourceDictionary>
