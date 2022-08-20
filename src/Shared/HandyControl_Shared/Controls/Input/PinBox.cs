@@ -88,6 +88,11 @@ public class PinBox : Control
 
         if (e.OriginalSource is System.Windows.Controls.PasswordBox passwordBox)
         {
+            if (!IsSafeEnabled)
+            {
+                SetCurrentValue(UnsafePasswordProperty, Password);
+            }
+
             if (passwordBox.Password.Length > 0)
             {
                 if (++_inputIndex >= Length)
@@ -192,7 +197,9 @@ public class PinBox : Control
     {
         get
         {
-            return string.Join("", _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Select(item => item.Password));
+            return _panel == null
+                ? string.Empty
+                : string.Join(string.Empty, _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Select(item => item.Password));
         }
         set
         {
@@ -212,14 +219,31 @@ public class PinBox : Control
                 return;
             }
 
-            var length = Length;
-            if (string.IsNullOrEmpty(value) || value.Length != length || value.Length != _panel.Children.Count)
+            _isInternalAction = true;
+
+            if (string.IsNullOrEmpty(value))
             {
                 _panel.Children.OfType<System.Windows.Controls.PasswordBox>().Do(item => item.Clear());
             }
             else
             {
-                _panel.Children.OfType<System.Windows.Controls.PasswordBox>().DoWithIndex((item, index) => item.Password = value[index].ToString());
+                _panel.Children
+                    .OfType<System.Windows.Controls.PasswordBox>()
+                    .Take(Math.Min(Length, value.Length))
+                    .DoWithIndex((item, index) => item.Password = value[index].ToString());
+
+                _panel.Children
+                    .OfType<System.Windows.Controls.PasswordBox>()
+                    .Skip(value.Length)
+                    .Take(Length - value.Length)
+                    .Do(item => item.Clear());
+            }
+
+            _isInternalAction = false;
+
+            if (!IsSafeEnabled)
+            {
+                SetCurrentValue(UnsafePasswordProperty, Password);
             }
         }
     }
@@ -321,6 +345,50 @@ public class PinBox : Control
         set => SetValue(CaretBrushProperty, value);
     }
 
+    public static readonly DependencyProperty IsSafeEnabledProperty = PasswordBox.IsSafeEnabledProperty
+        .AddOwner(typeof(PinBox), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, OnIsSafeEnabledChanged));
+
+    private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var p = (PinBox) d;
+        p.OnIsSafeEnabledChanged((bool)e.NewValue);
+    }
+
+    private void OnIsSafeEnabledChanged(bool newValue)
+    {
+        if (_panel == null)
+        {
+            return;
+        }
+
+        SetCurrentValue(UnsafePasswordProperty, !newValue ? Password : string.Empty);
+    }
+
+    public bool IsSafeEnabled
+    {
+        get => (bool) GetValue(IsSafeEnabledProperty);
+        set => SetValue(IsSafeEnabledProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty UnsafePasswordProperty = PasswordBox.UnsafePasswordProperty
+        .AddOwner(typeof(PinBox), new FrameworkPropertyMetadata(default(string),
+            FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
+
+    private static void OnUnsafePasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var p = (PinBox) d;
+        if (!p.IsSafeEnabled)
+        {
+            p.Password = e.NewValue != null ? e.NewValue.ToString() : string.Empty;
+        }
+    }
+
+    public string UnsafePassword
+    {
+        get => (string) GetValue(UnsafePasswordProperty);
+        set => SetValue(UnsafePasswordProperty, value);
+    }
+
     public static readonly RoutedEvent CompletedEvent =
         EventManager.RegisterRoutedEvent("Completed", RoutingStrategy.Bubble,
             typeof(RoutedEventHandler), typeof(PinBox));
@@ -405,6 +473,8 @@ public class PinBox : Control
 
                 _passwordList.Clear();
             }
+
+            OnIsSafeEnabledChanged(IsSafeEnabled);
         }
     }
 }
