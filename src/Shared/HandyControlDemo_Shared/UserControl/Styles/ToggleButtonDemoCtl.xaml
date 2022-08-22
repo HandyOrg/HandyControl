@@ -115,7 +115,7 @@
                             </ToggleButton>
                         </StackPanel>
                         <StackPanel>
-                            <ToggleButton IsChecked="True" Margin="5,9" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}"/>
+                            <ToggleButton IsChecked="True" Margin="5,9" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}" hc:VisualElement.HighlightBrush="{DynamicResource DangerBrush}"/>
                             <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,9" Style="{StaticResource ToggleButtonSwitch}"/>
                         </StackPanel>
                         <StackPanel>
@@ -227,7 +227,7 @@
                             <ToggleButton IsEnabled="False" Margin="5" Style="{StaticResource ToggleButtonIconTransparent.Small}" hc:IconSwitchElement.Geometry="{StaticResource LeftGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource RightGeometry}"/>
                         </StackPanel>
                         <StackPanel>
-                            <ToggleButton IsChecked="True" Margin="5,8" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch.Small}"/>
+                            <ToggleButton IsChecked="True" Margin="5,8" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch.Small}" hc:VisualElement.HighlightBrush="{DynamicResource DangerBrush}"/>
                             <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,4" Style="{StaticResource ToggleButtonSwitch.Small}"/>
                         </StackPanel>
                         <StackPanel>
