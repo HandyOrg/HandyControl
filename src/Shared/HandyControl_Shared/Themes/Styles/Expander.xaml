@@ -1,5 +1,11 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Style BasedOn="{StaticResource ExpanderBaseStyle}" TargetType="Expander"/>
+    <Style BasedOn="{StaticResource ExpanderBaseStyle}" TargetType="Expander" />
+
+    <Style x:Key="Expander.Small" BasedOn="{StaticResource ExpanderBaseStyle}" TargetType="Expander">
+        <Setter Property="MinHeight" Value="20" />
+        <Setter Property="MinWidth" Value="20" />
+    </Style>
 
 </ResourceDictionary>
