@@ -140,7 +140,7 @@ public class CheckComboBox : ListBox, IDataInput
         if (_selectAllItem != null)
         {
             _selectAllItem.Selected += SelectAllItem_Selected;
-            _selectAllItem.Unselected += SelectAllItem_Unselected; 
+            _selectAllItem.Unselected += SelectAllItem_Unselected;
         }
 
         UpdateTags();
