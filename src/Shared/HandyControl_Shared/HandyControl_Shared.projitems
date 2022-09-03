@@ -97,6 +97,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\EventToCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\IEventArgsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\MouseDragElementBehaviorEx.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Tools\Converter\Object2BooleanReConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Tools\Helper\FullScreenHelper.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\GlowWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\EnumItem.cs" />
