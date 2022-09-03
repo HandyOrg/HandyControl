@@ -3712,6 +3712,7 @@
 		<Setter Property="Width" Value="20" />
 	</Style>
 	<Style x:Key="ToggleButtonCustom" BasedOn="{StaticResource BaseStyle}" TargetType="ToggleButton">
+		<Setter Property="hc:BorderElement.CornerRadius" Value="0" />
 		<Setter Property="Background" Value="Transparent" />
 		<Setter Property="HorizontalAlignment" Value="Center" />
 		<Setter Property="VerticalAlignment" Value="Center" />
@@ -3722,7 +3723,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ToggleButton">
-					<Border x:Name="Chrome" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
+					<Border x:Name="Chrome" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" SnapsToDevicePixels="true" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}">
 						<hc:SimplePanel>
 							<ContentPresenter Name="UnCheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 							<ContentPresenter Name="CheckedElement" Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" Visibility="Collapsed" Content="{Binding Path=(hc:StatusSwitchElement.CheckedElement),RelativeSource={RelativeSource TemplatedParent}}" />
@@ -8945,28 +8946,26 @@
 				<ColumnDefinition />
 				<ColumnDefinition Width="Auto" />
 			</Grid.ColumnDefinitions>
-			<Border x:Name="BorderHeader" Grid.Column="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-				<ToggleButton VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Focusable="False" Padding="0,0,0,10" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="{TemplateBinding MinWidth}" Style="{StaticResource ToggleButtonCustom}">
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition />
-							<ColumnDefinition Width="32" />
-						</Grid.ColumnDefinitions>
-						<Grid.LayoutTransform>
-							<TransformGroup>
-								<RotateTransform Angle="-90" />
-							</TransformGroup>
-						</Grid.LayoutTransform>
-						<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-						<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource UpGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
-					</Grid>
-				</ToggleButton>
-			</Border>
+			<ToggleButton x:Name="ToggleButton" Grid.Column="1" hc:BorderElement.CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Focusable="False" Padding="0,0,0,10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="{TemplateBinding MinWidth}" Style="{StaticResource ToggleButtonCustom}">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="32" />
+					</Grid.ColumnDefinitions>
+					<Grid.LayoutTransform>
+						<TransformGroup>
+							<RotateTransform Angle="-90" />
+						</TransformGroup>
+					</Grid.LayoutTransform>
+					<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource UpGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+				</Grid>
+			</ToggleButton>
 			<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Column="0" />
 		</Grid>
 		<ControlTemplate.Triggers>
 			<Trigger Property="IsExpanded" Value="true">
-				<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,1,1,0'}" />
+				<Setter Property="hc:BorderElement.CornerRadius" TargetName="ToggleButton" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,1,1,0'}" />
 				<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
 				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource DownGeometry}" />
 			</Trigger>
@@ -8981,23 +8980,21 @@
 				<RowDefinition />
 				<RowDefinition Height="Auto" />
 			</Grid.RowDefinitions>
-			<Border x:Name="BorderHeader" Grid.Row="1" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-				<ToggleButton HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Focusable="False" Padding="10,0,0,0" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition />
-							<ColumnDefinition Width="32" />
-						</Grid.ColumnDefinitions>
-						<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-						<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource UpGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
-					</Grid>
-				</ToggleButton>
-			</Border>
+			<ToggleButton x:Name="ToggleButton" Grid.Row="1" hc:BorderElement.CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Focusable="False" Padding="10,0,0,0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="32" />
+					</Grid.ColumnDefinitions>
+					<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource UpGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+				</Grid>
+			</ToggleButton>
 			<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Row="0" />
 		</Grid>
 		<ControlTemplate.Triggers>
 			<Trigger Property="IsExpanded" Value="true">
-				<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,0,1,1'}" />
+				<Setter Property="hc:BorderElement.CornerRadius" TargetName="ToggleButton" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='0,0,1,1'}" />
 				<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
 				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource DownGeometry}" />
 			</Trigger>
@@ -9012,28 +9009,26 @@
 				<ColumnDefinition Width="Auto" />
 				<ColumnDefinition />
 			</Grid.ColumnDefinitions>
-			<Border x:Name="BorderHeader" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-				<ToggleButton VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Focusable="False" Padding="0,0,0,10" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="{TemplateBinding MinWidth}" Style="{StaticResource ToggleButtonCustom}">
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition />
-							<ColumnDefinition Width="32" />
-						</Grid.ColumnDefinitions>
-						<Grid.LayoutTransform>
-							<TransformGroup>
-								<RotateTransform Angle="-90" />
-							</TransformGroup>
-						</Grid.LayoutTransform>
-						<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-						<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
-					</Grid>
-				</ToggleButton>
-			</Border>
+			<ToggleButton x:Name="ToggleButton" hc:BorderElement.CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Focusable="False" Padding="0,0,0,10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinWidth="{TemplateBinding MinWidth}" Style="{StaticResource ToggleButtonCustom}">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="32" />
+					</Grid.ColumnDefinitions>
+					<Grid.LayoutTransform>
+						<TransformGroup>
+							<RotateTransform Angle="-90" />
+						</TransformGroup>
+					</Grid.LayoutTransform>
+					<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+				</Grid>
+			</ToggleButton>
 			<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Column="1" />
 		</Grid>
 		<ControlTemplate.Triggers>
 			<Trigger Property="IsExpanded" Value="true">
-				<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,0,0,1'}" />
+				<Setter Property="hc:BorderElement.CornerRadius" TargetName="ToggleButton" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,0,0,1'}" />
 				<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
 				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
 			</Trigger>
@@ -9048,23 +9043,21 @@
 				<RowDefinition Height="Auto" />
 				<RowDefinition />
 			</Grid.RowDefinitions>
-			<Border x:Name="BorderHeader" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
-				<ToggleButton HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Focusable="False" Padding="10,0,0,0" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Width="{TemplateBinding Width}" Height="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
-					<Grid>
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition />
-							<ColumnDefinition Width="32" />
-						</Grid.ColumnDefinitions>
-						<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
-						<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
-					</Grid>
-				</ToggleButton>
-			</Border>
+			<ToggleButton x:Name="ToggleButton" hc:BorderElement.CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Focusable="False" Padding="10,0,0,0" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Foreground="{TemplateBinding Foreground}" IsChecked="{Binding IsExpanded, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" MinHeight="{TemplateBinding MinHeight}" Style="{StaticResource ToggleButtonCustom}">
+				<Grid>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition />
+						<ColumnDefinition Width="32" />
+					</Grid.ColumnDefinitions>
+					<ContentPresenter ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+					<Path Name="PathArrow" IsHitTestVisible="False" Grid.Column="1" Stretch="Uniform" Fill="{TemplateBinding Foreground}" Data="{StaticResource DownGeometry}" Margin="0,0,10,0" Width="12" Height="12" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" HorizontalAlignment="Right" />
+				</Grid>
+			</ToggleButton>
 			<ContentPresenter Name="ExpandSite" Visibility="Collapsed" Grid.Row="1" />
 		</Grid>
 		<ControlTemplate.Triggers>
 			<Trigger Property="IsExpanded" Value="true">
-				<Setter Property="CornerRadius" TargetName="BorderHeader" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" />
+				<Setter Property="hc:BorderElement.CornerRadius" TargetName="ToggleButton" Value="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource CornerRadiusSplitConverter}, ConverterParameter='1,1,0,0'}" />
 				<Setter Property="Visibility" TargetName="ExpandSite" Value="Visible" />
 				<Setter Property="Data" TargetName="PathArrow" Value="{StaticResource UpGeometry}" />
 			</Trigger>
