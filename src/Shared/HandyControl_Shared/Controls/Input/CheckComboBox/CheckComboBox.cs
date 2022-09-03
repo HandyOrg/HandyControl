@@ -2,7 +2,6 @@
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Threading;
@@ -124,16 +123,6 @@ public class CheckComboBox : ListBox, IDataInput
             SetCurrentValue(SelectedIndexProperty, -1);
             SelectedItems.Clear();
         }));
-
-        ItemContainerGenerator.StatusChanged += ItemContainerGenerator_StatusChanged;
-    }
-
-    private void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
-    {
-        if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
-        {
-            UpdateTags();
-        }
     }
 
     public override void OnApplyTemplate()
@@ -151,14 +140,10 @@ public class CheckComboBox : ListBox, IDataInput
         if (_selectAllItem != null)
         {
             _selectAllItem.Selected += SelectAllItem_Selected;
-            _selectAllItem.Unselected += SelectAllItem_Unselected;
+            _selectAllItem.Unselected += SelectAllItem_Unselected; 
         }
 
-        Dispatcher.BeginInvoke(new Action(() =>
-        {
-            IsDropDownOpen = true;
-            IsDropDownOpen = false;
-        }), DispatcherPriority.DataBind);
+        UpdateTags();
     }
 
     public bool VerifyData()
@@ -226,9 +211,10 @@ public class CheckComboBox : ListBox, IDataInput
 
     private void Tags_OnClosed(object sender, RoutedEventArgs e)
     {
-        if (e.OriginalSource is Tag { Tag: CheckComboBoxItem checkComboBoxItem })
+        if (e.OriginalSource is Tag tag)
         {
-            checkComboBoxItem.SetCurrentValue(IsSelectedProperty, false);
+            SelectedItems.Remove(tag.Tag);
+            _panel.Children.Remove(tag);
         }
     }
 
@@ -237,12 +223,13 @@ public class CheckComboBox : ListBox, IDataInput
         if (_isInternalAction) return;
         _isInternalAction = true;
 
-        foreach (var item in Items)
+        if (!selected)
         {
-            if (ItemContainerGenerator.ContainerFromItem(item) is CheckComboBoxItem checkComboBoxItem)
-            {
-                checkComboBoxItem.SetCurrentValue(ListBoxItem.IsSelectedProperty, selected);
-            }
+            UnselectAll();
+        }
+        else
+        {
+            SelectAll();
         }
 
         _isInternalAction = false;
@@ -268,25 +255,22 @@ public class CheckComboBox : ListBox, IDataInput
 
         foreach (var item in SelectedItems)
         {
-            if (ItemContainerGenerator.ContainerFromItem(item) is CheckComboBoxItem checkComboBoxItem)
+            var tag = new Tag
             {
-                var tag = new Tag
-                {
-                    Style = TagStyle,
-                    Tag = checkComboBoxItem
-                };
+                Style = TagStyle,
+                Tag = item
+            };
 
-                if (ItemsSource != null)
-                {
-                    tag.SetBinding(ContentControl.ContentProperty, new Binding(DisplayMemberPath) { Source = item });
-                }
-                else
-                {
-                    tag.Content = checkComboBoxItem.Content;
-                }
-
-                _panel.Children.Add(tag);
+            if (ItemsSource != null)
+            {
+                tag.SetBinding(ContentControl.ContentProperty, new Binding(DisplayMemberPath) { Source = item });
             }
+            else
+            {
+                tag.Content = IsItemItsOwnContainerOverride(item) ? ((CheckComboBoxItem) item).Content : item;
+            }
+
+            _panel.Children.Add(tag);
         }
     }
 }
