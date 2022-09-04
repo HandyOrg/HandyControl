@@ -8925,17 +8925,20 @@
 	<Style x:Key="EmptyBaseStyle" TargetType="hc:Empty">
 		<Setter Property="Logo" Value="{StaticResource LogoRectangle4Empty}" />
 		<Setter Property="Description" Value="{StaticResource DescriptionTextBlock4Empty}" />
-		<Setter Property="HorizontalAlignment" Value="Center" />
-		<Setter Property="VerticalAlignment" Value="Center" />
+		<Setter Property="HorizontalContentAlignment" Value="Center" />
+		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="Visibility" Value="{Binding Path=(hc:Empty.ShowEmpty),RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2VisibilityConverter}}" />
+		<Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:Empty">
-					<hc:SimpleStackPanel>
-						<ContentPresenter ContentSource="Logo" />
-						<ContentPresenter ContentSource="Description" />
-						<ContentPresenter HorizontalAlignment="Center" />
-					</hc:SimpleStackPanel>
+					<Border Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+						<hc:SimpleStackPanel Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+							<ContentPresenter ContentSource="Logo" />
+							<ContentPresenter ContentSource="Description" />
+							<ContentPresenter HorizontalAlignment="Center" />
+						</hc:SimpleStackPanel>
+					</Border>
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
@@ -12750,7 +12753,7 @@
 	<Style x:Key="DataGridBaseStyle" TargetType="DataGrid">
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-		<Setter Property="BorderThickness" Value="0" />
+		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="GridLinesVisibility" Value="None" />
 		<Setter Property="RowDetailsVisibilityMode" Value="VisibleWhenSelected" />
 		<Setter Property="ScrollViewer.CanContentScroll" Value="true" />
@@ -12775,11 +12778,12 @@
 		<Setter Property="hc:DataGridAttach.CheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}" />
 		<Setter Property="hc:DataGridAttach.EditingCheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}" />
 		<Setter Property="hc:DataGridAttach.ApplyDefaultStyle" Value="True" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="DataGrid">
 					<ControlTemplate.Resources>
-						<Storyboard x:Key="Storyboard1">
+						<Storyboard x:Key="StoryboardMouseEnter">
 							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_VerticalScrollBar">
 								<EasingDoubleKeyFrame KeyTime="0:0:.2" Value=".8" />
 							</DoubleAnimationUsingKeyFrames>
@@ -12787,7 +12791,7 @@
 								<EasingDoubleKeyFrame KeyTime="0:0:.2" Value=".8" />
 							</DoubleAnimationUsingKeyFrames>
 						</Storyboard>
-						<Storyboard x:Key="Storyboard2">
+						<Storyboard x:Key="StoryboardMouseLeave">
 							<DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_VerticalScrollBar">
 								<EasingDoubleKeyFrame KeyTime="0:0:.2" Value="0" />
 							</DoubleAnimationUsingKeyFrames>
@@ -12796,7 +12800,7 @@
 							</DoubleAnimationUsingKeyFrames>
 						</Storyboard>
 					</ControlTemplate.Resources>
-					<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+					<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
 						<ScrollViewer x:Name="DG_ScrollViewer" Focusable="false">
 							<ScrollViewer.Template>
 								<ControlTemplate TargetType="ScrollViewer">
@@ -12819,12 +12823,10 @@
 											</Button.Visibility>
 										</Button>
 										<DataGridColumnHeadersPresenter x:Name="PART_ColumnHeadersPresenter" Grid.ColumnSpan="2" Grid.Row="0" Grid.Column="1" Visibility="{Binding HeadersVisibility, ConverterParameter={x:Static DataGridHeadersVisibility.Column}, Converter={x:Static DataGrid.HeadersVisibilityConverter}, RelativeSource={RelativeSource AncestorType=DataGrid}}" />
-										<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource AncestorType=DataGrid},Mode=OneWay}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
-											<hc:ToggleBlock.CheckedContent>
-												<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" />
-											</hc:ToggleBlock.CheckedContent>
+										<ScrollContentPresenter x:Name="PART_ScrollContentPresenter" CanContentScroll="{TemplateBinding CanContentScroll}" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+										<hc:ToggleBlock VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch" Grid.ColumnSpan="3" Grid.Column="0" Grid.Row="1" IsChecked="{Binding HasItems, RelativeSource={RelativeSource AncestorType=DataGrid}, Mode=OneWay}">
 											<hc:ToggleBlock.UnCheckedContent>
-												<hc:Empty />
+												<hc:Empty Background="{DynamicResource RegionBrush}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" />
 											</hc:ToggleBlock.UnCheckedContent>
 										</hc:ToggleBlock>
 										<ScrollBar Style="{StaticResource ScrollBarBaseStyle}" Opacity="0" x:Name="PART_VerticalScrollBar" Grid.Column="2" Maximum="{TemplateBinding ScrollableHeight}" Orientation="Vertical" Grid.Row="1" Visibility="{TemplateBinding ComputedVerticalScrollBarVisibility}" Value="{Binding VerticalOffset, Mode=OneWay, RelativeSource={RelativeSource TemplatedParent}}" ViewportSize="{TemplateBinding ViewportHeight}" />
@@ -12832,10 +12834,10 @@
 									</Grid>
 									<ControlTemplate.Triggers>
 										<EventTrigger RoutedEvent="MouseEnter">
-											<BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
+											<BeginStoryboard Storyboard="{StaticResource StoryboardMouseEnter}" />
 										</EventTrigger>
 										<EventTrigger RoutedEvent="MouseLeave">
-											<BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
+											<BeginStoryboard Storyboard="{StaticResource StoryboardMouseLeave}" />
 										</EventTrigger>
 									</ControlTemplate.Triggers>
 								</ControlTemplate>
