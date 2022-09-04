@@ -3,7 +3,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using HandyControl.Tools;
-using HandyControl.Tools.Interop;
 
 namespace HandyControl.Controls;
 
@@ -61,12 +60,11 @@ public class MenuTopLineAttach
 
             var positionLeftTop = menuItem.PointToScreen(new Point());
             var positionRightBottom = menuItem.PointToScreen(new Point(menuItem.ActualWidth, menuItem.ActualHeight));
-            ScreenHelper.FindMonitorRectsFromPoint(InteropMethods.GetCursorPos(), out _, out var workAreaRect);
+            ScreenHelper.FindMonitorRectsFromPoint(positionLeftTop, out _, out var workAreaRect);
             var panel = VisualHelper.GetParent<Panel>(topLine);
 
             if (positionLeftTop.X < 0)
             {
-
                 topLine.Margin = new Thickness(positionLeftTop.X - panel.Margin.Left, 0, 0, 0);
             }
             else if (positionLeftTop.X + panel.ActualWidth > workAreaRect.Right)
