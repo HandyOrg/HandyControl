@@ -23,30 +23,50 @@ namespace HandyControl.Controls;
 [TemplatePart(Name = ElementButtonClose, Type = typeof(Button))]
 public class Growl : Control
 {
-    #region Constants
-
     private const string ElementPanelMore = "PART_PanelMore";
-
     private const string ElementGridMain = "PART_GridMain";
-
     private const string ElementButtonClose = "PART_ButtonClose";
+    private const int MinWaitTime = 2;
 
-    #endregion Constants
-
-    #region Data
-
+    public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
+        "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
+        {
+            if ((bool) args.NewValue && o is Panel panel)
+            {
+                SetGrowlPanel(panel);
+            }
+        }));
+    public static readonly DependencyProperty ShowModeProperty = DependencyProperty.RegisterAttached(
+        "ShowMode", typeof(GrowlShowMode), typeof(Growl),
+        new FrameworkPropertyMetadata(default(GrowlShowMode), FrameworkPropertyMetadataOptions.Inherits));
+    public static readonly DependencyProperty ShowDateTimeProperty = DependencyProperty.Register(
+        "ShowDateTime", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.TrueBox));
+    public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
+        "Message", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+    public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
+        "Time", typeof(DateTime), typeof(Growl), new PropertyMetadata(default(DateTime)));
+    public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
+        "Icon", typeof(Geometry), typeof(Growl), new PropertyMetadata(default(Geometry)));
+    public static readonly DependencyProperty IconBrushProperty = DependencyProperty.Register(
+        "IconBrush", typeof(Brush), typeof(Growl), new PropertyMetadata(default(Brush)));
+    public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
+        "Type", typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
+    public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
+        "Token", typeof(string), typeof(Growl), new PropertyMetadata(default(string), OnTokenChanged));
+    internal static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
+        "CancelStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+    internal static readonly DependencyProperty ConfirmStrProperty = DependencyProperty.Register(
+        "ConfirmStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+    private static readonly DependencyProperty IsCreatedAutomaticallyProperty = DependencyProperty.RegisterAttached(
+        "IsCreatedAutomatically", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox));
     private static GrowlWindow GrowlWindow;
+    private static readonly Dictionary<string, Panel> PanelDic = new();
 
     private Panel _panelMore;
-
     private Grid _gridMain;
-
     private Button _buttonClose;
-
     private bool _showCloseButton;
-
     private bool _staysOpen;
-
     private int _waitTime = 6;
 
     /// <summary>
@@ -59,9 +79,60 @@ public class Growl : Control
     /// </summary>
     private DispatcherTimer _timerClose;
 
-    private static readonly Dictionary<string, Panel> PanelDic = new();
+    /// <summary>
+    ///     消息容器
+    /// </summary>
+    public static Panel GrowlPanel { get; set; }
 
-    #endregion Data
+    public InfoType Type
+    {
+        get => (InfoType) GetValue(TypeProperty);
+        set => SetValue(TypeProperty, value);
+    }
+
+    public bool ShowDateTime
+    {
+        get => (bool) GetValue(ShowDateTimeProperty);
+        set => SetValue(ShowDateTimeProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public string Message
+    {
+        get => (string) GetValue(MessageProperty);
+        set => SetValue(MessageProperty, value);
+    }
+
+    public DateTime Time
+    {
+        get => (DateTime) GetValue(TimeProperty);
+        set => SetValue(TimeProperty, value);
+    }
+
+    public Geometry Icon
+    {
+        get => (Geometry) GetValue(IconProperty);
+        set => SetValue(IconProperty, value);
+    }
+
+    public Brush IconBrush
+    {
+        get => (Brush) GetValue(IconBrushProperty);
+        set => SetValue(IconBrushProperty, value);
+    }
+
+    internal string CancelStr
+    {
+        get => (string) GetValue(CancelStrProperty);
+        set => SetValue(CancelStrProperty, value);
+    }
+
+    internal string ConfirmStr
+    {
+        get => (string) GetValue(ConfirmStrProperty);
+        set => SetValue(ConfirmStrProperty, value);
+    }
+
+    private Func<bool, bool> ActionBeforeClose { get; set; }
 
     public Growl()
     {
@@ -148,40 +219,6 @@ public class Growl : Control
         if (_panelMore == null || _gridMain == null || _buttonClose == null) throw new Exception();
     }
 
-    private Func<bool, bool> ActionBeforeClose { get; set; }
-
-    /// <summary>
-    ///     消息容器
-    /// </summary>
-    public static Panel GrowlPanel { get; set; }
-
-    internal static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
-        "CancelStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
-
-    internal static readonly DependencyProperty ConfirmStrProperty = DependencyProperty.Register(
-        "ConfirmStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
-
-    public static readonly DependencyProperty ShowDateTimeProperty = DependencyProperty.Register(
-        "ShowDateTime", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.TrueBox));
-
-    public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
-        "Message", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
-
-    public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
-        "Time", typeof(DateTime), typeof(Growl), new PropertyMetadata(default(DateTime)));
-
-    public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-        "Icon", typeof(Geometry), typeof(Growl), new PropertyMetadata(default(Geometry)));
-
-    public static readonly DependencyProperty IconBrushProperty = DependencyProperty.Register(
-        "IconBrush", typeof(Brush), typeof(Growl), new PropertyMetadata(default(Brush)));
-
-    public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
-        "Type", typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
-
-    public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
-        "Token", typeof(string), typeof(Growl), new PropertyMetadata(default(string), OnTokenChanged));
-
     private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         if (d is Panel panel)
@@ -197,81 +234,21 @@ public class Growl : Control
         }
     }
 
-    public static void SetToken(DependencyObject element, string value)
-        => element.SetValue(TokenProperty, value);
+    public static void SetToken(DependencyObject element, string value) => element.SetValue(TokenProperty, value);
 
-    public static string GetToken(DependencyObject element)
-        => (string) element.GetValue(TokenProperty);
+    public static string GetToken(DependencyObject element) => (string) element.GetValue(TokenProperty);
 
-    public static readonly DependencyProperty GrowlParentProperty = DependencyProperty.RegisterAttached(
-        "GrowlParent", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
-        {
-            if ((bool) args.NewValue && o is Panel panel)
-            {
-                SetGrowlPanel(panel);
-            }
-        }));
+    public static void SetShowMode(DependencyObject element, GrowlShowMode value) => element.SetValue(ShowModeProperty, value);
+
+    public static GrowlShowMode GetShowMode(DependencyObject element) => (GrowlShowMode) element.GetValue(ShowModeProperty);
 
     public static void SetGrowlParent(DependencyObject element, bool value) => element.SetValue(GrowlParentProperty, ValueBoxes.BooleanBox(value));
 
     public static bool GetGrowlParent(DependencyObject element) => (bool) element.GetValue(GrowlParentProperty);
 
-    private static readonly DependencyProperty IsCreatedAutomaticallyProperty = DependencyProperty.RegisterAttached(
-        "IsCreatedAutomatically", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox));
+    private static void SetIsCreatedAutomatically(DependencyObject element, bool value) => element.SetValue(IsCreatedAutomaticallyProperty, ValueBoxes.BooleanBox(value));
 
-    private static void SetIsCreatedAutomatically(DependencyObject element, bool value)
-        => element.SetValue(IsCreatedAutomaticallyProperty, ValueBoxes.BooleanBox(value));
-
-    private static bool GetIsCreatedAutomatically(DependencyObject element)
-        => (bool) element.GetValue(IsCreatedAutomaticallyProperty);
-
-    public InfoType Type
-    {
-        get => (InfoType) GetValue(TypeProperty);
-        set => SetValue(TypeProperty, value);
-    }
-
-    internal string CancelStr
-    {
-        get => (string) GetValue(CancelStrProperty);
-        set => SetValue(CancelStrProperty, value);
-    }
-
-    internal string ConfirmStr
-    {
-        get => (string) GetValue(ConfirmStrProperty);
-        set => SetValue(ConfirmStrProperty, value);
-    }
-
-    public bool ShowDateTime
-    {
-        get => (bool) GetValue(ShowDateTimeProperty);
-        set => SetValue(ShowDateTimeProperty, ValueBoxes.BooleanBox(value));
-    }
-
-    public string Message
-    {
-        get => (string) GetValue(MessageProperty);
-        set => SetValue(MessageProperty, value);
-    }
-
-    public DateTime Time
-    {
-        get => (DateTime) GetValue(TimeProperty);
-        set => SetValue(TimeProperty, value);
-    }
-
-    public Geometry Icon
-    {
-        get => (Geometry) GetValue(IconProperty);
-        set => SetValue(IconProperty, value);
-    }
-
-    public Brush IconBrush
-    {
-        get => (Brush) GetValue(IconBrushProperty);
-        set => SetValue(IconBrushProperty, value);
-    }
+    private static bool GetIsCreatedAutomatically(DependencyObject element) => (bool) element.GetValue(IsCreatedAutomaticallyProperty);
 
     /// <summary>
     ///     开始计时器
@@ -353,6 +330,23 @@ public class Growl : Control
         if (!_staysOpen) StartTimer();
     }
 
+    private static void ShowInternal(Panel panel, UIElement growl)
+    {
+        if (panel is null)
+        {
+            return;
+        }
+
+        if (GetShowMode(panel) == GrowlShowMode.Prepend)
+        {
+            panel.Children.Insert(0, growl);
+        }
+        else
+        {
+            panel.Children.Add(growl);
+        }
+    }
+
     private static void ShowGlobal(GrowlInfo growlInfo)
     {
         Application.Current.Dispatcher?.Invoke(
@@ -384,10 +378,11 @@ public class Growl : Control
                         ConfirmStr = growlInfo.ConfirmStr,
                         CancelStr = growlInfo.CancelStr,
                         Type = growlInfo.Type,
-                        _waitTime = Math.Max(growlInfo.WaitTime, 2),
+                        _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime),
                         FlowDirection = growlInfo.FlowDirection
                     };
-                    GrowlWindow.GrowlPanel.Children.Insert(0, ctl);
+
+                    ShowInternal(GrowlWindow.GrowlPanel, ctl);
                 }
 #if NET40
             )
@@ -420,21 +415,21 @@ public class Growl : Control
                         ConfirmStr = growlInfo.ConfirmStr,
                         CancelStr = growlInfo.CancelStr,
                         Type = growlInfo.Type,
-                        _waitTime = Math.Max(growlInfo.WaitTime, 2)
+                        _waitTime = Math.Max(growlInfo.WaitTime, MinWaitTime)
                     };
 
                     if (!string.IsNullOrEmpty(growlInfo.Token))
                     {
                         if (PanelDic.TryGetValue(growlInfo.Token, out var panel))
                         {
-                            panel?.Children.Insert(0, ctl);
+                            ShowInternal(panel, ctl);
                         }
                     }
                     else
                     {
                         // GrowlPanel is null, we create it automatically
                         GrowlPanel ??= CreateDefaultPanel();
-                        GrowlPanel?.Children.Insert(0, ctl);
+                        ShowInternal(GrowlPanel, ctl);
                     }
                 }
 #if NET40
