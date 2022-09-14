@@ -16,8 +16,8 @@
 
 <p align="center">
     <img alt="dotnet-version" src="https://img.shields.io/badge/.net-%3E%3D4.0-blue.svg"></img>
-    <img alt="csharp-version" src="https://img.shields.io/badge/C%23-8.0-blue.svg"></img>
-    <img alt="IDE-version" src="https://img.shields.io/badge/IDE-vs2019-blue.svg"></img>
+    <img alt="csharp-version" src="https://img.shields.io/badge/C%23-latest-blue.svg"></img>
+    <img alt="IDE-version" src="https://img.shields.io/badge/IDE-vs2022-blue.svg"></img>
     <a href="https://www.nuget.org/packages/HandyControl">
         <img alt="nuget-version" src="https://img.shields.io/nuget/v/HandyControl.svg"></img>
     </a>

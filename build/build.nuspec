@@ -12,7 +12,7 @@
     <projectUrl>https://github.com/HandyOrg/HandyControl</projectUrl>
     <description>Contains some simple and commonly used WPF controls</description>
     <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
-    <copyright>Copyright © HandyOrg 2018-2021</copyright>
+    <copyright>Copyright © HandyOrg 2018-2022</copyright>
     <tags>WPF C# Control</tags>
     <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="083639031635a4b9618842b2be589324d8676055" />
     <dependencies>

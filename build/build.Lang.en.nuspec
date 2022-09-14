@@ -12,7 +12,7 @@
     <projectUrl>https://github.com/HandyOrg/HandyControl</projectUrl>
     <description>Contains some simple and commonly used WPF controls</description>
     <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
-    <copyright>Copyright © HandyOrg 2018-2021</copyright>
+    <copyright>Copyright © HandyOrg 2018-2022</copyright>
     <tags>WPF C# Control</tags>
     <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="083639031635a4b9618842b2be589324d8676055" />
     <dependencies>
@@ -27,6 +27,7 @@
       <group targetFramework=".NETFramework4.7.1" />
       <group targetFramework=".NETFramework4.7.2" />
       <group targetFramework=".NETFramework4.8" />
+      <group targetFramework=".NETFramework4.8.1" />
       <group targetFramework=".NETCoreApp3.0" />
       <group targetFramework=".NETCoreApp3.1" />
       <group targetFramework="net5.0" />
@@ -45,6 +46,7 @@
     <file src="lib\net471\en\HandyControl.resources.dll" target="lib\net471\en\HandyControl.resources.dll" />
     <file src="lib\net472\en\HandyControl.resources.dll" target="lib\net472\en\HandyControl.resources.dll" />
     <file src="lib\net48\en\HandyControl.resources.dll" target="lib\net48\en\HandyControl.resources.dll" />
+    <file src="lib\net481\en\HandyControl.resources.dll" target="lib\net481\en\HandyControl.resources.dll" />
     <file src="lib\net5.0\en\HandyControl.resources.dll" target="lib\net5.0\en\HandyControl.resources.dll" />
     <file src="lib\net6.0\en\HandyControl.resources.dll" target="lib\net6.0\en\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\en\HandyControl.resources.dll" target="lib\netcoreapp3.0\en\HandyControl.resources.dll" />

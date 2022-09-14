@@ -30,6 +30,7 @@ Task("Build")
         "net471",
         "net472",
         "net48",
+        "net481",
         "netcoreapp3.0",
         "netcoreapp3.1",
         "net5.0-windows",

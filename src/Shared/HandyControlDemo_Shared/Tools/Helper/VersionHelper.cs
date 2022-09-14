@@ -30,6 +30,8 @@ internal class VersionHelper
             var netVersion = "NET 472";
 #elif NET48
             var netVersion = "NET 48";
+#elif NET481
+            var netVersion = "NET 481";
 #elif NET5_0
             var netVersion = "NET 50";
 #elif NET6_0
