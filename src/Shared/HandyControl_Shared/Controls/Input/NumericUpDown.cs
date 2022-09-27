@@ -45,6 +45,12 @@ public class NumericUpDown : Control
 
     public override void OnApplyTemplate()
     {
+        if (_textBox != null)
+        {
+            _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
+            _textBox.TextChanged -= TextBox_TextChanged;
+        }
+
         base.OnApplyTemplate();
 
         _textBox = GetTemplateChild(ElementTextBox) as TextBox;
@@ -59,7 +65,20 @@ public class NumericUpDown : Control
             _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
 
             _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
+            _textBox.TextChanged += TextBox_TextChanged;
             _textBox.Text = CurrentText;
+        }
+    }
+
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(_textBox.Text))
+        {
+            SetCurrentValue(ValueProperty, ValueBoxes.Int0Box);
+        }
+        else if (double.TryParse(_textBox.Text, out var value))
+        {
+            SetCurrentValue(ValueProperty, value);
         }
     }
 
