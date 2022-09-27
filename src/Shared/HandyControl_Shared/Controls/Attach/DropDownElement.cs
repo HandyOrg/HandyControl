@@ -7,7 +7,7 @@ public class DropDownElement
 {
     public static readonly DependencyProperty ConsistentWidthProperty = DependencyProperty.RegisterAttached(
         "ConsistentWidth", typeof(bool), typeof(DropDownElement),
-        new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+        new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static void SetConsistentWidth(DependencyObject element, bool value)
         => element.SetValue(ConsistentWidthProperty, ValueBoxes.BooleanBox(value));
