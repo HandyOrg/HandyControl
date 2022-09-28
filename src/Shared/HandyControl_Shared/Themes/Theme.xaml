@@ -5230,7 +5230,7 @@
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
-				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}" />
+				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -5300,7 +5300,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<ControlTemplate x:Key="ComboBoxLeftTemplate" TargetType="ComboBox">
-		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
+		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
@@ -5454,7 +5454,7 @@
 		<Grid x:Name="templateRoot" SnapsToDevicePixels="true">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
-				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}" />
+				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -5524,7 +5524,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<ControlTemplate x:Key="ComboBoxEditableLeftTemplate" TargetType="ComboBox">
-		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
+		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
@@ -5699,7 +5699,7 @@
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
-				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}" />
+				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -5809,7 +5809,7 @@
 				<ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0" />
 			</Storyboard>
 		</ControlTemplate.Resources>
-		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
+		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
@@ -5922,7 +5922,7 @@
 		<Grid x:Name="templateRoot" SnapsToDevicePixels="true">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
-				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}" />
+				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -6053,7 +6053,7 @@
 		<Grid x:Name="templateRoot" SnapsToDevicePixels="true">
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
-				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}" />
+				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -6202,7 +6202,7 @@
 				<ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0" />
 			</Storyboard>
 		</ControlTemplate.Resources>
-		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
+		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
@@ -6330,7 +6330,7 @@
 				<ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0" />
 			</Storyboard>
 		</ControlTemplate.Resources>
-		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
+		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
@@ -7639,7 +7639,7 @@
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
-				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}" />
+				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -7712,7 +7712,7 @@
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<ControlTemplate x:Key="CheckComboBoxExtendLeftTemplate" TargetType="hc:CheckComboBox">
-		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
+		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
@@ -7808,7 +7808,7 @@
 		<Grid>
 			<Grid.RowDefinitions>
 				<RowDefinition Height="Auto" />
-				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}" />
+				<RowDefinition MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}" />
 			</Grid.RowDefinitions>
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition />
@@ -7921,7 +7921,7 @@
 				<ThicknessAnimation Storyboard.TargetName="TextBlockError" Storyboard.TargetProperty="Margin" To="9,0,0,4" Duration="0:0:0" />
 			</Storyboard>
 		</ControlTemplate.Resources>
-		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource Double2GridLengthConverter}}">
+		<Grid x:Name="templateRoot" SnapsToDevicePixels="true" MinHeight="{Binding Path=(hc:InfoElement.MinContentHeight),RelativeSource={RelativeSource TemplatedParent}}" Height="{Binding Path=(hc:InfoElement.ContentHeight),RelativeSource={RelativeSource TemplatedParent}}">
 			<Grid.ColumnDefinitions>
 				<ColumnDefinition Width="{Binding Path=(hc:InfoElement.TitleWidth),RelativeSource={RelativeSource TemplatedParent}}" />
 				<ColumnDefinition />
