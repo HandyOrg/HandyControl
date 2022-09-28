@@ -11,7 +11,9 @@
                 <StackPanel Width="300">
                     <hc:Divider/>
                     <hc:Divider Content="{ex:Lang Key={x:Static langs:LangKeys.Title}}"/>
-                    <hc:Divider Content="{ex:Lang Key={x:Static langs:LangKeys.Title}}" Padding="10,0"/>
+                    <hc:Divider Padding="0">
+                        <Button Content="More" hc:IconElement.Geometry="{StaticResource DownGeometry}" hc:IconElement.Height="8"/>
+                    </hc:Divider>
                     <hc:Divider LineStrokeThickness="2" LineStroke="{DynamicResource DarkPrimaryBrush}"/>
                     <hc:Divider LineStrokeDashArray="2,2"/>
                 </StackPanel>

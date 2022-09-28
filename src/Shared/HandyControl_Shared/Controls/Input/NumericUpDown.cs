@@ -45,6 +45,12 @@ public class NumericUpDown : Control
 
     public override void OnApplyTemplate()
     {
+        if (_textBox != null)
+        {
+            _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
+            _textBox.TextChanged -= TextBox_TextChanged;
+        }
+
         base.OnApplyTemplate();
 
         _textBox = GetTemplateChild(ElementTextBox) as TextBox;
@@ -52,14 +58,39 @@ public class NumericUpDown : Control
         if (_textBox != null)
         {
             _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
-#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+#if NET48_OR_GREATER
             _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
 #endif
             _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
             _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
 
             _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
+            _textBox.TextChanged += TextBox_TextChanged;
+            _textBox.LostFocus += TextBox_LostFocus;
             _textBox.Text = CurrentText;
+        }
+    }
+
+    private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(_textBox.Text))
+        {
+            SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
+        }
+        else if (double.TryParse(_textBox.Text, out double value))
+        {
+            SetCurrentValue(ValueProperty, value);
+        }
+    }
+
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (double.TryParse(_textBox.Text, out double value))
+        {
+            if (value >= Minimum && value <= Maximum)
+            {
+                SetCurrentValue(ValueProperty, value);
+            }
         }
     }
 
@@ -309,7 +340,7 @@ public class NumericUpDown : Control
         set => SetValue(SelectionBrushProperty, value);
     }
 
-#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+#if NET48_OR_GREATER
 
     public static readonly DependencyProperty SelectionTextBrushProperty =
         TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(NumericUpDown));

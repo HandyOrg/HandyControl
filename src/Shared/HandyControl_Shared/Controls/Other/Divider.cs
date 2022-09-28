@@ -1,10 +1,13 @@
-﻿using System.Windows;
+﻿using System.ComponentModel;
+using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
 using System.Windows.Media;
 using HandyControl.Data;
 
 namespace HandyControl.Controls;
 
+[ContentProperty(nameof(Content))]
 public class Divider : Control
 {
     public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
