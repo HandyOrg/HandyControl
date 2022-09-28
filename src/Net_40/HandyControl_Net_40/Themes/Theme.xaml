@@ -7449,7 +7449,7 @@
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:CheckComboBoxItem">
-					<Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{Binding Padding,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource ThicknessSplitConverter},ConverterParameter='1,0,1,0'}" SnapsToDevicePixels="true">
+					<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{Binding Padding,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource ThicknessSplitConverter},ConverterParameter='1,0,1,0'}" SnapsToDevicePixels="true">
 						<CheckBox Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Stretch" MinHeight="{TemplateBinding MinHeight}" FocusVisualStyle="{x:Null}" IsChecked="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}">
 							<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
 						</CheckBox>
@@ -7474,7 +7474,7 @@
 					<Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<Grid Margin="0,4" ClipToBounds="False">
+								<Grid Margin="2" ClipToBounds="False">
 									<Grid.RowDefinitions>
 										<RowDefinition Height="Auto" />
 										<RowDefinition />
@@ -7565,7 +7565,7 @@
 					<Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<Grid Margin="0,4" ClipToBounds="False">
+								<Grid Margin="2" ClipToBounds="False">
 									<Grid.RowDefinitions>
 										<RowDefinition Height="Auto" />
 										<RowDefinition />
@@ -7631,7 +7631,7 @@
 					<Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<Grid Margin="0,4" ClipToBounds="False">
+								<Grid Margin="2" ClipToBounds="False">
 									<Grid.RowDefinitions>
 										<RowDefinition Height="Auto" />
 										<RowDefinition />
@@ -7720,7 +7720,7 @@
 					<Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<Grid Margin="0,4" ClipToBounds="False">
+								<Grid Margin="2" ClipToBounds="False">
 									<Grid.RowDefinitions>
 										<RowDefinition Height="Auto" />
 										<RowDefinition />
@@ -7826,7 +7826,7 @@
 					<Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<Grid Margin="0,4" ClipToBounds="False">
+								<Grid Margin="2" ClipToBounds="False">
 									<Grid.RowDefinitions>
 										<RowDefinition Height="Auto" />
 										<RowDefinition />
@@ -12557,17 +12557,23 @@
 	</Style>
 	<Style BasedOn="{StaticResource ChatBubbleBaseStyle}" TargetType="hc:ChatBubble" />
 	<Style BasedOn="{StaticResource CheckComboBoxBaseStyle}" TargetType="hc:CheckComboBox" />
+	<Style x:Key="CheckComboBoxItem.Small" BasedOn="{StaticResource CheckComboBoxItemBaseStyle}" TargetType="hc:CheckComboBoxItem">
+		<Setter Property="Padding" Value="6,0" />
+		<Setter Property="MinHeight" Value="20" />
+	</Style>
 	<Style x:Key="Tag4CheckComboBoxStyle.Small" BasedOn="{StaticResource Tag4CheckComboBoxStyle}" TargetType="hc:Tag">
 		<Setter Property="Padding" Value="6,0,4,0" />
 	</Style>
 	<Style x:Key="CheckComboBox.Small" BasedOn="{StaticResource CheckComboBoxBaseStyle}" TargetType="hc:CheckComboBox">
 		<Setter Property="TagStyle" Value="{StaticResource Tag4CheckComboBoxStyle.Small}" />
+		<Setter Property="ItemContainerStyle" Value="{StaticResource CheckComboBoxItem.Small}" />
 		<Setter Property="MinHeight" Value="20" />
 		<Setter Property="Padding" Value="6,1" />
 	</Style>
 	<Style x:Key="CheckComboBoxExtend" BasedOn="{StaticResource CheckComboBoxExtendBaseStyle}" TargetType="hc:CheckComboBox" />
 	<Style x:Key="CheckComboBoxExtend.Small" BasedOn="{StaticResource CheckComboBoxExtend}" TargetType="hc:CheckComboBox">
 		<Setter Property="TagStyle" Value="{StaticResource Tag4CheckComboBoxStyle.Small}" />
+		<Setter Property="ItemContainerStyle" Value="{StaticResource CheckComboBoxItem.Small}" />
 		<Setter Property="hc:InfoElement.MinContentHeight" Value="20" />
 		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3" />
 		<Setter Property="MinHeight" Value="20" />
@@ -12576,6 +12582,7 @@
 	<Style x:Key="CheckComboBoxPlus" BasedOn="{StaticResource CheckComboBoxPlusBaseStyle}" TargetType="hc:CheckComboBox" />
 	<Style x:Key="CheckComboBoxPlus.Small" BasedOn="{StaticResource CheckComboBoxPlus}" TargetType="hc:CheckComboBox">
 		<Setter Property="TagStyle" Value="{StaticResource Tag4CheckComboBoxStyle.Small}" />
+		<Setter Property="ItemContainerStyle" Value="{StaticResource CheckComboBoxItem.Small}" />
 		<Setter Property="hc:InfoElement.MinContentHeight" Value="20" />
 		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,3" />
 		<Setter Property="MinHeight" Value="20" />

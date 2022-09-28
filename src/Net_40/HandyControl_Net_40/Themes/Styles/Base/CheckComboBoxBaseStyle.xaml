@@ -79,7 +79,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:CheckComboBoxItem">
-                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{Binding Padding,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource ThicknessSplitConverter},ConverterParameter='1,0,1,0'}" SnapsToDevicePixels="true">
+                    <Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{Binding Padding,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource ThicknessSplitConverter},ConverterParameter='1,0,1,0'}" SnapsToDevicePixels="true">
                         <CheckBox Foreground="{TemplateBinding Foreground}" HorizontalAlignment="Stretch" MinHeight="{TemplateBinding MinHeight}" FocusVisualStyle="{x:Null}" IsChecked="{Binding IsSelected,RelativeSource={RelativeSource TemplatedParent},Mode=TwoWay}">
                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </CheckBox>
@@ -105,7 +105,7 @@
                     <Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
                         <hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
                             <hc:ToggleBlock.CheckedContent>
-                                <Grid Margin="0,4" ClipToBounds="False">
+                                <Grid Margin="2" ClipToBounds="False">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition/>
@@ -198,7 +198,7 @@
                     <Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
                         <hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
                             <hc:ToggleBlock.CheckedContent>
-                                <Grid Margin="0,4" ClipToBounds="False">
+                                <Grid Margin="2" ClipToBounds="False">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition/>
@@ -265,7 +265,7 @@
                     <Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
                         <hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
                             <hc:ToggleBlock.CheckedContent>
-                                <Grid Margin="0,4" ClipToBounds="False">
+                                <Grid Margin="2" ClipToBounds="False">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition/>
@@ -356,7 +356,7 @@
                     <Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
                         <hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
                             <hc:ToggleBlock.CheckedContent>
-                                <Grid Margin="0,4" ClipToBounds="False">
+                                <Grid Margin="2" ClipToBounds="False">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition/>
@@ -463,7 +463,7 @@
                     <Border Effect="{StaticResource EffectShadow2}" BorderThickness="0,1,0,0" Margin="0,0,0,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
                         <hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
                             <hc:ToggleBlock.CheckedContent>
-                                <Grid Margin="0,4" ClipToBounds="False">
+                                <Grid Margin="2" ClipToBounds="False">
                                     <Grid.RowDefinitions>
                                         <RowDefinition Height="Auto"/>
                                         <RowDefinition/>
