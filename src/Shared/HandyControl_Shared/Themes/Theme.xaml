@@ -9670,6 +9670,17 @@
 				<Setter Property="Background" Value="{DynamicResource DarkDefaultBrush}" />
 				<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 			</MultiTrigger>
+			<Trigger Property="GridView.ColumnCollection" Value="{x:Null}">
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="ListViewItem">
+							<Border CornerRadius="4" x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+								<ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							</Border>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="LoadingBaseStyle" TargetType="hc:LoadingBase">
@@ -13309,6 +13320,19 @@
 				</MultiTrigger.Conditions>
 				<Setter Property="ScrollViewer.CanContentScroll" Value="false" />
 			</MultiTrigger>
+			<Trigger Property="View" Value="{x:Null}">
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="ListView">
+							<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+								<ScrollViewer Focusable="false">
+									<ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+								</ScrollViewer>
+							</Border>
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Trigger>
 		</Style.Triggers>
 	</Style>
 	<Style BasedOn="{StaticResource ListViewBaseStyle}" TargetType="ListView" />
