@@ -4,6 +4,7 @@
 
     <Style x:Key="MenuItemBaseStyle" TargetType="MenuItem">
         <Setter Property="Padding" Value="{Binding Path=(hc:MenuAttach.ItemPadding),RelativeSource={RelativeSource AncestorType=MenuBase}}"/>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="hc:ScrollViewer.PanningMode" Value="Both"/>
@@ -192,6 +193,7 @@
         <Setter Property="hc:MenuAttach.ItemPadding" Value="{StaticResource DefaultControlPadding}" />
         <Setter Property="hc:MenuAttach.PopupVerticalOffset" Value="-9" />
         <Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="10" />
+        <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
