@@ -419,7 +419,10 @@ public class TabControl : System.Windows.Controls.TabControl
                 if (ItemContainerGenerator.ContainerFromItem(item) is not TabItem tabItem) continue;
 
                 tabItem.RaiseEvent(argsClosing);
-                if (argsClosing.Cancel) return;
+                if (argsClosing.Cancel)
+                {
+                    continue;
+                }
 
                 tabItem.RaiseEvent(new RoutedEventArgs(TabItem.ClosedEvent, item));
                 list.Remove(item);
