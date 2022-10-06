@@ -84,4 +84,25 @@ public class TitleElement
 
     public static Thickness GetMarginOnTheLeft(DependencyObject element)
         => (Thickness) element.GetValue(MarginOnTheLeftProperty);
+
+    public static readonly DependencyProperty PaddingProperty = DependencyProperty.RegisterAttached(
+        "Padding", typeof(Thickness), typeof(TitleElement), new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
+
+    public static void SetPadding(DependencyObject element, Thickness value) => element.SetValue(PaddingProperty, value);
+
+    public static Thickness GetPadding(DependencyObject element) => (Thickness) element.GetValue(PaddingProperty);
+
+    public static readonly DependencyProperty MinHeightProperty =
+        DependencyProperty.RegisterAttached("MinHeight", typeof(double), typeof(TitleElement), new PropertyMetadata(ValueBoxes.Double0Box));
+
+    public static double GetMinHeight(DependencyObject obj) => (double) obj.GetValue(MinHeightProperty);
+
+    public static void SetMinHeight(DependencyObject obj, double value) => obj.SetValue(MinHeightProperty, value);
+
+    public static readonly DependencyProperty MinWidthProperty =
+        DependencyProperty.RegisterAttached("MinWidth", typeof(double), typeof(TitleElement), new PropertyMetadata(ValueBoxes.Double0Box));
+
+    public static double GetMinWidth(DependencyObject obj) => (double) obj.GetValue(MinWidthProperty);
+
+    public static void SetMinWidth(DependencyObject obj, double value) => obj.SetValue(MinWidthProperty, value);
 }

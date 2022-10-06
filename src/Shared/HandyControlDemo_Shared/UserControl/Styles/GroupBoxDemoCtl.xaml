@@ -18,6 +18,16 @@
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                     </Border>
                 </GroupBox>
+                <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Style="{StaticResource GroupBox.Small}">
+                    <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </GroupBox>
+                <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Style="{StaticResource GroupBox.Small}" hc:TitleElement.TitlePlacement="Left">
+                    <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </GroupBox>
                 <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Style="{StaticResource GroupBoxTab}">
                     <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
@@ -26,6 +36,16 @@
                 <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Style="{StaticResource GroupBoxTab}" hc:TitleElement.TitlePlacement="Left">
                     <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
                         <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                    </Border>
+                </GroupBox>
+                <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Style="{StaticResource GroupBoxTab.Small}">
+                    <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </GroupBox>
+                <GroupBox Height="200" Header="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Padding="10" Style="{StaticResource GroupBoxTab.Small}" hc:TitleElement.TitlePlacement="Left">
+                    <Border Background="{DynamicResource RegionBrush}" CornerRadius="4">
+                        <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Border>
                 </GroupBox>
                 <hc:UniformSpacingPanel Orientation="Vertical" Spacing="16">
