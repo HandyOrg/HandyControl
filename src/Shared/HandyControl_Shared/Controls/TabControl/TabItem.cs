@@ -242,10 +242,11 @@ public class TabItem : System.Windows.Controls.TabItem
     public TabItem()
     {
         CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => Close()));
-        CommandBindings.Add(new CommandBinding(ControlCommands.CloseAll,
-            (s, e) => { TabControlParent.CloseAllItems(); }));
-        CommandBindings.Add(new CommandBinding(ControlCommands.CloseOther,
-            (s, e) => { TabControlParent.CloseOtherItems(this); }));
+        CommandBindings.Add(new CommandBinding(ControlCommands.CloseAll, (s, e) => TabControlParent.CloseAllItems()));
+        CommandBindings.Add(new CommandBinding(
+            ControlCommands.CloseOther,
+            (s, e) => TabControlParent.CloseOtherItems(this),
+            (s, e) => e.CanExecute = TabControlParent.Items.Count > 1));
 
         Loaded += (s, e) => OnMenuChanged(Menu);
     }
@@ -389,7 +390,8 @@ public class TabItem : System.Windows.Controls.TabItem
 
     protected override void OnMouseDown(MouseButtonEventArgs e)
     {
-        if (e.ChangedButton == MouseButton.Middle && e.ButtonState == MouseButtonState.Pressed)
+        if (e is { ChangedButton: MouseButton.Middle, ButtonState: MouseButtonState.Pressed } &&
+            TabControlParent.CanBeClosedByMiddleButton)
         {
             if (ShowCloseButton || ShowContextMenu)
             {

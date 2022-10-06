@@ -119,6 +119,15 @@ public class TabControl : System.Windows.Controls.TabControl
         set => SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
     }
 
+    public static readonly DependencyProperty CanBeClosedByMiddleButtonProperty =
+        DependencyProperty.Register("CanBeClosedByMiddleButton", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.TrueBox));
+
+    public bool CanBeClosedByMiddleButton
+    {
+        get => (bool) GetValue(CanBeClosedByMiddleButtonProperty);
+        set => SetValue(CanBeClosedByMiddleButtonProperty, ValueBoxes.BooleanBox(value));
+    }
+
     /// <summary>
     ///     是否将标签填充
     /// </summary>
