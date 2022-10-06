@@ -6470,7 +6470,7 @@
 							<Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
 								<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 							</Border>
-							<ContentPresenter Grid.Column="1" x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentSource="Header" Margin="0,3" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+							<ContentPresenter Grid.Column="1" x:Name="ContentPresenter" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderTemplate}" ContentSource="Header" Margin="0,3" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 							<TextBlock x:Name="InputGestureText" Margin="0,0,10,0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Left" Text="{TemplateBinding InputGestureText}" />
 						</Grid>
 					</Border>
@@ -6602,7 +6602,7 @@
 									<Border Margin="0,0,10,0" IsHitTestVisible="False" Grid.Column="0" x:Name="GlyphPanel" CornerRadius="2" Background="{DynamicResource PrimaryBrush}" ClipToBounds="False" HorizontalAlignment="Right" Height="16" Visibility="Hidden" VerticalAlignment="Center" Width="16">
 										<Path UseLayoutRounding="True" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
 									</Border>
-									<ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,3" x:Name="ContentPresenter" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+									<ContentPresenter TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,3" x:Name="ContentPresenter" ContentStringFormat="{TemplateBinding HeaderStringFormat}" ContentTemplate="{TemplateBinding HeaderTemplate}" Grid.Column="1" ContentSource="Header" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 									<Path x:Name="Path" Grid.Column="4" Width="10" Height="10" HorizontalAlignment="Left" Data="{StaticResource RightGeometry}" Stretch="Uniform" Fill="{TemplateBinding Foreground}" VerticalAlignment="Center" />
 									<Popup Grid.Column="1" x:Name="PART_Popup" AllowsTransparency="True" Focusable="False" IsOpen="{Binding IsSubmenuOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Right" VerticalOffset="{Binding Path=(hc:MenuAttach.PopupVerticalOffset),RelativeSource={RelativeSource AncestorType=MenuBase}}" HorizontalOffset="{Binding Path=(hc:MenuAttach.PopupHorizontalOffset),RelativeSource={RelativeSource AncestorType=MenuBase}}">
 										<Border Effect="{StaticResource EffectShadow2}" Margin="8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="SubMenuBorder" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">

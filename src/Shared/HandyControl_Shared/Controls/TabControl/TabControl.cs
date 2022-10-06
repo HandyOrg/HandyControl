@@ -4,6 +4,7 @@ using System.Collections.Specialized;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
+using System.Windows.Data;
 using System.Windows.Input;
 using HandyControl.Data;
 using HandyControl.Tools.Extension;
@@ -308,8 +309,11 @@ public class TabControl : System.Windows.Controls.TabControl
     {
         if (!IsTabFillEnabled)
         {
-            _itemShowCount = (int) (ActualWidth / TabItemWidth);
-            _buttonOverflow?.Show(ShowOverflowButton && Items.Count > 0 && Items.Count >= _itemShowCount);
+            double actualWidth = ActualWidth;
+            double tabItemWidth = TabItemWidth;
+
+            _itemShowCount = (int) (actualWidth / tabItemWidth);
+            _buttonOverflow?.Show(Items.Count > 0 && Items.Count * tabItemWidth >= actualWidth && ShowOverflowButton);
         }
     }
 
@@ -335,14 +339,25 @@ public class TabControl : System.Windows.Controls.TabControl
                 var menuItem = new MenuItem
                 {
                     HeaderStringFormat = ItemStringFormat,
-                    HeaderTemplate = ItemTemplate,
-                    HeaderTemplateSelector = ItemTemplateSelector,
-                    Header = item.Header,
-                    Width = TabItemWidth,
                     IsChecked = item.IsSelected,
                     IsCheckable = true,
                     IsEnabled = item.IsEnabled
                 };
+
+                if (item.DataContext is not null)
+                {
+                    menuItem.SetBinding(HeaderedItemsControl.HeaderProperty, new Binding(DisplayMemberPath)
+                    {
+                        Source = item.DataContext
+                    });
+                }
+                else
+                {
+                    menuItem.SetBinding(HeaderedItemsControl.HeaderProperty, new Binding(HeaderedItemsControl.HeaderProperty.Name)
+                    {
+                        Source = item
+                    });
+                }
 
                 menuItem.Click += delegate
                 {
