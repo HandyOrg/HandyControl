@@ -12,6 +12,7 @@
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Center"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Label">
