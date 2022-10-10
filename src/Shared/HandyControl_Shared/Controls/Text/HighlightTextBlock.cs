@@ -13,18 +13,18 @@ namespace HandyControl.Controls;
 public class HighlightTextBlock : TextBlock
 {
     public static readonly DependencyProperty SourceTextProperty =
-        DependencyProperty.Register("SourceText", typeof(string), typeof(HighlightTextBlock),
+        DependencyProperty.Register(nameof(SourceText), typeof(string), typeof(HighlightTextBlock),
             new PropertyMetadata(null, OnSourceTextChanged));
 
     public static readonly DependencyProperty QueriesTextProperty =
-        DependencyProperty.Register("QueriesText", typeof(string), typeof(HighlightTextBlock),
+        DependencyProperty.Register(nameof(QueriesText), typeof(string), typeof(HighlightTextBlock),
             new PropertyMetadata(null, OnQueriesTextChanged));
 
     public static readonly DependencyProperty HighlightBrushProperty =
-        DependencyProperty.Register("HighlightBrush", typeof(Brush), typeof(HighlightTextBlock));
+        DependencyProperty.Register(nameof(HighlightBrush), typeof(Brush), typeof(HighlightTextBlock));
 
     public static readonly DependencyProperty HighlightTextBrushProperty =
-        DependencyProperty.Register("HighlightTextBrush", typeof(Brush), typeof(HighlightTextBlock));
+        DependencyProperty.Register(nameof(HighlightTextBrush), typeof(Brush), typeof(HighlightTextBlock));
 
     private static void OnSourceTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
         ((HighlightTextBlock) d).RefreshInlines();

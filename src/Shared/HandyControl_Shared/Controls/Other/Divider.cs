@@ -11,7 +11,7 @@ namespace HandyControl.Controls;
 public class Divider : Control
 {
     public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
-        "Content", typeof(object), typeof(Divider), new PropertyMetadata(default(object)));
+        nameof(Content), typeof(object), typeof(Divider), new PropertyMetadata(default(object)));
 
     public object Content
     {
@@ -20,7 +20,7 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-        "Orientation", typeof(Orientation), typeof(Divider), new PropertyMetadata(default(Orientation)));
+        nameof(Orientation), typeof(Orientation), typeof(Divider), new PropertyMetadata(default(Orientation)));
 
     public Orientation Orientation
     {
@@ -29,7 +29,7 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty ContentTemplateProperty = DependencyProperty.Register(
-        "ContentTemplate", typeof(DataTemplate), typeof(Divider), new PropertyMetadata(default(DataTemplate)));
+        nameof(ContentTemplate), typeof(DataTemplate), typeof(Divider), new PropertyMetadata(default(DataTemplate)));
 
     public DataTemplate ContentTemplate
     {
@@ -38,7 +38,7 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty ContentStringFormatProperty = DependencyProperty.Register(
-        "ContentStringFormat", typeof(string), typeof(Divider), new PropertyMetadata(default(string)));
+        nameof(ContentStringFormat), typeof(string), typeof(Divider), new PropertyMetadata(default(string)));
 
     public string ContentStringFormat
     {
@@ -47,7 +47,7 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty ContentTemplateSelectorProperty = DependencyProperty.Register(
-        "ContentTemplateSelector", typeof(DataTemplateSelector), typeof(Divider), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(ContentTemplateSelector), typeof(DataTemplateSelector), typeof(Divider), new PropertyMetadata(default(DataTemplateSelector)));
 
     public DataTemplateSelector ContentTemplateSelector
     {
@@ -56,7 +56,7 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty LineStrokeProperty = DependencyProperty.Register(
-        "LineStroke", typeof(Brush), typeof(Divider), new PropertyMetadata(default(Brush)));
+        nameof(LineStroke), typeof(Brush), typeof(Divider), new PropertyMetadata(default(Brush)));
 
     public Brush LineStroke
     {
@@ -65,7 +65,7 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty LineStrokeThicknessProperty = DependencyProperty.Register(
-        "LineStrokeThickness", typeof(double), typeof(Divider), new PropertyMetadata(ValueBoxes.Double1Box));
+        nameof(LineStrokeThickness), typeof(double), typeof(Divider), new PropertyMetadata(ValueBoxes.Double1Box));
 
     public double LineStrokeThickness
     {
@@ -74,7 +74,7 @@ public class Divider : Control
     }
 
     public static readonly DependencyProperty LineStrokeDashArrayProperty = DependencyProperty.Register(
-        "LineStrokeDashArray", typeof(DoubleCollection), typeof(Divider), new PropertyMetadata(new DoubleCollection()));
+        nameof(LineStrokeDashArray), typeof(DoubleCollection), typeof(Divider), new PropertyMetadata(new DoubleCollection()));
 
     public DoubleCollection LineStrokeDashArray
     {

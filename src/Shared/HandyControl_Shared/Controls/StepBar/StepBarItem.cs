@@ -12,7 +12,7 @@ public class StepBarItem : SelectableItem
     ///     步骤编号
     /// </summary>
     public static readonly DependencyProperty IndexProperty = DependencyProperty.Register(
-        "Index", typeof(int), typeof(StepBarItem), new PropertyMetadata(-1));
+        nameof(Index), typeof(int), typeof(StepBarItem), new PropertyMetadata(-1));
 
     /// <summary>
     ///     步骤编号
@@ -27,7 +27,7 @@ public class StepBarItem : SelectableItem
     ///     步骤状态
     /// </summary>
     public static readonly DependencyProperty StatusProperty = DependencyProperty.Register(
-        "Status", typeof(StepStatus), typeof(StepBarItem), new PropertyMetadata(StepStatus.Waiting));
+        nameof(Status), typeof(StepStatus), typeof(StepBarItem), new PropertyMetadata(StepStatus.Waiting));
 
     /// <summary>
     ///     步骤状态

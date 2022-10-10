@@ -11,7 +11,7 @@ public class ButtonGroup : ItemsControl
     protected override bool IsItemItsOwnContainerOverride(object item) => item is Button or RadioButton or ToggleButton;
 
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-        "Orientation", typeof(Orientation), typeof(ButtonGroup), new PropertyMetadata(default(Orientation)));
+        nameof(Orientation), typeof(Orientation), typeof(ButtonGroup), new PropertyMetadata(default(Orientation)));
 
     public Orientation Orientation
     {
@@ -20,7 +20,7 @@ public class ButtonGroup : ItemsControl
     }
 
     public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register(
-        "Layout", typeof(LinearLayout), typeof(ButtonGroup), new PropertyMetadata(LinearLayout.Uniform));
+        nameof(Layout), typeof(LinearLayout), typeof(ButtonGroup), new PropertyMetadata(LinearLayout.Uniform));
 
     public LinearLayout Layout
     {

@@ -25,7 +25,7 @@ public class CheckComboBox : ListBox, IDataInput
     private bool _isInternalAction;
 
     public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        "IsError", typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsError), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsError
     {
@@ -34,7 +34,7 @@ public class CheckComboBox : ListBox, IDataInput
     }
 
     public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        "ErrorStr", typeof(string), typeof(CheckComboBox), new PropertyMetadata(default(string)));
+        nameof(ErrorStr), typeof(string), typeof(CheckComboBox), new PropertyMetadata(default(string)));
 
     public string ErrorStr
     {
@@ -43,7 +43,7 @@ public class CheckComboBox : ListBox, IDataInput
     }
 
     public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        "TextType", typeof(TextType), typeof(CheckComboBox), new PropertyMetadata(default(TextType)));
+        nameof(TextType), typeof(TextType), typeof(CheckComboBox), new PropertyMetadata(default(TextType)));
 
     public TextType TextType
     {
@@ -52,7 +52,7 @@ public class CheckComboBox : ListBox, IDataInput
     }
 
     public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        "ShowClearButton", typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowClearButton), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowClearButton
     {
@@ -73,7 +73,7 @@ public class CheckComboBox : ListBox, IDataInput
     }
 
     public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-        "IsDropDownOpen", typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDropDownOpenChanged));
+        nameof(IsDropDownOpen), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDropDownOpenChanged));
 
     private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -95,7 +95,7 @@ public class CheckComboBox : ListBox, IDataInput
     }
 
     public static readonly DependencyProperty TagStyleProperty = DependencyProperty.Register(
-        "TagStyle", typeof(Style), typeof(CheckComboBox), new PropertyMetadata(default(Style)));
+        nameof(TagStyle), typeof(Style), typeof(CheckComboBox), new PropertyMetadata(default(Style)));
 
     public Style TagStyle
     {
@@ -104,7 +104,7 @@ public class CheckComboBox : ListBox, IDataInput
     }
 
     public static readonly DependencyProperty ShowSelectAllButtonProperty = DependencyProperty.Register(
-        "ShowSelectAllButton", typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowSelectAllButton), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowSelectAllButton
     {

@@ -17,7 +17,7 @@ public class Row : Panel
     private double _totalAutoWidth;
 
     public static readonly DependencyProperty GutterProperty = DependencyProperty.Register(
-        "Gutter", typeof(double), typeof(Row), new PropertyMetadata(ValueBoxes.Double0Box, null, OnGutterCoerce), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+        nameof(Gutter), typeof(double), typeof(Row), new PropertyMetadata(ValueBoxes.Double0Box, null, OnGutterCoerce), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     private static object OnGutterCoerce(DependencyObject d, object basevalue) => ValidateHelper.IsInRangeOfPosDoubleIncludeZero(basevalue) ? basevalue : .0;
 

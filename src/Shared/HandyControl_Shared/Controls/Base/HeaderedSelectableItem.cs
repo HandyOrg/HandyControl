@@ -5,7 +5,7 @@ namespace HandyControl.Controls;
 public class HeaderedSelectableItem : SelectableItem
 {
     public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
-        "Header", typeof(object), typeof(HeaderedSelectableItem), new PropertyMetadata(default(object)));
+        nameof(Header), typeof(object), typeof(HeaderedSelectableItem), new PropertyMetadata(default(object)));
 
     public object Header
     {
@@ -14,7 +14,7 @@ public class HeaderedSelectableItem : SelectableItem
     }
 
     public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
-        "HeaderTemplate", typeof(DataTemplate), typeof(HeaderedSelectableItem), new PropertyMetadata(default(DataTemplate)));
+        nameof(HeaderTemplate), typeof(DataTemplate), typeof(HeaderedSelectableItem), new PropertyMetadata(default(DataTemplate)));
 
     public DataTemplate HeaderTemplate
     {

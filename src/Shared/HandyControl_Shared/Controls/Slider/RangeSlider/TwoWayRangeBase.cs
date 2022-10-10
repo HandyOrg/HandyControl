@@ -10,7 +10,7 @@ namespace HandyControl.Controls;
 public class TwoWayRangeBase : Control
 {
     public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-        "Minimum", typeof(double), typeof(TwoWayRangeBase),
+        nameof(Minimum), typeof(double), typeof(TwoWayRangeBase),
         new PropertyMetadata(ValueBoxes.Double0Box, OnMinimumChanged), ValidateHelper.IsInRangeOfDouble);
 
     private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -34,7 +34,7 @@ public class TwoWayRangeBase : Control
     }
 
     public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-        "Maximum", typeof(double), typeof(TwoWayRangeBase),
+        nameof(Maximum), typeof(double), typeof(TwoWayRangeBase),
         new PropertyMetadata(ValueBoxes.Double10Box, OnMaximumChanged, CoerceMaximum),
         ValidateHelper.IsInRangeOfDouble);
 
@@ -69,7 +69,7 @@ public class TwoWayRangeBase : Control
     }
 
     public static readonly DependencyProperty ValueStartProperty = DependencyProperty.Register(
-        "ValueStart", typeof(double), typeof(TwoWayRangeBase),
+        nameof(ValueStart), typeof(double), typeof(TwoWayRangeBase),
         new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal,
             OnValueStartChanged, ConstrainToRange), ValidateHelper.IsInRangeOfDouble);
@@ -98,7 +98,7 @@ public class TwoWayRangeBase : Control
     }
 
     public static readonly DependencyProperty ValueEndProperty = DependencyProperty.Register(
-        "ValueEnd", typeof(double), typeof(TwoWayRangeBase),
+        nameof(ValueEnd), typeof(double), typeof(TwoWayRangeBase),
         new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal,
             OnValueEndChanged, ConstrainToRange), ValidateHelper.IsInRangeOfDouble);
@@ -143,7 +143,7 @@ public class TwoWayRangeBase : Control
     }
 
     public static readonly DependencyProperty LargeChangeProperty = DependencyProperty.Register(
-        "LargeChange", typeof(double), typeof(TwoWayRangeBase), new PropertyMetadata(ValueBoxes.Double1Box),
+        nameof(LargeChange), typeof(double), typeof(TwoWayRangeBase), new PropertyMetadata(ValueBoxes.Double1Box),
         ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     public double LargeChange
@@ -153,7 +153,7 @@ public class TwoWayRangeBase : Control
     }
 
     public static readonly DependencyProperty SmallChangeProperty = DependencyProperty.Register(
-        "SmallChange", typeof(double), typeof(TwoWayRangeBase), new PropertyMetadata(ValueBoxes.Double01Box),
+        nameof(SmallChange), typeof(double), typeof(TwoWayRangeBase), new PropertyMetadata(ValueBoxes.Double01Box),
         ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     public double SmallChange

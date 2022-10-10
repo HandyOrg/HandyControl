@@ -223,7 +223,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
     }
 
     public static readonly DependencyProperty TokenProperty = DependencyProperty.Register(
-        "Token", typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string), OnTokenChanged));
+        nameof(Token), typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string), OnTokenChanged));
 
     private static void OnTokenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -247,7 +247,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        "Text", typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string)));
+        nameof(Text), typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string)));
 
     public string Text
     {
@@ -256,7 +256,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
     }
 
     public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-        "Icon", typeof(ImageSource), typeof(NotifyIcon), new PropertyMetadata(default(ImageSource), OnIconChanged));
+        nameof(Icon), typeof(ImageSource), typeof(NotifyIcon), new PropertyMetadata(default(ImageSource), OnIconChanged));
 
     private static void OnIconChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -277,7 +277,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
     }
 
     public static readonly DependencyProperty ContextContentProperty = DependencyProperty.Register(
-        "ContextContent", typeof(object), typeof(NotifyIcon), new PropertyMetadata(default(object)));
+        nameof(ContextContent), typeof(object), typeof(NotifyIcon), new PropertyMetadata(default(object)));
 
     public object ContextContent
     {
@@ -286,7 +286,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
     }
 
     public static readonly DependencyProperty BlinkIntervalProperty = DependencyProperty.Register(
-        "BlinkInterval", typeof(TimeSpan), typeof(NotifyIcon), new PropertyMetadata(TimeSpan.FromMilliseconds(500), OnBlinkIntervalChanged));
+        nameof(BlinkInterval), typeof(TimeSpan), typeof(NotifyIcon), new PropertyMetadata(TimeSpan.FromMilliseconds(500), OnBlinkIntervalChanged));
 
     private static void OnBlinkIntervalChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -304,7 +304,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
     }
 
     public static readonly DependencyProperty IsBlinkProperty = DependencyProperty.Register(
-        "IsBlink", typeof(bool), typeof(NotifyIcon), new PropertyMetadata(ValueBoxes.FalseBox, OnIsBlinkChanged));
+        nameof(IsBlink), typeof(bool), typeof(NotifyIcon), new PropertyMetadata(ValueBoxes.FalseBox, OnIsBlinkChanged));
 
     private static void OnIsBlinkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

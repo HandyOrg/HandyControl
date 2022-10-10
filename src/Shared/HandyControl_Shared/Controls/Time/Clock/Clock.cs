@@ -60,7 +60,7 @@ public class Clock : ClockBase
     #region Public Properties
 
     public static readonly DependencyProperty ClockRadioButtonStyleProperty = DependencyProperty.Register(
-        "ClockRadioButtonStyle", typeof(Style), typeof(Clock), new PropertyMetadata(default(Style)));
+        nameof(ClockRadioButtonStyle), typeof(Style), typeof(Clock), new PropertyMetadata(default(Style)));
 
     public Style ClockRadioButtonStyle
     {

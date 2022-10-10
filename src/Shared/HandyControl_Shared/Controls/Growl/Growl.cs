@@ -40,23 +40,23 @@ public class Growl : Control
         "ShowMode", typeof(GrowlShowMode), typeof(Growl),
         new FrameworkPropertyMetadata(default(GrowlShowMode), FrameworkPropertyMetadataOptions.Inherits));
     public static readonly DependencyProperty ShowDateTimeProperty = DependencyProperty.Register(
-        "ShowDateTime", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowDateTime), typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.TrueBox));
     public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
-        "Message", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+        nameof(Message), typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
     public static readonly DependencyProperty TimeProperty = DependencyProperty.Register(
-        "Time", typeof(DateTime), typeof(Growl), new PropertyMetadata(default(DateTime)));
+        nameof(Time), typeof(DateTime), typeof(Growl), new PropertyMetadata(default(DateTime)));
     public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-        "Icon", typeof(Geometry), typeof(Growl), new PropertyMetadata(default(Geometry)));
+        nameof(Icon), typeof(Geometry), typeof(Growl), new PropertyMetadata(default(Geometry)));
     public static readonly DependencyProperty IconBrushProperty = DependencyProperty.Register(
-        "IconBrush", typeof(Brush), typeof(Growl), new PropertyMetadata(default(Brush)));
+        nameof(IconBrush), typeof(Brush), typeof(Growl), new PropertyMetadata(default(Brush)));
     public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
-        "Type", typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
+        nameof(Type), typeof(InfoType), typeof(Growl), new PropertyMetadata(default(InfoType)));
     public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
         "Token", typeof(string), typeof(Growl), new PropertyMetadata(default(string), OnTokenChanged));
     internal static readonly DependencyProperty CancelStrProperty = DependencyProperty.Register(
-        "CancelStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+        nameof(CancelStr), typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
     internal static readonly DependencyProperty ConfirmStrProperty = DependencyProperty.Register(
-        "ConfirmStr", typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
+        nameof(ConfirmStr), typeof(string), typeof(Growl), new PropertyMetadata(default(string)));
     private static readonly DependencyProperty IsCreatedAutomaticallyProperty = DependencyProperty.RegisterAttached(
         "IsCreatedAutomatically", typeof(bool), typeof(Growl), new PropertyMetadata(ValueBoxes.FalseBox));
     private static GrowlWindow GrowlWindow;

@@ -14,7 +14,7 @@ public class GotoTop : Button
     private System.Windows.Controls.ScrollViewer _scrollViewer;
 
     public static readonly DependencyProperty TargetProperty = DependencyProperty.Register(
-        "Target", typeof(DependencyObject), typeof(GotoTop), new PropertyMetadata(default(DependencyObject)));
+        nameof(Target), typeof(DependencyObject), typeof(GotoTop), new PropertyMetadata(default(DependencyObject)));
 
     public DependencyObject Target
     {
@@ -55,7 +55,7 @@ public class GotoTop : Button
     }
 
     public static readonly DependencyProperty AnimatedProperty = DependencyProperty.Register(
-        "Animated", typeof(bool), typeof(GotoTop), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(Animated), typeof(bool), typeof(GotoTop), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool Animated
     {
@@ -64,7 +64,7 @@ public class GotoTop : Button
     }
 
     public static readonly DependencyProperty AnimationTimeProperty = DependencyProperty.Register(
-        "AnimationTime", typeof(double), typeof(GotoTop), new PropertyMetadata(ValueBoxes.Double200Box));
+        nameof(AnimationTime), typeof(double), typeof(GotoTop), new PropertyMetadata(ValueBoxes.Double200Box));
 
     public double AnimationTime
     {
@@ -73,7 +73,7 @@ public class GotoTop : Button
     }
 
     public static readonly DependencyProperty HidingHeightProperty = DependencyProperty.Register(
-        "HidingHeight", typeof(double), typeof(GotoTop), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(HidingHeight), typeof(double), typeof(GotoTop), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double HidingHeight
     {
@@ -82,7 +82,7 @@ public class GotoTop : Button
     }
 
     public static readonly DependencyProperty AutoHidingProperty = DependencyProperty.Register(
-        "AutoHiding", typeof(bool), typeof(GotoTop), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(AutoHiding), typeof(bool), typeof(GotoTop), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool AutoHiding
     {

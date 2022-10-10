@@ -23,7 +23,7 @@ public class Magnifier : AdornerElement
     private readonly TranslateTransform _translateTransform;
 
     public static readonly DependencyProperty HorizontalOffsetProperty = DependencyProperty.Register(
-        "HorizontalOffset", typeof(double), typeof(Magnifier), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(HorizontalOffset), typeof(double), typeof(Magnifier), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double HorizontalOffset
     {
@@ -32,7 +32,7 @@ public class Magnifier : AdornerElement
     }
 
     public static readonly DependencyProperty VerticalOffsetProperty = DependencyProperty.Register(
-        "VerticalOffset", typeof(double), typeof(Magnifier), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(VerticalOffset), typeof(double), typeof(Magnifier), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double VerticalOffset
     {
@@ -43,7 +43,7 @@ public class Magnifier : AdornerElement
     public static Magnifier Default => new();
 
     public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(
-        "Scale", typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged), ValidateHelper.IsInRangeOfPosDouble);
+        nameof(Scale), typeof(double), typeof(Magnifier), new PropertyMetadata(5.0, OnScaleChanged), ValidateHelper.IsInRangeOfPosDouble);
 
     private static void OnScaleChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) => ((Magnifier) d).UpdateViewboxSize();
 

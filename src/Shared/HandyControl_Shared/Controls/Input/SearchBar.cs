@@ -68,7 +68,7 @@ public class SearchBar : TextBox, ICommandSource
     ///     是否实时搜索
     /// </summary>
     public static readonly DependencyProperty IsRealTimeProperty = DependencyProperty.Register(
-        "IsRealTime", typeof(bool), typeof(SearchBar), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsRealTime), typeof(bool), typeof(SearchBar), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     是否实时搜索
@@ -80,7 +80,7 @@ public class SearchBar : TextBox, ICommandSource
     }
 
     public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
-        "Command", typeof(ICommand), typeof(SearchBar), new PropertyMetadata(default(ICommand), OnCommandChanged));
+        nameof(Command), typeof(ICommand), typeof(SearchBar), new PropertyMetadata(default(ICommand), OnCommandChanged));
 
     private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -102,7 +102,7 @@ public class SearchBar : TextBox, ICommandSource
     }
 
     public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
-        "CommandParameter", typeof(object), typeof(SearchBar), new PropertyMetadata(default(object)));
+        nameof(CommandParameter), typeof(object), typeof(SearchBar), new PropertyMetadata(default(object)));
 
     public object CommandParameter
     {
@@ -111,7 +111,7 @@ public class SearchBar : TextBox, ICommandSource
     }
 
     public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
-        "CommandTarget", typeof(IInputElement), typeof(SearchBar), new PropertyMetadata(default(IInputElement)));
+        nameof(CommandTarget), typeof(IInputElement), typeof(SearchBar), new PropertyMetadata(default(IInputElement)));
 
     public IInputElement CommandTarget
     {

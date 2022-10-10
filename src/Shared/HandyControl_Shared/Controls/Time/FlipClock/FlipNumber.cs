@@ -36,7 +36,7 @@ public class FlipNumber : Viewport3D
     private bool _isAnimating;
 
     public static readonly DependencyProperty CornerRadiusProperty = DependencyProperty.Register(
-        "CornerRadius", typeof(CornerRadius), typeof(FlipNumber), new PropertyMetadata(new CornerRadius(4)));
+        nameof(CornerRadius), typeof(CornerRadius), typeof(FlipNumber), new PropertyMetadata(new CornerRadius(4)));
 
     public CornerRadius CornerRadius
     {
@@ -45,7 +45,7 @@ public class FlipNumber : Viewport3D
     }
 
     public static readonly DependencyProperty BackgroundProperty = DependencyProperty.Register(
-        "Background", typeof(Brush), typeof(FlipNumber), new PropertyMetadata(default(Brush)));
+        nameof(Background), typeof(Brush), typeof(FlipNumber), new PropertyMetadata(default(Brush)));
 
     public Brush Background
     {
@@ -54,7 +54,7 @@ public class FlipNumber : Viewport3D
     }
 
     public static readonly DependencyProperty ForegroundProperty = DependencyProperty.Register(
-        "Foreground", typeof(Brush), typeof(FlipNumber), new PropertyMetadata(default(Brush)));
+        nameof(Foreground), typeof(Brush), typeof(FlipNumber), new PropertyMetadata(default(Brush)));
 
     public Brush Foreground
     {
@@ -63,7 +63,7 @@ public class FlipNumber : Viewport3D
     }
 
     public static readonly DependencyProperty FontSizeProperty = DependencyProperty.Register(
-        "FontSize", typeof(double), typeof(FlipNumber), new PropertyMetadata(70.0));
+        nameof(FontSize), typeof(double), typeof(FlipNumber), new PropertyMetadata(70.0));
 
     [TypeConverter(typeof(FontSizeConverter))]
     public double FontSize
@@ -73,7 +73,7 @@ public class FlipNumber : Viewport3D
     }
 
     public static readonly DependencyProperty NumberProperty = DependencyProperty.Register(
-        "Number", typeof(int), typeof(FlipNumber), new PropertyMetadata(ValueBoxes.Int0Box, OnNumberChanged));
+        nameof(Number), typeof(int), typeof(FlipNumber), new PropertyMetadata(ValueBoxes.Int0Box, OnNumberChanged));
 
     private static void OnNumberChanged(DependencyObject s, DependencyPropertyChangedEventArgs e) =>
         ((FlipNumber) s).OnNumberChanged();

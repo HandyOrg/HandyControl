@@ -79,7 +79,7 @@ namespace HandyControl.Controls
         #region prop
 
         public static readonly DependencyProperty NonClientAreaContentProperty = DependencyProperty.Register(
-            "NonClientAreaContent", typeof(object), typeof(Window), new PropertyMetadata(default(object)));
+            nameof(NonClientAreaContent), typeof(object), typeof(Window), new PropertyMetadata(default(object)));
 
         public object NonClientAreaContent
         {
@@ -88,7 +88,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty CloseButtonHoverBackgroundProperty = DependencyProperty.Register(
-            "CloseButtonHoverBackground", typeof(Brush), typeof(Window),
+            nameof(CloseButtonHoverBackground), typeof(Brush), typeof(Window),
             new PropertyMetadata(default(Brush)));
 
         public Brush CloseButtonHoverBackground
@@ -99,7 +99,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty CloseButtonHoverForegroundProperty =
             DependencyProperty.Register(
-                "CloseButtonHoverForeground", typeof(Brush), typeof(Window),
+                nameof(CloseButtonHoverForeground), typeof(Brush), typeof(Window),
                 new PropertyMetadata(default(Brush)));
 
         public Brush CloseButtonHoverForeground
@@ -109,7 +109,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty CloseButtonBackgroundProperty = DependencyProperty.Register(
-            "CloseButtonBackground", typeof(Brush), typeof(Window), new PropertyMetadata(Brushes.Transparent));
+            nameof(CloseButtonBackground), typeof(Brush), typeof(Window), new PropertyMetadata(Brushes.Transparent));
 
         public Brush CloseButtonBackground
         {
@@ -118,7 +118,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty CloseButtonForegroundProperty = DependencyProperty.Register(
-            "CloseButtonForeground", typeof(Brush), typeof(Window),
+            nameof(CloseButtonForeground), typeof(Brush), typeof(Window),
             new PropertyMetadata(Brushes.White));
 
         public Brush CloseButtonForeground
@@ -128,7 +128,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty OtherButtonBackgroundProperty = DependencyProperty.Register(
-            "OtherButtonBackground", typeof(Brush), typeof(Window), new PropertyMetadata(Brushes.Transparent));
+            nameof(OtherButtonBackground), typeof(Brush), typeof(Window), new PropertyMetadata(Brushes.Transparent));
 
         public Brush OtherButtonBackground
         {
@@ -137,7 +137,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty OtherButtonForegroundProperty = DependencyProperty.Register(
-            "OtherButtonForeground", typeof(Brush), typeof(Window),
+            nameof(OtherButtonForeground), typeof(Brush), typeof(Window),
             new PropertyMetadata(Brushes.White));
 
         public Brush OtherButtonForeground
@@ -147,7 +147,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty OtherButtonHoverBackgroundProperty = DependencyProperty.Register(
-            "OtherButtonHoverBackground", typeof(Brush), typeof(Window),
+            nameof(OtherButtonHoverBackground), typeof(Brush), typeof(Window),
             new PropertyMetadata(default(Brush)));
 
         public Brush OtherButtonHoverBackground
@@ -158,7 +158,7 @@ namespace HandyControl.Controls
 
         public static readonly DependencyProperty OtherButtonHoverForegroundProperty =
             DependencyProperty.Register(
-                "OtherButtonHoverForeground", typeof(Brush), typeof(Window),
+                nameof(OtherButtonHoverForeground), typeof(Brush), typeof(Window),
                 new PropertyMetadata(default(Brush)));
 
         public Brush OtherButtonHoverForeground
@@ -168,7 +168,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty NonClientAreaBackgroundProperty = DependencyProperty.Register(
-            "NonClientAreaBackground", typeof(Brush), typeof(Window),
+            nameof(NonClientAreaBackground), typeof(Brush), typeof(Window),
             new PropertyMetadata(default(Brush)));
 
         public Brush NonClientAreaBackground
@@ -178,7 +178,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty NonClientAreaForegroundProperty = DependencyProperty.Register(
-            "NonClientAreaForeground", typeof(Brush), typeof(Window),
+            nameof(NonClientAreaForeground), typeof(Brush), typeof(Window),
             new PropertyMetadata(default(Brush)));
 
         public Brush NonClientAreaForeground
@@ -188,7 +188,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty NonClientAreaHeightProperty = DependencyProperty.Register(
-            "NonClientAreaHeight", typeof(double), typeof(Window),
+            nameof(NonClientAreaHeight), typeof(double), typeof(Window),
             new PropertyMetadata(22.0));
 
         public double NonClientAreaHeight
@@ -198,7 +198,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
-            "ShowNonClientArea", typeof(bool), typeof(Window),
+            nameof(ShowNonClientArea), typeof(bool), typeof(Window),
             new PropertyMetadata(ValueBoxes.TrueBox, OnShowNonClientAreaChanged));
 
         public bool ShowNonClientArea
@@ -208,7 +208,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
-            "ShowTitle", typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.TrueBox));
+            nameof(ShowTitle), typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public bool ShowTitle
         {
@@ -217,7 +217,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
-            "IsFullScreen", typeof(bool), typeof(Window),
+            nameof(IsFullScreen), typeof(bool), typeof(Window),
             new PropertyMetadata(ValueBoxes.FalseBox, OnIsFullScreenChanged));
 
         public bool IsFullScreen
@@ -227,7 +227,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ShowIconProperty = DependencyProperty.Register(
-            "ShowIcon", typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.TrueBox));
+            nameof(ShowIcon), typeof(bool), typeof(Window), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public bool ShowIcon
         {

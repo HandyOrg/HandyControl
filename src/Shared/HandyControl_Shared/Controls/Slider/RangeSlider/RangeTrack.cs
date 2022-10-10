@@ -109,7 +109,7 @@ public class RangeTrack : FrameworkElement
     }
 
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-        "Orientation", typeof(Orientation), typeof(RangeTrack),
+        nameof(Orientation), typeof(Orientation), typeof(RangeTrack),
         new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public Orientation Orientation
@@ -119,7 +119,7 @@ public class RangeTrack : FrameworkElement
     }
 
     public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-        "Minimum", typeof(double), typeof(RangeTrack),
+        nameof(Minimum), typeof(double), typeof(RangeTrack),
         new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsArrange));
 
     public double Minimum
@@ -129,7 +129,7 @@ public class RangeTrack : FrameworkElement
     }
 
     public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-        "Maximum", typeof(double), typeof(RangeTrack),
+        nameof(Maximum), typeof(double), typeof(RangeTrack),
         new FrameworkPropertyMetadata(ValueBoxes.Double1Box, FrameworkPropertyMetadataOptions.AffectsArrange));
 
     public double Maximum
@@ -139,7 +139,7 @@ public class RangeTrack : FrameworkElement
     }
 
     public static readonly DependencyProperty ValueStartProperty = DependencyProperty.Register(
-        "ValueStart", typeof(double), typeof(RangeTrack),
+        nameof(ValueStart), typeof(double), typeof(RangeTrack),
         new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault |
             FrameworkPropertyMetadataOptions.AffectsArrange));
@@ -151,7 +151,7 @@ public class RangeTrack : FrameworkElement
     }
 
     public static readonly DependencyProperty ValueEndProperty = DependencyProperty.Register(
-        "ValueEnd", typeof(double), typeof(RangeTrack),
+        nameof(ValueEnd), typeof(double), typeof(RangeTrack),
         new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault |
             FrameworkPropertyMetadataOptions.AffectsArrange));
@@ -163,7 +163,7 @@ public class RangeTrack : FrameworkElement
     }
 
     public static readonly DependencyProperty IsDirectionReversedProperty = DependencyProperty.Register(
-        "IsDirectionReversed", typeof(bool), typeof(RangeTrack), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsDirectionReversed), typeof(bool), typeof(RangeTrack), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsDirectionReversed
     {

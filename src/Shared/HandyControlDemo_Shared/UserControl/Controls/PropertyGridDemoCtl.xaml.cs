@@ -20,7 +20,7 @@ public partial class PropertyGridDemoCtl
     }
 
     public static readonly DependencyProperty DemoModelProperty = DependencyProperty.Register(
-        "DemoModel", typeof(PropertyGridDemoModel), typeof(PropertyGridDemoCtl), new PropertyMetadata(default(PropertyGridDemoModel)));
+        nameof(DemoModel), typeof(PropertyGridDemoModel), typeof(PropertyGridDemoCtl), new PropertyMetadata(default(PropertyGridDemoModel)));
 
     public PropertyGridDemoModel DemoModel
     {

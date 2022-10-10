@@ -7,7 +7,7 @@ namespace HandyControl.Controls;
 public class ChatBubble : SelectableItem
 {
     public static readonly DependencyProperty RoleProperty = DependencyProperty.Register(
-        "Role", typeof(ChatRoleType), typeof(ChatBubble), new PropertyMetadata(default(ChatRoleType)));
+        nameof(Role), typeof(ChatRoleType), typeof(ChatBubble), new PropertyMetadata(default(ChatRoleType)));
 
     public ChatRoleType Role
     {
@@ -16,7 +16,7 @@ public class ChatBubble : SelectableItem
     }
 
     public static readonly DependencyProperty TypeProperty = DependencyProperty.Register(
-        "Type", typeof(ChatMessageType), typeof(ChatBubble), new PropertyMetadata(default(ChatMessageType)));
+        nameof(Type), typeof(ChatMessageType), typeof(ChatBubble), new PropertyMetadata(default(ChatMessageType)));
 
     public ChatMessageType Type
     {
@@ -25,7 +25,7 @@ public class ChatBubble : SelectableItem
     }
 
     public static readonly DependencyProperty IsReadProperty = DependencyProperty.Register(
-        "IsRead", typeof(bool), typeof(ChatBubble), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsRead), typeof(bool), typeof(ChatBubble), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsRead
     {

@@ -8,7 +8,7 @@ public partial class GeometryItem
     public GeometryItem() => InitializeComponent();
 
     public static readonly DependencyProperty InfoProperty = DependencyProperty.Register(
-        "Info", typeof(GeometryItemModel), typeof(GeometryItem), new PropertyMetadata(default(GeometryItemModel)));
+        nameof(Info), typeof(GeometryItemModel), typeof(GeometryItem), new PropertyMetadata(default(GeometryItemModel)));
 
     public GeometryItemModel Info
     {

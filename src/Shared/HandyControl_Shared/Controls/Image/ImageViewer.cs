@@ -218,10 +218,10 @@ public class ImageViewer : Control
     #region Properties
 
     public static readonly DependencyProperty ShowImgMapProperty = DependencyProperty.Register(
-        "ShowImgMap", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowImgMap), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
-        "ImageSource", typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame), OnImageSourceChanged));
+        nameof(ImageSource), typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame), OnImageSourceChanged));
 
     private static void OnImageSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -230,52 +230,52 @@ public class ImageViewer : Control
     }
 
     public static readonly DependencyProperty ShowToolBarProperty = DependencyProperty.Register(
-        "ShowToolBar", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowToolBar), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
-        "IsFullScreen", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsFullScreen), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     internal static readonly DependencyProperty ImgPathProperty = DependencyProperty.Register(
-        "ImgPath", typeof(string), typeof(ImageViewer), new PropertyMetadata(default(string)));
+        nameof(ImgPath), typeof(string), typeof(ImageViewer), new PropertyMetadata(default(string)));
 
     internal static readonly DependencyProperty ImgSizeProperty = DependencyProperty.Register(
-        "ImgSize", typeof(long), typeof(ImageViewer), new PropertyMetadata(-1L));
+        nameof(ImgSize), typeof(long), typeof(ImageViewer), new PropertyMetadata(-1L));
 
     /// <summary>
     ///     是否显示全屏按钮
     /// </summary>
     internal static readonly DependencyProperty ShowFullScreenButtonProperty = DependencyProperty.Register(
-        "ShowFullScreenButton", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowFullScreenButton), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     关闭按钮是否显示中
     /// </summary>
     internal static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
-        "ShowCloseButton", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowCloseButton), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     internal static readonly DependencyProperty ImageContentProperty = DependencyProperty.Register(
-        "ImageContent", typeof(object), typeof(ImageViewer), new PropertyMetadata(default(object)));
+        nameof(ImageContent), typeof(object), typeof(ImageViewer), new PropertyMetadata(default(object)));
 
     internal static readonly DependencyProperty ImageMarginProperty = DependencyProperty.Register(
-        "ImageMargin", typeof(Thickness), typeof(ImageViewer), new PropertyMetadata(default(Thickness)));
+        nameof(ImageMargin), typeof(Thickness), typeof(ImageViewer), new PropertyMetadata(default(Thickness)));
 
     internal static readonly DependencyProperty ImageWidthProperty = DependencyProperty.Register(
-        "ImageWidth", typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(ImageWidth), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
     internal static readonly DependencyProperty ImageHeightProperty = DependencyProperty.Register(
-        "ImageHeight", typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(ImageHeight), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
     internal static readonly DependencyProperty ImageScaleProperty = DependencyProperty.Register(
-        "ImageScale", typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double1Box, OnImageScaleChanged));
+        nameof(ImageScale), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double1Box, OnImageScaleChanged));
 
     internal static readonly DependencyProperty ScaleStrProperty = DependencyProperty.Register(
-        "ScaleStr", typeof(string), typeof(ImageViewer), new PropertyMetadata("100%"));
+        nameof(ScaleStr), typeof(string), typeof(ImageViewer), new PropertyMetadata("100%"));
 
     internal static readonly DependencyProperty ImageRotateProperty = DependencyProperty.Register(
-        "ImageRotate", typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(ImageRotate), typeof(double), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.Double0Box));
 
     internal static readonly DependencyProperty ShowSmallImgInternalProperty = DependencyProperty.Register(
-        "ShowSmallImgInternal", typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowSmallImgInternal), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsFullScreen
     {

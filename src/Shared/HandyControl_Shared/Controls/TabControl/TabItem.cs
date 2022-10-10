@@ -183,7 +183,7 @@ public class TabItem : System.Windows.Controls.TabItem
         => (bool) element.GetValue(ShowContextMenuProperty);
 
     public static readonly DependencyProperty MenuProperty = DependencyProperty.Register(
-        "Menu", typeof(ContextMenu), typeof(TabItem), new PropertyMetadata(default(ContextMenu), OnMenuChanged));
+        nameof(Menu), typeof(ContextMenu), typeof(TabItem), new PropertyMetadata(default(ContextMenu), OnMenuChanged));
 
     private static void OnMenuChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

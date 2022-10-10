@@ -12,13 +12,13 @@ public class CircleProgressBar : RangeBase
     private const string IndicatorTemplateName = "PART_Indicator";
 
     public static readonly DependencyProperty ArcThicknessProperty = DependencyProperty.Register(
-        "ArcThickness", typeof(double), typeof(CircleProgressBar), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(ArcThickness), typeof(double), typeof(CircleProgressBar), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public static readonly DependencyProperty ShowTextProperty = DependencyProperty.Register(
-        "ShowText", typeof(bool), typeof(CircleProgressBar), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowText), typeof(bool), typeof(CircleProgressBar), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        "Text", typeof(string), typeof(CircleProgressBar), new PropertyMetadata(default(string)));
+        nameof(Text), typeof(string), typeof(CircleProgressBar), new PropertyMetadata(default(string)));
 
     public static readonly DependencyProperty IsIndeterminateProperty =
         ProgressBar.IsIndeterminateProperty.AddOwner(typeof(CircleProgressBar),

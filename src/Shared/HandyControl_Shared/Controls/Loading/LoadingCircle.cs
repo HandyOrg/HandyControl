@@ -12,7 +12,7 @@ namespace HandyControl.Controls;
 public class LoadingCircle : LoadingBase
 {
     public static readonly DependencyProperty DotOffSetProperty = DependencyProperty.Register(
-        "DotOffSet", typeof(double), typeof(LoadingCircle),
+        nameof(DotOffSet), typeof(double), typeof(LoadingCircle),
         new FrameworkPropertyMetadata(20.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public double DotOffSet
@@ -22,7 +22,7 @@ public class LoadingCircle : LoadingBase
     }
 
     public static readonly DependencyProperty NeedHiddenProperty = DependencyProperty.Register(
-        "NeedHidden", typeof(bool), typeof(LoadingCircle),
+        nameof(NeedHidden), typeof(bool), typeof(LoadingCircle),
         new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public bool NeedHidden

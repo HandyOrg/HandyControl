@@ -120,7 +120,7 @@ public class ScreenshotWindow : System.Windows.Window
     #region prop
 
     public static readonly DependencyProperty IsDrawingProperty = DependencyProperty.Register(
-        "IsDrawing", typeof(bool), typeof(ScreenshotWindow), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsDrawing), typeof(bool), typeof(ScreenshotWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsDrawing
     {
@@ -129,7 +129,7 @@ public class ScreenshotWindow : System.Windows.Window
     }
 
     public static readonly DependencyProperty IsSelectingProperty = DependencyProperty.Register(
-        "IsSelecting", typeof(bool), typeof(ScreenshotWindow), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsSelecting), typeof(bool), typeof(ScreenshotWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsSelecting
     {
@@ -138,7 +138,7 @@ public class ScreenshotWindow : System.Windows.Window
     }
 
     public static readonly DependencyProperty SizeProperty = DependencyProperty.Register(
-        "Size", typeof(Size), typeof(ScreenshotWindow), new PropertyMetadata(default(Size)));
+        nameof(Size), typeof(Size), typeof(ScreenshotWindow), new PropertyMetadata(default(Size)));
 
     public Size Size
     {
@@ -147,7 +147,7 @@ public class ScreenshotWindow : System.Windows.Window
     }
 
     public static readonly DependencyProperty SizeStrProperty = DependencyProperty.Register(
-        "SizeStr", typeof(string), typeof(ScreenshotWindow), new PropertyMetadata(default(string)));
+        nameof(SizeStr), typeof(string), typeof(ScreenshotWindow), new PropertyMetadata(default(string)));
 
     public string SizeStr
     {
@@ -156,7 +156,7 @@ public class ScreenshotWindow : System.Windows.Window
     }
 
     public static readonly DependencyProperty PixelColorProperty = DependencyProperty.Register(
-        "PixelColor", typeof(Color), typeof(ScreenshotWindow), new PropertyMetadata(default(Color)));
+        nameof(PixelColor), typeof(Color), typeof(ScreenshotWindow), new PropertyMetadata(default(Color)));
 
     public Color PixelColor
     {
@@ -165,7 +165,7 @@ public class ScreenshotWindow : System.Windows.Window
     }
 
     public static readonly DependencyProperty PixelColorStrProperty = DependencyProperty.Register(
-        "PixelColorStr", typeof(string), typeof(ScreenshotWindow), new PropertyMetadata(default(string)));
+        nameof(PixelColorStr), typeof(string), typeof(ScreenshotWindow), new PropertyMetadata(default(string)));
 
     public string PixelColorStr
     {

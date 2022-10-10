@@ -13,7 +13,7 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     private bool _isMouseLeftButtonDown;
 
     public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-        "Icon", typeof(object), typeof(SideMenuItem), new PropertyMetadata(default(object)));
+        nameof(Icon), typeof(object), typeof(SideMenuItem), new PropertyMetadata(default(object)));
 
     public object Icon
     {
@@ -97,7 +97,7 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     }
 
     public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-        "IsSelected", typeof(bool), typeof(SideMenuItem), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsSelected), typeof(bool), typeof(SideMenuItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsSelected
     {
@@ -106,7 +106,7 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     }
 
     public static readonly DependencyProperty RoleProperty = DependencyProperty.Register(
-        "Role", typeof(SideMenuItemRole), typeof(SideMenuItem), new PropertyMetadata(default(SideMenuItemRole)));
+        nameof(Role), typeof(SideMenuItemRole), typeof(SideMenuItem), new PropertyMetadata(default(SideMenuItemRole)));
 
     public SideMenuItemRole Role
     {
@@ -166,7 +166,7 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     }
 
     public static readonly DependencyProperty CommandProperty = DependencyProperty.Register(
-        "Command", typeof(ICommand), typeof(SideMenuItem), new PropertyMetadata(default(ICommand), OnCommandChanged));
+        nameof(Command), typeof(ICommand), typeof(SideMenuItem), new PropertyMetadata(default(ICommand), OnCommandChanged));
 
     private static void OnCommandChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -188,7 +188,7 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     }
 
     public static readonly DependencyProperty CommandParameterProperty = DependencyProperty.Register(
-        "CommandParameter", typeof(object), typeof(SideMenuItem), new PropertyMetadata(default(object)));
+        nameof(CommandParameter), typeof(object), typeof(SideMenuItem), new PropertyMetadata(default(object)));
 
     public object CommandParameter
     {
@@ -197,7 +197,7 @@ public class SideMenuItem : HeaderedSimpleItemsControl, ISelectable, ICommandSou
     }
 
     public static readonly DependencyProperty CommandTargetProperty = DependencyProperty.Register(
-        "CommandTarget", typeof(IInputElement), typeof(SideMenuItem), new PropertyMetadata(default(IInputElement)));
+        nameof(CommandTarget), typeof(IInputElement), typeof(SideMenuItem), new PropertyMetadata(default(IInputElement)));
 
     public IInputElement CommandTarget
     {

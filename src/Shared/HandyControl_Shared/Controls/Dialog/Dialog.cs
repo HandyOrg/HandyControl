@@ -19,7 +19,7 @@ public class Dialog : ContentControl
     private static readonly Dictionary<string, FrameworkElement> ContainerDic = new();
 
     public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
-        "IsClosed", typeof(bool), typeof(Dialog), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsClosed), typeof(bool), typeof(Dialog), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsClosed
     {

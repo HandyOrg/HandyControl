@@ -68,7 +68,7 @@ public class ImageSelector : Control
     }
 
     public static readonly DependencyProperty StretchProperty = DependencyProperty.Register(
-        "Stretch", typeof(Stretch), typeof(ImageSelector), new PropertyMetadata(default(Stretch)));
+        nameof(Stretch), typeof(Stretch), typeof(ImageSelector), new PropertyMetadata(default(Stretch)));
 
     public Stretch Stretch
     {
@@ -99,7 +99,7 @@ public class ImageSelector : Control
     }
 
     public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
-        "StrokeThickness", typeof(double), typeof(ImageSelector), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(StrokeThickness), typeof(double), typeof(ImageSelector), new FrameworkPropertyMetadata(ValueBoxes.Double1Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public double StrokeThickness
     {
@@ -108,7 +108,7 @@ public class ImageSelector : Control
     }
 
     public static readonly DependencyProperty StrokeDashArrayProperty = DependencyProperty.Register(
-        "StrokeDashArray", typeof(DoubleCollection), typeof(ImageSelector), new FrameworkPropertyMetadata(default(DoubleCollection), FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(StrokeDashArray), typeof(DoubleCollection), typeof(ImageSelector), new FrameworkPropertyMetadata(default(DoubleCollection), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public DoubleCollection StrokeDashArray
     {
@@ -117,7 +117,7 @@ public class ImageSelector : Control
     }
 
     public static readonly DependencyProperty DefaultExtProperty = DependencyProperty.Register(
-        "DefaultExt", typeof(string), typeof(ImageSelector), new PropertyMetadata(".jpg"));
+        nameof(DefaultExt), typeof(string), typeof(ImageSelector), new PropertyMetadata(".jpg"));
 
     public string DefaultExt
     {
@@ -126,7 +126,7 @@ public class ImageSelector : Control
     }
 
     public static readonly DependencyProperty FilterProperty = DependencyProperty.Register(
-        "Filter", typeof(string), typeof(ImageSelector), new PropertyMetadata("(.jpg)|*.jpg|(.png)|*.png"));
+        nameof(Filter), typeof(string), typeof(ImageSelector), new PropertyMetadata("(.jpg)|*.jpg|(.png)|*.png"));
 
     public string Filter
     {

@@ -9,7 +9,7 @@ namespace HandyControl.Controls;
 public class PropertyItem : ListBoxItem
 {
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-        "Value", typeof(object), typeof(PropertyItem), new PropertyMetadata(default(object)));
+        nameof(Value), typeof(object), typeof(PropertyItem), new PropertyMetadata(default(object)));
 
     public object Value
     {
@@ -18,7 +18,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty DisplayNameProperty = DependencyProperty.Register(
-        "DisplayName", typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
+        nameof(DisplayName), typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
 
     public string DisplayName
     {
@@ -27,7 +27,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty PropertyNameProperty = DependencyProperty.Register(
-        "PropertyName", typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
+        nameof(PropertyName), typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
 
     public string PropertyName
     {
@@ -36,7 +36,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty PropertyTypeProperty = DependencyProperty.Register(
-        "PropertyType", typeof(Type), typeof(PropertyItem), new PropertyMetadata(default(Type)));
+        nameof(PropertyType), typeof(Type), typeof(PropertyItem), new PropertyMetadata(default(Type)));
 
     public Type PropertyType
     {
@@ -45,7 +45,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty PropertyTypeNameProperty = DependencyProperty.Register(
-        "PropertyTypeName", typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
+        nameof(PropertyTypeName), typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
 
     public string PropertyTypeName
     {
@@ -54,7 +54,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register(
-        "Description", typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
+        nameof(Description), typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
 
     public string Description
     {
@@ -63,7 +63,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
-        "IsReadOnly", typeof(bool), typeof(PropertyItem), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsReadOnly), typeof(bool), typeof(PropertyItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsReadOnly
     {
@@ -72,7 +72,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty DefaultValueProperty = DependencyProperty.Register(
-        "DefaultValue", typeof(object), typeof(PropertyItem), new PropertyMetadata(default(object)));
+        nameof(DefaultValue), typeof(object), typeof(PropertyItem), new PropertyMetadata(default(object)));
 
     public object DefaultValue
     {
@@ -81,7 +81,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty CategoryProperty = DependencyProperty.Register(
-        "Category", typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
+        nameof(Category), typeof(string), typeof(PropertyItem), new PropertyMetadata(default(string)));
 
     public string Category
     {
@@ -90,7 +90,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty EditorProperty = DependencyProperty.Register(
-        "Editor", typeof(PropertyEditorBase), typeof(PropertyItem), new PropertyMetadata(default(PropertyEditorBase)));
+        nameof(Editor), typeof(PropertyEditorBase), typeof(PropertyItem), new PropertyMetadata(default(PropertyEditorBase)));
 
     public PropertyEditorBase Editor
     {
@@ -99,7 +99,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty EditorElementProperty = DependencyProperty.Register(
-        "EditorElement", typeof(FrameworkElement), typeof(PropertyItem), new PropertyMetadata(default(FrameworkElement)));
+        nameof(EditorElement), typeof(FrameworkElement), typeof(PropertyItem), new PropertyMetadata(default(FrameworkElement)));
 
     public FrameworkElement EditorElement
     {
@@ -108,7 +108,7 @@ public class PropertyItem : ListBoxItem
     }
 
     public static readonly DependencyProperty IsExpandedEnabledProperty = DependencyProperty.Register(
-        "IsExpandedEnabled", typeof(bool), typeof(PropertyItem), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsExpandedEnabled), typeof(bool), typeof(PropertyItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsExpandedEnabled
     {

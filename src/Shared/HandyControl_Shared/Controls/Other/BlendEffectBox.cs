@@ -96,7 +96,7 @@ public class BlendEffectBox : Control
     public Collection<Effect> Effects { get; }
 
     public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
-        "Content", typeof(FrameworkElement), typeof(BlendEffectBox), new PropertyMetadata(default(FrameworkElement)));
+        nameof(Content), typeof(FrameworkElement), typeof(BlendEffectBox), new PropertyMetadata(default(FrameworkElement)));
 
     public FrameworkElement Content
     {
@@ -105,7 +105,7 @@ public class BlendEffectBox : Control
     }
 
     internal static readonly DependencyProperty ActualContentProperty = DependencyProperty.Register(
-        "ActualContent", typeof(FrameworkElement), typeof(BlendEffectBox), new PropertyMetadata(default(FrameworkElement)));
+        nameof(ActualContent), typeof(FrameworkElement), typeof(BlendEffectBox), new PropertyMetadata(default(FrameworkElement)));
 
     internal FrameworkElement ActualContent
     {

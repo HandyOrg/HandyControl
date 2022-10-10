@@ -14,7 +14,7 @@ public abstract class LoadingBase : ContentControl
     protected Storyboard Storyboard;
 
     public static readonly DependencyProperty IsRunningProperty = DependencyProperty.Register(
-        "IsRunning", typeof(bool), typeof(LoadingBase), new PropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
+        nameof(IsRunning), typeof(bool), typeof(LoadingBase), new PropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
         {
             var ctl = (LoadingBase) o;
             var v = (bool) args.NewValue;
@@ -35,31 +35,31 @@ public abstract class LoadingBase : ContentControl
     }
 
     public static readonly DependencyProperty DotCountProperty = DependencyProperty.Register(
-        "DotCount", typeof(int), typeof(LoadingBase),
+        nameof(DotCount), typeof(int), typeof(LoadingBase),
         new FrameworkPropertyMetadata(ValueBoxes.Int5Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static readonly DependencyProperty DotIntervalProperty = DependencyProperty.Register(
-        "DotInterval", typeof(double), typeof(LoadingBase),
+        nameof(DotInterval), typeof(double), typeof(LoadingBase),
         new FrameworkPropertyMetadata(ValueBoxes.Double10Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static readonly DependencyProperty DotBorderBrushProperty = DependencyProperty.Register(
-        "DotBorderBrush", typeof(Brush), typeof(LoadingBase),
+        nameof(DotBorderBrush), typeof(Brush), typeof(LoadingBase),
         new FrameworkPropertyMetadata(default(Brush), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static readonly DependencyProperty DotBorderThicknessProperty = DependencyProperty.Register(
-        "DotBorderThickness", typeof(double), typeof(LoadingBase),
+        nameof(DotBorderThickness), typeof(double), typeof(LoadingBase),
         new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static readonly DependencyProperty DotDiameterProperty = DependencyProperty.Register(
-        "DotDiameter", typeof(double), typeof(LoadingBase),
+        nameof(DotDiameter), typeof(double), typeof(LoadingBase),
         new FrameworkPropertyMetadata(6.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static readonly DependencyProperty DotSpeedProperty = DependencyProperty.Register(
-        "DotSpeed", typeof(double), typeof(LoadingBase),
+        nameof(DotSpeed), typeof(double), typeof(LoadingBase),
         new FrameworkPropertyMetadata(4.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public static readonly DependencyProperty DotDelayTimeProperty = DependencyProperty.Register(
-        "DotDelayTime", typeof(double), typeof(LoadingBase),
+        nameof(DotDelayTime), typeof(double), typeof(LoadingBase),
         new FrameworkPropertyMetadata(80.0, FrameworkPropertyMetadataOptions.AffectsRender));
 
     protected readonly Canvas PrivateCanvas = new()

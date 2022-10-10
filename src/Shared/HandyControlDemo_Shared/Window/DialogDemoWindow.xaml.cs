@@ -17,7 +17,7 @@ public partial class DialogDemoWindow
     }
 
     public static readonly DependencyProperty DialogTokenProperty = DependencyProperty.Register(
-        "DialogToken", typeof(string), typeof(DialogDemoWindow), new PropertyMetadata(default(string)));
+        nameof(DialogToken), typeof(string), typeof(DialogDemoWindow), new PropertyMetadata(default(string)));
 
     public string DialogToken
     {

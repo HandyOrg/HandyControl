@@ -26,7 +26,7 @@ public class GrayScaleEffect : EffectBase
     }
 
     public static readonly DependencyProperty ScaleProperty = DependencyProperty.Register(
-        "Scale", typeof(double), typeof(GrayScaleEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
+        nameof(Scale), typeof(double), typeof(GrayScaleEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
 
     public double Scale
     {

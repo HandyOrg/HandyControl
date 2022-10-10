@@ -52,7 +52,7 @@ public class EasingGeometryKeyFrame : GeometryKeyFrame
     }
 
     public static readonly DependencyProperty EasingFunctionProperty = DependencyProperty.Register(
-        "EasingFunction", typeof(IEasingFunction), typeof(EasingGeometryKeyFrame), new PropertyMetadata(default(IEasingFunction)));
+        nameof(EasingFunction), typeof(IEasingFunction), typeof(EasingGeometryKeyFrame), new PropertyMetadata(default(IEasingFunction)));
 
     public IEasingFunction EasingFunction
     {

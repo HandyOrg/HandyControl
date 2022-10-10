@@ -50,7 +50,7 @@ public class RunningBlock : ContentControl
     private void ElementPanel_SizeChanged(object sender, SizeChangedEventArgs e) => UpdateContent();
 
     public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
-        "Runaway", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Runaway), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public bool Runaway
     {
@@ -59,7 +59,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
-        "AutoRun", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(AutoRun), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public bool AutoRun
     {
@@ -68,7 +68,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-        "Orientation", typeof(Orientation), typeof(RunningBlock), new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Orientation), typeof(Orientation), typeof(RunningBlock), new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public Orientation Orientation
     {
@@ -77,7 +77,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(
-        "Duration", typeof(Duration), typeof(RunningBlock), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(5)), FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Duration), typeof(Duration), typeof(RunningBlock), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(5)), FrameworkPropertyMetadataOptions.AffectsRender));
 
     public Duration Duration
     {
@@ -86,7 +86,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty SpeedProperty = DependencyProperty.Register(
-        "Speed", typeof(double), typeof(RunningBlock), new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Speed), typeof(double), typeof(RunningBlock), new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public double Speed
     {
@@ -95,7 +95,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty IsRunningProperty = DependencyProperty.Register(
-        "IsRunning", typeof(bool), typeof(RunningBlock), new PropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
+        nameof(IsRunning), typeof(bool), typeof(RunningBlock), new PropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
         {
             var ctl = (RunningBlock) o;
             var v = (bool) args.NewValue;
@@ -116,7 +116,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty AutoReverseProperty = DependencyProperty.Register(
-        "AutoReverse", typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(AutoReverse), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
 
     public bool AutoReverse
     {

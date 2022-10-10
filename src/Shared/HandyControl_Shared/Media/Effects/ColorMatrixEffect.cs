@@ -51,7 +51,7 @@ public class ColorMatrixEffect : EffectBase
     #region Line1
 
     public static readonly DependencyProperty M11Property = DependencyProperty.Register(
-        "M11", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
+        nameof(M11), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(0)));
 
     public double M11
     {
@@ -60,7 +60,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M21Property = DependencyProperty.Register(
-        "M21", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(1)));
+        nameof(M21), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(1)));
 
     public double M21
     {
@@ -69,7 +69,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M31Property = DependencyProperty.Register(
-        "M31", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(2)));
+        nameof(M31), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(2)));
 
     public double M31
     {
@@ -78,7 +78,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M41Property = DependencyProperty.Register(
-        "M41", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(3)));
+        nameof(M41), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(3)));
 
     public double M41
     {
@@ -87,7 +87,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M51Property = DependencyProperty.Register(
-        "M51", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(4)));
+        nameof(M51), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(4)));
 
     public double M51
     {
@@ -100,7 +100,7 @@ public class ColorMatrixEffect : EffectBase
     #region Line2
 
     public static readonly DependencyProperty M12Property = DependencyProperty.Register(
-        "M12", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(5)));
+        nameof(M12), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(5)));
 
     public double M12
     {
@@ -109,7 +109,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M22Property = DependencyProperty.Register(
-        "M22", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(6)));
+        nameof(M22), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(6)));
 
     public double M22
     {
@@ -118,7 +118,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M32Property = DependencyProperty.Register(
-        "M32", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(7)));
+        nameof(M32), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(7)));
 
     public double M32
     {
@@ -127,7 +127,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M42Property = DependencyProperty.Register(
-        "M42", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(8)));
+        nameof(M42), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(8)));
 
     public double M42
     {
@@ -136,7 +136,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M52Property = DependencyProperty.Register(
-        "M52", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(9)));
+        nameof(M52), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(9)));
 
     public double M52
     {
@@ -149,7 +149,7 @@ public class ColorMatrixEffect : EffectBase
     #region Line3
 
     public static readonly DependencyProperty M13Property = DependencyProperty.Register(
-        "M13", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(10)));
+        nameof(M13), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(10)));
 
     public double M13
     {
@@ -158,7 +158,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M23Property = DependencyProperty.Register(
-        "M23", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(11)));
+        nameof(M23), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(11)));
 
     public double M23
     {
@@ -167,7 +167,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M33Property = DependencyProperty.Register(
-        "M33", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(12)));
+        nameof(M33), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(12)));
 
     public double M33
     {
@@ -176,7 +176,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M43Property = DependencyProperty.Register(
-        "M43", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(13)));
+        nameof(M43), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(13)));
 
     public double M43
     {
@@ -185,7 +185,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M53Property = DependencyProperty.Register(
-        "M53", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(14)));
+        nameof(M53), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(14)));
 
     public double M53
     {
@@ -198,7 +198,7 @@ public class ColorMatrixEffect : EffectBase
     #region Line4
 
     public static readonly DependencyProperty M14Property = DependencyProperty.Register(
-        "M14", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(15)));
+        nameof(M14), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(15)));
 
     public double M14
     {
@@ -207,7 +207,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M24Property = DependencyProperty.Register(
-        "M24", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(16)));
+        nameof(M24), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(16)));
 
     public double M24
     {
@@ -216,7 +216,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M34Property = DependencyProperty.Register(
-        "M34", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(17)));
+        nameof(M34), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(17)));
 
     public double M34
     {
@@ -225,7 +225,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M44Property = DependencyProperty.Register(
-        "M44", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(18)));
+        nameof(M44), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double1Box, PixelShaderConstantCallback(18)));
 
     public double M44
     {
@@ -234,7 +234,7 @@ public class ColorMatrixEffect : EffectBase
     }
 
     public static readonly DependencyProperty M54Property = DependencyProperty.Register(
-        "M54", typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(19)));
+        nameof(M54), typeof(double), typeof(ColorMatrixEffect), new PropertyMetadata(ValueBoxes.Double0Box, PixelShaderConstantCallback(19)));
 
     public double M54
     {

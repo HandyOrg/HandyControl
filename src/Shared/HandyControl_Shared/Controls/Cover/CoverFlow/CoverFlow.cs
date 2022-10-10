@@ -35,7 +35,7 @@ public class CoverFlow : Control
     ///     页码
     /// </summary>
     public static readonly DependencyProperty PageIndexProperty = DependencyProperty.Register(
-        "PageIndex", typeof(int), typeof(CoverFlow),
+        nameof(PageIndex), typeof(int), typeof(CoverFlow),
         new PropertyMetadata(ValueBoxes.Int0Box, OnPageIndexChanged, CoercePageIndex));
 
     private static object CoercePageIndex(DependencyObject d, object baseValue)
@@ -64,7 +64,7 @@ public class CoverFlow : Control
     ///     是否循环
     /// </summary>
     public static readonly DependencyProperty LoopProperty = DependencyProperty.Register(
-        "Loop", typeof(bool), typeof(CoverFlow), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(Loop), typeof(bool), typeof(CoverFlow), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     存储所有的内容

@@ -17,22 +17,22 @@ public class Rate : RegularItemsControl
     }
 
     public static readonly DependencyProperty AllowHalfProperty = DependencyProperty.Register(
-        "AllowHalf", typeof(bool), typeof(Rate), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+        nameof(AllowHalf), typeof(bool), typeof(Rate), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static readonly DependencyProperty AllowClearProperty = DependencyProperty.Register(
-        "AllowClear", typeof(bool), typeof(Rate), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
+        nameof(AllowClear), typeof(bool), typeof(Rate), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.Inherits));
 
     public static readonly DependencyProperty IconProperty = DependencyProperty.Register(
-        "Icon", typeof(Geometry), typeof(Rate), new FrameworkPropertyMetadata(default(Geometry), FrameworkPropertyMetadataOptions.Inherits));
+        nameof(Icon), typeof(Geometry), typeof(Rate), new FrameworkPropertyMetadata(default(Geometry), FrameworkPropertyMetadataOptions.Inherits));
 
     public static readonly DependencyProperty CountProperty = DependencyProperty.Register(
-        "Count", typeof(int), typeof(Rate), new PropertyMetadata(ValueBoxes.Int5Box));
+        nameof(Count), typeof(int), typeof(Rate), new PropertyMetadata(ValueBoxes.Int5Box));
 
     public static readonly DependencyProperty DefaultValueProperty = DependencyProperty.Register(
-        "DefaultValue", typeof(double), typeof(Rate), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(DefaultValue), typeof(double), typeof(Rate), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-        "Value", typeof(double), typeof(Rate), new PropertyMetadata(ValueBoxes.Double0Box, OnValueChanged));
+        nameof(Value), typeof(double), typeof(Rate), new PropertyMetadata(ValueBoxes.Double0Box, OnValueChanged));
 
     private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
         ((Rate) d).OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, d)
@@ -47,13 +47,13 @@ public class Rate : RegularItemsControl
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        "Text", typeof(string), typeof(Rate), new PropertyMetadata(default(string)));
+        nameof(Text), typeof(string), typeof(Rate), new PropertyMetadata(default(string)));
 
     public static readonly DependencyProperty ShowTextProperty = DependencyProperty.Register(
-        "ShowText", typeof(bool), typeof(Rate), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowText), typeof(bool), typeof(Rate), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
-        "IsReadOnly", typeof(bool), typeof(Rate), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsReadOnly), typeof(bool), typeof(Rate), new PropertyMetadata(ValueBoxes.FalseBox));
 
     private bool _isLoaded;
 

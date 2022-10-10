@@ -46,7 +46,7 @@ public class PropertyGrid : Control
     }
 
     public static readonly DependencyProperty SelectedObjectProperty = DependencyProperty.Register(
-        "SelectedObject", typeof(object), typeof(PropertyGrid), new PropertyMetadata(default, OnSelectedObjectChanged));
+        nameof(SelectedObject), typeof(object), typeof(PropertyGrid), new PropertyMetadata(default, OnSelectedObjectChanged));
 
     private static void OnSelectedObjectChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -67,7 +67,7 @@ public class PropertyGrid : Control
     }
 
     public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register(
-        "Description", typeof(string), typeof(PropertyGrid), new PropertyMetadata(default(string)));
+        nameof(Description), typeof(string), typeof(PropertyGrid), new PropertyMetadata(default(string)));
 
     public string Description
     {
@@ -76,7 +76,7 @@ public class PropertyGrid : Control
     }
 
     public static readonly DependencyProperty MaxTitleWidthProperty = DependencyProperty.Register(
-        "MaxTitleWidth", typeof(double), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(MaxTitleWidth), typeof(double), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double MaxTitleWidth
     {
@@ -85,7 +85,7 @@ public class PropertyGrid : Control
     }
 
     public static readonly DependencyProperty MinTitleWidthProperty = DependencyProperty.Register(
-        "MinTitleWidth", typeof(double), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(MinTitleWidth), typeof(double), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double MinTitleWidth
     {
@@ -94,7 +94,7 @@ public class PropertyGrid : Control
     }
 
     public static readonly DependencyProperty ShowSortButtonProperty = DependencyProperty.Register(
-        "ShowSortButton", typeof(bool), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowSortButton), typeof(bool), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool ShowSortButton
     {

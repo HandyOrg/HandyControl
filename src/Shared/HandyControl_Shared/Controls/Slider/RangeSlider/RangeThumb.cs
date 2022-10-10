@@ -8,7 +8,7 @@ namespace HandyControl.Controls;
 public class RangeThumb : Thumb
 {
     public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
-        "Content", typeof(object), typeof(RangeThumb), new PropertyMetadata(default(object)));
+        nameof(Content), typeof(object), typeof(RangeThumb), new PropertyMetadata(default(object)));
 
     public object Content
     {

@@ -6,10 +6,10 @@ namespace HandyControl.Controls;
 public class CompareSlider : Slider
 {
     public static readonly DependencyProperty TargetContentProperty = DependencyProperty.Register(
-        "TargetContent", typeof(object), typeof(CompareSlider), new PropertyMetadata(default(object)));
+        nameof(TargetContent), typeof(object), typeof(CompareSlider), new PropertyMetadata(default(object)));
 
     public static readonly DependencyProperty SourceContentProperty = DependencyProperty.Register(
-        "SourceContent", typeof(object), typeof(CompareSlider), new PropertyMetadata(default(object)));
+        nameof(SourceContent), typeof(object), typeof(CompareSlider), new PropertyMetadata(default(object)));
 
     public object TargetContent
     {

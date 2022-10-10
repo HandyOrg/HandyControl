@@ -123,7 +123,7 @@ public class GeometryAnimation : GeometryAnimationBase
     }
 
     public static readonly DependencyProperty FromProperty = DependencyProperty.Register(
-        "From", typeof(Geometry), typeof(GeometryAnimation), new PropertyMetadata(default(Geometry), OnFromChanged));
+        nameof(From), typeof(Geometry), typeof(GeometryAnimation), new PropertyMetadata(default(Geometry), OnFromChanged));
 
     private static void OnFromChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -142,7 +142,7 @@ public class GeometryAnimation : GeometryAnimationBase
     }
 
     public static readonly DependencyProperty ToProperty = DependencyProperty.Register(
-        "To", typeof(Geometry), typeof(GeometryAnimation), new PropertyMetadata(default(Geometry), OnToChanged));
+        nameof(To), typeof(Geometry), typeof(GeometryAnimation), new PropertyMetadata(default(Geometry), OnToChanged));
 
     private static void OnToChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -163,7 +163,7 @@ public class GeometryAnimation : GeometryAnimationBase
     }
 
     public static readonly DependencyProperty EasingFunctionProperty = DependencyProperty.Register(
-        "EasingFunction", typeof(IEasingFunction), typeof(GeometryAnimation), new PropertyMetadata(default(IEasingFunction)));
+        nameof(EasingFunction), typeof(IEasingFunction), typeof(GeometryAnimation), new PropertyMetadata(default(IEasingFunction)));
 
     public IEasingFunction EasingFunction
     {

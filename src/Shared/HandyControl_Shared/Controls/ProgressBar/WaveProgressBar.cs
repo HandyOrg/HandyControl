@@ -75,7 +75,7 @@ public class WaveProgressBar : RangeBase
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        "Text", typeof(string), typeof(WaveProgressBar), new PropertyMetadata(default(string)));
+        nameof(Text), typeof(string), typeof(WaveProgressBar), new PropertyMetadata(default(string)));
 
     public string Text
     {
@@ -84,7 +84,7 @@ public class WaveProgressBar : RangeBase
     }
 
     public static readonly DependencyProperty ShowTextProperty = DependencyProperty.Register(
-        "ShowText", typeof(bool), typeof(WaveProgressBar), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowText), typeof(bool), typeof(WaveProgressBar), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool ShowText
     {
@@ -93,7 +93,7 @@ public class WaveProgressBar : RangeBase
     }
 
     public static readonly DependencyProperty WaveFillProperty = DependencyProperty.Register(
-        "WaveFill", typeof(Brush), typeof(WaveProgressBar), new PropertyMetadata(default(Brush)));
+        nameof(WaveFill), typeof(Brush), typeof(WaveProgressBar), new PropertyMetadata(default(Brush)));
 
     public Brush WaveFill
     {
@@ -102,7 +102,7 @@ public class WaveProgressBar : RangeBase
     }
 
     public static readonly DependencyProperty WaveThicknessProperty = DependencyProperty.Register(
-        "WaveThickness", typeof(double), typeof(WaveProgressBar), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(WaveThickness), typeof(double), typeof(WaveProgressBar), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double WaveThickness
     {
@@ -111,7 +111,7 @@ public class WaveProgressBar : RangeBase
     }
 
     public static readonly DependencyProperty WaveStrokeProperty = DependencyProperty.Register(
-        "WaveStroke", typeof(Brush), typeof(WaveProgressBar), new PropertyMetadata(default(Brush)));
+        nameof(WaveStroke), typeof(Brush), typeof(WaveProgressBar), new PropertyMetadata(default(Brush)));
 
     public Brush WaveStroke
     {

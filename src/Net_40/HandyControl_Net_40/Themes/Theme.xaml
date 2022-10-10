@@ -3428,42 +3428,42 @@
 	<Style BasedOn="{StaticResource LabelDefault}" TargetType="Label" />
 	<Style x:Key="LabelDefault.Small" BasedOn="{StaticResource LabelDefault}" TargetType="Label">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="Padding" Value="6,0" />
 	</Style>
 	<Style x:Key="LabelPrimary" BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
 		<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
 	</Style>
 	<Style x:Key="LabelPrimary.Small" BasedOn="{StaticResource LabelPrimary}" TargetType="Label">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="Padding" Value="6,0" />
 	</Style>
 	<Style x:Key="LabelSuccess" BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
 		<Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
 	</Style>
 	<Style x:Key="LabelSuccess.Small" BasedOn="{StaticResource LabelSuccess}" TargetType="Label">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="Padding" Value="6,0" />
 	</Style>
 	<Style x:Key="LabelInfo" BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
 		<Setter Property="Background" Value="{DynamicResource InfoBrush}" />
 	</Style>
 	<Style x:Key="LabelInfo.Small" BasedOn="{StaticResource LabelInfo}" TargetType="Label">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="Padding" Value="6,0" />
 	</Style>
 	<Style x:Key="LabelWarning" BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
 		<Setter Property="Background" Value="{DynamicResource WarningBrush}" />
 	</Style>
 	<Style x:Key="LabelWarning.Small" BasedOn="{StaticResource LabelWarning}" TargetType="Label">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="Padding" Value="6,0" />
 	</Style>
 	<Style x:Key="LabelDanger" BasedOn="{StaticResource LabelBaseStyle}" TargetType="Label">
 		<Setter Property="Background" Value="{DynamicResource DangerBrush}" />
 	</Style>
 	<Style x:Key="LabelDanger.Small" BasedOn="{StaticResource LabelDanger}" TargetType="Label">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="Padding" Value="6,1" />
+		<Setter Property="Padding" Value="6,0" />
 	</Style>
 	<Style BasedOn="{StaticResource CompareSliderBaseStyle}" TargetType="hc:CompareSlider" />
 	<Style BasedOn="{StaticResource PreviewSliderBaseStyle}" TargetType="hc:PreviewSlider" />

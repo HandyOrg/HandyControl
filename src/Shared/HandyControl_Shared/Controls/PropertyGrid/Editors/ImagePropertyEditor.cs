@@ -28,7 +28,7 @@ public class ImagePropertyEditor : PropertyEditorBase
     }
 
     internal static readonly DependencyProperty UriProperty = DependencyProperty.Register(
-        "Uri", typeof(Uri), typeof(ImagePropertyEditor), new PropertyMetadata(default(Uri), OnUriChangedCallback));
+        nameof(Uri), typeof(Uri), typeof(ImagePropertyEditor), new PropertyMetadata(default(Uri), OnUriChangedCallback));
 
     private static void OnUriChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
         ((ImagePropertyEditor) d).Source = e.NewValue is Uri uri ? BitmapFrame.Create(uri) : null;
@@ -40,7 +40,7 @@ public class ImagePropertyEditor : PropertyEditorBase
     }
 
     public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(
-        "Source", typeof(ImageSource), typeof(ImagePropertyEditor), new PropertyMetadata(default(ImageSource)));
+        nameof(Source), typeof(ImageSource), typeof(ImagePropertyEditor), new PropertyMetadata(default(ImageSource)));
 
     public ImageSource Source
     {

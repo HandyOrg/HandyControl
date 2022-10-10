@@ -24,7 +24,7 @@ public class Badge : ContentControl
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        "Text", typeof(string), typeof(Badge), new PropertyMetadata("0"));
+        nameof(Text), typeof(string), typeof(Badge), new PropertyMetadata("0"));
 
     public string Text
     {
@@ -33,7 +33,7 @@ public class Badge : ContentControl
     }
 
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-        "Value", typeof(int), typeof(Badge), new PropertyMetadata(ValueBoxes.Int0Box, OnValueChanged));
+        nameof(Value), typeof(int), typeof(Badge), new PropertyMetadata(ValueBoxes.Int0Box, OnValueChanged));
 
     private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -60,7 +60,7 @@ public class Badge : ContentControl
     }
 
     public static readonly DependencyProperty StatusProperty = DependencyProperty.Register(
-        "Status", typeof(BadgeStatus), typeof(Badge), new PropertyMetadata(default(BadgeStatus)));
+        nameof(Status), typeof(BadgeStatus), typeof(Badge), new PropertyMetadata(default(BadgeStatus)));
 
     public BadgeStatus Status
     {
@@ -69,7 +69,7 @@ public class Badge : ContentControl
     }
 
     public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-        "Maximum", typeof(int), typeof(Badge), new PropertyMetadata(ValueBoxes.Int99Box, OnMaximumChanged));
+        nameof(Maximum), typeof(int), typeof(Badge), new PropertyMetadata(ValueBoxes.Int99Box, OnMaximumChanged));
 
     private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -85,7 +85,7 @@ public class Badge : ContentControl
     }
 
     public static readonly DependencyProperty BadgeMarginProperty = DependencyProperty.Register(
-        "BadgeMargin", typeof(Thickness), typeof(Badge), new PropertyMetadata(default(Thickness)));
+        nameof(BadgeMargin), typeof(Thickness), typeof(Badge), new PropertyMetadata(default(Thickness)));
 
     public Thickness BadgeMargin
     {
@@ -94,7 +94,7 @@ public class Badge : ContentControl
     }
 
     public static readonly DependencyProperty ShowBadgeProperty = DependencyProperty.Register(
-        "ShowBadge", typeof(bool), typeof(Badge), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowBadge), typeof(bool), typeof(Badge), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool ShowBadge
     {

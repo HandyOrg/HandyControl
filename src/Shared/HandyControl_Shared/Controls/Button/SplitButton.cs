@@ -10,7 +10,7 @@ namespace HandyControl.Controls;
 public class SplitButton : ButtonBase
 {
     public static readonly DependencyProperty HitModeProperty = DependencyProperty.Register(
-        "HitMode", typeof(HitMode), typeof(SplitButton), new PropertyMetadata(default(HitMode)));
+        nameof(HitMode), typeof(HitMode), typeof(SplitButton), new PropertyMetadata(default(HitMode)));
 
     public HitMode HitMode
     {
@@ -19,7 +19,7 @@ public class SplitButton : ButtonBase
     }
 
     public static readonly DependencyProperty MaxDropDownHeightProperty = DependencyProperty.Register(
-        "MaxDropDownHeight", typeof(double), typeof(SplitButton), new PropertyMetadata(SystemParameters.PrimaryScreenHeight / 3.0));
+        nameof(MaxDropDownHeight), typeof(double), typeof(SplitButton), new PropertyMetadata(SystemParameters.PrimaryScreenHeight / 3.0));
 
     public double MaxDropDownHeight
     {
@@ -28,7 +28,7 @@ public class SplitButton : ButtonBase
     }
 
     public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-        "IsDropDownOpen", typeof(bool), typeof(SplitButton), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsDropDownOpen), typeof(bool), typeof(SplitButton), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsDropDownOpen
     {
@@ -37,7 +37,7 @@ public class SplitButton : ButtonBase
     }
 
     public static readonly DependencyProperty DropDownContentProperty = DependencyProperty.Register(
-        "DropDownContent", typeof(object), typeof(SplitButton), new PropertyMetadata(default(object)));
+        nameof(DropDownContent), typeof(object), typeof(SplitButton), new PropertyMetadata(default(object)));
 
     public object DropDownContent
     {

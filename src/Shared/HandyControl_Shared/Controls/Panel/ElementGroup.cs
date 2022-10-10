@@ -24,7 +24,7 @@ public class ElementGroup : ItemsControl
     }
 
     public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register(
-        "Layout", typeof(LinearLayout), typeof(ElementGroup),
+        nameof(Layout), typeof(LinearLayout), typeof(ElementGroup),
         new FrameworkPropertyMetadata(LinearLayout.Uniform, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public LinearLayout Layout

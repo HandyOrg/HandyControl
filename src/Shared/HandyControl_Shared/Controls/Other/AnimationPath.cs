@@ -37,7 +37,7 @@ public class AnimationPath : Shape
     protected override Geometry DefiningGeometry => Data ?? Geometry.Empty;
 
     public static readonly DependencyProperty PathLengthProperty = DependencyProperty.Register(
-        "PathLength", typeof(double), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnPropertiesChanged));
+        nameof(PathLength), typeof(double), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.Double0Box, OnPropertiesChanged));
 
     public double PathLength
     {
@@ -46,7 +46,7 @@ public class AnimationPath : Shape
     }
 
     public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(
-        "Duration", typeof(Duration), typeof(AnimationPath), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2)),
+        nameof(Duration), typeof(Duration), typeof(AnimationPath), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(2)),
             OnPropertiesChanged));
 
     public Duration Duration
@@ -56,7 +56,7 @@ public class AnimationPath : Shape
     }
 
     public static readonly DependencyProperty IsPlayingProperty = DependencyProperty.Register(
-        "IsPlaying", typeof(bool), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
+        nameof(IsPlaying), typeof(bool), typeof(AnimationPath), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, (o, args) =>
         {
             var ctl = (AnimationPath) o;
             var v = (bool) args.NewValue;

@@ -71,7 +71,7 @@ public class Poptip : AdornerElement
     }
 
     public static readonly DependencyProperty ContentTemplateProperty = DependencyProperty.Register(
-        "ContentTemplate", typeof(DataTemplate), typeof(Poptip), new PropertyMetadata(default(DataTemplate)));
+        nameof(ContentTemplate), typeof(DataTemplate), typeof(Poptip), new PropertyMetadata(default(DataTemplate)));
 
     public DataTemplate ContentTemplate
     {
@@ -80,7 +80,7 @@ public class Poptip : AdornerElement
     }
 
     public static readonly DependencyProperty ContentStringFormatProperty = DependencyProperty.Register(
-        "ContentStringFormat", typeof(string), typeof(Poptip), new PropertyMetadata(default(string)));
+        nameof(ContentStringFormat), typeof(string), typeof(Poptip), new PropertyMetadata(default(string)));
 
     public string ContentStringFormat
     {
@@ -89,7 +89,7 @@ public class Poptip : AdornerElement
     }
 
     public static readonly DependencyProperty ContentTemplateSelectorProperty = DependencyProperty.Register(
-        "ContentTemplateSelector", typeof(DataTemplateSelector), typeof(Poptip), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(ContentTemplateSelector), typeof(DataTemplateSelector), typeof(Poptip), new PropertyMetadata(default(DataTemplateSelector)));
 
     public DataTemplateSelector ContentTemplateSelector
     {
@@ -178,7 +178,7 @@ public class Poptip : AdornerElement
     }
 
     public static readonly DependencyProperty DelayProperty = DependencyProperty.Register(
-        "Delay", typeof(double), typeof(Poptip), new PropertyMetadata(1000.0), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+        nameof(Delay), typeof(double), typeof(Poptip), new PropertyMetadata(1000.0), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     public double Delay
     {

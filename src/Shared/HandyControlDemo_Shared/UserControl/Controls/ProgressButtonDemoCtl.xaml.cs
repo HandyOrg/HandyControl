@@ -7,7 +7,7 @@ namespace HandyControlDemo.UserControl;
 public partial class ProgressButtonDemoCtl
 {
     public static readonly DependencyProperty ProgressProperty = DependencyProperty.Register(
-        "Progress", typeof(int), typeof(ProgressButtonDemoCtl), new PropertyMetadata(default(int)));
+        nameof(Progress), typeof(int), typeof(ProgressButtonDemoCtl), new PropertyMetadata(default(int)));
 
     public int Progress
     {
@@ -16,7 +16,7 @@ public partial class ProgressButtonDemoCtl
     }
 
     public static readonly DependencyProperty IsUploadingProperty = DependencyProperty.Register(
-        "IsUploading", typeof(bool), typeof(ProgressButtonDemoCtl), new PropertyMetadata(default(bool)));
+        nameof(IsUploading), typeof(bool), typeof(ProgressButtonDemoCtl), new PropertyMetadata(default(bool)));
 
     public bool IsUploading
     {

@@ -93,7 +93,7 @@ public class TimePicker : Control, IDataInput
     #region TimeFormat
 
     public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
-        "TimeFormat", typeof(string), typeof(TimePicker), new PropertyMetadata("HH:mm:ss"));
+        nameof(TimeFormat), typeof(string), typeof(TimePicker), new PropertyMetadata("HH:mm:ss"));
 
     public string TimeFormat
     {
@@ -113,7 +113,7 @@ public class TimePicker : Control, IDataInput
 
     public static readonly DependencyProperty DisplayTimeProperty =
         DependencyProperty.Register(
-            "DisplayTime",
+            nameof(DisplayTime),
             typeof(DateTime),
             typeof(TimePicker),
             new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayTime));
@@ -137,7 +137,7 @@ public class TimePicker : Control, IDataInput
 
     public static readonly DependencyProperty IsDropDownOpenProperty =
         DependencyProperty.Register(
-            "IsDropDownOpen",
+            nameof(IsDropDownOpen),
             typeof(bool),
             typeof(TimePicker),
             new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
@@ -182,7 +182,7 @@ public class TimePicker : Control, IDataInput
 
     public static readonly DependencyProperty SelectedTimeProperty =
         DependencyProperty.Register(
-            "SelectedTime",
+            nameof(SelectedTime),
             typeof(DateTime?),
             typeof(TimePicker),
             new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedTimeChanged, CoerceSelectedTime));
@@ -222,7 +222,7 @@ public class TimePicker : Control, IDataInput
 
     public static readonly DependencyProperty TextProperty =
         DependencyProperty.Register(
-            "Text",
+            nameof(Text),
             typeof(string),
             typeof(TimePicker),
             new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
@@ -265,7 +265,7 @@ public class TimePicker : Control, IDataInput
     public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
 
     public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        "IsError", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsError), typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsError
     {
@@ -274,7 +274,7 @@ public class TimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        "ErrorStr", typeof(string), typeof(TimePicker), new PropertyMetadata(default(string)));
+        nameof(ErrorStr), typeof(string), typeof(TimePicker), new PropertyMetadata(default(string)));
 
     public string ErrorStr
     {
@@ -283,7 +283,7 @@ public class TimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        "TextType", typeof(TextType), typeof(TimePicker), new PropertyMetadata(default(TextType)));
+        nameof(TextType), typeof(TextType), typeof(TimePicker), new PropertyMetadata(default(TextType)));
 
     public TextType TextType
     {
@@ -292,7 +292,7 @@ public class TimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        "ShowClearButton", typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowClearButton), typeof(bool), typeof(TimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowClearButton
     {
@@ -341,7 +341,7 @@ public class TimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty ClockProperty = DependencyProperty.Register(
-        "Clock", typeof(ClockBase), typeof(TimePicker), new FrameworkPropertyMetadata(default(Clock), FrameworkPropertyMetadataOptions.NotDataBindable, OnClockChanged));
+        nameof(Clock), typeof(ClockBase), typeof(TimePicker), new FrameworkPropertyMetadata(default(Clock), FrameworkPropertyMetadataOptions.NotDataBindable, OnClockChanged));
 
     private static void OnClockChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

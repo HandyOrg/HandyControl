@@ -25,7 +25,7 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty StrokePositionProperty = DependencyProperty.Register(
-        "StrokePosition", typeof(StrokePosition), typeof(OutlineText), new PropertyMetadata(default(StrokePosition)));
+        nameof(StrokePosition), typeof(StrokePosition), typeof(OutlineText), new PropertyMetadata(default(StrokePosition)));
 
     public StrokePosition StrokePosition
     {
@@ -34,7 +34,7 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        "Text", typeof(string), typeof(OutlineText), new FrameworkPropertyMetadata(
+        nameof(Text), typeof(string), typeof(OutlineText), new FrameworkPropertyMetadata(
             string.Empty,
             FrameworkPropertyMetadataOptions.AffectsMeasure |
             FrameworkPropertyMetadataOptions.AffectsRender, OnFormattedTextInvalidated));
@@ -46,7 +46,7 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty TextAlignmentProperty = DependencyProperty.Register(
-        "TextAlignment", typeof(TextAlignment), typeof(OutlineText),
+        nameof(TextAlignment), typeof(TextAlignment), typeof(OutlineText),
         new PropertyMetadata(default(TextAlignment), OnFormattedTextUpdated));
 
     public TextAlignment TextAlignment
@@ -56,7 +56,7 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty TextTrimmingProperty = DependencyProperty.Register(
-        "TextTrimming", typeof(TextTrimming), typeof(OutlineText),
+        nameof(TextTrimming), typeof(TextTrimming), typeof(OutlineText),
         new PropertyMetadata(default(TextTrimming), OnFormattedTextInvalidated));
 
     public TextTrimming TextTrimming
@@ -66,7 +66,7 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty TextWrappingProperty = DependencyProperty.Register(
-        "TextWrapping", typeof(TextWrapping), typeof(OutlineText),
+        nameof(TextWrapping), typeof(TextWrapping), typeof(OutlineText),
         new PropertyMetadata(TextWrapping.NoWrap, OnFormattedTextInvalidated));
 
     public TextWrapping TextWrapping
@@ -76,7 +76,7 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty FillProperty = DependencyProperty.Register(
-        "Fill", typeof(Brush), typeof(OutlineText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
+        nameof(Fill), typeof(Brush), typeof(OutlineText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
 
     public Brush Fill
     {
@@ -85,7 +85,7 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty StrokeProperty = DependencyProperty.Register(
-        "Stroke", typeof(Brush), typeof(OutlineText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
+        nameof(Stroke), typeof(Brush), typeof(OutlineText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
 
     public Brush Stroke
     {
@@ -94,7 +94,7 @@ public class OutlineText : FrameworkElement
     }
 
     public static readonly DependencyProperty StrokeThicknessProperty = DependencyProperty.Register(
-        "StrokeThickness", typeof(double), typeof(OutlineText), new PropertyMetadata(ValueBoxes.Double0Box, OnFormattedTextUpdated));
+        nameof(StrokeThickness), typeof(double), typeof(OutlineText), new PropertyMetadata(ValueBoxes.Double0Box, OnFormattedTextUpdated));
 
     public double StrokeThickness
     {

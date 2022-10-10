@@ -33,7 +33,7 @@ public class PreviewSlider : Slider
     ///     预览内容
     /// </summary>
     public static readonly DependencyProperty PreviewContentProperty = DependencyProperty.Register(
-        "PreviewContent", typeof(object), typeof(PreviewSlider), new PropertyMetadata(default(object)));
+        nameof(PreviewContent), typeof(object), typeof(PreviewSlider), new PropertyMetadata(default(object)));
 
     /// <summary>
     ///     预览内容
@@ -45,7 +45,7 @@ public class PreviewSlider : Slider
     }
 
     public static readonly DependencyProperty PreviewContentOffsetProperty = DependencyProperty.Register(
-        "PreviewContentOffset", typeof(double), typeof(PreviewSlider), new PropertyMetadata(9.0));
+        nameof(PreviewContentOffset), typeof(double), typeof(PreviewSlider), new PropertyMetadata(9.0));
 
     public double PreviewContentOffset
     {

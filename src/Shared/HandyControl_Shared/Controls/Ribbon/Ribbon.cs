@@ -59,7 +59,7 @@ namespace HandyControl.Controls
             => (Ribbon) element.GetValue(RibbonProperty);
 
         public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-            "IsDropDownOpen", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.TrueBox, OnIsDropDownOpenChanged));
+            nameof(IsDropDownOpen), typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.TrueBox, OnIsDropDownOpenChanged));
 
         private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -84,7 +84,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsMinimizedProperty = DependencyProperty.Register(
-            "IsMinimized", typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.FalseBox));
+            nameof(IsMinimized), typeof(bool), typeof(Ribbon), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool IsMinimized
         {
@@ -93,7 +93,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ContentHeightProperty = DependencyProperty.Register(
-            "ContentHeight", typeof(double), typeof(Ribbon), new PropertyMetadata(default(double)));
+            nameof(ContentHeight), typeof(double), typeof(Ribbon), new PropertyMetadata(default(double)));
 
         public double ContentHeight
         {
@@ -102,7 +102,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty PrefixContentProperty = DependencyProperty.Register(
-            "PrefixContent", typeof(object), typeof(Ribbon), new PropertyMetadata(default(object)));
+            nameof(PrefixContent), typeof(object), typeof(Ribbon), new PropertyMetadata(default(object)));
 
         public object PrefixContent
         {
@@ -111,7 +111,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty PostfixContentProperty = DependencyProperty.Register(
-            "PostfixContent", typeof(object), typeof(Ribbon), new PropertyMetadata(default(object)));
+            nameof(PostfixContent), typeof(object), typeof(Ribbon), new PropertyMetadata(default(object)));
 
         public object PostfixContent
         {

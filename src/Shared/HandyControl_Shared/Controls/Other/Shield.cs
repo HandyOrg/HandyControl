@@ -9,7 +9,7 @@ namespace HandyControl.Controls;
 public class Shield : ButtonBase
 {
     public static readonly DependencyProperty SubjectProperty = DependencyProperty.Register(
-        "Subject", typeof(string), typeof(Shield), new PropertyMetadata(default(string)));
+        nameof(Subject), typeof(string), typeof(Shield), new PropertyMetadata(default(string)));
 
     public string Subject
     {
@@ -18,7 +18,7 @@ public class Shield : ButtonBase
     }
 
     public static readonly DependencyProperty StatusProperty = DependencyProperty.Register(
-        "Status", typeof(object), typeof(Shield), new PropertyMetadata(default(object)));
+        nameof(Status), typeof(object), typeof(Shield), new PropertyMetadata(default(object)));
 
     public object Status
     {
@@ -27,7 +27,7 @@ public class Shield : ButtonBase
     }
 
     public static readonly DependencyProperty ColorProperty = DependencyProperty.Register(
-        "Color", typeof(Brush), typeof(Shield), new PropertyMetadata(default(Brush)));
+        nameof(Color), typeof(Brush), typeof(Shield), new PropertyMetadata(default(Brush)));
 
     public Brush Color
     {

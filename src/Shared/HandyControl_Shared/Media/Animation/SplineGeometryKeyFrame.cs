@@ -48,7 +48,7 @@ public class SplineGeometryKeyFrame : GeometryKeyFrame
     }
 
     public static readonly DependencyProperty KeySplineProperty = DependencyProperty.Register(
-        "KeySpline", typeof(KeySpline), typeof(SplineGeometryKeyFrame), new PropertyMetadata(new KeySpline()));
+        nameof(KeySpline), typeof(KeySpline), typeof(SplineGeometryKeyFrame), new PropertyMetadata(new KeySpline()));
 
     public KeySpline KeySpline
     {

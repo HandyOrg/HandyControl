@@ -8,7 +8,7 @@ namespace HandyControl.Controls
     public class ClipGrid : Grid
     {
         public static readonly DependencyProperty IsClipEnabledProperty = DependencyProperty.Register(
-            "IsClipEnabled", typeof(bool), typeof(ClipGrid), new PropertyMetadata(ValueBoxes.TrueBox));
+            nameof(IsClipEnabled), typeof(bool), typeof(ClipGrid), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public bool IsClipEnabled
         {

@@ -97,7 +97,7 @@ public class StepBar : ItemsControl
     }
 
     public static readonly DependencyProperty StepIndexProperty = DependencyProperty.Register(
-        "StepIndex", typeof(int), typeof(StepBar), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
+        nameof(StepIndex), typeof(int), typeof(StepBar), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnStepIndexChanged, CoerceStepIndex));
 
     private static object CoerceStepIndex(DependencyObject d, object basevalue)
@@ -158,7 +158,7 @@ public class StepBar : ItemsControl
     }
 
     public static readonly DependencyProperty DockProperty = DependencyProperty.Register(
-        "Dock", typeof(Dock), typeof(StepBar), new PropertyMetadata(Dock.Top));
+        nameof(Dock), typeof(Dock), typeof(StepBar), new PropertyMetadata(Dock.Top));
 
     public Dock Dock
     {
@@ -167,7 +167,7 @@ public class StepBar : ItemsControl
     }
 
     public static readonly DependencyProperty IsMouseSelectableProperty = DependencyProperty.Register(
-        "IsMouseSelectable", typeof(bool), typeof(StepBar), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsMouseSelectable), typeof(bool), typeof(StepBar), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsMouseSelectable
     {

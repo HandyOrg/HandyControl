@@ -21,7 +21,7 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
     ///     是否响应鼠标滚轮操作
     /// </summary>
     public static readonly DependencyProperty CanMouseWheelProperty = DependencyProperty.Register(
-        "CanMouseWheel", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(CanMouseWheel), typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.TrueBox));
 
     /// <summary>
     ///     是否响应鼠标滚轮操作
@@ -166,7 +166,7 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
     ///     当前垂直滚动偏移
     /// </summary>
     internal static readonly DependencyProperty CurrentVerticalOffsetProperty = DependencyProperty.Register(
-        "CurrentVerticalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentVerticalOffsetChanged));
+        nameof(CurrentVerticalOffset), typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentVerticalOffsetChanged));
 
     private static void OnCurrentVerticalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -190,7 +190,7 @@ public class ScrollViewer : System.Windows.Controls.ScrollViewer
     ///     当前水平滚动偏移
     /// </summary>
     internal static readonly DependencyProperty CurrentHorizontalOffsetProperty = DependencyProperty.Register(
-        "CurrentHorizontalOffset", typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentHorizontalOffsetChanged));
+        nameof(CurrentHorizontalOffset), typeof(double), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.Double0Box, OnCurrentHorizontalOffsetChanged));
 
     private static void OnCurrentHorizontalOffsetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

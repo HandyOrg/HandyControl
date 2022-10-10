@@ -89,7 +89,7 @@ public class Pagination : Control
     ///     最大页数
     /// </summary>
     public static readonly DependencyProperty MaxPageCountProperty = DependencyProperty.Register(
-        "MaxPageCount", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosIntIncludeZero);
+        nameof(MaxPageCount), typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnMaxPageCountChanged, CoerceMaxPageCount), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
     private static object CoerceMaxPageCount(DependencyObject d, object basevalue)
     {
@@ -129,7 +129,7 @@ public class Pagination : Control
     ///     每页的数据量
     /// </summary>
     public static readonly DependencyProperty DataCountPerPageProperty = DependencyProperty.Register(
-        "DataCountPerPage", typeof(int), typeof(Pagination), new PropertyMetadata(20, OnDataCountPerPageChanged),
+        nameof(DataCountPerPage), typeof(int), typeof(Pagination), new PropertyMetadata(20, OnDataCountPerPageChanged),
         ValidateHelper.IsInRangeOfPosInt);
 
     private static void OnDataCountPerPageChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -157,7 +157,7 @@ public class Pagination : Control
     ///     当前页
     /// </summary>
     public static readonly DependencyProperty PageIndexProperty = DependencyProperty.Register(
-        "PageIndex", typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosIntIncludeZero);
+        nameof(PageIndex), typeof(int), typeof(Pagination), new PropertyMetadata(ValueBoxes.Int1Box, OnPageIndexChanged, CoercePageIndex), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
     private static object CoercePageIndex(DependencyObject d, object basevalue)
     {
@@ -200,7 +200,7 @@ public class Pagination : Control
     ///     表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
     /// </summary>       
     public static readonly DependencyProperty MaxPageIntervalProperty = DependencyProperty.Register(
-        "MaxPageInterval", typeof(int), typeof(Pagination), new PropertyMetadata(3, OnMaxPageIntervalChanged), ValidateHelper.IsInRangeOfPosIntIncludeZero);
+        nameof(MaxPageInterval), typeof(int), typeof(Pagination), new PropertyMetadata(3, OnMaxPageIntervalChanged), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
     private static void OnMaxPageIntervalChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -224,7 +224,7 @@ public class Pagination : Control
     #region IsJumpEnabled
 
     public static readonly DependencyProperty IsJumpEnabledProperty = DependencyProperty.Register(
-        "IsJumpEnabled", typeof(bool), typeof(Pagination), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsJumpEnabled), typeof(bool), typeof(Pagination), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsJumpEnabled
     {
@@ -237,7 +237,7 @@ public class Pagination : Control
     #region AutoHiding
 
     public static readonly DependencyProperty AutoHidingProperty = DependencyProperty.Register(
-        "AutoHiding", typeof(bool), typeof(Pagination), new PropertyMetadata(ValueBoxes.TrueBox, OnAutoHidingChanged));
+        nameof(AutoHiding), typeof(bool), typeof(Pagination), new PropertyMetadata(ValueBoxes.TrueBox, OnAutoHidingChanged));
 
     private static void OnAutoHidingChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

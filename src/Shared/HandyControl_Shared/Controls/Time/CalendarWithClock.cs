@@ -73,7 +73,7 @@ public class CalendarWithClock : Control
     #region Public Properties
 
     public static readonly DependencyProperty DateTimeFormatProperty = DependencyProperty.Register(
-        "DateTimeFormat", typeof(string), typeof(CalendarWithClock), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
+        nameof(DateTimeFormat), typeof(string), typeof(CalendarWithClock), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
 
     public string DateTimeFormat
     {
@@ -82,7 +82,7 @@ public class CalendarWithClock : Control
     }
 
     public static readonly DependencyProperty ShowConfirmButtonProperty = DependencyProperty.Register(
-        "ShowConfirmButton", typeof(bool), typeof(CalendarWithClock), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowConfirmButton), typeof(bool), typeof(CalendarWithClock), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowConfirmButton
     {
@@ -91,7 +91,7 @@ public class CalendarWithClock : Control
     }
 
     public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(
-        "SelectedDateTime", typeof(DateTime?), typeof(CalendarWithClock), new PropertyMetadata(default(DateTime?), OnSelectedDateTimeChanged));
+        nameof(SelectedDateTime), typeof(DateTime?), typeof(CalendarWithClock), new PropertyMetadata(default(DateTime?), OnSelectedDateTimeChanged));
 
     private static void OnSelectedDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -110,7 +110,7 @@ public class CalendarWithClock : Control
     }
 
     public static readonly DependencyProperty DisplayDateTimeProperty = DependencyProperty.Register(
-        "DisplayDateTime", typeof(DateTime), typeof(CalendarWithClock), new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayDateTimeChanged));
+        nameof(DisplayDateTime), typeof(DateTime), typeof(CalendarWithClock), new FrameworkPropertyMetadata(DateTime.MinValue, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnDisplayDateTimeChanged));
 
     private static void OnDisplayDateTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

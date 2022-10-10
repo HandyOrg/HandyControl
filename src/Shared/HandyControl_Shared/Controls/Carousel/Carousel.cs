@@ -80,17 +80,17 @@ public class Carousel : SimpleItemsControl, IDisposable
     private bool CheckNull() => _panelPage != null;
 
     public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
-        "AutoRun", typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
+        nameof(AutoRun), typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
         {
             var ctl = (Carousel) o;
             ctl.TimerSwitch((bool) args.NewValue);
         }));
 
     public static readonly DependencyProperty IntervalProperty = DependencyProperty.Register(
-        "Interval", typeof(TimeSpan), typeof(Carousel), new PropertyMetadata(TimeSpan.FromSeconds(2)));
+        nameof(Interval), typeof(TimeSpan), typeof(Carousel), new PropertyMetadata(TimeSpan.FromSeconds(2)));
 
     public static readonly DependencyProperty ExtendWidthProperty = DependencyProperty.Register(
-        "ExtendWidth", typeof(double), typeof(Carousel), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(ExtendWidth), typeof(double), typeof(Carousel), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double ExtendWidth
     {
@@ -99,7 +99,7 @@ public class Carousel : SimpleItemsControl, IDisposable
     }
 
     public static readonly DependencyProperty IsCenterProperty = DependencyProperty.Register(
-        "IsCenter", typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsCenter), typeof(bool), typeof(Carousel), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsCenter
     {
@@ -108,7 +108,7 @@ public class Carousel : SimpleItemsControl, IDisposable
     }
 
     public static readonly DependencyProperty PageButtonStyleProperty = DependencyProperty.Register(
-        "PageButtonStyle", typeof(Style), typeof(Carousel), new PropertyMetadata(default(Style)));
+        nameof(PageButtonStyle), typeof(Style), typeof(Carousel), new PropertyMetadata(default(Style)));
 
     public Style PageButtonStyle
     {

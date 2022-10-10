@@ -33,7 +33,7 @@ public class UniformSpacingPanel : Panel
     }
 
     public static readonly DependencyProperty ChildWrappingProperty = DependencyProperty.Register(
-        "ChildWrapping", typeof(VisualWrapping), typeof(UniformSpacingPanel),
+        nameof(ChildWrapping), typeof(VisualWrapping), typeof(UniformSpacingPanel),
         new FrameworkPropertyMetadata(default(VisualWrapping), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public VisualWrapping ChildWrapping
@@ -43,7 +43,7 @@ public class UniformSpacingPanel : Panel
     }
 
     public static readonly DependencyProperty SpacingProperty = DependencyProperty.Register(
-        "Spacing", typeof(double), typeof(UniformSpacingPanel),
+        nameof(Spacing), typeof(double), typeof(UniformSpacingPanel),
         new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure), IsSpacingValid);
 
     public double Spacing
@@ -53,7 +53,7 @@ public class UniformSpacingPanel : Panel
     }
 
     public static readonly DependencyProperty HorizontalSpacingProperty = DependencyProperty.Register(
-        "HorizontalSpacing", typeof(double), typeof(UniformSpacingPanel),
+        nameof(HorizontalSpacing), typeof(double), typeof(UniformSpacingPanel),
         new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure), IsSpacingValid);
 
     public double HorizontalSpacing
@@ -63,7 +63,7 @@ public class UniformSpacingPanel : Panel
     }
 
     public static readonly DependencyProperty VerticalSpacingProperty = DependencyProperty.Register(
-        "VerticalSpacing", typeof(double), typeof(UniformSpacingPanel),
+        nameof(VerticalSpacing), typeof(double), typeof(UniformSpacingPanel),
         new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure), IsSpacingValid);
 
     public double VerticalSpacing
@@ -73,7 +73,7 @@ public class UniformSpacingPanel : Panel
     }
 
     public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(
-        "ItemWidth", typeof(double), typeof(UniformSpacingPanel),
+        nameof(ItemWidth), typeof(double), typeof(UniformSpacingPanel),
         new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure),
         IsWidthHeightValid);
 
@@ -85,7 +85,7 @@ public class UniformSpacingPanel : Panel
     }
 
     public static readonly DependencyProperty ItemHeightProperty = DependencyProperty.Register(
-        "ItemHeight", typeof(double), typeof(UniformSpacingPanel),
+        nameof(ItemHeight), typeof(double), typeof(UniformSpacingPanel),
         new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsMeasure),
         IsWidthHeightValid);
 
@@ -97,7 +97,7 @@ public class UniformSpacingPanel : Panel
     }
 
     public static readonly DependencyProperty ItemHorizontalAlignmentProperty = DependencyProperty.Register(
-        "ItemHorizontalAlignment", typeof(HorizontalAlignment?), typeof(UniformSpacingPanel),
+        nameof(ItemHorizontalAlignment), typeof(HorizontalAlignment?), typeof(UniformSpacingPanel),
         new FrameworkPropertyMetadata(HorizontalAlignment.Stretch, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public HorizontalAlignment? ItemHorizontalAlignment
@@ -107,7 +107,7 @@ public class UniformSpacingPanel : Panel
     }
 
     public static readonly DependencyProperty ItemVerticalAlignmentProperty = DependencyProperty.Register(
-        "ItemVerticalAlignment", typeof(VerticalAlignment?), typeof(UniformSpacingPanel),
+        nameof(ItemVerticalAlignment), typeof(VerticalAlignment?), typeof(UniformSpacingPanel),
         new FrameworkPropertyMetadata(VerticalAlignment.Stretch, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public VerticalAlignment? ItemVerticalAlignment

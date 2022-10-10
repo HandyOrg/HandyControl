@@ -7,7 +7,7 @@ namespace HandyControl.Controls;
 public class Card : ContentControl
 {
     public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
-        "Header", typeof(object), typeof(Card), new PropertyMetadata(default(object)));
+        nameof(Header), typeof(object), typeof(Card), new PropertyMetadata(default(object)));
 
     public object Header
     {
@@ -16,7 +16,7 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
-        "HeaderTemplate", typeof(DataTemplate), typeof(Card), new PropertyMetadata(default(DataTemplate)));
+        nameof(HeaderTemplate), typeof(DataTemplate), typeof(Card), new PropertyMetadata(default(DataTemplate)));
 
     [Bindable(true), Category("Content")]
     public DataTemplate HeaderTemplate
@@ -26,7 +26,7 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty HeaderTemplateSelectorProperty = DependencyProperty.Register(
-        "HeaderTemplateSelector", typeof(DataTemplateSelector), typeof(Card), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(HeaderTemplateSelector), typeof(DataTemplateSelector), typeof(Card), new PropertyMetadata(default(DataTemplateSelector)));
 
     [Bindable(true), Category("Content")]
     public DataTemplateSelector HeaderTemplateSelector
@@ -36,7 +36,7 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty HeaderStringFormatProperty = DependencyProperty.Register(
-        "HeaderStringFormat", typeof(string), typeof(Card), new PropertyMetadata(default(string)));
+        nameof(HeaderStringFormat), typeof(string), typeof(Card), new PropertyMetadata(default(string)));
 
     [Bindable(true), Category("Content")]
     public string HeaderStringFormat
@@ -46,7 +46,7 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty FooterProperty = DependencyProperty.Register(
-        "Footer", typeof(object), typeof(Card), new PropertyMetadata(default(object)));
+        nameof(Footer), typeof(object), typeof(Card), new PropertyMetadata(default(object)));
 
     public object Footer
     {
@@ -55,7 +55,7 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty FooterTemplateProperty = DependencyProperty.Register(
-        "FooterTemplate", typeof(DataTemplate), typeof(Card), new PropertyMetadata(default(DataTemplate)));
+        nameof(FooterTemplate), typeof(DataTemplate), typeof(Card), new PropertyMetadata(default(DataTemplate)));
 
     [Bindable(true), Category("Content")]
     public DataTemplate FooterTemplate
@@ -65,7 +65,7 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty FooterTemplateSelectorProperty = DependencyProperty.Register(
-        "FooterTemplateSelector", typeof(DataTemplateSelector), typeof(Card), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(FooterTemplateSelector), typeof(DataTemplateSelector), typeof(Card), new PropertyMetadata(default(DataTemplateSelector)));
 
     [Bindable(true), Category("Content")]
     public DataTemplateSelector FooterTemplateSelector
@@ -75,7 +75,7 @@ public class Card : ContentControl
     }
 
     public static readonly DependencyProperty FooterStringFormatProperty = DependencyProperty.Register(
-        "FooterStringFormat", typeof(string), typeof(Card), new PropertyMetadata(default(string)));
+        nameof(FooterStringFormat), typeof(string), typeof(Card), new PropertyMetadata(default(string)));
 
     [Bindable(true), Category("Content")]
     public string FooterStringFormat

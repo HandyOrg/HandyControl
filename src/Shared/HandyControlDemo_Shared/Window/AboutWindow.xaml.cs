@@ -15,7 +15,7 @@ public partial class AboutWindow
     }
 
     public static readonly DependencyProperty CopyRightProperty = DependencyProperty.Register(
-        "CopyRight", typeof(string), typeof(AboutWindow), new PropertyMetadata(default(string)));
+        nameof(CopyRight), typeof(string), typeof(AboutWindow), new PropertyMetadata(default(string)));
 
     public string CopyRight
     {
@@ -24,7 +24,7 @@ public partial class AboutWindow
     }
 
     public static readonly DependencyProperty VersionProperty = DependencyProperty.Register(
-        "Version", typeof(string), typeof(AboutWindow), new PropertyMetadata(default(string)));
+        nameof(Version), typeof(string), typeof(AboutWindow), new PropertyMetadata(default(string)));
 
     public string Version
     {

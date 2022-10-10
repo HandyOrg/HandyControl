@@ -43,7 +43,7 @@ public class CoverViewContent : ContentControl
     }
 
     internal static readonly DependencyProperty ManualHeightProperty = DependencyProperty.Register(
-        "ManualHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double0Box), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+        nameof(ManualHeight), typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double0Box), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     internal double ManualHeight
     {
@@ -52,7 +52,7 @@ public class CoverViewContent : ContentControl
     }
 
     public static readonly DependencyProperty ContentHeightProperty = DependencyProperty.Register(
-        "ContentHeight", typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double300Box),
+        nameof(ContentHeight), typeof(double), typeof(CoverViewContent), new PropertyMetadata(ValueBoxes.Double300Box),
         ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     public double ContentHeight

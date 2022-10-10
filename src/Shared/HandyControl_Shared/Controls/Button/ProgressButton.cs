@@ -7,7 +7,7 @@ namespace HandyControl.Controls;
 public class ProgressButton : ToggleButton
 {
     public static readonly DependencyProperty ProgressStyleProperty = DependencyProperty.Register(
-        "ProgressStyle", typeof(Style), typeof(ProgressButton), new PropertyMetadata(default(Style)));
+        nameof(ProgressStyle), typeof(Style), typeof(ProgressButton), new PropertyMetadata(default(Style)));
 
     public Style ProgressStyle
     {
@@ -16,7 +16,7 @@ public class ProgressButton : ToggleButton
     }
 
     public static readonly DependencyProperty ProgressProperty = DependencyProperty.Register(
-        "Progress", typeof(double), typeof(ProgressButton), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(Progress), typeof(double), typeof(ProgressButton), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double Progress
     {

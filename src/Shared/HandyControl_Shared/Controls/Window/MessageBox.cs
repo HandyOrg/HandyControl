@@ -53,7 +53,7 @@ public sealed class MessageBox : Window
     private IntPtr _lastActiveWindowIntPtr;
 
     public static readonly DependencyProperty MessageProperty = DependencyProperty.Register(
-        "Message", typeof(string), typeof(MessageBox), new PropertyMetadata(default(string)));
+        nameof(Message), typeof(string), typeof(MessageBox), new PropertyMetadata(default(string)));
 
     public string Message
     {
@@ -62,7 +62,7 @@ public sealed class MessageBox : Window
     }
 
     public static readonly DependencyProperty ImageProperty = DependencyProperty.Register(
-        "Image", typeof(Geometry), typeof(MessageBox), new PropertyMetadata(default(Geometry)));
+        nameof(Image), typeof(Geometry), typeof(MessageBox), new PropertyMetadata(default(Geometry)));
 
     public Geometry Image
     {
@@ -71,7 +71,7 @@ public sealed class MessageBox : Window
     }
 
     public static readonly DependencyProperty ImageBrushProperty = DependencyProperty.Register(
-        "ImageBrush", typeof(Brush), typeof(MessageBox), new PropertyMetadata(default(Brush)));
+        nameof(ImageBrush), typeof(Brush), typeof(MessageBox), new PropertyMetadata(default(Brush)));
 
     public Brush ImageBrush
     {
@@ -80,7 +80,7 @@ public sealed class MessageBox : Window
     }
 
     public static readonly DependencyProperty ShowImageProperty = DependencyProperty.Register(
-        "ShowImage", typeof(bool), typeof(MessageBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowImage), typeof(bool), typeof(MessageBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowImage
     {

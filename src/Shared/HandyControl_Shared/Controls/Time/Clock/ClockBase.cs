@@ -29,7 +29,7 @@ public abstract class ClockBase : Control
     }
 
     public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
-        "TimeFormat", typeof(string), typeof(ClockBase), new PropertyMetadata("HH:mm:ss"));
+        nameof(TimeFormat), typeof(string), typeof(ClockBase), new PropertyMetadata("HH:mm:ss"));
 
     public string TimeFormat
     {
@@ -38,7 +38,7 @@ public abstract class ClockBase : Control
     }
 
     public static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
-        "SelectedTime", typeof(DateTime?), typeof(ClockBase), new PropertyMetadata(default(DateTime?), OnSelectedTimeChanged));
+        nameof(SelectedTime), typeof(DateTime?), typeof(ClockBase), new PropertyMetadata(default(DateTime?), OnSelectedTimeChanged));
 
     private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -58,7 +58,7 @@ public abstract class ClockBase : Control
     }
 
     public static readonly DependencyProperty DisplayTimeProperty = DependencyProperty.Register(
-        "DisplayTime", typeof(DateTime), typeof(ClockBase),
+        nameof(DisplayTime), typeof(DateTime), typeof(ClockBase),
         new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
             OnDisplayTimeChanged));
 
@@ -77,7 +77,7 @@ public abstract class ClockBase : Control
     }
 
     internal static readonly DependencyProperty ShowConfirmButtonProperty = DependencyProperty.Register(
-        "ShowConfirmButton", typeof(bool), typeof(ClockBase), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowConfirmButton), typeof(bool), typeof(ClockBase), new PropertyMetadata(ValueBoxes.FalseBox));
 
     internal bool ShowConfirmButton
     {

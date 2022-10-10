@@ -23,7 +23,7 @@ public class RateItem : Control
     public static readonly DependencyProperty IsReadOnlyProperty = Rate.IsReadOnlyProperty.AddOwner(typeof(RateItem));
 
     internal static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-        "IsSelected", typeof(bool), typeof(RateItem),
+        nameof(IsSelected), typeof(bool), typeof(RateItem),
         new PropertyMetadata(ValueBoxes.FalseBox, OnIsSelectedChanged));
 
     public static readonly RoutedEvent SelectedChangedEvent =

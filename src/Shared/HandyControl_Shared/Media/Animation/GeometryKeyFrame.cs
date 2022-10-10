@@ -24,7 +24,7 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
     protected GeometryKeyFrame(Geometry value, KeyTime keyTime) : this(value) => KeyTime = keyTime;
 
     public static readonly DependencyProperty KeyTimeProperty = DependencyProperty.Register(
-        "KeyTime", typeof(KeyTime), typeof(GeometryKeyFrame), new PropertyMetadata(KeyTime.Uniform));
+        nameof(KeyTime), typeof(KeyTime), typeof(GeometryKeyFrame), new PropertyMetadata(KeyTime.Uniform));
 
     public KeyTime KeyTime
     {
@@ -39,7 +39,7 @@ public abstract class GeometryKeyFrame : Freezable, IKeyFrame
     }
 
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-        "Value", typeof(Geometry), typeof(GeometryKeyFrame), new PropertyMetadata(default(Geometry), OnValueChanged));
+        nameof(Value), typeof(Geometry), typeof(GeometryKeyFrame), new PropertyMetadata(default(Geometry), OnValueChanged));
 
     private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

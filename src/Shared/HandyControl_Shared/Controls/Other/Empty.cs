@@ -7,7 +7,7 @@ namespace HandyControl.Controls;
 public class Empty : ContentControl
 {
     public static readonly DependencyProperty DescriptionProperty = DependencyProperty.Register(
-        "Description", typeof(object), typeof(Empty), new PropertyMetadata(default(object)));
+        nameof(Description), typeof(object), typeof(Empty), new PropertyMetadata(default(object)));
 
     public object Description
     {
@@ -16,7 +16,7 @@ public class Empty : ContentControl
     }
 
     public static readonly DependencyProperty LogoProperty = DependencyProperty.Register(
-        "Logo", typeof(object), typeof(Empty), new PropertyMetadata(default(object)));
+        nameof(Logo), typeof(object), typeof(Empty), new PropertyMetadata(default(object)));
 
     public object Logo
     {

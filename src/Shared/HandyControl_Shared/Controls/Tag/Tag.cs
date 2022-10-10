@@ -23,7 +23,7 @@ public class Tag : ContentControl
     }
 
     public static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
-        "ShowCloseButton", typeof(bool), typeof(Tag), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowCloseButton), typeof(bool), typeof(Tag), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool ShowCloseButton
     {
@@ -32,7 +32,7 @@ public class Tag : ContentControl
     }
 
     public static readonly DependencyProperty SelectableProperty = DependencyProperty.Register(
-        "Selectable", typeof(bool), typeof(Tag), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(Selectable), typeof(bool), typeof(Tag), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool Selectable
     {
@@ -41,7 +41,7 @@ public class Tag : ContentControl
     }
 
     public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-        "IsSelected", typeof(bool), typeof(Tag), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
+        nameof(IsSelected), typeof(bool), typeof(Tag), new PropertyMetadata(ValueBoxes.FalseBox, (o, args) =>
         {
             var ctl = (Tag) o;
             ctl.RaiseEvent(new RoutedEventArgs(SelectedEvent, ctl));
@@ -54,7 +54,7 @@ public class Tag : ContentControl
     }
 
     public static readonly DependencyProperty HeaderProperty = DependencyProperty.Register(
-        "Header", typeof(object), typeof(Tag), new PropertyMetadata(default, OnHeaderChanged));
+        nameof(Header), typeof(object), typeof(Tag), new PropertyMetadata(default, OnHeaderChanged));
 
     private static void OnHeaderChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -85,7 +85,7 @@ public class Tag : ContentControl
     public bool HasHeader => (bool) GetValue(HasHeaderProperty);
 
     public static readonly DependencyProperty HeaderStringFormatProperty = DependencyProperty.Register(
-        "HeaderStringFormat", typeof(string), typeof(Tag), new PropertyMetadata(default(string)));
+        nameof(HeaderStringFormat), typeof(string), typeof(Tag), new PropertyMetadata(default(string)));
 
     public string HeaderStringFormat
     {
@@ -94,7 +94,7 @@ public class Tag : ContentControl
     }
 
     public static readonly DependencyProperty HeaderTemplateSelectorProperty = DependencyProperty.Register(
-        "HeaderTemplateSelector", typeof(DataTemplateSelector), typeof(Tag), new PropertyMetadata(default(DataTemplateSelector)));
+        nameof(HeaderTemplateSelector), typeof(DataTemplateSelector), typeof(Tag), new PropertyMetadata(default(DataTemplateSelector)));
 
     public DataTemplateSelector HeaderTemplateSelector
     {
@@ -103,7 +103,7 @@ public class Tag : ContentControl
     }
 
     public static readonly DependencyProperty HeaderTemplateProperty = DependencyProperty.Register(
-        "HeaderTemplate", typeof(DataTemplate), typeof(Tag), new PropertyMetadata(default(DataTemplate)));
+        nameof(HeaderTemplate), typeof(DataTemplate), typeof(Tag), new PropertyMetadata(default(DataTemplate)));
 
     public DataTemplate HeaderTemplate
     {

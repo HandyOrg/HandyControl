@@ -54,7 +54,7 @@ public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
     public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
 
     public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        "IsError", typeof(bool), typeof(DatePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsError), typeof(bool), typeof(DatePicker), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsError
     {
@@ -63,7 +63,7 @@ public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
     }
 
     public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        "ErrorStr", typeof(string), typeof(DatePicker), new PropertyMetadata(default(string)));
+        nameof(ErrorStr), typeof(string), typeof(DatePicker), new PropertyMetadata(default(string)));
 
     public string ErrorStr
     {
@@ -72,7 +72,7 @@ public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
     }
 
     public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        "TextType", typeof(TextType), typeof(DatePicker), new PropertyMetadata(default(TextType)));
+        nameof(TextType), typeof(TextType), typeof(DatePicker), new PropertyMetadata(default(TextType)));
 
     public TextType TextType
     {
@@ -81,7 +81,7 @@ public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
     }
 
     public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        "ShowClearButton", typeof(bool), typeof(DatePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowClearButton), typeof(bool), typeof(DatePicker), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowClearButton
     {

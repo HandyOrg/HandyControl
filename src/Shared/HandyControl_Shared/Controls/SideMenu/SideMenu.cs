@@ -136,7 +136,7 @@ public class SideMenu : HeaderedSimpleItemsControl
     protected override bool IsItemItsOwnContainerOverride(object item) => item is SideMenuItem;
 
     public static readonly DependencyProperty AutoSelectProperty = DependencyProperty.Register(
-        "AutoSelect", typeof(bool), typeof(SideMenu), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(AutoSelect), typeof(bool), typeof(SideMenu), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool AutoSelect
     {
@@ -145,7 +145,7 @@ public class SideMenu : HeaderedSimpleItemsControl
     }
 
     public static readonly DependencyProperty ExpandModeProperty = DependencyProperty.Register(
-        "ExpandMode", typeof(ExpandMode), typeof(SideMenu), new PropertyMetadata(default(ExpandMode), OnExpandModeChanged));
+        nameof(ExpandMode), typeof(ExpandMode), typeof(SideMenu), new PropertyMetadata(default(ExpandMode), OnExpandModeChanged));
 
     private static void OnExpandModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -223,7 +223,7 @@ public class SideMenu : HeaderedSimpleItemsControl
     }
 
     public static readonly DependencyProperty PanelAreaLengthProperty = DependencyProperty.Register(
-        "PanelAreaLength", typeof(double), typeof(SideMenu), new PropertyMetadata(double.NaN));
+        nameof(PanelAreaLength), typeof(double), typeof(SideMenu), new PropertyMetadata(double.NaN));
 
     public double PanelAreaLength
     {

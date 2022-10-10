@@ -147,7 +147,7 @@ public class NumericUpDown : Control
     ///     当前值
     /// </summary>
     public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-        "Value", typeof(double), typeof(NumericUpDown),
+        nameof(Value), typeof(double), typeof(NumericUpDown),
         new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
             OnValueChanged, CoerceValue), ValidateHelper.IsInRangeOfDouble);
 
@@ -204,7 +204,7 @@ public class NumericUpDown : Control
     ///     最大值
     /// </summary>
     public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-        "Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ValidateHelper.IsInRangeOfDouble);
+        nameof(Maximum), typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ValidateHelper.IsInRangeOfDouble);
 
     private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -232,7 +232,7 @@ public class NumericUpDown : Control
     ///     最小值
     /// </summary>
     public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-        "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MinValue, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
+        nameof(Minimum), typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MinValue, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
 
     private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -260,7 +260,7 @@ public class NumericUpDown : Control
     ///     指示每单击一下按钮时增加或减少的数量
     /// </summary>
     public static readonly DependencyProperty IncrementProperty = DependencyProperty.Register(
-        "Increment", typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double1Box));
+        nameof(Increment), typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double1Box));
 
     /// <summary>
     ///     指示每单击一下按钮时增加或减少的数量
@@ -275,7 +275,7 @@ public class NumericUpDown : Control
     ///     指示要显示的小数位数
     /// </summary>
     public static readonly DependencyProperty DecimalPlacesProperty = DependencyProperty.Register(
-        "DecimalPlaces", typeof(int?), typeof(NumericUpDown), new PropertyMetadata(default(int?)));
+        nameof(DecimalPlaces), typeof(int?), typeof(NumericUpDown), new PropertyMetadata(default(int?)));
 
     /// <summary>
     ///     指示要显示的小数位数
@@ -290,7 +290,7 @@ public class NumericUpDown : Control
     ///     指示要显示的数字的格式
     /// </summary>
     public static readonly DependencyProperty ValueFormatProperty = DependencyProperty.Register(
-        "ValueFormat", typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
+        nameof(ValueFormat), typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
 
     /// <summary>
     ///     指示要显示的数字的格式，这将会覆盖 <see cref="DecimalPlaces"/> 属性
@@ -305,7 +305,7 @@ public class NumericUpDown : Control
     ///     是否显示上下调值按钮
     /// </summary>
     internal static readonly DependencyProperty ShowUpDownButtonProperty = DependencyProperty.Register(
-        "ShowUpDownButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowUpDownButton), typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.TrueBox));
 
     /// <summary>
     ///     是否显示上下调值按钮
@@ -320,7 +320,7 @@ public class NumericUpDown : Control
     ///     标识 IsReadOnly 依赖属性。
     /// </summary>
     public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
-        "IsReadOnly", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsReadOnly), typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     获取或设置一个值，该值指示NumericUpDown是否只读。

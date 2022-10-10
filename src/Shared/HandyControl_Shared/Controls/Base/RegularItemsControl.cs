@@ -12,7 +12,7 @@ namespace HandyControl.Controls;
 public class RegularItemsControl : SimpleItemsControl
 {
     public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(
-        "ItemWidth", typeof(double), typeof(RegularItemsControl), new PropertyMetadata(ValueBoxes.Double200Box));
+        nameof(ItemWidth), typeof(double), typeof(RegularItemsControl), new PropertyMetadata(ValueBoxes.Double200Box));
 
     public double ItemWidth
     {
@@ -21,7 +21,7 @@ public class RegularItemsControl : SimpleItemsControl
     }
 
     public static readonly DependencyProperty ItemHeightProperty = DependencyProperty.Register(
-        "ItemHeight", typeof(double), typeof(RegularItemsControl), new PropertyMetadata(ValueBoxes.Double200Box));
+        nameof(ItemHeight), typeof(double), typeof(RegularItemsControl), new PropertyMetadata(ValueBoxes.Double200Box));
 
     public double ItemHeight
     {
@@ -30,7 +30,7 @@ public class RegularItemsControl : SimpleItemsControl
     }
 
     public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register(
-        "ItemMargin", typeof(Thickness), typeof(RegularItemsControl), new PropertyMetadata(default(Thickness)));
+        nameof(ItemMargin), typeof(Thickness), typeof(RegularItemsControl), new PropertyMetadata(default(Thickness)));
 
     public Thickness ItemMargin
     {

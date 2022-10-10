@@ -31,7 +31,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-            "IsSelected", typeof(bool), typeof(RibbonTabHeader),
+            nameof(IsSelected), typeof(bool), typeof(RibbonTabHeader),
             new PropertyMetadata(ValueBoxes.FalseBox, OnIsSelectedChanged, CoerceIsSelected));
 
         private static void OnIsSelectedChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

@@ -6,7 +6,7 @@ namespace HandyControl.Controls;
 public class TransferItem : SelectableItem
 {
     public static readonly DependencyProperty IsTransferredProperty = DependencyProperty.Register(
-        "IsTransferred", typeof(bool), typeof(TransferItem), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsTransferred), typeof(bool), typeof(TransferItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsTransferred
     {
@@ -15,7 +15,7 @@ public class TransferItem : SelectableItem
     }
 
     public static readonly DependencyProperty IsOriginProperty = DependencyProperty.Register(
-        "IsOrigin", typeof(bool), typeof(TransferItem), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(IsOrigin), typeof(bool), typeof(TransferItem), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool IsOrigin
     {

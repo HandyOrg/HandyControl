@@ -10,7 +10,7 @@ namespace HandyControl.Controls;
 public class WaterfallPanel : Panel
 {
     public static readonly DependencyProperty GroupsProperty = DependencyProperty.Register(
-        "Groups", typeof(int), typeof(WaterfallPanel), new FrameworkPropertyMetadata(
+        nameof(Groups), typeof(int), typeof(WaterfallPanel), new FrameworkPropertyMetadata(
             ValueBoxes.Int2Box, FrameworkPropertyMetadataOptions.AffectsMeasure), IsGroupsValid);
 
     public int Groups
@@ -22,7 +22,7 @@ public class WaterfallPanel : Panel
     private static bool IsGroupsValid(object value) => (int) value >= 1;
 
     public static readonly DependencyProperty AutoGroupProperty = DependencyProperty.Register(
-        "AutoGroup", typeof(bool), typeof(WaterfallPanel), new FrameworkPropertyMetadata(
+        nameof(AutoGroup), typeof(bool), typeof(WaterfallPanel), new FrameworkPropertyMetadata(
             ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public bool AutoGroup
@@ -32,7 +32,7 @@ public class WaterfallPanel : Panel
     }
 
     public static readonly DependencyProperty DesiredLengthProperty = DependencyProperty.Register(
-        "DesiredLength", typeof(double), typeof(WaterfallPanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
+        nameof(DesiredLength), typeof(double), typeof(WaterfallPanel), new FrameworkPropertyMetadata(ValueBoxes.Double0Box,
             FrameworkPropertyMetadataOptions.AffectsMeasure), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     public double DesiredLength

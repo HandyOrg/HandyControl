@@ -31,7 +31,7 @@ public class GlowWindow : Window
     private Rect _logicalSizeForRestore = Rect.Empty;
 
     public static readonly DependencyProperty ActiveGlowColorProperty = DependencyProperty.Register(
-        "ActiveGlowColor", typeof(Color), typeof(GlowWindow), new PropertyMetadata(default(Color), OnGlowColorChanged));
+        nameof(ActiveGlowColor), typeof(Color), typeof(GlowWindow), new PropertyMetadata(default(Color), OnGlowColorChanged));
 
     public Color ActiveGlowColor
     {
@@ -40,7 +40,7 @@ public class GlowWindow : Window
     }
 
     public static readonly DependencyProperty InactiveGlowColorProperty = DependencyProperty.Register(
-        "InactiveGlowColor", typeof(Color), typeof(GlowWindow), new PropertyMetadata(default(Color), OnGlowColorChanged));
+        nameof(InactiveGlowColor), typeof(Color), typeof(GlowWindow), new PropertyMetadata(default(Color), OnGlowColorChanged));
 
     public Color InactiveGlowColor
     {

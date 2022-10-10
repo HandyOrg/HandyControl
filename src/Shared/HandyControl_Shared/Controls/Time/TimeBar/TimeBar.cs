@@ -59,7 +59,7 @@ public class TimeBar : Control
     public Collection<DateTimeRange> Hotspots { get; }
 
     public static readonly DependencyProperty HotspotsBrushProperty = DependencyProperty.Register(
-        "HotspotsBrush", typeof(Brush), typeof(TimeBar), new PropertyMetadata(default(Brush)));
+        nameof(HotspotsBrush), typeof(Brush), typeof(TimeBar), new PropertyMetadata(default(Brush)));
 
     public Brush HotspotsBrush
     {
@@ -71,7 +71,7 @@ public class TimeBar : Control
     ///     是否显示刻度字符串
     /// </summary>
     public static readonly DependencyProperty ShowSpeStrProperty = DependencyProperty.Register(
-        "ShowSpeStr", typeof(bool), typeof(TimeBar), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowSpeStr), typeof(bool), typeof(TimeBar), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     是否显示刻度字符串
@@ -83,7 +83,7 @@ public class TimeBar : Control
     }
 
     public static readonly DependencyProperty TimeFormatProperty = DependencyProperty.Register(
-        "TimeFormat", typeof(string), typeof(TimeBar), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
+        nameof(TimeFormat), typeof(string), typeof(TimeBar), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
 
     public string TimeFormat
     {
@@ -95,7 +95,7 @@ public class TimeBar : Control
     ///     刻度字符串
     /// </summary>
     internal static readonly DependencyProperty SpeStrProperty = DependencyProperty.Register(
-        "SpeStr", typeof(string), typeof(TimeBar), new PropertyMetadata(Properties.Langs.Lang.Interval1h));
+        nameof(SpeStr), typeof(string), typeof(TimeBar), new PropertyMetadata(Properties.Langs.Lang.Interval1h));
 
     /// <summary>
     ///     刻度字符串
@@ -110,7 +110,7 @@ public class TimeBar : Control
     ///     选中时间
     /// </summary>
     public static readonly DependencyProperty SelectedTimeProperty = DependencyProperty.Register(
-        "SelectedTime", typeof(DateTime), typeof(TimeBar), new PropertyMetadata(default(DateTime), OnSelectedTimeChanged));
+        nameof(SelectedTime), typeof(DateTime), typeof(TimeBar), new PropertyMetadata(default(DateTime), OnSelectedTimeChanged));
 
     private static void OnSelectedTimeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

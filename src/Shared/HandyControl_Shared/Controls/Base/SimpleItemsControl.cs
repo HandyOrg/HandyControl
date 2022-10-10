@@ -20,15 +20,15 @@ public class SimpleItemsControl : Control
     private const string ElementPanel = "PART_Panel";
 
     public static readonly DependencyProperty ItemTemplateProperty = DependencyProperty.Register(
-        "ItemTemplate", typeof(DataTemplate), typeof(SimpleItemsControl),
+        nameof(ItemTemplate), typeof(DataTemplate), typeof(SimpleItemsControl),
         new FrameworkPropertyMetadata(default(DataTemplate), OnItemTemplateChanged));
 
     public static readonly DependencyProperty ItemContainerStyleProperty = DependencyProperty.Register(
-        "ItemContainerStyle", typeof(Style), typeof(SimpleItemsControl),
+        nameof(ItemContainerStyle), typeof(Style), typeof(SimpleItemsControl),
         new PropertyMetadata(default(Style), OnItemContainerStyleChanged));
 
     public static readonly DependencyProperty ItemsSourceProperty = DependencyProperty.Register(
-        "ItemsSource", typeof(IEnumerable), typeof(SimpleItemsControl),
+        nameof(ItemsSource), typeof(IEnumerable), typeof(SimpleItemsControl),
         new PropertyMetadata(default(IEnumerable), OnItemsSourceChanged));
 
     public SimpleItemsControl()

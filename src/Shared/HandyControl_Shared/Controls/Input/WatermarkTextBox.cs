@@ -9,7 +9,7 @@ public class WatermarkTextBox : TextBox
     #region Watermark
 
     public static readonly DependencyProperty WatermarkProperty = DependencyProperty.Register(
-        "Watermark", typeof(object), typeof(WatermarkTextBox), new PropertyMetadata(default(object)));
+        nameof(Watermark), typeof(object), typeof(WatermarkTextBox), new PropertyMetadata(default(object)));
 
     public object Watermark
     {

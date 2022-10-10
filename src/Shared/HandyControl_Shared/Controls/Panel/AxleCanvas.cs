@@ -6,7 +6,7 @@ namespace HandyControl.Controls;
 public class AxleCanvas : Canvas
 {
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-        "Orientation", typeof(Orientation), typeof(AxleCanvas), new PropertyMetadata(default(Orientation)));
+        nameof(Orientation), typeof(Orientation), typeof(AxleCanvas), new PropertyMetadata(default(Orientation)));
 
     public Orientation Orientation
     {

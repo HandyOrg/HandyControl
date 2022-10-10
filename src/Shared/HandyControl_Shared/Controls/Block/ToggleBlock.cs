@@ -11,7 +11,7 @@ namespace HandyControl.Controls;
 public class ToggleBlock : Control
 {
     public static readonly DependencyProperty IsCheckedProperty = DependencyProperty.Register(
-        "IsChecked", typeof(bool?), typeof(ToggleBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox,
+        nameof(IsChecked), typeof(bool?), typeof(ToggleBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox,
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault | FrameworkPropertyMetadataOptions.Journal));
 
     [Category("Appearance")]
@@ -30,7 +30,7 @@ public class ToggleBlock : Control
     }
 
     public static readonly DependencyProperty CheckedContentProperty = DependencyProperty.Register(
-        "CheckedContent", typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
+        nameof(CheckedContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
 
     public object CheckedContent
     {
@@ -39,7 +39,7 @@ public class ToggleBlock : Control
     }
 
     public static readonly DependencyProperty UnCheckedContentProperty = DependencyProperty.Register(
-        "UnCheckedContent", typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
+        nameof(UnCheckedContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
 
     public object UnCheckedContent
     {
@@ -48,7 +48,7 @@ public class ToggleBlock : Control
     }
 
     public static readonly DependencyProperty IndeterminateContentProperty = DependencyProperty.Register(
-        "IndeterminateContent", typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
+        nameof(IndeterminateContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
 
     public object IndeterminateContent
     {

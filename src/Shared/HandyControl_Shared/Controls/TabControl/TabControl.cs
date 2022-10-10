@@ -52,7 +52,7 @@ public class TabControl : System.Windows.Controls.TabControl
     ///     是否启用动画
     /// </summary>
     public static readonly DependencyProperty IsAnimationEnabledProperty = DependencyProperty.Register(
-        "IsAnimationEnabled", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsAnimationEnabled), typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     是否启用动画
@@ -67,7 +67,7 @@ public class TabControl : System.Windows.Controls.TabControl
     ///     是否可以拖动
     /// </summary>
     public static readonly DependencyProperty IsDraggableProperty = DependencyProperty.Register(
-        "IsDraggable", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsDraggable), typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     是否可以拖动
@@ -121,7 +121,7 @@ public class TabControl : System.Windows.Controls.TabControl
     }
 
     public static readonly DependencyProperty CanBeClosedByMiddleButtonProperty =
-        DependencyProperty.Register("CanBeClosedByMiddleButton", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.TrueBox));
+        DependencyProperty.Register(nameof(CanBeClosedByMiddleButton), typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool CanBeClosedByMiddleButton
     {
@@ -133,7 +133,7 @@ public class TabControl : System.Windows.Controls.TabControl
     ///     是否将标签填充
     /// </summary>
     public static readonly DependencyProperty IsTabFillEnabledProperty = DependencyProperty.Register(
-        "IsTabFillEnabled", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsTabFillEnabled), typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     是否将标签填充
@@ -148,7 +148,7 @@ public class TabControl : System.Windows.Controls.TabControl
     ///     标签宽度
     /// </summary>
     public static readonly DependencyProperty TabItemWidthProperty = DependencyProperty.Register(
-        "TabItemWidth", typeof(double), typeof(TabControl), new PropertyMetadata(200.0));
+        nameof(TabItemWidth), typeof(double), typeof(TabControl), new PropertyMetadata(200.0));
 
     /// <summary>
     ///     标签宽度
@@ -163,7 +163,7 @@ public class TabControl : System.Windows.Controls.TabControl
     ///     标签高度
     /// </summary>
     public static readonly DependencyProperty TabItemHeightProperty = DependencyProperty.Register(
-        "TabItemHeight", typeof(double), typeof(TabControl), new PropertyMetadata(30.0));
+        nameof(TabItemHeight), typeof(double), typeof(TabControl), new PropertyMetadata(30.0));
 
     /// <summary>
     ///     标签高度
@@ -178,7 +178,7 @@ public class TabControl : System.Windows.Controls.TabControl
     ///     是否可以滚动
     /// </summary>
     public static readonly DependencyProperty IsScrollableProperty = DependencyProperty.Register(
-        "IsScrollable", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsScrollable), typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     是否可以滚动
@@ -193,7 +193,7 @@ public class TabControl : System.Windows.Controls.TabControl
     ///     是否显示溢出按钮
     /// </summary>
     public static readonly DependencyProperty ShowOverflowButtonProperty = DependencyProperty.Register(
-        "ShowOverflowButton", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowOverflowButton), typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.TrueBox));
 
     /// <summary>
     ///     是否显示溢出按钮
@@ -208,7 +208,7 @@ public class TabControl : System.Windows.Controls.TabControl
     ///     是否显示滚动按钮
     /// </summary>
     public static readonly DependencyProperty ShowScrollButtonProperty = DependencyProperty.Register(
-        "ShowScrollButton", typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowScrollButton), typeof(bool), typeof(TabControl), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     是否显示滚动按钮

@@ -93,7 +93,7 @@ public class DateTimePicker : Control, IDataInput
     #region Public Properties
 
     public static readonly DependencyProperty DateTimeFormatProperty = DependencyProperty.Register(
-        "DateTimeFormat", typeof(string), typeof(DateTimePicker), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
+        nameof(DateTimeFormat), typeof(string), typeof(DateTimePicker), new PropertyMetadata("yyyy-MM-dd HH:mm:ss"));
 
     public string DateTimeFormat
     {
@@ -102,7 +102,7 @@ public class DateTimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty CalendarStyleProperty = DependencyProperty.Register(
-        "CalendarStyle", typeof(Style), typeof(DateTimePicker), new PropertyMetadata(default(Style)));
+        nameof(CalendarStyle), typeof(Style), typeof(DateTimePicker), new PropertyMetadata(default(Style)));
 
     public Style CalendarStyle
     {
@@ -111,7 +111,7 @@ public class DateTimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty DisplayDateTimeProperty = DependencyProperty.Register(
-        "DisplayDateTime", typeof(DateTime), typeof(DateTimePicker), new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayDateTime));
+        nameof(DisplayDateTime), typeof(DateTime), typeof(DateTimePicker), new FrameworkPropertyMetadata(DateTime.Now, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, null, CoerceDisplayDateTime));
 
     private static object CoerceDisplayDateTime(DependencyObject d, object value)
     {
@@ -128,7 +128,7 @@ public class DateTimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-        "IsDropDownOpen", typeof(bool), typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
+        nameof(IsDropDownOpen), typeof(bool), typeof(DateTimePicker), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
     private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
         d is DateTimePicker
@@ -165,7 +165,7 @@ public class DateTimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty SelectedDateTimeProperty = DependencyProperty.Register(
-        "SelectedDateTime", typeof(DateTime?), typeof(DateTimePicker), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDateTimeChanged, CoerceSelectedDateTime));
+        nameof(SelectedDateTime), typeof(DateTime?), typeof(DateTimePicker), new FrameworkPropertyMetadata(null, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnSelectedDateTimeChanged, CoerceSelectedDateTime));
 
     private static object CoerceSelectedDateTime(DependencyObject d, object value)
     {
@@ -197,7 +197,7 @@ public class DateTimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        "Text", typeof(string), typeof(DateTimePicker), new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
+        nameof(Text), typeof(string), typeof(DateTimePicker), new FrameworkPropertyMetadata(string.Empty, OnTextChanged));
 
     private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -241,7 +241,7 @@ public class DateTimePicker : Control, IDataInput
     public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
 
     public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        "IsError", typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsError), typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsError
     {
@@ -250,7 +250,7 @@ public class DateTimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        "ErrorStr", typeof(string), typeof(DateTimePicker), new PropertyMetadata(default(string)));
+        nameof(ErrorStr), typeof(string), typeof(DateTimePicker), new PropertyMetadata(default(string)));
 
     public string ErrorStr
     {
@@ -259,7 +259,7 @@ public class DateTimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        "TextType", typeof(TextType), typeof(DateTimePicker), new PropertyMetadata(default(TextType)));
+        nameof(TextType), typeof(TextType), typeof(DateTimePicker), new PropertyMetadata(default(TextType)));
 
     public TextType TextType
     {
@@ -268,7 +268,7 @@ public class DateTimePicker : Control, IDataInput
     }
 
     public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        "ShowClearButton", typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowClearButton), typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowClearButton
     {

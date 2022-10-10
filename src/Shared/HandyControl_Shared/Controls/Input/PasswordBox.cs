@@ -43,7 +43,7 @@ public class PasswordBox : Control, IDataInput
     ///     数据是否错误
     /// </summary>
     public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        "IsError", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsError), typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsError
     {
@@ -55,7 +55,7 @@ public class PasswordBox : Control, IDataInput
     ///     错误提示
     /// </summary>
     public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        "ErrorStr", typeof(string), typeof(PasswordBox), new PropertyMetadata(default(string)));
+        nameof(ErrorStr), typeof(string), typeof(PasswordBox), new PropertyMetadata(default(string)));
 
     public string ErrorStr
     {
@@ -67,7 +67,7 @@ public class PasswordBox : Control, IDataInput
     ///     文本类型
     /// </summary>
     public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        "TextType", typeof(TextType), typeof(PasswordBox), new PropertyMetadata(default(TextType)));
+        nameof(TextType), typeof(TextType), typeof(PasswordBox), new PropertyMetadata(default(TextType)));
 
     public TextType TextType
     {
@@ -79,7 +79,7 @@ public class PasswordBox : Control, IDataInput
     ///     是否显示清除按钮
     /// </summary>
     public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        "ShowClearButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowClearButton), typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowClearButton
     {
@@ -88,7 +88,7 @@ public class PasswordBox : Control, IDataInput
     }
 
     public static readonly DependencyProperty ShowEyeButtonProperty = DependencyProperty.Register(
-        "ShowEyeButton", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowEyeButton), typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowEyeButton
     {
@@ -97,7 +97,7 @@ public class PasswordBox : Control, IDataInput
     }
 
     public static readonly DependencyProperty ShowPasswordProperty = DependencyProperty.Register(
-        "ShowPassword", typeof(bool), typeof(PasswordBox),
+        nameof(ShowPassword), typeof(bool), typeof(PasswordBox),
         new PropertyMetadata(ValueBoxes.FalseBox, OnShowPasswordChanged));
 
     public bool ShowPassword
@@ -107,7 +107,7 @@ public class PasswordBox : Control, IDataInput
     }
 
     public static readonly DependencyProperty IsSafeEnabledProperty = DependencyProperty.Register(
-        "IsSafeEnabled", typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.TrueBox, OnIsSafeEnabledChanged));
+        nameof(IsSafeEnabled), typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.TrueBox, OnIsSafeEnabledChanged));
 
     private static void OnIsSafeEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -122,7 +122,7 @@ public class PasswordBox : Control, IDataInput
     }
 
     public static readonly DependencyProperty UnsafePasswordProperty = DependencyProperty.Register(
-        "UnsafePassword", typeof(string), typeof(PasswordBox), new FrameworkPropertyMetadata(default(string),
+        nameof(UnsafePassword), typeof(string), typeof(PasswordBox), new FrameworkPropertyMetadata(default(string),
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnUnsafePasswordChanged));
 
     private static void OnUnsafePasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)

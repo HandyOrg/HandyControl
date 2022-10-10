@@ -22,7 +22,7 @@ public class TransitioningContentControl : ContentControl
     }
 
     public static readonly DependencyProperty TransitionModeProperty = DependencyProperty.Register(
-        "TransitionMode", typeof(TransitionMode), typeof(TransitioningContentControl), new PropertyMetadata(default(TransitionMode), OnTransitionModeChanged));
+        nameof(TransitionMode), typeof(TransitionMode), typeof(TransitioningContentControl), new PropertyMetadata(default(TransitionMode), OnTransitionModeChanged));
 
     private static void OnTransitionModeChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -43,7 +43,7 @@ public class TransitioningContentControl : ContentControl
     }
 
     public static readonly DependencyProperty TransitionStoryboardProperty = DependencyProperty.Register(
-        "TransitionStoryboard", typeof(Storyboard), typeof(TransitioningContentControl), new PropertyMetadata(default(Storyboard)));
+        nameof(TransitionStoryboard), typeof(Storyboard), typeof(TransitioningContentControl), new PropertyMetadata(default(Storyboard)));
 
     public Storyboard TransitionStoryboard
     {

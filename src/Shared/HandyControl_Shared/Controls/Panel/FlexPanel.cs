@@ -77,7 +77,7 @@ public class FlexPanel : Panel
         => (FlexItemAlignment) element.GetValue(AlignSelfProperty);
 
     public static readonly DependencyProperty FlexDirectionProperty = DependencyProperty.Register(
-        "FlexDirection", typeof(FlexDirection), typeof(FlexPanel),
+        nameof(FlexDirection), typeof(FlexDirection), typeof(FlexPanel),
         new FrameworkPropertyMetadata(default(FlexDirection), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public FlexDirection FlexDirection
@@ -87,7 +87,7 @@ public class FlexPanel : Panel
     }
 
     public static readonly DependencyProperty FlexWrapProperty = DependencyProperty.Register(
-        "FlexWrap", typeof(FlexWrap), typeof(FlexPanel),
+        nameof(FlexWrap), typeof(FlexWrap), typeof(FlexPanel),
         new FrameworkPropertyMetadata(default(FlexWrap), FrameworkPropertyMetadataOptions.AffectsMeasure));
 
     public FlexWrap FlexWrap
@@ -97,7 +97,7 @@ public class FlexPanel : Panel
     }
 
     public static readonly DependencyProperty JustifyContentProperty = DependencyProperty.Register(
-        "JustifyContent", typeof(FlexContentJustify), typeof(FlexPanel),
+        nameof(JustifyContent), typeof(FlexContentJustify), typeof(FlexPanel),
         new FrameworkPropertyMetadata(default(FlexContentJustify),
             FrameworkPropertyMetadataOptions.AffectsMeasure));
 
@@ -108,7 +108,7 @@ public class FlexPanel : Panel
     }
 
     public static readonly DependencyProperty AlignItemsProperty = DependencyProperty.Register(
-        "AlignItems", typeof(FlexItemsAlignment), typeof(FlexPanel),
+        nameof(AlignItems), typeof(FlexItemsAlignment), typeof(FlexPanel),
         new FrameworkPropertyMetadata(default(FlexItemsAlignment),
             FrameworkPropertyMetadataOptions.AffectsMeasure));
 
@@ -119,7 +119,7 @@ public class FlexPanel : Panel
     }
 
     public static readonly DependencyProperty AlignContentProperty = DependencyProperty.Register(
-        "AlignContent", typeof(FlexContentAlignment), typeof(FlexPanel),
+        nameof(AlignContent), typeof(FlexContentAlignment), typeof(FlexPanel),
         new FrameworkPropertyMetadata(default(FlexContentAlignment),
             FrameworkPropertyMetadataOptions.AffectsMeasure));
 

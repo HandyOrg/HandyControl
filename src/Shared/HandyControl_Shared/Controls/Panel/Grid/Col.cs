@@ -9,7 +9,7 @@ namespace HandyControl.Controls;
 public class Col : ContentControl
 {
     public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register(
-        "Layout", typeof(ColLayout), typeof(Col), new PropertyMetadata(default(ColLayout)));
+        nameof(Layout), typeof(ColLayout), typeof(Col), new PropertyMetadata(default(ColLayout)));
 
     public ColLayout Layout
     {
@@ -18,7 +18,7 @@ public class Col : ContentControl
     }
 
     public static readonly DependencyProperty OffsetProperty = DependencyProperty.Register(
-        "Offset", typeof(int), typeof(Col), new PropertyMetadata(ValueBoxes.Int0Box));
+        nameof(Offset), typeof(int), typeof(Col), new PropertyMetadata(ValueBoxes.Int0Box));
 
     public int Offset
     {
@@ -27,7 +27,7 @@ public class Col : ContentControl
     }
 
     public static readonly DependencyProperty SpanProperty = DependencyProperty.Register(
-        "Span", typeof(int), typeof(Col), new PropertyMetadata(24), OnSpanValidate);
+        nameof(Span), typeof(int), typeof(Col), new PropertyMetadata(24), OnSpanValidate);
 
     private static bool OnSpanValidate(object value)
     {
@@ -42,7 +42,7 @@ public class Col : ContentControl
     }
 
     public static readonly DependencyProperty IsFixedProperty = DependencyProperty.Register(
-        "IsFixed", typeof(bool), typeof(Col), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsFixed), typeof(bool), typeof(Col), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsFixed
     {

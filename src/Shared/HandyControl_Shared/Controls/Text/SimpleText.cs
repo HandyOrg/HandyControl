@@ -19,7 +19,7 @@ public class SimpleText : FrameworkElement
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        "Text", typeof(string), typeof(SimpleText), new FrameworkPropertyMetadata(
+        nameof(Text), typeof(string), typeof(SimpleText), new FrameworkPropertyMetadata(
             string.Empty,
             FrameworkPropertyMetadataOptions.AffectsMeasure |
             FrameworkPropertyMetadataOptions.AffectsRender, OnFormattedTextInvalidated));
@@ -31,7 +31,7 @@ public class SimpleText : FrameworkElement
     }
 
     public static readonly DependencyProperty TextAlignmentProperty = DependencyProperty.Register(
-        "TextAlignment", typeof(TextAlignment), typeof(SimpleText),
+        nameof(TextAlignment), typeof(TextAlignment), typeof(SimpleText),
         new PropertyMetadata(default(TextAlignment), OnFormattedTextUpdated));
 
     public TextAlignment TextAlignment
@@ -41,7 +41,7 @@ public class SimpleText : FrameworkElement
     }
 
     public static readonly DependencyProperty TextTrimmingProperty = DependencyProperty.Register(
-        "TextTrimming", typeof(TextTrimming), typeof(SimpleText),
+        nameof(TextTrimming), typeof(TextTrimming), typeof(SimpleText),
         new PropertyMetadata(default(TextTrimming), OnFormattedTextInvalidated));
 
     public TextTrimming TextTrimming
@@ -51,7 +51,7 @@ public class SimpleText : FrameworkElement
     }
 
     public static readonly DependencyProperty TextWrappingProperty = DependencyProperty.Register(
-        "TextWrapping", typeof(TextWrapping), typeof(SimpleText),
+        nameof(TextWrapping), typeof(TextWrapping), typeof(SimpleText),
         new PropertyMetadata(TextWrapping.NoWrap, OnFormattedTextInvalidated));
 
     public TextWrapping TextWrapping
@@ -61,7 +61,7 @@ public class SimpleText : FrameworkElement
     }
 
     public static readonly DependencyProperty ForegroundProperty = DependencyProperty.Register(
-        "Foreground", typeof(Brush), typeof(SimpleText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
+        nameof(Foreground), typeof(Brush), typeof(SimpleText), new PropertyMetadata(Brushes.Black, OnFormattedTextUpdated));
 
     public Brush Foreground
     {

@@ -9,7 +9,7 @@ namespace HandyControl.Controls;
 public class Gravatar : ContentControl
 {
     public static readonly DependencyProperty GeneratorProperty = DependencyProperty.Register(
-        "Generator", typeof(IGravatarGenerator), typeof(Gravatar), new PropertyMetadata(new GithubGravatarGenerator()));
+        nameof(Generator), typeof(IGravatarGenerator), typeof(Gravatar), new PropertyMetadata(new GithubGravatarGenerator()));
 
     public IGravatarGenerator Generator
     {
@@ -18,7 +18,7 @@ public class Gravatar : ContentControl
     }
 
     public static readonly DependencyProperty IdProperty = DependencyProperty.Register(
-        "Id", typeof(string), typeof(Gravatar), new PropertyMetadata(default(string), OnIdChanged));
+        nameof(Id), typeof(string), typeof(Gravatar), new PropertyMetadata(default(string), OnIdChanged));
 
     private static void OnIdChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -34,7 +34,7 @@ public class Gravatar : ContentControl
     }
 
     public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(
-        "Source", typeof(ImageSource), typeof(Gravatar), new PropertyMetadata(default(ImageSource), OnSourceChanged));
+        nameof(Source), typeof(ImageSource), typeof(Gravatar), new PropertyMetadata(default(ImageSource), OnSourceChanged));
 
     private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

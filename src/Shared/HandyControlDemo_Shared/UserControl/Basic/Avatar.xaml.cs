@@ -11,7 +11,7 @@ public partial class Avatar
     }
 
     public static readonly DependencyProperty SourceProperty = DependencyProperty.Register(
-        "Source", typeof(BitmapFrame), typeof(Avatar), new PropertyMetadata(default(BitmapFrame)));
+        nameof(Source), typeof(BitmapFrame), typeof(Avatar), new PropertyMetadata(default(BitmapFrame)));
 
     public BitmapFrame Source
     {
@@ -20,7 +20,7 @@ public partial class Avatar
     }
 
     public static readonly DependencyProperty UserNameProperty = DependencyProperty.Register(
-        "DisplayName", typeof(string), typeof(Avatar), new PropertyMetadata(default(string)));
+        nameof(DisplayName), typeof(string), typeof(Avatar), new PropertyMetadata(default(string)));
 
     public string DisplayName
     {
@@ -29,7 +29,7 @@ public partial class Avatar
     }
 
     public static readonly DependencyProperty LinkProperty = DependencyProperty.Register(
-        "Link", typeof(string), typeof(Avatar), new PropertyMetadata(default(string)));
+        nameof(Link), typeof(string), typeof(Avatar), new PropertyMetadata(default(string)));
 
     public string Link
     {

@@ -62,7 +62,7 @@ public class SelectableItem : ContentControl, ISelectable
     protected virtual void OnSelected(RoutedEventArgs e) => RaiseEvent(e);
 
     public static readonly DependencyProperty IsSelectedProperty = DependencyProperty.Register(
-        "IsSelected", typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsSelected), typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsSelected
     {
@@ -71,7 +71,7 @@ public class SelectableItem : ContentControl, ISelectable
     }
 
     public static readonly DependencyProperty SelfManageProperty = DependencyProperty.Register(
-        "SelfManage", typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(SelfManage), typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool SelfManage
     {
@@ -80,7 +80,7 @@ public class SelectableItem : ContentControl, ISelectable
     }
 
     public static readonly DependencyProperty CanDeselectProperty = DependencyProperty.Register(
-        "CanDeselect", typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(CanDeselect), typeof(bool), typeof(SelectableItem), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool CanDeselect
     {

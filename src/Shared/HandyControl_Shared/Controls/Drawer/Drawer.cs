@@ -98,7 +98,7 @@ public class Drawer : FrameworkElement
     }
 
     public static readonly DependencyProperty IsOpenProperty = DependencyProperty.Register(
-        "IsOpen", typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsOpenChanged));
+        nameof(IsOpen), typeof(bool), typeof(Drawer), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsOpenChanged));
 
     private static void OnIsOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -113,7 +113,7 @@ public class Drawer : FrameworkElement
     }
 
     public static readonly DependencyProperty MaskCanCloseProperty = DependencyProperty.Register(
-        "MaskCanClose", typeof(bool), typeof(Drawer), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(MaskCanClose), typeof(bool), typeof(Drawer), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool MaskCanClose
     {
@@ -122,7 +122,7 @@ public class Drawer : FrameworkElement
     }
 
     public static readonly DependencyProperty ShowMaskProperty = DependencyProperty.Register(
-        "ShowMask", typeof(bool), typeof(Drawer), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowMask), typeof(bool), typeof(Drawer), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool ShowMask
     {
@@ -131,7 +131,7 @@ public class Drawer : FrameworkElement
     }
 
     public static readonly DependencyProperty DockProperty = DependencyProperty.Register(
-        "Dock", typeof(Dock), typeof(Drawer), new PropertyMetadata(default(Dock)));
+        nameof(Dock), typeof(Dock), typeof(Drawer), new PropertyMetadata(default(Dock)));
 
     public Dock Dock
     {
@@ -140,7 +140,7 @@ public class Drawer : FrameworkElement
     }
 
     public static readonly DependencyProperty ShowModeProperty = DependencyProperty.Register(
-        "ShowMode", typeof(DrawerShowMode), typeof(Drawer), new PropertyMetadata(default(DrawerShowMode)));
+        nameof(ShowMode), typeof(DrawerShowMode), typeof(Drawer), new PropertyMetadata(default(DrawerShowMode)));
 
     public DrawerShowMode ShowMode
     {
@@ -149,7 +149,7 @@ public class Drawer : FrameworkElement
     }
 
     public static readonly DependencyProperty MaskBrushProperty = DependencyProperty.Register(
-        "MaskBrush", typeof(Brush), typeof(Drawer), new PropertyMetadata(default(Brush)));
+        nameof(MaskBrush), typeof(Brush), typeof(Drawer), new PropertyMetadata(default(Brush)));
 
     public Brush MaskBrush
     {
@@ -158,7 +158,7 @@ public class Drawer : FrameworkElement
     }
 
     public static readonly DependencyProperty ContentProperty = DependencyProperty.Register(
-        "Content", typeof(object), typeof(Drawer), new PropertyMetadata(default(object)));
+        nameof(Content), typeof(object), typeof(Drawer), new PropertyMetadata(default(object)));
 
     public object Content
     {

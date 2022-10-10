@@ -11,7 +11,7 @@ public abstract class AdornerElement : Control, IDisposable
     protected FrameworkElement ElementTarget { get; set; }
 
     public static readonly DependencyProperty TargetProperty = DependencyProperty.Register(
-        "Target", typeof(FrameworkElement), typeof(AdornerElement), new PropertyMetadata(default(FrameworkElement), OnTargetChanged));
+        nameof(Target), typeof(FrameworkElement), typeof(AdornerElement), new PropertyMetadata(default(FrameworkElement), OnTargetChanged));
 
     private static void OnTargetChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

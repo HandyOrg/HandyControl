@@ -37,7 +37,7 @@ public class GifImage : Image, IDisposable
     }
 
     public static readonly DependencyProperty UriProperty = DependencyProperty.Register(
-        "Uri", typeof(Uri), typeof(GifImage), new PropertyMetadata(default(Uri), OnUriChanged));
+        nameof(Uri), typeof(Uri), typeof(GifImage), new PropertyMetadata(default(Uri), OnUriChanged));
 
     private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

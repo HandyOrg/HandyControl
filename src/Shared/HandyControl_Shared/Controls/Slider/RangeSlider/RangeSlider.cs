@@ -132,7 +132,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-        "Orientation", typeof(Orientation), typeof(RangeSlider), new PropertyMetadata(default(Orientation)));
+        nameof(Orientation), typeof(Orientation), typeof(RangeSlider), new PropertyMetadata(default(Orientation)));
 
     public Orientation Orientation
     {
@@ -141,7 +141,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty IsDirectionReversedProperty = DependencyProperty.Register(
-        "IsDirectionReversed", typeof(bool), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsDirectionReversed), typeof(bool), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsDirectionReversed
     {
@@ -182,7 +182,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty AutoToolTipPlacementProperty = DependencyProperty.Register(
-        "AutoToolTipPlacement", typeof(AutoToolTipPlacement), typeof(RangeSlider), new PropertyMetadata(default(AutoToolTipPlacement)));
+        nameof(AutoToolTipPlacement), typeof(AutoToolTipPlacement), typeof(RangeSlider), new PropertyMetadata(default(AutoToolTipPlacement)));
 
     public AutoToolTipPlacement AutoToolTipPlacement
     {
@@ -191,7 +191,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty AutoToolTipPrecisionProperty = DependencyProperty.Register(
-        "AutoToolTipPrecision", typeof(int), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.Int0Box),
+        nameof(AutoToolTipPrecision), typeof(int), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.Int0Box),
         ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
     public int AutoToolTipPrecision
@@ -201,7 +201,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty IsSnapToTickEnabledProperty = DependencyProperty.Register(
-        "IsSnapToTickEnabled", typeof(bool), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsSnapToTickEnabled), typeof(bool), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsSnapToTickEnabled
     {
@@ -210,7 +210,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty TickPlacementProperty = DependencyProperty.Register(
-        "TickPlacement", typeof(TickPlacement), typeof(RangeSlider), new PropertyMetadata(default(TickPlacement)));
+        nameof(TickPlacement), typeof(TickPlacement), typeof(RangeSlider), new PropertyMetadata(default(TickPlacement)));
 
     public TickPlacement TickPlacement
     {
@@ -219,7 +219,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty TickFrequencyProperty = DependencyProperty.Register(
-        "TickFrequency", typeof(double), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.Double1Box),
+        nameof(TickFrequency), typeof(double), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.Double1Box),
         ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
 
     public double TickFrequency
@@ -229,7 +229,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty TicksProperty = DependencyProperty.Register(
-        "Ticks", typeof(DoubleCollection), typeof(RangeSlider), new PropertyMetadata(new DoubleCollection()));
+        nameof(Ticks), typeof(DoubleCollection), typeof(RangeSlider), new PropertyMetadata(new DoubleCollection()));
 
     public DoubleCollection Ticks
     {
@@ -238,7 +238,7 @@ public class RangeSlider : TwoWayRangeBase
     }
 
     public static readonly DependencyProperty IsMoveToPointEnabledProperty = DependencyProperty.Register(
-        "IsMoveToPointEnabled", typeof(bool), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsMoveToPointEnabled), typeof(bool), typeof(RangeSlider), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool IsMoveToPointEnabled
     {

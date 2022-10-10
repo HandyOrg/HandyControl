@@ -13,7 +13,7 @@ public class FlipClock : Control
     private bool _isDisposed;
 
     public static readonly DependencyProperty NumberListProperty = DependencyProperty.Register(
-        "NumberList", typeof(List<int>), typeof(FlipClock), new PropertyMetadata(new List<int> { 0, 0, 0, 0, 0, 0 }));
+        nameof(NumberList), typeof(List<int>), typeof(FlipClock), new PropertyMetadata(new List<int> { 0, 0, 0, 0, 0, 0 }));
 
     public List<int> NumberList
     {
@@ -22,7 +22,7 @@ public class FlipClock : Control
     }
 
     public static readonly DependencyProperty DisplayTimeProperty = DependencyProperty.Register(
-        "DisplayTime", typeof(DateTime), typeof(FlipClock), new PropertyMetadata(default(DateTime), OnDisplayTimeChanged));
+        nameof(DisplayTime), typeof(DateTime), typeof(FlipClock), new PropertyMetadata(default(DateTime), OnDisplayTimeChanged));
 
     private static void OnDisplayTimeChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
     {

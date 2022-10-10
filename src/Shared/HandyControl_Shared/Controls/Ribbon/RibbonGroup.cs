@@ -19,7 +19,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ShowLauncherButtonProperty = DependencyProperty.Register(
-            "ShowLauncherButton", typeof(bool), typeof(RibbonGroup), new PropertyMetadata(ValueBoxes.FalseBox));
+            nameof(ShowLauncherButton), typeof(bool), typeof(RibbonGroup), new PropertyMetadata(ValueBoxes.FalseBox));
 
         public bool ShowLauncherButton
         {
@@ -28,7 +28,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty ShowSplitterProperty = DependencyProperty.Register(
-            "ShowSplitter", typeof(bool), typeof(RibbonGroup), new PropertyMetadata(ValueBoxes.TrueBox));
+            nameof(ShowSplitter), typeof(bool), typeof(RibbonGroup), new PropertyMetadata(ValueBoxes.TrueBox));
 
         public bool ShowSplitter
         {
@@ -37,7 +37,7 @@ namespace HandyControl.Controls
         }
 
         public static readonly DependencyProperty LauncherPoptipProperty = DependencyProperty.Register(
-            "LauncherPoptip", typeof(Poptip), typeof(RibbonGroup), new PropertyMetadata(default(Poptip)));
+            nameof(LauncherPoptip), typeof(Poptip), typeof(RibbonGroup), new PropertyMetadata(default(Poptip)));
 
         public Poptip LauncherPoptip
         {

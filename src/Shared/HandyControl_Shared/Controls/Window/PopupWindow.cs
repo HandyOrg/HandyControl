@@ -56,7 +56,7 @@ public class PopupWindow : System.Windows.Window
     }
 
     internal static readonly DependencyProperty ContentStrProperty = DependencyProperty.Register(
-        "ContentStr", typeof(string), typeof(PopupWindow), new PropertyMetadata(default(string)));
+        nameof(ContentStr), typeof(string), typeof(PopupWindow), new PropertyMetadata(default(string)));
 
     internal string ContentStr
     {
@@ -104,7 +104,7 @@ public class PopupWindow : System.Windows.Window
     public FrameworkElement PopupElement { get; set; }
 
     public static readonly DependencyProperty ShowTitleProperty = DependencyProperty.Register(
-        "ShowTitle", typeof(bool), typeof(PopupWindow), new PropertyMetadata(ValueBoxes.TrueBox));
+        nameof(ShowTitle), typeof(bool), typeof(PopupWindow), new PropertyMetadata(ValueBoxes.TrueBox));
 
     public bool ShowTitle
     {
@@ -113,7 +113,7 @@ public class PopupWindow : System.Windows.Window
     }
 
     public static readonly DependencyProperty ShowCancelProperty = DependencyProperty.Register(
-        "ShowCancel", typeof(bool), typeof(PopupWindow), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowCancel), typeof(bool), typeof(PopupWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowCancel
     {
@@ -122,7 +122,7 @@ public class PopupWindow : System.Windows.Window
     }
 
     public static readonly DependencyProperty ShowBorderProperty = DependencyProperty.Register(
-        "ShowBorder", typeof(bool), typeof(PopupWindow), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowBorder), typeof(bool), typeof(PopupWindow), new PropertyMetadata(ValueBoxes.FalseBox));
 
     public bool ShowBorder
     {

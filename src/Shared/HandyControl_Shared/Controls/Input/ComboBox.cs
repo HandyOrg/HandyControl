@@ -169,7 +169,7 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     ///     数据是否错误
     /// </summary>
     public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        "IsError", typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsError), typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     数据是否错误
@@ -184,7 +184,7 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     ///     错误提示
     /// </summary>
     public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        "ErrorStr", typeof(string), typeof(ComboBox), new PropertyMetadata(default(string)));
+        nameof(ErrorStr), typeof(string), typeof(ComboBox), new PropertyMetadata(default(string)));
 
     /// <summary>
     ///     错误提示
@@ -220,7 +220,7 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     ///     是否显示清除按钮
     /// </summary>
     public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        "ShowClearButton", typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(ShowClearButton), typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
 
     /// <summary>
     ///     是否显示清除按钮
@@ -235,7 +235,7 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     ///     是否自动完成输入
     /// </summary>
     public static readonly DependencyProperty AutoCompleteProperty = DependencyProperty.Register(
-        "AutoComplete", typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnAutoCompleteChanged));
+        nameof(AutoComplete), typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnAutoCompleteChanged));
 
     private static void OnAutoCompleteChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -259,7 +259,7 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     ///     搜索文本
     /// </summary>
     internal static readonly DependencyProperty SearchTextProperty = DependencyProperty.Register(
-        "SearchText", typeof(string), typeof(ComboBox), new PropertyMetadata(default(string), OnSearchTextChanged));
+        nameof(SearchText), typeof(string), typeof(ComboBox), new PropertyMetadata(default(string), OnSearchTextChanged));
 
     private static void OnSearchTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {

@@ -262,7 +262,7 @@ public class PinBox : Control
     }
 
     public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(
-        "Length", typeof(int), typeof(PinBox), new PropertyMetadata(MinLength, OnLengthChanged, CoerceLength), ValidateHelper.IsInRangeOfPosInt);
+        nameof(Length), typeof(int), typeof(PinBox), new PropertyMetadata(MinLength, OnLengthChanged, CoerceLength), ValidateHelper.IsInRangeOfPosInt);
 
     private static void OnLengthChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -279,7 +279,7 @@ public class PinBox : Control
     }
 
     public static readonly DependencyProperty ItemMarginProperty = DependencyProperty.Register(
-        "ItemMargin", typeof(Thickness), typeof(PinBox), new PropertyMetadata(default(Thickness)));
+        nameof(ItemMargin), typeof(Thickness), typeof(PinBox), new PropertyMetadata(default(Thickness)));
 
     public Thickness ItemMargin
     {
@@ -288,7 +288,7 @@ public class PinBox : Control
     }
 
     public static readonly DependencyProperty ItemWidthProperty = DependencyProperty.Register(
-        "ItemWidth", typeof(double), typeof(PinBox), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(ItemWidth), typeof(double), typeof(PinBox), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double ItemWidth
     {
@@ -297,7 +297,7 @@ public class PinBox : Control
     }
 
     public static readonly DependencyProperty ItemHeightProperty = DependencyProperty.Register(
-        "ItemHeight", typeof(double), typeof(PinBox), new PropertyMetadata(ValueBoxes.Double0Box));
+        nameof(ItemHeight), typeof(double), typeof(PinBox), new PropertyMetadata(ValueBoxes.Double0Box));
 
     public double ItemHeight
     {
