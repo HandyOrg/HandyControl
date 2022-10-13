@@ -4,81 +4,39 @@
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <Style x:Key="TransferItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:TransferItem">
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualMargin0}"/>
-        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-        <Setter Property="CanDeselect" Value="True"/>
-        <Setter Property="SelfManage" Value="True"/>
-        <Setter Property="Padding" Value="10, 0"/>
-        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
-        <Setter Property="Margin" Value="5,0,5,5"/>
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualMargin0}" />
+        <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:TransferItem">
-                    <Border x:Name="BorderRoot" Background="{DynamicResource RegionBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
-                        <ContentPresenter x:Name="ContentPresenter" VerticalAlignment="Center" Margin="{TemplateBinding Padding}" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=hc:TransferGroup}}"/>
+                    <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{Binding Padding,RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource ThicknessSplitConverter},ConverterParameter='1,0,1,0'}" SnapsToDevicePixels="true">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Border>
-                    <ControlTemplate.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter TargetName="BorderRoot" Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-                            <Setter TargetName="ContentPresenter" Property="TextElement.Foreground" Value="{DynamicResource TextIconBrush}"/>
-                        </Trigger>
-                    </ControlTemplate.Triggers>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsOrigin" Value="True"/>
-                    <Condition Property="IsTransferred" Value="False"/>
-                </MultiTrigger.Conditions>
-                <Setter Property="Visibility" Value="Visible"/>
-            </MultiTrigger>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsOrigin" Value="True"/>
-                    <Condition Property="IsTransferred" Value="True"/>
-                </MultiTrigger.Conditions>
-                <Setter Property="Visibility" Value="Collapsed"/>
-            </MultiTrigger>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsOrigin" Value="False"/>
-                    <Condition Property="IsTransferred" Value="True"/>
-                </MultiTrigger.Conditions>
-                <Setter Property="Visibility" Value="Visible"/>
-            </MultiTrigger>
-            <MultiTrigger>
-                <MultiTrigger.Conditions>
-                    <Condition Property="IsOrigin" Value="False"/>
-                    <Condition Property="IsTransferred" Value="False"/>
-                </MultiTrigger.Conditions>
-                <Setter Property="Visibility" Value="Collapsed"/>
-            </MultiTrigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+            </Trigger>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+                <Setter Property="TextElement.Foreground" Value="{DynamicResource TextIconBrush}" />
+            </Trigger>
+            <Trigger Property="IsTransferred" Value="True">
+                <Setter Property="Visibility" Value="Collapsed" />
+            </Trigger>
         </Style.Triggers>
-    </Style>
-
-    <Style x:Key="TransferGroupBaseStyle" TargetType="hc:TransferGroup">
-        <Setter Property="Focusable" Value="False"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate TargetType="hc:TransferGroup">
-                    <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
-                        <ScrollViewer Margin="0,5">
-                            <StackPanel x:Name="PART_Panel"/>
-                        </ScrollViewer>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
-        </Setter>
     </Style>
 
     <Style x:Key="TransferBaseStyle" TargetType="hc:Transfer">
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="SelectionMode" Value="Extended"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource TransferItemBaseStyle}"/>
@@ -87,9 +45,9 @@
                 <ControlTemplate TargetType="hc:Transfer">
                     <Grid>
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition MinWidth="200"/>
+                            <ColumnDefinition />
                             <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition MinWidth="200"/>
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
@@ -97,12 +55,23 @@
                             <RowDefinition/>
                             <RowDefinition/>
                         </Grid.RowDefinitions>
-                        <hc:TransferGroup x:Name="PART_ItemsOrigin" Style="{StaticResource TransferGroupBaseStyle}" Grid.RowSpan="4" ItemTemplate="{TemplateBinding ItemTemplate}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}"/>
-                        <StackPanel Margin="32,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1">
+                        <Border Grid.RowSpan="4" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
+                            <hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+                                <hc:ToggleBlock.CheckedContent>
+                                    <hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+                                        <ItemsPresenter />
+                                    </hc:ScrollViewer>
+                                </hc:ToggleBlock.CheckedContent>
+                                <hc:ToggleBlock.UnCheckedContent>
+                                    <hc:Empty />
+                                </hc:ToggleBlock.UnCheckedContent>
+                            </hc:ToggleBlock>
+                        </Border>
+                        <StackPanel Margin="8,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1">
                             <Button hc:IconElement.Geometry="{StaticResource LeftGeometry}" Command="interactivity:ControlCommands.Cancel"/>
-                            <Button hc:IconElement.Geometry="{StaticResource RightGeometry}" Margin="0,10,0,0" Command="interactivity:ControlCommands.Selected"/>
+                            <Button hc:IconElement.Geometry="{StaticResource RightGeometry}" Margin="0,8,0,0" Command="interactivity:ControlCommands.Selected"/>
                         </StackPanel>
-                        <hc:TransferGroup x:Name="PART_ItemsSelected" Style="{StaticResource TransferGroupBaseStyle}" Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" ItemTemplate="{TemplateBinding ItemTemplate}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}"/>
+                        <ListBox x:Name="PART_SelectedListBox" Padding="{TemplateBinding Padding}" SelectionMode="{TemplateBinding SelectionMode}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}" ItemsPanel="{TemplateBinding ItemsPanel}" Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" />
                     </Grid>
                 </ControlTemplate>
             </Setter.Value>

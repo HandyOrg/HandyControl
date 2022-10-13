@@ -255,7 +255,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\TimeBar\SpeTextBlock.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Time\TimeBar\TimeBar.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Transfer\Transfer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Transfer\TransferGroup.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Transfer\TransferItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\BlurWindow.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Window\ImageBrowser.cs" />
