@@ -104,4 +104,16 @@ public class TransitioningContentControl : ContentControl
 
         StartTransition();
     }
+
+    protected override void OnContentChanged(object oldContent, object newContent)
+    {
+        base.OnContentChanged(oldContent, newContent);
+
+        if (newContent is null)
+        {
+            return;
+        }
+
+        StartTransition();
+    }
 }
