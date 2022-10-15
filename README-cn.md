@@ -194,6 +194,10 @@ Step 4: 开始编码
 
 ## 最新示例
 
+### Watermark
+
+![Watermark](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Watermark.png)
+
 ### AutoCompleteTextBox
 
 ![AutoCompleteTextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/AutoCompleteTextBox.gif)
@@ -210,11 +214,11 @@ Step 4: 开始编码
 
 ![FlexPanel](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/FlexPanel.gif)
 
+## 历史发布
+
 ### CheckComboBox
 
 ![CheckComboBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/CheckComboBox.png)
-
-## 历史发布
 
 ### ImageSelector
 

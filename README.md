@@ -188,6 +188,10 @@ Step 4: Enjoy coding
 
 ## Latest examples
 
+### Watermark
+
+![Watermark](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Watermark.png)
+
 ### AutoCompleteTextBox
 
 ![AutoCompleteTextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/AutoCompleteTextBox.gif)
@@ -204,11 +208,11 @@ Step 4: Enjoy coding
 
 ![FlexPanel](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/FlexPanel.gif)
 
+## History publication
+
 ### CheckComboBox
 
 ![CheckComboBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/CheckComboBox.png)
-
-## History publication
 
 ### ImageSelector
 
