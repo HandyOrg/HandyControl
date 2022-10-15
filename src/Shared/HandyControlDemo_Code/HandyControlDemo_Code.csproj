@@ -260,6 +260,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemoCtl.xaml">
       <Link>UserControl\Controls\WaterfallPanelDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WatermarkDemoCtl.xaml">
+      <Link>UserControl\Controls\WatermarkDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WindowDemoCtl.xaml">
       <Link>UserControl\Controls\WindowDemoCtl.xaml</Link>
     </Resource>
@@ -701,6 +704,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\UniformSpacingPanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\UniformSpacingPanelDemoCtl.xaml.cs</Link>
       <DependentUpon>UniformSpacingPanelDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WatermarkDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\WatermarkDemoCtl.xaml.cs</Link>
+      <DependentUpon>WatermarkDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs</Link>

@@ -801,4 +801,7 @@
   <data name="AutoCompleteTextBox" xml:space="preserve">
     <value>自动补全文本框</value>
   </data>
+  <data name="Watermark" xml:space="preserve">
+    <value>水印</value>
+  </data>
 </root>

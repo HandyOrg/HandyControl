@@ -263,6 +263,7 @@ public class LangProvider : INotifyPropertyChanged
         OnPropertyChanged(nameof(Vsix));
         OnPropertyChanged(nameof(Warning));
         OnPropertyChanged(nameof(WaterfallPanel));
+        OnPropertyChanged(nameof(Watermark));
         OnPropertyChanged(nameof(Website));
         OnPropertyChanged(nameof(Window));
     }
@@ -1396,6 +1397,11 @@ public class LangProvider : INotifyPropertyChanged
     ///   查找类似 瀑布流 的本地化字符串。
     /// </summary>
     public string WaterfallPanel => Lang.WaterfallPanel;
+
+    /// <summary>
+    ///   查找类似 水印 的本地化字符串。
+    /// </summary>
+    public string Watermark => Lang.Watermark;
 
     /// <summary>
     ///   查找类似 网站 的本地化字符串。
@@ -2545,6 +2551,11 @@ public class LangKeys
     ///   查找类似 瀑布流 的本地化字符串。
     /// </summary>
     public static string WaterfallPanel = nameof(WaterfallPanel);
+
+    /// <summary>
+    ///   查找类似 水印 的本地化字符串。
+    /// </summary>
+    public static string Watermark = nameof(Watermark);
 
     /// <summary>
     ///   查找类似 网站 的本地化字符串。
