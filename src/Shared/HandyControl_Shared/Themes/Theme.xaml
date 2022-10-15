@@ -11929,9 +11929,9 @@
 				<ControlTemplate TargetType="hc:Transfer">
 					<Grid>
 						<Grid.ColumnDefinitions>
-							<ColumnDefinition MinWidth="200" />
+							<ColumnDefinition />
 							<ColumnDefinition Width="Auto" />
-							<ColumnDefinition MinWidth="200" />
+							<ColumnDefinition />
 						</Grid.ColumnDefinitions>
 						<Grid.RowDefinitions>
 							<RowDefinition />
@@ -11940,13 +11940,20 @@
 							<RowDefinition />
 						</Grid.RowDefinitions>
 						<Border Grid.RowSpan="4" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
-							<hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
-								<ItemsPresenter />
-							</hc:ScrollViewer>
+							<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
+								<hc:ToggleBlock.CheckedContent>
+									<hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+										<ItemsPresenter />
+									</hc:ScrollViewer>
+								</hc:ToggleBlock.CheckedContent>
+								<hc:ToggleBlock.UnCheckedContent>
+									<hc:Empty />
+								</hc:ToggleBlock.UnCheckedContent>
+							</hc:ToggleBlock>
 						</Border>
-						<StackPanel Margin="32,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1">
+						<StackPanel Margin="8,0" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="0" Grid.RowSpan="4" Grid.Column="1">
 							<Button hc:IconElement.Geometry="{StaticResource LeftGeometry}" Command="interactivity:ControlCommands.Cancel" />
-							<Button hc:IconElement.Geometry="{StaticResource RightGeometry}" Margin="0,10,0,0" Command="interactivity:ControlCommands.Selected" />
+							<Button hc:IconElement.Geometry="{StaticResource RightGeometry}" Margin="0,8,0,0" Command="interactivity:ControlCommands.Selected" />
 						</StackPanel>
 						<ListBox x:Name="PART_SelectedListBox" Padding="{TemplateBinding Padding}" SelectionMode="{TemplateBinding SelectionMode}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}" ItemsPanel="{TemplateBinding ItemsPanel}" Grid.Row="0" Grid.RowSpan="4" Grid.Column="2" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" />
 					</Grid>
@@ -13512,6 +13519,7 @@
 		<Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource TitleBrush}" />
 		<Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource TextIconBrush}" />
 		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="PaginationButtonStyle" Value="{StaticResource PaginationButtonStyle}" />
 		<Setter Property="Focusable" Value="False" />
 		<Setter Property="UseLayoutRounding" Value="True" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
@@ -13527,7 +13535,7 @@
 									<interactivity:EventToCommand Command="interactivity:ControlCommands.Selected" PassEventArgsToCommand="True" />
 								</interactivity:RoutedEventTrigger>
 							</interactivity:Interaction.Triggers>
-							<RadioButton Name="PART_ButtonFirst" Content="1" IsChecked="True" Style="{StaticResource PaginationButtonStyle}" />
+							<RadioButton Name="PART_ButtonFirst" Content="1" IsChecked="True" Style="{TemplateBinding PaginationButtonStyle}" />
 							<Border Name="PART_MoreLeft" Cursor="No" Margin="-1,0,0,0" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" Padding="10,0">
 								<hc:SimpleText FontWeight="Bold" Foreground="{DynamicResource SecondaryTextBrush}" Text="..." VerticalAlignment="Center" />
 							</Border>
@@ -13535,7 +13543,7 @@
 							<Border Name="PART_MoreRight" Cursor="No" Margin="-1,0,0,0" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" Padding="10,0">
 								<hc:SimpleText FontWeight="Bold" Foreground="{DynamicResource SecondaryTextBrush}" Text="..." VerticalAlignment="Center" />
 							</Border>
-							<RadioButton Name="PART_ButtonLast" Content="10" Style="{StaticResource PaginationButtonStyle}" />
+							<RadioButton Name="PART_ButtonLast" Content="10" Style="{TemplateBinding PaginationButtonStyle}" />
 						</StackPanel>
 						<Button x:Name="PART_ButtonRight" MinWidth="30" Padding="10,8" hc:IconElement.Geometry="{StaticResource RightGeometry}" hc:BorderElement.CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,1,1,0'}" Margin="-1,0,0,0" Command="interactivity:ControlCommands.Next" />
 						<hc:NumericUpDown x:Name="PART_Jump" IsEnabled="{TemplateBinding IsJumpEnabled}" Visibility="{TemplateBinding IsJumpEnabled,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="6,0,0,0" Maximum="{Binding MaxPageCount,RelativeSource={RelativeSource TemplatedParent}}" Minimum="1" />

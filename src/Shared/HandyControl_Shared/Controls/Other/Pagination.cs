@@ -257,6 +257,15 @@ public class Pagination : Control
 
     #endregion
 
+    public static readonly DependencyProperty PaginationButtonStyleProperty = DependencyProperty.Register(
+        nameof(PaginationButtonStyle), typeof(Style), typeof(Pagination), new PropertyMetadata(default(Style)));
+
+    public Style PaginationButtonStyle
+    {
+        get => (Style) GetValue(PaginationButtonStyleProperty);
+        set => SetValue(PaginationButtonStyleProperty, value);
+    }
+
     #endregion
 
     #region Public Methods
@@ -385,7 +394,7 @@ public class Pagination : Control
     {
         return new()
         {
-            Style = ResourceHelper.GetResourceInternal<Style>(ResourceToken.PaginationButtonStyle),
+            Style = PaginationButtonStyle,
             Content = page.ToString()
         };
     }

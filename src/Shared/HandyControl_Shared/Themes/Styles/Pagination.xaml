@@ -66,6 +66,7 @@
         <Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource TextIconBrush}"/>
         <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="PaginationButtonStyle" Value="{StaticResource PaginationButtonStyle}"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="UseLayoutRounding" Value="True"/>
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
@@ -81,7 +82,7 @@
                                     <interactivity:EventToCommand Command="interactivity:ControlCommands.Selected" PassEventArgsToCommand="True" />
                                 </interactivity:RoutedEventTrigger>
                             </interactivity:Interaction.Triggers>
-                            <RadioButton Name="PART_ButtonFirst" Content="1" IsChecked="True" Style="{StaticResource PaginationButtonStyle}"/>
+                            <RadioButton Name="PART_ButtonFirst" Content="1" IsChecked="True" Style="{TemplateBinding PaginationButtonStyle}"/>
                             <Border Name="PART_MoreLeft" Cursor="No" Margin="-1,0,0,0" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" Padding="10,0">
                                 <hc:SimpleText FontWeight="Bold" Foreground="{DynamicResource SecondaryTextBrush}" Text="..." VerticalAlignment="Center"/>
                             </Border>
@@ -89,7 +90,7 @@
                             <Border Name="PART_MoreRight" Cursor="No" Margin="-1,0,0,0" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}" Background="{DynamicResource SecondaryRegionBrush}" Padding="10,0">
                                 <hc:SimpleText FontWeight="Bold" Foreground="{DynamicResource SecondaryTextBrush}" Text="..." VerticalAlignment="Center"/>
                             </Border>
-                            <RadioButton Name="PART_ButtonLast" Content="10" Style="{StaticResource PaginationButtonStyle}"/>
+                            <RadioButton Name="PART_ButtonLast" Content="10" Style="{TemplateBinding PaginationButtonStyle}"/>
                         </StackPanel>
                         <Button x:Name="PART_ButtonRight" MinWidth="30" Padding="10,8" hc:IconElement.Geometry="{StaticResource RightGeometry}" hc:BorderElement.CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent},Converter={StaticResource CornerRadiusSplitConverter},ConverterParameter='0,1,1,0'}" Margin="-1,0,0,0" Command="interactivity:ControlCommands.Next"/>
                         <hc:NumericUpDown x:Name="PART_Jump" IsEnabled="{TemplateBinding IsJumpEnabled}" Visibility="{TemplateBinding IsJumpEnabled,Converter={StaticResource Boolean2VisibilityConverter}}" Margin="6,0,0,0" Maximum="{Binding MaxPageCount,RelativeSource={RelativeSource TemplatedParent}}" Minimum="1"/>
