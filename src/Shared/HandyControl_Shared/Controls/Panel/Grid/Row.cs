@@ -75,6 +75,11 @@ public class Row : Panel
 
         foreach (var child in InternalChildren.OfType<Col>())
         {
+            if (!child.IsVisible)
+            {
+                continue;
+            }
+
             var cellCount = child.GetLayoutCellCount(_layoutStatus);
             totalCellCount += cellCount;
 
