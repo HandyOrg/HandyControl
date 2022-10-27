@@ -146,7 +146,7 @@ public class TimePicker : Control, IDataInput
         return d is TimePicker { IsEnabled: false }
             ? false
             : baseValue;
-    }      
+    }
 
     private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
