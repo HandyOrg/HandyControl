@@ -102,4 +102,12 @@ public abstract class ClockBase : Control
     internal abstract void Update(DateTime time);
 
     protected void Clock_SelectedTimeChanged(object sender, FunctionEventArgs<DateTime?> e) => SelectedTime = e.Info;
+
+    public virtual void OnClockClosed()
+    {        
+    }
+
+    public virtual void OnClockOpened()
+    {       
+    }
 }

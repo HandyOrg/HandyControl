@@ -157,9 +157,9 @@
                                 <RowDefinition/>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
-                            <ListBox hc:BorderElement.CornerRadius="0" x:Name="PART_HourList" Style="{StaticResource ClockListBoxStyle}"/>
-                            <ListBox hc:BorderElement.CornerRadius="0" Grid.Row="0" Grid.Column="1" x:Name="PART_MinuteList" Style="{StaticResource ClockListBoxStyle}" BorderThickness="1,0"/>
-                            <ListBox hc:BorderElement.CornerRadius="0" Grid.Row="0" Grid.Column="2" x:Name="PART_SecondList" Style="{StaticResource ClockListBoxStyle}"/>
+                            <ListBox hc:BorderElement.CornerRadius="0" Padding="0" x:Name="PART_HourList" Style="{StaticResource ClockListBoxStyle}"/>
+                            <ListBox hc:BorderElement.CornerRadius="0" Padding="0" Grid.Row="0" Grid.Column="1" x:Name="PART_MinuteList" Style="{StaticResource ClockListBoxStyle}" BorderThickness="1,0"/>
+                            <ListBox hc:BorderElement.CornerRadius="0" Padding="0" Grid.Row="0" Grid.Column="2" x:Name="PART_SecondList" Style="{StaticResource ClockListBoxStyle}"/>
                             <Border VerticalAlignment="Bottom" Visibility="{Binding Visibility,ElementName=PART_ButtonConfirm}" Height="1" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Background="{DynamicResource BorderBrush}"/>
                             <Button Margin="0,10" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" Visibility="{TemplateBinding ShowConfirmButton,Converter={StaticResource Boolean2VisibilityConverter}}" Name="PART_ButtonConfirm" Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" Foreground="{DynamicResource PrimaryBrush}" HorizontalAlignment="Center" Background="Transparent" Style="{StaticResource ButtonCustom}"/>
                         </Grid>

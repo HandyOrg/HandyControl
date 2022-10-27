@@ -357,11 +357,6 @@ public class DateTimePicker : Control, IDataInput
         _popup.Closed += PopupClosed;
         _popup.Child = _calendarWithClock;
 
-        if (IsDropDownOpen)
-        {
-            _popup.IsOpen = true;
-        }
-
         _dropDownButton.Click += DropDownButton_Click;
         _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
 

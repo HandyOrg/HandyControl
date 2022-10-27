@@ -79,7 +79,6 @@ public class TimePicker : Control, IDataInput
 
     public TimePicker()
     {
-        Clock = new Clock();
         CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
         {
             SetCurrentValue(SelectedTimeProperty, null);
@@ -142,13 +141,12 @@ public class TimePicker : Control, IDataInput
             typeof(TimePicker),
             new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnIsDropDownOpenChanged, OnCoerceIsDropDownOpen));
 
-    private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue) =>
-        d is TimePicker
-        {
-            IsEnabled: false
-        }
+    private static object OnCoerceIsDropDownOpen(DependencyObject d, object baseValue)
+    {
+        return d is TimePicker { IsEnabled: false }
             ? false
             : baseValue;
+    }      
 
     private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -351,6 +349,7 @@ public class TimePicker : Control, IDataInput
         {
             oldClock.SelectedTimeChanged -= ctl.Clock_SelectedTimeChanged;
             oldClock.Confirmed -= ctl.Clock_Confirmed;
+            ctl.SetPopupChild(null);
         }
 
         if (e.NewValue is ClockBase newClock)
@@ -358,6 +357,7 @@ public class TimePicker : Control, IDataInput
             newClock.ShowConfirmButton = true;
             newClock.SelectedTimeChanged += ctl.Clock_SelectedTimeChanged;
             newClock.Confirmed += ctl.Clock_Confirmed;
+            ctl.SetPopupChild(newClock);
         }
     }
 
@@ -454,11 +454,6 @@ public class TimePicker : Control, IDataInput
         _popup.Closed += PopupClosed;
         _popup.Child = Clock;
 
-        if (IsDropDownOpen)
-        {
-            _popup.IsOpen = true;
-        }
-
         _dropDownButton.Click += DropDownButton_Click;
         _dropDownButton.MouseLeave += DropDownButton_MouseLeave;
 
@@ -496,6 +491,8 @@ public class TimePicker : Control, IDataInput
             }
         }
 
+        EnsureClock();
+
         if (selectedTime is null)
         {
             _originalSelectedTime ??= DateTime.Now;
@@ -517,12 +514,14 @@ public class TimePicker : Control, IDataInput
     {
         var handler = ClockClosed;
         handler?.Invoke(this, e);
+        Clock?.OnClockClosed();
     }
 
     protected virtual void OnClockOpened(RoutedEventArgs e)
     {
         var handler = ClockOpened;
         handler?.Invoke(this, e);
+        Clock?.OnClockOpened();
     }
 
     #endregion Protected Methods
@@ -789,6 +788,25 @@ public class TimePicker : Control, IDataInput
                 picker._textBox.SelectAll();
                 e.Handled = true;
             }
+        }
+    }
+
+    private void EnsureClock()
+    {
+        if (Clock is not null)
+        {
+            return;
+        }
+
+        SetCurrentValue(ClockProperty, new Clock());
+        SetPopupChild(Clock);
+    }
+
+    private void SetPopupChild(UIElement element)
+    {
+        if (_popup is not null)
+        {
+            _popup.Child = Clock;
         }
     }
 

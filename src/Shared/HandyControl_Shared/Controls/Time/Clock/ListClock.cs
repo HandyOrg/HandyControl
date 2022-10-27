@@ -29,6 +29,8 @@ public class ListClock : ClockBase
 
     #endregion Data
 
+    public override void OnClockOpened() => ScrollIntoView();
+
     public override void OnApplyTemplate()
     {
         AppliedTemplate = false;
@@ -94,6 +96,27 @@ public class ListClock : ClockBase
         }
     }
 
+    /// <summary>
+    ///     更新
+    /// </summary>
+    /// <param name="time"></param>
+    internal override void Update(DateTime time)
+    {
+        if (!AppliedTemplate) return;
+
+        var h = time.Hour;
+        var m = time.Minute;
+        var s = time.Second;
+
+        _hourList.SelectedIndex = h;
+        _minuteList.SelectedIndex = m;
+        _secondList.SelectedIndex = s;
+
+        ScrollIntoView();
+
+        DisplayTime = time;
+    }
+
     private void HourList_SelectionChanged(object sender, SelectionChangedEventArgs e) => Update();
 
     private void MinuteList_SelectionChanged(object sender, SelectionChangedEventArgs e) => Update();
@@ -124,26 +147,10 @@ public class ListClock : ClockBase
         }
     }
 
-    /// <summary>
-    ///     更新
-    /// </summary>
-    /// <param name="time"></param>
-    internal override void Update(DateTime time)
+    private void ScrollIntoView()
     {
-        if (!AppliedTemplate) return;
-
-        var h = time.Hour;
-        var m = time.Minute;
-        var s = time.Second;
-
-        _hourList.SelectedIndex = h;
-        _minuteList.SelectedIndex = m;
-        _secondList.SelectedIndex = s;
-
         _hourList.ScrollIntoView(_hourList.SelectedItem);
         _minuteList.ScrollIntoView(_minuteList.SelectedItem);
         _secondList.ScrollIntoView(_secondList.SelectedItem);
-
-        DisplayTime = time;
     }
 }
