@@ -1,32 +1,47 @@
-﻿using System.ComponentModel;
+﻿using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using HandyControl.Collections;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 
 namespace HandyControl.Controls;
 
 [TemplatePart(Name = ElementSelectedListBox, Type = typeof(ListBox))]
-[DefaultEvent(nameof(Transferred))]
+[DefaultEvent(nameof(TransferredItemsChanged))]
 public class Transfer : ListBox
 {
     private const string ElementSelectedListBox = "PART_SelectedListBox";
 
-    public static readonly RoutedEvent TransferredEvent =
-        EventManager.RegisterRoutedEvent("Transferred", RoutingStrategy.Bubble,
-            typeof(RoutedEventHandler), typeof(Transfer));
+    public static readonly RoutedEvent TransferredItemsChangedEvent =
+        EventManager.RegisterRoutedEvent("TransferredItemsChanged", RoutingStrategy.Bubble,
+            typeof(SelectionChangedEventHandler), typeof(Transfer));
 
     [Category("Behavior")]
-    public event RoutedEventHandler Transferred
+    public event SelectionChangedEventHandler TransferredItemsChanged
     {
-        add => AddHandler(TransferredEvent, value);
-        remove => RemoveHandler(TransferredEvent, value);
+        add => AddHandler(TransferredItemsChangedEvent, value);
+        remove => RemoveHandler(TransferredItemsChangedEvent, value);
     }
 
     private ListBox _selectedListBox;
+
+    private static readonly DependencyPropertyKey TransferredItemsPropertyKey =
+        DependencyProperty.RegisterReadOnly("TransferredItems", typeof(IList),
+            typeof(Transfer), new FrameworkPropertyMetadata((IList) null));
+
+    private static readonly DependencyProperty TransferredItemsImplProperty =
+        TransferredItemsPropertyKey.DependencyProperty;
+
+    [Bindable(true), Category("Appearance"), DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public IList TransferredItems => TransferredItemsImpl;
+
+    private IList TransferredItemsImpl => (IList) GetValue(TransferredItemsImplProperty);
 
     public Transfer()
     {
@@ -47,7 +62,7 @@ public class Transfer : ListBox
         _selectedListBox = GetTemplateChild(ElementSelectedListBox) as ListBox;
     }
 
-    protected virtual void OnTransferred(RoutedEventArgs e)
+    protected virtual void OnTransferredItemsChanged(SelectionChangedEventArgs e)
     {
         RaiseEvent(e);
     }
@@ -58,7 +73,7 @@ public class Transfer : ListBox
 
     private void SelectItems(object sender, ExecutedRoutedEventArgs e)
     {
-        if (_selectedListBox == null)
+        if (_selectedListBox == null || SelectedItems.Count == 0)
         {
             return;
         }
@@ -89,7 +104,12 @@ public class Transfer : ListBox
             _selectedListBox.Items.Add(transferItem);
         }
 
-        OnTransferred(new RoutedEventArgs(TransferredEvent, this));
+        SetTransferredItems(_selectedListBox.Items.OfType<TransferItem>().Select(item => item.Tag));
+        OnTransferredItemsChanged(new SelectionChangedEventArgs(TransferredItemsChangedEvent, new List<object>(), SelectedItems)
+        {
+            Source = this
+        });
+        UnselectAll();
     }
 
     private void DeselectItems(object sender, ExecutedRoutedEventArgs e)
@@ -99,6 +119,7 @@ public class Transfer : ListBox
             return;
         }
 
+        var deselectItems = new List<object>();
         foreach (var transferItem in _selectedListBox.Items.OfType<TransferItem>().ToList())
         {
             if (!transferItem.IsSelected)
@@ -106,15 +127,42 @@ public class Transfer : ListBox
                 continue;
             }
 
-            if (ItemContainerGenerator.ContainerFromItem(transferItem.Tag) is TransferItem selectedItem)
+            if (ItemContainerGenerator.ContainerFromItem(transferItem.Tag) is not TransferItem selectedItem)
             {
-                _selectedListBox.Items.Remove(transferItem);
-
-                selectedItem.SetCurrentValue(TransferItem.IsTransferredProperty, ValueBoxes.FalseBox);
-                selectedItem.SetCurrentValue(ListBoxItem.IsSelectedProperty, ValueBoxes.FalseBox);
+                continue;
             }
+
+            _selectedListBox.Items.Remove(transferItem);
+            deselectItems.Add(transferItem.Tag);
+            selectedItem.SetCurrentValue(TransferItem.IsTransferredProperty, ValueBoxes.FalseBox);
+            selectedItem.SetCurrentValue(ListBoxItem.IsSelectedProperty, ValueBoxes.FalseBox);
         }
 
-        OnTransferred(new RoutedEventArgs(TransferredEvent, this));
+        SetTransferredItems(_selectedListBox.Items.OfType<TransferItem>().Select(item => item.Tag));
+        OnTransferredItemsChanged(new SelectionChangedEventArgs(TransferredItemsChangedEvent, deselectItems, new List<object>())
+        {
+            Source = this
+        });
+    }
+
+    private void SetTransferredItems(IEnumerable selectedItems)
+    {
+        var oldSelectedItems = (ManualObservableCollection<object>) GetValue(TransferredItemsImplProperty);
+
+        if (oldSelectedItems == null)
+        {
+            oldSelectedItems = new ManualObservableCollection<object>();
+            SetValue(TransferredItemsPropertyKey, oldSelectedItems);
+        }
+
+        oldSelectedItems.CanNotify = false;
+        oldSelectedItems.Clear();
+
+        foreach (var selectedItem in selectedItems)
+        {
+            oldSelectedItems.Add(selectedItem);
+        }
+
+        oldSelectedItems.CanNotify = true;
     }
 }
