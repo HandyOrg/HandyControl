@@ -49,6 +49,7 @@ public class NumericUpDown : Control
         {
             _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
             _textBox.TextChanged -= TextBox_TextChanged;
+            _textBox.LostFocus -= TextBox_LostFocus;
         }
 
         base.OnApplyTemplate();
