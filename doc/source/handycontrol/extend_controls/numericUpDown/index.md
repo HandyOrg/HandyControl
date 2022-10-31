@@ -5,8 +5,8 @@ title: NumericUpDown 数值选择控件
 NumericUpDown 控件看起来像一对用户可以单击来调整值的箭头按钮和TextBox的组合，该控件显示并设置数值(Value)。 用户可以通过单击向上和向下箭头，或通过在控件的TextBox部分中键入一个数字来改变Value。
 
 ``` CS
-[TemplatePart(Name = ElementTextBox, Type = typeof(DatePickerTextBox))]
-public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
+[TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
+public class NumericUpDown : Control
 ```
 
 # 创建NumericUpDown并设置Value
