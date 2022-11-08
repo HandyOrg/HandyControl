@@ -4,16 +4,20 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
 namespace HandyControl.Controls;
 
+[TemplatePart(Name = BackElement, Type = typeof(Border))]
 public class Dialog : ContentControl
 {
-    private string _token;
+    private const string BackElement = "PART_BackElement";
 
+    private string _token;
+    private Border _backElement;
     private AdornerContainer _container;
 
     private static readonly Dictionary<string, FrameworkElement> ContainerDic = new();
@@ -25,6 +29,24 @@ public class Dialog : ContentControl
     {
         get => (bool) GetValue(IsClosedProperty);
         internal set => SetValue(IsClosedProperty, ValueBoxes.BooleanBox(value));
+    }
+
+    public static readonly DependencyProperty MaskCanCloseProperty = DependencyProperty.RegisterAttached(
+        "MaskCanClose", typeof(bool), typeof(Dialog), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.Inherits));
+
+    public static void SetMaskCanClose(DependencyObject element, bool value)
+        => element.SetValue(MaskCanCloseProperty, ValueBoxes.BooleanBox(value));
+
+    public static bool GetMaskCanClose(DependencyObject element)
+        => (bool) element.GetValue(MaskCanCloseProperty);
+
+    public static readonly DependencyProperty MaskBrushProperty = DependencyProperty.Register(
+        nameof(MaskBrush), typeof(Brush), typeof(Dialog), new PropertyMetadata(default(Brush)));
+
+    public Brush MaskBrush
+    {
+        get => (Brush) GetValue(MaskBrushProperty);
+        set => SetValue(MaskBrushProperty, value);
     }
 
     public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
@@ -152,6 +174,21 @@ public class Dialog : ContentControl
         else if (ContainerDic.TryGetValue(_token, out var element))
         {
             Close(element);
+        }
+    }
+
+    public override void OnApplyTemplate()
+    {
+        base.OnApplyTemplate();
+
+        _backElement = GetTemplateChild(BackElement) as Border;
+    }
+
+    protected override void OnMouseLeftButtonUp(MouseButtonEventArgs e)
+    {
+        if (GetMaskCanClose(this) && _backElement is { IsMouseDirectlyOver: true })
+        {
+            Close();
         }
     }
 
