@@ -370,5 +370,7 @@ public class ResourceToken
 
     internal const string ComboBoxItemCapsuleVerticalLast = nameof(ComboBoxItemCapsuleVerticalLast);
 
+    internal const string ListClockForCalendarWithClockStyle = nameof(ListClockForCalendarWithClockStyle);
+
     #endregion
 }
