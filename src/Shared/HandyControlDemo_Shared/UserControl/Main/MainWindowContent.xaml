@@ -4,14 +4,21 @@
         Background="{StaticResource CloudDrawingBrush}"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         x:Class="HandyControlDemo.UserControl.MainWindowContent">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="240" MinWidth="240" MaxWidth="400"/>
+            <ColumnDefinition x:Name="ColumnDefinitionLeft" Width="240" MinWidth="240" MaxWidth="400"/>
             <ColumnDefinition MinWidth="200"/>
         </Grid.ColumnDefinitions>
-        <userControl:LeftMainContent/>
-        <userControl:MainContent Grid.Column="1"/>
-        <GridSplitter Margin="0,26,0,26" Grid.Column="0" HorizontalAlignment="Right" Width="4" Background="Transparent"/>
+        <Button x:Name="ButtonShiftOut" Click="OnLeftMainContentShiftOut" hc:IconElement.Geometry="{StaticResource LeftGeometry}" Padding="8 8 0 8" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0 26 -16 0" Style="{StaticResource ButtonIconCircular}" />
+        <userControl:MainContent Grid.Column="1" x:Name="MainContent" />
+        <userControl:LeftMainContent Grid.Column="0" x:Name="LeftMainContent">
+            <UIElement.RenderTransform>
+                <TranslateTransform />
+            </UIElement.RenderTransform>
+        </userControl:LeftMainContent>
+        <GridSplitter x:Name="GridSplitter" Margin="0,26,0,26" Grid.Column="0" HorizontalAlignment="Right" Width="4" Background="Transparent"/>
+        <Button Grid.Column="0" x:Name="ButtonShiftIn" Visibility="Collapsed" Click="OnLeftMainContentShiftIn" hc:IconElement.Geometry="{StaticResource RightGeometry}" Padding="8 8 0 8" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="-12 26 0 0" Style="{StaticResource ButtonIconCircular}" />
     </Grid>
 </Border>
