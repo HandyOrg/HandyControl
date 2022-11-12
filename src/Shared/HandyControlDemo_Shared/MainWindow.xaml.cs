@@ -27,7 +27,9 @@ public partial class MainWindow
         GlobalShortcut.Init(new List<KeyBinding>
         {
             new(ViewModelLocator.Instance.Main.GlobalShortcutInfoCmd, Key.I, ModifierKeys.Control | ModifierKeys.Alt),
-            new(ViewModelLocator.Instance.Main.GlobalShortcutWarningCmd, Key.E, ModifierKeys.Control | ModifierKeys.Alt)
+            new(ViewModelLocator.Instance.Main.GlobalShortcutWarningCmd, Key.E, ModifierKeys.Control | ModifierKeys.Alt),
+            new(ViewModelLocator.Instance.Main.OpenDocCmd, Key.F1, ModifierKeys.None),
+            new(ViewModelLocator.Instance.Main.OpenCodeCmd, Key.F12, ModifierKeys.None)
         });
 
         Dialog.SetToken(this, MessageToken.MainWindow);

@@ -18,21 +18,11 @@ namespace HandyControlDemo.ViewModel;
 
 public class MainViewModel : DemoViewModelBase<DemoDataModel>
 {
-    #region 字段
-
-    /// <summary>
-    ///     内容标题
-    /// </summary>
     private object _contentTitle;
-
-    /// <summary>
-    ///     子内容
-    /// </summary>
     private object _subContent;
+    private bool _isCodeOpened;
 
     private readonly DataService _dataService;
-
-    #endregion
 
     public MainViewModel(DataService dataService)
     {
@@ -42,18 +32,10 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
         UpdateLeftContent();
     }
 
-    #region 属性
-
-    /// <summary>
-    ///     当前选中的demo项
-    /// </summary>
     public DemoItemModel DemoItemCurrent { get; private set; }
 
     public DemoInfoModel DemoInfoCurrent { get; set; }
 
-    /// <summary>
-    ///     子内容
-    /// </summary>
     public object SubContent
     {
         get => _subContent;
@@ -64,9 +46,6 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 #endif
     }
 
-    /// <summary>
-    ///     内容标题
-    /// </summary>
     public object ContentTitle
     {
         get => _contentTitle;
@@ -77,18 +56,18 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 #endif
     }
 
-    /// <summary>
-    ///     demo信息
-    /// </summary>
+    public bool IsCodeOpened
+    {
+        get => _isCodeOpened;
+#if NET40
+        set => Set(nameof(IsCodeOpened), ref _isCodeOpened, value);
+#else
+        set => Set(ref _isCodeOpened, value);
+#endif
+    }
+
     public ObservableCollection<DemoInfoModel> DemoInfoCollection { get; set; }
 
-    #endregion
-
-    #region 命令
-
-    /// <summary>
-    ///     切换例子命令
-    /// </summary>
     public RelayCommand<SelectionChangedEventArgs> SwitchDemoCmd => new(SwitchDemo);
 
     public RelayCommand OpenPracticalDemoCmd => new(OpenPracticalDemo);
@@ -99,12 +78,23 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 
     public RelayCommand OpenDocCmd => new(() =>
     {
+        if (DemoItemCurrent is null)
+        {
+            return;
+        }
+
         ControlCommands.OpenLink.Execute(_dataService.GetDemoUrl(DemoInfoCurrent, DemoItemCurrent));
     });
 
-    #endregion
+    public RelayCommand OpenCodeCmd => new(() =>
+    {
+        if (DemoItemCurrent is null)
+        {
+            return;
+        }
 
-    #region 方法
+        IsCodeOpened = !IsCodeOpened;
+    });
 
     private void UpdateMainContent()
     {
@@ -156,9 +146,6 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
         });
     }
 
-    /// <summary>
-    ///     切换例子
-    /// </summary>
     private void SwitchDemo(SelectionChangedEventArgs e)
     {
         if (e.AddedItems.Count == 0) return;
@@ -185,6 +172,4 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
         Messenger.Default.Send(AssemblyHelper.CreateInternalInstance($"UserControl.{MessageToken.PracticalDemo}"), MessageToken.LoadShowContent);
         Messenger.Default.Send(true, MessageToken.FullSwitch);
     }
-
-    #endregion
 }
