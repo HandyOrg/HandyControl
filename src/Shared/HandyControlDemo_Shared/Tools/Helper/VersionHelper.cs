@@ -11,35 +11,37 @@ internal class VersionHelper
 #if NET40
         var netVersion = "NET 40";
 #elif NET45
-            var netVersion = "NET 45";
+        var netVersion = "NET 45";
 #elif NET451
-            var netVersion = "NET 451";
+        var netVersion = "NET 451";
 #elif NET452
-            var netVersion = "NET 452";
+        var netVersion = "NET 452";
 #elif NET46
-            var netVersion = "NET 46";
+        var netVersion = "NET 46";
 #elif NET461
-            var netVersion = "NET 461";
+        var netVersion = "NET 461";
 #elif NET462
-            var netVersion = "NET 462";
+        var netVersion = "NET 462";
 #elif NET47
-            var netVersion = "NET 47";
+        var netVersion = "NET 47";
 #elif NET471
-            var netVersion = "NET 471";
+        var netVersion = "NET 471";
 #elif NET472
-            var netVersion = "NET 472";
+        var netVersion = "NET 472";
 #elif NET48
-            var netVersion = "NET 48";
+        var netVersion = "NET 48";
 #elif NET481
-            var netVersion = "NET 481";
+        var netVersion = "NET 481";
 #elif NET5_0
-            var netVersion = "NET 50";
+        var netVersion = "NET 50";
 #elif NET6_0
-            var netVersion = "NET 60";
+        var netVersion = "NET 60";
+#elif NET7_0
+        var netVersion = "NET 70";
 #elif NETCOREAPP3_0
         var netVersion = "CORE 30";
 #elif NETCOREAPP3_1
-            var netVersion = "CORE 31";
+        var netVersion = "CORE 31";
 #endif
         return $"v {versionInfo.FileVersion} {netVersion}";
     }

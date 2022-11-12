@@ -18,8 +18,8 @@ Task("Build")
 
     DotNetCoreBuild("../src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj", settingsNet40);
 
-    var frameworkList = new List<string> 
-    { 
+    var frameworkList = new List<string>
+    {
         "net45",
         "net451",
         "net452",
@@ -34,7 +34,8 @@ Task("Build")
         "netcoreapp3.0",
         "netcoreapp3.1",
         "net5.0-windows",
-        "net6.0-windows"
+        "net6.0-windows",
+        "net7.0-windows"
     };
 
     foreach (var framework in frameworkList)
