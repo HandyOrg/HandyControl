@@ -302,12 +302,12 @@ internal class InteropMethods
 
     [DllImport(InteropValues.ExternDll.User32, SetLastError = true)]
     [return: MarshalAs(UnmanagedType.Bool)]
-    private static extern bool GetWindowPlacement(IntPtr hwnd, InteropValues.WINDOWPLACEMENT lpwndpl);
+    private static extern bool GetWindowPlacement(IntPtr hwnd,ref InteropValues.WINDOWPLACEMENT lpwndpl);
 
     internal static InteropValues.WINDOWPLACEMENT GetWindowPlacement(IntPtr hwnd)
     {
         InteropValues.WINDOWPLACEMENT wINDOWPLACEMENT = InteropValues.WINDOWPLACEMENT.Default;
-        if (GetWindowPlacement(hwnd, wINDOWPLACEMENT))
+        if (GetWindowPlacement(hwnd,ref wINDOWPLACEMENT))
         {
             return wINDOWPLACEMENT;
         }
