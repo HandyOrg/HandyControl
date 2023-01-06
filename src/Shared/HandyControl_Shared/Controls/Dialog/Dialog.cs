@@ -20,7 +20,8 @@ public class Dialog : ContentControl
     private Border _backElement;
     private AdornerContainer _container;
 
-    private static readonly Dictionary<string, FrameworkElement> ContainerDic = new();
+    private static readonly Dictionary<string, FrameworkElement> ContainerDict = new();
+    private static readonly Dictionary<string, Dialog> DialogDict = new();
 
     public static readonly DependencyProperty IsClosedProperty = DependencyProperty.Register(
         nameof(IsClosed), typeof(bool), typeof(Dialog), new PropertyMetadata(ValueBoxes.FalseBox));
@@ -81,18 +82,18 @@ public class Dialog : ContentControl
     public static void Register(string token, FrameworkElement element)
     {
         if (string.IsNullOrEmpty(token) || element == null) return;
-        ContainerDic[token] = element;
+        ContainerDict[token] = element;
     }
 
     public static void Unregister(string token, FrameworkElement element)
     {
         if (string.IsNullOrEmpty(token) || element == null) return;
 
-        if (ContainerDic.ContainsKey(token))
+        if (ContainerDict.ContainsKey(token))
         {
-            if (ReferenceEquals(ContainerDic[token], element))
+            if (ReferenceEquals(ContainerDict[token], element))
             {
-                ContainerDic.Remove(token);
+                ContainerDict.Remove(token);
             }
         }
     }
@@ -100,10 +101,10 @@ public class Dialog : ContentControl
     public static void Unregister(FrameworkElement element)
     {
         if (element == null) return;
-        var first = ContainerDic.FirstOrDefault(item => ReferenceEquals(element, item.Value));
+        var first = ContainerDict.FirstOrDefault(item => ReferenceEquals(element, item.Value));
         if (!string.IsNullOrEmpty(first.Key))
         {
-            ContainerDic.Remove(first.Key);
+            ContainerDict.Remove(first.Key);
         }
     }
 
@@ -111,9 +112,9 @@ public class Dialog : ContentControl
     {
         if (string.IsNullOrEmpty(token)) return;
 
-        if (ContainerDic.ContainsKey(token))
+        if (ContainerDict.ContainsKey(token))
         {
-            ContainerDic.Remove(token);
+            ContainerDict.Remove(token);
         }
     }
 
@@ -128,8 +129,8 @@ public class Dialog : ContentControl
         };
 
         FrameworkElement element;
-
         AdornerDecorator decorator;
+
         if (string.IsNullOrEmpty(token))
         {
             element = WindowHelper.GetActiveWindow();
@@ -137,7 +138,9 @@ public class Dialog : ContentControl
         }
         else
         {
-            ContainerDic.TryGetValue(token, out element);
+            Close(token);
+            DialogDict[token] = dialog;
+            ContainerDict.TryGetValue(token, out element);
             decorator = element is System.Windows.Window ?
                 VisualHelper.GetChild<AdornerDecorator>(element) :
                 VisualHelper.GetChild<DialogContainer>(element);
@@ -149,6 +152,7 @@ public class Dialog : ContentControl
             {
                 decorator.Child.IsEnabled = false;
             }
+
             var layer = decorator.AdornerLayer;
             if (layer != null)
             {
@@ -165,15 +169,24 @@ public class Dialog : ContentControl
         return dialog;
     }
 
+    public static void Close(string token)
+    {
+        if (DialogDict.TryGetValue(token, out Dialog dialog))
+        {
+            dialog.Close();
+        }
+    }
+
     public void Close()
     {
         if (string.IsNullOrEmpty(_token))
         {
             Close(WindowHelper.GetActiveWindow());
         }
-        else if (ContainerDic.TryGetValue(_token, out var element))
+        else if (ContainerDict.TryGetValue(_token, out var element))
         {
             Close(element);
+            DialogDict.Remove(_token);
         }
     }
 

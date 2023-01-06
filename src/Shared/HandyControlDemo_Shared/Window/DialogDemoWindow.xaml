@@ -10,9 +10,10 @@
         Width="800"
         Height="500">
     <hc:TransitioningContentControl>
-        <StackPanel Margin="32" VerticalAlignment="Center">
+        <hc:UniformSpacingPanel Margin="32" VerticalAlignment="Center" HorizontalAlignment="Center" Spacing="10" Orientation="Vertical">
             <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ShowInCurrentWindow}}" Command="{Binding ShowWithTokenCmd}" CommandParameter="{Binding DialogToken,RelativeSource={RelativeSource AncestorType=Window}}"/>
-            <Button Margin="0,10,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.ShowInMainWindow}}" Command="{Binding ShowWithTokenCmd}" CommandParameter="{x:Static data:MessageToken.MainWindow}"/>
-        </StackPanel>
+            <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ShowInMainWindow}}" Command="{Binding ShowWithTokenCmd}" CommandParameter="{x:Static data:MessageToken.MainWindow}"/>
+            <Button Content="{ex:Lang Key={x:Static langs:LangKeys.CloseMainWindowDialog}}" Command="{Binding CloseMainWindowDialogCmd}" CommandParameter="{x:Static data:MessageToken.MainWindow}" />
+        </hc:UniformSpacingPanel>
     </hc:TransitioningContentControl>
 </Window>
