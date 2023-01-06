@@ -195,20 +195,7 @@ public class ImageViewer : Control
     /// <param name="uri"></param>
     public ImageViewer(Uri uri) : this()
     {
-        try
-        {
-            ImageSource = BitmapFrame.Create(uri);
-            ImgPath = uri.AbsolutePath;
-            if (File.Exists(ImgPath))
-            {
-                var info = new FileInfo(ImgPath);
-                ImgSize = info.Length;
-            }
-        }
-        catch
-        {
-            MessageBox.Show(Lang.ErrorImgPath);
-        }
+        Uri = uri;
     }
 
     /// <summary>
@@ -229,11 +216,8 @@ public class ImageViewer : Control
     public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
         nameof(ImageSource), typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame), OnImageSourceChanged));
 
-    private static void OnImageSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        var ctl = (ImageViewer) d;
-        ctl.Init();
-    }
+    public static readonly DependencyProperty UriProperty = DependencyProperty.Register(
+        nameof(Uri), typeof(Uri), typeof(ImageViewer), new PropertyMetadata(default(Uri), OnUriChanged));
 
     public static readonly DependencyProperty ShowToolBarProperty = DependencyProperty.Register(
         nameof(ShowToolBar), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.TrueBox));
@@ -250,15 +234,9 @@ public class ImageViewer : Control
     internal static readonly DependencyProperty ImgSizeProperty = DependencyProperty.Register(
         nameof(ImgSize), typeof(long), typeof(ImageViewer), new PropertyMetadata(-1L));
 
-    /// <summary>
-    ///     是否显示全屏按钮
-    /// </summary>
     internal static readonly DependencyProperty ShowFullScreenButtonProperty = DependencyProperty.Register(
         nameof(ShowFullScreenButton), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
-    /// <summary>
-    ///     关闭按钮是否显示中
-    /// </summary>
     internal static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
         nameof(ShowCloseButton), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
@@ -310,6 +288,12 @@ public class ImageViewer : Control
     {
         get => (BitmapFrame) GetValue(ImageSourceProperty);
         set => SetValue(ImageSourceProperty, value);
+    }
+
+    public Uri Uri
+    {
+        get => (Uri) GetValue(UriProperty);
+        set => SetValue(UriProperty, value);
     }
 
     public bool ShowToolBar
@@ -515,18 +499,18 @@ public class ImageViewer : Control
 
         _imgWidHeiScale = width / height;
         var scaleWindow = ActualWidth / ActualHeight;
+        ImageScale = 1;
+
         if (_imgWidHeiScale > scaleWindow)
         {
             if (width > ActualWidth)
+            {
                 ImageScale = ActualWidth / width;
+            }
         }
         else if (height > ActualHeight)
         {
             ImageScale = ActualHeight / height;
-        }
-        else
-        {
-            ImageScale = 1;
         }
 
         ImageMargin = new Thickness((ActualWidth - ImageWidth) / 2, (ActualHeight - ImageHeight) / 2, 0, 0);
@@ -954,5 +938,73 @@ public class ImageViewer : Control
         InputBindings.Remove(_mouseMoveBinding);
         _mouseMoveBinding = new MouseBinding(ControlCommands.MouseMove, newValue);
         InputBindings.Add(_mouseMoveBinding);
+    }
+
+    private static void OnImageSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((ImageViewer) d).OnImageSourceChanged();
+    }
+
+    private void OnImageSourceChanged()
+    {
+        Init();
+    }
+
+    private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var self = (ImageViewer) d;
+
+        if (e.NewValue is Uri uri)
+        {
+            self.ImageSource = GetBitmapFrame(uri);
+            self.Init();
+        }
+        else
+        {
+            self.ImageSource = null;
+        }
+
+        static BitmapFrame GetBitmapFrame(Uri source)
+        {
+            try
+            {
+                return BitmapFrame.Create(source);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+    }
+
+    private void OnUriChanged(Uri newValue)
+    {
+        if (newValue is not null)
+        {
+            ImageSource = GetBitmapFrame(newValue);
+            ImgPath = newValue.AbsolutePath;
+
+            if (File.Exists(ImgPath))
+            {
+                ImgSize = new FileInfo(ImgPath).Length;
+            }
+        }
+        else
+        {
+            ImageSource = null;
+            ImgPath = string.Empty;
+        }
+
+        static BitmapFrame GetBitmapFrame(Uri source)
+        {
+            try
+            {
+                return BitmapFrame.Create(source);
+            }
+            catch
+            {
+                return null;
+            }
+        }
     }
 }
