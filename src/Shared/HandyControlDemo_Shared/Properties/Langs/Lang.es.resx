@@ -457,7 +457,7 @@
     <value>CoverFlow</value>
   </data>
   <data name="PlsEnterKey" xml:space="preserve">
-    <value>Buscar</value> <!-- "Buscar" is more like "Search". I think it fits better @jhm-ciberman -->
+    <value>Buscar</value>
   </data>
   <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
     <value>Abrir ventana arrastrable sin bordes</value>
@@ -803,5 +803,8 @@
   </data>
   <data name="Watermark" xml:space="preserve">
     <value>Watermark</value>
+  </data>
+  <data name="CloseMainWindowDialog" xml:space="preserve">
+    <value>Close main window dialog</value>
   </data>
 </root>

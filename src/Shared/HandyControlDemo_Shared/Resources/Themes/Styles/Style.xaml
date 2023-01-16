@@ -125,7 +125,7 @@
                                 </Setter.Value>
                             </Setter>
                             <Setter Property="SelectionCornerRadius" Value="0" />
-                            <Setter Property="SelectionForeground" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}" />
+                            <Setter Property="SelectionForeground" Value="{DynamicResource TextIconBrush}" />
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="avalonedit:TextArea">

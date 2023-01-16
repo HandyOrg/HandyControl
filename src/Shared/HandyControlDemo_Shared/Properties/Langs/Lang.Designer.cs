@@ -389,6 +389,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to 关闭主窗口对话框.
+        /// </summary>
+        public static string CloseMainWindowDialog
+        {
+            get
+            {
+                return ResourceManager.GetString("CloseMainWindowDialog", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to 颜色拾取器.
         /// </summary>
         public static string ColorPicker

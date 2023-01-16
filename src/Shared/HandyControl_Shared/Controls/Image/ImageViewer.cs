@@ -1,10 +1,12 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
@@ -99,9 +101,9 @@ public class ImageViewer : Control
     private Point _imgCurrentPoint;
 
     /// <summary>
-    ///     鼠标是否在图片上按下左键
+    ///     鼠标是否在图片上按下
     /// </summary>
-    private bool _imgIsMouseLeftButtonDown;
+    private bool _imgIsMouseDown;
 
     /// <summary>
     ///     在图片上按下时图片的位置
@@ -119,9 +121,9 @@ public class ImageViewer : Control
     private Point _imgSmallCurrentPoint;
 
     /// <summary>
-    ///     鼠标是否在小图片上按下左键
+    ///     鼠标是否在小图片上按下
     /// </summary>
-    private bool _imgSmallIsMouseLeftButtonDown;
+    private bool _imgSmallIsMouseDown;
 
     /// <summary>
     ///     在小图片上按下时图片的位置
@@ -162,6 +164,8 @@ public class ImageViewer : Control
 
     private bool _isLoaded;
 
+    private MouseBinding _mouseMoveBinding;
+
     #endregion Data
 
     #region ctor
@@ -175,6 +179,8 @@ public class ImageViewer : Control
         CommandBindings.Add(new CommandBinding(ControlCommands.Enlarge, ButtonEnlarge_OnClick));
         CommandBindings.Add(new CommandBinding(ControlCommands.RotateLeft, ButtonRotateLeft_OnClick));
         CommandBindings.Add(new CommandBinding(ControlCommands.RotateRight, ButtonRotateRight_OnClick));
+        CommandBindings.Add(new CommandBinding(ControlCommands.MouseMove, ImageMain_OnMouseDown));
+        OnMoveGestureChanged(MoveGesture);
 
         Loaded += (s, e) =>
         {
@@ -189,20 +195,7 @@ public class ImageViewer : Control
     /// <param name="uri"></param>
     public ImageViewer(Uri uri) : this()
     {
-        try
-        {
-            ImageSource = BitmapFrame.Create(uri);
-            ImgPath = uri.AbsolutePath;
-            if (File.Exists(ImgPath))
-            {
-                var info = new FileInfo(ImgPath);
-                ImgSize = info.Length;
-            }
-        }
-        catch
-        {
-            MessageBox.Show(Lang.ErrorImgPath);
-        }
+        Uri = uri;
     }
 
     /// <summary>
@@ -223,11 +216,8 @@ public class ImageViewer : Control
     public static readonly DependencyProperty ImageSourceProperty = DependencyProperty.Register(
         nameof(ImageSource), typeof(BitmapFrame), typeof(ImageViewer), new PropertyMetadata(default(BitmapFrame), OnImageSourceChanged));
 
-    private static void OnImageSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
-    {
-        var ctl = (ImageViewer) d;
-        ctl.Init();
-    }
+    public static readonly DependencyProperty UriProperty = DependencyProperty.Register(
+        nameof(Uri), typeof(Uri), typeof(ImageViewer), new PropertyMetadata(default(Uri), OnUriChanged));
 
     public static readonly DependencyProperty ShowToolBarProperty = DependencyProperty.Register(
         nameof(ShowToolBar), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.TrueBox));
@@ -235,21 +225,18 @@ public class ImageViewer : Control
     public static readonly DependencyProperty IsFullScreenProperty = DependencyProperty.Register(
         nameof(IsFullScreen), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
+    public static readonly DependencyProperty MoveGestureProperty = DependencyProperty.Register(
+        nameof(MoveGesture), typeof(MouseGesture), typeof(ImageViewer), new UIPropertyMetadata(new MouseGesture(MouseAction.LeftClick), OnMoveGestureChanged));
+
     internal static readonly DependencyProperty ImgPathProperty = DependencyProperty.Register(
         nameof(ImgPath), typeof(string), typeof(ImageViewer), new PropertyMetadata(default(string)));
 
     internal static readonly DependencyProperty ImgSizeProperty = DependencyProperty.Register(
         nameof(ImgSize), typeof(long), typeof(ImageViewer), new PropertyMetadata(-1L));
 
-    /// <summary>
-    ///     是否显示全屏按钮
-    /// </summary>
     internal static readonly DependencyProperty ShowFullScreenButtonProperty = DependencyProperty.Register(
         nameof(ShowFullScreenButton), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
-    /// <summary>
-    ///     关闭按钮是否显示中
-    /// </summary>
     internal static readonly DependencyProperty ShowCloseButtonProperty = DependencyProperty.Register(
         nameof(ShowCloseButton), typeof(bool), typeof(ImageViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
@@ -283,6 +270,14 @@ public class ImageViewer : Control
         set => SetValue(IsFullScreenProperty, ValueBoxes.BooleanBox(value));
     }
 
+    [ValueSerializer(typeof(MouseGestureValueSerializer))]
+    [TypeConverter(typeof(MouseGestureConverter))]
+    public MouseGesture MoveGesture
+    {
+        get => (MouseGesture) GetValue(MoveGestureProperty);
+        set => SetValue(MoveGestureProperty, value);
+    }
+
     public bool ShowImgMap
     {
         get => (bool) GetValue(ShowImgMapProperty);
@@ -293,6 +288,12 @@ public class ImageViewer : Control
     {
         get => (BitmapFrame) GetValue(ImageSourceProperty);
         set => SetValue(ImageSourceProperty, value);
+    }
+
+    public Uri Uri
+    {
+        get => (Uri) GetValue(UriProperty);
+        set => SetValue(UriProperty, value);
     }
 
     public bool ShowToolBar
@@ -408,8 +409,6 @@ public class ImageViewer : Control
 
     public override void OnApplyTemplate()
     {
-        if (_imageMain != null) _imageMain.MouseLeftButtonDown -= ImageMain_OnMouseLeftButtonDown;
-
         if (_canvasSmallImg != null)
         {
             _canvasSmallImg.MouseLeftButtonDown -= CanvasSmallImg_OnMouseLeftButtonDown;
@@ -430,7 +429,6 @@ public class ImageViewer : Control
             var t = new RotateTransform();
             BindingOperations.SetBinding(t, RotateTransform.AngleProperty, new Binding(ImageRotateProperty.Name) { Source = this });
             _imageMain.LayoutTransform = t;
-            _imageMain.MouseLeftButtonDown += ImageMain_OnMouseLeftButtonDown;
         }
 
         if (_canvasSmallImg != null)
@@ -501,18 +499,18 @@ public class ImageViewer : Control
 
         _imgWidHeiScale = width / height;
         var scaleWindow = ActualWidth / ActualHeight;
+        ImageScale = 1;
+
         if (_imgWidHeiScale > scaleWindow)
         {
             if (width > ActualWidth)
+            {
                 ImageScale = ActualWidth / width;
+            }
         }
         else if (height > ActualHeight)
         {
             ImageScale = ActualHeight / height;
-        }
-        else
-        {
-            ImageScale = 1;
         }
 
         ImageMargin = new Thickness((ActualWidth - ImageWidth) / 2, (ActualHeight - ImageHeight) / 2, 0, 0);
@@ -581,12 +579,10 @@ public class ImageViewer : Control
         if (SaveFileDialog.ShowDialog() == true)
         {
             var path = SaveFileDialog.FileName;
-            using (var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write))
-            {
-                var encoder = new PngBitmapEncoder();
-                encoder.Frames.Add(BitmapFrame.Create(ImageSource));
-                encoder.Save(fileStream);
-            }
+            using var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write);
+            var encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(ImageSource));
+            encoder.Save(fileStream);
         }
     }
 
@@ -645,14 +641,14 @@ public class ImageViewer : Control
         MoveSmallImg(_imgSmallMouseDownMargin.Left, _imgSmallMouseDownMargin.Top);
     }
 
-    private void ImageMain_OnMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+    private void ImageMain_OnMouseDown(object sender, ExecutedRoutedEventArgs e)
     {
         _imgMouseDownPoint = Mouse.GetPosition(_panelMain);
         _imgMouseDownMargin = ImageMargin;
-        _imgIsMouseLeftButtonDown = true;
+        _imgIsMouseDown = true;
     }
 
-    protected override void OnPreviewMouseLeftButtonUp(MouseButtonEventArgs e) => _imgIsMouseLeftButtonDown = false;
+    protected override void OnPreviewMouseUp(MouseButtonEventArgs e) => _imgIsMouseDown = false;
 
     /// <summary>
     ///     右下角小图片显示切换
@@ -818,6 +814,14 @@ public class ImageViewer : Control
         BeginAnimation(ImageRotateProperty, animation);
     }
 
+    private MouseButtonState GetMouseButtonState() => MoveGesture.MouseAction switch
+    {
+        MouseAction.LeftClick => Mouse.LeftButton,
+        MouseAction.RightClick => Mouse.RightButton,
+        MouseAction.MiddleClick => Mouse.MiddleButton,
+        _ => Mouse.LeftButton
+    };
+
     /// <summary>
     ///     移动图片
     /// </summary>
@@ -827,12 +831,12 @@ public class ImageViewer : Control
         ShowCloseButton = _imgCurrentPoint.Y < 200;
         ShowBorderBottom = _imgCurrentPoint.Y > ActualHeight - 200;
 
-        if (Mouse.LeftButton == MouseButtonState.Released)
+        if (GetMouseButtonState() == MouseButtonState.Released)
         {
             return;
         }
 
-        if (_imgIsMouseLeftButtonDown)
+        if (_imgIsMouseDown)
         {
             var subX = _imgCurrentPoint.X - _imgMouseDownPoint.X;
             var subY = _imgCurrentPoint.Y - _imgMouseDownPoint.Y;
@@ -869,12 +873,12 @@ public class ImageViewer : Control
     /// </summary>
     private void MoveSmallImg()
     {
-        if (!_imgSmallIsMouseLeftButtonDown)
+        if (!_imgSmallIsMouseDown)
         {
             return;
         }
 
-        if (Mouse.LeftButton == MouseButtonState.Released)
+        if (GetMouseButtonState() == MouseButtonState.Released)
         {
             return;
         }
@@ -916,11 +920,91 @@ public class ImageViewer : Control
     {
         _imgSmallMouseDownPoint = Mouse.GetPosition(_canvasSmallImg);
         _imgSmallMouseDownMargin = _borderMove.Margin;
-        _imgSmallIsMouseLeftButtonDown = true;
+        _imgSmallIsMouseDown = true;
         e.Handled = true;
     }
 
-    private void CanvasSmallImg_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e) => _imgSmallIsMouseLeftButtonDown = false;
+    private void CanvasSmallImg_OnMouseLeftButtonUp(object sender, MouseButtonEventArgs e) => _imgSmallIsMouseDown = false;
 
     private void CanvasSmallImg_OnMouseMove(object sender, MouseEventArgs e) => MoveSmallImg();
+
+    private static void OnMoveGestureChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((ImageViewer) d).OnMoveGestureChanged((MouseGesture) e.NewValue);
+    }
+
+    private void OnMoveGestureChanged(MouseGesture newValue)
+    {
+        InputBindings.Remove(_mouseMoveBinding);
+        _mouseMoveBinding = new MouseBinding(ControlCommands.MouseMove, newValue);
+        InputBindings.Add(_mouseMoveBinding);
+    }
+
+    private static void OnImageSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        ((ImageViewer) d).OnImageSourceChanged();
+    }
+
+    private void OnImageSourceChanged()
+    {
+        Init();
+    }
+
+    private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var self = (ImageViewer) d;
+
+        if (e.NewValue is Uri uri)
+        {
+            self.ImageSource = GetBitmapFrame(uri);
+            self.Init();
+        }
+        else
+        {
+            self.ImageSource = null;
+        }
+
+        static BitmapFrame GetBitmapFrame(Uri source)
+        {
+            try
+            {
+                return BitmapFrame.Create(source);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+    }
+
+    private void OnUriChanged(Uri newValue)
+    {
+        if (newValue is not null)
+        {
+            ImageSource = GetBitmapFrame(newValue);
+            ImgPath = newValue.AbsolutePath;
+
+            if (File.Exists(ImgPath))
+            {
+                ImgSize = new FileInfo(ImgPath).Length;
+            }
+        }
+        else
+        {
+            ImageSource = null;
+            ImgPath = string.Empty;
+        }
+
+        static BitmapFrame GetBitmapFrame(Uri source)
+        {
+            try
+            {
+                return BitmapFrame.Create(source);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+    }
 }

@@ -22,7 +22,7 @@ public partial class MainWindowContent
         ButtonShiftOut.Collapse();
         GridSplitter.IsEnabled = false;
 
-        double targetValue = -ColumnDefinitionLeft.Width.Value;
+        double targetValue = -ColumnDefinitionLeft.MaxWidth;
         _columnDefinitionWidth = ColumnDefinitionLeft.Width;
 
         DoubleAnimation animation = AnimationHelper.CreateAnimation(targetValue, milliseconds: 100);
