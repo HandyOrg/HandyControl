@@ -166,6 +166,8 @@ public class ImageViewer : Control
 
     private MouseBinding _mouseMoveBinding;
 
+    private ImageBrowser _imageBrowser;
+
     #endregion Data
 
     #region ctor
@@ -588,13 +590,11 @@ public class ImageViewer : Control
 
     private void ButtonWindowsOpen_OnClick(object sender, RoutedEventArgs e)
     {
-        try
+        if (Uri is { } uri)
         {
-            Process.Start(ImgPath);
-        }
-        catch (Exception exception)
-        {
-            MessageBox.Show(exception.Message);
+            _imageBrowser?.Close();
+            _imageBrowser = new ImageBrowser(uri);
+            _imageBrowser.Show();
         }
     }
 

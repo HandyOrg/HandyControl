@@ -43,6 +43,7 @@ public class ImageBrowser : Window
 
         WindowStartupLocation = WindowStartupLocation.CenterScreen;
         WindowStyle = WindowStyle.None;
+        Topmost = true;
         AllowsTransparency = true;
     }
 
