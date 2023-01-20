@@ -13,7 +13,7 @@ public class DemoItemModel : ObservableObject
 
     public string TargetCtlName { get; set; }
 
-    public string ImageName { get; set; }
+    public object ImageBrush { get; set; }
 
     public bool IsNew { get; set; }
 

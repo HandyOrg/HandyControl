@@ -1,15 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Windows;
 using HandyControl.Data;
+using HandyControl.Tools;
 using HandyControlDemo.Data;
 using HandyControlDemo.Properties.Langs;
-using HandyControlDemo.Tools.Converter;
 using Newtonsoft.Json;
 
 namespace HandyControlDemo.Service;
@@ -402,7 +401,7 @@ public class DataService
         {
             var name = (string) item[0];
             string targetCtlName = item[1];
-            string imageName = item[2];
+            string imageBrushName = item[2];
             var isNew = !string.IsNullOrEmpty((string) item[3]);
             var groupName = (string) item[4];
             if (string.IsNullOrEmpty(groupName))
@@ -414,7 +413,7 @@ public class DataService
             {
                 Name = name,
                 TargetCtlName = targetCtlName,
-                ImageName = $"../../Resources/Img/LeftMainContent/{imageName}.png",
+                ImageBrush = ResourceHelper.GetResource<object>(imageBrushName),
                 IsNew = isNew,
                 GroupName = groupName
             });
