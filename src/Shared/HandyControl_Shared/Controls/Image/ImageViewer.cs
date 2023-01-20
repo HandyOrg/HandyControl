@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -952,29 +951,7 @@ public class ImageViewer : Control
 
     private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        var self = (ImageViewer) d;
-
-        if (e.NewValue is Uri uri)
-        {
-            self.ImageSource = GetBitmapFrame(uri);
-            self.Init();
-        }
-        else
-        {
-            self.ImageSource = null;
-        }
-
-        static BitmapFrame GetBitmapFrame(Uri source)
-        {
-            try
-            {
-                return BitmapFrame.Create(source);
-            }
-            catch
-            {
-                return null;
-            }
-        }
+        ((ImageViewer) d).OnUriChanged((Uri) e.NewValue);
     }
 
     private void OnUriChanged(Uri newValue)
