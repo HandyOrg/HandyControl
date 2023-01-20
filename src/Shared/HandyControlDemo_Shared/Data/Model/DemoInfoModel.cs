@@ -13,7 +13,7 @@ public class DemoInfoModel : ViewModelBase
     {
         get => _title;
 #if NET40
-            set => Set(nameof(Title), ref _title, value);
+        set => Set(nameof(Title), ref _title, value);
 #else
         set => Set(ref _title, value);
 #endif
@@ -25,7 +25,7 @@ public class DemoInfoModel : ViewModelBase
     {
         get => _selectedIndex;
 #if NET40
-            set => Set(nameof(SelectedIndex), ref _selectedIndex, value);
+        set => Set(nameof(SelectedIndex), ref _selectedIndex, value);
 #else
         set => Set(ref _selectedIndex, value);
 #endif   
