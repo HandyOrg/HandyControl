@@ -105,97 +105,80 @@
             </Setter.Value>
         </Setter>
         <Setter Property="hc:VisualElement.HighlightBrush" Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource SecondaryBorderBrush}" />
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="6,0,0,0"/>
-        <Setter Property="Width" Value="36"/>
-        <Setter Property="Height" Value="22"/>
+        <Setter Property="Padding" Value="6,0,0,0" />
+        <Setter Property="Height" Value="24"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ToggleButton">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="StoryboardChecked">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="thumb">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="14">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="32">
                                     <EasingDoubleKeyFrame.EasingFunction>
-                                        <PowerEase EasingMode="EaseOut"/>
+                                        <CubicEase EasingMode="EaseInOut"/>
                                     </EasingDoubleKeyFrame.EasingFunction>
                                 </EasingDoubleKeyFrame>
                             </DoubleAnimationUsingKeyFrames>
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="lightBorder">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="innerBorder">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-                                    <EasingDoubleKeyFrame.EasingFunction>
-                                        <PowerEase EasingMode="EaseOut"/>
-                                    </EasingDoubleKeyFrame.EasingFunction>
-                                </EasingDoubleKeyFrame>
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="innerBorder">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
-                                    <EasingDoubleKeyFrame.EasingFunction>
-                                        <PowerEase EasingMode="EaseOut"/>
-                                    </EasingDoubleKeyFrame.EasingFunction>
-                                </EasingDoubleKeyFrame>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="innerBorder">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                         <Storyboard x:Key="StoryboardUnChecked">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(TranslateTransform.X)" Storyboard.TargetName="thumb">
                                 <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0">
                                     <EasingDoubleKeyFrame.EasingFunction>
-                                        <PowerEase EasingMode="EaseOut"/>
+                                        <CubicEase EasingMode="EaseInOut" />
                                     </EasingDoubleKeyFrame.EasingFunction>
                                 </EasingDoubleKeyFrame>
                             </DoubleAnimationUsingKeyFrames>
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="lightBorder">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="innerBorder">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
-                                    <EasingDoubleKeyFrame.EasingFunction>
-                                        <PowerEase EasingMode="EaseOut"/>
-                                    </EasingDoubleKeyFrame.EasingFunction>
-                                </EasingDoubleKeyFrame>
-                            </DoubleAnimationUsingKeyFrames>
-                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="innerBorder">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1">
-                                    <EasingDoubleKeyFrame.EasingFunction>
-                                        <PowerEase EasingMode="EaseOut"/>
-                                    </EasingDoubleKeyFrame.EasingFunction>
-                                </EasingDoubleKeyFrame>
+                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="innerBorder">
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
-                    <Viewbox>
-                        <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto"/>
-                                <ColumnDefinition Width="*"/>
-                            </Grid.ColumnDefinitions>
-                            <Border Height="22" Width="36" x:Name="backBorder" Background="{DynamicResource BorderBrush}" CornerRadius="11"/>
-                            <Border Grid.Column="0" Height="22" Width="36" Opacity="0" x:Name="lightBorder" Background="{Binding Path=(hc:VisualElement.HighlightBrush),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="11" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
-                            <Border Grid.Column="0" Height="20" Margin="1" Background="{TemplateBinding Background}" CornerRadius="11" Name="innerBorder" RenderTransformOrigin=".8,0.5">
-                                <Border.RenderTransform>
-                                    <TransformGroup>
-                                        <ScaleTransform/>
-                                    </TransformGroup>
-                                </Border.RenderTransform>
-                            </Border>
-                            <hc:SimplePanel Grid.Column="0" Margin="1">
-                                <Border HorizontalAlignment="Left" CornerRadius="10" Name="thumb" Effect="{StaticResource EffectShadow2}" Background="White" Width="20" Height="20" RenderTransformOrigin="0.5,0.5">
+                    <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+                        <Viewbox>
+                            <hc:SimplePanel Width="80" Height="48">
+                                <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="24" Name="innerBorder">
+                                    <hc:ToggleBlock HorizontalAlignment="Right" Margin="0 0 12 0" IsChecked="{Binding Path=(hc:ToggleButtonAttach.ShowLabel),RelativeSource={RelativeSource TemplatedParent}}">
+                                        <hc:ToggleBlock.CheckedContent>
+                                            <Ellipse Width="16" Height="16" StrokeThickness="2" Stroke="{Binding Path=(hc:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" />
+                                        </hc:ToggleBlock.CheckedContent>
+                                    </hc:ToggleBlock>
+                                </Border>
+                                <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Opacity="0" x:Name="lightBorder" Background="{Binding Path=(hc:VisualElement.HighlightBrush),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="24">
+                                    <hc:ToggleBlock HorizontalAlignment="Left" Margin="18 0 0 0" IsChecked="{Binding Path=(hc:ToggleButtonAttach.ShowLabel),RelativeSource={RelativeSource TemplatedParent}}">
+                                        <hc:ToggleBlock.CheckedContent>
+                                            <Rectangle Width="2" Height="16" Fill="{DynamicResource TextIconBrush}" />
+                                        </hc:ToggleBlock.CheckedContent>
+                                    </hc:ToggleBlock>
+                                </Border>
+                                <Border Margin="2" HorizontalAlignment="Left" CornerRadius="22" Name="thumb" Effect="{StaticResource EffectShadow2}" Background="White" Width="44" Height="44" RenderTransformOrigin="0.5,0.5">
                                     <Border.RenderTransform>
                                         <TransformGroup>
-                                            <TranslateTransform/>
+                                            <TranslateTransform />
                                         </TransformGroup>
                                     </Border.RenderTransform>
                                 </Border>
                             </hc:SimplePanel>
-                            <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        </Grid>
-                    </Viewbox>
+                        </Viewbox>
+                        <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasContent" Value="true">
                             <Setter Property="Visibility" TargetName="contentPresenter" Value="Visible"/>
