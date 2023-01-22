@@ -10,90 +10,92 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Rectangle Margin="-4" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4"/>
+                                <Rectangle Margin="-4" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4" />
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
                 </Style>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="HorizontalAlignment" Value="Center"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="6,0,0,0"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="StoryboardCheckedTrue">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="optionMark">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.5"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="optionMark">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0.5"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                         <Storyboard x:Key="StoryboardCheckedFalse">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleX)" Storyboard.TargetName="optionMark">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[0].(ScaleTransform.ScaleY)" Storyboard.TargetName="optionMark">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="1"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.1" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Border Height="18" Width="18" x:Name="radioButtonBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="100" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
-                            <Ellipse x:Name="optionMark" Fill="White" MinWidth="6" MinHeight="6" RenderTransformOrigin="0.5,0.5">
+                        <Border Height="16" Width="16" Background="{TemplateBinding Background}" CornerRadius="8" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                            <Ellipse x:Name="optionMark" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Fill="White" Width="8" Height="8" RenderTransformOrigin="0.5,0.5">
                                 <Ellipse.RenderTransform>
                                     <TransformGroup>
-                                        <ScaleTransform/>
+                                        <ScaleTransform ScaleX="0" ScaleY="0" />
                                     </TransformGroup>
                                 </Ellipse.RenderTransform>
                             </Ellipse>
                         </Border>
-                        <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <Border x:Name="border" Grid.Column="0" Height="16" Width="16" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="8" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasContent" Value="true">
-                            <Setter Property="Visibility" TargetName="contentPresenter" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="contentPresenter" Value="Visible" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsChecked" Value="true"/>
-                                <Condition Property="IsPressed" Value="true"/>
+                                <Condition Property="IsChecked" Value="true" />
+                                <Condition Property="IsPressed" Value="true" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Opacity" Value=".8"/>
+                            <Setter Property="Opacity" Value=".8" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsChecked" Value="false"/>
-                                <Condition Property="IsPressed" Value="true"/>
+                                <Condition Property="IsChecked" Value="false" />
+                                <Condition Property="IsPressed" Value="true" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
                         </MultiTrigger>
                         <Trigger Property="IsChecked" Value="true">
                             <Trigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedTrue}"/>
+                                <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedTrue}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedFalse}"/>
+                                <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedFalse}" />
                             </Trigger.ExitActions>
-                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-                            <Setter Property="BorderBrush" Value="{DynamicResource DarkPrimaryBrush}"/>
+                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource DarkPrimaryBrush}" />
+                            <Setter TargetName="border" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.4"/>
+                            <Setter Property="Opacity" Value="0.4" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -102,31 +104,31 @@
     </Style>
 
     <Style x:Key="RadioButtonSameAsButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RadioButton">
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
-        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <hc:SimplePanel>
-                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"/>
+                        <Border Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" />
                         <Border BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
-                                <Path x:Name="PathMain" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}"/>
-                                <ContentPresenter x:Name="ContentPresenterMain" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                <Path x:Name="PathMain" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}" />
+                                <ContentPresenter x:Name="ContentPresenterMain" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </StackPanel>
                         </Border>
-                        <Border Margin="-1" Visibility="Collapsed" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{DynamicResource DarkMaskBrush}"/>
+                        <Border Margin="-1" Visibility="Collapsed" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{DynamicResource DarkMaskBrush}" />
                     </hc:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="true">
-                            <Setter TargetName="BorderChecked" Property="Visibility" Value="Visible"/>
+                            <Setter TargetName="BorderChecked" Property="Visibility" Value="Visible" />
                         </Trigger>
                         <Trigger Property="Content" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="ContentPresenterMain"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ContentPresenterMain" />
                         </Trigger>
                         <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
-                            <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain" />
+                            <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -134,45 +136,45 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Opacity" Value=".9"/>
+                <Setter Property="Opacity" Value=".9" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Opacity" Value=".6"/>
+                <Setter Property="Opacity" Value=".6" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value="0.4"/>
+                <Setter Property="Opacity" Value="0.4" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style x:Key="RadioButtonIconBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RadioButton">
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
-        <Setter Property="hc:VisualElement.HighlightBrush" Value="{DynamicResource PrimaryBrush}"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisualRadius0}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="0" />
+        <Setter Property="hc:VisualElement.HighlightBrush" Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <Border Name="BorderHighlight" BorderThickness="3,0,0,0" BorderBrush="Transparent">
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
-                                <Path x:Name="PathMain" Height="{Binding Path=(hc:IconElement.Height),RelativeSource={RelativeSource TemplatedParent}}" Width="{Binding Path=(hc:IconElement.Width),RelativeSource={RelativeSource TemplatedParent}}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}"/>
-                                <ContentPresenter x:Name="ContentPresenterMain" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                <Path x:Name="PathMain" Height="{Binding Path=(hc:IconElement.Height),RelativeSource={RelativeSource TemplatedParent}}" Width="{Binding Path=(hc:IconElement.Width),RelativeSource={RelativeSource TemplatedParent}}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}" />
+                                <ContentPresenter x:Name="ContentPresenterMain" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                             </StackPanel>
                         </Border>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="Content" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="ContentPresenterMain"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="ContentPresenterMain" />
                         </Trigger>
                         <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
-                            <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain" />
+                            <Setter Property="Margin" Value="0" TargetName="ContentPresenterMain" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="True">
-                            <Setter Property="BorderBrush" Value="{Binding Path=(hc:VisualElement.HighlightBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderHighlight"/>
+                            <Setter Property="BorderBrush" Value="{Binding Path=(hc:VisualElement.HighlightBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderHighlight" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -180,54 +182,54 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Opacity" Value=".9"/>
+                <Setter Property="Opacity" Value=".9" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Opacity" Value=".6"/>
+                <Setter Property="Opacity" Value=".6" />
             </Trigger>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value="0.4"/>
+                <Setter Property="Opacity" Value="0.4" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style x:Key="RadioGroupItemBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="RadioButton">
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Center"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="0"/>
-        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}"/>
-        <Setter Property="Padding" Value="10,0"/>
-        <Setter Property="Margin" Value="-1,0,0,0"/>
-        <Setter Property="hc:IconElement.Width" Value="16"/>
-        <Setter Property="hc:IconElement.Height" Value="16"/>
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="0" />
+        <Setter Property="Height" Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding" Value="10,0" />
+        <Setter Property="Margin" Value="-1,0,0,0" />
+        <Setter Property="hc:IconElement.Width" Value="16" />
+        <Setter Property="hc:IconElement.Height" Value="16" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
                     <Border x:Name="BorderRoot" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
                         <StackPanel Orientation="Horizontal" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Margin="{TemplateBinding Padding}">
-                            <Path x:Name="PathMain" Height="{Binding Path=(hc:IconElement.Height),RelativeSource={RelativeSource TemplatedParent}}" Width="{Binding Path=(hc:IconElement.Width),RelativeSource={RelativeSource TemplatedParent}}" Fill="{Binding Path=(TextElement.Foreground),ElementName=contentPresenter}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}"/>
-                            <ContentPresenter x:Name="contentPresenter" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                            <Path x:Name="PathMain" Height="{Binding Path=(hc:IconElement.Height),RelativeSource={RelativeSource TemplatedParent}}" Width="{Binding Path=(hc:IconElement.Width),RelativeSource={RelativeSource TemplatedParent}}" Fill="{Binding Path=(TextElement.Foreground),ElementName=contentPresenter}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconElement.Geometry}" />
+                            <ContentPresenter x:Name="contentPresenter" RecognizesAccessKey="True" VerticalAlignment="Center" Margin="6,0,0,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                         </StackPanel>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter"/>
+                            <Setter Property="TextElement.Foreground" Value="{DynamicResource PrimaryBrush}" TargetName="contentPresenter" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="true">
-                            <Setter Property="BorderBrush" Value="{Binding Path=(hc:VisualElement.HighlightBorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
-                            <Setter Property="Background" Value="{Binding Path=(hc:VisualElement.HighlightBackground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot"/>
-                            <Setter Property="TextElement.Foreground" Value="{Binding Path=(hc:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter"/>
+                            <Setter Property="BorderBrush" Value="{Binding Path=(hc:VisualElement.HighlightBorderBrush),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot" />
+                            <Setter Property="Background" Value="{Binding Path=(hc:VisualElement.HighlightBackground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="BorderRoot" />
+                            <Setter Property="TextElement.Foreground" Value="{Binding Path=(hc:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" TargetName="contentPresenter" />
                         </Trigger>
                         <Trigger Property="Content" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="contentPresenter"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="contentPresenter" />
                         </Trigger>
                         <Trigger Property="hc:IconElement.Geometry" Value="{x:Null}">
-                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain"/>
-                            <Setter Property="Margin" Value="0" TargetName="contentPresenter"/>
+                            <Setter Property="Visibility" Value="Collapsed" TargetName="PathMain" />
+                            <Setter Property="Margin" Value="0" TargetName="contentPresenter" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -235,19 +237,19 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsEnabled" Value="False">
-                <Setter Property="Opacity" Value="0.4"/>
+                <Setter Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="IsChecked" Value="True">
-                <Setter Property="Panel.ZIndex" Value="{x:Static system:Int32.MaxValue}"/>
+                <Setter Property="Panel.ZIndex" Value="{x:Static system:Int32.MaxValue}" />
             </Trigger>
             <DataTrigger Binding="{Binding Orientation,RelativeSource={RelativeSource  AncestorType=hc:ButtonGroup}}" Value="Vertical">
-                <Setter Property="Margin" Value="0,-1,0,0"/>
+                <Setter Property="Margin" Value="0,-1,0,0" />
             </DataTrigger>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
             </Trigger>
             <Trigger Property="IsPressed" Value="True">
-                <Setter Property="Background" Value="{DynamicResource BorderBrush}"/>
+                <Setter Property="Background" Value="{DynamicResource BorderBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>

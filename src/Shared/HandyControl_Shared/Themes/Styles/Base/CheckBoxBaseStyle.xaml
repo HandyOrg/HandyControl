@@ -9,87 +9,89 @@
                     <Setter Property="Control.Template">
                         <Setter.Value>
                             <ControlTemplate>
-                                <Rectangle Margin="-4" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4"/>
+                                <Rectangle Margin="-4" Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4" />
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
                 </Style>
             </Setter.Value>
         </Setter>
-        <Setter Property="Background" Value="White"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="HorizontalAlignment" Value="Stretch"/>
-        <Setter Property="VerticalAlignment" Value="Center"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="Padding" Value="6,0,0,0"/>
+        <Setter Property="Background" Value="White" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="HorizontalAlignment" Value="Stretch" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="Padding" Value="6,0,0,0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="CheckBox">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="StoryboardCheckedTrue">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeDashOffset)" Storyboard.TargetName="path">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                         <Storyboard x:Key="StoryboardCheckedFalse">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.StrokeDashOffset)" Storyboard.TargetName="path">
-                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="8"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:0.2" Value="8" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True">
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <Border Height="16" Width="16" x:Name="checkBoxBorder" Background="{TemplateBinding Background}" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                        <Border Height="16" Width="16" Background="{TemplateBinding Background}" CornerRadius="2" />
                         <hc:SimplePanel Grid.Column="0" Height="16" Width="16" x:Name="markGrid">
-                            <Path FlowDirection="LeftToRight" UseLayoutRounding="True" x:Name="path" StrokeDashOffset="8" StrokeDashArray="8,8" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}"/>
-                            <Rectangle x:Name="indeterminateMark" RadiusX="2" RadiusY="2" Fill="{DynamicResource PrimaryBrush}" Margin="2" Opacity="0"/>
+                            <Path FlowDirection="LeftToRight" UseLayoutRounding="True" x:Name="path" StrokeDashOffset="8" StrokeDashArray="8,8" Width="12" Height="12" Data="{StaticResource CheckedGeometry}" StrokeThickness="2" Stretch="Uniform" Stroke="{DynamicResource TextIconBrush}" />
+                            <Rectangle x:Name="indeterminateMark" RadiusX="2" RadiusY="2" Fill="{DynamicResource PrimaryBrush}" Margin="2" Opacity="0" />
                         </hc:SimplePanel>
-                        <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <Border Height="16" Width="16" x:Name="border" CornerRadius="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" />
+                        <ContentPresenter x:Name="contentPresenter" Visibility="Collapsed" Grid.Column="1" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="HasContent" Value="true">
-                            <Setter Property="Visibility" TargetName="contentPresenter" Value="Visible"/>
+                            <Setter Property="Visibility" TargetName="contentPresenter" Value="Visible" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true">
-                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
                         </Trigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsChecked" Value="true"/>
-                                <Condition Property="IsPressed" Value="true"/>
+                                <Condition Property="IsChecked" Value="true" />
+                                <Condition Property="IsPressed" Value="true" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="Opacity" Value=".8"/>
+                            <Setter Property="Opacity" Value=".8" />
                         </MultiTrigger>
                         <MultiTrigger>
                             <MultiTrigger.Conditions>
-                                <Condition Property="IsChecked" Value="false"/>
-                                <Condition Property="IsPressed" Value="true"/>
+                                <Condition Property="IsChecked" Value="false" />
+                                <Condition Property="IsPressed" Value="true" />
                             </MultiTrigger.Conditions>
-                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
                         </MultiTrigger>
                         <Trigger Property="IsChecked" Value="true">
                             <Trigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedTrue}"/>
+                                <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedTrue}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedFalse}"/>
+                                <BeginStoryboard Storyboard="{StaticResource StoryboardCheckedFalse}" />
                             </Trigger.ExitActions>
-                            <Setter Property="Opacity" TargetName="indeterminateMark" Value="0"/>
-                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}"/>
-                            <Setter Property="BorderBrush" Value="{DynamicResource DarkPrimaryBrush}"/>
+                            <Setter Property="Opacity" TargetName="indeterminateMark" Value="0" />
+                            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+                            <Setter Property="BorderBrush" Value="{DynamicResource DarkPrimaryBrush}" />
+                            <Setter TargetName="border" Property="Visibility" Value="Collapsed" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="false">
-                            <Setter Property="Stroke" Value="{DynamicResource BorderBrush}" TargetName="path"/>
+                            <Setter Property="Stroke" Value="{DynamicResource BorderBrush}" TargetName="path" />
                         </Trigger>
                         <Trigger Property="IsChecked" Value="{x:Null}">
-                            <Setter Property="Opacity" TargetName="indeterminateMark" Value="1"/>
+                            <Setter Property="Opacity" TargetName="indeterminateMark" Value="1" />
                         </Trigger>
                         <Trigger Property="IsEnabled" Value="False">
-                            <Setter Property="Opacity" Value="0.4"/>
+                            <Setter Property="Opacity" Value="0.4" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
