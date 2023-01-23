@@ -1,17 +1,14 @@
-﻿using System;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
-using HandyControl.Data;
 using HandyControl.Interactivity;
 
 namespace HandyControl.Controls;
 
 [TemplatePart(Name = ElementTextBox, Type = typeof(DatePickerTextBox))]
-public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
+public class DatePicker : System.Windows.Controls.DatePicker
 {
     private const string ElementTextBox = "PART_TextBox";
 
@@ -28,11 +25,6 @@ public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
 
     public override void OnApplyTemplate()
     {
-        if (_textBox != null)
-        {
-            _textBox.TextChanged -= TextBox_TextChanged;
-        }
-
         base.OnApplyTemplate();
 
         _textBox = GetTemplateChild(ElementTextBox) as System.Windows.Controls.TextBox;
@@ -44,49 +36,7 @@ public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
 #endif
             _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
             _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
-
-            _textBox.TextChanged += TextBox_TextChanged;
         }
-    }
-
-    private void TextBox_TextChanged(object sender, TextChangedEventArgs e) => VerifyData();
-
-    public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-    public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        nameof(IsError), typeof(bool), typeof(DatePicker), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    public bool IsError
-    {
-        get => (bool) GetValue(IsErrorProperty);
-        set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
-    }
-
-    public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        nameof(ErrorStr), typeof(string), typeof(DatePicker), new PropertyMetadata(default(string)));
-
-    public string ErrorStr
-    {
-        get => (string) GetValue(ErrorStrProperty);
-        set => SetValue(ErrorStrProperty, value);
-    }
-
-    public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        nameof(TextType), typeof(TextType), typeof(DatePicker), new PropertyMetadata(default(TextType)));
-
-    public TextType TextType
-    {
-        get => (TextType) GetValue(TextTypeProperty);
-        set => SetValue(TextTypeProperty, value);
-    }
-
-    public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        nameof(ShowClearButton), typeof(bool), typeof(DatePicker), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    public bool ShowClearButton
-    {
-        get => (bool) GetValue(ShowClearButtonProperty);
-        set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
     }
 
     public static readonly DependencyProperty SelectionBrushProperty =
@@ -127,51 +77,5 @@ public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
     {
         get => (Brush) GetValue(CaretBrushProperty);
         set => SetValue(CaretBrushProperty, value);
-    }
-
-    public virtual bool VerifyData()
-    {
-        OperationResult<bool> result;
-
-        if (VerifyFunc != null)
-        {
-            result = VerifyFunc.Invoke(Text);
-        }
-        else
-        {
-            if (!string.IsNullOrEmpty(Text))
-            {
-                result = OperationResult.Success();
-            }
-            else if (InfoElement.GetNecessary(this))
-            {
-                result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-            }
-            else
-            {
-                result = OperationResult.Success();
-            }
-        }
-
-        var isError = !result.Data;
-        if (isError)
-        {
-            SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
-            SetCurrentValue(ErrorStrProperty, result.Message);
-        }
-        else
-        {
-            isError = Validation.GetHasError(this);
-            if (isError)
-            {
-                SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
-            }
-            else
-            {
-                SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
-                SetCurrentValue(ErrorStrProperty, default(string));
-            }
-        }
-        return !isError;
     }
 }

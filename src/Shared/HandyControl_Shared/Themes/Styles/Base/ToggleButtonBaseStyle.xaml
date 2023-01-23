@@ -164,7 +164,7 @@
                                 <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Opacity="0" x:Name="lightBorder" Background="{Binding Path=(hc:VisualElement.HighlightBrush),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="24">
                                     <hc:ToggleBlock HorizontalAlignment="Left" Margin="18 0 0 0" IsChecked="{Binding Path=(hc:ToggleButtonAttach.ShowLabel),RelativeSource={RelativeSource TemplatedParent}}">
                                         <hc:ToggleBlock.CheckedContent>
-                                            <Rectangle Width="2" Height="16" Fill="{DynamicResource TextIconBrush}" />
+                                            <Rectangle Width="3" Height="16" RadiusX="1.5" RadiusY="1.5" Fill="{DynamicResource TextIconBrush}" />
                                         </hc:ToggleBlock.CheckedContent>
                                     </hc:ToggleBlock>
                                 </Border>

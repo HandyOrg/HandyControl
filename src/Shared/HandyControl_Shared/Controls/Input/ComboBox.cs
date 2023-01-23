@@ -17,7 +17,7 @@ namespace HandyControl.Controls;
 [TemplatePart(Name = AutoCompletePanel, Type = typeof(Panel))]
 [TemplatePart(Name = EditableTextBox, Type = typeof(System.Windows.Controls.TextBox))]
 [TemplatePart(Name = AutoPopupAutoComplete, Type = typeof(Popup))]
-public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
+public class ComboBox : System.Windows.Controls.ComboBox
 {
 #if NET40
 
@@ -68,8 +68,6 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
 
             if (_editableTextBox != null)
             {
-                _editableTextBox.TextChanged += EditableTextBox_TextChanged;
-
                 _editableTextBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
                 _editableTextBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
@@ -114,11 +112,6 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
 
 #endif
 
-    private void EditableTextBox_TextChanged(object sender, TextChangedEventArgs e)
-    {
-        VerifyData();
-    }
-
     private void EditableTextBox_LostFocus(object sender, RoutedEventArgs e)
     {
         if (_autoPopupAutoComplete != null)
@@ -149,87 +142,15 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     {
         _isAutoCompleteAction = false;
         base.OnSelectionChanged(e);
-        VerifyData();
 #if NET40
         _isAutoCompleteAction = true;
 #endif
     }
 
     /// <summary>
-    ///     数据验证委托
-    /// </summary>
-    public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-    /// <summary>
     ///     数据搜索委托
     /// </summary>
     public Func<ItemCollection, object, IEnumerable<object>> SearchFunc { get; set; }
-
-    /// <summary>
-    ///     数据是否错误
-    /// </summary>
-    public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        nameof(IsError), typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    /// <summary>
-    ///     数据是否错误
-    /// </summary>
-    public bool IsError
-    {
-        get => (bool) GetValue(IsErrorProperty);
-        set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
-    }
-
-    /// <summary>
-    ///     错误提示
-    /// </summary>
-    public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        nameof(ErrorStr), typeof(string), typeof(ComboBox), new PropertyMetadata(default(string)));
-
-    /// <summary>
-    ///     错误提示
-    /// </summary>
-    public string ErrorStr
-    {
-        get => (string) GetValue(ErrorStrProperty);
-        set => SetValue(ErrorStrProperty, value);
-    }
-
-    /// <summary>
-    ///     文本类型
-    /// </summary>
-    public static readonly DependencyPropertyKey TextTypePropertyKey =
-        DependencyProperty.RegisterReadOnly("TextType", typeof(TextType), typeof(ComboBox),
-            new PropertyMetadata(default(TextType)));
-
-    /// <summary>
-    ///     文本类型
-    /// </summary>
-    public static readonly DependencyProperty TextTypeProperty = TextTypePropertyKey.DependencyProperty;
-
-    /// <summary>
-    ///     文本类型
-    /// </summary>
-    public TextType TextType
-    {
-        get => (TextType) GetValue(TextTypeProperty);
-        set => SetValue(TextTypeProperty, value);
-    }
-
-    /// <summary>
-    ///     是否显示清除按钮
-    /// </summary>
-    public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        nameof(ShowClearButton), typeof(bool), typeof(ComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    /// <summary>
-    ///     是否显示清除按钮
-    /// </summary>
-    public bool ShowClearButton
-    {
-        get => (bool) GetValue(ShowClearButtonProperty);
-        set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
-    }
 
     /// <summary>
     ///     是否自动完成输入
@@ -325,59 +246,6 @@ public class ComboBox : System.Windows.Controls.ComboBox, IDataInput
     {
         get => (Brush) GetValue(CaretBrushProperty);
         set => SetValue(CaretBrushProperty, value);
-    }
-
-    /// <summary>
-    ///     验证数据
-    /// </summary>
-    /// <returns></returns>
-    public virtual bool VerifyData()
-    {
-        OperationResult<bool> result;
-
-        var value = _editableTextBox == null ? Text : _editableTextBox.Text;
-
-        if (VerifyFunc != null)
-        {
-            result = VerifyFunc.Invoke(value);
-        }
-        else
-        {
-            if (!string.IsNullOrEmpty(value))
-            {
-                result = OperationResult.Success();
-            }
-            else if (InfoElement.GetNecessary(this))
-            {
-                result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-            }
-            else
-            {
-                result = OperationResult.Success();
-            }
-        }
-
-        var isError = !result.Data;
-        if (isError)
-        {
-            SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
-            SetCurrentValue(ErrorStrProperty, result.Message);
-        }
-        else
-        {
-            isError = Validation.GetHasError(this);
-            if (isError)
-            {
-                SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
-            }
-            else
-            {
-                SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
-                SetCurrentValue(ErrorStrProperty, default(string));
-            }
-        }
-
-        return !isError;
     }
 
     /// <summary>

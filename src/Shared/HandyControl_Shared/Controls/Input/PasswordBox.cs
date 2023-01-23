@@ -10,13 +10,12 @@ using System.Windows.Input;
 using System.Windows.Media;
 using HandyControl.Data;
 using HandyControl.Interactivity;
-using HandyControl.Properties.Langs;
 
 namespace HandyControl.Controls;
 
 [TemplatePart(Name = ElementPasswordBox, Type = typeof(System.Windows.Controls.PasswordBox))]
 [TemplatePart(Name = ElementTextBox, Type = typeof(System.Windows.Controls.TextBox))]
-public class PasswordBox : Control, IDataInput
+public class PasswordBox : Control
 {
     private const string ElementPasswordBox = "PART_PasswordBox";
 
@@ -37,54 +36,6 @@ public class PasswordBox : Control, IDataInput
     {
         get => (char) GetValue(PasswordCharProperty);
         set => SetValue(PasswordCharProperty, value);
-    }
-
-    /// <summary>
-    ///     数据是否错误
-    /// </summary>
-    public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        nameof(IsError), typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    public bool IsError
-    {
-        get => (bool) GetValue(IsErrorProperty);
-        set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
-    }
-
-    /// <summary>
-    ///     错误提示
-    /// </summary>
-    public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        nameof(ErrorStr), typeof(string), typeof(PasswordBox), new PropertyMetadata(default(string)));
-
-    public string ErrorStr
-    {
-        get => (string) GetValue(ErrorStrProperty);
-        set => SetValue(ErrorStrProperty, value);
-    }
-
-    /// <summary>
-    ///     文本类型
-    /// </summary>
-    public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        nameof(TextType), typeof(TextType), typeof(PasswordBox), new PropertyMetadata(default(TextType)));
-
-    public TextType TextType
-    {
-        get => (TextType) GetValue(TextTypeProperty);
-        set => SetValue(TextTypeProperty, value);
-    }
-
-    /// <summary>
-    ///     是否显示清除按钮
-    /// </summary>
-    public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        nameof(ShowClearButton), typeof(bool), typeof(PasswordBox), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    public bool ShowClearButton
-    {
-        get => (bool) GetValue(ShowClearButtonProperty);
-        set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
     }
 
     public static readonly DependencyProperty ShowEyeButtonProperty = DependencyProperty.Register(
@@ -234,52 +185,6 @@ public class PasswordBox : Control, IDataInput
     [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
     public SecureString SecurePassword => ActualPasswordBox?.SecurePassword;
 
-    public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-    public virtual bool VerifyData()
-    {
-        OperationResult<bool> result;
-
-        if (VerifyFunc != null)
-        {
-            result = VerifyFunc.Invoke(ShowEyeButton && ShowPassword
-                ? _textBox.Text
-                : ActualPasswordBox.Password);
-        }
-        else
-        {
-            if (!string.IsNullOrEmpty(ShowEyeButton && ShowPassword
-                    ? _textBox.Text
-                    : ActualPasswordBox.Password))
-                result = OperationResult.Success();
-            else if (InfoElement.GetNecessary(this))
-                result = OperationResult.Failed(Lang.IsNecessary);
-            else
-                result = OperationResult.Success();
-        }
-
-        var isError = !result.Data;
-        if (isError)
-        {
-            SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
-            SetCurrentValue(ErrorStrProperty, result.Message);
-        }
-        else
-        {
-            isError = Validation.GetHasError(this);
-            if (isError)
-            {
-                SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
-            }
-            else
-            {
-                SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
-                SetCurrentValue(ErrorStrProperty, default(string));
-            }
-        }
-        return !isError;
-    }
-
     private static void OnShowPasswordChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var ctl = (PasswordBox) d;
@@ -376,8 +281,6 @@ public class PasswordBox : Control, IDataInput
                 _textBox.Text = ActualPasswordBox.Password;
             }
         }
-
-        VerifyData();
     }
 
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -387,7 +290,5 @@ public class PasswordBox : Control, IDataInput
             Password = _textBox.Text;
             SetCurrentValue(UnsafePasswordProperty, Password);
         }
-
-        VerifyData();
     }
 }

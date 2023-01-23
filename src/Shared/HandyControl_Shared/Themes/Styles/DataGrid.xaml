@@ -114,7 +114,7 @@
     <Style BasedOn="{StaticResource DataGridBaseStyle}" TargetType="DataGrid"/>
 
     <Style x:Key="DataGridCellStyle.Small" BasedOn="{StaticResource DataGridCellStyle}" TargetType="DataGridCell">
-        <Setter Property="Padding" Value="6,2"/>
+        <Setter Property="Padding" Value="6,0"/>
     </Style>
 
     <Style x:Key="DataGridRowStyle.Small" BasedOn="{StaticResource DataGridRowStyle}" TargetType="DataGridRow">

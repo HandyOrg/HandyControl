@@ -204,7 +204,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\ComboBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\DatePicker.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\DateTimePicker.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\IDataInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\NumericUpDown.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\PasswordBox.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Input\SearchBar.cs" />

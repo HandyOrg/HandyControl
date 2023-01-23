@@ -6,7 +6,7 @@
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Rectangle Style="{StaticResource RectangleFocusVisual}" RadiusX="4" RadiusY="4"/>
+                    <Rectangle Style="{StaticResource RectangleFocusVisual}" RadiusX="4" RadiusY="4" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -16,7 +16,7 @@
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Rectangle Style="{StaticResource RectangleFocusVisual}"/>
+                    <Rectangle Style="{StaticResource RectangleFocusVisual}" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -26,7 +26,7 @@
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Rectangle Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4"/>
+                    <Rectangle Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" RadiusX="4" RadiusY="4" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -36,7 +36,7 @@
         <Setter Property="Control.Template">
             <Setter.Value>
                 <ControlTemplate>
-                    <Rectangle Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1"/>
+                    <Rectangle Opacity=".6" SnapsToDevicePixels="true" Stroke="{DynamicResource SecondaryBorderBrush}" StrokeThickness="2" StrokeDashArray="1 1" />
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -45,40 +45,41 @@
     <ControlTemplate x:Key="InputElementErrorTemplate">
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
-            <AdornedElementPlaceholder x:Name="adornedElementPlaceholder"/>
+            <AdornedElementPlaceholder x:Name="adornedElementPlaceholder" />
             <hc:TransitioningContentControl TransitionMode="Top2Bottom" Grid.Row="1" ClipToBounds="True">
-                <TextBlock Foreground="{DynamicResource DangerBrush}" Margin="2,2,0,0" Text="{Binding Path=AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedElementPlaceholder}"/>
+                <TextBlock Foreground="{DynamicResource DangerBrush}" Margin="2,2,0,0" Text="{Binding Path=AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedElementPlaceholder}" />
             </hc:TransitioningContentControl>
         </Grid>
     </ControlTemplate>
 
     <Style x:Key="InputElementBaseStyle" TargetType="Control">
-        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,8,6,0"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
-        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}"/>
-        <Setter Property="Padding" Value="{StaticResource DefaultInputPadding}"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource InputElementErrorTemplate}"/>
+        <Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,7,6,0" />
+        <Setter Property="hc:TitleElement.MarginOnTheTop" Value="8,0,0,5" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding" Value="{StaticResource DefaultInputPadding}" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+        <Setter Property="Validation.ErrorTemplate" Value="{StaticResource InputElementErrorTemplate}" />
         <Style.Triggers>
             <Trigger Property="Validation.HasError" Value="true">
-                <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}"/>
+                <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style x:Key="BaseStyle" TargetType="Control">
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="FontSize" Value="{StaticResource TextFontSize}"/>
-        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="FontSize" Value="{StaticResource TextFontSize}" />
+        <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}" />
     </Style>
 
 </ResourceDictionary>
