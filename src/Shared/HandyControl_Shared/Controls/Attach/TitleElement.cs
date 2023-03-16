@@ -85,6 +85,15 @@ public class TitleElement
     public static Thickness GetMarginOnTheLeft(DependencyObject element)
         => (Thickness) element.GetValue(MarginOnTheLeftProperty);
 
+    public static readonly DependencyProperty MarginOnTheTopProperty = DependencyProperty.RegisterAttached(
+        "MarginOnTheTop", typeof(Thickness), typeof(TitleElement), new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
+
+    public static void SetMarginOnTheTop(DependencyObject element, Thickness value)
+        => element.SetValue(MarginOnTheTopProperty, value);
+
+    public static Thickness GetMarginOnTheTop(DependencyObject element)
+        => (Thickness) element.GetValue(MarginOnTheTopProperty);
+
     public static readonly DependencyProperty PaddingProperty = DependencyProperty.RegisterAttached(
         "Padding", typeof(Thickness), typeof(TitleElement), new FrameworkPropertyMetadata(default(Thickness), FrameworkPropertyMetadataOptions.Inherits));
 

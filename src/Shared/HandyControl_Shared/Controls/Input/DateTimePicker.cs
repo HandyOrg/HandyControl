@@ -20,7 +20,7 @@ namespace HandyControl.Controls;
 [TemplatePart(Name = ElementTextBox, Type = typeof(WatermarkTextBox))]
 [TemplatePart(Name = ElementButton, Type = typeof(Button))]
 [TemplatePart(Name = ElementPopup, Type = typeof(Popup))]
-public class DateTimePicker : Control, IDataInput
+public class DateTimePicker : Control
 {
     #region Constants
 
@@ -238,44 +238,6 @@ public class DateTimePicker : Control, IDataInput
         SetCurrentValue(TextProperty, value);
     }
 
-    public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-    public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        nameof(IsError), typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    public bool IsError
-    {
-        get => (bool) GetValue(IsErrorProperty);
-        set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
-    }
-
-    public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        nameof(ErrorStr), typeof(string), typeof(DateTimePicker), new PropertyMetadata(default(string)));
-
-    public string ErrorStr
-    {
-        get => (string) GetValue(ErrorStrProperty);
-        set => SetValue(ErrorStrProperty, value);
-    }
-
-    public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        nameof(TextType), typeof(TextType), typeof(DateTimePicker), new PropertyMetadata(default(TextType)));
-
-    public TextType TextType
-    {
-        get => (TextType) GetValue(TextTypeProperty);
-        set => SetValue(TextTypeProperty, value);
-    }
-
-    public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        nameof(ShowClearButton), typeof(bool), typeof(DateTimePicker), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    public bool ShowClearButton
-    {
-        get => (bool) GetValue(ShowClearButtonProperty);
-        set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
-    }
-
     public static readonly DependencyProperty SelectionBrushProperty =
         TextBoxBase.SelectionBrushProperty.AddOwner(typeof(DateTimePicker));
 
@@ -405,52 +367,6 @@ public class DateTimePicker : Control, IDataInput
         }
     }
 
-    public virtual bool VerifyData()
-    {
-        OperationResult<bool> result;
-
-        if (VerifyFunc != null)
-        {
-            result = VerifyFunc.Invoke(Text);
-        }
-        else
-        {
-            if (!string.IsNullOrEmpty(Text))
-            {
-                result = OperationResult.Success();
-            }
-            else if (InfoElement.GetNecessary(this))
-            {
-                result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-            }
-            else
-            {
-                result = OperationResult.Success();
-            }
-        }
-
-        var isError = !result.Data;
-        if (isError)
-        {
-            SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
-            SetCurrentValue(ErrorStrProperty, result.Message);
-        }
-        else
-        {
-            isError = Validation.GetHasError(this);
-            if (isError)
-            {
-                SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
-            }
-            else
-            {
-                SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
-                SetCurrentValue(ErrorStrProperty, default(string));
-            }
-        }
-        return !isError;
-    }
-
     public override string ToString() => SelectedDateTime?.ToString(DateTimeFormat) ?? string.Empty;
 
     #endregion
@@ -527,7 +443,6 @@ public class DateTimePicker : Control, IDataInput
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
         SetValueNoCallback(TextProperty, _textBox.Text);
-        VerifyData();
     }
 
     private bool ProcessDateTimePickerKey(KeyEventArgs e)

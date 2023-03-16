@@ -12,7 +12,7 @@ namespace HandyControl.Controls;
 
 [TemplatePart(Name = ElementPanel, Type = typeof(Panel))]
 [TemplatePart(Name = ElementSelectAll, Type = typeof(CheckComboBoxItem))]
-public class CheckComboBox : ListBox, IDataInput
+public class CheckComboBox : ListBox
 {
     private const string ElementPanel = "PART_Panel";
 
@@ -23,42 +23,6 @@ public class CheckComboBox : ListBox, IDataInput
     private CheckComboBoxItem _selectAllItem;
 
     private bool _isInternalAction;
-
-    public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-        nameof(IsError), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    public bool IsError
-    {
-        get => (bool) GetValue(IsErrorProperty);
-        set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
-    }
-
-    public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-        nameof(ErrorStr), typeof(string), typeof(CheckComboBox), new PropertyMetadata(default(string)));
-
-    public string ErrorStr
-    {
-        get => (string) GetValue(ErrorStrProperty);
-        set => SetValue(ErrorStrProperty, value);
-    }
-
-    public static readonly DependencyProperty TextTypeProperty = DependencyProperty.Register(
-        nameof(TextType), typeof(TextType), typeof(CheckComboBox), new PropertyMetadata(default(TextType)));
-
-    public TextType TextType
-    {
-        get => (TextType) GetValue(TextTypeProperty);
-        set => SetValue(TextTypeProperty, value);
-    }
-
-    public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-        nameof(ShowClearButton), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
-
-    public bool ShowClearButton
-    {
-        get => (bool) GetValue(ShowClearButtonProperty);
-        set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
-    }
 
     public static readonly DependencyProperty MaxDropDownHeightProperty =
         System.Windows.Controls.ComboBox.MaxDropDownHeightProperty.AddOwner(typeof(CheckComboBox),
@@ -101,6 +65,15 @@ public class CheckComboBox : ListBox, IDataInput
     {
         get => (Style) GetValue(TagStyleProperty);
         set => SetValue(TagStyleProperty, value);
+    }
+
+    public static readonly DependencyProperty TagSpacingProperty = DependencyProperty.Register(
+        nameof(TagSpacing), typeof(double), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.Double0Box));
+
+    public double TagSpacing
+    {
+        get => (double) GetValue(TagSpacingProperty);
+        set => SetValue(TagSpacingProperty, value);
     }
 
     public static readonly DependencyProperty ShowSelectAllButtonProperty = DependencyProperty.Register(
@@ -146,59 +119,9 @@ public class CheckComboBox : ListBox, IDataInput
         UpdateTags();
     }
 
-    public bool VerifyData()
-    {
-        OperationResult<bool> result;
-
-        if (VerifyFunc != null)
-        {
-            result = VerifyFunc.Invoke(null);
-        }
-        else
-        {
-            if (SelectedItems.Count > 0)
-            {
-                result = OperationResult.Success();
-            }
-            else if (InfoElement.GetNecessary(this))
-            {
-                result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-            }
-            else
-            {
-                result = OperationResult.Success();
-            }
-        }
-
-        var isError = !result.Data;
-        if (isError)
-        {
-            SetCurrentValue(IsErrorProperty, ValueBoxes.TrueBox);
-            SetCurrentValue(ErrorStrProperty, result.Message);
-        }
-        else
-        {
-            isError = Validation.GetHasError(this);
-            if (isError)
-            {
-                SetCurrentValue(ErrorStrProperty, Validation.GetErrors(this)[0].ErrorContent?.ToString());
-            }
-            else
-            {
-                SetCurrentValue(IsErrorProperty, ValueBoxes.FalseBox);
-                SetCurrentValue(ErrorStrProperty, default(string));
-            }
-        }
-
-        return !isError;
-    }
-
-    public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
     {
         UpdateTags();
-        VerifyData();
 
         base.OnSelectionChanged(e);
     }

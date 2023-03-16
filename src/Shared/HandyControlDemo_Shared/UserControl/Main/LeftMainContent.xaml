@@ -1,31 +1,14 @@
 ﻿<Border hc:ScrollViewer.IsInertiaEnabled="True"
         x:Class="HandyControlDemo.UserControl.LeftMainContent"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Background="{DynamicResource RegionBrush}"
-        xmlns:hc="https://handyorg.github.io/handycontrol"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
         xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:data="clr-namespace:HandyControlDemo.Data"
+        xmlns:hc="https://handyorg.github.io/handycontrol"
         Margin="16,16,0,16"
         CornerRadius="10"
         Effect="{StaticResource EffectShadow4}">
-    <Border.Resources>
-        <Style x:Key="DemoInfoSortButtonStyle" BasedOn="{StaticResource ToggleButtonCustom}" TargetType="ToggleButton" x:Shared="False">
-            <Setter Property="Content">
-                <Setter.Value>
-                    <Border CornerRadius="4" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" Height="30" Width="30" >
-                        <Image Stretch="None" Source="/HandyControlDemo;component/Resources/Img/LeftMainContent/SortAscending_grey_16x.png"/>
-                    </Border>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="hc:StatusSwitchElement.CheckedElement">
-                <Setter.Value>
-                    <Border CornerRadius="4" Height="30" Width="30" BorderThickness="1" BorderBrush="{DynamicResource PrimaryBrush}"/>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </Border.Resources>
     <DockPanel>
         <Button Command="{Binding OpenPracticalDemoCmd}" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Margin="10,10,10,4" Content="{ex:Lang Key={x:Static langs:LangKeys.PracticalDemos}}" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}"/>
         <TabControl BorderThickness="0 1 0 0" SelectionChanged="TabControl_OnSelectionChanged" ItemContainerStyle="{StaticResource TabItemTransparent}" ItemsSource="{Binding DemoInfoCollection}" Style="{StaticResource TabControlInLine}" Background="Transparent" SelectedIndex="0">
@@ -38,20 +21,28 @@
                 <DataTemplate>
                     <Grid Margin="10">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto"/>
-                            <RowDefinition/>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
                         </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition Width="Auto"/>
-                        </Grid.ColumnDefinitions>
-                        <hc:SearchBar hc:InfoElement.ShowClearButton="True" IsRealTime="True" SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterKey}}" Margin="0,4,4,4" Tag="{Binding ElementName=ListBoxDemo}"/>
-                        <ToggleButton Tag="{Binding ElementName=ListBoxDemo}" Name="ButtonStyleAscending" Click="ButtonAscending_OnClick" Grid.Row="0" Grid.Column="1" Style="{StaticResource DemoInfoSortButtonStyle}"/>
-                        <ListBox Name="ListBoxDemo" Padding="0" ScrollViewer.CanContentScroll="False" Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
+                        <hc:ElementGroup Margin="0 0 0 4">
+                            <hc:ElementGroup.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+                                    </Grid>
+                                </ItemsPanelTemplate>
+                            </hc:ElementGroup.ItemsPanel>
+                            <hc:SearchBar hc:InfoElement.ShowClearButton="True" IsRealTime="True" SearchStarted="SearchBar_OnSearchStarted" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterKey}}" Tag="{Binding ElementName=ListBoxDemo}" />
+                            <ToggleButton Grid.Column="1" Tag="{Binding ElementName=ListBoxDemo}" Name="ButtonStyleAscending" Click="ButtonAscending_OnClick" Style="{StaticResource DemoInfoSortButtonStyle}" />
+                        </hc:ElementGroup>
+                        <ListBox Name="ListBoxDemo" Padding="0" ScrollViewer.CanContentScroll="False" Grid.Row="1" VirtualizingStackPanel.IsVirtualizing="True" SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding DemoItemList}" BorderThickness="0" SelectionMode="Single" Style="{StaticResource ListBoxTransparent}">
                             <ListBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <Image Width="16" Height="16" Source="{Binding ImageName}"/>
+                                        <Rectangle Width="16" Height="16" Fill="{Binding ImageBrush}"/>
                                         <hc:HighlightTextBlock Margin="6,0,0,0" SourceText="{ex:Lang Key={Binding Name}}" QueriesText="{Binding QueriesText}"/>
                                         <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}"/>
                                     </StackPanel>

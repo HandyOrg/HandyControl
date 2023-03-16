@@ -10,7 +10,6 @@ using HandyControl.Tools;
 using HandyControlDemo.Data;
 using HandyControlDemo.ViewModel;
 
-
 namespace HandyControlDemo.UserControl;
 
 /// <summary>

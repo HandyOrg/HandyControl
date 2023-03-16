@@ -119,6 +119,10 @@
                             <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,9" Style="{StaticResource ToggleButtonSwitch}"/>
                         </StackPanel>
                         <StackPanel>
+                            <ToggleButton hc:ToggleButtonAttach.ShowLabel="True" Content="Switch" Margin="5,9" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch}" hc:VisualElement.HighlightBrush="{DynamicResource DangerBrush}" />
+                            <ToggleButton hc:ToggleButtonAttach.ShowLabel="True" Content="Switch" IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,9" Style="{StaticResource ToggleButtonSwitch}" />
+                        </StackPanel>
+                        <StackPanel>
                             <ToggleButton BorderThickness="0" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip}">
                                 <hc:StatusSwitchElement.CheckedElement>
                                     <Border Background="{DynamicResource PrimaryBrush}">
@@ -229,6 +233,10 @@
                         <StackPanel>
                             <ToggleButton IsChecked="True" Margin="5,8" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch.Small}" hc:VisualElement.HighlightBrush="{DynamicResource DangerBrush}"/>
                             <ToggleButton IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,4" Style="{StaticResource ToggleButtonSwitch.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <ToggleButton hc:ToggleButtonAttach.ShowLabel="True" Content="Switch" Margin="5,8" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonSwitch.Small}" hc:VisualElement.HighlightBrush="{DynamicResource DangerBrush}" />
+                            <ToggleButton hc:ToggleButtonAttach.ShowLabel="True" Content="Switch" IsEnabled="False" IsChecked="True" HorizontalAlignment="Center" Margin="5,4" Style="{StaticResource ToggleButtonSwitch.Small}" />
                         </StackPanel>
                         <StackPanel>
                             <ToggleButton BorderThickness="0" IsChecked="True" Margin="5" HorizontalAlignment="Center" Style="{StaticResource ToggleButtonFlip.Small}">

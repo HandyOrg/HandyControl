@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Controls;
@@ -165,6 +164,8 @@ public class ImageViewer : Control
     private bool _isLoaded;
 
     private MouseBinding _mouseMoveBinding;
+
+    private ImageBrowser _imageBrowser;
 
     #endregion Data
 
@@ -588,13 +589,11 @@ public class ImageViewer : Control
 
     private void ButtonWindowsOpen_OnClick(object sender, RoutedEventArgs e)
     {
-        try
+        if (Uri is { } uri)
         {
-            Process.Start(ImgPath);
-        }
-        catch (Exception exception)
-        {
-            MessageBox.Show(exception.Message);
+            _imageBrowser?.Close();
+            _imageBrowser = new ImageBrowser(uri);
+            _imageBrowser.Show();
         }
     }
 
@@ -952,29 +951,7 @@ public class ImageViewer : Control
 
     private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        var self = (ImageViewer) d;
-
-        if (e.NewValue is Uri uri)
-        {
-            self.ImageSource = GetBitmapFrame(uri);
-            self.Init();
-        }
-        else
-        {
-            self.ImageSource = null;
-        }
-
-        static BitmapFrame GetBitmapFrame(Uri source)
-        {
-            try
-            {
-                return BitmapFrame.Create(source);
-            }
-            catch
-            {
-                return null;
-            }
-        }
+        ((ImageViewer) d).OnUriChanged((Uri) e.NewValue);
     }
 
     private void OnUriChanged(Uri newValue)

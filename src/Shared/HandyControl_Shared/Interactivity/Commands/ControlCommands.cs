@@ -186,4 +186,6 @@ public static class ControlCommands
     ///     更多
     /// </summary>
     public static RoutedCommand More { get; } = new(nameof(More), typeof(ControlCommands));
+
+    public static RoutedCommand Toggle { get; } = new(nameof(Toggle), typeof(ControlCommands));
 }

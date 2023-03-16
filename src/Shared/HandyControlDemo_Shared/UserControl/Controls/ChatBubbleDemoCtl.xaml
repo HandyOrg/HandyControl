@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
              xmlns:hc="https://handyorg.github.io/handycontrol"
+             hc:Empty.ShowEmpty="False"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <hc:ScrollViewer IsInertiaEnabled="True">

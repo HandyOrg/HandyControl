@@ -109,7 +109,7 @@ public partial class MainContent
 
         BorderCode.Child = new TabControl
         {
-            Style = ResourceHelper.GetResource<Style>("TabControlInLine"),
+            Style = ResourceHelper.GetResource<Style>("TabControl.PreviewCode"),
             Items =
             {
                 new TabItem
