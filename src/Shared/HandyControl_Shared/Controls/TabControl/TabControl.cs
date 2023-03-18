@@ -219,6 +219,15 @@ public class TabControl : System.Windows.Controls.TabControl
         set => SetValue(ShowScrollButtonProperty, ValueBoxes.BooleanBox(value));
     }
 
+    public static readonly DependencyProperty OverflowMenuDisplayMemberPathProperty = DependencyProperty.Register(
+        nameof(OverflowMenuDisplayMemberPath), typeof(string), typeof(TabControl), new PropertyMetadata(default(string)));
+
+    public string OverflowMenuDisplayMemberPath
+    {
+        get => (string) GetValue(OverflowMenuDisplayMemberPathProperty);
+        set => SetValue(OverflowMenuDisplayMemberPathProperty, value);
+    }
+
     /// <summary>
     ///     可见的标签数量
     /// </summary>
@@ -346,10 +355,20 @@ public class TabControl : System.Windows.Controls.TabControl
 
                 if (item.DataContext is not null)
                 {
-                    menuItem.SetBinding(HeaderedItemsControl.HeaderProperty, new Binding(DisplayMemberPath)
+                    if (ItemTemplate is null)
                     {
-                        Source = item.DataContext
-                    });
+                        menuItem.SetBinding(HeaderedItemsControl.HeaderProperty, new Binding(DisplayMemberPath)
+                        {
+                            Source = item.DataContext
+                        });
+                    }
+                    else
+                    {
+                        menuItem.SetBinding(HeaderedItemsControl.HeaderProperty, new Binding(OverflowMenuDisplayMemberPath)
+                        {
+                            Source = item.DataContext
+                        });
+                    }
                 }
                 else
                 {

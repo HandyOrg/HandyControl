@@ -66,7 +66,7 @@
                         <hc:SimplePanel Background="#FFE8E03F"/>
                     </hc:TabItem>
                 </hc:TabControl>
-                <hc:TabControl Grid.Row="2" IsAnimationEnabled="True" Margin="0,32,0,0" ShowCloseButton="True" IsDraggable="True" ItemsSource="{Binding DataList}" MaxWidth="800" Height="300">
+                <hc:TabControl Grid.Row="2" IsAnimationEnabled="True" Margin="0,32,0,0" ShowCloseButton="True" IsDraggable="True" ItemsSource="{Binding DataList}" MaxWidth="800" Height="300" OverflowMenuDisplayMemberPath="Header">
                     <TabControl.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Header}"/>
