@@ -10941,7 +10941,7 @@
 					<ContentPresenter x:Name="PART_SelectedContentHost" ContentSource="SelectedContent" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
 				</Border>
 				<Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Margin="0,-1,0,0" Grid.Row="0" Grid.Column="0" BorderThickness="1,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}" HorizontalAlignment="Right">
-					<hc:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource DownGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" />
+					<hc:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Padding="0" hc:IconElement.Width="14" Height="Auto" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource DownGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" />
 				</Border>
 			</Grid>
 		</Border>
@@ -10962,7 +10962,7 @@
 					<Border.CacheMode>
 						<BitmapCache SnapsToDevicePixels="True" />
 					</Border.CacheMode>
-					<RepeatButton Focusable="False" Style="{StaticResource RepeatButtonIcon}" Padding="8" hc:IconElement.Geometry="{StaticResource LeftGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonLeft" />
+					<RepeatButton Focusable="False" Style="{StaticResource RepeatButtonIcon}" BorderThickness="0" hc:IconElement.Height="14" Padding="8 0" Height="Auto" VerticalAlignment="Stretch" Width="{StaticResource DefaultControlHeight}" hc:IconElement.Geometry="{StaticResource LeftGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonLeft" />
 				</Border>
 				<hc:ScrollViewer HorizontalScrollBarVisibility="Hidden" CanMouseWheel="True" hc:ScrollViewerAttach.Orientation="Horizontal" IsInertiaEnabled="True" Grid.Row="0" Grid.Column="1" IsDeferredScrollingEnabled="True" x:Name="PART_OverflowScrollviewer">
 					<Border Background="{TemplateBinding Background}" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource BorderBrush}" Name="PART_HeaderBorder">
@@ -10982,9 +10982,9 @@
 						<BitmapCache SnapsToDevicePixels="True" />
 					</Border.CacheMode>
 					<StackPanel Orientation="Horizontal">
-						<RepeatButton Focusable="False" Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource RepeatButtonIcon}" BorderBrush="{DynamicResource BorderBrush}" Padding="8" hc:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight" />
+						<RepeatButton Focusable="False" Visibility="{TemplateBinding ShowScrollButton,Converter={StaticResource Boolean2VisibilityConverter}}" Style="{StaticResource RepeatButtonIcon}" BorderThickness="0" hc:IconElement.Height="14" Padding="8 0" Height="Auto" VerticalAlignment="Stretch" Width="{StaticResource DefaultControlHeight}" hc:IconElement.Geometry="{StaticResource RightGeometry}" Foreground="{DynamicResource PrimaryTextBrush}" Background="{DynamicResource SecondaryRegionBrush}" x:Name="PART_ScrollButtonRight" />
 						<Border Visibility="{Binding Visibility,ElementName=PART_OverflowButton}" Width="1" Background="{DynamicResource BorderBrush}" />
-						<hc:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource DownGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" />
+						<hc:ContextMenuToggleButton x:Name="PART_OverflowButton" Visibility="Collapsed" Padding="0" hc:IconElement.Width="14" Height="Auto" BorderThickness="0" Background="{DynamicResource SecondaryRegionBrush}" Style="{StaticResource ToggleButtonIconTransparent}" hc:IconSwitchElement.Geometry="{StaticResource DownGeometry}" hc:IconSwitchElement.GeometrySelected="{StaticResource UpGeometry}" />
 					</StackPanel>
 				</Border>
 				<Border x:Name="contentPanel" Background="{DynamicResource SecondaryRegionBrush}" KeyboardNavigation.DirectionalNavigation="Contained" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" KeyboardNavigation.TabIndex="2" KeyboardNavigation.TabNavigation="Local">
