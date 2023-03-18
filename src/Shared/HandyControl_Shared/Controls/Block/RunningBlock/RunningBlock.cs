@@ -124,6 +124,15 @@ public class RunningBlock : ContentControl
         set => SetValue(AutoReverseProperty, ValueBoxes.BooleanBox(value));
     }
 
+    public static readonly DependencyProperty RunningDirectionProperty = DependencyProperty.Register(
+        nameof(RunningDirection), typeof(RunningDirection), typeof(RunningBlock), new PropertyMetadata(RunningDirection.EndToStart));
+
+    public RunningDirection RunningDirection
+    {
+        get => (RunningDirection) GetValue(RunningDirectionProperty);
+        set => SetValue(RunningDirectionProperty, value);
+    }
+
     private void UpdateContent()
     {
         if (_elementContent == null || _elementPanel == null) return;
@@ -182,11 +191,11 @@ public class RunningBlock : ContentControl
                 ? TimeSpan.FromSeconds(Math.Abs(to - from) / Speed)
                 : Duration;
 
-        var animation = new DoubleAnimation(from, to, duration)
-        {
-            RepeatBehavior = RepeatBehavior.Forever,
-            AutoReverse = AutoReverse
-        };
+        var animation = RunningDirection is RunningDirection.EndToStart
+            ? new DoubleAnimation(to, from, duration)
+            : new DoubleAnimation(from, to, duration);
+        animation.RepeatBehavior = RepeatBehavior.Forever;
+        animation.AutoReverse = AutoReverse;
 
         Storyboard.SetTargetProperty(animation, propertyPath);
         Storyboard.SetTarget(animation, _elementContent);
