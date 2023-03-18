@@ -379,7 +379,7 @@ internal class InteropValues
             get
             {
                 WINDOWPLACEMENT result = new WINDOWPLACEMENT();
-                result.length = Marshal.SizeOf(typeof(WINDOWPLACEMENT);
+                result.length = Marshal.SizeOf(typeof(WINDOWPLACEMENT));
                 return result;
             }
         }
