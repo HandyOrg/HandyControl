@@ -2,8 +2,6 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
                     xmlns:hc="clr-namespace:HandyControl.Controls">
 
-    <Style x:Key="AutoCompleteTextBoxInternal" BasedOn="{StaticResource ComboBoxEditableTextBox}" TargetType="TextBox"/>
-
     <Style x:Key="AutoCompleteTextBoxItemBaseStyle" TargetType="ComboBoxItem">
         <Setter Property="Padding" Value="{StaticResource DefaultControlPadding}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
@@ -62,7 +60,7 @@
                 <ControlTemplate TargetType="hc:AutoCompleteTextBox">
                     <hc:SimplePanel>
                         <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-                            <TextBox x:Name="PART_SearchTextBox" CaretBrush="{TemplateBinding CaretBrush}" Padding="{TemplateBinding Padding}" Style="{StaticResource AutoCompleteTextBoxInternal}"/>
+                            <TextBox x:Name="PART_SearchTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" CaretBrush="{TemplateBinding CaretBrush}" Padding="{TemplateBinding Padding}" Style="{StaticResource ComboBoxEditableTextBox}"/>
                         </Border>
                         <Popup x:Name="PART_Popup" AllowsTransparency="true" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                             <Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
