@@ -257,6 +257,9 @@
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.ca-ES.resx">
       <Link>Properties\Langs\Lang.ca-ES.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.cs.resx">
+      <Link>Properties\Langs\Lang.cs.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>
     </EmbeddedResource>
