@@ -117,6 +117,9 @@
                     <Button Tag="zh-cn" Style="{StaticResource ButtonCustom}">
                         <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/cn.png"/>
                     </Button>
+                    <Button Tag="cs" Style="{StaticResource ButtonCustom}">
+                        <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/cs.png"/>
+                    </Button>
                     <Button Tag="en" Style="{StaticResource ButtonCustom}">
                         <Image Width="32" Source="/HandyControlDemo;component/Resources/Img/Flag/en.png"/>
                     </Button>
