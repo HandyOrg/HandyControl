@@ -197,6 +197,16 @@ namespace HandyControl.Controls
             set => SetValue(NonClientAreaHeightProperty, value);
         }
 
+        public static readonly DependencyProperty AddSubNoClientAreaHeightProperty = DependencyProperty.Register(
+            nameof(AddSubNoClientAreaHeight), typeof(double), typeof(Window),
+            new PropertyMetadata(8.0));
+
+        public double AddSubNoClientAreaHeight
+        {
+            get { return (double) GetValue(AddSubNoClientAreaHeightProperty); }
+            set { SetValue(AddSubNoClientAreaHeightProperty, value); }
+        }
+
         public static readonly DependencyProperty ShowNonClientAreaProperty = DependencyProperty.Register(
             nameof(ShowNonClientArea), typeof(bool), typeof(Window),
             new PropertyMetadata(ValueBoxes.TrueBox, OnShowNonClientAreaChanged));
@@ -265,7 +275,7 @@ namespace HandyControl.Controls
             {
                 BorderThickness = new Thickness();
                 _tempNonClientAreaHeight = NonClientAreaHeight;
-                NonClientAreaHeight += 8;
+                NonClientAreaHeight += AddSubNoClientAreaHeight;
             }
             else
             {
@@ -282,7 +292,7 @@ namespace HandyControl.Controls
             if (WindowState == WindowState.Maximized)
             {
                 BorderThickness = new Thickness();
-                _tempNonClientAreaHeight += 8;
+                _tempNonClientAreaHeight += AddSubNoClientAreaHeight;
             }
 
             CommandBindings.Add(new CommandBinding(SystemCommands.MinimizeWindowCommand,
@@ -303,7 +313,7 @@ namespace HandyControl.Controls
 
             if (WindowState == WindowState.Maximized)
             {
-                _tempNonClientAreaHeight -= 8;
+                _tempNonClientAreaHeight -= AddSubNoClientAreaHeight;
             }
 
             if (SizeToContent != SizeToContent.WidthAndHeight)
