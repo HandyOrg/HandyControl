@@ -1,5 +1,5 @@
-﻿using HandyControl.Data;
-using System.Windows;
+﻿using System.Windows;
+using HandyControl.Data;
 
 namespace HandyControl.Controls;
 

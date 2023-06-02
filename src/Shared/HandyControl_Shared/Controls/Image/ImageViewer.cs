@@ -729,8 +729,14 @@ public class ImageViewer : Control
         var olgImageHeight = ImageHeight;
 
         var tempScale = isEnlarge ? _imgActualScale + ScaleInternal : _imgActualScale - ScaleInternal;
-        if (Math.Abs(tempScale) < ScaleInternal || Math.Abs(tempScale - 50) < 0.001)
-            return;
+        if (Math.Abs(tempScale) < ScaleInternal)
+        {
+            tempScale = ScaleInternal;
+        }
+        else if (Math.Abs(tempScale) > 50)
+        {
+            tempScale = 50;
+        }
 
         ImageScale = tempScale;
 
