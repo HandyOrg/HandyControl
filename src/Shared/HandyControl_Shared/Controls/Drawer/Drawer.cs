@@ -44,7 +44,6 @@ public class Drawer : FrameworkElement
     public Drawer()
     {
         Loaded += Drawer_Loaded;
-        Unloaded += Drawer_Unloaded;
     }
 
     private void Drawer_Loaded(object sender, RoutedEventArgs e)
@@ -53,23 +52,8 @@ public class Drawer : FrameworkElement
         {
             OnIsOpenChanged(true);
         }
-    }
 
-    private void Drawer_Unloaded(object sender, RoutedEventArgs e)
-    {
         Loaded -= Drawer_Loaded;
-
-        if (_maskElement != null)
-        {
-            _maskElement.PreviewMouseLeftButtonDown -= MaskElement_PreviewMouseLeftButtonDown;
-        }
-
-        if (_storyboard != null)
-        {
-            _storyboard.Completed -= Storyboard_Completed;
-        }
-
-        _container = null;
     }
 
     private static void DataContextPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e) =>
