@@ -44,6 +44,11 @@ public class ComboBox : System.Windows.Controls.ComboBox
     {
         CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
         {
+            if (IsReadOnly)
+            {
+                return;
+            }
+
             SetCurrentValue(SelectedValueProperty, null);
             SetCurrentValue(SelectedItemProperty, null);
             SetCurrentValue(SelectedIndexProperty, -1);
