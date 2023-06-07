@@ -9,7 +9,7 @@ namespace HandyControl.Controls;
 public class Col : ContentControl
 {
     public static readonly DependencyProperty LayoutProperty = DependencyProperty.Register(
-        nameof(Layout), typeof(ColLayout), typeof(Col), new PropertyMetadata(default(ColLayout)));
+        nameof(Layout), typeof(ColLayout), typeof(Col), new FrameworkPropertyMetadata(default(ColLayout), FrameworkPropertyMetadataOptions.AffectsParentMeasure));
 
     public ColLayout Layout
     {
@@ -18,7 +18,7 @@ public class Col : ContentControl
     }
 
     public static readonly DependencyProperty OffsetProperty = DependencyProperty.Register(
-        nameof(Offset), typeof(int), typeof(Col), new PropertyMetadata(ValueBoxes.Int0Box));
+        nameof(Offset), typeof(int), typeof(Col), new FrameworkPropertyMetadata(ValueBoxes.Int0Box, FrameworkPropertyMetadataOptions.AffectsParentMeasure));
 
     public int Offset
     {
@@ -27,12 +27,12 @@ public class Col : ContentControl
     }
 
     public static readonly DependencyProperty SpanProperty = DependencyProperty.Register(
-        nameof(Span), typeof(int), typeof(Col), new PropertyMetadata(24), OnSpanValidate);
+        nameof(Span), typeof(int), typeof(Col), new FrameworkPropertyMetadata(ColLayout.ColMaxCellCount, FrameworkPropertyMetadataOptions.AffectsParentMeasure), OnSpanValidate);
 
     private static bool OnSpanValidate(object value)
     {
         var v = (int) value;
-        return v is >= 1 and <= 24;
+        return v is >= 1 and <= ColLayout.ColMaxCellCount;
     }
 
     public int Span
@@ -42,7 +42,7 @@ public class Col : ContentControl
     }
 
     public static readonly DependencyProperty IsFixedProperty = DependencyProperty.Register(
-        nameof(IsFixed), typeof(bool), typeof(Col), new PropertyMetadata(ValueBoxes.FalseBox));
+        nameof(IsFixed), typeof(bool), typeof(Col), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsParentMeasure));
 
     public bool IsFixed
     {
@@ -52,44 +52,26 @@ public class Col : ContentControl
 
     internal int GetLayoutCellCount(ColLayoutStatus status)
     {
-        var result = 0;
-
-        if (Layout != null)
+        if (Layout is not null)
         {
-            if (!IsFixed)
+            return status switch
             {
-                switch (status)
-                {
-                    case ColLayoutStatus.Xs:
-                        result = Layout.Xs;
-                        break;
-                    case ColLayoutStatus.Sm:
-                        result = Layout.Sm;
-                        break;
-                    case ColLayoutStatus.Md:
-                        result = Layout.Md;
-                        break;
-                    case ColLayoutStatus.Lg:
-                        result = Layout.Lg;
-                        break;
-                    case ColLayoutStatus.Xl:
-                        result = Layout.Xl;
-                        break;
-                    case ColLayoutStatus.Xxl:
-                        result = Layout.Xxl;
-                        break;
-                    case ColLayoutStatus.Auto:
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException(nameof(status), status, null);
-                }
-            }
-        }
-        else
-        {
-            result = Span;
+                ColLayoutStatus.Xs => Layout.Xs,
+                ColLayoutStatus.Sm => Layout.Sm,
+                ColLayoutStatus.Md => Layout.Md,
+                ColLayoutStatus.Lg => Layout.Lg,
+                ColLayoutStatus.Xl => Layout.Xl,
+                ColLayoutStatus.Xxl => Layout.Xxl,
+                ColLayoutStatus.Auto => 0,
+                _ => throw new ArgumentOutOfRangeException(nameof(status), status, null),
+            };
         }
 
-        return result;
+        if (IsFixed)
+        {
+            return 0;
+        }
+
+        return Span;
     }
 }

@@ -6,7 +6,7 @@
     <Description>Contains some simple and commonly used WPF controls</Description>
     <PackageId>HandyControl</PackageId>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <NoWarn>0067;0649;1591;MSB3061;SYSLIB0003;SYSLIB0004</NoWarn>
+    <NoWarn>0067;0649;1591;MSB3061;SYSLIB0003;SYSLIB0004;SYSLIB0032</NoWarn>
     <MSBuildWarningsAsMessages>NETSDK1138</MSBuildWarningsAsMessages>
     <AssemblyOriginatorKeyFile>..\..\Shared\HandyControl_Shared\key.snk</AssemblyOriginatorKeyFile>
     <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>

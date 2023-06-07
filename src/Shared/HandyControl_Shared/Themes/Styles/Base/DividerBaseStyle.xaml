@@ -16,7 +16,7 @@
                         <hc:Col Layout="12" x:Name="ColStart">
                             <Line VerticalAlignment="Center" StrokeDashArray="{TemplateBinding LineStrokeDashArray}" Stroke="{TemplateBinding LineStroke}" X2="1" StrokeThickness="{TemplateBinding LineStrokeThickness}" Stretch="Fill" StrokeEndLineCap="Square" StrokeStartLineCap="Square"/>
                         </hc:Col>
-                        <hc:Col Layout="0">
+                        <hc:Col IsFixed="True">
                             <ContentPresenter Margin="{TemplateBinding Padding}" ContentTemplateSelector="{TemplateBinding ContentTemplateSelector}" ContentStringFormat="{TemplateBinding ContentStringFormat}" ContentTemplate="{TemplateBinding ContentTemplate}"/>
                         </hc:Col>
                         <hc:Col Layout="12" x:Name="ColEnd">

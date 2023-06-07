@@ -11,19 +11,19 @@ namespace HandyControl.Tools.Extension;
 [TypeConverter(typeof(ColLayoutConverter))]
 public class ColLayout : MarkupExtension
 {
-    public static readonly int ColMaxCellCount = 24;
+    public const int ColMaxCellCount = 24;
 
-    public static readonly int HalfColMaxCellCount = 12;
+    public const int HalfColMaxCellCount = 12;
 
-    public static readonly int XsMaxWidth = 768;
+    public const int XsMaxWidth = 768;
 
-    public static readonly int SmMaxWidth = 992;
+    public const int SmMaxWidth = 992;
 
-    public static readonly int MdMaxWidth = 1200;
+    public const int MdMaxWidth = 1200;
 
-    public static readonly int LgMaxWidth = 1920;
+    public const int LgMaxWidth = 1920;
 
-    public static readonly int XlMaxWidth = 2560;
+    public const int XlMaxWidth = 2560;
 
     public int Xs { get; set; } = 24;
 
