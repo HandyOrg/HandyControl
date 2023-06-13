@@ -87,13 +87,15 @@ public class NumericUpDown : Control
             SetText(true);
         }
     }
-
+    
+    private bool isTextChange = false;
     private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
     {
         if (double.TryParse(_textBox.Text, out double value))
         {
             if (value >= Minimum && value <= Maximum)
             {
+                isTextChange = true;
                 SetCurrentValue(ValueProperty, value);
             }
         }
@@ -161,8 +163,8 @@ public class NumericUpDown : Control
     {
         var ctl = (NumericUpDown) d;
         var v = (double) e.NewValue;
-        ctl.SetText();
-
+        ctl.SetText(ctl.isTextChange == false);
+        ctl.isTextChange = false;
         ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
         {
             Info = v
