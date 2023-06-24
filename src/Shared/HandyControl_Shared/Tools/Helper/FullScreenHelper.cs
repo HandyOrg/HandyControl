@@ -19,7 +19,7 @@ internal static class FullScreenHelper
     /// </summary>
     private static readonly DependencyProperty BeforeFullScreenWindowPlacementProperty =
         DependencyProperty.RegisterAttached("BeforeFullScreenWindowPlacement",
-            typeof(InteropValues.WINDOWPLACEMENT?), typeof(FullScreenHelper));
+            typeof(InteropValues.WINDOWPLACEMENT), typeof(FullScreenHelper));
 
     /// <summary>
     /// 用于记录窗口全屏前样式的附加属性
