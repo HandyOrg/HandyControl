@@ -102,6 +102,15 @@ public class PropertyGrid : Control
         set => SetValue(ShowSortButtonProperty, ValueBoxes.BooleanBox(value));
     }
 
+    public static readonly DependencyProperty ShowSearchBarProperty = DependencyProperty.Register(
+        nameof(ShowSearchBar), typeof(bool), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.TrueBox));
+
+    public bool ShowSearchBar
+    {
+        get => (bool) GetValue(ShowSearchBarProperty);
+        set => SetValue(ShowSearchBarProperty, ValueBoxes.BooleanBox(value));
+    }
+
     public override void OnApplyTemplate()
     {
         if (_searchBar != null)
@@ -116,6 +125,10 @@ public class PropertyGrid : Control
 
         if (_searchBar != null)
         {
+            if(!ShowSearchBar)
+            {
+                _searchBar.Visibility = Visibility.Collapsed;
+            }
             _searchBar.SearchStarted += SearchBar_SearchStarted;
         }
 
@@ -142,8 +155,11 @@ public class PropertyGrid : Control
         {
             _dataView.GroupDescriptions.Clear();
             _dataView.SortDescriptions.Clear();
-            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.CategoryProperty.Name, ListSortDirection.Ascending));
-            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.DisplayNameProperty.Name, ListSortDirection.Ascending));
+            if (ShowSortButton)
+            {
+                _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.CategoryProperty.Name, ListSortDirection.Ascending));
+                _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.DisplayNameProperty.Name, ListSortDirection.Ascending));
+            }
             _dataView.GroupDescriptions.Add(new PropertyGroupDescription(PropertyItem.CategoryProperty.Name));
         }
     }
@@ -156,7 +172,10 @@ public class PropertyGrid : Control
         {
             _dataView.GroupDescriptions.Clear();
             _dataView.SortDescriptions.Clear();
-            _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.PropertyNameProperty.Name, ListSortDirection.Ascending));
+            if (ShowSortButton)
+            {
+                _dataView.SortDescriptions.Add(new SortDescription(PropertyItem.PropertyNameProperty.Name, ListSortDirection.Ascending));
+            }
         }
     }
 
