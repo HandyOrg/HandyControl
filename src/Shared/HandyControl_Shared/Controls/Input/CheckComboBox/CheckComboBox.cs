@@ -170,7 +170,7 @@ public class CheckComboBox : ListBox
         if (_selectAllItem != null)
         {
             _isInternalAction = true;
-            _selectAllItem.SetCurrentValue(IsSelectedProperty, SelectedItems.Count == Items.Count);
+            _selectAllItem.SetCurrentValue(IsSelectedProperty, Items.Count > 0 && SelectedItems.Count == Items.Count);
             _isInternalAction = false;
         }
 
