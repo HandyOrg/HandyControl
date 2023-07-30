@@ -294,7 +294,7 @@
     </ControlTemplate>
 
     <Style x:Key="ScrollViewerNativeBaseStyle" TargetType="ScrollViewer">
-        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="{Binding Path=(hc:ScrollViewer.VerticalScrollBarVisibility),RelativeSource={RelativeSource TemplatedParent}}"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template" Value="{StaticResource ScrollViewerNativeAutoHideBaseControlTemplate}"/>
         <Style.Triggers>
@@ -393,7 +393,7 @@
     </ControlTemplate>
     
     <Style x:Key="ScrollViewerBaseStyle" TargetType="hc:ScrollViewer">
-        <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="VerticalScrollBarVisibility" Value="{Binding Path=(hc:ScrollViewer.VerticalScrollBarVisibility),RelativeSource={RelativeSource TemplatedParent}}" />
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template" Value="{StaticResource ScrollViewerAutoHideBaseControlTemplate}"/>
         <Style.Triggers>
