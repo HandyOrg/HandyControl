@@ -220,7 +220,7 @@ public class Drawer : FrameworkElement
         _animationControl.CommandBindings.Clear();
         _animationControl.CommandBindings.Add(new CommandBinding(ControlCommands.Close, (s, e) => SetCurrentValue(IsOpenProperty, ValueBoxes.FalseBox)));
         panel.Children.Add(_animationControl);
-        _container = new AdornerContainer(_layer)
+        _container = new AdornerContainer(_contentElement)
         {
             Child = panel,
             ClipToBounds = true
