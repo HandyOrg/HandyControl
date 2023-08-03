@@ -57,6 +57,7 @@ internal class InteropValues
         WM_WINDOWPOSCHANGED = 0x0047,
         WM_SETICON = 0x0080,
         WM_NCCREATE = 0x0081,
+        WM_NCLBUTTONDOWN = 0x00A1,
         WM_NCDESTROY = 0x0082,
         WM_NCHITTEST = 0x0084,
         WM_NCACTIVATE = 0x0086,
