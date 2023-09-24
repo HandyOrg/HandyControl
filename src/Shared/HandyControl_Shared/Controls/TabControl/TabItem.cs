@@ -257,7 +257,11 @@ public class TabItem : System.Windows.Controls.TabItem
     {
         base.OnMouseRightButtonDown(e);
 
-        if (VisualTreeHelper.HitTest(this, e.GetPosition(this)) == null) return;
+        if (!IsMouseOverHeader(e))
+        {
+            return;
+        }
+
         IsSelected = true;
         Focus();
     }
@@ -300,7 +304,11 @@ public class TabItem : System.Windows.Controls.TabItem
     {
         base.OnMouseLeftButtonDown(e);
 
-        if (VisualTreeHelper.HitTest(this, e.GetPosition(this)) == null) return;
+        if (!IsMouseOverHeader(e))
+        {
+            return;
+        }
+
         var parent = TabControlParent;
         if (parent == null) return;
 
@@ -391,7 +399,8 @@ public class TabItem : System.Windows.Controls.TabItem
     protected override void OnMouseDown(MouseButtonEventArgs e)
     {
         if (e is { ChangedButton: MouseButton.Middle, ButtonState: MouseButtonState.Pressed } &&
-            TabControlParent.CanBeClosedByMiddleButton)
+            TabControlParent.CanBeClosedByMiddleButton &&
+            IsMouseOverHeader(e))
         {
             if (ShowCloseButton || ShowContextMenu)
             {
@@ -472,6 +481,11 @@ public class TabItem : System.Windows.Controls.TabItem
         var result = rest / ItemWidth > .5 ? div + 1 : div;
 
         return result > maxIndex ? maxIndex : result;
+    }
+
+    private bool IsMouseOverHeader(MouseButtonEventArgs e)
+    {
+        return VisualTreeHelper.HitTest(this, e.GetPosition(this)) is not null;
     }
 
     public static readonly RoutedEvent ClosingEvent = EventManager.RegisterRoutedEvent("Closing", RoutingStrategy.Bubble, typeof(EventHandler), typeof(TabItem));
