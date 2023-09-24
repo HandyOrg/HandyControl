@@ -4107,7 +4107,7 @@
 		</Grid>
 	</ControlTemplate>
 	<Style x:Key="ScrollViewerUpDown" TargetType="ScrollViewer">
-		<Setter Property="VerticalScrollBarVisibility" Value="{Binding Path=(hc:ScrollViewer.VerticalScrollBarVisibility),RelativeSource={RelativeSource TemplatedParent}}" />
+		<Setter Property="VerticalScrollBarVisibility" Value="Auto" />
 		<Setter Property="Focusable" Value="False" />
 		<Setter Property="Template" Value="{StaticResource ScrollViewerUpDownControlTemplate}" />
 	</Style>
