@@ -17,6 +17,14 @@
         <StackPanel FocusVisualStyle="{x:Null}"/>
     </ItemsPanelTemplate>
 
+    <ItemsPanelTemplate x:Key="VirtualizingStackHorizontalItemsPanelTemplate">
+        <VirtualizingStackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal" />
+    </ItemsPanelTemplate>
+
+    <ItemsPanelTemplate x:Key="VirtualizingStackVerticalItemsPanelTemplate">
+        <VirtualizingStackPanel FocusVisualStyle="{x:Null}" />
+    </ItemsPanelTemplate>
+
     <ItemsPanelTemplate x:Key="WrapHorizontalItemsPanelTemplate">
         <WrapPanel FocusVisualStyle="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
     </ItemsPanelTemplate>

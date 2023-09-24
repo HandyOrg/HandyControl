@@ -602,6 +602,12 @@
 	<ItemsPanelTemplate x:Key="StackVerticalItemsPanelTemplate">
 		<StackPanel FocusVisualStyle="{x:Null}" />
 	</ItemsPanelTemplate>
+	<ItemsPanelTemplate x:Key="VirtualizingStackHorizontalItemsPanelTemplate">
+		<VirtualizingStackPanel FocusVisualStyle="{x:Null}" Orientation="Horizontal" />
+	</ItemsPanelTemplate>
+	<ItemsPanelTemplate x:Key="VirtualizingStackVerticalItemsPanelTemplate">
+		<VirtualizingStackPanel FocusVisualStyle="{x:Null}" />
+	</ItemsPanelTemplate>
 	<ItemsPanelTemplate x:Key="WrapHorizontalItemsPanelTemplate">
 		<WrapPanel FocusVisualStyle="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Center" />
 	</ItemsPanelTemplate>
@@ -9324,7 +9330,7 @@
 					<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+								<hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
 									<ItemsPresenter />
 								</hc:ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
@@ -11533,7 +11539,7 @@
 						<Border Grid.RowSpan="4" Background="{TemplateBinding Background}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}">
 							<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 								<hc:ToggleBlock.CheckedContent>
-									<hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+									<hc:ScrollViewer IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
 										<ItemsPresenter />
 									</hc:ScrollViewer>
 								</hc:ToggleBlock.CheckedContent>
@@ -11652,7 +11658,7 @@
 					<Border x:Name="Bd" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
 						<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 							<hc:ToggleBlock.CheckedContent>
-								<hc:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" CanContentScroll="false" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
+								<hc:ScrollViewer x:Name="_tv_scrollviewer_" IsInertiaEnabled="{Binding Path=(hc:ScrollViewer.IsInertiaEnabled),RelativeSource={RelativeSource TemplatedParent}}" Focusable="false" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}">
 									<ItemsPresenter />
 								</hc:ScrollViewer>
 							</hc:ToggleBlock.CheckedContent>
