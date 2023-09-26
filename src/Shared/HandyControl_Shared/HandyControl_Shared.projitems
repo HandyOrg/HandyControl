@@ -99,6 +99,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\GrowlShowMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\LinearLayout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\RunningDirection.cs" />
+    <Compile Include="..\..\Shared\HandyControl_Shared\Input\SimpleMouseBinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\EventToCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\IEventArgsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\MouseDragElementBehaviorEx.cs" />
