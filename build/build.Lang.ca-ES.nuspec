@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>HandyControl.Lang.ca-ES</id>
-    <version>3.4.0</version>
+    <version>3.5.0</version>
     <title>HandyOrg</title>
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
@@ -12,7 +12,7 @@
     <projectUrl>https://github.com/HandyOrg/HandyControl</projectUrl>
     <description>Contains some simple and commonly used WPF controls</description>
     <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
-    <copyright>Copyright © HandyOrg 2018-2022</copyright>
+    <copyright>Copyright © HandyOrg 2018-2023</copyright>
     <tags>WPF C# Control</tags>
     <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="e118ac98ccd1db28f25f66ba2da5c2e029a622a4" />
     <dependencies>
