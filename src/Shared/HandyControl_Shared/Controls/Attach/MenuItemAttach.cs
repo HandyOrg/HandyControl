@@ -1,74 +1,62 @@
 ﻿using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using HandyControl.Tools.Extension;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class MenuItemAttach
 {
-    public class MenuItemAttach
+    public static readonly DependencyProperty GroupNameProperty =
+        DependencyProperty.RegisterAttached("GroupName", typeof(string), typeof(MenuItemAttach),
+            new PropertyMetadata(string.Empty, OnGroupNameChanged));
+
+    [AttachedPropertyBrowsableForType(typeof(MenuItem))]
+    public static string GetGroupName(DependencyObject obj) => (string) obj.GetValue(GroupNameProperty);
+
+    [AttachedPropertyBrowsableForType(typeof(MenuItem))]
+    public static void SetGroupName(DependencyObject obj, string value) => obj.SetValue(GroupNameProperty, value);
+
+    private static void OnGroupNameChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        public static readonly DependencyProperty GroupNameProperty =
-            DependencyProperty.RegisterAttached("GroupName", typeof(string), typeof(MenuItemAttach),
-                                                new PropertyMetadata(string.Empty, GroupNamePropertyChanged));
-
-        [AttachedPropertyBrowsableForType(typeof(MenuItem))]
-        public static string GetGroupName(DependencyObject obj)
+        if (d is not MenuItem menuItem)
         {
-            return (string) obj.GetValue(GroupNameProperty);
+            return;
         }
 
-        [AttachedPropertyBrowsableForType(typeof(MenuItem))]
-        public static void SetGroupName(DependencyObject obj, string value)
+        menuItem.Checked -= MenuItem_Checked;
+        menuItem.Click -= MenuItem_Click;
+
+        if (string.IsNullOrWhiteSpace(e.NewValue.ToString()))
         {
-            obj.SetValue(GroupNameProperty, value);
+            return;
         }
 
-        private static void GroupNamePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        menuItem.Checked += MenuItem_Checked;
+        menuItem.Click += MenuItem_Click;
+    }
+
+    private static void MenuItem_Checked(object sender, RoutedEventArgs e)
+    {
+        if (sender is not MenuItem { Parent: MenuItem parent } menuItem)
         {
-            if (d is MenuItem menuItem)
-            {
-                var newGroupName = e.NewValue.ToString();
-                var oldGroupName = e.OldValue.ToString();
-
-                if (string.IsNullOrWhiteSpace(newGroupName))
-                {
-                    menuItem.Checked -= MenuItem_Checked;
-                    menuItem.Click -= MenuItem_Click;
-
-                }
-                else if (string.IsNullOrWhiteSpace(oldGroupName))
-                {
-                    // When the oldGroupName is null or white space,
-                    // it means we had removed the Checked event handler or never add, so we need add one.
-                    menuItem.Checked += MenuItem_Checked;
-
-                    // The same to Checked event.
-                    menuItem.Click += MenuItem_Click;
-                }
-            }
+            return;
         }
 
-        private static void MenuItem_Checked(object sender, RoutedEventArgs e)
-        {
-            if (sender is MenuItem menuItem && menuItem.Parent is MenuItem parent)
-            {
-                var groupName = GetGroupName(menuItem);
+        var groupName = GetGroupName(menuItem);
+        parent
+            .Items
+            .OfType<MenuItem>()
+            .Where(item => item != menuItem && item.IsCheckable && string.Equals(GetGroupName(item), groupName))
+            .Do(item => item.IsChecked = false);
+    }
 
-                foreach (var item in parent.Items.OfType<MenuItem>().Where(m => m != menuItem &&
-                                                                                m.IsCheckable &&
-                                                                                GetGroupName(m) == groupName))
-                {
-                    item.IsChecked = false;
-                }
-            }
-        }
-
-        private static void MenuItem_Click(object sender, RoutedEventArgs e)
+    private static void MenuItem_Click(object sender, RoutedEventArgs e)
+    {
+        // prevent uncheck when click the checked menu item
+        if (e.OriginalSource is MenuItem { IsChecked: false } menuItem)
         {
-            // prevent uncheck when click the checked menu item
-            if (e.OriginalSource is MenuItem menuItem && !menuItem.IsChecked)
-            {
-                menuItem.IsChecked = true;
-            }
+            menuItem.IsChecked = true;
         }
     }
 }
