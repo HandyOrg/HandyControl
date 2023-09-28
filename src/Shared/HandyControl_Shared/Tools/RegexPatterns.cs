@@ -56,7 +56,7 @@ public sealed class RegexPatterns
     ///     D类IP正则匹配
     /// </summary>
     public const string IpDPattern =
-        @"^(22[4-9]|23\d\."
+        @"^(22[4-9]|23\d)\."
         + @"(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\."
         + @"(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\."
         + @"(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)$";
@@ -65,7 +65,7 @@ public sealed class RegexPatterns
     ///     E类IP正则匹配
     /// </summary>
     public const string IpEPattern =
-        @"^(25[0-5]|24\d\."
+        @"^(25[0-5]|24\d)\."
         + @"(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\."
         + @"(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)\."
         + @"(25[0-5]|2[0-4]\d|1\d{2}|[1-9]?\d)$";
