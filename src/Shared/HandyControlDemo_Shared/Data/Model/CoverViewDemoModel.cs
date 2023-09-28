@@ -1,9 +1,8 @@
-﻿namespace HandyControlDemo.Data
-{
-    public class CoverViewDemoModel
-    {
-        public string ImgPath { get; set; }
+﻿namespace HandyControlDemo.Data;
 
-        public string BackgroundToken { get; set; }
-    }
+public class CoverViewDemoModel
+{
+    public string ImgPath { get; set; }
+
+    public string BackgroundToken { get; set; }
 }

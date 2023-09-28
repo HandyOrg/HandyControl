@@ -1,37 +1,41 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
+using HandyControl.Tools;
+using HandyControl.Tools.Interop;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public sealed class GrowlWindow : Window
 {
-    public sealed class GrowlWindow : Window
+    internal Panel GrowlPanel { get; set; }
+
+    internal GrowlWindow()
     {
-        internal Panel GrowlPanel { get; set; }
+        WindowStyle = WindowStyle.None;
+        AllowsTransparency = true;
 
-        internal GrowlWindow()
+        GrowlPanel = new StackPanel
         {
-            WindowStyle = WindowStyle.None;
-            AllowsTransparency = true;
+            VerticalAlignment = VerticalAlignment.Top
+        };
 
-            GrowlPanel = new StackPanel
-            {
-                VerticalAlignment = VerticalAlignment.Top,
-                Margin = new Thickness(0, 10, 10, 10)
-            };
-
-            Content = new ScrollViewer
-            {
-                VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
-                IsInertiaEnabled = true,
-                Content = GrowlPanel
-            };
-        }
-
-        internal void Init()
+        Content = new ScrollViewer
         {
-            var desktopWorkingArea = SystemParameters.WorkArea;
-            Height = desktopWorkingArea.Height;
-            Left = desktopWorkingArea.Right - Width;
-            Top = 0;
-        }
+            VerticalScrollBarVisibility = ScrollBarVisibility.Hidden,
+            IsInertiaEnabled = true,
+            Content = GrowlPanel
+        };
     }
+
+    internal void Init()
+    {
+        var desktopWorkingArea = SystemParameters.WorkArea;
+        Height = desktopWorkingArea.Height;
+        Left = desktopWorkingArea.Right - Width;
+        Top = 0;
+    }
+
+    protected override void OnSourceInitialized(EventArgs e)
+        => InteropMethods.IntDestroyMenu(this.GetHwndSource().CreateHandleRef());
 }

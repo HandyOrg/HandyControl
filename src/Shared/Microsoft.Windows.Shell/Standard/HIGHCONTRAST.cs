@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal struct HIGHCONTRAST
 {
-    internal struct HIGHCONTRAST
-    {
-        public int cbSize;
+    public int cbSize;
 
-        public HCF dwFlags;
+    public HCF dwFlags;
 
-        public IntPtr lpszDefaultScheme;
-    }
+    public IntPtr lpszDefaultScheme;
 }

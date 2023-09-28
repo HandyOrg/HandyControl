@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class OutlineTextDemoCtl
 {
-    public partial class OutlineTextDemoCtl
+    public OutlineTextDemoCtl()
     {
-        public OutlineTextDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

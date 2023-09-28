@@ -2,30 +2,29 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace HandyControl.Tools.Extension
+namespace HandyControl.Tools.Extension;
+
+public static class EnumerableExtension
 {
-    public static class EnumerableExtension
+    public static IEnumerable<TSource> Do<TSource>(this IEnumerable<TSource> source, Action<TSource> predicate)
     {
-        public static IEnumerable<TSource> Do<TSource>(this IEnumerable<TSource> source, Action<TSource> predicate)
+        var enumerable = source as IList<TSource> ?? source.ToList();
+        foreach (var item in enumerable)
         {
-            var enumerable = source as IList<TSource> ?? source.ToList();
-            foreach (var item in enumerable)
-            {
-                predicate.Invoke(item);
-            }
-
-            return enumerable;
+            predicate.Invoke(item);
         }
 
-        public static IEnumerable<TSource> DoWithIndex<TSource>(this IEnumerable<TSource> source, Action<TSource, int> predicate)
-        {
-            var enumerable = source as IList<TSource> ?? source.ToList();
-            for (var i = 0; i < enumerable.Count; i++)
-            {
-                predicate.Invoke(enumerable[i], i);
-            }
+        return enumerable;
+    }
 
-            return enumerable;
+    public static IEnumerable<TSource> DoWithIndex<TSource>(this IEnumerable<TSource> source, Action<TSource, int> predicate)
+    {
+        var enumerable = source as IList<TSource> ?? source.ToList();
+        for (var i = 0; i < enumerable.Count; i++)
+        {
+            predicate.Invoke(enumerable[i], i);
         }
+
+        return enumerable;
     }
 }

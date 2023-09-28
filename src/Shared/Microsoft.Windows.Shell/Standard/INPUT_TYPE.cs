@@ -1,9 +1,8 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum INPUT_TYPE : uint
 {
-    internal enum INPUT_TYPE : uint
-    {
-        MOUSE
-    }
+    MOUSE
 }

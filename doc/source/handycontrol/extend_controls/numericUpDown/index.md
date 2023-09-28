@@ -5,8 +5,8 @@ title: NumericUpDown 数值选择控件
 NumericUpDown 控件看起来像一对用户可以单击来调整值的箭头按钮和TextBox的组合，该控件显示并设置数值(Value)。 用户可以通过单击向上和向下箭头，或通过在控件的TextBox部分中键入一个数字来改变Value。
 
 ``` CS
-[TemplatePart(Name = ElementTextBox, Type = typeof(DatePickerTextBox))]
-public class DatePicker : System.Windows.Controls.DatePicker, IDataInput
+[TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
+public class NumericUpDown : Control
 ```
 
 # 创建NumericUpDown并设置Value
@@ -86,17 +86,11 @@ numericUpDown.Maximum = 1000;
 | Minimum      | 获取或设置最小允许值 |
 | Increment      | 获取或设置单击向上或向下按钮时，数字显示框（也称作 up-down 控件）递增或递减的值。 |
 | DecimalPlaces      |获取或设置NumericUpDown中要显示的十进制位数。 此属性不会影响 Value 属性。 |
-| VerifyFunc        | 获取或设置数据验证委托           |
 | IsError           | 获取或设置数据是否错误           |
 | ErrorStr    | 获取或设置错误提示           |
 | TextType | 获取或设置文本类型       |
 | ShowClearButton | 获取或设置是否显示清除按钮       |
 
-# 方法
-
-| 方法             |   描述             |
-| ---------------- | ------------------ |
-| VerifyData()      | 验证数据 |
 
 # 事件
 

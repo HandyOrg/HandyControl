@@ -15,124 +15,123 @@ using HandyControlDemo.Data;
 using HandyControlDemo.Properties.Langs;
 using HandyControlDemo.Tools;
 
-namespace HandyControlDemo
+namespace HandyControlDemo;
+
+public partial class App
 {
-    public partial class App
-    {
 #pragma warning disable IDE0052
-        [SuppressMessage("ReSharper", "NotAccessedField.Local")]
-        private static Mutex AppMutex;
+    [SuppressMessage("ReSharper", "NotAccessedField.Local")]
+    private static Mutex AppMutex;
 #pragma warning restore IDE0052
 
-        public App()
-        {
+    public App()
+    {
 #if !NET40
-            var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
-            if (!Directory.Exists(cachePath))
-            {
-                Directory.CreateDirectory(cachePath);
-            }
-            ProfileOptimization.SetProfileRoot(cachePath);
-            ProfileOptimization.StartProfile("Profile");
-#endif
-        }
-
-        protected override void OnStartup(StartupEventArgs e)
+        var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
+        if (!Directory.Exists(cachePath))
         {
-            AppMutex = new Mutex(true, "HandyControlDemo", out var createdNew);
+            Directory.CreateDirectory(cachePath);
+        }
+        ProfileOptimization.SetProfileRoot(cachePath);
+        ProfileOptimization.StartProfile("Profile");
+#endif
+    }
 
-            if (!createdNew)
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        AppMutex = new Mutex(true, "HandyControlDemo", out var createdNew);
+
+        if (!createdNew)
+        {
+            var current = Process.GetCurrentProcess();
+
+            foreach (var process in Process.GetProcessesByName(current.ProcessName))
             {
-                var current = Process.GetCurrentProcess();
-
-                foreach (var process in Process.GetProcessesByName(current.ProcessName))
+                if (process.Id != current.Id)
                 {
-                    if (process.Id != current.Id)
-                    {
-                        Win32Helper.SetForegroundWindow(process.MainWindowHandle);
-                        break;
-                    }
+                    Win32Helper.SetForegroundWindow(process.MainWindowHandle);
+                    break;
                 }
-                Shutdown();
             }
-            else
+            Shutdown();
+        }
+        else
+        {
+            var splashScreen = new SplashScreen("Resources/Img/Cover.png");
+            splashScreen.Show(true);
+
+            base.OnStartup(e);
+
+            UpdateRegistry();
+
+            ShutdownMode = ShutdownMode.OnMainWindowClose;
+            GlobalData.Init();
+            ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
+            LangProvider.Culture = new CultureInfo(GlobalData.Config.Lang);
+
+            if (GlobalData.Config.Skin != SkinType.Default)
             {
-                var splashScreen = new SplashScreen("Resources/Img/Cover.png");
-                splashScreen.Show(true);
+                UpdateSkin(GlobalData.Config.Skin);
+            }
 
-                base.OnStartup(e);
-
-                UpdateRegistry();
-
-                ShutdownMode = ShutdownMode.OnMainWindowClose;
-                GlobalData.Init();
-                ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
-                LangProvider.Culture = new CultureInfo(GlobalData.Config.Lang);
-
-                if (GlobalData.Config.Skin != SkinType.Default)
-                {
-                    UpdateSkin(GlobalData.Config.Skin);
-                }
-
-                ConfigHelper.Instance.SetWindowDefaultStyle();
-                ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
+            ConfigHelper.Instance.SetWindowDefaultStyle();
+            ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
 
 #if NET40
-                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 #else
-                ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 #endif
-            }
         }
+    }
 
-        protected override void OnExit(ExitEventArgs e)
+    protected override void OnExit(ExitEventArgs e)
+    {
+        base.OnExit(e);
+        GlobalData.Save();
+    }
+
+    internal void UpdateSkin(SkinType skin)
+    {
+        var skins0 = Resources.MergedDictionaries[0];
+        skins0.MergedDictionaries.Clear();
+        skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));
+        skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));
+
+        var skins1 = Resources.MergedDictionaries[1];
+        skins1.MergedDictionaries.Clear();
+        skins1.MergedDictionaries.Add(new ResourceDictionary
         {
-            base.OnExit(e);
-            GlobalData.Save();
-        }
-
-        internal void UpdateSkin(SkinType skin)
+            Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
+        });
+        skins1.MergedDictionaries.Add(new ResourceDictionary
         {
-            var skins0 = Resources.MergedDictionaries[0];
-            skins0.MergedDictionaries.Clear();
-            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(skin));
-            skins0.MergedDictionaries.Add(ResourceHelper.GetSkin(typeof(App).Assembly, "Resources/Themes", skin));
+            Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
+        });
 
-            var skins1 = Resources.MergedDictionaries[1];
-            skins1.MergedDictionaries.Clear();
-            skins1.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/HandyControl;component/Themes/Theme.xaml")
-            });
-            skins1.MergedDictionaries.Add(new ResourceDictionary
-            {
-                Source = new Uri("pack://application:,,,/HandyControlDemo;component/Resources/Themes/Theme.xaml")
-            });
+        Current.MainWindow?.OnApplyTemplate();
+    }
 
-            Current.MainWindow?.OnApplyTemplate();
-        }
-
-        private void UpdateRegistry()
+    private void UpdateRegistry()
+    {
+        var processModule = Process.GetCurrentProcess().MainModule;
+        if (processModule != null)
         {
-            var processModule = Process.GetCurrentProcess().MainModule;
-            if (processModule != null)
+            var registryFilePath = $"{Path.GetDirectoryName(processModule.FileName)}\\Registry.reg";
+            if (!File.Exists(registryFilePath))
             {
-                var registryFilePath = $"{Path.GetDirectoryName(processModule.FileName)}\\Registry.reg";
-                if (!File.Exists(registryFilePath))
+                var streamResourceInfo = GetResourceStream(new Uri("pack://application:,,,/Resources/Registry.txt"));
+                if (streamResourceInfo != null)
                 {
-                    var streamResourceInfo = GetResourceStream(new Uri("pack://application:,,,/Resources/Registry.txt"));
-                    if (streamResourceInfo != null)
+                    using var reader = new StreamReader(streamResourceInfo.Stream);
+                    var registryStr = reader.ReadToEnd();
+                    var newRegistryStr = registryStr.Replace("#", processModule.FileName.Replace("\\", "\\\\"));
+                    File.WriteAllText(registryFilePath, newRegistryStr);
+                    Process.Start(new ProcessStartInfo("cmd", $"/c {registryFilePath}")
                     {
-                        using var reader = new StreamReader(streamResourceInfo.Stream);
-                        var registryStr = reader.ReadToEnd();
-                        var newRegistryStr = registryStr.Replace("#", processModule.FileName.Replace("\\", "\\\\"));
-                        File.WriteAllText(registryFilePath, newRegistryStr);
-                        Process.Start(new ProcessStartInfo("cmd", $"/c {registryFilePath}")
-                        {
-                            UseShellExecute = false,
-                            CreateNoWindow = true
-                        });
-                    }
+                        UseShellExecute = false,
+                        CreateNoWindow = true
+                    });
                 }
             }
         }

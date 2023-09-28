@@ -1,9 +1,8 @@
-﻿namespace HandyControlDemo.Data
-{
-    public class StepBarDemoModel
-    {
-        public string Header { get; set; }
+﻿namespace HandyControlDemo.Data;
 
-        public string Content { get; set; }
-    }
+public class StepBarDemoModel
+{
+    public string Header { get; set; }
+
+    public string Content { get; set; }
 }

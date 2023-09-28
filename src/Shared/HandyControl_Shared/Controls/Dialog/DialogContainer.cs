@@ -1,9 +1,8 @@
 ﻿using System.Windows.Documents;
 
-namespace HandyControl.Controls
-{
-    public class DialogContainer : AdornerDecorator
-    {
+namespace HandyControl.Controls;
 
-    }
+public class DialogContainer : AdornerDecorator
+{
+
 }

@@ -1,9 +1,8 @@
 ﻿using System.Windows.Controls;
 
-namespace HandyControl.Controls
-{
-    public class CheckComboBoxItem : ListBoxItem
-    {
+namespace HandyControl.Controls;
 
-    }
+public class CheckComboBoxItem : ListBoxItem
+{
+
 }

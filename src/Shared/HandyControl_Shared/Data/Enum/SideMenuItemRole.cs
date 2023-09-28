@@ -1,8 +1,7 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum SideMenuItemRole
 {
-    public enum SideMenuItemRole
-    {
-        Header,
-        Item
-    }
+    Header,
+    Item
 }

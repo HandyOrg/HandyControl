@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class NativeTabControlDemoCtl
 {
-    public partial class NativeTabControlDemoCtl
+    public NativeTabControlDemoCtl()
     {
-        public NativeTabControlDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

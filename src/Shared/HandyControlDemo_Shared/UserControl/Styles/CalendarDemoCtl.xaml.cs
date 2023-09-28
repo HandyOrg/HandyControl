@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class CalendarDemoCtl
 {
-    public partial class CalendarDemoCtl
+    public CalendarDemoCtl()
     {
-        public CalendarDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

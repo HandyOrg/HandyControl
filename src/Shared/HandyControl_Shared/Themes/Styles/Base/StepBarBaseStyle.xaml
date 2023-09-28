@@ -1,12 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:hc="clr-namespace:HandyControl.Controls"
-                    xmlns:themes="clr-namespace:HandyControl.Themes">
-
-    <ResourceDictionary.MergedDictionaries>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/TextBlock.xaml"/>
-        <themes:SharedResourceDictionary Source="pack://application:,,,/HandyControl;component/Themes/Styles/ProgressBar.xaml"/>
-    </ResourceDictionary.MergedDictionaries>
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="StepBarItemBaseStyle" TargetType="hc:StepBarItem">
         <Setter Property="Focusable" Value="False"/>
@@ -29,12 +23,14 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:StepBarItem">
-                    <StackPanel>
-                        <Border Background="{DynamicResource RegionBrush}" HorizontalAlignment="Center" CornerRadius="12" BorderThickness="2" BorderBrush="{TemplateBinding Foreground}" Height="24" MinWidth="24">
-                            <TextBlock Foreground="{TemplateBinding Foreground}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Index,RelativeSource={RelativeSource TemplatedParent}}"/>
-                        </Border>
-                        <ContentPresenter HorizontalAlignment="Center" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=hc:StepBar}}" TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,4,0,0"/>
-                    </StackPanel>
+                    <Border Background="Transparent">
+                        <StackPanel>
+                            <Border Background="{DynamicResource RegionBrush}" HorizontalAlignment="Center" CornerRadius="12" BorderThickness="2" BorderBrush="{TemplateBinding Foreground}" Height="24" MinWidth="24">
+                                <TextBlock Foreground="{TemplateBinding Foreground}" Style="{StaticResource TextBlockDefaultThiLight}" Text="{Binding Index,RelativeSource={RelativeSource TemplatedParent}}"/>
+                            </Border>
+                            <ContentPresenter HorizontalAlignment="Center" ContentTemplate="{Binding ItemTemplate,RelativeSource={RelativeSource AncestorType=hc:StepBar}}" TextElement.Foreground="{TemplateBinding Foreground}" Margin="0,4,0,0"/>
+                        </StackPanel>
+                    </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
@@ -56,7 +52,7 @@
         </Setter>
     </Style>
 
-    <Style x:Key="StepBarItemVerticalLeft" BasedOn="{StaticResource StepBarItemBaseStyle}" TargetType="hc:StepBarItem">
+    <Style x:Key="StepBarItemVertical" BasedOn="{StaticResource StepBarItemBaseStyle}" TargetType="hc:StepBarItem">
         <Setter Property="Margin" Value="0, 10"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -72,14 +68,6 @@
         </Setter>
     </Style>
 
-    <ItemsPanelTemplate x:Key="StepBarHorizontalItemsPanelTemplate">
-        <UniformGrid Rows="1"/>
-    </ItemsPanelTemplate>
-
-    <ItemsPanelTemplate x:Key="StepBarVerticalItemsPanelTemplate">
-        <UniformGrid Columns="1"/>
-    </ItemsPanelTemplate>
-
     <ControlTemplate x:Key="StepBarHorizontalTopControlTemplate" TargetType="hc:StepBar">
         <hc:SimplePanel>
             <ProgressBar HorizontalAlignment="Center" Name="PART_ProgressBarBack" VerticalAlignment="Top" Margin="0,10,0,0" Style="{StaticResource ProgressBarFlat}" Background="{DynamicResource ThirdlyTextBrush}"/>
@@ -94,7 +82,7 @@
         </hc:SimplePanel>
     </ControlTemplate>
 
-    <ControlTemplate x:Key="StepBarVerticalLeftControlTemplate" TargetType="hc:StepBar">
+    <ControlTemplate x:Key="StepBarVerticalControlTemplate" TargetType="hc:StepBar">
         <hc:SimplePanel>
             <ProgressBar Orientation="Vertical" Width="4" HorizontalAlignment="Left" Name="PART_ProgressBarBack" VerticalAlignment="Center" Margin="10,0,0,0" Style="{StaticResource ProgressBarFlat}" Background="{DynamicResource ThirdlyTextBrush}" RenderTransformOrigin="0.5,0.5">
                 <ProgressBar.RenderTransform>
@@ -111,23 +99,23 @@
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemHorizontalTop}"/>
         <Setter Property="Template" Value="{StaticResource StepBarHorizontalTopControlTemplate}"/>
-        <Setter Property="ItemsPanel" Value="{StaticResource StepBarHorizontalItemsPanelTemplate}"/>
+        <Setter Property="ItemsPanel" Value="{StaticResource UniformHorizontalItemsPanelTemplate}"/>
         <Style.Triggers>
             <Trigger Property="Dock" Value="Left">
-                <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemVerticalLeft}"/>
-                <Setter Property="Template" Value="{StaticResource StepBarVerticalLeftControlTemplate}"/>
-                <Setter Property="ItemsPanel" Value="{StaticResource StepBarVerticalItemsPanelTemplate}"/>
+                <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemVertical}"/>
+                <Setter Property="Template" Value="{StaticResource StepBarVerticalControlTemplate}"/>
+                <Setter Property="ItemsPanel" Value="{StaticResource UniformVerticalItemsPanelTemplate}"/>
             </Trigger>
             <Trigger Property="Dock" Value="Bottom">
                 <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemHorizontalBottom}"/>
                 <Setter Property="Template" Value="{StaticResource StepBarHorizontalBottomControlTemplate}"/>
-                <Setter Property="ItemsPanel" Value="{StaticResource StepBarHorizontalItemsPanelTemplate}"/>
+                <Setter Property="ItemsPanel" Value="{StaticResource UniformHorizontalItemsPanelTemplate}"/>
             </Trigger>
             <Trigger Property="Dock" Value="Right">
                 <Setter Property="FlowDirection" Value="RightToLeft"/>
-                <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemVerticalLeft}"/>
-                <Setter Property="Template" Value="{StaticResource StepBarVerticalLeftControlTemplate}"/>
-                <Setter Property="ItemsPanel" Value="{StaticResource StepBarVerticalItemsPanelTemplate}"/>
+                <Setter Property="ItemContainerStyle" Value="{StaticResource StepBarItemVertical}"/>
+                <Setter Property="Template" Value="{StaticResource StepBarVerticalControlTemplate}"/>
+                <Setter Property="ItemsPanel" Value="{StaticResource UniformVerticalItemsPanelTemplate}"/>
             </Trigger>
         </Style.Triggers>
     </Style>

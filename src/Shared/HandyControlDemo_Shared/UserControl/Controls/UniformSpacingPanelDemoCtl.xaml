@@ -6,34 +6,36 @@
              xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <hc:SimpleStackPanel Margin="32">
-            <hc:UniformSpacingPanel Spacing="10">
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-            </hc:UniformSpacingPanel>
-            <hc:Divider LineStrokeDashArray="2,2"/>
-            <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-            </hc:UniformSpacingPanel>
-            <hc:Divider LineStrokeDashArray="2,2"/>
-            <hc:UniformSpacingPanel Spacing="10" Width="300" ChildWrapping="Wrap" HorizontalAlignment="Left">
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-            </hc:UniformSpacingPanel>
-            <hc:Divider LineStrokeDashArray="2,2"/>
-            <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical" Height="70" ChildWrapping="Wrap" HorizontalAlignment="Left">
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-                <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
-            </hc:UniformSpacingPanel>
-        </hc:SimpleStackPanel>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:SimpleStackPanel Margin="32">
+                <hc:UniformSpacingPanel Spacing="10">
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                </hc:UniformSpacingPanel>
+                <hc:Divider LineStrokeDashArray="2,2"/>
+                <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                </hc:UniformSpacingPanel>
+                <hc:Divider LineStrokeDashArray="2,2"/>
+                <hc:UniformSpacingPanel Spacing="10" Width="300" ChildWrapping="Wrap" HorizontalAlignment="Left">
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                </hc:UniformSpacingPanel>
+                <hc:Divider LineStrokeDashArray="2,2"/>
+                <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical" Height="70" ChildWrapping="Wrap" HorizontalAlignment="Left">
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <Button Content="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                </hc:UniformSpacingPanel>
+            </hc:SimpleStackPanel>
+        </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

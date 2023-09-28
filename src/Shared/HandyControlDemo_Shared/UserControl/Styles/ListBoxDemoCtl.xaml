@@ -4,12 +4,21 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-          <ListBox Width="200" Margin="32" ItemsSource="{Binding DataList}">
-              <ListBox.ItemTemplate>
-                  <DataTemplate>
-                      <TextBlock Text="{Binding Name}"/>
-                  </DataTemplate>
-              </ListBox.ItemTemplate>
-          </ListBox>
+        <WrapPanel Margin="16">
+            <ListBox Margin="16" Width="200" ItemsSource="{Binding DataList}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <ListBox Margin="16" Width="200" ItemsSource="{Binding DataList}" Style="{StaticResource ListBox.Small}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding Name}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </WrapPanel>
     </hc:TransitioningContentControl>
 </UserControl>

@@ -1,96 +1,114 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+public class Row : Panel
 {
-    public class Row : Panel
+    private ColLayoutStatus _layoutStatus;
+
+    private double _maxChildDesiredHeight;
+
+    private double _fixedWidth;
+
+    public static readonly DependencyProperty GutterProperty = DependencyProperty.Register(
+        nameof(Gutter), typeof(double), typeof(Row), new FrameworkPropertyMetadata(
+            ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.AffectsMeasure, null, OnGutterCoerce),
+        ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
+
+    private static object OnGutterCoerce(DependencyObject d, object basevalue) =>
+        ValidateHelper.IsInRangeOfPosDoubleIncludeZero(basevalue) ? basevalue : .0;
+
+    public double Gutter
     {
-        private ColLayoutStatus _layoutStatus;
+        get => (double) GetValue(GutterProperty);
+        set => SetValue(GutterProperty, value);
+    }
 
-        private double _maxChildDesiredHeight;
+    protected override Size MeasureOverride(Size constraint)
+    {
+        var gutter = Gutter;
+        var totalCellCount = 0;
+        var totalRowCount = 1;
+        _fixedWidth = 0;
+        _maxChildDesiredHeight = 0;
+        var cols = InternalChildren.OfType<Col>().ToList();
 
-        private double _totalAutoWidth;
-
-        public static readonly DependencyProperty GutterProperty = DependencyProperty.Register(
-            "Gutter", typeof(double), typeof(Row), new PropertyMetadata(ValueBoxes.Double0Box, null, OnGutterCoerce), ValidateHelper.IsInRangeOfPosDoubleIncludeZero);
-
-        private static object OnGutterCoerce(DependencyObject d, object basevalue) => ValidateHelper.IsInRangeOfPosDoubleIncludeZero(basevalue) ? basevalue : .0;
-
-        public double Gutter
+        foreach (var child in cols)
         {
-            get => (double) GetValue(GutterProperty);
-            set => SetValue(GutterProperty, value);
+            var cellCount = child.GetLayoutCellCount(_layoutStatus);
+            if (cellCount == 0 || child.IsFixed)
+            {
+                child.Measure(constraint);
+                _maxChildDesiredHeight = Math.Max(_maxChildDesiredHeight, child.DesiredSize.Height);
+                _fixedWidth += child.DesiredSize.Width + gutter;
+            }
         }
 
-        protected override Size MeasureOverride(Size constraint)
+        var itemWidth = (constraint.Width - _fixedWidth + gutter) / ColLayout.ColMaxCellCount;
+        itemWidth = Math.Max(0, itemWidth);
+
+        foreach (var child in cols)
         {
-            var totalCellCount = 0;
-            var totalRowCount = 1;
-            var gutterHalf = Gutter / 2;
-            _totalAutoWidth = 0;
-
-            foreach (var child in InternalChildren.OfType<Col>())
+            var cellCount = child.GetLayoutCellCount(_layoutStatus);
+            if (cellCount > 0 && !child.IsFixed)
             {
-                child.Margin = new Thickness(gutterHalf);
-                child.Measure(constraint);
-                var childDesiredSize = child.DesiredSize;
-
-                if (_maxChildDesiredHeight < childDesiredSize.Height)
-                {
-                    _maxChildDesiredHeight = childDesiredSize.Height;
-                }
-
-                var cellCount = child.GetLayoutCellCount(_layoutStatus);
                 totalCellCount += cellCount;
+                child.Measure(new Size(cellCount * itemWidth - gutter, constraint.Height));
+                _maxChildDesiredHeight = Math.Max(_maxChildDesiredHeight, child.DesiredSize.Height);
 
                 if (totalCellCount > ColLayout.ColMaxCellCount)
                 {
                     totalCellCount = cellCount;
                     totalRowCount++;
                 }
-
-                if (cellCount == 0 || child.IsFixed)
-                {
-                    _totalAutoWidth += childDesiredSize.Width;
-                }
             }
-
-            return new Size(0, _maxChildDesiredHeight * totalRowCount - Gutter);
         }
 
-        protected override Size ArrangeOverride(Size finalSize)
+        return new Size(0, _maxChildDesiredHeight * totalRowCount);
+    }
+
+    protected override Size ArrangeOverride(Size finalSize)
+    {
+        var gutter = Gutter;
+        var totalCellCount = 0;
+        var cols = InternalChildren.OfType<Col>().ToList();
+        var itemWidth = (finalSize.Width - _fixedWidth + gutter) / ColLayout.ColMaxCellCount;
+        itemWidth = Math.Max(0, itemWidth);
+
+        var childBounds = new Rect(0, 0, 0, _maxChildDesiredHeight);
+        _layoutStatus = ColLayout.GetLayoutStatus(finalSize.Width);
+
+        foreach (var child in cols)
         {
-            var totalCellCount = 0;
-            var gutterHalf = Gutter / 2;
-            var itemWidth = (finalSize.Width - _totalAutoWidth + Gutter) / ColLayout.ColMaxCellCount;
-            var childBounds = new Rect(-gutterHalf, -gutterHalf, 0, _maxChildDesiredHeight);
-            _layoutStatus = ColLayout.GetLayoutStatus(finalSize.Width);
-
-            foreach (var child in InternalChildren.OfType<Col>())
+            if (!child.IsVisible)
             {
-                var cellCount = child.GetLayoutCellCount(_layoutStatus);
-                totalCellCount += cellCount;
-
-                var childWidth = cellCount > 0 ? cellCount * itemWidth : child.DesiredSize.Width;
-
-                childBounds.Width = childWidth;
-                childBounds.X += child.Offset * itemWidth;
-                if (totalCellCount > ColLayout.ColMaxCellCount)
-                {
-                    childBounds.X = -gutterHalf;
-                    childBounds.Y += _maxChildDesiredHeight;
-                    totalCellCount = cellCount;
-                }
-
-                child.Arrange(childBounds);
-                childBounds.X += childWidth;
+                continue;
             }
 
-            return finalSize;
+            var cellCount = child.GetLayoutCellCount(_layoutStatus);
+            totalCellCount += cellCount;
+
+            var childWidth = (cellCount > 0 && !child.IsFixed) ? cellCount * itemWidth - gutter : child.DesiredSize.Width;
+            childBounds.Width = childWidth;
+            childBounds.X += child.Offset * itemWidth;
+
+            if (totalCellCount > ColLayout.ColMaxCellCount)
+            {
+                childBounds.X = 0;
+                childBounds.Y += _maxChildDesiredHeight;
+                totalCellCount = cellCount;
+            }
+
+            child.Arrange(childBounds);
+            childBounds.X += childWidth + gutter;
         }
+
+        return finalSize;
     }
 }

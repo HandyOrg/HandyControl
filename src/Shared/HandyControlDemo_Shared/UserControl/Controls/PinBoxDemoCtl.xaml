@@ -4,9 +4,11 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <StackPanel Margin="32" VerticalAlignment="Center" hc:PinBox.Completed="PinBox_OnCompleted">
+        <hc:UniformSpacingPanel Spacing="16" Orientation="Vertical" Margin="32" VerticalAlignment="Center" hc:PinBox.Completed="PinBox_OnCompleted">
             <hc:PinBox Length="4" Password="1234"/>
-            <hc:PinBox Length="6" Password="123456" Margin="0,16,0,0" PasswordChar="❤"/>
-        </StackPanel>
+            <hc:PinBox Length="4" Password="1234" Name="PinBoxDemo" IsSafeEnabled="False"/>
+            <TextBox Text="{Binding UnsafePassword,ElementName=PinBoxDemo,UpdateSourceTrigger=PropertyChanged}"/>
+            <hc:PinBox Length="6" Password="123456" PasswordChar="❤"/>
+        </hc:UniformSpacingPanel>
     </hc:TransitioningContentControl>
 </UserControl>

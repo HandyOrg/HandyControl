@@ -4,12 +4,21 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
-        <TreeView Width="200" Margin="32" ItemsSource="{Binding DataList}">
-              <TreeView.ItemTemplate>
-                  <HierarchicalDataTemplate ItemsSource="{Binding DataList}">
-                      <TextBlock Text="{Binding Name}"/>
-                  </HierarchicalDataTemplate>
-              </TreeView.ItemTemplate>
-          </TreeView>
+        <WrapPanel Margin="16">
+            <TreeView Width="200" Margin="16" ItemsSource="{Binding DataList}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding DataList}">
+                        <TextBlock Text="{Binding Name}"/>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+            <TreeView Width="200" Margin="16" ItemsSource="{Binding DataList}" Style="{StaticResource TreeView.Small}">
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding DataList}">
+                        <TextBlock Text="{Binding Name}"/>
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+        </WrapPanel>
     </hc:TransitioningContentControl>
 </UserControl>

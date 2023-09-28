@@ -12,7 +12,7 @@
         </Style>
     </UserControl.Resources>
     <hc:TransitioningContentControl>
-        <ScrollViewer>
+        <hc:ScrollViewer IsInertiaEnabled="True">
             <hc:FlexPanel Margin="32" AlignItems="FlexStart" AlignContent="SpaceBetween" JustifyContent="SpaceAround" FlexWrap="WrapReverse" FlexDirection="RowReverse">
                 <Border hc:FlexPanel.Order="99" Height="50" Style="{StaticResource Border4FlexPanelDemoStyle}">
                     <TextBlock Text="0" Style="{StaticResource TextBlockTitle}"/>
@@ -45,6 +45,6 @@
                     <TextBlock Text="9" Style="{StaticResource TextBlockTitle}"/>
                 </Border>
             </hc:FlexPanel>
-        </ScrollViewer>
+        </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

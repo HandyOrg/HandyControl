@@ -34,4 +34,4 @@ title: TextBlock 文本块
 </StackPanel>
 ```
 
-![TextBlockStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TextBlock.jpg)
+![TextBlockStyle](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/TextBlock.png)

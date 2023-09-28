@@ -9,496 +9,371 @@ using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Tools;
 
-namespace HandyControl.Controls
+namespace HandyControl.Controls;
+
+/// <summary>
+///     数值选择控件
+/// </summary>
+[TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
+public class NumericUpDown : Control
 {
-    /// <summary>
-    ///     数值选择控件
-    /// </summary>
-    [TemplatePart(Name = ElementTextBox, Type = typeof(TextBox))]
-    [TemplatePart(Name = ElementErrorTip, Type = typeof(UIElement))]
-    public class NumericUpDown : Control, IDataInput
+    private const string ElementTextBox = "PART_TextBox";
+
+    private TextBox _textBox;
+
+    public NumericUpDown()
     {
-        #region Constants
-
-        private const string ElementTextBox = "PART_TextBox";
-
-        private const string ElementErrorTip = "PART_ErrorTip";
-
-        #endregion Constants
-
-        #region Data
-
-        private TextBox _textBox;
-
-        private UIElement _errorTip;
-
-        private bool _updateText;
-
-        #endregion Data
-
-        public NumericUpDown()
-        {
-            CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) =>
-            {
-                if (IsReadOnly) return;
-
-                Value += Increment;
-            }));
-            CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) =>
-            {
-                if (IsReadOnly) return;
-
-                Value -= Increment;
-            }));
-            CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
-            {
-                if (IsReadOnly) return;
-
-                SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
-            }));
-
-            Loaded += (s, e) => OnApplyTemplate();
-        }
-
-        protected override void OnGotFocus(RoutedEventArgs e)
-        {
-            base.OnGotFocus(e);
-
-            if (_textBox != null)
-            {
-                _textBox?.Focus();
-                _textBox.Select(_textBox.Text.Length, 0);
-            }
-        }
-
-        public override void OnApplyTemplate()
-        {
-            if (_textBox != null)
-            {
-                TextCompositionManager.RemovePreviewTextInputHandler(_textBox, PreviewTextInputHandler);
-                _textBox.TextChanged -= TextBox_TextChanged;
-                _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
-                _textBox.LostFocus -= TextBox_LostFocus;
-            }
-
-            base.OnApplyTemplate();
-
-            _textBox = GetTemplateChild(ElementTextBox) as TextBox;
-            _errorTip = GetTemplateChild(ElementErrorTip) as UIElement;
-
-            if (_textBox != null)
-            {
-                _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
-#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
-                _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
-#endif
-                _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
-                _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
-
-                TextCompositionManager.AddPreviewTextInputHandler(_textBox, PreviewTextInputHandler);
-                _textBox.TextChanged += TextBox_TextChanged;
-                _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
-                _textBox.LostFocus += TextBox_LostFocus;
-                _textBox.Text = CurrentText;
-            }
-        }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e) => UpdateData();
-
-        private void UpdateData()
-        {
-            if (!VerifyData())
-            {
-                _updateText = true;
-                return;
-            }
-            if (double.TryParse(_textBox.Text, out var value))
-            {
-                _updateText = false;
-                Value = value;
-                _updateText = true;
-            }
-        }
-
-        private void PreviewTextInputHandler(object sender, TextCompositionEventArgs e) => UpdateData();
-
-        private void TextBox_LostFocus(object sender, RoutedEventArgs e)
-        {
-            if (IsError && _errorTip != null) return;
-            _textBox.Text = CurrentText;
-        }
-
-        private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+        CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) =>
         {
             if (IsReadOnly) return;
 
-            if (e.Key == Key.Up)
-            {
-                Value += Increment;
-            }
-            else if (e.Key == Key.Down)
-            {
-                Value -= Increment;
-            }
+            SetCurrentValue(ValueProperty, Value + Increment);
+        }));
+        CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) =>
+        {
+            if (IsReadOnly) return;
+
+            SetCurrentValue(ValueProperty, Value - Increment);
+        }));
+        CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
+        {
+            if (IsReadOnly) return;
+
+            SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
+        }));
+    }
+
+    public override void OnApplyTemplate()
+    {
+        if (_textBox != null)
+        {
+            _textBox.PreviewKeyDown -= TextBox_PreviewKeyDown;
+            _textBox.TextChanged -= TextBox_TextChanged;
+            _textBox.LostFocus -= TextBox_LostFocus;
         }
 
-        protected override void OnMouseWheel(MouseWheelEventArgs e)
-        {
-            base.OnMouseWheel(e);
+        base.OnApplyTemplate();
 
-            if (_textBox.IsFocused && !IsReadOnly)
-            {
-                Value += e.Delta > 0 ? Increment : -Increment;
-                e.Handled = true;
-            }
+        _textBox = GetTemplateChild(ElementTextBox) as TextBox;
+
+        if (_textBox != null)
+        {
+            _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
+#if NET48_OR_GREATER
+            _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });
+#endif
+            _textBox.SetBinding(SelectionOpacityProperty, new Binding(SelectionOpacityProperty.Name) { Source = this });
+            _textBox.SetBinding(CaretBrushProperty, new Binding(CaretBrushProperty.Name) { Source = this });
+
+            _textBox.PreviewKeyDown += TextBox_PreviewKeyDown;
+            _textBox.TextChanged += TextBox_TextChanged;
+            _textBox.LostFocus += TextBox_LostFocus;
+            _textBox.Text = CurrentText;
         }
+    }
 
-        private string CurrentText => string.IsNullOrWhiteSpace(ValueFormat)
-            ? DecimalPlaces.HasValue
-                ? Value.ToString($"#0.{new string('0', DecimalPlaces.Value)}")
-                : Value.ToString()
-            : Value.ToString(ValueFormat);
-
-        protected virtual void OnValueChanged(FunctionEventArgs<double> e) => RaiseEvent(e);
-
-        /// <summary>
-        ///     值改变事件
-        /// </summary>
-        public static readonly RoutedEvent ValueChangedEvent =
-            EventManager.RegisterRoutedEvent("ValueChanged", RoutingStrategy.Bubble,
-                typeof(EventHandler<FunctionEventArgs<double>>), typeof(NumericUpDown));
-
-        /// <summary>
-        ///     值改变事件
-        /// </summary>
-        public event EventHandler<FunctionEventArgs<double>> ValueChanged
+    private void TextBox_LostFocus(object sender, RoutedEventArgs e)
+    {
+        if (string.IsNullOrWhiteSpace(_textBox.Text))
         {
-            add => AddHandler(ValueChangedEvent, value);
-            remove => RemoveHandler(ValueChangedEvent, value);
+            SetCurrentValue(ValueProperty, ValueBoxes.Double0Box);
         }
-
-        /// <summary>
-        ///     当前值
-        /// </summary>
-        public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
-            "Value", typeof(double), typeof(NumericUpDown),
-            new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
-                OnValueChanged, CoerceValue), ValidateHelper.IsInRangeOfDouble);
-
-        private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        else if (double.TryParse(_textBox.Text, out double value))
         {
-            var ctl = (NumericUpDown) d;
-            var v = (double) e.NewValue;
-            ctl.SetText();
-
-            ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
-            {
-                Info = v
-            });
+            SetCurrentValue(ValueProperty, value);
         }
-
-        private void SetText()
+        else
         {
-            if (_updateText && _textBox != null)
+            SetText(true);
+        }
+    }
+
+    private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+    {
+        if (double.TryParse(_textBox.Text, out double value))
+        {
+            if (value >= Minimum && value <= Maximum)
             {
-                _textBox.Text = CurrentText;
-                _textBox.Select(_textBox.Text.Length, 0);
+                SetCurrentValue(ValueProperty, value);
             }
         }
+    }
 
-        private static object CoerceValue(DependencyObject d, object basevalue)
+    private void TextBox_PreviewKeyDown(object sender, KeyEventArgs e)
+    {
+        if (IsReadOnly) return;
+
+        if (e.Key == Key.Up)
         {
-            var ctl = (NumericUpDown) d;
-            var minimum = ctl.Minimum;
-            var num = (double) basevalue;
-            if (num < minimum)
-            {
-                ctl.Value = minimum;
-                return minimum;
-            }
-            var maximum = ctl.Maximum;
-            if (num > maximum)
-            {
-                ctl.Value = maximum;
-            }
-            ctl.SetText();
-            return num > maximum ? maximum : num;
+            Value += Increment;
         }
-
-        /// <summary>
-        ///     当前值
-        /// </summary>
-        public double Value
+        else if (e.Key == Key.Down)
         {
-            get => (double) GetValue(ValueProperty);
-            set => SetValue(ValueProperty, value);
+            Value -= Increment;
         }
+    }
 
-        /// <summary>
-        ///     最大值
-        /// </summary>
-        public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
-            "Maximum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ValidateHelper.IsInRangeOfDouble);
+    protected override void OnMouseWheel(MouseWheelEventArgs e)
+    {
+        base.OnMouseWheel(e);
 
-        private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        if (_textBox.IsFocused && !IsReadOnly)
         {
-            var ctl = (NumericUpDown) d;
-            ctl.CoerceValue(MinimumProperty);
-            ctl.CoerceValue(ValueProperty);
+            Value += e.Delta > 0 ? Increment : -Increment;
+            SetText(true);
+            e.Handled = true;
         }
+    }
 
-        private static object CoerceMaximum(DependencyObject d, object basevalue)
+    private string CurrentText => string.IsNullOrWhiteSpace(ValueFormat)
+        ? DecimalPlaces.HasValue
+            ? Value.ToString($"#0.{new string('0', DecimalPlaces.Value)}")
+            : Value.ToString()
+        : Value.ToString(ValueFormat);
+
+    protected virtual void OnValueChanged(FunctionEventArgs<double> e) => RaiseEvent(e);
+
+    /// <summary>
+    ///     值改变事件
+    /// </summary>
+    public static readonly RoutedEvent ValueChangedEvent =
+        EventManager.RegisterRoutedEvent("ValueChanged", RoutingStrategy.Bubble,
+            typeof(EventHandler<FunctionEventArgs<double>>), typeof(NumericUpDown));
+
+    /// <summary>
+    ///     值改变事件
+    /// </summary>
+    public event EventHandler<FunctionEventArgs<double>> ValueChanged
+    {
+        add => AddHandler(ValueChangedEvent, value);
+        remove => RemoveHandler(ValueChangedEvent, value);
+    }
+
+    /// <summary>
+    ///     当前值
+    /// </summary>
+    public static readonly DependencyProperty ValueProperty = DependencyProperty.Register(
+        nameof(Value), typeof(double), typeof(NumericUpDown),
+        new FrameworkPropertyMetadata(ValueBoxes.Double0Box, FrameworkPropertyMetadataOptions.BindsTwoWayByDefault,
+            OnValueChanged, CoerceValue), ValidateHelper.IsInRangeOfDouble);
+
+    private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var ctl = (NumericUpDown) d;
+        var v = (double) e.NewValue;
+        ctl.SetText();
+
+        ctl.OnValueChanged(new FunctionEventArgs<double>(ValueChangedEvent, ctl)
         {
-            var minimum = ((NumericUpDown) d).Minimum;
-            return (double) basevalue < minimum ? minimum : basevalue;
-        }
+            Info = v
+        });
+    }
 
-        /// <summary>
-        ///     最大值
-        /// </summary>
-        public double Maximum
+    private void SetText(bool force = false)
+    {
+        if (_textBox != null && (!_textBox.IsFocused || force))
         {
-            get => (double) GetValue(MaximumProperty);
-            set => SetValue(MaximumProperty, value);
+            _textBox.Text = CurrentText;
+            _textBox.Select(_textBox.Text.Length, 0);
         }
+    }
 
-        /// <summary>
-        ///     最小值
-        /// </summary>
-        public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
-            "Minimum", typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MinValue, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
-
-        private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    private static object CoerceValue(DependencyObject d, object basevalue)
+    {
+        var ctl = (NumericUpDown) d;
+        var minimum = ctl.Minimum;
+        var num = (double) basevalue;
+        if (num < minimum)
         {
-            var ctl = (NumericUpDown) d;
-            ctl.CoerceValue(MaximumProperty);
-            ctl.CoerceValue(ValueProperty);
+            ctl.Value = minimum;
+            return minimum;
         }
-
-        private static object CoerceMinimum(DependencyObject d, object basevalue)
+        var maximum = ctl.Maximum;
+        if (num > maximum)
         {
-            var maximum = ((NumericUpDown) d).Maximum;
-            return (double) basevalue > maximum ? maximum : basevalue;
+            ctl.Value = maximum;
         }
+        ctl.SetText();
+        return num > maximum ? maximum : num;
+    }
 
-        /// <summary>
-        ///     最小值
-        /// </summary>
-        public double Minimum
-        {
-            get => (double) GetValue(MinimumProperty);
-            set => SetValue(MinimumProperty, value);
-        }
+    /// <summary>
+    ///     当前值
+    /// </summary>
+    public double Value
+    {
+        get => (double) GetValue(ValueProperty);
+        set => SetValue(ValueProperty, value);
+    }
 
-        /// <summary>
-        ///     指示每单击一下按钮时增加或减少的数量
-        /// </summary>
-        public static readonly DependencyProperty IncrementProperty = DependencyProperty.Register(
-            "Increment", typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double1Box));
+    /// <summary>
+    ///     最大值
+    /// </summary>
+    public static readonly DependencyProperty MaximumProperty = DependencyProperty.Register(
+        nameof(Maximum), typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MaxValue, OnMaximumChanged, CoerceMaximum), ValidateHelper.IsInRangeOfDouble);
 
-        /// <summary>
-        ///     指示每单击一下按钮时增加或减少的数量
-        /// </summary>
-        public double Increment
-        {
-            get => (double) GetValue(IncrementProperty);
-            set => SetValue(IncrementProperty, value);
-        }
+    private static void OnMaximumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var ctl = (NumericUpDown) d;
+        ctl.CoerceValue(MinimumProperty);
+        ctl.CoerceValue(ValueProperty);
+    }
 
-        /// <summary>
-        ///     指示要显示的小数位数
-        /// </summary>
-        public static readonly DependencyProperty DecimalPlacesProperty = DependencyProperty.Register(
-            "DecimalPlaces", typeof(int?), typeof(NumericUpDown), new PropertyMetadata(default(int?)));
+    private static object CoerceMaximum(DependencyObject d, object basevalue)
+    {
+        var minimum = ((NumericUpDown) d).Minimum;
+        return (double) basevalue < minimum ? minimum : basevalue;
+    }
 
-        /// <summary>
-        ///     指示要显示的小数位数
-        /// </summary>
-        public int? DecimalPlaces
-        {
-            get => (int?) GetValue(DecimalPlacesProperty);
-            set => SetValue(DecimalPlacesProperty, value);
-        }
+    /// <summary>
+    ///     最大值
+    /// </summary>
+    public double Maximum
+    {
+        get => (double) GetValue(MaximumProperty);
+        set => SetValue(MaximumProperty, value);
+    }
 
-        /// <summary>
-        ///     指示要显示的数字的格式
-        /// </summary>
-        public static readonly DependencyProperty ValueFormatProperty = DependencyProperty.Register(
-            "ValueFormat", typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
+    /// <summary>
+    ///     最小值
+    /// </summary>
+    public static readonly DependencyProperty MinimumProperty = DependencyProperty.Register(
+        nameof(Minimum), typeof(double), typeof(NumericUpDown), new PropertyMetadata(double.MinValue, OnMinimumChanged, CoerceMinimum), ValidateHelper.IsInRangeOfDouble);
 
-        /// <summary>
-        ///     指示要显示的数字的格式，这将会覆盖 <see cref="DecimalPlaces"/> 属性
-        /// </summary>
-        public string ValueFormat
-        {
-            get => (string) GetValue(ValueFormatProperty);
-            set => SetValue(ValueFormatProperty, value);
-        }
+    private static void OnMinimumChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var ctl = (NumericUpDown) d;
+        ctl.CoerceValue(MaximumProperty);
+        ctl.CoerceValue(ValueProperty);
+    }
 
-        /// <summary>
-        ///     是否显示上下调值按钮
-        /// </summary>
-        internal static readonly DependencyProperty ShowUpDownButtonProperty = DependencyProperty.Register(
-            "ShowUpDownButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.TrueBox));
+    private static object CoerceMinimum(DependencyObject d, object basevalue)
+    {
+        var maximum = ((NumericUpDown) d).Maximum;
+        return (double) basevalue > maximum ? maximum : basevalue;
+    }
 
-        /// <summary>
-        ///     是否显示上下调值按钮
-        /// </summary>
-        internal bool ShowUpDownButton
-        {
-            get => (bool) GetValue(ShowUpDownButtonProperty);
-            set => SetValue(ShowUpDownButtonProperty, ValueBoxes.BooleanBox(value));
-        }
+    /// <summary>
+    ///     最小值
+    /// </summary>
+    public double Minimum
+    {
+        get => (double) GetValue(MinimumProperty);
+        set => SetValue(MinimumProperty, value);
+    }
 
-        /// <summary>
-        ///     数据是否错误
-        /// </summary>
-        public static readonly DependencyProperty IsErrorProperty = DependencyProperty.Register(
-            "IsError", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
+    /// <summary>
+    ///     指示每单击一下按钮时增加或减少的数量
+    /// </summary>
+    public static readonly DependencyProperty IncrementProperty = DependencyProperty.Register(
+        nameof(Increment), typeof(double), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.Double1Box));
 
-        public bool IsError
-        {
-            get => (bool) GetValue(IsErrorProperty);
-            set => SetValue(IsErrorProperty, ValueBoxes.BooleanBox(value));
-        }
+    /// <summary>
+    ///     指示每单击一下按钮时增加或减少的数量
+    /// </summary>
+    public double Increment
+    {
+        get => (double) GetValue(IncrementProperty);
+        set => SetValue(IncrementProperty, value);
+    }
 
-        /// <summary>
-        ///     错误提示
-        /// </summary>
-        public static readonly DependencyProperty ErrorStrProperty = DependencyProperty.Register(
-            "ErrorStr", typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
+    /// <summary>
+    ///     指示要显示的小数位数
+    /// </summary>
+    public static readonly DependencyProperty DecimalPlacesProperty = DependencyProperty.Register(
+        nameof(DecimalPlaces), typeof(int?), typeof(NumericUpDown), new PropertyMetadata(default(int?)));
 
-        public string ErrorStr
-        {
-            get => (string) GetValue(ErrorStrProperty);
-            set => SetValue(ErrorStrProperty, value);
-        }
+    /// <summary>
+    ///     指示要显示的小数位数
+    /// </summary>
+    public int? DecimalPlaces
+    {
+        get => (int?) GetValue(DecimalPlacesProperty);
+        set => SetValue(DecimalPlacesProperty, value);
+    }
 
-        public static readonly DependencyPropertyKey TextTypePropertyKey =
-            DependencyProperty.RegisterReadOnly("TextType", typeof(TextType), typeof(NumericUpDown),
-                new PropertyMetadata(default(TextType)));
+    /// <summary>
+    ///     指示要显示的数字的格式
+    /// </summary>
+    public static readonly DependencyProperty ValueFormatProperty = DependencyProperty.Register(
+        nameof(ValueFormat), typeof(string), typeof(NumericUpDown), new PropertyMetadata(default(string)));
 
-        /// <summary>
-        ///     文本类型
-        /// </summary>
-        public static readonly DependencyProperty TextTypeProperty = TextTypePropertyKey.DependencyProperty;
+    /// <summary>
+    ///     指示要显示的数字的格式，这将会覆盖 <see cref="DecimalPlaces"/> 属性
+    /// </summary>
+    public string ValueFormat
+    {
+        get => (string) GetValue(ValueFormatProperty);
+        set => SetValue(ValueFormatProperty, value);
+    }
 
-        public TextType TextType
-        {
-            get => (TextType) GetValue(TextTypeProperty);
-            set => SetValue(TextTypeProperty, value);
-        }
+    /// <summary>
+    ///     是否显示上下调值按钮
+    /// </summary>
+    internal static readonly DependencyProperty ShowUpDownButtonProperty = DependencyProperty.Register(
+        nameof(ShowUpDownButton), typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.TrueBox));
 
-        /// <summary>
-        ///     是否显示清除按钮
-        /// </summary>
-        public static readonly DependencyProperty ShowClearButtonProperty = DependencyProperty.Register(
-            "ShowClearButton", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
+    /// <summary>
+    ///     是否显示上下调值按钮
+    /// </summary>
+    internal bool ShowUpDownButton
+    {
+        get => (bool) GetValue(ShowUpDownButtonProperty);
+        set => SetValue(ShowUpDownButtonProperty, ValueBoxes.BooleanBox(value));
+    }
 
-        public bool ShowClearButton
-        {
-            get => (bool) GetValue(ShowClearButtonProperty);
-            set => SetValue(ShowClearButtonProperty, ValueBoxes.BooleanBox(value));
-        }
+    /// <summary>
+    ///     标识 IsReadOnly 依赖属性。
+    /// </summary>
+    public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
+        nameof(IsReadOnly), typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
 
-        /// <summary>
-        ///     标识 IsReadOnly 依赖属性。
-        /// </summary>
-        public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
-            "IsReadOnly", typeof(bool), typeof(NumericUpDown), new PropertyMetadata(ValueBoxes.FalseBox));
+    /// <summary>
+    ///     获取或设置一个值，该值指示NumericUpDown是否只读。
+    /// </summary>
+    public bool IsReadOnly
+    {
+        get => (bool) GetValue(IsReadOnlyProperty);
+        set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
+    }
 
-        /// <summary>
-        ///     获取或设置一个值，该值指示NumericUpDown是否只读。
-        /// </summary>
-        public bool IsReadOnly
-        {
-            get => (bool) GetValue(IsReadOnlyProperty);
-            set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
-        }
+    public static readonly DependencyProperty SelectionBrushProperty =
+        TextBoxBase.SelectionBrushProperty.AddOwner(typeof(NumericUpDown));
 
-        public static readonly DependencyProperty SelectionBrushProperty =
-            TextBoxBase.SelectionBrushProperty.AddOwner(typeof(NumericUpDown));
+    public Brush SelectionBrush
+    {
+        get => (Brush) GetValue(SelectionBrushProperty);
+        set => SetValue(SelectionBrushProperty, value);
+    }
 
-        public Brush SelectionBrush
-        {
-            get => (Brush) GetValue(SelectionBrushProperty);
-            set => SetValue(SelectionBrushProperty, value);
-        }
+#if NET48_OR_GREATER
 
-#if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
+    public static readonly DependencyProperty SelectionTextBrushProperty =
+        TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(NumericUpDown));
 
-        public static readonly DependencyProperty SelectionTextBrushProperty =
-            TextBoxBase.SelectionTextBrushProperty.AddOwner(typeof(NumericUpDown));
-
-        public Brush SelectionTextBrush
-        {
-            get => (Brush) GetValue(SelectionTextBrushProperty);
-            set => SetValue(SelectionTextBrushProperty, value);
-        }
+    public Brush SelectionTextBrush
+    {
+        get => (Brush) GetValue(SelectionTextBrushProperty);
+        set => SetValue(SelectionTextBrushProperty, value);
+    }
 
 #endif
 
-        public static readonly DependencyProperty SelectionOpacityProperty =
-            TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(NumericUpDown));
+    public static readonly DependencyProperty SelectionOpacityProperty =
+        TextBoxBase.SelectionOpacityProperty.AddOwner(typeof(NumericUpDown));
 
-        public double SelectionOpacity
-        {
-            get => (double) GetValue(SelectionOpacityProperty);
-            set => SetValue(SelectionOpacityProperty, value);
-        }
+    public double SelectionOpacity
+    {
+        get => (double) GetValue(SelectionOpacityProperty);
+        set => SetValue(SelectionOpacityProperty, value);
+    }
 
-        public static readonly DependencyProperty CaretBrushProperty =
-            TextBoxBase.CaretBrushProperty.AddOwner(typeof(NumericUpDown));
+    public static readonly DependencyProperty CaretBrushProperty =
+        TextBoxBase.CaretBrushProperty.AddOwner(typeof(NumericUpDown));
 
-        public Brush CaretBrush
-        {
-            get => (Brush) GetValue(CaretBrushProperty);
-            set => SetValue(CaretBrushProperty, value);
-        }
-
-        public Func<string, OperationResult<bool>> VerifyFunc { get; set; }
-
-        public virtual bool VerifyData()
-        {
-            OperationResult<bool> result;
-
-            if (VerifyFunc != null)
-            {
-                result = VerifyFunc.Invoke(_textBox.Text);
-            }
-            else
-            {
-                if (!string.IsNullOrEmpty(_textBox.Text))
-                {
-                    if (double.TryParse(_textBox.Text, out var value))
-                    {
-                        if (value < Minimum || value > Maximum)
-                        {
-                            result = OperationResult.Failed(Properties.Langs.Lang.OutOfRange);
-                        }
-                        else
-                        {
-                            result = OperationResult.Success();
-                        }
-                    }
-                    else
-                    {
-                        result = OperationResult.Failed(Properties.Langs.Lang.FormatError);
-                    }
-                }
-                else if (InfoElement.GetNecessary(this))
-                {
-                    result = OperationResult.Failed(Properties.Langs.Lang.IsNecessary);
-                }
-                else
-                {
-                    result = OperationResult.Success();
-                }
-            }
-
-            IsError = !result.Data;
-            ErrorStr = result.Message;
-            return result.Data;
-        }
+    public Brush CaretBrush
+    {
+        get => (Brush) GetValue(CaretBrushProperty);
+        set => SetValue(CaretBrushProperty, value);
     }
 }

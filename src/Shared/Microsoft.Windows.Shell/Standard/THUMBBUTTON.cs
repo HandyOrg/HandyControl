@@ -1,24 +1,23 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Standard
+namespace Standard;
+
+[StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode, Pack = 8)]
+internal struct THUMBBUTTON
 {
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode, Pack = 8)]
-    internal struct THUMBBUTTON
-    {
-        public const int THBN_CLICKED = 6144;
+    public const int THBN_CLICKED = 6144;
 
-        public THB dwMask;
+    public THB dwMask;
 
-        public uint iId;
+    public uint iId;
 
-        public uint iBitmap;
+    public uint iBitmap;
 
-        public IntPtr hIcon;
+    public IntPtr hIcon;
 
-        [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
-        public string szTip;
+    [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 260)]
+    public string szTip;
 
-        public THBF dwFlags;
-    }
+    public THBF dwFlags;
 }

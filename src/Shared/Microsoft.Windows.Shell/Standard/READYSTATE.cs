@@ -1,13 +1,12 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum READYSTATE
 {
-    internal enum READYSTATE
-    {
-        UNINITIALIZED,
-        LOADING,
-        LOADED,
-        INTERACTIVE,
-        COMPLETE
-    }
+    UNINITIALIZED,
+    LOADING,
+    LOADED,
+    INTERACTIVE,
+    COMPLETE
 }

@@ -4,12 +4,13 @@
              Background="{DynamicResource RegionBrush}"
              xmlns:hc="https://handyorg.github.io/handycontrol">
     <hc:TransitioningContentControl>
-        <hc:Transfer ItemsSource="{Binding DataList}" Margin="32" Height="300">
-            <hc:Transfer.ItemTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Name}"/>
-                </DataTemplate>
-            </hc:Transfer.ItemTemplate>
-        </hc:Transfer>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel ChildWrapping="Wrap" Margin="32" Spacing="32">
+                <hc:Transfer ItemsSource="{Binding DataList}" MinWidth="300" Height="300" DisplayMemberPath="Name" />
+                <hc:Transfer ItemsSource="{Binding DataList}" MinWidth="300" Height="300" DisplayMemberPath="Name" Style="{StaticResource Transfer.Small}"/>
+                <hc:Transfer ItemsSource="{Binding DataList}" MinWidth="300" Height="300" DisplayMemberPath="Name" Style="{StaticResource Transfer.CheckBox}"/>
+                <hc:Transfer ItemsSource="{Binding DataList}" MinWidth="300" Height="300" DisplayMemberPath="Name" Style="{StaticResource Transfer.CheckBox.Small}"/>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
     </hc:TransitioningContentControl>
 </UserControl>

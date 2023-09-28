@@ -1,25 +1,24 @@
-﻿namespace HandyControl.Data
-{
-    public class OperationResult
-    {
-        public static OperationResult<bool> Failed(string message = "")
-        {
-            return new OperationResult<bool>
-            {
-                ResultType = ResultType.Failed,
-                Message = message,
-                Data = false
-            };
-        }
+﻿namespace HandyControl.Data;
 
-        public static OperationResult<bool> Success(string message = "")
+public class OperationResult
+{
+    public static OperationResult<bool> Failed(string message = "")
+    {
+        return new()
         {
-            return new OperationResult<bool>
-            {
-                ResultType = ResultType.Success,
-                Message = message,
-                Data = true
-            };
-        }
+            ResultType = ResultType.Failed,
+            Message = message,
+            Data = false
+        };
+    }
+
+    public static OperationResult<bool> Success(string message = "")
+    {
+        return new()
+        {
+            ResultType = ResultType.Success,
+            Message = message,
+            Data = true
+        };
     }
 }

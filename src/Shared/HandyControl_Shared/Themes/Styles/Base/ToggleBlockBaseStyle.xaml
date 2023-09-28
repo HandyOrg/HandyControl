@@ -5,6 +5,7 @@
     <Style x:Key="ToggleBlockBaseStyle" TargetType="hc:ToggleBlock">
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="Focusable" Value="False"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:ToggleBlock">

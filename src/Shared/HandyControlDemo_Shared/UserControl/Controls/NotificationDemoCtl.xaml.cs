@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class NotificationDemoCtl
 {
-    public partial class NotificationDemoCtl
+    public NotificationDemoCtl()
     {
-        public NotificationDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

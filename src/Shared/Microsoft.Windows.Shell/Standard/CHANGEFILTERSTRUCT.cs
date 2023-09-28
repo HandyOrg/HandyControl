@@ -1,11 +1,10 @@
 ﻿using System;
 
-namespace Standard
-{
-    internal struct CHANGEFILTERSTRUCT
-    {
-        public uint cbSize;
+namespace Standard;
 
-        public MSGFLTINFO ExtStatus;
-    }
+internal struct CHANGEFILTERSTRUCT
+{
+    public uint cbSize;
+
+    public MSGFLTINFO ExtStatus;
 }

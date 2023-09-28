@@ -2,20 +2,17 @@
   <PropertyGroup>
     <AssemblyName>HandyControl</AssemblyName>
     <RootNamespace>HandyControl</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net45;net462;net47;net48;net5.0-windows</TargetFrameworks>
-    <Description>Contains some commonly used simple WPF controls</Description>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net481;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
+    <Description>Contains some simple and commonly used WPF controls</Description>
     <PackageId>HandyControl</PackageId>
-    <IncludeSymbols>true</IncludeSymbols>
     <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-    <NoWarn>0067;0649;1591;MSB3061;SYSLIB0003;SYSLIB0004</NoWarn>
+    <NoWarn>0067;0649;1591;MSB3061;SYSLIB0003;SYSLIB0004;SYSLIB0032</NoWarn>
     <MSBuildWarningsAsMessages>NETSDK1138</MSBuildWarningsAsMessages>
-    <UseWPF>true</UseWPF>
     <AssemblyOriginatorKeyFile>..\..\Shared\HandyControl_Shared\key.snk</AssemblyOriginatorKeyFile>
-    <Copyright>Copyright © HandyOrg 2018-2021</Copyright>
-    <AssemblyVersion>3.1.0.0</AssemblyVersion>
-    <FileVersion>3.1.0.0</FileVersion>
-    <Version>3.1.0.0</Version>
-    <RepositoryUrl>https://github.com/HandyOrg/HandyControl</RepositoryUrl>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageTags>WPF C# Control</PackageTags>
+    <PackageReleaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</PackageReleaseNotes>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <SignAssembly>true</SignAssembly>
@@ -42,14 +39,23 @@
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ca-ES.resx">
       <Link>Properties\Langs\Lang.ca-ES.resx</Link>
     </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.cs.resx">
+      <Link>Properties\Langs\Lang.cs.resx</Link>
+    </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.es.resx">
+      <Link>Properties\Langs\Lang.es.resx</Link>
     </EmbeddedResource>
       <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fa.resx">
       <Link>Properties\Langs\Lang.fa.resx</Link>
     </EmbeddedResource>
       <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.fr.resx">
       <Link>Properties\Langs\Lang.fr.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ja.resx">
+      <Link>Properties\Langs\Lang.ja.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControl_Shared\Properties\Langs\Lang.ko-KR.resx">
       <Link>Properties\Langs\Lang.ko-KR.resx</Link>
@@ -80,6 +86,15 @@
     </Content>
   </ItemGroup>
   <Import Project="..\..\Shared\HandyControl_Shared\HandyControl_Shared.projitems" Label="Shared" />
+  <Import Project="..\..\Shared\Microsoft.Expression.Drawing\Microsoft.Expression.Drawing.projitems" Label="Shared" />
+  <Import Project="..\..\Shared\System.Windows.Interactivity\System.Windows.Interactivity.projitems" Label="Shared" />
+  <Import Project="..\..\Shared\Microsoft.Expression.Interactions\Microsoft.Expression.Interactions.projitems" Label="Shared" />
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControl_Shared\Resources\dropper.cur">
       <Link>Resources\dropper.cur</Link>

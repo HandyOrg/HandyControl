@@ -6,10 +6,11 @@
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="MaskBrush" Value="{DynamicResource DarkOpacityBrush}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:Dialog">
-                    <Border Background="{DynamicResource DarkOpacityBrush}">
+                    <Border x:Name="PART_BackElement" Background="{TemplateBinding MaskBrush}">
                         <ContentPresenter Margin="{TemplateBinding Padding}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
                 </ControlTemplate>

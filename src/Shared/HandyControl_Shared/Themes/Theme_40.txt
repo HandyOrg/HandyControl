@@ -37,9 +37,11 @@ Styles\Base\RepeatButtonBaseStyle.xaml
 Styles\Base\ToggleBlockBaseStyle.xaml
 Styles\Base\GroupBoxBaseStyle.xaml
 Styles\Base\ButtonGroupBaseStyle.xaml
+Styles\Base\ElementGroupBaseStyle.xaml
 Styles\Base\ProgressBarBaseStyle.xaml
 Styles\Base\CheckBoxBaseStyle.xaml
 Styles\Base\RadioButtonBaseStyle.xaml
+Styles\Base\ItemsPanelTemplate.xaml
 # --------------------------------------
 Styles\Button.xaml
 Styles\TextBlock.xaml
@@ -90,6 +92,7 @@ Styles\Base\GotoTopBaseStyle.xaml
 Styles\Base\GravatarBaseStyle.xaml
 Styles\Base\ImageSelectorBaseStyle.xaml
 Styles\Base\ListBoxBaseStyle.xaml
+Styles\Base\ListViewBaseStyle.xaml
 Styles\Base\LoadingBaseStyle.xaml
 Styles\Base\LoadingCircleBaseStyle.xaml
 Styles\Base\LoadingLineBaseStyle.xaml
@@ -116,6 +119,8 @@ Styles\Base\ToolTipBaseStyle.xaml
 Styles\Base\TransferBaseStyle.xaml
 ..\..\..\Net_40\HandyControl_Net_40\Themes\Styles\Base\TreeViewBaseStyle.xaml
 Styles\Base\WatermarkBaseStyle.xaml
+Styles\Base\AutoCompleteTextBoxBaseStyle.xaml
+Styles\Base\DataGridBaseStyle.xaml
 # --------------------------------------
 Styles\Badge.xaml
 Styles\CalendarWithClock.xaml
@@ -135,6 +140,7 @@ Styles\DateTimePicker.xaml
 Styles\Dialog.xaml
 Styles\Divider.xaml
 Styles\Drawer.xaml
+Styles\ElementGroup.xaml
 Styles\Empty.xaml
 Styles\Expander.xaml
 Styles\FlipClock.xaml
@@ -163,6 +169,7 @@ Styles\PopupWindow.xaml
 Styles\ProgressButton.xaml
 Styles\PropertyGrid.xaml
 Styles\Rate.xaml
+Styles\Ribbon.xaml
 Styles\RichTextBox.xaml
 Styles\RunningBlock.xaml
 Styles\Screenshot.xaml
@@ -183,3 +190,4 @@ Styles\Transfer.xaml
 Styles\TransitioningContentControl.xaml
 Styles\TreeView.xaml
 Styles\Watermark.xaml
+Styles\AutoCompleteTextBox.xaml

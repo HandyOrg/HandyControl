@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum CombineRgnResult
 {
-    internal enum CombineRgnResult
-    {
-        ERROR,
-        NULLREGION,
-        SIMPLEREGION,
-        COMPLEXREGION
-    }
+    ERROR,
+    NULLREGION,
+    SIMPLEREGION,
+    COMPLEXREGION
 }

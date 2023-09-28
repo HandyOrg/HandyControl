@@ -20,7 +20,7 @@ namespace HandyControlDemo.Properties.Langs
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class Lang
@@ -121,6 +121,17 @@ namespace HandyControlDemo.Properties.Langs
             get
             {
                 return ResourceManager.GetString("Ask", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to 自动补全文本框.
+        /// </summary>
+        public static string AutoCompleteTextBox
+        {
+            get
+            {
+                return ResourceManager.GetString("AutoCompleteTextBox", resourceCulture);
             }
         }
 
@@ -374,6 +385,17 @@ namespace HandyControlDemo.Properties.Langs
             get
             {
                 return ResourceManager.GetString("Clock", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to 关闭主窗口对话框.
+        /// </summary>
+        public static string CloseMainWindowDialog
+        {
+            get
+            {
+                return ResourceManager.GetString("CloseMainWindowDialog", resourceCulture);
             }
         }
 
@@ -715,6 +737,17 @@ namespace HandyControlDemo.Properties.Langs
             get
             {
                 return ResourceManager.GetString("Effects", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to 元素组.
+        /// </summary>
+        public static string ElementGroup
+        {
+            get
+            {
+                return ResourceManager.GetString("ElementGroup", resourceCulture);
             }
         }
 
@@ -2530,6 +2563,17 @@ namespace HandyControlDemo.Properties.Langs
             get
             {
                 return ResourceManager.GetString("WaterfallPanel", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to 水印.
+        /// </summary>
+        public static string Watermark
+        {
+            get
+            {
+                return ResourceManager.GetString("Watermark", resourceCulture);
             }
         }
 

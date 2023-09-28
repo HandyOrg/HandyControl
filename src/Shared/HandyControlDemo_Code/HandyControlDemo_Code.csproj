@@ -3,15 +3,16 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemoCode</AssemblyName>
     <RootNamespace>HandyControlDemoCode</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net5.0-windows</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net451;net452;net46;net461;net462;net47;net471;net472;net48;net481;net5.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
     <NoWarn>MSB3026;MSB3061</NoWarn>
     <MSBuildWarningsAsMessages>NETSDK1138</MSBuildWarningsAsMessages>
-    <Version>3.1.0.0</Version>
-    <Copyright>Copyright © HandyOrg 2018-2021</Copyright>
-    <RepositoryUrl>https://github.com/HandyOrg/HandyControl</RepositoryUrl>
-    <AssemblyVersion>3.1.0.0</AssemblyVersion>
-    <FileVersion>3.1.0.0</FileVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Window\AboutWindow.xaml">
       <Link>Window\AboutWindow.xaml</Link>
@@ -60,6 +61,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AnimationPathDemoCtl.xaml">
       <Link>UserControl\Controls\AnimationPathDemoCtl.xaml</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml">
+      <Link>UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\BadgeDemoCtl.xaml">
       <Link>UserControl\Controls\BadgeDemoCtl.xaml</Link>
@@ -117,6 +121,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml">
       <Link>UserControl\Controls\DrawerDemoCtl.xaml</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemoCtl.xaml">
+      <Link>UserControl\Controls\ElementGroupDemoCtl.xaml</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml">
       <Link>UserControl\Controls\FlexPanelDemoCtl.xaml</Link>
@@ -258,6 +265,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemoCtl.xaml">
       <Link>UserControl\Controls\WaterfallPanelDemoCtl.xaml</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WatermarkDemoCtl.xaml">
+      <Link>UserControl\Controls\WatermarkDemoCtl.xaml</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WindowDemoCtl.xaml">
       <Link>UserControl\Controls\WindowDemoCtl.xaml</Link>
@@ -433,6 +443,10 @@
       <Link>UserControl\Controls\AnimationPathDemoCtl.xaml.cs</Link>
       <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml.cs</Link>
+      <DependentUpon>AutoCompleteTextBoxDemoCtl.xaml</DependentUpon>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\BadgeDemoCtl.xaml.cs">
       <Link>UserControl\Controls\BadgeDemoCtl.xaml.cs</Link>
       <DependentUpon>BadgeDemoCtl.xaml</DependentUpon>
@@ -508,6 +522,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml.cs">
       <Link>UserControl\Controls\DrawerDemoCtl.xaml.cs</Link>
       <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\ElementGroupDemoCtl.xaml.cs</Link>
+      <DependentUpon>ElementGroupDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\FlexPanelDemoCtl.xaml.cs</Link>
@@ -693,6 +711,10 @@
       <Link>UserControl\Controls\UniformSpacingPanelDemoCtl.xaml.cs</Link>
       <DependentUpon>UniformSpacingPanelDemoCtl.xaml</DependentUpon>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WatermarkDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\WatermarkDemoCtl.xaml.cs</Link>
+      <DependentUpon>WatermarkDemoCtl.xaml</DependentUpon>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs</Link>
       <DependentUpon>WaterfallPanelDemoCtl.xaml</DependentUpon>
@@ -845,8 +867,11 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Basic\InteractiveDialogViewModel.cs">
       <Link>ViewModel\InteractiveDialogViewModel.cs</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Common\ComboBoxDemoViewModel.cs">
-      <Link>ViewModel\ComboBoxDemoViewModel.cs</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Common\InputElementDemoViewModel.cs">
+      <Link>ViewModel\InputElementDemoViewModel.cs</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\AutoCompleteTextBoxDemoViewModel.cs">
+      <Link>ViewModel\AutoCompleteTextBoxDemoViewModel.cs</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\BadgeDemoViewModel.cs">
       <Link>ViewModel\BadgeDemoViewModel.cs</Link>
@@ -875,9 +900,6 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\PaginationDemoViewModel.cs">
       <Link>ViewModel\PaginationDemoViewModel.cs</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\SearchBarDemoViewModel.cs">
-      <Link>ViewModel\SearchBarDemoViewModel.cs</Link>
-    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\SideMenuDemoViewModel.cs">
       <Link>ViewModel\SideMenuDemoViewModel.cs</Link>
     </Resource>
@@ -899,8 +921,8 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Controls\WindowDemoViewModel.cs">
       <Link>ViewModel\WindowDemoViewModel.cs</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\DemoViewModelBase!1.cs">
-      <Link>ViewModel\DemoViewModelBase!1.cs</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\DemoViewModelBase`1.cs">
+      <Link>ViewModel\DemoViewModelBase`1.cs</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\ViewModel\Main\ItemsDisplayViewModel.cs">
       <Link>ViewModel\ItemsDisplayViewModel.cs</Link>

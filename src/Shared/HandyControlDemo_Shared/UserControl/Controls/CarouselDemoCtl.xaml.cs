@@ -1,11 +1,10 @@
 ﻿
-namespace HandyControlDemo.UserControl
+namespace HandyControlDemo.UserControl;
+
+public partial class CarouselDemoCtl
 {
-    public partial class CarouselDemoCtl
+    public CarouselDemoCtl()
     {
-        public CarouselDemoCtl()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

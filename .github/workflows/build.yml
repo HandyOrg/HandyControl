@@ -1,5 +1,3 @@
-name: build
-
 on: [push, pull_request]
 
 jobs:
@@ -8,9 +6,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@master
-      
-      - name: Build Net_40
-        run: dotnet build src/Net_40/HandyControl_Net_40/HandyControl_Net_40.csproj -p:Configuration=Release-Net40
 
-      - name: Build Net_GE45
-        run: dotnet build src/Net_GE45/HandyControl_Net_GE45/HandyControl_Net_GE45.csproj -p:Configuration=Release
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@master
+        with:
+          dotnet-version: '7.0.x'
+          include-prerelease: true
+      
+      - name: Build
+        shell: pwsh
+        run: |
+          cd build
+          .\build.ps1

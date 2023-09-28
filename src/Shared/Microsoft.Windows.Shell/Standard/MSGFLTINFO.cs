@@ -1,12 +1,11 @@
 ﻿using System;
 
-namespace Standard
+namespace Standard;
+
+internal enum MSGFLTINFO
 {
-    internal enum MSGFLTINFO
-    {
-        NONE,
-        ALREADYALLOWED_FORWND,
-        ALREADYDISALLOWED_FORWND,
-        ALLOWED_HIGHER
-    }
+    NONE,
+    ALREADYALLOWED_FORWND,
+    ALREADYDISALLOWED_FORWND,
+    ALLOWED_HIGHER
 }

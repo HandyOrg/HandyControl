@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects Condition="'$(MSBuildVersion)' == '' Or '$(MSBuildVersion)' &lt; '16.0'">$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>6f0c9cff-2269-46a7-9664-478354c582a4</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>System.Windows.Interactivity</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AttachableCollection`1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behavior.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BehaviorCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Behavior`1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DefaultTriggerAttribute.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventTrigger.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventTriggerBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)EventTriggerBase`1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IAttachedObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Interaction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InvokeCommandAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NameResolvedEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NameResolver.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)PreviewInvokeEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TriggerAction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TriggerActionCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TriggerAction`1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TriggerBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TriggerCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TypeConstraintAttribute.cs" />
+  </ItemGroup>
+</Project>

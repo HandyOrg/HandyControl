@@ -1,7 +1,6 @@
-﻿namespace HandyControlDemo.UserControl
-{
-    internal interface IFull
-    {
+﻿namespace HandyControlDemo.UserControl;
 
-    }
+internal interface IFull
+{
+
 }

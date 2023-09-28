@@ -1,8 +1,7 @@
-﻿namespace HandyControl.Data
+﻿namespace HandyControl.Data;
+
+public enum VisualWrapping
 {
-    public enum VisualWrapping
-    {
-        NoWrap,
-        Wrap
-    }
+    NoWrap,
+    Wrap
 }

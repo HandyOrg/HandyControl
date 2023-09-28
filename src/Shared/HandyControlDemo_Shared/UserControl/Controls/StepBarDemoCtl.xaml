@@ -29,7 +29,7 @@
                 <Button Command="{Binding PrevCmd}" CommandParameter="{Binding ElementName=PanelMain}" Width="180" Content="{ex:Lang Key={x:Static langs:LangKeys.Prev}}" Style="{StaticResource ButtonPrimary}"/>
                 <Button Command="{Binding NextCmd}" CommandParameter="{Binding ElementName=PanelMain}" Width="180" Margin="0,16,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.Next}}" Style="{StaticResource ButtonPrimary}"/>
             </StackPanel>
-            <hc:StepBar Margin="0,0,0,32" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Dock="Bottom">
+            <hc:StepBar IsMouseSelectable="True" Margin="0,0,0,32" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Dock="Bottom">
                 <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.Register}}"/>
                 <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.BasicInfo}}"/>
                 <hc:StepBarItem Content="{ex:Lang Key={x:Static langs:LangKeys.UploadFile}}"/>
@@ -48,7 +48,7 @@
                     </DataTemplate>
                 </hc:StepBar.ItemTemplate>
             </hc:StepBar>
-            <hc:StepBar Grid.Column="1" Grid.Row="3" ItemsSource="{Binding DataList}" Dock="Right">
+            <hc:StepBar IsMouseSelectable="True" Grid.Column="1" Grid.Row="3" ItemsSource="{Binding DataList}" Dock="Right">
                 <hc:StepBar.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>

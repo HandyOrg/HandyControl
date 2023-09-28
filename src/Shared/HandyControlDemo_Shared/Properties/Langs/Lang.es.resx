@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Controls" xml:space="preserve">
+    <value>Controles</value>
+  </data>
+  <data name="Styles" xml:space="preserve">
+    <value>Estilos</value>
+  </data>
+  <data name="Growl" xml:space="preserve">
+    <value>Growl</value>
+  </data>
+  <data name="GrowlInfo" xml:space="preserve">
+    <value>Hoy es un lindo día~~~</value>
+  </data>
+  <data name="GrowlSuccess" xml:space="preserve">
+    <value>¡Archivo guardado exitosamente!</value>
+  </data>
+  <data name="GrowlWarning" xml:space="preserve">
+    <value>¡No hay más espacio disponible en el disco!</value>
+  </data>
+  <data name="GrowlError" xml:space="preserve">
+    <value>La conexión falló. ¡Por favor revisa tu conexión a internet!</value>
+  </data>
+  <data name="GrowlFatal" xml:space="preserve">
+    <value>El programa se ha detenido de forma inesperada</value>
+  </data>
+  <data name="GrowlAsk" xml:space="preserve">
+    <value>Se ha detectado una nueva versión del programa. ¿Desea actualizarlo?</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Cargando</value>
+  </data>
+  <data name="ImageBrowser" xml:space="preserve">
+    <value>ImageBrowser</value>
+  </data>
+  <data name="ColorPicker" xml:space="preserve">
+    <value>ColorPicker</value>
+  </data>
+  <data name="Carousel" xml:space="preserve">
+    <value>Carousel</value>
+  </data>
+  <data name="CompareSlider" xml:space="preserve">
+    <value>CompareSlider</value>
+  </data>
+  <data name="TimeBar" xml:space="preserve">
+    <value>TimeBar</value>
+  </data>
+  <data name="Expander" xml:space="preserve">
+    <value>Expander</value>
+  </data>
+  <data name="Pagination" xml:space="preserve">
+    <value>Pagination</value>
+  </data>
+  <data name="OpenImageBrowser" xml:space="preserve">
+    <value>Pulse para seleccionar una imagen</value>
+  </data>
+  <data name="ProgressBar" xml:space="preserve">
+    <value>ProgressBar</value>
+  </data>
+  <data name="AnimationPath" xml:space="preserve">
+    <value>AnimationPath</value>
+  </data>
+  <data name="Button" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="ToggleButton" xml:space="preserve">
+    <value>ToggleButton</value>
+  </data>
+  <data name="TabControl" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="CheckBox" xml:space="preserve">
+    <value>CheckBox</value>
+  </data>
+  <data name="TextBlock" xml:space="preserve">
+    <value>TextBlock</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Por defecto</value>
+  </data>
+  <data name="Primary" xml:space="preserve">
+    <value>Primario</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Éxito</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Advertencia</value>
+  </data>
+  <data name="Danger" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="ButtonCustom" xml:space="preserve">
+    <value>Personalizado</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Título</value>
+  </data>
+  <data name="StepBar" xml:space="preserve">
+    <value>StepBar</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Anterior</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Siguiente</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrarse</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>Completar sus datos</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Subir archivo</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Completado</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>Reloj</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>Calendario</value>
+  </data>
+  <data name="DatePicker" xml:space="preserve">
+    <value>DatePicker</value>
+  </data>
+  <data name="TimePicker" xml:space="preserve">
+    <value>TimePicker</value>
+  </data>
+  <data name="TextBox" xml:space="preserve">
+    <value>TextBox</value>
+  </data>
+  <data name="ContentDemoStr" xml:space="preserve">
+    <value>Este es el contenido</value>
+  </data>
+  <data name="TitleDemoStr1" xml:space="preserve">
+    <value>Este es el título</value>
+  </data>
+  <data name="TitleDemoStr2" xml:space="preserve">
+    <value>Este campo es obligatorio</value>
+  </data>
+  <data name="PlsEnterContent" xml:space="preserve">
+    <value>Por favor complete el campo</value>
+  </data>
+  <data name="TitleDemoStr3" xml:space="preserve">
+    <value>Este título está a la izquierda</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Texto</value>
+  </data>
+  <data name="SubTitle" xml:space="preserve">
+    <value>Subtitulo</value>
+  </data>
+  <data name="PasswordBox" xml:space="preserve">
+    <value>PasswordBox</value>
+  </data>
+  <data name="CirclePanel" xml:space="preserve">
+    <value>CirclePanel</value>
+  </data>
+  <data name="ComboBox" xml:space="preserve">
+    <value>ComboBox</value>
+  </data>
+  <data name="NumericUpDown" xml:space="preserve">
+    <value>NumericUpDown</value>
+  </data>
+  <data name="DataGrid" xml:space="preserve">
+    <value>DataGrid</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Index</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Selected</value>
+  </data>
+  <data name="ListBox" xml:space="preserve">
+    <value>ListBox</value>
+  </data>
+  <data name="TreeView" xml:space="preserve">
+    <value>TreeView</value>
+  </data>
+  <data name="ScrollViewer" xml:space="preserve">
+    <value>ScrollViewer</value>
+  </data>
+  <data name="Window" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="RightClickHere" xml:space="preserve">
+    <value>Haga click derecho</value>
+  </data>
+  <data name="RadioButton" xml:space="preserve">
+    <value>RadioButton</value>
+  </data>
+  <data name="OpenMessageWindow" xml:space="preserve">
+    <value>Abrir ventana con mensaje</value>
+  </data>
+  <data name="OpenCommonWindow" xml:space="preserve">
+    <value>Abrir ventana común</value>
+  </data>
+  <data name="OpenCustomNonClientAreaWindow" xml:space="preserve">
+    <value>Abrir ventana sin bordes personalizada</value>
+  </data>
+  <data name="OpenMouseFollowWindow" xml:space="preserve">
+    <value>Abrir ventana que sigue al mouse</value>
+  </data>
+  <data name="OpenCustomContentWindow" xml:space="preserve">
+    <value>Abrir ventana personalizada</value>
+  </data>
+  <data name="Ignore" xml:space="preserve">
+    <value>Ignorar</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Ask" xml:space="preserve">
+    <value>Pregunta</value>
+  </data>
+  <data name="Fatal" xml:space="preserve">
+    <value>Fatal</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Borrar</value>
+  </data>
+  <data name="ChangeLangAsk" xml:space="preserve">
+    <value>¿Desea reiniciar para cambiar el idioma?</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Acerca de</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repositorio</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Chatroom" xml:space="preserve">
+    <value>Chatroom</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="Brush" xml:space="preserve">
+    <value>Brush</value>
+  </data>
+  <data name="PreviewSlider" xml:space="preserve">
+    <value>PreviewSlider</value>
+  </data>
+  <data name="Contributors" xml:space="preserve">
+    <value>Contribuyentes</value>
+  </data>
+  <data name="Slider" xml:space="preserve">
+    <value>Slider</value>
+  </data>
+  <data name="IsNotPhone" xml:space="preserve">
+    <value>Número de teléfono inválido</value>
+  </data>
+  <data name="PlsEnterEmail" xml:space="preserve">
+    <value>Por favor ingrese un email válido</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Step</value>
+  </data>
+  <data name="CalendarWithClock" xml:space="preserve">
+    <value>CalendarWithClock</value>
+  </data>
+  <data name="DateTimePicker" xml:space="preserve">
+    <value>DateTimePicker</value>
+  </data>
+  <data name="GroupBox" xml:space="preserve">
+    <value>GroupBox</value>
+  </data>
+  <data name="ListView" xml:space="preserve">
+    <value>ListView</value>
+  </data>
+  <data name="RichTextBox" xml:space="preserve">
+    <value>RichTextBox</value>
+  </data>
+  <data name="ToolBar" xml:space="preserve">
+    <value>ToolBar</value>
+  </data>
+  <data name="Common" xml:space="preserve">
+    <value>Common</value>
+  </data>
+  <data name="ShowRowNumber" xml:space="preserve">
+    <value>ShowRowNumber</value>
+  </data>
+  <data name="SearchBar" xml:space="preserve">
+    <value>SearchBar</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="GifImage" xml:space="preserve">
+    <value>GifImage</value>
+  </data>
+  <data name="OutlineText" xml:space="preserve">
+    <value>OutlineText</value>
+  </data>
+  <data name="QQGroup" xml:space="preserve">
+    <value>QQ Group</value>
+  </data>
+  <data name="FlipClock" xml:space="preserve">
+    <value>FlipClock</value>
+  </data>
+  <data name="OpenBlurWindow" xml:space="preserve">
+    <value>Abrir ventana difuminada</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Shield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
+  <data name="WaterfallPanel" xml:space="preserve">
+    <value>WaterfallPanel</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="CoverView" xml:space="preserve">
+    <value>CoverView</value>
+  </data>
+  <data name="CoverFlow" xml:space="preserve">
+    <value>CoverFlow</value>
+  </data>
+  <data name="PlsEnterKey" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
+    <value>Abrir ventana arrastrable sin bordes</value>
+  </data>
+  <data name="DragHere" xml:space="preserve">
+    <value>Suelte aquí</value>
+  </data>
+  <data name="MessageBox" xml:space="preserve">
+    <value>MessageBox</value>
+  </data>
+  <data name="ProgressButton" xml:space="preserve">
+    <value>ProgressButton</value>
+  </data>
+  <data name="UploadStr" xml:space="preserve">
+    <value>Cargar archivo;Cargando archivo</value>
+  </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>Abrir ventana de mensaje personalizada</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>ChatBubble</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>Pulse para hablar</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>Seg</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="GotoTop" xml:space="preserve">
+    <value>Ir arriba</value>
+  </data>
+  <data name="NotifyIcon" xml:space="preserve">
+    <value>NotifyIcon</value>
+  </data>
+  <data name="Badge" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Gravatar" xml:space="preserve">
+    <value>Gravatar</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Próximamente</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Commentario</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Respuesta</value>
+  </data>
+  <data name="Dialog" xml:space="preserve">
+    <value>Dialog</value>
+  </data>
+  <data name="TextDialog" xml:space="preserve">
+    <value>TextDialog</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Por favor aguarde...</value>
+  </data>
+  <data name="GrowlDemo" xml:space="preserve">
+    <value>Growl demo</value>
+  </data>
+  <data name="NewWindow" xml:space="preserve">
+    <value>Nueva ventana</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="Blink" xml:space="preserve">
+    <value>Blink</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="OpenPanel" xml:space="preserve">
+    <value>Abrir panel</value>
+  </data>
+  <data name="AppClosingTip" xml:space="preserve">
+    <value>El icono de la bandeja está abierto y ocultará la ventana en lugar de cerrar el programa.</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>Prompt</value>
+  </data>
+  <data name="Try2CloseApp" xml:space="preserve">
+    <value>¿Intentar cerrar la aplicación?</value>
+  </data>
+  <data name="InteractiveDialog" xml:space="preserve">
+    <value>Diálogo interactivo</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Aceptar</value>
+  </data>
+  <data name="PleaseInput" xml:space="preserve">
+    <value>Por favor ingrese un texto...</value>
+  </data>
+  <data name="Click2Count" xml:space="preserve">
+    <value>Click para incrementar</value>
+  </data>
+  <data name="RepeatButton" xml:space="preserve">
+    <value>RepeatButton</value>
+  </data>
+  <data name="DialogDemo" xml:space="preserve">
+    <value>Dialog demo</value>
+  </data>
+  <data name="ShowInCurrentWindow" xml:space="preserve">
+    <value>Mostrar en esta ventana</value>
+  </data>
+  <data name="ShowInMainWindow" xml:space="preserve">
+    <value>Mostrar en la ventana principal</value>
+  </data>
+  <data name="SideMenu" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>Grid</value>
+  </data>
+  <data name="BasicLayout" xml:space="preserve">
+    <value>Layout básico</value>
+  </data>
+  <data name="ColumnSpacing" xml:space="preserve">
+    <value>Columnas espaciadas</value>
+  </data>
+  <data name="HybridLayout" xml:space="preserve">
+    <value>Layout Híbrido</value>
+  </data>
+  <data name="ColumnOffset" xml:space="preserve">
+    <value>Columnas con offset</value>
+  </data>
+  <data name="ResponsiveLayout" xml:space="preserve">
+    <value>Layout Responsivo</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>Poptip</value>
+  </data>
+  <data name="Recommendation" xml:space="preserve">
+    <value>Recommendation</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Project</value>
+  </data>
+  <data name="RangeSlider" xml:space="preserve">
+    <value>RangeSlider</value>
+  </data>
+  <data name="RelativePanel" xml:space="preserve">
+    <value>RelativePanel</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>ButtonGroup</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="TextDialogWithTimer" xml:space="preserve">
+    <value>TextDialog with timer</value>
+  </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>Magnifier</value>
+  </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>ImageBlock</value>
+  </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>RunningBlock</value>
+  </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>HoneycombPanel</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Add an item</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>Remove an item</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>Sprite</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>Abrir sprite</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>Enviar notificación</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>Permance abierto</value>
+  </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>FloatingBlock</value>
+  </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>SplitButton</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Herramientas</value>
+  </data>
+  <data name="HatchBrushGenerator" xml:space="preserve">
+    <value>HatchBrushGenerator</value>
+  </data>
+  <data name="Morphing Animation" xml:space="preserve">
+    <value>Morphing Animation</value>
+  </data>
+  <data name="Divider" xml:space="preserve">
+    <value>Divider</value>
+  </data>
+  <data name="PoptipPositionStr" xml:space="preserve">
+    <value>top-start;top;top-end;right-start;right;right-end;bottom-end;bottom;bottom-start;left-end;left;left-start</value>
+  </data>
+  <data name="TransitioningContentControl" xml:space="preserve">
+    <value>TransitioningContentControl</value>
+  </data>
+  <data name="Drawer" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>Documentación</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>Effects</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Sitio Web</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>Vsix</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>Documentación en Inglés</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>Documentación en Chino</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PinBox</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>FlowDocumentScrollViewer</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>Abrir glowWindow</value>
+  </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>FlowDocument</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>FlowDocumentPageViewer</value>
+  </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>FlowDocumentReader</value>
+  </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>Abrir ventana común nativa</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>Abrir ventana de navegación</value>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>Frame</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>Ejemplos</value>
+  </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>Iniciar Captura de Pantalla</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>Captura de Pantalla</value>
+  </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>TextDialog(In control)</value>
+  </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>Looks up a localized string similar to "{0}".</value>
+  </data>
+  <data name="PropertyGrid" xml:space="preserve">
+    <value>PropertyGrid</value>
+  </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>ImageSelector</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>Geometry</value>
+  </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>CheckComboBox</value>
+  </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>FlexPanel</value>
+  </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>Abrir ventana TouchDragMove</value>
+  </data>
+  <data name="UniformSpacingPanel" xml:space="preserve">
+    <value>UniformSpacingPanel</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>Misc</value>
+  </data>
+  <data name="Interacting" xml:space="preserve">
+    <value>Interactuando</value>
+  </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>Datos de entrada</value>
+  </data>
+  <data name="DataDisplay" xml:space="preserve">
+    <value>Data de visualización</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Navegación</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="ElementGroup" xml:space="preserve">
+    <value>ElementGroup</value>
+  </data>
+  <data name="AutoCompleteTextBox" xml:space="preserve">
+    <value>AutoCompleteTextBox</value>
+  </data>
+  <data name="Watermark" xml:space="preserve">
+    <value>Watermark</value>
+  </data>
+  <data name="CloseMainWindowDialog" xml:space="preserve">
+    <value>Close main window dialog</value>
+  </data>
+</root>

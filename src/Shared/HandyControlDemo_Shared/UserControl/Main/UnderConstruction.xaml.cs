@@ -1,10 +1,9 @@
-﻿namespace HandyControlDemo.UserControl
+﻿namespace HandyControlDemo.UserControl;
+
+public partial class UnderConstruction
 {
-    public partial class UnderConstruction
+    public UnderConstruction()
     {
-        public UnderConstruction()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

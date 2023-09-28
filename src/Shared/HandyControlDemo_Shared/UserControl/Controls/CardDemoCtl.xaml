@@ -6,7 +6,7 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              xmlns:data="clr-namespace:HandyControlDemo.Data">
     <hc:TransitioningContentControl>
-        <ListBox Margin="32" BorderThickness="0" Style="{StaticResource WrapPanelHorizontalListBox}" ItemsPanel="{StaticResource FluidMoveBehaviorWrapPanelItemsPanelTemplate}" ItemsSource="{Binding DataList}">
+        <ListBox Margin="32" hc:ScrollViewer.IsInertiaEnabled="True" BorderThickness="0" Style="{StaticResource WrapPanelHorizontalListBox}" ItemsPanel="{StaticResource FluidMoveBehaviorWrapPanelItemsPanelTemplate}" ItemsSource="{Binding DataList}">
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="data:CardModel">
                     <hc:Card MaxWidth="240" BorderThickness="0" Effect="{StaticResource EffectShadow2}" Margin="8" Footer="{Binding Footer}">

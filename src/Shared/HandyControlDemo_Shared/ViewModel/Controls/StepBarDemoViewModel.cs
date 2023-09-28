@@ -1,53 +1,51 @@
-﻿using System;
-using System.Linq;
+﻿using System.Linq;
 using System.Windows.Controls;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
 using HandyControlDemo.Data;
 using HandyControlDemo.Service;
 
-namespace HandyControlDemo.ViewModel
+namespace HandyControlDemo.ViewModel;
+
+public class StepBarDemoViewModel : DemoViewModelBase<StepBarDemoModel>
 {
-    public class StepBarDemoViewModel : DemoViewModelBase<StepBarDemoModel>
+    public StepBarDemoViewModel(DataService dataService) => DataList = dataService.GetStepBarDemoDataList();
+
+    private int _stepIndex;
+
+    public int StepIndex
     {
-        public StepBarDemoViewModel(DataService dataService) => DataList = dataService.GetStepBarDemoDataList();
-
-        private int _stepIndex;
-
-        public int StepIndex
-        {
-            get => _stepIndex;
+        get => _stepIndex;
 #if NET40
-            set => Set(nameof(StepIndex), ref _stepIndex, value);
+        set => Set(nameof(StepIndex), ref _stepIndex, value);
 #else
-            set => Set(ref _stepIndex, value);
+        set => Set(ref _stepIndex, value);
 #endif
-        }
+    }
 
-        /// <summary>
-        ///     下一步
-        /// </summary>
-        public RelayCommand<Panel> NextCmd => new Lazy<RelayCommand<Panel>>(() => new RelayCommand<Panel>(Next)).Value;
+    /// <summary>
+    ///     下一步
+    /// </summary>
+    public RelayCommand<Panel> NextCmd => new(Next);
 
-        /// <summary>
-        ///     上一步
-        /// </summary>
-        public RelayCommand<Panel> PrevCmd => new Lazy<RelayCommand<Panel>>(() => new RelayCommand<Panel>(Prev)).Value;
+    /// <summary>
+    ///     上一步
+    /// </summary>
+    public RelayCommand<Panel> PrevCmd => new(Prev);
 
-        private void Next(Panel panel)
+    private void Next(Panel panel)
+    {
+        foreach (var stepBar in panel.Children.OfType<StepBar>())
         {
-            foreach (var stepBar in panel.Children.OfType<StepBar>())
-            {
-                stepBar.Next();
-            }
+            stepBar.Next();
         }
+    }
 
-        private void Prev(Panel panel)
+    private void Prev(Panel panel)
+    {
+        foreach (var stepBar in panel.Children.OfType<StepBar>())
         {
-            foreach (var stepBar in panel.Children.OfType<StepBar>())
-            {
-                stepBar.Prev();
-            }
+            stepBar.Prev();
         }
     }
 }

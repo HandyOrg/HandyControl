@@ -355,7 +355,7 @@
     <value>Czy uruchomić ponownie aby zmienić język?</value>
   </data>
   <data name="About" xml:space="preserve">
-    <value>Około</value>
+    <value>Informacje</value>
   </data>
   <data name="Repository" xml:space="preserve">
     <value>Repozytorium</value>
@@ -517,7 +517,7 @@
     <value>TextDialog</value>
   </data>
   <data name="PleaseWait" xml:space="preserve">
-    <value>Proszę czekać</value>
+    <value>Proszę czekać...</value>
   </data>
   <data name="GrowlDemo" xml:space="preserve">
     <value>Growl demo</value>
@@ -791,5 +791,20 @@
   </data>
   <data name="Success" xml:space="preserve">
     <value>Success</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="ElementGroup" xml:space="preserve">
+    <value>ElementGroup</value>
+  </data>
+  <data name="AutoCompleteTextBox" xml:space="preserve">
+    <value>AutoCompleteTextBox</value>
+  </data>
+  <data name="Watermark" xml:space="preserve">
+    <value>Watermark</value>
+  </data>
+  <data name="CloseMainWindowDialog" xml:space="preserve">
+    <value>Close main window dialog</value>
   </data>
 </root>
