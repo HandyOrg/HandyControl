@@ -8030,6 +8030,11 @@
 						<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
 					</Grid>
 					<ControlTemplate.Triggers>
+						<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+							<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+							<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+						</Trigger>
 						<Trigger Property="IsEnabled" Value="false">
 							<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 						</Trigger>
@@ -8080,6 +8085,11 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -8127,6 +8137,11 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -8189,6 +8204,12 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="ButtonClear" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -8210,6 +8231,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
 					<Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+					<Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
 			</MultiTrigger>
@@ -8245,6 +8267,12 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="ButtonClear" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -8266,6 +8294,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
 					<Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+					<Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
 			</MultiTrigger>
@@ -8303,6 +8332,11 @@
 						<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
 					</Grid>
 					<ControlTemplate.Triggers>
+						<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+							<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+							<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+						</Trigger>
 						<Trigger Property="IsEnabled" Value="false">
 							<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 						</Trigger>
@@ -8353,6 +8387,11 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -8400,6 +8439,11 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -8462,6 +8506,12 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="ButtonClear" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -8483,6 +8533,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
 					<Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+					<Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
 			</MultiTrigger>
@@ -8518,6 +8569,12 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="ButtonClear" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -8539,6 +8596,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
 					<Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+					<Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
 			</MultiTrigger>
@@ -10939,6 +10997,11 @@
 						<Popup Grid.Column="0" x:Name="PART_Popup" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" AllowsTransparency="True" Placement="Bottom" PlacementTarget="{Binding ElementName=border}" StaysOpen="False" />
 					</Grid>
 					<ControlTemplate.Triggers>
+						<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+							<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+							<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+							<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+						</Trigger>
 						<Trigger Property="IsEnabled" Value="false">
 							<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 						</Trigger>
@@ -10989,6 +11052,11 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -11036,6 +11104,11 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -11098,6 +11171,12 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="ButtonClear" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -11119,6 +11198,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
 					<Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+					<Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
 			</MultiTrigger>
@@ -11154,6 +11234,12 @@
 			</Grid>
 		</Grid>
 		<ControlTemplate.Triggers>
+			<Trigger Property="hc:InfoElement.IsReadOnly" Value="True">
+				<Setter TargetName="ButtonClear" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="IsEnabled" Value="False" />
+				<Setter TargetName="PART_Button" Property="Visibility" Value="Collapsed" />
+				<Setter TargetName="PART_TextBox" Property="IsReadOnly" Value="True" />
+			</Trigger>
 			<Trigger Property="IsEnabled" Value="false">
 				<Setter Property="Opacity" TargetName="PART_Root" Value="0.4" />
 			</Trigger>
@@ -11175,6 +11261,7 @@
 				<MultiTrigger.Conditions>
 					<Condition Property="IsMouseOver" Value="true" SourceName="PART_Root" />
 					<Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+					<Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
 				</MultiTrigger.Conditions>
 				<Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
 			</MultiTrigger>
