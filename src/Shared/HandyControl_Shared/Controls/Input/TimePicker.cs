@@ -204,6 +204,11 @@ public class TimePicker : Control
     private static object CoerceSelectedTime(DependencyObject d, object value)
     {
         var dp = (TimePicker) d;
+        if (dp.Clock is null)
+        {
+            return (DateTime?) value;
+        }
+
         dp.Clock.SelectedTime = (DateTime?) value;
         return dp.Clock.SelectedTime;
     }
