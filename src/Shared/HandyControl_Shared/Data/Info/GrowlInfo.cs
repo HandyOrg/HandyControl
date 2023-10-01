@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using System.Windows.Threading;
 
 namespace HandyControl.Data;
 
@@ -37,4 +38,6 @@ public class GrowlInfo
     public string Token { get; set; }
 
     public FlowDirection FlowDirection { get; set; }
+
+    public Dispatcher Dispatcher { get; set; }
 }
