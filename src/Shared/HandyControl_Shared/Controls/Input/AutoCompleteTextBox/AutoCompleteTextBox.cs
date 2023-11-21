@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using HandyControl.Data;
@@ -14,8 +15,6 @@ public class AutoCompleteTextBox : ComboBox
     private bool ignoreTextChanging;
 
     private System.Windows.Controls.TextBox _searchTextBox;
-
-    private object _selectedItem;
 
     static AutoCompleteTextBox()
     {
@@ -40,8 +39,6 @@ public class AutoCompleteTextBox : ComboBox
             _searchTextBox.PreviewKeyDown += SearchTextBoxKeyDown;
             _searchTextBox.TextChanged += SearchTextBoxTextChanged;
         }
-
-        UpdateTextBoxBySelectedItem(_selectedItem);
     }
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
@@ -50,8 +47,8 @@ public class AutoCompleteTextBox : ComboBox
 
         if (e.AddedItems.Count > 0)
         {
-            _selectedItem = e.AddedItems[0];
-            UpdateTextBoxBySelectedItem(_selectedItem);
+            var selectedItem = e.AddedItems[0];
+            UpdateTextBoxBySelectedItem(selectedItem);
         }
     }
 
@@ -61,7 +58,6 @@ public class AutoCompleteTextBox : ComboBox
 
     private void SearchTextBoxTextChanged(object sender, TextChangedEventArgs e)
     {
-        _selectedItem = null;
         SelectedIndex = -1;
 
         if (ignoreTextChanging)
@@ -78,6 +74,7 @@ public class AutoCompleteTextBox : ComboBox
         }
         else if (_searchTextBox.IsFocused)
         {
+            Items.Filter = FilterItem ?? DefaultFilter;
             SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
         }
     }
@@ -152,7 +149,17 @@ public class AutoCompleteTextBox : ComboBox
     {
         if (!string.IsNullOrEmpty(Text))
         {
+            Items.Filter = FilterItem ?? DefaultFilter;
             SetCurrentValue(IsDropDownOpenProperty, ValueBoxes.TrueBox);
         }
     }
+
+
+    public Predicate<object> FilterItem { get; set; }
+
+	private bool DefaultFilter(object item)
+	{
+		var text = BindingHelper.GetString(item, DisplayMemberPath);
+		return text.ToLower().Contains(Text.ToLower());
+	}
 }
