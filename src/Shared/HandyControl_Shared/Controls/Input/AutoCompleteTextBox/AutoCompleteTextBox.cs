@@ -43,8 +43,6 @@ public class AutoCompleteTextBox : ComboBox
 
     protected override void OnSelectionChanged(SelectionChangedEventArgs e)
     {
-        base.OnSelectionChanged(e);
-
         if (e.AddedItems.Count > 0)
         {
             var selectedItem = e.AddedItems[0];
