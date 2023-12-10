@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!--If you are willing to use Windows/MacOS native APIs you will need to create 3 projects.
+    One for Windows with net7.0-windows TFM, one for MacOS with net7.0-macos and one with net7.0 TFM for Linux.-->
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <AssemblyName>HandyControlDemo</AssemblyName>
+    <RootNamespace>HandyControlDemo</RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Resources\Img\cloud.png" />
+    <None Remove="Resources\Img\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <AvaloniaResource Include="Resources\Img\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Avalonia.Desktop" Version="$(AvaloniaVersion)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HandyControl_Avalonia\HandyControl_Avalonia.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <AvaloniaResource Include="Resources\Img\cloud.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="App.axaml.cs">
+      <DependentUpon>App.axaml</DependentUpon>
+    </Compile>
+    <Compile Update="Views\Styles\ButtonDemoCtrl.axaml.cs">
+      <DependentUpon>ButtonDemoCtrl.axaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>

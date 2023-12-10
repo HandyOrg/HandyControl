@@ -1,0 +1,102 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
+        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
+        <Setter Property="Padding" Value="{DynamicResource DefaultControlPadding}" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="HorizontalContentAlignment" Value="Center" />
+        <Setter Property="VerticalContentAlignment" Value="Center" />
+		<Setter Property="Template">
+			<ControlTemplate TargetType="Button">
+				<ContentPresenter x:Name="PART_ContentPresenter"
+								  Background="{TemplateBinding Background}"
+								  BorderBrush="{TemplateBinding BorderBrush}"
+								  BorderThickness="{TemplateBinding BorderThickness}"
+								  CornerRadius="{TemplateBinding CornerRadius}"
+								  Content="{TemplateBinding Content}"
+								  ContentTemplate="{TemplateBinding ContentTemplate}"
+								  Padding="{TemplateBinding Padding}"
+								  RecognizesAccessKey="True"
+								  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+								  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+			</ControlTemplate>
+		</Setter>
+
+		<Style Selector="^:pointerover">
+            <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+		</Style>
+
+		<Style Selector="^:pressed">
+            <Setter Property="Background" Value="{DynamicResource BorderBrush}" />
+		</Style>
+
+		<Style Selector="^:disabled">
+            <Setter Property="Opacity" Value=".4" />
+		</Style>
+
+		<Style Selector="^.primary">
+            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Opacity" Value=".9" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Opacity" Value=".6" />
+            </Style>
+		</Style>
+
+        <Style Selector="^.success">
+            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Opacity" Value=".9" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Opacity" Value=".6" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.info">
+            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+            <Setter Property="Background" Value="{DynamicResource InfoBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Opacity" Value=".9" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Opacity" Value=".6" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.warning">
+            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Opacity" Value=".9" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Opacity" Value=".6" />
+            </Style>
+        </Style>
+
+        <Style Selector="^.danger">
+            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
+            <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
+            <Style Selector="^:pointerover">
+                <Setter Property="Opacity" Value=".9" />
+            </Style>
+            <Style Selector="^:pressed">
+                <Setter Property="Opacity" Value=".6" />
+            </Style>
+        </Style>
+	</ControlTheme>
+</ResourceDictionary>

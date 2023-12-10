@@ -1,0 +1,8 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+	<DrawingBrush x:Key="CloudDrawingBrush" Stretch="Uniform" TileMode="Tile" SourceRect="0 0 157 157" DestinationRect="0 0 157 157" Opacity=".1">
+        <DrawingBrush.Drawing>
+            <ImageDrawing ImageSource="avares://HandyControlDemo/Resources/Img/cloud.png" Rect="0 0 157 157"/>
+        </DrawingBrush.Drawing>
+    </DrawingBrush>
+</ResourceDictionary>

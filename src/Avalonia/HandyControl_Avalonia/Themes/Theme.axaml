@@ -1,0 +1,15 @@
+﻿<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="HandyControl.Themes.Theme">
+    <Styles.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+				<MergeResourceInclude Source="/Themes/Basic/Colors.axaml" />
+                <MergeResourceInclude Source="/Themes/Basic/Sizes.axaml" />
+                <MergeResourceInclude Source="/Themes/Basic/Effects.axaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+    </Styles.Resources>
+
+    <StyleInclude Source="/Themes/Styles/Style.axaml" />
+</Styles>
