@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -16,20 +16,15 @@ namespace HandyControl.Controls;
 [TemplatePart(Name = ElementProgressBarBack, Type = typeof(ProgressBar))]
 public class StepBar : ItemsControl
 {
-    private ProgressBar _progressBarBack;
-
-    private int _oriStepIndex = -1;
-
-    #region Constants
-
     private const string ElementProgressBarBack = "PART_ProgressBarBack";
 
-    #endregion Constants
+    private ProgressBar _progressBarBack;
+    private int _oriStepIndex = -1;
 
     public StepBar()
     {
-        CommandBindings.Add(new CommandBinding(ControlCommands.Next, (s, e) => Next()));
-        CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (s, e) => Prev()));
+        CommandBindings.Add(new CommandBinding(ControlCommands.Next, (_, _) => Next()));
+        CommandBindings.Add(new CommandBinding(ControlCommands.Prev, (_, _) => Prev()));
 
         ItemContainerGenerator.StatusChanged += ItemContainerGenerator_StatusChanged;
         AddHandler(SelectableItem.SelectedEvent, new RoutedEventHandler(OnStepBarItemSelected));
@@ -50,28 +45,37 @@ public class StepBar : ItemsControl
 
     private void ItemContainerGenerator_StatusChanged(object sender, EventArgs e)
     {
-        if (ItemContainerGenerator.Status == GeneratorStatus.ContainersGenerated)
+        if (ItemContainerGenerator.Status != GeneratorStatus.ContainersGenerated)
         {
-            var count = Items.Count;
-            if (count <= 0) return;
+            return;
+        }
 
-            for (var i = 0; i < count; i++)
-            {
-                if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepBarItem)
-                {
-                    stepBarItem.Index = i + 1;
-                }
-            }
+        int count = Items.Count;
+        InvalidateVisual();
+        _progressBarBack.Maximum = count - 1;
+        _progressBarBack.Value = StepIndex;
 
-            if (_oriStepIndex > 0)
+        if (count <= 0)
+        {
+            return;
+        }
+
+        for (int i = 0; i < count; i++)
+        {
+            if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepBarItem)
             {
-                StepIndex = _oriStepIndex;
-                _oriStepIndex = -1;
+                stepBarItem.Index = i + 1;
             }
-            else
-            {
-                OnStepIndexChanged(StepIndex);
-            }
+        }
+
+        if (_oriStepIndex > 0)
+        {
+            StepIndex = _oriStepIndex;
+            _oriStepIndex = -1;
+        }
+        else
+        {
+            OnStepIndexChanged(StepIndex);
         }
     }
 
@@ -100,10 +104,10 @@ public class StepBar : ItemsControl
         nameof(StepIndex), typeof(int), typeof(StepBar), new FrameworkPropertyMetadata(ValueBoxes.Int0Box,
             FrameworkPropertyMetadataOptions.BindsTwoWayByDefault, OnStepIndexChanged, CoerceStepIndex));
 
-    private static object CoerceStepIndex(DependencyObject d, object basevalue)
+    private static object CoerceStepIndex(DependencyObject d, object baseValue)
     {
         var ctl = (StepBar) d;
-        var stepIndex = (int) basevalue;
+        int stepIndex = (int) baseValue;
         if (ctl.Items.Count == 0 && stepIndex > 0)
         {
             ctl._oriStepIndex = stepIndex;
@@ -114,7 +118,7 @@ public class StepBar : ItemsControl
             ? ValueBoxes.Int0Box
             : stepIndex >= ctl.Items.Count
                 ? ctl.Items.Count == 0 ? 0 : ctl.Items.Count - 1
-                : basevalue;
+                : baseValue;
     }
 
     private static void OnStepIndexChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
@@ -125,7 +129,7 @@ public class StepBar : ItemsControl
 
     private void OnStepIndexChanged(int stepIndex)
     {
-        for (var i = 0; i < stepIndex; i++)
+        for (int i = 0; i < stepIndex; i++)
         {
             if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepItemFinished)
             {
@@ -133,7 +137,7 @@ public class StepBar : ItemsControl
             }
         }
 
-        for (var i = stepIndex + 1; i < Items.Count; i++)
+        for (int i = stepIndex + 1; i < Items.Count; i++)
         {
             if (ItemContainerGenerator.ContainerFromIndex(i) is StepBarItem stepItemFinished)
             {
@@ -142,7 +146,10 @@ public class StepBar : ItemsControl
         }
 
         if (ItemContainerGenerator.ContainerFromIndex(stepIndex) is StepBarItem stepItemSelected)
+        {
             stepItemSelected.Status = StepStatus.UnderWay;
+        }
+
         _progressBarBack?.BeginAnimation(RangeBase.ValueProperty, AnimationHelper.CreateAnimation(stepIndex));
 
         RaiseEvent(new FunctionEventArgs<int>(StepChangedEvent, this)
@@ -186,12 +193,13 @@ public class StepBar : ItemsControl
     {
         base.OnRender(drawingContext);
 
-        var colCount = Items.Count;
-        if (_progressBarBack == null || colCount <= 0) return;
-        _progressBarBack.Maximum = colCount - 1;
-        _progressBarBack.Value = StepIndex;
+        int colCount = Items.Count;
+        if (_progressBarBack == null || colCount <= 0)
+        {
+            return;
+        }
 
-        if (Dock == Dock.Top || Dock == Dock.Bottom)
+        if (Dock is Dock.Top or Dock.Bottom)
         {
             _progressBarBack.Width = (colCount - 1) * (ActualWidth / colCount);
         }

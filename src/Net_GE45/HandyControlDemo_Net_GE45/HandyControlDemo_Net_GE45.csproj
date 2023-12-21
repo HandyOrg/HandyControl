@@ -174,6 +174,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\ca-Es.png">
       <Link>Resources\Img\Flag\ca-Es.png</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\cs.png">
+      <Link>Resources\Img\Flag\cs.png</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Resources\Img\Flag\en.png">
       <Link>Resources\Img\Flag\en.png</Link>
     </Resource>
@@ -256,6 +259,9 @@
     </EmbeddedResource>    
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.ca-ES.resx">
       <Link>Properties\Langs\Lang.ca-ES.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.cs.resx">
+      <Link>Properties\Langs\Lang.cs.resx</Link>
     </EmbeddedResource>
     <EmbeddedResource Include="..\..\Shared\HandyControlDemo_Shared\Properties\Langs\Lang.en.resx">
       <Link>Properties\Langs\Lang.en.resx</Link>

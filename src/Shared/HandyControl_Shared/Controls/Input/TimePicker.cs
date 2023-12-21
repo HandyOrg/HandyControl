@@ -204,6 +204,11 @@ public class TimePicker : Control
     private static object CoerceSelectedTime(DependencyObject d, object value)
     {
         var dp = (TimePicker) d;
+        if (dp.Clock is null)
+        {
+            return (DateTime?) value;
+        }
+
         dp.Clock.SelectedTime = (DateTime?) value;
         return dp.Clock.SelectedTime;
     }
@@ -377,11 +382,6 @@ public class TimePicker : Control
 
         if (_textBox != null)
         {
-            if (selectedTime == null)
-            {
-                _textBox.Text = DateTime.Now.ToString(TimeFormat);
-            }
-
             _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
             _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });

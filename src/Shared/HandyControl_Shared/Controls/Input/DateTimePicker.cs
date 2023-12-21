@@ -326,11 +326,6 @@ public class DateTimePicker : Control
 
         if (_textBox != null)
         {
-            if (selectedDateTime == null)
-            {
-                _textBox.Text = DateTime.Now.ToString(DateTimeFormat);
-            }
-
             _textBox.SetBinding(SelectionBrushProperty, new Binding(SelectionBrushProperty.Name) { Source = this });
 #if !(NET40 || NET45 || NET451 || NET452 || NET46 || NET461 || NET462 || NET47 || NET471 || NET472)
             _textBox.SetBinding(SelectionTextBrushProperty, new Binding(SelectionTextBrushProperty.Name) { Source = this });

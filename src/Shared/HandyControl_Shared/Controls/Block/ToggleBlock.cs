@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Markup;
 using HandyControl.Data;
+using HandyControl.Input;
 using HandyControl.Interactivity;
 
 namespace HandyControl.Controls;
@@ -18,8 +20,6 @@ public class ToggleBlock : Control
     public static readonly DependencyProperty UnCheckedContentProperty = DependencyProperty.Register(nameof(UnCheckedContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
     public static readonly DependencyProperty IndeterminateContentProperty = DependencyProperty.Register(nameof(IndeterminateContent), typeof(object), typeof(ToggleBlock), new PropertyMetadata(default(object)));
     public static readonly DependencyProperty ToggleGestureProperty = DependencyProperty.Register(nameof(ToggleGesture), typeof(MouseGesture), typeof(ToggleBlock), new UIPropertyMetadata(new MouseGesture(MouseAction.None), OnToggleGestureChanged));
-
-    private MouseBinding _toggleBinding;
 
     [Category("Appearance")]
     [TypeConverter(typeof(NullableBoolConverter))]
@@ -75,9 +75,12 @@ public class ToggleBlock : Control
 
     private void OnToggleGestureChanged(MouseGesture newValue)
     {
-        InputBindings.Remove(_toggleBinding);
-        _toggleBinding = new MouseBinding(ControlCommands.Toggle, newValue);
-        InputBindings.Add(_toggleBinding);
+        foreach (var binding in InputBindings.OfType<SimpleMouseBinding>().ToList())
+        {
+            InputBindings.Remove(binding);
+        }
+
+        InputBindings.Add(new SimpleMouseBinding(ControlCommands.Toggle, newValue));
     }
 
     private void OnToggled(object sender, ExecutedRoutedEventArgs e)

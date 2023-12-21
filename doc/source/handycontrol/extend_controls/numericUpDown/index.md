@@ -86,17 +86,11 @@ numericUpDown.Maximum = 1000;
 | Minimum      | 获取或设置最小允许值 |
 | Increment      | 获取或设置单击向上或向下按钮时，数字显示框（也称作 up-down 控件）递增或递减的值。 |
 | DecimalPlaces      |获取或设置NumericUpDown中要显示的十进制位数。 此属性不会影响 Value 属性。 |
-| VerifyFunc        | 获取或设置数据验证委托           |
 | IsError           | 获取或设置数据是否错误           |
 | ErrorStr    | 获取或设置错误提示           |
 | TextType | 获取或设置文本类型       |
 | ShowClearButton | 获取或设置是否显示清除按钮       |
 
-# 方法
-
-| 方法             |   描述             |
-| ---------------- | ------------------ |
-| VerifyData()      | 验证数据 |
 
 # 事件
 

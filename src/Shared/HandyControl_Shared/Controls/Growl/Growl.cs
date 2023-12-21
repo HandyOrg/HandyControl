@@ -396,7 +396,7 @@ public class Growl : Control
     /// <param name="growlInfo"></param>
     private static void Show(GrowlInfo growlInfo)
     {
-        Application.Current.Dispatcher?.Invoke(
+        (Application.Current.Dispatcher ?? growlInfo.Dispatcher)?.Invoke(
 #if NET40
             new Action(
 #endif

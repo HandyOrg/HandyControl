@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
@@ -23,6 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\InfoElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\ListBoxAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\MenuAttach.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\MenuItemAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\MenuTopLineAttach.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PanelElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Controls\Attach\PasswordBoxAttach.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\GrowlShowMode.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\LinearLayout.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Data\Enum\RunningDirection.cs" />
+    <Compile Include="..\..\Shared\HandyControl_Shared\Input\SimpleMouseBinding.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\EventToCommand.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\IEventArgsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Interactivity\MouseDragElementBehaviorEx.cs" />

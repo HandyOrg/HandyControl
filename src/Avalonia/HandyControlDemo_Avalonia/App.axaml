@@ -1,0 +1,11 @@
+﻿<Application xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.App"
+             RequestedThemeVariant="Default">
+    <Application.Styles>
+        <StyleInclude Source="avares://HandyControl/Themes/Theme.axaml"/>
+        <StyleInclude Source="avares://HandyControlDemo/Resources/Themes/Theme.axaml"/>
+        <!--<FluentTheme />-->
+        <!--<hc:Theme/>-->
+    </Application.Styles>
+</Application>
