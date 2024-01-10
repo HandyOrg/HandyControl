@@ -35,7 +35,8 @@ Task("Build")
         "netcoreapp3.1",
         "net5.0-windows",
         "net6.0-windows",
-        "net7.0-windows"
+        "net7.0-windows",
+        "net8.0-windows"
     };
 
     foreach (var framework in frameworkList)

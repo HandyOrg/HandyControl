@@ -33,6 +33,7 @@
       <group targetFramework="net5.0" />
       <group targetFramework="net6.0" />
       <group targetFramework="net7.0" />
+      <group targetFramework="net8.0" />
     </dependencies>
   </metadata>
   <files>
@@ -51,6 +52,7 @@
     <file src="lib\net5.0\fr\HandyControl.resources.dll" target="lib\net5.0\fr\HandyControl.resources.dll" />
     <file src="lib\net6.0\fr\HandyControl.resources.dll" target="lib\net6.0\fr\HandyControl.resources.dll" />
     <file src="lib\net7.0\fr\HandyControl.resources.dll" target="lib\net7.0\fr\HandyControl.resources.dll" />
+    <file src="lib\net8.0\fr\HandyControl.resources.dll" target="lib\net8.0\fr\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\fr\HandyControl.resources.dll" target="lib\netcoreapp3.0\fr\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.1\fr\HandyControl.resources.dll" target="lib\netcoreapp3.1\fr\HandyControl.resources.dll" />
     <file src="icon.png" target="icon.png" />
