@@ -45,7 +45,7 @@
         <Setter Property="hc:TitleElement.Padding" Value="4 0" />
         <Setter Property="hc:TitleElement.MinHeight" Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="hc:TitleElement.MinWidth" Value="{StaticResource DefaultControlHeight}" />
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
         <Setter Property="VerticalContentAlignment" Value="Center" />
         <Setter Property="HorizontalContentAlignment" Value="Center" />
         <Setter Property="BorderThickness" Value="1" />

@@ -141,7 +141,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="MinWidth" Value="{StaticResource DefaultControlHeight}" />
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
         <Setter Property="Template" Value="{StaticResource ExpanderDownTemplate}"/>
         <Style.Triggers>
             <Trigger Property="ExpandDirection" Value="Left">

@@ -984,14 +984,14 @@
 		<Setter Property="Data" Value="{StaticResource UpDownGeometry}" />
 	</Style>
 	<Style x:Key="BorderRegion" TargetType="Border">
-		<Setter Property="CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="10" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 	</Style>
 	<Style x:Key="BorderTipBaseStyle" TargetType="Border">
-		<Setter Property="CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="10" />
 		<Setter Property="BorderThickness" Value="5,0,0,0" />
 	</Style>
@@ -1076,7 +1076,7 @@
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="CaretBrush" Value="{DynamicResource PrimaryTextBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="KeyboardNavigation.TabNavigation" Value="None" />
 		<Setter Property="HorizontalContentAlignment" Value="Left" />
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
@@ -1223,7 +1223,7 @@
 	<Style x:Key="InputElementBaseStyle" TargetType="Control">
 		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,7,6,0" />
 		<Setter Property="hc:TitleElement.MarginOnTheTop" Value="8,0,0,5" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="Padding" Value="{StaticResource DefaultInputPadding}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
@@ -1259,7 +1259,7 @@
 	<Style x:Key="ButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="Button">
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Button">
@@ -1386,7 +1386,7 @@
 		<Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
 		<Setter Property="HorizontalContentAlignment" Value="Center" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
@@ -1737,7 +1737,7 @@
 	</ControlTemplate>
 	<Style x:Key="ToggleButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="BorderThickness" Value="1" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ToggleButton">
@@ -1785,7 +1785,7 @@
 		<Setter Property="Padding" Value="8" />
 		<Setter Property="hc:IconSwitchElement.Geometry" Value="{x:Null}" />
 		<Setter Property="hc:IconSwitchElement.GeometrySelected" Value="{x:Null}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Template">
@@ -2367,7 +2367,7 @@
 	<Style x:Key="RepeatButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RepeatButton">
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="RepeatButton">
@@ -2438,7 +2438,7 @@
 		<Setter Property="hc:TitleElement.Padding" Value="4 0" />
 		<Setter Property="hc:TitleElement.MinHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="hc:TitleElement.MinWidth" Value="{StaticResource DefaultControlHeight}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Center" />
 		<Setter Property="BorderThickness" Value="1" />
@@ -2580,7 +2580,7 @@
 			</Setter.Value>
 		</Setter>
 		<Setter Property="Height" Value="20" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="0" />
@@ -2648,7 +2648,7 @@
 	</Style>
 	<Style x:Key="ProgressBarStripeBaseStyle" TargetType="ProgressBar">
 		<Setter Property="Height" Value="20" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="0" />
@@ -2998,7 +2998,7 @@
 		</Setter>
 	</Style>
 	<Style x:Key="RadioButtonSameAsButtonBaseStyle" BasedOn="{StaticResource ButtonBaseBaseStyle}" TargetType="RadioButton">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -3362,7 +3362,7 @@
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0,4,4,0" />
 	</Style>
 	<Style x:Key="ButtonGroupItemSingle" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 	</Style>
 	<Style x:Key="ButtonGroupItemVerticalFirst" BasedOn="{StaticResource ButtonGroupItemBaseStyle}" TargetType="Button">
 		<Setter Property="hc:BorderElement.CornerRadius" Value="4,4,0,0" />
@@ -3789,7 +3789,7 @@
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0,4,4,0" />
 	</Style>
 	<Style x:Key="ToggleButtonGroupItemSingle" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 	</Style>
 	<Style x:Key="ToggleButtonGroupItemVerticalFirst" BasedOn="{StaticResource ToggleButtonGroupItemBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="hc:BorderElement.CornerRadius" Value="4,4,0,0" />
@@ -4354,7 +4354,7 @@
 		<Setter Property="CalendarButtonStyle" Value="{StaticResource CalendarButtonStyle}" />
 		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}" />
 		<Setter Property="hc:TitleElement.Foreground" Value="{DynamicResource TextIconBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Calendar">
@@ -4725,7 +4725,7 @@
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0,4,4,0" />
 	</Style>
 	<Style x:Key="RadioGroupItemSingle" BasedOn="{StaticResource RadioGroupItemBaseStyle}" TargetType="RadioButton">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 	</Style>
 	<Style x:Key="RadioGroupItemVerticalFirst" BasedOn="{StaticResource RadioGroupItemBaseStyle}" TargetType="RadioButton">
 		<Setter Property="hc:BorderElement.CornerRadius" Value="4,4,0,0" />
@@ -5117,7 +5117,7 @@
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="TagContainerBaseStyle" TargetType="hc:TagContainer" BasedOn="{StaticResource BaseStyle}">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource TagBaseStyle}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
@@ -6401,7 +6401,7 @@
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="Margin" Value="0,0,0,2" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="MenuItem">
@@ -6586,7 +6586,7 @@
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="Menu">
@@ -7177,7 +7177,7 @@
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Focusable" Value="False" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:Card">
@@ -8051,7 +8051,7 @@
 		<Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="10" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="SnapsToDevicePixels" Value="True" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="2,2,2,0" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -8983,7 +8983,7 @@
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="MinWidth" Value="{StaticResource DefaultControlHeight}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template" Value="{StaticResource ExpanderDownTemplate}" />
 		<Style.Triggers>
 			<Trigger Property="ExpandDirection" Value="Left">
@@ -8998,7 +8998,7 @@
 		</Style.Triggers>
 	</Style>
 	<Style x:Key="FlowDocumentScrollViewerBaseStyle" TargetType="FlowDocumentScrollViewer">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
@@ -9036,7 +9036,7 @@
 		</Setter>
 	</Style>
 	<Style x:Key="FlowDocumentPageViewerBaseStyle" TargetType="FlowDocumentPageViewer">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
@@ -9094,7 +9094,7 @@
 		</Setter>
 	</Style>
 	<Style x:Key="FlowDocumentReaderBaseStyle" TargetType="FlowDocumentReader">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
@@ -9204,7 +9204,7 @@
 		</Border>
 	</ControlTemplate>
 	<Style x:Key="FrameBaseStyle" TargetType="Frame">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Template">
@@ -9264,7 +9264,7 @@
 		<Setter Property="Width" Value="72" />
 		<Setter Property="Height" Value="72" />
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="6" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -9286,7 +9286,7 @@
 		<Setter Property="StrokeDashArray" Value="2,2" />
 		<Setter Property="hc:IconSwitchElement.Geometry" Value="{StaticResource AddGeometry}" />
 		<Setter Property="hc:IconSwitchElement.GeometrySelected" Value="{StaticResource RemoveGeometry}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:ImageSelector">
@@ -9383,7 +9383,7 @@
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="Padding" Value="2,2,2,0" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ListBoxItemBaseStyle}" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -10065,7 +10065,7 @@
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -10079,7 +10079,7 @@
 	</Style>
 	<Style x:Key="ProgressBarFlat4ProgressButton" TargetType="ProgressBar">
 		<Setter Property="Background" Value="Transparent" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Foreground" Value="{DynamicResource DarkMaskBrush}" />
 		<Setter Property="Template">
 			<Setter.Value>
@@ -10321,7 +10321,7 @@
 		</Setter>
 	</Style>
 	<Style x:Key="RunningBlockBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:RunningBlock">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Padding" Value="0,10" />
@@ -10572,7 +10572,7 @@
 		<Setter Property="HorizontalContentAlignment" Value="Center" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:SplitButton">
@@ -11551,7 +11551,7 @@
 	<Style x:Key="ToolBarBaseStyle" TargetType="ToolBar">
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="Padding" Value="4" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template" Value="{StaticResource ToolBarHorizontalTemplate}" />
 		<Style.Triggers>
 			<Trigger Property="Orientation" Value="Vertical">
@@ -11608,7 +11608,7 @@
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Padding" Value="2" />
 		<Setter Property="SelectionMode" Value="Extended" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource TransferItemBaseStyle}" />
 		<Setter Property="Template">
@@ -11734,7 +11734,7 @@
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Padding" Value="2,2,2,0" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto" />
 		<Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
 		<Setter Property="ScrollViewer.PanningMode" Value="Both" />
@@ -11826,7 +11826,7 @@
 	<Style x:Key="AutoCompleteTextBoxBaseStyle" TargetType="hc:AutoCompleteTextBox">
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
@@ -11918,7 +11918,7 @@
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Stretch" />
 		<Setter Property="Padding" Value="{StaticResource DefaultControlPadding}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="DataGridCell">
@@ -12091,7 +12091,7 @@
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ComboBoxItemBaseStyle}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
@@ -12117,7 +12117,7 @@
 	<Style x:Key="DataGridEditingTextColumnStyle" TargetType="TextBox">
 		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,7,6,0" />
 		<Setter Property="hc:TitleElement.MarginOnTheTop" Value="8,0,0,5" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="MinHeight" Value="{StaticResource DefaultControlHeight}" />
 		<Setter Property="Padding" Value="{StaticResource DefaultInputPadding}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
@@ -12166,7 +12166,7 @@
 		<Setter Property="Padding" Value="6,0" />
 		<Setter Property="FocusVisualStyle" Value="{x:Null}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="BorderThickness" Value="1" />
@@ -12192,7 +12192,7 @@
 		<Setter Property="Padding" Value="6,0" />
 		<Setter Property="hc:TitleElement.MarginOnTheLeft" Value="0,3,6,0" />
 		<Setter Property="hc:TitleElement.MarginOnTheTop" Value="6,0,0,1" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="HorizontalContentAlignment" Value="Left" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
@@ -12259,7 +12259,7 @@
 		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}" />
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="Margin" Value="8 0" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:CalendarWithClock">
@@ -12449,7 +12449,7 @@
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="ClockRadioButtonStyle" Value="{StaticResource ClockRadioButtonStyle}" />
 		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:Clock">
@@ -12526,7 +12526,7 @@
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="hc:ListClock">
@@ -12591,7 +12591,7 @@
 		<Setter Property="hc:DataGridAttach.CheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}" />
 		<Setter Property="hc:DataGridAttach.EditingCheckBoxColumnStyle" Value="{StaticResource CheckBoxBaseStyle}" />
 		<Setter Property="hc:DataGridAttach.ApplyDefaultStyle" Value="True" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="DataGrid">
@@ -12916,7 +12916,7 @@
 		<Setter Property="VerticalContentAlignment" Value="Center" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource ListViewItemBaseStyle}" />
 		<Setter Property="hc:GridViewAttach.ColumnHeaderHeight" Value="44" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Template">
 			<Setter.Value>
 				<ControlTemplate TargetType="ListView">
@@ -13219,7 +13219,7 @@
 		<Setter Property="hc:VisualElement.HighlightBorderBrush" Value="{DynamicResource TitleBrush}" />
 		<Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource TitleBrush}" />
 		<Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource TextIconBrush}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="PaginationButtonStyle" Value="{StaticResource PaginationButtonStyle}" />
 		<Setter Property="Focusable" Value="False" />
 		<Setter Property="UseLayoutRounding" Value="True" />
@@ -13411,7 +13411,7 @@
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0,4,4,0" />
 	</Style>
 	<Style x:Key="ComboBoxItemCapsuleSingle" BasedOn="{StaticResource ComboBoxItemCapsuleBaseStyle}" TargetType="ComboBoxItem">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 	</Style>
 	<Style x:Key="ComboBoxItemCapsuleVerticalFirst" BasedOn="{StaticResource ComboBoxItemCapsuleBaseStyle}" TargetType="ComboBoxItem">
 		<Setter Property="hc:BorderElement.CornerRadius" Value="4,4,0,0" />
@@ -13512,7 +13512,7 @@
 		<Setter Property="BorderThickness" Value="0" />
 		<Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
 		<Setter Property="VerticalAlignment" Value="Top" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="Padding" Value="10 0" />
 		<Setter Property="ItemsPanel">
 			<Setter.Value>
@@ -13678,7 +13678,7 @@
 		<Setter Property="BorderThickness" Value="1" />
 		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
 		<Setter Property="ItemContainerStyle" Value="{StaticResource TabItemSliding}" />
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 		<Setter Property="hc:TitleElement.Background" Value="{DynamicResource RegionBrush}" />
 		<Setter Property="hc:TitleElement.Foreground" Value="{DynamicResource PrimaryTextBrush}" />
 		<Setter Property="Template">
@@ -13804,7 +13804,7 @@
 		<Setter Property="hc:BorderElement.CornerRadius" Value="0,4,4,0" />
 	</Style>
 	<Style x:Key="TabItemCapsuleSingle" BasedOn="{StaticResource TabItemCapsuleBaseStyle}" TargetType="TabItem">
-		<Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+		<Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
 	</Style>
 	<Style x:Key="TabItemCapsuleVerticalFirst" BasedOn="{StaticResource TabItemCapsuleBaseStyle}" TargetType="TabItem">
 		<Setter Property="hc:BorderElement.CornerRadius" Value="4,4,0,0" />

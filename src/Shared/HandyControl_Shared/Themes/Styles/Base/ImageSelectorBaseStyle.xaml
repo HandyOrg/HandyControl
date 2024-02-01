@@ -13,7 +13,7 @@
         <Setter Property="StrokeDashArray" Value="2,2"/>
         <Setter Property="hc:IconSwitchElement.Geometry" Value="{StaticResource AddGeometry}"/>
         <Setter Property="hc:IconSwitchElement.GeometrySelected" Value="{StaticResource RemoveGeometry}"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:ImageSelector">

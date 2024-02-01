@@ -7,7 +7,7 @@
         <Setter Property="hc:MenuAttach.PopupHorizontalOffset" Value="10" />
         <Setter Property="Background" Value="{DynamicResource RegionBrush}"/>
         <Setter Property="SnapsToDevicePixels" Value="True"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
         <Setter Property="Padding" Value="2,2,2,0" />
         <Setter Property="Template">
             <Setter.Value>

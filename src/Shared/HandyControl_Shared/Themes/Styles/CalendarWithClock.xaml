@@ -12,7 +12,7 @@
         <Setter Property="hc:TitleElement.Background" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Margin" Value="8 0"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}"/>
         <Setter Property="Template">
              <Setter.Value>
                 <ControlTemplate TargetType="hc:CalendarWithClock">

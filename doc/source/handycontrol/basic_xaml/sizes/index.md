@@ -10,5 +10,5 @@ title: 尺寸
 | DefaultCornerRadius | System.Windows.CornerRadius | 4 | 默认圆角 |
 
 {% note info no-icon %}
-用例：`CornerRadius="{StaticResource DefaultCornerRadius}"`
+用例：`CornerRadius="{DynamicResource DefaultCornerRadius}"`
 {% endnote %}

@@ -65,7 +65,7 @@
         <Setter Property="hc:VisualElement.HighlightBorderBrush" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="hc:VisualElement.HighlightBackground" Value="{DynamicResource TitleBrush}"/>
         <Setter Property="hc:VisualElement.HighlightForeground" Value="{DynamicResource TextIconBrush}"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}"/>
         <Setter Property="PaginationButtonStyle" Value="{StaticResource PaginationButtonStyle}"/>
         <Setter Property="Focusable" Value="False"/>
         <Setter Property="UseLayoutRounding" Value="True"/>

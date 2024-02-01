@@ -37,7 +37,7 @@
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="2" />
         <Setter Property="SelectionMode" Value="Extended"/>
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="ItemContainerStyle" Value="{StaticResource TransferItemBaseStyle}"/>
         <Setter Property="Template">

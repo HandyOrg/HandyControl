@@ -14,7 +14,7 @@
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
         <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
         <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
         <Setter Property="Height" Value="28" />
         <Setter Property="Width" Value="28" />
         <Setter Property="Content">

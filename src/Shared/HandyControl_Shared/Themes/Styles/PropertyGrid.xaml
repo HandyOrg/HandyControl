@@ -55,7 +55,7 @@
     </Style>
 
     <Style x:Key="ComboBoxItemCapsuleSingle" BasedOn="{StaticResource ComboBoxItemCapsuleBaseStyle}" TargetType="ComboBoxItem">
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}"/>
     </Style>
 
     <Style x:Key="ComboBoxItemCapsuleVerticalFirst" BasedOn="{StaticResource ComboBoxItemCapsuleBaseStyle}" TargetType="ComboBoxItem">

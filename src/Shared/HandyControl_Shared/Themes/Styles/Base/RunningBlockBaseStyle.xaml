@@ -3,7 +3,7 @@
                     xmlns:hc="clr-namespace:HandyControl.Controls">
 
     <Style x:Key="RunningBlockBaseStyle" BasedOn="{StaticResource BaseStyle}" TargetType="hc:RunningBlock">
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}"/>
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}"/>
         <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}"/>
         <Setter Property="BorderThickness" Value="1"/>
         <Setter Property="Padding" Value="0,10"/>

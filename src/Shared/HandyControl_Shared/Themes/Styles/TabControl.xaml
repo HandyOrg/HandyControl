@@ -42,7 +42,7 @@
         <Setter Property="BorderThickness" Value="1" />
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
         <Setter Property="ItemContainerStyle" Value="{StaticResource TabItemSliding}" />
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
         <Setter Property="hc:TitleElement.Background" Value="{DynamicResource RegionBrush}" />
         <Setter Property="hc:TitleElement.Foreground" Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="Template">
@@ -174,7 +174,7 @@
     </Style>
 
     <Style x:Key="TabItemCapsuleSingle" BasedOn="{StaticResource TabItemCapsuleBaseStyle}" TargetType="TabItem">
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
     </Style>
 
     <Style x:Key="TabItemCapsuleVerticalFirst" BasedOn="{StaticResource TabItemCapsuleBaseStyle}" TargetType="TabItem">

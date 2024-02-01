@@ -165,7 +165,7 @@
     <Style x:Key="ToolBarBaseStyle" TargetType="ToolBar">
         <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
         <Setter Property="Padding" Value="4" />
-        <Setter Property="hc:BorderElement.CornerRadius" Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:BorderElement.CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
         <Setter Property="Template" Value="{StaticResource ToolBarHorizontalTemplate}" />
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Vertical">
