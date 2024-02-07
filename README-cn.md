@@ -25,7 +25,7 @@
         <img alt="myget-version" src="https://img.shields.io/myget/handycontrol/v/handycontrol?color=orange&label=myget"></img>
     </a>
     <a href="https://github.com/HandyOrg/HandyControl/actions?query=workflow%3Abuild">
-        <img alt="Github-build-status" src="https://github.com/HandyOrg/HandyControl/workflows/build/badge.svg"></img>
+        <img alt="Github-build-status" src="https://github.com/HandyOrg/HandyControl/actions/workflows/build.yml/badge.svg"></img>
     </a>
     <a href="https://www.nuget.org/packages/HandyControl">
         <img alt="Nuget" src="https://img.shields.io/nuget/dt/handycontrol"></img>
