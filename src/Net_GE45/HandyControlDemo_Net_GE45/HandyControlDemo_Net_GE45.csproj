@@ -322,6 +322,7 @@
   <PropertyGroup Condition="$(TargetFramework.StartsWith('net4'))">
     <PostBuildEvent>
       if not exist Langs md Langs
+      rd /s /q Langs\cs
       rd /s /q Langs\en
       rd /s /q Langs\es
       rd /s /q Langs\fa
@@ -333,6 +334,7 @@
       rd /s /q Langs\ru
       rd /s /q Langs\tr
       rd /s /q Langs\ca-Es
+      move cs Langs
       move en Langs
       move es Langs
       move fa Langs
