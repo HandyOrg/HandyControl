@@ -2,7 +2,7 @@ from pathlib import Path
 
 
 def main():
-    with open('build.Lang.template.nuspec', 'r', encoding='utf-8') as template_file:
+    with open('build.Lang.template', 'r', encoding='utf-8') as template_file:
         template_content = template_file.read()
 
     resx_file_folder = Path('../src/Shared/HandyControl_Shared/Properties/Langs')
