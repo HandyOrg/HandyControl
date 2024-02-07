@@ -11,7 +11,7 @@
     <icon>icon.png</icon>
     <projectUrl>https://github.com/NaBian/HandyControl</projectUrl>
     <description>Contains some simple and commonly used WPF controls</description>
-    <copyright>Copyright © HandyOrg 2018-2023</copyright>
+    <copyright>Copyright © HandyOrg 2018-2024</copyright>
     <tags>WPF C# Control</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.0" />
