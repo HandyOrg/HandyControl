@@ -14,7 +14,7 @@
     <releaseNotes>Changes are detailed at https://github.com/HandyOrg/HandyControl/releases</releaseNotes>
     <copyright>Copyright © HandyOrg 2018-2024</copyright>
     <tags>WPF C# Control</tags>
-    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="e118ac98ccd1db28f25f66ba2da5c2e029a622a4" />
+    <repository type="git" url="https://github.com/HandyOrg/HandyControl" commit="4146ee523eada5aa514b270c46c0f197211522a8" />
     <dependencies>
       <group targetFramework=".NETFramework4.0" />
       <group targetFramework=".NETFramework4.5" />
