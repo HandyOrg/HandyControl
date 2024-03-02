@@ -11,7 +11,7 @@
     <icon>icon.png</icon>
     <projectUrl>https://github.com/NaBian/HandyControl</projectUrl>
     <description>Contains some simple and commonly used WPF controls</description>
-    <copyright>Copyright © HandyOrg 2018-2023</copyright>
+    <copyright>Copyright © HandyOrg 2018-2024</copyright>
     <tags>WPF C# Control</tags>
     <dependencies>
       <group targetFramework=".NETFramework4.0" />
@@ -31,6 +31,7 @@
       <group targetFramework="net5.0" />
       <group targetFramework="net6.0" />
       <group targetFramework="net7.0" />
+      <group targetFramework="net8.0" />
     </dependencies>
   </metadata>
   <files>
@@ -232,6 +233,20 @@
     <file src="lib\net7.0\HandyControl.dll" target="lib\net7.0\HandyControl.dll" />
     <file src="lib\net7.0\HandyControl.pdb" target="lib\net7.0\HandyControl.pdb" />
     <file src="lib\net7.0\HandyControl.xml" target="lib\net7.0\HandyControl.xml" />
+    <file src="lib\net8.0\ca-ES\HandyControl.resources.dll" target="lib\net8.0\ca-ES\HandyControl.resources.dll" />
+    <file src="lib\net8.0\en\HandyControl.resources.dll" target="lib\net8.0\en\HandyControl.resources.dll" />
+    <file src="lib\net8.0\fa\HandyControl.resources.dll" target="lib\net8.0\fa\HandyControl.resources.dll" />
+    <file src="lib\net8.0\fr\HandyControl.resources.dll" target="lib\net8.0\fr\HandyControl.resources.dll" />
+    <file src="lib\net8.0\ja\HandyControl.resources.dll" target="lib\net8.0\ja\HandyControl.resources.dll" />
+    <file src="lib\net8.0\ko-KR\HandyControl.resources.dll" target="lib\net8.0\ko-KR\HandyControl.resources.dll" />
+    <file src="lib\net8.0\pl\HandyControl.resources.dll" target="lib\net8.0\pl\HandyControl.resources.dll" />
+    <file src="lib\net8.0\pt-BR\HandyControl.resources.dll" target="lib\net8.0\pt-BR\HandyControl.resources.dll" />
+    <file src="lib\net8.0\ru\HandyControl.resources.dll" target="lib\net8.0\ru\HandyControl.resources.dll" />
+    <file src="lib\net8.0\tr\HandyControl.resources.dll" target="lib\net8.0\tr\HandyControl.resources.dll" />
+    <file src="lib\net8.0\HandyControl.deps.json" target="lib\net8.0\HandyControl.deps.json" />
+    <file src="lib\net8.0\HandyControl.dll" target="lib\net8.0\HandyControl.dll" />
+    <file src="lib\net8.0\HandyControl.pdb" target="lib\net8.0\HandyControl.pdb" />
+    <file src="lib\net8.0\HandyControl.xml" target="lib\net8.0\HandyControl.xml" />
     <file src="lib\netcoreapp3.0\ca-ES\HandyControl.resources.dll" target="lib\netcoreapp3.0\ca-ES\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\en\HandyControl.resources.dll" target="lib\netcoreapp3.0\en\HandyControl.resources.dll" />
     <file src="lib\netcoreapp3.0\fa\HandyControl.resources.dll" target="lib\netcoreapp3.0\fa\HandyControl.resources.dll" />
