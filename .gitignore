@@ -11,6 +11,7 @@ build/*
 !build/create_lang_nuspec_file.py
 !build/create_nupkg_file.ps1
 !build/build.ps1
+!build/version-bump-up-manual.md
 !build/LICENSE
 !build/icon.png
 !build/tools/
