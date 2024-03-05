@@ -3,7 +3,7 @@
 - modify version and copyright of src/Directory.Build.Props
 - modify version, copyright and repository of build/build.nuspec
 - modify version, copyright and repository of build/build.Lang.template
-- modify version, copyright and repository of build/build-for-myget.nuspec
+- modify version and copyright of build/build-for-myget.nuspec
 - run build/build.ps1
 - run create_lang_nuspec_file.py
 - run create_nupkg_file.ps1
