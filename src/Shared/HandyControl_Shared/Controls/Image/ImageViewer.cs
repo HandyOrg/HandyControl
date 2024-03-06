@@ -962,11 +962,10 @@ public class ImageViewer : Control
 
     private void OnUriChanged(Uri newValue)
     {
-        if (newValue is not null)
+        ImageSource = newValue is not null ? GetBitmapFrame(newValue) : null;
+        if (ImageSource is not null && newValue.IsAbsoluteUri)
         {
-            ImageSource = GetBitmapFrame(newValue);
             ImgPath = newValue.AbsolutePath;
-
             if (File.Exists(ImgPath))
             {
                 ImgSize = new FileInfo(ImgPath).Length;
@@ -974,8 +973,8 @@ public class ImageViewer : Control
         }
         else
         {
-            ImageSource = null;
             ImgPath = string.Empty;
+            ImgSize = 0;
         }
 
         static BitmapFrame GetBitmapFrame(Uri source)
