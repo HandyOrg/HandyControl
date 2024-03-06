@@ -6,7 +6,6 @@
 packages/
 build/*
 !build/build.cake
-!build/build*.nuspec
 !build/build.Lang.template
 !build/create_lang_nuspec_file.py
 !build/create_nupkg_file.ps1
