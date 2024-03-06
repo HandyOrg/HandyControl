@@ -52,7 +52,7 @@
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="Auto" />
                                         </Grid.RowDefinitions>
-                                        <DockPanel Grid.ColumnSpan="2">
+                                        <DockPanel Grid.ColumnSpan="2" x:Name="Header">
                                             <ScrollViewer DockPanel.Dock="Top" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" Focusable="false">
                                                 <GridViewHeaderRowPresenter AllowsColumnReorder="{Binding View.AllowsColumnReorder, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderContainerStyle="{Binding View.ColumnHeaderContainerStyle, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderToolTip="{Binding View.ColumnHeaderToolTip, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderContextMenu="{Binding View.ColumnHeaderContextMenu, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderTemplate="{Binding View.ColumnHeaderTemplate, RelativeSource={RelativeSource AncestorType=ListView}}" ColumnHeaderTemplateSelector="{Binding View.ColumnHeaderTemplateSelector, RelativeSource={RelativeSource AncestorType=ListView}}" Columns="{Binding View.Columns, RelativeSource={RelativeSource AncestorType=ListView}}" Margin="2,0" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
                                             </ScrollViewer>
@@ -75,6 +75,9 @@
                                         <EventTrigger RoutedEvent="MouseLeave">
                                             <BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
                                         </EventTrigger>
+                                        <DataTrigger Binding="{Binding Path=View, RelativeSource={RelativeSource AncestorType=ListView}}" Value="{x:Null}">
+                                            <Setter TargetName="Header" Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
                                     </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </ScrollViewer.Template>
@@ -92,7 +95,7 @@
                 </MultiTrigger.Conditions>
                 <Setter Property="ScrollViewer.CanContentScroll" Value="false" />
             </MultiTrigger>
-            <Trigger Property="View" Value="{x:Null}">
+            <Trigger Property="HasItems" Value="False">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="ListView">
