@@ -1,4 +1,5 @@
 ﻿using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -342,4 +343,62 @@ public class DataGridAttach
 
     public static bool GetShowSelectAllButton(DependencyObject element)
         => (bool) element.GetValue(ShowSelectAllButtonProperty);
+
+    public static readonly DependencyProperty IsTristateSortingEnabledProperty = DependencyProperty.RegisterAttached(
+        "IsTristateSortingEnabled", typeof(bool), typeof(DataGridAttach), new PropertyMetadata(
+            ValueBoxes.FalseBox, OnIsTristateSortingEnabledChanged));
+
+    private static void OnIsTristateSortingEnabledChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        if (d is not DataGrid dataGrid)
+        {
+            return;
+        }
+
+        if ((bool) e.NewValue)
+        {
+            dataGrid.Sorting += DataGridOnSorting;
+        }
+        else
+        {
+            dataGrid.Sorting -= DataGridOnSorting;
+        }
+    }
+
+    private static void DataGridOnSorting(object sender, DataGridSortingEventArgs e)
+    {
+        if (sender is not DataGrid dataGrid ||
+            string.IsNullOrEmpty(e.Column.SortMemberPath) ||
+            e.Column.SortDirection is not ListSortDirection.Descending)
+        {
+            return;
+        }
+
+        var description = dataGrid.Items
+            .SortDescriptions
+            .FirstOrDefault(item => string.Equals(item.PropertyName, e.Column.SortMemberPath));
+        var index = dataGrid.Items.SortDescriptions.IndexOf(description);
+        if (index == -1)
+        {
+            return;
+        }
+
+        e.Column.SortDirection = null;
+        dataGrid.Items.SortDescriptions.RemoveAt(index);
+        dataGrid.Items.Refresh();
+
+        if ((Keyboard.Modifiers & ModifierKeys.Shift) != ModifierKeys.Shift)
+        {
+            dataGrid.Items.SortDescriptions.Clear();
+            dataGrid.Items.Refresh();
+        }
+
+        e.Handled = true;
+    }
+
+    public static void SetIsTristateSortingEnabled(DependencyObject element, bool value)
+        => element.SetValue(IsTristateSortingEnabledProperty, ValueBoxes.BooleanBox(value));
+
+    public static bool GetIsTristateSortingEnabled(DependencyObject element)
+        => (bool) element.GetValue(IsTristateSortingEnabledProperty);
 }
