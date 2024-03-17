@@ -5,6 +5,6 @@
              xmlns:hc="https://handyorg.github.io/handycontrol"
              DataContext="{Binding AutoCompleteTextBoxDemo, Source={StaticResource Locator}}">
     <hc:TransitioningContentControl>
-        <hc:AutoCompleteTextBox Width="380" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="32" ItemsSource="{Binding Items}" Text="{Binding SearchText}" DisplayMemberPath="Name"/>
+        <hc:AutoCompleteTextBox Width="380" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="32" ItemsSource="{Binding Items}" DisplayMemberPath="Name"/>
     </hc:TransitioningContentControl>
 </UserControl>

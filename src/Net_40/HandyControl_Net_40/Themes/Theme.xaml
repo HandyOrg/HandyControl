@@ -11703,8 +11703,9 @@
 		<Setter Property="Stylus.IsFlicksEnabled" Value="False" />
 		<Setter Property="Padding" Value="{StaticResource DefaultInputPadding}" />
 		<Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
-		<Setter Property="ItemContainerStyle" Value="{StaticResource AutoCompleteTextBoxItemBaseStyle}" />
+        <Setter Property="Validation.ErrorTemplate" Value="{x:Null}" />
+        <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
+        <Setter Property="ItemContainerStyle" Value="{StaticResource AutoCompleteTextBoxItemBaseStyle}" />
 		<Setter Property="IsTabStop" Value="false" />
 		<Setter Property="hc:Empty.ShowEmpty" Value="True" />
 		<Setter Property="Template">
@@ -11712,10 +11713,10 @@
 				<ControlTemplate TargetType="hc:AutoCompleteTextBox">
 					<hc:SimplePanel>
 						<Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
-							<TextBox x:Name="PART_SearchTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" CaretBrush="{TemplateBinding CaretBrush}" Padding="{TemplateBinding Padding}" Style="{StaticResource ComboBoxEditableTextBox}" />
+							<TextBox x:Name="PART_SearchTextBox" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" IsReadOnly="{Binding IsReadOnly, RelativeSource={RelativeSource TemplatedParent}}" CaretBrush="{TemplateBinding CaretBrush}" Padding="{TemplateBinding Padding}" Style="{StaticResource ComboBoxEditableTextBox}" Text="{TemplateBinding Text}" />
 						</Border>
 						<Popup x:Name="PART_Popup" AllowsTransparency="true" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{StaticResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
-							<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=toggleButton}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
+							<Border BorderThickness="0,1,0,0" Effect="{StaticResource EffectShadow2}" Margin="8,0,8,8" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="dropDownBorder" MinWidth="{Binding ActualWidth, ElementName=dropDownBorder}" MaxHeight="{TemplateBinding MaxDropDownHeight}" BorderBrush="{DynamicResource BorderBrush}" Background="{DynamicResource RegionBrush}">
 								<hc:ToggleBlock IsChecked="{Binding HasItems,RelativeSource={RelativeSource TemplatedParent},Mode=OneWay}" VerticalContentAlignment="Stretch" HorizontalContentAlignment="Stretch">
 									<hc:ToggleBlock.CheckedContent>
 										<ScrollViewer Margin="0,4">
@@ -11761,7 +11762,18 @@
 				</ControlTemplate>
 			</Setter.Value>
 		</Setter>
-	</Style>
+        <Style.Triggers>
+            <Trigger Property="VirtualizingPanel.IsVirtualizing" Value="true">
+                <Setter Property="ItemsPanel">
+                    <Setter.Value>
+                        <ItemsPanelTemplate>
+                            <VirtualizingStackPanel/>
+                        </ItemsPanelTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 	<Style x:Key="DataGridCellStyle" TargetType="DataGridCell">
 		<Setter Property="FocusVisualStyle">
 			<Setter.Value>
