@@ -1,0 +1,33 @@
+name: Bump up version
+
+on:
+  workflow_dispatch:
+    inputs:
+      pre_release:
+        description: 'is preview'
+        type: boolean
+        required: true
+        default: false
+
+jobs:
+  bump-up-version:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@master
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@master
+        with:
+          dotnet-version: '8.0.x'
+          include-prerelease: true
+
+      - name: Build
+        working-directory: ./build
+        run: |
+            dotnet new tool-manifest
+            dotnet tool install cake.tool --version 4.0.0
+            dotnet tool install minver-cli --version 3.0.0
+            dotnet cake --username="${{ github.actor }}" --email="836904362@qq.com" --pre-release=${{ inputs.pre_release }}
