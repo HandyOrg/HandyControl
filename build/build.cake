@@ -1,4 +1,4 @@
-#addin nuget:?package=Cake.Git&version=4.0.0
+﻿#addin nuget:?package=Cake.Git&version=4.0.0
 #addin nuget:?package=Cake.MinVer&version=3.0.0
 #tool nuget:?package=NuGet.CommandLine&version=6.9.1
 
@@ -29,7 +29,7 @@ var libVersion = "";
 var nugetVersion = "";
 var nugetFolder = "";
 var year = $"{DateTime.Now.Year}";
-var copyright = $"Copyright © HandyOrg {HandyControlBirthYear}-{year}";
+var copyright = $"Copyright 漏 HandyOrg {HandyControlBirthYear}-{year}";
 var libNuspecFilePath = "";
 var langNuspecFilePath = "";
 var buildConfig = new BuildConfig();
