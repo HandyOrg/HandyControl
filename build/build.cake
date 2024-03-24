@@ -23,7 +23,7 @@ var target = Argument("target", "build");
 var preReleasePhase = Argument("pre-release-phase", "rc");
 var preRelease = Argument("pre-release", false);
 var username = Argument("username", "NaBian");
-var email = Argument("email, "836904362@qq.com");
+var email = Argument("email", "836904362@qq.com");
 
 var libVersion = "";
 var nugetVersion = "";
@@ -234,7 +234,7 @@ Task("pack nuspec files")
     }
 });
 
-Task("build")
+Task("publish")
     .IsDependentOn("update license")
     .IsDependentOn("update version")
     .IsDependentOn("update copyright")
@@ -246,8 +246,11 @@ Task("build")
     .IsDependentOn("build lib")
     .IsDependentOn("build demo")
     .IsDependentOn("create lang nuspec files")
-    .IsDependentOn("pack nuspec files")
-    ;
+    .IsDependentOn("pack nuspec files");
+
+Task("build")
+    .IsDependentOn("build lib")
+    .IsDependentOn("build demo");
 
 RunTarget(target);
 
