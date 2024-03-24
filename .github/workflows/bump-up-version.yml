@@ -27,7 +27,19 @@ jobs:
       - name: Publish
         working-directory: ./build
         run: |
+            git config --local user.name "${{ github.actor }}"
+            git config --local user.email "836904362@qq.com"
             dotnet new tool-manifest
             dotnet tool install cake.tool --version 4.0.0
             dotnet tool install minver-cli --version 3.0.0
             dotnet cake --username="${{ github.actor }}" --email="836904362@qq.com" --pre-release=${{ inputs.pre_release }}
+
+      - name: Push git changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          tags: true
+
+      - name: Push to nuget
+        run: dotnet nuget push ./build/outputs/nuget/*nupkg -k ${{ secrets.NUGETTOKEN }}

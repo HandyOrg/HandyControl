@@ -12,11 +12,8 @@ using static System.IO.Path;
 const string HandyControlBirthYear = "2018";
 const string TagPrefix = "v";
 const string RepositoryFolder = "..";
-const string PropsFilePath = $"{RepositoryFolder}/src/Directory.Build.Props";
-const string LicenseFilePath = $"{RepositoryFolder}/LICENSE";
 const string LibNuspecTemplateFilePath = "lib.nuspec.template";
 const string LangNuspecTemplateFilePath = "lang.nuspec.template";
-const string ResxFileFolder = $"{RepositoryFolder}/src/Shared/HandyControl_Shared/Properties/Langs";
 const string ConfigFilePath = "build.config.xml";
 
 var target = Argument("target", "build");
@@ -32,11 +29,19 @@ var year = $"{DateTime.Now.Year}";
 var copyright = $"Copyright © HandyOrg {HandyControlBirthYear}-{year}";
 var libNuspecFilePath = "";
 var langNuspecFilePath = "";
+var gitRootPath = GitFindRootFromPath(MakeAbsolute(new DirectoryPath("."))).FullPath;
+var propsFilePath = Combine(gitRootPath, "src/Directory.Build.Props");
+var licenseFilePath = Combine(gitRootPath, "LICENSE");
+var resxFileFolder = Combine(gitRootPath, "src/Shared/HandyControl_Shared/Properties/Langs");
 var buildConfig = new BuildConfig();
 
 Setup(context =>
 {
     buildConfig = LoadBuildConfig();
+    nugetFolder = Combine(buildConfig.OutputsFolder, "nuget");
+    libNuspecFilePath = Combine(nugetFolder, GetFileNameWithoutExtension(LibNuspecTemplateFilePath));
+    langNuspecFilePath = Combine(nugetFolder, LangNuspecTemplateFilePath);
+
     CleanDirectory(buildConfig.OutputsFolder);
     CreateDirectory(nugetFolder);
 
@@ -57,9 +62,9 @@ Task("update license")
 {
     const int copyrightIndex = 2;
 
-    string[] lines = ReadAllLines(LicenseFilePath, Encoding.UTF8);
+    string[] lines = ReadAllLines(licenseFilePath, Encoding.UTF8);
     lines[copyrightIndex] = copyright;
-    WriteAllLines(LicenseFilePath, lines);
+    WriteAllLines(licenseFilePath, lines);
 });
 
 Task("update version")
@@ -67,11 +72,11 @@ Task("update version")
 {
     if (libVersion != "")
     {
-        var document = LoadXmlDocument(PropsFilePath);
+        var document = LoadXmlDocument(propsFilePath);
         document.DocumentElement.SelectSingleNode("//PropertyGroup/Version").InnerText = libVersion;
         document.DocumentElement.SelectSingleNode("//PropertyGroup/FileVersion").InnerText = libVersion;
         document.DocumentElement.SelectSingleNode("//PropertyGroup/AssemblyVersion").InnerText = libVersion;
-        SaveXmlDocument(document, PropsFilePath);
+        SaveXmlDocument(document, propsFilePath);
     }
 
     if (nugetVersion != "")
@@ -84,9 +89,9 @@ Task("update version")
 Task("update copyright")
     .Does(() =>
 {
-    var document = LoadXmlDocument(PropsFilePath);
+    var document = LoadXmlDocument(propsFilePath);
     document.DocumentElement.SelectSingleNode("//PropertyGroup/Copyright").InnerText = copyright;
-    SaveXmlDocument(document, PropsFilePath);
+    SaveXmlDocument(document, propsFilePath);
 
     ReplaceFileText(libNuspecFilePath, "year", year);
     ReplaceFileText(langNuspecFilePath, "year", year);
@@ -95,20 +100,20 @@ Task("update copyright")
 Task("commit files")
     .Does(() =>
 {
-    GitAddAll(RepositoryFolder);
-    GitCommit(RepositoryFolder, username, email, $"chore: [AUTO] bump up version to {nugetVersion}.");
+    GitAddAll(gitRootPath);
+    GitCommit(gitRootPath, username, email, $"chore: [AUTO] bump up version to {nugetVersion}.");
 });
 
 Task("create tag")
     .Does(() =>
 {
-    GitTag(RepositoryFolder, $"{TagPrefix}{nugetVersion}");
+    GitTag(gitRootPath, $"{TagPrefix}{nugetVersion}");
 });
 
 Task("update nuget sha")
     .Does(() =>
 {
-    var lastCommit = GitLogTip(RepositoryFolder);
+    var lastCommit = GitLogTip(gitRootPath);
 
     ReplaceFileText(libNuspecFilePath, "commit", lastCommit.Sha);
     ReplaceFileText(langNuspecFilePath, "commit", lastCommit.Sha);
@@ -177,7 +182,7 @@ Task("build lib")
 
         DotNetBuild
         (
-            $"{RepositoryFolder}/src/{task.Domain}/HandyControl_{task.Domain}/HandyControl_{task.Domain}.csproj",
+            $"{gitRootPath}/src/{task.Domain}/HandyControl_{task.Domain}/HandyControl_{task.Domain}.csproj",
             new DotNetBuildSettings
             {
                 Configuration = task.Configuration,
@@ -200,7 +205,7 @@ Task("build demo")
 
         DotNetBuild
         (
-            $"{RepositoryFolder}/src/{task.Domain}/HandyControlDemo_{task.Domain}/HandyControlDemo_{task.Domain}.csproj",
+            $"{gitRootPath}/src/{task.Domain}/HandyControlDemo_{task.Domain}/HandyControlDemo_{task.Domain}.csproj",
             new DotNetBuildSettings
             {
                 Configuration = task.Configuration,
@@ -315,9 +320,9 @@ private MinVerAutoIncrement? GetAutoIncrement()
 {
     const string minorKey = "feat:";
 
-    var lastTag = GitTags(RepositoryFolder, true).Last();
+    var lastTag = GitTags(gitRootPath, true).Last();
     var sha = lastTag.Target.ToString();
-    var logs = GitLog(RepositoryFolder, sha);
+    var logs = GitLog(gitRootPath, sha);
 
     if (logs.Count == 0)
     {
@@ -339,7 +344,7 @@ private bool IsFramework(string framework) => !framework.Contains(".");
 
 private IEnumerable<string> GetAllLangs()
 {
-    foreach (string resxFilePath in EnumerateFiles(ResxFileFolder, "Lang.*.resx"))
+    foreach (string resxFilePath in EnumerateFiles(resxFileFolder, "Lang.*.resx"))
     {
         yield return GetFileNameWithoutExtension(resxFilePath.Replace("Lang.", ""));
     }
@@ -352,9 +357,6 @@ private BuildConfig LoadBuildConfig()
 
     var outputsItem = configDocument.DocumentElement.SelectSingleNode("//config/outputsFolder");
     buildConfig.OutputsFolder = outputsItem.InnerText;
-    nugetFolder = $"{buildConfig.OutputsFolder}/nuget";
-    libNuspecFilePath = $"{nugetFolder}/{GetFileNameWithoutExtension(LibNuspecTemplateFilePath)}";
-    langNuspecFilePath = $"{nugetFolder}/{LangNuspecTemplateFilePath}";
 
     var tasksItem = configDocument.DocumentElement.SelectSingleNode("//config/tasks");
     foreach (XmlNode node in tasksItem.ChildNodes)
