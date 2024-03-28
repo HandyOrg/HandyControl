@@ -1,4 +1,4 @@
-#addin nuget:?package=Cake.Git&version=4.0.0
+﻿#addin nuget:?package=Cake.Git&version=4.0.0
 #addin nuget:?package=Cake.MinVer&version=3.0.0
 #tool nuget:?package=NuGet.CommandLine&version=6.9.1
 
