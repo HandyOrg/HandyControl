@@ -19,7 +19,7 @@ namespace HandyControl.Controls;
 [TemplatePart(Name = ElementPanelMain, Type = typeof(Panel))]
 [TemplatePart(Name = ElementMoreRight, Type = typeof(FrameworkElement))]
 [TemplatePart(Name = ElementButtonLast, Type = typeof(RadioButton))]
-[TemplatePart(Name = ElementButtonLast, Type = typeof(NumericUpDown))]
+[TemplatePart(Name = ElementJump, Type = typeof(NumericUpDown))]
 public class Pagination : Control
 {
     #region Constants
@@ -198,7 +198,7 @@ public class Pagination : Control
 
     /// <summary>
     ///     表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
-    /// </summary>       
+    /// </summary>
     public static readonly DependencyProperty MaxPageIntervalProperty = DependencyProperty.Register(
         nameof(MaxPageInterval), typeof(int), typeof(Pagination), new PropertyMetadata(3, OnMaxPageIntervalChanged), ValidateHelper.IsInRangeOfPosIntIncludeZero);
 
@@ -212,7 +212,7 @@ public class Pagination : Control
 
     /// <summary>
     ///     表示当前选中的按钮距离左右两个方向按钮的最大间隔（4表示间隔4个按钮，如果超过则用省略号表示）
-    /// </summary>   
+    /// </summary>
     public int MaxPageInterval
     {
         get => (int) GetValue(MaxPageIntervalProperty);
@@ -406,5 +406,5 @@ public class Pagination : Control
         PageIndex = int.Parse(button.Content.ToString());
     }
 
-    #endregion Private Methods       
+    #endregion Private Methods
 }
