@@ -1,5 +1,5 @@
 ---
-title: Seperator 分隔符
+title: Separator 分隔符
 ---
 
 # SeparatorBaseStyle
