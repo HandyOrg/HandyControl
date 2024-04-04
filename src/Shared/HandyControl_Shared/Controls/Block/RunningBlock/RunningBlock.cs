@@ -50,7 +50,7 @@ public class RunningBlock : ContentControl
     private void ElementPanel_SizeChanged(object sender, SizeChangedEventArgs e) => UpdateContent();
 
     public static readonly DependencyProperty RunawayProperty = DependencyProperty.Register(
-        nameof(Runaway), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Runaway), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.TrueBox, FrameworkPropertyMetadataOptions.AffectsRender, KeyPropertyChangedCallback));
 
     public bool Runaway
     {
@@ -59,7 +59,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty AutoRunProperty = DependencyProperty.Register(
-        nameof(AutoRun), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(AutoRun), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender, KeyPropertyChangedCallback));
 
     public bool AutoRun
     {
@@ -68,7 +68,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty OrientationProperty = DependencyProperty.Register(
-        nameof(Orientation), typeof(Orientation), typeof(RunningBlock), new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Orientation), typeof(Orientation), typeof(RunningBlock), new FrameworkPropertyMetadata(default(Orientation), FrameworkPropertyMetadataOptions.AffectsRender, KeyPropertyChangedCallback));
 
     public Orientation Orientation
     {
@@ -77,7 +77,15 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty DurationProperty = DependencyProperty.Register(
-        nameof(Duration), typeof(Duration), typeof(RunningBlock), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(5)), FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Duration), typeof(Duration), typeof(RunningBlock), new FrameworkPropertyMetadata(new Duration(TimeSpan.FromSeconds(5)), FrameworkPropertyMetadataOptions.AffectsRender, KeyPropertyChangedCallback));
+
+    private static void KeyPropertyChangedCallback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var target = d as RunningBlock;
+        if (target != null) {
+            target.UpdateContent();
+        }
+    }
 
     public Duration Duration
     {
@@ -86,7 +94,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty SpeedProperty = DependencyProperty.Register(
-        nameof(Speed), typeof(double), typeof(RunningBlock), new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(Speed), typeof(double), typeof(RunningBlock), new FrameworkPropertyMetadata(double.NaN, FrameworkPropertyMetadataOptions.AffectsRender, KeyPropertyChangedCallback));
 
     public double Speed
     {
@@ -116,7 +124,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty AutoReverseProperty = DependencyProperty.Register(
-        nameof(AutoReverse), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender));
+        nameof(AutoReverse), typeof(bool), typeof(RunningBlock), new FrameworkPropertyMetadata(ValueBoxes.FalseBox, FrameworkPropertyMetadataOptions.AffectsRender, KeyPropertyChangedCallback));
 
     public bool AutoReverse
     {
@@ -125,7 +133,7 @@ public class RunningBlock : ContentControl
     }
 
     public static readonly DependencyProperty RunningDirectionProperty = DependencyProperty.Register(
-        nameof(RunningDirection), typeof(RunningDirection), typeof(RunningBlock), new PropertyMetadata(RunningDirection.EndToStart));
+        nameof(RunningDirection), typeof(RunningDirection), typeof(RunningBlock), new PropertyMetadata(RunningDirection.EndToStart, KeyPropertyChangedCallback));
 
     public RunningDirection RunningDirection
     {
