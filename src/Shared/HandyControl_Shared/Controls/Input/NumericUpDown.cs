@@ -106,10 +106,12 @@ public class NumericUpDown : Control
         if (e.Key == Key.Up)
         {
             Value += Increment;
+            SetText(true);
         }
         else if (e.Key == Key.Down)
         {
             Value -= Increment;
+            SetText(true);
         }
     }
 
