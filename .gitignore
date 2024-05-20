@@ -6,3 +6,4 @@
 packages/
 build/outputs
 build/tools
+src/Shared/HandyControl_Shared/Themes/Theme.xaml
