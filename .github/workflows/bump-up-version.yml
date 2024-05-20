@@ -14,15 +14,15 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout repo
-        uses: actions/checkout@master
+        uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           ref: ${{ github.head_ref }}
 
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@master
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-          include-prerelease: true
 
       - name: Publish
         working-directory: ./build
