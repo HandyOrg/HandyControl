@@ -10,15 +10,16 @@ jobs:
     steps:
 
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
+          fetch-depth: 0
           ref: ${{ github.head_ref }}
 
+
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@master
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-          include-prerelease: true
 
       # 代码文件编码规范机器人，详细请看 [dotnet 在 GitHub 的 Action 上部署自动代码编码规范机器人](https://blog.lindexi.com/post/dotnet-%E5%9C%A8-GitHub-%E7%9A%84-Action-%E4%B8%8A%E9%83%A8%E7%BD%B2%E8%87%AA%E5%8A%A8%E4%BB%A3%E7%A0%81%E7%BC%96%E7%A0%81%E8%A7%84%E8%8C%83%E6%9C%BA%E5%99%A8%E4%BA%BA.html)
       - name: Install dotnetCampus.EncodingNormalior

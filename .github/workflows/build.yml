@@ -7,13 +7,14 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
-
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@master
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-          include-prerelease: true
 
       - name: Build
         working-directory: ./build
