@@ -39,8 +39,7 @@
                     </hc:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsEnabled" Value="false">
-                            <Setter Property="Opacity" TargetName="border" Value="0.4" />
-                            <Setter Property="Opacity" TargetName="PART_ContentHost" Value="0.4" />
+                            <Setter Property="Opacity" Value="0.4" />
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="true" SourceName="PART_ContentHost">
                             <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
@@ -70,9 +69,7 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" TargetName="border" Value="0.4" />
-                <Setter Property="Opacity" TargetName="PART_ContentHost" Value="0.4" />
-                <Setter Property="Opacity" TargetName="Placeholder" Value="0.4" />
+                <Setter Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true" SourceName="PART_ContentHost">
                 <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
@@ -99,9 +96,7 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" TargetName="border" Value="0.4" />
-                <Setter Property="Opacity" TargetName="PART_ContentHost" Value="0.4" />
-                <Setter Property="Opacity" TargetName="Placeholder" Value="0.4" />
+                <Setter Property="Opacity" Value="0.4" />
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true" SourceName="PART_ContentHost">
                 <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}" />
@@ -149,8 +144,7 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" TargetName="border" Value="0.4"/>
-                <Setter Property="Opacity" TargetName="root" Value="0.4"/>
+                <Setter Property="Opacity" Value="0.4"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true" SourceName="root">
                 <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
@@ -192,8 +186,7 @@
         </Grid>
         <ControlTemplate.Triggers>
             <Trigger Property="IsEnabled" Value="false">
-                <Setter Property="Opacity" TargetName="border" Value="0.4"/>
-                <Setter Property="Opacity" TargetName="root" Value="0.4"/>
+                <Setter Property="Opacity" Value="0.4"/>
             </Trigger>
             <Trigger Property="IsMouseOver" Value="true" SourceName="root">
                 <Setter Property="BorderBrush" Value="{DynamicResource SecondaryBorderBrush}"/>
