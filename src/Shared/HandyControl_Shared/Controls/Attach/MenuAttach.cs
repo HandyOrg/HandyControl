@@ -31,4 +31,18 @@ public class MenuAttach
 
     public static Thickness GetItemPadding(DependencyObject element)
         => (Thickness) element.GetValue(ItemPaddingProperty);
+
+    public static readonly DependencyProperty ItemMinWidthProperty = DependencyProperty.RegisterAttached(
+        "ItemMinWidth", typeof(double), typeof(MenuAttach), new PropertyMetadata(ValueBoxes.Double240Box));
+
+    public static void SetItemMinWidth(DependencyObject obj, double value) => obj.SetValue(ItemMinWidthProperty, value);
+
+    public static double GetItemMinWidth(DependencyObject obj) => (double) obj.GetValue(ItemMinWidthProperty);
+
+    public static readonly DependencyProperty TopLevelMinWidthProperty = DependencyProperty.RegisterAttached(
+        "TopLevelMinWidth", typeof(double), typeof(MenuAttach), new PropertyMetadata(ValueBoxes.Double44Box));
+
+    public static void SetTopLevelMinWidth(DependencyObject obj, double value) => obj.SetValue(TopLevelMinWidthProperty, value);
+
+    public static double GetTopLevelMinWidth(DependencyObject obj) => (double) obj.GetValue(TopLevelMinWidthProperty);
 }

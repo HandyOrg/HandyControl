@@ -33,9 +33,13 @@ internal static class ValueBoxes
 
     internal static object Double20Box = 20.0;
 
+    internal static object Double44Box = 44.0;
+
     internal static object Double100Box = 100.0;
 
     internal static object Double200Box = 200.0;
+
+    internal static object Double240Box = 240.0;
 
     internal static object Double300Box = 300.0;
 
