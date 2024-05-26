@@ -25,6 +25,8 @@
                     </hc:TextBox>
                     <hc:TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
                     <hc:TextBox hc:InfoElement.ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0" HorizontalAlignment="Left"/>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0" HorizontalAlignment="Left" hc:InfoElement.ClearButtonInvisibleByHidden="True"/>
                 </StackPanel>
                 <StackPanel>
                     <hc:TextBox hc:InfoElement.ShowClearButton="True" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Style="{StaticResource TextBoxPlus.Small}"/>
@@ -42,6 +44,8 @@
                     </hc:TextBox>
                     <hc:TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Style="{StaticResource TextBoxPlus.Small}"/>
                     <hc:TextBox hc:InfoElement.ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0" Style="{StaticResource TextBoxPlus.Small}"/>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0" Style="{StaticResource TextBoxPlus.Small}" HorizontalAlignment="Left"/>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0" Style="{StaticResource TextBoxPlus.Small}" HorizontalAlignment="Left" hc:InfoElement.ClearButtonInvisibleByHidden="True"/>
                 </StackPanel>
             </hc:UniformSpacingPanel>
         </hc:ScrollViewer>

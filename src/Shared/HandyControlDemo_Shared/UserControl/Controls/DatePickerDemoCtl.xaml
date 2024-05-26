@@ -11,6 +11,8 @@
             <hc:UniformSpacingPanel Spacing="32" Margin="32" ChildWrapping="Wrap">
                 <StackPanel>
                     <hc:DatePicker hc:InfoElement.ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}"/>
+                    <hc:DatePicker Margin="0,16,0,0" hc:InfoElement.ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}" HorizontalAlignment="Left"/>
+                    <hc:DatePicker Margin="0,16,0,0" hc:InfoElement.ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}" HorizontalAlignment="Left" hc:InfoElement.ClearButtonInvisibleByHidden="True"/>
                     <hc:DatePicker Margin="0,16,0,0" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Now}"/>
 
                     <hc:DatePicker hc:InfoElement.ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0"/>
@@ -21,6 +23,8 @@
                 </StackPanel>
                 <StackPanel>
                     <hc:DatePicker hc:InfoElement.ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}" Style="{StaticResource DatePickerPlus.Small}"/>
+                    <hc:DatePicker Margin="0,16,0,0" hc:InfoElement.ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}" Style="{StaticResource DatePickerPlus.Small}" HorizontalAlignment="Left"/>
+                    <hc:DatePicker Margin="0,16,0,0" hc:InfoElement.ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}" Style="{StaticResource DatePickerPlus.Small}" HorizontalAlignment="Left" hc:InfoElement.ClearButtonInvisibleByHidden="True"/>
                     <hc:DatePicker Margin="0,16,0,0" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Now}" Style="{StaticResource DatePickerPlus.Small}"/>
 
                     <hc:DatePicker hc:InfoElement.ShowClearButton="True" SelectedDate="{x:Static system:DateTime.Now}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Style="{StaticResource DatePickerPlus.Small}"/>

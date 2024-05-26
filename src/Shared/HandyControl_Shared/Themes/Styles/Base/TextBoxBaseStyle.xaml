@@ -163,6 +163,15 @@
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear"/>
             </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False"/>
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True"/>
+                    <Condition Property="IsReadOnly" Value="False"/>
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear" />
+            </MultiTrigger>
             <Trigger Property="IsFocused" Value="true">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
@@ -205,6 +214,15 @@
                     <Condition Property="IsReadOnly" Value="False"/>
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False"/>
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True"/>
+                    <Condition Property="IsReadOnly" Value="False"/>
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear" />
             </MultiTrigger>
             <Trigger Property="IsFocused" Value="True">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}"/>
