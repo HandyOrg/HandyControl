@@ -42,4 +42,13 @@ jobs:
           tags: true
 
       - name: Push to nuget
-        run: dotnet nuget push ./build/outputs/nuget/*nupkg -k ${{ secrets.NUGETTOKEN }}
+        run: dotnet nuget push ./build/outputs/nuget/HandyControl.*nupkg -k ${{ secrets.NUGETTOKEN }}
+
+      - name: Create github release
+        uses: softprops/action-gh-release@v2
+        with:
+          # For maximum compatibility, we choose the .net40
+          files: ./build/outputs/installer/net40/*
+          body_path: ./build/outputs/CHANGELOG.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: ${{ inputs.pre_release }}

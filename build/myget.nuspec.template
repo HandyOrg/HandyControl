@@ -3,7 +3,7 @@
   <metadata>
     <id>HandyControl</id>
     <version>{version}</version>
-    <title>HandyOrg</title>
+    <title>HandyControl</title>
     <authors>HandyOrg</authors>
     <owners>HandyOrg</owners>
     <requireLicenseAcceptance>true</requireLicenseAcceptance>
