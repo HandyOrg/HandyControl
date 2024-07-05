@@ -295,7 +295,7 @@ public class Growl : Control
 
         menuItem.Click += (s, e) =>
         {
-            foreach (var item in panel.Children.OfType<Growl>())
+            foreach (var item in panel.Children.OfType<Growl>().ToArray())
             {
                 item.Close(false);
             }
@@ -863,7 +863,7 @@ public class Growl : Control
                 {
                     if (GrowlPanel != null && GrowlPanel.Children.Count == 0 && GetIsCreatedAutomatically(GrowlPanel))
                     {
-                        // If the count of children is zero, we need to remove the panel, provided that the panel was created automatically  
+                        // If the count of children is zero, we need to remove the panel, provided that the panel was created automatically
                         RemoveDefaultPanel(GrowlPanel);
                         GrowlPanel = null;
                     }
