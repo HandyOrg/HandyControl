@@ -3,6 +3,7 @@
     <Style x:Key="Tag4CheckComboBoxStyle" BasedOn="{StaticResource TagBaseStyle}" TargetType="hc:Tag">
         <Setter Property="Padding" Value="6,2,4,2" />
         <Setter Property="Height" Value="Auto" />
+        <Setter Property="ShowCloseButton" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:Tag">
