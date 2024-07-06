@@ -8,6 +8,8 @@ using HandyControl.Data;
 using HandyControl.Tools;
 using HandyControl.Tools.Extension;
 using HandyControl.Tools.Interop;
+using HandyControl.Tools.Helper;
+
 #if NET40
 using Microsoft.Windows.Shell;
 #else
@@ -63,8 +65,8 @@ namespace HandyControl.Controls
             {
                 UseAeroCaptionButtons = false
             };
-            // if below Win11 22H2
-            if (Environment.OSVersion.Version < new Version(10, 0, 22621, 0))
+
+            if (SystemHelper.GetSystemVersionInfo() < SystemVersionInfo.Windows11_22H2)
             {
                 chrome.GlassFrameThickness = new Thickness(0, 0, 0, 1);
                 chrome.CornerRadius = new CornerRadius();
