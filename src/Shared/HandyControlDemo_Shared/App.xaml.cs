@@ -172,7 +172,7 @@ public partial class App
                 Task.Factory.StartNew(() => Process.Start(updateExePath, $"--update={api}"));
             }
         }
-        catch 
+        catch
         {
             // ignored
         }
