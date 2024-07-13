@@ -5,17 +5,17 @@
                     xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <LinearGradientBrush x:Key="ResizeGripperForeground" EndPoint="1,0.75" StartPoint="0,0.25">
-        <GradientStop Color="#FFFFFF" Offset="0.3"/>
-        <GradientStop Color="#BBC5D7" Offset="0.75"/>
-        <GradientStop Color="#6D83A9" Offset="1"/>
+        <GradientStop Color="#FFFFFF" Offset="0.3" />
+        <GradientStop Color="#BBC5D7" Offset="0.75" />
+        <GradientStop Color="#6D83A9" Offset="1" />
     </LinearGradientBrush>
 
     <Style TargetType="ResizeGrip">
-        <Setter Property="MinWidth" Value="11"/>
-        <Setter Property="MinHeight" Value="11"/>
-        <Setter Property="Width" Value="11"/>
-        <Setter Property="Height" Value="11"/>
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="MinWidth" Value="11" />
+        <Setter Property="MinHeight" Value="11" />
+        <Setter Property="Width" Value="11" />
+        <Setter Property="Height" Value="11" />
+        <Setter Property="Background" Value="Transparent" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="ResizeGrip">
@@ -27,7 +27,7 @@
                                         <DrawingGroup>
                                             <GeometryDrawing Brush="{StaticResource ResizeGripperForeground}">
                                                 <GeometryDrawing.Geometry>
-                                                    <RectangleGeometry Rect="0,0,2,2"/>
+                                                    <RectangleGeometry Rect="0,0,2,2" />
                                                 </GeometryDrawing.Geometry>
                                             </GeometryDrawing>
                                         </DrawingGroup>
@@ -42,9 +42,9 @@
     </Style>
 
     <Style TargetType="Window">
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="UseLayoutRounding" Value="True"/>
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="UseLayoutRounding" Value="True" />
     </Style>
 
     <ControlTemplate x:Key="WindowWin10Template" TargetType="hc:Window">
@@ -190,6 +190,7 @@
                                         </MultiBinding>
                                     </TextBlock.Visibility>
                                 </TextBlock>
+                                <ContentPresenter shell:WindowChrome.IsHitTestVisibleInChrome="True" Grid.Column="2" x:Name="ContentPresenterMain" Content="{TemplateBinding NonClientAreaContent}" />
                             </Grid>
                         </Grid>
                     </hc:SimplePanel>
@@ -248,21 +249,21 @@
     </ControlTemplate>
 
     <Style x:Key="WindowWin10" TargetType="hc:Window">
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="#262e2f"/>
-        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="UseLayoutRounding" Value="True"/>
-        <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}"/>
-        <Setter Property="NonClientAreaForeground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="CloseButtonBackground" Value="Transparent"/>
-        <Setter Property="CloseButtonForeground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="CloseButtonHoverBackground" Value="#e81123"/>
-        <Setter Property="CloseButtonHoverForeground" Value="White"/>
-        <Setter Property="OtherButtonBackground" Value="Transparent"/>
-        <Setter Property="OtherButtonForeground" Value="{DynamicResource PrimaryTextBrush}"/>
-        <Setter Property="OtherButtonHoverBackground" Value="{DynamicResource DarkMaskBrush}"/>
-        <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource PrimaryTextBrush}"/>
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="#262e2f" />
+        <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="UseLayoutRounding" Value="True" />
+        <Setter Property="NonClientAreaBackground" Value="{DynamicResource RegionBrush}" />
+        <Setter Property="NonClientAreaForeground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="CloseButtonBackground" Value="Transparent" />
+        <Setter Property="CloseButtonForeground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="CloseButtonHoverBackground" Value="#e81123" />
+        <Setter Property="CloseButtonHoverForeground" Value="White" />
+        <Setter Property="OtherButtonBackground" Value="Transparent" />
+        <Setter Property="OtherButtonForeground" Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="OtherButtonHoverBackground" Value="{DynamicResource DarkMaskBrush}" />
+        <Setter Property="OtherButtonHoverForeground" Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="Template" Value="{StaticResource WindowWin10Template}" />
         <Style.Triggers>
             <Trigger Property="hc:WindowAttach.ExtendContentToNonClientArea" Value="true">
@@ -272,58 +273,58 @@
     </Style>
 
     <Style x:Key="WindowBlur" BasedOn="{StaticResource WindowWin10}" TargetType="hc:BlurWindow">
-        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Background" Value="Transparent" />
     </Style>
 
     <Style x:Key="WindowGlow" BasedOn="{StaticResource WindowWin10}" TargetType="hc:GlowWindow">
-        <Setter Property="ActiveGlowColor" Value="#262e2f"/>
-        <Setter Property="InactiveGlowColor" Value="{DynamicResource BorderColor}"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="ActiveGlowColor" Value="#262e2f" />
+        <Setter Property="InactiveGlowColor" Value="{DynamicResource BorderColor}" />
+        <Setter Property="BorderThickness" Value="0" />
     </Style>
 
     <Style TargetType="hc:ImageBrowser">
-        <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="MinWidth" Value="400"/>
-        <Setter Property="MinHeight" Value="250"/>
-        <Setter Property="BorderThickness" Value="1"/>
-        <Setter Property="BorderBrush" Value="Black"/>
-        <Setter Property="ResizeMode" Value="NoResize"/>
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="MinWidth" Value="400" />
+        <Setter Property="MinHeight" Value="250" />
+        <Setter Property="BorderThickness" Value="1" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="ResizeMode" Value="NoResize" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="hc:ImageBrowser">
                     <ControlTemplate.Resources>
                         <Storyboard x:Key="Storyboard1">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_PanelTop">
-                                <EasingDoubleKeyFrame KeyTime="0:0:.1" Value="1"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:.1" Value="1" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                         <Storyboard x:Key="Storyboard2">
                             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="Opacity" Storyboard.TargetName="PART_PanelTop">
-                                <EasingDoubleKeyFrame KeyTime="0:0:.4" Value="0"/>
+                                <EasingDoubleKeyFrame KeyTime="0:0:.4" Value="0" />
                             </DoubleAnimationUsingKeyFrames>
                         </Storyboard>
                     </ControlTemplate.Resources>
                     <Grid>
                         <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="Auto"/>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
                         </Grid.RowDefinitions>
-                        <hc:ImageViewer x:Name="PART_ImageViewer" ShowImgMap="True" BorderThickness="0" Background="#dd000000"/>
+                        <hc:ImageViewer x:Name="PART_ImageViewer" ShowImgMap="True" BorderThickness="0" Background="#dd000000" />
                         <hc:SimplePanel x:Name="PART_PanelTop" Opacity="0" Background="{DynamicResource DarkOpacityBrush}" VerticalAlignment="Top" Grid.Row="0">
                             <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center" Orientation="Horizontal">
-                                <TextBlock Text="{Binding ImgPath,ElementName=PART_ImageViewer}" Foreground="White" Margin="10,0,0,0"/>
-                                <TextBlock Text="{Binding ImgSize,ElementName=PART_ImageViewer,Converter={StaticResource Long2FileSizeConverter}}" Foreground="White" Margin="30,0,0,0"/>
+                                <TextBlock Text="{Binding ImgPath,ElementName=PART_ImageViewer}" Foreground="White" Margin="10,0,0,0" />
+                                <TextBlock Text="{Binding ImgSize,ElementName=PART_ImageViewer,Converter={StaticResource Long2FileSizeConverter}}" Foreground="White" Margin="30,0,0,0" />
                             </StackPanel>
-                            <Button Command="interactivity:ControlCommands.Close" Foreground="{DynamicResource TextIconBrush}" shell:WindowChrome.IsHitTestVisibleInChrome="True" Background="Red" Grid.Row="0" Padding="14" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIcon}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40"/>
+                            <Button Command="interactivity:ControlCommands.Close" Foreground="{DynamicResource TextIconBrush}" shell:WindowChrome.IsHitTestVisibleInChrome="True" Background="Red" Grid.Row="0" Padding="14" hc:IconElement.Geometry="{StaticResource DeleteGeometry}" Style="{StaticResource ButtonIcon}" HorizontalAlignment="Right" VerticalAlignment="Top" Width="40" Height="40" />
                         </hc:SimplePanel>
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger SourceName="PART_ImageViewer" Property="ShowCloseButton" Value="True">
                             <Trigger.EnterActions>
-                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard1}" />
                             </Trigger.EnterActions>
                             <Trigger.ExitActions>
-                                <BeginStoryboard Storyboard="{StaticResource Storyboard2}"/>
+                                <BeginStoryboard Storyboard="{StaticResource Storyboard2}" />
                             </Trigger.ExitActions>
                         </Trigger>
                     </ControlTemplate.Triggers>
@@ -332,7 +333,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsFullScreen" Value="True">
-                <Setter Property="WindowState" Value="Maximized"/>
+                <Setter Property="WindowState" Value="Maximized" />
             </Trigger>
         </Style.Triggers>
     </Style>

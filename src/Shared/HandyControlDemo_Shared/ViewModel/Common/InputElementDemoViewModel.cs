@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using HandyControl.Controls;
@@ -15,6 +16,7 @@ public class InputElementDemoViewModel : ViewModelBase
     private double _doubleValue1;
     private double _doubleValue2;
     private IList<string> _dataList;
+    private IList<string> _selectedDataList;
 
     public string Email1
     {
@@ -66,11 +68,22 @@ public class InputElementDemoViewModel : ViewModelBase
 #endif
     }
 
+    public IList<string> SelectedDataList
+    {
+        get => _selectedDataList;
+#if NET40
+        set => Set(nameof(SelectedDataList), ref _selectedDataList, value);
+#else
+        set => Set(ref _selectedDataList, value);
+#endif
+    }
+
     public RelayCommand<string> SearchCmd => new(Search);
 
     public InputElementDemoViewModel()
     {
         DataList = GetComboBoxDemoDataList();
+        SelectedDataList = DataList.Where((t, i) => i % 2 == 0).ToList();
     }
 
     private void Search(string key)
