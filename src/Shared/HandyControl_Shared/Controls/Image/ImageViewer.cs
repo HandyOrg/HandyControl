@@ -23,7 +23,7 @@ namespace HandyControl.Controls;
 [TemplatePart(Name = ElementBorderMove, Type = typeof(Border))]
 [TemplatePart(Name = ElementBorderBottom, Type = typeof(Border))]
 [TemplatePart(Name = ElementImageMain, Type = typeof(Image))]
-public class ImageViewer : Control
+public class ImageViewer : Control, IDisposable
 {
     #region Constants
 
@@ -166,6 +166,8 @@ public class ImageViewer : Control
     private MouseBinding _mouseMoveBinding;
 
     private ImageBrowser _imageBrowser;
+
+    private bool _isDisposed;
 
     #endregion Data
 
@@ -988,5 +990,26 @@ public class ImageViewer : Control
                 return null;
             }
         }
+    }
+
+    protected virtual void Dispose(bool disposing)
+    {
+        if (!_isDisposed)
+        {
+            if (disposing)
+            {
+                ImageSource = null;
+                _imageMain.Source = null;
+                _imageMain.UpdateLayout();
+            }
+
+            _isDisposed = true;
+        }
+    }
+
+    public void Dispose()
+    {
+        Dispose(disposing: true);
+        GC.SuppressFinalize(this);
     }
 }
