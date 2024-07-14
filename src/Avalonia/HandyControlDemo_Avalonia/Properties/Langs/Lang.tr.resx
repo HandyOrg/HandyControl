@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Controls" xml:space="preserve">
+    <value>Kontroller</value>
+  </data>
+  <data name="Styles" xml:space="preserve">
+    <value>Stiller</value>
+  </data>
+  <data name="Growl" xml:space="preserve">
+    <value>Homurtu</value>
+  </data>
+  <data name="GrowlInfo" xml:space="preserve">
+    <value>Bugün güzel bir gün~~~</value>
+  </data>
+  <data name="GrowlSuccess" xml:space="preserve">
+    <value>Dosya başarıyla kaydedildi!</value>
+  </data>
+  <data name="GrowlWarning" xml:space="preserve">
+    <value>Disk alanı azalıyor!</value>
+  </data>
+  <data name="GrowlError" xml:space="preserve">
+    <value>Bağlantı başarısız. Lütfen ağınızı kontrol edin!</value>
+  </data>
+  <data name="GrowlFatal" xml:space="preserve">
+    <value>Program çöktü ~~~</value>
+  </data>
+  <data name="GrowlAsk" xml:space="preserve">
+    <value>Yeni bir sürüm algılandı! Güncellemek istiyor musunuz?</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Yükleniyor</value>
+  </data>
+  <data name="ImageBrowser" xml:space="preserve">
+    <value>GörüntüTarayıcı</value>
+  </data>
+  <data name="ColorPicker" xml:space="preserve">
+    <value>RenkSeçici</value>
+  </data>
+  <data name="Carousel" xml:space="preserve">
+    <value>Atlıkarınca</value>
+  </data>
+  <data name="CompareSlider" xml:space="preserve">
+    <value>KaydırıcıKarşılaştırıcı</value>
+  </data>
+  <data name="TimeBar" xml:space="preserve">
+    <value>ZamanÇubuğu</value>
+  </data>
+  <data name="Expander" xml:space="preserve">
+    <value>Genişletme</value>
+  </data>
+  <data name="Pagination" xml:space="preserve">
+    <value>Sayfalama</value>
+  </data>
+  <data name="OpenImageBrowser" xml:space="preserve">
+    <value>Görüntü tarayıcısını açmak için tıklayın</value>
+  </data>
+  <data name="ProgressBar" xml:space="preserve">
+    <value>İlerlemeÇubuğu</value>
+  </data>
+  <data name="AnimationPath" xml:space="preserve">
+    <value>AnimasyonYolu</value>
+  </data>
+  <data name="Button" xml:space="preserve">
+    <value>Düğme</value>
+  </data>
+  <data name="ToggleButton" xml:space="preserve">
+    <value>Geçiş Düğmesi</value>
+  </data>
+  <data name="TabControl" xml:space="preserve">
+    <value>SekmeDenetimi</value>
+  </data>
+  <data name="CheckBox" xml:space="preserve">
+    <value>OnayKutusu</value>
+  </data>
+  <data name="TextBlock" xml:space="preserve">
+    <value>MetinBloğu</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Varsayılan</value>
+  </data>
+  <data name="Primary" xml:space="preserve">
+    <value>Birincil</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Başarı</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Bilgi</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Uyarı</value>
+  </data>
+  <data name="Danger" xml:space="preserve">
+    <value>Tehlike</value>
+  </data>
+  <data name="ButtonCustom" xml:space="preserve">
+    <value>Özel düğme</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Başlık</value>
+  </data>
+  <data name="StepBar" xml:space="preserve">
+    <value>AdımÇubuğu</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Önceki</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Sonraki</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Kayıt olma</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>Temel bilgileri doldurma</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Dosya yükleme</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Tamamlama</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>Saat</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>Takvim</value>
+  </data>
+  <data name="DatePicker" xml:space="preserve">
+    <value>TarihSeçici</value>
+  </data>
+  <data name="TimePicker" xml:space="preserve">
+    <value>ZamanSeçici</value>
+  </data>
+  <data name="TextBox" xml:space="preserve">
+    <value>MetinKutusu</value>
+  </data>
+  <data name="ContentDemoStr" xml:space="preserve">
+    <value>Bu içerik</value>
+  </data>
+  <data name="TitleDemoStr1" xml:space="preserve">
+    <value>Bu başlık</value>
+  </data>
+  <data name="TitleDemoStr2" xml:space="preserve">
+    <value>Bu öğe doldurulmalıdır</value>
+  </data>
+  <data name="PlsEnterContent" xml:space="preserve">
+    <value>Lütfen içerik girin</value>
+  </data>
+  <data name="TitleDemoStr3" xml:space="preserve">
+    <value>Başlık solda</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Metin</value>
+  </data>
+  <data name="SubTitle" xml:space="preserve">
+    <value>Altyazı</value>
+  </data>
+  <data name="PasswordBox" xml:space="preserve">
+    <value>ŞifreKutusu</value>
+  </data>
+  <data name="CirclePanel" xml:space="preserve">
+    <value>DairePanel</value>
+  </data>
+  <data name="ComboBox" xml:space="preserve">
+    <value>AçılanKutu</value>
+  </data>
+  <data name="NumericUpDown" xml:space="preserve">
+    <value>SayısalYukarıAşağı</value>
+  </data>
+  <data name="DataGrid" xml:space="preserve">
+    <value>VeriŞebekesi</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>Dizin</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Adı</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Türü</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Açıklama</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Seçilmiş</value>
+  </data>
+  <data name="ListBox" xml:space="preserve">
+    <value>ListeKutusu</value>
+  </data>
+  <data name="TreeView" xml:space="preserve">
+    <value>AğaçGörünümü</value>
+  </data>
+  <data name="ScrollViewer" xml:space="preserve">
+    <value>KaydırmaGörüntüleyicisi</value>
+  </data>
+  <data name="Window" xml:space="preserve">
+    <value>Pencere</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menü</value>
+  </data>
+  <data name="RightClickHere" xml:space="preserve">
+    <value>Buraya sağ tıklayın</value>
+  </data>
+  <data name="RadioButton" xml:space="preserve">
+    <value>RadyoDüğmesi</value>
+  </data>
+  <data name="OpenMessageWindow" xml:space="preserve">
+    <value>mesaj penceresini aç</value>
+  </data>
+  <data name="OpenCommonWindow" xml:space="preserve">
+    <value>ortak pencereyi aç</value>
+  </data>
+  <data name="OpenCustomNonClientAreaWindow" xml:space="preserve">
+    <value>özel istemci olmayan alan penceresini aç</value>
+  </data>
+  <data name="OpenMouseFollowWindow" xml:space="preserve">
+    <value>fare takip penceresini aç</value>
+  </data>
+  <data name="OpenCustomContentWindow" xml:space="preserve">
+    <value>özel içerik penceresini aç</value>
+  </data>
+  <data name="Ignore" xml:space="preserve">
+    <value>Yoksay</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Hata</value>
+  </data>
+  <data name="Ask" xml:space="preserve">
+    <value>Sor</value>
+  </data>
+  <data name="Fatal" xml:space="preserve">
+    <value>Ölümcül</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Temizle</value>
+  </data>
+  <data name="ChangeLangAsk" xml:space="preserve">
+    <value>Dilin değişmesi için yeniden başlatılsın mı?</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Hakkında</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Depo</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>E-posta</value>
+  </data>
+  <data name="Chatroom" xml:space="preserve">
+    <value>Sohbet odası</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="Brush" xml:space="preserve">
+    <value>Fırça</value>
+  </data>
+  <data name="PreviewSlider" xml:space="preserve">
+    <value>KaydırıcıÖnizlemesi</value>
+  </data>
+  <data name="Contributors" xml:space="preserve">
+    <value>Katılımcılar</value>
+  </data>
+  <data name="Slider" xml:space="preserve">
+    <value>Kaydırıcı</value>
+  </data>
+  <data name="IsNotPhone" xml:space="preserve">
+    <value>Bu bir telefon numarası değil</value>
+  </data>
+  <data name="PlsEnterEmail" xml:space="preserve">
+    <value>lütfen e-posta giriniz</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Adım</value>
+  </data>
+  <data name="CalendarWithClock" xml:space="preserve">
+    <value>SaatliTakvim</value>
+  </data>
+  <data name="DateTimePicker" xml:space="preserve">
+    <value>TarihZamanSeçici</value>
+  </data>
+  <data name="GroupBox" xml:space="preserve">
+    <value>GrupKutusu</value>
+  </data>
+  <data name="ListView" xml:space="preserve">
+    <value>ListeGörünümü</value>
+  </data>
+  <data name="RichTextBox" xml:space="preserve">
+    <value>ZenginMetinKutusu</value>
+  </data>
+  <data name="ToolBar" xml:space="preserve">
+    <value>AraçÇubuğu</value>
+  </data>
+  <data name="Common" xml:space="preserve">
+    <value>Yaygın</value>
+  </data>
+  <data name="ShowRowNumber" xml:space="preserve">
+    <value>SatırNumarasınıGöster</value>
+  </data>
+  <data name="SearchBar" xml:space="preserve">
+    <value>AramaÇubuğu</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Etiket</value>
+  </data>
+  <data name="GifImage" xml:space="preserve">
+    <value>GifResmi</value>
+  </data>
+  <data name="OutlineText" xml:space="preserve">
+    <value>AnahatMetni</value>
+  </data>
+  <data name="QQGroup" xml:space="preserve">
+    <value>QQ Grubu</value>
+  </data>
+  <data name="FlipClock" xml:space="preserve">
+    <value>DeğişenSaat</value>
+  </data>
+  <data name="OpenBlurWindow" xml:space="preserve">
+    <value>bulanıklık penceresini aç</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Derece</value>
+  </data>
+  <data name="Shield" xml:space="preserve">
+    <value>Kalkan</value>
+  </data>
+  <data name="WaterfallPanel" xml:space="preserve">
+    <value>ŞelalePaneli</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Gruplar</value>
+  </data>
+  <data name="CoverView" xml:space="preserve">
+    <value>KapakGörünümü</value>
+  </data>
+  <data name="CoverFlow" xml:space="preserve">
+    <value>KapakAkışı</value>
+  </data>
+  <data name="PlsEnterKey" xml:space="preserve">
+    <value>Lütfen bir anahtar kelime girin</value>
+  </data>
+  <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
+    <value>istemci olmayan sürüklenebilir alan penceresini aç</value>
+  </data>
+  <data name="DragHere" xml:space="preserve">
+    <value>Buradan sürükle</value>
+  </data>
+  <data name="MessageBox" xml:space="preserve">
+    <value>MesajKutusu</value>
+  </data>
+  <data name="ProgressButton" xml:space="preserve">
+    <value>İlerlemeDüğmesi</value>
+  </data>
+  <data name="UploadStr" xml:space="preserve">
+    <value>Yükle;Yükleniyor</value>
+  </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>özel mesaj penceresini aç</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Aktarma</value>
+  </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>SohbetBalonu</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>Konuşmak için bas</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>San</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Etiket</value>
+  </data>
+  <data name="GotoTop" xml:space="preserve">
+    <value>ÜsteDön</value>
+  </data>
+  <data name="NotifyIcon" xml:space="preserve">
+    <value>BildirimSimgesi</value>
+  </data>
+  <data name="Badge" xml:space="preserve">
+    <value>Rozet</value>
+  </data>
+  <data name="Gravatar" xml:space="preserve">
+    <value>Gravatar</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Çok Yakında</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Yorum Yap</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Yanıt</value>
+  </data>
+  <data name="Dialog" xml:space="preserve">
+    <value>İletişim</value>
+  </data>
+  <data name="TextDialog" xml:space="preserve">
+    <value>Metinİletişimi</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Lütfen bekleyin...</value>
+  </data>
+  <data name="GrowlDemo" xml:space="preserve">
+    <value>Homurtu demosu</value>
+  </data>
+  <data name="NewWindow" xml:space="preserve">
+    <value>Yeni pencere</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Görünürlük</value>
+  </data>
+  <data name="Blink" xml:space="preserve">
+    <value>Kırpmak</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Çıkış</value>
+  </data>
+  <data name="OpenPanel" xml:space="preserve">
+    <value>Paneli Aç</value>
+  </data>
+  <data name="AppClosingTip" xml:space="preserve">
+    <value>Tepsi simgesi açık ve programı kapatmak yerine pencereyi gizleyecek</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>Komut istemi</value>
+  </data>
+  <data name="Try2CloseApp" xml:space="preserve">
+    <value>Uygulamayı kapatmaya mı çalışıyorsunuz?</value>
+  </data>
+  <data name="InteractiveDialog" xml:space="preserve">
+    <value>Etkileşimli İletişim Kutusu</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Tamam</value>
+  </data>
+  <data name="PleaseInput" xml:space="preserve">
+    <value>Lütfen girin...</value>
+  </data>
+  <data name="Click2Count" xml:space="preserve">
+    <value>Saymak için tıklayın</value>
+  </data>
+  <data name="RepeatButton" xml:space="preserve">
+    <value>TekrarlaDüğmesi</value>
+  </data>
+  <data name="DialogDemo" xml:space="preserve">
+    <value>İletişim demosu</value>
+  </data>
+  <data name="ShowInCurrentWindow" xml:space="preserve">
+    <value>Geçerli pencerede göster</value>
+  </data>
+  <data name="ShowInMainWindow" xml:space="preserve">
+    <value>Ana pencerede göster</value>
+  </data>
+  <data name="SideMenu" xml:space="preserve">
+    <value>KayanMenü</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>Kafes</value>
+  </data>
+  <data name="BasicLayout" xml:space="preserve">
+    <value>Temel düzen</value>
+  </data>
+  <data name="ColumnSpacing" xml:space="preserve">
+    <value>Sütun aralığı</value>
+  </data>
+  <data name="HybridLayout" xml:space="preserve">
+    <value>Hibrit yerleşim</value>
+  </data>
+  <data name="ColumnOffset" xml:space="preserve">
+    <value>Sütun uzaklığı</value>
+  </data>
+  <data name="ResponsiveLayout" xml:space="preserve">
+    <value>Duyarlı düzen</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>Kenar</value>
+  </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>İpucu</value>
+  </data>
+  <data name="Recommendation" xml:space="preserve">
+    <value>Öneri</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Proje</value>
+  </data>
+  <data name="RangeSlider" xml:space="preserve">
+    <value>MenzilKaydırıcı</value>
+  </data>
+  <data name="RelativePanel" xml:space="preserve">
+    <value>BağılPanel</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Açık</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Kapalı</value>
+  </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>DüğmeGrubu</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>Kart</value>
+  </data>
+  <data name="TextDialogWithTimer" xml:space="preserve">
+    <value>Zamanlayıcılı Metin İletişim Kutusu</value>
+  </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>Büyüteç</value>
+  </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>GörüntüBloğu</value>
+  </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>KayanYazı</value>
+  </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>PetekPanel</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Öğe ekle</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>Öğe sil</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>Peri</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>Periyi aç</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Bildirim</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>Bildirim gönder</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>Açık kalır</value>
+  </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>KayanBlok</value>
+  </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>BölmeDüğmesi</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Araçlar</value>
+  </data>
+  <data name="HatchBrushGenerator" xml:space="preserve">
+    <value>ÇizimFırçasıJeneratörü</value>
+  </data>
+  <data name="Morphing Animation" xml:space="preserve">
+    <value>Morphing Animasyonu</value>
+  </data>
+  <data name="Divider" xml:space="preserve">
+    <value>Bölücü</value>
+  </data>
+  <data name="PoptipPositionStr" xml:space="preserve">
+    <value>yukarı-başlangıç;yukarı;yukarı-bitiş;sağ-başlangıç;sağ;sağ-bitiş;alt-bitiş;alt;alt-başlangıç;sol-bitiş;sol;sol-başlangıç</value>
+  </data>
+  <data name="TransitioningContentControl" xml:space="preserve">
+    <value>GeçişİçerikKontrolü</value>
+  </data>
+  <data name="Drawer" xml:space="preserve">
+    <value>Çekmece</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>Döküman</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>Efektler</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>İnternet sitesi</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>Vsix</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>İngilizce döküman</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>Çince döküman</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>Demo</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PinKutusu</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>AkışBelgesiKaydırmaGörüntüleyicisi</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>IşımaPenceresini Aç</value>
+  </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>AkışBelgesi</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>AkışBelgesiSayfaGörüntüleyicisi</value>
+  </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>AkışBelgesiOkuyucu</value>
+  </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>Yerel ortak pencereyi aç</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>Gezinme penceresini aç</value>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>Çerçeve</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>Pratik Demolar</value>
+  </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>Ekran görüntüsünü al</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>EkranGörüntüsü</value>
+  </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>TextDialog(In control)</value>
+  </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>Looks up a localized string similar to "{0}".</value>
+  </data>
+  <data name="PropertyGrid" xml:space="preserve">
+    <value>PropertyGrid</value>
+  </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>ImageSelector</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>Geometry</value>
+  </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>CheckComboBox</value>
+  </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>FlexPanel</value>
+  </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>open touch drag move window</value>
+  </data>
+  <data name="UniformSpacingPanel" xml:space="preserve">
+    <value>UniformSpacingPanel</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>Misc</value>
+  </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>Data Entry</value>
+  </data>
+  <data name="Interacting" xml:space="preserve">
+    <value>Interacting</value>
+  </data>
+  <data name="DataDisplay" xml:space="preserve">
+    <value>Data Display</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Feedback</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="ElementGroup" xml:space="preserve">
+    <value>ElementGroup</value>
+  </data>
+  <data name="AutoCompleteTextBox" xml:space="preserve">
+    <value>AutoCompleteTextBox</value>
+  </data>
+  <data name="Watermark" xml:space="preserve">
+    <value>Watermark</value>
+  </data>
+  <data name="CloseMainWindowDialog" xml:space="preserve">
+    <value>Close main window dialog</value>
+  </data>
+</root>

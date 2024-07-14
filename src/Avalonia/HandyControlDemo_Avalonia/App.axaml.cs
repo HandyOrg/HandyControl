@@ -6,7 +6,6 @@ using Avalonia.Markup.Xaml;
 
 namespace HandyControlDemo;
 
-// ReSharper disable once PartialTypeWithSinglePart
 public partial class App : Application
 {
     public override void Initialize()

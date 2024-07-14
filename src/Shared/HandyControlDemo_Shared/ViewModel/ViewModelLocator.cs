@@ -8,6 +8,11 @@ namespace HandyControlDemo.ViewModel;
 
 public class ViewModelLocator
 {
+    private static readonly Lazy<ViewModelLocator> InstanceInternal = new(() =>
+        Application.Current.TryFindResource("Locator") as ViewModelLocator, isThreadSafe: true);
+
+    public static ViewModelLocator Instance => InstanceInternal.Value;
+
     public ViewModelLocator()
     {
         SimpleIoc.Default.Register<DataService>();
@@ -40,9 +45,6 @@ public class ViewModelLocator
         SimpleIoc.Default.Register<AutoCompleteTextBoxDemoViewModel>();
         SimpleIoc.Default.Register<InputElementDemoViewModel>();
     }
-
-    public static ViewModelLocator Instance = new Lazy<ViewModelLocator>(() =>
-        Application.Current.TryFindResource("Locator") as ViewModelLocator).Value;
 
     #region Vm
 

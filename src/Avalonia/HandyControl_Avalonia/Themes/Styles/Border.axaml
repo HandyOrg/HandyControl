@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="{x:Type Border}"
+                  TargetType="Border">
+        <Style Selector="^.clip">
+            <Setter Property="Clip">
+                <Setter.Value>
+                    <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                        <Binding Path="ActualWidth"
+                                 RelativeSource="{RelativeSource Self}" />
+                        <Binding Path="ActualHeight"
+                                 RelativeSource="{RelativeSource Self}" />
+                        <Binding Path="CornerRadius"
+                                 RelativeSource="{RelativeSource Self}" />
+                    </MultiBinding>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

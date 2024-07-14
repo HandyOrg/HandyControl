@@ -1,5 +1,6 @@
 ﻿.vs
 .config
+.idea
 *.user
 [Bb]in/
 [Oo]bj/

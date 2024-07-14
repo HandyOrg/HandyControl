@@ -1,17 +1,27 @@
 ﻿<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-	<Styles.Resources>
+    <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Basic/Brushes.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Basic/Converters.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ContentControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/UserControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Window.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Button.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Border.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ItemsControl.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TabItem.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TabControl.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ListBoxItem.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ListBox.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ScrollBar.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ScrollViewer.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
     <Style Selector=":is(UserControl)">
-        <Setter Property="Theme" Value="{DynamicResource {x:Type UserControl}}" />
+        <Setter Property="Theme"
+                Value="{DynamicResource {x:Type UserControl}}" />
     </Style>
 </Styles>

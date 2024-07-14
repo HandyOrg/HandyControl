@@ -1,0 +1,23 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:HandyControlDemo.UserControl"
+             BorderThickness="0,1,0,0"
+             BorderBrush="{DynamicResource BorderBrush}"
+             Background="{StaticResource CloudDrawingBrush}"
+             x:Class="HandyControlDemo.UserControl.MainWindowContent">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="240"
+                              MinWidth="240"
+                              MaxWidth="400" />
+            <ColumnDefinition MinWidth="200" />
+        </Grid.ColumnDefinitions>
+        <controls:MainContent Grid.Column="1" />
+        <controls:LeftMainContent Grid.Column="0" />
+        <GridSplitter Margin="0,26,0,26"
+                      Grid.Column="0"
+                      HorizontalAlignment="Right"
+                      Width="4"
+                      Background="Transparent" />
+    </Grid>
+</UserControl>

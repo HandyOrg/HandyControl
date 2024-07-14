@@ -4,11 +4,11 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-				<MergeResourceInclude Source="/Themes/Basic/Colors.axaml" />
+                <MergeResourceInclude Source="/Themes/Basic/Colors.axaml" />
                 <MergeResourceInclude Source="/Themes/Basic/Sizes.axaml" />
                 <MergeResourceInclude Source="/Themes/Basic/Effects.axaml" />
-			</ResourceDictionary.MergedDictionaries>
-		</ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Styles.Resources>
 
     <StyleInclude Source="/Themes/Styles/Style.axaml" />

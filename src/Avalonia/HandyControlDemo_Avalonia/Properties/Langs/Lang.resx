@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>关于</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>添加项</value>
+  </data>
+  <data name="AnimationPath" xml:space="preserve">
+    <value>动画路径</value>
+  </data>
+  <data name="AppClosingTip" xml:space="preserve">
+    <value>托盘图标已打开，将隐藏窗口而不是关闭程序</value>
+  </data>
+  <data name="Ask" xml:space="preserve">
+    <value>询问</value>
+  </data>
+  <data name="AutoCompleteTextBox" xml:space="preserve">
+    <value>自动补全文本框</value>
+  </data>
+  <data name="Badge" xml:space="preserve">
+    <value>标记</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>填写基本信息</value>
+  </data>
+  <data name="BasicLayout" xml:space="preserve">
+    <value>基础布局</value>
+  </data>
+  <data name="Blink" xml:space="preserve">
+    <value>闪烁</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>博客</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>边框</value>
+  </data>
+  <data name="Brush" xml:space="preserve">
+    <value>画刷</value>
+  </data>
+  <data name="Button" xml:space="preserve">
+    <value>按钮</value>
+  </data>
+  <data name="ButtonCustom" xml:space="preserve">
+    <value>自定义按钮</value>
+  </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>按钮组</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>日历</value>
+  </data>
+  <data name="CalendarWithClock" xml:space="preserve">
+    <value>带时钟的日历</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>卡片</value>
+  </data>
+  <data name="Carousel" xml:space="preserve">
+    <value>轮播</value>
+  </data>
+  <data name="ChangeLangAsk" xml:space="preserve">
+    <value>是否重启以更改语言？</value>
+  </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>对话气泡</value>
+  </data>
+  <data name="Chatroom" xml:space="preserve">
+    <value>讨论室</value>
+  </data>
+  <data name="CheckBox" xml:space="preserve">
+    <value>复选框</value>
+  </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>多选组合框</value>
+  </data>
+  <data name="CirclePanel" xml:space="preserve">
+    <value>圆形布局</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>清空</value>
+  </data>
+  <data name="Click2Count" xml:space="preserve">
+    <value>点击计数</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>时钟</value>
+  </data>
+  <data name="CloseMainWindowDialog" xml:space="preserve">
+    <value>关闭主窗口对话框</value>
+  </data>
+  <data name="ColorPicker" xml:space="preserve">
+    <value>颜色拾取器</value>
+  </data>
+  <data name="ColumnOffset" xml:space="preserve">
+    <value>分栏偏移</value>
+  </data>
+  <data name="ColumnSpacing" xml:space="preserve">
+    <value>分栏间隔</value>
+  </data>
+  <data name="ComboBox" xml:space="preserve">
+    <value>组合框</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>敬请期待</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>评论</value>
+  </data>
+  <data name="Common" xml:space="preserve">
+    <value>一般</value>
+  </data>
+  <data name="CompareSlider" xml:space="preserve">
+    <value>对比滑块</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>完成</value>
+  </data>
+  <data name="ContentDemoStr" xml:space="preserve">
+    <value>这是内容</value>
+  </data>
+  <data name="Contributors" xml:space="preserve">
+    <value>贡献者</value>
+  </data>
+  <data name="Controls" xml:space="preserve">
+    <value>控件</value>
+  </data>
+  <data name="CoverFlow" xml:space="preserve">
+    <value>封面流</value>
+  </data>
+  <data name="CoverView" xml:space="preserve">
+    <value>封面视图</value>
+  </data>
+  <data name="Danger" xml:space="preserve">
+    <value>危险</value>
+  </data>
+  <data name="DataDisplay" xml:space="preserve">
+    <value>数据展示</value>
+  </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>数据录入</value>
+  </data>
+  <data name="DataGrid" xml:space="preserve">
+    <value>数据表格</value>
+  </data>
+  <data name="DatePicker" xml:space="preserve">
+    <value>日期选择器</value>
+  </data>
+  <data name="DateTimePicker" xml:space="preserve">
+    <value>日期时间选择器</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>默认</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>示例</value>
+  </data>
+  <data name="Dialog" xml:space="preserve">
+    <value>对话框</value>
+  </data>
+  <data name="DialogDemo" xml:space="preserve">
+    <value>对话框示例</value>
+  </data>
+  <data name="Divider" xml:space="preserve">
+    <value>分割线</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>文献资料</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>中文文档</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>英文文档</value>
+  </data>
+  <data name="DragHere" xml:space="preserve">
+    <value>在这里拖拽</value>
+  </data>
+  <data name="Drawer" xml:space="preserve">
+    <value>抽屉</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="ElementGroup" xml:space="preserve">
+    <value>元素组</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>邮箱</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>空状态</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>错误</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>退出</value>
+  </data>
+  <data name="Expander" xml:space="preserve">
+    <value>展开框</value>
+  </data>
+  <data name="Fatal" xml:space="preserve">
+    <value>严重</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>反馈</value>
+  </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>弹性盒子</value>
+  </data>
+  <data name="FlipClock" xml:space="preserve">
+    <value>翻页时钟</value>
+  </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>漂浮块</value>
+  </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>流文档</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>流文档单页视图</value>
+  </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>流文档查看器</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>流文档滚动视图</value>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>导航框架</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>几何形状</value>
+  </data>
+  <data name="GifImage" xml:space="preserve">
+    <value>Gif图片</value>
+  </data>
+  <data name="GotoTop" xml:space="preserve">
+    <value>回到顶部</value>
+  </data>
+  <data name="Gravatar" xml:space="preserve">
+    <value>头像</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>栅格</value>
+  </data>
+  <data name="GroupBox" xml:space="preserve">
+    <value>分组框</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>组数</value>
+  </data>
+  <data name="Growl" xml:space="preserve">
+    <value>信息通知</value>
+  </data>
+  <data name="GrowlAsk" xml:space="preserve">
+    <value>检测到有新版本！是否更新？</value>
+  </data>
+  <data name="GrowlDemo" xml:space="preserve">
+    <value>消息通知示例</value>
+  </data>
+  <data name="GrowlError" xml:space="preserve">
+    <value>连接失败，请检查网络！</value>
+  </data>
+  <data name="GrowlFatal" xml:space="preserve">
+    <value>程序已崩溃~~~</value>
+  </data>
+  <data name="GrowlInfo" xml:space="preserve">
+    <value>今天的天气不错~~~</value>
+  </data>
+  <data name="GrowlSuccess" xml:space="preserve">
+    <value>文件保存成功！</value>
+  </data>
+  <data name="GrowlWarning" xml:space="preserve">
+    <value>磁盘空间快要满了！</value>
+  </data>
+  <data name="HatchBrushGenerator" xml:space="preserve">
+    <value>阴影画笔生成器</value>
+  </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>蜂窝布局</value>
+  </data>
+  <data name="HybridLayout" xml:space="preserve">
+    <value>混合布局</value>
+  </data>
+  <data name="Ignore" xml:space="preserve">
+    <value>忽略</value>
+  </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>图片块</value>
+  </data>
+  <data name="ImageBrowser" xml:space="preserve">
+    <value>图片浏览器</value>
+  </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>图片选择器</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>索引</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>信息</value>
+  </data>
+  <data name="Interacting" xml:space="preserve">
+    <value>交互</value>
+  </data>
+  <data name="InteractiveDialog" xml:space="preserve">
+    <value>可交互对话框</value>
+  </data>
+  <data name="IsNotPhone" xml:space="preserve">
+    <value>不是手机号码</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>查找类似 {0} 的本地化字符串。</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>布局</value>
+  </data>
+  <data name="ListBox" xml:space="preserve">
+    <value>列表框</value>
+  </data>
+  <data name="ListView" xml:space="preserve">
+    <value>列表视图</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>加载条</value>
+  </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>放大镜</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>菜单</value>
+  </data>
+  <data name="MessageBox" xml:space="preserve">
+    <value>消息框</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>杂项</value>
+  </data>
+  <data name="Morphing Animation" xml:space="preserve">
+    <value>变形动画</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>名称</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>导航</value>
+  </data>
+  <data name="NewWindow" xml:space="preserve">
+    <value>新建窗口</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>下一步</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>桌面通知</value>
+  </data>
+  <data name="NotifyIcon" xml:space="preserve">
+    <value>托盘图标</value>
+  </data>
+  <data name="NumericUpDown" xml:space="preserve">
+    <value>数值选择控件</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>关</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>确定</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>开</value>
+  </data>
+  <data name="OpenBlurWindow" xml:space="preserve">
+    <value>点击打开背景模糊窗口</value>
+  </data>
+  <data name="OpenCommonWindow" xml:space="preserve">
+    <value>点击打开常规窗口</value>
+  </data>
+  <data name="OpenCustomContentWindow" xml:space="preserve">
+    <value>点击打开自定义内容窗口</value>
+  </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>点击打开自定义消息窗口</value>
+  </data>
+  <data name="OpenCustomNonClientAreaWindow" xml:space="preserve">
+    <value>点击打开自定义非客户端区域窗口</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>点击打开辉光窗口</value>
+  </data>
+  <data name="OpenImageBrowser" xml:space="preserve">
+    <value>点击打开图片浏览器</value>
+  </data>
+  <data name="OpenMessageWindow" xml:space="preserve">
+    <value>点击打开消息窗口</value>
+  </data>
+  <data name="OpenMouseFollowWindow" xml:space="preserve">
+    <value>点击打开鼠标跟随窗口</value>
+  </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>点击打开原生常规窗口</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>点击打开导航窗口</value>
+  </data>
+  <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
+    <value>打开无非客户端区域可拖拽窗口</value>
+  </data>
+  <data name="OpenPanel" xml:space="preserve">
+    <value>打开面板</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>打开精灵</value>
+  </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>点击打开触摸拖动窗口</value>
+  </data>
+  <data name="OutlineText" xml:space="preserve">
+    <value>轮廓文本</value>
+  </data>
+  <data name="Pagination" xml:space="preserve">
+    <value>页码条</value>
+  </data>
+  <data name="PasswordBox" xml:space="preserve">
+    <value>密码框</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PIN码框</value>
+  </data>
+  <data name="PleaseInput" xml:space="preserve">
+    <value>请输入...</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>请稍后...</value>
+  </data>
+  <data name="PlsEnterContent" xml:space="preserve">
+    <value>请输入内容</value>
+  </data>
+  <data name="PlsEnterEmail" xml:space="preserve">
+    <value>请输入邮箱</value>
+  </data>
+  <data name="PlsEnterKey" xml:space="preserve">
+    <value>请输入关键字</value>
+  </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>气泡提示</value>
+  </data>
+  <data name="PoptipPositionStr" xml:space="preserve">
+    <value>上左;上边;上右;右上;右边;右下;下右;下边;下左;左下;左边;左上</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>实用例子</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>上一步</value>
+  </data>
+  <data name="PreviewSlider" xml:space="preserve">
+    <value>预览滑块</value>
+  </data>
+  <data name="Primary" xml:space="preserve">
+    <value>主要</value>
+  </data>
+  <data name="ProgressBar" xml:space="preserve">
+    <value>进度条</value>
+  </data>
+  <data name="ProgressButton" xml:space="preserve">
+    <value>进度按钮</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>项目</value>
+  </data>
+  <data name="PropertyGrid" xml:space="preserve">
+    <value>属性编辑器</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>按住说话</value>
+  </data>
+  <data name="QQGroup" xml:space="preserve">
+    <value>QQ群</value>
+  </data>
+  <data name="RadioButton" xml:space="preserve">
+    <value>单选按钮</value>
+  </data>
+  <data name="RangeSlider" xml:space="preserve">
+    <value>范围滑块</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>评分</value>
+  </data>
+  <data name="Recommendation" xml:space="preserve">
+    <value>群友推荐</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>注册</value>
+  </data>
+  <data name="RelativePanel" xml:space="preserve">
+    <value>相对布局</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>备注</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>删除项</value>
+  </data>
+  <data name="RepeatButton" xml:space="preserve">
+    <value>重复按钮</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>回复</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>代码仓库</value>
+  </data>
+  <data name="ResponsiveLayout" xml:space="preserve">
+    <value>响应式布局</value>
+  </data>
+  <data name="RichTextBox" xml:space="preserve">
+    <value>富文本框</value>
+  </data>
+  <data name="RightClickHere" xml:space="preserve">
+    <value>在这里右击</value>
+  </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>滚动块</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>截图</value>
+  </data>
+  <data name="ScrollViewer" xml:space="preserve">
+    <value>滚动视图</value>
+  </data>
+  <data name="SearchBar" xml:space="preserve">
+    <value>搜索栏</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>秒</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>选中</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>发送通知</value>
+  </data>
+  <data name="Shield" xml:space="preserve">
+    <value>徽章</value>
+  </data>
+  <data name="ShowInCurrentWindow" xml:space="preserve">
+    <value>在当前窗口显示</value>
+  </data>
+  <data name="ShowInMainWindow" xml:space="preserve">
+    <value>在主窗口显示</value>
+  </data>
+  <data name="ShowRowNumber" xml:space="preserve">
+    <value>显示行号</value>
+  </data>
+  <data name="SideMenu" xml:space="preserve">
+    <value>侧边菜单</value>
+  </data>
+  <data name="Slider" xml:space="preserve">
+    <value>滑块</value>
+  </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>分割按钮</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>精灵</value>
+  </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>开始截图</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>保持打开</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>步骤</value>
+  </data>
+  <data name="StepBar" xml:space="preserve">
+    <value>步骤条</value>
+  </data>
+  <data name="Styles" xml:space="preserve">
+    <value>样式模板</value>
+  </data>
+  <data name="SubTitle" xml:space="preserve">
+    <value>子标题</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>成功</value>
+  </data>
+  <data name="TabControl" xml:space="preserve">
+    <value>选项卡控件</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>标签</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>正文</value>
+  </data>
+  <data name="TextBlock" xml:space="preserve">
+    <value>文本块</value>
+  </data>
+  <data name="TextBox" xml:space="preserve">
+    <value>文本框</value>
+  </data>
+  <data name="TextDialog" xml:space="preserve">
+    <value>文本对话框</value>
+  </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>文本对话框（控件中）</value>
+  </data>
+  <data name="TextDialogWithTimer" xml:space="preserve">
+    <value>文本对话框，带计时器</value>
+  </data>
+  <data name="TimeBar" xml:space="preserve">
+    <value>时间条</value>
+  </data>
+  <data name="TimePicker" xml:space="preserve">
+    <value>时间选择器</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>提示</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>标题</value>
+  </data>
+  <data name="TitleDemoStr1" xml:space="preserve">
+    <value>这是标题</value>
+  </data>
+  <data name="TitleDemoStr2" xml:space="preserve">
+    <value>此项必填</value>
+  </data>
+  <data name="TitleDemoStr3" xml:space="preserve">
+    <value>标题在左侧</value>
+  </data>
+  <data name="ToggleButton" xml:space="preserve">
+    <value>切换按钮</value>
+  </data>
+  <data name="ToolBar" xml:space="preserve">
+    <value>工具条</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>穿梭框</value>
+  </data>
+  <data name="TransitioningContentControl" xml:space="preserve">
+    <value>内容过渡控件</value>
+  </data>
+  <data name="TreeView" xml:space="preserve">
+    <value>树视图</value>
+  </data>
+  <data name="Try2CloseApp" xml:space="preserve">
+    <value>试试关闭程序吧？</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>类型</value>
+  </data>
+  <data name="UniformSpacingPanel" xml:space="preserve">
+    <value>等间距布局</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>上传文件</value>
+  </data>
+  <data name="UploadStr" xml:space="preserve">
+    <value>上传;上传中</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>可见性</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>VS 插件</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>警告</value>
+  </data>
+  <data name="WaterfallPanel" xml:space="preserve">
+    <value>瀑布流</value>
+  </data>
+  <data name="Watermark" xml:space="preserve">
+    <value>水印</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="Window" xml:space="preserve">
+    <value>窗口</value>
+  </data>
+</root>

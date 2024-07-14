@@ -10,7 +10,9 @@ namespace HandyControlDemo.Tools;
 
 internal class HighlightingProvider
 {
-    public static HighlightingProvider Default = new Lazy<HighlightingProvider>(() => new HighlightingProvider()).Value;
+    private static readonly Lazy<HighlightingProvider> DefaultInternal = new(() => new HighlightingProvider());
+
+    public static HighlightingProvider Default => DefaultInternal.Value;
 
     protected static readonly Lazy<IHighlightingDefinition> DefaultDefinition = new(() => HighlightingManager.Instance.GetDefinition("C#"));
 
