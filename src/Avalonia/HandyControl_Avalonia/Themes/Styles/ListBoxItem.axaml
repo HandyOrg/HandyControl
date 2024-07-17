@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
     <ControlTheme x:Key="{x:Type ListBoxItem}"
                   TargetType="ListBoxItem">
         <Setter Property="Padding"
@@ -12,6 +13,8 @@
                 Value="{DynamicResource RegionBrush}" />
         <Setter Property="BorderBrush"
                 Value="Transparent" />
+        <Setter Property="CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="BorderThickness"
                 Value="0" />
         <Setter Property="Margin"
@@ -33,27 +36,14 @@
 
         <Style Selector="^:pointerover /template/ ContentPresenter">
             <Setter Property="Background"
-                    Value="{DynamicResource ThemeControlHighlightMidBrush}" />
+                    Value="{DynamicResource SecondaryRegionBrush}" />
         </Style>
 
         <Style Selector="^:selected /template/ ContentPresenter">
             <Setter Property="Background"
-                    Value="{DynamicResource ThemeAccentBrush4}" />
-        </Style>
-
-        <Style Selector="^:selected:focus /template/ ContentPresenter">
-            <Setter Property="Background"
-                    Value="{DynamicResource ThemeAccentBrush3}" />
-        </Style>
-
-        <Style Selector="^:selected:pointerover /template/ ContentPresenter">
-            <Setter Property="Background"
-                    Value="{DynamicResource ThemeAccentBrush3}" />
-        </Style>
-
-        <Style Selector="^:selected:focus:pointerover /template/ ContentPresenter">
-            <Setter Property="Background"
-                    Value="{DynamicResource ThemeAccentBrush2}" />
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextIconBrush}" />
         </Style>
     </ControlTheme>
 </ResourceDictionary>

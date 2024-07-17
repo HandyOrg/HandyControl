@@ -15,31 +15,42 @@
         <Setter Property="MinHeight"
                 Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="HorizontalContentAlignment"
-                Value="Stretch" />
+                Value="Center" />
         <Setter Property="VerticalContentAlignment"
-                Value="Stretch" />
+                Value="Center" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="TabItem">
-                <Border Name="PART_LayoutRoot"
-                        Background="{TemplateBinding Background}"
-                        BorderBrush="{TemplateBinding BorderBrush}"
-                        BorderThickness="{TemplateBinding BorderThickness}"
-                        CornerRadius="{TemplateBinding CornerRadius}"
-                        Padding="{TemplateBinding Padding}">
-                    <Panel>
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          RecognizesAccessKey="True" />
-                        <Border Name="PART_SelectedPipe"
-                                Background="{DynamicResource TabItemHeaderSelectedPipeFill}"
-                                CornerRadius="{DynamicResource ControlCornerRadius}"
-                                IsVisible="False" />
-                    </Panel>
-                </Border>
+            <ControlTemplate>
+                <Panel>
+                    <Border Name="mainBorder"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="0"
+                            Background="{TemplateBinding Background}"
+                            Margin="0" />
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Header}"
+                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      RecognizesAccessKey="True" />
+                </Panel>
             </ControlTemplate>
         </Setter>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:selected /template/ Border#mainBorder">
+            <Setter Property="BorderThickness"
+                    Value="0,0,0,2" />
+        </Style>
     </ControlTheme>
 </ResourceDictionary>

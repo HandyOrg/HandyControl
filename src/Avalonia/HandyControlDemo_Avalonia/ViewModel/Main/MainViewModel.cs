@@ -69,7 +69,7 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
                 return;
             }
 
-            ContentTitle = Lang.ResourceManager.GetString(DemoItemCurrent.Name);
+            ContentTitle = Lang.ResourceManager.GetString(DemoItemCurrent.Name, Lang.Culture);
         });
 
         //load items
@@ -91,7 +91,7 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
         }
 
         DemoItemCurrent = item;
-        ContentTitle = Lang.ResourceManager.GetString(item.Name);
+        ContentTitle = Lang.ResourceManager.GetString(item.Name, Lang.Culture);
         object? demoControl = AssemblyHelper.ResolveByKey(item.TargetCtlName) ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
         SubContent = demoControl;
     }

@@ -8,6 +8,8 @@
                 Value="{DynamicResource BorderBrush}" />
         <Setter Property="BorderThickness"
                 Value="1" />
+        <Setter Property="CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Padding"
                 Value="4" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"

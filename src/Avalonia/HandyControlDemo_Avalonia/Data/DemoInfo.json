@@ -1,7 +1,7 @@
 ﻿[
   {
     "title": "Styles",
-    "selectedIndex": 0,
+    "selectedIndex": -1,
     "group":  false,
     "demoItemList": [
       [ "Brush", "BrushDemoCtl", "Brush.Brush", "", "" ],

@@ -1,19 +1,11 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme x:Key="{x:Type Button}"
+    <ControlTheme x:Key="ButtonBaseStyle"
                   TargetType="Button">
-        <Setter Property="Background"
-                Value="{DynamicResource RegionBrush}" />
-        <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryTextBrush}" />
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource BorderBrush}" />
-        <Setter Property="BorderThickness"
-                Value="1" />
-        <Setter Property="CornerRadius"
-                Value="{DynamicResource DefaultCornerRadius}" />
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
         <Setter Property="Padding"
-                Value="{DynamicResource DefaultControlPadding}" />
+                Value="{StaticResource DefaultControlPadding}" />
         <Setter Property="HorizontalAlignment"
                 Value="Center" />
         <Setter Property="VerticalAlignment"
@@ -22,8 +14,18 @@
                 Value="Center" />
         <Setter Property="VerticalContentAlignment"
                 Value="Center" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Template">
-            <ControlTemplate TargetType="Button">
+            <ControlTemplate>
                 <ContentPresenter x:Name="PART_ContentPresenter"
                                   Background="{TemplateBinding Background}"
                                   BorderBrush="{TemplateBinding BorderBrush}"
@@ -38,104 +40,85 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover">
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDefault"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background"
                     Value="{DynamicResource SecondaryRegionBrush}" />
         </Style>
 
-        <Style Selector="^:pressed">
+        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
             <Setter Property="Background"
                     Value="{DynamicResource BorderBrush}" />
         </Style>
+    </ControlTheme>
 
-        <Style Selector="^:disabled">
-            <Setter Property="Opacity"
-                    Value=".4" />
-        </Style>
+    <ControlTheme x:Key="{x:Type Button}"
+                  BasedOn="{StaticResource ButtonDefault}"
+                  TargetType="Button" />
 
-        <Style Selector="^.primary">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background"
-                    Value="{DynamicResource PrimaryBrush}" />
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource PrimaryBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity"
-                        Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity"
-                        Value=".6" />
-            </Style>
-        </Style>
+    <ControlTheme x:Key="ButtonPrimary"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
 
-        <Style Selector="^.success">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background"
-                    Value="{DynamicResource SuccessBrush}" />
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource SuccessBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity"
-                        Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity"
-                        Value=".6" />
-            </Style>
-        </Style>
+    <ControlTheme x:Key="ButtonSuccess"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
 
-        <Style Selector="^.info">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background"
-                    Value="{DynamicResource InfoBrush}" />
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource InfoBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity"
-                        Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity"
-                        Value=".6" />
-            </Style>
-        </Style>
+    <ControlTheme x:Key="ButtonInfo"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
 
-        <Style Selector="^.warning">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background"
-                    Value="{DynamicResource WarningBrush}" />
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource WarningBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity"
-                        Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity"
-                        Value=".6" />
-            </Style>
-        </Style>
+    <ControlTheme x:Key="ButtonWarning"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
 
-        <Style Selector="^.danger">
-            <Setter Property="Foreground"
-                    Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background"
-                    Value="{DynamicResource DangerBrush}" />
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource DangerBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity"
-                        Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity"
-                        Value=".6" />
-            </Style>
-        </Style>
+    <ControlTheme x:Key="ButtonDanger"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
     </ControlTheme>
 </ResourceDictionary>

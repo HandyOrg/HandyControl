@@ -1,28 +1,69 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             mc:Ignorable="d"
-             d:DesignWidth="800"
-             d:DesignHeight="450"
              x:Class="HandyControlDemo.UserControl.ButtonDemoCtl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <ScrollViewer>
-        <StackPanel Orientation="Horizontal"
-                    VerticalAlignment="Top"
-                    Spacing="4"
-                    Margin="32">
-            <Button Content="default" />
-            <Button Content="primary"
-                    Classes="primary" />
-            <Button Content="success"
-                    Classes="success" />
-            <Button Content="info"
-                    Classes="info" />
-            <Button Content="warning"
-                    Classes="warning" />
-            <Button Content="danger"
-                    Classes="danger" />
-        </StackPanel>
+        <hc:UniformSpacingPanel ChildWrapping="Wrap"
+                                Spacing="32"
+                                Margin="32">
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="32">
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="default"
+                                Margin="5" />
+                        <Button IsEnabled="False"
+                                Content="default"
+                                Margin="5" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary}" />
+                        <Button IsEnabled="False"
+                                Content="primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonSuccess}" />
+                        <Button IsEnabled="False"
+                                Content="success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonInfo}" />
+                        <Button IsEnabled="False"
+                                Content="info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonWarning}" />
+                        <Button IsEnabled="False"
+                                Content="warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDanger}" />
+                        <Button IsEnabled="False"
+                                Content="danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDanger}" />
+                    </StackPanel>
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
     </ScrollViewer>
 </UserControl>

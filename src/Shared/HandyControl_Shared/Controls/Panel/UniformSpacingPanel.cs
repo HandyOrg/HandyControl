@@ -9,16 +9,12 @@ namespace HandyControl.Controls;
 
 public class UniformSpacingPanel : Panel
 {
-    private Orientation _orientation;
-
-    public UniformSpacingPanel()
-    {
-        _orientation = Orientation.Horizontal;
-    }
+    private Orientation _orientation = Orientation.Horizontal;
 
     public static readonly DependencyProperty OrientationProperty =
         StackPanel.OrientationProperty.AddOwner(typeof(UniformSpacingPanel),
-            new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsMeasure, OnOrientationChanged));
+            new FrameworkPropertyMetadata(Orientation.Horizontal, FrameworkPropertyMetadataOptions.AffectsMeasure,
+                OnOrientationChanged));
 
     private static void OnOrientationChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -132,7 +128,8 @@ public class UniformSpacingPanel : Panel
         return false;
     }
 
-    private void ArrangeWrapLine(double v, double lineV, int start, int end, bool useItemU, double itemU, double spacing)
+    private void ArrangeWrapLine(double v, double lineV, int start, int end, bool useItemU, double itemU,
+        double spacing)
     {
         double u = 0;
         var isHorizontal = _orientation == Orientation.Horizontal;
@@ -191,7 +188,7 @@ public class UniformSpacingPanel : Panel
         var itemHorizontalAlignment = ItemHorizontalAlignment;
         var itemVerticalAlignment = ItemVerticalAlignment;
         var itemHorizontalAlignmentSet = itemHorizontalAlignment != null;
-        var itemVerticalAlignmentSet = ItemVerticalAlignment != null;
+        var itemVerticalAlignmentSet = itemVerticalAlignment != null;
         var spacingSize = GetSpacingSize();
 
         var childConstraint = new Size(
@@ -201,7 +198,48 @@ public class UniformSpacingPanel : Panel
         var children = InternalChildren;
         var isFirst = true;
 
-        if (childWrapping == VisualWrapping.Wrap)
+        if (childWrapping == VisualWrapping.NoWrap)
+        {
+            var layoutSlotSize = constraint;
+
+            if (_orientation == Orientation.Horizontal)
+            {
+                layoutSlotSize.Width = double.PositiveInfinity;
+            }
+            else
+            {
+                layoutSlotSize.Height = double.PositiveInfinity;
+            }
+
+            for (int i = 0, count = children.Count; i < count; ++i)
+            {
+                var child = children[i];
+                if (child == null) continue;
+
+                if (itemHorizontalAlignmentSet)
+                {
+                    child.SetCurrentValue(HorizontalAlignmentProperty, itemHorizontalAlignment);
+                }
+
+                if (itemVerticalAlignmentSet)
+                {
+                    child.SetCurrentValue(VerticalAlignmentProperty, itemVerticalAlignment);
+                }
+
+                child.Measure(layoutSlotSize);
+
+                var sz = new PanelUvSize(
+                    _orientation,
+                    itemWidthSet ? itemWidth : child.DesiredSize.Width,
+                    itemHeightSet ? itemHeight : child.DesiredSize.Height);
+
+                curLineSize.U += isFirst ? sz.U : sz.U + spacingSize.U;
+                curLineSize.V = Math.Max(sz.V, curLineSize.V);
+
+                isFirst = false;
+            }
+        }
+        else
         {
             for (int i = 0, count = children.Count; i < count; i++)
             {
@@ -245,47 +283,6 @@ public class UniformSpacingPanel : Panel
 
                     isFirst = false;
                 }
-            }
-        }
-        else
-        {
-            var layoutSlotSize = constraint;
-
-            if (_orientation == Orientation.Horizontal)
-            {
-                layoutSlotSize.Width = double.PositiveInfinity;
-            }
-            else
-            {
-                layoutSlotSize.Height = double.PositiveInfinity;
-            }
-
-            for (int i = 0, count = children.Count; i < count; ++i)
-            {
-                var child = children[i];
-                if (child == null) continue;
-
-                if (itemHorizontalAlignmentSet)
-                {
-                    child.SetCurrentValue(HorizontalAlignmentProperty, itemHorizontalAlignment);
-                }
-
-                if (itemVerticalAlignmentSet)
-                {
-                    child.SetCurrentValue(VerticalAlignmentProperty, itemVerticalAlignment);
-                }
-
-                child.Measure(layoutSlotSize);
-
-                var sz = new PanelUvSize(
-                    _orientation,
-                    itemWidthSet ? itemWidth : child.DesiredSize.Width,
-                    itemHeightSet ? itemHeight : child.DesiredSize.Height);
-
-                curLineSize.U += isFirst ? sz.U : sz.U + spacingSize.U;
-                curLineSize.V = Math.Max(sz.V, curLineSize.V);
-
-                isFirst = false;
             }
         }
 
@@ -337,7 +334,11 @@ public class UniformSpacingPanel : Panel
         var children = InternalChildren;
         var isFirst = true;
 
-        if (childWrapping == VisualWrapping.Wrap)
+        if (childWrapping == VisualWrapping.NoWrap)
+        {
+            ArrangeLine(uvFinalSize.V, useItemU, itemU, spacingSize.U);
+        }
+        else
         {
             for (int i = 0, count = children.Count; i < count; i++)
             {
@@ -369,12 +370,9 @@ public class UniformSpacingPanel : Panel
 
             if (firstInLine < children.Count)
             {
-                ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, children.Count, useItemU, itemU, spacingSize.U);
+                ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, children.Count, useItemU, itemU,
+                    spacingSize.U);
             }
-        }
-        else
-        {
-            ArrangeLine(uvFinalSize.V, useItemU, itemU, spacingSize.U);
         }
 
         return finalSize;

@@ -57,6 +57,10 @@
     <Compile Update="Views\Styles\ButtonDemoCtrl.axaml.cs">
       <DependentUpon>ButtonDemoCtrl.axaml</DependentUpon>
     </Compile>
+    <Compile Update="UserControl\Styles\BrushDemoCtl.axaml.cs">
+      <DependentUpon>BoderDemoCtl.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

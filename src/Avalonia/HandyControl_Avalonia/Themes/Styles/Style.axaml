@@ -17,6 +17,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ListBox.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ScrollBar.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ScrollViewer.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Label.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
