@@ -96,4 +96,11 @@ public class InfoElement : TitleElement
     public static void SetIsReadOnly(DependencyObject element, bool value) => element.SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
 
     public static bool GetIsReadOnly(DependencyObject element) => (bool) element.GetValue(IsReadOnlyProperty);
+
+    public static readonly DependencyProperty ClearButtonInvisibleByHiddenProperty = DependencyProperty.RegisterAttached(
+        "ClearButtonInvisibleByHidden", typeof(bool), typeof(InfoElement), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public static void SetClearButtonInvisibleByHidden(DependencyObject obj, bool value) => obj.SetValue(ClearButtonInvisibleByHiddenProperty, value);
+
+    public static bool GetClearButtonInvisibleByHidden(DependencyObject obj) => (bool) obj.GetValue(ClearButtonInvisibleByHiddenProperty);
 }

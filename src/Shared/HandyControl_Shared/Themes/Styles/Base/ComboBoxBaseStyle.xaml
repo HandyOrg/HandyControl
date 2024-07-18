@@ -1,4 +1,8 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:hc="clr-namespace:HandyControl.Controls" xmlns:system="clr-namespace:System;assembly=mscorlib">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:interactivity="clr-namespace:HandyControl.Interactivity">
 
     <!--默认下拉框模板-->
     <ControlTemplate x:Key="ComboBoxTemplate" TargetType="ComboBox">
@@ -669,6 +673,15 @@
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
             </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="contentPanel" />
+                    <Condition Property="IsMouseOver" Value="False" SourceName="ButtonClear" />
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear" />
+            </MultiTrigger>
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
@@ -776,6 +789,15 @@
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
             </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="contentPanel" />
+                    <Condition Property="IsMouseOver" Value="False" SourceName="ButtonClear" />
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear" />
+            </MultiTrigger>
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
@@ -881,6 +903,15 @@
                     <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="contentPanel" />
+                    <Condition Property="IsMouseOver" Value="False" SourceName="ButtonClear" />
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear" />
             </MultiTrigger>
             <Trigger Property="IsFocused" Value="True" SourceName="PART_EditableTextBox">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
@@ -1005,6 +1036,15 @@
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
             </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="contentPanel" />
+                    <Condition Property="IsMouseOver" Value="False" SourceName="ButtonClear" />
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear" />
+            </MultiTrigger>
             <Trigger Property="IsFocused" Value="True" SourceName="PART_EditableTextBox">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
@@ -1107,6 +1147,15 @@
                     <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="contentPanel" />
+                    <Condition Property="IsMouseOver" Value="False" SourceName="ButtonClear" />
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear" />
             </MultiTrigger>
             <Trigger Property="IsFocused" Value="True" SourceName="PART_EditableTextBox">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
@@ -1230,6 +1279,15 @@
                     <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="contentPanel" />
+                    <Condition Property="IsMouseOver" Value="False" SourceName="ButtonClear" />
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear" />
             </MultiTrigger>
             <Trigger Property="IsFocused" Value="True" SourceName="PART_EditableTextBox">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />

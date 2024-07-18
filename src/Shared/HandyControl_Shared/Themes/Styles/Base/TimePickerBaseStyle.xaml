@@ -229,6 +229,15 @@
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear"/>
             </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="PART_Root"/>
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True"/>
+                    <Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear"/>
+            </MultiTrigger>
             <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}"/>
             </Trigger>
@@ -292,6 +301,15 @@
                     <Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear"/>
+            </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="PART_Root"/>
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True"/>
+                    <Condition Property="hc:InfoElement.IsReadOnly" Value="False" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Hidden" TargetName="ButtonClear"/>
             </MultiTrigger>
             <Trigger Property="IsFocused" Value="true" SourceName="PART_TextBox">
                 <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource PrimaryBrush}"/>
