@@ -1,20 +1,107 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme x:Key="{x:Type Border}"
+    <ControlTheme x:Key="BorderRegion"
                   TargetType="Border">
-        <Style Selector="^.clip">
-            <Setter Property="Clip">
-                <Setter.Value>
-                    <MultiBinding Converter="{StaticResource BorderClipConverter}">
-                        <Binding Path="ActualWidth"
-                                 RelativeSource="{RelativeSource Self}" />
-                        <Binding Path="ActualHeight"
-                                 RelativeSource="{RelativeSource Self}" />
-                        <Binding Path="CornerRadius"
-                                 RelativeSource="{RelativeSource Self}" />
-                    </MultiBinding>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <Setter Property="CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Padding"
+                Value="10" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderTipBaseStyle"
+                  TargetType="Border">
+        <Setter Property="CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Padding"
+                Value="10" />
+        <Setter Property="BorderThickness"
+                Value="5,0,0,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderTipPrimary"
+                  BasedOn="{StaticResource BorderTipBaseStyle}"
+                  TargetType="Border">
+        <Setter Property="Background"
+                Value="{DynamicResource LightPrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderTipDanger"
+                  BasedOn="{StaticResource BorderTipBaseStyle}"
+                  TargetType="Border">
+        <Setter Property="Background"
+                Value="{DynamicResource LightDangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderTipWarning"
+                  BasedOn="{StaticResource BorderTipBaseStyle}"
+                  TargetType="Border">
+        <Setter Property="Background"
+                Value="{DynamicResource LightWarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderTipInfo"
+                  BasedOn="{StaticResource BorderTipBaseStyle}"
+                  TargetType="Border">
+        <Setter Property="Background"
+                Value="{DynamicResource LightInfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderTipSuccess"
+                  BasedOn="{StaticResource BorderTipBaseStyle}"
+                  TargetType="Border">
+        <Setter Property="Background"
+                Value="{DynamicResource LightSuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderVerticallySplitter"
+                  TargetType="Border">
+        <Setter Property="Width"
+                Value="1" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Background"
+                Value="{DynamicResource ThirdlyTextBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderHorizontallySplitter"
+                  TargetType="Border">
+        <Setter Property="Height"
+                Value="1" />
+        <Setter Property="VerticalAlignment"
+                Value="Top" />
+        <Setter Property="Background"
+                Value="{DynamicResource ThirdlyTextBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderClip"
+                  TargetType="Border">
+        <Setter Property="Clip">
+            <Setter.Value>
+                <MultiBinding Converter="{StaticResource BorderClipConverter}">
+                    <Binding Path="Bounds.Width"
+                             RelativeSource="{RelativeSource Self}" />
+                    <Binding Path="Bounds.Height"
+                             RelativeSource="{RelativeSource Self}" />
+                    <Binding Path="CornerRadius"
+                             RelativeSource="{RelativeSource Self}" />
+                </MultiBinding>
+            </Setter.Value>
+        </Setter>
     </ControlTheme>
 </ResourceDictionary>

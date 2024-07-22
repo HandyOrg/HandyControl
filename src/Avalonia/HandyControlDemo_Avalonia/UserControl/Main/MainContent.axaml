@@ -16,7 +16,7 @@
                         Grid.Row="0"
                         CornerRadius="10,10,0,0"
                         Background="{DynamicResource TitleBrush}"
-                        Classes="clip">
+                        Theme="{StaticResource BorderClip}">
                     <Panel>
                         <TextBlock Foreground="White"
                                    HorizontalAlignment="Center"

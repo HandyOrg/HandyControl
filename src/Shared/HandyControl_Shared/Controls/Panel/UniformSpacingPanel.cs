@@ -263,26 +263,19 @@ public class UniformSpacingPanel : Panel
                     itemWidthSet ? itemWidth : child.DesiredSize.Width,
                     itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
-                if (MathHelper.GreaterThan(curLineSize.U + sz.U + spacingSize.U, uvConstraint.U))
+                if (!isFirst && MathHelper.GreaterThan(curLineSize.U + sz.U + spacingSize.U, uvConstraint.U))
                 {
                     panelSize.U = Math.Max(curLineSize.U, panelSize.U);
                     panelSize.V += curLineSize.V + spacingSize.V;
                     curLineSize = sz;
-
-                    if (MathHelper.GreaterThan(sz.U, uvConstraint.U))
-                    {
-                        panelSize.U = Math.Max(sz.U, panelSize.U);
-                        panelSize.V += sz.V + spacingSize.V;
-                        curLineSize = new PanelUvSize(_orientation);
-                    }
                 }
                 else
                 {
                     curLineSize.U += isFirst ? sz.U : sz.U + spacingSize.U;
                     curLineSize.V = Math.Max(sz.V, curLineSize.V);
-
-                    isFirst = false;
                 }
+
+                isFirst = false;
             }
         }
 
@@ -350,7 +343,7 @@ public class UniformSpacingPanel : Panel
                     itemWidthSet ? itemWidth : child.DesiredSize.Width,
                     itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
-                if (MathHelper.GreaterThan(curLineSize.U + (isFirst ? sz.U : sz.U + spacingSize.U), uvFinalSize.U))
+                if (!isFirst && MathHelper.GreaterThan(curLineSize.U + sz.U + spacingSize.U, uvFinalSize.U))
                 {
                     ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, i, useItemU, itemU, spacingSize.U);
 
