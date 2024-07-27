@@ -6,7 +6,8 @@ namespace HandyControlDemo.ViewModel;
 
 public class ViewModelLocator
 {
-    private static readonly Lazy<ViewModelLocator> InstanceInternal = new(() => new ViewModelLocator(), isThreadSafe: true);
+    private static readonly Lazy<ViewModelLocator> InstanceInternal =
+        new(() => new ViewModelLocator(), isThreadSafe: true);
 
     public static ViewModelLocator Instance => InstanceInternal.Value;
 

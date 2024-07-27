@@ -79,7 +79,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="ScrollBarBaseThumbHorizontal" TargetType="Thumb">
         <Setter Property="OverridesDefaultStyle" Value="true"/>
         <Setter Property="IsTabStop" Value="false"/>
@@ -176,10 +176,9 @@
         <Style.Triggers>
             <Trigger Property="Orientation" Value="Horizontal">
                 <Setter Property="Width" Value="Auto"/>
-                <Setter Property="MinWidth" Value="0"/>
+                <Setter Property="MinWidth" Value="8"/>
                 <Setter Property="Height" Value="8"/>
                 <Setter Property="MinHeight" Value="8"/>
-                <Setter Property="BorderThickness" Value="0,1"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="ScrollBar">
@@ -391,7 +390,7 @@
             </Trigger>
         </ControlTemplate.Triggers>
     </ControlTemplate>
-    
+
     <Style x:Key="ScrollViewerBaseStyle" TargetType="hc:ScrollViewer">
         <Setter Property="VerticalScrollBarVisibility" Value="{Binding Path=(hc:ScrollViewer.VerticalScrollBarVisibility),RelativeSource={RelativeSource TemplatedParent}}" />
         <Setter Property="Focusable" Value="False"/>

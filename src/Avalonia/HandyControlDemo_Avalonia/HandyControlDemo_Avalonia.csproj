@@ -65,6 +65,10 @@
       <DependentUpon>BorderDemoCtl.axaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="UserControl\Styles\RepeatButtonDemoCtl.axaml.cs">
+      <DependentUpon>RepeatButtonDemoCtl.axaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>

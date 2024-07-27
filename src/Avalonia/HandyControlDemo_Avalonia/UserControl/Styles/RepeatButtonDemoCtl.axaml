@@ -1,0 +1,69 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.UserControl.RepeatButtonDemoCtl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel ChildWrapping="Wrap"
+                                Spacing="32"
+                                Margin="32">
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="32">
+                <WrapPanel>
+                    <StackPanel>
+                        <RepeatButton Content="default"
+                                      Margin="5" />
+                        <RepeatButton IsEnabled="False"
+                                      Content="default"
+                                      Margin="5" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="primary"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonPrimary}" />
+                        <RepeatButton IsEnabled="False"
+                                      Content="primary"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="success"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonSuccess}" />
+                        <RepeatButton IsEnabled="False"
+                                      Content="success"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="info"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonInfo}" />
+                        <RepeatButton IsEnabled="False"
+                                      Content="info"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="warning"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonWarning}" />
+                        <RepeatButton IsEnabled="False"
+                                      Content="warning"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="danger"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonDanger}" />
+                        <RepeatButton IsEnabled="False"
+                                      Content="danger"
+                                      Margin="5"
+                                      Theme="{StaticResource RepeatButtonDanger}" />
+                    </StackPanel>
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

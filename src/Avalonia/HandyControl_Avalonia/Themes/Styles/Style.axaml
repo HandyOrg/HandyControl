@@ -9,14 +9,14 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/UserControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Window.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Button.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/RepeatButton.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Border.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ItemsControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TabItem.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/TabControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ListBoxItem.axaml" />
-                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ListBox.axaml" />
-                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ScrollBar.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ScrollViewer.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ListBox.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Label.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Avalonia.Threading;
 using CommunityToolkit.Mvvm.Messaging;
 using HandyControlDemo.Data;
@@ -44,10 +45,11 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 
     private void UpdateMainContent()
     {
-        WeakReferenceMessenger.Default.Register<DemoItemModel, string>(this, MessageToken.SwitchDemo, (_, message) =>
-        {
-            SwitchDemo(message);
-        });
+        WeakReferenceMessenger.Default.Register<DemoItemModel, string>(
+            recipient: this,
+            token: MessageToken.SwitchDemo,
+            handler: (_, message) => SwitchDemo(message)
+        );
     }
 
     private void UpdateLeftContent()
@@ -76,11 +78,9 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
         DemoInfoCollection = [];
         foreach (var item in _dataService.GetDemoInfo())
         {
-            Dispatcher.UIThread.InvokeAsync(() =>
-            {
-                DemoInfoCollection.Add(item);
-            }, DispatcherPriority.ApplicationIdle);
+            Dispatcher.UIThread.InvokeAsync(() => DemoInfoCollection.Add(item));
         }
+        Dispatcher.UIThread.InvokeAsync(() => SwitchDemo(DemoInfoCollection.First().DemoItemList.First()));
     }
 
     private void SwitchDemo(DemoItemModel item)
@@ -92,7 +92,8 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 
         DemoItemCurrent = item;
         ContentTitle = Lang.ResourceManager.GetString(item.Name, Lang.Culture);
-        object? demoControl = AssemblyHelper.ResolveByKey(item.TargetCtlName) ?? AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
+        object? demoControl = AssemblyHelper.ResolveByKey(item.TargetCtlName) ??
+                              AssemblyHelper.CreateInternalInstance($"UserControl.{item.TargetCtlName}");
         SubContent = demoControl;
     }
 }
