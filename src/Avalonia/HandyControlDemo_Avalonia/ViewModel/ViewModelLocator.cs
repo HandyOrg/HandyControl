@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using HandyControlDemo.Service;
 using Microsoft.Extensions.DependencyInjection;
 

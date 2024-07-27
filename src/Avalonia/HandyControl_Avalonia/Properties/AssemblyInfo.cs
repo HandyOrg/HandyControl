@@ -1,4 +1,4 @@
-﻿using Avalonia.Metadata;
+using Avalonia.Metadata;
 
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Controls")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Tools")]

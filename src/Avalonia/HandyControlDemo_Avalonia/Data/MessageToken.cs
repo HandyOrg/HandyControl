@@ -1,4 +1,4 @@
-﻿namespace HandyControlDemo.Data;
+namespace HandyControlDemo.Data;
 
 public class MessageToken
 {

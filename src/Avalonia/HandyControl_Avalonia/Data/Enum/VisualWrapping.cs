@@ -1,4 +1,4 @@
-﻿namespace HandyControl.Data;
+namespace HandyControl.Data;
 
 public enum VisualWrapping
 {

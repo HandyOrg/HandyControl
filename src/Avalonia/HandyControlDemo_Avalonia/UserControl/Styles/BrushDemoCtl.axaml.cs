@@ -1,4 +1,4 @@
-﻿namespace HandyControlDemo.UserControl;
+namespace HandyControlDemo.UserControl;
 
 public partial class BrushDemoCtl : Avalonia.Controls.UserControl
 {
