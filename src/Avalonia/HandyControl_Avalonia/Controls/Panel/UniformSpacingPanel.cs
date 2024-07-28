@@ -44,20 +44,22 @@ public class UniformSpacingPanel : Panel
         AvaloniaProperty.Register<UniformSpacingPanel, VerticalAlignment?>(nameof(ItemVerticalAlignment),
             defaultValue: VerticalAlignment.Stretch);
 
+    private Orientation _orientation;
+
     static UniformSpacingPanel()
     {
-        AffectsMeasure<StackPanel>(OrientationProperty);
-        AffectsMeasure<StackPanel>(ChildWrappingProperty);
-        AffectsMeasure<StackPanel>(SpacingProperty);
-        AffectsMeasure<StackPanel>(HorizontalSpacingProperty);
-        AffectsMeasure<StackPanel>(VerticalSpacingProperty);
-        AffectsMeasure<StackPanel>(ItemWidthProperty);
-        AffectsMeasure<StackPanel>(ItemHeightProperty);
-        AffectsMeasure<StackPanel>(ItemHorizontalAlignmentProperty);
-        AffectsMeasure<StackPanel>(ItemVerticalAlignmentProperty);
+        AffectsMeasure<StackPanel>(
+            OrientationProperty,
+            ChildWrappingProperty,
+            SpacingProperty,
+            HorizontalSpacingProperty,
+            VerticalSpacingProperty,
+            ItemWidthProperty,
+            ItemHeightProperty,
+            ItemHorizontalAlignmentProperty,
+            ItemVerticalAlignmentProperty
+        );
     }
-
-    private static double CoerceLength(AvaloniaObject _, double length) => length < 0 ? 0 : length;
 
     public Orientation Orientation
     {
@@ -113,12 +115,23 @@ public class UniformSpacingPanel : Panel
         set => SetValue(ItemVerticalAlignmentProperty, value);
     }
 
+    private static double CoerceLength(AvaloniaObject _, double length) => length < 0 ? 0 : length;
+
+    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
+    {
+        base.OnPropertyChanged(change);
+
+        if (string.Equals(change.Property.Name, nameof(Orientation)))
+        {
+            _orientation = change.GetNewValue<Orientation>();
+        }
+    }
+
     protected override Size MeasureOverride(Size availableSize)
     {
-        var orientation = Orientation;
-        var curLineSize = new PanelUvSize(orientation);
-        var panelSize = new PanelUvSize(orientation);
-        var uvConstraint = new PanelUvSize(orientation, availableSize);
+        var curLineSize = new PanelUvSize(_orientation);
+        var panelSize = new PanelUvSize(_orientation);
+        var uvConstraint = new PanelUvSize(_orientation, availableSize);
         double itemWidth = ItemWidth;
         double itemHeight = ItemHeight;
         bool itemWidthSet = !double.IsNaN(itemWidth);
@@ -138,9 +151,9 @@ public class UniformSpacingPanel : Panel
 
         if (childWrapping == VisualWrapping.NoWrap)
         {
-            var layoutSlotSize = new PanelUvSize(orientation, availableSize);
+            var layoutSlotSize = new PanelUvSize(_orientation, availableSize);
 
-            if (orientation == Orientation.Horizontal)
+            if (_orientation == Orientation.Horizontal)
             {
                 layoutSlotSize.V = double.PositiveInfinity;
             }
@@ -166,7 +179,7 @@ public class UniformSpacingPanel : Panel
                 child.Measure(new Size(layoutSlotSize.Width, layoutSlotSize.Height));
 
                 var sz = new PanelUvSize(
-                    orientation,
+                    _orientation,
                     itemWidthSet ? itemWidth : child.DesiredSize.Width,
                     itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
@@ -195,7 +208,7 @@ public class UniformSpacingPanel : Panel
                 child.Measure(childConstraint);
 
                 var sz = new PanelUvSize(
-                    orientation,
+                    _orientation,
                     itemWidthSet ? itemWidth : child.DesiredSize.Width,
                     itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
@@ -223,17 +236,16 @@ public class UniformSpacingPanel : Panel
 
     protected override Size ArrangeOverride(Size finalSize)
     {
-        var orientation = Orientation;
         int firstInLine = 0;
         double itemWidth = ItemWidth;
         double itemHeight = ItemHeight;
         double accumulatedV = 0;
-        double itemU = orientation == Orientation.Horizontal ? itemWidth : itemHeight;
-        var curLineSize = new PanelUvSize(orientation);
-        var uvFinalSize = new PanelUvSize(orientation, finalSize);
+        double itemU = _orientation == Orientation.Horizontal ? itemWidth : itemHeight;
+        var curLineSize = new PanelUvSize(_orientation);
+        var uvFinalSize = new PanelUvSize(_orientation, finalSize);
         bool itemWidthSet = !double.IsNaN(itemWidth);
         bool itemHeightSet = !double.IsNaN(itemHeight);
-        bool useItemU = orientation == Orientation.Horizontal ? itemWidthSet : itemHeightSet;
+        bool useItemU = _orientation == Orientation.Horizontal ? itemWidthSet : itemHeightSet;
         var childWrapping = ChildWrapping;
         var spacingSize = GetSpacingSize();
 
@@ -250,14 +262,13 @@ public class UniformSpacingPanel : Panel
                 var child = Children[i];
 
                 var sz = new PanelUvSize(
-                    orientation,
+                    _orientation,
                     itemWidthSet ? itemWidth : child.DesiredSize.Width,
                     itemHeightSet ? itemHeight : child.DesiredSize.Height);
 
                 if (!isFirst && MathHelper.GreaterThan(curLineSize.U + sz.U + spacingSize.U, uvFinalSize.U))
                 {
-                    ArrangeWrapLine(orientation, accumulatedV, curLineSize.V, firstInLine, i, useItemU, itemU,
-                        spacingSize.U);
+                    ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, i, useItemU, itemU, spacingSize.U);
 
                     accumulatedV += curLineSize.V + spacingSize.V;
                     curLineSize = sz;
@@ -275,7 +286,7 @@ public class UniformSpacingPanel : Panel
 
             if (firstInLine < Children.Count)
             {
-                ArrangeWrapLine(orientation, accumulatedV, curLineSize.V, firstInLine, Children.Count, useItemU, itemU,
+                ArrangeWrapLine(accumulatedV, curLineSize.V, firstInLine, Children.Count, useItemU, itemU,
                     spacingSize.U);
             }
         }
@@ -331,7 +342,6 @@ public class UniformSpacingPanel : Panel
     }
 
     private void ArrangeWrapLine(
-        Orientation orientation,
         double v,
         double lineV,
         int start,
@@ -341,13 +351,13 @@ public class UniformSpacingPanel : Panel
         double spacing)
     {
         double u = 0;
-        bool isHorizontal = orientation == Orientation.Horizontal;
+        bool isHorizontal = _orientation == Orientation.Horizontal;
 
         for (int i = start; i < end; i++)
         {
             var child = Children[i];
 
-            var childSize = new PanelUvSize(orientation, child.DesiredSize);
+            var childSize = new PanelUvSize(_orientation, child.DesiredSize);
             double layoutSlotU = useItemU ? itemU : childSize.U;
 
             child.Arrange(isHorizontal ? new Rect(u, v, layoutSlotU, lineV) : new Rect(v, u, lineV, layoutSlotU));
