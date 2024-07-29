@@ -1,4 +1,4 @@
-﻿using Avalonia.Controls;
+using Avalonia.Controls;
 using Avalonia.Interactivity;
 using HandyControlDemo.UserControl;
 using HandyControlDemo.ViewModel;

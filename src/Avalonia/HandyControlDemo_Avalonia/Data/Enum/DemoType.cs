@@ -1,4 +1,4 @@
-﻿
+
 namespace HandyControlDemo.Data;
 
 public enum DemoType
