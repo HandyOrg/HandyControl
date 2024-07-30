@@ -306,7 +306,7 @@ internal class InteropMethods
 
     internal static InteropValues.WINDOWPLACEMENT GetWindowPlacement(IntPtr hwnd)
     {
-        InteropValues.WINDOWPLACEMENT wINDOWPLACEMENT = InteropValues.WINDOWPLACEMENT.Default;
+        InteropValues.WINDOWPLACEMENT wINDOWPLACEMENT =new InteropValues.WINDOWPLACEMENT();
         if (GetWindowPlacement(hwnd, wINDOWPLACEMENT))
         {
             return wINDOWPLACEMENT;
