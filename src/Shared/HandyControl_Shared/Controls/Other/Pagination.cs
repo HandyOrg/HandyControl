@@ -48,6 +48,8 @@ public class Pagination : Control
 
     private bool _appliedTemplate;
 
+    private readonly string groupName = Guid.NewGuid().ToString("N");
+
     #endregion Data
 
     #region Public Events
@@ -284,6 +286,9 @@ public class Pagination : Control
         _buttonLast = GetTemplateChild(ElementButtonLast) as RadioButton;
         _jumpNumericUpDown = GetTemplateChild(ElementJump) as NumericUpDown;
 
+        _buttonFirst.GroupName = groupName;
+        _buttonLast.GroupName = groupName;
+
         CheckNull();
 
         _appliedTemplate = true;
@@ -395,7 +400,8 @@ public class Pagination : Control
         return new()
         {
             Style = PaginationButtonStyle,
-            Content = page.ToString()
+            Content = page.ToString(),
+            GroupName = groupName
         };
     }
 
