@@ -38,7 +38,7 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity"
                     Value="0.4" />
         </Style>

@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol">
     <ControlTheme x:Key="ButtonBaseStyle"
                   TargetType="Button">
         <Setter Property="Height"
@@ -40,20 +41,46 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pointerover">
             <Setter Property="Opacity"
                     Value="0.9" />
         </Style>
 
-        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pressed">
             <Setter Property="Opacity"
                     Value="0.6" />
         </Style>
 
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity"
                     Value="0.4" />
         </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedBaseStyle"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <hc:DashedBorder BorderDashArray="3,2"
+                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                     BorderBrush="{TemplateBinding BorderBrush}"
+                                     CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          Background="{TemplateBinding Background}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Padding="{TemplateBinding Padding}"
+                                          RecognizesAccessKey="True"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </hc:DashedBorder>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </ControlTheme>
 
     <ControlTheme x:Key="ButtonDefault"
@@ -62,12 +89,12 @@
         <Setter Property="Foreground"
                 Value="{DynamicResource PrimaryTextBrush}" />
 
-        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pointerover">
             <Setter Property="Background"
                     Value="{DynamicResource SecondaryRegionBrush}" />
         </Style>
 
-        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pressed">
             <Setter Property="Background"
                     Value="{DynamicResource BorderBrush}" />
         </Style>
@@ -117,6 +144,65 @@
                   BasedOn="{StaticResource ButtonBaseStyle}"
                   TargetType="Button">
         <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashed"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedPrimary"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedSuccess"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedInfo"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedWarning"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedDanger"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
                 Value="{DynamicResource DangerBrush}" />
         <Setter Property="BorderBrush"
                 Value="{DynamicResource DangerBrush}" />

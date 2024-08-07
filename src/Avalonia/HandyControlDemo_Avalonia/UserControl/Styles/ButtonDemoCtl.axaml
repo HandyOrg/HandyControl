@@ -63,6 +63,62 @@
                                 Theme="{StaticResource ButtonDanger}" />
                     </StackPanel>
                 </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="default"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashed}" />
+                        <Button IsEnabled="False"
+                                Content="default"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashed}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary}" />
+                        <Button IsEnabled="False"
+                                Content="primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess}" />
+                        <Button IsEnabled="False"
+                                Content="success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo}" />
+                        <Button IsEnabled="False"
+                                Content="info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning}" />
+                        <Button IsEnabled="False"
+                                Content="warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger}" />
+                        <Button IsEnabled="False"
+                                Content="danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger}" />
+                    </StackPanel>
+                </WrapPanel>
             </hc:UniformSpacingPanel>
         </hc:UniformSpacingPanel>
     </ScrollViewer>

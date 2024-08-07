@@ -38,12 +38,12 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity"
                     Value="0.4" />
         </Style>
 
-        <Style Selector="^:selected /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:selected">
             <Setter Property="Foreground"
                     Value="{DynamicResource PrimaryBrush}" />
         </Style>

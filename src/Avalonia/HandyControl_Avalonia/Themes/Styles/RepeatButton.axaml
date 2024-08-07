@@ -40,17 +40,17 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pointerover">
             <Setter Property="Opacity"
                     Value="0.9" />
         </Style>
 
-        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pressed">
             <Setter Property="Opacity"
                     Value="0.6" />
         </Style>
 
-        <Style Selector="^:disabled /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:disabled">
             <Setter Property="Opacity"
                     Value="0.4" />
         </Style>
@@ -62,12 +62,12 @@
         <Setter Property="Foreground"
                 Value="{DynamicResource PrimaryTextBrush}" />
 
-        <Style Selector="^:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pointerover">
             <Setter Property="Background"
                     Value="{DynamicResource SecondaryRegionBrush}" />
         </Style>
 
-        <Style Selector="^:pressed /template/ ContentPresenter#PART_ContentPresenter">
+        <Style Selector="^:pressed">
             <Setter Property="Background"
                     Value="{DynamicResource BorderBrush}" />
         </Style>
