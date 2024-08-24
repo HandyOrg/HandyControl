@@ -9930,9 +9930,6 @@
 						<Trigger Property="hc:PasswordBoxAttach.PasswordLength" Value="0">
 							<Setter Property="Visibility" TargetName="placeholder" Value="Visible" />
 						</Trigger>
-						<Trigger Property="IsEnabled" Value="false">
-							<Setter Property="Opacity" Value="0.4" />
-						</Trigger>
 					</ControlTemplate.Triggers>
 				</ControlTemplate>
 			</Setter.Value>
@@ -9979,6 +9976,9 @@
 			<Trigger Property="ShowEyeButton" Value="true">
 				<Setter Property="Padding" Value="0,0,2,0" TargetName="ButtonClear" />
 			</Trigger>
+			<Trigger Property="IsEnabled" Value="false">
+				<Setter Property="Opacity" Value="0.4" />
+			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
 	<ControlTemplate x:Key="PasswordBoxPlusLeftTemplate" TargetType="hc:PasswordBox">
@@ -10018,6 +10018,9 @@
 			</MultiTrigger>
 			<Trigger Property="ShowEyeButton" Value="true">
 				<Setter Property="Padding" Value="0,0,2,0" TargetName="ButtonClear" />
+			</Trigger>
+			<Trigger Property="IsEnabled" Value="false">
+				<Setter Property="Opacity" Value="0.4" />
 			</Trigger>
 		</ControlTemplate.Triggers>
 	</ControlTemplate>
