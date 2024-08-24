@@ -35,6 +35,14 @@
                     <hc:SearchBar Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" />
                     <hc:SearchBar hc:InfoElement.ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Necessary="True" />
                 </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Spacing="16" Orientation="Vertical" ItemHorizontalAlignment="Left">
+                    <hc:SearchBar hc:InfoElement.ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Necessary="True" />
+                    <hc:SearchBar hc:InfoElement.ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus}" hc:InfoElement.Necessary="True" hc:InfoElement.ClearButtonInvisibleByHidden="True" />
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Spacing="16" Orientation="Vertical" ItemHorizontalAlignment="Left">
+                    <hc:SearchBar hc:InfoElement.ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus.Small}" hc:InfoElement.Necessary="True" />
+                    <hc:SearchBar hc:InfoElement.ShowClearButton="True" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource SearchBarPlus.Small}" hc:InfoElement.Necessary="True" hc:InfoElement.ClearButtonInvisibleByHidden="True" />
+                </hc:UniformSpacingPanel>
                 <hc:UniformSpacingPanel Spacing="16" Orientation="Vertical">
                     <hc:SearchBar Command="{Binding SearchCmd}" CommandParameter="{Binding Text,RelativeSource={RelativeSource Self}}" Style="{StaticResource SearchBar.Small}" />
                     <hc:SearchBar IsEnabled="False" Style="{StaticResource SearchBar.Small}" />

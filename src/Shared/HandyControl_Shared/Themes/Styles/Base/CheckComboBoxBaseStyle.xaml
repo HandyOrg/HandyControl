@@ -410,6 +410,15 @@
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
             </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="contentPanel" />
+                    <Condition Property="IsMouseOver" Value="False" SourceName="ButtonClear" />
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonClear" />
+            </MultiTrigger>
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
@@ -513,6 +522,15 @@
                 </MultiTrigger.Conditions>
                 <Setter Property="Visibility" Value="Visible" TargetName="ButtonClear" />
             </MultiTrigger>
+            <MultiTrigger>
+                <MultiTrigger.Conditions>
+                    <Condition Property="IsMouseOver" Value="False" SourceName="contentPanel" />
+                    <Condition Property="IsMouseOver" Value="False" SourceName="ButtonClear" />
+                    <Condition Property="hc:InfoElement.ShowClearButton" Value="True" />
+                    <Condition Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="False" />
+                </MultiTrigger.Conditions>
+                <Setter Property="Visibility" Value="Collapsed" TargetName="ButtonClear" />
+            </MultiTrigger>
             <Trigger Property="IsOpen" Value="True" SourceName="PART_Popup">
                 <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
             </Trigger>
@@ -526,6 +544,7 @@
     </ControlTemplate>
 
     <Style x:Key="CheckComboBoxPlusBaseStyle" BasedOn="{StaticResource CheckComboBoxExtendBaseStyle}" TargetType="hc:CheckComboBox">
+        <Setter Property="hc:InfoElement.ClearButtonInvisibleByHidden" Value="True" />
         <Setter Property="Template" Value="{StaticResource CheckComboBoxPlusTopTemplate}" />
         <Style.Triggers>
             <Trigger Property="hc:InfoElement.TitlePlacement" Value="Left">
