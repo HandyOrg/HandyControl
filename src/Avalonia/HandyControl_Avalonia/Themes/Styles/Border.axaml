@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
     <ControlTheme x:Key="BorderRegion"
                   TargetType="Border">
         <Setter Property="CornerRadius"
@@ -87,6 +88,12 @@
                 Value="Top" />
         <Setter Property="Background"
                 Value="{DynamicResource ThirdlyTextBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="BorderCircular"
+                  TargetType="Border">
+        <Setter Property="hc:BorderElement.Circular"
+                Value="True" />
     </ControlTheme>
 
     <ControlTheme x:Key="BorderClip"

@@ -1,10 +1,15 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<!-- ReSharper disable once Xaml.RedundantNamespaceAlias -->
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:hc="clr-namespace:HandyControl.Controls">
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Basic/Geometries.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Basic/Paths.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Basic/Brushes.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Basic/Converters.axaml" />
+
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ContentControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/UserControl.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Window.axaml" />

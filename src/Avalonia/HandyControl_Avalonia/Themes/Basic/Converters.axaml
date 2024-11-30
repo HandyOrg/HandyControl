@@ -3,5 +3,7 @@
                     xmlns:converter="clr-namespace:HandyControl.Tools.Converter">
 
     <converter:BorderClipConverter x:Key="BorderClipConverter" />
+    <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>
+    <converter:GeometrySpacingConverter x:Key="GeometrySpacingConverter" />
 
 </ResourceDictionary>

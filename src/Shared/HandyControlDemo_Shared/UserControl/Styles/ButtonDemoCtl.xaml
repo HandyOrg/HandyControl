@@ -124,7 +124,7 @@
                         </StackPanel>
                         <StackPanel Margin="16,0,0,0">
                             <Button hc:BorderElement.CornerRadius="4" Margin="5" Height="28" Padding="10,0" Background="#24292e" Foreground="White" Content="{ex:Lang Key={x:Static langs:LangKeys.ButtonCustom}}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="{DynamicResource DangerBrush}" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
-                            <Button hc:BorderElement.CornerRadius="4" Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{ex:Lang Key={x:Static langs:LangKeys.ButtonCustom}}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="Red" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
+                            <Button hc:BorderElement.CornerRadius="4" Margin="5" Height="28" IsEnabled="False" Padding="10,0" Background="#24292e" Foreground="White" Content="{ex:Lang Key={x:Static langs:LangKeys.ButtonCustom}}" Style="{StaticResource ButtonCustom}" hc:BackgroundSwitchElement.MouseHoverBackground="{DynamicResource DangerBrush}" hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed"/>
                         </StackPanel>
                     </WrapPanel>
                 </hc:UniformSpacingPanel>

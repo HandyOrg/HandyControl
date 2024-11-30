@@ -1,0 +1,162 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ControlTheme x:Key="PathBaseStyle"
+                  TargetType="Path">
+        <Setter Property="Stretch"
+                Value="Uniform" />
+        <Setter Property="FlowDirection"
+                Value="LeftToRight" />
+    </ControlTheme>
+
+    <!--搜索-->
+    <ControlTheme x:Key="SearchPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource SearchGeometry}" />
+    </ControlTheme>
+
+    <!--全屏返回-->
+    <ControlTheme x:Key="FullScreenReturnPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource FullScreenReturnGeometry}" />
+    </ControlTheme>
+
+    <!--全屏-->
+    <ControlTheme x:Key="FullScreenPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource FullScreenGeometry}" />
+    </ControlTheme>
+
+    <!--windows-->
+    <ControlTheme x:Key="WindowsPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource WindowsGeometry}" />
+    </ControlTheme>
+
+    <!--保存-->
+    <ControlTheme x:Key="SavePathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource SaveGeometry}" />
+    </ControlTheme>
+
+    <!--下载-->
+    <ControlTheme x:Key="DownloadPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource DownloadGeometry}" />
+    </ControlTheme>
+
+    <!--放大-->
+    <ControlTheme x:Key="EnlargePathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource EnlargeGeometry}" />
+    </ControlTheme>
+
+    <!--缩小-->
+    <ControlTheme x:Key="ReducePathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource ReduceGeometry}" />
+    </ControlTheme>
+
+    <!--向左旋转-->
+    <ControlTheme x:Key="RotatePathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource RotateLeftGeometry}" />
+    </ControlTheme>
+
+    <!--日历-->
+    <ControlTheme x:Key="CalendarPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource CalendarGeometry}" />
+    </ControlTheme>
+
+    <!--删除-->
+    <ControlTheme x:Key="DeletePathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource DeleteGeometry}" />
+    </ControlTheme>
+
+    <!--关闭-->
+    <ControlTheme x:Key="ClosePathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource CloseGeometry}" />
+    </ControlTheme>
+
+    <!--下-->
+    <ControlTheme x:Key="DownPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource DownGeometry}" />
+    </ControlTheme>
+
+    <!--时钟-->
+    <ControlTheme x:Key="ClockPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource ClockGeometry}" />
+    </ControlTheme>
+
+    <!--向左-->
+    <ControlTheme x:Key="LeftPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource LeftGeometry}" />
+    </ControlTheme>
+
+    <!--向右-->
+    <ControlTheme x:Key="RightPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="RenderTransformOrigin"
+                Value="0.5, 0.5" />
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TransformGroup>
+                    <ScaleTransform ScaleY="1"
+                                    ScaleX="-1" />
+                    <SkewTransform AngleY="0"
+                                   AngleX="0" />
+                    <RotateTransform Angle="0" />
+                    <TranslateTransform />
+                </TransformGroup>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Data"
+                Value="{StaticResource LeftGeometry}" />
+    </ControlTheme>
+
+    <!--上和下的组合-->
+    <ControlTheme x:Key="UpDownPathStyle"
+                  BasedOn="{StaticResource PathBaseStyle}"
+                  TargetType="Path">
+        <Setter Property="Data"
+                Value="{StaticResource UpDownGeometry}" />
+    </ControlTheme>
+
+</ResourceDictionary>
