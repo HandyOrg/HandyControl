@@ -1,5 +1,6 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol">
     <ControlTheme x:Key="RepeatButtonBaseStyle"
                   TargetType="RepeatButton">
         <Setter Property="Height"
@@ -54,6 +55,32 @@
             <Setter Property="Opacity"
                     Value="0.4" />
         </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedBaseStyle"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="RepeatButton">
+                    <hc:DashedBorder BorderDashArray="3,2"
+                                     BorderThickness="{TemplateBinding BorderThickness}"
+                                     BorderBrush="{TemplateBinding BorderBrush}"
+                                     CornerRadius="{TemplateBinding CornerRadius}">
+                        <ContentPresenter x:Name="PART_ContentPresenter"
+                                          Background="{TemplateBinding Background}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          Padding="{TemplateBinding Padding}"
+                                          RecognizesAccessKey="True"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </hc:DashedBorder>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
     </ControlTheme>
 
     <ControlTheme x:Key="RepeatButtonDefault"
@@ -117,6 +144,65 @@
                   BasedOn="{StaticResource RepeatButtonBaseStyle}"
                   TargetType="RepeatButton">
         <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashed"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedPrimary"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedSuccess"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedInfo"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedWarning"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedDanger"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
                 Value="{DynamicResource DangerBrush}" />
         <Setter Property="BorderBrush"
                 Value="{DynamicResource DangerBrush}" />

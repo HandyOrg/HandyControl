@@ -63,6 +63,62 @@
                                       Theme="{StaticResource RepeatButtonDanger}" />
                     </StackPanel>
                 </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <RepeatButton Content="default"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashed}" />
+                        <RepeatButton IsEnabled="False"
+                                Content="default"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashed}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="primary"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedPrimary}" />
+                        <RepeatButton IsEnabled="False"
+                                Content="primary"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="success"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedSuccess}" />
+                        <RepeatButton IsEnabled="False"
+                                Content="success"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="info"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedInfo}" />
+                        <RepeatButton IsEnabled="False"
+                                Content="info"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="warning"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedWarning}" />
+                        <RepeatButton IsEnabled="False"
+                                Content="warning"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RepeatButton Content="danger"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedDanger}" />
+                        <RepeatButton IsEnabled="False"
+                                Content="danger"
+                                Margin="5"
+                                Theme="{StaticResource RepeatButtonDashedDanger}" />
+                    </StackPanel>
+                </WrapPanel>
             </hc:UniformSpacingPanel>
         </hc:UniformSpacingPanel>
     </ScrollViewer>
