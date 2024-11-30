@@ -52,6 +52,7 @@ public class DashedBorder : Decorator
             BorderDashThicknessProperty,
             BorderThicknessProperty
         );
+
         AffectsRender<DashedBorder>(
             BorderDashArrayProperty,
             BorderDashCapProperty,
@@ -60,6 +61,26 @@ public class DashedBorder : Decorator
             BorderBrushProperty,
             BackgroundProperty
         );
+
+        BorderThicknessProperty.Changed.AddClassHandler<DashedBorder>(OnClearPenCache);
+        BorderDashThicknessProperty.Changed.AddClassHandler<DashedBorder>(OnClearPenCache);
+        BorderBrushProperty.Changed.AddClassHandler<DashedBorder>(OnClearPenCache);
+        BackgroundProperty.Changed.AddClassHandler<DashedBorder>(OnClearPenCache);
+        BorderDashArrayProperty.Changed.AddClassHandler<DashedBorder>(OnClearPenCache);
+        BorderDashCapProperty.Changed.AddClassHandler<DashedBorder>(OnClearPenCache);
+        BorderDashOffsetProperty.Changed.AddClassHandler<DashedBorder>(OnClearPenCache);
+    }
+
+    private static void OnClearPenCache(AvaloniaObject d, AvaloniaPropertyChangedEventArgs e)
+    {
+        var border = (DashedBorder)d;
+        border._leftPenCache = null;
+        border._rightPenCache = null;
+        border._topPenCache = null;
+        border._bottomPenCache = null;
+        border._geometryPenCache = null;
+        border._backgroundGeometryCache = null;
+        border._borderGeometryCache = null;
     }
 
     public double BorderDashThickness
@@ -143,34 +164,6 @@ public class DashedBorder : Decorator
 
         _scale = layoutScale;
         _layoutThickness = new Thickness?();
-    }
-
-    protected override void OnPropertyChanged(AvaloniaPropertyChangedEventArgs change)
-    {
-        base.OnPropertyChanged(change);
-
-        string propertyName = change.Property.Name;
-        if (string.Equals(propertyName, nameof(BorderThickness)) ||
-            string.Equals(propertyName, nameof(BorderDashThickness)) ||
-            string.Equals(propertyName, nameof(BorderBrush)) ||
-            string.Equals(propertyName, nameof(Background)) ||
-            string.Equals(propertyName, nameof(BorderDashArray)) ||
-            string.Equals(propertyName, nameof(BorderDashCap)) ||
-            string.Equals(propertyName, nameof(BorderDashOffset)))
-        {
-            ClearCache();
-        }
-    }
-
-    private void ClearCache()
-    {
-        _leftPenCache = null;
-        _rightPenCache = null;
-        _topPenCache = null;
-        _bottomPenCache = null;
-        _geometryPenCache = null;
-        _backgroundGeometryCache = null;
-        _borderGeometryCache = null;
     }
 
     public override void Render(DrawingContext context)
