@@ -15,6 +15,7 @@
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Window.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Button.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/RepeatButton.axaml" />
+                <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ToggleButton.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/RadioButton.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/Border.axaml" />
                 <MergeResourceInclude Source="avares://HandyControl/Themes/Styles/ItemsControl.axaml" />

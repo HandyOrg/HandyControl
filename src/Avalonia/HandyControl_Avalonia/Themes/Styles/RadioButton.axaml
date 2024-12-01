@@ -51,7 +51,7 @@
                             CornerRadius="8"
                             HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
                             VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                            IsVisible="{TemplateBinding IsChecked, Converter={StaticResource Boolean2BooleanReConverter}}" />
+                            IsVisible="{TemplateBinding IsChecked, Converter={x:Static BoolConverters.Not}}" />
                     <ContentPresenter Grid.Column="1"
                                       Focusable="False"
                                       HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
@@ -101,174 +101,53 @@
                   BasedOn="{StaticResource RadioButtonBaseStyle}"
                   TargetType="RadioButton" />
 
-    <ControlTheme x:Key="RadioButtonSameAsButtonBaseStyle"
-                  BasedOn="{StaticResource ButtonBaseStyle}"
-                  TargetType="RadioButton">
-        <Setter Property="Template">
-            <ControlTemplate>
-                <Panel>
-                    <Border Background="{TemplateBinding Background}"
-                            CornerRadius="{TemplateBinding CornerRadius}" />
-                    <Border BorderThickness="{TemplateBinding BorderThickness}"
-                            BorderBrush="{TemplateBinding BorderBrush}"
-                            CornerRadius="{TemplateBinding CornerRadius}">
-                        <StackPanel Orientation="Horizontal"
-                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                    Margin="{TemplateBinding Padding}">
-                            <Path Width="{TemplateBinding hc:IconElement.Width}"
-                                  Height="{TemplateBinding hc:IconElement.Height}"
-                                  Fill="{TemplateBinding Foreground}"
-                                  IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                  Stretch="Uniform"
-                                  Data="{TemplateBinding hc:IconElement.Geometry}" />
-                            <ContentPresenter RecognizesAccessKey="True"
-                                              VerticalAlignment="Center"
-                                              Content="{TemplateBinding Content}"
-                                              ContentTemplate="{TemplateBinding ContentTemplate}"
-                                              IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
-                                              Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
-                        </StackPanel>
-                    </Border>
-                    <Border Margin="-1"
-                            IsVisible="{TemplateBinding IsChecked}"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            BorderThickness="4"
-                            BorderBrush="{DynamicResource DarkMaskBrush}" />
-                </Panel>
-            </ControlTemplate>
-        </Setter>
-    </ControlTheme>
-
     <ControlTheme x:Key="RadioButtonSameAsButtonDefault"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
-                  TargetType="RadioButton">
-        <Setter Property="Background"
-                Value="{DynamicResource RegionBrush}" />
-        <Setter Property="Foreground"
-                Value="{DynamicResource PrimaryTextBrush}" />
-
-        <Style Selector="^:pointerover">
-            <Setter Property="Background"
-                    Value="{DynamicResource SecondaryRegionBrush}" />
-        </Style>
-
-        <Style Selector="^:pressed">
-            <Setter Property="Background"
-                    Value="{DynamicResource BorderBrush}" />
-        </Style>
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonDefault}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonDefault.Small"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonDefault}"
-                  TargetType="RadioButton">
-        <Setter Property="Height"
-                Value="20" />
-        <Setter Property="Padding"
-                Value="6,1" />
-        <Setter Property="hc:IconElement.Height"
-                Value="12" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonDefault.Small}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonPrimary"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
-                  TargetType="RadioButton">
-        <Setter Property="Background"
-                Value="{DynamicResource PrimaryBrush}" />
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource PrimaryBrush}" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonPrimary}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonPrimary.Small"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonPrimary}"
-                  TargetType="RadioButton">
-        <Setter Property="Height"
-                Value="20" />
-        <Setter Property="Padding"
-                Value="6,1" />
-        <Setter Property="hc:IconElement.Height"
-                Value="12" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonPrimary.Small}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonSuccess"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
-                  TargetType="RadioButton">
-        <Setter Property="Background"
-                Value="{DynamicResource SuccessBrush}" />
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource SuccessBrush}" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonSuccess}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonSuccess.Small"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonSuccess}"
-                  TargetType="RadioButton">
-        <Setter Property="Height"
-                Value="20" />
-        <Setter Property="Padding"
-                Value="6,1" />
-        <Setter Property="hc:IconElement.Height"
-                Value="12" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonSuccess.Small}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonInfo"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
-                  TargetType="RadioButton">
-        <Setter Property="Background"
-                Value="{DynamicResource InfoBrush}" />
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource InfoBrush}" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonInfo}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonInfo.Small"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonInfo}"
-                  TargetType="RadioButton">
-        <Setter Property="Height"
-                Value="20" />
-        <Setter Property="Padding"
-                Value="6,1" />
-        <Setter Property="hc:IconElement.Height"
-                Value="12" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonInfo.Small}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonWarning"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
-                  TargetType="RadioButton">
-        <Setter Property="Background"
-                Value="{DynamicResource WarningBrush}" />
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource WarningBrush}" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonWarning}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonWarning.Small"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonWarning}"
-                  TargetType="RadioButton">
-        <Setter Property="Height"
-                Value="20" />
-        <Setter Property="Padding"
-                Value="6,1" />
-        <Setter Property="hc:IconElement.Height"
-                Value="12" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonWarning.Small}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonDanger"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
-                  TargetType="RadioButton">
-        <Setter Property="Background"
-                Value="{DynamicResource DangerBrush}" />
-        <Setter Property="BorderBrush"
-                Value="{DynamicResource DangerBrush}" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonDanger}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonSameAsButtonDanger.Small"
-                  BasedOn="{StaticResource RadioButtonSameAsButtonDanger}"
-                  TargetType="RadioButton">
-        <Setter Property="Height"
-                Value="20" />
-        <Setter Property="Padding"
-                Value="6,1" />
-        <Setter Property="hc:IconElement.Height"
-                Value="12" />
-    </ControlTheme>
+                  BasedOn="{StaticResource ToggleButtonDanger.Small}"
+                  TargetType="RadioButton" />
 
     <ControlTheme x:Key="RadioButtonIconBaseStyle"
                   BasedOn="{StaticResource ButtonBaseStyle}"
