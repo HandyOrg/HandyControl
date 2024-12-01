@@ -115,19 +115,19 @@
                     </WrapPanel>
                 </hc:UniformSpacingPanel>
                 <hc:UniformSpacingPanel Orientation="Vertical" Spacing="32">
-                    <StackPanel>
+                    <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
                         <RadioButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
-                        <RadioButton Margin="0,16,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsEnabled="False"/>
-                        <RadioButton Margin="0,16,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
-                        <RadioButton Margin="0,16,0,0" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsEnabled="False"/>
-                    </StackPanel>
-                    <hc:UniformSpacingPanel Spacing="10">
+                        <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsEnabled="False"/>
+                        <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                        <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsEnabled="False"/>
+                    </hc:UniformSpacingPanel>
+                    <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
                         <RadioButton Background="{DynamicResource SecondaryRegionBrush}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
                         <RadioButton Background="{DynamicResource SecondaryRegionBrush}" Style="{StaticResource RadioButtonIcon}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsChecked="True"/>
                         <RadioButton hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
                         <RadioButton Style="{StaticResource RadioButtonIcon}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
                     </hc:UniformSpacingPanel>
-                    <hc:UniformSpacingPanel Spacing="10">
+                    <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
                         <RadioButton Background="{DynamicResource SecondaryRegionBrush}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
                         <RadioButton Background="{DynamicResource SecondaryRegionBrush}" Style="{StaticResource RadioButtonIcon.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsChecked="True"/>
                         <RadioButton hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>

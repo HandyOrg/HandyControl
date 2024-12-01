@@ -2,8 +2,9 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:converter="clr-namespace:HandyControl.Tools.Converter">
 
+    <converter:Boolean2BooleanReConverter x:Key="Boolean2BooleanReConverter" />
     <converter:BorderClipConverter x:Key="BorderClipConverter" />
-    <converter:BorderCircularConverter x:Key="BorderCircularConverter"/>
+    <converter:BorderCircularConverter x:Key="BorderCircularConverter" />
     <converter:GeometrySpacingConverter x:Key="GeometrySpacingConverter" />
 
 </ResourceDictionary>

@@ -1,0 +1,334 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+    <ControlTheme x:Key="RadioButtonBaseStyle"
+                  TargetType="RadioButton">
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Padding"
+                Value="6,0,0,0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="Auto, *"
+                      Background="Transparent">
+                    <Border Height="16"
+                            Width="16"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="8"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}">
+                        <Ellipse HorizontalAlignment="Center"
+                                 VerticalAlignment="Center"
+                                 Fill="White"
+                                 Width="8"
+                                 Height="8"
+                                 RenderTransform="scale(0)">
+                            <Ellipse.Transitions>
+                                <Transitions>
+                                    <TransformOperationsTransition Property="RenderTransform"
+                                                                   Duration="0:0:0.1" />
+                                </Transitions>
+                            </Ellipse.Transitions>
+                        </Ellipse>
+                    </Border>
+                    <Border Grid.Column="0"
+                            Height="16"
+                            Width="16"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="8"
+                            HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                            IsVisible="{TemplateBinding IsChecked, Converter={StaticResource Boolean2BooleanReConverter}}" />
+                    <ContentPresenter Grid.Column="1"
+                                      Focusable="False"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Margin="{TemplateBinding Padding}"
+                                      RecognizesAccessKey="True"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource SecondaryBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed:checked">
+            <Setter Property="Opacity"
+                    Value=".8" />
+        </Style>
+
+        <Style Selector="^:pressed:unchecked">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+        <Style Selector="^:checked">
+            <Setter Property="Background"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource DarkPrimaryBrush}" />
+        </Style>
+
+        <Style Selector="^:checked /template/ Ellipse">
+            <Setter Property="RenderTransform"
+                    Value="scale(1)" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type RadioButton}"
+                  BasedOn="{StaticResource RadioButtonBaseStyle}"
+                  TargetType="RadioButton" />
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonBaseStyle"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                            <Path Width="{TemplateBinding hc:IconElement.Width}"
+                                  Height="{TemplateBinding hc:IconElement.Height}"
+                                  Fill="{TemplateBinding Foreground}"
+                                  IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                  Stretch="Uniform"
+                                  Data="{TemplateBinding hc:IconElement.Geometry}" />
+                            <ContentPresenter RecognizesAccessKey="True"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                              Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="-1"
+                            IsVisible="{TemplateBinding IsChecked}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BorderThickness="4"
+                            BorderBrush="{DynamicResource DarkMaskBrush}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonDefault"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonDefault.Small"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonDefault}"
+                  TargetType="RadioButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonPrimary"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonPrimary.Small"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonPrimary}"
+                  TargetType="RadioButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonSuccess"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonSuccess.Small"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonSuccess}"
+                  TargetType="RadioButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonInfo"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonInfo.Small"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonInfo}"
+                  TargetType="RadioButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonWarning"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonWarning.Small"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonWarning}"
+                  TargetType="RadioButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonDanger"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonSameAsButtonDanger.Small"
+                  BasedOn="{StaticResource RadioButtonSameAsButtonDanger}"
+                  TargetType="RadioButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonIconBaseStyle"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="RadioButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0" />
+        <Setter Property="hc:VisualElement.HighlightBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border CornerRadius="{TemplateBinding CornerRadius}"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                            <Path Height="{TemplateBinding hc:IconElement.Height}"
+                                  Width="{TemplateBinding hc:IconElement.Width}"
+                                  Fill="{TemplateBinding Foreground}"
+                                  IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                  Stretch="Uniform"
+                                  Data="{TemplateBinding hc:IconElement.Geometry}" />
+                            <ContentPresenter RecognizesAccessKey="True"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                        </StackPanel>
+                    </Border>
+                    <Border x:Name="BorderHighlight"
+                            BorderThickness="3,0,0,0"
+                            BorderBrush="Transparent"
+                            IsVisible="{TemplateBinding IsChecked}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:checked /template/ Border#BorderHighlight">
+            <Setter Property="BorderBrush"
+                    Value="{Binding Path=(hc:VisualElement.HighlightBrush), RelativeSource={RelativeSource TemplatedParent}}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RadioButtonIcon"
+                  BasedOn="{StaticResource RadioButtonIconBaseStyle}"
+                  TargetType="RadioButton" />
+
+    <ControlTheme x:Key="RadioButtonIcon.Small"
+                  BasedOn="{StaticResource RadioButtonIcon}"
+                  TargetType="RadioButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+</ResourceDictionary>
