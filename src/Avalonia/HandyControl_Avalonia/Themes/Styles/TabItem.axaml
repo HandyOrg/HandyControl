@@ -46,11 +46,11 @@
         <Style Selector="^:selected">
             <Setter Property="Foreground"
                     Value="{DynamicResource PrimaryBrush}" />
-        </Style>
 
-        <Style Selector="^:selected /template/ Border#mainBorder">
-            <Setter Property="BorderThickness"
-                    Value="0,0,0,2" />
+            <Style Selector="^ /template/ Border#mainBorder">
+                <Setter Property="BorderThickness"
+                        Value="0,0,0,2" />
+            </Style>
         </Style>
     </ControlTheme>
 </ResourceDictionary>

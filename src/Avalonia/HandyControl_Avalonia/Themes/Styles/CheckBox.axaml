@@ -1,0 +1,121 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="CheckBoxBaseStyle"
+                  TargetType="CheckBox">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Background"
+                Value="White" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="HorizontalAlignment"
+                Value="Stretch" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="6,0,0,0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Background="Transparent"
+                      ColumnDefinitions="Auto, *">
+                    <Border Height="16"
+                            Width="16"
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            CornerRadius="2" />
+                    <Panel Grid.Column="0"
+                           Height="16"
+                           Width="16">
+                        <Path FlowDirection="LeftToRight"
+                              StrokeDashOffset="8"
+                              StrokeDashArray="8,8"
+                              Width="10"
+                              Height="8"
+                              Data="{StaticResource CheckedGeometry}"
+                              StrokeThickness="2"
+                              Stretch="Uniform"
+                              Stroke="{DynamicResource TextIconBrush}"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
+                              x:Name="path">
+                            <Path.Transitions>
+                                <Transitions>
+                                    <DoubleTransition Property="StrokeDashOffset"
+                                                      Duration="0:0:0.2" />
+                                </Transitions>
+                            </Path.Transitions>
+                        </Path>
+                        <Rectangle RadiusX="2"
+                                   RadiusY="2"
+                                   Width="12"
+                                   Height="12"
+                                   Fill="{DynamicResource PrimaryBrush}"
+                                   IsVisible="{Binding IsChecked, RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNull}}"
+                                   Margin="2"
+                                   Opacity="1"
+                                   x:Name="indeterminateMark" />
+                    </Panel>
+                    <ContentPresenter x:Name="contentPresenter"
+                                      IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                      Grid.Column="1"
+                                      Focusable="False"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      Margin="{TemplateBinding Padding}"
+                                      RecognizesAccessKey="True"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource SecondaryBorderBrush}" />
+        </Style>
+
+        <Style Selector="^:checked">
+            <Setter Property="Background"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource DarkPrimaryBrush}" />
+
+            <Style Selector="^ /template/ Path#path">
+                <Setter Property="StrokeDashOffset"
+                        Value="0" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Path#path">
+                <Setter Property="Stroke"
+                        Value="{DynamicResource BorderBrush}" />
+                <Setter Property="StrokeDashOffset"
+                        Value="8" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Style Selector="^:checked">
+                <Setter Property="Opacity"
+                        Value=".8" />
+            </Style>
+            <Style Selector="^:unchecked">
+                <Setter Property="BorderBrush"
+                        Value="{DynamicResource PrimaryBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type CheckBox}"
+                  BasedOn="{StaticResource CheckBoxBaseStyle}"
+                  TargetType="CheckBox" />
+</ResourceDictionary>

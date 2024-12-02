@@ -585,34 +585,34 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:checked /template/ Border#thumb">
-            <Setter Property="RenderTransform"
-                    Value="translateX(32px)" />
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Border#thumb">
+                <Setter Property="RenderTransform"
+                        Value="translateX(32px)" />
+            </Style>
+            <Style Selector="^ /template/ Border#lightBorder">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Border#innerBorder">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
         </Style>
 
-        <Style Selector="^:unchecked /template/ Border#thumb">
-            <Setter Property="RenderTransform"
-                    Value="translateX(0px)" />
-        </Style>
-
-        <Style Selector="^:checked /template/ Border#lightBorder">
-            <Setter Property="Opacity"
-                    Value="1" />
-        </Style>
-
-        <Style Selector="^:unchecked /template/ Border#lightBorder">
-            <Setter Property="Opacity"
-                    Value="0" />
-        </Style>
-
-        <Style Selector="^:checked /template/ Border#innerBorder">
-            <Setter Property="Opacity"
-                    Value="0" />
-        </Style>
-
-        <Style Selector="^:unchecked /template/ Border#innerBorder">
-            <Setter Property="Opacity"
-                    Value="1" />
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Border#thumb">
+                <Setter Property="RenderTransform"
+                        Value="translateX(0px)" />
+            </Style>
+            <Style Selector="^ /template/ Border#lightBorder">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
+            <Style Selector="^ /template/ Border#innerBorder">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
         </Style>
 
         <Style Selector="^:disabled">
@@ -703,44 +703,42 @@
             </ControlTemplate>
         </Setter>
 
-        <Style Selector="^:checked /template/ Border#unCheckedElement">
-            <Setter Property="RenderTransform"
-                    Value="scaleX(0)" />
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Border#unCheckedElement">
+                <Setter Property="RenderTransform"
+                        Value="scaleX(0)" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedElement">
+                <Setter Property="RenderTransform"
+                        Value="scaleX(1)" />
+            </Style>
+            <Style Selector="^ /template/ Border#unCheckedElement">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedElement">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
         </Style>
 
-        <Style Selector="^:checked /template/ Border#checkedElement">
-            <Setter Property="RenderTransform"
-                    Value="scaleX(1)" />
-        </Style>
-
-        <Style Selector="^:unchecked /template/ Border#unCheckedElement">
-            <Setter Property="RenderTransform"
-                    Value="scaleX(1)" />
-        </Style>
-
-        <Style Selector="^:unchecked /template/ Border#checkedElement">
-            <Setter Property="RenderTransform"
-                    Value="scaleX(0)" />
-        </Style>
-
-        <Style Selector="^:checked /template/ Border#unCheckedElement">
-            <Setter Property="Opacity"
-                    Value="0" />
-        </Style>
-
-        <Style Selector="^:checked /template/ Border#checkedElement">
-            <Setter Property="Opacity"
-                    Value="1" />
-        </Style>
-
-        <Style Selector="^:unchecked /template/ Border#unCheckedElement">
-            <Setter Property="Opacity"
-                    Value="1" />
-        </Style>
-
-        <Style Selector="^:unchecked /template/ Border#checkedElement">
-            <Setter Property="Opacity"
-                    Value="0" />
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Border#unCheckedElement">
+                <Setter Property="RenderTransform"
+                        Value="scaleX(1)" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedElement">
+                <Setter Property="RenderTransform"
+                        Value="scaleX(0)" />
+            </Style>
+            <Style Selector="^ /template/ Border#unCheckedElement">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedElement">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
         </Style>
 
         <Style Selector="^:pointerover">

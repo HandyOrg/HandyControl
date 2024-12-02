@@ -70,30 +70,32 @@
                     Value="{DynamicResource SecondaryBorderBrush}" />
         </Style>
 
-        <Style Selector="^:pressed:checked">
-            <Setter Property="Opacity"
-                    Value=".8" />
-        </Style>
-
-        <Style Selector="^:pressed:unchecked">
-            <Setter Property="BorderBrush"
-                    Value="{DynamicResource PrimaryBrush}" />
+        <Style Selector="^:pressed">
+            <Style Selector="^:checked">
+                <Setter Property="Opacity"
+                        Value=".8" />
+            </Style>
+            <Style Selector="^:unchecked">
+                <Setter Property="BorderBrush"
+                        Value="{DynamicResource PrimaryBrush}" />
+            </Style>
         </Style>
 
         <Style Selector="^:disabled">
             <Setter Property="Opacity"
                     Value="0.4" />
         </Style>
+
         <Style Selector="^:checked">
             <Setter Property="Background"
                     Value="{DynamicResource PrimaryBrush}" />
             <Setter Property="BorderBrush"
                     Value="{DynamicResource DarkPrimaryBrush}" />
-        </Style>
 
-        <Style Selector="^:checked /template/ Ellipse">
-            <Setter Property="RenderTransform"
-                    Value="scale(1)" />
+            <Style Selector="^ /template/ Ellipse">
+                <Setter Property="RenderTransform"
+                        Value="scale(1)" />
+            </Style>
         </Style>
     </ControlTheme>
 

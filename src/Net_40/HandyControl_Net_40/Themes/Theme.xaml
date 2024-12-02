@@ -3470,7 +3470,7 @@
 		<Setter Property="Padding" Value="6,1" />
 		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
-	<Style x:Key="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton" />
+	<Style BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton" />
 	<Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />

@@ -1887,7 +1887,7 @@
 									<Ellipse HorizontalAlignment="Right" Visibility="{Binding Path=(hc:ToggleButtonAttach.ShowLabel), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0 0 12 0" Width="16" Height="16" StrokeThickness="2" Stroke="{Binding Path=(hc:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" />
 								</Border>
 								<Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Opacity="0" x:Name="lightBorder" Background="{Binding Path=(hc:VisualElement.HighlightBrush),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="24">
-									<Rectangle HorizontalAlignment="Left" Visibility="{Binding Path=(hc:ToggleButtonAttach.ShowLabel), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" Margin="18 0 0 0" Width="3" Height="16" RadiusX="1.5" RadiusY="1.5" Fill="{DynamicResource TextIconBrush}" />
+									<Rectangle HorizontalAlignment="Left" Visibility="{Binding Path=(hc:ToggleButtonAttach.ShowLabel), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" Margin="18 0 0 0" Width="2" Height="16" RadiusX="1" RadiusY="1" Fill="{DynamicResource TextIconBrush}" />
 								</Border>
 								<Border Margin="2" HorizontalAlignment="Left" CornerRadius="22" Name="thumb" Effect="{StaticResource EffectShadow2}" Background="White" Width="44" Height="44" RenderTransformOrigin="0.5,0.5">
 									<Border.RenderTransform>
@@ -3470,7 +3470,7 @@
 		<Setter Property="Padding" Value="6,1" />
 		<Setter Property="hc:IconElement.Height" Value="12" />
 	</Style>
-	<Style x:Key="{x:Type ToggleButton}" BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton" />
+	<Style BasedOn="{StaticResource ToggleButtonDefault}" TargetType="ToggleButton" />
 	<Style x:Key="ToggleButtonPrimary" BasedOn="{StaticResource ToggleButtonBaseStyle}" TargetType="ToggleButton">
 		<Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
 		<Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
