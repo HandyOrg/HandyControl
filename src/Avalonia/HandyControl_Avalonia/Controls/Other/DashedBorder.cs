@@ -71,9 +71,9 @@ public class DashedBorder : Decorator
         BorderDashOffsetProperty.Changed.AddClassHandler<DashedBorder>(OnClearPenCache);
     }
 
-    private static void OnClearPenCache(AvaloniaObject d, AvaloniaPropertyChangedEventArgs e)
+    private static void OnClearPenCache(AvaloniaObject element, AvaloniaPropertyChangedEventArgs e)
     {
-        var border = (DashedBorder)d;
+        var border = (DashedBorder)element;
         border._leftPenCache = null;
         border._rightPenCache = null;
         border._topPenCache = null;

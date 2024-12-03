@@ -27,9 +27,9 @@ public class BorderElement
         CircularProperty.Changed.AddClassHandler<AvaloniaObject>(OnCircularChanged);
     }
 
-    private static void OnCircularChanged(AvaloniaObject d, AvaloniaPropertyChangedEventArgs e)
+    private static void OnCircularChanged(AvaloniaObject element, AvaloniaPropertyChangedEventArgs e)
     {
-        if (d is not Border border)
+        if (element is not Border border)
         {
             return;
         }

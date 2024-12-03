@@ -63,9 +63,9 @@ public class UniformSpacingPanel : Panel
         OrientationProperty.Changed.AddClassHandler<UniformSpacingPanel>(OnOrientationChanged);
     }
 
-    private static void OnOrientationChanged(AvaloniaObject d, AvaloniaPropertyChangedEventArgs e)
+    private static void OnOrientationChanged(AvaloniaObject element, AvaloniaPropertyChangedEventArgs e)
     {
-        var p = (UniformSpacingPanel)d;
+        var p = (UniformSpacingPanel)element;
         p._orientation = e.GetNewValue<Orientation>();
     }
 
