@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class DividerDemoCtl
+public partial class DividerDemo
 {
-    public DividerDemoCtl()
+    public DividerDemo()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 namespace HandyControlDemo.UserControl;
 
-public partial class NativeScrollViewerDemoCtl : Avalonia.Controls.UserControl
+public partial class NativeScrollViewerDemo : Avalonia.Controls.UserControl
 {
-    public NativeScrollViewerDemoCtl()
+    public NativeScrollViewerDemo()
     {
         InitializeComponent();
     }

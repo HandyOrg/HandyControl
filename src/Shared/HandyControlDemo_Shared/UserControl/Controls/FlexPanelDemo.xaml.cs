@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class FlexPanelDemoCtl : IFull
+public partial class FlexPanelDemo : IFull
 {
-    public FlexPanelDemoCtl()
+    public FlexPanelDemo()
     {
         InitializeComponent();
     }

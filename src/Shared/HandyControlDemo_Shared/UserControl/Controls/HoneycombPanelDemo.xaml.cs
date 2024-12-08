@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class HoneycombPanelDemoCtl
+public partial class HoneycombPanelDemo
 {
-    public HoneycombPanelDemoCtl()
+    public HoneycombPanelDemo()
     {
         InitializeComponent();
     }

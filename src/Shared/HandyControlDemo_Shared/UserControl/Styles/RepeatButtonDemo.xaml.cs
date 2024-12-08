@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class RepeatButtonDemoCtl
+public partial class RepeatButtonDemo
 {
-    public RepeatButtonDemoCtl()
+    public RepeatButtonDemo()
     {
         InitializeComponent();
     }

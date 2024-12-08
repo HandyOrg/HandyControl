@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class PasswordBoxDemoCtl
+public partial class PasswordBoxDemo
 {
-    public PasswordBoxDemoCtl()
+    public PasswordBoxDemo()
     {
         InitializeComponent();
     }

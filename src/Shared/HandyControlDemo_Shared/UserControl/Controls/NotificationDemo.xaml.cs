@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class NotificationDemoCtl
+public partial class NotificationDemo
 {
-    public NotificationDemoCtl()
+    public NotificationDemo()
     {
         InitializeComponent();
     }

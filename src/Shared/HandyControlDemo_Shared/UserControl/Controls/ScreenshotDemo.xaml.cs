@@ -7,9 +7,9 @@ using HandyControl.Data;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class ScreenshotDemoCtl : IDisposable
+public partial class ScreenshotDemo : IDisposable
 {
-    public ScreenshotDemoCtl()
+    public ScreenshotDemo()
     {
         InitializeComponent();
         Screenshot.Snapped += Screenshot_Snapped;

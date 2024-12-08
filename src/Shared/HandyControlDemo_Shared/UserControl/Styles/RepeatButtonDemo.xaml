@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.RepeatButtonDemoCtl"
+﻿<UserControl x:Class="HandyControlDemo.UserControl.RepeatButtonDemo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"

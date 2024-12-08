@@ -1,8 +1,8 @@
 namespace HandyControlDemo.UserControl;
 
-public partial class ToggleButtonDemoCtl : Avalonia.Controls.UserControl
+public partial class ToggleButtonDemo : Avalonia.Controls.UserControl
 {
-    public ToggleButtonDemoCtl()
+    public ToggleButtonDemo()
     {
         InitializeComponent();
     }

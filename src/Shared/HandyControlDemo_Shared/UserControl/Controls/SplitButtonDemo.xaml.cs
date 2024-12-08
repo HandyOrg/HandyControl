@@ -2,9 +2,9 @@
 
 namespace HandyControlDemo.UserControl;
 
-public partial class SplitButtonDemoCtl
+public partial class SplitButtonDemo
 {
-    public SplitButtonDemoCtl()
+    public SplitButtonDemo()
     {
         InitializeComponent();
     }

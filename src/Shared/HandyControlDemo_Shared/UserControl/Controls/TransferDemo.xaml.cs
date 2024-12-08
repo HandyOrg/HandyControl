@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class TransferDemoCtl
+public partial class TransferDemo
 {
-    public TransferDemoCtl()
+    public TransferDemo()
     {
         InitializeComponent();
     }

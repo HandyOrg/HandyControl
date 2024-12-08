@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class GravatarDemoCtl
+public partial class GravatarDemo
 {
-    public GravatarDemoCtl()
+    public GravatarDemo()
     {
         InitializeComponent();
     }

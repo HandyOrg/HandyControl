@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class RangeSliderDemoCtl
+public partial class RangeSliderDemo
 {
-    public RangeSliderDemoCtl()
+    public RangeSliderDemo()
     {
         InitializeComponent();
     }

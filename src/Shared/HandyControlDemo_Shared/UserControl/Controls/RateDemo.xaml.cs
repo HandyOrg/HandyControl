@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class RateDemoCtl
+public partial class RateDemo
 {
-    public RateDemoCtl()
+    public RateDemo()
     {
         InitializeComponent();
     }

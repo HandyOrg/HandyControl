@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.CarouselDemoCtl"
+﻿<UserControl x:Class="HandyControlDemo.UserControl.CarouselDemo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              Background="{DynamicResource RegionBrush}"

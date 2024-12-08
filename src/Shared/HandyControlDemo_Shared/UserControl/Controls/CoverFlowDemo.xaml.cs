@@ -2,9 +2,9 @@
 
 namespace HandyControlDemo.UserControl;
 
-public partial class CoverFlowDemoCtl
+public partial class CoverFlowDemo
 {
-    public CoverFlowDemoCtl()
+    public CoverFlowDemo()
     {
         InitializeComponent();
 

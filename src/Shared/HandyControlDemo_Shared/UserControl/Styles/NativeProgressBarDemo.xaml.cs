@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class NativeProgressBarDemoCtl
+public partial class NativeProgressBarDemo
 {
-    public NativeProgressBarDemoCtl()
+    public NativeProgressBarDemo()
     {
         InitializeComponent();
     }

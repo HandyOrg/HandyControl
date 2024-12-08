@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class OutlineTextDemoCtl
+public partial class OutlineTextDemo
 {
-    public OutlineTextDemoCtl()
+    public OutlineTextDemo()
     {
         InitializeComponent();
     }

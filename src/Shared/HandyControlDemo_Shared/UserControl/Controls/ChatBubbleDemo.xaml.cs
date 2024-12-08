@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class ChatBubbleDemoCtl
+public partial class ChatBubbleDemo
 {
-    public ChatBubbleDemoCtl()
+    public ChatBubbleDemo()
     {
         InitializeComponent();
     }

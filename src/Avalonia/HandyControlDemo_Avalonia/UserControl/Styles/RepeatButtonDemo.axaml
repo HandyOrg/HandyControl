@@ -1,6 +1,6 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="HandyControlDemo.UserControl.RepeatButtonDemoCtl"
+             x:Class="HandyControlDemo.UserControl.RepeatButtonDemo"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <ScrollViewer>

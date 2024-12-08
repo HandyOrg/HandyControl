@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class TagDemoCtl
+public partial class TagDemo
 {
-    public TagDemoCtl()
+    public TagDemo()
     {
         InitializeComponent();
     }

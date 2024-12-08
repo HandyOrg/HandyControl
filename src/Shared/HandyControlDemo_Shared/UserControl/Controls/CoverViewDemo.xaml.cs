@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class CoverViewDemoCtl
+public partial class CoverViewDemo
 {
-    public CoverViewDemoCtl()
+    public CoverViewDemo()
     {
         InitializeComponent();
     }

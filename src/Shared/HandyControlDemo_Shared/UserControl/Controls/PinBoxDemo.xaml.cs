@@ -3,9 +3,9 @@ using HandyControl.Controls;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class PinBoxDemoCtl
+public partial class PinBoxDemo
 {
-    public PinBoxDemoCtl()
+    public PinBoxDemo()
     {
         InitializeComponent();
     }

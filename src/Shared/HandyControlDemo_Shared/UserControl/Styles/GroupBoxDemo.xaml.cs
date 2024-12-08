@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class GroupBoxDemoCtl
+public partial class GroupBoxDemo
 {
-    public GroupBoxDemoCtl()
+    public GroupBoxDemo()
     {
         InitializeComponent();
     }

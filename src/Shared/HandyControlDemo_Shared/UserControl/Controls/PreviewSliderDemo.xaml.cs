@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class PreviewSliderDemoCtl
+public partial class PreviewSliderDemo
 {
-    public PreviewSliderDemoCtl()
+    public PreviewSliderDemo()
     {
         InitializeComponent();
     }

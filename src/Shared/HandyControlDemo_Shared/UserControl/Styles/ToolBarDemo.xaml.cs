@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class ToolBarDemoCtl
+public partial class ToolBarDemo
 {
-    public ToolBarDemoCtl()
+    public ToolBarDemo()
     {
         InitializeComponent();
     }

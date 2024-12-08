@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class GrowlDemoCtl
+public partial class GrowlDemo
 {
-    public GrowlDemoCtl()
+    public GrowlDemo()
     {
         InitializeComponent();
     }

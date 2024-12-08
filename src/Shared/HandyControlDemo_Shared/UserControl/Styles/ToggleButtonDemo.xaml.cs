@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class ToggleButtonDemoCtl
+public partial class ToggleButtonDemo
 {
-    public ToggleButtonDemoCtl()
+    public ToggleButtonDemo()
     {
         InitializeComponent();
     }

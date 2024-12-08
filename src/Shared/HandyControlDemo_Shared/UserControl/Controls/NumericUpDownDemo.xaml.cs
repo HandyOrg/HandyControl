@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class NumericUpDownDemoCtl
+public partial class NumericUpDownDemo
 {
-    public NumericUpDownDemoCtl()
+    public NumericUpDownDemo()
     {
         InitializeComponent();
     }

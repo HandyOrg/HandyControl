@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class NativeComboBoxDemoCtl
+public partial class NativeComboBoxDemo
 {
-    public NativeComboBoxDemoCtl()
+    public NativeComboBoxDemo()
     {
         InitializeComponent();
     }

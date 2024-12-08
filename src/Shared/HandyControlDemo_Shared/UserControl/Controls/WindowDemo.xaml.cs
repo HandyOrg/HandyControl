@@ -6,9 +6,9 @@ using MessageBox = HandyControl.Controls.MessageBox;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class WindowDemoCtl
+public partial class WindowDemo
 {
-    public WindowDemoCtl()
+    public WindowDemo()
     {
         InitializeComponent();
     }

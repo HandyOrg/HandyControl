@@ -4,10 +4,10 @@ using System.Windows.Threading;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class ProgressButtonDemoCtl
+public partial class ProgressButtonDemo
 {
     public static readonly DependencyProperty ProgressProperty = DependencyProperty.Register(
-        nameof(Progress), typeof(int), typeof(ProgressButtonDemoCtl), new PropertyMetadata(default(int)));
+        nameof(Progress), typeof(int), typeof(ProgressButtonDemo), new PropertyMetadata(default(int)));
 
     public int Progress
     {
@@ -16,7 +16,7 @@ public partial class ProgressButtonDemoCtl
     }
 
     public static readonly DependencyProperty IsUploadingProperty = DependencyProperty.Register(
-        nameof(IsUploading), typeof(bool), typeof(ProgressButtonDemoCtl), new PropertyMetadata(default(bool)));
+        nameof(IsUploading), typeof(bool), typeof(ProgressButtonDemo), new PropertyMetadata(default(bool)));
 
     public bool IsUploading
     {
@@ -26,7 +26,7 @@ public partial class ProgressButtonDemoCtl
 
     private readonly DispatcherTimer _timer;
 
-    public ProgressButtonDemoCtl()
+    public ProgressButtonDemo()
     {
         InitializeComponent();
 

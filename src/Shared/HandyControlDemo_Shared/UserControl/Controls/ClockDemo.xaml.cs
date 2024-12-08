@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class ClockDemoCtl
+public partial class ClockDemo
 {
-    public ClockDemoCtl()
+    public ClockDemo()
     {
         InitializeComponent();
     }

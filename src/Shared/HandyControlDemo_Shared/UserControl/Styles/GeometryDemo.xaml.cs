@@ -8,7 +8,7 @@ using HandyControlDemo.Data;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class GeometryDemoCtl
+public partial class GeometryDemo
 {
     private readonly HashSet<string> _lineSet = new()
     {
@@ -18,7 +18,7 @@ public partial class GeometryDemoCtl
     public ObservableCollection<GeometryItemModel> GeometryItems { get; set; } =
         new();
 
-    public GeometryDemoCtl()
+    public GeometryDemo()
     {
         InitializeComponent();
         GenerateGeometries();

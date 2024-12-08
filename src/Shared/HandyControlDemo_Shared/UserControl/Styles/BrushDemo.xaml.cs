@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class BrushDemoCtl
+public partial class BrushDemo
 {
-    public BrushDemoCtl()
+    public BrushDemo()
     {
         InitializeComponent();
     }

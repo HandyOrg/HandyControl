@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.ToolBarDemoCtl" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension" DataContext="{Binding InputElementDemo,Source={StaticResource Locator}}" Background="{DynamicResource RegionBrush}">
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ToolBarDemo" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:hc="https://handyorg.github.io/handycontrol" xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs" xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension" DataContext="{Binding InputElementDemo,Source={StaticResource Locator}}" Background="{DynamicResource RegionBrush}">
     <hc:TransitioningContentControl>
         <StackPanel Margin="32">
             <ToolBarTray VerticalAlignment="Center">

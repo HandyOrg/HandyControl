@@ -3,9 +3,9 @@ using System.Windows.Media.Imaging;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class ButtonGroupDemoCtl
+public partial class ButtonGroupDemo
 {
-    public ButtonGroupDemoCtl()
+    public ButtonGroupDemo()
     {
         InitializeComponent();
     }

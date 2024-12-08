@@ -4,17 +4,17 @@ using HandyControlDemo.ViewModel;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class NotifyIconDemoCtl
+public partial class NotifyIconDemo
 {
-    public NotifyIconDemoCtl()
+    public NotifyIconDemo()
     {
         InitializeComponent();
 
-        AssemblyHelper.Register(nameof(NotifyIconDemoCtl), this);
-        Unloaded += NotifyIconDemoCtl_Unloaded;
+        AssemblyHelper.Register(nameof(NotifyIconDemo), this);
+        Unloaded += NotifyIconDemo_Unloaded;
     }
 
-    private void NotifyIconDemoCtl_Unloaded(object sender, RoutedEventArgs e) => ViewModelLocator.Instance.NotifyIconDemo.Cleanup();
+    private void NotifyIconDemo_Unloaded(object sender, RoutedEventArgs e) => ViewModelLocator.Instance.NotifyIconDemo.Cleanup();
 
     private void ButtonPush_OnClick(object sender, RoutedEventArgs e) => NotifyIconContextContent.CloseContextControl();
 }

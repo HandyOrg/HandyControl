@@ -6,12 +6,12 @@ using HandyControl.Tools.Extension;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class FrameDemoCtl
+public partial class FrameDemo
 {
 
     private readonly List<Page> _pageList;
 
-    public FrameDemoCtl()
+    public FrameDemo()
     {
         InitializeComponent();
 
@@ -23,7 +23,7 @@ public partial class FrameDemoCtl
             _pageList.Add(CreatePage(i));
         }
 
-        FrameDemo.Navigate(_pageList[0]);
+        frameDemo.Navigate(_pageList[0]);
     }
 
     private Page CreatePage(int index)
@@ -50,7 +50,7 @@ public partial class FrameDemoCtl
         if (e.OriginalSource is Button button && button.Tag is string tag)
         {
             var index = tag.Value<int>() + 1;
-            FrameDemo.Navigate(index >= _pageList.Count ? _pageList[0] : _pageList[index]);
+            frameDemo.Navigate(index >= _pageList.Count ? _pageList[0] : _pageList[index]);
         }
     }
 }

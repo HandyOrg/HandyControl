@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class TransitioningContentControlDemoCtl
+public partial class TransitioningContentControlDemo
 {
-    public TransitioningContentControlDemoCtl()
+    public TransitioningContentControlDemo()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class WaterfallPanelDemoCtl
+public partial class WaterfallPanelDemo
 {
-    public WaterfallPanelDemoCtl()
+    public WaterfallPanelDemo()
     {
         InitializeComponent();
     }

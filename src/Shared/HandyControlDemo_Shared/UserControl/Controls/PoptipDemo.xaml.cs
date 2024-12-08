@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class PoptipDemoCtl
+public partial class PoptipDemo
 {
-    public PoptipDemoCtl()
+    public PoptipDemo()
     {
         InitializeComponent();
     }

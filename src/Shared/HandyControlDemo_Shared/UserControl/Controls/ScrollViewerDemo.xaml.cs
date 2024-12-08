@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class ScrollViewerDemoCtl
+public partial class ScrollViewerDemo
 {
-    public ScrollViewerDemoCtl()
+    public ScrollViewerDemo()
     {
         InitializeComponent();
     }

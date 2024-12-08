@@ -1,8 +1,8 @@
 namespace HandyControlDemo.UserControl;
 
-public partial class CheckBoxDemoCtl : Avalonia.Controls.UserControl
+public partial class CheckBoxDemo : Avalonia.Controls.UserControl
 {
-    public CheckBoxDemoCtl()
+    public CheckBoxDemo()
     {
         InitializeComponent();
     }

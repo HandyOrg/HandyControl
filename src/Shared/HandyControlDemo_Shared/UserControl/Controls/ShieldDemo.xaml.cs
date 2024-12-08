@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class ShieldDemoCtl
+public partial class ShieldDemo
 {
-    public ShieldDemoCtl()
+    public ShieldDemo()
     {
         InitializeComponent();
     }

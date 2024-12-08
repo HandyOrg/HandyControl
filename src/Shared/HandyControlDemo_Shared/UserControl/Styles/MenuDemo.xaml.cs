@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class MenuDemoCtl
+public partial class MenuDemo
 {
-    public MenuDemoCtl()
+    public MenuDemo()
     {
         InitializeComponent();
     }

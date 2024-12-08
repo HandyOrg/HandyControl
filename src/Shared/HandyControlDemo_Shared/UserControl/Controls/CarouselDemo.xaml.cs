@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class CarouselDemoCtl
+public partial class CarouselDemo
 {
-    public CarouselDemoCtl()
+    public CarouselDemo()
     {
         InitializeComponent();
     }

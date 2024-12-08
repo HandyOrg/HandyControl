@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="HandyControlDemo.UserControl.ToggleButtonDemoCtl"
+             x:Class="HandyControlDemo.UserControl.ToggleButtonDemo"
              xmlns:hc="https://handyorg.github.io/handycontrol"
              Background="{DynamicResource RegionBrush}">
     <ScrollViewer>

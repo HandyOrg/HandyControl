@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class PaginationDemoCtl
+public partial class PaginationDemo
 {
-    public PaginationDemoCtl()
+    public PaginationDemo()
     {
         InitializeComponent();
     }

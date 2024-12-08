@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class CheckBoxDemoCtl
+public partial class CheckBoxDemo
 {
-    public CheckBoxDemoCtl()
+    public CheckBoxDemo()
     {
         InitializeComponent();
     }

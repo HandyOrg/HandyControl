@@ -1,8 +1,8 @@
 namespace HandyControlDemo.UserControl;
 
-public partial class RadioButtonDemoCtl : Avalonia.Controls.UserControl
+public partial class RadioButtonDemo : Avalonia.Controls.UserControl
 {
-    public RadioButtonDemoCtl()
+    public RadioButtonDemo()
     {
         InitializeComponent();
     }

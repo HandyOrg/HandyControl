@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class GeometryAnimationDemoCtl
+public partial class GeometryAnimationDemo
 {
-    public GeometryAnimationDemoCtl()
+    public GeometryAnimationDemo()
     {
         InitializeComponent();
     }

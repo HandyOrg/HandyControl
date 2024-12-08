@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class DialogDemoCtl
+public partial class DialogDemo
 {
-    public DialogDemoCtl()
+    public DialogDemo()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class HatchBrushGeneratorDemoCtl
+public partial class HatchBrushGeneratorDemo
 {
-    public HatchBrushGeneratorDemoCtl()
+    public HatchBrushGeneratorDemo()
     {
         InitializeComponent();
     }

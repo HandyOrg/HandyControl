@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class ListViewDemoCtl
+public partial class ListViewDemo
 {
-    public ListViewDemoCtl()
+    public ListViewDemo()
     {
         InitializeComponent();
     }

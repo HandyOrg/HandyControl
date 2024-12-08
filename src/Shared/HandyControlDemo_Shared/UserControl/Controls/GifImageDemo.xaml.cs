@@ -2,9 +2,9 @@
 
 namespace HandyControlDemo.UserControl;
 
-public partial class GifImageDemoCtl : IDisposable
+public partial class GifImageDemo : IDisposable
 {
-    public GifImageDemoCtl()
+    public GifImageDemo()
     {
         InitializeComponent();
     }

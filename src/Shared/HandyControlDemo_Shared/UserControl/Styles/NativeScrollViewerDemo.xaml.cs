@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class NativeScrollViewerDemoCtl
+public partial class NativeScrollViewerDemo
 {
-    public NativeScrollViewerDemoCtl()
+    public NativeScrollViewerDemo()
     {
         InitializeComponent();
     }

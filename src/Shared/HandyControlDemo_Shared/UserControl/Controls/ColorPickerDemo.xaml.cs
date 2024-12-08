@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class ColorPickerDemoCtl
+public partial class ColorPickerDemo
 {
-    public ColorPickerDemoCtl()
+    public ColorPickerDemo()
     {
         InitializeComponent();
     }

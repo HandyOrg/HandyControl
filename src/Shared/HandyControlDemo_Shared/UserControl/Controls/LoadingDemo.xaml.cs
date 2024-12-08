@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class LoadingDemoCtl
+public partial class LoadingDemo
 {
-    public LoadingDemoCtl()
+    public LoadingDemo()
     {
         InitializeComponent();
     }

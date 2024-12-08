@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class MagnifierDemoCtl
+public partial class MagnifierDemo
 {
-    public MagnifierDemoCtl()
+    public MagnifierDemo()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 namespace HandyControlDemo.UserControl;
 
-public partial class ButtonDemoCtl : Avalonia.Controls.UserControl
+public partial class ButtonDemo : Avalonia.Controls.UserControl
 {
-    public ButtonDemoCtl()
+    public ButtonDemo()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class RichTextBoxDemoCtl
+public partial class RichTextBoxDemo
 {
-    public RichTextBoxDemoCtl()
+    public RichTextBoxDemo()
     {
         InitializeComponent();
     }

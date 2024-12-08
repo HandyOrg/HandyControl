@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class DataGridDemoCtl
+public partial class DataGridDemo
 {
-    public DataGridDemoCtl()
+    public DataGridDemo()
     {
         InitializeComponent();
     }

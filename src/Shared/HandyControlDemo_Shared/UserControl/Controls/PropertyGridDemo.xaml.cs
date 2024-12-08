@@ -3,9 +3,9 @@ using HandyControlDemo.Data;
 
 namespace HandyControlDemo.UserControl;
 
-public partial class PropertyGridDemoCtl
+public partial class PropertyGridDemo
 {
-    public PropertyGridDemoCtl()
+    public PropertyGridDemo()
     {
         InitializeComponent();
 
@@ -20,7 +20,7 @@ public partial class PropertyGridDemoCtl
     }
 
     public static readonly DependencyProperty DemoModelProperty = DependencyProperty.Register(
-        nameof(DemoModel), typeof(PropertyGridDemoModel), typeof(PropertyGridDemoCtl), new PropertyMetadata(default(PropertyGridDemoModel)));
+        nameof(DemoModel), typeof(PropertyGridDemoModel), typeof(PropertyGridDemo), new PropertyMetadata(default(PropertyGridDemoModel)));
 
     public PropertyGridDemoModel DemoModel
     {

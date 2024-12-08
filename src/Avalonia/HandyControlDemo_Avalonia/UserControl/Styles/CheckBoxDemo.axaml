@@ -1,6 +1,6 @@
 <UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             x:Class="HandyControlDemo.UserControl.CheckBoxDemoCtl">
+             x:Class="HandyControlDemo.UserControl.CheckBoxDemo">
     <StackPanel Margin="32"
                 HorizontalAlignment="Center"
                 VerticalAlignment="Center">

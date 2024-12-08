@@ -1,9 +1,9 @@
 ﻿
 namespace HandyControlDemo.UserControl;
 
-public partial class StepBarDemoCtl
+public partial class StepBarDemo
 {
-    public StepBarDemoCtl()
+    public StepBarDemo()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class WatermarkDemoCtl
+public partial class WatermarkDemo
 {
-    public WatermarkDemoCtl()
+    public WatermarkDemo()
     {
         InitializeComponent();
     }

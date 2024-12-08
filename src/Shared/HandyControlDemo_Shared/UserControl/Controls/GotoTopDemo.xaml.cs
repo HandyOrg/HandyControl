@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class GotoTopDemoCtl
+public partial class GotoTopDemo
 {
-    public GotoTopDemoCtl()
+    public GotoTopDemo()
     {
         InitializeComponent();
     }

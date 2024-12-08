@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class CirclePanelDemoCtl
+public partial class CirclePanelDemo
 {
-    public CirclePanelDemoCtl()
+    public CirclePanelDemo()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class BadgeDemoCtl
+public partial class BadgeDemo
 {
-    public BadgeDemoCtl()
+    public BadgeDemo()
     {
         InitializeComponent();
     }

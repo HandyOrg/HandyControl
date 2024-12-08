@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class NativePasswordBoxDemoCtl
+public partial class NativePasswordBoxDemo
 {
-    public NativePasswordBoxDemoCtl()
+    public NativePasswordBoxDemo()
     {
         InitializeComponent();
     }

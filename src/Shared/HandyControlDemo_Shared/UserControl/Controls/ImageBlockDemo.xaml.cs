@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class ImageBlockDemoCtl
+public partial class ImageBlockDemo
 {
-    public ImageBlockDemoCtl()
+    public ImageBlockDemo()
     {
         InitializeComponent();
     }

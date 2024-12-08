@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class RelativePanelDemoCtl
+public partial class RelativePanelDemo
 {
-    public RelativePanelDemoCtl()
+    public RelativePanelDemo()
     {
         InitializeComponent();
     }

@@ -1,8 +1,8 @@
 ﻿namespace HandyControlDemo.UserControl;
 
-public partial class LabelDemoCtl
+public partial class LabelDemo
 {
-    public LabelDemoCtl()
+    public LabelDemo()
     {
         InitializeComponent();
     }
