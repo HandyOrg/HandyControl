@@ -40,38 +40,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="App.axaml.cs">
-      <DependentUpon>App.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Properties\Langs\Lang.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Lang.resx</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Main\LeftMainContent.axaml.cs">
-      <DependentUpon>LeftMainContent.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Main\MainContent.axaml.cs">
-      <DependentUpon>MainContent.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="Views\Styles\ButtonDemoCtrl.axaml.cs">
-      <DependentUpon>ButtonDemoCtrl.axaml</DependentUpon>
-    </Compile>
-    <Compile Update="UserControl\Styles\BrushDemoCtl.axaml.cs">
-      <DependentUpon>BoderDemoCtl.axaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UserControl\Styles\BorderDemoCtl.axaml.cs">
-      <DependentUpon>BorderDemoCtl.axaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Update="UserControl\Styles\RepeatButtonDemoCtl.axaml.cs">
-      <DependentUpon>RepeatButtonDemoCtl.axaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Lang.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
