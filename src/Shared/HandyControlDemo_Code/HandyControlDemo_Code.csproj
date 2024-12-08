@@ -59,320 +59,320 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Basic\TextDialogWithTimer.xaml">
       <Link>UserControl\Basic\TextDialogWithTimer.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AnimationPathDemoCtl.xaml">
-      <Link>UserControl\Controls\AnimationPathDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AnimationPathDemo.xaml">
+      <Link>UserControl\Controls\AnimationPathDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml">
-      <Link>UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AutoCompleteTextBoxDemo.xaml">
+      <Link>UserControl\Controls\AutoCompleteTextBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\BadgeDemoCtl.xaml">
-      <Link>UserControl\Controls\BadgeDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\BadgeDemo.xaml">
+      <Link>UserControl\Controls\BadgeDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ButtonGroupDemoCtl.xaml">
-      <Link>UserControl\Controls\ButtonGroupDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ButtonGroupDemo.xaml">
+      <Link>UserControl\Controls\ButtonGroupDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CalendarWithClockDemoCtl.xaml">
-      <Link>UserControl\Controls\CalendarWithClockDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CalendarWithClockDemo.xaml">
+      <Link>UserControl\Controls\CalendarWithClockDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CardDemoCtl.xaml">
-      <Link>UserControl\Controls\CardDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CardDemo.xaml">
+      <Link>UserControl\Controls\CardDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CarouselDemoCtl.xaml">
-      <Link>UserControl\Controls\CarouselDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CarouselDemo.xaml">
+      <Link>UserControl\Controls\CarouselDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ChatBubbleDemoCtl.xaml">
-      <Link>UserControl\Controls\ChatBubbleDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ChatBubbleDemo.xaml">
+      <Link>UserControl\Controls\ChatBubbleDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CheckComboBoxDemoCtl.xaml">
-      <Link>UserControl\Controls\CheckComboBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CheckComboBoxDemo.xaml">
+      <Link>UserControl\Controls\CheckComboBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CirclePanelDemoCtl.xaml">
-      <Link>UserControl\Controls\CirclePanelDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CirclePanelDemo.xaml">
+      <Link>UserControl\Controls\CirclePanelDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ClockDemoCtl.xaml">
-      <Link>UserControl\Controls\ClockDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ClockDemo.xaml">
+      <Link>UserControl\Controls\ClockDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ColorPickerDemoCtl.xaml">
-      <Link>UserControl\Controls\ColorPickerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ColorPickerDemo.xaml">
+      <Link>UserControl\Controls\ColorPickerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ComboBoxDemoCtl.xaml">
-      <Link>UserControl\Controls\ComboBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ComboBoxDemo.xaml">
+      <Link>UserControl\Controls\ComboBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CompareSliderDemoCtl.xaml">
-      <Link>UserControl\Controls\CompareSliderDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CompareSliderDemo.xaml">
+      <Link>UserControl\Controls\CompareSliderDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverFlowDemoCtl.xaml">
-      <Link>UserControl\Controls\CoverFlowDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverFlowDemo.xaml">
+      <Link>UserControl\Controls\CoverFlowDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverViewDemoCtl.xaml">
-      <Link>UserControl\Controls\CoverViewDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverViewDemo.xaml">
+      <Link>UserControl\Controls\CoverViewDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DatePickerDemoCtl.xaml">
-      <Link>UserControl\Controls\DatePickerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DatePickerDemo.xaml">
+      <Link>UserControl\Controls\DatePickerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DateTimePickerDemoCtl.xaml">
-      <Link>UserControl\Controls\DateTimePickerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DateTimePickerDemo.xaml">
+      <Link>UserControl\Controls\DateTimePickerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DialogDemoCtl.xaml">
-      <Link>UserControl\Controls\DialogDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DialogDemo.xaml">
+      <Link>UserControl\Controls\DialogDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DividerDemoCtl.xaml">
-      <Link>UserControl\Controls\DividerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DividerDemo.xaml">
+      <Link>UserControl\Controls\DividerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml">
-      <Link>UserControl\Controls\DrawerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemo.xaml">
+      <Link>UserControl\Controls\DrawerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemoCtl.xaml">
-      <Link>UserControl\Controls\ElementGroupDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemo.xaml">
+      <Link>UserControl\Controls\ElementGroupDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml">
-      <Link>UserControl\Controls\FlexPanelDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemo.xaml">
+      <Link>UserControl\Controls\FlexPanelDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlipClockDemoCtl.xaml">
-      <Link>UserControl\Controls\FlipClockDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlipClockDemo.xaml">
+      <Link>UserControl\Controls\FlipClockDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FloatingBlockDemoCtl.xaml">
-      <Link>UserControl\Controls\FloatingBlockDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FloatingBlockDemo.xaml">
+      <Link>UserControl\Controls\FloatingBlockDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GifImageDemoCtl.xaml">
-      <Link>UserControl\Controls\GifImageDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GifImageDemo.xaml">
+      <Link>UserControl\Controls\GifImageDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GotoTopDemoCtl.xaml">
-      <Link>UserControl\Controls\GotoTopDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GotoTopDemo.xaml">
+      <Link>UserControl\Controls\GotoTopDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GravatarDemoCtl.xaml">
-      <Link>UserControl\Controls\GravatarDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GravatarDemo.xaml">
+      <Link>UserControl\Controls\GravatarDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GridDemoCtl.xaml">
-      <Link>UserControl\Controls\GridDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GridDemo.xaml">
+      <Link>UserControl\Controls\GridDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GrowlDemoCtl.xaml">
-      <Link>UserControl\Controls\GrowlDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GrowlDemo.xaml">
+      <Link>UserControl\Controls\GrowlDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\HoneycombPanelDemoCtl.xaml">
-      <Link>UserControl\Controls\HoneycombPanelDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\HoneycombPanelDemo.xaml">
+      <Link>UserControl\Controls\HoneycombPanelDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBlockDemoCtl.xaml">
-      <Link>UserControl\Controls\ImageBlockDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBlockDemo.xaml">
+      <Link>UserControl\Controls\ImageBlockDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBrowserDemoCtl.xaml">
-      <Link>UserControl\Controls\ImageBrowserDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBrowserDemo.xaml">
+      <Link>UserControl\Controls\ImageBrowserDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageSelectorDemoCtl.xaml">
-      <Link>UserControl\Controls\ImageSelectorDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageSelectorDemo.xaml">
+      <Link>UserControl\Controls\ImageSelectorDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\LoadingDemoCtl.xaml">
-      <Link>UserControl\Controls\LoadingDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\LoadingDemo.xaml">
+      <Link>UserControl\Controls\LoadingDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\MagnifierDemoCtl.xaml">
-      <Link>UserControl\Controls\MagnifierDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\MagnifierDemo.xaml">
+      <Link>UserControl\Controls\MagnifierDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NotificationDemoCtl.xaml">
-      <Link>UserControl\Controls\NotificationDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NotificationDemo.xaml">
+      <Link>UserControl\Controls\NotificationDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NotifyIconDemoCtl.xaml">
-      <Link>UserControl\Controls\NotifyIconDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NotifyIconDemo.xaml">
+      <Link>UserControl\Controls\NotifyIconDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NumericUpDownDemoCtl.xaml">
-      <Link>UserControl\Controls\NumericUpDownDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NumericUpDownDemo.xaml">
+      <Link>UserControl\Controls\NumericUpDownDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\OutlineTextDemoCtl.xaml">
-      <Link>UserControl\Controls\OutlineTextDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\OutlineTextDemo.xaml">
+      <Link>UserControl\Controls\OutlineTextDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PaginationDemoCtl.xaml">
-      <Link>UserControl\Controls\PaginationDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PaginationDemo.xaml">
+      <Link>UserControl\Controls\PaginationDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PasswordBoxDemoCtl.xaml">
-      <Link>UserControl\Controls\PasswordBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PasswordBoxDemo.xaml">
+      <Link>UserControl\Controls\PasswordBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PinBoxDemoCtl.xaml">
-      <Link>UserControl\Controls\PinBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PinBoxDemo.xaml">
+      <Link>UserControl\Controls\PinBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PoptipDemoCtl.xaml">
-      <Link>UserControl\Controls\PoptipDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PoptipDemo.xaml">
+      <Link>UserControl\Controls\PoptipDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PreviewSliderDemoCtl.xaml">
-      <Link>UserControl\Controls\PreviewSliderDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PreviewSliderDemo.xaml">
+      <Link>UserControl\Controls\PreviewSliderDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressBarDemoCtl.xaml">
-      <Link>UserControl\Controls\ProgressBarDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressBarDemo.xaml">
+      <Link>UserControl\Controls\ProgressBarDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressButtonDemoCtl.xaml">
-      <Link>UserControl\Controls\ProgressButtonDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressButtonDemo.xaml">
+      <Link>UserControl\Controls\ProgressButtonDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PropertyGridDemoCtl.xaml">
-      <Link>UserControl\Controls\PropertyGridDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PropertyGridDemo.xaml">
+      <Link>UserControl\Controls\PropertyGridDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RangeSliderDemoCtl.xaml">
-      <Link>UserControl\Controls\RangeSliderDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RangeSliderDemo.xaml">
+      <Link>UserControl\Controls\RangeSliderDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RateDemoCtl.xaml">
-      <Link>UserControl\Controls\RateDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RateDemo.xaml">
+      <Link>UserControl\Controls\RateDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RelativePanelDemoCtl.xaml">
-      <Link>UserControl\Controls\RelativePanelDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RelativePanelDemo.xaml">
+      <Link>UserControl\Controls\RelativePanelDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RunningBlockDemoCtl.xaml">
-      <Link>UserControl\Controls\RunningBlockDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RunningBlockDemo.xaml">
+      <Link>UserControl\Controls\RunningBlockDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ScreenshotDemoCtl.xaml">
-      <Link>UserControl\Controls\ScreenshotDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ScreenshotDemo.xaml">
+      <Link>UserControl\Controls\ScreenshotDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ScrollViewerDemoCtl.xaml">
-      <Link>UserControl\Controls\ScrollViewerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ScrollViewerDemo.xaml">
+      <Link>UserControl\Controls\ScrollViewerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SearchBarDemoCtl.xaml">
-      <Link>UserControl\Controls\SearchBarDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SearchBarDemo.xaml">
+      <Link>UserControl\Controls\SearchBarDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ShieldDemoCtl.xaml">
-      <Link>UserControl\Controls\ShieldDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ShieldDemo.xaml">
+      <Link>UserControl\Controls\ShieldDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SideMenuDemoCtl.xaml">
-      <Link>UserControl\Controls\SideMenuDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SideMenuDemo.xaml">
+      <Link>UserControl\Controls\SideMenuDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SplitButtonDemoCtl.xaml">
-      <Link>UserControl\Controls\SplitButtonDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SplitButtonDemo.xaml">
+      <Link>UserControl\Controls\SplitButtonDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SpriteDemoCtl.xaml">
-      <Link>UserControl\Controls\SpriteDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SpriteDemo.xaml">
+      <Link>UserControl\Controls\SpriteDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\StepBarDemoCtl.xaml">
-      <Link>UserControl\Controls\StepBarDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\StepBarDemo.xaml">
+      <Link>UserControl\Controls\StepBarDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TabControlDemoCtl.xaml">
-      <Link>UserControl\Controls\TabControlDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TabControlDemo.xaml">
+      <Link>UserControl\Controls\TabControlDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TagDemoCtl.xaml">
-      <Link>UserControl\Controls\TagDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TagDemo.xaml">
+      <Link>UserControl\Controls\TagDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TextBoxDemoCtl.xaml">
-      <Link>UserControl\Controls\TextBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TextBoxDemo.xaml">
+      <Link>UserControl\Controls\TextBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TimeBarDemoCtl.xaml">
-      <Link>UserControl\Controls\TimeBarDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TimeBarDemo.xaml">
+      <Link>UserControl\Controls\TimeBarDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TimePickerDemoCtl.xaml">
-      <Link>UserControl\Controls\TimePickerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TimePickerDemo.xaml">
+      <Link>UserControl\Controls\TimePickerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransferDemoCtl.xaml">
-      <Link>UserControl\Controls\TransferDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransferDemo.xaml">
+      <Link>UserControl\Controls\TransferDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransitioningContentControlDemoCtl.xaml">
-      <Link>UserControl\Controls\TransitioningContentControlDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransitioningContentControlDemo.xaml">
+      <Link>UserControl\Controls\TransitioningContentControlDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\UniformSpacingPanelDemoCtl.xaml">
-      <Link>UserControl\Controls\UniformSpacingPanelDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\UniformSpacingPanelDemo.xaml">
+      <Link>UserControl\Controls\UniformSpacingPanelDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemoCtl.xaml">
-      <Link>UserControl\Controls\WaterfallPanelDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemo.xaml">
+      <Link>UserControl\Controls\WaterfallPanelDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WatermarkDemoCtl.xaml">
-      <Link>UserControl\Controls\WatermarkDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WatermarkDemo.xaml">
+      <Link>UserControl\Controls\WatermarkDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WindowDemoCtl.xaml">
-      <Link>UserControl\Controls\WindowDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WindowDemo.xaml">
+      <Link>UserControl\Controls\WindowDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\BorderDemoCtl.xaml">
-      <Link>UserControl\Styles\BorderDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\BorderDemo.xaml">
+      <Link>UserControl\Styles\BorderDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\BrushDemoCtl.xaml">
-      <Link>UserControl\Styles\BrushDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\BrushDemo.xaml">
+      <Link>UserControl\Styles\BrushDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ButtonDemoCtl.xaml">
-      <Link>UserControl\Styles\ButtonDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ButtonDemo.xaml">
+      <Link>UserControl\Styles\ButtonDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\CalendarDemoCtl.xaml">
-      <Link>UserControl\Styles\CalendarDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\CalendarDemo.xaml">
+      <Link>UserControl\Styles\CalendarDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\CheckBoxDemoCtl.xaml">
-      <Link>UserControl\Styles\CheckBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\CheckBoxDemo.xaml">
+      <Link>UserControl\Styles\CheckBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\DataGridDemoCtl.xaml">
-      <Link>UserControl\Styles\DataGridDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\DataGridDemo.xaml">
+      <Link>UserControl\Styles\DataGridDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ExpanderDemoCtl.xaml">
-      <Link>UserControl\Styles\ExpanderDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ExpanderDemo.xaml">
+      <Link>UserControl\Styles\ExpanderDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FlowDocumentDemoCtl.xaml">
-      <Link>UserControl\Styles\FlowDocumentDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FlowDocumentDemo.xaml">
+      <Link>UserControl\Styles\FlowDocumentDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FrameDemoCtl.xaml">
-      <Link>UserControl\Styles\FrameDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FrameDemo.xaml">
+      <Link>UserControl\Styles\FrameDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GeometryDemoCtl.xaml">
-      <Link>UserControl\Styles\GeometryDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GeometryDemo.xaml">
+      <Link>UserControl\Styles\GeometryDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GroupBoxDemoCtl.xaml">
-      <Link>UserControl\Styles\GroupBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GroupBoxDemo.xaml">
+      <Link>UserControl\Styles\GroupBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\LabelDemoCtl.xaml">
-      <Link>UserControl\Styles\LabelDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\LabelDemo.xaml">
+      <Link>UserControl\Styles\LabelDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ListBoxDemoCtl.xaml">
-      <Link>UserControl\Styles\ListBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ListBoxDemo.xaml">
+      <Link>UserControl\Styles\ListBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ListViewDemoCtl.xaml">
-      <Link>UserControl\Styles\ListViewDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ListViewDemo.xaml">
+      <Link>UserControl\Styles\ListViewDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\MenuDemoCtl.xaml">
-      <Link>UserControl\Styles\MenuDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\MenuDemo.xaml">
+      <Link>UserControl\Styles\MenuDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeComboBoxDemoCtl.xaml">
-      <Link>UserControl\Styles\NativeComboBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeComboBoxDemo.xaml">
+      <Link>UserControl\Styles\NativeComboBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeDatePickerDemoCtl.xaml">
-      <Link>UserControl\Styles\NativeDatePickerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeDatePickerDemo.xaml">
+      <Link>UserControl\Styles\NativeDatePickerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativePasswordBoxDemoCtl.xaml">
-      <Link>UserControl\Styles\NativePasswordBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativePasswordBoxDemo.xaml">
+      <Link>UserControl\Styles\NativePasswordBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeProgressBarDemoCtl.xaml">
-      <Link>UserControl\Styles\NativeProgressBarDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeProgressBarDemo.xaml">
+      <Link>UserControl\Styles\NativeProgressBarDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeScrollViewerDemoCtl.xaml">
-      <Link>UserControl\Styles\NativeScrollViewerDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeScrollViewerDemo.xaml">
+      <Link>UserControl\Styles\NativeScrollViewerDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeTabControlDemoCtl.xaml">
-      <Link>UserControl\Styles\NativeTabControlDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeTabControlDemo.xaml">
+      <Link>UserControl\Styles\NativeTabControlDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeTextBoxDemoCtl.xaml">
-      <Link>UserControl\Styles\NativeTextBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeTextBoxDemo.xaml">
+      <Link>UserControl\Styles\NativeTextBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeWindowDemoCtl.xaml">
-      <Link>UserControl\Styles\NativeWindowDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeWindowDemo.xaml">
+      <Link>UserControl\Styles\NativeWindowDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RadioButtonDemoCtl.xaml">
-      <Link>UserControl\Styles\RadioButtonDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RadioButtonDemo.xaml">
+      <Link>UserControl\Styles\RadioButtonDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RepeatButtonDemoCtl.xaml">
-      <Link>UserControl\Styles\RepeatButtonDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RepeatButtonDemo.xaml">
+      <Link>UserControl\Styles\RepeatButtonDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RichTextBoxDemoCtl.xaml">
-      <Link>UserControl\Styles\RichTextBoxDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RichTextBoxDemo.xaml">
+      <Link>UserControl\Styles\RichTextBoxDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\SliderDemoCtl.xaml">
-      <Link>UserControl\Styles\SliderDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\SliderDemo.xaml">
+      <Link>UserControl\Styles\SliderDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\TextBlockDemoCtl.xaml">
-      <Link>UserControl\Styles\TextBlockDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\TextBlockDemo.xaml">
+      <Link>UserControl\Styles\TextBlockDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ToggleButtonDemoCtl.xaml">
-      <Link>UserControl\Styles\ToggleButtonDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ToggleButtonDemo.xaml">
+      <Link>UserControl\Styles\ToggleButtonDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ToolBarDemoCtl.xaml">
-      <Link>UserControl\Styles\ToolBarDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ToolBarDemo.xaml">
+      <Link>UserControl\Styles\ToolBarDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\TreeViewDemoCtl.xaml">
-      <Link>UserControl\Styles\TreeViewDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\TreeViewDemo.xaml">
+      <Link>UserControl\Styles\TreeViewDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\EffectsDemoCtl.xaml">
-      <Link>UserControl\Tools\EffectsDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\EffectsDemo.xaml">
+      <Link>UserControl\Tools\EffectsDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\GeometryAnimationDemoCtl.xaml">
-      <Link>UserControl\Tools\GeometryAnimationDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\GeometryAnimationDemo.xaml">
+      <Link>UserControl\Tools\GeometryAnimationDemo.xaml</Link>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\HatchBrushGeneratorDemoCtl.xaml">
-      <Link>UserControl\Tools\HatchBrushGeneratorDemoCtl.xaml</Link>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\HatchBrushGeneratorDemo.xaml">
+      <Link>UserControl\Tools\HatchBrushGeneratorDemo.xaml</Link>
     </Resource>
   </ItemGroup>
   <ItemGroup>
@@ -439,425 +439,425 @@
       <Link>UserControl\Basic\TextDialogWithTimer.xaml.cs</Link>
       <DependentUpon>TextDialogWithTimer.xaml</DependentUpon>
     </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\AnimationPathDemoCtl.xaml.cs</Link>
-      <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>AutoCompleteTextBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\BadgeDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\BadgeDemoCtl.xaml.cs</Link>
-      <DependentUpon>BadgeDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ButtonGroupDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ButtonGroupDemoCtl.xaml.cs</Link>
-      <DependentUpon>ButtonGroupDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CalendarWithClockDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\CalendarWithClockDemoCtl.xaml.cs</Link>
-      <DependentUpon>CalendarWithClockDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CardDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\CardDemoCtl.xaml.cs</Link>
-      <DependentUpon>CardDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CarouselDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\CarouselDemoCtl.xaml.cs</Link>
-      <DependentUpon>CarouselDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ChatBubbleDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ChatBubbleDemoCtl.xaml.cs</Link>
-      <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>CheckComboBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\CirclePanelDemoCtl.xaml.cs</Link>
-      <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ClockDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ClockDemoCtl.xaml.cs</Link>
-      <DependentUpon>ClockDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ColorPickerDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ColorPickerDemoCtl.xaml.cs</Link>
-      <DependentUpon>ColorPickerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ComboBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ComboBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>ComboBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\CompareSliderDemoCtl.xaml.cs</Link>
-      <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverFlowDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\CoverFlowDemoCtl.xaml.cs</Link>
-      <DependentUpon>CoverFlowDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverViewDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\CoverViewDemoCtl.xaml.cs</Link>
-      <DependentUpon>CoverViewDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DatePickerDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\DatePickerDemoCtl.xaml.cs</Link>
-      <DependentUpon>DatePickerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DateTimePickerDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\DateTimePickerDemoCtl.xaml.cs</Link>
-      <DependentUpon>DateTimePickerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DialogDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\DialogDemoCtl.xaml.cs</Link>
-      <DependentUpon>DialogDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DividerDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\DividerDemoCtl.xaml.cs</Link>
-      <DependentUpon>DividerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\DrawerDemoCtl.xaml.cs</Link>
-      <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ElementGroupDemoCtl.xaml.cs</Link>
-      <DependentUpon>ElementGroupDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\FlexPanelDemoCtl.xaml.cs</Link>
-      <DependentUpon>FlexPanelDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlipClockDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\FlipClockDemoCtl.xaml.cs</Link>
-      <DependentUpon>FlipClockDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FloatingBlockDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\FloatingBlockDemoCtl.xaml.cs</Link>
-      <DependentUpon>FloatingBlockDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GifImageDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\GifImageDemoCtl.xaml.cs</Link>
-      <DependentUpon>GifImageDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GotoTopDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\GotoTopDemoCtl.xaml.cs</Link>
-      <DependentUpon>GotoTopDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GravatarDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\GravatarDemoCtl.xaml.cs</Link>
-      <DependentUpon>GravatarDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GridDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\GridDemoCtl.xaml.cs</Link>
-      <DependentUpon>GridDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GrowlDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\GrowlDemoCtl.xaml.cs</Link>
-      <DependentUpon>GrowlDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\HoneycombPanelDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\HoneycombPanelDemoCtl.xaml.cs</Link>
-      <DependentUpon>HoneycombPanelDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBlockDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ImageBlockDemoCtl.xaml.cs</Link>
-      <DependentUpon>ImageBlockDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBrowserDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ImageBrowserDemoCtl.xaml.cs</Link>
-      <DependentUpon>ImageBrowserDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageSelectorDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ImageSelectorDemoCtl.xaml.cs</Link>
-      <DependentUpon>ImageSelectorDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\LoadingDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\LoadingDemoCtl.xaml.cs</Link>
-      <DependentUpon>LoadingDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\MagnifierDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\MagnifierDemoCtl.xaml.cs</Link>
-      <DependentUpon>MagnifierDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NotificationDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\NotificationDemoCtl.xaml.cs</Link>
-      <DependentUpon>NotificationDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NotifyIconDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\NotifyIconDemoCtl.xaml.cs</Link>
-      <DependentUpon>NotifyIconDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NumericUpDownDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\NumericUpDownDemoCtl.xaml.cs</Link>
-      <DependentUpon>NumericUpDownDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\OutlineTextDemoCtl.xaml.cs</Link>
-      <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PaginationDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\PaginationDemoCtl.xaml.cs</Link>
-      <DependentUpon>PaginationDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PasswordBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\PasswordBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>PasswordBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PinBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\PinBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>PinBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PoptipDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\PoptipDemoCtl.xaml.cs</Link>
-      <DependentUpon>PoptipDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\PreviewSliderDemoCtl.xaml.cs</Link>
-      <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressBarDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ProgressBarDemoCtl.xaml.cs</Link>
-      <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressButtonDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ProgressButtonDemoCtl.xaml.cs</Link>
-      <DependentUpon>ProgressButtonDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PropertyGridDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\PropertyGridDemoCtl.xaml.cs</Link>
-      <DependentUpon>PropertyGridDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\RangeSliderDemoCtl.xaml.cs</Link>
-      <DependentUpon>RangeSliderDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RateDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\RateDemoCtl.xaml.cs</Link>
-      <DependentUpon>RateDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RelativePanelDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\RelativePanelDemoCtl.xaml.cs</Link>
-      <DependentUpon>RelativePanelDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RunningBlockDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\RunningBlockDemoCtl.xaml.cs</Link>
-      <DependentUpon>RunningBlockDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ScreenshotDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ScreenshotDemoCtl.xaml.cs</Link>
-      <DependentUpon>ScreenshotDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ScrollViewerDemoCtl.xaml.cs</Link>
-      <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SearchBarDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\SearchBarDemoCtl.xaml.cs</Link>
-      <DependentUpon>SearchBarDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ShieldDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\ShieldDemoCtl.xaml.cs</Link>
-      <DependentUpon>ShieldDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SideMenuDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\SideMenuDemoCtl.xaml.cs</Link>
-      <DependentUpon>SideMenuDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SplitButtonDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\SplitButtonDemoCtl.xaml.cs</Link>
-      <DependentUpon>SplitButtonDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SpriteDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\SpriteDemoCtl.xaml.cs</Link>
-      <DependentUpon>SpriteDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\StepBarDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\StepBarDemoCtl.xaml.cs</Link>
-      <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TabControlDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\TabControlDemoCtl.xaml.cs</Link>
-      <DependentUpon>TabControlDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TagDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\TagDemoCtl.xaml.cs</Link>
-      <DependentUpon>TagDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TextBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\TextBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>TextBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TimeBarDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\TimeBarDemoCtl.xaml.cs</Link>
-      <DependentUpon>TimeBarDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TimePickerDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\TimePickerDemoCtl.xaml.cs</Link>
-      <DependentUpon>TimePickerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransferDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\TransferDemoCtl.xaml.cs</Link>
-      <DependentUpon>TransferDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransitioningContentControlDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\TransitioningContentControlDemoCtl.xaml.cs</Link>
-      <DependentUpon>TransitioningContentControlDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\UniformSpacingPanelDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\UniformSpacingPanelDemoCtl.xaml.cs</Link>
-      <DependentUpon>UniformSpacingPanelDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WatermarkDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\WatermarkDemoCtl.xaml.cs</Link>
-      <DependentUpon>WatermarkDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs</Link>
-      <DependentUpon>WaterfallPanelDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WindowDemoCtl.xaml.cs">
-      <Link>UserControl\Controls\WindowDemoCtl.xaml.cs</Link>
-      <DependentUpon>WindowDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\BorderDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\BorderDemoCtl.xaml.cs</Link>
-      <DependentUpon>BorderDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\BrushDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\BrushDemoCtl.xaml.cs</Link>
-      <DependentUpon>BrushDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ButtonDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\ButtonDemoCtl.xaml.cs</Link>
-      <DependentUpon>ButtonDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\CalendarDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\CalendarDemoCtl.xaml.cs</Link>
-      <DependentUpon>CalendarDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\CheckBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\CheckBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>CheckBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\DataGridDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\DataGridDemoCtl.xaml.cs</Link>
-      <DependentUpon>DataGridDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ExpanderDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\ExpanderDemoCtl.xaml.cs</Link>
-      <DependentUpon>ExpanderDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FlowDocumentDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\FlowDocumentDemoCtl.xaml.cs</Link>
-      <DependentUpon>FlowDocumentDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FrameDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\FrameDemoCtl.xaml.cs</Link>
-      <DependentUpon>FrameDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GeometryDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\GeometryDemoCtl.xaml.cs</Link>
-      <DependentUpon>GeometryDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\GroupBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\LabelDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\LabelDemoCtl.xaml.cs</Link>
-      <DependentUpon>LabelDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ListBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\ListBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>ListBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ListViewDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\ListViewDemoCtl.xaml.cs</Link>
-      <DependentUpon>ListViewDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\MenuDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\MenuDemoCtl.xaml.cs</Link>
-      <DependentUpon>MenuDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeComboBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\NativeComboBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>NativeComboBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeDatePickerDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\NativeDatePickerDemoCtl.xaml.cs</Link>
-      <DependentUpon>NativeDatePickerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativePasswordBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\NativePasswordBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>NativePasswordBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeProgressBarDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\NativeProgressBarDemoCtl.xaml.cs</Link>
-      <DependentUpon>NativeProgressBarDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeScrollViewerDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\NativeScrollViewerDemoCtl.xaml.cs</Link>
-      <DependentUpon>NativeScrollViewerDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeTabControlDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\NativeTabControlDemoCtl.xaml.cs</Link>
-      <DependentUpon>NativeTabControlDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeTextBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\NativeTextBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>NativeTextBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeWindowDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\NativeWindowDemoCtl.xaml.cs</Link>
-      <DependentUpon>NativeWindowDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RadioButtonDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\RadioButtonDemoCtl.xaml.cs</Link>
-      <DependentUpon>RadioButtonDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RepeatButtonDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\RepeatButtonDemoCtl.xaml.cs</Link>
-      <DependentUpon>RepeatButtonDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RichTextBoxDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\RichTextBoxDemoCtl.xaml.cs</Link>
-      <DependentUpon>RichTextBoxDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\SliderDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\SliderDemoCtl.xaml.cs</Link>
-      <DependentUpon>SliderDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\TextBlockDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\TextBlockDemoCtl.xaml.cs</Link>
-      <DependentUpon>TextBlockDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ToggleButtonDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\ToggleButtonDemoCtl.xaml.cs</Link>
-      <DependentUpon>ToggleButtonDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ToolBarDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\ToolBarDemoCtl.xaml.cs</Link>
-      <DependentUpon>ToolBarDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\TreeViewDemoCtl.xaml.cs">
-      <Link>UserControl\Styles\TreeViewDemoCtl.xaml.cs</Link>
-      <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\EffectsDemoCtl.xaml.cs">
-      <Link>UserControl\Tools\EffectsDemoCtl.xaml.cs</Link>
-      <DependentUpon>EffectsDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\GeometryAnimationDemoCtl.xaml.cs">
-      <Link>UserControl\Tools\GeometryAnimationDemoCtl.xaml.cs</Link>
-      <DependentUpon>GeometryAnimationDemoCtl.xaml</DependentUpon>
-    </Resource>
-    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\HatchBrushGeneratorDemoCtl.xaml.cs">
-      <Link>UserControl\Tools\HatchBrushGeneratorDemoCtl.xaml.cs</Link>
-      <DependentUpon>HatchBrushGeneratorDemoCtl.xaml</DependentUpon>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AnimationPathDemo.xaml.cs">
+      <Link>UserControl\Controls\AnimationPathDemo.xaml.cs</Link>
+      <DependentUpon>AnimationPathDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\AutoCompleteTextBoxDemo.xaml.cs">
+      <Link>UserControl\Controls\AutoCompleteTextBoxDemo.xaml.cs</Link>
+      <DependentUpon>AutoCompleteTextBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\BadgeDemo.xaml.cs">
+      <Link>UserControl\Controls\BadgeDemo.xaml.cs</Link>
+      <DependentUpon>BadgeDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ButtonGroupDemo.xaml.cs">
+      <Link>UserControl\Controls\ButtonGroupDemo.xaml.cs</Link>
+      <DependentUpon>ButtonGroupDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CalendarWithClockDemo.xaml.cs">
+      <Link>UserControl\Controls\CalendarWithClockDemo.xaml.cs</Link>
+      <DependentUpon>CalendarWithClockDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CardDemo.xaml.cs">
+      <Link>UserControl\Controls\CardDemo.xaml.cs</Link>
+      <DependentUpon>CardDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CarouselDemo.xaml.cs">
+      <Link>UserControl\Controls\CarouselDemo.xaml.cs</Link>
+      <DependentUpon>CarouselDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ChatBubbleDemo.xaml.cs">
+      <Link>UserControl\Controls\ChatBubbleDemo.xaml.cs</Link>
+      <DependentUpon>ChatBubbleDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CheckComboBoxDemo.xaml.cs">
+      <Link>UserControl\Controls\CheckComboBoxDemo.xaml.cs</Link>
+      <DependentUpon>CheckComboBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CirclePanelDemo.xaml.cs">
+      <Link>UserControl\Controls\CirclePanelDemo.xaml.cs</Link>
+      <DependentUpon>CirclePanelDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ClockDemo.xaml.cs">
+      <Link>UserControl\Controls\ClockDemo.xaml.cs</Link>
+      <DependentUpon>ClockDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ColorPickerDemo.xaml.cs">
+      <Link>UserControl\Controls\ColorPickerDemo.xaml.cs</Link>
+      <DependentUpon>ColorPickerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ComboBoxDemo.xaml.cs">
+      <Link>UserControl\Controls\ComboBoxDemo.xaml.cs</Link>
+      <DependentUpon>ComboBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CompareSliderDemo.xaml.cs">
+      <Link>UserControl\Controls\CompareSliderDemo.xaml.cs</Link>
+      <DependentUpon>CompareSliderDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverFlowDemo.xaml.cs">
+      <Link>UserControl\Controls\CoverFlowDemo.xaml.cs</Link>
+      <DependentUpon>CoverFlowDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverViewDemo.xaml.cs">
+      <Link>UserControl\Controls\CoverViewDemo.xaml.cs</Link>
+      <DependentUpon>CoverViewDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DatePickerDemo.xaml.cs">
+      <Link>UserControl\Controls\DatePickerDemo.xaml.cs</Link>
+      <DependentUpon>DatePickerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DateTimePickerDemo.xaml.cs">
+      <Link>UserControl\Controls\DateTimePickerDemo.xaml.cs</Link>
+      <DependentUpon>DateTimePickerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DialogDemo.xaml.cs">
+      <Link>UserControl\Controls\DialogDemo.xaml.cs</Link>
+      <DependentUpon>DialogDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DividerDemo.xaml.cs">
+      <Link>UserControl\Controls\DividerDemo.xaml.cs</Link>
+      <DependentUpon>DividerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemo.xaml.cs">
+      <Link>UserControl\Controls\DrawerDemo.xaml.cs</Link>
+      <DependentUpon>DrawerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ElementGroupDemo.xaml.cs">
+      <Link>UserControl\Controls\ElementGroupDemo.xaml.cs</Link>
+      <DependentUpon>ElementGroupDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemo.xaml.cs">
+      <Link>UserControl\Controls\FlexPanelDemo.xaml.cs</Link>
+      <DependentUpon>FlexPanelDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlipClockDemo.xaml.cs">
+      <Link>UserControl\Controls\FlipClockDemo.xaml.cs</Link>
+      <DependentUpon>FlipClockDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FloatingBlockDemo.xaml.cs">
+      <Link>UserControl\Controls\FloatingBlockDemo.xaml.cs</Link>
+      <DependentUpon>FloatingBlockDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GifImageDemo.xaml.cs">
+      <Link>UserControl\Controls\GifImageDemo.xaml.cs</Link>
+      <DependentUpon>GifImageDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GotoTopDemo.xaml.cs">
+      <Link>UserControl\Controls\GotoTopDemo.xaml.cs</Link>
+      <DependentUpon>GotoTopDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GravatarDemo.xaml.cs">
+      <Link>UserControl\Controls\GravatarDemo.xaml.cs</Link>
+      <DependentUpon>GravatarDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GridDemo.xaml.cs">
+      <Link>UserControl\Controls\GridDemo.xaml.cs</Link>
+      <DependentUpon>GridDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\GrowlDemo.xaml.cs">
+      <Link>UserControl\Controls\GrowlDemo.xaml.cs</Link>
+      <DependentUpon>GrowlDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\HoneycombPanelDemo.xaml.cs">
+      <Link>UserControl\Controls\HoneycombPanelDemo.xaml.cs</Link>
+      <DependentUpon>HoneycombPanelDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBlockDemo.xaml.cs">
+      <Link>UserControl\Controls\ImageBlockDemo.xaml.cs</Link>
+      <DependentUpon>ImageBlockDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageBrowserDemo.xaml.cs">
+      <Link>UserControl\Controls\ImageBrowserDemo.xaml.cs</Link>
+      <DependentUpon>ImageBrowserDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ImageSelectorDemo.xaml.cs">
+      <Link>UserControl\Controls\ImageSelectorDemo.xaml.cs</Link>
+      <DependentUpon>ImageSelectorDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\LoadingDemo.xaml.cs">
+      <Link>UserControl\Controls\LoadingDemo.xaml.cs</Link>
+      <DependentUpon>LoadingDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\MagnifierDemo.xaml.cs">
+      <Link>UserControl\Controls\MagnifierDemo.xaml.cs</Link>
+      <DependentUpon>MagnifierDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NotificationDemo.xaml.cs">
+      <Link>UserControl\Controls\NotificationDemo.xaml.cs</Link>
+      <DependentUpon>NotificationDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NotifyIconDemo.xaml.cs">
+      <Link>UserControl\Controls\NotifyIconDemo.xaml.cs</Link>
+      <DependentUpon>NotifyIconDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\NumericUpDownDemo.xaml.cs">
+      <Link>UserControl\Controls\NumericUpDownDemo.xaml.cs</Link>
+      <DependentUpon>NumericUpDownDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\OutlineTextDemo.xaml.cs">
+      <Link>UserControl\Controls\OutlineTextDemo.xaml.cs</Link>
+      <DependentUpon>OutlineTextDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PaginationDemo.xaml.cs">
+      <Link>UserControl\Controls\PaginationDemo.xaml.cs</Link>
+      <DependentUpon>PaginationDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PasswordBoxDemo.xaml.cs">
+      <Link>UserControl\Controls\PasswordBoxDemo.xaml.cs</Link>
+      <DependentUpon>PasswordBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PinBoxDemo.xaml.cs">
+      <Link>UserControl\Controls\PinBoxDemo.xaml.cs</Link>
+      <DependentUpon>PinBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PoptipDemo.xaml.cs">
+      <Link>UserControl\Controls\PoptipDemo.xaml.cs</Link>
+      <DependentUpon>PoptipDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PreviewSliderDemo.xaml.cs">
+      <Link>UserControl\Controls\PreviewSliderDemo.xaml.cs</Link>
+      <DependentUpon>PreviewSliderDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressBarDemo.xaml.cs">
+      <Link>UserControl\Controls\ProgressBarDemo.xaml.cs</Link>
+      <DependentUpon>ProgressBarDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ProgressButtonDemo.xaml.cs">
+      <Link>UserControl\Controls\ProgressButtonDemo.xaml.cs</Link>
+      <DependentUpon>ProgressButtonDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\PropertyGridDemo.xaml.cs">
+      <Link>UserControl\Controls\PropertyGridDemo.xaml.cs</Link>
+      <DependentUpon>PropertyGridDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RangeSliderDemo.xaml.cs">
+      <Link>UserControl\Controls\RangeSliderDemo.xaml.cs</Link>
+      <DependentUpon>RangeSliderDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RateDemo.xaml.cs">
+      <Link>UserControl\Controls\RateDemo.xaml.cs</Link>
+      <DependentUpon>RateDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RelativePanelDemo.xaml.cs">
+      <Link>UserControl\Controls\RelativePanelDemo.xaml.cs</Link>
+      <DependentUpon>RelativePanelDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\RunningBlockDemo.xaml.cs">
+      <Link>UserControl\Controls\RunningBlockDemo.xaml.cs</Link>
+      <DependentUpon>RunningBlockDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ScreenshotDemo.xaml.cs">
+      <Link>UserControl\Controls\ScreenshotDemo.xaml.cs</Link>
+      <DependentUpon>ScreenshotDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ScrollViewerDemo.xaml.cs">
+      <Link>UserControl\Controls\ScrollViewerDemo.xaml.cs</Link>
+      <DependentUpon>ScrollViewerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SearchBarDemo.xaml.cs">
+      <Link>UserControl\Controls\SearchBarDemo.xaml.cs</Link>
+      <DependentUpon>SearchBarDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ShieldDemo.xaml.cs">
+      <Link>UserControl\Controls\ShieldDemo.xaml.cs</Link>
+      <DependentUpon>ShieldDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SideMenuDemo.xaml.cs">
+      <Link>UserControl\Controls\SideMenuDemo.xaml.cs</Link>
+      <DependentUpon>SideMenuDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SplitButtonDemo.xaml.cs">
+      <Link>UserControl\Controls\SplitButtonDemo.xaml.cs</Link>
+      <DependentUpon>SplitButtonDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\SpriteDemo.xaml.cs">
+      <Link>UserControl\Controls\SpriteDemo.xaml.cs</Link>
+      <DependentUpon>SpriteDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\StepBarDemo.xaml.cs">
+      <Link>UserControl\Controls\StepBarDemo.xaml.cs</Link>
+      <DependentUpon>StepBarDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TabControlDemo.xaml.cs">
+      <Link>UserControl\Controls\TabControlDemo.xaml.cs</Link>
+      <DependentUpon>TabControlDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TagDemo.xaml.cs">
+      <Link>UserControl\Controls\TagDemo.xaml.cs</Link>
+      <DependentUpon>TagDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TextBoxDemo.xaml.cs">
+      <Link>UserControl\Controls\TextBoxDemo.xaml.cs</Link>
+      <DependentUpon>TextBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TimeBarDemo.xaml.cs">
+      <Link>UserControl\Controls\TimeBarDemo.xaml.cs</Link>
+      <DependentUpon>TimeBarDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TimePickerDemo.xaml.cs">
+      <Link>UserControl\Controls\TimePickerDemo.xaml.cs</Link>
+      <DependentUpon>TimePickerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransferDemo.xaml.cs">
+      <Link>UserControl\Controls\TransferDemo.xaml.cs</Link>
+      <DependentUpon>TransferDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\TransitioningContentControlDemo.xaml.cs">
+      <Link>UserControl\Controls\TransitioningContentControlDemo.xaml.cs</Link>
+      <DependentUpon>TransitioningContentControlDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\UniformSpacingPanelDemo.xaml.cs">
+      <Link>UserControl\Controls\UniformSpacingPanelDemo.xaml.cs</Link>
+      <DependentUpon>UniformSpacingPanelDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WatermarkDemo.xaml.cs">
+      <Link>UserControl\Controls\WatermarkDemo.xaml.cs</Link>
+      <DependentUpon>WatermarkDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WaterfallPanelDemo.xaml.cs">
+      <Link>UserControl\Controls\WaterfallPanelDemo.xaml.cs</Link>
+      <DependentUpon>WaterfallPanelDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\WindowDemo.xaml.cs">
+      <Link>UserControl\Controls\WindowDemo.xaml.cs</Link>
+      <DependentUpon>WindowDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\BorderDemo.xaml.cs">
+      <Link>UserControl\Styles\BorderDemo.xaml.cs</Link>
+      <DependentUpon>BorderDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\BrushDemo.xaml.cs">
+      <Link>UserControl\Styles\BrushDemo.xaml.cs</Link>
+      <DependentUpon>BrushDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ButtonDemo.xaml.cs">
+      <Link>UserControl\Styles\ButtonDemo.xaml.cs</Link>
+      <DependentUpon>ButtonDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\CalendarDemo.xaml.cs">
+      <Link>UserControl\Styles\CalendarDemo.xaml.cs</Link>
+      <DependentUpon>CalendarDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\CheckBoxDemo.xaml.cs">
+      <Link>UserControl\Styles\CheckBoxDemo.xaml.cs</Link>
+      <DependentUpon>CheckBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\DataGridDemo.xaml.cs">
+      <Link>UserControl\Styles\DataGridDemo.xaml.cs</Link>
+      <DependentUpon>DataGridDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ExpanderDemo.xaml.cs">
+      <Link>UserControl\Styles\ExpanderDemo.xaml.cs</Link>
+      <DependentUpon>ExpanderDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FlowDocumentDemo.xaml.cs">
+      <Link>UserControl\Styles\FlowDocumentDemo.xaml.cs</Link>
+      <DependentUpon>FlowDocumentDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FrameDemo.xaml.cs">
+      <Link>UserControl\Styles\FrameDemo.xaml.cs</Link>
+      <DependentUpon>FrameDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GeometryDemo.xaml.cs">
+      <Link>UserControl\Styles\GeometryDemo.xaml.cs</Link>
+      <DependentUpon>GeometryDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GroupBoxDemo.xaml.cs">
+      <Link>UserControl\Styles\GroupBoxDemo.xaml.cs</Link>
+      <DependentUpon>GroupBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\LabelDemo.xaml.cs">
+      <Link>UserControl\Styles\LabelDemo.xaml.cs</Link>
+      <DependentUpon>LabelDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ListBoxDemo.xaml.cs">
+      <Link>UserControl\Styles\ListBoxDemo.xaml.cs</Link>
+      <DependentUpon>ListBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ListViewDemo.xaml.cs">
+      <Link>UserControl\Styles\ListViewDemo.xaml.cs</Link>
+      <DependentUpon>ListViewDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\MenuDemo.xaml.cs">
+      <Link>UserControl\Styles\MenuDemo.xaml.cs</Link>
+      <DependentUpon>MenuDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeComboBoxDemo.xaml.cs">
+      <Link>UserControl\Styles\NativeComboBoxDemo.xaml.cs</Link>
+      <DependentUpon>NativeComboBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeDatePickerDemo.xaml.cs">
+      <Link>UserControl\Styles\NativeDatePickerDemo.xaml.cs</Link>
+      <DependentUpon>NativeDatePickerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativePasswordBoxDemo.xaml.cs">
+      <Link>UserControl\Styles\NativePasswordBoxDemo.xaml.cs</Link>
+      <DependentUpon>NativePasswordBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeProgressBarDemo.xaml.cs">
+      <Link>UserControl\Styles\NativeProgressBarDemo.xaml.cs</Link>
+      <DependentUpon>NativeProgressBarDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeScrollViewerDemo.xaml.cs">
+      <Link>UserControl\Styles\NativeScrollViewerDemo.xaml.cs</Link>
+      <DependentUpon>NativeScrollViewerDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeTabControlDemo.xaml.cs">
+      <Link>UserControl\Styles\NativeTabControlDemo.xaml.cs</Link>
+      <DependentUpon>NativeTabControlDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeTextBoxDemo.xaml.cs">
+      <Link>UserControl\Styles\NativeTextBoxDemo.xaml.cs</Link>
+      <DependentUpon>NativeTextBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\NativeWindowDemo.xaml.cs">
+      <Link>UserControl\Styles\NativeWindowDemo.xaml.cs</Link>
+      <DependentUpon>NativeWindowDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RadioButtonDemo.xaml.cs">
+      <Link>UserControl\Styles\RadioButtonDemo.xaml.cs</Link>
+      <DependentUpon>RadioButtonDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RepeatButtonDemo.xaml.cs">
+      <Link>UserControl\Styles\RepeatButtonDemo.xaml.cs</Link>
+      <DependentUpon>RepeatButtonDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\RichTextBoxDemo.xaml.cs">
+      <Link>UserControl\Styles\RichTextBoxDemo.xaml.cs</Link>
+      <DependentUpon>RichTextBoxDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\SliderDemo.xaml.cs">
+      <Link>UserControl\Styles\SliderDemo.xaml.cs</Link>
+      <DependentUpon>SliderDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\TextBlockDemo.xaml.cs">
+      <Link>UserControl\Styles\TextBlockDemo.xaml.cs</Link>
+      <DependentUpon>TextBlockDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ToggleButtonDemo.xaml.cs">
+      <Link>UserControl\Styles\ToggleButtonDemo.xaml.cs</Link>
+      <DependentUpon>ToggleButtonDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\ToolBarDemo.xaml.cs">
+      <Link>UserControl\Styles\ToolBarDemo.xaml.cs</Link>
+      <DependentUpon>ToolBarDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\TreeViewDemo.xaml.cs">
+      <Link>UserControl\Styles\TreeViewDemo.xaml.cs</Link>
+      <DependentUpon>TreeViewDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\EffectsDemo.xaml.cs">
+      <Link>UserControl\Tools\EffectsDemo.xaml.cs</Link>
+      <DependentUpon>EffectsDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\GeometryAnimationDemo.xaml.cs">
+      <Link>UserControl\Tools\GeometryAnimationDemo.xaml.cs</Link>
+      <DependentUpon>GeometryAnimationDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Tools\HatchBrushGeneratorDemo.xaml.cs">
+      <Link>UserControl\Tools\HatchBrushGeneratorDemo.xaml.cs</Link>
+      <DependentUpon>HatchBrushGeneratorDemo.xaml</DependentUpon>
     </Resource>
   </ItemGroup>
   <ItemGroup>

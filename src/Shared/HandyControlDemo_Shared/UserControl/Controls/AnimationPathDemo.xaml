@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="HandyControlDemo.UserControl.AnimationPathDemoCtl"
+﻿<UserControl x:Class="HandyControlDemo.UserControl.AnimationPathDemo"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              Background="{DynamicResource RegionBrush}"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
