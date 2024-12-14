@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="EffectShadowColor">#88000000</Color>
+    <Color x:Key="EffectShadowColor">Black</Color>
 
     <DropShadowEffect x:Key="EffectShadow1"
                       BlurRadius="5"
