@@ -47,23 +47,6 @@
             <Color x:Key="DarkMaskColor">#20000000</Color>
             <Color x:Key="DarkOpacityColor">#40000000</Color>
             <system:UInt32 x:Key="BlurGradientValue">2583691263</system:UInt32>
-
-            <Color x:Key="ThemeBackgroundColor">#FFFFFFFF</Color>
-            <Color x:Key="ThemeBorderLowColor">#FFAAAAAA</Color>
-            <Color x:Key="ThemeBorderMidColor">#FF888888</Color>
-            <Color x:Key="ThemeBorderHighColor">#FF333333</Color>
-            <Color x:Key="ThemeControlLowColor">#FF868999</Color>
-            <Color x:Key="ThemeControlMidColor">#FFF5F5F5</Color>
-            <Color x:Key="ThemeControlMidHighColor">#FFC2C3C9</Color>
-            <Color x:Key="ThemeControlHighColor">#FF686868</Color>
-            <Color x:Key="ThemeControlVeryHighColor">#FF5B5B5B</Color>
-            <Color x:Key="ThemeControlHighlightLowColor">#FFF0F0F0</Color>
-            <Color x:Key="ThemeControlHighlightMidColor">#FFD0D0D0</Color>
-            <Color x:Key="ThemeControlHighlightHighColor">#FF808080</Color>
-            <Color x:Key="ThemeForegroundColor">#FF000000</Color>
-            <Color x:Key="HighlightColor">#FF086F9E</Color>
-            <Color x:Key="HighlightColor2">#FF096085</Color>
-            <Color x:Key="HyperlinkVisitedColor">#FF681DA8</Color>
         </ResourceDictionary>
         <ResourceDictionary x:Key="Dark">
             <Color x:Key="LightPrimaryColor">#044289</Color>
@@ -110,23 +93,6 @@
             <Color x:Key="DarkMaskColor">#40000000</Color>
             <Color x:Key="DarkOpacityColor">#40000000</Color>
             <system:UInt32 x:Key="BlurGradientValue">2583691263</system:UInt32>
-
-            <Color x:Key="ThemeBackgroundColor">#FF282828</Color>
-            <Color x:Key="ThemeBorderLowColor">#FF505050</Color>
-            <Color x:Key="ThemeBorderMidColor">#FF808080</Color>
-            <Color x:Key="ThemeBorderHighColor">#FFA0A0A0</Color>
-            <Color x:Key="ThemeControlLowColor">#FF282828</Color>
-            <Color x:Key="ThemeControlMidColor">#FF505050</Color>
-            <Color x:Key="ThemeControlMidHighColor">#FF686868</Color>
-            <Color x:Key="ThemeControlHighColor">#FF808080</Color>
-            <Color x:Key="ThemeControlVeryHighColor">#FFEFEBEF</Color>
-            <Color x:Key="ThemeControlHighlightLowColor">#FFA8A8A8</Color>
-            <Color x:Key="ThemeControlHighlightMidColor">#FF828282</Color>
-            <Color x:Key="ThemeControlHighlightHighColor">#FF505050</Color>
-            <Color x:Key="ThemeForegroundColor">#FFDEDEDE</Color>
-            <Color x:Key="HighlightColor">#FF119EDA</Color>
-            <Color x:Key="HighlightColor2">#FF096085</Color>
-            <Color x:Key="HyperlinkVisitedColor">#FFC58AF9</Color>
         </ResourceDictionary>
     </ResourceDictionary.ThemeDictionaries>
 </ResourceDictionary>
