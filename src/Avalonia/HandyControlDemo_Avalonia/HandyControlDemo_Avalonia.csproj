@@ -11,12 +11,16 @@
     <AssemblyName>HandyControlDemo</AssemblyName>
     <RootNamespace>HandyControlDemo</RootNamespace>
   </PropertyGroup>
+  
   <ItemGroup>
     <None Remove="Data\DemoInfo.json" />
     <None Remove="Resources\Img\cloud.png" />
     <None Remove="Resources\Img\icon.ico" />
   </ItemGroup>
+  
   <ItemGroup>
+    <EmbeddedResource Include="Data\DemoInfo.json" />
+    <AvaloniaResource Include="Resources\Img\cloud.png" />
     <AvaloniaResource Include="Resources\Img\icon.ico" />
   </ItemGroup>
 
@@ -32,14 +36,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <AvaloniaResource Include="Resources\Img\cloud.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Data\DemoInfo.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Update="Lang.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -52,10 +48,5 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Lang.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Resources\Themes\Basic\Geometries.xaml" />
-    <AvaloniaXaml Include="Resources\Themes\Basic\Geometries.xaml" />
   </ItemGroup>
 </Project>

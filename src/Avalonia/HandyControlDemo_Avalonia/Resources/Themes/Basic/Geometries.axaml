@@ -1,4 +1,4 @@
-﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
     <Geometry x:Key="NewGeometry">M512 0h1216a512 512 0 1 1 0 1024H512A512 512 0 1 1 512 0zM420.16 311.04V768h74.88V433.92h2.56l228.48 334.08h72.96V311.04h-75.52v329.6h-2.56l-225.92-329.6h-74.88z m468.48 0V768h340.48v-64h-265.6V565.76h239.36v-64h-239.36V375.04h254.72v-64h-329.6z m369.28 0l131.2 456.96h80l89.6-343.68h2.56l88.96 343.68h79.36l131.84-456.96h-84.48l-85.76 347.52h-2.56l-90.24-347.52h-77.44l-90.24 347.52h-2.56l-85.76-347.52h-84.48z</Geometry>

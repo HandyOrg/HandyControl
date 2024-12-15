@@ -57,11 +57,29 @@
                   BasedOn="{StaticResource LabelDefault}"
                   TargetType="Label" />
 
+    <ControlTheme x:Key="LabelDefault.Small"
+                  BasedOn="{StaticResource LabelDefault}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
     <ControlTheme x:Key="LabelPrimary"
                   BasedOn="{StaticResource LabelBaseStyle}"
                   TargetType="Label">
         <Setter Property="Background"
                 Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelPrimary.Small"
+                  BasedOn="{StaticResource LabelPrimary}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
     </ControlTheme>
 
     <ControlTheme x:Key="LabelSuccess"
@@ -71,11 +89,29 @@
                 Value="{DynamicResource SuccessBrush}" />
     </ControlTheme>
 
+    <ControlTheme x:Key="LabelSuccess.Small"
+                  BasedOn="{StaticResource LabelSuccess}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
     <ControlTheme x:Key="LabelInfo"
                   BasedOn="{StaticResource LabelBaseStyle}"
                   TargetType="Label">
         <Setter Property="Background"
                 Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelInfo.Small"
+                  BasedOn="{StaticResource LabelInfo}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
     </ControlTheme>
 
     <ControlTheme x:Key="LabelWarning"
@@ -85,10 +121,28 @@
                 Value="{DynamicResource WarningBrush}" />
     </ControlTheme>
 
+    <ControlTheme x:Key="LabelWarning.Small"
+                  BasedOn="{StaticResource LabelWarning}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
     <ControlTheme x:Key="LabelDanger"
                   BasedOn="{StaticResource LabelBaseStyle}"
                   TargetType="Label">
         <Setter Property="Background"
                 Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelDanger.Small"
+                  BasedOn="{StaticResource LabelDanger}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
     </ControlTheme>
 </ResourceDictionary>
