@@ -1,15 +1,44 @@
-﻿<Styles xmlns="https://github.com/avaloniaui"
+﻿<!-- ReSharper disable once Xaml.RedundantNamespaceAlias -->
+<Styles xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        x:Class="HandyControl.Themes.Theme">
+        x:Class="HandyControl.Themes.Theme"
+        xmlns:hc="clr-namespace:HandyControl.Controls">
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <MergeResourceInclude Source="/Themes/Basic/Colors.axaml" />
                 <MergeResourceInclude Source="/Themes/Basic/Sizes.axaml" />
+                <MergeResourceInclude Source="/Themes/Basic/Fonts.axaml" />
                 <MergeResourceInclude Source="/Themes/Basic/Effects.axaml" />
+                <MergeResourceInclude Source="/Themes/Basic/Geometries.axaml" />
+                <MergeResourceInclude Source="/Themes/Basic/Paths.axaml" />
+                <MergeResourceInclude Source="/Themes/Basic/Brushes.axaml" />
+                <MergeResourceInclude Source="/Themes/Basic/Converters.axaml" />
+
+                <MergeResourceInclude Source="/Themes/Styles/TextBlock.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/ContentControl.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/UserControl.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/Window.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/Button.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/RepeatButton.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/ToggleButton.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/RadioButton.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/CheckBox.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/Border.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/ItemsControl.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/TabItem.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/TabControl.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/ListBoxItem.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/ScrollViewer.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/ListBox.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/Label.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/Slider.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>
 
-    <StyleInclude Source="/Themes/Styles/Style.axaml" />
+    <Style Selector=":is(UserControl)">
+        <Setter Property="Theme"
+                Value="{DynamicResource {x:Type UserControl}}" />
+    </Style>
 </Styles>
