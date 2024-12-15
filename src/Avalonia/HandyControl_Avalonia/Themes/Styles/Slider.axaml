@@ -1,15 +1,42 @@
 <ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:hc="clr-namespace:HandyControl.Controls">
-    <ControlTheme x:Key="SliderRepeatButtonStyle"
+    <ControlTheme x:Key="SliderRepeatButtonHorizontalStyle"
                   TargetType="RepeatButton">
         <Setter Property="Background"
                 Value="Transparent" />
         <Setter Property="Focusable"
                 Value="False" />
+        <Setter Property="IsTabStop"
+                Value="False" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Background="{TemplateBinding Background}" />
+                <Border Background="Transparent"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+                    <Rectangle Fill="{TemplateBinding Background}"
+                               Height="2" />
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="SliderRepeatButtonVerticalStyle"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="IsTabStop"
+                Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Background="Transparent"
+                        Height="{TemplateBinding Height}"
+                        Width="{TemplateBinding Width}">
+                    <Rectangle Fill="{TemplateBinding Background}"
+                               Width="2" />
+                </Border>
             </ControlTemplate>
         </Setter>
     </ControlTheme>
@@ -322,13 +349,11 @@
                             <Track.DecreaseButton>
                                 <RepeatButton Name="PART_DecreaseButton"
                                               Background="{DynamicResource PrimaryBrush}"
-                                              Theme="{StaticResource SliderRepeatButtonStyle}"
-                                              Height="2" />
+                                              Theme="{StaticResource SliderRepeatButtonHorizontalStyle}" />
                             </Track.DecreaseButton>
                             <Track.IncreaseButton>
                                 <RepeatButton Name="PART_IncreaseButton"
-                                              Theme="{StaticResource SliderRepeatButtonStyle}"
-                                              Height="2" />
+                                              Theme="{StaticResource SliderRepeatButtonHorizontalStyle}" />
                             </Track.IncreaseButton>
                             <Thumb Margin="-9,0"
                                    Theme="{StaticResource SliderThumb}" />
@@ -386,13 +411,11 @@
                             <Track.DecreaseButton>
                                 <RepeatButton Name="PART_DecreaseButton"
                                               Background="{DynamicResource PrimaryBrush}"
-                                              Theme="{StaticResource SliderRepeatButtonStyle}"
-                                              Width="2" />
+                                              Theme="{StaticResource SliderRepeatButtonVerticalStyle}" />
                             </Track.DecreaseButton>
                             <Track.IncreaseButton>
                                 <RepeatButton Name="PART_IncreaseButton"
-                                              Theme="{StaticResource SliderRepeatButtonStyle}"
-                                              Width="2" />
+                                              Theme="{StaticResource SliderRepeatButtonVerticalStyle}" />
                             </Track.IncreaseButton>
                             <Thumb Margin="0,-9"
                                    Theme="{StaticResource SliderThumb}" />
