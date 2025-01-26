@@ -1,13 +1,13 @@
-﻿using System;
+using System;
 using System.Globalization;
-using System.Windows;
-using System.Windows.Data;
+using Avalonia;
+using Avalonia.Data.Converters;
 
 namespace HandyControl.Tools.Converter;
 
 public class CornerRadiusSplitConverter : IValueConverter
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public object? Convert(object? value, Type targetType, object? parameter, CultureInfo culture)
     {
         if (value is not CornerRadius cornerRadius)
         {
@@ -19,8 +19,11 @@ public class CornerRadiusSplitConverter : IValueConverter
             return value;
         }
 
-        var arr = str.Split(',');
-        if (arr.Length != 4) return cornerRadius;
+        string[] arr = str.Split(',');
+        if (arr.Length != 4)
+        {
+            return cornerRadius;
+        }
 
         return new CornerRadius(
             arr[0].Trim().Equals("1") ? cornerRadius.TopLeft : 0,
@@ -29,8 +32,6 @@ public class CornerRadiusSplitConverter : IValueConverter
             arr[3].Trim().Equals("1") ? cornerRadius.BottomLeft : 0);
     }
 
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotSupportedException();
-    }
+    public object ConvertBack(object? value, Type targetType, object? parameter, CultureInfo culture) =>
+        throw new NotImplementedException();
 }

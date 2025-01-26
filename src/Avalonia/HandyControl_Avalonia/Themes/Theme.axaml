@@ -33,6 +33,7 @@
                 <MergeResourceInclude Source="/Themes/Styles/ListBox.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/Label.axaml" />
                 <MergeResourceInclude Source="/Themes/Styles/Slider.axaml" />
+                <MergeResourceInclude Source="/Themes/Styles/Expander.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

@@ -6,5 +6,6 @@
     <converter:BorderCircularConverter x:Key="BorderCircularConverter" />
     <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter" />
     <converter:GeometrySpacingConverter x:Key="GeometrySpacingConverter" />
+    <converter:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter" />
 
 </ResourceDictionary>
