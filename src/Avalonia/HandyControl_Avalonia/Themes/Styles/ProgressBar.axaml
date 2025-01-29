@@ -1,0 +1,657 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+    <ControlTheme x:Key="ProgressBarBaseStyle"
+                  TargetType="ProgressBar">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Theme="{StaticResource BorderClip}"
+                        CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}">
+                    <Panel>
+                        <LayoutTransformControl HorizontalAlignment="Center"
+                                                VerticalAlignment="Center">
+                            <LayoutTransformControl.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding Path="ShowProgressText"
+                                             RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Path="!IsIndeterminate"
+                                             RelativeSource="{RelativeSource TemplatedParent}" />
+                                </MultiBinding>
+                            </LayoutTransformControl.IsVisible>
+                            <TextBlock x:Name="textBlock"
+                                       Foreground="{TemplateBinding Foreground}">
+                                <TextBlock.Text>
+                                    <MultiBinding Converter="{StaticResource StringFormatConverter}">
+                                        <TemplateBinding Property="ProgressTextFormat" />
+                                        <Binding Path="Value"
+                                                 RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <TemplateBinding Property="Percentage" />
+                                        <TemplateBinding Property="Minimum" />
+                                        <TemplateBinding Property="Maximum" />
+                                    </MultiBinding>
+                                </TextBlock.Text>
+                            </TextBlock>
+                        </LayoutTransformControl>
+                        <Border Name="PART_Indicator"
+                                Theme="{StaticResource BorderClip}"
+                                Background="{TemplateBinding Foreground}"
+                                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                                IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Border x:Name="BorderClip"
+                                    Width="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}"
+                                    Height="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}}">
+                                <LayoutTransformControl HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center">
+                                    <TextBlock Foreground="{DynamicResource TextIconBrush}"
+                                               Text="{Binding Text, ElementName=textBlock}" />
+                                </LayoutTransformControl>
+                            </Border>
+                        </Border>
+                        <Border Name="PART_IndeterminateIndicator"
+                                Background="{TemplateBinding Foreground}"
+                                IsVisible="{Binding IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:horizontal">
+            <Setter Property="MinHeight"
+                    Value="20" />
+
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
+                <Setter Property="VerticalAlignment"
+                        Value="Stretch" />
+            </Style>
+
+            <Style Selector="^ /template/ Border#BorderClip">
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
+                <Setter Property="VerticalAlignment"
+                        Value="Stretch" />
+            </Style>
+
+            <Style Selector="^:indeterminate /template/ Border#PART_IndeterminateIndicator">
+                <Style.Animations>
+                    <Animation Easing="LinearEasing"
+                               IterationCount="Infinite"
+                               Duration="0:0:2">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="TranslateTransform.X"
+                                    Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="TranslateTransform.X"
+                                    Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+                <Setter Property="Width"
+                        Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:vertical">
+            <Setter Property="MinWidth"
+                    Value="20" />
+
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="HorizontalAlignment"
+                        Value="Stretch" />
+                <Setter Property="VerticalAlignment"
+                        Value="Bottom" />
+            </Style>
+
+            <Style Selector="^ /template/ LayoutTransformControl">
+                <Setter Property="LayoutTransform">
+                    <Setter.Value>
+                        <RotateTransform Angle="-90" />
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style Selector="^ /template/ Border#BorderClip">
+                <Setter Property="HorizontalAlignment"
+                        Value="Stretch" />
+                <Setter Property="VerticalAlignment"
+                        Value="Bottom" />
+            </Style>
+
+            <Style Selector="^:indeterminate /template/ Border#PART_IndeterminateIndicator">
+                <Style.Animations>
+                    <Animation Easing="LinearEasing"
+                               IterationCount="Infinite"
+                               Duration="0:0:2">
+                        <KeyFrame Cue="100%">
+                            <Setter Property="TranslateTransform.Y"
+                                    Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+                        </KeyFrame>
+                        <KeyFrame Cue="0%">
+                            <Setter Property="TranslateTransform.Y"
+                                    Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+                <Setter Property="Height"
+                        Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type ProgressBar}"
+                  BasedOn="{StaticResource ProgressBarBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarSuccess"
+                  BasedOn="{StaticResource ProgressBarBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarInfo"
+                  BasedOn="{StaticResource ProgressBarBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarWarning"
+                  BasedOn="{StaticResource ProgressBarBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarDanger"
+                  BasedOn="{StaticResource ProgressBarBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarStripeBaseStyle"
+                  TargetType="ProgressBar">
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Theme="{StaticResource BorderClip}"
+                        CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}">
+                    <Panel>
+                        <Border x:Name="PART_Indicator"
+                                Theme="{StaticResource BorderClip}"
+                                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                                IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}">
+                            <Border x:Name="BorderStripe"
+                                    Background="{TemplateBinding Foreground}" />
+                        </Border>
+                        <Border x:Name="PART_IndeterminateIndicator"
+                                Background="{TemplateBinding Foreground}"
+                                IsVisible="{Binding IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:horizontal">
+            <Setter Property="MinHeight"
+                    Value="20" />
+
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
+                <Setter Property="VerticalAlignment"
+                        Value="Stretch" />
+            </Style>
+
+            <Style Selector="^ /template/ Border#BorderStripe, ^ /template/ Border#PART_IndeterminateIndicator">
+                <Style.Animations>
+                    <Animation Easing="LinearEasing"
+                               IterationCount="Infinite"
+                               Duration="0:0:.5">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="TranslateTransform.X"
+                                    Value="-21" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="TranslateTransform.X"
+                                    Value="21" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+
+                <Setter Property="Width"
+                        Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DoubleExpandConverter}, ConverterParameter=40}" />
+                <Setter Property="Height"
+                        Value="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:vertical">
+            <Setter Property="MinWidth"
+                    Value="20" />
+
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="HorizontalAlignment"
+                        Value="Stretch" />
+                <Setter Property="VerticalAlignment"
+                        Value="Bottom" />
+            </Style>
+
+            <Style Selector="^ /template/ Border#BorderStripe, ^ /template/ Border#PART_IndeterminateIndicator">
+                <Style.Animations>
+                    <Animation Easing="LinearEasing"
+                               IterationCount="Infinite"
+                               Duration="0:0:.5">
+                        <KeyFrame Cue="100%">
+                            <Setter Property="TranslateTransform.Y"
+                                    Value="-21" />
+                        </KeyFrame>
+                        <KeyFrame Cue="0%">
+                            <Setter Property="TranslateTransform.Y"
+                                    Value="21" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+
+                <Setter Property="Width"
+                        Value="{Binding Bounds.Width, RelativeSource={RelativeSource TemplatedParent}}" />
+                <Setter Property="Height"
+                        Value="{Binding Bounds.Height, RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource DoubleExpandConverter}, ConverterParameter=40}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <LinearGradientBrush x:Key="PrimaryStripeBrush"
+                         EndPoint="100%,0%"
+                         StartPoint="0%,0%">
+        <GradientStop Color="{StaticResource DarkPrimaryColor}"
+                      Offset="0" />
+        <GradientStop Color="{StaticResource DarkPrimaryColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="1" />
+    </LinearGradientBrush>
+
+    <ControlTheme x:Key="ProgressBarPrimaryStripe"
+                  BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground">
+            <DrawingBrush TileMode="Tile"
+                          SourceRect="0,0,20,32"
+                          DestinationRect="0,0,20,32"
+                          Stretch="None">
+                <DrawingBrush.Transform>
+                    <RotateTransform Angle="20" />
+                </DrawingBrush.Transform>
+                <DrawingBrush.Drawing>
+                    <GeometryDrawing Brush="{StaticResource PrimaryStripeBrush}">
+                        <GeometryDrawing.Geometry>
+                            <RectangleGeometry Rect="0,0,20,32" />
+                        </GeometryDrawing.Geometry>
+                    </GeometryDrawing>
+                </DrawingBrush.Drawing>
+            </DrawingBrush>
+        </Setter>
+
+        <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Background">
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="110" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource PrimaryStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <LinearGradientBrush x:Key="SuccessStripeBrush"
+                         EndPoint="100%,0%"
+                         StartPoint="0%,0%">
+        <GradientStop Color="{StaticResource DarkSuccessColor}"
+                      Offset="0" />
+        <GradientStop Color="{StaticResource DarkSuccessColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="1" />
+    </LinearGradientBrush>
+
+    <ControlTheme x:Key="ProgressBarSuccessStripe"
+                  BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="20" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource SuccessStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Background">
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="110" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource SuccessStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <LinearGradientBrush x:Key="InfoStripeBrush"
+                         EndPoint="100%,0%"
+                         StartPoint="0%,0%">
+        <GradientStop Color="{StaticResource DarkInfoColor}"
+                      Offset="0" />
+        <GradientStop Color="{StaticResource DarkInfoColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="1" />
+    </LinearGradientBrush>
+
+    <ControlTheme x:Key="ProgressBarInfoStripe"
+                  BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="20" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource InfoStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Background">
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="110" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource InfoStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <LinearGradientBrush x:Key="WarningStripeBrush"
+                         EndPoint="100%,0%"
+                         StartPoint="0%,0%">
+        <GradientStop Color="{StaticResource DarkWarningColor}"
+                      Offset="0" />
+        <GradientStop Color="{StaticResource DarkWarningColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="1" />
+    </LinearGradientBrush>
+
+    <ControlTheme x:Key="ProgressBarWarningStripe"
+                  BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="20" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource WarningStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Background">
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="110" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource WarningStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <LinearGradientBrush x:Key="DangerStripeBrush"
+                         EndPoint="100%,0%"
+                         StartPoint="0%,0%">
+        <GradientStop Color="{StaticResource DarkDangerColor}"
+                      Offset="0" />
+        <GradientStop Color="{StaticResource DarkDangerColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="0.5" />
+        <GradientStop Color="{StaticResource BackgroundColor}"
+                      Offset="1" />
+    </LinearGradientBrush>
+
+    <ControlTheme x:Key="ProgressBarDangerStripe"
+                  BasedOn="{StaticResource ProgressBarStripeBaseStyle}"
+                  TargetType="ProgressBar">
+        <Setter Property="Foreground">
+            <Setter.Value>
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="20" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource DangerStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:vertical /template/ Border#BorderStripe, ^:vertical /template/ Border#PART_IndeterminateIndicator">
+            <Setter Property="Background">
+                <DrawingBrush TileMode="Tile"
+                              SourceRect="0,0,20,32"
+                              DestinationRect="0,0,20,32"
+                              Stretch="None">
+                    <DrawingBrush.Transform>
+                        <RotateTransform Angle="110" />
+                    </DrawingBrush.Transform>
+                    <DrawingBrush.Drawing>
+                        <GeometryDrawing Brush="{StaticResource DangerStripeBrush}">
+                            <GeometryDrawing.Geometry>
+                                <RectangleGeometry Rect="0,0,20,32" />
+                            </GeometryDrawing.Geometry>
+                        </GeometryDrawing>
+                    </DrawingBrush.Drawing>
+                </DrawingBrush>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ProgressBarFlat"
+                  TargetType="ProgressBar">
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Background="{TemplateBinding Background}">
+                    <Border Name="PART_Indicator"
+                            Theme="{StaticResource BorderClip}"
+                            Background="{TemplateBinding Foreground}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                            IsVisible="{Binding !IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
+                    <Border Name="PART_IndeterminateIndicator"
+                            Background="{TemplateBinding Foreground}"
+                            IsVisible="{Binding IsIndeterminate, RelativeSource={RelativeSource TemplatedParent}}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:horizontal">
+            <Setter Property="MinHeight"
+                    Value="4" />
+
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="HorizontalAlignment"
+                        Value="Left" />
+                <Setter Property="VerticalAlignment"
+                        Value="Stretch" />
+            </Style>
+
+            <Style Selector="^:indeterminate /template/ Border#PART_IndeterminateIndicator">
+                <Style.Animations>
+                    <Animation Easing="LinearEasing"
+                               IterationCount="Infinite"
+                               Duration="0:0:2">
+                        <KeyFrame Cue="0%">
+                            <Setter Property="TranslateTransform.X"
+                                    Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+                        </KeyFrame>
+                        <KeyFrame Cue="100%">
+                            <Setter Property="TranslateTransform.X"
+                                    Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+                <Setter Property="Width"
+                        Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:vertical">
+            <Setter Property="MinWidth"
+                    Value="4" />
+
+            <Style Selector="^ /template/ Border#PART_Indicator">
+                <Setter Property="HorizontalAlignment"
+                        Value="Stretch" />
+                <Setter Property="VerticalAlignment"
+                        Value="Bottom" />
+            </Style>
+
+            <Style Selector="^:indeterminate /template/ Border#PART_IndeterminateIndicator">
+                <Style.Animations>
+                    <Animation Easing="LinearEasing"
+                               IterationCount="Infinite"
+                               Duration="0:0:2">
+                        <KeyFrame Cue="100%">
+                            <Setter Property="TranslateTransform.Y"
+                                    Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateStartingOffset}" />
+                        </KeyFrame>
+                        <KeyFrame Cue="0%">
+                            <Setter Property="TranslateTransform.Y"
+                                    Value="{Binding $parent[ProgressBar].TemplateSettings.IndeterminateEndingOffset}" />
+                        </KeyFrame>
+                    </Animation>
+                </Style.Animations>
+                <Setter Property="Height"
+                        Value="{Binding TemplateSettings.ContainerWidth, RelativeSource={RelativeSource TemplatedParent}}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

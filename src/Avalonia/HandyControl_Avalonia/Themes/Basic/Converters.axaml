@@ -1,11 +1,14 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:converter="clr-namespace:HandyControl.Tools.Converter">
+                    xmlns:hc="clr-namespace:HandyControl.Tools.Converter"
+                    xmlns:avalonia="using:Avalonia.Controls.Converters">
 
-    <converter:BorderClipConverter x:Key="BorderClipConverter" />
-    <converter:BorderCircularConverter x:Key="BorderCircularConverter" />
-    <converter:BorderCircularClipConverter x:Key="BorderCircularClipConverter" />
-    <converter:GeometrySpacingConverter x:Key="GeometrySpacingConverter" />
-    <converter:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter" />
+    <hc:BorderClipConverter x:Key="BorderClipConverter" />
+    <hc:BorderCircularConverter x:Key="BorderCircularConverter" />
+    <hc:BorderCircularClipConverter x:Key="BorderCircularClipConverter" />
+    <hc:GeometrySpacingConverter x:Key="GeometrySpacingConverter" />
+    <hc:CornerRadiusSplitConverter x:Key="CornerRadiusSplitConverter" />
+    <hc:DoubleExpandConverter x:Key="DoubleExpandConverter" />
+    <avalonia:StringFormatConverter x:Key="StringFormatConverter" />
 
 </ResourceDictionary>

@@ -30,7 +30,7 @@
                     <DrawingBrush.Transform>
                         <TransformGroup>
                             <RotateTransform Angle="20"/>
-                            <TranslateTransform x:Name="MyTransform" X="0"/>
+                            <TranslateTransform X="0"/>
                         </TransformGroup>
                     </DrawingBrush.Transform>
                     <DrawingBrush.Drawing>
@@ -60,7 +60,7 @@
                     <DrawingBrush.Transform>
                         <TransformGroup>
                             <RotateTransform Angle="20"/>
-                            <TranslateTransform x:Name="MyTransform" X="0"/>
+                            <TranslateTransform X="0"/>
                         </TransformGroup>
                     </DrawingBrush.Transform>
                     <DrawingBrush.Drawing>
@@ -90,7 +90,7 @@
                     <DrawingBrush.Transform>
                         <TransformGroup>
                             <RotateTransform Angle="20"/>
-                            <TranslateTransform x:Name="MyTransform" X="0"/>
+                            <TranslateTransform X="0"/>
                         </TransformGroup>
                     </DrawingBrush.Transform>
                     <DrawingBrush.Drawing>
@@ -120,7 +120,7 @@
                     <DrawingBrush.Transform>
                         <TransformGroup>
                             <RotateTransform Angle="20"/>
-                            <TranslateTransform x:Name="MyTransform" X="0"/>
+                            <TranslateTransform X="0"/>
                         </TransformGroup>
                     </DrawingBrush.Transform>
                     <DrawingBrush.Drawing>
@@ -150,7 +150,7 @@
                     <DrawingBrush.Transform>
                         <TransformGroup>
                             <RotateTransform Angle="20"/>
-                            <TranslateTransform x:Name="MyTransform" X="0"/>
+                            <TranslateTransform X="0"/>
                         </TransformGroup>
                     </DrawingBrush.Transform>
                     <DrawingBrush.Drawing>
