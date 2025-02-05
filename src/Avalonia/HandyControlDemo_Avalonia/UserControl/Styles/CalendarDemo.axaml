@@ -1,0 +1,7 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.UserControl.CalendarDemo"
+             Background="{DynamicResource RegionBrush}">
+    <Calendar Margin="32"
+              SelectionMode="MultipleRange" />
+</UserControl>

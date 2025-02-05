@@ -1,0 +1,249 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="https://handyorg.github.io/handycontrol">
+    <ControlTheme x:Key="{x:Type CalendarButton}"
+                  TargetType="CalendarButton">
+        <Setter Property="MinWidth"
+                Value="10" />
+        <Setter Property="MinHeight"
+                Value="10" />
+        <Setter Property="FontSize"
+                Value="12" />
+        <Setter Property="Width"
+                Value="40" />
+        <Setter Property="Height"
+                Value="32" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Rectangle x:Name="SelectedBackground"
+                               Fill="{DynamicResource DangerBrush}"
+                               Opacity="0"
+                               RadiusY="16"
+                               RadiusX="16" />
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      FontSize="{TemplateBinding FontSize}"
+                                      Foreground="{TemplateBinding Foreground}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:selected">
+            <Style Selector="^ /template/ Rectangle#SelectedBackground">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource TextIconBrush}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type CalendarDayButton}"
+                  TargetType="CalendarDayButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="FontSize"
+                Value="{StaticResource TextFontSize}" />
+        <Setter Property="MinWidth"
+                Value="10" />
+        <Setter Property="MinHeight"
+                Value="10" />
+        <Setter Property="Width"
+                Value="32" />
+        <Setter Property="Height"
+                Value="32" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Panel>
+                        <Rectangle x:Name="TodayBackground"
+                                   Fill="{DynamicResource DangerBrush}"
+                                   RadiusX="16"
+                                   RadiusY="16"
+                                   IsVisible="False" />
+                        <Rectangle x:Name="SelectedBackground"
+                                   Fill="{DynamicResource PrimaryBrush}"
+                                   RadiusY="16"
+                                   RadiusX="16"
+                                   Opacity="0" />
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          FontSize="{TemplateBinding FontSize}"
+                                          Foreground="{TemplateBinding Foreground}" />
+                    </Panel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:today">
+            <Style Selector="^ /template/ Rectangle#TodayBackground">
+                <Setter Property="IsVisible"
+                        Value="True" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource TextIconBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:selected">
+            <Style Selector="^ /template/ Rectangle#SelectedBackground">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource TextIconBrush}" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:inactive">
+            <Style Selector="^ /template/ ContentPresenter#PART_ContentPresenter">
+                <Setter Property="Foreground"
+                        Value="{DynamicResource ThirdlyTextBrush}" />
+            </Style>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type CalendarItem}"
+                  TargetType="CalendarItem">
+        <Setter Property="Margin"
+                Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid RowDefinitions="Auto,*"
+                      ColumnDefinitions="Auto,*,Auto">
+                    <Border Margin="4"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                            Background="{TemplateBinding HeaderBackground}"
+                            Grid.ColumnSpan="3" />
+                    <Button x:Name="PART_PreviousButton"
+                            Width="50"
+                            Foreground="{Binding Path=(hc:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}"
+                            HorizontalAlignment="Left"
+                            Grid.Column="0"
+                            Height="50"
+                            Padding="16"
+                            Focusable="False"
+                            Grid.Row="0"
+                            Theme="{StaticResource ButtonIcon}"
+                            hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                    <Button x:Name="PART_HeaderButton"
+                            Focusable="False"
+                            Foreground="{Binding Path=(hc:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}"
+                            Grid.Column="1"
+                            FontSize="20"
+                            HorizontalAlignment="Center"
+                            Grid.Row="0"
+                            Theme="{StaticResource ButtonCustom}" />
+                    <Button x:Name="PART_NextButton"
+                            Width="50"
+                            Foreground="{Binding Path=(hc:TitleElement.Foreground),RelativeSource={RelativeSource TemplatedParent}}"
+                            HorizontalAlignment="Right"
+                            Height="50"
+                            Padding="16"
+                            Grid.Column="2"
+                            Focusable="False"
+                            Grid.Row="0"
+                            Theme="{StaticResource ButtonIcon}"
+                            hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                    <Grid Width="240"
+                          Height="240"
+                          x:Name="PART_MonthView"
+                          Margin="10,6,10,10"
+                          Grid.ColumnSpan="3"
+                          Grid.Column="0"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Grid.Row="1"
+                          IsVisible="True"
+                          ColumnDefinitions="*,*,*,*,*,*,*"
+                          RowDefinitions="*,*,*,*,*,*,*">
+                    </Grid>
+                    <Grid Width="240"
+                          Height="240"
+                          x:Name="PART_YearView"
+                          Margin="10,6,10,10"
+                          Grid.ColumnSpan="3"
+                          Grid.Column="0"
+                          HorizontalAlignment="Center"
+                          VerticalAlignment="Center"
+                          Grid.Row="1"
+                          IsVisible="False"
+                          ColumnDefinitions="*,*,*,*"
+                          RowDefinitions="*,*,*">
+                    </Grid>
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+        <Setter Property="DayTitleTemplate">
+            <Template x:DataType="x:String">
+                <TextBlock Margin="0,6,0,6"
+                           Foreground="{DynamicResource PrimaryTextBrush}"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontWeight="Bold"
+                           Text="{Binding}" />
+            </Template>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="CalendarBaseStyle"
+                  TargetType="Calendar">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="HeaderBackground"
+                Value="{DynamicResource TitleBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:TitleElement.Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel Margin="8,4,8,8">
+                    <Border CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            Background="{TemplateBinding Background}"
+                            Effect="{StaticResource EffectShadow2}" />
+                    <Panel Name="PART_Root"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center">
+                        <CalendarItem Name="PART_CalendarItem"
+                                      BorderBrush="{TemplateBinding BorderBrush}"
+                                      BorderThickness="{TemplateBinding BorderThickness}"
+                                      Background="{TemplateBinding Background}"
+                                      HeaderBackground="{TemplateBinding HeaderBackground}" />
+                    </Panel>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type Calendar}"
+                  TargetType="Calendar"
+                  BasedOn="{StaticResource CalendarBaseStyle}" />
+</ResourceDictionary>
