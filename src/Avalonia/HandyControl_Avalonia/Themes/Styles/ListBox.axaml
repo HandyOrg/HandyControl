@@ -1,6 +1,58 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme x:Key="{x:Type ListBox}"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+    <ControlTheme x:Key="ListBoxItemBaseStyle"
+                  TargetType="ListBoxItem">
+        <Setter Property="Padding"
+                Value="10,0" />
+        <Setter Property="MinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="Transparent" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Margin"
+                Value="0,0,0,2" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:selected /template/ ContentPresenter">
+            <Setter Property="Background"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="Foreground"
+                    Value="{DynamicResource TextIconBrush}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ListBoxBaseStyle"
                   TargetType="ListBox">
         <Setter Property="Background"
                 Value="{DynamicResource RegionBrush}" />
@@ -11,23 +63,27 @@
         <Setter Property="CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Padding"
-                Value="4" />
+                Value="2,2,2,0" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
                 Value="Auto" />
         <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
                 Value="Auto" />
         <Setter Property="ScrollViewer.IsScrollChainingEnabled"
                 Value="True" />
+        <Setter Property="ItemContainerTheme"
+                Value="{StaticResource ListBoxItemBaseStyle}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
                 <Border Name="border"
                         BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
                         CornerRadius="{TemplateBinding CornerRadius}">
                     <ScrollViewer Name="PART_ScrollViewer"
                                   AllowAutoHide="{TemplateBinding (ScrollViewer.AllowAutoHide)}"
                                   BringIntoViewOnFocusChange="{TemplateBinding (ScrollViewer.BringIntoViewOnFocusChange)}"
-                                  Background="{TemplateBinding Background}"
                                   HorizontalScrollBarVisibility="{TemplateBinding (ScrollViewer.HorizontalScrollBarVisibility)}"
                                   IsScrollChainingEnabled="{TemplateBinding (ScrollViewer.IsScrollChainingEnabled)}"
                                   IsDeferredScrollingEnabled="{TemplateBinding (ScrollViewer.IsDeferredScrollingEnabled)}"
@@ -41,5 +97,25 @@
                 </Border>
             </ControlTemplate>
         </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type ListBox}"
+                  BasedOn="{StaticResource ListBoxBaseStyle}"
+                  TargetType="ListBox" />
+
+    <ControlTheme x:Key="ListBoxItemBaseStyle.Small"
+                  BasedOn="{StaticResource ListBoxItemBaseStyle}"
+                  TargetType="ListBoxItem">
+        <Setter Property="Padding"
+                Value="6,0" />
+        <Setter Property="MinHeight"
+                Value="24" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ListBox.Small"
+                  BasedOn="{StaticResource ListBoxBaseStyle}"
+                  TargetType="ListBox">
+        <Setter Property="ItemContainerTheme"
+                Value="{StaticResource ListBoxItemBaseStyle.Small}" />
     </ControlTheme>
 </ResourceDictionary>

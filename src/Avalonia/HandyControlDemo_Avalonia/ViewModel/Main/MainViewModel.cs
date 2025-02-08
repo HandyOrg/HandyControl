@@ -76,11 +76,20 @@ public class MainViewModel : DemoViewModelBase<DemoDataModel>
 
         //load items
         DemoInfoCollection = [];
-        foreach (var item in _dataService.GetDemoInfo())
+        Dispatcher.UIThread.InvokeAsync(() =>
         {
-            Dispatcher.UIThread.InvokeAsync(() => DemoInfoCollection.Add(item));
-        }
-        Dispatcher.UIThread.InvokeAsync(() => SwitchDemo(DemoInfoCollection.First().DemoItemList.First()));
+            DataList = _dataService.GetDemoDataList();
+
+            foreach (var item in _dataService.GetDemoInfo())
+            {
+                DemoInfoCollection.Add(item);
+            }
+
+            if (DemoInfoCollection.Any() && DemoInfoCollection.First().DemoItemList.Any())
+            {
+                SwitchDemo(DemoInfoCollection.First().DemoItemList.First());
+            }
+        });
     }
 
     private void SwitchDemo(DemoItemModel item)

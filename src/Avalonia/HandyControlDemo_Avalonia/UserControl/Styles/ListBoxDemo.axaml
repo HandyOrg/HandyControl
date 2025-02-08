@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.UserControl.ListBoxDemo">
+    <WrapPanel Margin="16">
+        <ListBox Margin="16"
+                 Width="200"
+                 ItemsSource="{Binding DataList}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox Margin="16"
+                 Width="200"
+                 ItemsSource="{Binding DataList}"
+                 Theme="{StaticResource ListBox.Small}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </WrapPanel>
+</UserControl>
