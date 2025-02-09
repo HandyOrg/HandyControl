@@ -149,7 +149,11 @@ public class PasswordBox : Control
 
 #endif
 
-    public PasswordBox() => CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => Clear()));
+    public PasswordBox()
+    {
+        CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) => Clear()));
+        CommandBindings.Add(new CommandBinding(ControlCommands.Focus, (s, e) => Focus()));
+    }
 
     public System.Windows.Controls.PasswordBox ActualPasswordBox { get; set; }
 
@@ -268,6 +272,14 @@ public class PasswordBox : Control
     {
         ActualPasswordBox.Clear();
         _textBox.Clear();
+    }
+
+#pragma warning disable CS0108 // 成员隐藏继承的成员；缺少关键字 new
+    public void Focus()
+#pragma warning restore CS0108 // 成员隐藏继承的成员；缺少关键字 new
+    {
+        ActualPasswordBox.Focus();
+        _textBox.Focus();
     }
 
     private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
