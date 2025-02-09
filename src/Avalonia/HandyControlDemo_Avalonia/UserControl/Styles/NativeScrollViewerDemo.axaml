@@ -2,7 +2,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="HandyControlDemo.UserControl.NativeScrollViewerDemo"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             Background="{DynamicResource RegionBrush}"
              MaxWidth="550"
              Height="600">
     <Grid Margin="32"

@@ -1,8 +1,7 @@
 ﻿<UserControl xmlns="https://github.com/avaloniaui"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:hc="https://handyorg.github.io/handycontrol"
-             x:Class="HandyControlDemo.UserControl.BorderDemo"
-             Background="{DynamicResource RegionBrush}">
+             x:Class="HandyControlDemo.UserControl.BorderDemo">
     <ScrollViewer>
         <hc:UniformSpacingPanel Margin="32"
                                 Orientation="Vertical"
