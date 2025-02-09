@@ -14,7 +14,7 @@
                 BorderThickness="0"
                 Background="{DynamicResource SecondaryRegionBrush}" />
         <TabControl BorderThickness="0 1 0 0"
-                    Classes="inline"
+                    Theme="{StaticResource TabControlInLine}"
                     SelectionChanged="TabControl_OnSelectionChanged"
                     ItemsSource="{Binding DemoInfoCollection}"
                     Background="Transparent"

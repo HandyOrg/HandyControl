@@ -5,6 +5,14 @@ namespace HandyControl.Controls;
 
 public class TitleElement
 {
+    public static readonly AttachedProperty<IBrush?> BorderBrushProperty =
+        AvaloniaProperty.RegisterAttached<TitleElement, AvaloniaObject, IBrush?>("BorderBrush", inherits: true);
+
+    public static void SetBorderBrush(AvaloniaObject element, IBrush? value) =>
+        element.SetValue(BorderBrushProperty, value);
+
+    public static IBrush? GetBorderBrush(AvaloniaObject element) => element.GetValue(BorderBrushProperty);
+
     public static readonly AttachedProperty<IBrush?> BackgroundProperty =
         AvaloniaProperty.RegisterAttached<TitleElement, AvaloniaObject, IBrush?>("Background", inherits: true);
 
