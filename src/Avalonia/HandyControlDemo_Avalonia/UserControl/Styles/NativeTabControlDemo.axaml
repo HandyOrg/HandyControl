@@ -9,6 +9,93 @@
                                 ItemHeight="200"
                                 MaxWidth="832"
                                 ChildWrapping="Wrap">
+            <TabControl SelectedIndex="3"
+                        Theme="{StaticResource TabControlSliding}">
+                <TabItem Header="Title1">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="1" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Title22">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="2" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Title333">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="3" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Title4444">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="4" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Title55555">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="5" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+            </TabControl>
+            <TabControl Theme="{StaticResource TabControlSliding}"
+                        TabStripPlacement="Bottom">
+                <TabItem Header="Title1">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="1" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Title22"
+                         IsEnabled="False">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="2" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Title333">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="3" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Title4444">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="4" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+                <TabItem Header="Title55555">
+                    <Border>
+                        <TextBlock Theme="{StaticResource TextBlockLargeBold}">
+                            <Run Text="Text" />
+                            <Run Text="5" />
+                        </TextBlock>
+                    </Border>
+                </TabItem>
+            </TabControl>
             <TabControl TabStripPlacement="Right">
                 <TabItem Header="Title1">
                     <Border>

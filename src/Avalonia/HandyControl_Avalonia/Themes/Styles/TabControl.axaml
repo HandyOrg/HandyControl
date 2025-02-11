@@ -402,4 +402,196 @@
                 Value="{DynamicResource TextIconBrush}" />
     </ControlTheme>
 
+    <ControlTheme x:Key="SlidingTabContainerBaseStyle"
+                  TargetType="hc:SlidingTabContainer">
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Padding="{TemplateBinding Padding}"
+                            Background="{TemplateBinding Background}"
+                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                        <Panel>
+                            <Border x:Name="PART_Sliding"
+                                    CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                                    Width="0"
+                                    Height="0"
+                                    Effect="{StaticResource EffectShadow1}"
+                                    Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}"
+                                    HorizontalAlignment="Left"
+                                    VerticalAlignment="Top" />
+                            <ContentPresenter Content="{TemplateBinding Content}" />
+                        </Panel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type hc:SlidingTabContainer}"
+                  BasedOn="{StaticResource SlidingTabContainerBaseStyle}"
+                  TargetType="hc:SlidingTabContainer" />
+
+    <ControlTheme x:Key="TabItemSliding"
+                  TargetType="TabItem">
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="MinHeight"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="10,0" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border x:Name="rootBorder"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}">
+                        <ContentPresenter Name="PART_ContentPresenter"
+                                          Padding="{TemplateBinding Padding}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding Header}"
+                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                          CornerRadius="{TemplateBinding CornerRadius}"
+                                          RecognizesAccessKey="True" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:selected">
+            <Setter Property="Foreground"
+                    Value="{Binding $self.(hc:TitleElement.Foreground)}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="TabControlSliding"
+                  TargetType="TabControl">
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="ItemContainerTheme"
+                Value="{StaticResource TabItemSliding}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="hc:TitleElement.Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="hc:TitleElement.Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <DockPanel>
+                        <hc:SlidingTabContainer x:Name="tabContainer"
+                                                Background="{TemplateBinding Background}">
+                            <ItemsPresenter Name="PART_ItemsPresenter"
+                                            ItemsPanel="{TemplateBinding ItemsPanel}"
+                                            VerticalAlignment="Center"
+                                            HorizontalAlignment="Center" />
+                        </hc:SlidingTabContainer>
+                        <Border Padding="{TemplateBinding Padding}"
+                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}">
+                            <ContentPresenter Name="PART_SelectedContentHost"
+                                              Margin="{TemplateBinding Padding}"
+                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                              Content="{TemplateBinding SelectedContent}"
+                                              ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                        </Border>
+                    </DockPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+
+        <Style Selector="^[TabStripPlacement=Top] /template/ hc|SlidingTabContainer#tabContainer">
+            <Setter Property="DockPanel.Dock"
+                    Value="Top" />
+            <Setter Property="Margin"
+                    Value="0,0,0,6" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Bottom] /template/ hc|SlidingTabContainer#tabContainer">
+            <Setter Property="DockPanel.Dock"
+                    Value="Bottom" />
+            <Setter Property="Margin"
+                    Value="0,6,0,0" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Left] /template/ hc|SlidingTabContainer#tabContainer">
+            <Setter Property="DockPanel.Dock"
+                    Value="Left" />
+            <Setter Property="Margin"
+                    Value="0,0,6,0" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Right] /template/ hc|SlidingTabContainer#tabContainer">
+            <Setter Property="DockPanel.Dock"
+                    Value="Right" />
+            <Setter Property="Margin"
+                    Value="6,0,0,0" />
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Vertical" />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <StackPanel Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>

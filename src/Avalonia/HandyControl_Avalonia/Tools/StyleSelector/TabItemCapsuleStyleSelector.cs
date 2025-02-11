@@ -9,7 +9,7 @@ public class TabItemCapsuleThemeSelector : ThemeSelector
 {
     public override ControlTheme? SelectTheme(object? item, AvaloniaObject? container)
     {
-        if (container is not TabItem { Parent: TabControl tabControl } tabItem)
+        if (container is not TabItem tabItem || VisualHelper.GetParent<TabControl>(tabItem) is not { } tabControl)
         {
             return null;
         }
