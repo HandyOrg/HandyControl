@@ -136,16 +136,14 @@
         <Setter Property="RenderTransformOrigin"
                 Value="0.5, 0.5" />
         <Setter Property="RenderTransform">
-            <Setter.Value>
-                <TransformGroup>
-                    <ScaleTransform ScaleY="1"
-                                    ScaleX="-1" />
-                    <SkewTransform AngleY="0"
-                                   AngleX="0" />
-                    <RotateTransform Angle="0" />
-                    <TranslateTransform />
-                </TransformGroup>
-            </Setter.Value>
+            <TransformGroup>
+                <ScaleTransform ScaleY="1"
+                                ScaleX="-1" />
+                <SkewTransform AngleY="0"
+                               AngleX="0" />
+                <RotateTransform Angle="0" />
+                <TranslateTransform />
+            </TransformGroup>
         </Setter>
         <Setter Property="Data"
                 Value="{StaticResource LeftGeometry}" />

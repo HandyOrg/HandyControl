@@ -151,23 +151,19 @@
 
         <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
             <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Rows="0"
-                                     Columns="1" />
-                    </ItemsPanelTemplate>
-                </Setter.Value>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="0"
+                                 Columns="1" />
+                </ItemsPanelTemplate>
             </Setter>
         </Style>
 
         <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
             <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Rows="1"
-                                     Columns="0" />
-                    </ItemsPanelTemplate>
-                </Setter.Value>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1"
+                                 Columns="0" />
+                </ItemsPanelTemplate>
             </Setter>
         </Style>
     </ControlTheme>
@@ -308,9 +304,7 @@
         <Setter Property="hc:TitleElement.Foreground"
                 Value="{DynamicResource PrimaryBrush}" />
         <Setter Property="hc:ItemsControlAttach.ItemsContainerThemeSelector">
-            <Setter.Value>
-                <tools:TabItemCapsuleThemeSelector />
-            </Setter.Value>
+            <tools:TabItemCapsuleThemeSelector />
         </Setter>
         <Setter Property="Template">
             <ControlTemplate>
@@ -366,27 +360,23 @@
 
         <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
             <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Rows="0"
-                                     Columns="1"
-                                     HorizontalAlignment="Center"
-                                     VerticalAlignment="Center" />
-                    </ItemsPanelTemplate>
-                </Setter.Value>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="0"
+                                 Columns="1"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center" />
+                </ItemsPanelTemplate>
             </Setter>
         </Style>
 
         <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
             <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <UniformGrid Rows="1"
-                                     Columns="0"
-                                     HorizontalAlignment="Center"
-                                     VerticalAlignment="Center" />
-                    </ItemsPanelTemplate>
-                </Setter.Value>
+                <ItemsPanelTemplate>
+                    <UniformGrid Rows="1"
+                                 Columns="0"
+                                 HorizontalAlignment="Center"
+                                 VerticalAlignment="Center" />
+                </ItemsPanelTemplate>
             </Setter>
         </Style>
     </ControlTheme>
@@ -413,27 +403,25 @@
         <Setter Property="Padding"
                 Value="2" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Border HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Padding="{TemplateBinding Padding}"
-                            Background="{TemplateBinding Background}"
-                            CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
-                        <Panel>
-                            <Border x:Name="PART_Sliding"
-                                    CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
-                                    Width="0"
-                                    Height="0"
-                                    Effect="{StaticResource EffectShadow1}"
-                                    Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}"
-                                    HorizontalAlignment="Left"
-                                    VerticalAlignment="Top" />
-                            <ContentPresenter Content="{TemplateBinding Content}" />
-                        </Panel>
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <Border HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Padding="{TemplateBinding Padding}"
+                        Background="{TemplateBinding Background}"
+                        CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}">
+                    <Panel>
+                        <Border x:Name="PART_Sliding"
+                                CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}"
+                                Width="0"
+                                Height="0"
+                                Effect="{StaticResource EffectShadow1}"
+                                Background="{Binding Path=(hc:TitleElement.Background),RelativeSource={RelativeSource TemplatedParent}}"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top" />
+                        <ContentPresenter Content="{TemplateBinding Content}" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
         </Setter>
     </ControlTheme>
 
@@ -464,24 +452,22 @@
         <Setter Property="hc:BorderElement.CornerRadius"
                 Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Border x:Name="rootBorder"
-                            CornerRadius="{TemplateBinding CornerRadius}"
-                            Background="{TemplateBinding Background}"
-                            BorderThickness="{TemplateBinding BorderThickness}"
-                            BorderBrush="{TemplateBinding BorderBrush}">
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          Padding="{TemplateBinding Padding}"
-                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Header}"
-                                          ContentTemplate="{TemplateBinding HeaderTemplate}"
-                                          CornerRadius="{TemplateBinding CornerRadius}"
-                                          RecognizesAccessKey="True" />
-                    </Border>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <Border x:Name="rootBorder"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      Padding="{TemplateBinding Padding}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Header}"
+                                      ContentTemplate="{TemplateBinding HeaderTemplate}"
+                                      CornerRadius="{TemplateBinding CornerRadius}"
+                                      RecognizesAccessKey="True" />
+                </Border>
+            </ControlTemplate>
         </Setter>
 
         <Style Selector="^:disabled">
@@ -519,31 +505,29 @@
         <Setter Property="hc:TitleElement.Foreground"
                 Value="{DynamicResource PrimaryTextBrush}" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <DockPanel>
-                        <hc:SlidingTabContainer x:Name="tabContainer"
-                                                Background="{TemplateBinding Background}">
-                            <ItemsPresenter Name="PART_ItemsPresenter"
-                                            ItemsPanel="{TemplateBinding ItemsPanel}"
-                                            VerticalAlignment="Center"
-                                            HorizontalAlignment="Center" />
-                        </hc:SlidingTabContainer>
-                        <Border Padding="{TemplateBinding Padding}"
-                                HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
-                                VerticalAlignment="{TemplateBinding VerticalAlignment}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                BorderThickness="{TemplateBinding BorderThickness}">
-                            <ContentPresenter Name="PART_SelectedContentHost"
-                                              Margin="{TemplateBinding Padding}"
-                                              HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                              VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
-                                              Content="{TemplateBinding SelectedContent}"
-                                              ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
-                        </Border>
-                    </DockPanel>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <DockPanel>
+                    <hc:SlidingTabContainer x:Name="tabContainer"
+                                            Background="{TemplateBinding Background}">
+                        <ItemsPresenter Name="PART_ItemsPresenter"
+                                        ItemsPanel="{TemplateBinding ItemsPanel}"
+                                        VerticalAlignment="Center"
+                                        HorizontalAlignment="Center" />
+                    </hc:SlidingTabContainer>
+                    <Border Padding="{TemplateBinding Padding}"
+                            HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                            VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter Name="PART_SelectedContentHost"
+                                          Margin="{TemplateBinding Padding}"
+                                          HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          Content="{TemplateBinding SelectedContent}"
+                                          ContentTemplate="{TemplateBinding SelectedContentTemplate}" />
+                    </Border>
+                </DockPanel>
+            </ControlTemplate>
         </Setter>
 
         <Style Selector="^[TabStripPlacement=Top] /template/ hc|SlidingTabContainer#tabContainer">
@@ -576,21 +560,17 @@
 
         <Style Selector="^[TabStripPlacement=Left], ^[TabStripPlacement=Right]">
             <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Vertical" />
-                    </ItemsPanelTemplate>
-                </Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Vertical" />
+                </ItemsPanelTemplate>
             </Setter>
         </Style>
 
         <Style Selector="^[TabStripPlacement=Top], ^[TabStripPlacement=Bottom]">
             <Setter Property="ItemsPanel">
-                <Setter.Value>
-                    <ItemsPanelTemplate>
-                        <StackPanel Orientation="Horizontal" />
-                    </ItemsPanelTemplate>
-                </Setter.Value>
+                <ItemsPanelTemplate>
+                    <StackPanel Orientation="Horizontal" />
+                </ItemsPanelTemplate>
             </Setter>
         </Style>
     </ControlTheme>

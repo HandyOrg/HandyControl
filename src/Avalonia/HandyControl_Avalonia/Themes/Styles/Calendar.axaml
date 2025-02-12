@@ -67,29 +67,27 @@
         <Setter Property="VerticalContentAlignment"
                 Value="Center" />
         <Setter Property="Template">
-            <Setter.Value>
-                <ControlTemplate>
-                    <Panel>
-                        <Rectangle x:Name="TodayBackground"
-                                   Fill="{DynamicResource DangerBrush}"
-                                   RadiusX="16"
-                                   RadiusY="16"
-                                   IsVisible="False" />
-                        <Rectangle x:Name="SelectedBackground"
-                                   Fill="{DynamicResource PrimaryBrush}"
-                                   RadiusY="16"
-                                   RadiusX="16"
-                                   Opacity="0" />
-                        <ContentPresenter Name="PART_ContentPresenter"
-                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
-                                          Content="{TemplateBinding Content}"
-                                          ContentTemplate="{TemplateBinding ContentTemplate}"
-                                          FontSize="{TemplateBinding FontSize}"
-                                          Foreground="{TemplateBinding Foreground}" />
-                    </Panel>
-                </ControlTemplate>
-            </Setter.Value>
+            <ControlTemplate>
+                <Panel>
+                    <Rectangle x:Name="TodayBackground"
+                               Fill="{DynamicResource DangerBrush}"
+                               RadiusX="16"
+                               RadiusY="16"
+                               IsVisible="False" />
+                    <Rectangle x:Name="SelectedBackground"
+                               Fill="{DynamicResource PrimaryBrush}"
+                               RadiusY="16"
+                               RadiusX="16"
+                               Opacity="0" />
+                    <ContentPresenter Name="PART_ContentPresenter"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      FontSize="{TemplateBinding FontSize}"
+                                      Foreground="{TemplateBinding Foreground}" />
+                </Panel>
+            </ControlTemplate>
         </Setter>
 
         <Style Selector="^:today">
