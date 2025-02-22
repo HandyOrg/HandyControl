@@ -61,7 +61,7 @@
         <Setter Property="BorderThickness"
                 Value="1" />
         <Setter Property="CornerRadius"
-                Value="{StaticResource DefaultCornerRadius}" />
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
         <Setter Property="Padding"
                 Value="2,2,2,0" />
         <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
@@ -76,8 +76,7 @@
                 Value="{StaticResource DefaultCornerRadius}" />
         <Setter Property="Template">
             <ControlTemplate>
-                <Border Name="border"
-                        BorderBrush="{TemplateBinding BorderBrush}"
+                <Border BorderBrush="{TemplateBinding BorderBrush}"
                         BorderThickness="{TemplateBinding BorderThickness}"
                         Background="{TemplateBinding Background}"
                         CornerRadius="{TemplateBinding CornerRadius}">
