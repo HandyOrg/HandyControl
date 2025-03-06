@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.TextBlockDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Margin="32" Spacing="5" Orientation="Vertical">
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockLargeBold" Style="{StaticResource TextBlockLargeBold}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockLarge" Style="{StaticResource TextBlockLarge}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockHeaderBold" Style="{StaticResource TextBlockTitleBold}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockHeader" Style="{StaticResource TextBlockTitle}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockSubHeaderBold" Style="{StaticResource TextBlockSubTitleBold}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockSubHeader" Style="{StaticResource TextBlockSubTitle}"/>
+
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultBold" Style="{StaticResource TextBlockDefaultBold}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefault" Style="{StaticResource TextBlockDefault}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultAccent" Style="{StaticResource TextBlockDefaultAccent}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultSecLight" Style="{StaticResource TextBlockDefaultSecLight}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultThiLight" Style="{StaticResource TextBlockDefaultThiLight}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultPrimary" Style="{StaticResource TextBlockDefaultPrimary}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultDanger" Style="{StaticResource TextBlockDefaultDanger}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultWarning" Style="{StaticResource TextBlockDefaultWarning}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultInfo" Style="{StaticResource TextBlockDefaultInfo}"/>
+                <TextBlock HorizontalAlignment="Left" Text="TextBlockDefaultSuccess" Style="{StaticResource TextBlockDefaultSuccess}"/>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

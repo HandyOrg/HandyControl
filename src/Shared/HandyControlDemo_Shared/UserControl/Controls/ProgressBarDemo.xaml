@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ProgressBarDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32">
+            <Slider Value="50" Name="SliderDemo" Maximum="100"/>
+            <StackPanel Orientation="Horizontal" Margin="0,32,0,0">
+                <hc:CircleProgressBar Value="{Binding Value,ElementName=SliderDemo}"/>
+                <hc:CircleProgressBar Value="{Binding Value,ElementName=SliderDemo}" FontSize="30" Margin="16,0,0,0"/>
+                <hc:CircleProgressBar Value="{Binding Value,ElementName=SliderDemo}" Margin="16,0,0,0" ShowText="False" Width="20" Height="20" ArcThickness="2" Style="{StaticResource ProgressBarSuccessCircle}"/>
+                <hc:CircleProgressBar Value="{Binding Value,ElementName=SliderDemo}" Margin="16,0,0,0" ShowText="False" Width="30" Height="30" ArcThickness="6" Style="{StaticResource ProgressBarInfoCircle}"/>
+                <hc:CircleProgressBar Value="{Binding Value,ElementName=SliderDemo}" Margin="16,0,0,0" ShowText="False" Width="40" Height="40" ArcThickness="10" Style="{StaticResource ProgressBarWarningCircle}"/>
+                <hc:CircleProgressBar Value="{Binding Value,ElementName=SliderDemo}" Margin="16,0,0,0" Width="50" Height="50" Style="{StaticResource ProgressBarDangerCircle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,32,0,0">
+                <hc:CircleProgressBar IsIndeterminate="True"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Background="Transparent"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Width="20" Height="20" ArcThickness="2" Style="{StaticResource ProgressBarSuccessCircle}"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Width="30" Height="30" ArcThickness="6" Style="{StaticResource ProgressBarInfoCircle}"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Width="40" Height="40" ArcThickness="10" Style="{StaticResource ProgressBarWarningCircle}"/>
+                <hc:CircleProgressBar IsIndeterminate="True" Margin="16,0,0,0" Width="50" Height="50" Style="{StaticResource ProgressBarDangerCircle}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="0,32,0,0">
+                <hc:WaveProgressBar Value="{Binding Value,ElementName=SliderDemo}"/>
+                <hc:WaveProgressBar Value="{Binding Value,ElementName=SliderDemo}" FontSize="20" Margin="16,0,0,0" WaveThickness="4" WaveStroke="#FFFF0080">
+                    <hc:WaveProgressBar.WaveFill>
+                        <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                            <GradientStop Color="#66FF0080" Offset="0"/>
+                            <GradientStop Color="#FFFF0080" Offset="1"/>
+                        </LinearGradientBrush>
+                    </hc:WaveProgressBar.WaveFill>
+                </hc:WaveProgressBar>
+                <hc:WaveProgressBar Value="{Binding Value,ElementName=SliderDemo}" Margin="16,0,0,0" ShowText="False" Width="50" Height="50" Style="{StaticResource ProgressBarWarningWave}"/>
+            </StackPanel>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</UserControl>

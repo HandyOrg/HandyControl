@@ -1,0 +1,80 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ScrollViewerDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             Background="{DynamicResource RegionBrush}"
+             MaxWidth="550"
+             Height="600">
+    <hc:TransitioningContentControl>
+        <Grid Margin="32">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}">
+                <hc:ScrollViewer hc:ScrollViewerAttach.Orientation="Horizontal" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Hidden" IsInertiaEnabled="True">
+                    <StackPanel Orientation="Horizontal">
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                    </StackPanel>
+                </hc:ScrollViewer>
+            </Border>
+            <Border Grid.Row="1" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Margin="0,16,0,0">
+                <hc:ScrollViewer IsInertiaEnabled="True" hc:ScrollViewerAttach.AutoHide="False">
+                    <WrapPanel Orientation="Horizontal">
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                        <Border Style="{StaticResource BorderRegion}" Width="200" Height="200" Margin="10,10,32,10">
+                            <Border Background="{DynamicResource PrimaryBrush}">
+                                <TextBlock Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                            </Border>
+                        </Border>
+                    </WrapPanel>
+                </hc:ScrollViewer>
+            </Border>
+        </Grid>
+    </hc:TransitioningContentControl>
+</UserControl>

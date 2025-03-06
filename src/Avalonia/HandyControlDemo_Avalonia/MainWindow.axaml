@@ -1,15 +1,14 @@
-﻿<Window xmlns="https://github.com/avaloniaui"
+﻿<Window x:Class="HandyControlDemo.MainWindow"
+        xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:views="clr-namespace:HandyControlDemo.Views"
         mc:Ignorable="d"
-        d:DesignWidth="800"
-        d:DesignHeight="450"
+        Title="HandyControlDemo"
         Background="{DynamicResource SecondaryRegionBrush}"
-        Icon="/Resources/Img/icon.ico"
-        x:Class="HandyControlDemo.MainWindow"
         WindowStartupLocation="CenterScreen"
-        Title="HandyControlDemo">
-	<views:MainWindowContent/>
+        d:DesignHeight="800"
+        d:DesignWidth="1400"
+        Icon="/Resources/Img/icon.ico">
+    <ContentControl Name="ControlMain" />
 </Window>

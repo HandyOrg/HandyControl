@@ -1,0 +1,18 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ImageSelectorDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Margin="32" ChildWrapping="Wrap" VerticalAlignment="Center" Spacing="32" HorizontalAlignment="Center">
+                <hc:ImageSelector Width="100" Height="100"/>
+                <hc:ImageSelector Width="100" Height="100" hc:BorderElement.CornerRadius="50"/>
+                <hc:ImageSelector Width="100" Height="100" hc:BorderElement.CornerRadius="50" StrokeDashArray="10,5"/>
+                <hc:ImageSelector Width="100" Height="100" hc:BorderElement.CornerRadius="50" BorderBrush="{DynamicResource SuccessBrush}"/>
+                <hc:ImageSelector Width="100" Height="100" hc:BorderElement.CornerRadius="50" StrokeDashArray="10,5,10" BorderBrush="{DynamicResource DangerBrush}"/>
+                <hc:ImageSelector Width="100" Height="100" hc:BorderElement.CornerRadius="10" StrokeThickness="2" BorderThickness="2" BorderBrush="{DynamicResource PrimaryBrush}"/>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

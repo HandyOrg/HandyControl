@@ -1,0 +1,26 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.UserControl.CheckBoxDemo">
+    <StackPanel Margin="32"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+        <CheckBox Content="CheckBox"
+                  IsChecked="True" />
+        <CheckBox Margin="0,16,0,0"
+                  Content="CheckBox"
+                  IsChecked="True"
+                  IsEnabled="False" />
+        <CheckBox Margin="0,16,0,0"
+                  Content="CheckBox" />
+        <CheckBox Margin="0,16,0,0"
+                  Content="CheckBox"
+                  IsEnabled="False" />
+        <CheckBox Margin="0,16,0,0"
+                  Content="CheckBox"
+                  IsChecked="{x:Null}" />
+        <CheckBox Margin="0,16,0,0"
+                  Content="CheckBox"
+                  IsChecked="{x:Null}"
+                  IsEnabled="False" />
+    </StackPanel>
+</UserControl>

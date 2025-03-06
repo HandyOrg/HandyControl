@@ -1,31 +1,40 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     x:ClassModifier="internal">
-	<ControlTheme x:Key="{x:Type Window}" TargetType="Window">
-		<Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
-		<Setter Property="TransparencyBackgroundFallback" Value="{DynamicResource RegionBrush}" />
-		<Setter Property="TopLevel.SystemBarColor" Value="{DynamicResource RegionBrush}"/>
-		<Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}"/>
-		<Setter Property="FontSize" Value="13"/>
-		<Setter Property="Template">
-			<ControlTemplate TargetType="Window">
-				<Panel>
-					<Border Name="PART_TransparencyFallback" IsHitTestVisible="False" />
-					<Border Background="{TemplateBinding Background}" IsHitTestVisible="False" />
-					<Panel Background="Transparent" Margin="{TemplateBinding WindowDecorationMargin}" />
-					<VisualLayerManager>
-						<VisualLayerManager.ChromeOverlayLayer>
-							<TitleBar />
-						</VisualLayerManager.ChromeOverlayLayer>
-						<ContentPresenter Name="PART_ContentPresenter"
+    <ControlTheme x:Key="{x:Type Window}"
+                  TargetType="Window">
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="TransparencyBackgroundFallback"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="TopLevel.SystemBarColor"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="FontSize"
+                Value="12" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Window">
+                <Panel>
+                    <Border Name="PART_TransparencyFallback"
+                            IsHitTestVisible="False" />
+                    <Border Background="{TemplateBinding Background}"
+                            IsHitTestVisible="False" />
+                    <Panel Background="Transparent"
+                           Margin="{TemplateBinding WindowDecorationMargin}" />
+                    <VisualLayerManager>
+                        <VisualLayerManager.ChromeOverlayLayer>
+                            <TitleBar />
+                        </VisualLayerManager.ChromeOverlayLayer>
+                        <ContentPresenter Name="PART_ContentPresenter"
                                           ContentTemplate="{TemplateBinding ContentTemplate}"
                                           Content="{TemplateBinding Content}"
                                           Margin="{TemplateBinding Padding}"
                                           HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
-					</VisualLayerManager>
-				</Panel>
-			</ControlTemplate>
-		</Setter>
-	</ControlTheme>
+                                          VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
+                    </VisualLayerManager>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
 </ResourceDictionary>

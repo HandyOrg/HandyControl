@@ -1,0 +1,60 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.TextBlockDemo">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel Margin="32"
+                                Spacing="5"
+                                Orientation="Vertical">
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockLargeBold"
+                       Theme="{StaticResource TextBlockLargeBold}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockLarge"
+                       Theme="{StaticResource TextBlockLarge}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockHeaderBold"
+                       Theme="{StaticResource TextBlockTitleBold}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockHeader"
+                       Theme="{StaticResource TextBlockTitle}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockSubHeaderBold"
+                       Theme="{StaticResource TextBlockSubTitleBold}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockSubHeader"
+                       Theme="{StaticResource TextBlockSubTitle}" />
+
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultBold"
+                       Theme="{StaticResource TextBlockDefaultBold}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefault"
+                       Theme="{StaticResource TextBlockDefault}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultAccent"
+                       Theme="{StaticResource TextBlockDefaultAccent}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultSecLight"
+                       Theme="{StaticResource TextBlockDefaultSecLight}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultThiLight"
+                       Theme="{StaticResource TextBlockDefaultThiLight}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultPrimary"
+                       Theme="{StaticResource TextBlockDefaultPrimary}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultDanger"
+                       Theme="{StaticResource TextBlockDefaultDanger}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultWarning"
+                       Theme="{StaticResource TextBlockDefaultWarning}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultInfo"
+                       Theme="{StaticResource TextBlockDefaultInfo}" />
+            <TextBlock HorizontalAlignment="Left"
+                       Text="TextBlockDefaultSuccess"
+                       Theme="{StaticResource TextBlockDefaultSuccess}" />
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

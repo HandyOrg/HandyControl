@@ -3,9 +3,7 @@
              x:Class="HandyControlDemo.App"
              RequestedThemeVariant="Default">
     <Application.Styles>
-        <StyleInclude Source="avares://HandyControl/Themes/Theme.axaml"/>
-        <StyleInclude Source="avares://HandyControlDemo/Resources/Themes/Theme.axaml"/>
-        <!--<FluentTheme />-->
-        <!--<hc:Theme/>-->
+        <StyleInclude Source="avares://HandyControl/Themes/Theme.axaml" />
+        <StyleInclude Source="avares://HandyControlDemo/Resources/Themes/Theme.axaml" />
     </Application.Styles>
 </Application>

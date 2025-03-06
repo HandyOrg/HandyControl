@@ -1,13 +1,37 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
-    <Color x:Key="EffectShadowColor">#88000000</Color>
+    <Color x:Key="EffectShadowColor">Black</Color>
 
-    <DropShadowEffect x:Key="EffectShadow1" BlurRadius="5" OffsetY="1" Color="{StaticResource EffectShadowColor}" Opacity=".2" />
-    <DropShadowEffect x:Key="EffectShadow2" BlurRadius="8" OffsetY="1.5" Color="{StaticResource EffectShadowColor}" Opacity=".2" />
-    <DropShadowEffect x:Key="EffectShadow3" BlurRadius="14" OffsetY="4.5" Color="{StaticResource EffectShadowColor}" Opacity=".2" />
-    <DropShadowEffect x:Key="EffectShadow4" BlurRadius="25" OffsetY="8" Color="{StaticResource EffectShadowColor}" Opacity=".2" />
-    <DropShadowEffect x:Key="EffectShadow5" BlurRadius="35" OffsetY="13" Color="{StaticResource EffectShadowColor}" Opacity=".2" />
+    <DropShadowEffect x:Key="EffectShadow1"
+                      BlurRadius="5"
+                      OffsetX="0"
+                      OffsetY="1"
+                      Color="{StaticResource EffectShadowColor}"
+                      Opacity=".2" />
+    <DropShadowEffect x:Key="EffectShadow2"
+                      BlurRadius="8"
+                      OffsetX="0"
+                      OffsetY="1.5"
+                      Color="{StaticResource EffectShadowColor}"
+                      Opacity=".2" />
+    <DropShadowEffect x:Key="EffectShadow3"
+                      BlurRadius="14"
+                      OffsetX="0"
+                      OffsetY="4.5"
+                      Color="{StaticResource EffectShadowColor}"
+                      Opacity=".2" />
+    <DropShadowEffect x:Key="EffectShadow4"
+                      BlurRadius="25"
+                      OffsetX="0"
+                      OffsetY="8"
+                      Color="{StaticResource EffectShadowColor}"
+                      Opacity=".2" />
+    <DropShadowEffect x:Key="EffectShadow5"
+                      BlurRadius="35"
+                      OffsetX="0"
+                      OffsetY="13"
+                      Color="{StaticResource EffectShadowColor}"
+                      Opacity=".2" />
 
 </ResourceDictionary>
-

@@ -1,3 +1,5 @@
+name: Build
+
 on: [push, pull_request]
 
 jobs:
@@ -5,16 +7,19 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@master
-
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
       - name: Setup .NET Core SDK
-        uses: actions/setup-dotnet@master
+        uses: actions/setup-dotnet@v4
         with:
           dotnet-version: '8.0.x'
-          include-prerelease: true
 
       - name: Build
-        shell: pwsh
+        working-directory: ./build
         run: |
-          cd build
-          .\build.ps1
+            dotnet new tool-manifest
+            dotnet tool install cake.tool --version 4.0.0
+            dotnet tool install minver-cli --version 3.0.0
+            dotnet cake

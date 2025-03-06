@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.NotificationDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             DataContext="{Binding NotificationDemo,Source={StaticResource Locator}}"
+             Width="300"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32" VerticalAlignment="Center">
+            <ComboBox SelectedValue="{Binding ShowAnimation}" ItemsSource="{Binding Source={StaticResource ShowAnimations}}"/>
+            <hc:ButtonGroup Margin="0,16,0,0">
+                <ToggleButton Content="{ex:Lang Key={x:Static langs:LangKeys.StaysOpen}}" IsChecked="{Binding StaysOpen}"/>
+                <Button Command="{Binding OpenCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.SendNotification}}"/>
+            </hc:ButtonGroup>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</UserControl>

@@ -1,0 +1,88 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.BorderDemo">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel Margin="32"
+                                Orientation="Vertical"
+                                Spacing="32"
+                                MaxWidth="664">
+            <hc:UniformSpacingPanel Spacing="32"
+                                    ItemWidth="200"
+                                    ItemHeight="200"
+                                    ChildWrapping="Wrap"
+                                    HorizontalAlignment="Center">
+                <Border Theme="{StaticResource BorderRegion}">
+                    <Border Background="{DynamicResource PrimaryBrush}">
+                        <TextBlock Text="Content"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White" />
+                    </Border>
+                </Border>
+                <Border Theme="{StaticResource BorderRegion}"
+                        Effect="{StaticResource EffectShadow1}">
+                    <Border Background="{DynamicResource InfoBrush}">
+                        <TextBlock Text="Content"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White" />
+                    </Border>
+                </Border>
+                <Border Theme="{StaticResource BorderRegion}"
+                        Effect="{StaticResource EffectShadow2}">
+                    <Border Background="{DynamicResource WarningBrush}">
+                        <TextBlock Text="Content"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White" />
+                    </Border>
+                </Border>
+                <Border Theme="{StaticResource BorderRegion}"
+                        Effect="{StaticResource EffectShadow3}">
+                    <Border Background="{DynamicResource DangerBrush}">
+                        <TextBlock Text="Content"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White" />
+                    </Border>
+                </Border>
+                <Border Theme="{StaticResource BorderRegion}"
+                        Effect="{StaticResource EffectShadow4}">
+                    <Border Background="{DynamicResource AccentBrush}">
+                        <TextBlock Text="Content"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="White" />
+                    </Border>
+                </Border>
+                <Border Theme="{StaticResource BorderRegion}"
+                        Effect="{StaticResource EffectShadow5}">
+                    <Border Background="{DynamicResource BorderBrush}">
+                        <TextBlock Text="Content"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center" />
+                    </Border>
+                </Border>
+            </hc:UniformSpacingPanel>
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="10">
+                <Border Theme="{StaticResource BorderTipPrimary}">
+                    <TextBlock Text="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle" />
+                </Border>
+                <Border Theme="{StaticResource BorderTipDanger}">
+                    <TextBlock Text="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle" />
+                </Border>
+                <Border Theme="{StaticResource BorderTipWarning}">
+                    <TextBlock Text="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle" />
+                </Border>
+                <Border Theme="{StaticResource BorderTipInfo}">
+                    <TextBlock Text="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle" />
+                </Border>
+                <Border Theme="{StaticResource BorderTipSuccess}">
+                    <TextBlock Text="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle" />
+                </Border>
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

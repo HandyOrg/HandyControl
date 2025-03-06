@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.WatermarkDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel VerticalAlignment="Center" Margin="32" ChildWrapping="Wrap" Spacing="16" ItemWidth="256" ItemHeight="128">
+                <hc:Watermark Mark="HandyControl">
+                    <Border BorderThickness="1" CornerRadius="4" BorderBrush="{DynamicResource BorderBrush}" />
+                </hc:Watermark>
+                <hc:Watermark Mark="HandyControl" FontSize="30">
+                    <Border BorderThickness="1" CornerRadius="4" BorderBrush="{DynamicResource BorderBrush}" />
+                </hc:Watermark>
+                <hc:Watermark Mark="HandyControl" FontSize="30" Angle="45">
+                    <Border BorderThickness="1" CornerRadius="4" BorderBrush="{DynamicResource BorderBrush}" />
+                </hc:Watermark>
+                <hc:Watermark Mark="HandyControl" FontSize="30" Angle="45" MarkBrush="{DynamicResource DangerBrush}">
+                    <Border BorderThickness="1" CornerRadius="4" BorderBrush="{DynamicResource BorderBrush}" />
+                </hc:Watermark>
+                <hc:Watermark Mark="HandyControl" FontSize="30" Angle="45" MarkBrush="{DynamicResource DangerBrush}" MarkMargin="10">
+                    <Border BorderThickness="1" CornerRadius="4" BorderBrush="{DynamicResource BorderBrush}" />
+                </hc:Watermark>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

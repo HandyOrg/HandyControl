@@ -67,7 +67,6 @@
                                 <Path x:Name="PathIcon" Width="{TemplateBinding hc:IconElement.Width}" Height="{TemplateBinding hc:IconElement.Height}" Fill="{TemplateBinding Foreground}" SnapsToDevicePixels="True" Stretch="Uniform" Data="{TemplateBinding hc:IconSwitchElement.Geometry}"/>
                             </ContentControl>
                         </Border>
-                        <Border Visibility="Collapsed" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius),RelativeSource={RelativeSource TemplatedParent}}" x:Name="BorderChecked" BorderThickness="4" BorderBrush="{TemplateBinding BorderBrush}"/>
                     </hc:SimplePanel>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="True">
@@ -155,18 +154,10 @@
                         <Viewbox>
                             <hc:SimplePanel Width="80" Height="48">
                                 <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" CornerRadius="24" Name="innerBorder">
-                                    <hc:ToggleBlock HorizontalAlignment="Right" Margin="0 0 12 0" IsChecked="{Binding Path=(hc:ToggleButtonAttach.ShowLabel),RelativeSource={RelativeSource TemplatedParent}}">
-                                        <hc:ToggleBlock.CheckedContent>
-                                            <Ellipse Width="16" Height="16" StrokeThickness="2" Stroke="{Binding Path=(hc:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" />
-                                        </hc:ToggleBlock.CheckedContent>
-                                    </hc:ToggleBlock>
+                                    <Ellipse HorizontalAlignment="Right" Visibility="{Binding Path=(hc:ToggleButtonAttach.ShowLabel), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" Margin="0 0 12 0" Width="16" Height="16" StrokeThickness="2" Stroke="{Binding Path=(hc:VisualElement.HighlightForeground),RelativeSource={RelativeSource TemplatedParent}}" />
                                 </Border>
                                 <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Opacity="0" x:Name="lightBorder" Background="{Binding Path=(hc:VisualElement.HighlightBrush),RelativeSource={RelativeSource TemplatedParent}}" CornerRadius="24">
-                                    <hc:ToggleBlock HorizontalAlignment="Left" Margin="18 0 0 0" IsChecked="{Binding Path=(hc:ToggleButtonAttach.ShowLabel),RelativeSource={RelativeSource TemplatedParent}}">
-                                        <hc:ToggleBlock.CheckedContent>
-                                            <Rectangle Width="3" Height="16" RadiusX="1.5" RadiusY="1.5" Fill="{DynamicResource TextIconBrush}" />
-                                        </hc:ToggleBlock.CheckedContent>
-                                    </hc:ToggleBlock>
+                                    <Rectangle HorizontalAlignment="Left" Visibility="{Binding Path=(hc:ToggleButtonAttach.ShowLabel), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource Boolean2VisibilityConverter}}" Margin="18 0 0 0" Width="2" Height="16" RadiusX="1" RadiusY="1" Fill="{DynamicResource TextIconBrush}" />
                                 </Border>
                                 <Border Margin="2" HorizontalAlignment="Left" CornerRadius="22" Name="thumb" Effect="{StaticResource EffectShadow2}" Background="White" Width="44" Height="44" RenderTransformOrigin="0.5,0.5">
                                     <Border.RenderTransform>

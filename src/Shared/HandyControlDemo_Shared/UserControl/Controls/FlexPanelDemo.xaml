@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.FlexPanelDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <UserControl.Resources>
+        <Style x:Key="Border4FlexPanelDemoStyle" TargetType="Border">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}"/>
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+    </UserControl.Resources>
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:FlexPanel Margin="32" AlignItems="FlexStart" AlignContent="SpaceBetween" JustifyContent="SpaceAround" FlexWrap="WrapReverse" FlexDirection="RowReverse">
+                <Border hc:FlexPanel.Order="99" Height="50" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="0" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border hc:FlexPanel.FlexBasis="200" Height="100" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="1" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border hc:FlexPanel.AlignSelf="FlexEnd" Height="50" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="2" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border Height="100" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="3" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border Height="50" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="4" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border Height="100" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="5" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border Height="50" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="6" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border Height="100" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="7" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border Height="50" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="8" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+                <Border Height="100" Style="{StaticResource Border4FlexPanelDemoStyle}">
+                    <TextBlock Text="9" Style="{StaticResource TextBlockTitle}"/>
+                </Border>
+            </hc:FlexPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

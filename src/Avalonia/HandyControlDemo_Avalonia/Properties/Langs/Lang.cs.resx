@@ -1,0 +1,810 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Controls" xml:space="preserve">
+    <value>Ovládací prvky</value>
+  </data>
+  <data name="Styles" xml:space="preserve">
+    <value>Style</value>
+  </data>
+  <data name="Growl" xml:space="preserve">
+    <value>Growl</value>
+  </data>
+  <data name="GrowlInfo" xml:space="preserve">
+    <value>Dnes je krásný den~~~</value>
+  </data>
+  <data name="GrowlSuccess" xml:space="preserve">
+    <value>Soubor se úspěšně uložil!</value>
+  </data>
+  <data name="GrowlWarning" xml:space="preserve">
+    <value>Na disku dochází místo!</value>
+  </data>
+  <data name="GrowlError" xml:space="preserve">
+    <value>Připojení se nezdařilo. Prosím zkontrolujte vaše síťové připojení.</value>
+  </data>
+  <data name="GrowlFatal" xml:space="preserve">
+    <value>Aplikace se neočekávaně ukončila~~~</value>
+  </data>
+  <data name="GrowlAsk" xml:space="preserve">
+    <value>Nalezena nová verze! Chcete aplikaci aktualizovat?</value>
+  </data>
+  <data name="Loading" xml:space="preserve">
+    <value>Načítání</value>
+  </data>
+  <data name="ImageBrowser" xml:space="preserve">
+    <value>ImageBrowser</value>
+  </data>
+  <data name="ColorPicker" xml:space="preserve">
+    <value>ColorPicker</value>
+  </data>
+  <data name="Carousel" xml:space="preserve">
+    <value>Carousel</value>
+  </data>
+  <data name="CompareSlider" xml:space="preserve">
+    <value>CompareSlider</value>
+  </data>
+  <data name="TimeBar" xml:space="preserve">
+    <value>TimeBar</value>
+  </data>
+  <data name="Expander" xml:space="preserve">
+    <value>Expander</value>
+  </data>
+  <data name="Pagination" xml:space="preserve">
+    <value>Pagination</value>
+  </data>
+  <data name="OpenImageBrowser" xml:space="preserve">
+    <value>Klikni pro otevření prohlížeče obrázků</value>
+  </data>
+  <data name="ProgressBar" xml:space="preserve">
+    <value>ProgressBar</value>
+  </data>
+  <data name="AnimationPath" xml:space="preserve">
+    <value>AnimationPath</value>
+  </data>
+  <data name="Button" xml:space="preserve">
+    <value>Button</value>
+  </data>
+  <data name="ToggleButton" xml:space="preserve">
+    <value>ToggleButton</value>
+  </data>
+  <data name="TabControl" xml:space="preserve">
+    <value>TabControl</value>
+  </data>
+  <data name="CheckBox" xml:space="preserve">
+    <value>CheckBox</value>
+  </data>
+  <data name="TextBlock" xml:space="preserve">
+    <value>TextBlock</value>
+  </data>
+  <data name="Default" xml:space="preserve">
+    <value>Default</value>
+  </data>
+  <data name="Primary" xml:space="preserve">
+    <value>Primary</value>
+  </data>
+  <data name="Info" xml:space="preserve">
+    <value>Info</value>
+  </data>
+  <data name="Warning" xml:space="preserve">
+    <value>Warning</value>
+  </data>
+  <data name="Danger" xml:space="preserve">
+    <value>Danger</value>
+  </data>
+  <data name="ButtonCustom" xml:space="preserve">
+    <value>Custom button</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>Titulek</value>
+  </data>
+  <data name="StepBar" xml:space="preserve">
+    <value>StepBar</value>
+  </data>
+  <data name="Prev" xml:space="preserve">
+    <value>Předchozí</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Další</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Registrovat</value>
+  </data>
+  <data name="BasicInfo" xml:space="preserve">
+    <value>Vyplňte základní údaje</value>
+  </data>
+  <data name="UploadFile" xml:space="preserve">
+    <value>Nahraj soubor</value>
+  </data>
+  <data name="Complete" xml:space="preserve">
+    <value>Complete</value>
+  </data>
+  <data name="Clock" xml:space="preserve">
+    <value>Clock</value>
+  </data>
+  <data name="Calendar" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="DatePicker" xml:space="preserve">
+    <value>DatePicker</value>
+  </data>
+  <data name="TimePicker" xml:space="preserve">
+    <value>TimePicker</value>
+  </data>
+  <data name="TextBox" xml:space="preserve">
+    <value>TextBox</value>
+  </data>
+  <data name="ContentDemoStr" xml:space="preserve">
+    <value>Toto je obsah</value>
+  </data>
+  <data name="TitleDemoStr1" xml:space="preserve">
+    <value>Toto je titulek</value>
+  </data>
+  <data name="TitleDemoStr2" xml:space="preserve">
+    <value>Toto pole musí být vyplněno</value>
+  </data>
+  <data name="PlsEnterContent" xml:space="preserve">
+    <value>Zadej obsah</value>
+  </data>
+  <data name="TitleDemoStr3" xml:space="preserve">
+    <value>Titulek vlevo</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="SubTitle" xml:space="preserve">
+    <value>Podtitulek</value>
+  </data>
+  <data name="PasswordBox" xml:space="preserve">
+    <value>PasswordBox</value>
+  </data>
+  <data name="CirclePanel" xml:space="preserve">
+    <value>CirclePanel</value>
+  </data>
+  <data name="ComboBox" xml:space="preserve">
+    <value>ComboBox</value>
+  </data>
+  <data name="NumericUpDown" xml:space="preserve">
+    <value>NumericUpDown</value>
+  </data>
+  <data name="DataGrid" xml:space="preserve">
+    <value>DataGrid</value>
+  </data>
+  <data name="Index" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Název</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="Remark" xml:space="preserve">
+    <value>Remark</value>
+  </data>
+  <data name="Selected" xml:space="preserve">
+    <value>Vybrané</value>
+  </data>
+  <data name="ListBox" xml:space="preserve">
+    <value>ListBox</value>
+  </data>
+  <data name="TreeView" xml:space="preserve">
+    <value>TreeView</value>
+  </data>
+  <data name="ScrollViewer" xml:space="preserve">
+    <value>ScrollViewer</value>
+  </data>
+  <data name="Window" xml:space="preserve">
+    <value>Window</value>
+  </data>
+  <data name="Menu" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="RightClickHere" xml:space="preserve">
+    <value>Klikni pravým tlačítkem myši</value>
+  </data>
+  <data name="RadioButton" xml:space="preserve">
+    <value>RadioButton</value>
+  </data>
+  <data name="OpenMessageWindow" xml:space="preserve">
+    <value>otevřít message window</value>
+  </data>
+  <data name="OpenCommonWindow" xml:space="preserve">
+    <value>otevři vlastní window</value>
+  </data>
+  <data name="OpenCustomNonClientAreaWindow" xml:space="preserve">
+    <value>otevři vlastní Non-client Area window</value>
+  </data>
+  <data name="OpenMouseFollowWindow" xml:space="preserve">
+    <value>otevřít mouse follow window</value>
+  </data>
+  <data name="OpenCustomContentWindow" xml:space="preserve">
+    <value>otevři vlastní content window</value>
+  </data>
+  <data name="Ignore" xml:space="preserve">
+    <value>Ignorovat</value>
+  </data>
+  <data name="Error" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="Ask" xml:space="preserve">
+    <value>Ask</value>
+  </data>
+  <data name="Fatal" xml:space="preserve">
+    <value>Fatal</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>Clear</value>
+  </data>
+  <data name="ChangeLangAsk" xml:space="preserve">
+    <value>Chcete pro změnu jazyka aplikaci znovu spustit?</value>
+  </data>
+  <data name="About" xml:space="preserve">
+    <value>Informace</value>
+  </data>
+  <data name="Repository" xml:space="preserve">
+    <value>Repozitář</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="Chatroom" xml:space="preserve">
+    <value>Chatroom</value>
+  </data>
+  <data name="Blog" xml:space="preserve">
+    <value>Blog</value>
+  </data>
+  <data name="Brush" xml:space="preserve">
+    <value>Brush</value>
+  </data>
+  <data name="PreviewSlider" xml:space="preserve">
+    <value>PreviewSlider</value>
+  </data>
+  <data name="Contributors" xml:space="preserve">
+    <value>Přispěvatelé</value>
+  </data>
+  <data name="Slider" xml:space="preserve">
+    <value>Slider</value>
+  </data>
+  <data name="IsNotPhone" xml:space="preserve">
+    <value>Toto není číslo telefonu</value>
+  </data>
+  <data name="PlsEnterEmail" xml:space="preserve">
+    <value>Zadej e-mail</value>
+  </data>
+  <data name="Step" xml:space="preserve">
+    <value>Krok</value>
+  </data>
+  <data name="CalendarWithClock" xml:space="preserve">
+    <value>CalendarWithClock</value>
+  </data>
+  <data name="DateTimePicker" xml:space="preserve">
+    <value>DateTimePicker</value>
+  </data>
+  <data name="GroupBox" xml:space="preserve">
+    <value>GroupBox</value>
+  </data>
+  <data name="ListView" xml:space="preserve">
+    <value>ListView</value>
+  </data>
+  <data name="RichTextBox" xml:space="preserve">
+    <value>RichTextBox</value>
+  </data>
+  <data name="ToolBar" xml:space="preserve">
+    <value>ToolBar</value>
+  </data>
+  <data name="Common" xml:space="preserve">
+    <value>Common</value>
+  </data>
+  <data name="ShowRowNumber" xml:space="preserve">
+    <value>Zobrazit číslo řádku</value>
+  </data>
+  <data name="SearchBar" xml:space="preserve">
+    <value>SearchBar</value>
+  </data>
+  <data name="Tag" xml:space="preserve">
+    <value>Tag</value>
+  </data>
+  <data name="GifImage" xml:space="preserve">
+    <value>GifImage</value>
+  </data>
+  <data name="OutlineText" xml:space="preserve">
+    <value>OutlineText</value>
+  </data>
+  <data name="QQGroup" xml:space="preserve">
+    <value>Skupina QQ</value>
+  </data>
+  <data name="FlipClock" xml:space="preserve">
+    <value>FlipClock</value>
+  </data>
+  <data name="OpenBlurWindow" xml:space="preserve">
+    <value>Otevři BlurWindow</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>Rate</value>
+  </data>
+  <data name="Shield" xml:space="preserve">
+    <value>Shield</value>
+  </data>
+  <data name="WaterfallPanel" xml:space="preserve">
+    <value>WaterfallPanel</value>
+  </data>
+  <data name="Groups" xml:space="preserve">
+    <value>Groups</value>
+  </data>
+  <data name="CoverView" xml:space="preserve">
+    <value>CoverView</value>
+  </data>
+  <data name="CoverFlow" xml:space="preserve">
+    <value>CoverFlow</value>
+  </data>
+  <data name="PlsEnterKey" xml:space="preserve">
+    <value>Zadej klíčkové slovo</value>
+  </data>
+  <data name="OpenNoNonClientAreaDragableWindow" xml:space="preserve">
+    <value>neotevírat Non-client Area dragable window</value>
+  </data>
+  <data name="DragHere" xml:space="preserve">
+    <value>Zde potáhni</value>
+  </data>
+  <data name="MessageBox" xml:space="preserve">
+    <value>MessageBox</value>
+  </data>
+  <data name="ProgressButton" xml:space="preserve">
+    <value>ProgressButton</value>
+  </data>
+  <data name="UploadStr" xml:space="preserve">
+    <value>Nahrát;Nahrávání</value>
+  </data>
+  <data name="OpenCustomMessageWindow" xml:space="preserve">
+    <value>otevři vlastní message window</value>
+  </data>
+  <data name="Transfer" xml:space="preserve">
+    <value>Transfer</value>
+  </data>
+  <data name="ChatBubble" xml:space="preserve">
+    <value>ChatBubble</value>
+  </data>
+  <data name="PushToTalk" xml:space="preserve">
+    <value>Klikni pro mluvení (PTT)</value>
+  </data>
+  <data name="Second" xml:space="preserve">
+    <value>sek.</value>
+  </data>
+  <data name="Label" xml:space="preserve">
+    <value>Label</value>
+  </data>
+  <data name="GotoTop" xml:space="preserve">
+    <value>GotoTop</value>
+  </data>
+  <data name="NotifyIcon" xml:space="preserve">
+    <value>NotifyIcon</value>
+  </data>
+  <data name="Badge" xml:space="preserve">
+    <value>Badge</value>
+  </data>
+  <data name="Gravatar" xml:space="preserve">
+    <value>Gravatar</value>
+  </data>
+  <data name="ComingSoon" xml:space="preserve">
+    <value>Již brzy</value>
+  </data>
+  <data name="Comment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="Reply" xml:space="preserve">
+    <value>Odpovědět</value>
+  </data>
+  <data name="Dialog" xml:space="preserve">
+    <value>Dialog</value>
+  </data>
+  <data name="TextDialog" xml:space="preserve">
+    <value>TextDialog</value>
+  </data>
+  <data name="PleaseWait" xml:space="preserve">
+    <value>Počkejte prosím...</value>
+  </data>
+  <data name="GrowlDemo" xml:space="preserve">
+    <value>Growl demo</value>
+  </data>
+  <data name="NewWindow" xml:space="preserve">
+    <value>Nové okno</value>
+  </data>
+  <data name="Visibility" xml:space="preserve">
+    <value>Visibility</value>
+  </data>
+  <data name="Blink" xml:space="preserve">
+    <value>Blikej</value>
+  </data>
+  <data name="Exit" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="OpenPanel" xml:space="preserve">
+    <value>Otevři Panel</value>
+  </data>
+  <data name="AppClosingTip" xml:space="preserve">
+    <value>Ikona na hlavním panelu je otevřená a skryje okno místo zavření programu</value>
+  </data>
+  <data name="Tip" xml:space="preserve">
+    <value>Nápověda</value>
+  </data>
+  <data name="Try2CloseApp" xml:space="preserve">
+    <value>Opravdu chcete ukončit aplikaci?</value>
+  </data>
+  <data name="InteractiveDialog" xml:space="preserve">
+    <value>Interaktivní dialogové okno</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>Ok</value>
+  </data>
+  <data name="PleaseInput" xml:space="preserve">
+    <value>Prosím vložte...</value>
+  </data>
+  <data name="Click2Count" xml:space="preserve">
+    <value>Připočti</value>
+  </data>
+  <data name="RepeatButton" xml:space="preserve">
+    <value>RepeatButton</value>
+  </data>
+  <data name="DialogDemo" xml:space="preserve">
+    <value>Ukázka dialogového okna</value>
+  </data>
+  <data name="ShowInCurrentWindow" xml:space="preserve">
+    <value>Zobrazit v tomto okně</value>
+  </data>
+  <data name="ShowInMainWindow" xml:space="preserve">
+    <value>Zobrazit v hlavním okně</value>
+  </data>
+  <data name="SideMenu" xml:space="preserve">
+    <value>SideMenu</value>
+  </data>
+  <data name="Grid" xml:space="preserve">
+    <value>Grid</value>
+  </data>
+  <data name="BasicLayout" xml:space="preserve">
+    <value>Základní rozložení</value>
+  </data>
+  <data name="ColumnSpacing" xml:space="preserve">
+    <value>Rozestupy sloupců</value>
+  </data>
+  <data name="HybridLayout" xml:space="preserve">
+    <value>Hybridní rozložení</value>
+  </data>
+  <data name="ColumnOffset" xml:space="preserve">
+    <value>Odsazení sloupců</value>
+  </data>
+  <data name="ResponsiveLayout" xml:space="preserve">
+    <value>Responzivní rozložení</value>
+  </data>
+  <data name="Border" xml:space="preserve">
+    <value>Border</value>
+  </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>Poptip</value>
+  </data>
+  <data name="Recommendation" xml:space="preserve">
+    <value>Doporučení</value>
+  </data>
+  <data name="Project" xml:space="preserve">
+    <value>Projekt</value>
+  </data>
+  <data name="RangeSlider" xml:space="preserve">
+    <value>RangeSlider</value>
+  </data>
+  <data name="RelativePanel" xml:space="preserve">
+    <value>RelativePanel</value>
+  </data>
+  <data name="On" xml:space="preserve">
+    <value>Zap.</value>
+  </data>
+  <data name="Off" xml:space="preserve">
+    <value>Vyp.</value>
+  </data>
+  <data name="ButtonGroup" xml:space="preserve">
+    <value>ButtonGroup</value>
+  </data>
+  <data name="Card" xml:space="preserve">
+    <value>Card</value>
+  </data>
+  <data name="TextDialogWithTimer" xml:space="preserve">
+    <value>TextDialog s časovačem</value>
+  </data>
+  <data name="Magnifier" xml:space="preserve">
+    <value>Magnifier</value>
+  </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>ImageBlock</value>
+  </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>RunningBlock</value>
+  </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>HoneycombPanel</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>Přidat položku</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>Smazat prvek</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>Sprite</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>Otevři Sprite</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>Notification</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>Poslat upozornění</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>Nechat otevřené</value>
+  </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>FloatingBlock</value>
+  </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>SplitButton</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>Tools</value>
+  </data>
+  <data name="HatchBrushGenerator" xml:space="preserve">
+    <value>HatchBrushGenerator</value>
+  </data>
+  <data name="Morphing Animation" xml:space="preserve">
+    <value>Morphing Animation</value>
+  </data>
+  <data name="Divider" xml:space="preserve">
+    <value>Divider</value>
+  </data>
+  <data name="PoptipPositionStr" xml:space="preserve">
+    <value>top-start;top;top-end;right-start;right;right-end;bottom-end;bottom;bottom-start;left-end;left;left-start</value>
+  </data>
+  <data name="TransitioningContentControl" xml:space="preserve">
+    <value>TransitioningContentControl</value>
+  </data>
+  <data name="Drawer" xml:space="preserve">
+    <value>Drawer</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>Dokumentace</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>Efekty</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>Webová stránka</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>Vsix</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>Anglická dokumentace</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>Čínská dokumentace</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>Ukázka</value>
+  </data>
+  <data name="PinBox" xml:space="preserve">
+    <value>PinBox</value>
+  </data>
+  <data name="FlowDocumentScrollViewer" xml:space="preserve">
+    <value>FlowDocumentScrollViewer</value>
+  </data>
+  <data name="OpenGlowWindow" xml:space="preserve">
+    <value>Otevři GlowWindow</value>
+  </data>
+  <data name="FlowDocument" xml:space="preserve">
+    <value>FlowDocument</value>
+  </data>
+  <data name="FlowDocumentPageViewer" xml:space="preserve">
+    <value>FlowDocumentPageViewer</value>
+  </data>
+  <data name="FlowDocumentReader" xml:space="preserve">
+    <value>FlowDocumentReader</value>
+  </data>
+  <data name="OpenNativeCommonWindow" xml:space="preserve">
+    <value>Otevřít NativeCommonWindow</value>
+  </data>
+  <data name="OpenNavigationWindow" xml:space="preserve">
+    <value>Otevřít NavigationWindow</value>
+  </data>
+  <data name="Frame" xml:space="preserve">
+    <value>Frame</value>
+  </data>
+  <data name="PracticalDemos" xml:space="preserve">
+    <value>Praktické ukázky</value>
+  </data>
+  <data name="StartScreenshot" xml:space="preserve">
+    <value>Udělej snímek obrazovky</value>
+  </data>
+  <data name="Screenshot" xml:space="preserve">
+    <value>Screenshot</value>
+  </data>
+  <data name="TextDialogInControl" xml:space="preserve">
+    <value>TextDialog (uvnitř ovládacího prvku)</value>
+  </data>
+  <data name="LangComment" xml:space="preserve">
+    <value>Hledám řetězec podobný „{0}“.</value>
+  </data>
+  <data name="PropertyGrid" xml:space="preserve">
+    <value>PropertyGrid</value>
+  </data>
+  <data name="ImageSelector" xml:space="preserve">
+    <value>ImageSelector</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>Geometry</value>
+  </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>CheckComboBox</value>
+  </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>FlexPanel</value>
+  </data>
+  <data name="OpenTouchDragMoveWindow" xml:space="preserve">
+    <value>Otevři TouchDragMoveWindow</value>
+  </data>
+  <data name="UniformSpacingPanel" xml:space="preserve">
+    <value>UniformSpacingPanel</value>
+  </data>
+  <data name="Misc" xml:space="preserve">
+    <value>Různé</value>
+  </data>
+  <data name="Interacting" xml:space="preserve">
+    <value>Interacting</value>
+  </data>
+  <data name="DataEntry" xml:space="preserve">
+    <value>Zadání dat</value>
+  </data>
+  <data name="DataDisplay" xml:space="preserve">
+    <value>Zobrazení dat</value>
+  </data>
+  <data name="Navigation" xml:space="preserve">
+    <value>Navigation</value>
+  </data>
+  <data name="Layout" xml:space="preserve">
+    <value>Layout</value>
+  </data>
+  <data name="Feedback" xml:space="preserve">
+    <value>Zpětná vazba</value>
+  </data>
+  <data name="Success" xml:space="preserve">
+    <value>Success</value>
+  </data>
+  <data name="Empty" xml:space="preserve">
+    <value>Empty</value>
+  </data>
+  <data name="ElementGroup" xml:space="preserve">
+    <value>ElementGroup</value>
+  </data>
+  <data name="AutoCompleteTextBox" xml:space="preserve">
+    <value>AutoCompleteTextBox</value>
+  </data>
+  <data name="Watermark" xml:space="preserve">
+    <value>Watermark</value>
+  </data>
+  <data name="CloseMainWindowDialog" xml:space="preserve">
+    <value>Close main window dialog</value>
+  </data>
+</root>

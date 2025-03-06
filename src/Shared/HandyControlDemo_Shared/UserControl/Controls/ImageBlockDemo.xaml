@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ImageBlockDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Margin="32" ChildWrapping="Wrap" HorizontalAlignment="Center" VerticalAlignment="Center" ItemWidth="110" ItemHeight="128">
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.125" Columns="8" Rows="10" StartColumn="0" StartRow="0" EndColumn="7" EndRow="0" IsPlaying="True"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.125" Columns="8" Rows="10" StartColumn="0" StartRow="1" EndColumn="7" EndRow="1" IsPlaying="True"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.125" Columns="8" Rows="10" StartColumn="0" StartRow="2" EndColumn="7" EndRow="2" IsPlaying="{Binding IsMouseOver,RelativeSource={RelativeSource Self}}"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.125" Columns="8" Rows="10" StartColumn="0" StartRow="3" EndColumn="7" EndRow="3" IsPlaying="{Binding IsMouseOver,RelativeSource={RelativeSource Self}}"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.1" Columns="8" Rows="10" StartColumn="0" StartRow="4" EndColumn="7" EndRow="4" IsPlaying="True"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.125" Columns="8" Rows="10" StartColumn="0" StartRow="5" EndColumn="7" EndRow="5" IsPlaying="True"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.125" Columns="8" Rows="10" StartColumn="0" StartRow="6" EndColumn="7" EndRow="6" IsPlaying="{Binding IsMouseOver,RelativeSource={RelativeSource Self}}"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.1" Columns="8" Rows="10" StartColumn="0" StartRow="7" EndColumn="7" EndRow="7" IsPlaying="True"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.125" Columns="8" Rows="10" StartColumn="0" StartRow="8" EndColumn="7" EndRow="8" IsPlaying="{Binding IsMouseOver,RelativeSource={RelativeSource Self}}"/>
+                <hc:ImageBlock Source="/HandyControlDemo;component/Resources/Img/Dance.png" Interval="0:0:0.125" Columns="8" Rows="10" StartColumn="0" StartRow="9" EndColumn="7" EndRow="9" IsPlaying="{Binding IsMouseOver,RelativeSource={RelativeSource Self}}"/>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

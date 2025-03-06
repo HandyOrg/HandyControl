@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.RateDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <StackPanel Margin="32" HorizontalAlignment="Center" VerticalAlignment="Center" Width="170">
+            <hc:Rate Value="2"/>
+            <hc:Rate Value="5" Count="6" Margin="0,16,0,0" Foreground="{DynamicResource SuccessBrush}"/>
+            <hc:Rate DefaultValue="3" IsReadOnly="True" AllowHalf="True" Margin="0,16,0,0" Foreground="{DynamicResource WarningBrush}"/>
+            <hc:Rate DefaultValue="1" AllowClear="False" AllowHalf="True" Margin="0,16,0,0" Foreground="{DynamicResource DangerBrush}" Icon="{StaticResource LoveGeometry}"/>
+            <hc:Rate Value="4.5" AllowHalf="True" ShowText="True" Margin="0,16,0,0" Foreground="{DynamicResource DangerBrush}" Icon="{StaticResource LoveGeometry}"/>
+        </StackPanel>
+    </hc:TransitioningContentControl>
+</UserControl>

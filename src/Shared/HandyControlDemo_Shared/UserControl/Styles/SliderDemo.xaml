@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.SliderDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Margin="32" Orientation="Horizontal" Spacing="32" ClipToBounds="False" ChildWrapping="Wrap">
+                <hc:UniformSpacingPanel Orientation="Vertical" Spacing="32">
+                    <Slider Width="400" IsSnapToTickEnabled="True" Value="8"/>
+                    <Slider Width="400" IsSnapToTickEnabled="True" Value="3" IsEnabled="False"/>
+                    <Slider Width="400" IsSnapToTickEnabled="True" TickFrequency="5" Maximum="100" TickPlacement="TopLeft" Value="10" IsSelectionRangeEnabled="True" SelectionStart="10" SelectionEnd="80"/>
+                    <Slider Width="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Top" IsSnapToTickEnabled="True" Maximum="100" Value="60" TickFrequency="10" TickPlacement="BottomRight"/>
+                    <Slider Width="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Bottom" hc:TipElement.StringFormat="#0.00" Value="5" TickPlacement="Both"/>
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Spacing="32">
+                    <Slider Height="400" IsSnapToTickEnabled="True" Value="8" Orientation="Vertical"/>
+                    <Slider Height="400" IsSnapToTickEnabled="True" Value="3" IsEnabled="False" Orientation="Vertical"/>
+                    <Slider Height="400" IsSnapToTickEnabled="True" TickFrequency="5" Maximum="100" TickPlacement="TopLeft" Value="10" IsSelectionRangeEnabled="True" SelectionStart="20" SelectionEnd="80" Orientation="Vertical"/>
+                    <Slider Height="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Right" IsSnapToTickEnabled="True" Maximum="100" Value="60" TickFrequency="10" TickPlacement="BottomRight" Orientation="Vertical"/>
+                    <Slider Height="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Left" hc:TipElement.StringFormat="#0.00" Value="5" TickPlacement="Both" Orientation="Vertical"/>
+                </hc:UniformSpacingPanel>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

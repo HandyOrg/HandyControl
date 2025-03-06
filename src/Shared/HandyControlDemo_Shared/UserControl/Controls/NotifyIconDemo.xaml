@@ -1,0 +1,82 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.NotifyIconDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:data="clr-namespace:HandyControlDemo.Data"
+             DataContext="{Binding NotifyIconDemo,Source={StaticResource Locator}}"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:SimplePanel Margin="32" VerticalAlignment="Center">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                    <GroupBox Header="ContextMenu" Padding="10">
+                        <StackPanel>
+                            <GroupBox hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Visibility}}">
+                                <ToggleButton IsChecked="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
+                            </GroupBox>
+                            <TextBlock Foreground="{DynamicResource InfoBrush}" Visibility="{Binding ContextMenuIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{ex:Lang Key={x:Static langs:LangKeys.Try2CloseApp}}" Margin="0,6,0,0"/>
+                            <GroupBox Margin="0,10,0,0" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Blink}}">
+                                <ToggleButton IsChecked="{Binding ContextMenuIsBlink}" IsEnabled="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
+                            </GroupBox>
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox Header="ContextContent" Margin="16,0,0,0" Padding="10">
+                        <StackPanel>
+                            <GroupBox hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Visibility}}">
+                                <ToggleButton IsChecked="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
+                            </GroupBox>
+                            <TextBlock Foreground="{DynamicResource InfoBrush}" Visibility="{Binding ContextContentIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Text="{ex:Lang Key={x:Static langs:LangKeys.Try2CloseApp}}" Margin="0,6,0,0"/>
+                            <GroupBox Margin="0,10,0,0" hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Blink}}">
+                                <ToggleButton IsChecked="{Binding ContextContentIsBlink}" IsEnabled="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
+                            </GroupBox>
+                        </StackPanel>
+                    </GroupBox>
+                </StackPanel>
+                <DockPanel Margin="0,16,0,0" LastChildFill="True">
+                    <Button Command="{Binding SendNotificationCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.SendNotification}}" DockPanel.Dock="Right" HorizontalAlignment="Stretch" Margin="10,0,0,0"/>
+                    <TextBox Text="{Binding Content}"/>
+                </DockPanel>
+            </StackPanel>
+            <hc:NotifyIcon Token="{x:Static data:MessageToken.NotifyIconDemo}" Text="HandyControl" IsBlink="{Binding ContextMenuIsBlink}" Visibility="{Binding ContextMenuIsShow,Converter={StaticResource Boolean2VisibilityConverter}}">
+                <hc:NotifyIcon.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Command="{Binding SendNotificationCmd}" Header="{ex:Lang Key={x:Static langs:LangKeys.SendNotification}}"/>
+                        <MenuItem Command="hc:ControlCommands.PushMainWindow2Top" Header="{ex:Lang Key={x:Static langs:LangKeys.OpenPanel}}"/>
+                        <MenuItem Command="hc:ControlCommands.ShutdownApp" Header="{ex:Lang Key={x:Static langs:LangKeys.Exit}}"/>
+                    </ContextMenu>
+                </hc:NotifyIcon.ContextMenu>
+                <hc:Interaction.Triggers>
+                    <hc:EventTrigger EventName="Click">
+                        <hc:EventToCommand Command="hc:ControlCommands.PushMainWindow2Top"/>
+                    </hc:EventTrigger>
+                    <hc:EventTrigger EventName="MouseDoubleClick">
+                        <hc:EventToCommand Command="{Binding MouseCmd}" CommandParameter="MouseDoubleClick"/>
+                    </hc:EventTrigger>
+                </hc:Interaction.Triggers>
+            </hc:NotifyIcon>
+            <hc:NotifyIcon Token="{x:Static data:MessageToken.NotifyIconContextDemo}" x:Name="NotifyIconContextContent" Text="HandyControl" IsBlink="{Binding ContextContentIsBlink}" Visibility="{Binding ContextContentIsShow,Converter={StaticResource Boolean2VisibilityConverter}}" Icon="/HandyControlDemo;component/Resources/Img/icon-white.ico">
+                <hc:NotifyIcon.ContextContent>
+                    <Border CornerRadius="4" Margin="10" Background="{DynamicResource RegionBrush}" Effect="{StaticResource EffectShadow2}">
+                        <StackPanel VerticalAlignment="Center" Margin="16">
+                            <Path Width="100" Height="100" Fill="#f06632" Data="{StaticResource LogoGeometry}"/>
+                            <StackPanel Margin="0,16,0,0" HorizontalAlignment="Center" Orientation="Horizontal">
+                                <Button Click="ButtonPush_OnClick"  Command="hc:ControlCommands.PushMainWindow2Top" MinWidth="100" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenPanel}}"/>
+                                <Button Command="hc:ControlCommands.ShutdownApp" Margin="16,0,0,0" MinWidth="100" Style="{StaticResource ButtonPrimary}" Content="{ex:Lang Key={x:Static langs:LangKeys.Exit}}"/>
+                            </StackPanel>
+                        </StackPanel>
+                    </Border>
+                </hc:NotifyIcon.ContextContent>
+                <hc:Interaction.Triggers>
+                    <hc:EventTrigger EventName="Click">
+                        <hc:EventToCommand Command="hc:ControlCommands.PushMainWindow2Top"/>
+                    </hc:EventTrigger>
+                    <hc:EventTrigger EventName="MouseDoubleClick">
+                        <hc:EventToCommand Command="{Binding MouseCmd}" CommandParameter="MouseDoubleClick"/>
+                    </hc:EventTrigger>
+                </hc:Interaction.Triggers>
+            </hc:NotifyIcon>
+        </hc:SimplePanel>
+    </hc:TransitioningContentControl>
+</UserControl>

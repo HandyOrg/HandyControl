@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.TimeBarDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:TimeBar Name="timeBarDemo" BorderThickness="0" Margin="32" Width="600"  VerticalAlignment="Center"/>
+    </hc:TransitioningContentControl>
+</UserControl>

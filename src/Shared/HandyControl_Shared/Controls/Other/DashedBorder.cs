@@ -359,11 +359,6 @@ public class DashedBorder : Decorator
                 using (var ctx = borderGeometry.Open())
                 {
                     GenerateGeometry(ctx, boundRect, outerRadii);
-
-                    if (backgroundGeometry != null)
-                    {
-                        GenerateGeometry(ctx, innerRect, innerRadii);
-                    }
                 }
 
                 borderGeometry.Freeze();

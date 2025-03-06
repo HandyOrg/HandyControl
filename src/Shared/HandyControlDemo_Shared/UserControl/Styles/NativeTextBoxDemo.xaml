@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.NativeTextBoxDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Spacing="32" Margin="32" ChildWrapping="Wrap">
+                <StackPanel>
+                    <TextBox Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <TextBox Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Margin="0,16,0,0" IsEnabled="False"/>
+
+                    <TextBox hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <TextBox hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource TextBoxExtend}" Margin="0,16,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" IsEnabled="False"/>
+                    <TextBox hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource TextBoxExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                    <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource TextBoxExtend}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Style="{StaticResource TextBoxExtend}" Margin="0,16,0,0"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Style="{StaticResource TextBox.Small}"/>
+                    <TextBox Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource TextBox.Small}"/>
+
+                    <TextBox hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource TextBoxExtend.Small}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <TextBox hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Style="{StaticResource TextBoxExtend.Small}" Margin="0,16,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" IsEnabled="False"/>
+                    <TextBox hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource TextBoxExtend.Small}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                    <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource TextBoxExtend.Small}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Style="{StaticResource TextBoxExtend.Small}" Margin="0,16,0,0"/>
+                </StackPanel>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

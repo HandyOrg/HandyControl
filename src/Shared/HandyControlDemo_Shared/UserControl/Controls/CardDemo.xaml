@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.CardDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{DynamicResource RegionBrush}"
+             DataContext="{Binding CardDemo,Source={StaticResource Locator}}"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:data="clr-namespace:HandyControlDemo.Data">
+    <hc:TransitioningContentControl>
+        <ListBox Margin="32" hc:ScrollViewer.IsInertiaEnabled="True" BorderThickness="0" Style="{StaticResource WrapPanelHorizontalListBox}" ItemsPanel="{StaticResource FluidMoveBehaviorWrapPanelItemsPanelTemplate}" ItemsSource="{Binding DataList}">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="data:CardModel">
+                    <hc:Card MaxWidth="240" BorderThickness="0" Effect="{StaticResource EffectShadow2}" Margin="8" Footer="{Binding Footer}">
+                        <!--<hc:Card.HeaderTemplate>
+                            <DataTemplate>
+                                <TextBlock HorizontalAlignment="Left" Style="{StaticResource TextBlockLargeBold}" Text="{Binding}" Margin="10"/>
+                            </DataTemplate>
+                        </hc:Card.HeaderTemplate>-->
+                        <Border CornerRadius="4,4,0,0" Style="{StaticResource BorderClip}">
+                            <Image Width="240" Height="240" Source="{Binding Content}" Stretch="Uniform"/>
+                        </Border>
+                        <hc:Card.FooterTemplate>
+                            <DataTemplate>
+                                <StackPanel Margin="10">
+                                    <TextBlock TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Style="{StaticResource TextBlockLargeBold}" Text="{Binding DataContext.Header,RelativeSource={RelativeSource AncestorType=hc:Card}}" HorizontalAlignment="Left"/>
+                                    <TextBlock TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" Style="{StaticResource TextBlockDefault}" Text="{Binding}" Margin="0,6,0,0" HorizontalAlignment="Left"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </hc:Card.FooterTemplate>
+                    </hc:Card>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>   
+    </hc:TransitioningContentControl>
+</UserControl>

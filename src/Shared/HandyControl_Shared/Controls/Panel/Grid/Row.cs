@@ -59,7 +59,9 @@ public class Row : Panel
             if (cellCount > 0 && !child.IsFixed)
             {
                 totalCellCount += cellCount;
-                child.Measure(new Size(cellCount * itemWidth - gutter, constraint.Height));
+                var availableWidth = Math.Max(0, cellCount * itemWidth - gutter);
+
+                child.Measure(new Size(availableWidth, constraint.Height));
                 _maxChildDesiredHeight = Math.Max(_maxChildDesiredHeight, child.DesiredSize.Height);
 
                 if (totalCellCount > ColLayout.ColMaxCellCount)
@@ -94,7 +96,7 @@ public class Row : Panel
             var cellCount = child.GetLayoutCellCount(_layoutStatus);
             totalCellCount += cellCount;
 
-            var childWidth = (cellCount > 0 && !child.IsFixed) ? cellCount * itemWidth - gutter : child.DesiredSize.Width;
+            var childWidth = (cellCount > 0 && !child.IsFixed) ? Math.Max(0, cellCount * itemWidth - gutter) : child.DesiredSize.Width;
             childBounds.Width = childWidth;
             childBounds.X += child.Offset * itemWidth;
 

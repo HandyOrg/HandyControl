@@ -1,0 +1,138 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.UserControl.NativeScrollViewerDemo"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             MaxWidth="550"
+             Height="600">
+    <Grid Margin="32"
+          RowDefinitions="Auto, *">
+        <Border BorderThickness="1"
+                BorderBrush="{DynamicResource BorderBrush}">
+            <ScrollViewer hc:ScrollViewerAttach.Orientation="Horizontal"
+                          HorizontalScrollBarVisibility="Auto"
+                          VerticalScrollBarVisibility="Hidden">
+                <StackPanel Orientation="Horizontal">
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                </StackPanel>
+            </ScrollViewer>
+        </Border>
+        <Border Grid.Row="1"
+                BorderThickness="1"
+                BorderBrush="{DynamicResource BorderBrush}"
+                Margin="0,16,0,0">
+            <ScrollViewer>
+                <WrapPanel Orientation="Horizontal">
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                    <Border Theme="{StaticResource BorderRegion}"
+                            Width="200"
+                            Height="200"
+                            Margin="10,10,32,10">
+                        <Border Background="{DynamicResource PrimaryBrush}">
+                            <TextBlock Text="Content"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Foreground="White" />
+                        </Border>
+                    </Border>
+                </WrapPanel>
+            </ScrollViewer>
+        </Border>
+    </Grid>
+</UserControl>

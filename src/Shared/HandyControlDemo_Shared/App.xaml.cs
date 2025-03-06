@@ -8,6 +8,7 @@ using System.Net;
 using System.Runtime;
 #endif
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows;
 using HandyControl.Data;
 using HandyControl.Tools;
@@ -26,63 +27,19 @@ public partial class App
 
     public App()
     {
-#if !NET40
-        var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
-        if (!Directory.Exists(cachePath))
-        {
-            Directory.CreateDirectory(cachePath);
-        }
-        ProfileOptimization.SetProfileRoot(cachePath);
-        ProfileOptimization.StartProfile("Profile");
-#endif
+        EnsureProfileOptimization();
     }
 
     protected override void OnStartup(StartupEventArgs e)
     {
-        AppMutex = new Mutex(true, "HandyControlDemo", out var createdNew);
+        EnsureSingleton();
+        OpenSplashScreen();
 
-        if (!createdNew)
-        {
-            var current = Process.GetCurrentProcess();
+        base.OnStartup(e);
 
-            foreach (var process in Process.GetProcessesByName(current.ProcessName))
-            {
-                if (process.Id != current.Id)
-                {
-                    Win32Helper.SetForegroundWindow(process.MainWindowHandle);
-                    break;
-                }
-            }
-            Shutdown();
-        }
-        else
-        {
-            var splashScreen = new SplashScreen("Resources/Img/Cover.png");
-            splashScreen.Show(true);
-
-            base.OnStartup(e);
-
-            UpdateRegistry();
-
-            ShutdownMode = ShutdownMode.OnMainWindowClose;
-            GlobalData.Init();
-            ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
-            LangProvider.Culture = new CultureInfo(GlobalData.Config.Lang);
-
-            if (GlobalData.Config.Skin != SkinType.Default)
-            {
-                UpdateSkin(GlobalData.Config.Skin);
-            }
-
-            ConfigHelper.Instance.SetWindowDefaultStyle();
-            ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
-
-#if NET40
-            ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
-#else
-            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
-#endif
-        }
+        //UpdateRegistry();
+        ApplyConfiguration();
+        UpdateApp();
     }
 
     protected override void OnExit(ExitEventArgs e)
@@ -112,7 +69,71 @@ public partial class App
         Current.MainWindow?.OnApplyTemplate();
     }
 
-    private void UpdateRegistry()
+    private void ApplyConfiguration()
+    {
+        ShutdownMode = ShutdownMode.OnMainWindowClose;
+        GlobalData.Init();
+        ConfigHelper.Instance.SetLang(GlobalData.Config.Lang);
+        LangProvider.Culture = new CultureInfo(GlobalData.Config.Lang);
+
+        if (GlobalData.Config.Skin != SkinType.Default)
+        {
+            UpdateSkin(GlobalData.Config.Skin);
+        }
+
+        ConfigHelper.Instance.SetWindowDefaultStyle();
+        ConfigHelper.Instance.SetNavigationWindowDefaultStyle();
+
+#if NET40
+        ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
+#else
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
+#endif
+    }
+
+    private static void OpenSplashScreen()
+    {
+        var splashScreen = new SplashScreen("Resources/Img/Cover.png");
+        splashScreen.Show(true);
+    }
+
+    private static void EnsureProfileOptimization()
+    {
+#if !NET40
+        var cachePath = $"{AppDomain.CurrentDomain.BaseDirectory}Cache";
+        if (!Directory.Exists(cachePath))
+        {
+            Directory.CreateDirectory(cachePath);
+        }
+        ProfileOptimization.SetProfileRoot(cachePath);
+        ProfileOptimization.StartProfile("Profile");
+#endif
+    }
+
+    private void EnsureSingleton()
+    {
+        AppMutex = new Mutex(true, "HandyControlDemo", out var createdNew);
+
+        if (createdNew)
+        {
+            return;
+        }
+
+        var current = Process.GetCurrentProcess();
+
+        foreach (var process in Process.GetProcessesByName(current.ProcessName))
+        {
+            if (process.Id != current.Id)
+            {
+                Win32Helper.SetForegroundWindow(process.MainWindowHandle);
+                break;
+            }
+        }
+
+        Shutdown();
+    }
+
+    private static void UpdateRegistry()
     {
         var processModule = Process.GetCurrentProcess().MainModule;
         if (processModule != null)
@@ -134,6 +155,26 @@ public partial class App
                     });
                 }
             }
+        }
+    }
+
+    private static void UpdateApp()
+    {
+        const string api = "https://github.com/handyorg/handycontrol/releases/latest";
+
+        try
+        {
+            var mainDirectory = Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory.TrimEnd('\\'));
+            var updateExePath = Path.Combine(mainDirectory, "Update.exe");
+
+            if (File.Exists(updateExePath))
+            {
+                Task.Factory.StartNew(() => Process.Start(updateExePath, $"--update={api}"));
+            }
+        }
+        catch
+        {
+            // ignored
         }
     }
 }

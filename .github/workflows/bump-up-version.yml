@@ -1,0 +1,54 @@
+name: Bump up version
+
+on:
+  workflow_dispatch:
+    inputs:
+      pre_release:
+        description: 'is preview'
+        type: boolean
+        required: true
+        default: false
+
+jobs:
+  bump-up-version:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+
+      - name: Setup .NET Core SDK
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Publish
+        working-directory: ./build
+        run: |
+            git config --local user.name "${{ github.actor }}"
+            git config --local user.email "836904362@qq.com"
+            dotnet new tool-manifest
+            dotnet tool install cake.tool --version 4.0.0
+            dotnet tool install minver-cli --version 3.0.0
+            dotnet cake --username="${{ github.actor }}" --email="836904362@qq.com" --pre-release=${{ inputs.pre_release }}
+
+      - name: Push git changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+          tags: true
+
+      - name: Push to nuget
+        run: dotnet nuget push ./build/outputs/nuget/HandyControl.*nupkg -k ${{ secrets.NUGETTOKEN }}
+
+      - name: Create github release
+        uses: softprops/action-gh-release@v2
+        with:
+          # For maximum compatibility, we choose the .net40
+          files: ./build/outputs/installer/net40/*
+          body_path: ./build/outputs/CHANGELOG.md
+          token: ${{ secrets.GITHUB_TOKEN }}
+          prerelease: ${{ inputs.pre_release }}

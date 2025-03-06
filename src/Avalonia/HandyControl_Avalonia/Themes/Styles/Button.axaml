@@ -1,102 +1,505 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <ControlTheme x:Key="{x:Type Button}" TargetType="Button">
-        <Setter Property="Background" Value="{DynamicResource RegionBrush}" />
-        <Setter Property="Foreground" Value="{DynamicResource PrimaryTextBrush}" />
-        <Setter Property="BorderBrush" Value="{DynamicResource BorderBrush}" />
-        <Setter Property="BorderThickness" Value="1" />
-        <Setter Property="CornerRadius" Value="{DynamicResource DefaultCornerRadius}" />
-        <Setter Property="Padding" Value="{DynamicResource DefaultControlPadding}" />
-        <Setter Property="HorizontalAlignment" Value="Center" />
-        <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="HorizontalContentAlignment" Value="Center" />
-        <Setter Property="VerticalContentAlignment" Value="Center" />
-		<Setter Property="Template">
-			<ControlTemplate TargetType="Button">
-				<ContentPresenter x:Name="PART_ContentPresenter"
-								  Background="{TemplateBinding Background}"
-								  BorderBrush="{TemplateBinding BorderBrush}"
-								  BorderThickness="{TemplateBinding BorderThickness}"
-								  CornerRadius="{TemplateBinding CornerRadius}"
-								  Content="{TemplateBinding Content}"
-								  ContentTemplate="{TemplateBinding ContentTemplate}"
-								  Padding="{TemplateBinding Padding}"
-								  RecognizesAccessKey="True"
-								  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
-								  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}" />
-			</ControlTemplate>
-		</Setter>
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+    <ControlTheme x:Key="ButtonBaseStyle"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                            <Path Width="{TemplateBinding hc:IconElement.Width}"
+                                  Height="{TemplateBinding hc:IconElement.Height}"
+                                  Fill="{TemplateBinding Foreground}"
+                                  IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                  Stretch="Uniform"
+                                  Data="{TemplateBinding hc:IconElement.Geometry}" />
+                            <ContentPresenter RecognizesAccessKey="True"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                              Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                        </StackPanel>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
 
-		<Style Selector="^:pointerover">
-            <Setter Property="Background" Value="{DynamicResource SecondaryRegionBrush}" />
-		</Style>
-
-		<Style Selector="^:pressed">
-            <Setter Property="Background" Value="{DynamicResource BorderBrush}" />
-		</Style>
-
-		<Style Selector="^:disabled">
-            <Setter Property="Opacity" Value=".4" />
-		</Style>
-
-		<Style Selector="^.primary">
-            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background" Value="{DynamicResource PrimaryBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource PrimaryBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity" Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity" Value=".6" />
-            </Style>
-		</Style>
-
-        <Style Selector="^.success">
-            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background" Value="{DynamicResource SuccessBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource SuccessBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity" Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity" Value=".6" />
-            </Style>
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
         </Style>
 
-        <Style Selector="^.info">
-            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background" Value="{DynamicResource InfoBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource InfoBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity" Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity" Value=".6" />
-            </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity"
+                    Value="0.6" />
         </Style>
 
-        <Style Selector="^.warning">
-            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background" Value="{DynamicResource WarningBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource WarningBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity" Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity" Value=".6" />
-            </Style>
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDefault"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
         </Style>
 
-        <Style Selector="^.danger">
-            <Setter Property="Foreground" Value="{DynamicResource TextIconBrush}" />
-            <Setter Property="Background" Value="{DynamicResource DangerBrush}" />
-            <Setter Property="BorderBrush" Value="{DynamicResource DangerBrush}" />
-            <Style Selector="^:pointerover">
-                <Setter Property="Opacity" Value=".9" />
-            </Style>
-            <Style Selector="^:pressed">
-                <Setter Property="Opacity" Value=".6" />
-            </Style>
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
         </Style>
-	</ControlTheme>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDefault.Small"
+                  BasedOn="{StaticResource ButtonDefault}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type Button}"
+                  BasedOn="{StaticResource ButtonDefault}"
+                  TargetType="Button" />
+
+    <ControlTheme x:Key="ButtonPrimary"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonPrimary.Small"
+                  BasedOn="{StaticResource ButtonPrimary}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonSuccess"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonSuccess.Small"
+                  BasedOn="{StaticResource ButtonSuccess}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonInfo"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonInfo.Small"
+                  BasedOn="{StaticResource ButtonInfo}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonWarning"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonWarning.Small"
+                  BasedOn="{StaticResource ButtonWarning}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDanger"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDanger.Small"
+                  BasedOn="{StaticResource ButtonDanger}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedBaseStyle"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <hc:DashedBorder BorderDashArray="3,2"
+                                 Background="Transparent"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                 CornerRadius="{TemplateBinding CornerRadius}">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Margin="{TemplateBinding Padding}">
+                        <Path Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Fill="{TemplateBinding Foreground}"
+                              IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                              Stretch="Uniform"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                        <ContentPresenter RecognizesAccessKey="True"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                          Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                    </StackPanel>
+                </hc:DashedBorder>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashed"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashed.Small"
+                  BasedOn="{StaticResource ButtonDashed}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedPrimary"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedPrimary.Small"
+                  BasedOn="{StaticResource ButtonDashedPrimary}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedSuccess"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedSuccess.Small"
+                  BasedOn="{StaticResource ButtonDashedSuccess}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedInfo"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedInfo.Small"
+                  BasedOn="{StaticResource ButtonDashedInfo}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedWarning"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedWarning.Small"
+                  BasedOn="{StaticResource ButtonDashedWarning}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedDanger"
+                  BasedOn="{StaticResource ButtonDashedBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonDashedDanger.Small"
+                  BasedOn="{StaticResource ButtonDashedDanger}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonIcon"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="BorderBrush"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                        <Path Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform"
+                              Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                    </ContentControl>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonIcon.Small"
+                  BasedOn="{StaticResource ButtonIcon}"
+                  TargetType="Button">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonIconCircular"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="Button">
+        <Setter Property="Width"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="6" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Theme="{StaticResource BorderCircular}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                        <Path Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform"
+                              Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                    </ContentControl>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonIconCircular.Small"
+                  BasedOn="{StaticResource ButtonIconCircular}"
+                  TargetType="Button">
+        <Setter Property="Width"
+                Value="20" />
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ButtonCustom"
+                  TargetType="Button">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Background"
+                Value="{x:Null}" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="Button">
+                <ContentPresenter Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  Background="{TemplateBinding Background}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+            <Setter Property="Background"
+                    Value="{Binding $self.(hc:BackgroundSwitchElement.MouseHoverBackground)}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+            <Setter Property="Background"
+                    Value="{Binding $self.(hc:BackgroundSwitchElement.MouseDownBackground)}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
 </ResourceDictionary>

@@ -1,0 +1,148 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="LabelBaseStyle"
+                  TargetType="Label">
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <ContentPresenter Name="PART_ContentPresenter"
+                                  Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  Background="{TemplateBinding Background}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelDefault"
+                  BasedOn="{StaticResource LabelBaseStyle}"
+                  TargetType="Label">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type Label}"
+                  BasedOn="{StaticResource LabelDefault}"
+                  TargetType="Label" />
+
+    <ControlTheme x:Key="LabelDefault.Small"
+                  BasedOn="{StaticResource LabelDefault}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelPrimary"
+                  BasedOn="{StaticResource LabelBaseStyle}"
+                  TargetType="Label">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelPrimary.Small"
+                  BasedOn="{StaticResource LabelPrimary}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelSuccess"
+                  BasedOn="{StaticResource LabelBaseStyle}"
+                  TargetType="Label">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelSuccess.Small"
+                  BasedOn="{StaticResource LabelSuccess}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelInfo"
+                  BasedOn="{StaticResource LabelBaseStyle}"
+                  TargetType="Label">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelInfo.Small"
+                  BasedOn="{StaticResource LabelInfo}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelWarning"
+                  BasedOn="{StaticResource LabelBaseStyle}"
+                  TargetType="Label">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelWarning.Small"
+                  BasedOn="{StaticResource LabelWarning}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelDanger"
+                  BasedOn="{StaticResource LabelBaseStyle}"
+                  TargetType="Label">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="LabelDanger.Small"
+                  BasedOn="{StaticResource LabelDanger}"
+                  TargetType="Label">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,0" />
+    </ControlTheme>
+</ResourceDictionary>

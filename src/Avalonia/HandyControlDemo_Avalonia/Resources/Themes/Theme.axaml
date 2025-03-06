@@ -3,7 +3,9 @@
     <Styles.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <MergeResourceInclude Source="Basic/Basic.axaml" />
+                <MergeResourceInclude Source="/Resources/Themes/Basic/Brushes.axaml" />
+                <MergeResourceInclude Source="/Resources/Themes/Basic/Geometries.axaml" />
+                <MergeResourceInclude Source="/Resources/Themes/Basic/Converters.axaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Styles.Resources>

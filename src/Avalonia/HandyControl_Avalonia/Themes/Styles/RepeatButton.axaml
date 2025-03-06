@@ -1,0 +1,505 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+    <ControlTheme x:Key="RepeatButtonBaseStyle"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="{StaticResource DefaultControlPadding}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                            <Path Width="{TemplateBinding hc:IconElement.Width}"
+                                  Height="{TemplateBinding hc:IconElement.Height}"
+                                  Fill="{TemplateBinding Foreground}"
+                                  IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                  Stretch="Uniform"
+                                  Data="{TemplateBinding hc:IconElement.Geometry}" />
+                            <ContentPresenter RecognizesAccessKey="True"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                              Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                        </StackPanel>
+                    </Border>
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDefault"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDefault.Small"
+                  BasedOn="{StaticResource RepeatButtonDefault}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type RepeatButton}"
+                  BasedOn="{StaticResource RepeatButtonDefault}"
+                  TargetType="RepeatButton" />
+
+    <ControlTheme x:Key="RepeatButtonPrimary"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonPrimary.Small"
+                  BasedOn="{StaticResource RepeatButtonPrimary}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonSuccess"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonSuccess.Small"
+                  BasedOn="{StaticResource RepeatButtonSuccess}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonInfo"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonInfo.Small"
+                  BasedOn="{StaticResource RepeatButtonInfo}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonWarning"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonWarning.Small"
+                  BasedOn="{StaticResource RepeatButtonWarning}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDanger"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDanger.Small"
+                  BasedOn="{StaticResource RepeatButtonDanger}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedBaseStyle"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RepeatButton">
+                <hc:DashedBorder BorderDashArray="3,2"
+                                 Background="Transparent"
+                                 BorderThickness="{TemplateBinding BorderThickness}"
+                                 BorderBrush="{TemplateBinding BorderBrush}"
+                                 CornerRadius="{TemplateBinding CornerRadius}">
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                Margin="{TemplateBinding Padding}">
+                        <Path Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Fill="{TemplateBinding Foreground}"
+                              IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                              Stretch="Uniform"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                        <ContentPresenter RecognizesAccessKey="True"
+                                          VerticalAlignment="Center"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}"
+                                          IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                          Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                    </StackPanel>
+                </hc:DashedBorder>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashed"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Foreground"
+                    Value="{DynamicResource PrimaryBrush}" />
+            <Setter Property="BorderBrush"
+                    Value="{DynamicResource PrimaryBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashed.Small"
+                  BasedOn="{StaticResource RepeatButtonDashed}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedPrimary"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedPrimary.Small"
+                  BasedOn="{StaticResource RepeatButtonDashedPrimary}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedSuccess"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedSuccess.Small"
+                  BasedOn="{StaticResource RepeatButtonDashedSuccess}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedInfo"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedInfo.Small"
+                  BasedOn="{StaticResource RepeatButtonDashedInfo}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedWarning"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedWarning.Small"
+                  BasedOn="{StaticResource RepeatButtonDashedWarning}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedDanger"
+                  BasedOn="{StaticResource RepeatButtonDashedBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonDashedDanger.Small"
+                  BasedOn="{StaticResource RepeatButtonDashedDanger}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonIcon"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="BorderBrush"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                        <Path Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform"
+                              Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                    </ContentControl>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonIcon.Small"
+                  BasedOn="{StaticResource RepeatButtonIcon}"
+                  TargetType="RepeatButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonIconCircular"
+                  BasedOn="{StaticResource RepeatButtonBaseStyle}"
+                  TargetType="RepeatButton">
+        <Setter Property="Width"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0" />
+        <Setter Property="Padding"
+                Value="6" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Theme="{StaticResource BorderCircular}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                        <Path Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform"
+                              Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}"
+                              Data="{TemplateBinding hc:IconElement.Geometry}" />
+                    </ContentControl>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonIconCircular.Small"
+                  BasedOn="{StaticResource RepeatButtonIconCircular}"
+                  TargetType="RepeatButton">
+        <Setter Property="Width"
+                Value="20" />
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="RepeatButtonCustom"
+                  TargetType="RepeatButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Background"
+                Value="{x:Null}" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RepeatButton">
+                <ContentPresenter Padding="{TemplateBinding Padding}"
+                                  HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                  VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                  CornerRadius="{TemplateBinding CornerRadius}"
+                                  BorderThickness="{TemplateBinding BorderThickness}"
+                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                  Background="{TemplateBinding Background}"
+                                  Content="{TemplateBinding Content}"
+                                  ContentTemplate="{TemplateBinding ContentTemplate}"
+                                  RecognizesAccessKey="True" />
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ContentPresenter">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+            <Setter Property="Background"
+                    Value="{Binding $self.(hc:BackgroundSwitchElement.MouseHoverBackground)}" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ ContentPresenter">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+            <Setter Property="Background"
+                    Value="{Binding $self.(hc:BackgroundSwitchElement.MouseDownBackground)}" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

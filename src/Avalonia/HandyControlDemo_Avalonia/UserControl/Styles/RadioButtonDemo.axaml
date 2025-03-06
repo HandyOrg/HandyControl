@@ -1,0 +1,343 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.UserControl.RadioButtonDemo"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel ChildWrapping="Wrap"
+                                Spacing="32"
+                                Margin="32">
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="32">
+                <WrapPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo1"
+                                     IsChecked="True"
+                                     Content="Default"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDefault}" />
+                        <RadioButton GroupName="Demo1"
+                                     IsEnabled="False"
+                                     Content="Default"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDefault}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo1"
+                                     Content="Primary"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonPrimary}" />
+                        <RadioButton GroupName="Demo1"
+                                     IsEnabled="False"
+                                     Content="Primary"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo1"
+                                     Content="Success"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonSuccess}" />
+                        <RadioButton GroupName="Demo1"
+                                     IsEnabled="False"
+                                     Content="Success"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo1"
+                                     Content="Info"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonInfo}" />
+                        <RadioButton GroupName="Demo1"
+                                     IsEnabled="False"
+                                     Content="Info"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo1"
+                                     Content="Warning"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonWarning}" />
+                        <RadioButton GroupName="Demo1"
+                                     IsEnabled="False"
+                                     Content="Warning"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo1"
+                                     Content="Danger"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDanger}" />
+                        <RadioButton GroupName="Demo1"
+                                     IsEnabled="False"
+                                     Content="Danger"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDanger}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo2"
+                                     IsChecked="True"
+                                     Content="Clock"
+                                     Margin="5"
+                                     hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDefault}" />
+                        <RadioButton GroupName="Demo2"
+                                     Content="Clock"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDefault}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo2"
+                                     Content="Calendar"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonPrimary}"
+                                     hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                        <RadioButton GroupName="Demo2"
+                                     Content="Calendar"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonPrimary}"
+                                     hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo2"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonSuccess}"
+                                     hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                        <RadioButton GroupName="Demo2"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonSuccess}"
+                                     hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo2"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonInfo}"
+                                     hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                        <RadioButton GroupName="Demo2"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonInfo}"
+                                     hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo2"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonWarning}"
+                                     hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                        <RadioButton GroupName="Demo2"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonWarning}"
+                                     hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo2"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDanger}"
+                                     hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                        <RadioButton GroupName="Demo2"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDanger}"
+                                     hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo3"
+                                     IsChecked="True"
+                                     Content="Default"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDefault.Small}" />
+                        <RadioButton GroupName="Demo3"
+                                     IsEnabled="False"
+                                     Content="Default"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDefault.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo3"
+                                     Content="Primary"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonPrimary.Small}" />
+                        <RadioButton GroupName="Demo3"
+                                     IsEnabled="False"
+                                     Content="Primary"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonPrimary.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo3"
+                                     Content="Success"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonSuccess.Small}" />
+                        <RadioButton GroupName="Demo3"
+                                     IsEnabled="False"
+                                     Content="Success"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonSuccess.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo3"
+                                     Content="Info"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonInfo.Small}" />
+                        <RadioButton GroupName="Demo3"
+                                     IsEnabled="False"
+                                     Content="Info"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonInfo.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo3"
+                                     Content="Warning"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonWarning.Small}" />
+                        <RadioButton GroupName="Demo3"
+                                     IsEnabled="False"
+                                     Content="Warning"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonWarning.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo3"
+                                     Content="Danger"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDanger.Small}" />
+                        <RadioButton GroupName="Demo3"
+                                     IsEnabled="False"
+                                     Content="Danger"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDanger.Small}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo4"
+                                     IsChecked="True"
+                                     Content="Clock"
+                                     Margin="5"
+                                     hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDefault.Small}" />
+                        <RadioButton GroupName="Demo4"
+                                     Content="Clock"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDefault.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo4"
+                                     Content="Calendar"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonPrimary.Small}"
+                                     hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                        <RadioButton GroupName="Demo4"
+                                     Content="Calendar"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonPrimary.Small}"
+                                     hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo4"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonSuccess.Small}"
+                                     hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                        <RadioButton GroupName="Demo4"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonSuccess.Small}"
+                                     hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo4"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonInfo.Small}"
+                                     hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                        <RadioButton GroupName="Demo4"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonInfo.Small}"
+                                     hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo4"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonWarning.Small}"
+                                     hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                        <RadioButton GroupName="Demo4"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonWarning.Small}"
+                                     hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <RadioButton GroupName="Demo4"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDanger.Small}"
+                                     hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                        <RadioButton GroupName="Demo4"
+                                     IsEnabled="False"
+                                     Margin="5"
+                                     Theme="{StaticResource RadioButtonSameAsButtonDanger.Small}"
+                                     hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                    </StackPanel>
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="32">
+                <hc:UniformSpacingPanel Spacing="10"
+                                        Orientation="Vertical">
+                    <RadioButton IsChecked="True"
+                                 Content="RadioButton" />
+                    <RadioButton Content="RadioButton"
+                                 IsEnabled="False" />
+                    <RadioButton Content="RadioButton" />
+                    <RadioButton Content="RadioButton"
+                                 IsEnabled="False" />
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Spacing="10"
+                                        Orientation="Vertical">
+                    <RadioButton Background="{DynamicResource SecondaryRegionBrush}"
+                                 hc:IconElement.Geometry="{StaticResource CalendarGeometry}"
+                                 Theme="{StaticResource RadioButtonIcon}"
+                                 Content="RadioButton" />
+                    <RadioButton Background="{DynamicResource SecondaryRegionBrush}"
+                                 Theme="{StaticResource RadioButtonIcon}"
+                                 Content="RadioButton"
+                                 IsChecked="True" />
+                    <RadioButton hc:IconElement.Geometry="{StaticResource CalendarGeometry}"
+                                 Theme="{StaticResource RadioButtonIcon}"
+                                 Content="RadioButton" />
+                    <RadioButton Theme="{StaticResource RadioButtonIcon}"
+                                 Content="RadioButton" />
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Spacing="10"
+                                        Orientation="Vertical">
+                    <RadioButton Background="{DynamicResource SecondaryRegionBrush}"
+                                 hc:IconElement.Geometry="{StaticResource CalendarGeometry}"
+                                 Theme="{StaticResource RadioButtonIcon.Small}"
+                                 Content="RadioButton" />
+                    <RadioButton Background="{DynamicResource SecondaryRegionBrush}"
+                                 Theme="{StaticResource RadioButtonIcon.Small}"
+                                 Content="RadioButton"
+                                 IsChecked="True" />
+                    <RadioButton hc:IconElement.Geometry="{StaticResource CalendarGeometry}"
+                                 Theme="{StaticResource RadioButtonIcon.Small}"
+                                 Content="RadioButton" />
+                    <RadioButton Theme="{StaticResource RadioButtonIcon.Small}"
+                                 Content="RadioButton" />
+                </hc:UniformSpacingPanel>
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

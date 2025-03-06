@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.HoneycombPanelDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             DataContext="{Binding CardDemo,Source={StaticResource Locator}}"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <Grid Margin="32">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <hc:ButtonGroup Margin="0,0,0,16">
+                <Button Command="{Binding AddItemCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.AddItem}}"/>
+                <Button Command="{Binding RemoveItemCmd}" Content="{ex:Lang Key={x:Static langs:LangKeys.RemoveItem}}"/>
+            </hc:ButtonGroup>
+            <Border Padding="0" Grid.Row="1" Style="{StaticResource BorderRegion}">
+                <ListBox Background="Transparent" BorderThickness="0" Style="{StaticResource ListBoxCustom}" ItemsSource="{Binding DataList}">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <hc:HoneycombPanel hc:PanelElement.FluidMoveBehavior="{StaticResource BehaviorXY200}"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <hc:Gravatar Style="{StaticResource GravatarCircle}" Margin="10" Source="{Binding Content}"/>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Border>
+        </Grid>
+    </hc:TransitioningContentControl>
+</UserControl>

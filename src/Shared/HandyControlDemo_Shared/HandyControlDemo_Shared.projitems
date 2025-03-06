@@ -61,218 +61,218 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Basic\TextDialogWithTimer.xaml.cs">
       <DependentUpon>TextDialogWithTimer.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml.cs">
-      <DependentUpon>AutoCompleteTextBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\AutoCompleteTextBoxDemo.xaml.cs">
+      <DependentUpon>AutoCompleteTextBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemoCtl.xaml.cs">
-      <DependentUpon>ElementGroupDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemo.xaml.cs">
+      <DependentUpon>ElementGroupDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlexPanelDemoCtl.xaml.cs">
-      <DependentUpon>FlexPanelDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlexPanelDemo.xaml.cs">
+      <DependentUpon>FlexPanelDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageSelectorDemoCtl.xaml.cs">
-      <DependentUpon>ImageSelectorDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageSelectorDemo.xaml.cs">
+      <DependentUpon>ImageSelectorDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\AnimationPathDemoCtl.xaml.cs">
-      <DependentUpon>AnimationPathDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\AnimationPathDemo.xaml.cs">
+      <DependentUpon>AnimationPathDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CardDemoCtl.xaml.cs">
-      <DependentUpon>CardDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CardDemo.xaml.cs">
+      <DependentUpon>CardDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DividerDemoCtl.xaml.cs">
-      <DependentUpon>DividerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DividerDemo.xaml.cs">
+      <DependentUpon>DividerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DrawerDemoCtl.xaml.cs">
-      <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DrawerDemo.xaml.cs">
+      <DependentUpon>DrawerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\FloatingBlockDemoCtl.xaml.cs">
-      <DependentUpon>FloatingBlockDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\FloatingBlockDemo.xaml.cs">
+      <DependentUpon>FloatingBlockDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\HoneycombPanelDemoCtl.xaml.cs">
-      <DependentUpon>HoneycombPanelDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\HoneycombPanelDemo.xaml.cs">
+      <DependentUpon>HoneycombPanelDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBlockDemoCtl.xaml.cs">
-      <DependentUpon>ImageBlockDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBlockDemo.xaml.cs">
+      <DependentUpon>ImageBlockDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemoCtl.xaml.cs">
-      <DependentUpon>MagnifierDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemo.xaml.cs">
+      <DependentUpon>MagnifierDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotificationDemoCtl.xaml.cs">
-      <DependentUpon>NotificationDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotificationDemo.xaml.cs">
+      <DependentUpon>NotificationDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PinBoxDemoCtl.xaml.cs">
-      <DependentUpon>PinBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PinBoxDemo.xaml.cs">
+      <DependentUpon>PinBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PropertyGridDemoCtl.xaml.cs">
-      <DependentUpon>PropertyGridDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PropertyGridDemo.xaml.cs">
+      <DependentUpon>PropertyGridDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml.cs">
-      <DependentUpon>RangeSliderDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemo.xaml.cs">
+      <DependentUpon>RangeSliderDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\BadgeDemoCtl.xaml.cs">
-      <DependentUpon>BadgeDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\BadgeDemo.xaml.cs">
+      <DependentUpon>BadgeDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ButtonGroupDemoCtl.xaml.cs">
-      <DependentUpon>ButtonGroupDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ButtonGroupDemo.xaml.cs">
+      <DependentUpon>ButtonGroupDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CalendarWithClockDemoCtl.xaml.cs">
-      <DependentUpon>CalendarWithClockDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CalendarWithClockDemo.xaml.cs">
+      <DependentUpon>CalendarWithClockDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CarouselDemoCtl.xaml.cs">
-      <DependentUpon>CarouselDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CarouselDemo.xaml.cs">
+      <DependentUpon>CarouselDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ChatBubbleDemoCtl.xaml.cs">
-      <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ChatBubbleDemo.xaml.cs">
+      <DependentUpon>ChatBubbleDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs">
-      <DependentUpon>CheckComboBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CheckComboBoxDemo.xaml.cs">
+      <DependentUpon>CheckComboBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
-      <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CirclePanelDemo.xaml.cs">
+      <DependentUpon>CirclePanelDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ClockDemoCtl.xaml.cs">
-      <DependentUpon>ClockDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ClockDemo.xaml.cs">
+      <DependentUpon>ClockDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ColorPickerDemoCtl.xaml.cs">
-      <DependentUpon>ColorPickerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ColorPickerDemo.xaml.cs">
+      <DependentUpon>ColorPickerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ComboBoxDemoCtl.xaml.cs">
-      <DependentUpon>ComboBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ComboBoxDemo.xaml.cs">
+      <DependentUpon>ComboBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CompareSliderDemoCtl.xaml.cs">
-      <DependentUpon>CompareSliderDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CompareSliderDemo.xaml.cs">
+      <DependentUpon>CompareSliderDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GridDemoCtl.xaml.cs">
-      <DependentUpon>GridDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GridDemo.xaml.cs">
+      <DependentUpon>GridDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverFlowDemoCtl.xaml.cs">
-      <DependentUpon>CoverFlowDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverFlowDemo.xaml.cs">
+      <DependentUpon>CoverFlowDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverViewDemoCtl.xaml.cs">
-      <DependentUpon>CoverViewDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverViewDemo.xaml.cs">
+      <DependentUpon>CoverViewDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DatePickerDemoCtl.xaml.cs">
-      <DependentUpon>DatePickerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DatePickerDemo.xaml.cs">
+      <DependentUpon>DatePickerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DateTimePickerDemoCtl.xaml.cs">
-      <DependentUpon>DateTimePickerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DateTimePickerDemo.xaml.cs">
+      <DependentUpon>DateTimePickerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DialogDemoCtl.xaml.cs">
-      <DependentUpon>DialogDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\DialogDemo.xaml.cs">
+      <DependentUpon>DialogDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlipClockDemoCtl.xaml.cs">
-      <DependentUpon>FlipClockDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlipClockDemo.xaml.cs">
+      <DependentUpon>FlipClockDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GifImageDemoCtl.xaml.cs">
-      <DependentUpon>GifImageDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GifImageDemo.xaml.cs">
+      <DependentUpon>GifImageDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GotoTopDemoCtl.xaml.cs">
-      <DependentUpon>GotoTopDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GotoTopDemo.xaml.cs">
+      <DependentUpon>GotoTopDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GravatarDemoCtl.xaml.cs">
-      <DependentUpon>GravatarDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GravatarDemo.xaml.cs">
+      <DependentUpon>GravatarDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GrowlDemoCtl.xaml.cs">
-      <DependentUpon>GrowlDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\GrowlDemo.xaml.cs">
+      <DependentUpon>GrowlDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBrowserDemoCtl.xaml.cs">
-      <DependentUpon>ImageBrowserDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBrowserDemo.xaml.cs">
+      <DependentUpon>ImageBrowserDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\LoadingDemoCtl.xaml.cs">
-      <DependentUpon>LoadingDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\LoadingDemo.xaml.cs">
+      <DependentUpon>LoadingDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotifyIconDemoCtl.xaml.cs">
-      <DependentUpon>NotifyIconDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotifyIconDemo.xaml.cs">
+      <DependentUpon>NotifyIconDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\NumericUpDownDemoCtl.xaml.cs">
-      <DependentUpon>NumericUpDownDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\NumericUpDownDemo.xaml.cs">
+      <DependentUpon>NumericUpDownDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\OutlineTextDemoCtl.xaml.cs">
-      <DependentUpon>OutlineTextDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\OutlineTextDemo.xaml.cs">
+      <DependentUpon>OutlineTextDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PaginationDemoCtl.xaml.cs">
-      <DependentUpon>PaginationDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PaginationDemo.xaml.cs">
+      <DependentUpon>PaginationDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PasswordBoxDemoCtl.xaml.cs">
-      <DependentUpon>PasswordBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PasswordBoxDemo.xaml.cs">
+      <DependentUpon>PasswordBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemoCtl.xaml.cs">
-      <DependentUpon>PoptipDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemo.xaml.cs">
+      <DependentUpon>PoptipDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PreviewSliderDemoCtl.xaml.cs">
-      <DependentUpon>PreviewSliderDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\PreviewSliderDemo.xaml.cs">
+      <DependentUpon>PreviewSliderDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ProgressBarDemoCtl.xaml.cs">
-      <DependentUpon>ProgressBarDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ProgressBarDemo.xaml.cs">
+      <DependentUpon>ProgressBarDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ProgressButtonDemoCtl.xaml.cs">
-      <DependentUpon>ProgressButtonDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ProgressButtonDemo.xaml.cs">
+      <DependentUpon>ProgressButtonDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RateDemoCtl.xaml.cs">
-      <DependentUpon>RateDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RateDemo.xaml.cs">
+      <DependentUpon>RateDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RelativePanelDemoCtl.xaml.cs">
-      <DependentUpon>RelativePanelDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RelativePanelDemo.xaml.cs">
+      <DependentUpon>RelativePanelDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RunningBlockDemoCtl.xaml.cs">
-      <DependentUpon>RunningBlockDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\RunningBlockDemo.xaml.cs">
+      <DependentUpon>RunningBlockDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScreenshotDemoCtl.xaml.cs">
-      <DependentUpon>ScreenshotDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScreenshotDemo.xaml.cs">
+      <DependentUpon>ScreenshotDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScrollViewerDemoCtl.xaml.cs">
-      <DependentUpon>ScrollViewerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScrollViewerDemo.xaml.cs">
+      <DependentUpon>ScrollViewerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SearchBarDemoCtl.xaml.cs">
-      <DependentUpon>SearchBarDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SearchBarDemo.xaml.cs">
+      <DependentUpon>SearchBarDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ShieldDemoCtl.xaml.cs">
-      <DependentUpon>ShieldDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\ShieldDemo.xaml.cs">
+      <DependentUpon>ShieldDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SideMenuDemoCtl.xaml.cs">
-      <DependentUpon>SideMenuDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SideMenuDemo.xaml.cs">
+      <DependentUpon>SideMenuDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SplitButtonDemoCtl.xaml.cs">
-      <DependentUpon>SplitButtonDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SplitButtonDemo.xaml.cs">
+      <DependentUpon>SplitButtonDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SpriteDemoCtl.xaml.cs">
-      <DependentUpon>SpriteDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\SpriteDemo.xaml.cs">
+      <DependentUpon>SpriteDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\StepBarDemoCtl.xaml.cs">
-      <DependentUpon>StepBarDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\StepBarDemo.xaml.cs">
+      <DependentUpon>StepBarDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TabControlDemoCtl.xaml.cs">
-      <DependentUpon>TabControlDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TabControlDemo.xaml.cs">
+      <DependentUpon>TabControlDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TagDemoCtl.xaml.cs">
-      <DependentUpon>TagDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TagDemo.xaml.cs">
+      <DependentUpon>TagDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TextBoxDemoCtl.xaml.cs">
-      <DependentUpon>TextBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TextBoxDemo.xaml.cs">
+      <DependentUpon>TextBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TimeBarDemoCtl.xaml.cs">
-      <DependentUpon>TimeBarDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TimeBarDemo.xaml.cs">
+      <DependentUpon>TimeBarDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TimePickerDemoCtl.xaml.cs">
-      <DependentUpon>TimePickerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TimePickerDemo.xaml.cs">
+      <DependentUpon>TimePickerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TransferDemoCtl.xaml.cs">
-      <DependentUpon>TransferDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TransferDemo.xaml.cs">
+      <DependentUpon>TransferDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TransitioningContentControlDemoCtl.xaml.cs">
-      <DependentUpon>TransitioningContentControlDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\TransitioningContentControlDemo.xaml.cs">
+      <DependentUpon>TransitioningContentControlDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\UniformSpacingPanelDemoCtl.xaml.cs">
-      <DependentUpon>UniformSpacingPanelDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\UniformSpacingPanelDemo.xaml.cs">
+      <DependentUpon>UniformSpacingPanelDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\WatermarkDemoCtl.xaml.cs">
-      <DependentUpon>WatermarkDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\WatermarkDemo.xaml.cs">
+      <DependentUpon>WatermarkDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\WaterfallPanelDemoCtl.xaml.cs">
-      <DependentUpon>WaterfallPanelDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\WaterfallPanelDemo.xaml.cs">
+      <DependentUpon>WaterfallPanelDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\WindowDemoCtl.xaml.cs">
-      <DependentUpon>WindowDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Controls\WindowDemo.xaml.cs">
+      <DependentUpon>WindowDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Main\AppNotification.xaml.cs">
       <DependentUpon>AppNotification.xaml</DependentUpon>
@@ -310,107 +310,107 @@
     <Compile Include="$(MSBuildThisFileDirectory)UserControl\Practical\Login.xaml.cs">
       <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\BorderDemoCtl.xaml.cs">
-      <DependentUpon>BorderDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\BorderDemo.xaml.cs">
+      <DependentUpon>BorderDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\BrushDemoCtl.xaml.cs">
-      <DependentUpon>BrushDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\BrushDemo.xaml.cs">
+      <DependentUpon>BrushDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ButtonDemoCtl.xaml.cs">
-      <DependentUpon>ButtonDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ButtonDemo.xaml.cs">
+      <DependentUpon>ButtonDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\CalendarDemoCtl.xaml.cs">
-      <DependentUpon>CalendarDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\CalendarDemo.xaml.cs">
+      <DependentUpon>CalendarDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\CheckBoxDemoCtl.xaml.cs">
-      <DependentUpon>CheckBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\CheckBoxDemo.xaml.cs">
+      <DependentUpon>CheckBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\DataGridDemoCtl.xaml.cs">
-      <DependentUpon>DataGridDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\DataGridDemo.xaml.cs">
+      <DependentUpon>DataGridDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ExpanderDemoCtl.xaml.cs">
-      <DependentUpon>ExpanderDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ExpanderDemo.xaml.cs">
+      <DependentUpon>ExpanderDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FlowDocumentDemoCtl.xaml.cs">
-      <DependentUpon>FlowDocumentDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FlowDocumentDemo.xaml.cs">
+      <DependentUpon>FlowDocumentDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemoCtl.xaml.cs">
-      <DependentUpon>FrameDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemo.xaml.cs">
+      <DependentUpon>FrameDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemoCtl.xaml.cs">
-      <DependentUpon>GeometryDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemo.xaml.cs">
+      <DependentUpon>GeometryDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
-      <DependentUpon>GroupBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\GroupBoxDemo.xaml.cs">
+      <DependentUpon>GroupBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\LabelDemoCtl.xaml.cs">
-      <DependentUpon>LabelDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\LabelDemo.xaml.cs">
+      <DependentUpon>LabelDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ListBoxDemoCtl.xaml.cs">
-      <DependentUpon>ListBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ListBoxDemo.xaml.cs">
+      <DependentUpon>ListBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ListViewDemoCtl.xaml.cs">
-      <DependentUpon>ListViewDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ListViewDemo.xaml.cs">
+      <DependentUpon>ListViewDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\MenuDemoCtl.xaml.cs">
-      <DependentUpon>MenuDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\MenuDemo.xaml.cs">
+      <DependentUpon>MenuDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeComboBoxDemoCtl.xaml.cs">
-      <DependentUpon>NativeComboBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeComboBoxDemo.xaml.cs">
+      <DependentUpon>NativeComboBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeDatePickerDemoCtl.xaml.cs">
-      <DependentUpon>NativeDatePickerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeDatePickerDemo.xaml.cs">
+      <DependentUpon>NativeDatePickerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativePasswordBoxDemoCtl.xaml.cs">
-      <DependentUpon>NativePasswordBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativePasswordBoxDemo.xaml.cs">
+      <DependentUpon>NativePasswordBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeProgressBarDemoCtl.xaml.cs">
-      <DependentUpon>NativeProgressBarDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeProgressBarDemo.xaml.cs">
+      <DependentUpon>NativeProgressBarDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeScrollViewerDemoCtl.xaml.cs">
-      <DependentUpon>NativeScrollViewerDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeScrollViewerDemo.xaml.cs">
+      <DependentUpon>NativeScrollViewerDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTabControlDemoCtl.xaml.cs">
-      <DependentUpon>NativeTabControlDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTabControlDemo.xaml.cs">
+      <DependentUpon>NativeTabControlDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTextBoxDemoCtl.xaml.cs">
-      <DependentUpon>NativeTextBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTextBoxDemo.xaml.cs">
+      <DependentUpon>NativeTextBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeWindowDemoCtl.xaml.cs">
-      <DependentUpon>NativeWindowDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeWindowDemo.xaml.cs">
+      <DependentUpon>NativeWindowDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RadioButtonDemoCtl.xaml.cs">
-      <DependentUpon>RadioButtonDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RadioButtonDemo.xaml.cs">
+      <DependentUpon>RadioButtonDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RepeatButtonDemoCtl.xaml.cs">
-      <DependentUpon>RepeatButtonDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RepeatButtonDemo.xaml.cs">
+      <DependentUpon>RepeatButtonDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RichTextBoxDemoCtl.xaml.cs">
-      <DependentUpon>RichTextBoxDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\RichTextBoxDemo.xaml.cs">
+      <DependentUpon>RichTextBoxDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\SliderDemoCtl.xaml.cs">
-      <DependentUpon>SliderDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\SliderDemo.xaml.cs">
+      <DependentUpon>SliderDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\TextBlockDemoCtl.xaml.cs">
-      <DependentUpon>TextBlockDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\TextBlockDemo.xaml.cs">
+      <DependentUpon>TextBlockDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ToggleButtonDemoCtl.xaml.cs">
-      <DependentUpon>ToggleButtonDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ToggleButtonDemo.xaml.cs">
+      <DependentUpon>ToggleButtonDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ToolBarDemoCtl.xaml.cs">
-      <DependentUpon>ToolBarDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\ToolBarDemo.xaml.cs">
+      <DependentUpon>ToolBarDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemoCtl.xaml.cs">
-      <DependentUpon>TreeViewDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemo.xaml.cs">
+      <DependentUpon>TreeViewDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\EffectsDemoCtl.xaml.cs">
-      <DependentUpon>EffectsDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\EffectsDemo.xaml.cs">
+      <DependentUpon>EffectsDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\GeometryAnimationDemoCtl.xaml.cs">
-      <DependentUpon>GeometryAnimationDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\GeometryAnimationDemo.xaml.cs">
+      <DependentUpon>GeometryAnimationDemo.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\HatchBrushGeneratorDemoCtl.xaml.cs">
-      <DependentUpon>HatchBrushGeneratorDemoCtl.xaml</DependentUpon>
+    <Compile Include="$(MSBuildThisFileDirectory)UserControl\Tools\HatchBrushGeneratorDemo.xaml.cs">
+      <DependentUpon>HatchBrushGeneratorDemo.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\ChatBoxViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ViewModel\Basic\InteractiveDialogViewModel.cs" />
@@ -547,287 +547,287 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\AutoCompleteTextBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\AutoCompleteTextBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ElementGroupDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlexPanelDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlexPanelDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageSelectorDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageSelectorDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\AnimationPathDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\AnimationPathDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CardDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CardDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DividerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DividerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DrawerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DrawerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\FloatingBlockDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\FloatingBlockDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\HoneycombPanelDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\HoneycombPanelDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBlockDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBlockDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\MagnifierDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotificationDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotificationDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PinBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PinBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PropertyGridDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PropertyGridDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RangeSliderDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\BadgeDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\BadgeDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ButtonGroupDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ButtonGroupDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CalendarWithClockDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CalendarWithClockDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CarouselDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CarouselDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ChatBubbleDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ChatBubbleDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CheckComboBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CheckComboBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CirclePanelDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CirclePanelDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ClockDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ClockDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ColorPickerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ColorPickerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ComboBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ComboBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CompareSliderDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CompareSliderDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GridDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GridDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverFlowDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverFlowDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverViewDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\CoverViewDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DatePickerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DatePickerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DateTimePickerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DateTimePickerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DialogDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\DialogDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlipClockDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\FlipClockDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GifImageDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GifImageDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GotoTopDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GotoTopDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GravatarDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GravatarDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GrowlDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\GrowlDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBrowserDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ImageBrowserDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\LoadingDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\LoadingDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotifyIconDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\NotifyIconDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\NumericUpDownDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\NumericUpDownDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\OutlineTextDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\OutlineTextDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PaginationDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PaginationDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PasswordBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PasswordBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PoptipDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PreviewSliderDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\PreviewSliderDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ProgressBarDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ProgressBarDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ProgressButtonDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ProgressButtonDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RateDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RateDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RelativePanelDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RelativePanelDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RunningBlockDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\RunningBlockDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScreenshotDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScreenshotDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScrollViewerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ScrollViewerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SearchBarDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SearchBarDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ShieldDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\ShieldDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SideMenuDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SideMenuDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SplitButtonDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SplitButtonDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SpriteDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\SpriteDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\StepBarDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\StepBarDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TabControlDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TabControlDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TagDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TagDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TextBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TextBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TimeBarDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TimeBarDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TimePickerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TimePickerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TransferDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TransferDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TransitioningContentControlDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\TransitioningContentControlDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\UniformSpacingPanelDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\UniformSpacingPanelDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\WatermarkDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\WatermarkDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\WaterfallPanelDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\WaterfallPanelDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\WindowDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Controls\WindowDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -879,139 +879,139 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\BorderDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\BorderDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\BrushDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\BrushDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ButtonDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ButtonDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\CalendarDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\CalendarDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\CheckBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\CheckBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\DataGridDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\DataGridDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ExpanderDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ExpanderDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FlowDocumentDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FlowDocumentDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\FrameDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\GeometryDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\GroupBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\GroupBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\LabelDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\LabelDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ListBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ListBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ListViewDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ListViewDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\MenuDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\MenuDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeComboBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeComboBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeDatePickerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeDatePickerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativePasswordBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativePasswordBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeProgressBarDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeProgressBarDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeScrollViewerDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeScrollViewerDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTabControlDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTabControlDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTextBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeTextBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeWindowDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\NativeWindowDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RadioButtonDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RadioButtonDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RepeatButtonDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RepeatButtonDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RichTextBoxDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\RichTextBoxDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\SliderDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\SliderDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\TextBlockDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\TextBlockDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ToggleButtonDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ToggleButtonDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ToolBarDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\ToolBarDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Styles\TreeViewDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Tools\EffectsDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Tools\EffectsDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Tools\GeometryAnimationDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Tools\GeometryAnimationDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="$(MSBuildThisFileDirectory)UserControl\Tools\HatchBrushGeneratorDemoCtl.xaml">
+    <Page Include="$(MSBuildThisFileDirectory)UserControl\Tools\HatchBrushGeneratorDemo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

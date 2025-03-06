@@ -44,7 +44,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <Rectangle Width="16" Height="16" Fill="{Binding ImageBrush}"/>
                                         <hc:HighlightTextBlock Margin="6,0,0,0" SourceText="{ex:Lang Key={Binding Name}}" QueriesText="{Binding QueriesText}"/>
-                                        <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource DangerBrush}"/>
+                                        <Path Visibility="{Binding IsNew,Converter={StaticResource Boolean2VisibilityConverter}}" VerticalAlignment="Center" Data="{StaticResource NewGeometry}" Stretch="Uniform" Margin="10,0,0,0" Width="30" Height="14" Fill="{DynamicResource AccentBrush}"/>
                                     </StackPanel>
                                 </DataTemplate>
                             </ListBox.ItemTemplate>

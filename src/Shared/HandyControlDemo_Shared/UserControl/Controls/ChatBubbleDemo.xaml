@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ChatBubbleDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:userControl="clr-namespace:HandyControlDemo.UserControl"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             hc:Empty.ShowEmpty="False"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Spacing="32" ChildWrapping="Wrap" Margin="32">
+                <userControl:ChatBox>
+                    <userControl:ChatBox.Background>
+                        <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/Chat/chat_back1.jpg" Stretch="Uniform"/>
+                    </userControl:ChatBox.Background>
+                </userControl:ChatBox>
+                <userControl:ChatBox>
+                    <userControl:ChatBox.Background>
+                        <ImageBrush ImageSource="/HandyControlDemo;component/Resources/Img/Chat/chat_back2.jpg" Stretch="Uniform"/>
+                    </userControl:ChatBox.Background>
+                </userControl:ChatBox>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

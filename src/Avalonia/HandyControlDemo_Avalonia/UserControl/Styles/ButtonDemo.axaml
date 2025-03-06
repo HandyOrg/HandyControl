@@ -1,0 +1,540 @@
+﻿<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.UserControl.ButtonDemo"
+             xmlns:hc="https://handyorg.github.io/handycontrol">
+    <ScrollViewer>
+        <hc:UniformSpacingPanel ChildWrapping="Wrap"
+                                Spacing="32"
+                                Margin="32">
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="32">
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="Default"
+                                Margin="5" />
+                        <Button IsEnabled="False"
+                                Content="Default"
+                                Margin="5" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary}" />
+                        <Button IsEnabled="False"
+                                Content="Primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonSuccess}" />
+                        <Button IsEnabled="False"
+                                Content="Success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonInfo}" />
+                        <Button IsEnabled="False"
+                                Content="Info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonWarning}" />
+                        <Button IsEnabled="False"
+                                Content="Warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDanger}" />
+                        <Button IsEnabled="False"
+                                Content="Danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDanger}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="Default"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashed}" />
+                        <Button IsEnabled="False"
+                                Content="Default"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashed}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary}" />
+                        <Button IsEnabled="False"
+                                Content="Primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess}" />
+                        <Button IsEnabled="False"
+                                Content="Success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo}" />
+                        <Button IsEnabled="False"
+                                Content="Info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning}" />
+                        <Button IsEnabled="False"
+                                Content="Warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger}" />
+                        <Button IsEnabled="False"
+                                Content="Danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel hc:BorderElement.CornerRadius="10">
+                        <Button Content="Clock"
+                                Margin="5"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}" />
+                        <Button Content="Clock"
+                                IsEnabled="False"
+                                Margin="5"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Calendar"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary}"
+                                hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                        <Button Content="Calendar"
+                                IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary}"
+                                hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonSuccess}"
+                                hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonSuccess}"
+                                hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonInfo}"
+                                hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonInfo}"
+                                hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonWarning}"
+                                hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonWarning}"
+                                hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDanger}"
+                                hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDanger}"
+                                hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="Clock"
+                                Margin="5"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                Theme="{StaticResource ButtonDashed}" />
+                        <Button Content="Clock"
+                                IsEnabled="False"
+                                Margin="5"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                Theme="{StaticResource ButtonDashed}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Calendar"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary}"
+                                hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                        <Button Content="Calendar"
+                                IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary}"
+                                hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess}"
+                                hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess}"
+                                hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo}"
+                                hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo}"
+                                hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning}"
+                                hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning}"
+                                hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger}"
+                                hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger}"
+                                hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonIcon}"
+                                hc:IconElement.Geometry="{StaticResource UpDownGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonIcon}"
+                                hc:IconElement.Geometry="{StaticResource UpDownGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonIconCircular}"
+                                hc:IconElement.Geometry="{StaticResource UpDownGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonIconCircular}"
+                                hc:IconElement.Geometry="{StaticResource UpDownGeometry}" />
+                    </StackPanel>
+                    <StackPanel Margin="16,0,0,0">
+                        <Button hc:BorderElement.CornerRadius="4"
+                                Margin="5"
+                                Height="28"
+                                Padding="10,0"
+                                Background="#24292e"
+                                Foreground="White"
+                                Content="ButtonCustom"
+                                Theme="{StaticResource ButtonCustom}"
+                                hc:BackgroundSwitchElement.MouseHoverBackground="{DynamicResource DangerBrush}"
+                                hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed" />
+                        <Button hc:BorderElement.CornerRadius="4"
+                                Margin="5"
+                                Height="28"
+                                IsEnabled="False"
+                                Padding="10,0"
+                                Background="#24292e"
+                                Foreground="White"
+                                Content="ButtonCustom"
+                                Theme="{StaticResource ButtonCustom}"
+                                hc:BackgroundSwitchElement.MouseHoverBackground="{DynamicResource DangerBrush}"
+                                hc:BackgroundSwitchElement.MouseDownBackground="PaleVioletRed" />
+                    </StackPanel>
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+            <hc:UniformSpacingPanel Orientation="Vertical"
+                                    Spacing="32">
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="Default"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDefault.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Default"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDefault.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonSuccess.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonSuccess.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonInfo.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonInfo.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonWarning.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonWarning.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDanger.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDanger.Small}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="Default"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashed.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Default"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashed.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Primary"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Success"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Info"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Warning"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger.Small}" />
+                        <Button IsEnabled="False"
+                                Content="Danger"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger.Small}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="Clock"
+                                Margin="5"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                Theme="{StaticResource ButtonDefault.Small}" />
+                        <Button Content="Clock"
+                                IsEnabled="False"
+                                Margin="5"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                Theme="{StaticResource ButtonDefault.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Calendar"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary.Small}"
+                                hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                        <Button Content="Calendar"
+                                IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonPrimary.Small}"
+                                hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonSuccess.Small}"
+                                hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonSuccess.Small}"
+                                hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonInfo.Small}"
+                                hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonInfo.Small}"
+                                hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonWarning.Small}"
+                                hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonWarning.Small}"
+                                hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDanger.Small}"
+                                hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDanger.Small}"
+                                hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Content="Clock"
+                                Margin="5"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                Theme="{StaticResource ButtonDashed.Small}" />
+                        <Button Content="Clock"
+                                IsEnabled="False"
+                                Margin="5"
+                                hc:IconElement.Geometry="{StaticResource ClockGeometry}"
+                                Theme="{StaticResource ButtonDashed.Small}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Content="Calendar"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary.Small}"
+                                hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                        <Button Content="Calendar"
+                                IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedPrimary.Small}"
+                                hc:IconElement.Geometry="{StaticResource CalendarGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess.Small}"
+                                hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedSuccess.Small}"
+                                hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo.Small}"
+                                hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedInfo.Small}"
+                                hc:IconElement.Geometry="{StaticResource RotateRightGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning.Small}"
+                                hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedWarning.Small}"
+                                hc:IconElement.Geometry="{StaticResource LeftGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger.Small}"
+                                hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonDashedDanger.Small}"
+                                hc:IconElement.Geometry="{StaticResource RightGeometry}" />
+                    </StackPanel>
+                </WrapPanel>
+                <WrapPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonIcon.Small}"
+                                hc:IconElement.Geometry="{StaticResource UpDownGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonIcon.Small}"
+                                hc:IconElement.Geometry="{StaticResource UpDownGeometry}" />
+                    </StackPanel>
+                    <StackPanel>
+                        <Button Margin="5"
+                                Theme="{StaticResource ButtonIconCircular.Small}"
+                                hc:IconElement.Geometry="{StaticResource UpDownGeometry}" />
+                        <Button IsEnabled="False"
+                                Margin="5"
+                                Theme="{StaticResource ButtonIconCircular.Small}"
+                                hc:IconElement.Geometry="{StaticResource UpDownGeometry}" />
+                    </StackPanel>
+                </WrapPanel>
+            </hc:UniformSpacingPanel>
+        </hc:UniformSpacingPanel>
+    </ScrollViewer>
+</UserControl>

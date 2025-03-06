@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.NativeDatePickerDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Spacing="32" Margin="32" ChildWrapping="Wrap">
+                <StackPanel>
+                    <DatePicker SelectedDate="{x:Static system:DateTime.Now}"/>
+                    <DatePicker Margin="0,16,0,0" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Now}"/>
+
+                    <DatePicker SelectedDate="{x:Static system:DateTime.Now}" Style="{StaticResource DatePickerExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0"/>
+                    <DatePicker SelectedDate="{x:Static system:DateTime.Now}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource DatePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
+                    <DatePicker SelectedDate="{x:Static system:DateTime.Now}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource DatePickerExtend}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0"/>
+                    <DatePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource DatePickerExtend}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                </StackPanel>
+                <StackPanel>
+                    <DatePicker SelectedDate="{x:Static system:DateTime.Now}" Style="{StaticResource DatePicker.Small}"/>
+                    <DatePicker Margin="0,16,0,0" IsEnabled="False" SelectedDate="{x:Static system:DateTime.Now}" Style="{StaticResource DatePicker.Small}"/>
+
+                    <DatePicker SelectedDate="{x:Static system:DateTime.Now}" Style="{StaticResource DatePickerExtend.Small}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0"/>
+                    <DatePicker SelectedDate="{x:Static system:DateTime.Now}" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" Style="{StaticResource DatePickerExtend.Small}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+
+                    <DatePicker SelectedDate="{x:Static system:DateTime.Now}" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" Style="{StaticResource DatePickerExtend.Small}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0"/>
+                    <DatePicker Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Style="{StaticResource DatePickerExtend.Small}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                </StackPanel>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

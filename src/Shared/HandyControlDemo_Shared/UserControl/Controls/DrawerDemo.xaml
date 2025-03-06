@@ -1,0 +1,141 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.DrawerDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}"
+             Height="400"
+             Margin="32">
+    <hc:TransitioningContentControl>
+        <Border Style="{StaticResource BorderClip}" BorderThickness="1" BorderBrush="{DynamicResource BorderBrush}" Padding="0">
+            <hc:SimplePanel>
+                <hc:Drawer Name="DrawerLeft" Dock="Left" ShowMode="Push">
+                    <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Margin="10,0,0,0" Text="Header" Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Left"/>
+                            <Button Command="hc:ControlCommands.Close" Grid.Row="0" HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryTextBrush}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                        </Grid>
+                    </Border>
+                </hc:Drawer>
+                <hc:Drawer Name="DrawerTop" Dock="Top" ShowMode="Press">
+                    <Border Background="{DynamicResource RegionBrush}" Height="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Margin="10,0,0,0" Text="Header" Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Left"/>
+                            <Button Command="hc:ControlCommands.Close" Grid.Row="0" HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryTextBrush}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                        </Grid>
+                    </Border>
+                </hc:Drawer>
+                <hc:Drawer Name="DrawerRight" MaskCanClose="False">
+                    <Border Background="{DynamicResource RegionBrush}" Width="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Margin="10,0,0,0" Text="Header" Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Left"/>
+                            <Button Command="hc:ControlCommands.Close" Grid.Row="0" HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryTextBrush}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                        </Grid>
+                    </Border>
+                </hc:Drawer>
+                <hc:Drawer Name="DrawerBottom" Dock="Bottom" ShowMask="False">
+                    <Border Background="{DynamicResource RegionBrush}" Height="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <TextBlock Margin="10,0,0,0" Text="Header" Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Left"/>
+                            <Button Command="hc:ControlCommands.Close" Grid.Row="0" HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryTextBrush}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                        </Grid>
+                    </Border>
+                </hc:Drawer>
+                <hc:DrawerContainer>
+                    <Grid VerticalAlignment="Center">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <hc:Drawer Name="DrawerLeftInContainer" Dock="Left" ShowMode="Push">
+                            <Border Background="{DynamicResource RegionBrush}" Width="300" BorderBrush="{DynamicResource BorderBrush}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Margin="10,0,0,0" Text="Header" Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Left"/>
+                                    <Button Command="hc:ControlCommands.Close" Grid.Row="0" HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryTextBrush}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                                </Grid>
+                            </Border>
+                        </hc:Drawer>
+                        <hc:Drawer Name="DrawerTopInContainer" Dock="Top" ShowMode="Press">
+                            <Border Background="{DynamicResource RegionBrush}" Height="300" BorderBrush="{DynamicResource BorderBrush}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Margin="10,0,0,0" Text="Header" Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Left"/>
+                                    <Button Command="hc:ControlCommands.Close" Grid.Row="0" HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryTextBrush}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                                </Grid>
+                            </Border>
+                        </hc:Drawer>
+                        <hc:Drawer Name="DrawerRightInContainer" MaskCanClose="False">
+                            <Border Background="{DynamicResource RegionBrush}" Width="300" BorderBrush="{DynamicResource BorderBrush}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Margin="10,0,0,0" Text="Header" Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Left"/>
+                                    <Button Command="hc:ControlCommands.Close" Grid.Row="0" HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryTextBrush}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                                </Grid>
+                            </Border>
+                        </hc:Drawer>
+                        <hc:Drawer Name="DrawerBottomInContainer" Dock="Bottom" ShowMask="False">
+                            <Border Background="{DynamicResource RegionBrush}" Height="300" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource BorderBrush}">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                        <RowDefinition/>
+                                    </Grid.RowDefinitions>
+                                    <TextBlock Margin="10,0,0,0" Text="Header" Style="{StaticResource TextBlockTitle}" HorizontalAlignment="Left"/>
+                                    <Button Command="hc:ControlCommands.Close" Grid.Row="0" HorizontalAlignment="Right" Foreground="{DynamicResource PrimaryTextBrush}" Style="{StaticResource ButtonIcon}" hc:IconElement.Geometry="{StaticResource DeleteFillCircleGeometry}"/>
+                                </Grid>
+                            </Border>
+                        </hc:Drawer>
+
+                        <hc:ButtonGroup Margin="10" Grid.Row="1" Grid.Column="0">
+                            <ToggleButton Content="Left-Window" IsChecked="{Binding IsOpen,ElementName=DrawerLeft}"/>
+                            <ToggleButton Content="Left-Container" IsChecked="{Binding IsOpen,ElementName=DrawerLeftInContainer}"/>
+                        </hc:ButtonGroup>
+                        <hc:ButtonGroup Margin="10" Grid.Row="0" Grid.Column="1">
+                            <ToggleButton Content="Top-Windows" IsChecked="{Binding IsOpen,ElementName=DrawerTop}"/>
+                            <ToggleButton Content="Top-Container" IsChecked="{Binding IsOpen,ElementName=DrawerTopInContainer}"/>
+                        </hc:ButtonGroup>
+                        <hc:ButtonGroup Margin="10" Grid.Row="1" Grid.Column="2">
+                            <ToggleButton Content="Right-Windows" IsChecked="{Binding IsOpen,ElementName=DrawerRight}"/>
+                            <ToggleButton Content="Right-Container" IsChecked="{Binding IsOpen,ElementName=DrawerRightInContainer}"/>
+                        </hc:ButtonGroup>
+                        <hc:ButtonGroup Margin="10" Grid.Row="2" Grid.Column="1">
+                            <ToggleButton Content="Bottom-Windows" IsChecked="{Binding IsOpen,ElementName=DrawerBottom}"/>
+                            <ToggleButton Content="Bottom-Container" IsChecked="{Binding IsOpen,ElementName=DrawerBottomInContainer}"/>
+                        </hc:ButtonGroup>
+                    </Grid>
+                </hc:DrawerContainer>
+            </hc:SimplePanel>
+        </Border>
+    </hc:TransitioningContentControl>
+</UserControl>

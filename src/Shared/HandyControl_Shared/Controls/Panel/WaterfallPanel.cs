@@ -52,7 +52,7 @@ public class WaterfallPanel : Panel
         set => SetValue(OrientationProperty, value);
     }
 
-    private int CaculateGroupCount(Orientation orientation, PanelUvSize size)
+    private int CalculateGroupCount(Orientation orientation, PanelUvSize size)
     {
         if (!AutoGroup)
         {
@@ -74,7 +74,7 @@ public class WaterfallPanel : Panel
         var orientation = Orientation;
         var uvConstraint = new PanelUvSize(orientation, finalSize);
 
-        var groups = CaculateGroupCount(orientation, uvConstraint);
+        var groups = CalculateGroupCount(orientation, uvConstraint);
         if (groups < 1)
         {
             return finalSize;
@@ -110,7 +110,7 @@ public class WaterfallPanel : Panel
         var orientation = Orientation;
         var uvConstraint = new PanelUvSize(orientation, constraint);
 
-        var groups = CaculateGroupCount(orientation, uvConstraint);
+        var groups = CalculateGroupCount(orientation, uvConstraint);
         if (groups < 1)
         {
             return constraint;

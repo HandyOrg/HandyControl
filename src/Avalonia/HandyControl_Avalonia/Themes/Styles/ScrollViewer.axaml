@@ -1,0 +1,232 @@
+﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="ScrollBarBaseRepeatButton"
+                  TargetType="RepeatButton">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Focusable"
+                Value="false" />
+        <Setter Property="IsTabStop"
+                Value="false" />
+        <Setter Property="Template">
+            <ControlTemplate TargetType="RepeatButton">
+                <Rectangle Fill="{TemplateBinding Background}"
+                           Height="{TemplateBinding Height}"
+                           Width="{TemplateBinding Width}" />
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ScrollBarBaseThumbVertical"
+                  TargetType="Thumb">
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryTextBrush}" />
+        <Setter Property="IsTabStop"
+                Value="false" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Width="{TemplateBinding Width}"
+                        Background="Transparent">
+                    <Rectangle x:Name="rectangle"
+                               RadiusX="1"
+                               RadiusY="1"
+                               HorizontalAlignment="Center"
+                               Height="{TemplateBinding Height}"
+                               Width="2"
+                               Fill="{TemplateBinding Background}">
+                        <Rectangle.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Width"
+                                                  Duration="0:0:0.1" />
+                                <DoubleTransition Property="RadiusX"
+                                                  Duration="0:0:0.1" />
+                                <DoubleTransition Property="RadiusY"
+                                                  Duration="0:0:0.1" />
+                            </Transitions>
+                        </Rectangle.Transitions>
+                    </Rectangle>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ Rectangle">
+            <Setter Property="Width"
+                    Value="8" />
+            <Setter Property="RadiusX"
+                    Value="4" />
+            <Setter Property="RadiusY"
+                    Value="4" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ Rectangle">
+            <Setter Property="Fill"
+                    Value="{DynamicResource PrimaryTextBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ScrollBarBaseThumbHorizontal"
+                  TargetType="Thumb">
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryTextBrush}" />
+        <Setter Property="IsTabStop"
+                Value="false" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border Width="{TemplateBinding Height}"
+                        Background="Transparent">
+                    <Rectangle x:Name="rectangle"
+                               RadiusX="1"
+                               RadiusY="1"
+                               VerticalAlignment="Center"
+                               Height="2"
+                               Width="{TemplateBinding Width}"
+                               Fill="{TemplateBinding Background}">
+                        <Rectangle.Transitions>
+                            <Transitions>
+                                <DoubleTransition Property="Height"
+                                                  Duration="0:0:0.1" />
+                                <DoubleTransition Property="RadiusX"
+                                                  Duration="0:0:0.1" />
+                                <DoubleTransition Property="RadiusY"
+                                                  Duration="0:0:0.1" />
+                            </Transitions>
+                        </Rectangle.Transitions>
+                    </Rectangle>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ Rectangle">
+            <Setter Property="Height"
+                    Value="8" />
+            <Setter Property="RadiusX"
+                    Value="4" />
+            <Setter Property="RadiusY"
+                    Value="4" />
+        </Style>
+
+        <Style Selector="^:pressed /template/ Rectangle">
+            <Setter Property="Fill"
+                    Value="{DynamicResource PrimaryTextBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ScrollBarBaseStyle"
+                  TargetType="ScrollBar">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Focusable"
+                Value="False" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="MinHeight"
+                Value="8" />
+        <Setter Property="MinWidth"
+                Value="8" />
+        <Setter Property="Transitions">
+            <Transitions>
+                <DoubleTransition Property="Opacity"
+                                  Duration="0:0:0.1" />
+            </Transitions>
+        </Setter>
+
+        <Style Selector="^:horizontal">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Panel>
+                        <Border Background="{TemplateBinding Background}" />
+                        <Track Maximum="{TemplateBinding Maximum}"
+                               Minimum="{TemplateBinding Minimum}"
+                               Orientation="{TemplateBinding Orientation}"
+                               ViewportSize="{TemplateBinding ViewportSize}"
+                               DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                               Value="{TemplateBinding Value, Mode=TwoWay}">
+                            <Track.DecreaseButton>
+                                <RepeatButton Name="PART_PageUpButton"
+                                              Theme="{StaticResource ScrollBarBaseRepeatButton}" />
+                            </Track.DecreaseButton>
+                            <Track.IncreaseButton>
+                                <RepeatButton Name="PART_PageDownButton"
+                                              Theme="{StaticResource ScrollBarBaseRepeatButton}" />
+                            </Track.IncreaseButton>
+                            <Thumb Theme="{StaticResource ScrollBarBaseThumbHorizontal}" />
+                        </Track>
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+
+        <Style Selector="^:vertical">
+            <Setter Property="Template">
+                <ControlTemplate>
+                    <Panel>
+                        <Border Background="{TemplateBinding Background}" />
+                        <Track IsDirectionReversed="True"
+                               Maximum="{TemplateBinding Maximum}"
+                               Minimum="{TemplateBinding Minimum}"
+                               Orientation="{TemplateBinding Orientation}"
+                               ViewportSize="{TemplateBinding ViewportSize}"
+                               DeferThumbDrag="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}"
+                               Value="{TemplateBinding Value, Mode=TwoWay}">
+                            <Track.DecreaseButton>
+                                <RepeatButton Name="PART_PageUpButton"
+                                              Theme="{StaticResource ScrollBarBaseRepeatButton}" />
+                            </Track.DecreaseButton>
+                            <Track.IncreaseButton>
+                                <RepeatButton Name="PART_PageDownButton"
+                                              Theme="{StaticResource ScrollBarBaseRepeatButton}" />
+                            </Track.IncreaseButton>
+                            <Thumb Theme="{StaticResource ScrollBarBaseThumbVertical}" />
+                        </Track>
+                    </Panel>
+                </ControlTemplate>
+            </Setter>
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type ScrollViewer}"
+                  TargetType="ScrollViewer">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid ColumnDefinitions="*,Auto"
+                      RowDefinitions="*,Auto">
+                    <ScrollContentPresenter Name="PART_ContentPresenter"
+                                            Grid.RowSpan="2"
+                                            Grid.ColumnSpan="2"
+                                            Padding="{TemplateBinding Padding}"
+                                            HorizontalSnapPointsType="{TemplateBinding HorizontalSnapPointsType}"
+                                            VerticalSnapPointsType="{TemplateBinding VerticalSnapPointsType}"
+                                            HorizontalSnapPointsAlignment="{TemplateBinding HorizontalSnapPointsAlignment}"
+                                            VerticalSnapPointsAlignment="{TemplateBinding VerticalSnapPointsAlignment}"
+                                            Background="{TemplateBinding Background}"
+                                            ScrollViewer.IsScrollInertiaEnabled="{TemplateBinding IsScrollInertiaEnabled}">
+                        <ScrollContentPresenter.GestureRecognizers>
+                            <ScrollGestureRecognizer CanHorizontallyScroll="{Binding CanHorizontallyScroll, ElementName=PART_ContentPresenter}"
+                                                     CanVerticallyScroll="{Binding CanVerticallyScroll, ElementName=PART_ContentPresenter}"
+                                                     IsScrollInertiaEnabled="{Binding (ScrollViewer.IsScrollInertiaEnabled), ElementName=PART_ContentPresenter}" />
+                        </ScrollContentPresenter.GestureRecognizers>
+                    </ScrollContentPresenter>
+                    <ScrollBar Name="PART_HorizontalScrollBar"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               Opacity=".3"
+                               Theme="{StaticResource ScrollBarBaseStyle}"
+                               Orientation="Horizontal" />
+                    <ScrollBar Name="PART_VerticalScrollBar"
+                               Grid.Row="0"
+                               Grid.Column="1"
+                               Opacity="0"
+                               Theme="{StaticResource ScrollBarBaseStyle}"
+                               Orientation="Vertical" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover /template/ ScrollBar">
+            <Setter Property="Opacity"
+                    Value=".8" />
+        </Style>
+    </ControlTheme>
+</ResourceDictionary>

@@ -1,0 +1,93 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.EffectsDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <UserControl.Resources>
+        <Storyboard x:Key="StoryboardLoaded" RepeatBehavior="Forever">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(RotateTransform.Angle)" Storyboard.TargetName="TransformRotate1">
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="90">
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(RotateTransform.Angle)" Storyboard.TargetName="TransformRotate2">
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="90">
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(RotateTransform.Angle)" Storyboard.TargetName="TransformRotate3">
+                <EasingDoubleKeyFrame KeyTime="0:0:3" Value="-90">
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <UserControl.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource StoryboardLoaded}"/>
+        </EventTrigger>
+    </UserControl.Triggers>
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <StackPanel Margin="32">
+                <hc:UniformSpacingPanel Margin="16" Spacing="16" ItemWidth="120" ItemHeight="120" ChildWrapping="Wrap" MaxWidth="392" HorizontalAlignment="Center">
+                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg"/>
+                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                        <Image.Effect>
+                            <hc:ColorComplementEffect/>
+                        </Image.Effect>
+                    </Image>
+                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                        <Image.Effect>
+                            <hc:GrayScaleEffect/>
+                        </Image.Effect>
+                    </Image>
+                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                        <Image.Effect>
+                            <hc:GrayScaleEffect Scale=".7"/>
+                        </Image.Effect>
+                    </Image>
+                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                        <Image.Effect>
+                            <hc:ColorMatrixEffect M11="-1" M22="-1" M33="-1" M41="1" M42="1" M43="1" M44="1" M51="1"/>
+                        </Image.Effect>
+                    </Image>
+                    <Image Source="/HandyControlDemo;component/Resources/Img/Album/10.jpg">
+                        <Image.Effect>
+                            <hc:ColorMatrixEffect M11="1.5" M21="1.5" M31="1.5" M12="1.5" M22="1.5" M32="1.5" M13="1.5" M23="1.5" M33="1.5" M51="-1" M52="-1" M53="-1"/>
+                        </Image.Effect>
+                    </Image>
+                </hc:UniformSpacingPanel>
+                <hc:BlendEffectBox Margin="0,16,0,0">
+                    <hc:BlendEffectBox.Effects>
+                        <BlurEffect Radius="30"/>
+                        <hc:BrightnessEffect Brightness="1"/>
+                        <hc:ContrastEffect Contrast="20"/>
+                    </hc:BlendEffectBox.Effects>
+                    <StackPanel>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                            <Border Width="100" Height="100" Background="Red" RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="0" x:Name="TransformRotate1"/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                            </Border>
+                            <Border Margin="30,0,0,0" Width="100" Height="100" Background="Red" RenderTransformOrigin="0.5,0.5">
+                                <Border.RenderTransform>
+                                    <TransformGroup>
+                                        <RotateTransform Angle="0" x:Name="TransformRotate2"/>
+                                    </TransformGroup>
+                                </Border.RenderTransform>
+                            </Border>
+                        </StackPanel>
+                        <Border Width="100" Height="100" Background="Red" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                            <Border.RenderTransform>
+                                <TransformGroup>
+                                    <RotateTransform Angle="0" x:Name="TransformRotate3"/>
+                                </TransformGroup>
+                            </Border.RenderTransform>
+                        </Border>
+                    </StackPanel>
+                </hc:BlendEffectBox>
+            </StackPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

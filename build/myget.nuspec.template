@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>HandyControl</id>
+    <version>{version}</version>
+    <title>HandyControl</title>
+    <authors>HandyOrg</authors>
+    <owners>HandyOrg</owners>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <license type="file">LICENSE</license>
+    <icon>icon.png</icon>
+    <projectUrl>https://github.com/HandyOrg/HandyControl</projectUrl>
+    <description>Contains some simple and commonly used WPF controls</description>
+    <copyright>Copyright © HandyOrg 2018-{year}</copyright>
+    <tags>WPF C# Control</tags>
+    <dependencies />
+  </metadata>
+  <files>
+    <file src="..\..\VisualStudioToolsManifest.xml" target="tools\VisualStudioToolsManifest.xml" />
+    <file src="..\..\icon.png" target="icon.png" />
+    <file src="..\..\..\LICENSE" target="LICENSE" />
+  </files>
+</package>

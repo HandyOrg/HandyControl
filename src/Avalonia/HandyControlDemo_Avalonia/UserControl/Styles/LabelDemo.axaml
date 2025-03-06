@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             x:Class="HandyControlDemo.UserControl.LabelDemo">
+    <hc:UniformSpacingPanel Margin="32"
+                            Spacing="32"
+                            ChildWrapping="Wrap">
+        <hc:UniformSpacingPanel Spacing="5"
+                                Orientation="Vertical">
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelDanger}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelInfo}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelPrimary}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelSuccess}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelWarning}" />
+        </hc:UniformSpacingPanel>
+        <hc:UniformSpacingPanel Spacing="5"
+                                Orientation="Vertical">
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelDefault.Small}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelDanger.Small}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelInfo.Small}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelPrimary.Small}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelSuccess.Small}" />
+            <Label Content="TitleTitleTitleTitleTitleTitleTitleTitleTitleTitle"
+                   Theme="{StaticResource LabelWarning.Small}" />
+        </hc:UniformSpacingPanel>
+    </hc:UniformSpacingPanel>
+</UserControl>

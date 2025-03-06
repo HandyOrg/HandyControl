@@ -1,0 +1,140 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.RadioButtonDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel ChildWrapping="Wrap" Spacing="32" Margin="32">
+                <hc:UniformSpacingPanel Orientation="Vertical" Spacing="32">
+                    <WrapPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo1" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDefault}"/>
+                            <RadioButton GroupName="Demo1" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDefault}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo1" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonPrimary}"/>
+                            <RadioButton GroupName="Demo1" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonPrimary}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo1" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonSuccess}"/>
+                            <RadioButton GroupName="Demo1" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonSuccess}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo1" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonInfo}"/>
+                            <RadioButton GroupName="Demo1" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonInfo}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo1" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonWarning}"/>
+                            <RadioButton GroupName="Demo1" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonWarning}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo1" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDanger}"/>
+                            <RadioButton GroupName="Demo1" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDanger}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo2" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource RadioButtonSameAsButtonDefault}"/>
+                            <RadioButton GroupName="Demo2" Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource RadioButtonSameAsButtonDefault}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo2" Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonPrimary}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                            <RadioButton GroupName="Demo2" Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonPrimary}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo2" Margin="5" Style="{StaticResource RadioButtonSameAsButtonSuccess}" hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}"/>
+                            <RadioButton GroupName="Demo2" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonSuccess}" hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo2" Margin="5" Style="{StaticResource RadioButtonSameAsButtonInfo}" hc:IconElement.Geometry="{StaticResource RotateRightGeometry}"/>
+                            <RadioButton GroupName="Demo2" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonInfo}" hc:IconElement.Geometry="{StaticResource RotateRightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo2" Margin="5" Style="{StaticResource RadioButtonSameAsButtonWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                            <RadioButton GroupName="Demo2" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonWarning}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo2" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDanger}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
+                            <RadioButton GroupName="Demo2" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDanger}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo3" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDefault.Small}"/>
+                            <RadioButton GroupName="Demo3" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Default}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDefault.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo3" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonPrimary.Small}"/>
+                            <RadioButton GroupName="Demo3" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Primary}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonPrimary.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo3" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonSuccess.Small}"/>
+                            <RadioButton GroupName="Demo3" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Success}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonSuccess.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo3" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonInfo.Small}"/>
+                            <RadioButton GroupName="Demo3" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Info}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonInfo.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo3" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonWarning.Small}"/>
+                            <RadioButton GroupName="Demo3" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Warning}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonWarning.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo3" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDanger.Small}"/>
+                            <RadioButton GroupName="Demo3" IsEnabled="False" Content="{ex:Lang Key={x:Static langs:LangKeys.Danger}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDanger.Small}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                    <WrapPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo4" IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource RadioButtonSameAsButtonDefault.Small}"/>
+                            <RadioButton GroupName="Demo4" Content="{ex:Lang Key={x:Static langs:LangKeys.Clock}}" IsEnabled="False" Margin="5" hc:IconElement.Geometry="{StaticResource ClockGeometry}" Style="{StaticResource RadioButtonSameAsButtonDefault.Small}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo4" Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" Margin="5" Style="{StaticResource RadioButtonSameAsButtonPrimary.Small}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                            <RadioButton GroupName="Demo4" Content="{ex:Lang Key={x:Static langs:LangKeys.Calendar}}" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonPrimary.Small}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo4" Margin="5" Style="{StaticResource RadioButtonSameAsButtonSuccess.Small}" hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}"/>
+                            <RadioButton GroupName="Demo4" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonSuccess.Small}" hc:IconElement.Geometry="{StaticResource RotateLeftGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo4" Margin="5" Style="{StaticResource RadioButtonSameAsButtonInfo.Small}" hc:IconElement.Geometry="{StaticResource RotateRightGeometry}"/>
+                            <RadioButton GroupName="Demo4" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonInfo.Small}" hc:IconElement.Geometry="{StaticResource RotateRightGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo4" Margin="5" Style="{StaticResource RadioButtonSameAsButtonWarning.Small}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                            <RadioButton GroupName="Demo4" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonWarning.Small}" hc:IconElement.Geometry="{StaticResource LeftGeometry}"/>
+                        </StackPanel>
+                        <StackPanel>
+                            <RadioButton GroupName="Demo4" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDanger.Small}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
+                            <RadioButton GroupName="Demo4" IsEnabled="False" Margin="5" Style="{StaticResource RadioButtonSameAsButtonDanger.Small}" hc:IconElement.Geometry="{StaticResource RightGeometry}"/>
+                        </StackPanel>
+                    </WrapPanel>
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Orientation="Vertical" Spacing="32">
+                    <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
+                        <RadioButton IsChecked="True" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                        <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsEnabled="False"/>
+                        <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                        <RadioButton Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsEnabled="False"/>
+                    </hc:UniformSpacingPanel>
+                    <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
+                        <RadioButton Background="{DynamicResource SecondaryRegionBrush}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                        <RadioButton Background="{DynamicResource SecondaryRegionBrush}" Style="{StaticResource RadioButtonIcon}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsChecked="True"/>
+                        <RadioButton hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                        <RadioButton Style="{StaticResource RadioButtonIcon}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    </hc:UniformSpacingPanel>
+                    <hc:UniformSpacingPanel Spacing="10" Orientation="Vertical">
+                        <RadioButton Background="{DynamicResource SecondaryRegionBrush}" hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                        <RadioButton Background="{DynamicResource SecondaryRegionBrush}" Style="{StaticResource RadioButtonIcon.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}" IsChecked="True"/>
+                        <RadioButton hc:IconElement.Geometry="{StaticResource CalendarGeometry}" Style="{StaticResource RadioButtonIcon.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                        <RadioButton Style="{StaticResource RadioButtonIcon.Small}" Content="{ex:Lang Key={x:Static langs:LangKeys.RadioButton}}"/>
+                    </hc:UniformSpacingPanel>
+                </hc:UniformSpacingPanel>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

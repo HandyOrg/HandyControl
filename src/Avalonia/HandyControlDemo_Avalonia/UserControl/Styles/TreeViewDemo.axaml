@@ -1,0 +1,25 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             x:Class="HandyControlDemo.UserControl.TreeViewDemo">
+    <WrapPanel Margin="16">
+        <TreeView Width="200"
+                  Margin="16"
+                  ItemsSource="{Binding DataList}">
+            <TreeView.ItemTemplate>
+                <TreeDataTemplate ItemsSource="{Binding DataList}">
+                    <TextBlock Text="{Binding Name}" />
+                </TreeDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+        <TreeView Width="200"
+                  Margin="16"
+                  ItemsSource="{Binding DataList}"
+                  Theme="{StaticResource TreeView.Small}">
+            <TreeView.ItemTemplate>
+                <TreeDataTemplate ItemsSource="{Binding DataList}">
+                    <TextBlock Text="{Binding Name}" />
+                </TreeDataTemplate>
+            </TreeView.ItemTemplate>
+        </TreeView>
+    </WrapPanel>
+</UserControl>

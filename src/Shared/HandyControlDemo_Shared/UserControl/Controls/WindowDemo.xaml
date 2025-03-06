@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.WindowDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             xmlns:data="clr-namespace:HandyControlDemo.Data"
+             DataContext="{Binding WindowDemo,Source={StaticResource Locator}}"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Margin="32" ChildWrapping="Wrap" Spacing="16" VerticalAlignment="Center" MaxWidth="500">
+                <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CommonWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCommonWindow}}"/>
+                <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.BlurWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenBlurWindow}}"/>
+                <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.CustomNonClientAreaWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCustomNonClientAreaWindow}}"/>
+                <Button Click="ButtonMessage_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenMessageWindow}}"/>
+                <Button Click="ButtonCustomMessage_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCustomMessageWindow}}"/>
+                <Button Click="ButtonCustomContent_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenCustomContentWindow}}"/>
+                <Button Name="ButtonMouseFollow" Click="ButtonMouseFollow_OnClick" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenMouseFollowWindow}}"/>
+                <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.NoNonClientAreaDragableWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenNoNonClientAreaDragableWindow}}"/>
+                <Button Command="{Binding OpenWindowCmd}" CommandParameter="{x:Static data:MessageToken.GlowWindow}" Content="{ex:Lang Key={x:Static langs:LangKeys.OpenGlowWindow}}"/>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

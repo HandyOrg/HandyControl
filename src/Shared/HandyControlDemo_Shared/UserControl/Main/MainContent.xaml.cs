@@ -142,13 +142,13 @@ public partial class MainContent
 
         _currentDemoKey = demoKey;
 
-        if (ViewModelLocator.Instance.Main.SubContent is FrameworkElement demoCtl)
+        if (ViewModelLocator.Instance.Main.SubContent is FrameworkElement demo)
         {
-            var demoCtlTypeName = demoCtl.GetType().Name;
-            var xamlPath = $"UserControl/{typeKey}/{demoCtlTypeName}.xaml";
-            var dc = demoCtl.DataContext;
+            var demoTypeName = demo.GetType().Name;
+            var xamlPath = $"UserControl/{typeKey}/{demoTypeName}.xaml";
+            var dc = demo.DataContext;
             var dcTypeName = dc.GetType().Name;
-            var vmPath = !Equals(dcTypeName, demoCtlTypeName)
+            var vmPath = !Equals(dcTypeName, demoTypeName)
                 ? $"ViewModel/{dcTypeName}"
                 : xamlPath;
 

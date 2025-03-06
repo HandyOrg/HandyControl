@@ -37,7 +37,7 @@ public class CheckComboBox : ListBox
     }
 
     public static readonly DependencyProperty IsDropDownOpenProperty = DependencyProperty.Register(
-        nameof(IsDropDownOpen), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDropDownOpenChanged));
+        nameof(IsDropDownOpen), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDropDownOpenChanged, CoerceIsDropDownOpen));
 
     private static void OnIsDropDownOpenChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
@@ -50,6 +50,16 @@ public class CheckComboBox : ListBox
                 Mouse.Capture(null);
             }), DispatcherPriority.Send);
         }
+    }
+
+    private static object CoerceIsDropDownOpen(DependencyObject d, object baseValue)
+    {
+        if (((CheckComboBox) d).IsReadOnly)
+        {
+            return ValueBoxes.FalseBox;
+        }
+
+        return baseValue;
     }
 
     public bool IsDropDownOpen
@@ -85,6 +95,15 @@ public class CheckComboBox : ListBox
         set => SetValue(ShowSelectAllButtonProperty, ValueBoxes.BooleanBox(value));
     }
 
+    public static readonly DependencyProperty IsReadOnlyProperty = DependencyProperty.Register(
+        nameof(IsReadOnly), typeof(bool), typeof(CheckComboBox), new PropertyMetadata(ValueBoxes.FalseBox));
+
+    public bool IsReadOnly
+    {
+        get => (bool) GetValue(IsReadOnlyProperty);
+        set => SetValue(IsReadOnlyProperty, ValueBoxes.BooleanBox(value));
+    }
+
     public CheckComboBox()
     {
         AddHandler(Controls.Tag.ClosedEvent, new RoutedEventHandler(Tags_OnClosed));
@@ -95,7 +114,7 @@ public class CheckComboBox : ListBox
             SetCurrentValue(SelectedItemProperty, null);
             SetCurrentValue(SelectedIndexProperty, -1);
             SelectedItems.Clear();
-        }));
+        }, (s, e) => e.CanExecute = !IsReadOnly));
     }
 
     public override void OnApplyTemplate()
@@ -175,18 +194,22 @@ public class CheckComboBox : ListBox
         }
 
         _panel.Children.Clear();
+        var tagStyle = TagStyle;
+        var isReadOnly = IsReadOnly;
+        var displayMemberPath = DisplayMemberPath;
 
         foreach (var item in SelectedItems)
         {
             var tag = new Tag
             {
-                Style = TagStyle,
-                Tag = item
+                Style = tagStyle,
+                Tag = item,
+                ShowCloseButton = !isReadOnly
             };
 
             if (ItemsSource != null)
             {
-                tag.SetBinding(ContentControl.ContentProperty, new Binding(DisplayMemberPath) { Source = item });
+                tag.SetBinding(ContentControl.ContentProperty, new Binding(displayMemberPath) { Source = item });
             }
             else
             {

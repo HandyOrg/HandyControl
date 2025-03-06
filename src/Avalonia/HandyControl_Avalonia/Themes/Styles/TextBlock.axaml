@@ -1,0 +1,125 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ControlTheme x:Key="TextBlockBaseStyle"
+                  TargetType="TextBlock">
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefault"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock" />
+
+    <ControlTheme x:Key="TextBlockDefaultAccent"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource AccentBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefaultPrimary"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefaultDanger"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefaultWarning"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefaultInfo"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefaultSuccess"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefaultSecLight"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource SecondaryTextBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefaultThiLight"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="Foreground"
+                Value="{DynamicResource ThirdlyTextBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockLarge"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="FontSize"
+                Value="{StaticResource LargeFontSize}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockTitle"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="FontSize"
+                Value="{StaticResource HeadFontSize}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockSubTitle"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="FontSize"
+                Value="{StaticResource SubHeadFontSize}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockBoldBaseStyle"
+                  BasedOn="{StaticResource TextBlockBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="FontWeight"
+                Value="Bold" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockLargeBold"
+                  BasedOn="{StaticResource TextBlockBoldBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="FontSize"
+                Value="{StaticResource LargeFontSize}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockTitleBold"
+                  BasedOn="{StaticResource TextBlockBoldBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="FontSize"
+                Value="{StaticResource HeadFontSize}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockSubTitleBold"
+                  BasedOn="{StaticResource TextBlockBoldBaseStyle}"
+                  TargetType="TextBlock">
+        <Setter Property="FontSize"
+                Value="{StaticResource SubHeadFontSize}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="TextBlockDefaultBold"
+                  BasedOn="{StaticResource TextBlockBoldBaseStyle}"
+                  TargetType="TextBlock" />
+</ResourceDictionary>

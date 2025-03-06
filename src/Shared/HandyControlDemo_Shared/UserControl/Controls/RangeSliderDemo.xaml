@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.RangeSliderDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Margin="32" Spacing="32">
+                <hc:UniformSpacingPanel Orientation="Vertical" Spacing="32">
+                    <hc:RangeSlider Width="400" IsSnapToTickEnabled="True" ValueStart="2" ValueEnd="8"/>
+                    <hc:RangeSlider Width="400" IsSnapToTickEnabled="True" ValueEnd="3" IsEnabled="False"/>
+                    <hc:RangeSlider Width="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Top" IsSnapToTickEnabled="True" Maximum="100" ValueEnd="60" TickFrequency="10" TickPlacement="BottomRight"/>
+                    <hc:RangeSlider Width="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Bottom" hc:TipElement.StringFormat="#0.00" ValueEnd="5" TickPlacement="Both"/>
+                </hc:UniformSpacingPanel>
+                <hc:UniformSpacingPanel Spacing="32">
+                    <hc:RangeSlider Height="400" IsSnapToTickEnabled="True" ValueEnd="8" Orientation="Vertical"/>
+                    <hc:RangeSlider Height="400" IsSnapToTickEnabled="True" ValueEnd="3" IsEnabled="False" Orientation="Vertical"/>
+                    <hc:RangeSlider Height="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Right" IsSnapToTickEnabled="True" Maximum="100" ValueEnd="60" TickFrequency="10" TickPlacement="BottomRight" Orientation="Vertical"/>
+                    <hc:RangeSlider Height="400" hc:TipElement.Visibility="Visible" hc:TipElement.Placement="Left" hc:TipElement.StringFormat="#0.00" ValueEnd="5" TickPlacement="Both" Orientation="Vertical"/>
+                </hc:UniformSpacingPanel>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

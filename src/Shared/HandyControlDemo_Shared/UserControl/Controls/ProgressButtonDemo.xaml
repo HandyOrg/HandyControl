@@ -1,0 +1,29 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.ProgressButtonDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <WrapPanel Margin="16" VerticalAlignment="Center">
+                <StackPanel Margin="16" Button.Click="ButtonProgress_OnClick">
+                    <hc:ProgressButton IsChecked="{Binding IsUploading,Mode=TwoWay}" Progress="{Binding Progress}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <hc:ProgressButton Style="{StaticResource ProgressButtonPrimary}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Progress="{Binding Progress}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <hc:ProgressButton Style="{StaticResource ProgressButtonSuccess}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Progress="{Binding Progress}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <hc:ProgressButton Style="{StaticResource ProgressButtonInfo}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Progress="{Binding Progress}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <hc:ProgressButton Style="{StaticResource ProgressButtonWarning}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Progress="{Binding Progress}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <hc:ProgressButton Style="{StaticResource ProgressButtonDanger}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Progress="{Binding Progress}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                </StackPanel>
+                <StackPanel Margin="16" Button.Click="ButtonProgress_OnClick">
+                    <ToggleButton Style="{StaticResource ToggleButtonLoading}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonLoadingPrimary}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonLoadingSuccess}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonLoadingInfo}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonLoadingWarning}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                    <ToggleButton Style="{StaticResource ToggleButtonLoadingDanger}" IsChecked="{Binding IsUploading,Mode=TwoWay}" Content="{Binding IsChecked,RelativeSource={RelativeSource Self},Converter={StaticResource Boolean2StringConverter},ConverterParameter={x:Static langs:Lang.UploadStr}}" Width="180" Margin="5"/>
+                </StackPanel>
+            </WrapPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

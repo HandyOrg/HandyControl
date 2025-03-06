@@ -20,24 +20,24 @@ public class BorderElement
 
     private static void OnCircularChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
-        if (d is Border border)
+        if (d is not Border border)
         {
-            if ((bool) e.NewValue)
+            return;
+        }
+
+        if ((bool) e.NewValue)
+        {
+            var binding = new MultiBinding
             {
-                var binding = new MultiBinding
-                {
-                    Converter = new BorderCircularConverter()
-                };
-                binding.Bindings.Add(new Binding(FrameworkElement.ActualWidthProperty.Name) { Source = border });
-                binding.Bindings.Add(new Binding(FrameworkElement.ActualHeightProperty.Name) { Source = border });
-                border.SetBinding(Border.CornerRadiusProperty, binding);
-            }
-            else
-            {
-                BindingOperations.ClearBinding(border, FrameworkElement.ActualWidthProperty);
-                BindingOperations.ClearBinding(border, FrameworkElement.ActualHeightProperty);
-                BindingOperations.ClearBinding(border, Border.CornerRadiusProperty);
-            }
+                Converter = new BorderCircularConverter()
+            };
+            binding.Bindings.Add(new Binding(FrameworkElement.ActualWidthProperty.Name) { Source = border });
+            binding.Bindings.Add(new Binding(FrameworkElement.ActualHeightProperty.Name) { Source = border });
+            border.SetBinding(Border.CornerRadiusProperty, binding);
+        }
+        else
+        {
+            BindingOperations.ClearBinding(border, Border.CornerRadiusProperty);
         }
     }
 

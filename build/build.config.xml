@@ -1,0 +1,23 @@
+<config>
+  <outputsFolder>outputs</outputsFolder>
+  <tasks>
+    <task framework="net40" target=".NETFramework4.0" outputsFolder="net40" configuration="Release-Net40" domain="Net_40" buildLib="true" buildDemo="true"/>
+    <!-- <task framework="net45" target=".NETFramework4.5" outputsFolder="net45" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net451" target=".NETFramework4.5.1" outputsFolder="net451" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net452" target=".NETFramework4.5.2" outputsFolder="net452" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net46" target=".NETFramework4.6" outputsFolder="net46" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net461" target=".NETFramework4.6.1" outputsFolder="net461" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net462" target=".NETFramework4.6.2" outputsFolder="net462" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net47" target=".NETFramework4.7" outputsFolder="net47" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net471" target=".NETFramework4.7.1" outputsFolder="net471" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net472" target=".NETFramework4.7.2" outputsFolder="net472" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net48" target=".NETFramework4.8" outputsFolder="net48" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net481" target=".NETFramework4.8.1" outputsFolder="net481" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="netcoreapp3.0" target=".NETCoreApp3.0" outputsFolder="netcoreapp3.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="netcoreapp3.1" target=".NETCoreApp3.1" outputsFolder="netcoreapp3.1" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net5.0-windows" target="net5.0" outputsFolder="net5.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net6.0-windows" target="net6.0" outputsFolder="net6.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net7.0-windows" target="net7.0" outputsFolder="net7.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/>
+    <task framework="net8.0-windows" target="net8.0" outputsFolder="net8.0" configuration="Release" domain="Net_GE45" buildLib="true" buildDemo="true"/> -->
+  </tasks>
+</config>

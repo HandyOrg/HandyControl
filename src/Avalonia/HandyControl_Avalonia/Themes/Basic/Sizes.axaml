@@ -1,7 +1,7 @@
 ﻿<ResourceDictionary xmlns="https://github.com/avaloniaui"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:system="using:System">
-	<system:Double x:Key="DefaultControlHeight">28</system:Double>
+    <system:Double x:Key="DefaultControlHeight">28</system:Double>
     <system:Double x:Key="SmallControlHeight">20</system:Double>
     <Thickness x:Key="DefaultControlPadding">10,5</Thickness>
     <Thickness x:Key="DefaultInputPadding">8,0</Thickness>

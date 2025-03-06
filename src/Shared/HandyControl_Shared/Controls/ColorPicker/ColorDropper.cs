@@ -41,7 +41,7 @@ internal class ColorDropper
         }
         else
         {
-            Mouse.OverrideCursor = Cursors.Arrow;
+            Mouse.OverrideCursor = null;
             MouseHook.Stop();
             MouseHook.StatusChanged -= MouseHook_StatusChanged;
         }
@@ -88,7 +88,7 @@ internal class ColorDropper
         {
             if (_cursorIsSetted)
             {
-                Mouse.OverrideCursor = Cursors.Arrow;
+                Mouse.OverrideCursor = null;
                 _cursorIsSetted = false;
             }
         }

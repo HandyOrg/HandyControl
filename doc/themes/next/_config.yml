@@ -218,7 +218,7 @@ menu:
       RadioButton 单选按钮: /radioButton/ ||
       RichTextBox 富文本框: /richTextBox/ ||
       ScrollViewer 滚动视图: /scrollViewer/ ||
-      Seperator 分隔符: /seperator/ ||
+      Separator 分隔符: /separator/ ||
       Slider 滑块: /slider/ ||
       StatusBar 状态栏: /statusBar/ ||
       TabControl 选项卡控件: /tabControl/ ||

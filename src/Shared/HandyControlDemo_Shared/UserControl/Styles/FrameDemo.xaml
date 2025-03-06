@@ -1,0 +1,9 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.FrameDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <Frame Margin="32" Width="500" Height="360" Name="frameDemo" NavigationUIVisibility="Visible"/>
+    </hc:TransitioningContentControl>
+</UserControl>

@@ -8,7 +8,7 @@ namespace HandyControl.Input;
 internal sealed class SimpleMouseBinding : InputBinding
 {
     public static readonly DependencyProperty MouseActionProperty = DependencyProperty.Register(nameof(MouseAction),
-        typeof(MouseAction), typeof(MouseBinding), new UIPropertyMetadata(MouseAction.None, OnMouseActionPropertyChanged));
+        typeof(MouseAction), typeof(SimpleMouseBinding), new UIPropertyMetadata(MouseAction.None, OnMouseActionPropertyChanged));
 
     private bool _settingGesture;
 

@@ -1,0 +1,60 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.LeftMainContent"
+             Background="{DynamicResource RegionBrush}"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:data="clr-namespace:HandyControlDemo.Data"
+             Margin="16,16,0,16"
+             CornerRadius="10"
+             Effect="{StaticResource EffectShadow4}">
+    <DockPanel>
+        <Button Content="Practical demos"
+                DockPanel.Dock="Top"
+                HorizontalAlignment="Stretch"
+                Margin="10,10,10,4"
+                BorderThickness="0"
+                Background="{DynamicResource SecondaryRegionBrush}" />
+        <TabControl BorderThickness="0 1 0 0"
+                    Theme="{StaticResource TabControlInLine}"
+                    SelectionChanged="TabControl_OnSelectionChanged"
+                    ItemsSource="{Binding DemoInfoCollection}"
+                    Background="Transparent"
+                    SelectedIndex="0">
+            <TabControl.ItemTemplate>
+                <DataTemplate DataType="data:DemoInfoModel">
+                    <TextBlock Text="{Binding Title}" />
+                </DataTemplate>
+            </TabControl.ItemTemplate>
+            <TabControl.ContentTemplate>
+                <DataTemplate DataType="data:DemoInfoModel">
+                    <Panel Margin="10">
+                        <ListBox SelectionMode="Single"
+                                 Padding="0"
+                                 BorderThickness="0"
+                                 SelectedIndex="{Binding SelectedIndex}"
+                                 ItemsSource="{Binding DemoItemList}">
+                            <ListBox.ItemTemplate>
+                                <DataTemplate DataType="data:DemoItemModel">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Rectangle Width="16"
+                                                   Height="16"
+                                                   Fill="{Binding ImageBrush}" />
+                                        <TextBlock Margin="6,0,0,0"
+                                                   Text="{Binding Name}" />
+                                        <Path IsVisible="{Binding IsNew}"
+                                              VerticalAlignment="Center"
+                                              Data="{StaticResource NewGeometry}"
+                                              Stretch="Uniform"
+                                              Margin="10,0,0,0"
+                                              Width="30"
+                                              Height="14"
+                                              Fill="{DynamicResource AccentBrush}" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ListBox.ItemTemplate>
+                        </ListBox>
+                    </Panel>
+                </DataTemplate>
+            </TabControl.ContentTemplate>
+        </TabControl>
+    </DockPanel>
+</UserControl>

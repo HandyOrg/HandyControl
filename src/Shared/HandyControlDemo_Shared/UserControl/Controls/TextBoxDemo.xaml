@@ -1,0 +1,51 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.TextBoxDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             Background="{DynamicResource RegionBrush}"
+             xmlns:langs="clr-namespace:HandyControlDemo.Properties.Langs"
+             xmlns:ex="clr-namespace:HandyControlDemo.Tools.Extension"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             DataContext="{Binding InputElementDemo, Source={StaticResource Locator}}">
+    <hc:TransitioningContentControl>
+        <hc:ScrollViewer IsInertiaEnabled="True">
+            <hc:UniformSpacingPanel Spacing="32" Margin="32" ChildWrapping="Wrap">
+                <StackPanel>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <hc:TextBox Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Margin="0,16,0,0" IsEnabled="False"/>
+
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,16,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" IsEnabled="False"/>
+                    <hc:TextBox hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterEmail}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0">
+                        <hc:TextBox.Text>
+                            <Binding Path="Email1" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <hc:RegexRule Type="Mail"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </hc:TextBox.Text>
+                    </hc:TextBox>
+                    <hc:TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}"/>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0"/>
+                </StackPanel>
+                <StackPanel>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Style="{StaticResource TextBoxPlus.Small}"/>
+                    <hc:TextBox Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Margin="0,16,0,0" IsEnabled="False" Style="{StaticResource TextBoxPlus.Small}"/>
+
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Style="{StaticResource TextBoxPlus.Small}"/>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr1}}" Margin="0,16,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Style="{StaticResource TextBoxPlus.Small}" IsEnabled="False"/>
+                    <hc:TextBox hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterEmail}}" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr2}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0" Style="{StaticResource TextBoxPlus.Small}">
+                        <hc:TextBox.Text>
+                            <Binding Path="Email2" UpdateSourceTrigger="PropertyChanged">
+                                <Binding.ValidationRules>
+                                    <hc:RegexRule Type="Mail"/>
+                                </Binding.ValidationRules>
+                            </Binding>
+                        </hc:TextBox.Text>
+                    </hc:TextBox>
+                    <hc:TextBox Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" Margin="0,32,0,0" Text="{ex:Lang Key={x:Static langs:LangKeys.ContentDemoStr}}" Style="{StaticResource TextBoxPlus.Small}"/>
+                    <hc:TextBox hc:InfoElement.ShowClearButton="True" Width="380" hc:InfoElement.TitleWidth="140" hc:InfoElement.Placeholder="{ex:Lang Key={x:Static langs:LangKeys.PlsEnterContent}}" hc:InfoElement.TitlePlacement="Left" hc:InfoElement.Title="{ex:Lang Key={x:Static langs:LangKeys.TitleDemoStr3}}" hc:InfoElement.Necessary="True" Margin="0,16,0,0" Style="{StaticResource TextBoxPlus.Small}"/>
+                </StackPanel>
+            </hc:UniformSpacingPanel>
+        </hc:ScrollViewer>
+    </hc:TransitioningContentControl>
+</UserControl>

@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.MainContent"
+             xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Panel>
+        <Border Margin="16">
+            <Grid MinHeight="300"
+                  MinWidth="200"
+                  HorizontalAlignment="Center"
+                  VerticalAlignment="Center"
+                  RowDefinitions="Auto,*">
+                <Border Grid.RowSpan="2"
+                        Background="{DynamicResource RegionBrush}"
+                        CornerRadius="10"
+                        Effect="{StaticResource EffectShadow4}" />
+                <Border Height="32"
+                        Grid.Row="0"
+                        CornerRadius="10,10,0,0"
+                        Background="{DynamicResource TitleBrush}"
+                        Theme="{StaticResource BorderClip}">
+                    <Panel>
+                        <TextBlock Foreground="White"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"
+                                   Text="{Binding ContentTitle}" />
+                    </Panel>
+                </Border>
+                <Border Grid.Row="1"
+                        ClipToBounds="True">
+                    <ContentControl Margin="0,0,0,10"
+                                    Content="{Binding SubContent}" />
+                </Border>
+            </Grid>
+        </Border>
+    </Panel>
+</UserControl>

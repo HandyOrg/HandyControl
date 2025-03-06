@@ -1,0 +1,771 @@
+<ResourceDictionary xmlns="https://github.com/avaloniaui"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:hc="clr-namespace:HandyControl.Controls">
+    <ControlTheme x:Key="ToggleButtonBaseStyle"
+                  BasedOn="{StaticResource ButtonBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Panel>
+                    <Border Background="{TemplateBinding Background}"
+                            CornerRadius="{TemplateBinding CornerRadius}" />
+                    <Border BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="{TemplateBinding CornerRadius}">
+                        <StackPanel Orientation="Horizontal"
+                                    HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                            <Path Width="{TemplateBinding hc:IconElement.Width}"
+                                  Height="{TemplateBinding hc:IconElement.Height}"
+                                  Fill="{TemplateBinding Foreground}"
+                                  IsVisible="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                  Stretch="Uniform"
+                                  Data="{TemplateBinding hc:IconElement.Geometry}" />
+                            <ContentPresenter RecognizesAccessKey="True"
+                                              VerticalAlignment="Center"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                              Margin="{Binding Path=(hc:IconElement.Geometry), RelativeSource={RelativeSource TemplatedParent}, Converter={StaticResource GeometrySpacingConverter}, ConverterParameter='6,0,0,0'}" />
+                        </StackPanel>
+                    </Border>
+                    <Border Margin="-1"
+                            IsVisible="{TemplateBinding IsChecked}"
+                            CornerRadius="{TemplateBinding CornerRadius}"
+                            BorderThickness="4"
+                            BorderBrush="{DynamicResource DarkMaskBrush}" />
+                </Panel>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonDefault"
+                  BasedOn="{StaticResource ToggleButtonBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonDefault.Small"
+                  BasedOn="{StaticResource ToggleButtonDefault}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="{x:Type ToggleButton}"
+                  BasedOn="{StaticResource ToggleButtonDefault}"
+                  TargetType="ToggleButton" />
+
+    <ControlTheme x:Key="ToggleButtonPrimary"
+                  BasedOn="{StaticResource ToggleButtonBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonPrimary.Small"
+                  BasedOn="{StaticResource ToggleButtonPrimary}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonSuccess"
+                  BasedOn="{StaticResource ToggleButtonBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonSuccess.Small"
+                  BasedOn="{StaticResource ToggleButtonSuccess}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonInfo"
+                  BasedOn="{StaticResource ToggleButtonBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonInfo.Small"
+                  BasedOn="{StaticResource ToggleButtonInfo}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonWarning"
+                  BasedOn="{StaticResource ToggleButtonBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonWarning.Small"
+                  BasedOn="{StaticResource ToggleButtonWarning}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonDanger"
+                  BasedOn="{StaticResource ToggleButtonBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonDanger.Small"
+                  BasedOn="{StaticResource ToggleButtonDanger}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconBaseStyle"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource TextIconBrush}" />
+        <Setter Property="Width"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Padding"
+                Value="8" />
+        <Setter Property="hc:IconSwitchElement.Geometry"
+                Value="{x:Null}" />
+        <Setter Property="hc:IconSwitchElement.GeometrySelected"
+                Value="{x:Null}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="{StaticResource DefaultCornerRadius}" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        CornerRadius="{TemplateBinding CornerRadius}">
+                    <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                        <Path Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform"
+                              Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}" />
+                    </ContentControl>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+
+        <Style Selector="^:checked /template/ Path">
+            <Setter Property="Data"
+                    Value="{TemplateBinding hc:IconSwitchElement.GeometrySelected}" />
+        </Style>
+
+        <Style Selector="^:unchecked /template/ Path">
+            <Setter Property="Data"
+                    Value="{TemplateBinding hc:IconSwitchElement.Geometry}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIcon"
+                  BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Background"
+                    Value="{DynamicResource SecondaryRegionBrush}" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Background"
+                    Value="{DynamicResource BorderBrush}" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIcon.Small"
+                  BasedOn="{StaticResource ToggleButtonIcon}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconPrimary"
+                  BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconPrimary.Small"
+                  BasedOn="{StaticResource ToggleButtonIconPrimary}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconSuccess"
+                  BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource SuccessBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource SuccessBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconSuccess.Small"
+                  BasedOn="{StaticResource ToggleButtonIconSuccess}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconInfo"
+                  BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource InfoBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource InfoBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconInfo.Small"
+                  BasedOn="{StaticResource ToggleButtonIconInfo}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconWarning"
+                  BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource WarningBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource WarningBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconWarning.Small"
+                  BasedOn="{StaticResource ToggleButtonIconWarning}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconDanger"
+                  BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="{DynamicResource DangerBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource DangerBrush}" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconDanger.Small"
+                  BasedOn="{StaticResource ToggleButtonIconDanger}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconTransparent"
+                  BasedOn="{StaticResource ToggleButtonIconBaseStyle}"
+                  TargetType="ToggleButton">
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="BorderBrush"
+                Value="Transparent" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border BorderThickness="{TemplateBinding BorderThickness}"
+                        Background="{TemplateBinding Background}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                    <ContentControl HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                    Margin="{TemplateBinding Padding}">
+                        <Path Fill="{TemplateBinding Foreground}"
+                              Stretch="Uniform"
+                              Width="{TemplateBinding hc:IconElement.Width}"
+                              Height="{TemplateBinding hc:IconElement.Height}" />
+                    </ContentControl>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonIconTransparent.Small"
+                  BasedOn="{StaticResource ToggleButtonIconTransparent}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Padding"
+                Value="6,1" />
+        <Setter Property="hc:IconElement.Height"
+                Value="12" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonCustom"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="hc:BorderElement.CornerRadius"
+                Value="0" />
+        <Setter Property="CornerRadius"
+                Value="{Binding $self.(hc:BorderElement.CornerRadius)}" />
+        <Setter Property="Background"
+                Value="Transparent" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalContentAlignment"
+                Value="Center" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Border x:Name="Chrome"
+                        CornerRadius="{TemplateBinding CornerRadius}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}"
+                        Background="{TemplateBinding Background}">
+                    <Panel>
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          RecognizesAccessKey="True"
+                                          Content="{TemplateBinding Content}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}">
+                            <ContentPresenter.IsVisible>
+                                <MultiBinding Converter="{x:Static BoolConverters.And}">
+                                    <Binding Path="(hc:StatusSwitchElement.HideUncheckedElement)"
+                                             RelativeSource="{RelativeSource TemplatedParent}" />
+                                    <Binding Path="IsChecked"
+                                             RelativeSource="{RelativeSource TemplatedParent}" />
+                                </MultiBinding>
+                            </ContentPresenter.IsVisible>
+                        </ContentPresenter>
+                        <ContentPresenter Margin="{TemplateBinding Padding}"
+                                          HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                          RecognizesAccessKey="True"
+                                          IsVisible="{TemplateBinding IsChecked}"
+                                          Content="{TemplateBinding hc:StatusSwitchElement.CheckedElement}"
+                                          ContentTemplate="{TemplateBinding ContentTemplate}" />
+                    </Panel>
+                </Border>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonSwitchBaseStyle"
+                  TargetType="ToggleButton">
+        <Setter Property="hc:VisualElement.HighlightBrush"
+                Value="{DynamicResource PrimaryBrush}" />
+        <Setter Property="hc:VisualElement.HighlightForeground"
+                Value="{DynamicResource SecondaryBorderBrush}" />
+        <Setter Property="Background"
+                Value="{DynamicResource SecondaryRegionBrush}" />
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="BorderBrush"
+                Value="{DynamicResource BorderBrush}" />
+        <Setter Property="BorderThickness"
+                Value="0" />
+        <Setter Property="VerticalContentAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="6,0,0,0" />
+        <Setter Property="Height"
+                Value="24" />
+        <Setter Property="ClipToBounds"
+                Value="False" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Grid Background="Transparent"
+                      ColumnDefinitions="Auto, *">
+                    <Viewbox ClipToBounds="False">
+                        <Panel Width="80"
+                               Height="48">
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="24"
+                                    x:Name="innerBorder">
+                                <Ellipse HorizontalAlignment="Right"
+                                         IsVisible="{TemplateBinding hc:ToggleButtonAttach.ShowLabel}"
+                                         Margin="0 0 12 0"
+                                         Width="16"
+                                         Height="16"
+                                         StrokeThickness="2"
+                                         Stroke="{TemplateBinding hc:VisualElement.HighlightForeground}" />
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity"
+                                                          Duration="0:0:0.2" />
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
+                            <Border BorderBrush="{TemplateBinding BorderBrush}"
+                                    BorderThickness="{TemplateBinding BorderThickness}"
+                                    Opacity="0"
+                                    Background="{TemplateBinding hc:VisualElement.HighlightBrush}"
+                                    CornerRadius="24"
+                                    x:Name="lightBorder">
+                                <Rectangle HorizontalAlignment="Left"
+                                           IsVisible="{TemplateBinding hc:ToggleButtonAttach.ShowLabel}"
+                                           Margin="18 0 0 0"
+                                           Width="2"
+                                           Height="16"
+                                           RadiusX="1"
+                                           RadiusY="1"
+                                           Fill="{DynamicResource TextIconBrush}" />
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <DoubleTransition Property="Opacity"
+                                                          Duration="0:0:0.2" />
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
+                            <Border Margin="2"
+                                    HorizontalAlignment="Left"
+                                    CornerRadius="22"
+                                    Effect="{StaticResource EffectShadow2}"
+                                    Background="White"
+                                    Width="44"
+                                    Height="44"
+                                    RenderTransform="translateX(0px)"
+                                    x:Name="thumb">
+                                <Border.Transitions>
+                                    <Transitions>
+                                        <TransformOperationsTransition Property="RenderTransform"
+                                                                       Easing="CubicEaseInOut"
+                                                                       Duration="0:0:0.2" />
+                                    </Transitions>
+                                </Border.Transitions>
+                            </Border>
+                        </Panel>
+                    </Viewbox>
+                    <ContentPresenter x:Name="contentPresenter"
+                                      IsVisible="{Binding $self.Content, Converter={x:Static ObjectConverters.IsNotNull}}"
+                                      Grid.Column="1"
+                                      Focusable="False"
+                                      ClipToBounds="True"
+                                      HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      Margin="{TemplateBinding Padding}"
+                                      RecognizesAccessKey="True"
+                                      Content="{TemplateBinding Content}"
+                                      ContentTemplate="{TemplateBinding ContentTemplate}"
+                                      VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                </Grid>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Border#thumb">
+                <Setter Property="RenderTransform"
+                        Value="translateX(32px)" />
+            </Style>
+            <Style Selector="^ /template/ Border#lightBorder">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Border#innerBorder">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Border#thumb">
+                <Setter Property="RenderTransform"
+                        Value="translateX(0px)" />
+            </Style>
+            <Style Selector="^ /template/ Border#lightBorder">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
+            <Style Selector="^ /template/ Border#innerBorder">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonSwitch"
+                  BasedOn="{StaticResource ToggleButtonSwitchBaseStyle}"
+                  TargetType="ToggleButton" />
+
+    <ControlTheme x:Key="ToggleButtonSwitch.Small"
+                  BasedOn="{StaticResource ToggleButtonSwitch}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="16" />
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonFlip"
+                  TargetType="ToggleButton">
+        <Setter Property="Foreground"
+                Value="{DynamicResource PrimaryTextBrush}" />
+        <Setter Property="Background"
+                Value="{DynamicResource RegionBrush}" />
+        <Setter Property="HorizontalAlignment"
+                Value="Center" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="Padding"
+                Value="0" />
+        <Setter Property="BorderThickness"
+                Value="1" />
+        <Setter Property="Height"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Width"
+                Value="{StaticResource DefaultControlHeight}" />
+        <Setter Property="Template">
+            <ControlTemplate>
+                <Viewbox>
+                    <Panel Height="28"
+                           Width="28">
+                        <Border x:Name="unCheckedElement"
+                                Theme="{StaticResource BorderCircularClip}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                RenderTransform="scaleX(1)">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <TransformOperationsTransition Property="RenderTransform"
+                                                                   Easing="CubicEaseOut"
+                                                                   Duration="0:0:0.2" />
+                                    <DoubleTransition Property="Opacity"
+                                                      Easing="CubicEaseOut"
+                                                      Duration="0:0:0.1" />
+                                </Transitions>
+                            </Border.Transitions>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              Content="{TemplateBinding Content}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                        <Border x:Name="checkedElement"
+                                Theme="{StaticResource BorderCircularClip}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                Background="{TemplateBinding Background}"
+                                RenderTransform="scaleX(0)"
+                                Opacity="0">
+                            <Border.Transitions>
+                                <Transitions>
+                                    <TransformOperationsTransition Property="RenderTransform"
+                                                                   Easing="CubicEaseOut"
+                                                                   Duration="0:0:0.2" />
+                                    <DoubleTransition Property="Opacity"
+                                                      Easing="CubicEaseOut"
+                                                      Duration="0:0:0.1" />
+                                </Transitions>
+                            </Border.Transitions>
+                            <ContentPresenter Margin="{TemplateBinding Padding}"
+                                              Content="{TemplateBinding hc:StatusSwitchElement.CheckedElement}"
+                                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                                              RecognizesAccessKey="True" />
+                        </Border>
+                    </Panel>
+                </Viewbox>
+            </ControlTemplate>
+        </Setter>
+
+        <Style Selector="^:checked">
+            <Style Selector="^ /template/ Border#unCheckedElement">
+                <Setter Property="RenderTransform"
+                        Value="scaleX(0)" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedElement">
+                <Setter Property="RenderTransform"
+                        Value="scaleX(1)" />
+            </Style>
+            <Style Selector="^ /template/ Border#unCheckedElement">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedElement">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:unchecked">
+            <Style Selector="^ /template/ Border#unCheckedElement">
+                <Setter Property="RenderTransform"
+                        Value="scaleX(1)" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedElement">
+                <Setter Property="RenderTransform"
+                        Value="scaleX(0)" />
+            </Style>
+            <Style Selector="^ /template/ Border#unCheckedElement">
+                <Setter Property="Opacity"
+                        Value="1" />
+            </Style>
+            <Style Selector="^ /template/ Border#checkedElement">
+                <Setter Property="Opacity"
+                        Value="0" />
+            </Style>
+        </Style>
+
+        <Style Selector="^:pointerover">
+            <Setter Property="Opacity"
+                    Value="0.9" />
+        </Style>
+
+        <Style Selector="^:pressed">
+            <Setter Property="Opacity"
+                    Value="0.6" />
+        </Style>
+
+        <Style Selector="^:disabled">
+            <Setter Property="Opacity"
+                    Value="0.4" />
+        </Style>
+    </ControlTheme>
+
+    <ControlTheme x:Key="ToggleButtonFlip.Small"
+                  BasedOn="{StaticResource ToggleButtonFlip}"
+                  TargetType="ToggleButton">
+        <Setter Property="Height"
+                Value="20" />
+        <Setter Property="Width"
+                Value="20" />
+    </ControlTheme>
+</ResourceDictionary>

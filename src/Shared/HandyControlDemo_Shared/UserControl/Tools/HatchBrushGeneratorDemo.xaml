@@ -1,0 +1,11 @@
+﻿<UserControl x:Class="HandyControlDemo.UserControl.HatchBrushGeneratorDemo"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:hc="https://handyorg.github.io/handycontrol"
+             Background="{DynamicResource RegionBrush}">
+    <hc:TransitioningContentControl>
+        <Border Style="{StaticResource BorderRegion}" Margin="32" Background="{Binding SelectedValue,ElementName=ComboBoxDemo,Converter={StaticResource HatchBrushConverter}}">
+            <ComboBox SelectedIndex="0" VerticalAlignment="Center" Name="ComboBoxDemo" Width="180" ItemsSource="{Binding Source={StaticResource HatchStyles}}"/>
+        </Border>
+    </hc:TransitioningContentControl>
+</UserControl>

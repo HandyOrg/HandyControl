@@ -1,3 +1,6 @@
+## 找工作
+由于个人原因，预计于年后离职，大家如果在上海，且有 python、wpf 空缺的岗位，可联系我，我的邮箱：836904362@qq.com。
+
 ## Blogroll
 
 [SimpleFactoryGenerator](https://github.com/DingpingZhang/SimpleFactoryGenerator) - A simple factory source generator that enables the pattern to not violate the open-close principle.
