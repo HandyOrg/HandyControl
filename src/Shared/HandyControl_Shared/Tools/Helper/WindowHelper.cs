@@ -195,6 +195,7 @@ public static class WindowHelper
             window.Topmost = true;
             window.Topmost = false;
         }
+        window.WindowState = WindowState.Normal;
     }
 
     /// <summary>
