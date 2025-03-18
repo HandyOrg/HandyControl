@@ -50,7 +50,7 @@
             </Grid.RowDefinitions>
             <AdornedElementPlaceholder x:Name="adornedElementPlaceholder" />
             <hc:TransitioningContentControl TransitionMode="Top2Bottom" Grid.Row="1" ClipToBounds="True">
-                <TextBlock Foreground="{DynamicResource DangerBrush}" Margin="2,2,0,0" Text="{Binding Path=AdornedElement.(Validation.Errors)[0].ErrorContent, ElementName=adornedElementPlaceholder}" />
+                <TextBlock Foreground="{DynamicResource DangerBrush}" Margin="2,2,0,0" Text="{Binding Path=AdornedElement.(Validation.Errors)/ErrorContent, ElementName=adornedElementPlaceholder}" />
             </hc:TransitioningContentControl>
         </Grid>
     </ControlTemplate>
