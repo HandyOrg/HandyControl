@@ -62,7 +62,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
 
     static NotifyIcon()
     {
-        VisibilityProperty.OverrideMetadata(typeof(NotifyIcon), new PropertyMetadata(Visibility.Visible, OnVisibilityChanged));
+        VisibilityProperty.OverrideMetadata(typeof(NotifyIcon), new PropertyMetadata(ValueBoxes.VisibleBox, OnVisibilityChanged));
         DataContextProperty.OverrideMetadata(typeof(NotifyIcon), new FrameworkPropertyMetadata(DataContextPropertyChanged));
         ContextMenuProperty.OverrideMetadata(typeof(NotifyIcon), new FrameworkPropertyMetadata(ContextMenuPropertyChanged));
     }
@@ -247,7 +247,19 @@ public class NotifyIcon : FrameworkElement, IDisposable
     }
 
     public static readonly DependencyProperty TextProperty = DependencyProperty.Register(
-        nameof(Text), typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string)));
+        nameof(Text), typeof(string), typeof(NotifyIcon), new PropertyMetadata(default(string), OnTextChanged));
+
+    private static void OnTextChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+    {
+        var ctl = (NotifyIcon) d;
+
+        if (ctl._windowClassName == null)
+        {
+            return;
+        }
+
+        ctl.UpdateIcon(ctl._added, ctl._isTransparent);
+    }
 
     public string Text
     {
@@ -309,7 +321,6 @@ public class NotifyIcon : FrameworkElement, IDisposable
     private static void OnIsBlinkChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
     {
         var ctl = (NotifyIcon) d;
-        if (ctl.Visibility != Visibility.Visible) return;
         if ((bool) e.NewValue)
         {
             if (ctl._dispatcherTimerBlink == null)
@@ -326,7 +337,7 @@ public class NotifyIcon : FrameworkElement, IDisposable
         {
             ctl._dispatcherTimerBlink?.Stop();
             ctl._dispatcherTimerBlink = null;
-            ctl.UpdateIcon(true);
+            ctl.UpdateIcon(ctl._added, ctl._isTransparent);
         }
     }
 

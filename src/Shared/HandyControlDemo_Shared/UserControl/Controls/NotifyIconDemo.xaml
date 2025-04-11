@@ -11,7 +11,7 @@
         <hc:SimplePanel Margin="32" VerticalAlignment="Center">
             <StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                    <GroupBox Header="ContextMenu" Padding="10">
+                    <GroupBox Header="ContextMenu" Padding="10" Background="{DynamicResource RegionBrush}">
                         <StackPanel>
                             <GroupBox hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Visibility}}">
                                 <ToggleButton IsChecked="{Binding ContextMenuIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
@@ -22,7 +22,7 @@
                             </GroupBox>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox Header="ContextContent" Margin="16,0,0,0" Padding="10">
+                    <GroupBox Header="ContextContent" Margin="16,0,0,0" Padding="10" Background="{DynamicResource RegionBrush}">
                         <StackPanel>
                             <GroupBox hc:TitleElement.TitlePlacement="Left" Style="{StaticResource GroupBoxOriginal}" Header="{ex:Lang Key={x:Static langs:LangKeys.Visibility}}">
                                 <ToggleButton IsChecked="{Binding ContextContentIsShow}" Style="{StaticResource ToggleButtonSwitch}"/>
