@@ -71,7 +71,15 @@
                             <ColumnDefinition Width="Auto" />
                             <ColumnDefinition />
                         </Grid.ColumnDefinitions>
-                        <Button Name="ButtonIcon" Visibility="{TemplateBinding Icon,Converter={StaticResource Object2VisibilityConverter}}" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+                        <Button Name="ButtonIcon" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+                            <Button.Visibility>
+                                <MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
+                                    <MultiBinding.Bindings>
+                                        <Binding Path="ShowIcon" RelativeSource="{RelativeSource TemplatedParent}" />
+                                        <Binding Path="Icon" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}" />
+                                    </MultiBinding.Bindings>
+                                </MultiBinding>
+                            </Button.Visibility>
                             <interactivity:Interaction.Triggers>
                                 <interactivity:EventTrigger EventName="MouseDoubleClick">
                                     <interactivity:InvokeCommandAction Command="{x:Static shell:SystemCommands.CloseWindowCommand}" />
@@ -172,7 +180,15 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition />
                                 </Grid.ColumnDefinitions>
-                                <Button Name="ButtonIcon" Visibility="{TemplateBinding Icon,Converter={StaticResource Object2VisibilityConverter}}" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+                                <Button Name="ButtonIcon" Command="{x:Static shell:SystemCommands.ShowSystemMenuCommand}" Background="Transparent" Margin="10,0,0,0" shell:WindowChrome.IsHitTestVisibleInChrome="True" Style="{StaticResource ButtonCustom}" VerticalAlignment="Center">
+                                    <Button.Visibility>
+                                        <MultiBinding Converter="{StaticResource BooleanArr2VisibilityConverter}">
+                                            <MultiBinding.Bindings>
+                                                <Binding Path="ShowIcon" RelativeSource="{RelativeSource TemplatedParent}" />
+                                                <Binding Path="Icon" RelativeSource="{RelativeSource TemplatedParent}" Converter="{StaticResource Object2BooleanConverter}" />
+                                            </MultiBinding.Bindings>
+                                        </MultiBinding>
+                                    </Button.Visibility>
                                     <interactivity:Interaction.Triggers>
                                         <interactivity:EventTrigger EventName="MouseDoubleClick">
                                             <interactivity:InvokeCommandAction Command="{x:Static shell:SystemCommands.CloseWindowCommand}" />
