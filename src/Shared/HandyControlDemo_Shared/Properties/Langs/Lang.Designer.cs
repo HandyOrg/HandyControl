@@ -499,6 +499,17 @@ namespace HandyControlDemo.Properties.Langs
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to 礼炮.
+        /// </summary>
+        public static string ConfettiCannon
+        {
+            get
+            {
+                return ResourceManager.GetString("ConfettiCannon", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to 这是内容.
         /// </summary>
         public static string ContentDemoStr
@@ -1326,11 +1337,11 @@ namespace HandyControlDemo.Properties.Langs
         /// <summary>
         ///   Looks up a localized string similar to 变形动画.
         /// </summary>
-        public static string Morphing_Animation
+        public static string MorphingAnimation
         {
             get
             {
-                return ResourceManager.GetString("Morphing Animation", resourceCulture);
+                return ResourceManager.GetString("MorphingAnimation", resourceCulture);
             }
         }
 

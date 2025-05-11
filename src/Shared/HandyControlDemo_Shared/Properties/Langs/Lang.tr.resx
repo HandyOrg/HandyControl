@@ -672,7 +672,7 @@
   <data name="HatchBrushGenerator" xml:space="preserve">
     <value>ÇizimFırçasıJeneratörü</value>
   </data>
-  <data name="Morphing Animation" xml:space="preserve">
+  <data name="MorphingAnimation" xml:space="preserve">
     <value>Morphing Animasyonu</value>
   </data>
   <data name="Divider" xml:space="preserve">
@@ -806,5 +806,8 @@
   </data>
   <data name="CloseMainWindowDialog" xml:space="preserve">
     <value>Close main window dialog</value>
+  </data>
+  <data name="ConfettiCannon" xml:space="preserve">
+    <value>ConfettiCannon</value>
   </data>
 </root>

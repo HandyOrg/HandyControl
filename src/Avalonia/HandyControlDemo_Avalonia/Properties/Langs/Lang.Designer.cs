@@ -1091,7 +1091,7 @@ namespace HandyControlDemo.Properties.Langs {
         /// </summary>
         public static string Morphing_Animation {
             get {
-                return ResourceManager.GetString("Morphing Animation", resourceCulture);
+                return ResourceManager.GetString("MorphingAnimation", resourceCulture);
             }
         }
         

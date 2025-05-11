@@ -399,8 +399,8 @@
   <data name="MessageBox" xml:space="preserve">
     <value>MessageBox</value>
   </data>
-  <data name="Morphing Animation" xml:space="preserve">
-    <value>Morphing Animation</value>
+  <data name="MorphingAnimation" xml:space="preserve">
+    <value>MorphingAnimation</value>
   </data>
   <data name="Name" xml:space="preserve">
     <value>Name</value>
@@ -806,5 +806,8 @@
   </data>
   <data name="CloseMainWindowDialog" xml:space="preserve">
     <value>Close main window dialog</value>
+  </data>
+  <data name="ConfettiCannon" xml:space="preserve">
+    <value>ConfettiCannon</value>
   </data>
 </root>

@@ -672,7 +672,7 @@
   <data name="HatchBrushGenerator" xml:space="preserve">
     <value>阴影画笔生成器</value>
   </data>
-  <data name="Morphing Animation" xml:space="preserve">
+  <data name="MorphingAnimation" xml:space="preserve">
     <value>变形动画</value>
   </data>
   <data name="Divider" xml:space="preserve">
@@ -806,5 +806,8 @@
   </data>
   <data name="CloseMainWindowDialog" xml:space="preserve">
     <value>关闭主窗口对话框</value>
+  </data>
+  <data name="ConfettiCannon" xml:space="preserve">
+    <value>礼炮</value>
   </data>
 </root>
