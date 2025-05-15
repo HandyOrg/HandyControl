@@ -2,7 +2,7 @@
   {
     "title": "Styles",
     "selectedIndex": -1,
-    "group":  false, 
+    "group":  false,
     "demoItemList": [
       [ "Brush", "BrushDemo", "Brush.Brush", "", "" ],
       [ "Button", "ButtonDemo", "Brush.ButtonClick", "", "" ],
@@ -43,6 +43,7 @@
     "group": true,
     "demoItemList": [
       [ "FloatingBlock", "FloatingBlockDemo", "Brush.LikeFilled", "", "Interacting" ],
+      [ "ConfettiCannon", "ConfettiCannonDemo", "Brush.Favorite", "1", "Interacting" ],
       [ "PropertyGrid", "PropertyGridDemo", "Brush.PropertyGridEditorPart", "", "DataEntry" ],
       [ "ImageSelector", "ImageSelectorDemo", "Brush.Image", "", "DataEntry" ],
       [ "ImageBlock", "ImageBlockDemo", "Brush.ImageStack", "", "DataDisplay" ],
@@ -79,7 +80,7 @@
       [ "Divider", "DividerDemo", "Brush.DottedSplitter", "", "Layout" ],
       [ "CirclePanel", "CirclePanelDemo", "Brush.ColorWheel", "", "Layout" ],
       [ "Grid", "GridDemo", "Brush.GridPane", "", "Layout" ],
-      [ "FlexPanel", "FlexPanelDemo", "Brush.FlowLayoutPanel", "1", "Layout" ],
+      [ "FlexPanel", "FlexPanelDemo", "Brush.FlowLayoutPanel", "", "Layout" ],
       [ "UniformSpacingPanel", "UniformSpacingPanelDemo", "Brush.IncreaseHorizontalSpacing", "1", "Layout" ],
       [ "RelativePanel", "RelativePanelDemo", "Brush.TransformRelative", "", "Layout" ],
       [ "WaterfallPanel", "WaterfallPanelDemo", "Brush.Panel", "", "Layout" ],
@@ -121,8 +122,8 @@
     "group": false,
     "demoItemList": [
       [ "HatchBrushGenerator", "HatchBrushGeneratorDemo", "Brush.DataGenerator", "", "" ],
-      [ "Morphing_Animation", "GeometryAnimationDemo", "Brush.Animation", "", "" ],
-      [ "Effects", "EffectsDemo", "Brush.Effects", "", "" ]
+      [ "MorphingAnimation", "GeometryAnimationDemo", "Brush.Animation", "", "" ],
+      [ "Effects", "EffectsDemo", "Brush.Effects", "", "" ],
     ]
   }
 ]

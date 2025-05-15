@@ -205,13 +205,17 @@ Step 4: 开始编码
 
 ## 最新示例
 
+### ConfettiCannon
+
+![ConfettiCannon](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/ConfettiCannon.gif)
+
 ### Watermark
 
-![Watermark](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Watermark.png)
+![Watermark](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/Watermark.png)
 
 ### AutoCompleteTextBox
 
-![AutoCompleteTextBox](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/AutoCompleteTextBox.gif)
+![AutoCompleteTextBox](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/AutoCompleteTextBox.gif)
 
 ### ElementGroup
 
@@ -221,11 +225,11 @@ Step 4: 开始编码
 
 ![UniformSpacingPanel](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/UniformSpacingPanel.png)
 
+## 历史发布
+
 ### FlexPanel
 
 ![FlexPanel](https://gitee.com/handyorg/HandyOrgResource/raw/master/HandyControl/Resources/FlexPanel.gif)
-
-## 历史发布
 
 ### CheckComboBox
 

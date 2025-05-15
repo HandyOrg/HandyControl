@@ -101,6 +101,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CompareSliderDemo.xaml">
       <Link>UserControl\Controls\CompareSliderDemo.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ConfettiCannonDemo.xaml">
+      <Link>UserControl\Controls\ConfettiCannonDemo.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverFlowDemo.xaml">
       <Link>UserControl\Controls\CoverFlowDemo.xaml</Link>
     </Resource>
@@ -494,6 +497,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CompareSliderDemo.xaml.cs">
       <Link>UserControl\Controls\CompareSliderDemo.xaml.cs</Link>
       <DependentUpon>CompareSliderDemo.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ConfettiCannonDemo.xaml.cs">
+      <Link>UserControl\Controls\ConfettiCannonDemo.xaml.cs</Link>
+      <DependentUpon>ConfettiCannonDemo.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CoverFlowDemo.xaml.cs">
       <Link>UserControl\Controls\CoverFlowDemo.xaml.cs</Link>
