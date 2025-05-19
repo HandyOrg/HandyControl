@@ -11,7 +11,7 @@ using HandyControl.Tools;
 
 namespace HandyControl.Controls;
 
-public class ConfettiCannon : DependencyObject
+public class ConfettiCannon
 {
     public static readonly DependencyProperty TokenProperty = DependencyProperty.RegisterAttached(
         "Token", typeof(string), typeof(ConfettiCannon), new PropertyMetadata(null, OnTokenChanged));
@@ -29,11 +29,6 @@ public class ConfettiCannon : DependencyObject
 
     private readonly DrawingVisual _offscreenVisual = new();
     private readonly ConcurrentQueue<Confetti> _confettis = [];
-
-    private readonly EllipseGeometry _sharedCircleGeometry = new()
-    {
-        Transform = new RotateTransform()
-    };
 
     private Rect _renderRect;
     private AdornerLayer _currentAdornerLayer;
