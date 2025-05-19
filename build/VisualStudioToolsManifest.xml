@@ -19,6 +19,7 @@
       <Item Type="HandyControl.Controls.ColorPicker" />
       <Item Type="HandyControl.Controls.ComboBox" />
       <Item Type="HandyControl.Controls.CompareSlider" />
+      <Item Type="HandyControl.Controls.ConfettiCannon" />
       <Item Type="HandyControl.Controls.ContextMenuButton" />
       <Item Type="HandyControl.Controls.ContextMenuToggleButton" />
       <Item Type="HandyControl.Controls.CoverFlow" />
