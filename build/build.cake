@@ -340,7 +340,8 @@ Task("push to nuget")
     NuGetPush(packages, new NuGetPushSettings
     {
         ApiKey = nugetToken,
-        Source = NugetSourceUrl
+        Source = NugetSourceUrl,
+        SkipDuplicate = true
     });
 });
 
