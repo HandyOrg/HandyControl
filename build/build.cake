@@ -124,6 +124,21 @@ Task("commit files")
     .Does(() =>
 {
     GitAddAll(gitRootPath);
+
+    var exitCode = StartProcess(
+        "git",
+        new ProcessSettings {
+            Arguments = "diff --cached --quiet",
+            WorkingDirectory = gitRootPath
+        }
+    );
+    
+    if(exitCode == 0)
+    {
+        Information("no change.");
+        return;
+    }
+
     GitCommit(gitRootPath, username, email, $"chore: [AUTO] bump up version to {nugetVersion}.");
 });
 
