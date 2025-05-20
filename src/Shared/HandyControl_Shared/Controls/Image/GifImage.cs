@@ -269,7 +269,7 @@ public class GifImage : Image, IDisposable
                 }
 
                 image._rawData = new byte[(int) dataStream.Length];
-                dataStream.Read(image._rawData, 0, (int) dataStream.Length);
+                dataStream.ReadExactly(image._rawData, 0, (int) dataStream.Length);
             }
             finally
             {

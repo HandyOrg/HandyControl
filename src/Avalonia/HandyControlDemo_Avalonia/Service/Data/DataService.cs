@@ -22,7 +22,10 @@ public class DataService
             {
                 dataList.Add(new DemoDataModel
                 {
-                    Index = j, IsSelected = j % 2 == 0, Name = $"SubName{j}", Type = (DemoType)j
+                    Index = j,
+                    IsSelected = j % 2 == 0,
+                    Name = $"SubName{j}",
+                    Type = (DemoType)j
                 });
             }
 
