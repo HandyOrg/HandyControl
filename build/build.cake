@@ -336,7 +336,7 @@ Task("push to nuget")
         throw new Exception("NuGet token is required!");
     }
 
-    var packages = GetFiles("./build/outputs/nuget/HandyControl.*nupkg");
+    var packages = GetFiles("../build/outputs/nuget/HandyControl.*nupkg");
     NuGetPush(packages, new NuGetPushSettings
     {
         ApiKey = nugetToken,
