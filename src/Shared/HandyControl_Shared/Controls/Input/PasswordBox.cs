@@ -274,9 +274,7 @@ public class PasswordBox : Control
         _textBox.Clear();
     }
 
-#pragma warning disable CS0108 // 成员隐藏继承的成员；缺少关键字 new
-    public void Focus()
-#pragma warning restore CS0108 // 成员隐藏继承的成员；缺少关键字 new
+    public new void Focus()
     {
         ActualPasswordBox.Focus();
         _textBox.Focus();
