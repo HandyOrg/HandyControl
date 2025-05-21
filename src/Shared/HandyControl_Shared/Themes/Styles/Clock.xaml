@@ -170,5 +170,41 @@
     </Style>
 
     <Style TargetType="hc:ListClock" BasedOn="{StaticResource ListClockBaseStyle}"/>
-    
+
+    <Style x:Key="ListClockForCalendarWithClockStyle" BasedOn="{StaticResource ListClockBaseStyle}" TargetType="hc:ListClock">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="hc:ListClock">
+                    <hc:SimplePanel Margin="0,4,0,8" HorizontalAlignment="Center" VerticalAlignment="Top">
+                        <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" CornerRadius="{Binding Path=(hc:BorderElement.CornerRadius), RelativeSource={RelativeSource TemplatedParent}}" Effect="{StaticResource EffectShadow2}" />
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition />
+                            </Grid.RowDefinitions>
+                            <Border Height="50">
+                                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20" Foreground="White" Text="{Binding DisplayTime, RelativeSource={RelativeSource TemplatedParent}, StringFormat={}{0:HH:mm:ss}}" TextAlignment="Center" />
+                            </Border>
+                            <Grid Grid.Row="1" Width="210" Margin="0,20">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <ListBox x:Name="PART_HourList" Padding="0" hc:BorderElement.CornerRadius="0" Style="{StaticResource ClockListBoxStyle}" />
+                                <ListBox x:Name="PART_MinuteList" Grid.Row="0" Grid.Column="1" Padding="0" hc:BorderElement.CornerRadius="0" BorderThickness="1,0" Style="{StaticResource ClockListBoxStyle}" />
+                                <ListBox x:Name="PART_SecondList" Grid.Row="0" Grid.Column="2" Padding="0" hc:BorderElement.CornerRadius="0" Style="{StaticResource ClockListBoxStyle}" />
+                                <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Height="1" VerticalAlignment="Bottom" Background="{DynamicResource BorderBrush}" Visibility="{Binding Visibility, ElementName=PART_ButtonConfirm}" />
+                                <Button Name="PART_ButtonConfirm" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" Margin="0,10" HorizontalAlignment="Center" Background="Transparent" Content="{ex:Lang Key={x:Static langs:LangKeys.Confirm}}" Foreground="{DynamicResource PrimaryBrush}" Style="{StaticResource ButtonCustom}" Visibility="Collapsed" />
+                            </Grid>
+                        </Grid>
+                    </hc:SimplePanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>
